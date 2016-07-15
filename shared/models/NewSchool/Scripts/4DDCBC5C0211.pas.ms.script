@@ -1,0 +1,159 @@
+// ViewChangedFragments$FSF 4DDCBC5C0211 VCMFormSetFactory Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4DDCBC5C0211
+
+FORWARD ME_4DDCD6BB0231
+
+: ME_BB4E7F470CF2
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4DDCD6BB0231 // Parent
+ ;
+ : Target WL 'ME_18DFDA8DC53A' '4DDCD6800267.pas.ms.script' // ChangesBetweenEditons$Def
+ ;
+
+ref; // ME_BB4E7F470CF2 
+
+: ME_4DDCE9110130_ME_4DDCD6BB0231
+ : Original WL 'ME_4DDCE9110130' '4DDCD71E027C.pas.ms.script' // RightEdition
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_4DDCE9110130_ME_4DDCD6BB0231 RightEdition
+
+: ME_4DDD0C170344_ME_4DDCD6BB0231
+ : Original WL 'ME_4DDD0C170344' '4DDCD71E027C.pas.ms.script' // DocumentContainer
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_4DDD0C170344_ME_4DDCD6BB0231 DocumentContainer
+
+: ME_4DF9D63B0360_ME_4DDCD6BB0231
+ : Original WL 'ME_4DF9D63B0360' '4B1FC2FF03CD.pas.ms.script' // DocInfo
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ CONST "reflectable" true
+ref; // ME_4DF9D63B0360_ME_4DDCD6BB0231 DocInfo
+
+: ME_4F2BF187026F_ME_4DDCD6BB0231
+ : Original WL 'ME_4F2BF187026F' '4DDCD71E027C.pas.ms.script' // LeftEdition
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_4F2BF187026F_ME_4DDCD6BB0231 LeftEdition
+
+: ME_4DDCD6BB0231
+ CONST UID '4DDCD6BB0231'
+ CONST Name 'Parent'
+ CONST Class class_Class
+ : Stereotype st_VCMZone ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4DDCBC5C0211 // ViewChangedFragments$FSF
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4DDCD6800267' '4DDCD6800267.pas.ms.script' // ChangesBetweenEditons
+ WL 'ME_4DDCDE8F01B8' '4DDCD636016C.pas.ms.script' // DocumentChanges
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4DDCD7520351' '4DDCD71E027C.pas.ms.script' // Changes
+ )
+ ; // Implements
+ : Implemented
+   Seq: ( ME_4DDCE9110130_ME_4DDCD6BB0231 // RightEdition
+ ME_4DDD0C170344_ME_4DDCD6BB0231 // DocumentContainer
+ ME_4DF9D63B0360_ME_4DDCD6BB0231 // DocInfo
+ ME_4F2BF187026F_ME_4DDCD6BB0231 // LeftEdition
+ )
+ ; // Implemented
+ : Dependencies
+   Seq: ( ME_BB4E7F470CF2 // ChangesBetweenEditons$Def
+ )
+ ; // Dependencies
+ CONST "ActivateIfUpdate" 'None'
+ CONST "Need GetFormCount" false
+ CONST "Need OnFormWeight" 'undefined'
+ CONST "ZoneType" 'Parent'
+
+ref; // ME_4DDCD6BB0231 Parent
+
+: ME_9C7EE9D70E75
+ CONST UID '9C7EE9D70E75'
+ CONST Name 'Parent_Parent_DocumentChanges_NeedMakeForm'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Обработчик OnNeedMakeForm для Parent' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4DDCBC5C0211 // ViewChangedFragments$FSF
+ ;
+ : Inherits
+   Seq: ( WL 'ME_50096E800075' '47B9727603BE.pas.ms.script' // TvcmNeedMakeFormEvent
+ )
+ ; // Inherits
+ : Speller HWL ME_4DDCD6BB0231 // Parent
+ ;
+
+ref; // ME_9C7EE9D70E75 Parent_Parent_DocumentChanges_NeedMakeForm
+
+: ME_47A042E100E2_ME_4DDCBC5C0211
+ : Original WL 'ME_47A042E100E2' '47913B47006E.pas.ms.script' // InitFields
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_47A042E100E2_ME_4DDCBC5C0211 InitFields
+
+: ME_4FFE854A009B_ME_4DDCBC5C0211
+ : Original WL 'ME_4FFE854A009B' '47B9727603BE.pas.ms.script' // GetInstance
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "is static" true
+ref; // ME_4FFE854A009B_ME_4DDCBC5C0211 GetInstance
+
+: ME_4DDCBC5C0211
+ CONST UID '4DDCBC5C0211'
+ CONST Name 'ViewChangedFragments'
+ CONST Class class_Class
+ : Stereotype st_VCMFormSetFactory ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent WL 'ME_4DDBAF2B0028' '4DDBAF2B0028.pas.ms.script' // ChangesBetweenEditions
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47B97312006D' '47B9727603BE.pas.ms.script' // TvcmFormSetFactory
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( HWL ME_9C7EE9D70E75 // Parent_Parent_DocumentChanges_NeedMakeForm
+ )
+ ; // Operations
+ : Overridden
+   Seq: ( ME_47A042E100E2_ME_4DDCBC5C0211 // InitFields
+ ME_4FFE854A009B_ME_4DDCBC5C0211 // GetInstance
+ )
+ ; // Overridden
+ : Children
+   Seq: ( HWL ME_4DDCD6BB0231 // Parent
+ )
+ ; // Children
+ CONST "DefaultStatusForm" '-1'
+ CONST "Need GetMainCaption" false
+ CONST "Need GetMainImageIndex" false
+ CONST "finished dfm" true
+ CONST "singleton" true
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\ChangesBetweenEditons\fsViewChangedFragments.pas'
+ CONST extprop:pas:TypeName 'Tfs_ViewChangedFragments'
+ CONST extprop:rc:SelfName 'fs_ViewChangedFragments'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'fsViewChangedFragments'
+ CONST extprop:pas:InitFields ' inherited;'#13#10' with AddZone(''Parent'', vcm_ztParent, fm_ChangesBetweenEditonsForm) do'#13#10' begin'#13#10'  UserType := DocumentChanges;'#13#10'  OnNeedMakeForm := ParentParentDocumentChangesNeedMakeForm;'#13#10' end;'#13#10' OwnerForm := 0;'
+
+ref; // ME_4DDCBC5C0211 ViewChangedFragments$FSF

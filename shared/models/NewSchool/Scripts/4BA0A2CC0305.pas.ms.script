@@ -1,0 +1,201 @@
+// UnderControlResetter 4BA0A2CC0305 VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4BA0A2CC0305
+
+: ME_4BA0A2EF0167
+ CONST UID '4BA0A2EF0167'
+ CONST Name 'ucpUnderControl'
+ CONST Class class_Attribute
+ : Stereotype st_ViewArea::Attribute ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent HWL ME_4BA0A2CC0305 // UnderControlResetter
+ ;
+ : Target WL 'ME_4B9A2AB603D4' '4B9A1E7F0036.pas.ms.script' // IucpUnderControl
+ ;
+
+ref; // ME_4BA0A2EF0167 ucpUnderControl
+
+: ME_4BA0A3C901DE
+ CONST Name 'aInspect'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4BA0A48E0248' '4B9A1E7F0036.pas.ms.script' // TnsDropControlStatusSet
+ ;
+
+ref; // ME_4BA0A3C901DE aInspect
+
+: ME_4BA0A3BC028F
+ CONST UID '4BA0A3BC028F'
+ CONST Name 'CheckControllableState'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4BA0A2CC0305 // UnderControlResetter
+ ;
+ : Parameters
+   Seq: ( ME_4BA0A3C901DE // aInspect
+ )
+ ; // Parameters
+
+ref; // ME_4BA0A3BC028F CheckControllableState
+
+: ME_4BA0ACB501DA
+ CONST UID '4BA0ACB501DA'
+ CONST Name 'CanUnControl'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_4BA0A2CC0305 // UnderControlResetter
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4BA0ACB501DA CanUnControl
+
+: ME_4BA0B0F4001D
+ CONST UID '4BA0B0F4001D'
+ CONST Name 'UpdateUnderControlList'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4BA0A2CC0305 // UnderControlResetter
+ ;
+
+ref; // ME_4BA0B0F4001D UpdateUnderControlList
+
+: ME_4BA0ACDD03AC
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4BA0A2CC0305 // UnderControlResetter
+ ;
+ : Target WL 'ME_47752AF90375' '47750CE700D0.pas.ms.script' // afwFacade
+ ;
+
+ref; // ME_4BA0ACDD03AC 
+
+: ME_4BA0AD13029B
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4BA0A2CC0305 // UnderControlResetter
+ ;
+ : Target WL 'ME_47FB51FA0178' '48F747EC0073.pas.ms.script' // Settings
+ ;
+
+ref; // ME_4BA0AD13029B 
+
+: ME_4BA0AD3A0088
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4BA0A2CC0305 // UnderControlResetter
+ ;
+ : Target WL 'ME_47F260EC02C7' '521C9DA50125.pas.ms.script' // StdRes
+ ;
+
+ref; // ME_4BA0AD3A0088 
+
+: ME_4BA0ADF002EE
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4BA0A2CC0305 // UnderControlResetter
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_4BA0ADF002EE 
+
+: ME_4BA0C7CD0364
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4BA0A2CC0305 // UnderControlResetter
+ ;
+ : Target WL 'ME_47878E0E0191' '54B90AC6014B.pas.ms.script' // l3String
+ ;
+
+ref; // ME_4BA0C7CD0364 
+
+: ME_4BA0D35100C0
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4BA0A2CC0305 // UnderControlResetter
+ ;
+ : Target WL 'ME_4AF836680019' '4A9807DB01A5.pas.ms.script' // ControlCenter
+ ;
+
+ref; // ME_4BA0D35100C0 
+
+: ME_4BD86C3100FC
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4BA0A2CC0305 // UnderControlResetter
+ ;
+ : Target WL 'ME_4BD86C04039D' '4BD856E802F9.pas.ms.script' // UnderControl
+ ;
+
+ref; // ME_4BD86C3100FC 
+
+: ME_479731C50290_ME_4BA0A2CC0305
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_479731C50290_ME_4BA0A2CC0305 Cleanup
+
+: ME_497469C90140_ME_4BA0A2CC0305
+ : Original WL 'ME_497469C90140' '5000041101C8.pas.ms.script' // NotifyDataSourceChanged
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_497469C90140_ME_4BA0A2CC0305 NotifyDataSourceChanged
+
+: ME_4BA0A2CC0305
+ CONST UID '4BA0A2CC0305'
+ CONST Name 'UnderControlResetter'
+ CONST Class class_Class
+ : Stereotype st_VCMForm ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent WL 'ME_4B9A345700FA' '4B9A345700FA.pas.ms.script' // UnderControl
+ ;
+ : Implements
+   Seq: ( WL 'ME_4A82BCFA02EF' '4AADF9450143.pas.ms.script' // MvcmEntityForm
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( HWL ME_4BA0A2EF0167 // ucpUnderControl
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( HWL ME_4BA0A3BC028F // CheckControllableState
+ HWL ME_4BA0ACB501DA // CanUnControl
+ HWL ME_4BA0B0F4001D // UpdateUnderControlList
+ )
+ ; // Operations
+ : Overridden
+   Seq: ( ME_479731C50290_ME_4BA0A2CC0305 // Cleanup
+ ME_497469C90140_ME_4BA0A2CC0305 // NotifyDataSourceChanged
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_4BA0ACDD03AC // afwFacade
+ ME_4BA0AD13029B // Settings
+ ME_4BA0AD3A0088 // StdRes
+ ME_4BA0ADF002EE // Il3CString
+ ME_4BA0C7CD0364 // l3String
+ ME_4BA0D35100C0 // ControlCenter
+ ME_4BD86C3100FC // UnderControl
+ )
+ ; // Dependencies
+ CONST "NeedsHackRef" true
+ CONST "ZoneType" 'Any'
+ CONST "finished dfm" true
+ CONST "resizeable" false
+ CONST "restrict form def" 'undefined'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\UnderControlResetter.imp.pas'
+ CONST extprop:pas:TypeName '_UnderControlResetter_'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'UnderControlResetter.imp'
+
+ref; // ME_4BA0A2CC0305 UnderControlResetter

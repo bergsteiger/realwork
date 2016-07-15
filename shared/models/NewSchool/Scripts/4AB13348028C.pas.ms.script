@@ -1,0 +1,87 @@
+// DocNumberQuery 4AB13348028C VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AB13348028C
+
+: ME_AB56D1A71FAC
+ CONST UID 'AB56D1A71FAC'
+ CONST Name 'ut_DocNumberQuery'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_UserType ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Открыть документ по номеру' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AB13348028C // DocNumberQuery
+ ;
+ CONST "ImageIndex" '-1'
+ CONST "VisibleToUser" false
+ CONST "Weight" '-1'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\DocNumberQuery_ut_DocNumberQuery_UserType.pas'
+ CONST extprop:pas:UnitName 'DocNumberQuery_ut_DocNumberQuery_UserType'
+
+ref; // ME_AB56D1A71FAC ut_DocNumberQuery
+
+: ME_378934C66F22
+ CONST UID '378934C66F22'
+ CONST GUID 'A522FA71-1132-495B-A68D-0533C12052F1'
+ CONST Name 'DocNumberQuery'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_VCMFormDefinition ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Идентификатор формы DocNumberQuery' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4AB13348028C // DocNumberQuery
+ ;
+ : Implementors
+   Seq: ( HWL ME_4AB13348028C // DocNumberQuery
+ )
+ ; // Implementors
+ CONST extprop:pas:TypeName 'DocNumberQueryFormDef'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_378934C66F22 DocNumberQuery$Def
+
+: ME_4AB13348028C
+ CONST UID '4AB13348028C'
+ CONST Name 'DocNumberQuery'
+ CONST Class class_Class
+ : Stereotype st_VCMFinalForm ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Открыть документ по номеру' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent WL 'ME_498B135601B6' '498B135601B6.pas.ms.script' // Document
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4C863B1E0196' '4C863B1E0196.pas.ms.script' // PrimDocNumberQueryOptions
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( HWL ME_378934C66F22 // DocNumberQuery$Def
+ )
+ ; // Implements
+ : Children
+   Seq: ( HWL ME_AB56D1A71FAC // ut_DocNumberQuery
+ HWL ME_378934C66F22 // DocNumberQuery$Def
+ )
+ ; // Children
+ CONST "NeedsHackRef" true
+ CONST "ZoneType" 'Modal'
+ CONST "author" 'Люлин А.В.'
+ CONST "finished dfm" true
+ CONST "resizeable" false
+ CONST "restrict form def" 'undefined'
+ CONST "started" '16.09.2009 22:49'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\DocNumberQuery_Form.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms'
+ CONST extprop:pas:TypeName 'TDocNumberQueryForm'
+ CONST extprop:rc:SelfName 'DocNumberQueryForm'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'DocNumberQuery_Form'
+
+ref; // ME_4AB13348028C DocNumberQuery

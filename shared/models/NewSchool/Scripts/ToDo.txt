@@ -59,18 +59,6 @@ STRING elem_func IfDefStr
 52. .Predicate ! заменить на .Not: .Predicate - .IsMixIn ! => .Not: .IsMixIn. Учесть необходимость скобок.
 53. Self .Abstraction at_abstract != заменить на Self .Abstraction .NEQ at_abstract - MACRO, а не <>
 54. Self .Abstraction at_abstract == заменить на Self .Abstraction .EQ at_abstract - MACRO, а не =
-55. Конструкцию:
-    .filter> ( 
-      IN anItem
-     if ( anItem .NotInArray: l_OutedIterators ) then
-     begin
-      anItem .AddToArray: l_OutedIterators
-      true
-     end
-     else
-      false 
-    )
-- заменить на .?AddToArray - аналог array:?AddTo, но возвращающую булевское значение, что элемента в массиве не было.    
 57. nsQuestions AddDefaultChoice.
 61. Генерировать коды операций как синглетоны.
 62. Заменить "фабрики модулей" на сервисы.
@@ -216,50 +204,6 @@ M:\NewSchool\Scripts\MDProcess_ForDelphi.tpi.script
    '; // RunSearch'
   ]);
 
-  CompileScriptToAxiomaticsIfDefined(theNewContext.rPrev^,
-  ['моп::Мониторинги_Обзор_изменений_законодательства', 'моп::Инфарм_Основное_меню_ИнФарм', 'Ok',
-   'history:DeleteBackItem', 'history:DeleteForwardItem',
-   'class::TevQueryCardEditor', 'focused:control:push',
-   'wait:Choice', 'waited:?',
-   'оп::История_Назад'],
-  [
-   'PROCEDURE RunLegislationReviewSearch OBJECT IN aProc',
-   ' // - запускает поиск по КЗ ОИЗ',
-   ' vcm:Dispatcher:Lock',
-   ' TRY',
-   '  моп::Мониторинги_Обзор_изменений_законодательства',
-   '  OBJECT VAR l_QC',
-   '  BOOLEAN VAR l_NotFound',
-   '  l_NotFound := false',
-   '  focused:control:push >>> l_QC',
-   '  l_QC IS class::TevQueryCardEditor ?ASSURE ''Фокус не в КЗ''',
-   '  aProc DO',
-   '  2 wait:Choice',
-   '  TRY',
-   '   Ok',
-   '   OnTest',
-   '  FINALLY',
-   '   TRY',
-   '    waited:? ?ASSURE ''Не дождались выбора''',
-   '    true >>> l_NotFound',
-   '   EXCEPT',
-   '    DROP',
-   '    false >>> l_NotFound',
-   '   END',
-   '   if l_NotFound then (',
-   '    оп::История_Назад',
-   '    OnTest',
-   '    history:DeleteForwardItem',
-   '   )',
-   '   else',
-   '    history:DeleteBackItem',
-   '  END',         
-   ' FINALLY',
-   '  vcm:Dispatcher:Unlock',
-   ' END',
-   '; // RunLegislationReviewSearch'
-  ]);
-  
 148. extprop:prop_stereo и extprop:prop_name переделать на ссылку на свойство.
 150. restrict form def:tribool=undefined
 151. restrict form def - понять нельзя ли вообще это убрать. Скорее всего это с фабриками связано.
@@ -271,4 +215,4 @@ M:\NewSchool\Scripts\MDProcess_ForDelphi.tpi.script
 178. .filter> ( .IsLocalMethod ! ) и вообще .filter> ( .IsXXX ! ) заменить на .filter> .Not: .IsLocalMethod
 179. .NotInArray: etc сделать так, чтобы не нужны были скобки.
 190. fsList - поправить, чтобы различий при генерации не было.
-191. 
+192. 

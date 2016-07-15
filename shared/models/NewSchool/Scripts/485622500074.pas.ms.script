@@ -13,7 +13,7 @@ FORWARD ME_485622500074
  %SUMMARY 'Информация о событиях, записываемых в лог при работе пользователя' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_485622500074 // Специальные возможности
+ : Parent HWL ME_485622500074 // Специальные возможности
  ;
 
 ref; // ME_485622AE0125 Пользовательские логи
@@ -27,7 +27,7 @@ ref; // ME_485622AE0125 Пользовательские логи
  %SUMMARY 'Библиотека интеграции для вызова F1 из внешних приложений.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_485622500074 // Специальные возможности
+ : Parent HWL ME_485622500074 // Специальные возможности
  ;
 
 ref; // ME_485623000261 Интеграция
@@ -43,7 +43,7 @@ FORWARD ME_485656110116
  %SUMMARY 'Логирование работы системы' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_485622500074 // Специальные возможности
+ : Parent HWL ME_485622500074 // Специальные возможности
  ;
 
 ref; // ME_485656110116 Логи
@@ -57,7 +57,7 @@ ref; // ME_485656110116 Логи
  %SUMMARY 'Механизм переноса и (или) резервного копирования настроек' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_485622500074 // Специальные возможности
+ : Parent HWL ME_485622500074 // Специальные возможности
  ;
 
 ref; // ME_48575FDF014F Заливка-выливка настроек
@@ -71,7 +71,7 @@ ref; // ME_48575FDF014F Заливка-выливка настроек
  %SUMMARY 'Описание опций, использующихся сервером параметры которых могут быть изменены' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_485622500074 // Специальные возможности
+ : Parent HWL ME_485622500074 // Специальные возможности
  ;
 
 ref; // ME_4892F5D201C3 INI-файл
@@ -85,7 +85,7 @@ ref; // ME_4892F5D201C3 INI-файл
  %SUMMARY 'Возможность вызова приложения F1 из продуктов MS (Windows, Word, Outlook и т.п.)' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_485622500074 // Специальные возможности
+ : Parent HWL ME_485622500074 // Специальные возможности
  ;
 
 ref; // ME_4CE38DF50341 Интеграция из продуктов MS
@@ -101,12 +101,12 @@ ref; // ME_4CE38DF50341 Интеграция из продуктов MS
  : Parent WL 'ME_48561E5A01F7' '48561E5A01F7.pas.ms.script' // Специальные версии и возможности
  ;
  : Children
-   Seq: ( ME_485622AE0125 // Пользовательские логи
- ME_485623000261 // Интеграция
- ME_485656110116 // Логи
- ME_48575FDF014F // Заливка-выливка настроек
- ME_4892F5D201C3 // INI-файл
- ME_4CE38DF50341 // Интеграция из продуктов MS
+   Seq: ( HWL ME_485622AE0125 // Пользовательские логи
+ HWL ME_485623000261 // Интеграция
+ HWL ME_485656110116 // Логи
+ HWL ME_48575FDF014F // Заливка-выливка настроек
+ HWL ME_4892F5D201C3 // INI-файл
+ HWL ME_4CE38DF50341 // Интеграция из продуктов MS
  )
  ; // Children
 

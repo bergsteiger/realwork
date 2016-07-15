@@ -12,7 +12,7 @@ FORWARD ME_55DDB8900080
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_55DDB8900080 // VersionInfo
+ : Parent HWL ME_55DDB8900080 // VersionInfo
  ;
  CONST "finished" false
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_vtVerInf.pas'
@@ -31,7 +31,7 @@ FORWARD ME_9F707534EAE2
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_9F707534EAE2 // Ml3VersionInfoService
+ : Parent HWL ME_9F707534EAE2 // Ml3VersionInfoService
  ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
@@ -48,48 +48,14 @@ ref; // ME_30F5EA5AF6DF VersionInfo
  %SUMMARY 'Контракт сервиса Tl3VersionInfoService' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_55DDCF7C004A // Tl3VersionInfoService
+ : Parent HWL ME_55DDCF7C004A // Tl3VersionInfoService
  ;
  : Operations
-   Seq: ( ME_30F5EA5AF6DF // VersionInfo
+   Seq: ( HWL ME_30F5EA5AF6DF // VersionInfo
  )
  ; // Operations
 
 ref; // ME_9F707534EAE2 Ml3VersionInfoService
-
-FORWARD ME_BDE9EFF83116
-
-: ME_30F5EA5AF6DF_ME_BDE9EFF83116
- : Original ME_30F5EA5AF6DF // VersionInfo
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_30F5EA5AF6DF_ME_BDE9EFF83116 VersionInfo
-
-: ME_BDE9EFF83116
- CONST UID 'BDE9EFF83116'
- CONST GUID 'FC342D5B-DACB-416A-AC66-742EECFB5B6A'
- CONST Name 'Il3VersionInfoService'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Facet ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Интерфейс сервиса Tl3VersionInfoService' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_55DDCF7C004A // Tl3VersionInfoService
- ;
- : Implements
-   Seq: ( ME_9F707534EAE2 // Ml3VersionInfoService
- )
- ; // Implements
- : Implemented
-   Seq: ( ME_30F5EA5AF6DF_ME_BDE9EFF83116 // VersionInfo
- )
- ; // Implemented
- CONST extprop:rc:SelfName 'VersionInfoService'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_BDE9EFF83116 Il3VersionInfoService
 
 : ME_55DDCFBE0096
  CONST UID '55DDCFBE0096'
@@ -98,7 +64,7 @@ ref; // ME_BDE9EFF83116 Il3VersionInfoService
  : Stereotype st_responsibility::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_55DDCF7C004A // Tl3VersionInfoService
+ : Parent HWL ME_55DDCF7C004A // Tl3VersionInfoService
  ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
@@ -108,9 +74,9 @@ ref; // ME_55DDCFBE0096 VersionInfo
 : ME_55DDCFB403BB
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_55DDCF7C004A // Tl3VersionInfoService
+ : Parent HWL ME_55DDCF7C004A // Tl3VersionInfoService
  ;
- : Target ME_4F8BF8D40367 // vtVerInf
+ : Target HWL ME_4F8BF8D40367 // vtVerInf
  ;
 
 ref; // ME_55DDCFB403BB 
@@ -118,18 +84,12 @@ ref; // ME_55DDCFB403BB
 : ME_55DDD84A00AB
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_55DDCF7C004A // Tl3VersionInfoService
+ : Parent HWL ME_55DDCF7C004A // Tl3VersionInfoService
  ;
  : Target WL 'ME_4DE89E560091' '4AB0C3C60310.pas.ms.script' // Format
  ;
 
 ref; // ME_55DDD84A00AB 
-
-: ME_30F5EA5AF6DF_ME_55DDCF7C004A
- : Original ME_30F5EA5AF6DF // VersionInfo
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_30F5EA5AF6DF_ME_55DDCF7C004A VersionInfo
 
 : ME_55DDCF7C004A
  CONST UID '55DDCF7C004A'
@@ -139,27 +99,18 @@ ref; // ME_30F5EA5AF6DF_ME_55DDCF7C004A VersionInfo
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_55DDB8900080 // VersionInfo
+ : Parent HWL ME_55DDB8900080 // VersionInfo
  ;
  : Inherits
    Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
  )
  ; // Inherits
- : Implements
-   Seq: ( ME_9F707534EAE2 // Ml3VersionInfoService
- )
- ; // Implements
  : Operations
-   Seq: ( ME_55DDCFBE0096 // VersionInfo
+   Seq: ( HWL ME_55DDCFBE0096 // VersionInfo
  )
  ; // Operations
- : Implemented
-   Seq: ( ME_30F5EA5AF6DF_ME_55DDCF7C004A // VersionInfo
- )
- ; // Implemented
  : Children
-   Seq: ( ME_9F707534EAE2 // Ml3VersionInfoService
- ME_BDE9EFF83116 // Il3VersionInfoService
+   Seq: ( HWL ME_9F707534EAE2 // Ml3VersionInfoService
  )
  ; // Children
  : Dependencies
@@ -167,15 +118,10 @@ ref; // ME_30F5EA5AF6DF_ME_55DDCF7C004A VersionInfo
  ME_55DDD84A00AB // Format
  )
  ; // Dependencies
- CONST "singleton" true
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3VersionInfoService.pas'
  CONST extprop:rc:SelfName 'VersionInfoService'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'l3VersionInfoService'
- : Facet ME_BDE9EFF83116 // Il3VersionInfoService
- ;
- : Mixin ME_9F707534EAE2 // Ml3VersionInfoService
- ;
 
 ref; // ME_55DDCF7C004A Tl3VersionInfoService
 
@@ -184,18 +130,12 @@ FORWARD ME_55DDD0110086
 : ME_55DDD05B0205
  CONST Class class_Dependency
  : Stereotype st_implements::Dependency ;
- : Parent ME_55DDD0110086 // Tf1VersionInfoService
+ : Parent HWL ME_55DDD0110086 // Tf1VersionInfoService
  ;
- : Target ME_55DDCF7C004A // Tl3VersionInfoService
+ : Target HWL ME_55DDCF7C004A // Tl3VersionInfoService
  ;
 
 ref; // ME_55DDD05B0205 
-
-: ME_30F5EA5AF6DF_ME_55DDD0110086
- : Original ME_30F5EA5AF6DF // VersionInfo
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_30F5EA5AF6DF_ME_55DDD0110086 VersionInfo
 
 : ME_55DDD0110086
  CONST UID '55DDD0110086'
@@ -205,27 +145,18 @@ ref; // ME_30F5EA5AF6DF_ME_55DDD0110086 VersionInfo
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_55DDB8900080 // VersionInfo
+ : Parent HWL ME_55DDB8900080 // VersionInfo
  ;
  : Inherits
    Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
  )
  ; // Inherits
- : Implements
-   Seq: ( ME_BDE9EFF83116 // Il3VersionInfoService
- )
- ; // Implements
- : Implemented
-   Seq: ( ME_30F5EA5AF6DF_ME_55DDD0110086 // VersionInfo
- )
- ; // Implemented
  : Dependencies
    Seq: ( ME_55DDD05B0205 // Tl3VersionInfoService
  )
  ; // Dependencies
  CONST "ifdef" 'Nemesis'
  CONST "need UC" true
- CONST "singleton" true
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\f1VersionInfoService.pas'
  CONST extprop:rc:SelfName 'f1VersionInfoService'
  CONST extprop:rc:isAcceptableForScripts true
@@ -243,9 +174,9 @@ ref; // ME_55DDD0110086 Tf1VersionInfoService
  : Parent WL 'ME_4790D09A0378' '4790D09A0378.pas.ms.script' // L3
  ;
  : Children
-   Seq: ( ME_4F8BF8D40367 // vtVerInf
- ME_55DDCF7C004A // Tl3VersionInfoService
- ME_55DDD0110086 // Tf1VersionInfoService
+   Seq: ( HWL ME_4F8BF8D40367 // vtVerInf
+ HWL ME_55DDCF7C004A // Tl3VersionInfoService
+ HWL ME_55DDD0110086 // Tf1VersionInfoService
  )
  ; // Children
  : Depends

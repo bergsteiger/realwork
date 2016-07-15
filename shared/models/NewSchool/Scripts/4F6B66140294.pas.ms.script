@@ -4,1454 +4,7 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 FORWARD ME_4F6B66140294
 
-FORWARD ME_4F6B6646037F
-
-FORWARD ME_4F6B69A902A6
-
-: ME_4F6B6A3802B6
- CONST UID '4F6B6A3802B6'
- CONST Name 'ChildZone'
- CONST Class class_Class
- : Stereotype st_VCMFormZone ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4F6B6646037F // PrimChild
- ;
- : Inherits
-   Seq: ( ME_4F6B69A902A6 // ChildZone
- )
- ; // Inherits
- CONST "CanClose" true
- CONST "MergeBottomTollbarWithContainer" false
- CONST "MergeTopTollbarWithContainer" false
- CONST "ZoneType" 'Child'
-
-ref; // ME_4F6B6A3802B6 ChildZone$Zone
-
-: ME_4F71E73401DC
- CONST UID '4F71E73401DC'
- CONST Name 'THackControl'
- CONST Class class_Class
- : Stereotype st_SimpleClass ;
- CONST Kind kind_NormalClass
- CONST Visibility PrivateAccess
- CONST Abstraction at_abstract
- : Parent ME_4F6B6646037F // PrimChild
- ;
- : Inherits
-   Seq: ( WL 'ME_47E1201703C3' '4799D29F033F.pas.ms.script' // TControl
- )
- ; // Inherits
- CONST extprop:rc:SelfName 'HackControl'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_4F71E73401DC THackControl
-
-: ME_4D9AE77A0246
- CONST UID '4D9AE77A0246'
- CONST Name 'cutUsual'
- CONST Class class_Class
- : Stereotype st_UserType ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4F6B6646037F // PrimChild
- ;
- CONST "ImageIndex" '-1'
- CONST "Weight" '-1'
- CONST intf.pas:Path 'common\components\gui\Garant\VCM\View\ParentAndChild\Forms\PrimChild_cutUsual_UserType.pas'
- CONST extprop:pas:UnitName 'PrimChild_cutUsual_UserType'
-
-ref; // ME_4D9AE77A0246 cutUsual
-
-: ME_4D9AE78D0196
- CONST UID '4D9AE78D0196'
- CONST Name 'cutForDiction'
- CONST Class class_Class
- : Stereotype st_UserType ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4F6B6646037F // PrimChild
- ;
- : Inherits
-   Seq: ( ME_4D9AE77A0246 // cutUsual
- )
- ; // Inherits
- CONST "ImageIndex" '-1'
- CONST "Weight" '-1'
- CONST intf.pas:Path 'common\components\gui\Garant\VCM\View\ParentAndChild\Forms\PrimChild_cutForDiction_UserType.pas'
- CONST extprop:pas:UnitName 'PrimChild_cutForDiction_UserType'
-
-ref; // ME_4D9AE78D0196 cutForDiction
-
-: ME_4F6B6A9200A8
- CONST UID '4F6B6A9200A8'
- CONST Name 'MainPageTab'
- CONST Class class_Class
- : Stereotype st_Control ;
- CONST Kind kind_NormalClass
- %SUMMARY 'MainDataCaption' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4F6B69A902A6 // ChildZone
- ;
- : Inherits
-   Seq: ( WL 'ME_499ABF9802AC' '499ABF4F02A1.pas.ms.script' // TElTabSheet
- )
- ; // Inherits
- CONST "ControlClass" 'none'
- CONST "pm" true
- CONST "put to dfm" false
-
-ref; // ME_4F6B6A9200A8 MainPageTab
-
-: ME_4F6B69A902A6
- CONST UID '4F6B69A902A6'
- CONST Name 'ChildZone'
- CONST Class class_Class
- : Stereotype st_Control ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4F6B6646037F // PrimChild
- ;
- : Inherits
-   Seq: ( WL 'ME_4AF296620379' '4AC5E84C02AA.pas.ms.script' // TnscFormsPageControl
- )
- ; // Inherits
- : Attributes
-   Seq: ( ME_4F6B6A9200A8 // MainPageTab
- )
- ; // Attributes
- : Zones
-   Seq: ( ME_4F6B6A3802B6 // ChildZone$Zone
- )
- ; // Zones
- CONST "ControlClass" 'none'
- CONST "pm" true
- CONST "put to dfm" false
-
-ref; // ME_4F6B69A902A6 ChildZone
-
-: ME_4F71E183026E
- CONST UID '4F71E183026E'
- CONST Name 'f_ParentHeight'
- CONST Class class_Attribute
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_4F6B6646037F // PrimChild
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_4F71E183026E f_ParentHeight
-
-: ME_4F71E19800AD
- CONST UID '4F71E19800AD'
- CONST Name 'f_ParentParentHeight'
- CONST Class class_Attribute
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_4F6B6646037F // PrimChild
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_4F71E19800AD f_ParentParentHeight
-
-: ME_4F71E1A103CC
- CONST UID '4F71E1A103CC'
- CONST Name 'f_ParentMinHeight'
- CONST Class class_Attribute
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_4F6B6646037F // PrimChild
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_4F71E1A103CC f_ParentMinHeight
-
-: ME_4F71E1B30114
- CONST UID '4F71E1B30114'
- CONST Name 'f_CalcHeightFlag'
- CONST Class class_Attribute
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_4F6B6646037F // PrimChild
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_4F71E1B30114 f_CalcHeightFlag
-
-FORWARD ME_4F71E05E036B
-
-: ME_4F71E06600C5
- CONST UID '4F71E06600C5'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F71E05E036B // AdjustSizeToFixed
- ;
-
-ref; // ME_4F71E06600C5 DoIt
-
-: ME_4F71E05E036B
- CONST UID '4F71E05E036B'
- CONST Name 'AdjustSizeToFixed'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4F6B6646037F // PrimChild
- ;
- : Operations
-   Seq: ( ME_4F71E06600C5 // DoIt
- )
- ; // Operations
-
-ref; // ME_4F71E05E036B AdjustSizeToFixed
-
-FORWARD ME_4F71E078021D
-
-: ME_4F71E07E00E3
- CONST UID '4F71E07E00E3'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F71E078021D // ChildZoneMinHeight
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_4F71E07E00E3 DoIt
-
-: ME_4F71E078021D
- CONST UID '4F71E078021D'
- CONST Name 'ChildZoneMinHeight'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility ProtectedAccess
- CONST Abstraction at_final
- : Parent ME_4F6B6646037F // PrimChild
- ;
- : Operations
-   Seq: ( ME_4F71E07E00E3 // DoIt
- )
- ; // Operations
-
-ref; // ME_4F71E078021D ChildZoneMinHeight
-
-FORWARD ME_4F71E0B601D4
-
-: ME_4F71E0C10062
- CONST UID '4F71E0C10062'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F71E0B601D4 // ActivePageHasOnlyEntityForm
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_4F71E0C10062 DoIt
-
-: ME_4F71E0B601D4
- CONST UID '4F71E0B601D4'
- CONST Name 'ActivePageHasOnlyEntityForm'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility ProtectedAccess
- CONST Abstraction at_final
- : Parent ME_4F6B6646037F // PrimChild
- ;
- : Operations
-   Seq: ( ME_4F71E0C10062 // DoIt
- )
- ; // Operations
-
-ref; // ME_4F71E0B601D4 ActivePageHasOnlyEntityForm
-
-FORWARD ME_4F71E0D10182
-
-: ME_4F71E0D7032E
- CONST UID '4F71E0D7032E'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F71E0D10182 // GrandParentProportional
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_4F71E0D7032E DoIt
-
-: ME_4F71E0D10182
- CONST UID '4F71E0D10182'
- CONST Name 'GrandParentProportional'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility ProtectedAccess
- CONST Abstraction at_final
- : Parent ME_4F6B6646037F // PrimChild
- ;
- : Operations
-   Seq: ( ME_4F71E0D7032E // DoIt
- )
- ; // Operations
-
-ref; // ME_4F71E0D10182 GrandParentProportional
-
-FORWARD ME_4F71E1C9011F
-
-: ME_4F71E1DD0189
- CONST Name 'aForm'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4914746C019E' '4683F37902CF.pas.ms.script' // IvcmEntityForm
- ;
-
-ref; // ME_4F71E1DD0189 aForm
-
-: ME_4F71E1D50394
- CONST UID '4F71E1D50394'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F71E1C9011F // UpdateMainTab
- ;
- : Parameters
-   Seq: ( ME_4F71E1DD0189 // aForm
- )
- ; // Parameters
-
-ref; // ME_4F71E1D50394 DoIt
-
-: ME_4F71E1C9011F
- CONST UID '4F71E1C9011F'
- CONST Name 'UpdateMainTab'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F6B6646037F // PrimChild
- ;
- : Operations
-   Seq: ( ME_4F71E1D50394 // DoIt
- )
- ; // Operations
-
-ref; // ME_4F71E1C9011F UpdateMainTab
-
-FORWARD ME_4F71E2050390
-
-: ME_4F71E23901F4
- CONST Name 'Sender'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_4F71E23901F4 Sender
-
-: ME_4F71E2390247
- CONST Name 'ANewWidth'
- CONST Class class_Parameter
- : Stereotype st_inout ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_4F71E2390247 ANewWidth
-
-: ME_4F71E23902A1
- CONST Name 'ANewHeight'
- CONST Class class_Parameter
- : Stereotype st_inout ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_4F71E23902A1 ANewHeight
-
-: ME_4F71E23902FB
- CONST Name 'CanResize'
- CONST Class class_Parameter
- : Stereotype st_inout ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_4F71E23902FB CanResize
-
-: ME_4F71E2210249
- CONST UID '4F71E2210249'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F71E2050390 // OnParentCanResize
- ;
- : Parameters
-   Seq: ( ME_4F71E23901F4 // Sender
- ME_4F71E2390247 // ANewWidth
- ME_4F71E23902A1 // ANewHeight
- ME_4F71E23902FB // CanResize
- )
- ; // Parameters
-
-ref; // ME_4F71E2210249 DoIt
-
-: ME_4F71E2050390
- CONST UID '4F71E2050390'
- CONST Name 'OnParentCanResize'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- %SUMMARY 'при восстановлении всех настроек и активной первой закладке не даём менять размер и запоминаем ANewHeight' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F6B6646037F // PrimChild
- ;
- : Operations
-   Seq: ( ME_4F71E2210249 // DoIt
- )
- ; // Operations
-
-ref; // ME_4F71E2050390 OnParentCanResize
-
-FORWARD ME_4F71E25E0127
-
-: ME_4F71E27200E0
- CONST Name 'Sender'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_4F71E27200E0 Sender
-
-: ME_4F71E26D02DF
- CONST UID '4F71E26D02DF'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F71E25E0127 // ChildZoneChange
- ;
- : Parameters
-   Seq: ( ME_4F71E27200E0 // Sender
- )
- ; // Parameters
-
-ref; // ME_4F71E26D02DF DoIt
-
-: ME_4F71E25E0127
- CONST UID '4F71E25E0127'
- CONST Name 'ChildZoneChange'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F6B6646037F // PrimChild
- ;
- : Operations
-   Seq: ( ME_4F71E26D02DF // DoIt
- )
- ; // Operations
-
-ref; // ME_4F71E25E0127 ChildZoneChange
-
-FORWARD ME_4F71E27F0180
-
-: ME_4F71E29F002E
- CONST Name 'aForm'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4914746C019E' '4683F37902CF.pas.ms.script' // IvcmEntityForm
- ;
-
-ref; // ME_4F71E29F002E aForm
-
-: ME_4F71E293013F
- CONST UID '4F71E293013F'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F71E27F0180 // vcmContainerFormAfterRemoveForm
- ;
- : Parameters
-   Seq: ( ME_4F71E29F002E // aForm
- )
- ; // Parameters
-
-ref; // ME_4F71E293013F DoIt
-
-: ME_4F71E27F0180
- CONST UID '4F71E27F0180'
- CONST Name 'vcmContainerFormAfterRemoveForm'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F6B6646037F // PrimChild
- ;
- : Operations
-   Seq: ( ME_4F71E293013F // DoIt
- )
- ; // Operations
- CONST extprop:rc:SelfName 'ContainerFormAfterRemoveForm'
-
-ref; // ME_4F71E27F0180 vcmContainerFormAfterRemoveForm
-
-FORWARD ME_4F71E2AE02D3
-
-: ME_4F71E2C100EC
- CONST Name 'aForm'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4914746C019E' '4683F37902CF.pas.ms.script' // IvcmEntityForm
- ;
-
-ref; // ME_4F71E2C100EC aForm
-
-: ME_4F71E2BC02A6
- CONST UID '4F71E2BC02A6'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F71E2AE02D3 // vcmContainerFormAfterInsertForm
- ;
- : Parameters
-   Seq: ( ME_4F71E2C100EC // aForm
- )
- ; // Parameters
-
-ref; // ME_4F71E2BC02A6 DoIt
-
-: ME_4F71E2AE02D3
- CONST UID '4F71E2AE02D3'
- CONST Name 'vcmContainerFormAfterInsertForm'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F6B6646037F // PrimChild
- ;
- : Operations
-   Seq: ( ME_4F71E2BC02A6 // DoIt
- )
- ; // Operations
- CONST extprop:rc:SelfName 'ContainerFormAfterInsertForm'
-
-ref; // ME_4F71E2AE02D3 vcmContainerFormAfterInsertForm
-
-FORWARD ME_4F71E2D500D1
-
-: ME_4F71F5CB019B
- CONST Name 'aSender'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_4F71F5CB019B aSender
-
-: ME_4F71E2F50336
- CONST Name 'aForm'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4914746C019E' '4683F37902CF.pas.ms.script' // IvcmEntityForm
- ;
-
-ref; // ME_4F71E2F50336 aForm
-
-: ME_4F71E2E80397
- CONST UID '4F71E2E80397'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F71E2D500D1 // vcmContainerFormNeedUpdateTab
- ;
- : Parameters
-   Seq: ( ME_4F71F5CB019B // aSender
- ME_4F71E2F50336 // aForm
- )
- ; // Parameters
-
-ref; // ME_4F71E2E80397 DoIt
-
-: ME_4F71E2D500D1
- CONST UID '4F71E2D500D1'
- CONST Name 'vcmContainerFormNeedUpdateTab'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F6B6646037F // PrimChild
- ;
- : Operations
-   Seq: ( ME_4F71E2E80397 // DoIt
- )
- ; // Operations
- CONST extprop:rc:SelfName 'ContainerFormNeedUpdateTab'
-
-ref; // ME_4F71E2D500D1 vcmContainerFormNeedUpdateTab
-
-FORWARD ME_4F71E3020328
-
-: ME_4F71E3140147
- CONST Name 'Sender'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_4F71E3140147 Sender
-
-: ME_4F71E31401A5
- CONST Name 'Page'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_499ABF9802AC' '499ABF4F02A1.pas.ms.script' // TElTabSheet
- ;
-
-ref; // ME_4F71E31401A5 Page
-
-: ME_4F71E30F02C8
- CONST UID '4F71E30F02C8'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F71E3020328 // ChildZoneTabSheetClick
- ;
- : Parameters
-   Seq: ( ME_4F71E3140147 // Sender
- ME_4F71E31401A5 // Page
- )
- ; // Parameters
-
-ref; // ME_4F71E30F02C8 DoIt
-
-: ME_4F71E3020328
- CONST UID '4F71E3020328'
- CONST Name 'ChildZoneTabSheetClick'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F6B6646037F // PrimChild
- ;
- : Operations
-   Seq: ( ME_4F71E30F02C8 // DoIt
- )
- ; // Operations
-
-ref; // ME_4F71E3020328 ChildZoneTabSheetClick
-
-: ME_4F6B6AD5006C
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4F6B6646037F // PrimChild
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_4F6B6AD5006C 
-
-: ME_4F6B6AE002C5
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4F6B6646037F // PrimChild
- ;
- : Target WL 'ME_47E13C6B0341' '4799D29F033F.pas.ms.script' // Forms
- ;
-
-ref; // ME_4F6B6AE002C5 
-
-: ME_4F6B6AE601FB
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4F6B6646037F // PrimChild
- ;
- : Target WL 'ME_47E11FC3021E' '4799D29F033F.pas.ms.script' // Controls
- ;
-
-ref; // ME_4F6B6AE601FB 
-
-: ME_4F6B6AEF0232
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4F6B6646037F // PrimChild
- ;
- : Target WL 'ME_47D15712022D' '55C4AEC801CA.pas.ms.script' // Graphics
- ;
-
-ref; // ME_4F6B6AEF0232 
-
-: ME_4F6B6AFE0131
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4F6B6646037F // PrimChild
- ;
- : Target WL 'ME_48A41FF10094' '4AB0C3F60375.pas.ms.script' // Windows
- ;
-
-ref; // ME_4F6B6AFE0131 
-
-: ME_4F71E3680252
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4F6B6646037F // PrimChild
- ;
- : Target WL 'ME_4AE874300212' '4F71AD0E01FE.pas.ms.script' // Common$ShowSplitter
- ;
-
-ref; // ME_4F71E3680252 
-
-: ME_4F71E76702D2
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4F6B6646037F // PrimChild
- ;
- : Target WL 'ME_47A066980016' '537B83AD01F0.pas.ms.script' // l3MinMax
- ;
-
-ref; // ME_4F71E76702D2 
-
 FORWARD ME_4F71E93E00EA
-
-: ME_4F71E94303C5
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4F6B6646037F // PrimChild
- ;
- : Target ME_4F71E93E00EA // nsFormUtils
- ;
-
-ref; // ME_4F71E94303C5 
-
-: ME_4F71E9A20177
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4F6B6646037F // PrimChild
- ;
- : Target WL 'ME_47ECBD5D03BB' '476F78840219.pas.ms.script' // Msg Codes
- ;
-
-ref; // ME_4F71E9A20177 
-
-: ME_4F71EEB4007D
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4F6B6646037F // PrimChild
- ;
- : Target WL 'ME_499037730242' '49804E310263.pas.ms.script' // InsMainFormChildZoneManager
- ;
-
-ref; // ME_4F71EEB4007D 
-
-: ME_4F71F9210394
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4F6B6646037F // PrimChild
- ;
- : Target WL 'ME_4F71F9080285' '4A7960CC03A4.pas.ms.script' // TvtProportionalCustomPanel
- ;
-
-ref; // ME_4F71F9210394 
-
-: ME_4F71F939033E
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4F6B6646037F // PrimChild
- ;
- : Target WL 'ME_47752AF90375' '47750CE700D0.pas.ms.script' // afwFacade
- ;
-
-ref; // ME_4F71F939033E 
-
-: ME_4F71F9740088
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4F6B6646037F // PrimChild
- ;
- : Target WL 'ME_47878E0E0191' '54B90AC6014B.pas.ms.script' // l3String
- ;
-
-ref; // ME_4F71F9740088 
-
-: ME_4F71F9840347
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4F6B6646037F // PrimChild
- ;
- : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
- ;
-
-ref; // ME_4F71F9840347 
-
-: ME_4AEF3E8C02F5_ME_4F6B6646037F
- : Original WL 'ME_4AEF3E8C02F5' '4F71AD0E01FE.pas.ms.script' // BecomeActive
- ;
- CONST OpKind opkind_Implemented
- CONST "AutoFocus" false
- CONST "AutoLock" false
- CONST "LongProcess" false
- CONST "Needs Broadcast" false
- CONST "has states" false
- CONST "is FormActivate" false
- CONST "is query" true
- CONST "no prefix" false
-ref; // ME_4AEF3E8C02F5_ME_4F6B6646037F BecomeActive
-
-: ME_4AF832C401A1_ME_4F6B6646037F
- : Original WL 'ME_4AF832C401A1' '4F71AD0E01FE.pas.ms.script' // SetFirstPageActive
- ;
- CONST OpKind opkind_Implemented
- CONST "AutoFocus" false
- CONST "AutoLock" false
- CONST "LongProcess" false
- CONST "Needs Broadcast" false
- CONST "has states" false
- CONST "is FormActivate" false
- CONST "is query" true
- CONST "no prefix" false
-ref; // ME_4AF832C401A1_ME_4F6B6646037F SetFirstPageActive
-
-: ME_49803F5503AA_ME_4F6B6646037F
- : Original WL 'ME_49803F5503AA' '4AADF9450143.pas.ms.script' // DoInit
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_49803F5503AA_ME_4F6B6646037F DoInit
-
-: ME_4A8AE0FA03B2_ME_4F6B6646037F
- : Original WL 'ME_4A8AE0FA03B2' '4AADF9450143.pas.ms.script' // BecomeActive
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4A8AE0FA03B2_ME_4F6B6646037F BecomeActive
-
-: ME_4A8E8F2E0195_ME_4F6B6646037F
- : Original WL 'ME_4A8E8F2E0195' '5000041101C8.pas.ms.script' // InitControls
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4A8E8F2E0195_ME_4F6B6646037F InitControls
-
-: ME_4AD5FA8E03DD_ME_4F6B6646037F
- : Original WL 'ME_4AD5FA8E03DD' '4AADF9450143.pas.ms.script' // BecomeInactive
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4AD5FA8E03DD_ME_4F6B6646037F BecomeInactive
-
-: ME_4E7C2AA3037E_ME_4F6B6646037F
- : Original WL 'ME_4E7C2AA3037E' '4AADF9450143.pas.ms.script' // DoLoadFromSettings
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4E7C2AA3037E_ME_4F6B6646037F DoLoadFromSettings
-
-: ME_4F71E1460089_ME_4F6B6646037F
- : Original WL 'ME_4F71E1460089' '4799D29F033F.pas.ms.script' // SetParent
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4F71E1460089_ME_4F6B6646037F SetParent
-
-: ME_4F6B6646037F
- CONST UID '4F6B6646037F'
- CONST Name 'PrimChild'
- CONST Class class_Class
- : Stereotype st_VCMContainer ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4F6B66140294 // ParentAndChild
- ;
- : Inherits
-   Seq: ( WL 'ME_49525C240170' '4AADF9450143.pas.ms.script' // TvcmContainerForm
- )
- ; // Inherits
- : Implements
-   Seq: ( WL 'ME_4AE836C303BC' '4F71AD0E01FE.pas.ms.script' // Switcher$SetCaption
- )
- ; // Implements
- : Attributes
-   Seq: ( ME_4F6B69A902A6 // ChildZone
- ME_4F71E183026E // f_ParentHeight
- ME_4F71E19800AD // f_ParentParentHeight
- ME_4F71E1A103CC // f_ParentMinHeight
- ME_4F71E1B30114 // f_CalcHeightFlag
- )
- ; // Attributes
- : Operations
-   Seq: ( ME_4F71E05E036B // AdjustSizeToFixed
- ME_4F71E078021D // ChildZoneMinHeight
- ME_4F71E0B601D4 // ActivePageHasOnlyEntityForm
- ME_4F71E0D10182 // GrandParentProportional
- ME_4F71E1C9011F // UpdateMainTab
- ME_4F71E2050390 // OnParentCanResize
- ME_4F71E25E0127 // ChildZoneChange
- ME_4F71E27F0180 // vcmContainerFormAfterRemoveForm
- ME_4F71E2AE02D3 // vcmContainerFormAfterInsertForm
- ME_4F71E2D500D1 // vcmContainerFormNeedUpdateTab
- ME_4F71E3020328 // ChildZoneTabSheetClick
- )
- ; // Operations
- : Implemented
-   Seq: ( ME_4AEF3E8C02F5_ME_4F6B6646037F // BecomeActive
- ME_4AF832C401A1_ME_4F6B6646037F // SetFirstPageActive
- )
- ; // Implemented
- : Overridden
-   Seq: ( ME_49803F5503AA_ME_4F6B6646037F // DoInit
- ME_4A8AE0FA03B2_ME_4F6B6646037F // BecomeActive
- ME_4A8E8F2E0195_ME_4F6B6646037F // InitControls
- ME_4AD5FA8E03DD_ME_4F6B6646037F // BecomeInactive
- ME_4E7C2AA3037E_ME_4F6B6646037F // DoLoadFromSettings
- ME_4F71E1460089_ME_4F6B6646037F // SetParent
- )
- ; // Overridden
- : Children
-   Seq: ( ME_4F6B6A3802B6 // ChildZone$Zone
- ME_4F71E73401DC // THackControl
- ME_4D9AE77A0246 // cutUsual
- ME_4D9AE78D0196 // cutForDiction
- )
- ; // Children
- : Dependencies
-   Seq: ( ME_4F6B6AD5006C // SysUtils
- ME_4F6B6AE002C5 // Forms
- ME_4F6B6AE601FB // Controls
- ME_4F6B6AEF0232 // Graphics
- ME_4F6B6AFE0131 // Windows
- ME_4F71E3680252 // Common$ShowSplitter
- ME_4F71E76702D2 // l3MinMax
- ME_4F71E94303C5 // nsFormUtils
- ME_4F71E9A20177 // Msg Codes
- ME_4F71EEB4007D // InsMainFormChildZoneManager
- ME_4F71F9210394 // TvtProportionalCustomPanel
- ME_4F71F939033E // afwFacade
- ME_4F71F9740088 // l3String
- ME_4F71F9840347 // Il3CString
- )
- ; // Dependencies
- CONST "NeedsHackRef" true
- CONST "ZoneType" 'Any'
- CONST "finished dfm" true
- CONST "resizeable" false
- CONST "restrict form def" 'undefined'
- CONST intf.pas:Path 'common\components\gui\Garant\VCM\View\ParentAndChild\Forms\PrimChild_Form.pas'
- CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\View\ParentAndChild\Forms'
- CONST extprop:pas:TypeName 'TPrimChildForm'
- CONST extprop:rc:SelfName 'PrimChildForm'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'PrimChild_Form'
- CONST extprop:NeedsInitEntities true
-
-ref; // ME_4F6B6646037F PrimChild
-
-FORWARD ME_4F6B665B0143
-
-FORWARD ME_4F6B6B7D01BB
-
-: ME_4F6B6BA30248
- CONST UID '4F6B6BA30248'
- CONST Name 'ParentZone'
- CONST Class class_Class
- : Stereotype st_VCMFormZone ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4F6B665B0143 // PrimParent
- ;
- : Inherits
-   Seq: ( ME_4F6B6B7D01BB // ParentZone
- )
- ; // Inherits
- CONST "MergeBottomTollbarWithContainer" false
- CONST "MergeTopTollbarWithContainer" false
- CONST "ZoneType" 'Parent'
-
-ref; // ME_4F6B6BA30248 ParentZone$Zone
-
-: ME_4F72C32000CF
- CONST UID '4F72C32000CF'
- CONST Name 'utHistory'
- CONST Class class_Class
- : Stereotype st_UserType ;
- CONST Kind kind_NormalClass
- %SUMMARY 'История навигации' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4F6B665B0143 // PrimParent
- ;
- CONST "ImageIndex" '-1'
- CONST "Weight" '-1'
- CONST intf.pas:Path 'common\components\gui\Garant\VCM\View\ParentAndChild\Forms\PrimParent_utHistory_UserType.pas'
- CONST extprop:pas:UnitName 'PrimParent_utHistory_UserType'
-
-ref; // ME_4F72C32000CF utHistory
-
-: ME_4F6B6B7D01BB
- CONST UID '4F6B6B7D01BB'
- CONST Name 'ParentZone'
- CONST Class class_Class
- : Stereotype st_Control ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4F6B665B0143 // PrimParent
- ;
- : Inherits
-   Seq: ( WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
- )
- ; // Inherits
- : Zones
-   Seq: ( ME_4F6B6BA30248 // ParentZone$Zone
- )
- ; // Zones
- CONST "ControlClass" 'none'
- CONST "pm" true
- CONST "put to dfm" false
-
-ref; // ME_4F6B6B7D01BB ParentZone
-
-: ME_4F6B6B160050
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4F6B665B0143 // PrimParent
- ;
- : Target WL 'ME_48A41FF10094' '4AB0C3F60375.pas.ms.script' // Windows
- ;
-
-ref; // ME_4F6B6B160050 
-
-: ME_4F6B6B1903D8
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4F6B665B0143 // PrimParent
- ;
- : Target WL 'ME_47D15712022D' '55C4AEC801CA.pas.ms.script' // Graphics
- ;
-
-ref; // ME_4F6B6B1903D8 
-
-: ME_4F6B6B1D019A
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4F6B665B0143 // PrimParent
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_4F6B6B1D019A 
-
-: ME_4F6B6B200397
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4F6B665B0143 // PrimParent
- ;
- : Target WL 'ME_47E13C6B0341' '4799D29F033F.pas.ms.script' // Forms
- ;
-
-ref; // ME_4F6B6B200397 
-
-: ME_4F6B6B24009F
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4F6B665B0143 // PrimParent
- ;
- : Target WL 'ME_47E11FC3021E' '4799D29F033F.pas.ms.script' // Controls
- ;
-
-ref; // ME_4F6B6B24009F 
-
-: ME_49803F5503AA_ME_4F6B665B0143
- : Original WL 'ME_49803F5503AA' '4AADF9450143.pas.ms.script' // DoInit
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_49803F5503AA_ME_4F6B665B0143 DoInit
-
-: ME_4A8E8F2E0195_ME_4F6B665B0143
- : Original WL 'ME_4A8E8F2E0195' '5000041101C8.pas.ms.script' // InitControls
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4A8E8F2E0195_ME_4F6B665B0143 InitControls
-
-: ME_4F7C6D6801F4_ME_4F6B665B0143
- : Original WL 'ME_4F7C6D6801F4' '4AADF9450143.pas.ms.script' // FocusIsSetToUs
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4F7C6D6801F4_ME_4F6B665B0143 FocusIsSetToUs
-
-: ME_4F7C6DFE00DE_ME_4F6B665B0143
- : Original WL 'ME_4F7C6DFE00DE' '4AADF9450143.pas.ms.script' // AfterInsertForm
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4F7C6DFE00DE_ME_4F6B665B0143 AfterInsertForm
-
-: ME_541011910033_ME_4F6B665B0143
- : Original WL 'ME_541011910033' '4AADF9450143.pas.ms.script' // GetNeedSetFocusToMainObjectFormOnRefresh
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_541011910033_ME_4F6B665B0143 GetNeedSetFocusToMainObjectFormOnRefresh
-
-: ME_4F6B665B0143
- CONST UID '4F6B665B0143'
- CONST Name 'PrimParent'
- CONST Class class_Class
- : Stereotype st_VCMContainer ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4F6B66140294 // ParentAndChild
- ;
- : Inherits
-   Seq: ( WL 'ME_49525C240170' '4AADF9450143.pas.ms.script' // TvcmContainerForm
- )
- ; // Inherits
- : Attributes
-   Seq: ( ME_4F6B6B7D01BB // ParentZone
- )
- ; // Attributes
- : Overridden
-   Seq: ( ME_49803F5503AA_ME_4F6B665B0143 // DoInit
- ME_4A8E8F2E0195_ME_4F6B665B0143 // InitControls
- ME_4F7C6D6801F4_ME_4F6B665B0143 // FocusIsSetToUs
- ME_4F7C6DFE00DE_ME_4F6B665B0143 // AfterInsertForm
- ME_541011910033_ME_4F6B665B0143 // GetNeedSetFocusToMainObjectFormOnRefresh
- )
- ; // Overridden
- : Children
-   Seq: ( ME_4F6B6BA30248 // ParentZone$Zone
- ME_4F72C32000CF // utHistory
- )
- ; // Children
- : Dependencies
-   Seq: ( ME_4F6B6B160050 // Windows
- ME_4F6B6B1903D8 // Graphics
- ME_4F6B6B1D019A // SysUtils
- ME_4F6B6B200397 // Forms
- ME_4F6B6B24009F // Controls
- )
- ; // Dependencies
- CONST "NeedsHackRef" true
- CONST "ZoneType" 'Any'
- CONST "finished dfm" true
- CONST "resizeable" false
- CONST "restrict form def" 'undefined'
- CONST intf.pas:Path 'common\components\gui\Garant\VCM\View\ParentAndChild\Forms\PrimParent_Form.pas'
- CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\View\ParentAndChild\Forms'
- CONST extprop:pas:TypeName 'TPrimParentForm'
- CONST extprop:rc:SelfName 'PrimParentForm'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'PrimParent_Form'
-
-ref; // ME_4F6B665B0143 PrimParent
-
-FORWARD ME_4F6B66260326
-
-FORWARD ME_4F6B66CB0200
-
-: ME_40853F4CF892
- CONST UID '40853F4CF892'
- CONST Name 'Ini_FormFactory_Parent'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация фабрики формы Parent' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F6B66CB0200 // Parent
- ;
- : SpelledFor ME_4F6B66CB0200 // Parent
- ;
-
-ref; // ME_40853F4CF892 Ini_FormFactory_Parent
-
-: ME_4F6B66CB0200
- CONST UID '4F6B66CB0200'
- CONST Name 'Parent'
- CONST Class class_Class
- : Stereotype st_VCMFinalContainer ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4F6B66260326 // ParentAndChildPrim
- ;
- : Inherits
-   Seq: ( ME_4F6B665B0143 // PrimParent
- )
- ; // Inherits
- : Implements
-   Seq: ( WL 'ME_4F6B6714032D' '4F6B66F8001B.pas.ms.script' // Parent
- )
- ; // Implements
- : Operations
-   Seq: ( ME_40853F4CF892 // Ini_FormFactory_Parent
- )
- ; // Operations
- CONST "NeedsHackRef" true
- CONST "ZoneType" 'Parent'
- CONST "finished dfm" true
- CONST "resizeable" false
- CONST "restrict form def" 'undefined'
- CONST intf.pas:Path 'common\components\gui\Garant\VCM\View\ParentAndChild\Forms\Parent_Form.pas'
- CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\View\ParentAndChild\Forms'
- CONST extprop:pas:TypeName 'TParentForm'
- CONST extprop:rc:SelfName 'ParentForm'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'Parent_Form'
-
-ref; // ME_4F6B66CB0200 Parent
-
-FORWARD ME_4F6B66DB0384
-
-: ME_86D0CEDB2066
- CONST UID '86D0CEDB2066'
- CONST Name 'Ini_FormFactory_Child'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация фабрики формы Child' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F6B66DB0384 // Child
- ;
- : SpelledFor ME_4F6B66DB0384 // Child
- ;
-
-ref; // ME_86D0CEDB2066 Ini_FormFactory_Child
-
-: ME_4F6B66DB0384
- CONST UID '4F6B66DB0384'
- CONST Name 'Child'
- CONST Class class_Class
- : Stereotype st_VCMFinalContainer ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4F6B66260326 // ParentAndChildPrim
- ;
- : Inherits
-   Seq: ( ME_4F6B6646037F // PrimChild
- )
- ; // Inherits
- : Implements
-   Seq: ( WL 'ME_4F6B670E017C' '4F6B66F8001B.pas.ms.script' // Child
- )
- ; // Implements
- : Operations
-   Seq: ( ME_86D0CEDB2066 // Ini_FormFactory_Child
- )
- ; // Operations
- CONST "NeedsHackRef" true
- CONST "ZoneType" 'Child'
- CONST "finished dfm" true
- CONST "resizeable" false
- CONST "restrict form def" 'undefined'
- CONST intf.pas:Path 'common\components\gui\Garant\VCM\View\ParentAndChild\Forms\Child_Form.pas'
- CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\View\ParentAndChild\Forms'
- CONST extprop:pas:TypeName 'TChildForm'
- CONST extprop:rc:SelfName 'ChildForm'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'Child_Form'
-
-ref; // ME_4F6B66DB0384 Child
-
-FORWARD ME_4F6B67820382
-
-: ME_4F6B682E03C3
- CONST Name 'aMainForm'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_49525C7A0114' '4AADF9450143.pas.ms.script' // TvcmMainForm
- ;
-
-ref; // ME_4F6B682E03C3 aMainForm
-
-: ME_4F6B682F002C
- CONST Name 'anOwner'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_49525B34022A' '4AADF9450143.pas.ms.script' // TvcmEntityForm
- ;
-
-ref; // ME_4F6B682F002C anOwner
-
-: ME_4F6B6815037A
- CONST UID '4F6B6815037A'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F6B67820382 // MakeChild
- ;
- : Parameters
-   Seq: ( ME_4F6B682E03C3 // aMainForm
- ME_4F6B682F002C // anOwner
- )
- ; // Parameters
-
-ref; // ME_4F6B6815037A DoIt
-
-: ME_4F6B67820382
- CONST UID '4F6B67820382'
- CONST Name 'MakeChild'
- CONST Class class_Class
- : Stereotype st_FormFactory ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4F6B66260326 // ParentAndChildPrim
- ;
- : Operations
-   Seq: ( ME_4F6B6815037A // DoIt
- )
- ; // Operations
-
-ref; // ME_4F6B67820382 MakeChild
-
-FORWARD ME_4F6B678D03B8
-
-: ME_4F6B67ED0116
- CONST Name 'aMainForm'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_49525C7A0114' '4AADF9450143.pas.ms.script' // TvcmMainForm
- ;
-
-ref; // ME_4F6B67ED0116 aMainForm
-
-: ME_4F6B67E20007
- CONST UID '4F6B67E20007'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F6B678D03B8 // MakeParent
- ;
- : Parameters
-   Seq: ( ME_4F6B67ED0116 // aMainForm
- )
- ; // Parameters
-
-ref; // ME_4F6B67E20007 DoIt
-
-: ME_4F6B678D03B8
- CONST UID '4F6B678D03B8'
- CONST Name 'MakeParent'
- CONST Class class_Class
- : Stereotype st_FormFactory ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4F6B66260326 // ParentAndChildPrim
- ;
- : Operations
-   Seq: ( ME_4F6B67E20007 // DoIt
- )
- ; // Operations
-
-ref; // ME_4F6B678D03B8 MakeParent
-
-: ME_4F6B684401E9
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4F6B66260326 // ParentAndChildPrim
- ;
- : Target WL 'ME_4AD89C420296' '47D0E1500033.pas.ms.script' // vcmMakeParams
- ;
-
-ref; // ME_4F6B684401E9 
-
-: ME_67B6714CC55B
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4F6B66260326 // ParentAndChildPrim
- ;
- : Target WL 'ME_47F25BC801DB' '47D0E1500033.pas.ms.script' // vcmBase
- ;
-
-ref; // ME_67B6714CC55B 
-
-: ME_4F6B66260326
- CONST UID '4F6B66260326'
- CONST Name 'ParentAndChildPrim'
- CONST Class class_Class
- : Stereotype st_VCMFormsPack ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_abstract
- : Parent ME_4F6B66140294 // ParentAndChild
- ;
- : Operations
-   Seq: ( ME_4F6B67820382 // MakeChild
- ME_4F6B678D03B8 // MakeParent
- )
- ; // Operations
- : Children
-   Seq: ( ME_4F6B66CB0200 // Parent
- ME_4F6B66DB0384 // Child
- )
- ; // Children
- : Dependencies
-   Seq: ( ME_4F6B684401E9 // vcmMakeParams
- ME_67B6714CC55B // vcmBase
- )
- ; // Dependencies
- CONST intf.pas:Path 'common\components\gui\Garant\VCM\View\ParentAndChild\ParentAndChildPrim_Module.pas'
- CONST extprop:pas:TypeName 'TParentAndChildPrimModule'
- CONST extprop:rc:SelfName 'ParentAndChildPrimModule'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'ParentAndChildPrim_Module'
-
-ref; // ME_4F6B66260326 ParentAndChildPrim
-
-: ME_4F6B663803AE
- CONST UID '4F6B663803AE'
- CONST Name 'ParentAndChild'
- CONST Class class_Class
- : Stereotype st_VCMFormsPack ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Поддержка работы с родительской и дочерней зонами' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4F6B66140294 // ParentAndChild
- ;
- : Inherits
-   Seq: ( ME_4F6B66260326 // ParentAndChildPrim
- )
- ; // Inherits
- CONST intf.pas:Path 'common\components\gui\Garant\VCM\View\ParentAndChild\moParentAndChild.pas'
- CONST extprop:pas:TypeName 'Tmo_ParentAndChild'
- CONST extprop:rc:SelfName 'mo_ParentAndChild'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'moParentAndChild'
-
-ref; // ME_4F6B663803AE ParentAndChild
 
 FORWARD ME_4F71E957012F
 
@@ -1470,7 +23,7 @@ ref; // ME_4F71E968009B aForm
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4F71E957012F // nsSetPageIcon
+ : Parent HWL ME_4F71E957012F // nsSetPageIcon
  ;
  : Parameters
    Seq: ( ME_4F71E968009B // aForm
@@ -1482,7 +35,7 @@ ref; // ME_4F71E9640011 DoIt
 : ME_4F71E98F00F9
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4F71E957012F // nsSetPageIcon
+ : Parent HWL ME_4F71E957012F // nsSetPageIcon
  ;
  : Target WL 'ME_499ABF9802AC' '499ABF4F02A1.pas.ms.script' // TElTabSheet
  ;
@@ -1492,7 +45,7 @@ ref; // ME_4F71E98F00F9
 : ME_4F71F9B00040
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4F71E957012F // nsSetPageIcon
+ : Parent HWL ME_4F71E957012F // nsSetPageIcon
  ;
  : Target WL 'ME_49525B34022A' '4AADF9450143.pas.ms.script' // TvcmEntityForm
  ;
@@ -1507,10 +60,10 @@ ref; // ME_4F71F9B00040
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4F71E93E00EA // nsFormUtils
+ : Parent HWL ME_4F71E93E00EA // nsFormUtils
  ;
  : Operations
-   Seq: ( ME_4F71E9640011 // DoIt
+   Seq: ( HWL ME_4F71E9640011 // DoIt
  )
  ; // Operations
  : Dependencies
@@ -1530,10 +83,10 @@ ref; // ME_4F71E957012F nsSetPageIcon
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4F6B66140294 // ParentAndChild
+ : Parent HWL ME_4F6B66140294 // ParentAndChild
  ;
  : Operations
-   Seq: ( ME_4F71E957012F // nsSetPageIcon
+   Seq: ( HWL ME_4F71E957012F // nsSetPageIcon
  )
  ; // Operations
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\View\ParentAndChild\nsFormUtils.pas'
@@ -1552,7 +105,7 @@ FORWARD ME_4F7B03D70163
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4F7B03D70163 // Settings Const
+ : Parent HWL ME_4F7B03D70163 // Settings Const
  ;
  CONST Value '''Внутренняя'''
  CONST "AutoInc" false
@@ -1569,7 +122,7 @@ ref; // ME_4F7B03E40371 gi_Internal
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4F7B03D70163 // Settings Const
+ : Parent HWL ME_4F7B03D70163 // Settings Const
  ;
  CONST Value 'gi_Internal + ''/Навигатор/Правый размер'''
  CONST "AutoInc" false
@@ -1586,7 +139,7 @@ ref; // ME_4F7B03F803A4 pi_Navigator_RightSize
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4F7B03D70163 // Settings Const
+ : Parent HWL ME_4F7B03D70163 // Settings Const
  ;
  CONST Value 'gi_Internal + ''/Навигатор/Левый размер'''
  CONST "AutoInc" false
@@ -1603,7 +156,7 @@ ref; // ME_4F7B0413001B pi_Navigator_LeftSize
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4F7B03D70163 // Settings Const
+ : Parent HWL ME_4F7B03D70163 // Settings Const
  ;
  CONST Value 200
  CONST "AutoInc" false
@@ -1620,7 +173,7 @@ ref; // ME_4F7B042F0290 dv_Navigator_LeftSize
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4F7B03D70163 // Settings Const
+ : Parent HWL ME_4F7B03D70163 // Settings Const
  ;
  CONST Value 200
  CONST "AutoInc" false
@@ -1637,7 +190,7 @@ ref; // ME_4F7B043A0230 dv_Navigator_RightSize
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4F7B03D70163 // Settings Const
+ : Parent HWL ME_4F7B03D70163 // Settings Const
  ;
  CONST Value '''Настройки интерфейса'''
  CONST "AutoInc" false
@@ -1654,7 +207,7 @@ ref; // ME_4F7B0F0D0136 gi_IfaceSettings
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4F7B03D70163 // Settings Const
+ : Parent HWL ME_4F7B03D70163 // Settings Const
  ;
  CONST Value 'gi_IfaceSettings + ''/HistoryItems'''
  CONST "AutoInc" false
@@ -1671,7 +224,7 @@ ref; // ME_4F7B0F1E0183 piHistoryItems
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4F7B03D70163 // Settings Const
+ : Parent HWL ME_4F7B03D70163 // Settings Const
  ;
  CONST Value 25
  CONST "AutoInc" false
@@ -1688,7 +241,7 @@ ref; // ME_4F7B0F6D033E cv6xHistoryItems
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4F7B03D70163 // Settings Const
+ : Parent HWL ME_4F7B03D70163 // Settings Const
  ;
  CONST Value 'cv6xHistoryItems'
  CONST "AutoInc" false
@@ -1705,7 +258,7 @@ ref; // ME_4F7B0F7B00EF dvHistoryItems
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4F7B03D70163 // Settings Const
+ : Parent HWL ME_4F7B03D70163 // Settings Const
  ;
  CONST Value 'gi_IfaceSettings + ''/Левый навигатор'''
  CONST "AutoInc" false
@@ -1722,10 +275,10 @@ ref; // ME_4F7B1E9A037B pi_LeftNavigator
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4F7B03D70163 // Settings Const
+ : Parent HWL ME_4F7B03D70163 // Settings Const
  ;
  CONST Value 'nsNormal'
- : ValueType WL 'ME_4F7B1E670309' '47CD07B900E0.pas.ms.script' // TNavigatorState
+ : ValueType WL 'ME_4F7B1E670309' '4C8A252E01C2.pas.ms.script' // TNavigatorState
  ;
  CONST "AutoInc" false
  CONST "forced type" 'none'
@@ -1741,7 +294,7 @@ ref; // ME_4F7B1EC203C1 dv_LeftNavigator
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4F7B03D70163 // Settings Const
+ : Parent HWL ME_4F7B03D70163 // Settings Const
  ;
  CONST Value 'gi_IfaceSettings + ''/Правый навигатор'''
  CONST "AutoInc" false
@@ -1758,10 +311,10 @@ ref; // ME_4F7B1F000021 pi_RightNavigator
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4F7B03D70163 // Settings Const
+ : Parent HWL ME_4F7B03D70163 // Settings Const
  ;
  CONST Value 'nsNormal'
- : ValueType WL 'ME_4F7B1E670309' '47CD07B900E0.pas.ms.script' // TNavigatorState
+ : ValueType WL 'ME_4F7B1E670309' '4C8A252E01C2.pas.ms.script' // TNavigatorState
  ;
  CONST "AutoInc" false
  CONST "forced type" 'none'
@@ -1777,7 +330,7 @@ ref; // ME_4F7B1F0C00EF dv_RightNavigator
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4F7B03D70163 // Settings Const
+ : Parent HWL ME_4F7B03D70163 // Settings Const
  ;
  CONST Value 'pi_LeftNavigator + ''/AutoFloat'''
  CONST "AutoInc" false
@@ -1794,7 +347,7 @@ ref; // ME_4F7B1F3D0008 pi_lnAutoHideFloat
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4F7B03D70163 // Settings Const
+ : Parent HWL ME_4F7B03D70163 // Settings Const
  ;
  CONST Value false
  CONST "AutoInc" false
@@ -1811,7 +364,7 @@ ref; // ME_4F7B1F4802D6 dv_lnAutoHideFloat
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4F7B03D70163 // Settings Const
+ : Parent HWL ME_4F7B03D70163 // Settings Const
  ;
  CONST Value 'pi_RightNavigator + ''/AutoFloat'''
  CONST "AutoInc" false
@@ -1828,7 +381,7 @@ ref; // ME_4F7B1F53014E pi_rnAutoHideFloat
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4F7B03D70163 // Settings Const
+ : Parent HWL ME_4F7B03D70163 // Settings Const
  ;
  CONST Value false
  CONST "AutoInc" false
@@ -1846,26 +399,26 @@ ref; // ME_4F7B1F5E0065 dv_rnAutoHideFloat
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4F7B037D01FF // nsSettingsConst
+ : Parent HWL ME_4F7B037D01FF // nsSettingsConst
  ;
  : Attributes
-   Seq: ( ME_4F7B03E40371 // gi_Internal
- ME_4F7B03F803A4 // pi_Navigator_RightSize
- ME_4F7B0413001B // pi_Navigator_LeftSize
- ME_4F7B042F0290 // dv_Navigator_LeftSize
- ME_4F7B043A0230 // dv_Navigator_RightSize
- ME_4F7B0F0D0136 // gi_IfaceSettings
- ME_4F7B0F1E0183 // piHistoryItems
- ME_4F7B0F6D033E // cv6xHistoryItems
- ME_4F7B0F7B00EF // dvHistoryItems
- ME_4F7B1E9A037B // pi_LeftNavigator
- ME_4F7B1EC203C1 // dv_LeftNavigator
- ME_4F7B1F000021 // pi_RightNavigator
- ME_4F7B1F0C00EF // dv_RightNavigator
- ME_4F7B1F3D0008 // pi_lnAutoHideFloat
- ME_4F7B1F4802D6 // dv_lnAutoHideFloat
- ME_4F7B1F53014E // pi_rnAutoHideFloat
- ME_4F7B1F5E0065 // dv_rnAutoHideFloat
+   Seq: ( HWL ME_4F7B03E40371 // gi_Internal
+ HWL ME_4F7B03F803A4 // pi_Navigator_RightSize
+ HWL ME_4F7B0413001B // pi_Navigator_LeftSize
+ HWL ME_4F7B042F0290 // dv_Navigator_LeftSize
+ HWL ME_4F7B043A0230 // dv_Navigator_RightSize
+ HWL ME_4F7B0F0D0136 // gi_IfaceSettings
+ HWL ME_4F7B0F1E0183 // piHistoryItems
+ HWL ME_4F7B0F6D033E // cv6xHistoryItems
+ HWL ME_4F7B0F7B00EF // dvHistoryItems
+ HWL ME_4F7B1E9A037B // pi_LeftNavigator
+ HWL ME_4F7B1EC203C1 // dv_LeftNavigator
+ HWL ME_4F7B1F000021 // pi_RightNavigator
+ HWL ME_4F7B1F0C00EF // dv_RightNavigator
+ HWL ME_4F7B1F3D0008 // pi_lnAutoHideFloat
+ HWL ME_4F7B1F4802D6 // dv_lnAutoHideFloat
+ HWL ME_4F7B1F53014E // pi_rnAutoHideFloat
+ HWL ME_4F7B1F5E0065 // dv_rnAutoHideFloat
  )
  ; // Attributes
  CONST "spell names" false
@@ -1880,10 +433,10 @@ ref; // ME_4F7B03D70163 Settings Const
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4F6B66140294 // ParentAndChild
+ : Parent HWL ME_4F6B66140294 // ParentAndChild
  ;
  : Constants
-   Seq: ( ME_4F7B03D70163 // Settings Const
+   Seq: ( HWL ME_4F7B03D70163 // Settings Const
  )
  ; // Constants
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\View\ParentAndChild\nsSettingsConst.pas'
@@ -1902,12 +455,12 @@ ref; // ME_4F7B037D01FF nsSettingsConst
  : Parent WL 'ME_4F6B660100D5' '4F6B660100D5.pas.ms.script' // View
  ;
  : Children
-   Seq: ( ME_4F6B6646037F // PrimChild
- ME_4F6B665B0143 // PrimParent
- ME_4F6B66260326 // ParentAndChildPrim
- ME_4F6B663803AE // ParentAndChild
- ME_4F71E93E00EA // nsFormUtils
- ME_4F7B037D01FF // nsSettingsConst
+   Seq: ( WL 'ME_4F6B6646037F' '4F6B6646037F.pas.ms.script' // PrimChild
+ WL 'ME_4F6B665B0143' '4F6B665B0143.pas.ms.script' // PrimParent
+ WL 'ME_4F6B66260326' '4F6B66260326.pas.ms.script' // ParentAndChildPrim
+ WL 'ME_4F6B663803AE' '4F6B663803AE.pas.ms.script' // ParentAndChild
+ HWL ME_4F71E93E00EA // nsFormUtils
+ HWL ME_4F7B037D01FF // nsSettingsConst
  )
  ; // Children
  : Depends

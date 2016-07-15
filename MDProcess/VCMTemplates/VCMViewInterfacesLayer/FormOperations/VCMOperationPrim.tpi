@@ -72,108 +72,21 @@ p AutoFocus:b=false ?
 // возвращаемый результат: boolean
 //#UC START# *4C80E64501B5for494F818000E6*
 @ %SU
-	[{%P<{}{%aC=Dependency&%aS=uses}{C}>!=0|<{}{%aC=Dependency&%aS=uses}{C}>!=0}{\
-	false\
-	}\
-	true\
-	]
+	true
+//	[{%P<{}{%aC=Dependency&%aS=uses}{C}>!=0|<{}{%aC=Dependency&%aS=uses}{C}>!=0}{\
+//	false\
+//	}\
+//	true\
+//	]
 //#UC END# *4C80E64501B5for494F818000E6*
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Унаследованная реализация
 
 // реализация абстрактного стереотипа OperationsPublisher::Class
-%f _OperationsToFuncImpl
-// параметры: aCaller: MDAClass = %1
-//#UC START# *4A8E9F9502BBfor494F818000E6*
-	[{%f_exists_in_list(PUBLISHED_OPERATIONS_LIST,"%f_N(%P)_%f_N(%S)")!=true}\
-	%f_add_to_list(PUBLISHED_OPERATIONS_LIST,"%f_N(%P)_%f_N(%S)")\
-	[{%S%f_NeedsOpCode()=true}\
-	%f_pas_OpenMethodImplementation("opcode_%f_N(%P)_%f_N(%S)",%1)\
-	class function %f_pas_TypeName(%1).opcode_%f_N(%P)_%f_N(%S) : TvcmOpID;
-	begin
-	 Result := g_opcode_%f_N(%P)_%f_N(%S);
-	 Assert((Result.rEnID \> 0) AND (Result.rOpID \> 0));
-	end;\
-	]\
-	]
-//#UC END# *4A8E9F9502BBfor494F818000E6*
-
-// реализация абстрактного стереотипа OperationsPublisher::Class
-// Операции в функции
-%f _OperationsToFuncIntf
-// параметры: aCaller: MDAClass = %1
-//#UC START# *4A8E9D5E0038for494F818000E6*
-	[{%f_exists_in_list(PUBLISHED_OPERATIONS_LIST,"%f_N(%P)_%f_N(%S)")!=true}\
-	%f_add_to_list(PUBLISHED_OPERATIONS_LIST,"%f_N(%P)_%f_N(%S)")\
-	[{%S%f_NeedsOpCode()=true}\
-	\n   class function opcode_%f_N(%P)_%f_N(%S) : TvcmOpID;
-	     \{ %PD -\> %SD \}\
-	]\
-	]
-//#UC END# *4A8E9D5E0038for494F818000E6*
-
-// реализация абстрактного стереотипа OperationsPublisher::Class
-// Определяет необходимые uses для операций
-%f _OperationsToUses
-//#UC START# *4A82DDA6016Afor494F818000E6*
-	%f_pas_PutToUses(%P%P)
-//#UC END# *4A82DDA6016Afor494F818000E6*
-
-// реализация абстрактного стереотипа OperationsPublisher::Class
-// Операции в секцию Var
-%f _OperationsToVar
-//#UC START# *4A8E9D3A01FEfor494F818000E6*
-	[{%f_exists_in_list(PUBLISHED_OPERATIONS_LIST,"%f_N(%P)_%f_N(%S)")!=true}\
-	%f_add_to_list(PUBLISHED_OPERATIONS_LIST,"%f_N(%P)_%f_N(%S)")\
-	[{%S%f_NeedsOpCode()=true}\
-	\n g_opcode_%f_N(%P)_%f_N(%S) : TvcmOpID;\
-	]\
-	]
-//#UC END# *4A8E9D3A01FEfor494F818000E6*
-
-// реализация абстрактного стереотипа OperationsPublisher::Class
 // Публикует операции
 %f _PublishOperations
 //#UC START# *4A770F770199for494F818000E6*
-	[{%f_exists_in_list(PUBLISHED_OPERATIONS_LIST,"%f_N(%P)_%f_N(%S)")!=true}\
-	%f_add_to_list(PUBLISHED_OPERATIONS_LIST,"%f_N(%P)_%f_N(%S)")\
-	\n\
-	[{%S%f_NeedsOpCode()=true}\
-	 g_opcode_%f_N(%P)_%f_N(%S) :=\n \
-	]\
-	 [{%S%f_IsInternalVCMOperation()=true}{\
-	PublishOperation}\
-	PublishInternalOperation]\
-	(en_%f_N(%P),
-	                    op_%f_N(%S),
-	                    en_cap%f_N(%P),
-	                    op_cap%f_N(%S)[{%S{no prefix}=true}, true]);\
-	[{"%S{ImageIndex}"!=""}\
-	\n SetOperationImageIndex(
-	                    en_%f_N(%P),
-	                    op_%f_N(%S),
-	                    %S{ImageIndex}[{%S{no prefix}=true}, true]);\
-	]\
-	]\
-
-	<{}{%CS=VCMOperationState}\
-	[{%f_exists_in_list(PUBLISHED_OPERATIONS_STATES_LIST,"%f_N(%P)_%f_N(%S)_%f_N(%C)")!=true}\
-	%f_add_to_list(PUBLISHED_OPERATIONS_STATES_LIST,"%f_N(%P)_%f_N(%S)_%f_N(%C)")\
-	[\n %C#f_open_ifdef()]\
-	\n  with PublishOperationState(en_%f_N(%P), op_%f_N(%S), '%f_N(%C)'[{%S{no prefix}=true}, true]) do
-	  begin\
-	\n   st_user_%f_N(%P)_%f_N(%S)_%f_N(%C) := StateIndex;\
-	[\n   Caption := '%CD';]\
-	[\n   Hint := '%C{Hint}';]\
-	[\n   ImageIndex := %C{ImageIndex};]\
-	[{%C{Enabled}!=undefined}\n   Enabled := %C{Enabled};]\
-	[{%C{Visible}!=undefined}\n   Visible := %C{Visible};]\
-	[{%C{Checked}!=undefined}\n   Checked := %C{Checked};]
-	  end;//with PublishOperationState(en_%f_N(%P), op_%f_N(%S), '%f_N(%C)'[{%S{no prefix}=true}, true])\
-	[\n %C#f_close_ifdef()]\
-	]\
-	>
 //#UC END# *4A770F770199for494F818000E6*
 
 // реализация абстрактного стереотипа Документация::MDAGenerator

@@ -12,7 +12,7 @@ FORWARD ME_4F5F48ED0181
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4F5F48ED0181 // EtalonsWorking
+ : Parent HWL ME_4F5F48ED0181 // EtalonsWorking
  ;
  CONST "NameForScript" 'tests:CheckOutputWithInput'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwCheckOutputWithInput.pas'
@@ -31,7 +31,7 @@ ref; // ME_4F5F490D030B CheckOutputWithInput
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4F5F48ED0181 // EtalonsWorking
+ : Parent HWL ME_4F5F48ED0181 // EtalonsWorking
  ;
  CONST "NameForScript" 'tests:CheckEtalon'
  CONST "author" 'Люлин А.В.'
@@ -54,7 +54,7 @@ FORWARD ME_4F5F495003E0
  : Stereotype st_globalkeyword::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4F5F495003E0 // EtalonsWorkingPack
+ : Parent HWL ME_4F5F495003E0 // EtalonsWorkingPack
  ;
 
 ref; // ME_555F531D0312 EtalonNeeds64
@@ -66,7 +66,7 @@ ref; // ME_555F531D0312 EtalonNeeds64
  : Stereotype st_globalkeyword::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4F5F495003E0 // EtalonsWorkingPack
+ : Parent HWL ME_4F5F495003E0 // EtalonsWorkingPack
  ;
 
 ref; // ME_555F53390367 EtalonNeedsComputerName
@@ -78,7 +78,7 @@ ref; // ME_555F53390367 EtalonNeedsComputerName
  : Stereotype st_globalkeyword::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4F5F495003E0 // EtalonsWorkingPack
+ : Parent HWL ME_4F5F495003E0 // EtalonsWorkingPack
  ;
 
 ref; // ME_555F534D01A0 EtalonNeedsOSName
@@ -90,7 +90,7 @@ ref; // ME_555F534D01A0 EtalonNeedsOSName
  : Stereotype st_globalkeyword::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4F5F495003E0 // EtalonsWorkingPack
+ : Parent HWL ME_4F5F495003E0 // EtalonsWorkingPack
  ;
 
 ref; // ME_555F535F00CE EtalonNeedsXE
@@ -98,9 +98,9 @@ ref; // ME_555F535F00CE EtalonNeedsXE
 : ME_4F5F49570039
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4F5F495003E0 // EtalonsWorkingPack
+ : Parent HWL ME_4F5F495003E0 // EtalonsWorkingPack
  ;
- : Target ME_4F5F490D030B // CheckOutputWithInput
+ : Target HWL ME_4F5F490D030B // CheckOutputWithInput
  ;
 
 ref; // ME_4F5F49570039 
@@ -108,9 +108,9 @@ ref; // ME_4F5F49570039
 : ME_4F5F495C0259
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4F5F495003E0 // EtalonsWorkingPack
+ : Parent HWL ME_4F5F495003E0 // EtalonsWorkingPack
  ;
- : Target ME_4DD547B70001 // CheckEtalon
+ : Target HWL ME_4DD547B70001 // CheckEtalon
  ;
 
 ref; // ME_4F5F495C0259 
@@ -120,9 +120,9 @@ FORWARD ME_53FC3551023F
 : ME_53FC35A40121
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4F5F495003E0 // EtalonsWorkingPack
+ : Parent HWL ME_4F5F495003E0 // EtalonsWorkingPack
  ;
- : Target ME_53FC3551023F // test_ResolveInputFilePath
+ : Target HWL ME_53FC3551023F // test_ResolveInputFilePath
  ;
 
 ref; // ME_53FC35A40121 
@@ -130,7 +130,7 @@ ref; // ME_53FC35A40121
 : ME_555F52E402EC
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4F5F495003E0 // EtalonsWorkingPack
+ : Parent HWL ME_4F5F495003E0 // EtalonsWorkingPack
  ;
  : Target WL 'ME_555F49A0015B' '555F498C03BA.pas.ms.script' // Tl3EtalonsService
  ;
@@ -145,13 +145,13 @@ ref; // ME_555F52E402EC
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4F5F48ED0181 // EtalonsWorking
+ : Parent HWL ME_4F5F48ED0181 // EtalonsWorking
  ;
  : Operations
-   Seq: ( ME_555F531D0312 // EtalonNeeds64
- ME_555F53390367 // EtalonNeedsComputerName
- ME_555F534D01A0 // EtalonNeedsOSName
- ME_555F535F00CE // EtalonNeedsXE
+   Seq: ( HWL ME_555F531D0312 // EtalonNeeds64
+ HWL ME_555F53390367 // EtalonNeedsComputerName
+ HWL ME_555F534D01A0 // EtalonNeedsOSName
+ HWL ME_555F535F00CE // EtalonNeedsXE
  )
  ; // Operations
  : Dependencies
@@ -175,7 +175,7 @@ ref; // ME_4F5F495003E0 EtalonsWorkingPack
  %SUMMARY '*Описание:* добавляет к имени файла путь к директории TestSet, где хранятся исходные файлы.'#13#10'*Формат*'#13#10'{code}'#13#10'aFileName test:ResolveInputFilePath'#13#10'{code}'#13#10'где aFileName - имя файля без пути (!).'#13#10'Результат помещается в стек.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4F5F48ED0181 // EtalonsWorking
+ : Parent HWL ME_4F5F48ED0181 // EtalonsWorking
  ;
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwTestResolveInputFilePath.pas'
  CONST extprop:pas:TypeName 'TkwTestResolveInputFilePath'
@@ -195,10 +195,10 @@ ref; // ME_53FC3551023F test_ResolveInputFilePath
  : Parent WL 'ME_4E1F0EB100C4' '4E1F0EB100C4.pas.ms.script' // ScriptEngine
  ;
  : Children
-   Seq: ( ME_4F5F490D030B // CheckOutputWithInput
- ME_4DD547B70001 // CheckEtalon
- ME_4F5F495003E0 // EtalonsWorkingPack
- ME_53FC3551023F // test_ResolveInputFilePath
+   Seq: ( HWL ME_4F5F490D030B // CheckOutputWithInput
+ HWL ME_4DD547B70001 // CheckEtalon
+ HWL ME_4F5F495003E0 // EtalonsWorkingPack
+ HWL ME_53FC3551023F // test_ResolveInputFilePath
  )
  ; // Children
  : Depends

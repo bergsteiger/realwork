@@ -35,7 +35,7 @@ ref; // ME_C36691049498 aPara
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_BA57CFD34717 // MevCustomStyleManager
+ : Parent HWL ME_BA57CFD34717 // MevCustomStyleManager
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -64,7 +64,7 @@ ref; // ME_C1374E2BB356 aSeg
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_BA57CFD34717 // MevCustomStyleManager
+ : Parent HWL ME_BA57CFD34717 // MevCustomStyleManager
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -85,56 +85,15 @@ ref; // ME_DC1A5D24B383 IsVisitedDocumentLink
  %SUMMARY 'Контракт сервиса TevCustomStyleManager' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_53AABE1F0383 // TevCustomStyleManager
+ : Parent HWL ME_53AABE1F0383 // TevCustomStyleManager
  ;
  : Operations
-   Seq: ( ME_391A810FF759 // IsAbolishedDocumentLink
- ME_DC1A5D24B383 // IsVisitedDocumentLink
+   Seq: ( HWL ME_391A810FF759 // IsAbolishedDocumentLink
+ HWL ME_DC1A5D24B383 // IsVisitedDocumentLink
  )
  ; // Operations
 
 ref; // ME_BA57CFD34717 MevCustomStyleManager
-
-FORWARD ME_D8B97AFBE40F
-
-: ME_391A810FF759_ME_D8B97AFBE40F
- : Original ME_391A810FF759 // IsAbolishedDocumentLink
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_391A810FF759_ME_D8B97AFBE40F IsAbolishedDocumentLink
-
-: ME_DC1A5D24B383_ME_D8B97AFBE40F
- : Original ME_DC1A5D24B383 // IsVisitedDocumentLink
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_DC1A5D24B383_ME_D8B97AFBE40F IsVisitedDocumentLink
-
-: ME_D8B97AFBE40F
- CONST UID 'D8B97AFBE40F'
- CONST GUID '3E2B89CD-5B2D-400C-9EC9-FDA3B57A0C23'
- CONST Name 'IevCustomStyleManager'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Facet ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Интерфейс сервиса TevCustomStyleManager' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_53AABE1F0383 // TevCustomStyleManager
- ;
- : Implements
-   Seq: ( ME_BA57CFD34717 // MevCustomStyleManager
- )
- ; // Implements
- : Implemented
-   Seq: ( ME_391A810FF759_ME_D8B97AFBE40F // IsAbolishedDocumentLink
- ME_DC1A5D24B383_ME_D8B97AFBE40F // IsVisitedDocumentLink
- )
- ; // Implemented
- CONST extprop:rc:SelfName 'StyleManager'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_D8B97AFBE40F IevCustomStyleManager
 
 : ME_5549E18D025A
  CONST Name 'aSeg'
@@ -161,7 +120,7 @@ ref; // ME_5549E18D0282 aPara
  : Stereotype st_responsibility::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_53AABE1F0383 // TevCustomStyleManager
+ : Parent HWL ME_53AABE1F0383 // TevCustomStyleManager
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -189,7 +148,7 @@ ref; // ME_5549E1F800FA aSeg
  : Stereotype st_responsibility::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_53AABE1F0383 // TevCustomStyleManager
+ : Parent HWL ME_53AABE1F0383 // TevCustomStyleManager
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -200,18 +159,6 @@ ref; // ME_5549E1F800FA aSeg
 
 ref; // ME_5549E1DA0063 IsVisitedDocumentLink
 
-: ME_391A810FF759_ME_53AABE1F0383
- : Original ME_391A810FF759 // IsAbolishedDocumentLink
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_391A810FF759_ME_53AABE1F0383 IsAbolishedDocumentLink
-
-: ME_DC1A5D24B383_ME_53AABE1F0383
- : Original ME_DC1A5D24B383 // IsVisitedDocumentLink
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_DC1A5D24B383_ME_53AABE1F0383 IsVisitedDocumentLink
-
 : ME_53AABE1F0383
  CONST UID '53AABE1F0383'
  CONST Name 'TevCustomStyleManager'
@@ -220,29 +167,19 @@ ref; // ME_DC1A5D24B383_ME_53AABE1F0383 IsVisitedDocumentLink
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_53AABD9F02D1 // CustomStyleManager
+ : Parent HWL ME_53AABD9F02D1 // CustomStyleManager
  ;
  : Inherits
    Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
  )
  ; // Inherits
- : Implements
-   Seq: ( ME_BA57CFD34717 // MevCustomStyleManager
- )
- ; // Implements
  : Operations
-   Seq: ( ME_5549E17B01C5 // IsAbolishedDocumentLink
- ME_5549E1DA0063 // IsVisitedDocumentLink
+   Seq: ( HWL ME_5549E17B01C5 // IsAbolishedDocumentLink
+ HWL ME_5549E1DA0063 // IsVisitedDocumentLink
  )
  ; // Operations
- : Implemented
-   Seq: ( ME_391A810FF759_ME_53AABE1F0383 // IsAbolishedDocumentLink
- ME_DC1A5D24B383_ME_53AABE1F0383 // IsVisitedDocumentLink
- )
- ; // Implemented
  : Children
-   Seq: ( ME_BA57CFD34717 // MevCustomStyleManager
- ME_D8B97AFBE40F // IevCustomStyleManager
+   Seq: ( HWL ME_BA57CFD34717 // MevCustomStyleManager
  )
  ; // Children
  CONST "singleton" true
@@ -250,10 +187,6 @@ ref; // ME_DC1A5D24B383_ME_53AABE1F0383 IsVisitedDocumentLink
  CONST extprop:rc:SelfName 'StyleManager'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'evCustomStyleManager'
- : Facet ME_D8B97AFBE40F // IevCustomStyleManager
- ;
- : Mixin ME_BA57CFD34717 // MevCustomStyleManager
- ;
 
 ref; // ME_53AABE1F0383 TevCustomStyleManager
 
@@ -267,7 +200,7 @@ ref; // ME_53AABE1F0383 TevCustomStyleManager
  : Parent WL 'ME_4797632D0273' '4797632D0273.pas.ms.script' // Everest
  ;
  : Children
-   Seq: ( ME_53AABE1F0383 // TevCustomStyleManager
+   Seq: ( HWL ME_53AABE1F0383 // TevCustomStyleManager
  )
  ; // Children
  : Depends

@@ -12,7 +12,7 @@ FORWARD ME_47E761BB02FE
  CONST Class class_Operation
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_47E761BB02FE // TvcmAction
+ : Parent HWL ME_47E761BB02FE // TvcmAction
  ;
 
 ref; // ME_47E766E10053 DoUpdate
@@ -26,7 +26,7 @@ ref; // ME_47E766E10053 DoUpdate
  %SUMMARY 'Базовая операция библиотеки vcm для привязки к меню.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47E7617C0275 // Actions
+ : Parent HWL ME_47E7617C0275 // Actions
  ;
  : Inherits
    Seq: ( WL 'ME_47913F970159' '47913B47006E.pas.ms.script' // l3Unknown
@@ -34,7 +34,7 @@ ref; // ME_47E766E10053 DoUpdate
  )
  ; // Inherits
  : Operations
-   Seq: ( ME_47E766E10053 // DoUpdate
+   Seq: ( HWL ME_47E766E10053 // DoUpdate
  )
  ; // Operations
  CONST "author" 'Люлин А.В.'
@@ -57,7 +57,7 @@ FORWARD ME_47E7652402FF
  CONST Visibility PublicAccess
  CONST Abstraction at_final
  CONST LinkType lt_agr
- : Parent ME_47E7652402FF // TvcmMainMenuAction
+ : Parent HWL ME_47E7652402FF // TvcmMainMenuAction
  ;
  : Target WL 'ME_47E765A20100' '4683F37902CF.pas.ms.script' // TvcmTestEvent
  ;
@@ -93,7 +93,7 @@ ref; // ME_47E7672D032A aTest
  : Stereotype st_ctor::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_47E7652402FF // TvcmMainMenuAction
+ : Parent HWL ME_47E7652402FF // TvcmMainMenuAction
  ;
  : Parameters
    Seq: ( ME_47E7672D030D // anOwner
@@ -128,9 +128,9 @@ ref; // ME_47E7AC3602D1 aTest
  : Stereotype st_static::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_47E7652402FF // TvcmMainMenuAction
+ : Parent HWL ME_47E7652402FF // TvcmMainMenuAction
  ;
- : Target ME_47E7652402FF // TvcmMainMenuAction
+ : Target HWL ME_47E7652402FF // TvcmMainMenuAction
  ;
  : Parameters
    Seq: ( ME_47E7AC3602AE // anItem
@@ -143,7 +143,7 @@ ref; // ME_47E7AC17020C MakeForMenu
 : ME_47E7B1910352
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_47E7652402FF // TvcmMainMenuAction
+ : Parent HWL ME_47E7652402FF // TvcmMainMenuAction
  ;
  : Target WL 'ME_4773D64E036C' '47913B47006E.pas.ms.script' // l3Base
  ;
@@ -151,7 +151,7 @@ ref; // ME_47E7AC17020C MakeForMenu
 ref; // ME_47E7B1910352 
 
 : ME_47E766E10053_ME_47E7652402FF
- : Original ME_47E766E10053 // DoUpdate
+ : Original HWL ME_47E766E10053 // DoUpdate
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_47E766E10053_ME_47E7652402FF DoUpdate
@@ -164,19 +164,19 @@ ref; // ME_47E766E10053_ME_47E7652402FF DoUpdate
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47E7617C0275 // Actions
+ : Parent HWL ME_47E7617C0275 // Actions
  ;
  : Inherits
-   Seq: ( ME_47E761BB02FE // TvcmAction
+   Seq: ( HWL ME_47E761BB02FE // TvcmAction
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_47E765F0013D // OnTest
+   Seq: ( HWL ME_47E765F0013D // OnTest
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_47E7670B000F // Create
- ME_47E7AC17020C // MakeForMenu
+   Seq: ( HWL ME_47E7670B000F // Create
+ HWL ME_47E7AC17020C // MakeForMenu
  )
  ; // Operations
  : Overridden
@@ -205,7 +205,7 @@ ref; // ME_47E7652402FF TvcmMainMenuAction
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47E7617C0275 // Actions
+ : Parent HWL ME_47E7617C0275 // Actions
  ;
  CONST "finished" false
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Visual\NOT_FINISHED_vcmEntityAction.pas'
@@ -223,7 +223,7 @@ ref; // ME_4F82EFAB02D4 TvcmEntityAction
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47E7617C0275 // Actions
+ : Parent HWL ME_47E7617C0275 // Actions
  ;
  CONST "finished" false
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Visual\NOT_FINISHED_vcmOperationAction.pas'
@@ -241,7 +241,7 @@ ref; // ME_4F82EFBE018A TvcmOperationAction
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47E7617C0275 // Actions
+ : Parent HWL ME_47E7617C0275 // Actions
  ;
  CONST "finished" false
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Visual\NOT_FINISHED_vcmModuleAction.pas'
@@ -261,11 +261,11 @@ ref; // ME_4F82EFD20255 TvcmModuleAction
  : Parent WL 'ME_4790C3B8021E' '4790C3B8021E.pas.ms.script' // VCM
  ;
  : Children
-   Seq: ( ME_47E761BB02FE // TvcmAction
- ME_47E7652402FF // TvcmMainMenuAction
- ME_4F82EFAB02D4 // TvcmEntityAction
- ME_4F82EFBE018A // TvcmOperationAction
- ME_4F82EFD20255 // TvcmModuleAction
+   Seq: ( HWL ME_47E761BB02FE // TvcmAction
+ HWL ME_47E7652402FF // TvcmMainMenuAction
+ HWL ME_4F82EFAB02D4 // TvcmEntityAction
+ HWL ME_4F82EFBE018A // TvcmOperationAction
+ HWL ME_4F82EFD20255 // TvcmModuleAction
  )
  ; // Children
  : Depends

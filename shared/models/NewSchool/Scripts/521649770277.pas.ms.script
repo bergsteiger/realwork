@@ -1,0 +1,92 @@
+// VCMSandBox 521649770277 VCMApplication Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_521649770277
+
+FORWARD ME_52164E4B0028
+
+: ME_52164E880101
+ CONST UID '52164E880101'
+ CONST Name 'VCMSandBoxTitle'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_52164E4B0028 // Local
+ ;
+ CONST Value '''Тестовое приложение VCM'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '''Тестовое приложение VCM'''
+
+ref; // ME_52164E880101 VCMSandBoxTitle
+
+: ME_52164E4B0028
+ CONST UID '52164E4B0028'
+ CONST Name 'Local'
+ CONST Class class_Class
+ : Stereotype st_LocalConst ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_521649770277 // VCMSandBox
+ ;
+ : Attributes
+   Seq: ( HWL ME_52164E880101 // VCMSandBoxTitle
+ )
+ ; // Attributes
+ CONST "Need map interface" false
+ CONST "Need mapping support" false
+ CONST "spell names" false
+
+ref; // ME_52164E4B0028 Local
+
+: ME_521649AB009E
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_521649770277 // VCMSandBox
+ ;
+ : Target WL 'ME_5216340000E6' '5216340000E6.pas.ms.script' // Document$UC
+ ;
+
+ref; // ME_521649AB009E 
+
+: ME_521DA6AD01CA
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_521649770277 // VCMSandBox
+ ;
+ : Target WL 'ME_521DA5BA002C' '521DA5BA002C.pas.ms.script' // List$UC
+ ;
+
+ref; // ME_521DA6AD01CA 
+
+: ME_521649770277
+ CONST UID '521649770277'
+ CONST Name 'VCMSandBox'
+ CONST Class class_Class
+ : Stereotype st_VCMApplication ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Тестовое приложение VCM' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent WL 'ME_521649450152' '521649450152.pas.ms.script' // VCMSandBox
+ ;
+ : Constants
+   Seq: ( HWL ME_52164E4B0028 // Local
+ )
+ ; // Constants
+ : Dependencies
+   Seq: ( ME_521649AB009E // Document$UC
+ ME_521DA6AD01CA // List$UC
+ )
+ ; // Dependencies
+ CONST intf.pas:Path 'common\components\SandBox\VCM\VCMSandBoxRes.pas'
+ CONST extprop:pas:TypeName 'TVCMSandBoxRes'
+ CONST extprop:rc:SelfName 'VCMSandBoxRes'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'VCMSandBoxRes'
+
+ref; // ME_521649770277 VCMSandBox

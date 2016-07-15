@@ -14,7 +14,7 @@ FORWARD ME_51612ED700B4
  CONST Visibility PublicAccess
  CONST Abstraction at_final
  CONST LinkType lt_agr
- : Parent ME_51612ED700B4 // RefCountedPrim
+ : Parent HWL ME_51612ED700B4 // RefCountedPrim
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -31,7 +31,7 @@ ref; // ME_4791515B0239 RefCount
  %SUMMARY 'Функция очистки полей объекта.' ;
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_51612ED700B4 // RefCountedPrim
+ : Parent HWL ME_51612ED700B4 // RefCountedPrim
  ;
 
 ref; // ME_479731C50290 Cleanup
@@ -43,7 +43,7 @@ ref; // ME_479731C50290 Cleanup
  %SUMMARY 'увеличить счетчик ссылок на 1 и вернуть указатель на себя.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_51612ED700B4 // RefCountedPrim
+ : Parent HWL ME_51612ED700B4 // RefCountedPrim
  ;
  : Target WL 'ME_46A608F00301' '4AB0C3C60310.pas.ms.script' // Pointer
  ;
@@ -63,7 +63,7 @@ ref; // ME_51613280011E F
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_51612ED700B4 // RefCountedPrim
+ : Parent HWL ME_51612ED700B4 // RefCountedPrim
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -80,7 +80,7 @@ ref; // ME_5161325E01CB SetRefTo
  CONST Class class_Operation
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_51612ED700B4 // RefCountedPrim
+ : Parent HWL ME_51612ED700B4 // RefCountedPrim
  ;
 
 ref; // ME_49BFC98902FF BeforeRelease
@@ -91,7 +91,7 @@ ref; // ME_49BFC98902FF BeforeRelease
  CONST Class class_Operation
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_51612ED700B4 // RefCountedPrim
+ : Parent HWL ME_51612ED700B4 // RefCountedPrim
  ;
 
 ref; // ME_479F2AFB0397 Release
@@ -99,7 +99,7 @@ ref; // ME_479F2AFB0397 Release
 : ME_51613DAB00FA
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_51612ED700B4 // RefCountedPrim
+ : Parent HWL ME_51612ED700B4 // RefCountedPrim
  ;
  : Target WL 'ME_48A41FF10094' '4AB0C3F60375.pas.ms.script' // Windows
  ;
@@ -140,22 +140,22 @@ ref; // ME_51DAEFC6017B_ME_51612ED700B4 BeforeDestruction
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_51612EBB02F5 // Ref Counting
+ : Parent HWL ME_51612EBB02F5 // Ref Counting
  ;
  : Implements
    Seq: ( WL 'ME_516130FB0241' '4AB0C3C60310.pas.ms.script' // MObject
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_4791515B0239 // RefCount
+   Seq: ( HWL ME_4791515B0239 // RefCount
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_479731C50290 // Cleanup
- ME_479152500168 // Use
- ME_5161325E01CB // SetRefTo
- ME_49BFC98902FF // BeforeRelease
- ME_479F2AFB0397 // Release
+   Seq: ( HWL ME_479731C50290 // Cleanup
+ HWL ME_479152500168 // Use
+ HWL ME_5161325E01CB // SetRefTo
+ HWL ME_49BFC98902FF // BeforeRelease
+ HWL ME_479F2AFB0397 // Release
  )
  ; // Operations
  : Overridden
@@ -184,7 +184,7 @@ FORWARD ME_51614065019A
  %SUMMARY 'Это чтобы не было соблазна перекрывать destroy.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_51614065019A // RefCounted
+ : Parent HWL ME_51614065019A // RefCounted
  ;
 
 ref; // ME_5161409E01B6 destroy
@@ -196,7 +196,7 @@ ref; // ME_5161409E01B6 destroy
  : Stereotype st_static::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_51614065019A // RefCounted
+ : Parent HWL ME_51614065019A // RefCounted
  ;
  : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
  ;
@@ -209,7 +209,7 @@ ref; // ME_516D4E5A000A NewInstance
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_51614065019A // RefCounted
+ : Parent HWL ME_51614065019A // RefCounted
  ;
 
 ref; // ME_516D4E780193 FreeInstance
@@ -220,7 +220,7 @@ ref; // ME_516D4E780193 FreeInstance
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_51614065019A // RefCounted
+ : Parent HWL ME_51614065019A // RefCounted
  ;
 
 ref; // ME_516D4E9403A0 AfterConstruction
@@ -231,7 +231,7 @@ ref; // ME_516D4E9403A0 AfterConstruction
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_51614065019A // RefCounted
+ : Parent HWL ME_51614065019A // RefCounted
  ;
 
 ref; // ME_516D4EAD0095 BeforeDestruction
@@ -245,18 +245,18 @@ ref; // ME_516D4EAD0095 BeforeDestruction
  %SUMMARY 'В этом классе собираем методы, которые запрещено перекрывать и вызывать напрямую' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_51612EBB02F5 // Ref Counting
+ : Parent HWL ME_51612EBB02F5 // Ref Counting
  ;
  : Inherits
-   Seq: ( ME_51612ED700B4 // RefCountedPrim
+   Seq: ( HWL ME_51612ED700B4 // RefCountedPrim
  )
  ; // Inherits
  : Operations
-   Seq: ( ME_5161409E01B6 // destroy
- ME_516D4E5A000A // NewInstance
- ME_516D4E780193 // FreeInstance
- ME_516D4E9403A0 // AfterConstruction
- ME_516D4EAD0095 // BeforeDestruction
+   Seq: ( HWL ME_5161409E01B6 // destroy
+ HWL ME_516D4E5A000A // NewInstance
+ HWL ME_516D4E780193 // FreeInstance
+ HWL ME_516D4E9403A0 // AfterConstruction
+ HWL ME_516D4EAD0095 // BeforeDestruction
  )
  ; // Operations
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\RefCounted.imp.pas'
@@ -296,10 +296,10 @@ ref; // ME_47913CBF0265_ME_516D4D0D0237 QueryInterface
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_51612EBB02F5 // Ref Counting
+ : Parent HWL ME_51612EBB02F5 // Ref Counting
  ;
  : Inherits
-   Seq: ( ME_51614065019A // RefCounted
+   Seq: ( HWL ME_51614065019A // RefCounted
  )
  ; // Inherits
  : Implements
@@ -326,10 +326,10 @@ ref; // ME_516D4D0D0237 UnknownImpl
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_51612EBB02F5 // Ref Counting
+ : Parent HWL ME_51612EBB02F5 // Ref Counting
  ;
  : Inherits
-   Seq: ( ME_516D4D0D0237 // UnknownImpl
+   Seq: ( HWL ME_516D4D0D0237 // UnknownImpl
  )
  ; // Inherits
  : Implements
@@ -350,11 +350,11 @@ ref; // ME_516D4D45029C Unknown
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_51612EBB02F5 // Ref Counting
+ : Parent HWL ME_51612EBB02F5 // Ref Counting
  ;
  : Inherits
    Seq: ( WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ME_51614065019A // RefCounted
+ HWL ME_51614065019A // RefCounted
  )
  ; // Inherits
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\Refcounted.pas'
@@ -372,10 +372,10 @@ ref; // ME_516137AD0362 TRefcounted
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_51612EBB02F5 // Ref Counting
+ : Parent HWL ME_51612EBB02F5 // Ref Counting
  ;
  : Inherits
-   Seq: ( ME_51612ED700B4 // RefCountedPrim
+   Seq: ( HWL ME_51612ED700B4 // RefCountedPrim
  )
  ; // Inherits
 
@@ -391,12 +391,12 @@ ref; // ME_51DEB13301ED MRefCounted
  : Parent WL 'ME_515AC89F01E1' '515AC89F01E1.pas.ms.script' // L3$Basic Concepts
  ;
  : Children
-   Seq: ( ME_51612ED700B4 // RefCountedPrim
- ME_51614065019A // RefCounted
- ME_516D4D0D0237 // UnknownImpl
- ME_516D4D45029C // Unknown
- ME_516137AD0362 // TRefcounted
- ME_51DEB13301ED // MRefCounted
+   Seq: ( HWL ME_51612ED700B4 // RefCountedPrim
+ HWL ME_51614065019A // RefCounted
+ HWL ME_516D4D0D0237 // UnknownImpl
+ HWL ME_516D4D45029C // Unknown
+ HWL ME_516137AD0362 // TRefcounted
+ HWL ME_51DEB13301ED // MRefCounted
  )
  ; // Children
  : Depends

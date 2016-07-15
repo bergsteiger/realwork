@@ -1,3 +1,6 @@
+//#UC START# *498B135601B6impl_uses*
+ , StdRes
+//#UC END# *498B135601B6impl_uses*
 //#UC START# *4AA11788033F_498B135601B6_impl*
  {$IfDef vcmUseProfilers}
  ProfilersManager.Document.Start;
@@ -11,34 +14,34 @@
    DT_EXPLANATORY:
    begin
     CheckAlive;
-    TdmStdRes.OpenDictionary(aDocInfo, CheckContainer(aContainer));
+    TvcmModulesFactories.OpenDictionary(aDocInfo, CheckContainer(aContainer));
    end;//DT_EXPLANATORY
    DT_TIP:
    begin
     CheckAlive;
-    TdmStdRes.OpenTip(aDocInfo, CheckContainer(aContainer));
+    TvcmModulesFactories.OpenTip(aDocInfo, CheckContainer(aContainer));
    end;//DT_TIP
    DT_MEDICAL_EXPLANATORY:
    begin
     CheckAlive;
-    TdmStdRes.OpenMedicDiction(aDocInfo, CheckContainer(aContainer));
+    TvcmModulesFactories.OpenMedicDiction(aDocInfo, CheckContainer(aContainer));
    end;//DT_MEDICAL_EXPLANATORY
    DT_MEDICAL_FIRM:
    begin
     CheckAlive;
-    TdmStdRes.OpenMedicFirmDocument(aDocInfo, CheckContainer(aContainer));
+    TvcmModulesFactories.OpenMedicFirmDocument(aDocInfo, CheckContainer(aContainer));
    end;//DT_MEDICAL_FIRM
    DT_MEDICAL_DOCUMENT:
    begin
-    TdmStdRes.OpenDrugDocument(aDocInfo, CheckContainer(aContainer));
+    TvcmModulesFactories.OpenDrugDocument(aDocInfo, CheckContainer(aContainer));
    end;//DT_MEDICAL_DOCUMENT
    DT_FLASH:
     Tfs_DocumentWithFlash.Make(TsdsDocumentWithFlash.Make(aDocInfo),
                                CheckContainer(aContainer));
    DT_ACTUAL_ANALYTICS:
-    TdmStdRes.MakeAAC(aDocInfo, CheckContainer(aContainer));
+    TvcmModulesFactories.MakeAAC(aDocInfo, CheckContainer(aContainer));
    DT_ACTUAL_ANALYTICS_CONTENTS:
-    TdmStdRes.MakeAACContents(aDocInfo, CheckContainer(aContainer));
+    TvcmModulesFactories.MakeAACContents(aDocInfo, CheckContainer(aContainer));
    else
     Assert(false);
   end//case l_DocInfo.Doc.GetDocType of
@@ -225,3 +228,17 @@ var
 //#UC END# *4F7D90530076_498B135601B6_impl*
 //#UC START# *4F7D90530076_498B135601B6_var*
 //#UC END# *4F7D90530076_498B135601B6_var*
+//#UC START# *81ECFA778427_498B135601B6_impl*
+ if (afw.Settings <> nil) then
+  afw.Settings.SaveBoolean(pi_Document_ShowChangesInfo, aValue);
+//#UC END# *81ECFA778427_498B135601B6_impl*
+//#UC START# *81ECFA778427_498B135601B6_var*
+//#UC END# *81ECFA778427_498B135601B6_var*
+//#UC START# *F439A1EC5B50_498B135601B6_impl*
+ if (afw.Settings = nil) then
+  Result := dv_Document_ShowChangesInfo
+ else
+  Result := afw.Settings.LoadBoolean(pi_Document_ShowChangesInfo, dv_Document_ShowChangesInfo);
+//#UC END# *F439A1EC5B50_498B135601B6_impl*
+//#UC START# *F439A1EC5B50_498B135601B6_var*
+//#UC END# *F439A1EC5B50_498B135601B6_var*

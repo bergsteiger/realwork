@@ -1,0 +1,400 @@
+// PrimNemesis 4A925AFF01BA VCMApplication Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A925AFF01BA
+
+FORWARD ME_4AA8AC090381
+
+: ME_4AA8AC3D00E5
+ CONST Name 'aDate'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_4AA8AC3D00E5 aDate
+
+: ME_4AA8AC2403DA
+ CONST UID '4AA8AC2403DA'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ %SUMMARY 'Глобальный обработчик сообщения о корректировке даты' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AA8AC090381 // BeforeCorrectDate
+ ;
+ : Parameters
+   Seq: ( ME_4AA8AC3D00E5 // aDate
+ )
+ ; // Parameters
+
+ref; // ME_4AA8AC2403DA DoIt
+
+: ME_4AA8AF9700CB
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AA8AC090381 // BeforeCorrectDate
+ ;
+ : Target WL 'ME_4AA13EB80322' '4AADF9450143.pas.ms.script' // Ask
+ ;
+
+ref; // ME_4AA8AF9700CB 
+
+: ME_4AA8AC090381
+ CONST UID '4AA8AC090381'
+ CONST Name 'BeforeCorrectDate'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4A925AFF01BA // PrimNemesis
+ ;
+ : Operations
+   Seq: ( HWL ME_4AA8AC2403DA // DoIt
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_4AA8AF9700CB // Ask
+ )
+ ; // Dependencies
+ CONST "is static" true
+
+ref; // ME_4AA8AC090381 BeforeCorrectDate
+
+: ME_4AA7C2FD0185
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A925AFF01BA // PrimNemesis
+ ;
+ : Target WL 'ME_4AA7C26401C4' '48F747EC0073.pas.ms.script' // TnsStartupSupport
+ ;
+
+ref; // ME_4AA7C2FD0185 
+
+: ME_4AA7D8900188
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A925AFF01BA // PrimNemesis
+ ;
+ : Target WL 'ME_48A41FF10094' '4AB0C3F60375.pas.ms.script' // Windows
+ ;
+
+ref; // ME_4AA7D8900188 
+
+: ME_4AA7D8BE03E5
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A925AFF01BA // PrimNemesis
+ ;
+ : Target WL 'ME_4912B19E0139' '48F747EC0073.pas.ms.script' // GblAdapter
+ ;
+
+ref; // ME_4AA7D8BE03E5 
+
+: ME_4AA7DACD0397
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A925AFF01BA // PrimNemesis
+ ;
+ : Target WL 'ME_4773D64E036C' '47913B47006E.pas.ms.script' // l3Base
+ ;
+
+ref; // ME_4AA7DACD0397 
+
+: ME_4AA7DE8000F7
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A925AFF01BA // PrimNemesis
+ ;
+ : Target WL 'ME_45EEE02203D8' '456FF1DD031C.pas.ms.script' // InvalidBase
+ ;
+
+ref; // ME_4AA7DE8000F7 
+
+: ME_4AA7E23B027D
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A925AFF01BA // PrimNemesis
+ ;
+ : Target WL 'ME_4AA7E2060118' '4AB0C3C60310.pas.ms.script' // EAbort
+ ;
+
+ref; // ME_4AA7E23B027D 
+
+: ME_4AA7E24501CF
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A925AFF01BA // PrimNemesis
+ ;
+ : Target WL 'ME_4AA7E1CF0079' '48F747EC0073.pas.ms.script' // ECorbaException
+ ;
+
+ref; // ME_4AA7E24501CF 
+
+: ME_4AA7EA360300
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A925AFF01BA // PrimNemesis
+ ;
+ : Target WL 'ME_4AA7E9CB034A' '4AA7E9B9016C.pas.ms.script' // MedicMainMenuRes
+ ;
+
+ref; // ME_4AA7EA360300 
+
+: ME_4AA7EA3D0203
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A925AFF01BA // PrimNemesis
+ ;
+ : Target WL 'ME_4AA7E9E60251' '4AAA216F032C.pas.ms.script' // MainMenuNewRes
+ ;
+
+ref; // ME_4AA7EA3D0203 
+
+: ME_4AA8D64702A7
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A925AFF01BA // PrimNemesis
+ ;
+ : Target WL 'ME_4AA8D62102F5' '4AA8D60602A1.pas.ms.script' // nsHooks
+ ;
+
+ref; // ME_4AA8D64702A7 
+
+: ME_4AB36E4B0367
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A925AFF01BA // PrimNemesis
+ ;
+ : Target WL 'ME_45EEE145027B' '45EEAA8E034E.pas.ms.script' // Query
+ ;
+
+ref; // ME_4AB36E4B0367 
+
+: ME_4AB36E9202EE
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A925AFF01BA // PrimNemesis
+ ;
+ : Target WL 'ME_49512DE00227' '4A9F98B901A5.pas.ms.script' // TnsBaseSearchOpenKind
+ ;
+
+ref; // ME_4AB36E9202EE 
+
+: ME_4AB36EA700F1
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A925AFF01BA // PrimNemesis
+ ;
+ : Target WL 'ME_4A93BA1802CE' '47D0E1500033.pas.ms.script' // vcmParams
+ ;
+
+ref; // ME_4AB36EA700F1 
+
+: ME_4AB36EBD02A4
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A925AFF01BA // PrimNemesis
+ ;
+ : Target WL 'ME_4926B55401A2' '48F747EC0073.pas.ms.script' // DebugStr
+ ;
+
+ref; // ME_4AB36EBD02A4 
+
+: ME_4AB36ECB0344
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A925AFF01BA // PrimNemesis
+ ;
+ : Target WL 'ME_47F260EC02C7' '521C9DA50125.pas.ms.script' // StdRes
+ ;
+
+ref; // ME_4AB36ECB0344 
+
+: ME_4E034945002E
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A925AFF01BA // PrimNemesis
+ ;
+ : Target WL 'ME_4E01D696020C' '4AADF9450143.pas.ms.script' // vcmMessagesSupport
+ ;
+
+ref; // ME_4E034945002E 
+
+: ME_4F7DA6EF00E5
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A925AFF01BA // PrimNemesis
+ ;
+ : Target WL 'ME_4AA7E9CB034A' '4AA7E9B9016C.pas.ms.script' // MedicMainMenuRes
+ ;
+
+ref; // ME_4F7DA6EF00E5 
+
+: ME_4F7DAD9801FB
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A925AFF01BA // PrimNemesis
+ ;
+ : Target WL 'ME_4AA7EA010274' '4AA7EA010274.pas.ms.script' // MainWindow
+ ;
+
+ref; // ME_4F7DAD9801FB 
+
+: ME_53D0D34202ED
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A925AFF01BA // PrimNemesis
+ ;
+ : Target WL 'ME_53BA4C3901C1' '53A402C7010D.pas.ms.script' // TabbedContainerRes
+ ;
+
+ref; // ME_53D0D34202ED 
+
+: ME_544631C20259
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A925AFF01BA // PrimNemesis
+ ;
+ : Target WL 'ME_542BED480295' '48F747EC0073.pas.ms.script' // TnsNotificationManager
+ ;
+
+ref; // ME_544631C20259 
+
+: ME_54915CC6021C
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A925AFF01BA // PrimNemesis
+ ;
+ : Target WL 'ME_5417C7F502CD' '53288DFA03A7.pas.ms.script' // TvgRemindersLineTabbedContainerNotificationProxy
+ ;
+
+ref; // ME_54915CC6021C 
+
+: ME_5518EE0101BF
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A925AFF01BA // PrimNemesis
+ ;
+ : Target WL 'ME_551552FA002B' '53F2D7B00186.pas.ms.script' // TChromeLikeTabSetParams
+ ;
+
+ref; // ME_5518EE0101BF 
+
+: ME_556489D2014B
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A925AFF01BA // PrimNemesis
+ ;
+ : Target WL 'ME_4B8E4B58034D' '4AC5DADB00C9.pas.ms.script' // vtDateEditRes
+ ;
+
+ref; // ME_556489D2014B 
+
+: ME_57574E2502B3
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A925AFF01BA // PrimNemesis
+ ;
+ : Target WL 'ME_49525B34022A' '4AADF9450143.pas.ms.script' // TvcmEntityForm
+ ;
+
+ref; // ME_57574E2502B3 
+
+: ME_4AA7C28A0113_ME_4A925AFF01BA
+ : Original WL 'ME_4AA7C28A0113' '4A92BBDF0126.pas.ms.script' // RunOtherProcesses
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4AA7C28A0113_ME_4A925AFF01BA RunOtherProcesses
+
+: ME_4AA7D7CA00FE_ME_4A925AFF01BA
+ : Original WL 'ME_4AA7D7CA00FE' '4A92BBDF0126.pas.ms.script' // DoGlobalInit
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4AA7D7CA00FE_ME_4A925AFF01BA DoGlobalInit
+
+: ME_4AA7E4DC0047_ME_4A925AFF01BA
+ : Original WL 'ME_4AA7E4DC0047' '4A92BBDF0126.pas.ms.script' // DoRun
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4AA7E4DC0047_ME_4A925AFF01BA DoRun
+
+: ME_4AC4A69D03B7_ME_4A925AFF01BA
+ : Original WL 'ME_4AC4A69D03B7' '4A92BBDF0126.pas.ms.script' // OpenQuery
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "ifndef" 'Admin'
+ref; // ME_4AC4A69D03B7_ME_4A925AFF01BA OpenQuery
+
+: ME_4A925AFF01BA
+ CONST UID '4A925AFF01BA'
+ CONST Name 'PrimNemesis'
+ CONST Class class_Class
+ : Stereotype st_VCMApplication ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Приложение Nemesis' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent WL 'ME_4F7D7B980383' '4F7D7B980383.pas.ms.script' // View
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4AAA42BF0267' '4AAA42BF0267.pas.ms.script' // ShellAndMonitorings
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( HWL ME_4AA8AC090381 // BeforeCorrectDate
+ )
+ ; // Operations
+ : Overridden
+   Seq: ( ME_4AA7C28A0113_ME_4A925AFF01BA // RunOtherProcesses
+ ME_4AA7D7CA00FE_ME_4A925AFF01BA // DoGlobalInit
+ ME_4AA7E4DC0047_ME_4A925AFF01BA // DoRun
+ ME_4AC4A69D03B7_ME_4A925AFF01BA // OpenQuery
+ )
+ ; // Overridden
+ : Children
+   Seq: ( WL 'ME_4958D2EA00CC' '4958D2EA00CC.pas.ms.script' // NemesisMain
+ WL 'ME_4C8A29700261' '4C8A29700261.pas.ms.script' // MainOptions
+ WL 'ME_4A952BA3006D' '4A952BA3006D.pas.ms.script' // Main
+ WL 'ME_4F7DAC14027A' '4F7DAC14027A.pas.ms.script' // MainWithReminders
+ WL 'ME_4AA7EA010274' '4AA7EA010274.pas.ms.script' // MainWindow
+ )
+ ; // Children
+ : Dependencies
+   Seq: ( ME_4AA7C2FD0185 // TnsStartupSupport
+ ME_4AA7D8900188 // Windows
+ ME_4AA7D8BE03E5 // GblAdapter
+ ME_4AA7DACD0397 // l3Base
+ ME_4AA7DE8000F7 // InvalidBase
+ ME_4AA7E23B027D // EAbort
+ ME_4AA7E24501CF // ECorbaException
+ ME_4AA7EA360300 // MedicMainMenuRes
+ ME_4AA7EA3D0203 // MainMenuNewRes
+ ME_4AA8D64702A7 // nsHooks
+ ME_4AB36E4B0367 // Query
+ ME_4AB36E9202EE // TnsBaseSearchOpenKind
+ ME_4AB36EA700F1 // vcmParams
+ ME_4AB36EBD02A4 // DebugStr
+ ME_4AB36ECB0344 // StdRes
+ ME_4E034945002E // vcmMessagesSupport
+ ME_4F7DA6EF00E5 // MedicMainMenuRes
+ ME_4F7DAD9801FB // MainWindow
+ ME_53D0D34202ED // TabbedContainerRes
+ ME_544631C20259 // TnsNotificationManager
+ ME_54915CC6021C // TvgRemindersLineTabbedContainerNotificationProxy
+ ME_5518EE0101BF // TChromeLikeTabSetParams
+ ME_556489D2014B // vtDateEditRes
+ ME_57574E2502B3 // TvcmEntityForm
+ )
+ ; // Dependencies
+ CONST "author" 'Люлин А.В.'
+ CONST "no hands" true
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\PrimNemesisRes.pas'
+ CONST extprop:pas:TypeName 'TPrimNemesisRes'
+ CONST extprop:rc:SelfName 'PrimNemesisRes'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'PrimNemesisRes'
+
+ref; // ME_4A925AFF01BA PrimNemesis

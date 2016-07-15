@@ -1,0 +1,1736 @@
+// NewBaseSearchForDFM 4CFCBB3600E0 VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4CFCBB3600E0
+
+FORWARD ME_4DE66EAE0351
+
+: ME_4DE66EC60339
+ CONST UID '4DE66EC60339'
+ CONST Name 'rButton'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_4DE66EAE0351 // TvgRadioButtonItem
+ ;
+ : Target WL 'ME_4CFCF4840379' '4CFCE51A00B0.pas.ms.script' // TvgRadioButton
+ ;
+
+ref; // ME_4DE66EC60339 rButton
+
+: ME_4DE66F0F0057
+ CONST UID '4DE66F0F0057'
+ CONST Name 'rClass'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_4DE66EAE0351 // TvgRadioButtonItem
+ ;
+ : Target WL 'ME_496B5F7603B4' '4A9F98B901A5.pas.ms.script' // InsBaseSearchClass
+ ;
+
+ref; // ME_4DE66F0F0057 rClass
+
+FORWARD ME_4DE6709D02E9
+
+: ME_4DE670B402FD
+ CONST Name 'anOther'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target HWL ME_4DE66EAE0351 // TvgRadioButtonItem
+ ;
+
+ref; // ME_4DE670B402FD anOther
+
+: ME_4DE670A8021F
+ CONST UID '4DE670A8021F'
+ CONST Name 'EQ'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4DE6709D02E9 // EQ
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   Seq: ( ME_4DE670B402FD // anOther
+ )
+ ; // Parameters
+
+ref; // ME_4DE670A8021F EQ
+
+: ME_4DE6709D02E9
+ CONST UID '4DE6709D02E9'
+ CONST Name 'EQ'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4DE66EAE0351 // TvgRadioButtonItem
+ ;
+ : Operations
+   Seq: ( HWL ME_4DE670A8021F // EQ
+ )
+ ; // Operations
+
+ref; // ME_4DE6709D02E9 EQ
+
+FORWARD ME_4DE6712F01AA
+
+: ME_4DE6713D0068
+ CONST Name 'aClass'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_496B5F7603B4' '4A9F98B901A5.pas.ms.script' // InsBaseSearchClass
+ ;
+
+ref; // ME_4DE6713D0068 aClass
+
+: ME_4DE671350053
+ CONST UID '4DE671350053'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4DE6712F01AA // C
+ ;
+ : Parameters
+   Seq: ( ME_4DE6713D0068 // aClass
+ )
+ ; // Parameters
+
+ref; // ME_4DE671350053 DoIt
+
+: ME_4DE6712F01AA
+ CONST UID '4DE6712F01AA'
+ CONST Name 'C'
+ CONST Class class_Class
+ : Stereotype st_Constructor ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4DE66EAE0351 // TvgRadioButtonItem
+ ;
+ : Operations
+   Seq: ( HWL ME_4DE671350053 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_4DE6712F01AA C
+
+FORWARD ME_4DE6734A00D5
+
+: ME_4DE67369014D
+ CONST Name 'aButton'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4CFCF4840379' '4CFCE51A00B0.pas.ms.script' // TvgRadioButton
+ ;
+
+ref; // ME_4DE67369014D aButton
+
+: ME_4DE6736F0299
+ CONST Name 'aClass'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_496B5F7603B4' '4A9F98B901A5.pas.ms.script' // InsBaseSearchClass
+ ;
+
+ref; // ME_4DE6736F0299 aClass
+
+: ME_4DE673570081
+ CONST UID '4DE673570081'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4DE6734A00D5 // C$1
+ ;
+ : Parameters
+   Seq: ( ME_4DE67369014D // aButton
+ ME_4DE6736F0299 // aClass
+ )
+ ; // Parameters
+
+ref; // ME_4DE673570081 DoIt
+
+: ME_4DE6734A00D5
+ CONST UID '4DE6734A00D5'
+ CONST Name 'C'
+ CONST Class class_Class
+ : Stereotype st_Constructor ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4DE66EAE0351 // TvgRadioButtonItem
+ ;
+ : Operations
+   Seq: ( HWL ME_4DE673570081 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_4DE6734A00D5 C$1
+
+: ME_4DE66EAE0351
+ CONST UID '4DE66EAE0351'
+ CONST Name 'TvgRadioButtonItem'
+ CONST Class class_Class
+ : Stereotype st_StaticObject ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ : Attributes
+   Seq: ( HWL ME_4DE66EC60339 // rButton
+ HWL ME_4DE66F0F0057 // rClass
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( HWL ME_4DE6709D02E9 // EQ
+ HWL ME_4DE6712F01AA // C
+ HWL ME_4DE6734A00D5 // C$1
+ )
+ ; // Operations
+ CONST extprop:rc:SelfName 'RadioButtonItem'
+
+ref; // ME_4DE66EAE0351 TvgRadioButtonItem
+
+FORWARD ME_4CFE0E7D012A
+
+: ME_4CFE0EBA03A4
+ CONST UID '4CFE0EBA03A4'
+ CONST Name 'Everywhere'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4CFE0E7D012A // AreaStrings
+ ;
+ CONST Value '''Везде'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '''Везде'''
+
+ref; // ME_4CFE0EBA03A4 Everywhere
+
+: ME_4CFE0ED5031B
+ CONST UID '4CFE0ED5031B'
+ CONST Name 'ListDocuments'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4CFE0E7D012A // AreaStrings
+ ;
+ CONST Value '''Список: в документах'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '''Список: в документах'''
+
+ref; // ME_4CFE0ED5031B ListDocuments
+
+: ME_4CFE0F0600D3
+ CONST UID '4CFE0F0600D3'
+ CONST Name 'ListNames'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4CFE0E7D012A // AreaStrings
+ ;
+ CONST Value '''Список: в названиях'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '''Список: в названиях'''
+
+ref; // ME_4CFE0F0600D3 ListNames
+
+: ME_4CFE0F260149
+ CONST UID '4CFE0F260149'
+ CONST Name 'Document'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4CFE0E7D012A // AreaStrings
+ ;
+ CONST Value '''В документе'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '''В документе'''
+
+ref; // ME_4CFE0F260149 Document
+
+: ME_4CFE0E7D012A
+ CONST UID '4CFE0E7D012A'
+ CONST Name 'AreaStrings'
+ CONST Class class_Class
+ : Stereotype st_LocalConst ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ : Attributes
+   Seq: ( HWL ME_4CFE0EBA03A4 // Everywhere
+ HWL ME_4CFE0ED5031B // ListDocuments
+ HWL ME_4CFE0F0600D3 // ListNames
+ HWL ME_4CFE0F260149 // Document
+ )
+ ; // Attributes
+ CONST "Need map interface" false
+ CONST "Need mapping support" false
+ CONST "children prefix" 'as'
+ CONST "spell names" false
+ CONST extprop:pas:ElementPrefix 'as'
+
+ref; // ME_4CFE0E7D012A AreaStrings
+
+FORWARD ME_4CFF858F0113
+
+: ME_4CFF85AE003D
+ CONST UID '4CFF85AE003D'
+ CONST Name 'Example'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4CFF858F0113 // ExampleText
+ ;
+ CONST Value '''Пример:'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '''Пример:'''
+
+ref; // ME_4CFF85AE003D Example
+
+: ME_4CFF85C103A0
+ CONST UID '4CFF85C103A0'
+ CONST Name 'FoundCount'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4CFF858F0113 // ExampleText
+ ;
+ CONST Value '''Всего найдено'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '''Всего найдено'''
+
+ref; // ME_4CFF85C103A0 FoundCount
+
+: ME_4CFF858F0113
+ CONST UID '4CFF858F0113'
+ CONST Name 'ExampleText'
+ CONST Class class_Class
+ : Stereotype st_LocalConst ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ : Attributes
+   Seq: ( HWL ME_4CFF85AE003D // Example
+ HWL ME_4CFF85C103A0 // FoundCount
+ )
+ ; // Attributes
+ CONST "Need map interface" false
+ CONST "Need mapping support" false
+ CONST "children prefix" 'et'
+ CONST "spell names" false
+ CONST extprop:pas:ElementPrefix 'et'
+
+ref; // ME_4CFF858F0113 ExampleText
+
+FORWARD ME_4D499894017A
+
+: ME_4D4998B5035A
+ CONST UID '4D4998B5035A'
+ CONST Name 'More'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4D499894017A // MoreTabConsts
+ ;
+ CONST Value '''Еще'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '''Еще'''
+
+ref; // ME_4D4998B5035A More
+
+: ME_4D499894017A
+ CONST UID '4D499894017A'
+ CONST Name 'MoreTabConsts'
+ CONST Class class_Class
+ : Stereotype st_LocalConst ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ : Attributes
+   Seq: ( HWL ME_4D4998B5035A // More
+ )
+ ; // Attributes
+ CONST "Need map interface" false
+ CONST "Need mapping support" false
+ CONST "children prefix" 'mtc'
+ CONST "spell names" false
+ CONST extprop:pas:ElementPrefix 'mtc'
+
+ref; // ME_4D499894017A MoreTabConsts
+
+FORWARD ME_4CFCF49601B1
+
+: ME_4CFCF4BB0160
+ CONST UID '4CFCF4BB0160'
+ CONST Name 'ItemType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_ref
+ : Parent HWL ME_4CFCF49601B1 // TvgRadioButtonArray
+ ;
+ : Target HWL ME_4DE66EAE0351 // TvgRadioButtonItem
+ ;
+
+ref; // ME_4CFCF4BB0160 ItemType
+
+: ME_47B2C42A0163_ME_4CFCF49601B1
+ : Original WL 'ME_47B2C42A0163' '47913B47006E.pas.ms.script' // AssignItem
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "ifdef" 'l3Items_NeedsAssignItem'
+ CONST "ifndef" 'l3Items_NoSort'
+ref; // ME_47B2C42A0163_ME_4CFCF49601B1 AssignItem
+
+: ME_47B99D4503A2_ME_4CFCF49601B1
+ : Original WL 'ME_47B99D4503A2' '47BB24D30205.pas.ms.script' // CompareExistingItems
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_47B99D4503A2_ME_4CFCF49601B1 CompareExistingItems
+
+: ME_4CFCF49601B1
+ CONST UID '4CFCF49601B1'
+ CONST Name 'TvgRadioButtonArray'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+ WL 'ME_4B223DB5024B' '47913B47006E.pas.ms.script' // l3RecordWithEQList
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( HWL ME_4CFCF4BB0160 // ItemType
+ )
+ ; // Attributes
+ : Implemented
+   Seq: ( ME_47B2C42A0163_ME_4CFCF49601B1 // AssignItem
+ ME_47B99D4503A2_ME_4CFCF49601B1 // CompareExistingItems
+ )
+ ; // Implemented
+ CONST "author" 'Люлин А.В.'
+ CONST "no hands" true
+ CONST "started" '01.06.2011 21:03'
+ CONST extprop:rc:SelfName 'RadioButtonArray'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4CFCF49601B1 TvgRadioButtonArray
+
+FORWARD ME_4CFE21BB0104
+
+: ME_4CFE21CD0369
+ CONST UID '4CFE21CD0369'
+ CONST Name 'ClassNotInBase'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4CFE21BB0104 // Local
+ ;
+ CONST Value '''Данный вид информации отсутствует в Вашем комплекте'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '''Данный вид информации отсутствует в Вашем комплекте'''
+
+ref; // ME_4CFE21CD0369 ClassNotInBase
+
+: ME_4CFE275A03E7
+ CONST UID '4CFE275A03E7'
+ CONST Name 'FoundFragmentCountHint'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4CFE21BB0104 // Local
+ ;
+ CONST Value '''Количество найденных в документе вхождений с искомым контекстом'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '''Количество найденных в документе вхождений с искомым контекстом'''
+
+ref; // ME_4CFE275A03E7 FoundFragmentCountHint
+
+: ME_4CFE21BB0104
+ CONST UID '4CFE21BB0104'
+ CONST Name 'Local'
+ CONST Class class_Class
+ : Stereotype st_LocalConst ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ : Attributes
+   Seq: ( HWL ME_4CFE21CD0369 // ClassNotInBase
+ HWL ME_4CFE275A03E7 // FoundFragmentCountHint
+ )
+ ; // Attributes
+ CONST "Need map interface" false
+ CONST "Need mapping support" false
+ CONST "spell names" false
+
+ref; // ME_4CFE21BB0104 Local
+
+: ME_4CFCE561011D
+ CONST UID '4CFCE561011D'
+ CONST Name 'FindBtn'
+ CONST Class class_Class
+ : Stereotype st_Control ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4CFCE54B01B0' '4CFCE51A00B0.pas.ms.script' // TvgPathButton
+ )
+ ; // Inherits
+ CONST "ControlClass" 'none'
+ CONST "pm" true
+ CONST "put to dfm" true
+
+ref; // ME_4CFCE561011D FindBtn
+
+: ME_4CFCE56E009C
+ CONST UID '4CFCE56E009C'
+ CONST Name 'FindBackBtn'
+ CONST Class class_Class
+ : Stereotype st_Control ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4CFCE54B01B0' '4CFCE51A00B0.pas.ms.script' // TvgPathButton
+ )
+ ; // Inherits
+ CONST "ControlClass" 'none'
+ CONST "pm" true
+ CONST "put to dfm" true
+
+ref; // ME_4CFCE56E009C FindBackBtn
+
+: ME_4CFCE5B200A9
+ CONST UID '4CFCE5B200A9'
+ CONST Name 'CloseBtn'
+ CONST Class class_Class
+ : Stereotype st_Control ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4CFCE5A10367' '4CFCE51A00B0.pas.ms.script' // TvgCloseButton
+ )
+ ; // Inherits
+ CONST "ControlClass" 'none'
+ CONST "pm" true
+ CONST "put to dfm" true
+
+ref; // ME_4CFCE5B200A9 CloseBtn
+
+: ME_4CFE0E5F02D5
+ CONST UID '4CFE0E5F02D5'
+ CONST Name 'AreaCombo'
+ CONST Class class_Class
+ : Stereotype st_Control ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4D3D71CE0254' '4CFCE51A00B0.pas.ms.script' // TvgComboBox
+ )
+ ; // Inherits
+ CONST "ControlClass" 'none'
+ CONST "pm" true
+ CONST "put to dfm" true
+
+ref; // ME_4CFE0E5F02D5 AreaCombo
+
+: ME_4CFE2C9F0029
+ CONST UID '4CFE2C9F0029'
+ CONST Name 'QueryExampleLabel'
+ CONST Class class_Class
+ : Stereotype st_Control ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4CFE2C800399' '4CFCE51A00B0.pas.ms.script' // TvgText
+ )
+ ; // Inherits
+ CONST "ControlClass" 'none'
+ CONST "pm" true
+ CONST "put to dfm" true
+
+ref; // ME_4CFE2C9F0029 QueryExampleLabel
+
+: ME_4CFF56750396
+ CONST UID '4CFF56750396'
+ CONST Name 'DropButton'
+ CONST Class class_Class
+ : Stereotype st_Control ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4CFF5690033D' '4CFCE51A00B0.pas.ms.script' // TvgButton
+ )
+ ; // Inherits
+ CONST "ControlClass" 'none'
+ CONST "pm" true
+ CONST "put to dfm" true
+
+ref; // ME_4CFF56750396 DropButton
+
+: ME_4CFF80CC027F
+ CONST UID '4CFF80CC027F'
+ CONST Name 'FoundCountLabel'
+ CONST Class class_Class
+ : Stereotype st_Control ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4CFE2C800399' '4CFCE51A00B0.pas.ms.script' // TvgText
+ )
+ ; // Inherits
+ CONST "ControlClass" 'none'
+ CONST "pm" true
+ CONST "put to dfm" true
+
+ref; // ME_4CFF80CC027F FoundCountLabel
+
+: ME_4CFF86B00026
+ CONST UID '4CFF86B00026'
+ CONST Name 'ExampleLabel'
+ CONST Class class_Class
+ : Stereotype st_Control ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4CFE2C800399' '4CFCE51A00B0.pas.ms.script' // TvgText
+ )
+ ; // Inherits
+ CONST "ControlClass" 'none'
+ CONST "pm" true
+ CONST "put to dfm" true
+
+ref; // ME_4CFF86B00026 ExampleLabel
+
+: ME_4CFFAEBB0305
+ CONST UID '4CFFAEBB0305'
+ CONST Name 'ContextEditPanel'
+ CONST Class class_Class
+ : Stereotype st_Control ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4CFFAE9802DF' '4CFCE51A00B0.pas.ms.script' // TvgNonVGLayout
+ )
+ ; // Inherits
+ CONST "ControlClass" 'none'
+ CONST "pm" true
+ CONST "put to dfm" true
+
+ref; // ME_4CFFAEBB0305 ContextEditPanel
+
+FORWARD ME_4CFFB1B500DB
+
+FORWARD ME_4D51648F033D
+
+: ME_4E789D5A0179
+ CONST UID '4E789D5A0179'
+ CONST Name 'Layout3'
+ CONST Class class_Class
+ : Stereotype st_Control ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4D51648F033D // Layout2
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4CFFB1A00237' '4CFCE51A00B0.pas.ms.script' // TvgLayout
+ )
+ ; // Inherits
+ CONST "ControlClass" 'none'
+ CONST "pm" true
+ CONST "put to dfm" true
+
+ref; // ME_4E789D5A0179 Layout3
+
+: ME_4D51648F033D
+ CONST UID '4D51648F033D'
+ CONST Name 'Layout2'
+ CONST Class class_Class
+ : Stereotype st_Control ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4CFFB1B500DB // Layout1
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4CFFB1A00237' '4CFCE51A00B0.pas.ms.script' // TvgLayout
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( HWL ME_4E789D5A0179 // Layout3
+ )
+ ; // Attributes
+ CONST "ControlClass" 'none'
+ CONST "pm" true
+ CONST "put to dfm" true
+
+ref; // ME_4D51648F033D Layout2
+
+: ME_4CFFB1B500DB
+ CONST UID '4CFFB1B500DB'
+ CONST Name 'Layout1'
+ CONST Class class_Class
+ : Stereotype st_Control ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4CFFB1A00237' '4CFCE51A00B0.pas.ms.script' // TvgLayout
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( HWL ME_4D51648F033D // Layout2
+ )
+ ; // Attributes
+ CONST "ControlClass" 'none'
+ CONST "pm" true
+ CONST "put to dfm" true
+
+ref; // ME_4CFFB1B500DB Layout1
+
+: ME_4CFFB59200DB
+ CONST UID '4CFFB59200DB'
+ CONST Name 'vgScene1'
+ CONST Class class_Class
+ : Stereotype st_Control ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4CFFB562010C' '4CFCE51A00B0.pas.ms.script' // TvgScene
+ )
+ ; // Inherits
+ CONST "ControlClass" 'none'
+ CONST "pm" true
+ CONST "put to dfm" true
+ CONST extprop:rc:SelfName 'Scene1'
+
+ref; // ME_4CFFB59200DB vgScene1
+
+: ME_4D49931D0389
+ CONST UID '4D49931D0389'
+ CONST Name 'MoreTab'
+ CONST Class class_Class
+ : Stereotype st_Control ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4D3D71CE0254' '4CFCE51A00B0.pas.ms.script' // TvgComboBox
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4EB7BA17030A' '484FA67302D7.pas.ms.script' // Выбор из кнопки 'Ещё'
+ )
+ ; // Implements
+ CONST "ControlClass" 'none'
+ CONST "pm" true
+ CONST "put to dfm" true
+
+ref; // ME_4D49931D0389 MoreTab
+
+: ME_4D70E56F0066
+ CONST UID '4D70E56F0066'
+ CONST Name 'Border'
+ CONST Class class_Class
+ : Stereotype st_Control ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4D70E5440067' '4CFCE51A00B0.pas.ms.script' // TvgRectangle
+ )
+ ; // Inherits
+ CONST "ControlClass" 'none'
+ CONST "pm" true
+ CONST "put to dfm" true
+
+ref; // ME_4D70E56F0066 Border
+
+: ME_4D70E57F00C3
+ CONST UID '4D70E57F00C3'
+ CONST Name 'InnerBorder'
+ CONST Class class_Class
+ : Stereotype st_Control ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4D70E5440067' '4CFCE51A00B0.pas.ms.script' // TvgRectangle
+ )
+ ; // Inherits
+ CONST "ControlClass" 'none'
+ CONST "pm" true
+ CONST "put to dfm" true
+
+ref; // ME_4D70E57F00C3 InnerBorder
+
+: ME_4D70E7DD0123
+ CONST UID '4D70E7DD0123'
+ CONST Name 'MostOuterRectangle'
+ CONST Class class_Class
+ : Stereotype st_Control ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4D70E5440067' '4CFCE51A00B0.pas.ms.script' // TvgRectangle
+ )
+ ; // Inherits
+ CONST "ControlClass" 'none'
+ CONST "pm" true
+ CONST "put to dfm" true
+
+ref; // ME_4D70E7DD0123 MostOuterRectangle
+
+: ME_4DE6764D000D
+ CONST UID '4DE6764D000D'
+ CONST Name 'Rectangle1'
+ CONST Class class_Class
+ : Stereotype st_Control ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4D70E5440067' '4CFCE51A00B0.pas.ms.script' // TvgRectangle
+ )
+ ; // Inherits
+ CONST "ControlClass" 'none'
+ CONST "pm" true
+ CONST "put to dfm" true
+
+ref; // ME_4DE6764D000D Rectangle1
+
+: ME_4CFCF4C60030
+ CONST UID '4CFCF4C60030'
+ CONST Name 'f_Themes'
+ CONST Class class_Attribute
+ %SUMMARY 'Темы' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ : Target HWL ME_4CFCF49601B1 // TvgRadioButtonArray
+ ;
+
+ref; // ME_4CFCF4C60030 f_Themes
+
+: ME_4DE66D94033D
+ CONST UID '4DE66D94033D'
+ CONST Name 'ActiveClassTab'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ : Target WL 'ME_4CFCF4840379' '4CFCE51A00B0.pas.ms.script' // TvgRadioButton
+ ;
+ CONST "needs field" false
+ CONST "pm" true
+
+ref; // ME_4DE66D94033D ActiveClassTab
+
+FORWARD ME_4CFE4BA60063
+
+: ME_4D5C0EE701ED
+ CONST Name 'aSender'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_4D5C0EE701ED aSender
+
+: ME_4CFE4BAD0116
+ CONST UID '4CFE4BAD0116'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4CFE4BA60063 // TabClick
+ ;
+ : Parameters
+   Seq: ( ME_4D5C0EE701ED // aSender
+ )
+ ; // Parameters
+
+ref; // ME_4CFE4BAD0116 DoIt
+
+: ME_4CFE4BA60063
+ CONST UID '4CFE4BA60063'
+ CONST Name 'TabClick'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ : Operations
+   Seq: ( HWL ME_4CFE4BAD0116 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_4CFE4BA60063 TabClick
+
+FORWARD ME_4D3D7176028B
+
+: ME_4D4998840132
+ CONST Name 'aParent'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4D3D71CE0254' '4CFCE51A00B0.pas.ms.script' // TvgComboBox
+ ;
+
+ref; // ME_4D4998840132 aParent
+
+: ME_4D3D718F0394
+ CONST Name 'aStr'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_4D3D718F0394 aStr
+
+: ME_4D3D71800335
+ CONST UID '4D3D71800335'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4D3D7176028B // AddListItem
+ ;
+ : Target WL 'ME_4D49985C0087' '4CFCE51A00B0.pas.ms.script' // TvgListBoxItem
+ ;
+ : Parameters
+   Seq: ( ME_4D4998840132 // aParent
+ ME_4D3D718F0394 // aStr
+ )
+ ; // Parameters
+
+ref; // ME_4D3D71800335 DoIt
+
+: ME_4D3D7176028B
+ CONST UID '4D3D7176028B'
+ CONST Name 'AddListItem'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ : Operations
+   Seq: ( HWL ME_4D3D71800335 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_4D3D7176028B AddListItem
+
+FORWARD ME_4D4AA2B500C8
+
+: ME_4D4AA2C800BD
+ CONST Name 'aSender'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_4D4AA2C800BD aSender
+
+: ME_4D4AA2BF0088
+ CONST UID '4D4AA2BF0088'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4D4AA2B500C8 // DoResize
+ ;
+ : Parameters
+   Seq: ( ME_4D4AA2C800BD // aSender
+ )
+ ; // Parameters
+
+ref; // ME_4D4AA2BF0088 DoIt
+
+: ME_4D4AA2B500C8
+ CONST UID '4D4AA2B500C8'
+ CONST Name 'DoResize'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ : Operations
+   Seq: ( HWL ME_4D4AA2BF0088 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_4D4AA2B500C8 DoResize
+
+FORWARD ME_4D4ACB9900F6
+
+: ME_4D4ACBAB00C0
+ CONST Name 'aSender'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_4D4ACBAB00C0 aSender
+
+: ME_4D4ACBA30033
+ CONST UID '4D4ACBA30033'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4D4ACB9900F6 // MoreTabChange
+ ;
+ : Parameters
+   Seq: ( ME_4D4ACBAB00C0 // aSender
+ )
+ ; // Parameters
+
+ref; // ME_4D4ACBA30033 DoIt
+
+: ME_4D4ACB9900F6
+ CONST UID '4D4ACB9900F6'
+ CONST Name 'MoreTabChange'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ : Operations
+   Seq: ( HWL ME_4D4ACBA30033 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_4D4ACB9900F6 MoreTabChange
+
+FORWARD ME_4D4BD7C902EA
+
+: ME_4D4BD7E200FA
+ CONST Name 'aTag'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4D4BD7E200FA aTag
+
+: ME_4E15AF8E0354
+ CONST Name 'aReallyNeedSearch'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4E15AF8E0354 aReallyNeedSearch
+
+: ME_5241B88A01A2
+ CONST Name 'aUpdateClassBeforeSearch'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_5241B88A01A2 aUpdateClassBeforeSearch
+
+: ME_4D4BD7D702F4
+ CONST UID '4D4BD7D702F4'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4D4BD7C902EA // DoSearch
+ ;
+ : Parameters
+   Seq: ( ME_4D4BD7E200FA // aTag
+ ME_4E15AF8E0354 // aReallyNeedSearch
+ ME_5241B88A01A2 // aUpdateClassBeforeSearch
+ )
+ ; // Parameters
+
+ref; // ME_4D4BD7D702F4 DoIt
+
+: ME_4D4BD7C902EA
+ CONST UID '4D4BD7C902EA'
+ CONST Name 'DoSearch'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ : Operations
+   Seq: ( HWL ME_4D4BD7D702F4 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_4D4BD7C902EA DoSearch
+
+FORWARD ME_4D5164A30162
+
+: ME_4D5164B801F4
+ CONST Name 'aSender'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_4D5164B801F4 aSender
+
+: ME_4D5164AF0183
+ CONST UID '4D5164AF0183'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4D5164A30162 // DoRealignLayout1
+ ;
+ : Parameters
+   Seq: ( ME_4D5164B801F4 // aSender
+ )
+ ; // Parameters
+
+ref; // ME_4D5164AF0183 DoIt
+
+: ME_4D51668A0340
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4D5164A30162 // DoRealignLayout1
+ ;
+ : Target WL 'ME_4808A20402DC' '4AB0997B00A2.pas.ms.script' // Math
+ ;
+
+ref; // ME_4D51668A0340 
+
+: ME_4D5164A30162
+ CONST UID '4D5164A30162'
+ CONST Name 'DoRealignLayout1'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ : Operations
+   Seq: ( HWL ME_4D5164AF0183 // DoIt
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_4D51668A0340 // Math
+ )
+ ; // Dependencies
+
+ref; // ME_4D5164A30162 DoRealignLayout1
+
+FORWARD ME_4D5C0D11022D
+
+: ME_4D5C0D2D029D
+ CONST Name 'aSender'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_4D5C0D2D029D aSender
+
+: ME_4D5C0D24013D
+ CONST UID '4D5C0D24013D'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4D5C0D11022D // TabChange
+ ;
+ : Parameters
+   Seq: ( ME_4D5C0D2D029D // aSender
+ )
+ ; // Parameters
+
+ref; // ME_4D5C0D24013D DoIt
+
+: ME_4D5C0D11022D
+ CONST UID '4D5C0D11022D'
+ CONST Name 'TabChange'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ : Operations
+   Seq: ( HWL ME_4D5C0D24013D // DoIt
+ )
+ ; // Operations
+
+ref; // ME_4D5C0D11022D TabChange
+
+FORWARD ME_4D70ED5901BF
+
+: ME_4D70ED7601EA
+ CONST Name 'aSender'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_4D70ED7601EA aSender
+
+: ME_4D70ED6E012B
+ CONST UID '4D70ED6E012B'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4D70ED5901BF // ContextEditFocusChanged
+ ;
+ : Parameters
+   Seq: ( ME_4D70ED7601EA // aSender
+ )
+ ; // Parameters
+
+ref; // ME_4D70ED6E012B DoIt
+
+: ME_4D70ED5901BF
+ CONST UID '4D70ED5901BF'
+ CONST Name 'ContextEditFocusChanged'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ : Operations
+   Seq: ( HWL ME_4D70ED6E012B // DoIt
+ )
+ ; // Operations
+
+ref; // ME_4D70ED5901BF ContextEditFocusChanged
+
+FORWARD ME_4E7899330095
+
+: ME_4E789944031A
+ CONST Name 'aSender'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_4E789944031A aSender
+
+: ME_4E78993C00F5
+ CONST UID '4E78993C00F5'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4E7899330095 // DoEmptyAddingClick
+ ;
+ : Parameters
+   Seq: ( ME_4E789944031A // aSender
+ )
+ ; // Parameters
+
+ref; // ME_4E78993C00F5 DoIt
+
+: ME_4E7899330095
+ CONST UID '4E7899330095'
+ CONST Name 'DoEmptyAddingClick'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ : Implements
+   Seq: ( WL 'ME_4E787ED60292' '484FA67302D7.pas.ms.script' // Псевдонадпись и пример в БП должны быть склеены
+ )
+ ; // Implements
+ : Operations
+   Seq: ( HWL ME_4E78993C00F5 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_4E7899330095 DoEmptyAddingClick
+
+: ME_4CFCF8B601B0
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ : Target WL 'ME_4CF4D5F9022D' '54B90AC6014B.pas.ms.script' // l3DStr
+ ;
+
+ref; // ME_4CFCF8B601B0 
+
+: ME_4CFE3E3300FF
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ : Target WL 'ME_4CFE3E1302F5' '4CFCE51A00B0.pas.ms.script' // TvgBrushStyle
+ ;
+
+ref; // ME_4CFE3E3300FF 
+
+: ME_4CFE3EFB0167
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ : Target WL 'ME_47FB50E4008E' '48F747EC0073.pas.ms.script' // nsConst
+ ;
+
+ref; // ME_4CFE3EFB0167 
+
+: ME_4CFE4E1900C0
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ : Target WL 'ME_496B500E0283' '4A9F98B901A5.pas.ms.script' // ETryToFindEmptyContext
+ ;
+
+ref; // ME_4CFE4E1900C0 
+
+: ME_4CFFA0BA0095
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ : Target WL 'ME_47E11FC3021E' '4799D29F033F.pas.ms.script' // Controls
+ ;
+
+ref; // ME_4CFFA0BA0095 
+
+: ME_4CFFA1B30174
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ : Target WL 'ME_482B17100178' '4799D29F033F.pas.ms.script' // TBorderStyle
+ ;
+
+ref; // ME_4CFFA1B30174 
+
+: ME_4D42D1120162
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ : Target WL 'ME_47A066980016' '537B83AD01F0.pas.ms.script' // l3MinMax
+ ;
+
+ref; // ME_4D42D1120162 
+
+: ME_4D441827025E
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ : Target WL 'ME_47D15712022D' '55C4AEC801CA.pas.ms.script' // Graphics
+ ;
+
+ref; // ME_4D441827025E 
+
+: ME_4D44183D021E
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ : Target WL 'ME_47D036300337' '47D036150077.pas.ms.script' // TvtViewOption
+ ;
+
+ref; // ME_4D44183D021E 
+
+: ME_4D4AA1E5017A
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ : Target WL 'ME_4AA7888B0076' '47913B47006E.pas.ms.script' // l3CStr
+ ;
+
+ref; // ME_4D4AA1E5017A 
+
+: ME_4DE671BE00FF
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
+ ;
+
+ref; // ME_4DE671BE00FF 
+
+: ME_4EAFE56B02F4
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ : Target WL 'ME_4799F84900DD' '473C3BEE0334.pas.ms.script' // l3ScreenIC
+ ;
+
+ref; // ME_4EAFE56B02F4 
+
+: ME_4EAFE59B0229
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ : Target WL 'ME_47274316023E' '467C0CAA02AB.pas.ms.script' // Il3InfoCanvas
+ ;
+
+ref; // ME_4EAFE59B0229 
+
+: ME_4CF4D1AD01B3_ME_4CFCBB3600E0
+ : Original WL 'ME_4CF4D1AD01B3' '4AB791130260.pas.ms.script' // AdjustParamsPagesHeight
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4CF4D1AD01B3_ME_4CFCBB3600E0 AdjustParamsPagesHeight
+
+: ME_4CF4D56E0258_ME_4CFCBB3600E0
+ : Original WL 'ME_4CF4D56E0258' '4AB791130260.pas.ms.script' // SetUpFindButtons
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4CF4D56E0258_ME_4CFCBB3600E0 SetUpFindButtons
+
+: ME_4CF4D6C40292_ME_4CFCBB3600E0
+ : Original WL 'ME_4CF4D6C40292' '4AB791130260.pas.ms.script' // SetupClasses
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4CF4D6C40292_ME_4CFCBB3600E0 SetupClasses
+
+: ME_4CF4DC7C0129_ME_4CFCBB3600E0
+ : Original WL 'ME_4CF4DC7C0129' '4AB791130260.pas.ms.script' // UpdateExamplePanelWidthAndPosition
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4CF4DC7C0129_ME_4CFCBB3600E0 UpdateExamplePanelWidthAndPosition
+
+: ME_4CFCCE4B0112_ME_4CFCBB3600E0
+ : Original WL 'ME_4CFCCE4B0112' '4AB791130260.pas.ms.script' // FindBtnEnabled
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "needs field" false
+ CONST "pm" true
+ref; // ME_4CFCCE4B0112_ME_4CFCBB3600E0 FindBtnEnabled
+
+: ME_4CFCD6270160_ME_4CFCBB3600E0
+ : Original WL 'ME_4CFCD6270160' '4AB791130260.pas.ms.script' // FindBackBtnEnabled
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "needs field" false
+ CONST "pm" true
+ref; // ME_4CFCD6270160_ME_4CFCBB3600E0 FindBackBtnEnabled
+
+: ME_4CFCE1AE01A0_ME_4CFCBB3600E0
+ : Original WL 'ME_4CFCE1AE01A0' '4AB791130260.pas.ms.script' // CheckParamsPagesCount
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4CFCE1AE01A0_ME_4CFCBB3600E0 CheckParamsPagesCount
+
+: ME_4CFCE22D03D1_ME_4CFCBB3600E0
+ : Original WL 'ME_4CFCE22D03D1' '4AB791130260.pas.ms.script' // SetCurrentContextKind
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4CFCE22D03D1_ME_4CFCBB3600E0 SetCurrentContextKind
+
+: ME_4CFCEBFA0350_ME_4CFCBB3600E0
+ : Original WL 'ME_4CFCEBFA0350' '4AB791130260.pas.ms.script' // ContextLabelVisible
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "needs field" false
+ CONST "pm" true
+ref; // ME_4CFCEBFA0350_ME_4CFCBB3600E0 ContextLabelVisible
+
+: ME_4CFCEE450210_ME_4CFCBB3600E0
+ : Original WL 'ME_4CFCEE450210' '4AB791130260.pas.ms.script' // CloseBtnEnabled
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "needs field" false
+ CONST "pm" true
+ref; // ME_4CFCEE450210_ME_4CFCBB3600E0 CloseBtnEnabled
+
+: ME_4CFE140401CF_ME_4CFCBB3600E0
+ : Original WL 'ME_4CFE140401CF' '4AB791130260.pas.ms.script' // SetCurrentSearchArea
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4CFE140401CF_ME_4CFCBB3600E0 SetCurrentSearchArea
+
+: ME_4CFE192200C5_ME_4CFCBB3600E0
+ : Original WL 'ME_4CFE192200C5' '4AB791130260.pas.ms.script' // SetupThemePages
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4CFE192200C5_ME_4CFCBB3600E0 SetupThemePages
+
+: ME_4CFE28330018_ME_4CFCBB3600E0
+ : Original WL 'ME_4CFE28330018' '4AB791130260.pas.ms.script' // DoCheckFragmentsCount
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4CFE28330018_ME_4CFCBB3600E0 DoCheckFragmentsCount
+
+: ME_4CFE2AA80164_ME_4CFCBB3600E0
+ : Original WL 'ME_4CFE2AA80164' '4AB791130260.pas.ms.script' // DoExampleChanged
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4CFE2AA80164_ME_4CFCBB3600E0 DoExampleChanged
+
+: ME_479731C50290_ME_4CFCBB3600E0
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_479731C50290_ME_4CFCBB3600E0 Cleanup
+
+: ME_49BFC98902FF_ME_4CFCBB3600E0
+ : Original WL 'ME_49BFC98902FF' '51612EBB02F5.pas.ms.script' // BeforeRelease
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_49BFC98902FF_ME_4CFCBB3600E0 BeforeRelease
+
+: ME_4A8E8F2E0195_ME_4CFCBB3600E0
+ : Original WL 'ME_4A8E8F2E0195' '5000041101C8.pas.ms.script' // InitControls
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4A8E8F2E0195_ME_4CFCBB3600E0 InitControls
+
+: ME_4B13B419036C_ME_4CFCBB3600E0
+ : Original WL 'ME_4B13B419036C' '4AB791130260.pas.ms.script' // ApplyCurrentExample
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4B13B419036C_ME_4CFCBB3600E0 ApplyCurrentExample
+
+: ME_4B4F13E80365_ME_4CFCBB3600E0
+ : Original WL 'ME_4B4F13E80365' '4F22CB1E0009.pas.ms.script' // NeedSetMyFocus
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4B4F13E80365_ME_4CFCBB3600E0 NeedSetMyFocus
+
+: ME_4CFCBB3600E0
+ CONST UID '4CFCBB3600E0'
+ CONST Name 'NewBaseSearchForDFM'
+ CONST Class class_Class
+ : Stereotype st_VCMForm ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4CC97BDA02DF' '4CC97BDA02DF.pas.ms.script' // BaseSearch$Module
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4CC7F0CE0267' '4CC7F0CE0267.pas.ms.script' // PrimBaseSearchOptions
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4E787ED60292' '484FA67302D7.pas.ms.script' // Псевдонадпись и пример в БП должны быть склеены
+ WL 'ME_4EAFE98700D7' '484FA67302D7.pas.ms.script' // Крайнее правое положение кнопки 'Ещё' должно быть закреплено на уровне конца строки ввода
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( HWL ME_4CFCE561011D // FindBtn
+ HWL ME_4CFCE56E009C // FindBackBtn
+ HWL ME_4CFCE5B200A9 // CloseBtn
+ HWL ME_4CFE0E5F02D5 // AreaCombo
+ HWL ME_4CFE2C9F0029 // QueryExampleLabel
+ HWL ME_4CFF56750396 // DropButton
+ HWL ME_4CFF80CC027F // FoundCountLabel
+ HWL ME_4CFF86B00026 // ExampleLabel
+ HWL ME_4CFFAEBB0305 // ContextEditPanel
+ HWL ME_4CFFB1B500DB // Layout1
+ HWL ME_4CFFB59200DB // vgScene1
+ HWL ME_4D49931D0389 // MoreTab
+ HWL ME_4D70E56F0066 // Border
+ HWL ME_4D70E57F00C3 // InnerBorder
+ HWL ME_4D70E7DD0123 // MostOuterRectangle
+ HWL ME_4DE6764D000D // Rectangle1
+ HWL ME_4CFCF4C60030 // f_Themes
+ HWL ME_4DE66D94033D // ActiveClassTab
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( HWL ME_4CFE4BA60063 // TabClick
+ HWL ME_4D3D7176028B // AddListItem
+ HWL ME_4D4AA2B500C8 // DoResize
+ HWL ME_4D4ACB9900F6 // MoreTabChange
+ HWL ME_4D4BD7C902EA // DoSearch
+ HWL ME_4D5164A30162 // DoRealignLayout1
+ HWL ME_4D5C0D11022D // TabChange
+ HWL ME_4D70ED5901BF // ContextEditFocusChanged
+ HWL ME_4E7899330095 // DoEmptyAddingClick
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4CF4D1AD01B3_ME_4CFCBB3600E0 // AdjustParamsPagesHeight
+ ME_4CF4D56E0258_ME_4CFCBB3600E0 // SetUpFindButtons
+ ME_4CF4D6C40292_ME_4CFCBB3600E0 // SetupClasses
+ ME_4CF4DC7C0129_ME_4CFCBB3600E0 // UpdateExamplePanelWidthAndPosition
+ ME_4CFCCE4B0112_ME_4CFCBB3600E0 // FindBtnEnabled
+ ME_4CFCD6270160_ME_4CFCBB3600E0 // FindBackBtnEnabled
+ ME_4CFCE1AE01A0_ME_4CFCBB3600E0 // CheckParamsPagesCount
+ ME_4CFCE22D03D1_ME_4CFCBB3600E0 // SetCurrentContextKind
+ ME_4CFCEBFA0350_ME_4CFCBB3600E0 // ContextLabelVisible
+ ME_4CFCEE450210_ME_4CFCBB3600E0 // CloseBtnEnabled
+ ME_4CFE140401CF_ME_4CFCBB3600E0 // SetCurrentSearchArea
+ ME_4CFE192200C5_ME_4CFCBB3600E0 // SetupThemePages
+ ME_4CFE28330018_ME_4CFCBB3600E0 // DoCheckFragmentsCount
+ ME_4CFE2AA80164_ME_4CFCBB3600E0 // DoExampleChanged
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_479731C50290_ME_4CFCBB3600E0 // Cleanup
+ ME_49BFC98902FF_ME_4CFCBB3600E0 // BeforeRelease
+ ME_4A8E8F2E0195_ME_4CFCBB3600E0 // InitControls
+ ME_4B13B419036C_ME_4CFCBB3600E0 // ApplyCurrentExample
+ ME_4B4F13E80365_ME_4CFCBB3600E0 // NeedSetMyFocus
+ )
+ ; // Overridden
+ : Children
+   Seq: ( HWL ME_4DE66EAE0351 // TvgRadioButtonItem
+ HWL ME_4CFCF49601B1 // TvgRadioButtonArray
+ )
+ ; // Children
+ : Constants
+   Seq: ( HWL ME_4CFE0E7D012A // AreaStrings
+ HWL ME_4CFF858F0113 // ExampleText
+ HWL ME_4D499894017A // MoreTabConsts
+ HWL ME_4CFE21BB0104 // Local
+ )
+ ; // Constants
+ : Dependencies
+   Seq: ( ME_4CFCF8B601B0 // l3DStr
+ ME_4CFE3E3300FF // TvgBrushStyle
+ ME_4CFE3EFB0167 // nsConst
+ ME_4CFE4E1900C0 // ETryToFindEmptyContext
+ ME_4CFFA0BA0095 // Controls
+ ME_4CFFA1B30174 // TBorderStyle
+ ME_4D42D1120162 // l3MinMax
+ ME_4D441827025E // Graphics
+ ME_4D44183D021E // TvtViewOption
+ ME_4D4AA1E5017A // l3CStr
+ ME_4DE671BE00FF // FreeAndNil
+ ME_4EAFE56B02F4 // l3ScreenIC
+ ME_4EAFE59B0229 // Il3InfoCanvas
+ )
+ ; // Dependencies
+ CONST "NeedsHackRef" true
+ CONST "ZoneType" 'Any'
+ CONST "author" 'Люлин А.В.'
+ CONST "finished dfm" true
+ CONST "no hands" true
+ CONST "resizeable" false
+ CONST "restrict form def" 'undefined'
+ CONST "started" '06.12.2010 13:30'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\BaseSearch\Forms\NewBaseSearchForDFM_Form.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\BaseSearch\Forms'
+ CONST extprop:pas:TypeName 'TNewBaseSearchForDFMForm'
+ CONST extprop:rc:SelfName 'NewBaseSearchForDFMForm'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'NewBaseSearchForDFM_Form'
+
+ref; // ME_4CFCBB3600E0 NewBaseSearchForDFM

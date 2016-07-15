@@ -4395,97 +4395,11 @@ implementation @ "Delphi интерфейсы и реализация"
 //%f _DoSpell
 : DoSpell OBJECT IN %S
 //#UC START# *4B2A19E3038Bfor470F151302FD*
-//	%f_SpellAreaLinks(%S)
- [%f] SpellAreaLinks %( %S )% 
-
-//f _SpellAreaLinks
-; // DoSpell
-
-end. // "Delphi интерфейсы и реализация"
-
-: SpellAreaLinks OBJECT IN %S
-//	[{%f_UseNewGenRecG(%S)!=true}\
- if ( ( [%f] UseNewGenRecG %( %S )% ) %!=  true ) then
- begin
-//	[{%SC=Class}\
-  if ( ( %S |C ) %== 'Class' ) then
-  begin
-//	[{%S#f_IsMethod()!=true}\
-   if ( ( %S %?f IsMethod %( )% ) %!=  true ) then
-   begin
-//	[{%S#f_IsInterface()!=true&%S#f_IsVCMFormSetFactory()!=true&%S#f_IsVCMZone()!=true}\
-    if ( ( %S %?f IsInterface %( )% ) %!=  true AND 
-      ( ( %S %?f IsVCMFormSetFactory %( )% ) %!=  true  ) AND 
-      ( ( %S %?f IsVCMZone %( )% ) %!=  true  ) ) then
-    begin
-//	%f_set_var(PARENT_CLASS,S)\
-     [%f] set_var %( 'PARENT_CLASS' %, 'S' )% 
-//	<{}{%P#f_IsControl()!=true}\
-
-//	%f_set_var(PARENT_CLASS,P)\
-
-//	%f_cycle_break(%S)\
-
-//	>\
-
-
-//	<{}{%o#f_IsVCMAreaLink()=true}\
-     INTEGER VAR l_Counter l_Counter := 0
-     for %S%o
-     begin
-      OBJECT IN %o
-      if ( ( %o %?f IsVCMAreaLink %( )% ) %==  true ) then
-      begin
-//	[{"%{IvcmViewAreaControllerRef}N"=""}%f_find_element(IvcmViewAreaControllerRef,IvcmViewAreaControllerRef)]\
-       if ( ( ( get_global_var ( 'IvcmViewAreaControllerRef' ) |N ) ) %== '' ) then
-       begin
-        [%f] find_element %( 'IvcmViewAreaControllerRef' %, 'IvcmViewAreaControllerRef' )% 
-       end // if
-//	%{PARENT_CLASS}%f_make_accessable(%{IvcmViewAreaControllerRef}U)\
-       ( get_global_var ( 'PARENT_CLASS' ) %f make_accessable %( ( get_global_var ( 'IvcmViewAreaControllerRef' ) |U ) )% ) 
-//	%{PARENT_CLASS}%f_add_attribute(%oU_AutoField,,\
-       ( get_global_var ( 'PARENT_CLASS' ) %f add_attribute %( %o |U '_AutoField' %, '' %, 
-//	f_%oN: %{IvcmViewAreaControllerRef}U,\
-       'f_'
-       %o |N ': '
-       ( get_global_var ( 'IvcmViewAreaControllerRef' ) |U ) %, 
-//	Attr_Inst)\
-       'Attr_Inst' )% ) 
-//	%{Attr_Inst}%f_set_link_type(ref)\
-       ( get_global_var ( 'Attr_Inst' ) %f set_link_type %( 'ref' )% ) 
-//	%{Attr_Inst}%f_set_abstraction_type(final)\
-//	%{Attr_Inst}%f_set_visibility_type(PrivateAccess)\
-       ( get_global_var ( 'Attr_Inst' ) %f set_visibility_type %( 'PrivateAccess' )% ) 
-//	%{Attr_Inst}%f_set_up(ifdef,%o{ifdef})\
-       ( get_global_var ( 'Attr_Inst' ) %f set_up %( 'ifdef' %, %o get_up ( 'ifdef' ) )% ) 
-//	%{Attr_Inst}%f_set_up(ifndef,%o{ifndef})\
-       ( get_global_var ( 'Attr_Inst' ) %f set_up %( 'ifndef' %, %o get_up ( 'ifndef' ) )% ) 
-//	%{Attr_Inst}%f_set_applied_gen(cpp,false)\
-       ( get_global_var ( 'Attr_Inst' ) %f set_applied_gen %( 'cpp' %, false )% ) 
-//	%{Attr_Inst}%f_set_applied_gen(h,false)\
-       ( get_global_var ( 'Attr_Inst' ) %f set_applied_gen %( 'h' %, false )% ) 
-//	%{Attr_Inst}%f_set_documentation(Поле для области вывода %oN)\
-       ( get_global_var ( 'Attr_Inst' ) %f set_documentation %( 'Поле для области вывода '
-       %o |N )% ) 
-//	>\
-
-       ++! l_Counter
-      end // if
-     end // for o
-//	]\
-    end // if
-//	]\
-   end // if
-//	]\
-  end // if
-//	]
- end // if
 //#UC END# *4B2A19E3038Bfor470F151302FD*
-; // SpellAreaLinks
+; // DoSpell
 
 
 //%f _IsMethod
-implementation @ "Delphi интерфейсы и реализация"
 : IsMethod OBJECT IN %S
 // возвращаемый результат: boolean
 //#UC START# *4B2A29440092for470F151302FD*

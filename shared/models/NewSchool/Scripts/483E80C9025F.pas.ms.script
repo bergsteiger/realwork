@@ -11,9 +11,9 @@ FORWARD ME_555DB607006F
 : ME_555DB61203D5
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_483E80FA0312 // TevdNativeReader
+ : Parent HWL ME_483E80FA0312 // TevdNativeReader
  ;
- : Target ME_555DB607006F // evdNativeReaderServices
+ : Target HWL ME_555DB607006F // evdNativeReaderServices
  ;
 
 ref; // ME_555DB61203D5 
@@ -27,7 +27,7 @@ ref; // ME_555DB61203D5
  %SUMMARY 'Читатель тегов в формате evd.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_483E80C9025F // Readers
+ : Parent HWL ME_483E80C9025F // Readers
  ;
  : Inherits
    Seq: ( WL 'ME_483E81520007' '482D6E960087.pas.ms.script' // Tk2CustomFileParser
@@ -52,7 +52,7 @@ FORWARD ME_555DB62E036B
 : ME_555DB6380224
  CONST Class class_Dependency
  : Stereotype st_implements::Dependency ;
- : Parent ME_555DB62E036B // TevdEVDReaderService
+ : Parent HWL ME_555DB62E036B // TevdEVDReaderService
  ;
  : Target WL 'ME_555DB43B00BD' '482D6E960087.pas.ms.script' // Tk2EVDReaderService
  ;
@@ -62,9 +62,9 @@ ref; // ME_555DB6380224
 : ME_555DB64C03E4
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_555DB62E036B // TevdEVDReaderService
+ : Parent HWL ME_555DB62E036B // TevdEVDReaderService
  ;
- : Target ME_483E80FA0312 // TevdNativeReader
+ : Target HWL ME_483E80FA0312 // TevdNativeReader
  ;
 
 ref; // ME_555DB64C03E4 
@@ -72,24 +72,12 @@ ref; // ME_555DB64C03E4
 : ME_55702B7603B3
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_555DB62E036B // TevdEVDReaderService
+ : Parent HWL ME_555DB62E036B // TevdEVDReaderService
  ;
  : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
  ;
 
 ref; // ME_55702B7603B3 
-
-: ME_6A9002DE6C1A_ME_555DB62E036B
- : Original WL 'ME_6A9002DE6C1A' '482D6E960087.pas.ms.script' // MakeReader
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_6A9002DE6C1A_ME_555DB62E036B MakeReader
-
-: ME_9F46A5A9DAF5_ME_555DB62E036B
- : Original WL 'ME_9F46A5A9DAF5' '482D6E960087.pas.ms.script' // GetReader
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_9F46A5A9DAF5_ME_555DB62E036B GetReader
 
 : ME_555DB62E036B
  CONST UID '555DB62E036B'
@@ -99,28 +87,18 @@ ref; // ME_9F46A5A9DAF5_ME_555DB62E036B GetReader
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_555DB607006F // evdNativeReaderServices
+ : Parent HWL ME_555DB607006F // evdNativeReaderServices
  ;
  : Inherits
    Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
  )
  ; // Inherits
- : Implements
-   Seq: ( WL 'ME_4EE7B78D5AA0' '482D6E960087.pas.ms.script' // Ik2EVDReaderService
- )
- ; // Implements
- : Implemented
-   Seq: ( ME_6A9002DE6C1A_ME_555DB62E036B // MakeReader
- ME_9F46A5A9DAF5_ME_555DB62E036B // GetReader
- )
- ; // Implemented
  : Dependencies
    Seq: ( ME_555DB6380224 // Tk2EVDReaderService
  ME_555DB64C03E4 // TevdNativeReader
  ME_55702B7603B3 // FreeAndNil
  )
  ; // Dependencies
- CONST "singleton" true
  CONST extprop:rc:SelfName 'dEVDReaderService'
  CONST extprop:rc:isAcceptableForScripts true
 
@@ -134,10 +112,10 @@ ref; // ME_555DB62E036B TevdEVDReaderService
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_483E80C9025F // Readers
+ : Parent HWL ME_483E80C9025F // Readers
  ;
  : Children
-   Seq: ( ME_555DB62E036B // TevdEVDReaderService
+   Seq: ( HWL ME_555DB62E036B // TevdEVDReaderService
  )
  ; // Children
  CONST intf.pas:Path 'common\components\rtl\Garant\EVD\evdNativeReaderServices.pas'
@@ -156,8 +134,8 @@ ref; // ME_555DB607006F evdNativeReaderServices
  : Parent WL 'ME_467A8734039C' '467A8734039C.pas.ms.script' // EVD
  ;
  : Children
-   Seq: ( ME_483E80FA0312 // TevdNativeReader
- ME_555DB607006F // evdNativeReaderServices
+   Seq: ( HWL ME_483E80FA0312 // TevdNativeReader
+ HWL ME_555DB607006F // evdNativeReaderServices
  )
  ; // Children
  : Depends

@@ -1,0 +1,539 @@
+// PrimSettings 4AC63ADF023F VCMContainer Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AC63ADF023F
+
+: ME_4C6D0A3801F3
+ CONST UID '4C6D0A3801F3'
+ CONST Name 'cutSettings'
+ CONST Class class_Class
+ : Stereotype st_UserType ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Настройка конфигурации' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AC63ADF023F // PrimSettings
+ ;
+ CONST "ImageIndex" '-1'
+ CONST "Weight" '-1'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms\PrimSettings_cutSettings_UserType.pas'
+ CONST extprop:pas:UnitName 'PrimSettings_cutSettings_UserType'
+
+ref; // ME_4C6D0A3801F3 cutSettings
+
+: ME_4AC63B65005F
+ CONST UID '4AC63B65005F'
+ CONST Name 'f_ManagerConf'
+ CONST Class class_Attribute
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4AC63ADF023F // PrimSettings
+ ;
+ : Target WL 'ME_499168FA025D' '499164F501ED.pas.ms.script' // InsConfigSettingsInfo
+ ;
+
+ref; // ME_4AC63B65005F f_ManagerConf
+
+: ME_5264FFCB009F
+ CONST UID '5264FFCB009F'
+ CONST Name 'f_Filled'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4AC63ADF023F // PrimSettings
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_5264FFCB009F f_Filled
+
+FORWARD ME_4AC63BB001DA
+
+: ME_4AC63BE00200
+ CONST UID '4AC63BE00200'
+ CONST Name 'Settings'
+ CONST Class class_Attribute
+ : Stereotype st_var::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_4AC63BB001DA // StartEdit
+ ;
+ : Target WL 'ME_491444C201EB' '47ECAAF901F8.pas.ms.script' // InsSettings
+ ;
+ CONST "IsResult" false
+
+ref; // ME_4AC63BE00200 Settings
+
+: ME_4AC63BB702A0
+ CONST UID '4AC63BB702A0'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AC63BB001DA // StartEdit
+ ;
+
+ref; // ME_4AC63BB702A0 DoIt
+
+: ME_4AC63C1901B8
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AC63BB001DA // StartEdit
+ ;
+ : Target WL 'ME_47752AF90375' '47750CE700D0.pas.ms.script' // afwFacade
+ ;
+
+ref; // ME_4AC63C1901B8 
+
+: ME_4AC63C4801C9
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AC63BB001DA // StartEdit
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_4AC63C4801C9 
+
+: ME_4AC63BB001DA
+ CONST UID '4AC63BB001DA'
+ CONST Name 'StartEdit'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AC63ADF023F // PrimSettings
+ ;
+ : Attributes
+   Seq: ( HWL ME_4AC63BE00200 // Settings
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( HWL ME_4AC63BB702A0 // DoIt
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_4AC63C1901B8 // afwFacade
+ ME_4AC63C4801C9 // SysUtils
+ )
+ ; // Dependencies
+
+ref; // ME_4AC63BB001DA StartEdit
+
+FORWARD ME_4AE069110160
+
+: ME_4AE0691F0037
+ CONST Name 'aData'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_499168FA025D' '499164F501ED.pas.ms.script' // InsConfigSettingsInfo
+ ;
+
+ref; // ME_4AE0691F0037 aData
+
+: ME_4AE0691A03CC
+ CONST UID '4AE0691A03CC'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AE069110160 // Make
+ ;
+ : Parameters
+   Seq: ( ME_4AE0691F0037 // aData
+ )
+ ; // Parameters
+
+ref; // ME_4AE0691A03CC DoIt
+
+: ME_4AE069110160
+ CONST UID '4AE069110160'
+ CONST Name 'Make'
+ CONST Class class_Class
+ : Stereotype st_Factory ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AC63ADF023F // PrimSettings
+ ;
+ : Operations
+   Seq: ( HWL ME_4AE0691A03CC // DoIt
+ )
+ ; // Operations
+
+ref; // ME_4AE069110160 Make
+
+: ME_5264FF0A0241
+ CONST UID '5264FF0A0241'
+ CONST Name 'vcmContainerFormKeyDown'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AC63ADF023F // PrimSettings
+ ;
+ : Inherits
+   Seq: ( WL 'ME_51B595330096' '4799D29F033F.pas.ms.script' // TKeyEvent
+ )
+ ; // Inherits
+ CONST extprop:rc:SelfName 'ContainerFormKeyDown'
+
+ref; // ME_5264FF0A0241 vcmContainerFormKeyDown
+
+: ME_4AC63C070300
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AC63ADF023F // PrimSettings
+ ;
+ : Target WL 'ME_4ABB4C3B03D9' '4ABA137C00E5.pas.ms.script' // ConfigurationList
+ ;
+
+ref; // ME_4AC63C070300 
+
+: ME_4C4087230351
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AC63ADF023F // PrimSettings
+ ;
+ : Target WL 'ME_47FE430F0088' '4799D29F033F.pas.ms.script' // TModalResult
+ ;
+
+ref; // ME_4C4087230351 
+
+: ME_4C4089B50134
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AC63ADF023F // PrimSettings
+ ;
+ : Target WL 'ME_4C4089A10092' '4ABA137C00E5.pas.ms.script' // EDuplicateConfName
+ ;
+
+ref; // ME_4C4089B50134 
+
+: ME_52651A790041
+ CONST Class class_Dependency
+ : Stereotype st_ToolbarAtBottom::Dependency ;
+ : Parent HWL ME_4AC63ADF023F // PrimSettings
+ ;
+ : Target WL 'ME_4A97EBC80201' '4A8AD3C70195.pas.ms.script' // Result$Ok
+ ;
+
+ref; // ME_52651A790041 
+
+: ME_52651D84002B
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AC63ADF023F // PrimSettings
+ ;
+ : Target WL 'ME_475415C50224' '4754101B004F.pas.ms.script' // TOvcController
+ ;
+
+ref; // ME_52651D84002B 
+
+: ME_52651E270140
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AC63ADF023F // PrimSettings
+ ;
+ : Target WL 'ME_4A3FAF1F00EC' '4A3FAF1003DA.pas.ms.script' // Command Tables
+ ;
+
+ref; // ME_52651E270140 
+
+: ME_52651E900185
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AC63ADF023F // PrimSettings
+ ;
+ : Target WL 'ME_47ECBD5D03BB' '476F78840219.pas.ms.script' // Msg Codes
+ ;
+
+ref; // ME_52651E900185 
+
+: ME_52651F770124
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AC63ADF023F // PrimSettings
+ ;
+ : Target WL 'ME_48D2191902CB' '48D21909003A.pas.ms.script' // ActionCodes
+ ;
+
+ref; // ME_52651F770124 
+
+: ME_52651F7B031E
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AC63ADF023F // PrimSettings
+ ;
+ : Target WL 'ME_48A41FF10094' '4AB0C3F60375.pas.ms.script' // Windows
+ ;
+
+ref; // ME_52651F7B031E 
+
+: ME_52651FC40162
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AC63ADF023F // PrimSettings
+ ;
+ : Target WL 'ME_47E11FC3021E' '4799D29F033F.pas.ms.script' // Controls
+ ;
+
+ref; // ME_52651FC40162 
+
+: ME_52651FC70048
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AC63ADF023F // PrimSettings
+ ;
+ : Target WL 'ME_47E13C6B0341' '4799D29F033F.pas.ms.script' // Forms
+ ;
+
+ref; // ME_52651FC70048 
+
+: ME_5445F912036C
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AC63ADF023F // PrimSettings
+ ;
+ : Target WL 'ME_537AEB96006C' '533D53FF00C2.pas.ms.script' // vcmTabbedContainerFormDispatcher
+ ;
+
+ref; // ME_5445F912036C 
+
+: ME_4A8AD46D0226_ME_4AC63ADF023F
+ : Original WL 'ME_4A8AD46D0226' '4A8AD3C70195.pas.ms.script' // Cancel
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "ContextMenuWeight" '-1'
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" true
+ CONST "ShowInToolbar" true
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_4A8AD46D0226_ME_4AC63ADF023F Cancel
+
+: ME_4A97EBE702F8_ME_4AC63ADF023F
+ : Original WL 'ME_4A97EBE702F8' '4A8AD3C70195.pas.ms.script' // Ok
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "ContextMenuWeight" '-2'
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" true
+ CONST "ShowInToolbar" true
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_4A97EBE702F8_ME_4AC63ADF023F Ok
+
+: ME_4C4084490250_ME_4AC63ADF023F
+ : Original WL 'ME_4C4084490250' '4AE824CB035A.pas.ms.script' // RestoreConf
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" true
+ CONST "ShowInToolbar" true
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_4C4084490250_ME_4AC63ADF023F RestoreConf
+
+: ME_4C40845C0212_ME_4AC63ADF023F
+ : Original WL 'ME_4C40845C0212' '4AE824CB035A.pas.ms.script' // SaveAsDefaultConf
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" true
+ CONST "ShowInToolbar" true
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_4C40845C0212_ME_4AC63ADF023F SaveAsDefaultConf
+
+: ME_4C4084670039_ME_4AC63ADF023F
+ : Original WL 'ME_4C4084670039' '4AE824CB035A.pas.ms.script' // RestoreAllSettings
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" true
+ CONST "ShowInToolbar" true
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_4C4084670039_ME_4AC63ADF023F RestoreAllSettings
+
+: ME_4C762A1501FC_ME_4AC63ADF023F
+ : Original WL 'ME_4C762A1501FC' '4A8AD3C70195.pas.ms.script' // Ok
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" true
+ CONST "ShowInToolbar" true
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_4C762A1501FC_ME_4AC63ADF023F Ok
+
+: ME_4C762AB601E1_ME_4AC63ADF023F
+ : Original WL 'ME_4C762AB601E1' '4A8AD3C70195.pas.ms.script' // Cancel
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" true
+ CONST "ShowInToolbar" true
+ CONST "has states" true
+ CONST "is FormActivate" false
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_4C762AB601E1_ME_4AC63ADF023F Cancel
+
+: ME_479731C50290_ME_4AC63ADF023F
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_479731C50290_ME_4AC63ADF023F Cleanup
+
+: ME_47A042E100E2_ME_4AC63ADF023F
+ : Original WL 'ME_47A042E100E2' '47913B47006E.pas.ms.script' // InitFields
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_47A042E100E2_ME_4AC63ADF023F InitFields
+
+: ME_4980403E021E_ME_4AC63ADF023F
+ : Original WL 'ME_4980403E021E' '4799D29F033F.pas.ms.script' // CloseQuery
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4980403E021E_ME_4AC63ADF023F CloseQuery
+
+: ME_4A8E8F2E0195_ME_4AC63ADF023F
+ : Original WL 'ME_4A8E8F2E0195' '5000041101C8.pas.ms.script' // InitControls
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4A8E8F2E0195_ME_4AC63ADF023F InitControls
+
+: ME_4B321D1301DD_ME_4AC63ADF023F
+ : Original WL 'ME_4B321D1301DD' '4799D29F033F.pas.ms.script' // DoShow
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4B321D1301DD_ME_4AC63ADF023F DoShow
+
+: ME_5445EA440078_ME_4AC63ADF023F
+ : Original WL 'ME_5445EA440078' '4AADF9450143.pas.ms.script' // DoOnShowModal
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_5445EA440078_ME_4AC63ADF023F DoOnShowModal
+
+: ME_4AC63ADF023F
+ CONST UID '4AC63ADF023F'
+ CONST Name 'PrimSettings'
+ CONST Class class_Class
+ : Stereotype st_VCMContainer ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Настройка конфигурации' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4AA79F630309' '4AA79F630309.pas.ms.script' // Settings
+ ;
+ : Inherits
+   Seq: ( WL 'ME_49525C240170' '4AADF9450143.pas.ms.script' // TvcmContainerForm
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_467D37430253' '467C0CAA02AB.pas.ms.script' // Il3CommandTarget
+ WL 'ME_4A8AD409003A' '4A8AD3C70195.pas.ms.script' // Result$Cancel
+ WL 'ME_4A97EBC80201' '4A8AD3C70195.pas.ms.script' // Result$Ok
+ WL 'ME_4C40843E00E9' '4AE824CB035A.pas.ms.script' // Result
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( HWL ME_4AC63B65005F // f_ManagerConf
+ HWL ME_5264FFCB009F // f_Filled
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( HWL ME_4AC63BB001DA // StartEdit
+ HWL ME_4AE069110160 // Make
+ HWL ME_5264FF0A0241 // vcmContainerFormKeyDown
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4A8AD46D0226_ME_4AC63ADF023F // Cancel
+ ME_4A97EBE702F8_ME_4AC63ADF023F // Ok
+ ME_4C4084490250_ME_4AC63ADF023F // RestoreConf
+ ME_4C40845C0212_ME_4AC63ADF023F // SaveAsDefaultConf
+ ME_4C4084670039_ME_4AC63ADF023F // RestoreAllSettings
+ ME_4C762A1501FC_ME_4AC63ADF023F // Ok
+ ME_4C762AB601E1_ME_4AC63ADF023F // Cancel
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_479731C50290_ME_4AC63ADF023F // Cleanup
+ ME_47A042E100E2_ME_4AC63ADF023F // InitFields
+ ME_4980403E021E_ME_4AC63ADF023F // CloseQuery
+ ME_4A8E8F2E0195_ME_4AC63ADF023F // InitControls
+ ME_4B321D1301DD_ME_4AC63ADF023F // DoShow
+ ME_5445EA440078_ME_4AC63ADF023F // DoOnShowModal
+ )
+ ; // Overridden
+ : Children
+   Seq: ( HWL ME_4C6D0A3801F3 // cutSettings
+ )
+ ; // Children
+ : Dependencies
+   Seq: ( ME_4AC63C070300 // ConfigurationList
+ ME_4C4087230351 // TModalResult
+ ME_4C4089B50134 // EDuplicateConfName
+ ME_52651A790041 // Result$Ok
+ ME_52651D84002B // TOvcController
+ ME_52651E270140 // Command Tables
+ ME_52651E900185 // Msg Codes
+ ME_52651F770124 // ActionCodes
+ ME_52651F7B031E // Windows
+ ME_52651FC40162 // Controls
+ ME_52651FC70048 // Forms
+ ME_5445F912036C // vcmTabbedContainerFormDispatcher
+ )
+ ; // Dependencies
+ CONST "NeedsHackRef" true
+ CONST "ZoneType" 'ManualModal'
+ CONST "author" 'Люлин А.В.'
+ CONST "finished dfm" true
+ CONST "no hands" true
+ CONST "resizeable" false
+ CONST "restrict form def" 'undefined'
+ CONST "started" '02.10.2009 21:39'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms\PrimSettings_Form.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms'
+ CONST extprop:pas:TypeName 'TPrimSettingsForm'
+ CONST extprop:rc:SelfName 'PrimSettingsForm'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'PrimSettings_Form'
+ CONST extprop:NeedsInitEntities true
+
+ref; // ME_4AC63ADF023F PrimSettings

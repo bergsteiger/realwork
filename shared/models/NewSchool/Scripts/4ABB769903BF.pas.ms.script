@@ -1,0 +1,84 @@
+// CompInfo 4ABB769903BF VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4ABB769903BF
+
+: ME_A462190E3592
+ CONST UID 'A462190E3592'
+ CONST Name 'ut_CompInfo'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_UserType ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Информация о комплекте' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4ABB769903BF // CompInfo
+ ;
+ CONST "ImageIndex" '-1'
+ CONST "VisibleToUser" false
+ CONST "Weight" '-1'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\CompInfo_ut_CompInfo_UserType.pas'
+ CONST extprop:pas:UnitName 'CompInfo_ut_CompInfo_UserType'
+
+ref; // ME_A462190E3592 ut_CompInfo
+
+: ME_CDF88B3B13A1
+ CONST UID 'CDF88B3B13A1'
+ CONST Name 'Ini_FormFactory_CompInfo'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы CompInfo' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4ABB769903BF // CompInfo
+ ;
+ : SpelledFor HWL ME_4ABB769903BF // CompInfo
+ ;
+
+ref; // ME_CDF88B3B13A1 Ini_FormFactory_CompInfo
+
+: ME_4ABB769903BF
+ CONST UID '4ABB769903BF'
+ CONST Name 'CompInfo'
+ CONST Class class_Class
+ : Stereotype st_VCMFinalForm ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Информация о комплекте' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent WL 'ME_4A92C1380380' '4A92C1380380.pas.ms.script' // PrimF1Common
+ ;
+ : Inherits
+   Seq: ( WL 'ME_516FC52E034F' '516FC52E034F.pas.ms.script' // PrimCompInfo
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4BD872BF0058' '4BD856E802F9.pas.ms.script' // CompInfo
+ )
+ ; // Implements
+ : Operations
+   Seq: ( HWL ME_CDF88B3B13A1 // Ini_FormFactory_CompInfo
+ )
+ ; // Operations
+ : Children
+   Seq: ( HWL ME_A462190E3592 // ut_CompInfo
+ )
+ ; // Children
+ CONST "NeedsHackRef" true
+ CONST "ZoneType" 'Parent'
+ CONST "finished dfm" true
+ CONST "form name prefix" 'en'
+ CONST "no hands" true
+ CONST "resizeable" false
+ CONST "restrict form def" 'undefined'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\CompInfo_Form.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms'
+ CONST extprop:pas:TypeName 'TenCompInfo'
+ CONST extprop:rc:SelfName 'enCompInfo'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'CompInfo_Form'
+
+ref; // ME_4ABB769903BF CompInfo

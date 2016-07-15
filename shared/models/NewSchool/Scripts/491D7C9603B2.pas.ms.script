@@ -316,7 +316,7 @@ ref; // ME_512B22E20169_ME_47E9F0600135 ListAsString
  %SUMMARY 'Список лекартственных препаратов.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_491D7C9603B2 // MedicInterfaces
+ : Parent HWL ME_491D7C9603B2 // MedicInterfaces
  ;
  : Inherits
    Seq: ( WL 'ME_47E9F00100A2' '491B305A0096.pas.ms.script' // IdsList
@@ -387,7 +387,7 @@ FORWARD ME_4925763002E7
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4925763002E7 // IdsMedicFirmList
+ : Parent HWL ME_4925763002E7 // IdsMedicFirmList
  ;
  : Target WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
  ;
@@ -403,7 +403,7 @@ ref; // ME_4925780600F0 CurrentCountryFilter
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4925763002E7 // IdsMedicFirmList
+ : Parent HWL ME_4925763002E7 // IdsMedicFirmList
  ;
  : Target WL 'ME_46825CC00249' '4682595B0268.pas.ms.script' // Il3SimpleTree
  ;
@@ -453,7 +453,7 @@ ref; // ME_49257666033F aCurrent
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4925763002E7 // IdsMedicFirmList
+ : Parent HWL ME_4925763002E7 // IdsMedicFirmList
  ;
  : Target WL 'ME_46825CC00249' '4682595B0268.pas.ms.script' // Il3SimpleTree
  ;
@@ -473,7 +473,7 @@ ref; // ME_492576530326 FiltrateByCountry
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4925763002E7 // IdsMedicFirmList
+ : Parent HWL ME_4925763002E7 // IdsMedicFirmList
  ;
  : Target WL 'ME_47EA0784000D' '4B1FC2FF03CD.pas.ms.script' // IdeDocInfo
  ;
@@ -487,7 +487,7 @@ ref; // ME_492576D90012 MakeNewDocInfo
  %SUMMARY 'добавить закладку на текущий документ' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4925763002E7 // IdsMedicFirmList
+ : Parent HWL ME_4925763002E7 // IdsMedicFirmList
  ;
 
 ref; // ME_492576E30362 AddBookmark
@@ -507,7 +507,7 @@ ref; // ME_492576FC0011 aNode
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4925763002E7 // IdsMedicFirmList
+ : Parent HWL ME_4925763002E7 // IdsMedicFirmList
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -547,7 +547,7 @@ ref; // ME_4925773B0327 WithTexts
  %SUMMARY 'Создать суперкомплексное превью' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4925763002E7 // IdsMedicFirmList
+ : Parent HWL ME_4925763002E7 // IdsMedicFirmList
  ;
  : Target WL 'ME_4890158A0251' '4991B06602DA.pas.ms.script' // InsSuperComplexDocumentPreview
  ;
@@ -565,7 +565,7 @@ ref; // ME_492577250399 MakeSuperPreview
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4925763002E7 // IdsMedicFirmList
+ : Parent HWL ME_4925763002E7 // IdsMedicFirmList
  ;
  : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
  ;
@@ -615,7 +615,7 @@ ref; // ME_492577A10255 aFormat
  %SUMMARY 'сохранить выделенные документы на диск в указанном формате. Возвращает признак того, что чего-то сохранили' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4925763002E7 // IdsMedicFirmList
+ : Parent HWL ME_4925763002E7 // IdsMedicFirmList
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -685,7 +685,7 @@ ref; // ME_492577E602EF NeedPrintTopic
  %SUMMARY 'сохранить выделенные документы в один файл в указанном формате. Разделяя, если указано, их фразой "Топик: <внутренний номер документа>". Возвращает признак того, что чего-то сохранили' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4925763002E7 // IdsMedicFirmList
+ : Parent HWL ME_4925763002E7 // IdsMedicFirmList
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -743,7 +743,7 @@ ref; // ME_492D90AA0118_ME_4925763002E7 FiltrateByContext
  %SUMMARY 'Список фирм производителей' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_491D7C9603B2 // MedicInterfaces
+ : Parent HWL ME_491D7C9603B2 // MedicInterfaces
  ;
  : Inherits
    Seq: ( WL 'ME_47E9F96B035A' '491DD2830110.pas.ms.script' // IdsSimpleTree
@@ -754,19 +754,19 @@ ref; // ME_492D90AA0118_ME_4925763002E7 FiltrateByContext
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_4925780600F0 // CurrentCountryFilter
- ME_4925786801D6 // CountryFilterTree
+   Seq: ( HWL ME_4925780600F0 // CurrentCountryFilter
+ HWL ME_4925786801D6 // CountryFilterTree
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_492576530326 // FiltrateByCountry
- ME_492576D90012 // MakeNewDocInfo
- ME_492576E30362 // AddBookmark
- ME_492576F500F5 // GetNodeID
- ME_492577250399 // MakeSuperPreview
- ME_4925777F003A // FullName
- ME_4925778D0078 // ExportDocuments
- ME_492577CF0184 // MergeDocuments
+   Seq: ( HWL ME_492576530326 // FiltrateByCountry
+ HWL ME_492576D90012 // MakeNewDocInfo
+ HWL ME_492576E30362 // AddBookmark
+ HWL ME_492576F500F5 // GetNodeID
+ HWL ME_492577250399 // MakeSuperPreview
+ HWL ME_4925777F003A // FullName
+ HWL ME_4925778D0078 // ExportDocuments
+ HWL ME_492577CF0184 // MergeDocuments
  )
  ; // Operations
  : Implemented
@@ -1095,10 +1095,10 @@ ref; // ME_512B22E20169_ME_500D3CBB01DF ListAsString
  %SUMMARY 'Бизнес объект "Синонимы по международному названию"' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_47F0761B0046 // IsdsBaseDrugDocument
+ : Parent HWL ME_47F0761B0046 // IsdsBaseDrugDocument
  ;
  : Inherits
-   Seq: ( ME_47E9F0600135 // IdsDrugList
+   Seq: ( HWL ME_47E9F0600135 // IdsDrugList
  )
  ; // Inherits
  : Implemented
@@ -1166,7 +1166,7 @@ ref; // ME_500D3CBB01DF dsDrugInternationalNameSynonims
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_47F0761B0046 // IsdsBaseDrugDocument
+ : Parent HWL ME_47F0761B0046 // IsdsBaseDrugDocument
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -1179,9 +1179,9 @@ FORWARD ME_47F076DD0260
 : ME_501680300054
  CONST Class class_Dependency
  : Stereotype st_reflected_by::Dependency ;
- : Parent ME_47F0761B0046 // IsdsBaseDrugDocument
+ : Parent HWL ME_47F0761B0046 // IsdsBaseDrugDocument
  ;
- : Target ME_47F076DD0260 // IdBaseDrugDocument
+ : Target HWL ME_47F076DD0260 // IdBaseDrugDocument
  ;
  CONST "needs default form" false
 
@@ -1253,15 +1253,15 @@ ref; // ME_6DBD21E52E04_ME_47F0761B0046 HasAttributes
  %SUMMARY 'Базовый интерфейс для списка документов и описания препарата.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_491D7C9603B2 // MedicInterfaces
+ : Parent HWL ME_491D7C9603B2 // MedicInterfaces
  ;
  : Inherits
    Seq: ( WL 'ME_47F083E60105' '4D1B85BF03E4.pas.ms.script' // IsdsBaseDocumentWithAttributes
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_500D3CBB01DF // dsDrugInternationalNameSynonims
- ME_0D45C46989F3 // HasDrugInternationalNameSynonims
+   Seq: ( HWL ME_500D3CBB01DF // dsDrugInternationalNameSynonims
+ HWL ME_0D45C46989F3 // HasDrugInternationalNameSynonims
  )
  ; // Attributes
  : Implemented
@@ -1296,7 +1296,7 @@ FORWARD ME_5016A90300B0
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_5016A90300B0 // IdsDrugListSynchroView
+ : Parent HWL ME_5016A90300B0 // IdsDrugListSynchroView
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -1314,7 +1314,7 @@ ref; // ME_33C4CFE7BE58 IsDrugInternationalNameSynonimsActive
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_5016A90300B0 // IdsDrugListSynchroView
+ : Parent HWL ME_5016A90300B0 // IdsDrugListSynchroView
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -1330,7 +1330,7 @@ ref; // ME_EBEDED9E4D65 HasDrugInternationalNameSynonims
  %SUMMARY 'Открывает ViewArea "Бизнес объект "Синонимы по международному названию""' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_5016A90300B0 // IdsDrugListSynchroView
+ : Parent HWL ME_5016A90300B0 // IdsDrugListSynchroView
  ;
 
 ref; // ME_FED42B6D17CA OpenDrugInternationalNameSynonims
@@ -1404,19 +1404,19 @@ ref; // ME_49469292003A_ME_5016A90300B0 IsListActive
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_491D7C9603B2 // MedicInterfaces
+ : Parent HWL ME_491D7C9603B2 // MedicInterfaces
  ;
  : Inherits
    Seq: ( WL 'ME_494690E5004E' '4922BFA000DD.pas.ms.script' // IdsSimpleListSynchroView
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_33C4CFE7BE58 // IsDrugInternationalNameSynonimsActive
- ME_EBEDED9E4D65 // HasDrugInternationalNameSynonims
+   Seq: ( HWL ME_33C4CFE7BE58 // IsDrugInternationalNameSynonimsActive
+ HWL ME_EBEDED9E4D65 // HasDrugInternationalNameSynonims
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_FED42B6D17CA // OpenDrugInternationalNameSynonims
+   Seq: ( HWL ME_FED42B6D17CA // OpenDrugInternationalNameSynonims
  )
  ; // Operations
  : Implemented
@@ -1749,10 +1749,10 @@ ref; // ME_512B22E20169_ME_500D3D150007 ListAsString
  %SUMMARY 'список производимых препаратов' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4937A59101D3 // IsdsMedicFirmDocumentPrim
+ : Parent HWL ME_4937A59101D3 // IsdsMedicFirmDocumentPrim
  ;
  : Inherits
-   Seq: ( ME_47E9F0600135 // IdsDrugList
+   Seq: ( HWL ME_47E9F0600135 // IdsDrugList
  )
  ; // Inherits
  : Implemented
@@ -1817,7 +1817,7 @@ ref; // ME_500D3D150007 dsDrugList
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4937A59101D3 // IsdsMedicFirmDocumentPrim
+ : Parent HWL ME_4937A59101D3 // IsdsMedicFirmDocumentPrim
  ;
 
 ref; // ME_4937AC23020B OpenDrugList
@@ -1827,9 +1827,9 @@ FORWARD ME_4939260B019C
 : ME_50168043002E
  CONST Class class_Dependency
  : Stereotype st_reflected_by::Dependency ;
- : Parent ME_4937A59101D3 // IsdsMedicFirmDocumentPrim
+ : Parent HWL ME_4937A59101D3 // IsdsMedicFirmDocumentPrim
  ;
- : Target ME_4939260B019C // IdMedicFirmDocument
+ : Target HWL ME_4939260B019C // IdMedicFirmDocument
  ;
  CONST "needs default form" false
 
@@ -1901,18 +1901,18 @@ ref; // ME_6DBD21E52E04_ME_4937A59101D3 HasAttributes
  %SUMMARY 'описание фирмы-производителя' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_491D7C9603B2 // MedicInterfaces
+ : Parent HWL ME_491D7C9603B2 // MedicInterfaces
  ;
  : Inherits
    Seq: ( WL 'ME_47F083E60105' '4D1B85BF03E4.pas.ms.script' // IsdsBaseDocumentWithAttributes
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_500D3D150007 // dsDrugList
+   Seq: ( HWL ME_500D3D150007 // dsDrugList
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_4937AC23020B // OpenDrugList
+   Seq: ( HWL ME_4937AC23020B // OpenDrugList
  )
  ; // Operations
  : Implemented
@@ -1947,7 +1947,7 @@ FORWARD ME_5016A8BA01D4
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_5016A8BA01D4 // IdsMedicFirmListSynchroView
+ : Parent HWL ME_5016A8BA01D4 // IdsMedicFirmListSynchroView
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -1965,7 +1965,7 @@ ref; // ME_EA414DEF2CED IsDrugListActive
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_5016A8BA01D4 // IdsMedicFirmListSynchroView
+ : Parent HWL ME_5016A8BA01D4 // IdsMedicFirmListSynchroView
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -1981,7 +1981,7 @@ ref; // ME_F5E686C6B9A6 HasDrugList
  %SUMMARY 'Открывает ViewArea "список производимых препаратов"' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_5016A8BA01D4 // IdsMedicFirmListSynchroView
+ : Parent HWL ME_5016A8BA01D4 // IdsMedicFirmListSynchroView
  ;
 
 ref; // ME_AE873C4154C0 OpenDrugList
@@ -2055,19 +2055,19 @@ ref; // ME_49469292003A_ME_5016A8BA01D4 IsListActive
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_491D7C9603B2 // MedicInterfaces
+ : Parent HWL ME_491D7C9603B2 // MedicInterfaces
  ;
  : Inherits
    Seq: ( WL 'ME_494690E5004E' '4922BFA000DD.pas.ms.script' // IdsSimpleListSynchroView
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_EA414DEF2CED // IsDrugListActive
- ME_F5E686C6B9A6 // HasDrugList
+   Seq: ( HWL ME_EA414DEF2CED // IsDrugListActive
+ HWL ME_F5E686C6B9A6 // HasDrugList
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_AE873C4154C0 // OpenDrugList
+   Seq: ( HWL ME_AE873C4154C0 // OpenDrugList
  )
  ; // Operations
  : Implemented
@@ -2096,7 +2096,7 @@ FORWARD ME_4953C95E038F
  %SUMMARY 'Открыть список синонимов по международному названию.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4953C95E038F // IsdsDrugDocument
+ : Parent HWL ME_4953C95E038F // IsdsDrugDocument
  ;
 
 ref; // ME_47FDF09F0290 OpenDrugInternationalNameSynonims
@@ -2106,16 +2106,16 @@ FORWARD ME_49365A300185
 : ME_5016805E03B5
  CONST Class class_Dependency
  : Stereotype st_reflected_by::Dependency ;
- : Parent ME_4953C95E038F // IsdsDrugDocument
+ : Parent HWL ME_4953C95E038F // IsdsDrugDocument
  ;
- : Target ME_49365A300185 // IdDrugDocument
+ : Target HWL ME_49365A300185 // IdDrugDocument
  ;
  CONST "needs default form" false
 
 ref; // ME_5016805E03B5 
 
 : ME_0D45C46989F3_ME_4953C95E038F
- : Original ME_0D45C46989F3 // HasDrugInternationalNameSynonims
+ : Original HWL ME_0D45C46989F3 // HasDrugInternationalNameSynonims
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
@@ -2179,7 +2179,7 @@ ref; // ME_5009A78501A6_ME_4953C95E038F dsAttributes
 ref; // ME_500CEEBD01CB_ME_4953C95E038F dsContents
 
 : ME_500D3CBB01DF_ME_4953C95E038F
- : Original ME_500D3CBB01DF // dsDrugInternationalNameSynonims
+ : Original HWL ME_500D3CBB01DF // dsDrugInternationalNameSynonims
  ;
  CONST OpKind opkind_Implemented
  CONST "is reference" true
@@ -2209,10 +2209,10 @@ ref; // ME_6DBD21E52E04_ME_4953C95E038F HasAttributes
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_491D7C9603B2 // MedicInterfaces
+ : Parent HWL ME_491D7C9603B2 // MedicInterfaces
  ;
  : Inherits
-   Seq: ( ME_47F0761B0046 // IsdsBaseDrugDocument
+   Seq: ( HWL ME_47F0761B0046 // IsdsBaseDrugDocument
  )
  ; // Inherits
  : Implements
@@ -2220,7 +2220,7 @@ ref; // ME_6DBD21E52E04_ME_4953C95E038F HasAttributes
  )
  ; // Implements
  : Operations
-   Seq: ( ME_47FDF09F0290 // OpenDrugInternationalNameSynonims
+   Seq: ( HWL ME_47FDF09F0290 // OpenDrugInternationalNameSynonims
  )
  ; // Operations
  : Implemented
@@ -2257,7 +2257,7 @@ ref; // ME_4953C95E038F IsdsDrugDocument
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_47F076DD0260 // IdBaseDrugDocument
+ : Parent HWL ME_47F076DD0260 // IdBaseDrugDocument
  ;
  : Target WL 'ME_47EB514C0336' '4982BE090383.pas.ms.script' // IvcmFormDataSourceRef
  ;
@@ -2276,7 +2276,7 @@ ref; // ME_64B8F5213895 dsDrugInternationalNameSynonimsRef
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_47F076DD0260 // IdBaseDrugDocument
+ : Parent HWL ME_47F076DD0260 // IdBaseDrugDocument
  ;
  : Target WL 'ME_491BF08F035F' '4678193C009C.pas.ms.script' // Tl3Bool
  ;
@@ -2347,15 +2347,15 @@ ref; // ME_E1561B99CC62_ME_47F076DD0260 HasAttributes
  %SUMMARY 'Данные сборки описания препарата' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_491D7C9603B2 // MedicInterfaces
+ : Parent HWL ME_491D7C9603B2 // MedicInterfaces
  ;
  : Inherits
    Seq: ( WL 'ME_47F085420325' '4D1B85BF03E4.pas.ms.script' // IdBaseDocumentWithAttributes
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_64B8F5213895 // dsDrugInternationalNameSynonimsRef
- ME_B07FE8A09521 // HasDrugInternationalNameSynonims
+   Seq: ( HWL ME_64B8F5213895 // dsDrugInternationalNameSynonimsRef
+ HWL ME_B07FE8A09521 // HasDrugInternationalNameSynonims
  )
  ; // Attributes
  : Implemented
@@ -2381,7 +2381,7 @@ ref; // ME_47F076DD0260 IdBaseDrugDocument
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_49365A300185 // IdDrugDocument
+ : Parent HWL ME_49365A300185 // IdDrugDocument
  ;
  : Target WL 'ME_49145BA70313' '491B305A0096.pas.ms.script' // IdeSimpleTree
  ;
@@ -2399,7 +2399,7 @@ ref; // ME_493925D603CF ContentsTree
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_49365A300185 // IdDrugDocument
+ : Parent HWL ME_49365A300185 // IdDrugDocument
  ;
  : Target WL 'ME_47EB514C0336' '4982BE090383.pas.ms.script' // IvcmFormDataSourceRef
  ;
@@ -2429,7 +2429,7 @@ ref; // ME_4939245D0171_ME_49365A300185 ResetBooleans
 ref; // ME_4995768F007A_ME_49365A300185 Clone
 
 : ME_64B8F5213895_ME_49365A300185
- : Original ME_64B8F5213895 // dsDrugInternationalNameSynonimsRef
+ : Original HWL ME_64B8F5213895 // dsDrugInternationalNameSynonimsRef
  ;
  CONST OpKind opkind_Implemented
  CONST "needs field" true
@@ -2453,7 +2453,7 @@ ref; // ME_77EA326510B8_ME_49365A300185 HasDocument
 ref; // ME_958F281A6FD6_ME_49365A300185 dsAttributesRef
 
 : ME_B07FE8A09521_ME_49365A300185
- : Original ME_B07FE8A09521 // HasDrugInternationalNameSynonims
+ : Original HWL ME_B07FE8A09521 // HasDrugInternationalNameSynonims
  ;
  CONST OpKind opkind_Implemented
  CONST "needs field" true
@@ -2485,15 +2485,15 @@ ref; // ME_E1561B99CC62_ME_49365A300185 HasAttributes
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_491D7C9603B2 // MedicInterfaces
+ : Parent HWL ME_491D7C9603B2 // MedicInterfaces
  ;
  : Inherits
-   Seq: ( ME_47F076DD0260 // IdBaseDrugDocument
+   Seq: ( HWL ME_47F076DD0260 // IdBaseDrugDocument
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_493925D603CF // ContentsTree
- ME_3A7D008F28B6 // dsContentsRef
+   Seq: ( HWL ME_493925D603CF // ContentsTree
+ HWL ME_3A7D008F28B6 // dsContentsRef
  )
  ; // Attributes
  : Implemented
@@ -2524,7 +2524,7 @@ FORWARD ME_EDFE395C8EE0
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_EDFE395C8EE0 // TDrugList_SynchroView_Areas
+ : Parent HWL ME_EDFE395C8EE0 // TDrugList_SynchroView_Areas
  ;
 
 ref; // ME_72EE39E53C1C None
@@ -2538,7 +2538,7 @@ ref; // ME_72EE39E53C1C None
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_EDFE395C8EE0 // TDrugList_SynchroView_Areas
+ : Parent HWL ME_EDFE395C8EE0 // TDrugList_SynchroView_Areas
  ;
 
 ref; // ME_42059B9467B3 Document
@@ -2552,7 +2552,7 @@ ref; // ME_42059B9467B3 Document
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_EDFE395C8EE0 // TDrugList_SynchroView_Areas
+ : Parent HWL ME_EDFE395C8EE0 // TDrugList_SynchroView_Areas
  ;
 
 ref; // ME_E5BF8BEF375F Attributes
@@ -2566,7 +2566,7 @@ ref; // ME_E5BF8BEF375F Attributes
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_EDFE395C8EE0 // TDrugList_SynchroView_Areas
+ : Parent HWL ME_EDFE395C8EE0 // TDrugList_SynchroView_Areas
  ;
 
 ref; // ME_00AEFCADC123 DrugInternationalNameSynonims
@@ -2581,13 +2581,13 @@ ref; // ME_00AEFCADC123 DrugInternationalNameSynonims
  %SUMMARY 'Типы зон для "Бизнес объект "Синхронный просмотра""' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_491D7C9603B2 // MedicInterfaces
+ : Parent HWL ME_491D7C9603B2 // MedicInterfaces
  ;
  : Attributes
-   Seq: ( ME_72EE39E53C1C // None
- ME_42059B9467B3 // Document
- ME_E5BF8BEF375F // Attributes
- ME_00AEFCADC123 // DrugInternationalNameSynonims
+   Seq: ( HWL ME_72EE39E53C1C // None
+ HWL ME_42059B9467B3 // Document
+ HWL ME_E5BF8BEF375F // Attributes
+ HWL ME_00AEFCADC123 // DrugInternationalNameSynonims
  )
  ; // Attributes
  CONST "elements prefix" 'sva_DrugList_SynchroView'
@@ -2609,7 +2609,7 @@ ref; // ME_EDFE395C8EE0 TDrugList_SynchroView_Areas
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4939260B019C // IdMedicFirmDocument
+ : Parent HWL ME_4939260B019C // IdMedicFirmDocument
  ;
  : Target WL 'ME_47EB514C0336' '4982BE090383.pas.ms.script' // IvcmFormDataSourceRef
  ;
@@ -2680,14 +2680,14 @@ ref; // ME_E1561B99CC62_ME_4939260B019C HasAttributes
  %SUMMARY 'Данные описания фирмы-производителя' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_491D7C9603B2 // MedicInterfaces
+ : Parent HWL ME_491D7C9603B2 // MedicInterfaces
  ;
  : Inherits
    Seq: ( WL 'ME_47F085420325' '4D1B85BF03E4.pas.ms.script' // IdBaseDocumentWithAttributes
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_9FEBA868EC20 // dsDrugListRef
+   Seq: ( HWL ME_9FEBA868EC20 // dsDrugListRef
  )
  ; // Attributes
  : Implemented
@@ -2716,7 +2716,7 @@ FORWARD ME_127F0A440BEB
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_127F0A440BEB // TMedicFirmList_SynchroView_Areas
+ : Parent HWL ME_127F0A440BEB // TMedicFirmList_SynchroView_Areas
  ;
 
 ref; // ME_A993A6710FBB None
@@ -2730,7 +2730,7 @@ ref; // ME_A993A6710FBB None
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_127F0A440BEB // TMedicFirmList_SynchroView_Areas
+ : Parent HWL ME_127F0A440BEB // TMedicFirmList_SynchroView_Areas
  ;
 
 ref; // ME_AF91AD65B21F Document
@@ -2744,7 +2744,7 @@ ref; // ME_AF91AD65B21F Document
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_127F0A440BEB // TMedicFirmList_SynchroView_Areas
+ : Parent HWL ME_127F0A440BEB // TMedicFirmList_SynchroView_Areas
  ;
 
 ref; // ME_BFE778DED133 Attributes
@@ -2758,7 +2758,7 @@ ref; // ME_BFE778DED133 Attributes
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_127F0A440BEB // TMedicFirmList_SynchroView_Areas
+ : Parent HWL ME_127F0A440BEB // TMedicFirmList_SynchroView_Areas
  ;
 
 ref; // ME_3FC7BE0E8BBF DrugList
@@ -2773,13 +2773,13 @@ ref; // ME_3FC7BE0E8BBF DrugList
  %SUMMARY 'Типы зон для "dsSynchroView"' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_491D7C9603B2 // MedicInterfaces
+ : Parent HWL ME_491D7C9603B2 // MedicInterfaces
  ;
  : Attributes
-   Seq: ( ME_A993A6710FBB // None
- ME_AF91AD65B21F // Document
- ME_BFE778DED133 // Attributes
- ME_3FC7BE0E8BBF // DrugList
+   Seq: ( HWL ME_A993A6710FBB // None
+ HWL ME_AF91AD65B21F // Document
+ HWL ME_BFE778DED133 // Attributes
+ HWL ME_3FC7BE0E8BBF // DrugList
  )
  ; // Attributes
  CONST "elements prefix" 'sva_MedicFirmList_SynchroView'
@@ -2816,62 +2816,62 @@ ref; // ME_491DD5A10199_ME_500D3DC401D9 SimpleTree
 ref; // ME_491DD5C90095_ME_500D3DC401D9 CurrentChanged
 
 : ME_492576530326_ME_500D3DC401D9
- : Original ME_492576530326 // FiltrateByCountry
+ : Original HWL ME_492576530326 // FiltrateByCountry
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_492576530326_ME_500D3DC401D9 FiltrateByCountry
 
 : ME_492576D90012_ME_500D3DC401D9
- : Original ME_492576D90012 // MakeNewDocInfo
+ : Original HWL ME_492576D90012 // MakeNewDocInfo
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_492576D90012_ME_500D3DC401D9 MakeNewDocInfo
 
 : ME_492576E30362_ME_500D3DC401D9
- : Original ME_492576E30362 // AddBookmark
+ : Original HWL ME_492576E30362 // AddBookmark
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_492576E30362_ME_500D3DC401D9 AddBookmark
 
 : ME_492576F500F5_ME_500D3DC401D9
- : Original ME_492576F500F5 // GetNodeID
+ : Original HWL ME_492576F500F5 // GetNodeID
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_492576F500F5_ME_500D3DC401D9 GetNodeID
 
 : ME_492577250399_ME_500D3DC401D9
- : Original ME_492577250399 // MakeSuperPreview
+ : Original HWL ME_492577250399 // MakeSuperPreview
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_492577250399_ME_500D3DC401D9 MakeSuperPreview
 
 : ME_4925777F003A_ME_500D3DC401D9
- : Original ME_4925777F003A // FullName
+ : Original HWL ME_4925777F003A // FullName
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4925777F003A_ME_500D3DC401D9 FullName
 
 : ME_4925778D0078_ME_500D3DC401D9
- : Original ME_4925778D0078 // ExportDocuments
+ : Original HWL ME_4925778D0078 // ExportDocuments
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4925778D0078_ME_500D3DC401D9 ExportDocuments
 
 : ME_492577CF0184_ME_500D3DC401D9
- : Original ME_492577CF0184 // MergeDocuments
+ : Original HWL ME_492577CF0184 // MergeDocuments
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_492577CF0184_ME_500D3DC401D9 MergeDocuments
 
 : ME_4925780600F0_ME_500D3DC401D9
- : Original ME_4925780600F0 // CurrentCountryFilter
+ : Original HWL ME_4925780600F0 // CurrentCountryFilter
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_4925780600F0_ME_500D3DC401D9 CurrentCountryFilter
 
 : ME_4925786801D6_ME_500D3DC401D9
- : Original ME_4925786801D6 // CountryFilterTree
+ : Original HWL ME_4925786801D6 // CountryFilterTree
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
@@ -2898,10 +2898,10 @@ ref; // ME_492D90AA0118_ME_500D3DC401D9 FiltrateByContext
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4922C5FF0235 // IsdsMedicFirmList
+ : Parent HWL ME_4922C5FF0235 // IsdsMedicFirmList
  ;
  : Inherits
-   Seq: ( ME_4925763002E7 // IdsMedicFirmList
+   Seq: ( HWL ME_4925763002E7 // IdsMedicFirmList
  )
  ; // Inherits
  : Implemented
@@ -3431,20 +3431,20 @@ ref; // ME_53D8C6EA038C_ME_500D3E05033F GetDocumentShortName
 ref; // ME_54B3A7C7038F_ME_500D3E05033F GetDocumentName
 
 : ME_AE873C4154C0_ME_500D3E05033F
- : Original ME_AE873C4154C0 // OpenDrugList
+ : Original HWL ME_AE873C4154C0 // OpenDrugList
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_AE873C4154C0_ME_500D3E05033F OpenDrugList
 
 : ME_EA414DEF2CED_ME_500D3E05033F
- : Original ME_EA414DEF2CED // IsDrugListActive
+ : Original HWL ME_EA414DEF2CED // IsDrugListActive
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_EA414DEF2CED_ME_500D3E05033F IsDrugListActive
 
 : ME_F5E686C6B9A6_ME_500D3E05033F
- : Original ME_F5E686C6B9A6 // HasDrugList
+ : Original HWL ME_F5E686C6B9A6 // HasDrugList
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
@@ -3458,16 +3458,16 @@ ref; // ME_F5E686C6B9A6_ME_500D3E05033F HasDrugList
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4922C5FF0235 // IsdsMedicFirmList
+ : Parent HWL ME_4922C5FF0235 // IsdsMedicFirmList
  ;
  : Inherits
-   Seq: ( ME_5016A8BA01D4 // IdsMedicFirmListSynchroView
+   Seq: ( HWL ME_5016A8BA01D4 // IdsMedicFirmListSynchroView
  )
  ; // Inherits
  : Implements
    Seq: ( WL 'ME_50002EC80001' '491B305A0096.pas.ms.script' // dsDocument
  WL 'ME_5009A78501A6' '4D1B85BF03E4.pas.ms.script' // dsAttributes
- ME_500D3D150007 // dsDrugList
+ HWL ME_500D3D150007 // dsDrugList
  )
  ; // Implements
  : Implemented
@@ -3569,7 +3569,7 @@ ref; // ME_500D3E05033F dsSynchroView
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_4922C5FF0235 // IsdsMedicFirmList
+ : Parent HWL ME_4922C5FF0235 // IsdsMedicFirmList
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -3587,7 +3587,7 @@ ref; // ME_A5A4F8CABF20 IsDocumentActive
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_4922C5FF0235 // IsdsMedicFirmList
+ : Parent HWL ME_4922C5FF0235 // IsdsMedicFirmList
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -3605,7 +3605,7 @@ ref; // ME_5D132F53CBB1 IsAttributesActive
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_4922C5FF0235 // IsdsMedicFirmList
+ : Parent HWL ME_4922C5FF0235 // IsdsMedicFirmList
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -3621,7 +3621,7 @@ ref; // ME_C88FE4927F04 IsDrugListActive
  %SUMMARY 'Открывает ViewArea "Собственно документ"' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4922C5FF0235 // IsdsMedicFirmList
+ : Parent HWL ME_4922C5FF0235 // IsdsMedicFirmList
  ;
 
 ref; // ME_E0B72D4BE61F OpenDocument
@@ -3634,7 +3634,7 @@ ref; // ME_E0B72D4BE61F OpenDocument
  %SUMMARY 'Открывает ViewArea "атрибуты документа"' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4922C5FF0235 // IsdsMedicFirmList
+ : Parent HWL ME_4922C5FF0235 // IsdsMedicFirmList
  ;
 
 ref; // ME_547039B70620 OpenAttributes
@@ -3647,7 +3647,7 @@ ref; // ME_547039B70620 OpenAttributes
  %SUMMARY 'Открывает ViewArea "список производимых препаратов"' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4922C5FF0235 // IsdsMedicFirmList
+ : Parent HWL ME_4922C5FF0235 // IsdsMedicFirmList
  ;
 
 ref; // ME_BF9026B194BB OpenDrugList
@@ -3657,9 +3657,9 @@ FORWARD ME_4939264B0061
 : ME_5016803B02B4
  CONST Class class_Dependency
  : Stereotype st_reflected_by::Dependency ;
- : Parent ME_4922C5FF0235 // IsdsMedicFirmList
+ : Parent HWL ME_4922C5FF0235 // IsdsMedicFirmList
  ;
- : Target ME_4939264B0061 // IdMedicFirmList
+ : Target HWL ME_4939264B0061 // IdMedicFirmList
  ;
  CONST "needs default form" false
 
@@ -3684,7 +3684,7 @@ ref; // ME_492597A602F6_ME_4922C5FF0235 MakeGotoPointData
 ref; // ME_492598700162_ME_4922C5FF0235 OpenAttributes
 
 : ME_4937AC23020B_ME_4922C5FF0235
- : Original ME_4937AC23020B // OpenDrugList
+ : Original HWL ME_4937AC23020B // OpenDrugList
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4937AC23020B_ME_4922C5FF0235 OpenDrugList
@@ -3714,7 +3714,7 @@ ref; // ME_50002EC80001_ME_4922C5FF0235 dsDocument
 ref; // ME_5009A78501A6_ME_4922C5FF0235 dsAttributes
 
 : ME_500D3D150007_ME_4922C5FF0235
- : Original ME_500D3D150007 // dsDrugList
+ : Original HWL ME_500D3D150007 // dsDrugList
  ;
  CONST OpKind opkind_Implemented
  CONST "Need Has" false
@@ -3745,24 +3745,24 @@ ref; // ME_6DBD21E52E04_ME_4922C5FF0235 HasAttributes
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_491D7C9603B2 // MedicInterfaces
+ : Parent HWL ME_491D7C9603B2 // MedicInterfaces
  ;
  : Inherits
-   Seq: ( ME_4937A59101D3 // IsdsMedicFirmDocumentPrim
+   Seq: ( HWL ME_4937A59101D3 // IsdsMedicFirmDocumentPrim
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_500D3DC401D9 // dsFirmList
- ME_500D3E05033F // dsSynchroView
- ME_A5A4F8CABF20 // IsDocumentActive
- ME_5D132F53CBB1 // IsAttributesActive
- ME_C88FE4927F04 // IsDrugListActive
+   Seq: ( HWL ME_500D3DC401D9 // dsFirmList
+ HWL ME_500D3E05033F // dsSynchroView
+ HWL ME_A5A4F8CABF20 // IsDocumentActive
+ HWL ME_5D132F53CBB1 // IsAttributesActive
+ HWL ME_C88FE4927F04 // IsDrugListActive
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_E0B72D4BE61F // OpenDocument
- ME_547039B70620 // OpenAttributes
- ME_BF9026B194BB // OpenDrugList
+   Seq: ( HWL ME_E0B72D4BE61F // OpenDocument
+ HWL ME_547039B70620 // OpenAttributes
+ HWL ME_BF9026B194BB // OpenDrugList
  )
  ; // Operations
  : Implemented
@@ -3827,7 +3827,7 @@ ref; // ME_4EFC5A31016E_ME_4DC185B80232 ForSynchroView
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_47EA026B024C // IsdsDrugList
+ : Parent HWL ME_47EA026B024C // IsdsDrugList
  ;
  : Inherits
    Seq: ( WL 'ME_4921869901CF' '491B305A0096.pas.ms.script' // IdsWarning
@@ -4155,10 +4155,10 @@ ref; // ME_512B22E20169_ME_500D3D75005B ListAsString
  %SUMMARY 'Бизнес объект "Список лекарственных препаратов"' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_47EA026B024C // IsdsDrugList
+ : Parent HWL ME_47EA026B024C // IsdsDrugList
  ;
  : Inherits
-   Seq: ( ME_47E9F0600135 // IdsDrugList
+   Seq: ( HWL ME_47E9F0600135 // IdsDrugList
  )
  ; // Inherits
  : Implemented
@@ -4220,7 +4220,7 @@ ref; // ME_500D3D75005B dsDrugList
 FORWARD ME_500D3E3500FF
 
 : ME_33C4CFE7BE58_ME_500D3E3500FF
- : Original ME_33C4CFE7BE58 // IsDrugInternationalNameSynonimsActive
+ : Original HWL ME_33C4CFE7BE58 // IsDrugInternationalNameSynonimsActive
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
@@ -4727,14 +4727,14 @@ ref; // ME_53D8C6EA038C_ME_500D3E3500FF GetDocumentShortName
 ref; // ME_54B3A7C7038F_ME_500D3E3500FF GetDocumentName
 
 : ME_EBEDED9E4D65_ME_500D3E3500FF
- : Original ME_EBEDED9E4D65 // HasDrugInternationalNameSynonims
+ : Original HWL ME_EBEDED9E4D65 // HasDrugInternationalNameSynonims
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_EBEDED9E4D65_ME_500D3E3500FF HasDrugInternationalNameSynonims
 
 : ME_FED42B6D17CA_ME_500D3E3500FF
- : Original ME_FED42B6D17CA // OpenDrugInternationalNameSynonims
+ : Original HWL ME_FED42B6D17CA // OpenDrugInternationalNameSynonims
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_FED42B6D17CA_ME_500D3E3500FF OpenDrugInternationalNameSynonims
@@ -4748,16 +4748,16 @@ ref; // ME_FED42B6D17CA_ME_500D3E3500FF OpenDrugInternationalNameSynonims
  %SUMMARY 'Бизнес объект "Синхронный просмотра"' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_47EA026B024C // IsdsDrugList
+ : Parent HWL ME_47EA026B024C // IsdsDrugList
  ;
  : Inherits
-   Seq: ( ME_5016A90300B0 // IdsDrugListSynchroView
+   Seq: ( HWL ME_5016A90300B0 // IdsDrugListSynchroView
  )
  ; // Inherits
  : Implements
    Seq: ( WL 'ME_50002EC80001' '491B305A0096.pas.ms.script' // dsDocument
  WL 'ME_5009A78501A6' '4D1B85BF03E4.pas.ms.script' // dsAttributes
- ME_500D3CBB01DF // dsDrugInternationalNameSynonims
+ HWL ME_500D3CBB01DF // dsDrugInternationalNameSynonims
  )
  ; // Implements
  : Implemented
@@ -4866,7 +4866,7 @@ ref; // ME_4922D96003C8_ME_500D3E780156 OpenFilter
  %SUMMARY 'Бизнес объект "Фильтры"' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_47EA026B024C // IsdsDrugList
+ : Parent HWL ME_47EA026B024C // IsdsDrugList
  ;
  : Inherits
    Seq: ( WL 'ME_4922D94500FB' '4922BFA000DD.pas.ms.script' // IdsFilters
@@ -4914,7 +4914,7 @@ ref; // ME_49005EF9034C_ME_500D3EB1023F ShortListName
  %SUMMARY 'справка к списку' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_47EA026B024C // IsdsDrugList
+ : Parent HWL ME_47EA026B024C // IsdsDrugList
  ;
  : Inherits
    Seq: ( WL 'ME_49005E89009D' '4D1B444C015E.pas.ms.script' // IdsListInfo
@@ -4942,7 +4942,7 @@ ref; // ME_500D3EB1023F dsListInfo
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_47EA026B024C // IsdsDrugList
+ : Parent HWL ME_47EA026B024C // IsdsDrugList
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -4960,7 +4960,7 @@ ref; // ME_41B49128CE19 IsDocumentActive
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_47EA026B024C // IsdsDrugList
+ : Parent HWL ME_47EA026B024C // IsdsDrugList
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -4978,7 +4978,7 @@ ref; // ME_7ECE38CEFE6F IsAttributesActive
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_47EA026B024C // IsdsDrugList
+ : Parent HWL ME_47EA026B024C // IsdsDrugList
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -4993,7 +4993,7 @@ ref; // ME_862011C4CE04 IsDrugInternationalNameSynonimsActive
  %SUMMARY '- обновить информацию о списке.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_47EA026B024C // IsdsDrugList
+ : Parent HWL ME_47EA026B024C // IsdsDrugList
  ;
 
 ref; // ME_47F4BF4E0397 UpdateListInfo
@@ -5006,7 +5006,7 @@ ref; // ME_47F4BF4E0397 UpdateListInfo
  %SUMMARY 'Открывает ViewArea "Собственно документ"' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_47EA026B024C // IsdsDrugList
+ : Parent HWL ME_47EA026B024C // IsdsDrugList
  ;
 
 ref; // ME_5D78745D5001 OpenDocument
@@ -5019,7 +5019,7 @@ ref; // ME_5D78745D5001 OpenDocument
  %SUMMARY 'Открывает ViewArea "атрибуты документа"' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_47EA026B024C // IsdsDrugList
+ : Parent HWL ME_47EA026B024C // IsdsDrugList
  ;
 
 ref; // ME_ECBE8DB2214F OpenAttributes
@@ -5032,7 +5032,7 @@ ref; // ME_ECBE8DB2214F OpenAttributes
  %SUMMARY 'Открывает ViewArea "Бизнес объект "Синонимы по международному названию""' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_47EA026B024C // IsdsDrugList
+ : Parent HWL ME_47EA026B024C // IsdsDrugList
  ;
 
 ref; // ME_7680D04D575B OpenDrugInternationalNameSynonims
@@ -5042,16 +5042,16 @@ FORWARD ME_47EB3BEB00F1
 : ME_5016806802F3
  CONST Class class_Dependency
  : Stereotype st_reflected_by::Dependency ;
- : Parent ME_47EA026B024C // IsdsDrugList
+ : Parent HWL ME_47EA026B024C // IsdsDrugList
  ;
- : Target ME_47EB3BEB00F1 // IdDrugList
+ : Target HWL ME_47EB3BEB00F1 // IdDrugList
  ;
  CONST "needs default form" false
 
 ref; // ME_5016806802F3 
 
 : ME_0D45C46989F3_ME_47EA026B024C
- : Original ME_0D45C46989F3 // HasDrugInternationalNameSynonims
+ : Original HWL ME_0D45C46989F3 // HasDrugInternationalNameSynonims
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
@@ -5133,7 +5133,7 @@ ref; // ME_50002EC80001_ME_47EA026B024C dsDocument
 ref; // ME_5009A78501A6_ME_47EA026B024C dsAttributes
 
 : ME_500D3CBB01DF_ME_47EA026B024C
- : Original ME_500D3CBB01DF // dsDrugInternationalNameSynonims
+ : Original HWL ME_500D3CBB01DF // dsDrugInternationalNameSynonims
  ;
  CONST OpKind opkind_Implemented
  CONST "is reference" true
@@ -5178,10 +5178,10 @@ ref; // ME_6DBD21E52E04_ME_47EA026B024C HasAttributes
  %SUMMARY 'Список лекарственных препаратов.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_491D7C9603B2 // MedicInterfaces
+ : Parent HWL ME_491D7C9603B2 // MedicInterfaces
  ;
  : Inherits
-   Seq: ( ME_47F0761B0046 // IsdsBaseDrugDocument
+   Seq: ( HWL ME_47F0761B0046 // IsdsBaseDrugDocument
  )
  ; // Inherits
  : Implements
@@ -5193,21 +5193,21 @@ ref; // ME_6DBD21E52E04_ME_47EA026B024C HasAttributes
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_4DC185B80232 // dsBaloonWarning
- ME_500D3D75005B // dsDrugList
- ME_500D3E3500FF // dsSynchroView
- ME_500D3E780156 // dsFilters
- ME_500D3EB1023F // dsListInfo
- ME_41B49128CE19 // IsDocumentActive
- ME_7ECE38CEFE6F // IsAttributesActive
- ME_862011C4CE04 // IsDrugInternationalNameSynonimsActive
+   Seq: ( HWL ME_4DC185B80232 // dsBaloonWarning
+ HWL ME_500D3D75005B // dsDrugList
+ HWL ME_500D3E3500FF // dsSynchroView
+ HWL ME_500D3E780156 // dsFilters
+ HWL ME_500D3EB1023F // dsListInfo
+ HWL ME_41B49128CE19 // IsDocumentActive
+ HWL ME_7ECE38CEFE6F // IsAttributesActive
+ HWL ME_862011C4CE04 // IsDrugInternationalNameSynonimsActive
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_47F4BF4E0397 // UpdateListInfo
- ME_5D78745D5001 // OpenDocument
- ME_ECBE8DB2214F // OpenAttributes
- ME_7680D04D575B // OpenDrugInternationalNameSynonims
+   Seq: ( HWL ME_47F4BF4E0397 // UpdateListInfo
+ HWL ME_5D78745D5001 // OpenDocument
+ HWL ME_ECBE8DB2214F // OpenAttributes
+ HWL ME_7680D04D575B // OpenDrugInternationalNameSynonims
  )
  ; // Operations
  : Implemented
@@ -5260,7 +5260,7 @@ ref; // ME_492597A602F6_ME_5016D8D0005D MakeGotoPointData
 ref; // ME_492598700162_ME_5016D8D0005D OpenAttributes
 
 : ME_4937AC23020B_ME_5016D8D0005D
- : Original ME_4937AC23020B // OpenDrugList
+ : Original HWL ME_4937AC23020B // OpenDrugList
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4937AC23020B_ME_5016D8D0005D OpenDrugList
@@ -5290,7 +5290,7 @@ ref; // ME_50002EC80001_ME_5016D8D0005D dsDocument
 ref; // ME_5009A78501A6_ME_5016D8D0005D dsAttributes
 
 : ME_500D3D150007_ME_5016D8D0005D
- : Original ME_500D3D150007 // dsDrugList
+ : Original HWL ME_500D3D150007 // dsDrugList
  ;
  CONST OpKind opkind_Implemented
  CONST "Need Has" false
@@ -5321,10 +5321,10 @@ ref; // ME_6DBD21E52E04_ME_5016D8D0005D HasAttributes
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_491D7C9603B2 // MedicInterfaces
+ : Parent HWL ME_491D7C9603B2 // MedicInterfaces
  ;
  : Inherits
-   Seq: ( ME_4937A59101D3 // IsdsMedicFirmDocumentPrim
+   Seq: ( HWL ME_4937A59101D3 // IsdsMedicFirmDocumentPrim
  )
  ; // Inherits
  : Implemented
@@ -5355,7 +5355,7 @@ FORWARD ME_561F628C0396
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_561F628C0396 // IdeMedicFirmList
+ : Parent HWL ME_561F628C0396 // IdeMedicFirmList
  ;
  : Target WL 'ME_45EEB95901C5' '457450470167.pas.ms.script' // NodeBase
  ;
@@ -5371,7 +5371,7 @@ ref; // ME_561F637B0070 Current
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_561F628C0396 // IdeMedicFirmList
+ : Parent HWL ME_561F628C0396 // IdeMedicFirmList
  ;
  : Target WL 'ME_46825CC00249' '4682595B0268.pas.ms.script' // Il3SimpleTree
  ;
@@ -5387,7 +5387,7 @@ ref; // ME_561F638A0039 CountryFilterTree
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_561F628C0396 // IdeMedicFirmList
+ : Parent HWL ME_561F628C0396 // IdeMedicFirmList
  ;
  : Target WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
  ;
@@ -5563,16 +5563,16 @@ ref; // ME_4B1FA0B003E1_ME_561F628C0396 ClearListNode
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_491D7C9603B2 // MedicInterfaces
+ : Parent HWL ME_491D7C9603B2 // MedicInterfaces
  ;
  : Implements
    Seq: ( WL 'ME_47EA0784000D' '4B1FC2FF03CD.pas.ms.script' // IdeDocInfo
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_561F637B0070 // Current
- ME_561F638A0039 // CountryFilterTree
- ME_561F6394002D // CurrentCountryFilter
+   Seq: ( HWL ME_561F637B0070 // Current
+ HWL ME_561F638A0039 // CountryFilterTree
+ HWL ME_561F6394002D // CurrentCountryFilter
  )
  ; // Attributes
  : Implemented
@@ -5617,9 +5617,9 @@ ref; // ME_561F628C0396 IdeMedicFirmList
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_4939264B0061 // IdMedicFirmList
+ : Parent HWL ME_4939264B0061 // IdMedicFirmList
  ;
- : Target ME_127F0A440BEB // TMedicFirmList_SynchroView_Areas
+ : Target HWL ME_127F0A440BEB // TMedicFirmList_SynchroView_Areas
  ;
  CONST "needs field" true
  CONST "pm" true
@@ -5636,7 +5636,7 @@ ref; // ME_9B8E07D2C1BA MedicFirmList_SynchroView_Form
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4939264B0061 // IdMedicFirmList
+ : Parent HWL ME_4939264B0061 // IdMedicFirmList
  ;
  : Target WL 'ME_47EB514C0336' '4982BE090383.pas.ms.script' // IvcmFormDataSourceRef
  ;
@@ -5655,7 +5655,7 @@ ref; // ME_DD81AF5E2804 dsFirmListRef
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4939264B0061 // IdMedicFirmList
+ : Parent HWL ME_4939264B0061 // IdMedicFirmList
  ;
  : Target WL 'ME_47EB514C0336' '4982BE090383.pas.ms.script' // IvcmFormDataSourceRef
  ;
@@ -5701,7 +5701,7 @@ ref; // ME_77EA326510B8_ME_4939264B0061 HasDocument
 ref; // ME_958F281A6FD6_ME_4939264B0061 dsAttributesRef
 
 : ME_9FEBA868EC20_ME_4939264B0061
- : Original ME_9FEBA868EC20 // dsDrugListRef
+ : Original HWL ME_9FEBA868EC20 // dsDrugListRef
  ;
  CONST OpKind opkind_Implemented
  CONST "needs field" true
@@ -5734,16 +5734,16 @@ ref; // ME_E1561B99CC62_ME_4939264B0061 HasAttributes
  %SUMMARY 'Данные списка фирм-производителей' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_491D7C9603B2 // MedicInterfaces
+ : Parent HWL ME_491D7C9603B2 // MedicInterfaces
  ;
  : Inherits
-   Seq: ( ME_4939260B019C // IdMedicFirmDocument
+   Seq: ( HWL ME_4939260B019C // IdMedicFirmDocument
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_9B8E07D2C1BA // MedicFirmList_SynchroView_Form
- ME_DD81AF5E2804 // dsFirmListRef
- ME_2A46ABCE9C2A // dsSynchroViewRef
+   Seq: ( HWL ME_9B8E07D2C1BA // MedicFirmList_SynchroView_Form
+ HWL ME_DD81AF5E2804 // dsFirmListRef
+ HWL ME_2A46ABCE9C2A // dsSynchroViewRef
  )
  ; // Attributes
  : Implemented
@@ -5771,7 +5771,7 @@ ref; // ME_4939264B0061 IdMedicFirmList
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_47EB3BEB00F1 // IdDrugList
+ : Parent HWL ME_47EB3BEB00F1 // IdDrugList
  ;
  : Target WL 'ME_45EEDB730265' '45700BFD0251.pas.ms.script' // DynList
  ;
@@ -5788,7 +5788,7 @@ ref; // ME_47F37CF2000D List
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_47EB3BEB00F1 // IdDrugList
+ : Parent HWL ME_47EB3BEB00F1 // IdDrugList
  ;
  : Target WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
  ;
@@ -5806,9 +5806,9 @@ ref; // ME_47FF3A4C03E7 NodeForPositioning
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_47EB3BEB00F1 // IdDrugList
+ : Parent HWL ME_47EB3BEB00F1 // IdDrugList
  ;
- : Target ME_EDFE395C8EE0 // TDrugList_SynchroView_Areas
+ : Target HWL ME_EDFE395C8EE0 // TDrugList_SynchroView_Areas
  ;
  CONST "needs field" true
  CONST "pm" true
@@ -5825,7 +5825,7 @@ ref; // ME_B53EF7286977 DrugList_SynchroView_Form
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_47EB3BEB00F1 // IdDrugList
+ : Parent HWL ME_47EB3BEB00F1 // IdDrugList
  ;
  : Target WL 'ME_47EB514C0336' '4982BE090383.pas.ms.script' // IvcmFormDataSourceRef
  ;
@@ -5844,7 +5844,7 @@ ref; // ME_38AF3FCA8739 dsDrugListRef
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_47EB3BEB00F1 // IdDrugList
+ : Parent HWL ME_47EB3BEB00F1 // IdDrugList
  ;
  : Target WL 'ME_47EB514C0336' '4982BE090383.pas.ms.script' // IvcmFormDataSourceRef
  ;
@@ -5863,7 +5863,7 @@ ref; // ME_8C15EA0B7407 dsSynchroViewRef
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_47EB3BEB00F1 // IdDrugList
+ : Parent HWL ME_47EB3BEB00F1 // IdDrugList
  ;
  : Target WL 'ME_47EB514C0336' '4982BE090383.pas.ms.script' // IvcmFormDataSourceRef
  ;
@@ -5882,7 +5882,7 @@ ref; // ME_0048137F6167 dsFiltersRef
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_47EB3BEB00F1 // IdDrugList
+ : Parent HWL ME_47EB3BEB00F1 // IdDrugList
  ;
  : Target WL 'ME_47EB514C0336' '4982BE090383.pas.ms.script' // IvcmFormDataSourceRef
  ;
@@ -5912,7 +5912,7 @@ ref; // ME_4939245D0171_ME_47EB3BEB00F1 ResetBooleans
 ref; // ME_4995768F007A_ME_47EB3BEB00F1 Clone
 
 : ME_64B8F5213895_ME_47EB3BEB00F1
- : Original ME_64B8F5213895 // dsDrugInternationalNameSynonimsRef
+ : Original HWL ME_64B8F5213895 // dsDrugInternationalNameSynonimsRef
  ;
  CONST OpKind opkind_Implemented
  CONST "needs field" true
@@ -5936,7 +5936,7 @@ ref; // ME_77EA326510B8_ME_47EB3BEB00F1 HasDocument
 ref; // ME_958F281A6FD6_ME_47EB3BEB00F1 dsAttributesRef
 
 : ME_B07FE8A09521_ME_47EB3BEB00F1
- : Original ME_B07FE8A09521 // HasDrugInternationalNameSynonims
+ : Original HWL ME_B07FE8A09521 // HasDrugInternationalNameSynonims
  ;
  CONST OpKind opkind_Implemented
  CONST "needs field" true
@@ -5969,20 +5969,20 @@ ref; // ME_E1561B99CC62_ME_47EB3BEB00F1 HasAttributes
  %SUMMARY 'Данные сборки "Список лекарственных препаратов"' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_491D7C9603B2 // MedicInterfaces
+ : Parent HWL ME_491D7C9603B2 // MedicInterfaces
  ;
  : Inherits
-   Seq: ( ME_47F076DD0260 // IdBaseDrugDocument
+   Seq: ( HWL ME_47F076DD0260 // IdBaseDrugDocument
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_47F37CF2000D // List
- ME_47FF3A4C03E7 // NodeForPositioning
- ME_B53EF7286977 // DrugList_SynchroView_Form
- ME_38AF3FCA8739 // dsDrugListRef
- ME_8C15EA0B7407 // dsSynchroViewRef
- ME_0048137F6167 // dsFiltersRef
- ME_6DCE2C2DE35F // dsListInfoRef
+   Seq: ( HWL ME_47F37CF2000D // List
+ HWL ME_47FF3A4C03E7 // NodeForPositioning
+ HWL ME_B53EF7286977 // DrugList_SynchroView_Form
+ HWL ME_38AF3FCA8739 // dsDrugListRef
+ HWL ME_8C15EA0B7407 // dsSynchroViewRef
+ HWL ME_0048137F6167 // dsFiltersRef
+ HWL ME_6DCE2C2DE35F // dsListInfoRef
  )
  ; // Attributes
  : Implemented
@@ -6013,24 +6013,24 @@ ref; // ME_47EB3BEB00F1 IdDrugList
  : Parent WL 'ME_494106E500F3' '494106E500F3.pas.ms.script' // Medic
  ;
  : Children
-   Seq: ( ME_47E9F0600135 // IdsDrugList
- ME_4925763002E7 // IdsMedicFirmList
- ME_47F0761B0046 // IsdsBaseDrugDocument
- ME_5016A90300B0 // IdsDrugListSynchroView
- ME_4937A59101D3 // IsdsMedicFirmDocumentPrim
- ME_5016A8BA01D4 // IdsMedicFirmListSynchroView
- ME_4953C95E038F // IsdsDrugDocument
- ME_47F076DD0260 // IdBaseDrugDocument
- ME_49365A300185 // IdDrugDocument
- ME_EDFE395C8EE0 // TDrugList_SynchroView_Areas
- ME_4939260B019C // IdMedicFirmDocument
- ME_127F0A440BEB // TMedicFirmList_SynchroView_Areas
- ME_4922C5FF0235 // IsdsMedicFirmList
- ME_47EA026B024C // IsdsDrugList
- ME_5016D8D0005D // IsdsMedicFirmDocument
- ME_561F628C0396 // IdeMedicFirmList
- ME_4939264B0061 // IdMedicFirmList
- ME_47EB3BEB00F1 // IdDrugList
+   Seq: ( HWL ME_47E9F0600135 // IdsDrugList
+ HWL ME_4925763002E7 // IdsMedicFirmList
+ HWL ME_47F0761B0046 // IsdsBaseDrugDocument
+ HWL ME_5016A90300B0 // IdsDrugListSynchroView
+ HWL ME_4937A59101D3 // IsdsMedicFirmDocumentPrim
+ HWL ME_5016A8BA01D4 // IdsMedicFirmListSynchroView
+ HWL ME_4953C95E038F // IsdsDrugDocument
+ HWL ME_47F076DD0260 // IdBaseDrugDocument
+ HWL ME_49365A300185 // IdDrugDocument
+ HWL ME_EDFE395C8EE0 // TDrugList_SynchroView_Areas
+ HWL ME_4939260B019C // IdMedicFirmDocument
+ HWL ME_127F0A440BEB // TMedicFirmList_SynchroView_Areas
+ HWL ME_4922C5FF0235 // IsdsMedicFirmList
+ HWL ME_47EA026B024C // IsdsDrugList
+ HWL ME_5016D8D0005D // IsdsMedicFirmDocument
+ HWL ME_561F628C0396 // IdeMedicFirmList
+ HWL ME_4939264B0061 // IdMedicFirmList
+ HWL ME_47EB3BEB00F1 // IdDrugList
  )
  ; // Children
  : Depends

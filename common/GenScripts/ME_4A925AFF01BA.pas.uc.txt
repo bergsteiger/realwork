@@ -1,3 +1,9 @@
+//#UC START# *4A925AFF01BAimpl_uses*
+ , afwFacade
+ , vcmTabbedContainerFormDispatcher
+ , DataAdapter
+ , nsUtils
+//#UC END# *4A925AFF01BAimpl_uses*
 //#UC START# *4AA7C28A0113_4A925AFF01BA_impl*
  Result := true;
  with TnsStartupSupport do
@@ -193,20 +199,20 @@ var
 //#UC START# *4AC4A69D03B7_4A925AFF01BA_impl*
  case aQueryType of
   lg_qtKeyWord:
-   TdmStdRes.OpenKeyWord(aQuery, aContainer);
+   TvcmModulesFactories.OpenKeyWord(aQuery, aContainer);
   lg_qtAttribute:
-   TdmStdRes.AttributeSearch(aQuery, nil, aContainer);
+   TvcmModulesFactories.AttributeSearch(aQuery, nil, aContainer);
   lg_qtPublishedSource:
-   TdmStdRes.PublishSourceSearch(aQuery, nil);
+   TvcmModulesFactories.PublishSourceSearch(aQuery, nil);
   lg_qtLegislationReview:
-   TdmStdRes.OpenLegislationReview(aQuery);
+   TvcmModulesFactories.OpenLegislationReview(aQuery);
   lg_qtSendConsultation:
-   vcmDispatcher.ModuleOperation(TdmStdRes.mod_opcode_Search_OpenConsult);
+   vcmDispatcher.ModuleOperation(TvcmModulesOperations.mod_opcode_Search_OpenConsult);
   lg_qtBaseSearch:
-   TdmStdRes.OpenBaseSearch(ns_bsokGlobal,
+   TvcmModulesFactories.OpenBaseSearch(ns_bsokGlobal,
                             aQuery);
   lg_qtInpharmSearch:
-   TdmStdRes.InpharmSearch(aQuery, nil, aContainer);
+   TvcmModulesFactories.InpharmSearch(aQuery, nil, aContainer);
   else
    inherited;   
  end;//case aQueryType

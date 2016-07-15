@@ -2,39 +2,6 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-FORWARD ME_4DDBA9CD0006
-
-: ME_4DDBAEB503DF
- CONST UID '4DDBAEB503DF'
- CONST Name 'ChangesBetweenEditions'
- CONST Class class_Class
- : Stereotype st_VCMUseCaseRealization ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Просмотр только измененных фрагментов' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4DDBA9CD0006 // ChangesBetweenEditions
- ;
- : Inherits
-   Seq: ( WL 'ME_4DDBAF2B0028' '4DDBAF0A0029.pas.ms.script' // ChangesBetweenEditions
- )
- ; // Inherits
- : Implements
-   Seq: ( WL 'ME_4D6F3BC10246' '484900780017.pas.ms.script' // Обзор изменений документа
- )
- ; // Implements
- CONST "author" 'Люлин А.В.'
- CONST "no hands" true
- CONST "started" '24.05.2011 17:12'
- CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\moChangesBetweenEditions.pas'
- CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
- CONST extprop:pas:TypeName 'Tmo_ChangesBetweenEditions'
- CONST extprop:rc:SelfName 'mo_ChangesBetweenEditions'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'moChangesBetweenEditions'
-
-ref; // ME_4DDBAEB503DF ChangesBetweenEditions
-
 : ME_4DDBA9CD0006
  CONST UID '4DDBA9CD0006'
  CONST Name 'ChangesBetweenEditions'
@@ -46,7 +13,7 @@ ref; // ME_4DDBAEB503DF ChangesBetweenEditions
  : Parent WL 'ME_4C852A4201E6' '4C852A4201E6.pas.ms.script' // F1 Пользовательские сервисы
  ;
  : Children
-   Seq: ( ME_4DDBAEB503DF // ChangesBetweenEditions
+   Seq: ( WL 'ME_4DDBAEB503DF' '4DDBAEB503DF.pas.ms.script' // ChangesBetweenEditions
  WL 'ME_4DDCD6FF0208' '4DDCD6FF0208.pas.ms.script' // ChangesBetweenEditions$Domain
  WL 'ME_4DDBAEFE0183' '4DDBAEFE0183.pas.ms.script' // View
  )

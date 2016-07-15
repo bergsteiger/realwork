@@ -1,0 +1,72 @@
+// TdsMedicDictionDocument 491D8571015D ViewAreaControllerImp Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_491D8571015D
+
+: ME_4D358DF30102
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_491D8571015D // TdsMedicDictionDocument
+ ;
+ : Target WL 'ME_4CE662B803DA' '4D358BD90052.pas.ms.script' // TnsDictionDocumentContainer
+ ;
+
+ref; // ME_4D358DF30102 
+
+: ME_4D3598CC00F1
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_491D8571015D // TdsMedicDictionDocument
+ ;
+ : Target WL 'ME_4C6A9AD101B4' '4C6A7BA001A5.pas.ms.script' // TnsF1DocumentContainer
+ ;
+
+ref; // ME_4D3598CC00F1 
+
+: ME_491C264C02C2_ME_491D8571015D
+ : Original WL 'ME_491C264C02C2' '47EA20430108.pas.ms.script' // GetTimeMachineOff
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_491C264C02C2_ME_491D8571015D GetTimeMachineOff
+
+: ME_4C6AB38800F3_ME_491D8571015D
+ : Original WL 'ME_4C6AB38800F3' '47EA20430108.pas.ms.script' // MakeContainer
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4C6AB38800F3_ME_491D8571015D MakeContainer
+
+: ME_491D8571015D
+ CONST UID '491D8571015D'
+ CONST Name 'TdsMedicDictionDocument'
+ CONST Class class_Class
+ : Stereotype st_ViewAreaControllerImp ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'для словаря медицинских терминов' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_491D7CDC0221' '491D7CDC0221.pas.ms.script' // Medic
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4926CAF40166' '4926CAF40166.pas.ms.script' // dsBaseDocument
+ )
+ ; // Inherits
+ : Overridden
+   Seq: ( ME_491C264C02C2_ME_491D8571015D // GetTimeMachineOff
+ ME_4C6AB38800F3_ME_491D8571015D // MakeContainer
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_4D358DF30102 // TnsDictionDocumentContainer
+ ME_4D3598CC00F1 // TnsF1DocumentContainer
+ )
+ ; // Dependencies
+ CONST "author" 'Лукьянец Р.В.'
+ CONST "no hands" true
+ CONST "started" '2008/03/06 10:02:57'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Medic\dsMedicDictionDocument.pas'
+ CONST extprop:rc:SelfName 'dsMedicDictionDocument'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'dsMedicDictionDocument'
+
+ref; // ME_491D8571015D TdsMedicDictionDocument

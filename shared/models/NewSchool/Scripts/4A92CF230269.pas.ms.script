@@ -2,39 +2,6 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-FORWARD ME_4A92CF230269
-
-: ME_4A8ECF950254
- CONST UID '4A8ECF950254'
- CONST Name 'Monitorings'
- CONST Class class_Class
- : Stereotype st_VCMUseCaseRealization ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Мониторинги' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4A92CF230269 // Autoreferat
- ;
- : Inherits
-   Seq: ( WL 'ME_4A8ECF3001D2' '4A92D644009B.pas.ms.script' // PrimMonitorings
- )
- ; // Inherits
- : Implements
-   Seq: ( WL 'ME_484E635201F4' '484E610E0335.pas.ms.script' // ПРАЙМ
- )
- ; // Implements
- CONST "author" 'Люлин А.В.'
- CONST "no hands" true
- CONST "started" '21.09.2009 17:20'
- CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\moMonitorings.pas'
- CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
- CONST extprop:pas:TypeName 'Tmo_Monitorings'
- CONST extprop:rc:SelfName 'mo_Monitorings'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'moMonitorings'
-
-ref; // ME_4A8ECF950254 Monitorings
-
 : ME_4A92CF230269
  CONST UID '4A92CF230269'
  CONST Name 'Autoreferat'
@@ -46,7 +13,7 @@ ref; // ME_4A8ECF950254 Monitorings
  : Parent WL 'ME_4C852A4201E6' '4C852A4201E6.pas.ms.script' // F1 Пользовательские сервисы
  ;
  : Children
-   Seq: ( ME_4A8ECF950254 // Monitorings
+   Seq: ( WL 'ME_4A8ECF950254' '4A8ECF950254.pas.ms.script' // Monitorings
  WL 'ME_49411E4001AB' '49411E4001AB.pas.ms.script' // Autoreferat
  WL 'ME_4A92D5D30100' '4A92D5D30100.pas.ms.script' // View
  )
@@ -76,7 +43,6 @@ ref; // ME_4A8ECF950254 Monitorings
  WL 'ME_4A9FD48B02A5' '4A9FD48B02A5.pas.ms.script' // F1 Application Template
  WL 'ME_4C6A65ED0374' '4C6A65ED0374.pas.ms.script' // F1DocumentProcessing
  WL 'ME_4E13416D0227' '4E13416D0227.pas.ms.script' // VCM$Visual
- WL 'ME_4E200FC9003B' '4E200FC9003B.pas.ms.script' // VCM$Scripting
  WL 'ME_4E2F0E1B03BB' '4E2F0E1B03BB.pas.ms.script' // L3$Domain
  WL 'ME_542015B5012C' '542015B5012C.pas.ms.script' // PostingOrder
  WL 'ME_547CC9D40158' '547CC9D40158.pas.ms.script' // VT$Panels

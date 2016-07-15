@@ -1,0 +1,83 @@
+// AACContainer 4FF2E95602D8 VCMFinalContainer Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4FF2E95602D8
+
+: ME_E0E068E4963D
+ CONST UID 'E0E068E4963D'
+ CONST GUID '548CB0E3-A19F-4AD8-A785-C6FB8E70BF73'
+ CONST Name 'AACContainer'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_VCMFormDefinition ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Идентификатор формы AACContainer' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4FF2E95602D8 // AACContainer
+ ;
+ : Implementors
+   Seq: ( HWL ME_4FF2E95602D8 // AACContainer
+ )
+ ; // Implementors
+ CONST extprop:pas:TypeName 'AACContainerFormDef'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_E0E068E4963D AACContainer$Def
+
+: ME_4F4EEAB4A4CF
+ CONST UID '4F4EEAB4A4CF'
+ CONST Name 'Ini_FormFactory_AACContainer'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы AACContainer' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4FF2E95602D8 // AACContainer
+ ;
+ : SpelledFor HWL ME_4FF2E95602D8 // AACContainer
+ ;
+
+ref; // ME_4F4EEAB4A4CF Ini_FormFactory_AACContainer$Def
+
+: ME_4FF2E95602D8
+ CONST UID '4FF2E95602D8'
+ CONST Name 'AACContainer'
+ CONST Class class_Class
+ : Stereotype st_VCMFinalContainer ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent WL 'ME_4FF2E5C70060' '4FF2E5C70060.pas.ms.script' // AACPrim
+ ;
+ : Inherits
+   Seq: ( WL 'ME_500406E901E5' '500406E901E5.pas.ms.script' // AACTextContainerPrim
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( HWL ME_E0E068E4963D // AACContainer$Def
+ )
+ ; // Implements
+ : Operations
+   Seq: ( HWL ME_4F4EEAB4A4CF // Ini_FormFactory_AACContainer$Def
+ )
+ ; // Operations
+ : Children
+   Seq: ( HWL ME_E0E068E4963D // AACContainer$Def
+ )
+ ; // Children
+ CONST "NeedsHackRef" false
+ CONST "ZoneType" 'Any'
+ CONST "finished dfm" true
+ CONST "resizeable" false
+ CONST "restrict form def" 'undefined'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\AAC\Forms\AACContainer_Form.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\AAC\Forms'
+ CONST extprop:pas:TypeName 'TAACContainerForm'
+ CONST extprop:rc:SelfName 'AACContainerForm'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'AACContainer_Form'
+
+ref; // ME_4FF2E95602D8 AACContainer

@@ -1,0 +1,84 @@
+// ContentsUserTypes 4FFB039302AA VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4FFB039302AA
+
+: ME_4BD71CAC000C
+ CONST UID '4BD71CAC000C'
+ CONST Name 'utContents'
+ CONST Class class_Class
+ : Stereotype st_UserType ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Структура документа' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4FFB039302AA // ContentsUserTypes
+ ;
+ : Implements
+   Seq: ( WL 'ME_4E7A0C450082' '484900780017.pas.ms.script' // Должна быть кнопка закрытия окна
+ )
+ ; // Implements
+ CONST "CanClose" true
+ CONST "ImageIndex" 66
+ CONST "SettingsCaption" 'Документ: Структура (вкладка)'
+ CONST "Weight" 40
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\ContentsUserTypes_utContents_UserType.pas'
+ CONST extprop:pas:UnitName 'ContentsUserTypes_utContents_UserType'
+
+ref; // ME_4BD71CAC000C utContents
+
+: ME_4BD71CDB00F5
+ CONST UID '4BD71CDB00F5'
+ CONST Name 'utDrugContents'
+ CONST Class class_Class
+ : Stereotype st_UserType ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Структура препарата' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4FFB039302AA // ContentsUserTypes
+ ;
+ : Inherits
+   Seq: ( HWL ME_4BD71CAC000C // utContents
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4E7A0C450082' '484900780017.pas.ms.script' // Должна быть кнопка закрытия окна
+ )
+ ; // Implements
+ CONST "CanClose" true
+ CONST "ImageIndex" 66
+ CONST "SettingsCaption" 'Препарат: Структура (вкладка)'
+ CONST "Weight" 40
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\ContentsUserTypes_utDrugContents_UserType.pas'
+ CONST extprop:pas:UnitName 'ContentsUserTypes_utDrugContents_UserType'
+
+ref; // ME_4BD71CDB00F5 utDrugContents
+
+: ME_4FFB039302AA
+ CONST UID '4FFB039302AA'
+ CONST Name 'ContentsUserTypes'
+ CONST Class class_Class
+ : Stereotype st_VCMForm ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent WL 'ME_4A7C0BB70162' '4A7C0BB70162.pas.ms.script' // Base Forms
+ ;
+ : Children
+   Seq: ( HWL ME_4BD71CAC000C // utContents
+ HWL ME_4BD71CDB00F5 // utDrugContents
+ )
+ ; // Children
+ CONST "NeedsHackRef" true
+ CONST "ZoneType" 'Any'
+ CONST "finished dfm" true
+ CONST "resizeable" false
+ CONST "restrict form def" 'undefined'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\ContentsUserTypes.imp.pas'
+ CONST extprop:pas:TypeName '_ContentsUserTypes_'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'ContentsUserTypes.imp'
+
+ref; // ME_4FFB039302AA ContentsUserTypes

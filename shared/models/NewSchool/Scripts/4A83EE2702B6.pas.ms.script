@@ -1,0 +1,106 @@
+// TvtComboBoxQS 4A83EE2702B6 GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A83EE2702B6
+
+FORWARD ME_5538D1CB00A7
+
+: ME_5538D2910363
+ CONST UID '5538D2910363'
+ CONST Name 'OnEndTextPrint'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_5538D1CB00A7 // TCustomComboTree
+ ;
+ : Target WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_5538D2910363 OnEndTextPrint
+
+: ME_5538D2D2035B
+ CONST UID '5538D2D2035B'
+ CONST Name 'EndTextPrint'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_5538D1CB00A7 // TCustomComboTree
+ ;
+
+ref; // ME_5538D2D2035B EndTextPrint
+
+: ME_482AE42802AE_ME_5538D1CB00A7
+ : Original WL 'ME_482AE42802AE' '482ACC330173.pas.ms.script' // Change
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_482AE42802AE_ME_5538D1CB00A7 Change
+
+: ME_53EE0A730393_ME_5538D1CB00A7
+ : Original WL 'ME_53EE0A730393' '53F1DC8F01AD.pas.ms.script' // ProcessTreeSelect
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_53EE0A730393_ME_5538D1CB00A7 ProcessTreeSelect
+
+: ME_5538D1CB00A7
+ CONST UID '5538D1CB00A7'
+ CONST Name 'TCustomComboTree'
+ CONST Class class_Class
+ : Stereotype st_GuiControl ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4A83EE2702B6 // TvtComboBoxQS
+ ;
+ : Inherits
+   Seq: ( WL 'ME_55B780E60398' '48297E42011A.pas.ms.script' // TvtComboTree
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( HWL ME_5538D2910363 // OnEndTextPrint
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( HWL ME_5538D2D2035B // EndTextPrint
+ )
+ ; // Operations
+ : Overridden
+   Seq: ( ME_482AE42802AE_ME_5538D1CB00A7 // Change
+ ME_53EE0A730393_ME_5538D1CB00A7 // ProcessTreeSelect
+ )
+ ; // Overridden
+ CONST extprop:rc:SelfName 'ComboTree'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_5538D1CB00A7 TCustomComboTree
+
+: ME_4A83EE2702B6
+ CONST UID '4A83EE2702B6'
+ CONST Name 'TvtComboBoxQS'
+ CONST Class class_Class
+ : Stereotype st_GuiControl ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4A83EE0E0002' '4A83EE0E0002.pas.ms.script' // Combos
+ ;
+ : Inherits
+   Seq: ( HWL ME_5538D1CB00A7 // TCustomComboTree
+ )
+ ; // Inherits
+ : Children
+   Seq: ( HWL ME_5538D1CB00A7 // TCustomComboTree
+ )
+ ; // Children
+ CONST "need UC" true
+ CONST intf.pas:Path 'common\components\gui\Garant\VT\vtComboBoxQS.pas'
+ CONST extprop:rc:SelfName 'ComboBoxQS'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vtComboBoxQS'
+
+ref; // ME_4A83EE2702B6 TvtComboBoxQS

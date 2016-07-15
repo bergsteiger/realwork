@@ -1,0 +1,1358 @@
+// PrimBaseSearchCard 4AB7A3210135 VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AB7A3210135
+
+FORWARD ME_512642160113
+
+: ME_5126422D017C
+ CONST UID '5126422D017C'
+ CONST Name 'BaseSearch'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_512642160113 // BaseSearchLocalConst
+ ;
+ CONST "AutoInc" false
+ CONST "Value" '''Базовый поиск'''
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_5126422D017C BaseSearch
+
+: ME_51264266006F
+ CONST UID '51264266006F'
+ CONST Name 'QueryHistory'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_512642160113 // BaseSearchLocalConst
+ ;
+ CONST "AutoInc" false
+ CONST "Value" '''История запросов'''
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_51264266006F QueryHistory
+
+: ME_512642160113
+ CONST UID '512642160113'
+ CONST Name 'BaseSearchLocalConst'
+ CONST Class class_Class
+ : Stereotype st_LocalConst ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AB7A3210135 // PrimBaseSearchCard
+ ;
+ : Attributes
+   Seq: ( HWL ME_5126422D017C // BaseSearch
+ HWL ME_51264266006F // QueryHistory
+ )
+ ; // Attributes
+ CONST "Need map interface" false
+ CONST "Need mapping support" false
+ CONST "spell names" false
+
+ref; // ME_512642160113 BaseSearchLocalConst
+
+FORWARD ME_51237BAA0307
+
+FORWARD ME_51237C3C0090
+
+: ME_51237C89018D
+ CONST UID '51237C89018D'
+ CONST Name 'lrBaseSearch'
+ CONST Class class_Class
+ : Stereotype st_Control ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_51237C3C0090 // hfBaseSearch
+ ;
+ CONST "ControlClass" 'TnscLister'
+ CONST "pm" true
+ CONST "put to dfm" false
+
+ref; // ME_51237C89018D lrBaseSearch
+
+: ME_51237C3C0090
+ CONST UID '51237C3C0090'
+ CONST Name 'hfBaseSearch'
+ CONST Class class_Class
+ : Stereotype st_Control ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'История запросов' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_51237BAA0307 // pnlMain
+ ;
+ : Attributes
+   Seq: ( HWL ME_51237C89018D // lrBaseSearch
+ )
+ ; // Attributes
+ CONST "ControlClass" 'TnscHideField'
+ CONST "pm" true
+ CONST "put to dfm" false
+
+ref; // ME_51237C3C0090 hfBaseSearch
+
+: ME_51237CBD034C
+ CONST UID '51237CBD034C'
+ CONST Name 'CardTextLabel'
+ CONST Class class_Class
+ : Stereotype st_Control ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_51237BAA0307 // pnlMain
+ ;
+ CONST "ControlClass" 'TnscSimpleEditor'
+ CONST "pm" true
+ CONST "put to dfm" false
+
+ref; // ME_51237CBD034C CardTextLabel
+
+: ME_51237BAA0307
+ CONST UID '51237BAA0307'
+ CONST Name 'pnlMain'
+ CONST Class class_Class
+ : Stereotype st_Control ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AB7A3210135 // PrimBaseSearchCard
+ ;
+ : Attributes
+   Seq: ( HWL ME_51237C3C0090 // hfBaseSearch
+ HWL ME_51237CBD034C // CardTextLabel
+ )
+ ; // Attributes
+ CONST "ControlClass" 'TvtPanel'
+ CONST "pm" true
+ CONST "put to dfm" false
+
+ref; // ME_51237BAA0307 pnlMain
+
+: ME_5123CA6D00B3
+ CONST UID '5123CA6D00B3'
+ CONST Name 'f_qhBaseSearch'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4AB7A3210135 // PrimBaseSearchCard
+ ;
+ : Target WL 'ME_5123CA5D0361' '4ABD0D6A0255.pas.ms.script' // TQHRec
+ ;
+
+ref; // ME_5123CA6D00B3 f_qhBaseSearch
+
+: ME_51237AB402B9
+ CONST UID '51237AB402B9'
+ CONST Name 'LoadQueryHistory'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AB7A3210135 // PrimBaseSearchCard
+ ;
+
+ref; // ME_51237AB402B9 LoadQueryHistory
+
+FORWARD ME_51237AFE01D0
+
+: ME_51237B0802B1
+ CONST UID '51237B0802B1'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_51237AFE01D0 // QueryProcessor
+ ;
+ : Target WL 'ME_496B533F00AE' '4A9F98B901A5.pas.ms.script' // InsBaseSearchQueryDataProcessor
+ ;
+
+ref; // ME_51237B0802B1 DoIt
+
+: ME_51237AFE01D0
+ CONST UID '51237AFE01D0'
+ CONST Name 'QueryProcessor'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AB7A3210135 // PrimBaseSearchCard
+ ;
+ : Operations
+   Seq: ( HWL ME_51237B0802B1 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_51237AFE01D0 QueryProcessor
+
+FORWARD ME_51237E59012E
+
+: ME_5123811602BA
+ CONST Name 'aSender'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_5123811602BA aSender
+
+: ME_5123811602D9
+ CONST Name 'aIndex'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_5123811602D9 aIndex
+
+: ME_51238113007A
+ CONST UID '51238113007A'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_51237E59012E // lrBaseSearchGetItemCursor
+ ;
+ : Target WL 'ME_4E788E98006B' '4799D29F033F.pas.ms.script' // TCursor
+ ;
+ : Parameters
+   Seq: ( ME_5123811602BA // aSender
+ ME_5123811602D9 // aIndex
+ )
+ ; // Parameters
+
+ref; // ME_51238113007A DoIt
+
+: ME_51237E59012E
+ CONST UID '51237E59012E'
+ CONST Name 'lrBaseSearchGetItemCursor'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AB7A3210135 // PrimBaseSearchCard
+ ;
+ : Operations
+   Seq: ( HWL ME_51238113007A // DoIt
+ )
+ ; // Operations
+
+ref; // ME_51237E59012E lrBaseSearchGetItemCursor
+
+FORWARD ME_51237E6503D6
+
+: ME_512381270184
+ CONST Name 'Sender'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_512381270184 Sender
+
+: ME_5123812701A4
+ CONST Name 'Index'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_5123812701A4 Index
+
+: ME_5123812701C3
+ CONST Name 'aFont'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A614A202CA' '4677FBA70343.pas.ms.script' // Il3Font
+ ;
+
+ref; // ME_5123812701C3 aFont
+
+: ME_512381240208
+ CONST UID '512381240208'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_51237E6503D6 // lrBaseSearchGetItemFont
+ ;
+ : Parameters
+   Seq: ( ME_512381270184 // Sender
+ ME_5123812701A4 // Index
+ ME_5123812701C3 // aFont
+ )
+ ; // Parameters
+
+ref; // ME_512381240208 DoIt
+
+: ME_51237E6503D6
+ CONST UID '51237E6503D6'
+ CONST Name 'lrBaseSearchGetItemFont'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AB7A3210135 // PrimBaseSearchCard
+ ;
+ : Operations
+   Seq: ( HWL ME_512381240208 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_51237E6503D6 lrBaseSearchGetItemFont
+
+FORWARD ME_51237E7003BF
+
+: ME_5123819C0297
+ CONST Name 'Sender'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_5123819C0297 Sender
+
+: ME_5123819C02B6
+ CONST Name 'Index'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_5123819C02B6 Index
+
+: ME_5123819C02D4
+ CONST Name 'ItemString'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_5123819C02D4 ItemString
+
+: ME_512381950203
+ CONST UID '512381950203'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_51237E7003BF // lrBaseSearchGetStrItem
+ ;
+ : Parameters
+   Seq: ( ME_5123819C0297 // Sender
+ ME_5123819C02B6 // Index
+ ME_5123819C02D4 // ItemString
+ )
+ ; // Parameters
+
+ref; // ME_512381950203 DoIt
+
+: ME_51237E7003BF
+ CONST UID '51237E7003BF'
+ CONST Name 'lrBaseSearchGetStrItem'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AB7A3210135 // PrimBaseSearchCard
+ ;
+ : Operations
+   Seq: ( HWL ME_512381950203 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_51237E7003BF lrBaseSearchGetStrItem
+
+FORWARD ME_51237E8901DC
+
+: ME_512381CD02D0
+ CONST Name 'Sender'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_512381CD02D0 Sender
+
+: ME_512381CD02EF
+ CONST Name 'Index'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_512381CD02EF Index
+
+: ME_512381CA0370
+ CONST UID '512381CA0370'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_51237E8901DC // lrBaseSearchActionElement
+ ;
+ : Parameters
+   Seq: ( ME_512381CD02D0 // Sender
+ ME_512381CD02EF // Index
+ )
+ ; // Parameters
+
+ref; // ME_512381CA0370 DoIt
+
+: ME_51237E8901DC
+ CONST UID '51237E8901DC'
+ CONST Name 'lrBaseSearchActionElement'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AB7A3210135 // PrimBaseSearchCard
+ ;
+ : Operations
+   Seq: ( HWL ME_512381CA0370 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_51237E8901DC lrBaseSearchActionElement
+
+FORWARD ME_51237ED3031C
+
+: ME_51238248039A
+ CONST Name 'aState'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4992FC0C02CA' '4683F37902CF.pas.ms.script' // IvcmBase
+ ;
+
+ref; // ME_51238248039A aState
+
+: ME_5123824803BA
+ CONST Name 'aStateType'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4683CBFD032D' '467BAB7F021E.pas.ms.script' // TvcmStateType
+ ;
+
+ref; // ME_5123824803BA aStateType
+
+: ME_5123824803DA
+ CONST Name 'Loaded'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_5123824803DA Loaded
+
+: ME_5123823F0286
+ CONST UID '5123823F0286'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_51237ED3031C // vcmEntityFormLoadState
+ ;
+ : Parameters
+   Seq: ( ME_51238248039A // aState
+ ME_5123824803BA // aStateType
+ ME_5123824803DA // Loaded
+ )
+ ; // Parameters
+
+ref; // ME_5123823F0286 DoIt
+
+: ME_51237ED3031C
+ CONST UID '51237ED3031C'
+ CONST Name 'vcmEntityFormLoadState'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AB7A3210135 // PrimBaseSearchCard
+ ;
+ : Operations
+   Seq: ( HWL ME_5123823F0286 // DoIt
+ )
+ ; // Operations
+ CONST extprop:rc:SelfName 'EntityFormLoadState'
+
+ref; // ME_51237ED3031C vcmEntityFormLoadState
+
+FORWARD ME_51237EDB0222
+
+: ME_5123826602AD
+ CONST Name 'aState'
+ CONST Class class_Parameter
+ : Stereotype st_out ;
+ : Target WL 'ME_4992FC0C02CA' '4683F37902CF.pas.ms.script' // IvcmBase
+ ;
+
+ref; // ME_5123826602AD aState
+
+: ME_5123826602CB
+ CONST Name 'aStateType'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4683CBFD032D' '467BAB7F021E.pas.ms.script' // TvcmStateType
+ ;
+
+ref; // ME_5123826602CB aStateType
+
+: ME_5123826602EB
+ CONST Name 'Saved'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_5123826602EB Saved
+
+: ME_5123826201AD
+ CONST UID '5123826201AD'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_51237EDB0222 // vcmEntityFormSaveState
+ ;
+ : Parameters
+   Seq: ( ME_5123826602AD // aState
+ ME_5123826602CB // aStateType
+ ME_5123826602EB // Saved
+ )
+ ; // Parameters
+
+ref; // ME_5123826201AD DoIt
+
+: ME_51237EDB0222
+ CONST UID '51237EDB0222'
+ CONST Name 'vcmEntityFormSaveState'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AB7A3210135 // PrimBaseSearchCard
+ ;
+ : Operations
+   Seq: ( HWL ME_5123826201AD // DoIt
+ )
+ ; // Operations
+ CONST extprop:rc:SelfName 'EntityFormSaveState'
+
+ref; // ME_51237EDB0222 vcmEntityFormSaveState
+
+FORWARD ME_51237F970395
+
+: ME_512382F60357
+ CONST Name 'aSender'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_512382F60357 aSender
+
+: ME_512382F6037D
+ CONST Name 'aControl'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target WL 'ME_4E25BB410189' '4678209200A6.pas.ms.script' // TnevControlInfo
+ ;
+
+ref; // ME_512382F6037D aControl
+
+: ME_512382F603A3
+ CONST Name 'theImageInfo'
+ CONST Class class_Parameter
+ : Stereotype st_out ;
+ : Target WL 'ME_4D5936FC01A0' '4678209200A6.pas.ms.script' // TnevControlImageInfo
+ ;
+
+ref; // ME_512382F603A3 theImageInfo
+
+: ME_512382EF0124
+ CONST UID '512382EF0124'
+ CONST Name 'DoIT'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_51237F970395 // CardTextLabelTextSourceTnscSimpleEditor_CardTextLabelGetControlItemImg
+ ;
+ : Parameters
+   Seq: ( ME_512382F60357 // aSender
+ ME_512382F6037D // aControl
+ ME_512382F603A3 // theImageInfo
+ )
+ ; // Parameters
+
+ref; // ME_512382EF0124 DoIT
+
+: ME_51237F970395
+ CONST UID '51237F970395'
+ CONST Name 'CardTextLabelTextSourceTnscSimpleEditor_CardTextLabelGetControlItemImg'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AB7A3210135 // PrimBaseSearchCard
+ ;
+ : Operations
+   Seq: ( HWL ME_512382EF0124 // DoIT
+ )
+ ; // Operations
+
+ref; // ME_51237F970395 CardTextLabelTextSourceTnscSimpleEditor_CardTextLabelGetControlItemImg
+
+FORWARD ME_51237FB70279
+
+: ME_512383490019
+ CONST Name 'aHotSpot'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_48E2665A0259' '4A1FCBA0014C.pas.ms.script' // IevHotSpot
+ ;
+
+ref; // ME_512383490019 aHotSpot
+
+: ME_512383490039
+ CONST Name 'aButton'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4728CDD0000B' '4677FBA70343.pas.ms.script' // Tl3MouseButton
+ ;
+
+ref; // ME_512383490039 aButton
+
+: ME_512383490059
+ CONST Name 'anAction'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4728CDEF038A' '4677FBA70343.pas.ms.script' // Tl3MouseAction
+ ;
+
+ref; // ME_512383490059 anAction
+
+: ME_51238349007A
+ CONST Name 'Keys'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4728CE680258' '4AB0997B00A2.pas.ms.script' // TShiftState
+ ;
+
+ref; // ME_51238349007A Keys
+
+: ME_51238349009B
+ CONST Name 'NeedAsyncLoop'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_51238349009B NeedAsyncLoop
+
+: ME_512383440166
+ CONST UID '512383440166'
+ CONST Name 'DoIT'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_51237FB70279 // CardTextLabelMouseAction
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   Seq: ( ME_512383490019 // aHotSpot
+ ME_512383490039 // aButton
+ ME_512383490059 // anAction
+ ME_51238349007A // Keys
+ ME_51238349009B // NeedAsyncLoop
+ )
+ ; // Parameters
+
+ref; // ME_512383440166 DoIT
+
+: ME_51237FB70279
+ CONST UID '51237FB70279'
+ CONST Name 'CardTextLabelMouseAction'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AB7A3210135 // PrimBaseSearchCard
+ ;
+ : Operations
+   Seq: ( HWL ME_512383440166 // DoIT
+ )
+ ; // Operations
+
+ref; // ME_51237FB70279 CardTextLabelMouseAction
+
+FORWARD ME_5123803503BC
+
+: ME_512383720324
+ CONST Name 'Sender'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_512383720324 Sender
+
+: ME_512383720342
+ CONST Name 'aHotSpot'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_48E2665A0259' '4A1FCBA0014C.pas.ms.script' // IevHotSpot
+ ;
+
+ref; // ME_512383720342 aHotSpot
+
+: ME_512383720361
+ CONST Name 'aKeys'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target WL 'ME_473DA6C302E6' '467823B7002C.pas.ms.script' // TafwCursorState
+ ;
+
+ref; // ME_512383720361 aKeys
+
+: ME_512383720380
+ CONST Name 'theInfo'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_473DA9BF0280' '467823B7002C.pas.ms.script' // TafwCursorInfo
+ ;
+
+ref; // ME_512383720380 theInfo
+
+: ME_5123836C00B7
+ CONST UID '5123836C00B7'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_5123803503BC // CardTextLabelGetHotSpotInfo
+ ;
+ : Parameters
+   Seq: ( ME_512383720324 // Sender
+ ME_512383720342 // aHotSpot
+ ME_512383720361 // aKeys
+ ME_512383720380 // theInfo
+ )
+ ; // Parameters
+
+ref; // ME_5123836C00B7 DoIt
+
+: ME_5123803503BC
+ CONST UID '5123803503BC'
+ CONST Name 'CardTextLabelGetHotSpotInfo'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AB7A3210135 // PrimBaseSearchCard
+ ;
+ : Operations
+   Seq: ( HWL ME_5123836C00B7 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_5123803503BC CardTextLabelGetHotSpotInfo
+
+FORWARD ME_530D96990038
+
+: ME_530D96E200BB
+ CONST Name 'aSender'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_530D96E200BB aSender
+
+: ME_530D96D9030B
+ CONST UID '530D96D9030B'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_530D96990038 // CardTextLabelResize
+ ;
+ : Parameters
+   Seq: ( ME_530D96E200BB // aSender
+ )
+ ; // Parameters
+
+ref; // ME_530D96D9030B DoIt
+
+: ME_530D96990038
+ CONST UID '530D96990038'
+ CONST Name 'CardTextLabelResize'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AB7A3210135 // PrimBaseSearchCard
+ ;
+ : Operations
+   Seq: ( HWL ME_530D96D9030B // DoIt
+ )
+ ; // Operations
+
+ref; // ME_530D96990038 CardTextLabelResize
+
+: ME_51239AC902CD
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AB7A3210135 // PrimBaseSearchCard
+ ;
+ : Target WL 'ME_4E25BB410189' '4678209200A6.pas.ms.script' // TnevControlInfo
+ ;
+
+ref; // ME_51239AC902CD 
+
+: ME_51239B00036D
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AB7A3210135 // PrimBaseSearchCard
+ ;
+ : Target WL 'ME_4D5936FC01A0' '4678209200A6.pas.ms.script' // TnevControlImageInfo
+ ;
+
+ref; // ME_51239B00036D 
+
+: ME_51239B7701B1
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AB7A3210135 // PrimBaseSearchCard
+ ;
+ : Target WL 'ME_48E2665A0259' '4A1FCBA0014C.pas.ms.script' // IevHotSpot
+ ;
+
+ref; // ME_51239B7701B1 
+
+: ME_51239B9D008C
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AB7A3210135 // PrimBaseSearchCard
+ ;
+ : Target WL 'ME_473DA9BF0280' '467823B7002C.pas.ms.script' // TafwCursorInfo
+ ;
+
+ref; // ME_51239B9D008C 
+
+: ME_51239E1B00E5
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AB7A3210135 // PrimBaseSearchCard
+ ;
+ : Target WL 'ME_473DA6C302E6' '467823B7002C.pas.ms.script' // TafwCursorState
+ ;
+
+ref; // ME_51239E1B00E5 
+
+: ME_5124813A02D9
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AB7A3210135 // PrimBaseSearchCard
+ ;
+ : Target WL 'ME_4799ED060093' '4799EC9300AF.pas.ms.script' // l3Defaults
+ ;
+
+ref; // ME_5124813A02D9 
+
+: ME_512484890085
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AB7A3210135 // PrimBaseSearchCard
+ ;
+ : Target WL 'ME_45EEE145027B' '45EEAA8E034E.pas.ms.script' // Query
+ ;
+
+ref; // ME_512484890085 
+
+: ME_512487B9010C
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AB7A3210135 // PrimBaseSearchCard
+ ;
+ : Target WL 'ME_47F25BEE0389' '47D0E1500033.pas.ms.script' // TvcmBase
+ ;
+
+ref; // ME_512487B9010C 
+
+: ME_5124902401B4
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AB7A3210135 // PrimBaseSearchCard
+ ;
+ : Target WL 'ME_47C520D80305' '47C5207602D1.pas.ms.script' // InevPara
+ ;
+
+ref; // ME_5124902401B4 
+
+: ME_5124902701A1
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AB7A3210135 // PrimBaseSearchCard
+ ;
+ : Target WL 'ME_4A8AB028009E' '47F485150151.pas.ms.script' // vtMakeImageListWrapper
+ ;
+
+ref; // ME_5124902701A1 
+
+: ME_512493A803CE
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AB7A3210135 // PrimBaseSearchCard
+ ;
+ : Target WL 'ME_4EC391DB0057' '4EEA0958023A.pas.ms.script' // TnsSearchRes
+ ;
+
+ref; // ME_512493A803CE 
+
+: ME_512497280369
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AB7A3210135 // PrimBaseSearchCard
+ ;
+ : Target WL 'ME_47FB50E4008E' '48F747EC0073.pas.ms.script' // nsConst
+ ;
+
+ref; // ME_512497280369 
+
+: ME_512498200244
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AB7A3210135 // PrimBaseSearchCard
+ ;
+ : Target WL 'ME_484D2CBA0213' '484A470100DD.pas.ms.script' // TextStyle
+ ;
+
+ref; // ME_512498200244 
+
+: ME_51249C420055
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AB7A3210135 // PrimBaseSearchCard
+ ;
+ : Target WL 'ME_47D15712022D' '55C4AEC801CA.pas.ms.script' // Graphics
+ ;
+
+ref; // ME_51249C420055 
+
+: ME_51249C620024
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AB7A3210135 // PrimBaseSearchCard
+ ;
+ : Target WL 'ME_47AB1FDE03E4' '47913B47006E.pas.ms.script' // l3Memory
+ ;
+
+ref; // ME_51249C620024 
+
+: ME_51249EF20022
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AB7A3210135 // PrimBaseSearchCard
+ ;
+ : Target WL 'ME_47878E0E0191' '54B90AC6014B.pas.ms.script' // l3String
+ ;
+
+ref; // ME_51249EF20022 
+
+: ME_5124A0A702F0
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AB7A3210135 // PrimBaseSearchCard
+ ;
+ : Target WL 'ME_4AC230980283' '4AAA216F032C.pas.ms.script' // TdmMainMenuNew
+ ;
+
+ref; // ME_5124A0A702F0 
+
+: ME_5124A3B4019B
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AB7A3210135 // PrimBaseSearchCard
+ ;
+ : Target WL 'ME_47E13C6B0341' '4799D29F033F.pas.ms.script' // Forms
+ ;
+
+ref; // ME_5124A3B4019B 
+
+: ME_5124A521008D
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AB7A3210135 // PrimBaseSearchCard
+ ;
+ : Target WL 'ME_47D036300337' '47D036150077.pas.ms.script' // TvtViewOption
+ ;
+
+ref; // ME_5124A521008D 
+
+: ME_5124A5B10063
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AB7A3210135 // PrimBaseSearchCard
+ ;
+ : Target WL 'ME_48C78D5402A6' '4799D29F033F.pas.ms.script' // StdCtrls
+ ;
+
+ref; // ME_5124A5B10063 
+
+: ME_53048361011A
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AB7A3210135 // PrimBaseSearchCard
+ ;
+ : Target WL 'ME_4AC9DB95006B' '4AC9B14A02E3.pas.ms.script' // nscArrangeGridCell
+ ;
+
+ref; // ME_53048361011A 
+
+: ME_530483690113
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AB7A3210135 // PrimBaseSearchCard
+ ;
+ : Target WL 'ME_4ACA30C3014C' '4AC9B14A02E3.pas.ms.script' // TnscFixedHeightControlCell
+ ;
+
+ref; // ME_530483690113 
+
+: ME_530483B70133
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AB7A3210135 // PrimBaseSearchCard
+ ;
+ : Target WL 'ME_4AC9AFDC013C' '4AC9AFCE00DC.pas.ms.script' // InscArrangeGrid
+ ;
+
+ref; // ME_530483B70133 
+
+: ME_53049179016B
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AB7A3210135 // PrimBaseSearchCard
+ ;
+ : Target WL 'ME_4AC9B15903E7' '4AC9B14A02E3.pas.ms.script' // nscArrangeGrid
+ ;
+
+ref; // ME_53049179016B 
+
+: ME_5305BD1201A6
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AB7A3210135 // PrimBaseSearchCard
+ ;
+ : Target WL 'ME_4AC9A3F801F3' '4ABD0D6A0255.pas.ms.script' // nsMainMenuNew
+ ;
+
+ref; // ME_5305BD1201A6 
+
+: ME_561CECE601AF
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AB7A3210135 // PrimBaseSearchCard
+ ;
+ : Target WL 'ME_4F636139008F' '4F635E1901E5.pas.ms.script' // Tl3ListenersManager
+ ;
+
+ref; // ME_561CECE601AF 
+
+: ME_496B4C41023E_ME_4AB7A3210135
+ : Original WL 'ME_496B4C41023E' '4A9F98B901A5.pas.ms.script' // WindowRequired
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_496B4C41023E_ME_4AB7A3210135 WindowRequired
+
+: ME_496B4C500246_ME_4AB7A3210135
+ : Original WL 'ME_496B4C500246' '4A9F98B901A5.pas.ms.script' // WindowCloseable
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_496B4C500246_ME_4AB7A3210135 WindowCloseable
+
+: ME_496B4CA000B6_ME_4AB7A3210135
+ : Original WL 'ME_496B4CA000B6' '4A9F98B901A5.pas.ms.script' // CanCloseWindow
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_496B4CA000B6_ME_4AB7A3210135 CanCloseWindow
+
+: ME_496B4CD9005F_ME_4AB7A3210135
+ : Original WL 'ME_496B4CD9005F' '4A9F98B901A5.pas.ms.script' // IsQueryCard
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_496B4CD9005F_ME_4AB7A3210135 IsQueryCard
+
+: ME_496B4CE30132_ME_4AB7A3210135
+ : Original WL 'ME_496B4CE30132' '4A9F98B901A5.pas.ms.script' // TreatSuccessSearchAsManualOpen
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_496B4CE30132_ME_4AB7A3210135 TreatSuccessSearchAsManualOpen
+
+: ME_496B4CED0306_ME_4AB7A3210135
+ : Original WL 'ME_496B4CED0306' '4A9F98B901A5.pas.ms.script' // AutoActivateWindow
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_496B4CED0306_ME_4AB7A3210135 AutoActivateWindow
+
+: ME_4A83AA610299_ME_4AB7A3210135
+ : Original WL 'ME_4A83AA610299' '4D7A05A000C1.pas.ms.script' // JournalShrinked
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4A83AA610299_ME_4AB7A3210135 JournalShrinked
+
+: ME_4A8AD47D0357_ME_4AB7A3210135
+ : Original WL 'ME_4A8AD47D0357' '4A8AD3DE0008.pas.ms.script' // OkExt
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" false
+ CONST "ShowInToolbar" false
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_4A8AD47D0357_ME_4AB7A3210135 OkExt
+
+: ME_4ACA17770179_ME_4AB7A3210135
+ : Original WL 'ME_4ACA17770179' '4A9F98B901A5.pas.ms.script' // SupportDisabled
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4ACA17770179_ME_4AB7A3210135 SupportDisabled
+
+: ME_4ACA195801CB_ME_4AB7A3210135
+ : Original WL 'ME_4ACA195801CB' '4A9F98B901A5.pas.ms.script' // ContainerForBaseSearch
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_4ACA195801CB_ME_4AB7A3210135 ContainerForBaseSearch
+
+: ME_4AD6EAA3034A_ME_4AB7A3210135
+ : Original WL 'ME_4AD6EAA3034A' '4A9F98B901A5.pas.ms.script' // ContextSearcher
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_4AD6EAA3034A_ME_4AB7A3210135 ContextSearcher
+
+: ME_4C762D9B0224_ME_4AB7A3210135
+ : Original WL 'ME_4C762D9B0224' '4A8AD3DE0008.pas.ms.script' // OkExt
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" false
+ CONST "ShowInToolbar" false
+ CONST "has states" true
+ CONST "is FormActivate" false
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_4C762D9B0224_ME_4AB7A3210135 OkExt
+
+: ME_4F1D607E0027_ME_4AB7A3210135
+ : Original WL 'ME_4F1D607E0027' '4A9F98B901A5.pas.ms.script' // NeedSaveActiveClassBeforeSearch
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_4F1D607E0027_ME_4AB7A3210135 NeedSaveActiveClassBeforeSearch
+
+: ME_4F79CF9200A0_ME_4AB7A3210135
+ : Original WL 'ME_4F79CF9200A0' '4677FBA70343.pas.ms.script' // WndProcRetListenerNotify
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4F79CF9200A0_ME_4AB7A3210135 WndProcRetListenerNotify
+
+: ME_530496230291_ME_4AB7A3210135
+ : Original WL 'ME_530496230291' '4AC9B14A02E3.pas.ms.script' // GridParentControl
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_530496230291_ME_4AB7A3210135 GridParentControl
+
+: ME_530496BF0361_ME_4AB7A3210135
+ : Original WL 'ME_530496BF0361' '4AC9B14A02E3.pas.ms.script' // DoBuildGrid
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_530496BF0361_ME_4AB7A3210135 DoBuildGrid
+
+: ME_5304972201A1_ME_4AB7A3210135
+ : Original WL 'ME_5304972201A1' '4AC9B14A02E3.pas.ms.script' // DoRecalcGrid
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_5304972201A1_ME_4AB7A3210135 DoRecalcGrid
+
+: ME_479731C50290_ME_4AB7A3210135
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_479731C50290_ME_4AB7A3210135 Cleanup
+
+: ME_47A042E100E2_ME_4AB7A3210135
+ : Original WL 'ME_47A042E100E2' '47913B47006E.pas.ms.script' // InitFields
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_47A042E100E2_ME_4AB7A3210135 InitFields
+
+: ME_47EA4E9002C6_ME_4AB7A3210135
+ : Original WL 'ME_47EA4E9002C6' '47EA4BB502F9.pas.ms.script' // FinishDataUpdate
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_47EA4E9002C6_ME_4AB7A3210135 FinishDataUpdate
+
+: ME_4A8E8F2E0195_ME_4AB7A3210135
+ : Original WL 'ME_4A8E8F2E0195' '5000041101C8.pas.ms.script' // InitControls
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4A8E8F2E0195_ME_4AB7A3210135 InitControls
+
+: ME_4F7C65380244_ME_4AB7A3210135
+ : Original WL 'ME_4F7C65380244' '4F22CB1E0009.pas.ms.script' // FormInsertedIntoContainer
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4F7C65380244_ME_4AB7A3210135 FormInsertedIntoContainer
+
+: ME_4AB7A3210135
+ CONST UID '4AB7A3210135'
+ CONST Name 'PrimBaseSearchCard'
+ CONST Class class_Class
+ : Stereotype st_VCMForm ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Базовый поиск' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4CC97BDA02DF' '4CC97BDA02DF.pas.ms.script' // BaseSearch$Module
+ ;
+ : Implements
+   Seq: ( WL 'ME_496B4C2700D5' '4A9F98B901A5.pas.ms.script' // InsBaseSearchPresentation
+ WL 'ME_4A83AA5202C1' '4D7A05A000C1.pas.ms.script' // InsWorkJournalListener
+ WL 'ME_4A8AD4260126' '4A8AD3DE0008.pas.ms.script' // Result
+ WL 'ME_4EB7BA320128' '484FA67302D7.pas.ms.script' // Данный выбор не запоминается, когда мы сами инициируем вызов "Основного Меню"
+ WL 'ME_4EB7BDAB01D0' '4EB7BDAB01D0.pas.ms.script' // BaseSearchPresentationFor296635421
+ WL 'ME_4F7321C602DF' '4677FBA70343.pas.ms.script' // Il3WndProcRetListener
+ WL 'ME_4F79CE2902DD' '4677FBA70343.pas.ms.script' // Il3Listener
+ WL 'ME_528468A00346' '4AADF9450143.pas.ms.script' // vcmScrollableFormWithWheelSupport
+ WL 'ME_530495650309' '4AC9B14A02E3.pas.ms.script' // nscFormWithArrangeGrid
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( HWL ME_51237BAA0307 // pnlMain
+ HWL ME_5123CA6D00B3 // f_qhBaseSearch
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( HWL ME_51237AB402B9 // LoadQueryHistory
+ HWL ME_51237AFE01D0 // QueryProcessor
+ HWL ME_51237E59012E // lrBaseSearchGetItemCursor
+ HWL ME_51237E6503D6 // lrBaseSearchGetItemFont
+ HWL ME_51237E7003BF // lrBaseSearchGetStrItem
+ HWL ME_51237E8901DC // lrBaseSearchActionElement
+ HWL ME_51237ED3031C // vcmEntityFormLoadState
+ HWL ME_51237EDB0222 // vcmEntityFormSaveState
+ HWL ME_51237F970395 // CardTextLabelTextSourceTnscSimpleEditor_CardTextLabelGetControlItemImg
+ HWL ME_51237FB70279 // CardTextLabelMouseAction
+ HWL ME_5123803503BC // CardTextLabelGetHotSpotInfo
+ HWL ME_530D96990038 // CardTextLabelResize
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_496B4C41023E_ME_4AB7A3210135 // WindowRequired
+ ME_496B4C500246_ME_4AB7A3210135 // WindowCloseable
+ ME_496B4CA000B6_ME_4AB7A3210135 // CanCloseWindow
+ ME_496B4CD9005F_ME_4AB7A3210135 // IsQueryCard
+ ME_496B4CE30132_ME_4AB7A3210135 // TreatSuccessSearchAsManualOpen
+ ME_496B4CED0306_ME_4AB7A3210135 // AutoActivateWindow
+ ME_4A83AA610299_ME_4AB7A3210135 // JournalShrinked
+ ME_4A8AD47D0357_ME_4AB7A3210135 // OkExt
+ ME_4ACA17770179_ME_4AB7A3210135 // SupportDisabled
+ ME_4ACA195801CB_ME_4AB7A3210135 // ContainerForBaseSearch
+ ME_4AD6EAA3034A_ME_4AB7A3210135 // ContextSearcher
+ ME_4C762D9B0224_ME_4AB7A3210135 // OkExt
+ ME_4F1D607E0027_ME_4AB7A3210135 // NeedSaveActiveClassBeforeSearch
+ ME_4F79CF9200A0_ME_4AB7A3210135 // WndProcRetListenerNotify
+ ME_530496230291_ME_4AB7A3210135 // GridParentControl
+ ME_530496BF0361_ME_4AB7A3210135 // DoBuildGrid
+ ME_5304972201A1_ME_4AB7A3210135 // DoRecalcGrid
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_479731C50290_ME_4AB7A3210135 // Cleanup
+ ME_47A042E100E2_ME_4AB7A3210135 // InitFields
+ ME_47EA4E9002C6_ME_4AB7A3210135 // FinishDataUpdate
+ ME_4A8E8F2E0195_ME_4AB7A3210135 // InitControls
+ ME_4F7C65380244_ME_4AB7A3210135 // FormInsertedIntoContainer
+ )
+ ; // Overridden
+ : Constants
+   Seq: ( HWL ME_512642160113 // BaseSearchLocalConst
+ )
+ ; // Constants
+ : Dependencies
+   Seq: ( ME_51239AC902CD // TnevControlInfo
+ ME_51239B00036D // TnevControlImageInfo
+ ME_51239B7701B1 // IevHotSpot
+ ME_51239B9D008C // TafwCursorInfo
+ ME_51239E1B00E5 // TafwCursorState
+ ME_5124813A02D9 // l3Defaults
+ ME_512484890085 // Query
+ ME_512487B9010C // TvcmBase
+ ME_5124902401B4 // InevPara
+ ME_5124902701A1 // vtMakeImageListWrapper
+ ME_512493A803CE // TnsSearchRes
+ ME_512497280369 // nsConst
+ ME_512498200244 // TextStyle
+ ME_51249C420055 // Graphics
+ ME_51249C620024 // l3Memory
+ ME_51249EF20022 // l3String
+ ME_5124A0A702F0 // TdmMainMenuNew
+ ME_5124A3B4019B // Forms
+ ME_5124A521008D // TvtViewOption
+ ME_5124A5B10063 // StdCtrls
+ ME_53048361011A // nscArrangeGridCell
+ ME_530483690113 // TnscFixedHeightControlCell
+ ME_530483B70133 // InscArrangeGrid
+ ME_53049179016B // nscArrangeGrid
+ ME_5305BD1201A6 // nsMainMenuNew
+ ME_561CECE601AF // Tl3ListenersManager
+ )
+ ; // Dependencies
+ CONST "NeedsHackRef" true
+ CONST "ZoneType" 'Any'
+ CONST "author" 'Люлин А.В.'
+ CONST "finished dfm" true
+ CONST "no hands" true
+ CONST "resizeable" false
+ CONST "restrict form def" 'undefined'
+ CONST "started" '21.09.2009 20:00'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\BaseSearch\Forms\PrimBaseSearchCard_Form.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\BaseSearch\Forms'
+ CONST extprop:pas:TypeName 'TPrimBaseSearchCardForm'
+ CONST extprop:rc:SelfName 'PrimBaseSearchCardForm'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'PrimBaseSearchCard_Form'
+ CONST extprop:NeedsInitEntities true
+
+ref; // ME_4AB7A3210135 PrimBaseSearchCard

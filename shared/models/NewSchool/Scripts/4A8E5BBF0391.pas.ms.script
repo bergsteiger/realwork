@@ -1,0 +1,337 @@
+// StatusBarItems 4A8E5BBF0391 VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A8E5BBF0391
+
+: ME_4A8E5CAB02AA
+ CONST UID '4A8E5CAB02AA'
+ CONST Name 'f_StatusBarItems'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4A8E5BBF0391 // StatusBarItems
+ ;
+ : Target WL 'ME_498036360179' '490838E10313.pas.ms.script' // InscStatusBarItemDefsList
+ ;
+
+ref; // ME_4A8E5CAB02AA f_StatusBarItems
+
+: ME_4A8E5CC803B8
+ CONST UID '4A8E5CC803B8'
+ CONST Name 'f_StatusBarPublished'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4A8E5BBF0391 // StatusBarItems
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4A8E5CC803B8 f_StatusBarPublished
+
+FORWARD ME_4A8E5C6702D1
+
+: ME_4A8E5D9902B7
+ CONST UID '4A8E5D9902B7'
+ CONST Name 'Form'
+ CONST Class class_Attribute
+ : Stereotype st_var::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_4A8E5C6702D1 // RegisterOps
+ ;
+ : Target WL 'ME_473D95780253' '467823B7002C.pas.ms.script' // IafwMainForm
+ ;
+ CONST "IsResult" false
+
+ref; // ME_4A8E5D9902B7 Form
+
+: ME_4A8E5DD30146
+ CONST UID '4A8E5DD30146'
+ CONST Name 'Visualizer'
+ CONST Class class_Attribute
+ : Stereotype st_var::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_4A8E5C6702D1 // RegisterOps
+ ;
+ : Target WL 'ME_498036CB01D2' '490838E10313.pas.ms.script' // InscStatusBarItemsVisualizer
+ ;
+ CONST "IsResult" false
+
+ref; // ME_4A8E5DD30146 Visualizer
+
+: ME_4A8E5C7002D3
+ CONST UID '4A8E5C7002D3'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4A8E5C6702D1 // RegisterOps
+ ;
+
+ref; // ME_4A8E5C7002D3 DoIt
+
+: ME_4A8E5D660208
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A8E5C6702D1 // RegisterOps
+ ;
+ : Target WL 'ME_49871E3F01D0' '49871D5103B9.pas.ms.script' // TnscStatusBarOperationDefsList
+ ;
+
+ref; // ME_4A8E5D660208 
+
+: ME_4A8E5DE90179
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A8E5C6702D1 // RegisterOps
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_4A8E5DE90179 
+
+: ME_4A8E60990222
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A8E5C6702D1 // RegisterOps
+ ;
+ : Target WL 'ME_49871E4F01AF' '49871D5103B9.pas.ms.script' // TnscStatusBarOperationDef
+ ;
+
+ref; // ME_4A8E60990222 
+
+: ME_4A8E611A00DE
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A8E5C6702D1 // RegisterOps
+ ;
+ : Target WL 'ME_47F260EC02C7' '521C9DA50125.pas.ms.script' // StdRes
+ ;
+
+ref; // ME_4A8E611A00DE 
+
+: ME_4A8E5C6702D1
+ CONST UID '4A8E5C6702D1'
+ CONST Name 'RegisterOps'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Реристрирует операции' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4A8E5BBF0391 // StatusBarItems
+ ;
+ : Attributes
+   Seq: ( HWL ME_4A8E5D9902B7 // Form
+ HWL ME_4A8E5DD30146 // Visualizer
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( HWL ME_4A8E5C7002D3 // DoIt
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_4A8E5D660208 // TnscStatusBarOperationDefsList
+ ME_4A8E5DE90179 // SysUtils
+ ME_4A8E60990222 // TnscStatusBarOperationDef
+ ME_4A8E611A00DE // StdRes
+ )
+ ; // Dependencies
+
+ref; // ME_4A8E5C6702D1 RegisterOps
+
+FORWARD ME_4A8E5C7903DE
+
+: ME_4A8E5E1800C2
+ CONST UID '4A8E5E1800C2'
+ CONST Name 'Form'
+ CONST Class class_Attribute
+ : Stereotype st_var::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_4A8E5C7903DE // UnregisterOps
+ ;
+ : Target WL 'ME_473D95780253' '467823B7002C.pas.ms.script' // IafwMainForm
+ ;
+ CONST "IsResult" false
+
+ref; // ME_4A8E5E1800C2 Form
+
+: ME_4A8E5E1F0181
+ CONST UID '4A8E5E1F0181'
+ CONST Name 'Visualizer'
+ CONST Class class_Attribute
+ : Stereotype st_var::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_4A8E5C7903DE // UnregisterOps
+ ;
+ : Target WL 'ME_498036CB01D2' '490838E10313.pas.ms.script' // InscStatusBarItemsVisualizer
+ ;
+ CONST "IsResult" false
+
+ref; // ME_4A8E5E1F0181 Visualizer
+
+: ME_4A8E5C83011C
+ CONST UID '4A8E5C83011C'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4A8E5C7903DE // UnregisterOps
+ ;
+
+ref; // ME_4A8E5C83011C DoIt
+
+: ME_4A8E5C7903DE
+ CONST UID '4A8E5C7903DE'
+ CONST Name 'UnregisterOps'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Отрегистрирует операции' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4A8E5BBF0391 // StatusBarItems
+ ;
+ : Attributes
+   Seq: ( HWL ME_4A8E5E1800C2 // Form
+ HWL ME_4A8E5E1F0181 // Visualizer
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( HWL ME_4A8E5C83011C // DoIt
+ )
+ ; // Operations
+
+ref; // ME_4A8E5C7903DE UnregisterOps
+
+: ME_4A8E5CEC021F
+ CONST UID '4A8E5CEC021F'
+ CONST Name 'NeedsStatusBarItems'
+ CONST Class class_Operation
+ %SUMMARY 'Определяет, что операции в статусной строке таки надо публиковать' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4A8E5BBF0391 // StatusBarItems
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4A8E5CEC021F NeedsStatusBarItems
+
+: ME_4A8E5E6602BD
+ CONST Name 'aList'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_498036360179' '490838E10313.pas.ms.script' // InscStatusBarItemDefsList
+ ;
+
+ref; // ME_4A8E5E6602BD aList
+
+: ME_4A8E5E4702C6
+ CONST UID '4A8E5E4702C6'
+ CONST Name 'FillList'
+ CONST Class class_Operation
+ %SUMMARY 'Заполняет список операций. Для перекрытия в потомках' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_4A8E5BBF0391 // StatusBarItems
+ ;
+ : Parameters
+   Seq: ( ME_4A8E5E6602BD // aList
+ )
+ ; // Parameters
+
+ref; // ME_4A8E5E4702C6 FillList
+
+: ME_498036B8002E_ME_4A8E5BBF0391
+ : Original WL 'ME_498036B8002E' '490838E10313.pas.ms.script' // Items
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_498036B8002E_ME_4A8E5BBF0391 Items
+
+: ME_479731C50290_ME_4A8E5BBF0391
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_479731C50290_ME_4A8E5BBF0391 Cleanup
+
+: ME_497469C90140_ME_4A8E5BBF0391
+ : Original WL 'ME_497469C90140' '5000041101C8.pas.ms.script' // NotifyDataSourceChanged
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_497469C90140_ME_4A8E5BBF0391 NotifyDataSourceChanged
+
+: ME_49803F5503AA_ME_4A8E5BBF0391
+ : Original WL 'ME_49803F5503AA' '4AADF9450143.pas.ms.script' // DoInit
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_49803F5503AA_ME_4A8E5BBF0391 DoInit
+
+: ME_538C374A00B7_ME_4A8E5BBF0391
+ : Original WL 'ME_538C374A00B7' '4AADF9450143.pas.ms.script' // ReleaseResources
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_538C374A00B7_ME_4A8E5BBF0391 ReleaseResources
+
+: ME_4A8E5BBF0391
+ CONST UID '4A8E5BBF0391'
+ CONST Name 'StatusBarItems'
+ CONST Class class_Class
+ : Stereotype st_VCMForm ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Базовая форма, публикующая свои операции в статусной строке' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent WL 'ME_4A8E5B58037D' '4A8E5B58037D.pas.ms.script' // StatusBar
+ ;
+ : Implements
+   Seq: ( WL 'ME_498036AD03AB' '490838E10313.pas.ms.script' // InscStatusBarItemsProvider
+ WL 'ME_4A82BCFA02EF' '4AADF9450143.pas.ms.script' // MvcmEntityForm
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( HWL ME_4A8E5CAB02AA // f_StatusBarItems
+ HWL ME_4A8E5CC803B8 // f_StatusBarPublished
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( HWL ME_4A8E5C6702D1 // RegisterOps
+ HWL ME_4A8E5C7903DE // UnregisterOps
+ HWL ME_4A8E5CEC021F // NeedsStatusBarItems
+ HWL ME_4A8E5E4702C6 // FillList
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_498036B8002E_ME_4A8E5BBF0391 // Items
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_479731C50290_ME_4A8E5BBF0391 // Cleanup
+ ME_497469C90140_ME_4A8E5BBF0391 // NotifyDataSourceChanged
+ ME_49803F5503AA_ME_4A8E5BBF0391 // DoInit
+ ME_538C374A00B7_ME_4A8E5BBF0391 // ReleaseResources
+ )
+ ; // Overridden
+ CONST "NeedsHackRef" true
+ CONST "ZoneType" 'Any'
+ CONST "finished dfm" true
+ CONST "resizeable" false
+ CONST "restrict form def" 'undefined'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\StatusBarItems.imp.pas'
+ CONST extprop:pas:TypeName '_StatusBarItems_'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'StatusBarItems.imp'
+
+ref; // ME_4A8E5BBF0391 StatusBarItems

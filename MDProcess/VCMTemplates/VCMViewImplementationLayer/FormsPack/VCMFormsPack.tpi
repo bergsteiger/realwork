@@ -28,9 +28,7 @@
 > ScriptKeywordsPack::Class
 
 = SimpleClass::Class
-= ModuleOpRecall::Class
 = OperationsPublisher::Class
-= FormSetFactoryPublisher::Class
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Параметры стереотипа
@@ -92,115 +90,6 @@ $ f 29,177,58
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Унаследованная реализация
 
-// реализация абстрактного стереотипа FormSetFactoryPublisher::Class
-%f _FormSetFactoryToUses
-//#UC START# *4A94F30303DDfor498AFF8101F5*
-	<%C#f_FormSetFactoryToUses()>\
-	<%G#f_FormSetFactoryToUses()>
-//#UC END# *4A94F30303DDfor498AFF8101F5*
-
-// реализация абстрактного стереотипа FormSetFactoryPublisher::Class
-%f _PublishFormSetFactory
-//#UC START# *4A94F31902FDfor498AFF8101F5*
-	<%C#f_PublishFormSetFactory()>\
-	<%G#f_PublishFormSetFactory()>
-//#UC END# *4A94F31902FDfor498AFF8101F5*
-
-// реализация абстрактного стереотипа ModuleOpRecall::Class
-// Выводит реализацию метода перенаправления операции
-%f _OutRecallImpl
-// параметры: aCaller: MDAClass = %1
-//#UC START# *4A76CC1D010Dfor498AFF8101F5*
-	[{%f_exists_in_list(RECALL_LIST,S)!=true}\
-	%f_add_to_list(RECALL_LIST,S)\
-	<%C#f_OutRecallImpl(%1)>\
-	<%G#f_OutRecallImpl(%1)>\
-	<%R#f_OutRecallImpl(%1)>\
-	<{}{%CS=uses&%C%T#f_IsUseCase()=true}%C%T<%L#f_OutRecallImpl(%2)>>\
-	]
-//#UC END# *4A76CC1D010Dfor498AFF8101F5*
-
-// реализация абстрактного стереотипа ModuleOpRecall::Class
-// Выводит интерфейс метода перенаправления операции
-%f _OutRecallIntf
-// параметры: aCaller: MDAClass = %1
-//#UC START# *4A76CC1902FEfor498AFF8101F5*
-	[{%f_exists_in_list(RECALL_LIST,S)!=true}\
-	%f_add_to_list(RECALL_LIST,S)\
-	<%C#f_OutRecallIntf(%1)>\
-	<%G#f_OutRecallIntf(%1)>\
-	<%R#f_OutRecallIntf(%1)>\
-	<{}{%CS=uses&%C%T#f_IsUseCase()=true}%C%T<%L#f_OutRecallIntf(%2)>>\
-	]
-//#UC END# *4A76CC1902FEfor498AFF8101F5*
-
-// реализация абстрактного стереотипа ModuleOpRecall::Class
-%f _RecallToImplUses
-//#UC START# *4A9CF8A30296for498AFF8101F5*
-	[{%f_exists_in_list(RECALL_LIST,S)!=true}\
-	%f_add_to_list(RECALL_LIST,S)\
-	<%C#f_RecallToImplUses()>\
-	<%G#f_RecallToImplUses()>\
-	<%R#f_RecallToImplUses()>\
-	%f_pas_PutToUses(%S)\
-	<{}{%CS=uses&%C%T#f_IsUseCase()=true}%C%T<%L#f_RecallToImplUses()>>\
-	]
-//#UC END# *4A9CF8A30296for498AFF8101F5*
-
-// реализация абстрактного стереотипа ModuleOpRecall::Class
-%f _RecallToIntfUses
-//#UC START# *4A9CF892039Afor498AFF8101F5*
-	[{%f_exists_in_list(RECALL_LIST,S)!=true}\
-	%f_add_to_list(RECALL_LIST,S)\
-	<%C#f_RecallToIntfUses()>\
-	<%C<{}{%w#f_IsVCMForm()!=true}%f_pas_PutToUses(%w)>>\
-	<%G#f_RecallToIntfUses()>\
-	<%R#f_RecallToIntfUses()>\
-	<{}{%w#f_IsVCMForm()!=true&%w#f_IsVCMFormsPack()!=true}%f_pas_PutToUses(%w)>\
-	<%g<{}{%w#f_IsVCMForm()!=true&%w#f_IsVCMFormsPack()!=true}%f_pas_PutToUses(%w)>>\
-	<{}{%CS=uses&%C%T#f_IsUseCase()=true}%C%T<%L#f_RecallToIntfUses()>>\
-	]
-//#UC END# *4A9CF892039Afor498AFF8101F5*
-
-// реализация абстрактного стереотипа OperationsPublisher::Class
-%f _OperationsToFuncImpl
-// параметры: aCaller: MDAClass = %1
-//#UC START# *4A8E9F9502BBfor498AFF8101F5*
-	<%C#f_OperationsToFuncImpl(%1)>\
-	<{}{%C%TU!=%SU}%C%T#f_OperationsToFuncImpl(%1)>\
-	<%G#f_OperationsToFuncImpl(%1)>
-//#UC END# *4A8E9F9502BBfor498AFF8101F5*
-
-// реализация абстрактного стереотипа OperationsPublisher::Class
-// Операции в функции
-%f _OperationsToFuncIntf
-// параметры: aCaller: MDAClass = %1
-//#UC START# *4A8E9D5E0038for498AFF8101F5*
-	<%C#f_OperationsToFuncIntf(%1)>\
-	<{}{%C%TU!=%SU}%C%T#f_OperationsToFuncIntf(%1)>\
-	<%G#f_OperationsToFuncIntf(%1)>
-//#UC END# *4A8E9D5E0038for498AFF8101F5*
-
-// реализация абстрактного стереотипа OperationsPublisher::Class
-// Определяет необходимые uses для операций
-%f _OperationsToUses
-//#UC START# *4A82DDA6016Afor498AFF8101F5*
-	%f_pas_PutToUses(%S)\
-	<%f_pas_PutToUses(%g)>\
-	<%C#f_OperationsToUses()>\
-	<{}{%C%TU!=%SU}%C%T#f_OperationsToUses()>\
-	<%G#f_OperationsToUses()>
-//#UC END# *4A82DDA6016Afor498AFF8101F5*
-
-// реализация абстрактного стереотипа OperationsPublisher::Class
-// Операции в секцию Var
-%f _OperationsToVar
-//#UC START# *4A8E9D3A01FEfor498AFF8101F5*
-	<%C#f_OperationsToVar()>\
-	<{}{%C%TU!=%SU}%C%T#f_OperationsToVar()>\
-	<%G#f_OperationsToVar()>
-//#UC END# *4A8E9D3A01FEfor498AFF8101F5*
-
 // реализация абстрактного стереотипа OperationsPublisher::Class
 // Публикует операции
 %f _PublishOperations
@@ -218,136 +107,11 @@ $ f 29,177,58
 //#UC END# *4948E5B60391for498AFF8101F5*
 
 // перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
-// Добавляет файлы необходимые элементу с точки зрения метамодели
-%f _pas_ImplUses
-//#UC START# *4948EB2601FAfor498AFF8101F5*
-	%S%[inherited]\
-	[{%Sa!=final}\
-	%f_pas_PutToUses("vcmFormSetFactory")\
-	%f_pas_PutToUses("StdRes")\
-	]\
-	[{%Sa!=final}\
-	[{<{}{%C#f_IsModuleOperation()=true}{C}>!=0}\
-	%f_pas_PutToUses("vcmModuleDef")\
-	]\
-	]
-//#UC END# *4948EB2601FAfor498AFF8101F5*
-
-// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
-// Выводит дополнительные модули необходимые элементу в интерфейсной секции
-%f _pas_IntfUses
-//#UC START# *4948F2EE0334for498AFF8101F5*
-	%S%[inherited]\
-	[{%Sa!=final}\
-	%f_pas_PutToUses("vcmExternalInterfaces")\
-	%f_pas_PutToUses("vcmInterfaces")\
-	%f_pas_PutToUses("vcmModule")\
-	[{<{}{%C#f_IsVCMFinalForm()=true}{C}>!=0}\
-	%f_pas_PutToUses("vcmBase")\
-	]\
-	]\
-//	[{%Sa=final}\
-//	%f_pas_PutToUses("Classes")\
-//	%f_pas_PutToUses("l3InterfacedComponent")\
-//	%f_pas_PutToUses("vcmComponent")\
-//	%f_pas_PutToUses("vcmOperations")\
-//	%f_pas_PutToUses("vcmModuleDef")\
-//	]\
-	
-//#UC END# *4948F2EE0334for498AFF8101F5*
-
-// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
-// Выводит код после секции implementation
-%f _pas_OutAfterUnitImplementation
-//#UC START# *498B059101B3for498AFF8101F5*
-	%S%[inherited]
-//#UC END# *498B059101B3for498AFF8101F5*
-
-// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
-// Выводит родительский класс
-%f _pas_OutAncestor
-//#UC START# *4989EB520196for498AFF8101F5*
-	%S%[inherited]
-//#UC END# *4989EB520196for498AFF8101F5*
-
-// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
-// Выводит код перед поляпи класса. Для переопределения в потомках
-%f _pas_OutBeforeFields
-//#UC START# *498B054F03A1for498AFF8101F5*
-	%S%[inherited]
-//#UC END# *498B054F03A1for498AFF8101F5*
-
-// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
-// Выводит объявление класса
-%f _pas_OutClassInterface
-//#UC START# *494B7197025Afor498AFF8101F5*
-	%S%[inherited]
-//#UC END# *494B7197025Afor498AFF8101F5*
-
-// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
 // Выводит спец-метку класса
 %f _pas_OutClassMark
 //#UC START# *494B74D7016Bfor498AFF8101F5*
 	formspack
 //#UC END# *494B74D7016Bfor498AFF8101F5*
-
-// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
-// Выводит реализацию переопределённых методов
-%f _pas_OutOverridesImpl
-//#UC START# *494B86B5014Bfor498AFF8101F5*
-	%S%[inherited]\
-
-	[{<{}{%C#f_IsModuleOperation()=true}{C}>!=0}\
-	%f_pas_OpenMethodImplementation("Loaded",%S)\
-	procedure %f_pas_TypeName(%S).Loaded;
-	begin
-	 inherited;\
-	[\
-	<{}{%C#f_IsModuleOperation()=true}\
-	[\n %C#f_open_ifdef()]\
-	\n PublishOp('[{%C{no prefix}!=true}op]%f_N(%C)', \
-	%C%f_pas_MethodName("exec"), \
-	[{%C{no test}!=true}{nil}%C%f_pas_MethodName("test")]\
-	);\
-
-	[{"%C{ShowInToolbar}"!=""&%C{ShowInToolbar}!=undefined}\
-	\n ShowInToolbar('[{%C{no prefix}!=true}op]%f_N(%C)', %C{ShowInToolbar});\
-	]\
-// %C{ShowInToolbar}!=undefined
-
-	[{"%C{ShortCut}"!=""}\
-	\n SetShortCut('[{%C{no prefix}!=true}op]%f_N(%C)', '%C{ShortCut}');\
-	]\
-// %C{ShortCut}!=""
-
-	[\n %C#f_close_ifdef()]\
-	>\
-	]
-	end;\
-	]\
-
-	[{<{}{%C#f_IsVCMFinalForm()=true}{C}>!=0}\
-	%f_pas_OpenMethodImplementation("GetEntityForms",%S)\
-	class procedure %f_pas_TypeName(%S).GetEntityForms(aList : TvcmClassList);
-	begin
-	 inherited;\
-	[\n <{\n }{%C#f_IsVCMFinalForm()=true}aList.Add(%f_pas_TypeName(%C));>]
-	end;\
-	]
-//#UC END# *494B86B5014Bfor498AFF8101F5*
-
-// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
-// Выводит интерфейс переопределённых методов
-%f _pas_OutOverridesIntf
-//#UC START# *494B856502ECfor498AFF8101F5*
-	%S%[inherited]\
-	[{<{}{%C#f_IsModuleOperation()=true}{C}>!=0}\
-	# procedure Loaded; override;
-	]\
-	[{<{}{%C#f_IsVCMFinalForm()=true}{C}>!=0}\
-	# class procedure GetEntityForms(aList : TvcmClassList); override;
-	]
-//#UC END# *494B856502ECfor498AFF8101F5*
 
 // перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
 // Имя типа
@@ -427,13 +191,6 @@ a f
 %f _wiki_up_add_gen
 //#UC START# *470484D50138for49F6F6E60362*
 //#UC END# *470484D50138for49F6F6E60362*
-
-// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
-%f _DoSpell
-//#UC START# *4B2A19E3038Bfor49F6F6E60362*
-	%S%[inherited]\
-	%S%f_SpellWordForModuleOperation()
-//#UC END# *4B2A19E3038Bfor49F6F6E60362*
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

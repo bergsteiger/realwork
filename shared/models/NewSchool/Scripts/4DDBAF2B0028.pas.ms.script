@@ -1,0 +1,261 @@
+// ChangesBetweenEditions 4DDBAF2B0028 VCMFormsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4DDBAF2B0028
+
+FORWARD ME_4EDE291E00DA
+
+: ME_4EDE292F00CC
+ CONST UID '4EDE292F00CC'
+ CONST Name 'CannotShowChanges'
+ CONST Class class_Class
+ : Stereotype st_Message ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '''Изменения не могут быть отображены в сводном обзоре''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4EDE291E00DA // Local
+ ;
+ CONST "AutoInc" false
+ CONST "DlgType" 'Warning'
+ CONST "NeedCheck" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_4EDE292F00CC CannotShowChanges
+
+: ME_4EDE291E00DA
+ CONST UID '4EDE291E00DA'
+ CONST Name 'Local'
+ CONST Class class_Class
+ : Stereotype st_LocalConst ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4DDBAF2B0028 // ChangesBetweenEditions
+ ;
+ : Children
+   Seq: ( HWL ME_4EDE292F00CC // CannotShowChanges
+ )
+ ; // Children
+ CONST "Need map interface" false
+ CONST "Need mapping support" false
+ CONST "spell names" false
+
+ref; // ME_4EDE291E00DA Local
+
+FORWARD ME_4DDCBB5D0298
+
+: ME_4DDCBB760297
+ CONST Name 'aLeft'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_45EEB6520191' '4570511E038A.pas.ms.script' // Document
+ ;
+
+ref; // ME_4DDCBB760297 aLeft
+
+: ME_4DDCBB7602C4
+ CONST Name 'aRight'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_45EEB6520191' '4570511E038A.pas.ms.script' // Document
+ ;
+
+ref; // ME_4DDCBB7602C4 aRight
+
+: ME_4DDCBB690314
+ CONST UID '4DDCBB690314'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4DDCBB5D0298 // ViewChangedFragments
+ ;
+ : Parameters
+   Seq: ( ME_4DDCBB760297 // aLeft
+ ME_4DDCBB7602C4 // aRight
+ )
+ ; // Parameters
+
+ref; // ME_4DDCBB690314 DoIt
+
+: ME_4DDCBBE902D0
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4DDCBB5D0298 // ViewChangedFragments
+ ;
+ : Target WL 'ME_4B1E8FAE0380' '48F747EC0073.pas.ms.script' // DefDataAdapter
+ ;
+
+ref; // ME_4DDCBBE902D0 
+
+: ME_4DDCC5670027
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4DDCBB5D0298 // ViewChangedFragments
+ ;
+ : Target WL 'ME_4D78D8200190' '4570511E038A.pas.ms.script' // DiffDocDataProvider
+ ;
+
+ref; // ME_4DDCC5670027 
+
+: ME_4DDCDA4C0222
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4DDCBB5D0298 // ViewChangedFragments
+ ;
+ : Target WL 'ME_4DDCD7D0002E' '4DDCD7D0002E.pas.ms.script' // TsdsChangesBetweenEditions
+ ;
+
+ref; // ME_4DDCDA4C0222 
+
+: ME_4DDCDA5003A9
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4DDCBB5D0298 // ViewChangedFragments
+ ;
+ : Target WL 'ME_4DDCD9670300' '4DDCD7B600D5.pas.ms.script' // TnsChangesBetweenEditionsInfo
+ ;
+
+ref; // ME_4DDCDA5003A9 
+
+: ME_4DDCDE1A0235
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4DDCBB5D0298 // ViewChangedFragments
+ ;
+ : Target WL 'ME_4DDCBC5C0211' '4DDCBC5C0211.pas.ms.script' // ViewChangedFragments$FSF
+ ;
+
+ref; // ME_4DDCDE1A0235 
+
+: ME_4EDE2967009B
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4DDCBB5D0298 // ViewChangedFragments
+ ;
+ : Target WL 'ME_4ED7B9ED0009' '4570511E038A.pas.ms.script' // AllChangesInTables
+ ;
+
+ref; // ME_4EDE2967009B 
+
+: ME_4EDE2AF5035C
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4DDCBB5D0298 // ViewChangedFragments
+ ;
+ : Target WL 'ME_4E01D696020C' '4AADF9450143.pas.ms.script' // vcmMessagesSupport
+ ;
+
+ref; // ME_4EDE2AF5035C 
+
+: ME_4DDCBB5D0298
+ CONST UID '4DDCBB5D0298'
+ CONST Name 'ViewChangedFragments'
+ CONST Class class_Class
+ : Stereotype st_FormSetFactory ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4DDBAF2B0028 // ChangesBetweenEditions
+ ;
+ : Operations
+   Seq: ( HWL ME_4DDCBB690314 // DoIt
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_4DDCBBE902D0 // DefDataAdapter
+ ME_4DDCC5670027 // DiffDocDataProvider
+ ME_4DDCDA4C0222 // TsdsChangesBetweenEditions
+ ME_4DDCDA5003A9 // TnsChangesBetweenEditionsInfo
+ ME_4DDCDE1A0235 // ViewChangedFragments$FSF
+ ME_4EDE2967009B // AllChangesInTables
+ ME_4EDE2AF5035C // vcmMessagesSupport
+ )
+ ; // Dependencies
+ CONST "NO_FACTORY_BRACKECTS" false
+
+ref; // ME_4DDCBB5D0298 ViewChangedFragments
+
+FORWARD ME_4DE513C202B3
+
+: ME_4DE513FC01A9
+ CONST Name 'aDocument'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_45EEB6520191' '4570511E038A.pas.ms.script' // Document
+ ;
+
+ref; // ME_4DE513FC01A9 aDocument
+
+: ME_4DE513F30186
+ CONST UID '4DE513F30186'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4DE513C202B3 // ViewChangedFragmentsForPrevEdition
+ ;
+ : Parameters
+   Seq: ( ME_4DE513FC01A9 // aDocument
+ )
+ ; // Parameters
+
+ref; // ME_4DE513F30186 DoIt
+
+: ME_4DE513C202B3
+ CONST UID '4DE513C202B3'
+ CONST Name 'ViewChangedFragmentsForPrevEdition'
+ CONST Class class_Class
+ : Stereotype st_FormSetFactory ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Просмотр изменёных фрагментов в сравнении с предыдущей редакцией' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4DDBAF2B0028 // ChangesBetweenEditions
+ ;
+ : Operations
+   Seq: ( HWL ME_4DE513F30186 // DoIt
+ )
+ ; // Operations
+ CONST "NO_FACTORY_BRACKECTS" false
+
+ref; // ME_4DE513C202B3 ViewChangedFragmentsForPrevEdition
+
+: ME_4DDBAF2B0028
+ CONST UID '4DDBAF2B0028'
+ CONST Name 'ChangesBetweenEditions'
+ CONST Class class_Class
+ : Stereotype st_VCMFormsPack ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Просмотр только измененных фрагментов' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4DDBAF0A0029' '4DDBAF0A0029.pas.ms.script' // ChangesBetweenEditons
+ ;
+ : Operations
+   Seq: ( HWL ME_4DDCBB5D0298 // ViewChangedFragments
+ HWL ME_4DE513C202B3 // ViewChangedFragmentsForPrevEdition
+ )
+ ; // Operations
+ : Children
+   Seq: ( WL 'ME_4DDCD6800267' '4DDCD6800267.pas.ms.script' // ChangesBetweenEditons
+ WL 'ME_4DDCBC5C0211' '4DDCBC5C0211.pas.ms.script' // ViewChangedFragments$FSF
+ )
+ ; // Children
+ : Constants
+   Seq: ( HWL ME_4EDE291E00DA // Local
+ )
+ ; // Constants
+ CONST "author" 'Люлин А.В.'
+ CONST "no hands" true
+ CONST "started" '24.05.2011 17:14'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\ChangesBetweenEditons\ChangesBetweenEditions_Module.pas'
+ CONST extprop:pas:TypeName 'TChangesBetweenEditionsModule'
+ CONST extprop:rc:SelfName 'ChangesBetweenEditionsModule'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'ChangesBetweenEditions_Module'
+
+ref; // ME_4DDBAF2B0028 ChangesBetweenEditions

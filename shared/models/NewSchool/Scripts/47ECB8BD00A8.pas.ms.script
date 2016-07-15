@@ -13,7 +13,7 @@ FORWARD ME_47ECB8BD00A8
  %SUMMARY 'Добавляет в генератор параметры страницы.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47ECB8BD00A8 // Generators
+ : Parent HWL ME_47ECB8BD00A8 // Generators
  ;
  CONST "author" 'Дудко Д.В.'
  CONST "finished" false
@@ -34,7 +34,7 @@ ref; // ME_47ECB8E402B4 TevdPageParamsFilter
  %SUMMARY 'Фильтр отдельных частей документа, основанный на частичной обработке тегов, накопленных в памяти.'#13#10'      Для использования как предка для собственных фильтров-преобразователей.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47ECB8BD00A8 // Generators
+ : Parent HWL ME_47ECB8BD00A8 // Generators
  ;
  : Inherits
    Seq: ( WL 'ME_47F226C7001F' '47ECA80B000D.pas.ms.script' // Tk2DocumentGenerator
@@ -59,7 +59,7 @@ ref; // ME_4836BA4C03B3 TevdDocumentFilter
  %SUMMARY 'Базовый писатель текста в формате txt. Записывает в файл только текст тегов, игнорируя всяческое оформление.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47ECB8BD00A8 // Generators
+ : Parent HWL ME_47ECB8BD00A8 // Generators
  ;
  : Inherits
    Seq: ( WL 'ME_4836BFC9011E' '47ECA80B000D.pas.ms.script' // Tk2CustomFileGenerator
@@ -84,10 +84,10 @@ ref; // ME_4836BF61035E TevdCustomPlainTextWriter
  %SUMMARY 'Пользовательский класс для записи txt-файлов.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47ECB8BD00A8 // Generators
+ : Parent HWL ME_47ECB8BD00A8 // Generators
  ;
  : Inherits
-   Seq: ( ME_4836BF61035E // TevdCustomPlainTextWriter
+   Seq: ( HWL ME_4836BF61035E // TevdCustomPlainTextWriter
  )
  ; // Inherits
  CONST "author" 'Люлин А.В.'
@@ -107,9 +107,9 @@ FORWARD ME_555DCF340385
 : ME_555DCF420288
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_483D7C2A032C // TevdCustomNativeWriter
+ : Parent HWL ME_483D7C2A032C // TevdCustomNativeWriter
  ;
- : Target ME_555DCF340385 // evdCustomNativeWriterServices
+ : Target HWL ME_555DCF340385 // evdCustomNativeWriterServices
  ;
 
 ref; // ME_555DCF420288 
@@ -123,7 +123,7 @@ ref; // ME_555DCF420288
  %SUMMARY 'Писатель тегов в формате evd.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47ECB8BD00A8 // Generators
+ : Parent HWL ME_47ECB8BD00A8 // Generators
  ;
  : Inherits
    Seq: ( WL 'ME_4836BFC9011E' '47ECA80B000D.pas.ms.script' // Tk2CustomFileGenerator
@@ -152,10 +152,10 @@ ref; // ME_483D7C2A032C TevdCustomNativeWriter
  %SUMMARY 'Писатель тегов в формате evd. (С published свойствами).' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47ECB8BD00A8 // Generators
+ : Parent HWL ME_47ECB8BD00A8 // Generators
  ;
  : Inherits
-   Seq: ( ME_483D7C2A032C // TevdCustomNativeWriter
+   Seq: ( HWL ME_483D7C2A032C // TevdCustomNativeWriter
  )
  ; // Inherits
  CONST "author" 'Люлин А.В.'
@@ -176,7 +176,7 @@ ref; // ME_483D7C55027A TevdNativeWriter
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47ECB8BD00A8 // Generators
+ : Parent HWL ME_47ECB8BD00A8 // Generators
  ;
  : Inherits
    Seq: ( WL 'ME_47ECA82403AC' '47ECA80B000D.pas.ms.script' // Tk2DocumentBuffer
@@ -201,7 +201,7 @@ FORWARD ME_49E487650342
  %SUMMARY 'Функция, определяющая тип абзацев, для которых будет выполняться фильтрация' ;
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_49E487650342 // TevdLeafParaFilter
+ : Parent HWL ME_49E487650342 // TevdLeafParaFilter
  ;
  : Target WL 'ME_47AC723D02DC' '49A58A1A03C4.pas.ms.script' // Tk2Type
  ;
@@ -224,7 +224,7 @@ ref; // ME_49E488350327 aLeaf
  %SUMMARY 'Определяет нужно ли фильтровать переданный абзац' ;
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_49E487650342 // TevdLeafParaFilter
+ : Parent HWL ME_49E487650342 // TevdLeafParaFilter
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -251,7 +251,7 @@ ref; // ME_49E4884C0241 aLeaf
  %SUMMARY 'Запись конкретного абзаца в генератор. Позволяет вносить изменения в содержание абзаца' ;
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_49E487650342 // TevdLeafParaFilter
+ : Parent HWL ME_49E487650342 // TevdLeafParaFilter
  ;
  : Parameters
    Seq: ( ME_49E4884C0241 // aLeaf
@@ -269,16 +269,16 @@ ref; // ME_49E4883E0176 DoWritePara
  %SUMMARY 'Класс, фильтрующий "листьевые" абзацы. Параметры фильтрации'#13#10' задаются методом TevdLeafParaFilter.ParaTypeForFiltering'#13#10'(если нужно фильтровать один тип) и TevdLeafParaFilter.NeedWritePara'#13#10'(если нужно фильтровать несколько типов или условие'#13#10'фильтрации меняется с течением времени). Запись'#13#10'отфильтрованного абзаца выполняется в методе TevdLeafParaFilter.DoWritePara,'#13#10'перекрывая который, можно вносить изменения в содержание'#13#10'абзаца' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47ECB8BD00A8 // Generators
+ : Parent HWL ME_47ECB8BD00A8 // Generators
  ;
  : Inherits
    Seq: ( WL 'ME_49E487A70144' '47ECA80B000D.pas.ms.script' // Tk2TagFilter
  )
  ; // Inherits
  : Operations
-   Seq: ( ME_49E488070386 // ParaTypeForFiltering
- ME_49E48829016F // NeedWritePara
- ME_49E4883E0176 // DoWritePara
+   Seq: ( HWL ME_49E488070386 // ParaTypeForFiltering
+ HWL ME_49E48829016F // NeedWritePara
+ HWL ME_49E4883E0176 // DoWritePara
  )
  ; // Operations
  CONST "finished" false
@@ -319,7 +319,7 @@ ref; // ME_4CF7BC6E009C aTagId
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4CF7BC520161 // NeedFlushBuffer
+ : Parent HWL ME_4CF7BC520161 // NeedFlushBuffer
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -339,10 +339,10 @@ ref; // ME_4CF7BC6501ED DoIt
  CONST Kind kind_NormalClass
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_49E496650211 // TevdCustomBufferedFilter
+ : Parent HWL ME_49E496650211 // TevdCustomBufferedFilter
  ;
  : Operations
-   Seq: ( ME_4CF7BC6501ED // DoIt
+   Seq: ( HWL ME_4CF7BC6501ED // DoIt
  )
  ; // Operations
 
@@ -383,7 +383,7 @@ ref; // ME_4CF7BEDB0166 aNeedCloseBracket
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4CF7BEC40130 // DoFlushBuffer
+ : Parent HWL ME_4CF7BEC40130 // DoFlushBuffer
  ;
  : Parameters
    Seq: ( ME_4CF7BEDB0129 // aLeaf
@@ -402,10 +402,10 @@ ref; // ME_4CF7BED60088 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_49E496650211 // TevdCustomBufferedFilter
+ : Parent HWL ME_49E496650211 // TevdCustomBufferedFilter
  ;
  : Operations
-   Seq: ( ME_4CF7BED60088 // DoIt
+   Seq: ( HWL ME_4CF7BED60088 // DoIt
  )
  ; // Operations
 
@@ -426,7 +426,7 @@ ref; // ME_4C56D5610373 aID
  CONST Class class_Operation
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_49E496650211 // TevdCustomBufferedFilter
+ : Parent HWL ME_49E496650211 // TevdCustomBufferedFilter
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -445,16 +445,16 @@ ref; // ME_4C56D54B002A NeedStartBuffering
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_49E496880120 // evdBufferedFilter
+ : Parent HWL ME_49E496880120 // evdBufferedFilter
  ;
  : Inherits
    Seq: ( WL 'ME_49E487A70144' '47ECA80B000D.pas.ms.script' // Tk2TagFilter
  )
  ; // Inherits
  : Operations
-   Seq: ( ME_4CF7BC520161 // NeedFlushBuffer
- ME_4CF7BEC40130 // DoFlushBuffer
- ME_4C56D54B002A // NeedStartBuffering
+   Seq: ( HWL ME_4CF7BC520161 // NeedFlushBuffer
+ HWL ME_4CF7BEC40130 // DoFlushBuffer
+ HWL ME_4C56D54B002A // NeedStartBuffering
  )
  ; // Operations
  CONST "finished" false
@@ -500,7 +500,7 @@ ref; // ME_4D53D8D602B1 aNeedCloseBracket
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4D53D8BF00D5 // DoFlushBuffer
+ : Parent HWL ME_4D53D8BF00D5 // DoFlushBuffer
  ;
  : Parameters
    Seq: ( ME_4D53D8D60274 // aLeaf
@@ -519,10 +519,10 @@ ref; // ME_4D53D8CF0007 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_49E4965202A1 // TevdBufferedFilter
+ : Parent HWL ME_49E4965202A1 // TevdBufferedFilter
  ;
  : Operations
-   Seq: ( ME_4D53D8CF0007 // DoIt
+   Seq: ( HWL ME_4D53D8CF0007 // DoIt
  )
  ; // Operations
 
@@ -536,14 +536,14 @@ ref; // ME_4D53D8BF00D5 DoFlushBuffer
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_49E496880120 // evdBufferedFilter
+ : Parent HWL ME_49E496880120 // evdBufferedFilter
  ;
  : Inherits
-   Seq: ( ME_49E496650211 // TevdCustomBufferedFilter
+   Seq: ( HWL ME_49E496650211 // TevdCustomBufferedFilter
  )
  ; // Inherits
  : Operations
-   Seq: ( ME_4D53D8BF00D5 // DoFlushBuffer
+   Seq: ( HWL ME_4D53D8BF00D5 // DoFlushBuffer
  )
  ; // Operations
  CONST "finished" false
@@ -560,10 +560,10 @@ ref; // ME_49E4965202A1 TevdBufferedFilter
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_49E496880120 // evdBufferedFilter
+ : Parent HWL ME_49E496880120 // evdBufferedFilter
  ;
  : Inherits
-   Seq: ( ME_49E4965202A1 // TevdBufferedFilter
+   Seq: ( HWL ME_49E4965202A1 // TevdBufferedFilter
  )
  ; // Inherits
  CONST extprop:rc:SelfName 'dChildBufferedFilter'
@@ -579,10 +579,10 @@ ref; // ME_4D53D8A100AE TevdChildBufferedFilter
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_49E496880120 // evdBufferedFilter
+ : Parent HWL ME_49E496880120 // evdBufferedFilter
  ;
  : Inherits
-   Seq: ( ME_49E4965202A1 // TevdBufferedFilter
+   Seq: ( HWL ME_49E4965202A1 // TevdBufferedFilter
  )
  ; // Inherits
  CONST "finished" false
@@ -599,10 +599,10 @@ ref; // ME_4E48B57F0074 TevdCustomChildBufferedFilter
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_49E496880120 // evdBufferedFilter
+ : Parent HWL ME_49E496880120 // evdBufferedFilter
  ;
  : Inherits
-   Seq: ( ME_49E4965202A1 // TevdBufferedFilter
+   Seq: ( HWL ME_49E4965202A1 // TevdBufferedFilter
  )
  ; // Inherits
  CONST extprop:rc:SelfName 'dTagBufferedFilter'
@@ -618,14 +618,14 @@ ref; // ME_4F9BF9E40052 TevdTagBufferedFilter
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_47ECB8BD00A8 // Generators
+ : Parent HWL ME_47ECB8BD00A8 // Generators
  ;
  : Children
-   Seq: ( ME_49E496650211 // TevdCustomBufferedFilter
- ME_49E4965202A1 // TevdBufferedFilter
- ME_4D53D8A100AE // TevdChildBufferedFilter
- ME_4E48B57F0074 // TevdCustomChildBufferedFilter
- ME_4F9BF9E40052 // TevdTagBufferedFilter
+   Seq: ( HWL ME_49E496650211 // TevdCustomBufferedFilter
+ HWL ME_49E4965202A1 // TevdBufferedFilter
+ HWL ME_4D53D8A100AE // TevdChildBufferedFilter
+ HWL ME_4E48B57F0074 // TevdCustomChildBufferedFilter
+ HWL ME_4F9BF9E40052 // TevdTagBufferedFilter
  )
  ; // Children
  CONST "finished" false
@@ -651,7 +651,7 @@ ref; // ME_4D70C8360384 aFileName
  CONST Class class_Operation
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_4B59FBCA0096 // TddNSRCGenerator
+ : Parent HWL ME_4B59FBCA0096 // TddNSRCGenerator
  ;
  : Parameters
    Seq: ( ME_4D70C8360384 // aFileName
@@ -669,10 +669,10 @@ ref; // ME_4D70C8250128 SaveObjFileName
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_47ECB8BD00A8 // Generators
+ : Parent HWL ME_47ECB8BD00A8 // Generators
  ;
  : Operations
-   Seq: ( ME_4D70C8250128 // SaveObjFileName
+   Seq: ( HWL ME_4D70C8250128 // SaveObjFileName
  )
  ; // Operations
  CONST "finished" false
@@ -692,7 +692,7 @@ FORWARD ME_4CDD7C01013F
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_ref
- : Parent ME_4CDD7C01013F // TevdTextToFirstParaAdder
+ : Parent HWL ME_4CDD7C01013F // TevdTextToFirstParaAdder
  ;
  : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
  ;
@@ -706,7 +706,7 @@ ref; // ME_4CDD7C8003A6 f_Text
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4CDD7C01013F // TevdTextToFirstParaAdder
+ : Parent HWL ME_4CDD7C01013F // TevdTextToFirstParaAdder
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -739,7 +739,7 @@ ref; // ME_4CDD7CF803AB aText
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4CDD7CC5001A // SetTo
+ : Parent HWL ME_4CDD7CC5001A // SetTo
  ;
  : Target WL 'ME_4A5359BD03BE' '4678137501EA.pas.ms.script' // Ik2TagGenerator
  ;
@@ -754,7 +754,7 @@ ref; // ME_4CDD7CCF0273 <<>> DoIt
 : ME_4CDD7D430102
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4CDD7CC5001A // SetTo
+ : Parent HWL ME_4CDD7CC5001A // SetTo
  ;
  : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
  ;
@@ -769,10 +769,10 @@ ref; // ME_4CDD7D430102
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4CDD7C01013F // TevdTextToFirstParaAdder
+ : Parent HWL ME_4CDD7C01013F // TevdTextToFirstParaAdder
  ;
  : Operations
-   Seq: ( ME_4CDD7CCF0273 // <<>> DoIt
+   Seq: ( HWL ME_4CDD7CCF0273 // <<>> DoIt
  )
  ; // Operations
  : Dependencies
@@ -800,7 +800,7 @@ ref; // ME_4CDD7D0A021E aText
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4CDD7CFF03C8 // Create
+ : Parent HWL ME_4CDD7CFF03C8 // Create
  ;
  : Parameters
    Seq: ( ME_4CDD7D0A021E // aText
@@ -817,10 +817,10 @@ ref; // ME_4CDD7D0600CA DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4CDD7C01013F // TevdTextToFirstParaAdder
+ : Parent HWL ME_4CDD7C01013F // TevdTextToFirstParaAdder
  ;
  : Operations
-   Seq: ( ME_4CDD7D0600CA // DoIt
+   Seq: ( HWL ME_4CDD7D0600CA // DoIt
  )
  ; // Operations
 
@@ -829,7 +829,7 @@ ref; // ME_4CDD7CFF03C8 Create
 : ME_4CDD7EBC036D
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4CDD7C01013F // TevdTextToFirstParaAdder
+ : Parent HWL ME_4CDD7C01013F // TevdTextToFirstParaAdder
  ;
  : Target WL 'ME_47C69EBC00A8' '47AC75550330.pas.ms.script' // Tk2TagID
  ;
@@ -839,7 +839,7 @@ ref; // ME_4CDD7EBC036D
 : ME_4CDD80D0006F
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4CDD7C01013F // TevdTextToFirstParaAdder
+ : Parent HWL ME_4CDD7C01013F // TevdTextToFirstParaAdder
  ;
  : Target WL 'ME_4773DEF0021B' '47913B47006E.pas.ms.script' // Tl3CustomString
  ;
@@ -849,7 +849,7 @@ ref; // ME_4CDD80D0006F
 : ME_4CDD8345017B
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4CDD7C01013F // TevdTextToFirstParaAdder
+ : Parent HWL ME_4CDD7C01013F // TevdTextToFirstParaAdder
  ;
  : Target WL 'ME_485649E10305' '484A470100DD.pas.ms.script' // HyperLink
  ;
@@ -859,7 +859,7 @@ ref; // ME_4CDD8345017B
 : ME_4CDD835C0099
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4CDD7C01013F // TevdTextToFirstParaAdder
+ : Parent HWL ME_4CDD7C01013F // TevdTextToFirstParaAdder
  ;
  : Target WL 'ME_47F24AFB0308' '469D0AC7005E.pas.ms.script' // Layers
  ;
@@ -869,7 +869,7 @@ ref; // ME_4CDD835C0099
 : ME_4CDD852A0016
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4CDD7C01013F // TevdTextToFirstParaAdder
+ : Parent HWL ME_4CDD7C01013F // TevdTextToFirstParaAdder
  ;
  : Target WL 'ME_47878E0E0191' '54B90AC6014B.pas.ms.script' // l3String
  ;
@@ -879,7 +879,7 @@ ref; // ME_4CDD852A0016
 : ME_4CDD860100AA
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4CDD7C01013F // TevdTextToFirstParaAdder
+ : Parent HWL ME_4CDD7C01013F // TevdTextToFirstParaAdder
  ;
  : Target WL 'ME_533C138F0003' '4678137501EA.pas.ms.script' // Ik2Tag
  ;
@@ -889,7 +889,7 @@ ref; // ME_4CDD860100AA
 : ME_4CDD87EB0046
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4CDD7C01013F // TevdTextToFirstParaAdder
+ : Parent HWL ME_4CDD7C01013F // TevdTextToFirstParaAdder
  ;
  : Target WL 'ME_476F9605006B' '4678193C009C.pas.ms.script' // Indexes
  ;
@@ -903,7 +903,7 @@ ref; // ME_4CDD87EB0046
 ref; // ME_479731C50290_ME_4CDD7C01013F Cleanup
 
 : ME_49E4883E0176_ME_4CDD7C01013F
- : Original ME_49E4883E0176 // DoWritePara
+ : Original HWL ME_49E4883E0176 // DoWritePara
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_49E4883E0176_ME_4CDD7C01013F DoWritePara
@@ -917,20 +917,20 @@ ref; // ME_49E4883E0176_ME_4CDD7C01013F DoWritePara
  %SUMMARY 'Фильтр, добавляющий текст к первому параграфу' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47ECB8BD00A8 // Generators
+ : Parent HWL ME_47ECB8BD00A8 // Generators
  ;
  : Inherits
-   Seq: ( ME_49E487650342 // TevdLeafParaFilter
+   Seq: ( HWL ME_49E487650342 // TevdLeafParaFilter
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_4CDD7C8003A6 // f_Text
- ME_4CDD7D660269 // f_WasAdd
+   Seq: ( HWL ME_4CDD7C8003A6 // f_Text
+ HWL ME_4CDD7D660269 // f_WasAdd
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_4CDD7CC5001A // SetTo
- ME_4CDD7CFF03C8 // Create
+   Seq: ( HWL ME_4CDD7CC5001A // SetTo
+ HWL ME_4CDD7CFF03C8 // Create
  )
  ; // Operations
  : Overridden
@@ -963,7 +963,7 @@ FORWARD ME_4DDE3E97005C
 : ME_4DDE3ED40196
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4DDE3E97005C // TevdMarkEliminator
+ : Parent HWL ME_4DDE3E97005C // TevdMarkEliminator
  ;
  : Target WL 'ME_484FABB7008B' '484A470100DD.pas.ms.script' // Mark
  ;
@@ -971,13 +971,13 @@ FORWARD ME_4DDE3E97005C
 ref; // ME_4DDE3ED40196 
 
 : ME_49E488070386_ME_4DDE3E97005C
- : Original ME_49E488070386 // ParaTypeForFiltering
+ : Original HWL ME_49E488070386 // ParaTypeForFiltering
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_49E488070386_ME_4DDE3E97005C ParaTypeForFiltering
 
 : ME_49E48829016F_ME_4DDE3E97005C
- : Original ME_49E48829016F // NeedWritePara
+ : Original HWL ME_49E48829016F // NeedWritePara
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_49E48829016F_ME_4DDE3E97005C NeedWritePara
@@ -990,10 +990,10 @@ ref; // ME_49E48829016F_ME_4DDE3E97005C NeedWritePara
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47ECB8BD00A8 // Generators
+ : Parent HWL ME_47ECB8BD00A8 // Generators
  ;
  : Inherits
-   Seq: ( ME_49E487650342 // TevdLeafParaFilter
+   Seq: ( HWL ME_49E487650342 // TevdLeafParaFilter
  )
  ; // Inherits
  : Overridden
@@ -1020,7 +1020,7 @@ FORWARD ME_4E1C278402E2
 : ME_4E1C27B0037B
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4E1C278402E2 // TevdAllParaEliminator
+ : Parent HWL ME_4E1C278402E2 // TevdAllParaEliminator
  ;
  : Target WL 'ME_484FC278000E' '484A470100DD.pas.ms.script' // Para
  ;
@@ -1028,13 +1028,13 @@ FORWARD ME_4E1C278402E2
 ref; // ME_4E1C27B0037B 
 
 : ME_49E488070386_ME_4E1C278402E2
- : Original ME_49E488070386 // ParaTypeForFiltering
+ : Original HWL ME_49E488070386 // ParaTypeForFiltering
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_49E488070386_ME_4E1C278402E2 ParaTypeForFiltering
 
 : ME_49E48829016F_ME_4E1C278402E2
- : Original ME_49E48829016F // NeedWritePara
+ : Original HWL ME_49E48829016F // NeedWritePara
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_49E48829016F_ME_4E1C278402E2 NeedWritePara
@@ -1047,10 +1047,10 @@ ref; // ME_49E48829016F_ME_4E1C278402E2 NeedWritePara
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47ECB8BD00A8 // Generators
+ : Parent HWL ME_47ECB8BD00A8 // Generators
  ;
  : Inherits
-   Seq: ( ME_49E487650342 // TevdLeafParaFilter
+   Seq: ( HWL ME_49E487650342 // TevdLeafParaFilter
  )
  ; // Inherits
  : Overridden
@@ -1077,7 +1077,7 @@ FORWARD ME_4E664CB30360
 : ME_4E664D170307
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4E664CB30360 // TevdDocumentMarksEliminator
+ : Parent HWL ME_4E664CB30360 // TevdDocumentMarksEliminator
  ;
  : Target WL 'ME_484FBE6D037E' '484A470100DD.pas.ms.script' // DocSubLayer
  ;
@@ -1087,7 +1087,7 @@ ref; // ME_4E664D170307
 : ME_4E664D2C000B
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4E664CB30360 // TevdDocumentMarksEliminator
+ : Parent HWL ME_4E664CB30360 // TevdDocumentMarksEliminator
  ;
  : Target WL 'ME_484CDAC302F7' '469D0AC7005E.pas.ms.script' // Sub Layers
  ;
@@ -1097,7 +1097,7 @@ ref; // ME_4E664D2C000B
 : ME_4E664DE500EF
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4E664CB30360 // TevdDocumentMarksEliminator
+ : Parent HWL ME_4E664CB30360 // TevdDocumentMarksEliminator
  ;
  : Target WL 'ME_47C69EBC00A8' '47AC75550330.pas.ms.script' // Tk2TagID
  ;
@@ -1105,13 +1105,13 @@ ref; // ME_4E664D2C000B
 ref; // ME_4E664DE500EF 
 
 : ME_49E488070386_ME_4E664CB30360
- : Original ME_49E488070386 // ParaTypeForFiltering
+ : Original HWL ME_49E488070386 // ParaTypeForFiltering
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_49E488070386_ME_4E664CB30360 ParaTypeForFiltering
 
 : ME_49E48829016F_ME_4E664CB30360
- : Original ME_49E48829016F // NeedWritePara
+ : Original HWL ME_49E48829016F // NeedWritePara
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_49E48829016F_ME_4E664CB30360 NeedWritePara
@@ -1124,10 +1124,10 @@ ref; // ME_49E48829016F_ME_4E664CB30360 NeedWritePara
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47ECB8BD00A8 // Generators
+ : Parent HWL ME_47ECB8BD00A8 // Generators
  ;
  : Inherits
-   Seq: ( ME_49E487650342 // TevdLeafParaFilter
+   Seq: ( HWL ME_49E487650342 // TevdLeafParaFilter
  )
  ; // Inherits
  : Overridden
@@ -1156,7 +1156,7 @@ FORWARD ME_4E6750EF020D
 : ME_4E6751300397
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4E6750EF020D // TevdDocumentBookmarksEliminator
+ : Parent HWL ME_4E6750EF020D // TevdDocumentBookmarksEliminator
  ;
  : Target WL 'ME_484CDAC302F7' '469D0AC7005E.pas.ms.script' // Sub Layers
  ;
@@ -1166,7 +1166,7 @@ ref; // ME_4E6751300397
 : ME_4E6751380007
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4E6750EF020D // TevdDocumentBookmarksEliminator
+ : Parent HWL ME_4E6750EF020D // TevdDocumentBookmarksEliminator
  ;
  : Target WL 'ME_47C69EBC00A8' '47AC75550330.pas.ms.script' // Tk2TagID
  ;
@@ -1174,7 +1174,7 @@ ref; // ME_4E6751300397
 ref; // ME_4E6751380007 
 
 : ME_49E48829016F_ME_4E6750EF020D
- : Original ME_49E48829016F // NeedWritePara
+ : Original HWL ME_49E48829016F // NeedWritePara
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_49E48829016F_ME_4E6750EF020D NeedWritePara
@@ -1187,10 +1187,10 @@ ref; // ME_49E48829016F_ME_4E6750EF020D NeedWritePara
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47ECB8BD00A8 // Generators
+ : Parent HWL ME_47ECB8BD00A8 // Generators
  ;
  : Inherits
-   Seq: ( ME_4E664CB30360 // TevdDocumentMarksEliminator
+   Seq: ( HWL ME_4E664CB30360 // TevdDocumentMarksEliminator
  )
  ; // Inherits
  : Overridden
@@ -1217,7 +1217,7 @@ FORWARD ME_4E6756B3015E
 : ME_4E6756F70264
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4E6756B3015E // TevdDocumentSubsEliminator
+ : Parent HWL ME_4E6756B3015E // TevdDocumentSubsEliminator
  ;
  : Target WL 'ME_484CDAC302F7' '469D0AC7005E.pas.ms.script' // Sub Layers
  ;
@@ -1227,7 +1227,7 @@ ref; // ME_4E6756F70264
 : ME_4E6756FB004E
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4E6756B3015E // TevdDocumentSubsEliminator
+ : Parent HWL ME_4E6756B3015E // TevdDocumentSubsEliminator
  ;
  : Target WL 'ME_47C69EBC00A8' '47AC75550330.pas.ms.script' // Tk2TagID
  ;
@@ -1235,7 +1235,7 @@ ref; // ME_4E6756F70264
 ref; // ME_4E6756FB004E 
 
 : ME_49E48829016F_ME_4E6756B3015E
- : Original ME_49E48829016F // NeedWritePara
+ : Original HWL ME_49E48829016F // NeedWritePara
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_49E48829016F_ME_4E6756B3015E NeedWritePara
@@ -1248,10 +1248,10 @@ ref; // ME_49E48829016F_ME_4E6756B3015E NeedWritePara
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47ECB8BD00A8 // Generators
+ : Parent HWL ME_47ECB8BD00A8 // Generators
  ;
  : Inherits
-   Seq: ( ME_4E664CB30360 // TevdDocumentMarksEliminator
+   Seq: ( HWL ME_4E664CB30360 // TevdDocumentMarksEliminator
  )
  ; // Inherits
  : Overridden
@@ -1278,7 +1278,7 @@ FORWARD ME_4E84542E03B5
 : ME_4E84549D0396
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4E84542E03B5 // TevdChildrenCountEliminator
+ : Parent HWL ME_4E84542E03B5 // TevdChildrenCountEliminator
  ;
  : Target WL 'ME_47C69EBC00A8' '47AC75550330.pas.ms.script' // Tk2TagID
  ;
@@ -1300,7 +1300,7 @@ ref; // ME_4A2D1634025B_ME_4E84542E03B5 DoAddAtomEx
  %SUMMARY 'Выкидавает ChildrenCount из потока генерации, чтобы не распределялась лишняя память при буферизации на проходе' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47ECB8BD00A8 // Generators
+ : Parent HWL ME_47ECB8BD00A8 // Generators
  ;
  : Inherits
    Seq: ( WL 'ME_49E487A70144' '47ECA80B000D.pas.ms.script' // Tk2TagFilter
@@ -1329,7 +1329,7 @@ FORWARD ME_4E8478090254
 : ME_4E8478A400D4
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4E8478090254 // TevdAllDocumentSubsEliminator
+ : Parent HWL ME_4E8478090254 // TevdAllDocumentSubsEliminator
  ;
  : Target WL 'ME_484FBE6D037E' '484A470100DD.pas.ms.script' // DocSubLayer
  ;
@@ -1339,7 +1339,7 @@ ref; // ME_4E8478A400D4
 : ME_4E8C4C3202CB
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4E8478090254 // TevdAllDocumentSubsEliminator
+ : Parent HWL ME_4E8478090254 // TevdAllDocumentSubsEliminator
  ;
  : Target WL 'ME_484FAA8501A2' '484A470100DD.pas.ms.script' // DocumentSub
  ;
@@ -1361,7 +1361,7 @@ ref; // ME_4E15CBD5018B_ME_4E8478090254 NeedTranslateChildToNextPrim
  %SUMMARY 'Фильтр, выкидывающий ВСЕ сабы документа из обратного индекса' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47ECB8BD00A8 // Generators
+ : Parent HWL ME_47ECB8BD00A8 // Generators
  ;
  : Inherits
    Seq: ( WL 'ME_49E487A70144' '47ECA80B000D.pas.ms.script' // Tk2TagFilter
@@ -1391,7 +1391,7 @@ FORWARD ME_4E9FD8340247
 : ME_4E9FD911011D
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4E9FD8340247 // TevdHyperlinkEliminator
+ : Parent HWL ME_4E9FD8340247 // TevdHyperlinkEliminator
  ;
  : Target WL 'ME_485649E10305' '484A470100DD.pas.ms.script' // HyperLink
  ;
@@ -1399,13 +1399,13 @@ FORWARD ME_4E9FD8340247
 ref; // ME_4E9FD911011D 
 
 : ME_49E488070386_ME_4E9FD8340247
- : Original ME_49E488070386 // ParaTypeForFiltering
+ : Original HWL ME_49E488070386 // ParaTypeForFiltering
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_49E488070386_ME_4E9FD8340247 ParaTypeForFiltering
 
 : ME_49E48829016F_ME_4E9FD8340247
- : Original ME_49E48829016F // NeedWritePara
+ : Original HWL ME_49E48829016F // NeedWritePara
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_49E48829016F_ME_4E9FD8340247 NeedWritePara
@@ -1419,10 +1419,10 @@ ref; // ME_49E48829016F_ME_4E9FD8340247 NeedWritePara
  %SUMMARY 'Фильтр, удаляющий все гиперссылки в документе' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47ECB8BD00A8 // Generators
+ : Parent HWL ME_47ECB8BD00A8 // Generators
  ;
  : Inherits
-   Seq: ( ME_49E487650342 // TevdLeafParaFilter
+   Seq: ( HWL ME_49E487650342 // TevdLeafParaFilter
  )
  ; // Inherits
  : Overridden
@@ -1446,7 +1446,7 @@ FORWARD ME_4EC116A50211
 : ME_4EC116DD0021
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4EC116A50211 // TevdAllSubsEliminator
+ : Parent HWL ME_4EC116A50211 // TevdAllSubsEliminator
  ;
  : Target WL 'ME_47C69EBC00A8' '47AC75550330.pas.ms.script' // Tk2TagID
  ;
@@ -1456,7 +1456,7 @@ ref; // ME_4EC116DD0021
 : ME_4EC116E20038
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4EC116A50211 // TevdAllSubsEliminator
+ : Parent HWL ME_4EC116A50211 // TevdAllSubsEliminator
  ;
  : Target WL 'ME_484F95C1026A' '484A470100DD.pas.ms.script' // Sub
  ;
@@ -1464,13 +1464,13 @@ ref; // ME_4EC116DD0021
 ref; // ME_4EC116E20038 
 
 : ME_49E488070386_ME_4EC116A50211
- : Original ME_49E488070386 // ParaTypeForFiltering
+ : Original HWL ME_49E488070386 // ParaTypeForFiltering
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_49E488070386_ME_4EC116A50211 ParaTypeForFiltering
 
 : ME_49E48829016F_ME_4EC116A50211
- : Original ME_49E48829016F // NeedWritePara
+ : Original HWL ME_49E48829016F // NeedWritePara
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_49E48829016F_ME_4EC116A50211 NeedWritePara
@@ -1483,10 +1483,10 @@ ref; // ME_49E48829016F_ME_4EC116A50211 NeedWritePara
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47ECB8BD00A8 // Generators
+ : Parent HWL ME_47ECB8BD00A8 // Generators
  ;
  : Inherits
-   Seq: ( ME_49E487650342 // TevdLeafParaFilter
+   Seq: ( HWL ME_49E487650342 // TevdLeafParaFilter
  )
  ; // Inherits
  : Overridden
@@ -1517,7 +1517,7 @@ ref; // ME_4EC116A50211 TevdAllSubsEliminator
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47ECB8BD00A8 // Generators
+ : Parent HWL ME_47ECB8BD00A8 // Generators
  ;
  : Inherits
    Seq: ( WL 'ME_4836BFC9011E' '47ECA80B000D.pas.ms.script' // Tk2CustomFileGenerator
@@ -1536,7 +1536,7 @@ FORWARD ME_4F33BAE302FA
 : ME_4F33C46A0166
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4F33BAE302FA // TevdHypelinkDocIDEliminator
+ : Parent HWL ME_4F33BAE302FA // TevdHypelinkDocIDEliminator
  ;
  : Target WL 'ME_47C69EBC00A8' '47AC75550330.pas.ms.script' // Tk2TagID
  ;
@@ -1546,7 +1546,7 @@ ref; // ME_4F33C46A0166
 : ME_4F33C48B0310
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4F33BAE302FA // TevdHypelinkDocIDEliminator
+ : Parent HWL ME_4F33BAE302FA // TevdHypelinkDocIDEliminator
  ;
  : Target WL 'ME_48495E29035B' '484A470100DD.pas.ms.script' // Address
  ;
@@ -1568,7 +1568,7 @@ ref; // ME_4A2D1634025B_ME_4F33BAE302FA DoAddAtomEx
  %SUMMARY 'Обнуляет DocID у ссылок. Создан для тестов.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47ECB8BD00A8 // Generators
+ : Parent HWL ME_47ECB8BD00A8 // Generators
  ;
  : Inherits
    Seq: ( WL 'ME_49E487A70144' '47ECA80B000D.pas.ms.script' // Tk2TagFilter
@@ -1595,7 +1595,7 @@ FORWARD ME_4F9BFA1F007E
 : ME_4F9BFCA2020E
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4F9BFA1F007E // TevdEmptySubsEliminator
+ : Parent HWL ME_4F9BFA1F007E // TevdEmptySubsEliminator
  ;
  : Target WL 'ME_47C69EBC00A8' '47AC75550330.pas.ms.script' // Tk2TagID
  ;
@@ -1603,13 +1603,13 @@ FORWARD ME_4F9BFA1F007E
 ref; // ME_4F9BFCA2020E 
 
 : ME_4C56D54B002A_ME_4F9BFA1F007E
- : Original ME_4C56D54B002A // NeedStartBuffering
+ : Original HWL ME_4C56D54B002A // NeedStartBuffering
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_4C56D54B002A_ME_4F9BFA1F007E NeedStartBuffering
 
 : ME_4CF7BC520161_ME_4F9BFA1F007E
- : Original ME_4CF7BC520161 // NeedFlushBuffer
+ : Original HWL ME_4CF7BC520161 // NeedFlushBuffer
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_4CF7BC520161_ME_4F9BFA1F007E NeedFlushBuffer
@@ -1622,10 +1622,10 @@ ref; // ME_4CF7BC520161_ME_4F9BFA1F007E NeedFlushBuffer
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47ECB8BD00A8 // Generators
+ : Parent HWL ME_47ECB8BD00A8 // Generators
  ;
  : Inherits
-   Seq: ( ME_49E4965202A1 // TevdBufferedFilter
+   Seq: ( HWL ME_49E4965202A1 // TevdBufferedFilter
  )
  ; // Inherits
  : Overridden
@@ -1652,7 +1652,7 @@ ref; // ME_4F9BFA1F007E TevdEmptySubsEliminator
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47ECB8BD00A8 // Generators
+ : Parent HWL ME_47ECB8BD00A8 // Generators
  ;
  : Inherits
    Seq: ( WL 'ME_4836BFC9011E' '47ECA80B000D.pas.ms.script' // Tk2CustomFileGenerator
@@ -1677,7 +1677,7 @@ FORWARD ME_535E29A5027B
  CONST Visibility PublicAccess
  CONST Abstraction at_final
  CONST LinkType lt_agr
- : Parent ME_535E29A5027B // TevdParaStylePainter
+ : Parent HWL ME_535E29A5027B // TevdParaStylePainter
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -1712,7 +1712,7 @@ ref; // ME_535E2C8E0202 aTargetStyle
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_535E2BDC0026 // SetTo
+ : Parent HWL ME_535E2BDC0026 // SetTo
  ;
  : Target WL 'ME_46A608F00301' '4AB0C3C60310.pas.ms.script' // Pointer
  ;
@@ -1732,10 +1732,10 @@ ref; // ME_535E2C3C0109 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_535E29A5027B // TevdParaStylePainter
+ : Parent HWL ME_535E29A5027B // TevdParaStylePainter
  ;
  : Operations
-   Seq: ( ME_535E2C3C0109 // DoIt
+   Seq: ( HWL ME_535E2C3C0109 // DoIt
  )
  ; // Operations
  CONST "is static" true
@@ -1745,7 +1745,7 @@ ref; // ME_535E2BDC0026 SetTo
 : ME_535E331902A8
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_535E29A5027B // TevdParaStylePainter
+ : Parent HWL ME_535E29A5027B // TevdParaStylePainter
  ;
  : Target WL 'ME_47C69EBC00A8' '47AC75550330.pas.ms.script' // Tk2TagID
  ;
@@ -1755,7 +1755,7 @@ ref; // ME_535E331902A8
 : ME_53C91F440316
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_535E29A5027B // TevdParaStylePainter
+ : Parent HWL ME_535E29A5027B // TevdParaStylePainter
  ;
  : Target WL 'ME_47E3C78502FB' '47E3C64F037E.pas.ms.script' // Tk2OperationContainer
  ;
@@ -1765,7 +1765,7 @@ ref; // ME_53C91F440316
 : ME_53C922520009
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_535E29A5027B // TevdParaStylePainter
+ : Parent HWL ME_535E29A5027B // TevdParaStylePainter
  ;
  : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
  ;
@@ -1773,7 +1773,7 @@ ref; // ME_53C91F440316
 ref; // ME_53C922520009 
 
 : ME_49E4883E0176_ME_535E29A5027B
- : Original ME_49E4883E0176 // DoWritePara
+ : Original HWL ME_49E4883E0176 // DoWritePara
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_49E4883E0176_ME_535E29A5027B DoWritePara
@@ -1786,18 +1786,18 @@ ref; // ME_49E4883E0176_ME_535E29A5027B DoWritePara
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47ECB8BD00A8 // Generators
+ : Parent HWL ME_47ECB8BD00A8 // Generators
  ;
  : Inherits
-   Seq: ( ME_49E487650342 // TevdLeafParaFilter
+   Seq: ( HWL ME_49E487650342 // TevdLeafParaFilter
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_535E2B6A00F6 // TargetStyle
+   Seq: ( HWL ME_535E2B6A00F6 // TargetStyle
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_535E2BDC0026 // SetTo
+   Seq: ( HWL ME_535E2BDC0026 // SetTo
  )
  ; // Operations
  : Overridden
@@ -1822,7 +1822,7 @@ FORWARD ME_53C3AC15027D
 : ME_53C3AC7902DF
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_53C3AC15027D // TevdTaskFolderEliminator
+ : Parent HWL ME_53C3AC15027D // TevdTaskFolderEliminator
  ;
  : Target WL 'ME_537DFEF702E1' '484A470100DD.pas.ms.script' // Task
  ;
@@ -1830,13 +1830,13 @@ FORWARD ME_53C3AC15027D
 ref; // ME_53C3AC7902DF 
 
 : ME_49E488070386_ME_53C3AC15027D
- : Original ME_49E488070386 // ParaTypeForFiltering
+ : Original HWL ME_49E488070386 // ParaTypeForFiltering
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_49E488070386_ME_53C3AC15027D ParaTypeForFiltering
 
 : ME_49E4883E0176_ME_53C3AC15027D
- : Original ME_49E4883E0176 // DoWritePara
+ : Original HWL ME_49E4883E0176 // DoWritePara
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_49E4883E0176_ME_53C3AC15027D DoWritePara
@@ -1849,10 +1849,10 @@ ref; // ME_49E4883E0176_ME_53C3AC15027D DoWritePara
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47ECB8BD00A8 // Generators
+ : Parent HWL ME_47ECB8BD00A8 // Generators
  ;
  : Inherits
-   Seq: ( ME_49E487650342 // TevdLeafParaFilter
+   Seq: ( HWL ME_49E487650342 // TevdLeafParaFilter
  )
  ; // Inherits
  : Overridden
@@ -1876,7 +1876,7 @@ FORWARD ME_541A7EEC0051
 : ME_541A839E023E
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_541A7EEC0051 // TevdPDFHyperLinkEliminator
+ : Parent HWL ME_541A7EEC0051 // TevdPDFHyperLinkEliminator
  ;
  : Target WL 'ME_47C69EBC00A8' '47AC75550330.pas.ms.script' // Tk2TagID
  ;
@@ -1886,7 +1886,7 @@ ref; // ME_541A839E023E
 : ME_541A93A60087
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_541A7EEC0051 // TevdPDFHyperLinkEliminator
+ : Parent HWL ME_541A7EEC0051 // TevdPDFHyperLinkEliminator
  ;
  : Target WL 'ME_530F1BCA00B2' '467FC43F01F9.pas.ms.script' // Tk2VariantImpl
  ;
@@ -1896,7 +1896,7 @@ ref; // ME_541A93A60087
 : ME_541A93B6018B
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_541A7EEC0051 // TevdPDFHyperLinkEliminator
+ : Parent HWL ME_541A7EEC0051 // TevdPDFHyperLinkEliminator
  ;
  : Target WL 'ME_530DF7340360' '469F886F010C.pas.ms.script' // Tk2Variant
  ;
@@ -1906,7 +1906,7 @@ ref; // ME_541A93B6018B
 : ME_541A93CC027B
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_541A7EEC0051 // TevdPDFHyperLinkEliminator
+ : Parent HWL ME_541A7EEC0051 // TevdPDFHyperLinkEliminator
  ;
  : Target WL 'ME_476BE0660328' '476BE0350329.pas.ms.script' // Standard
  ;
@@ -1928,10 +1928,10 @@ ref; // ME_4836D52400D9_ME_541A7EEC0051 AddAtomEx
  %SUMMARY 'Фильтр, удаляющий ссылки для PDF.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47ECB8BD00A8 // Generators
+ : Parent HWL ME_47ECB8BD00A8 // Generators
  ;
  : Inherits
-   Seq: ( ME_4E9FD8340247 // TevdHyperlinkEliminator
+   Seq: ( HWL ME_4E9FD8340247 // TevdHyperlinkEliminator
  )
  ; // Inherits
  : Overridden
@@ -1957,7 +1957,7 @@ FORWARD ME_555DCF5A0060
 : ME_555DCF650257
  CONST Class class_Dependency
  : Stereotype st_implements::Dependency ;
- : Parent ME_555DCF5A0060 // TevdEVDWriterService
+ : Parent HWL ME_555DCF5A0060 // TevdEVDWriterService
  ;
  : Target WL 'ME_555DCEA8017E' '482D6E960087.pas.ms.script' // Tk2EVDWriterService
  ;
@@ -1967,9 +1967,9 @@ ref; // ME_555DCF650257
 : ME_555DCF790378
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_555DCF5A0060 // TevdEVDWriterService
+ : Parent HWL ME_555DCF5A0060 // TevdEVDWriterService
  ;
- : Target ME_483D7C2A032C // TevdCustomNativeWriter
+ : Target HWL ME_483D7C2A032C // TevdCustomNativeWriter
  ;
 
 ref; // ME_555DCF790378 
@@ -1977,24 +1977,12 @@ ref; // ME_555DCF790378
 : ME_55714D660056
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_555DCF5A0060 // TevdEVDWriterService
+ : Parent HWL ME_555DCF5A0060 // TevdEVDWriterService
  ;
  : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
  ;
 
 ref; // ME_55714D660056 
-
-: ME_26782C1B9519_ME_555DCF5A0060
- : Original WL 'ME_26782C1B9519' '482D6E960087.pas.ms.script' // GetWriter
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_26782C1B9519_ME_555DCF5A0060 GetWriter
-
-: ME_F7BF6A35E2B1_ME_555DCF5A0060
- : Original WL 'ME_F7BF6A35E2B1' '482D6E960087.pas.ms.script' // MakeWriter
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_F7BF6A35E2B1_ME_555DCF5A0060 MakeWriter
 
 : ME_555DCF5A0060
  CONST UID '555DCF5A0060'
@@ -2004,28 +1992,18 @@ ref; // ME_F7BF6A35E2B1_ME_555DCF5A0060 MakeWriter
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_555DCF340385 // evdCustomNativeWriterServices
+ : Parent HWL ME_555DCF340385 // evdCustomNativeWriterServices
  ;
  : Inherits
    Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
  )
  ; // Inherits
- : Implements
-   Seq: ( WL 'ME_45A65DABCE57' '482D6E960087.pas.ms.script' // Ik2EVDWriterService
- )
- ; // Implements
- : Implemented
-   Seq: ( ME_26782C1B9519_ME_555DCF5A0060 // GetWriter
- ME_F7BF6A35E2B1_ME_555DCF5A0060 // MakeWriter
- )
- ; // Implemented
  : Dependencies
    Seq: ( ME_555DCF650257 // Tk2EVDWriterService
  ME_555DCF790378 // TevdCustomNativeWriter
  ME_55714D660056 // FreeAndNil
  )
  ; // Dependencies
- CONST "singleton" true
  CONST extprop:rc:SelfName 'dEVDWriterService'
  CONST extprop:rc:isAcceptableForScripts true
 
@@ -2039,10 +2017,10 @@ ref; // ME_555DCF5A0060 TevdEVDWriterService
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_47ECB8BD00A8 // Generators
+ : Parent HWL ME_47ECB8BD00A8 // Generators
  ;
  : Children
-   Seq: ( ME_555DCF5A0060 // TevdEVDWriterService
+   Seq: ( HWL ME_555DCF5A0060 // TevdEVDWriterService
  )
  ; // Children
  CONST intf.pas:Path 'common\components\rtl\Garant\EVD\evdCustomNativeWriterServices.pas'
@@ -2061,34 +2039,34 @@ ref; // ME_555DCF340385 evdCustomNativeWriterServices
  : Parent WL 'ME_467A8734039C' '467A8734039C.pas.ms.script' // EVD
  ;
  : Children
-   Seq: ( ME_47ECB8E402B4 // TevdPageParamsFilter
- ME_4836BA4C03B3 // TevdDocumentFilter
- ME_4836BF61035E // TevdCustomPlainTextWriter
- ME_4836BF8E0222 // TevdPlainTextWriter
- ME_483D7C2A032C // TevdCustomNativeWriter
- ME_483D7C55027A // TevdNativeWriter
- ME_48ECF4FB026A // TevdSegmentsLayerJoiner
- ME_49E487650342 // TevdLeafParaFilter
- ME_49E496880120 // evdBufferedFilter
- ME_4B59FBCA0096 // TddNSRCGenerator
- ME_4CDD7C01013F // TevdTextToFirstParaAdder
- ME_4DDE3E97005C // TevdMarkEliminator
- ME_4E1C278402E2 // TevdAllParaEliminator
- ME_4E664CB30360 // TevdDocumentMarksEliminator
- ME_4E6750EF020D // TevdDocumentBookmarksEliminator
- ME_4E6756B3015E // TevdDocumentSubsEliminator
- ME_4E84542E03B5 // TevdChildrenCountEliminator
- ME_4E8478090254 // TevdAllDocumentSubsEliminator
- ME_4E9FD8340247 // TevdHyperlinkEliminator
- ME_4EC116A50211 // TevdAllSubsEliminator
- ME_4EF075A80365 // TevdNativeUnpackedWriter
- ME_4F33BAE302FA // TevdHypelinkDocIDEliminator
- ME_4F9BFA1F007E // TevdEmptySubsEliminator
- ME_503633CE0211 // TevdXMLWriter
- ME_535E29A5027B // TevdParaStylePainter
- ME_53C3AC15027D // TevdTaskFolderEliminator
- ME_541A7EEC0051 // TevdPDFHyperLinkEliminator
- ME_555DCF340385 // evdCustomNativeWriterServices
+   Seq: ( HWL ME_47ECB8E402B4 // TevdPageParamsFilter
+ HWL ME_4836BA4C03B3 // TevdDocumentFilter
+ HWL ME_4836BF61035E // TevdCustomPlainTextWriter
+ HWL ME_4836BF8E0222 // TevdPlainTextWriter
+ HWL ME_483D7C2A032C // TevdCustomNativeWriter
+ HWL ME_483D7C55027A // TevdNativeWriter
+ HWL ME_48ECF4FB026A // TevdSegmentsLayerJoiner
+ HWL ME_49E487650342 // TevdLeafParaFilter
+ HWL ME_49E496880120 // evdBufferedFilter
+ HWL ME_4B59FBCA0096 // TddNSRCGenerator
+ HWL ME_4CDD7C01013F // TevdTextToFirstParaAdder
+ HWL ME_4DDE3E97005C // TevdMarkEliminator
+ HWL ME_4E1C278402E2 // TevdAllParaEliminator
+ HWL ME_4E664CB30360 // TevdDocumentMarksEliminator
+ HWL ME_4E6750EF020D // TevdDocumentBookmarksEliminator
+ HWL ME_4E6756B3015E // TevdDocumentSubsEliminator
+ HWL ME_4E84542E03B5 // TevdChildrenCountEliminator
+ HWL ME_4E8478090254 // TevdAllDocumentSubsEliminator
+ HWL ME_4E9FD8340247 // TevdHyperlinkEliminator
+ HWL ME_4EC116A50211 // TevdAllSubsEliminator
+ HWL ME_4EF075A80365 // TevdNativeUnpackedWriter
+ HWL ME_4F33BAE302FA // TevdHypelinkDocIDEliminator
+ HWL ME_4F9BFA1F007E // TevdEmptySubsEliminator
+ HWL ME_503633CE0211 // TevdXMLWriter
+ HWL ME_535E29A5027B // TevdParaStylePainter
+ HWL ME_53C3AC15027D // TevdTaskFolderEliminator
+ HWL ME_541A7EEC0051 // TevdPDFHyperLinkEliminator
+ HWL ME_555DCF340385 // evdCustomNativeWriterServices
  )
  ; // Children
  : Depends

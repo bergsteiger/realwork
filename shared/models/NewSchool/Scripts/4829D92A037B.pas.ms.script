@@ -1,0 +1,1749 @@
+// TevCustomEditorWindow 4829D92A037B GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4829D92A037B
+
+: ME_48E22A140229
+ CONST UID '48E22A140229'
+ CONST Name 'RevEditorWindowHotSpot'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4829D92A037B // TevCustomEditorWindow
+ ;
+ : Inherits
+   Seq: ( WL 'ME_48E229CC03DF' '4829D7D50156.pas.ms.script' // TevEditorWindowHotSpot
+ )
+ ; // Inherits
+ CONST "isClassRef" true
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_48E22A140229 RevEditorWindowHotSpot
+
+: ME_487B5E1700FA
+ CONST UID '487B5E1700FA'
+ CONST Name 'RevSelection'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4829D92A037B // TevCustomEditorWindow
+ ;
+ : Inherits
+   Seq: ( WL 'ME_487B5DD202DF' '4829D7D50156.pas.ms.script' // TnevSelection
+ )
+ ; // Inherits
+ CONST "isClassRef" true
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_487B5E1700FA RevSelection
+
+FORWARD ME_50041C7C0270
+
+: ME_50041CA103D3
+ CONST Name 'Sender'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_50041CA103D3 Sender
+
+: ME_50041CA2000B
+ CONST Name 'anEffects'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49DC7BDE0398' '467823B7002C.pas.ms.script' // TafwJumpToEffects
+ ;
+
+ref; // ME_50041CA2000B anEffects
+
+: ME_50041CA2002B
+ CONST Name 'aMoniker'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target WL 'ME_47C5BD35000A' '4A23935A0282.pas.ms.script' // IevMoniker
+ ;
+
+ref; // ME_50041CA2002B aMoniker
+
+: ME_50041C9F0024
+ CONST UID '50041C9F0024'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_50041C7C0270 // TevJumpToEvent
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   Seq: ( ME_50041CA103D3 // Sender
+ ME_50041CA2000B // anEffects
+ ME_50041CA2002B // aMoniker
+ )
+ ; // Parameters
+
+ref; // ME_50041C9F0024 DoIt
+
+: ME_50041C7C0270
+ CONST UID '50041C7C0270'
+ CONST Name 'TevJumpToEvent'
+ CONST Class class_Class
+ : Stereotype st_Function ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4829D92A037B // TevCustomEditorWindow
+ ;
+ : Operations
+   Seq: ( HWL ME_50041C9F0024 // DoIt
+ )
+ ; // Operations
+ CONST "of object" false
+
+ref; // ME_50041C7C0270 TevJumpToEvent
+
+FORWARD ME_502D435F0103
+
+: ME_502D438D0000
+ CONST Name 'Sender'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_502D438D0000 Sender
+
+: ME_502D438D0028
+ CONST Name 'aTextPara'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target WL 'ME_4B547F7801F3' '48E3836D00C8.pas.ms.script' // IedTextParagraph
+ ;
+
+ref; // ME_502D438D0028 aTextPara
+
+: ME_502D438702C3
+ CONST UID '502D438702C3'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_502D435F0103 // TevParaChangeEvent
+ ;
+ : Parameters
+   Seq: ( ME_502D438D0000 // Sender
+ ME_502D438D0028 // aTextPara
+ )
+ ; // Parameters
+
+ref; // ME_502D438702C3 DoIt
+
+: ME_502D435F0103
+ CONST UID '502D435F0103'
+ CONST Name 'TevParaChangeEvent'
+ CONST Class class_Class
+ : Stereotype st_Function ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'нотификация об изменении текущего параграфа' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4829D92A037B // TevCustomEditorWindow
+ ;
+ : Operations
+   Seq: ( HWL ME_502D438702C3 // DoIt
+ )
+ ; // Operations
+ CONST "of object" true
+
+ref; // ME_502D435F0103 TevParaChangeEvent
+
+FORWARD ME_5049C6650272
+
+: ME_5049C6930081
+ CONST Name 'Sender'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_5049C6930081 Sender
+
+: ME_5049C69300A0
+ CONST Name 'aHotSpot'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_48E2665A0259' '4A1FCBA0014C.pas.ms.script' // IevHotSpot
+ ;
+
+ref; // ME_5049C69300A0 aHotSpot
+
+: ME_5049C69300BF
+ CONST Name 'aKeys'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_473DA6C302E6' '467823B7002C.pas.ms.script' // TafwCursorState
+ ;
+
+ref; // ME_5049C69300BF aKeys
+
+: ME_5049C69300E0
+ CONST Name 'theInfo'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_473DA9BF0280' '467823B7002C.pas.ms.script' // TafwCursorInfo
+ ;
+
+ref; // ME_5049C69300E0 theInfo
+
+: ME_5049C68502DC
+ CONST UID '5049C68502DC'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_5049C6650272 // TevGetHotspotInfo
+ ;
+ : Parameters
+   Seq: ( ME_5049C6930081 // Sender
+ ME_5049C69300A0 // aHotSpot
+ ME_5049C69300BF // aKeys
+ ME_5049C69300E0 // theInfo
+ )
+ ; // Parameters
+
+ref; // ME_5049C68502DC DoIt
+
+: ME_5049C6650272
+ CONST UID '5049C6650272'
+ CONST Name 'TevGetHotspotInfo'
+ CONST Class class_Class
+ : Stereotype st_Function ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4829D92A037B // TevCustomEditorWindow
+ ;
+ : Operations
+   Seq: ( HWL ME_5049C68502DC // DoIt
+ )
+ ; // Operations
+ CONST "of object" true
+
+ref; // ME_5049C6650272 TevGetHotspotInfo
+
+: ME_556F3D6A016B
+ CONST UID '556F3D6A016B'
+ CONST Name 'IevEditorWindowFont'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4829D92A037B // TevCustomEditorWindow
+ ;
+ : Inherits
+   Seq: ( WL 'ME_547DB5C300FE' '4E60BA4D00A6.pas.ms.script' // TevCustomFont
+ )
+ ; // Inherits
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_556F3D6A016B IevEditorWindowFont
+
+: ME_484515B3012E
+ CONST UID '484515B3012E'
+ CONST Name 'PlainText'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4829D92A037B // TevCustomEditorWindow
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "needs field" false
+ CONST "pm" true
+
+ref; // ME_484515B3012E PlainText
+
+: ME_54C0FC1000D3
+ CONST UID '54C0FC1000D3'
+ CONST Name 'TextSource'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4829D92A037B // TevCustomEditorWindow
+ ;
+ : Target WL 'ME_482BFB7C00B6' '482BFB50007B.pas.ms.script' // TevCustomTextSource
+ ;
+ CONST "pm" true
+
+ref; // ME_54C0FC1000D3 TextSource
+
+FORWARD ME_53F34C2A025E
+
+: ME_53F34C3403AF
+ CONST UID '53F34C3403AF'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_53F34C2A025E // IsReadOnly
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_53F34C3403AF DoIt
+
+: ME_53F34C2A025E
+ CONST UID '53F34C2A025E'
+ CONST Name 'IsReadOnly'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4829D92A037B // TevCustomEditorWindow
+ ;
+ : Operations
+   Seq: ( HWL ME_53F34C3403AF // DoIt
+ )
+ ; // Operations
+
+ref; // ME_53F34C2A025E IsReadOnly
+
+FORWARD ME_54084F6B01FD
+
+: ME_54084FAF02F2
+ CONST Name 'aState'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A451250363' '4AB0C3C60310.pas.ms.script' // IUnknown
+ ;
+
+ref; // ME_54084FAF02F2 aState
+
+: ME_54084FAF0321
+ CONST Name 'aStateType'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4683CBFD032D' '467BAB7F021E.pas.ms.script' // TvcmStateType
+ ;
+
+ref; // ME_54084FAF0321 aStateType
+
+: ME_54084F9B0013
+ CONST UID '54084F9B0013'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_54084F6B01FD // IvcmState__LoadState
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   Seq: ( ME_54084FAF02F2 // aState
+ ME_54084FAF0321 // aStateType
+ )
+ ; // Parameters
+
+ref; // ME_54084F9B0013 DoIt
+
+: ME_54084F6B01FD
+ CONST UID '54084F6B01FD'
+ CONST Name 'IvcmState__LoadState'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4829D92A037B // TevCustomEditorWindow
+ ;
+ : Operations
+   Seq: ( HWL ME_54084F9B0013 // DoIt
+ )
+ ; // Operations
+ CONST "ifndef" 'NoVCM'
+
+ref; // ME_54084F6B01FD IvcmState__LoadState
+
+FORWARD ME_54084FBC0018
+
+: ME_54084FDC02D3
+ CONST Name 'aState'
+ CONST Class class_Parameter
+ : Stereotype st_out ;
+ : Target WL 'ME_46A451250363' '4AB0C3C60310.pas.ms.script' // IUnknown
+ ;
+
+ref; // ME_54084FDC02D3 aState
+
+: ME_54084FDC0302
+ CONST Name 'aStateType'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4683CBFD032D' '467BAB7F021E.pas.ms.script' // TvcmStateType
+ ;
+
+ref; // ME_54084FDC0302 aStateType
+
+: ME_54084FD002FD
+ CONST UID '54084FD002FD'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_54084FBC0018 // IvcmState__SaveState
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   Seq: ( ME_54084FDC02D3 // aState
+ ME_54084FDC0302 // aStateType
+ )
+ ; // Parameters
+
+ref; // ME_54084FD002FD DoIt
+
+: ME_54084FBC0018
+ CONST UID '54084FBC0018'
+ CONST Name 'IvcmState__SaveState'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4829D92A037B // TevCustomEditorWindow
+ ;
+ : Operations
+   Seq: ( HWL ME_54084FD002FD // DoIt
+ )
+ ; // Operations
+ CONST "ifndef" 'NoVCM'
+
+ref; // ME_54084FBC0018 IvcmState__SaveState
+
+FORWARD ME_54C0FCF701F6
+
+: ME_54C0FD080175
+ CONST Name 'aHotSpot'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_48E2665A0259' '4A1FCBA0014C.pas.ms.script' // IevHotSpot
+ ;
+
+ref; // ME_54C0FD080175 aHotSpot
+
+: ME_54C0FD0801A3
+ CONST Name 'aState'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_473DA6C302E6' '467823B7002C.pas.ms.script' // TafwCursorState
+ ;
+
+ref; // ME_54C0FD0801A3 aState
+
+: ME_54C0FD0801DD
+ CONST Name 'theInfo'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_473DA9BF0280' '467823B7002C.pas.ms.script' // TafwCursorInfo
+ ;
+
+ref; // ME_54C0FD0801DD theInfo
+
+: ME_54C0FD010255
+ CONST UID '54C0FD010255'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_54C0FCF701F6 // DoHitTest
+ ;
+ : Parameters
+   Seq: ( ME_54C0FD080175 // aHotSpot
+ ME_54C0FD0801A3 // aState
+ ME_54C0FD0801DD // theInfo
+ )
+ ; // Parameters
+
+ref; // ME_54C0FD010255 DoIt
+
+: ME_54C0FCF701F6
+ CONST UID '54C0FCF701F6'
+ CONST Name 'DoHitTest'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4829D92A037B // TevCustomEditorWindow
+ ;
+ : Operations
+   Seq: ( HWL ME_54C0FD010255 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_54C0FCF701F6 DoHitTest
+
+FORWARD ME_54C1012501EA
+
+: ME_54C1014201F2
+ CONST Name 'aHotSpot'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_48E2665A0259' '4A1FCBA0014C.pas.ms.script' // IevHotSpot
+ ;
+
+ref; // ME_54C1014201F2 aHotSpot
+
+: ME_54C10142022D
+ CONST Name 'aState'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47C5ABD80282' '47C5207602D1.pas.ms.script' // TevMouseState
+ ;
+
+ref; // ME_54C10142022D aState
+
+: ME_54C1013E02FD
+ CONST UID '54C1013E02FD'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_54C1012501EA // CheckMouseUp
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   Seq: ( ME_54C1014201F2 // aHotSpot
+ ME_54C10142022D // aState
+ )
+ ; // Parameters
+
+ref; // ME_54C1013E02FD DoIt
+
+: ME_54C1012501EA
+ CONST UID '54C1012501EA'
+ CONST Name 'CheckMouseUp'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4829D92A037B // TevCustomEditorWindow
+ ;
+ : Operations
+   Seq: ( HWL ME_54C1013E02FD // DoIt
+ )
+ ; // Operations
+
+ref; // ME_54C1012501EA CheckMouseUp
+
+FORWARD ME_54C101DD01C5
+
+: ME_54C101E901BF
+ CONST Name 'aVert'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_54C101E901BF aVert
+
+: ME_54C101E901F5
+ CONST Name 'aScrollInfo'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_50222C8103A5' '4AB0C3F60375.pas.ms.script' // TScrollInfo
+ ;
+
+ref; // ME_54C101E901F5 aScrollInfo
+
+: ME_54C101E90235
+ CONST Name 'aPosChanged'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_54C101E90235 aPosChanged
+
+: ME_54C101E40206
+ CONST UID '54C101E40206'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_54C101DD01C5 // ScrollInfoChange
+ ;
+ : Parameters
+   Seq: ( ME_54C101E901BF // aVert
+ ME_54C101E901F5 // aScrollInfo
+ ME_54C101E90235 // aPosChanged
+ )
+ ; // Parameters
+
+ref; // ME_54C101E40206 DoIt
+
+: ME_54C101DD01C5
+ CONST UID '54C101DD01C5'
+ CONST Name 'ScrollInfoChange'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4829D92A037B // TevCustomEditorWindow
+ ;
+ : Operations
+   Seq: ( HWL ME_54C101E40206 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_54C101DD01C5 ScrollInfoChange
+
+FORWARD ME_54C1028A038A
+
+: ME_54C1029802AE
+ CONST Name 'aDrawLines'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_54C1029802AE aDrawLines
+
+: ME_54C1029802D7
+ CONST Name 'anOp'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476BEF7B0378' '4678209200A6.pas.ms.script' // InevOp
+ ;
+
+ref; // ME_54C1029802D7 anOp
+
+: ME_54C10293001F
+ CONST UID '54C10293001F'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_54C1028A038A // DoBreakPara
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   Seq: ( ME_54C1029802AE // aDrawLines
+ ME_54C1029802D7 // anOp
+ )
+ ; // Parameters
+
+ref; // ME_54C10293001F DoIt
+
+: ME_54C1028A038A
+ CONST UID '54C1028A038A'
+ CONST Name 'DoBreakPara'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4829D92A037B // TevCustomEditorWindow
+ ;
+ : Operations
+   Seq: ( HWL ME_54C10293001F // DoIt
+ )
+ ; // Operations
+
+ref; // ME_54C1028A038A DoBreakPara
+
+FORWARD ME_54C1033D03DF
+
+: ME_54C1034F02BE
+ CONST Name 'E'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_48E3850E01D5' '48452B7D0314.pas.ms.script' // EevReadOnly
+ ;
+
+ref; // ME_54C1034F02BE E
+
+: ME_54C1034B031B
+ CONST UID '54C1034B031B'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_54C1033D03DF // HandledReadOnly
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   Seq: ( ME_54C1034F02BE // E
+ )
+ ; // Parameters
+
+ref; // ME_54C1034B031B DoIt
+
+: ME_54C1033D03DF
+ CONST UID '54C1033D03DF'
+ CONST Name 'HandledReadOnly'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4829D92A037B // TevCustomEditorWindow
+ ;
+ : Operations
+   Seq: ( HWL ME_54C1034B031B // DoIt
+ )
+ ; // Operations
+
+ref; // ME_54C1033D03DF HandledReadOnly
+
+FORWARD ME_54C108A40224
+
+: ME_54C108E3037E
+ CONST Name 'anIC'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47274316023E' '467C0CAA02AB.pas.ms.script' // Il3InfoCanvas
+ ;
+
+ref; // ME_54C108E3037E anIC
+
+: ME_54C108DE004B
+ CONST UID '54C108DE004B'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_54C108A40224 // VScrollWidth
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ : Parameters
+   Seq: ( ME_54C108E3037E // anIC
+ )
+ ; // Parameters
+
+ref; // ME_54C108DE004B DoIt
+
+: ME_54C108A40224
+ CONST UID '54C108A40224'
+ CONST Name 'VScrollWidth'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4829D92A037B // TevCustomEditorWindow
+ ;
+ : Operations
+   Seq: ( HWL ME_54C108DE004B // DoIt
+ )
+ ; // Operations
+
+ref; // ME_54C108A40224 VScrollWidth
+
+FORWARD ME_5538F4D60240
+
+: ME_5538F4E303AA
+ CONST Name 'aCanvas'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4727449A00A2' '467C0CAA02AB.pas.ms.script' // Il3Canvas
+ ;
+
+ref; // ME_5538F4E303AA aCanvas
+
+: ME_5538F4E303DC
+ CONST Name 'aMap'
+ CONST Class class_Parameter
+ : Stereotype st_out ;
+ : Target WL 'ME_47C5B63D033A' '47C5207602D1.pas.ms.script' // InevMap
+ ;
+
+ref; // ME_5538F4E303DC aMap
+
+: ME_5538F4DE0105
+ CONST UID '5538F4DE0105'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_5538F4D60240 // DoDrawDocument
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   Seq: ( ME_5538F4E303AA // aCanvas
+ ME_5538F4E303DC // aMap
+ )
+ ; // Parameters
+
+ref; // ME_5538F4DE0105 DoIt
+
+: ME_5538F4D60240
+ CONST UID '5538F4D60240'
+ CONST Name 'DoDrawDocument'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4829D92A037B // TevCustomEditorWindow
+ ;
+ : Operations
+   Seq: ( HWL ME_5538F4DE0105 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_5538F4D60240 DoDrawDocument
+
+: ME_482BFA340236
+ CONST UID '482BFA340236'
+ CONST Name 'ParaChange'
+ CONST Class class_Operation
+ %SUMMARY 'текущий параграф изменился.' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4829D92A037B // TevCustomEditorWindow
+ ;
+
+ref; // ME_482BFA340236 ParaChange
+
+: ME_482BFA5C0286
+ CONST UID '482BFA5C0286'
+ CONST Name 'BlockChange'
+ CONST Class class_Operation
+ %SUMMARY 'изменилось выделение.' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4829D92A037B // TevCustomEditorWindow
+ ;
+
+ref; // ME_482BFA5C0286 BlockChange
+
+: ME_482BFA6D022D
+ CONST UID '482BFA6D022D'
+ CONST Name 'SetEditRect'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4829D92A037B // TevCustomEditorWindow
+ ;
+
+ref; // ME_482BFA6D022D SetEditRect
+
+: ME_482BFA79031D
+ CONST UID '482BFA79031D'
+ CONST Name 'DoScrollEvent'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4829D92A037B // TevCustomEditorWindow
+ ;
+
+ref; // ME_482BFA79031D DoScrollEvent
+
+: ME_482BFA9401ED
+ CONST UID '482BFA9401ED'
+ CONST Name 'MakeCursor'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4829D92A037B // TevCustomEditorWindow
+ ;
+
+ref; // ME_482BFA9401ED MakeCursor
+
+: ME_482BFAE50058
+ CONST Name 'aBlock'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47C5B54401B2' '47C5207602D1.pas.ms.script' // InevRange
+ ;
+
+ref; // ME_482BFAE50058 aBlock
+
+: ME_482BFAE50080
+ CONST Name 'AlienReplaceConfirm'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47C6C9E30260' '47C5207602D1.pas.ms.script' // TevReplaceConfirmEvent
+ ;
+
+ref; // ME_482BFAE50080 AlienReplaceConfirm
+
+: ME_482BFAD20173
+ CONST UID '482BFAD20173'
+ CONST Name 'ReplaceConfirm'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4829D92A037B // TevCustomEditorWindow
+ ;
+ : Target WL 'ME_47C6CC1A033B' '4AB0C3C60310.pas.ms.script' // ShortInt
+ ;
+ : Parameters
+   Seq: ( ME_482BFAE50058 // aBlock
+ ME_482BFAE50080 // AlienReplaceConfirm
+ )
+ ; // Parameters
+
+ref; // ME_482BFAD20173 ReplaceConfirm
+
+: ME_482BFB11038E
+ CONST Name 'theTextSource'
+ CONST Class class_Parameter
+ : Stereotype st_out ;
+ : Target WL 'ME_482BFB7C00B6' '482BFB50007B.pas.ms.script' // TevCustomTextSource
+ ;
+
+ref; // ME_482BFB11038E theTextSource
+
+: ME_482BFB0A00E0
+ CONST UID '482BFB0A00E0'
+ CONST Name 'MakeTextSource'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4829D92A037B // TevCustomEditorWindow
+ ;
+ : Parameters
+   Seq: ( ME_482BFB11038E // theTextSource
+ )
+ ; // Parameters
+
+ref; // ME_482BFB0A00E0 MakeTextSource
+
+: ME_482BFBEE00D5
+ CONST UID '482BFBEE00D5'
+ CONST Name 'AllowDrawDocumentEdge'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4829D92A037B // TevCustomEditorWindow
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_482BFBEE00D5 AllowDrawDocumentEdge
+
+: ME_482BFC030100
+ CONST UID '482BFC030100'
+ CONST Name 'AfterOperation'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4829D92A037B // TevCustomEditorWindow
+ ;
+
+ref; // ME_482BFC030100 AfterOperation
+
+: ME_482BFC0E0175
+ CONST UID '482BFC0E0175'
+ CONST Name 'IsVScrollBarVisible'
+ CONST Class class_Operation
+ %SUMMARY 'проверяет видимость вертикального скроллбара.' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4829D92A037B // TevCustomEditorWindow
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_482BFC0E0175 IsVScrollBarVisible
+
+: ME_482BFC2E0363
+ CONST UID '482BFC2E0363'
+ CONST Name 'GetPaintSelection'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4829D92A037B // TevCustomEditorWindow
+ ;
+ : Target WL 'ME_47C5B54401B2' '47C5207602D1.pas.ms.script' // InevRange
+ ;
+
+ref; // ME_482BFC2E0363 GetPaintSelection
+
+: ME_482BFC4200D0
+ CONST UID '482BFC4200D0'
+ CONST Name 'DoCursorInSelectionChange'
+ CONST Class class_Operation
+ %SUMMARY 'изменилось свойство CursorInSelection.' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4829D92A037B // TevCustomEditorWindow
+ ;
+
+ref; // ME_482BFC4200D0 DoCursorInSelectionChange
+
+: ME_482BFC5902A5
+ CONST Name 'Font'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A614A202CA' '4677FBA70343.pas.ms.script' // Il3Font
+ ;
+
+ref; // ME_482BFC5902A5 Font
+
+: ME_482BFC540231
+ CONST UID '482BFC540231'
+ CONST Name 'DoFontChange'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4829D92A037B // TevCustomEditorWindow
+ ;
+ : Parameters
+   Seq: ( ME_482BFC5902A5 // Font
+ )
+ ; // Parameters
+
+ref; // ME_482BFC540231 DoFontChange
+
+: ME_482BFC8100F4
+ CONST UID '482BFC8100F4'
+ CONST Name 'DoBeforeRMouseClick'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4829D92A037B // TevCustomEditorWindow
+ ;
+
+ref; // ME_482BFC8100F4 DoBeforeRMouseClick
+
+: ME_482BFC8E036F
+ CONST UID '482BFC8E036F'
+ CONST Name 'RightIndentMul'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4829D92A037B // TevCustomEditorWindow
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_482BFC8E036F RightIndentMul
+
+: ME_482BFCA000E4
+ CONST UID '482BFCA000E4'
+ CONST Name 'WantEnter'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4829D92A037B // TevCustomEditorWindow
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_482BFCA000E4 WantEnter
+
+: ME_482BFCB302C6
+ CONST Name 'aKeyPressed'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST Value false
+ : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST extprop:pas:Value false
+
+ref; // ME_482BFCB302C6 aKeyPressed
+
+: ME_482BFCAE0072
+ CONST UID '482BFCAE0072'
+ CONST Name 'WantTab'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4829D92A037B // TevCustomEditorWindow
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   Seq: ( ME_482BFCB302C6 // aKeyPressed
+ )
+ ; // Parameters
+
+ref; // ME_482BFCAE0072 WantTab
+
+: ME_482C51E8010E
+ CONST Name 'aDrawLines'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_482C51E8010E aDrawLines
+
+: ME_482C51E80176
+ CONST Name 'anOp'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476BEF7B0378' '4678209200A6.pas.ms.script' // InevOp
+ ;
+
+ref; // ME_482C51E80176 anOp
+
+: ME_482BFCBF01F0
+ CONST UID '482BFCBF01F0'
+ CONST Name 'DoBreakPara'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4829D92A037B // TevCustomEditorWindow
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   Seq: ( ME_482C51E8010E // aDrawLines
+ ME_482C51E80176 // anOp
+ )
+ ; // Parameters
+
+ref; // ME_482BFCBF01F0 DoBreakPara
+
+: ME_482BFD1802D3
+ CONST UID '482BFD1802D3'
+ CONST Name 'Tabulate'
+ CONST Class class_Operation
+ %SUMMARY 'эквивалетно нажатию Tab.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4829D92A037B // TevCustomEditorWindow
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_482BFD1802D3 Tabulate
+
+: ME_482BFD2C0107
+ CONST UID '482BFD2C0107'
+ CONST Name 'Untabulate'
+ CONST Class class_Operation
+ %SUMMARY 'эквивалетно нажатию Shift-Tab.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4829D92A037B // TevCustomEditorWindow
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_482BFD2C0107 Untabulate
+
+: ME_482BFD410052
+ CONST UID '482BFD410052'
+ CONST Name 'CloseQuery'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4829D92A037B // TevCustomEditorWindow
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_482BFD410052 CloseQuery
+
+: ME_4A2F8DB001E8
+ CONST Name 'aSelection'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4A2F8DB001E8 aSelection
+
+: ME_4CF654C9031F
+ CONST Name 'aForExport'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4CF654C9031F aForExport
+
+: ME_482BFD8601F3
+ CONST UID '482BFD8601F3'
+ CONST Name 'MakeExportFilters'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4829D92A037B // TevCustomEditorWindow
+ ;
+ : Target WL 'ME_47CC38040095' '4678209200A6.pas.ms.script' // InevTagGenerator
+ ;
+ : Parameters
+   Seq: ( ME_4A2F8DB001E8 // aSelection
+ ME_4CF654C9031F // aForExport
+ )
+ ; // Parameters
+
+ref; // ME_482BFD8601F3 MakeExportFilters
+
+: ME_482C26D6006A
+ CONST UID '482C26D6006A'
+ CONST Name 'TextChange'
+ CONST Class class_Operation
+ %SUMMARY 'вызывается при смене текста.' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4829D92A037B // TevCustomEditorWindow
+ ;
+
+ref; // ME_482C26D6006A TextChange
+
+: ME_482C435A008E
+ CONST Name 'Msg'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_482C4385025D' '476F78840219.pas.ms.script' // TWMEraseBkGnd
+ ;
+
+ref; // ME_482C435A008E Msg
+
+: ME_482C434700DD
+ CONST UID '482C434700DD'
+ CONST Name 'WMEraseBkGnd'
+ CONST Class class_Operation
+ : Stereotype st_message::Operation ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4829D92A037B // TevCustomEditorWindow
+ ;
+ : Parameters
+   Seq: ( ME_482C435A008E // Msg
+ )
+ ; // Parameters
+ CONST "Message ID" 'WM_ERASEBKGND'
+
+ref; // ME_482C434700DD WMEraseBkGnd
+
+: ME_482C439B03A6
+ CONST Name 'Msg'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_482C43A60274' '476F78840219.pas.ms.script' // TWMPaint
+ ;
+
+ref; // ME_482C439B03A6 Msg
+
+: ME_482C4396007C
+ CONST UID '482C4396007C'
+ CONST Name 'WMPaint'
+ CONST Class class_Operation
+ : Stereotype st_message::Operation ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4829D92A037B // TevCustomEditorWindow
+ ;
+ : Parameters
+   Seq: ( ME_482C439B03A6 // Msg
+ )
+ ; // Parameters
+ CONST "Message ID" 'WM_Paint'
+
+ref; // ME_482C4396007C WMPaint
+
+: ME_482C43BD0085
+ CONST Name 'Msg'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_482C43D50367' '476F78840219.pas.ms.script' // TWMGetDlgCode
+ ;
+
+ref; // ME_482C43BD0085 Msg
+
+: ME_482C43B5039C
+ CONST UID '482C43B5039C'
+ CONST Name 'WMGetDlgCode'
+ CONST Class class_Operation
+ : Stereotype st_message::Operation ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4829D92A037B // TevCustomEditorWindow
+ ;
+ : Parameters
+   Seq: ( ME_482C43BD0085 // Msg
+ )
+ ; // Parameters
+ CONST "Message ID" 'WM_GETDLGCODE'
+
+ref; // ME_482C43B5039C WMGetDlgCode
+
+: ME_482C43ED0003
+ CONST Name 'Msg'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_482C43F503D4' '476F78840219.pas.ms.script' // TWMChar
+ ;
+
+ref; // ME_482C43ED0003 Msg
+
+: ME_482C43E5012C
+ CONST UID '482C43E5012C'
+ CONST Name 'WMChar'
+ CONST Class class_Operation
+ : Stereotype st_message::Operation ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4829D92A037B // TevCustomEditorWindow
+ ;
+ : Parameters
+   Seq: ( ME_482C43ED0003 // Msg
+ )
+ ; // Parameters
+ CONST "Message ID" 'WM_CHAR'
+
+ref; // ME_482C43E5012C WMChar
+
+: ME_482C441200EE
+ CONST Name 'Msg'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_47C7C9F8039E' '476F78840219.pas.ms.script' // TWMKeyDown
+ ;
+
+ref; // ME_482C441200EE Msg
+
+: ME_482C440A0182
+ CONST UID '482C440A0182'
+ CONST Name 'WMKeyDown'
+ CONST Class class_Operation
+ : Stereotype st_message::Operation ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4829D92A037B // TevCustomEditorWindow
+ ;
+ : Parameters
+   Seq: ( ME_482C441200EE // Msg
+ )
+ ; // Parameters
+ CONST "Message ID" 'CN_KEYDOWN'
+
+ref; // ME_482C440A0182 WMKeyDown
+
+: ME_482C706503AF
+ CONST UID '482C706503AF'
+ CONST Name 'GetHorzDelta'
+ CONST Class class_Operation
+ %SUMMARY 'зазор, после которого начинается скроллирование вправо.' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4829D92A037B // TevCustomEditorWindow
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_482C706503AF GetHorzDelta
+
+: ME_4831635402BE
+ CONST Name 'aCanvas'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4727449A00A2' '467C0CAA02AB.pas.ms.script' // Il3Canvas
+ ;
+
+ref; // ME_4831635402BE aCanvas
+
+: ME_4831634B00FF
+ CONST UID '4831634B00FF'
+ CONST Name 'SetTextColor'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4829D92A037B // TevCustomEditorWindow
+ ;
+ : Parameters
+   Seq: ( ME_4831635402BE // aCanvas
+ )
+ ; // Parameters
+
+ref; // ME_4831634B00FF SetTextColor
+
+: ME_483D718E0143
+ CONST UID '483D718E0143'
+ CONST Name 'GetTopMargin'
+ CONST Class class_Operation
+ %SUMMARY 'Возвращает отступ до текста сверху.' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4829D92A037B // TevCustomEditorWindow
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_483D718E0143 GetTopMargin
+
+: ME_4875FDAD037A
+ CONST UID '4875FDAD037A'
+ CONST Name 'ProcessHotSpots'
+ CONST Class class_Operation
+ %SUMMARY 'Обрабатывать ли "горячие точки" на предмет показа Hint''а и мышиного курсора или вызывать поведение по-умолчанию. [$100958718]' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4829D92A037B // TevCustomEditorWindow
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4875FDAD037A ProcessHotSpots
+
+: ME_489845790346
+ CONST UID '489845790346'
+ CONST Name 'GetInfoCanvas'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4829D92A037B // TevCustomEditorWindow
+ ;
+ : Target WL 'ME_476BF8F90320' '4678209200A6.pas.ms.script' // InevInfoCanvas
+ ;
+
+ref; // ME_489845790346 GetInfoCanvas
+
+: ME_48E2281303D5
+ CONST Name 'Cmd'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_48E2281303D5 Cmd
+
+: ME_48E228140067
+ CONST Name 'aForce'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_48E228140067 aForce
+
+: ME_48E2281400E0
+ CONST Name 'aSubCmd'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A618AF0053' '4AB0C3C60310.pas.ms.script' // Cardinal
+ ;
+
+ref; // ME_48E2281400E0 aSubCmd
+
+: ME_48E228140157
+ CONST Name 'aCount'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_48E228140157 aCount
+
+: ME_48E227FA00E0
+ CONST UID '48E227FA00E0'
+ CONST Name 'ProcessCommandEx'
+ CONST Class class_Operation
+ %SUMMARY 'process the specified command, return true if processed' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4829D92A037B // TevCustomEditorWindow
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   Seq: ( ME_48E2281303D5 // Cmd
+ ME_48E228140067 // aForce
+ ME_48E2281400E0 // aSubCmd
+ ME_48E228140157 // aCount
+ )
+ ; // Parameters
+
+ref; // ME_48E227FA00E0 ProcessCommandEx
+
+: ME_48E22866033A
+ CONST UID '48E22866033A'
+ CONST Name 'SelectionClass'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4829D92A037B // TevCustomEditorWindow
+ ;
+ : Target HWL ME_487B5E1700FA // RevSelection
+ ;
+
+ref; // ME_48E22866033A SelectionClass
+
+: ME_48E2297000D3
+ CONST UID '48E2297000D3'
+ CONST Name 'HotSpotClass'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4829D92A037B // TevCustomEditorWindow
+ ;
+ : Target HWL ME_48E22A140229 // RevEditorWindowHotSpot
+ ;
+
+ref; // ME_48E2297000D3 HotSpotClass
+
+: ME_48E22AAF019D
+ CONST UID '48E22AAF019D'
+ CONST Name 'DoScrollEvent'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4829D92A037B // TevCustomEditorWindow
+ ;
+
+ref; // ME_48E22AAF019D DoScrollEvent
+
+: ME_48E22AD302CE
+ CONST UID '48E22AD302CE'
+ CONST Name 'SelectWhenUnfocused'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4829D92A037B // TevCustomEditorWindow
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_48E22AD302CE SelectWhenUnfocused
+
+: ME_48E22B8B00CE
+ CONST UID '48E22B8B00CE'
+ CONST Name 'DoUnselectAfterInsertData'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4829D92A037B // TevCustomEditorWindow
+ ;
+
+ref; // ME_48E22B8B00CE DoUnselectAfterInsertData
+
+: ME_48E275180102
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4829D92A037B // TevCustomEditorWindow
+ ;
+ : Target WL 'ME_48E229CC03DF' '4829D7D50156.pas.ms.script' // TevEditorWindowHotSpot
+ ;
+
+ref; // ME_48E275180102 
+
+: ME_48E3AE2C01DD
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4829D92A037B // TevCustomEditorWindow
+ ;
+ : Target WL 'ME_487B5DD202DF' '4829D7D50156.pas.ms.script' // TnevSelection
+ ;
+
+ref; // ME_48E3AE2C01DD 
+
+: ME_4B1667F70216
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4829D92A037B // TevCustomEditorWindow
+ ;
+ : Target WL 'ME_4B1667DA015C' '4811D4EC0237.pas.ms.script' // TnevView
+ ;
+
+ref; // ME_4B1667F70216 
+
+: ME_500421740315
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4829D92A037B // TevCustomEditorWindow
+ ;
+ : Target WL 'ME_47C5BD35000A' '4A23935A0282.pas.ms.script' // IevMoniker
+ ;
+
+ref; // ME_500421740315 
+
+: ME_5049C6E60131
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4829D92A037B // TevCustomEditorWindow
+ ;
+ : Target WL 'ME_48E2665A0259' '4A1FCBA0014C.pas.ms.script' // IevHotSpot
+ ;
+
+ref; // ME_5049C6E60131 
+
+: ME_5049C727009F
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4829D92A037B // TevCustomEditorWindow
+ ;
+ : Target WL 'ME_473DA9BF0280' '467823B7002C.pas.ms.script' // TafwCursorInfo
+ ;
+
+ref; // ME_5049C727009F 
+
+: ME_5475D38D003D
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4829D92A037B // TevCustomEditorWindow
+ ;
+ : Target WL 'ME_5475D1E30232' '47913B47006E.pas.ms.script' // Tl3ProcessMessagesManager
+ ;
+
+ref; // ME_5475D38D003D 
+
+: ME_48E0EEAC0254_ME_4829D92A037B
+ : Original WL 'ME_48E0EEAC0254' '48E0E5C1032A.pas.ms.script' // GetLimitWidth
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_48E0EEAC0254_ME_4829D92A037B GetLimitWidth
+
+: ME_48E1F1B1033C_ME_4829D92A037B
+ : Original WL 'ME_48E1F1B1033C' '48E0E5C1032A.pas.ms.script' // DoCursorChanged
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_48E1F1B1033C_ME_4829D92A037B DoCursorChanged
+
+: ME_48E238D80225_ME_4829D92A037B
+ : Original WL 'ME_48E238D80225' '48E0E5C1032A.pas.ms.script' // WebStyleChanged
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_48E238D80225_ME_4829D92A037B WebStyleChanged
+
+: ME_4D3998FE03C1_ME_4829D92A037B
+ : Original WL 'ME_4D3998FE03C1' '4B28D63A00EC.pas.ms.script' // DoAfterSetZoom
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4D3998FE03C1_ME_4829D92A037B DoAfterSetZoom
+
+: ME_4829D92A037B
+ CONST UID '4829D92A037B'
+ CONST Name 'TevCustomEditorWindow'
+ CONST Class class_Class
+ : Stereotype st_GuiControl ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Реализация базового оконного элемента для отображения содержимого документа' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4829D7D50156' '4829D7D50156.pas.ms.script' // Editors
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4B28D63A00EC' '4B28D63A00EC.pas.ms.script' // TevCustomEditorWindowPrim
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4E7B18D60286' '4E5CF70B01E2.pas.ms.script' // Скроллирование документа
+ WL 'ME_4E85A4280258' '4E5CF70B01E2.pas.ms.script' // Редактирование документа
+ WL 'ME_4E97004E027F' '4E96FFD70348.pas.ms.script' // Поля ввода при получения фокуса должны полностью выделять свой текст
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( HWL ME_484515B3012E // PlainText
+ HWL ME_54C0FC1000D3 // TextSource
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( HWL ME_53F34C2A025E // IsReadOnly
+ HWL ME_54084F6B01FD // IvcmState__LoadState
+ HWL ME_54084FBC0018 // IvcmState__SaveState
+ HWL ME_54C0FCF701F6 // DoHitTest
+ HWL ME_54C1012501EA // CheckMouseUp
+ HWL ME_54C101DD01C5 // ScrollInfoChange
+ HWL ME_54C1028A038A // DoBreakPara
+ HWL ME_54C1033D03DF // HandledReadOnly
+ HWL ME_54C108A40224 // VScrollWidth
+ HWL ME_5538F4D60240 // DoDrawDocument
+ HWL ME_482BFA340236 // ParaChange
+ HWL ME_482BFA5C0286 // BlockChange
+ HWL ME_482BFA6D022D // SetEditRect
+ HWL ME_482BFA79031D // DoScrollEvent
+ HWL ME_482BFA9401ED // MakeCursor
+ HWL ME_482BFAD20173 // ReplaceConfirm
+ HWL ME_482BFB0A00E0 // MakeTextSource
+ HWL ME_482BFBEE00D5 // AllowDrawDocumentEdge
+ HWL ME_482BFC030100 // AfterOperation
+ HWL ME_482BFC0E0175 // IsVScrollBarVisible
+ HWL ME_482BFC2E0363 // GetPaintSelection
+ HWL ME_482BFC4200D0 // DoCursorInSelectionChange
+ HWL ME_482BFC540231 // DoFontChange
+ HWL ME_482BFC8100F4 // DoBeforeRMouseClick
+ HWL ME_482BFC8E036F // RightIndentMul
+ HWL ME_482BFCA000E4 // WantEnter
+ HWL ME_482BFCAE0072 // WantTab
+ HWL ME_482BFCBF01F0 // DoBreakPara
+ HWL ME_482BFD1802D3 // Tabulate
+ HWL ME_482BFD2C0107 // Untabulate
+ HWL ME_482BFD410052 // CloseQuery
+ HWL ME_482BFD8601F3 // MakeExportFilters
+ HWL ME_482C26D6006A // TextChange
+ HWL ME_482C434700DD // WMEraseBkGnd
+ HWL ME_482C4396007C // WMPaint
+ HWL ME_482C43B5039C // WMGetDlgCode
+ HWL ME_482C43E5012C // WMChar
+ HWL ME_482C440A0182 // WMKeyDown
+ HWL ME_482C706503AF // GetHorzDelta
+ HWL ME_4831634B00FF // SetTextColor
+ HWL ME_483D718E0143 // GetTopMargin
+ HWL ME_4875FDAD037A // ProcessHotSpots
+ HWL ME_489845790346 // GetInfoCanvas
+ HWL ME_48E227FA00E0 // ProcessCommandEx
+ HWL ME_48E22866033A // SelectionClass
+ HWL ME_48E2297000D3 // HotSpotClass
+ HWL ME_48E22AAF019D // DoScrollEvent
+ HWL ME_48E22AD302CE // SelectWhenUnfocused
+ HWL ME_48E22B8B00CE // DoUnselectAfterInsertData
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_48E0EEAC0254_ME_4829D92A037B // GetLimitWidth
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_48E1F1B1033C_ME_4829D92A037B // DoCursorChanged
+ ME_48E238D80225_ME_4829D92A037B // WebStyleChanged
+ ME_4D3998FE03C1_ME_4829D92A037B // DoAfterSetZoom
+ )
+ ; // Overridden
+ : Children
+   Seq: ( HWL ME_48E22A140229 // RevEditorWindowHotSpot
+ HWL ME_487B5E1700FA // RevSelection
+ HWL ME_50041C7C0270 // TevJumpToEvent
+ HWL ME_502D435F0103 // TevParaChangeEvent
+ HWL ME_5049C6650272 // TevGetHotspotInfo
+ HWL ME_556F3D6A016B // IevEditorWindowFont
+ )
+ ; // Children
+ : Dependencies
+   Seq: ( ME_48E275180102 // TevEditorWindowHotSpot
+ ME_48E3AE2C01DD // TnevSelection
+ ME_4B1667F70216 // TnevView
+ ME_500421740315 // IevMoniker
+ ME_5049C6E60131 // IevHotSpot
+ ME_5049C727009F // TafwCursorInfo
+ ME_5475D38D003D // Tl3ProcessMessagesManager
+ )
+ ; // Dependencies
+ CONST "author" 'Люлин А.В.'
+ CONST "finished" false
+ CONST "register in scripts" true
+ CONST "started" '17.03.1997 19:20'
+ CONST intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evCustomEditorWindow.pas'
+ CONST extprop:rc:SelfName 'Editor'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evCustomEditorWindow'
+
+ref; // ME_4829D92A037B TevCustomEditorWindow

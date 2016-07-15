@@ -2,86 +2,6 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-FORWARD ME_4AA640DC0166
-
-FORWARD ME_4AA641D100B7
-
-: ME_CD69BD26CB21
- CONST UID 'CD69BD26CB21'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация Search$UC' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AA641D100B7 // Search$UC
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_CD69BD26CB21 Ini_Reg_Class
-
-: ME_4CC98C1A01FC
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AA641D100B7 // Search$UC
- ;
- : Target WL 'ME_484407B70220' '484407720166.pas.ms.script' // Базовый поиск
- ;
-
-ref; // ME_4CC98C1A01FC 
-
-: ME_A773946C7277
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AA641D100B7 // Search$UC
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_A773946C7277 
-
-: ME_4AA641D100B7
- CONST UID '4AA641D100B7'
- CONST Name 'Search'
- CONST Class class_Class
- : Stereotype st_VCMUseCaseRealization ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Поиск' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4AA640DC0166 // Search
- ;
- : Inherits
-   Seq: ( WL 'ME_4AA641A3036C' '4AA6418F02AD.pas.ms.script' // Search
- )
- ; // Inherits
- : Implements
-   Seq: ( WL 'ME_484CE381033D' '484407720166.pas.ms.script' // Параметрический поиск
- )
- ; // Implements
- : Operations
-   Seq: ( ME_CD69BD26CB21 // Ini_Reg_Class
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_4CC98C1A01FC // Базовый поиск
- ME_A773946C7277 // TtfwClassRef
- )
- ; // Dependencies
- CONST "author" 'Тучнин Д.А.'
- CONST "no hands" true
- CONST "started" '2003/07/21 16:33:57'
- CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\moSearch.pas'
- CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
- CONST extprop:pas:TypeName 'Tmo_Search'
- CONST extprop:rc:SelfName 'mo_Search'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'moSearch'
-
-ref; // ME_4AA641D100B7 Search$UC
-
 : ME_4AA640DC0166
  CONST UID '4AA640DC0166'
  CONST Name 'Search'
@@ -93,7 +13,7 @@ ref; // ME_4AA641D100B7 Search$UC
  : Parent WL 'ME_4F7E92C400AF' '4F7E92C400AF.pas.ms.script' // F1 Основные прецеденты
  ;
  : Children
-   Seq: ( ME_4AA641D100B7 // Search$UC
+   Seq: ( WL 'ME_4AA641D100B7' '4AA641D100B7.pas.ms.script' // Search$UC
  WL 'ME_4AA6416E00B4' '4AA6416E00B4.pas.ms.script' // View
  )
  ; // Children
@@ -117,11 +37,9 @@ ref; // ME_4AA641D100B7 Search$UC
  WL 'ME_4A92C561015D' '4A92C561015D.pas.ms.script' // Common
  WL 'ME_4CC7FE0401B5' '4CC7FE0401B5.pas.ms.script' // NewInterface2010
  WL 'ME_4E13416D0227' '4E13416D0227.pas.ms.script' // VCM$Visual
- WL 'ME_4E200FC9003B' '4E200FC9003B.pas.ms.script' // VCM$Scripting
  WL 'ME_4E2F0E1B03BB' '4E2F0E1B03BB.pas.ms.script' // L3$Domain
  WL 'ME_547CC9D40158' '547CC9D40158.pas.ms.script' // VT$Panels
  WL 'ME_550012C403C4' '550012C403C4.pas.ms.script' // L3$AFW
- WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
  )
  ; // Depends
  CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis'

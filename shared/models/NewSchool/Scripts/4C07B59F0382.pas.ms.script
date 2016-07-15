@@ -16,7 +16,7 @@ FORWARD ME_4C07B67A02C1
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  CONST LinkType lt_agr
- : Parent ME_4C07B67A02C1 // EVDtoEVD
+ : Parent HWL ME_4C07B67A02C1 // EVDtoEVD
  ;
  : Target WL 'ME_483E80FA0312' '483E80C9025F.pas.ms.script' // TevdNativeReader
  ;
@@ -39,7 +39,7 @@ ref; // ME_4C07B6AC0181 aFileName
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4C07B67A02C1 // EVDtoEVD
+ : Parent HWL ME_4C07B67A02C1 // EVDtoEVD
  ;
  : Parameters
    Seq: ( ME_4C07B6AC0181 // aFileName
@@ -51,7 +51,7 @@ ref; // ME_4C07B6A40099 DoIt
 : ME_4C07BF4C0276
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4C07B67A02C1 // EVDtoEVD
+ : Parent HWL ME_4C07B67A02C1 // EVDtoEVD
  ;
  : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
  ;
@@ -61,7 +61,7 @@ ref; // ME_4C07BF4C0276
 : ME_4C1B2AEA0195
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4C07B67A02C1 // EVDtoEVD
+ : Parent HWL ME_4C07B67A02C1 // EVDtoEVD
  ;
  : Target WL 'ME_4C1B2AB301B1' '482D6E13011F.pas.ms.script' // TevCustomEvdReader
  ;
@@ -71,7 +71,7 @@ ref; // ME_4C1B2AEA0195
 : ME_4C1B47A9014B
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4C07B67A02C1 // EVDtoEVD
+ : Parent HWL ME_4C07B67A02C1 // EVDtoEVD
  ;
  : Target WL 'ME_4C1B47600258' '4C1B474600AD.pas.ms.script' // Tl3CustomParser
  ;
@@ -86,14 +86,14 @@ ref; // ME_4C1B47A9014B
  CONST Kind kind_NormalClass
  CONST Visibility ProtectedAccess
  CONST Abstraction at_final
- : Parent ME_4C07B5C100E8 // EVDWriterTest
+ : Parent HWL ME_4C07B5C100E8 // EVDWriterTest
  ;
  : Attributes
-   Seq: ( ME_4C07BA0400AC // Reader
+   Seq: ( HWL ME_4C07BA0400AC // Reader
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_4C07B6A40099 // DoIt
+   Seq: ( HWL ME_4C07B6A40099 // DoIt
  )
  ; // Operations
  : Dependencies
@@ -112,7 +112,7 @@ ref; // ME_4C07B67A02C1 EVDtoEVD
  %SUMMARY 'Использовать ли ПОЛНЫЙ evdReader (с чтением текста тоже)' ;
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_4C07B5C100E8 // EVDWriterTest
+ : Parent HWL ME_4C07B5C100E8 // EVDWriterTest
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -126,7 +126,7 @@ ref; // ME_4C1B2B0203A2 UseFullEVDReader
  %SUMMARY 'Запретить парсеру выводить в лог' ;
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_4C07B5C100E8 // EVDWriterTest
+ : Parent HWL ME_4C07B5C100E8 // EVDWriterTest
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -141,16 +141,16 @@ ref; // ME_4C1B47BA03AC DisableParserLog
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C07B59F0382 // EVD
+ : Parent HWL ME_4C07B59F0382 // EVD
  ;
  : Inherits
    Seq: ( WL 'ME_4BACDDB500CE' '4BACDD97014B.pas.ms.script' // WriterTest
  )
  ; // Inherits
  : Operations
-   Seq: ( ME_4C07B67A02C1 // EVDtoEVD
- ME_4C1B2B0203A2 // UseFullEVDReader
- ME_4C1B47BA03AC // DisableParserLog
+   Seq: ( HWL ME_4C07B67A02C1 // EVDtoEVD
+ HWL ME_4C1B2B0203A2 // UseFullEVDReader
+ HWL ME_4C1B47BA03AC // DisableParserLog
  )
  ; // Operations
  CONST intf.pas:Path 'common\components\rtl\Garant\Daily\EVDWriterTest.pas'
@@ -170,7 +170,7 @@ FORWARD ME_4C07B5E300F2
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4C07B5E300F2 // EVDtoEVDWriterTest
+ : Parent HWL ME_4C07B5E300F2 // EVDtoEVDWriterTest
  ;
 
 ref; // ME_4C07B5F90205 DoIt
@@ -183,14 +183,14 @@ ref; // ME_4C07B5F90205 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C07B59F0382 // EVD
+ : Parent HWL ME_4C07B59F0382 // EVD
  ;
  : Inherits
-   Seq: ( ME_4C07B5C100E8 // EVDWriterTest
+   Seq: ( HWL ME_4C07B5C100E8 // EVDWriterTest
  )
  ; // Inherits
  : Operations
-   Seq: ( ME_4C07B5F90205 // DoIt
+   Seq: ( HWL ME_4C07B5F90205 // DoIt
  )
  ; // Operations
  CONST intf.pas:Path 'common\components\rtl\Garant\Daily\EVDtoEVDWriterTest.pas'
@@ -205,7 +205,7 @@ FORWARD ME_4C07BE700180
 : ME_4C07BE910271
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4C07BE700180 // EVDtoEVDEmptyRowTest
+ : Parent HWL ME_4C07BE700180 // EVDtoEVDEmptyRowTest
  ;
  : Target WL 'ME_4C07BD030266' '47ECACA70141.pas.ms.script' // TevdEmptyRowFilter
  ;
@@ -226,10 +226,10 @@ ref; // ME_4C07BCBE01F2_ME_4C07BE700180 SetFilters
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C07B59F0382 // EVD
+ : Parent HWL ME_4C07B59F0382 // EVD
  ;
  : Inherits
-   Seq: ( ME_4C07B5E300F2 // EVDtoEVDWriterTest
+   Seq: ( HWL ME_4C07B5E300F2 // EVDtoEVDWriterTest
  )
  ; // Inherits
  : Overridden
@@ -252,7 +252,7 @@ FORWARD ME_4C10D6820047
 : ME_4C10D6DD0160
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4C10D6820047 // EVDtoEVDSectionRepairTest
+ : Parent HWL ME_4C10D6820047 // EVDtoEVDSectionRepairTest
  ;
  : Target WL 'ME_4B324FA20278' '4B324F930103.pas.ms.script' // TddSectionRepairFilter
  ;
@@ -262,7 +262,7 @@ ref; // ME_4C10D6DD0160
 : ME_4C2DD44B0183
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4C10D6820047 // EVDtoEVDSectionRepairTest
+ : Parent HWL ME_4C10D6820047 // EVDtoEVDSectionRepairTest
  ;
  : Target WL 'ME_4C2DD432039C' '4B324F930103.pas.ms.script' // TddSectionWithSub2ParaFilter
  ;
@@ -284,10 +284,10 @@ ref; // ME_4C07BCBE01F2_ME_4C10D6820047 SetFilters
  %SUMMARY 'Тест для {IconForPage:175539595} [$175539595]' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C07B59F0382 // EVD
+ : Parent HWL ME_4C07B59F0382 // EVD
  ;
  : Inherits
-   Seq: ( ME_4C07B5E300F2 // EVDtoEVDWriterTest
+   Seq: ( HWL ME_4C07B5E300F2 // EVDtoEVDWriterTest
  )
  ; // Inherits
  : Overridden
@@ -314,7 +314,7 @@ FORWARD ME_4C3FEDDA034A
 : ME_4C3FEE340175
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4C3FEDDA034A // EVDtoEVDOEMTableFlagTest
+ : Parent HWL ME_4C3FEDDA034A // EVDtoEVDOEMTableFlagTest
  ;
  : Target WL 'ME_4C3FED3103B2' '4C407B410029.pas.ms.script' // TevOEMTableFlagFilter
  ;
@@ -336,10 +336,10 @@ ref; // ME_4C07BCBE01F2_ME_4C3FEDDA034A SetFilters
  %SUMMARY 'Тест фильтра"''Выливать в псевдографику"' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C07B59F0382 // EVD
+ : Parent HWL ME_4C07B59F0382 // EVD
  ;
  : Inherits
-   Seq: ( ME_4C07B5E300F2 // EVDtoEVDWriterTest
+   Seq: ( HWL ME_4C07B5E300F2 // EVDtoEVDWriterTest
  )
  ; // Inherits
  : Overridden
@@ -362,7 +362,7 @@ FORWARD ME_4D909F2701A6
 : ME_4D909F94034D
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4D909F2701A6 // EVDtoEVDBlockNameAdderTest
+ : Parent HWL ME_4D909F2701A6 // EVDtoEVDBlockNameAdderTest
  ;
  : Target WL 'ME_4A2CFFA30282' '47ECACA70141.pas.ms.script' // TevdBlockNameAdder
  ;
@@ -383,10 +383,10 @@ ref; // ME_4C07BCBE01F2_ME_4D909F2701A6 SetFilters
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C07B59F0382 // EVD
+ : Parent HWL ME_4C07B59F0382 // EVD
  ;
  : Inherits
-   Seq: ( ME_4C07B5E300F2 // EVDtoEVDWriterTest
+   Seq: ( HWL ME_4C07B5E300F2 // EVDtoEVDWriterTest
  )
  ; // Inherits
  : Overridden
@@ -412,7 +412,7 @@ FORWARD ME_51C8347903A2
 : ME_51C834E0006D
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_51C8347903A2 // EVDtoEVDEmptyRowAndEmptyTableTest
+ : Parent HWL ME_51C8347903A2 // EVDtoEVDEmptyRowAndEmptyTableTest
  ;
  : Target WL 'ME_4CF7B733015E' '4C407B410029.pas.ms.script' // TevEmptyTableEliminator
  ;
@@ -433,10 +433,10 @@ ref; // ME_4C07BCBE01F2_ME_51C8347903A2 SetFilters
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C07B59F0382 // EVD
+ : Parent HWL ME_4C07B59F0382 // EVD
  ;
  : Inherits
-   Seq: ( ME_4C07BE700180 // EVDtoEVDEmptyRowTest
+   Seq: ( HWL ME_4C07BE700180 // EVDtoEVDEmptyRowTest
  )
  ; // Inherits
  : Overridden
@@ -459,7 +459,7 @@ FORWARD ME_561E7EAF0288
 : ME_561E7EEA02AD
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_561E7EAF0288 // UnicodeFormulasToUnicodeConverterTest
+ : Parent HWL ME_561E7EAF0288 // UnicodeFormulasToUnicodeConverterTest
  ;
  : Target WL 'ME_561E7E4B0034' '47ECACA70141.pas.ms.script' // TevUnicodeFormulasToUnicodeConverter
  ;
@@ -480,10 +480,10 @@ ref; // ME_4C07BCBE01F2_ME_561E7EAF0288 SetFilters
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C07B59F0382 // EVD
+ : Parent HWL ME_4C07B59F0382 // EVD
  ;
  : Inherits
-   Seq: ( ME_4C07B5E300F2 // EVDtoEVDWriterTest
+   Seq: ( HWL ME_4C07B5E300F2 // EVDtoEVDWriterTest
  )
  ; // Inherits
  : Overridden
@@ -512,14 +512,14 @@ ref; // ME_561E7EAF0288 UnicodeFormulasToUnicodeConverterTest
  : Parent WL 'ME_4B2A15810261' '4B2A15810261.pas.ms.script' // DailyTest
  ;
  : Children
-   Seq: ( ME_4C07B5C100E8 // EVDWriterTest
- ME_4C07B5E300F2 // EVDtoEVDWriterTest
- ME_4C07BE700180 // EVDtoEVDEmptyRowTest
- ME_4C10D6820047 // EVDtoEVDSectionRepairTest
- ME_4C3FEDDA034A // EVDtoEVDOEMTableFlagTest
- ME_4D909F2701A6 // EVDtoEVDBlockNameAdderTest
- ME_51C8347903A2 // EVDtoEVDEmptyRowAndEmptyTableTest
- ME_561E7EAF0288 // UnicodeFormulasToUnicodeConverterTest
+   Seq: ( HWL ME_4C07B5C100E8 // EVDWriterTest
+ HWL ME_4C07B5E300F2 // EVDtoEVDWriterTest
+ HWL ME_4C07BE700180 // EVDtoEVDEmptyRowTest
+ HWL ME_4C10D6820047 // EVDtoEVDSectionRepairTest
+ HWL ME_4C3FEDDA034A // EVDtoEVDOEMTableFlagTest
+ HWL ME_4D909F2701A6 // EVDtoEVDBlockNameAdderTest
+ HWL ME_51C8347903A2 // EVDtoEVDEmptyRowAndEmptyTableTest
+ HWL ME_561E7EAF0288 // UnicodeFormulasToUnicodeConverterTest
  )
  ; // Children
  : Depends

@@ -1,0 +1,61 @@
+// Text 4A7709C70002 VCMFinalContainer Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A7709C70002
+
+: ME_3EA1F7334B30
+ CONST UID '3EA1F7334B30'
+ CONST Name 'Ini_FormFactory_Text'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы Text' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4A7709C70002 // Text
+ ;
+ : SpelledFor HWL ME_4A7709C70002 // Text
+ ;
+
+ref; // ME_3EA1F7334B30 Ini_FormFactory_Text
+
+: ME_4A7709C70002
+ CONST UID '4A7709C70002'
+ CONST Name 'Text'
+ CONST Class class_Class
+ : Stereotype st_VCMFinalContainer ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Текст документа' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent WL 'ME_498B135601B6' '498B135601B6.pas.ms.script' // Document
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4C7F801D0304' '4C7F801D0304.pas.ms.script' // ExTextOptions
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4BD8574A03A5' '4BD856E802F9.pas.ms.script' // Text
+ )
+ ; // Implements
+ : Operations
+   Seq: ( HWL ME_3EA1F7334B30 // Ini_FormFactory_Text
+ )
+ ; // Operations
+ CONST "NeedsHackRef" true
+ CONST "ZoneType" 'Parent'
+ CONST "author" 'Люлин А.В.'
+ CONST "finished dfm" true
+ CONST "no hands" true
+ CONST "resizeable" false
+ CONST "restrict form def" 'undefined'
+ CONST "started" '03.08.2009 20:05'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\Text_Form.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms'
+ CONST extprop:pas:TypeName 'TTextForm'
+ CONST extprop:rc:SelfName 'TextForm'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'Text_Form'
+
+ref; // ME_4A7709C70002 Text

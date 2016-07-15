@@ -14,7 +14,7 @@ FORWARD ME_45EEE40B0138
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_45EEE40B0138 // IntegrationType
+ : Parent HWL ME_45EEE40B0138 // IntegrationType
  ;
 
 ref; // ME_45EEE40B0139 IT_LISTENTRYINFO
@@ -27,7 +27,7 @@ ref; // ME_45EEE40B0139 IT_LISTENTRYINFO
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_45EEE40B0138 // IntegrationType
+ : Parent HWL ME_45EEE40B0138 // IntegrationType
  ;
 
 ref; // ME_45EEE40B013A IT_LIST
@@ -40,7 +40,7 @@ ref; // ME_45EEE40B013A IT_LIST
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_45EEE40B0138 // IntegrationType
+ : Parent HWL ME_45EEE40B0138 // IntegrationType
  ;
 
 ref; // ME_45EEE40B013B IT_QUERY
@@ -54,12 +54,12 @@ ref; // ME_45EEE40B013B IT_QUERY
  %SUMMARY 'тип объекта' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_463F4DE5003E // IntegrationProject
+ : Parent HWL ME_463F4DE5003E // IntegrationProject
  ;
  : Attributes
-   Seq: ( ME_45EEE40B0139 // IT_LISTENTRYINFO
- ME_45EEE40B013A // IT_LIST
- ME_45EEE40B013B // IT_QUERY
+   Seq: ( HWL ME_45EEE40B0139 // IT_LISTENTRYINFO
+ HWL ME_45EEE40B013A // IT_LIST
+ HWL ME_45EEE40B013B // IT_QUERY
  )
  ; // Attributes
  CONST extprop:pas:TypeName 'TIntegrationType'
@@ -76,7 +76,7 @@ ref; // ME_45EEE40B0138 IntegrationType
  %SUMMARY 'в базе недостаточно данных для построения объекта' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_463F4DE5003E // IntegrationProject
+ : Parent HWL ME_463F4DE5003E // IntegrationProject
  ;
 
 ref; // ME_463F5105003E CantCreateObject
@@ -92,7 +92,7 @@ FORWARD ME_463F4EAD0000
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_463F4EAD0000 // Integration
+ : Parent HWL ME_463F4EAD0000 // Integration
  ;
  : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
  ;
@@ -107,7 +107,7 @@ ref; // ME_4AB9D0030054 integration_enabled
  %SUMMARY 'возвращает идентификатор комлекта.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_463F4EAD0000 // Integration
+ : Parent HWL ME_463F4EAD0000 // Integration
  ;
  : Target WL 'ME_431841610361' '4423F94903C8.pas.ms.script' // String
  ;
@@ -143,14 +143,14 @@ ref; // ME_464041D30251 result
  %SUMMARY 'метод возвращает объект по поданному xml-у' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_463F4EAD0000 // Integration
+ : Parent HWL ME_463F4EAD0000 // Integration
  ;
- : Target ME_45EEE40B0138 // IntegrationType
+ : Target HWL ME_45EEE40B0138 // IntegrationType
  ;
  : CanRaise
    Seq: ( WL 'ME_456EB454018E' '456EA56002BF.pas.ms.script' // CanNotFindData
  WL 'ME_456EB4540197' '456EA56002BF.pas.ms.script' // InvalidXMLType
- ME_463F5105003E // CantCreateObject
+ HWL ME_463F5105003E // CantCreateObject
  )
  ; // CanRaise
  : Parameters
@@ -169,7 +169,7 @@ ref; // ME_463F4FF5032C get_object_by_xml
  %SUMMARY 'фабрика' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_463F4EAD0000 // Integration
+ : Parent HWL ME_463F4EAD0000 // Integration
  ;
  CONST "const_type" 'read-write'
 
@@ -185,16 +185,16 @@ ref; // ME_463F5060029F make
  %SUMMARY 'интерфейс для работы с проектом интеграции' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_463F4DE5003E // IntegrationProject
+ : Parent HWL ME_463F4DE5003E // IntegrationProject
  ;
  : Attributes
-   Seq: ( ME_4AB9D0030054 // integration_enabled
+   Seq: ( HWL ME_4AB9D0030054 // integration_enabled
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_463F4FA3006D // get_integration_complect_id
- ME_463F4FF5032C // get_object_by_xml
- ME_463F5060029F // make
+   Seq: ( HWL ME_463F4FA3006D // get_integration_complect_id
+ HWL ME_463F4FF5032C // get_object_by_xml
+ HWL ME_463F5060029F // make
  )
  ; // Operations
  CONST "single impl" false
@@ -215,9 +215,9 @@ ref; // ME_463F4EAD0000 Integration
  : Parent WL 'ME_456EA3D2031C' '456EA3D2031C.pas.ms.script' // GblAdapterLib
  ;
  : Children
-   Seq: ( ME_45EEE40B0138 // IntegrationType
- ME_463F5105003E // CantCreateObject
- ME_463F4EAD0000 // Integration
+   Seq: ( HWL ME_45EEE40B0138 // IntegrationType
+ HWL ME_463F5105003E // CantCreateObject
+ HWL ME_463F4EAD0000 // Integration
  )
  ; // Children
  : Depends

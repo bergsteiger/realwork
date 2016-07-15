@@ -14,7 +14,7 @@ FORWARD ME_45EEE00A024E
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_45EEE00A024E // ProgressIndicator
+ : Parent HWL ME_45EEE00A024E // ProgressIndicator
  ;
  : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
  ;
@@ -48,7 +48,7 @@ ref; // ME_45EEE00A025F arg
  %SUMMARY 'Изменение состояния длительного процесса.'#13#10'В качестве параметра cur_count подается либо число уже обработанных элементов, принимающих участие в длительном процессе, либо число <=100 (при индикации в %).' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_45EEE00A024E // ProgressIndicator
+ : Parent HWL ME_45EEE00A024E // ProgressIndicator
  ;
  : Parameters
    Seq: ( ME_45EEE00A025E // cur_count
@@ -68,14 +68,14 @@ ref; // ME_45EEE00A025D set_current
  %SUMMARY 'Интерфейс для обратной связи при длительных операциях на сервере.'#13#10'Должен реализовываться пользователем адаптера.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_45EEA87702A5 // ProgressIndicatorSupport
+ : Parent HWL ME_45EEA87702A5 // ProgressIndicatorSupport
  ;
  : Attributes
-   Seq: ( ME_45EEE02703C5 // max_count
+   Seq: ( HWL ME_45EEE02703C5 // max_count
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_45EEE00A025D // set_current
+   Seq: ( HWL ME_45EEE00A025D // set_current
  )
  ; // Operations
  CONST "call way" 'back'
@@ -94,7 +94,7 @@ FORWARD ME_45EEE00D0329
  %SUMMARY 'Вызывается для прерывания длительного процесса.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_45EEE00D0329 // CancelLongProcess
+ : Parent HWL ME_45EEE00D0329 // CancelLongProcess
  ;
 
 ref; // ME_45EEE00D032A cancel_process
@@ -109,10 +109,10 @@ ref; // ME_45EEE00D032A cancel_process
  %SUMMARY 'Интерфейс для возможности прерывания длительных операций на сервере. Используется в интерфейсе IProgressIndicator.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_45EEA87702A5 // ProgressIndicatorSupport
+ : Parent HWL ME_45EEA87702A5 // ProgressIndicatorSupport
  ;
  : Operations
-   Seq: ( ME_45EEE00D032A // cancel_process
+   Seq: ( HWL ME_45EEE00D032A // cancel_process
  )
  ; // Operations
  CONST "single impl" false
@@ -132,8 +132,8 @@ ref; // ME_45EEE00D0329 CancelLongProcess
  : Parent WL 'ME_456EA3D2031C' '456EA3D2031C.pas.ms.script' // GblAdapterLib
  ;
  : Children
-   Seq: ( ME_45EEE00A024E // ProgressIndicator
- ME_45EEE00D0329 // CancelLongProcess
+   Seq: ( HWL ME_45EEE00A024E // ProgressIndicator
+ HWL ME_45EEE00D0329 // CancelLongProcess
  )
  ; // Children
  : Depends

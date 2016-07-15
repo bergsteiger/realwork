@@ -1,0 +1,183 @@
+// vtServices 57762B5A0168 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57762B5A0168
+
+FORWARD ME_57762BA20039
+
+FORWARD ME_383BE0019CFB
+
+: ME_936B740E1A73
+ CONST Name 'aListner'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target WL 'ME_57762C030193' '57762BD601E1.pas.ms.script' // Il3ClipListner
+ ;
+
+ref; // ME_936B740E1A73 aListner
+
+: ME_105C5A110DDA
+ CONST UID '105C5A110DDA'
+ CONST Name 'Subscribe'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_383BE0019CFB // Ml3ClipSpyService
+ ;
+ : Parameters
+   Seq: ( ME_936B740E1A73 // aListner
+ )
+ ; // Parameters
+
+ref; // ME_105C5A110DDA Subscribe
+
+: ME_684255EFC304
+ CONST Name 'aListner'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target WL 'ME_57762C030193' '57762BD601E1.pas.ms.script' // Il3ClipListner
+ ;
+
+ref; // ME_684255EFC304 aListner
+
+: ME_6EE9F044CA79
+ CONST UID '6EE9F044CA79'
+ CONST Name 'Unsubscribe'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_383BE0019CFB // Ml3ClipSpyService
+ ;
+ : Parameters
+   Seq: ( ME_684255EFC304 // aListner
+ )
+ ; // Parameters
+
+ref; // ME_6EE9F044CA79 Unsubscribe
+
+: ME_383BE0019CFB
+ CONST UID '383BE0019CFB'
+ CONST Name 'Ml3ClipSpyService'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_PureMixIn ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Контракт сервиса Tl3ClipSpyService' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_57762BA20039 // Tl3ClipSpyService
+ ;
+ : Operations
+   Seq: ( HWL ME_105C5A110DDA // Subscribe
+ HWL ME_6EE9F044CA79 // Unsubscribe
+ )
+ ; // Operations
+
+ref; // ME_383BE0019CFB Ml3ClipSpyService
+
+: ME_57762C5F03A0
+ CONST Name 'aListner'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target WL 'ME_57762C030193' '57762BD601E1.pas.ms.script' // Il3ClipListner
+ ;
+
+ref; // ME_57762C5F03A0 aListner
+
+: ME_57762C370191
+ CONST UID '57762C370191'
+ CONST Name 'Subscribe'
+ CONST Class class_Operation
+ : Stereotype st_responsibility::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_57762BA20039 // Tl3ClipSpyService
+ ;
+ : Parameters
+   Seq: ( ME_57762C5F03A0 // aListner
+ )
+ ; // Parameters
+
+ref; // ME_57762C370191 Subscribe
+
+: ME_57762C6C0368
+ CONST Name 'aListner'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target WL 'ME_57762C030193' '57762BD601E1.pas.ms.script' // Il3ClipListner
+ ;
+
+ref; // ME_57762C6C0368 aListner
+
+: ME_57762C6503A9
+ CONST UID '57762C6503A9'
+ CONST Name 'Unsubscribe'
+ CONST Class class_Operation
+ : Stereotype st_responsibility::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_57762BA20039 // Tl3ClipSpyService
+ ;
+ : Parameters
+   Seq: ( ME_57762C6C0368 // aListner
+ )
+ ; // Parameters
+
+ref; // ME_57762C6503A9 Unsubscribe
+
+: ME_57762BA20039
+ CONST UID '57762BA20039'
+ CONST Name 'Tl3ClipSpyService'
+ CONST Class class_Class
+ : Stereotype st_Service ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_57762B5A0168 // vtServices
+ ;
+ : Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( HWL ME_57762C370191 // Subscribe
+ HWL ME_57762C6503A9 // Unsubscribe
+ )
+ ; // Operations
+ : Children
+   Seq: ( HWL ME_383BE0019CFB // Ml3ClipSpyService
+ )
+ ; // Children
+ CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3ClipSpyService.pas'
+ CONST extprop:rc:SelfName 'ClipSpyService'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'l3ClipSpyService'
+
+ref; // ME_57762BA20039 Tl3ClipSpyService
+
+: ME_57762B5A0168
+ CONST UID '57762B5A0168'
+ CONST Name 'vtServices'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_550012C403C4' '550012C403C4.pas.ms.script' // L3$AFW
+ ;
+ : Children
+   Seq: ( HWL ME_57762BA20039 // Tl3ClipSpyService
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.pas.ms.script' // Primitives
+ WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_57762BD601E1' '57762BD601E1.pas.ms.script' // l3ClipboardSpy
+ )
+ ; // Depends
+
+ref; // ME_57762B5A0168 vtServices

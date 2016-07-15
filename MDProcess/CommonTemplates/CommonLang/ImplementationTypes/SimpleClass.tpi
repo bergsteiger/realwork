@@ -266,10 +266,7 @@ f _base_class_collect
 	%f_SimpleClassSpell(%S)
 
 f _SimpleClassSpell
-	[{%f_UseNewGenRecG(%S)!=true}{\
-//	%S#[inherited]\
-	%f_SpellAreaLinks(%S)\
-	}\
+	[{%f_UseNewGenRecG(%S)!=true}\
 	[{%S{singleton}=true}\
 	[{<{}{%CN=Exists}{C}>=0}\
 	[{"%{BOOLEAN}N"=""}%f_find_element(46A603BB0391,BOOLEAN)]\
@@ -414,9 +411,6 @@ f _SimpleClassSpell
 
 	]\
 	%f_SpellFriends(%S)\
-
-//	%S#[inherited]\
-	%f_SpellAreaLinks(%S)\
 
 	%f_set_var(WasRegisterInEngine,"false")\
 	[{%S#f_IsMixIn()!=true}\
@@ -776,7 +770,7 @@ f _ChildNeedOwnFile
 	]
 
 f _SimpleClassNeedsSpell
-	[{%SS=Service|%SS=ServiceImplementation|%SS=GuiControl|%S#f_IsVCMForm()=true|%S#f_IsUserType()=true|%S#_IsControl()=true|%SS=TestResults|%SS=VCMApplication|%SS=VCMTestApplication}{\
+	[{%SS=Service|%SS=ServiceImplementation|%SS=GuiControl|%S#f_IsVCMForm()=true|%S#f_IsUserType()=true|%S#_IsControl()=true|%SS=TestResults|%SS=VCMApplication|%SS=VCMTestApplication|%SS=VCMFormSetFactory|%SS=VCMAbstractFormSetFactory}{\
 	false\
 	}\
 	true\

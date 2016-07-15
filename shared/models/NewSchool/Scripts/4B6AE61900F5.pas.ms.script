@@ -13,7 +13,7 @@ FORWARD ME_48400B220217
  : Stereotype st_chg::Operation ;
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_48400B220217 // TatBaseEvdHelper
+ : Parent HWL ME_48400B220217 // TatBaseEvdHelper
  ;
 
 ref; // ME_4B6AE78F01CF Generate
@@ -34,7 +34,7 @@ ref; // ME_4B7A99EC0306 anEVDNativeWriter
  : Stereotype st_chg::Operation ;
  CONST Visibility ProtectedAccess
  CONST Abstraction at_abstract
- : Parent ME_48400B220217 // TatBaseEvdHelper
+ : Parent HWL ME_48400B220217 // TatBaseEvdHelper
  ;
  : Parameters
    Seq: ( ME_4B7A99EC0306 // anEVDNativeWriter
@@ -46,7 +46,7 @@ ref; // ME_4B6AE81E0267 DoGenerate
 : ME_48400C6300A0
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_48400B220217 // TatBaseEvdHelper
+ : Parent HWL ME_48400B220217 // TatBaseEvdHelper
  ;
  : Target WL 'ME_483FF50C00F4' '4AB0997B00A2.pas.ms.script' // TMemoryStream
  ;
@@ -56,7 +56,7 @@ ref; // ME_48400C6300A0
 : ME_48441A6F0156
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_48400B220217 // TatBaseEvdHelper
+ : Parent HWL ME_48400B220217 // TatBaseEvdHelper
  ;
  : Target WL 'ME_47ECAA5B0394' '47ECA80B000D.pas.ms.script' // Tk2TagGenerator
  ;
@@ -66,7 +66,7 @@ ref; // ME_48441A6F0156
 : ME_48441A7C03B8
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_48400B220217 // TatBaseEvdHelper
+ : Parent HWL ME_48400B220217 // TatBaseEvdHelper
  ;
  : Target WL 'ME_483D7C55027A' '47ECB8BD00A8.pas.ms.script' // TevdNativeWriter
  ;
@@ -76,7 +76,7 @@ ref; // ME_48441A7C03B8
 : ME_4B6AF2D1033E
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_48400B220217 // TatBaseEvdHelper
+ : Parent HWL ME_48400B220217 // TatBaseEvdHelper
  ;
  : Target WL 'ME_46A5AFF103CA' '46A0E6C5023A.pas.ms.script' // IStream
  ;
@@ -86,7 +86,7 @@ ref; // ME_4B6AF2D1033E
 : ME_4B6AF2D402FA
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_48400B220217 // TatBaseEvdHelper
+ : Parent HWL ME_48400B220217 // TatBaseEvdHelper
  ;
  : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
  ;
@@ -96,7 +96,7 @@ ref; // ME_4B6AF2D402FA
 : ME_4B7A9A7603C9
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_48400B220217 // TatBaseEvdHelper
+ : Parent HWL ME_48400B220217 // TatBaseEvdHelper
  ;
  : Target WL 'ME_47AB1FDE03E4' '47913B47006E.pas.ms.script' // l3Memory
  ;
@@ -111,15 +111,15 @@ ref; // ME_4B7A9A7603C9
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4B6AE61900F5 // EvdHelpers
+ : Parent HWL ME_4B6AE61900F5 // EvdHelpers
  ;
  : Inherits
    Seq: ( WL 'ME_48F473650362' '47913B47006E.pas.ms.script' // Tl3MemoryStream
  )
  ; // Inherits
  : Operations
-   Seq: ( ME_4B6AE78F01CF // Generate
- ME_4B6AE81E0267 // DoGenerate
+   Seq: ( HWL ME_4B6AE78F01CF // Generate
+ HWL ME_4B6AE81E0267 // DoGenerate
  )
  ; // Operations
  : Dependencies
@@ -150,7 +150,7 @@ FORWARD ME_48400B7E0236
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_48400B7E0236 // IatUserComment
+ : Parent HWL ME_48400B7E0236 // IatUserComment
  ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
@@ -167,10 +167,10 @@ ref; // ME_484415F90238 CommentText
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4B6AE7650002 // TatUserComment
+ : Parent HWL ME_4B6AE7650002 // TatUserComment
  ;
  : Attributes
-   Seq: ( ME_484415F90238 // CommentText
+   Seq: ( HWL ME_484415F90238 // CommentText
  )
  ; // Attributes
  CONST extprop:rc:SelfName 'atUserComment'
@@ -185,7 +185,7 @@ ref; // ME_48400B7E0236 IatUserComment
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4B6AE7650002 // TatUserComment
+ : Parent HWL ME_4B6AE7650002 // TatUserComment
  ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
@@ -199,9 +199,9 @@ ref; // ME_4B6AE8560374 f_CommentText
  : Stereotype st_factory::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4B6AE7650002 // TatUserComment
+ : Parent HWL ME_4B6AE7650002 // TatUserComment
  ;
- : Target ME_48400B7E0236 // IatUserComment
+ : Target HWL ME_48400B7E0236 // IatUserComment
  ;
 
 ref; // ME_4B7A9881013C Make
@@ -209,7 +209,7 @@ ref; // ME_4B7A9881013C Make
 : ME_4B6AF0940324
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4B6AE7650002 // TatUserComment
+ : Parent HWL ME_4B6AE7650002 // TatUserComment
  ;
  : Target WL 'ME_476BE0660328' '476BE0350329.pas.ms.script' // Standard
  ;
@@ -219,7 +219,7 @@ ref; // ME_4B6AF0940324
 : ME_4B6AF098007E
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4B6AE7650002 // TatUserComment
+ : Parent HWL ME_4B6AE7650002 // TatUserComment
  ;
  : Target WL 'ME_47C69EBC00A8' '47AC75550330.pas.ms.script' // Tk2TagID
  ;
@@ -229,7 +229,7 @@ ref; // ME_4B6AF098007E
 : ME_4B6AF1690278
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4B6AE7650002 // TatUserComment
+ : Parent HWL ME_4B6AE7650002 // TatUserComment
  ;
  : Target WL 'ME_485683750360' '48492FC0029D.pas.ms.script' // TextPara
  ;
@@ -237,14 +237,14 @@ ref; // ME_4B6AF098007E
 ref; // ME_4B6AF1690278 
 
 : ME_484415F90238_ME_4B6AE7650002
- : Original ME_484415F90238 // CommentText
+ : Original HWL ME_484415F90238 // CommentText
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_484415F90238_ME_4B6AE7650002 CommentText
 
 : ME_4B6AE81E0267_ME_4B6AE7650002
- : Original ME_4B6AE81E0267 // DoGenerate
+ : Original HWL ME_4B6AE81E0267 // DoGenerate
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4B6AE81E0267_ME_4B6AE7650002 DoGenerate
@@ -257,22 +257,22 @@ ref; // ME_4B6AE81E0267_ME_4B6AE7650002 DoGenerate
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4B6AE61900F5 // EvdHelpers
+ : Parent HWL ME_4B6AE61900F5 // EvdHelpers
  ;
  : Inherits
-   Seq: ( ME_48400B220217 // TatBaseEvdHelper
+   Seq: ( HWL ME_48400B220217 // TatBaseEvdHelper
  )
  ; // Inherits
  : Implements
-   Seq: ( ME_48400B7E0236 // IatUserComment
+   Seq: ( HWL ME_48400B7E0236 // IatUserComment
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_4B6AE8560374 // f_CommentText
+   Seq: ( HWL ME_4B6AE8560374 // f_CommentText
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_4B7A9881013C // Make
+   Seq: ( HWL ME_4B7A9881013C // Make
  )
  ; // Operations
  : Implemented
@@ -281,7 +281,7 @@ ref; // ME_4B6AE81E0267_ME_4B6AE7650002 DoGenerate
  )
  ; // Implemented
  : Children
-   Seq: ( ME_48400B7E0236 // IatUserComment
+   Seq: ( HWL ME_48400B7E0236 // IatUserComment
  )
  ; // Children
  : Dependencies
@@ -309,7 +309,7 @@ FORWARD ME_4B6AE9DB0325
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4B6AE9DB0325 // IatChatMessage
+ : Parent HWL ME_4B6AE9DB0325 // IatChatMessage
  ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
@@ -326,10 +326,10 @@ ref; // ME_4B6AEA0B018F ChatMessage
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4B6AE9CB00C2 // TatChatMessage
+ : Parent HWL ME_4B6AE9CB00C2 // TatChatMessage
  ;
  : Attributes
-   Seq: ( ME_4B6AEA0B018F // ChatMessage
+   Seq: ( HWL ME_4B6AEA0B018F // ChatMessage
  )
  ; // Attributes
  CONST extprop:rc:SelfName 'atChatMessage'
@@ -344,7 +344,7 @@ ref; // ME_4B6AE9DB0325 IatChatMessage
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4B6AE9CB00C2 // TatChatMessage
+ : Parent HWL ME_4B6AE9CB00C2 // TatChatMessage
  ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
@@ -358,9 +358,9 @@ ref; // ME_4B6AE9ED0068 f_ChatMessage
  : Stereotype st_factory::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4B6AE9CB00C2 // TatChatMessage
+ : Parent HWL ME_4B6AE9CB00C2 // TatChatMessage
  ;
- : Target ME_4B6AE9DB0325 // IatChatMessage
+ : Target HWL ME_4B6AE9DB0325 // IatChatMessage
  ;
 
 ref; // ME_4B7A9896024C Make
@@ -368,7 +368,7 @@ ref; // ME_4B7A9896024C Make
 : ME_4B6AFCB6035D
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4B6AE9CB00C2 // TatChatMessage
+ : Parent HWL ME_4B6AE9CB00C2 // TatChatMessage
  ;
  : Target WL 'ME_485683750360' '48492FC0029D.pas.ms.script' // TextPara
  ;
@@ -378,7 +378,7 @@ ref; // ME_4B6AFCB6035D
 : ME_4B6AFCDB01CA
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4B6AE9CB00C2 // TatChatMessage
+ : Parent HWL ME_4B6AE9CB00C2 // TatChatMessage
  ;
  : Target WL 'ME_47C69EBC00A8' '47AC75550330.pas.ms.script' // Tk2TagID
  ;
@@ -386,13 +386,13 @@ ref; // ME_4B6AFCB6035D
 ref; // ME_4B6AFCDB01CA 
 
 : ME_4B6AE81E0267_ME_4B6AE9CB00C2
- : Original ME_4B6AE81E0267 // DoGenerate
+ : Original HWL ME_4B6AE81E0267 // DoGenerate
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4B6AE81E0267_ME_4B6AE9CB00C2 DoGenerate
 
 : ME_4B6AEA0B018F_ME_4B6AE9CB00C2
- : Original ME_4B6AEA0B018F // ChatMessage
+ : Original HWL ME_4B6AEA0B018F // ChatMessage
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
@@ -406,22 +406,22 @@ ref; // ME_4B6AEA0B018F_ME_4B6AE9CB00C2 ChatMessage
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4B6AE61900F5 // EvdHelpers
+ : Parent HWL ME_4B6AE61900F5 // EvdHelpers
  ;
  : Inherits
-   Seq: ( ME_48400B220217 // TatBaseEvdHelper
+   Seq: ( HWL ME_48400B220217 // TatBaseEvdHelper
  )
  ; // Inherits
  : Implements
-   Seq: ( ME_4B6AE9DB0325 // IatChatMessage
+   Seq: ( HWL ME_4B6AE9DB0325 // IatChatMessage
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_4B6AE9ED0068 // f_ChatMessage
+   Seq: ( HWL ME_4B6AE9ED0068 // f_ChatMessage
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_4B7A9896024C // Make
+   Seq: ( HWL ME_4B7A9896024C // Make
  )
  ; // Operations
  : Implemented
@@ -430,7 +430,7 @@ ref; // ME_4B6AEA0B018F_ME_4B6AE9CB00C2 ChatMessage
  )
  ; // Implemented
  : Children
-   Seq: ( ME_4B6AE9DB0325 // IatChatMessage
+   Seq: ( HWL ME_4B6AE9DB0325 // IatChatMessage
  )
  ; // Children
  : Dependencies
@@ -455,9 +455,9 @@ ref; // ME_4B6AE9CB00C2 TatChatMessage
  : Parent WL 'ME_48075C0E02DE' '48075C0E02DE.pas.ms.script' // AdapterTest
  ;
  : Children
-   Seq: ( ME_48400B220217 // TatBaseEvdHelper
- ME_4B6AE7650002 // TatUserComment
- ME_4B6AE9CB00C2 // TatChatMessage
+   Seq: ( HWL ME_48400B220217 // TatBaseEvdHelper
+ HWL ME_4B6AE7650002 // TatUserComment
+ HWL ME_4B6AE9CB00C2 // TatChatMessage
  )
  ; // Children
  : Depends

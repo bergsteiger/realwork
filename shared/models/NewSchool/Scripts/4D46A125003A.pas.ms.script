@@ -1,0 +1,36 @@
+// TvtOutlinerControl 4D46A125003A GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4D46A125003A
+
+: ME_46A5AA4B003C_ME_4D46A125003A
+ : Original WL 'ME_46A5AA4B003C' '4677FBA70343.pas.ms.script' // Invalidate
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_46A5AA4B003C_ME_4D46A125003A Invalidate
+
+: ME_4D46A125003A
+ CONST UID '4D46A125003A'
+ CONST Name 'TvtOutlinerControl'
+ CONST Class class_Class
+ : Stereotype st_GuiControl ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4B97E7FD006C' '4B97E7FD006C.pas.ms.script' // Outliner
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4CFFBEEA0109' '515DA5860015.pas.ms.script' // TvtCustomOutliner
+ )
+ ; // Inherits
+ : Implemented
+   Seq: ( ME_46A5AA4B003C_ME_4D46A125003A // Invalidate
+ )
+ ; // Implemented
+ CONST intf.pas:Path 'common\components\gui\Garant\VT\vtOutlinerControl.pas'
+ CONST extprop:rc:SelfName 'OutlinerControl'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vtOutlinerControl'
+
+ref; // ME_4D46A125003A TvtOutlinerControl

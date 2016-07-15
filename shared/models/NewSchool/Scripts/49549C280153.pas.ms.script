@@ -2,39 +2,6 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-FORWARD ME_49549C280153
-
-: ME_4A9CE63301FF
- CONST UID '4A9CE63301FF'
- CONST Name 'Diction'
- CONST Class class_Class
- : Stereotype st_VCMUseCaseRealization ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Толковый словарь' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_49549C280153 // Diction
- ;
- : Inherits
-   Seq: ( WL 'ME_4A9CE5F2036F' '4979D3B10102.pas.ms.script' // Diction$FP
- )
- ; // Inherits
- : Implements
-   Seq: ( WL 'ME_484F849D017B' '484F80CF0274.pas.ms.script' // Толковый словарь
- )
- ; // Implements
- CONST "author" 'Люлин А.В.'
- CONST "no hands" true
- CONST "started" '01.09.2009 22:10'
- CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\moDiction.pas'
- CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
- CONST extprop:pas:TypeName 'Tmo_Diction'
- CONST extprop:rc:SelfName 'mo_Diction'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'moDiction'
-
-ref; // ME_4A9CE63301FF Diction$UC
-
 : ME_49549C280153
  CONST UID '49549C280153'
  CONST Name 'Diction'
@@ -46,7 +13,7 @@ ref; // ME_4A9CE63301FF Diction$UC
  : Parent WL 'ME_4AC2470103B2' '4AC2470103B2.pas.ms.script' // F1 Встроенные продукты
  ;
  : Children
-   Seq: ( ME_4A9CE63301FF // Diction$UC
+   Seq: ( WL 'ME_4A9CE63301FF' '4A9CE63301FF.pas.ms.script' // Diction$UC
  WL 'ME_4940F539014E' '4940F539014E.pas.ms.script' // Diction
  WL 'ME_4979D3680163' '4979D3680163.pas.ms.script' // View
  )
@@ -76,7 +43,6 @@ ref; // ME_4A9CE63301FF Diction$UC
  WL 'ME_4C6A65ED0374' '4C6A65ED0374.pas.ms.script' // F1DocumentProcessing
  WL 'ME_4D358B9A01E5' '4D358B9A01E5.pas.ms.script' // DictionLike
  WL 'ME_4E13416D0227' '4E13416D0227.pas.ms.script' // VCM$Visual
- WL 'ME_4E200FC9003B' '4E200FC9003B.pas.ms.script' // VCM$Scripting
  WL 'ME_4E2F0E1B03BB' '4E2F0E1B03BB.pas.ms.script' // L3$Domain
  WL 'ME_4F6B65EA0392' '4F6B65EA0392.pas.ms.script' // F1Like
  WL 'ME_547CC9D40158' '547CC9D40158.pas.ms.script' // VT$Panels

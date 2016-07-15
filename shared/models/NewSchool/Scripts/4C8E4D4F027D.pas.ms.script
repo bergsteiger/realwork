@@ -1,0 +1,75 @@
+// CustomizeTasksPanel 4C8E4D4F027D VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4C8E4D4F027D
+
+: ME_57FDA2BA57FE
+ CONST UID '57FDA2BA57FE'
+ CONST Name 'ut_CustomizeTasksPanel'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_UserType ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Редактор панели задач' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4C8E4D4F027D // CustomizeTasksPanel
+ ;
+ CONST "ImageIndex" '-1'
+ CONST "VisibleToUser" false
+ CONST "Weight" '-1'
+ CONST intf.pas:Path 'common\components\gui\Garant\VCM\View\TasksPanel\Forms\CustomizeTasksPanel_ut_CustomizeTasksPanel_UserType.pas'
+ CONST extprop:pas:UnitName 'CustomizeTasksPanel_ut_CustomizeTasksPanel_UserType'
+
+ref; // ME_57FDA2BA57FE ut_CustomizeTasksPanel
+
+: ME_55A347B4039B
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C8E4D4F027D // CustomizeTasksPanel
+ ;
+ : Target WL 'ME_559F8C7A0213' '4C8DD8B8006C.pas.ms.script' // TvcmCustOpsRepGroupList
+ ;
+
+ref; // ME_55A347B4039B 
+
+: ME_4C8E4D4F027D
+ CONST UID '4C8E4D4F027D'
+ CONST Name 'CustomizeTasksPanel'
+ CONST Class class_Class
+ : Stereotype st_VCMFinalForm ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Редактор панели задач' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent WL 'ME_4C8DD8C602D3' '4C8DD8C602D3.pas.ms.script' // PrimTasksPanelMenu
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4C8E4D21001F' '4C8E4D21001F.pas.ms.script' // PrimCustomizeTasksPanel
+ )
+ ; // Inherits
+ : Children
+   Seq: ( HWL ME_57FDA2BA57FE // ut_CustomizeTasksPanel
+ )
+ ; // Children
+ : Dependencies
+   Seq: ( ME_55A347B4039B // TvcmCustOpsRepGroupList
+ )
+ ; // Dependencies
+ CONST "NeedsHackRef" true
+ CONST "ZoneType" 'Any'
+ CONST "author" 'Люлин А.В.'
+ CONST "finished" false
+ CONST "finished dfm" true
+ CONST "resizeable" false
+ CONST "restrict form def" 'undefined'
+ CONST "started" '13.09.2010 20:12'
+ CONST intf.pas:Path 'common\components\gui\Garant\VCM\View\TasksPanel\Forms\NOT_FINISHED_CustomizeTasksPanel_Form.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\View\TasksPanel\Forms'
+ CONST extprop:pas:TypeName 'TCustomizeTasksPanelForm'
+ CONST extprop:rc:SelfName 'CustomizeTasksPanelForm'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'CustomizeTasksPanel_Form'
+
+ref; // ME_4C8E4D4F027D CustomizeTasksPanel

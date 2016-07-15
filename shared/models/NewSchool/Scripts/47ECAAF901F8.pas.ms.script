@@ -13,7 +13,7 @@ FORWARD ME_48FF6D050234
  %SUMMARY 'данные дерева были обновлены. Реакция на обновление данных'#13#10'            приложения' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_48FF6D050234 // InsTreeDataListener
+ : Parent HWL ME_48FF6D050234 // InsTreeDataListener
  ;
 
 ref; // ME_48FF6D200201 Updated
@@ -28,14 +28,14 @@ ref; // ME_48FF6D200201 Updated
  %SUMMARY 'Слушатель событий данных дерева' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47ECAAF901F8 // bsInterfaces
+ : Parent HWL ME_47ECAAF901F8 // bsInterfaces
  ;
  : Inherits
    Seq: ( WL 'ME_4680CF330338' '4677FBA70343.pas.ms.script' // Il3Notify
  )
  ; // Inherits
  : Operations
-   Seq: ( ME_48FF6D200201 // Updated
+   Seq: ( HWL ME_48FF6D200201 // Updated
  )
  ; // Operations
  CONST extprop:rc:SelfName 'TreeDataListener'
@@ -52,7 +52,7 @@ FORWARD ME_48FEE95F0124
  %SUMMARY 'данные приняты объектом' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_48FEE95F0124 // InsDropListener
+ : Parent HWL ME_48FEE95F0124 // InsDropListener
  ;
 
 ref; // ME_48FEE96D03AD DataDropped
@@ -67,14 +67,14 @@ ref; // ME_48FEE96D03AD DataDropped
  %SUMMARY 'Слушатель события приёма данных объекта' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47ECAAF901F8 // bsInterfaces
+ : Parent HWL ME_47ECAAF901F8 // bsInterfaces
  ;
  : Inherits
    Seq: ( WL 'ME_4680CF330338' '4677FBA70343.pas.ms.script' // Il3Notify
  )
  ; // Inherits
  : Operations
-   Seq: ( ME_48FEE96D03AD // DataDropped
+   Seq: ( HWL ME_48FEE96D03AD // DataDropped
  )
  ; // Operations
  CONST extprop:rc:SelfName 'DropListener'
@@ -99,7 +99,7 @@ ref; // ME_48FF424B018F aFilters
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4806F15703CF // InsInternalFilterableTree
+ : Parent HWL ME_4806F15703CF // InsInternalFilterableTree
  ;
  : Parameters
    Seq: ( ME_48FF424B018F // aFilters
@@ -118,10 +118,10 @@ ref; // ME_48FF42490203 SetFilters
  %SUMMARY 'Фильтруемое дерево.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47ECAAF901F8 // bsInterfaces
+ : Parent HWL ME_47ECAAF901F8 // bsInterfaces
  ;
  : Operations
-   Seq: ( ME_48FF42490203 // SetFilters
+   Seq: ( HWL ME_48FF42490203 // SetFilters
  )
  ; // Operations
  CONST extprop:rc:SelfName 'InternalFilterableTree'
@@ -139,7 +139,7 @@ FORWARD ME_4901E64C0042
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4901E64C0042 // InsUserFlagsFilter
+ : Parent HWL ME_4901E64C0042 // InsUserFlagsFilter
  ;
  : Target WL 'ME_47BC524C0245' '4AB0C3C60310.pas.ms.script' // LongWord
  ;
@@ -156,10 +156,10 @@ ref; // ME_4901E65C0092 UserFlag
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47ECAAF901F8 // bsInterfaces
+ : Parent HWL ME_47ECAAF901F8 // bsInterfaces
  ;
  : Attributes
-   Seq: ( ME_4901E65C0092 // UserFlag
+   Seq: ( HWL ME_4901E65C0092 // UserFlag
  )
  ; // Attributes
  CONST extprop:rc:SelfName 'UserFlagsFilter'
@@ -178,7 +178,7 @@ FORWARD ME_49F015CA0381
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_49F015CA0381 // InsGroupFilter
+ : Parent HWL ME_49F015CA0381 // InsGroupFilter
  ;
  : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
  ;
@@ -196,10 +196,10 @@ ref; // ME_49F015F003D0 GroupUID
  %SUMMARY 'Фильтр на группу пользователей' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47ECAAF901F8 // bsInterfaces
+ : Parent HWL ME_47ECAAF901F8 // bsInterfaces
  ;
  : Attributes
-   Seq: ( ME_49F015F003D0 // GroupUID
+   Seq: ( HWL ME_49F015F003D0 // GroupUID
  )
  ; // Attributes
  CONST extprop:rc:SelfName 'GroupFilter'
@@ -217,7 +217,7 @@ FORWARD ME_4901EE8402B6
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4901EE8402B6 // InsCountryFilter
+ : Parent HWL ME_4901EE8402B6 // InsCountryFilter
  ;
  : Target WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
  ;
@@ -234,10 +234,10 @@ ref; // ME_4901EE910334 Country
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47ECAAF901F8 // bsInterfaces
+ : Parent HWL ME_47ECAAF901F8 // bsInterfaces
  ;
  : Attributes
-   Seq: ( ME_4901EE910334 // Country
+   Seq: ( HWL ME_4901EE910334 // Country
  )
  ; // Attributes
  CONST extprop:rc:SelfName 'CountryFilter'
@@ -255,9 +255,9 @@ FORWARD ME_4901EE9D02E5
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4901EE9D02E5 // InsMedicFirmListFilters
+ : Parent HWL ME_4901EE9D02E5 // InsMedicFirmListFilters
  ;
- : Target ME_4901EE8402B6 // InsCountryFilter
+ : Target HWL ME_4901EE8402B6 // InsCountryFilter
  ;
  CONST "pm" true
 
@@ -267,7 +267,7 @@ ref; // ME_4901EEAD0242 Country
  CONST Name 'aFilter'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_4901EE8402B6 // InsCountryFilter
+ : Target HWL ME_4901EE8402B6 // InsCountryFilter
  ;
 
 ref; // ME_4901EED800E3 aFilter
@@ -278,9 +278,9 @@ ref; // ME_4901EED800E3 aFilter
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4901EE9D02E5 // InsMedicFirmListFilters
+ : Parent HWL ME_4901EE9D02E5 // InsMedicFirmListFilters
  ;
- : Target ME_4901EE9D02E5 // InsMedicFirmListFilters
+ : Target HWL ME_4901EE9D02E5 // InsMedicFirmListFilters
  ;
  : Parameters
    Seq: ( ME_4901EED800E3 // aFilter
@@ -317,18 +317,18 @@ ref; // ME_47724B9402ED_ME_4901EE9D02E5 Context
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47ECAAF901F8 // bsInterfaces
+ : Parent HWL ME_47ECAAF901F8 // bsInterfaces
  ;
  : Inherits
    Seq: ( WL 'ME_47724B6500F6' '4682595B0268.pas.ms.script' // Il3TreeFilters
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_4901EEAD0242 // Country
+   Seq: ( HWL ME_4901EEAD0242 // Country
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_4901EED201C4 // SetCountry
+   Seq: ( HWL ME_4901EED201C4 // SetCountry
  )
  ; // Operations
  : Implemented
@@ -352,7 +352,7 @@ FORWARD ME_4902013F03CC
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4902013F03CC // InsAttributeTreeFilters
+ : Parent HWL ME_4902013F03CC // InsAttributeTreeFilters
  ;
  : Target WL 'ME_490200F300DD' '47F2170002B2.pas.ms.script' // TnsFilterType
  ;
@@ -375,9 +375,9 @@ ref; // ME_4902019F02E3 aType
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4902013F03CC // InsAttributeTreeFilters
+ : Parent HWL ME_4902013F03CC // InsAttributeTreeFilters
  ;
- : Target ME_4902013F03CC // InsAttributeTreeFilters
+ : Target HWL ME_4902013F03CC // InsAttributeTreeFilters
  ;
  : Parameters
    Seq: ( ME_4902019F02E3 // aType
@@ -414,18 +414,18 @@ ref; // ME_47724B9402ED_ME_4902013F03CC Context
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47ECAAF901F8 // bsInterfaces
+ : Parent HWL ME_47ECAAF901F8 // bsInterfaces
  ;
  : Inherits
    Seq: ( WL 'ME_47724B6500F6' '4682595B0268.pas.ms.script' // Il3TreeFilters
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_490201580363 // FilterType
+   Seq: ( HWL ME_490201580363 // FilterType
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_4902019901A1 // SetFilterType
+   Seq: ( HWL ME_4902019901A1 // SetFilterType
  )
  ; // Operations
  : Implemented
@@ -449,7 +449,7 @@ FORWARD ME_4902077602BA
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4902077602BA // InsLayerFilter
+ : Parent HWL ME_4902077602BA // InsLayerFilter
  ;
  : Target WL 'ME_45EEC7EA01C5' '457450470167.pas.ms.script' // LayerId
  ;
@@ -466,10 +466,10 @@ ref; // ME_4902077E028F LayerID
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47ECAAF901F8 // bsInterfaces
+ : Parent HWL ME_47ECAAF901F8 // bsInterfaces
  ;
  : Attributes
-   Seq: ( ME_4902077E028F // LayerID
+   Seq: ( HWL ME_4902077E028F // LayerID
  )
  ; // Attributes
  CONST extprop:rc:SelfName 'LayerFilter'
@@ -487,9 +487,9 @@ FORWARD ME_490207910151
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_490207910151 // InsLayeredTreeFilters
+ : Parent HWL ME_490207910151 // InsLayeredTreeFilters
  ;
- : Target ME_4902077602BA // InsLayerFilter
+ : Target HWL ME_4902077602BA // InsLayerFilter
  ;
  CONST "pm" true
 
@@ -499,7 +499,7 @@ ref; // ME_4902079D02D4 Layer
  CONST Name 'aFilter'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_4902077602BA // InsLayerFilter
+ : Target HWL ME_4902077602BA // InsLayerFilter
  ;
 
 ref; // ME_490207AF030F aFilter
@@ -510,9 +510,9 @@ ref; // ME_490207AF030F aFilter
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_490207910151 // InsLayeredTreeFilters
+ : Parent HWL ME_490207910151 // InsLayeredTreeFilters
  ;
- : Target ME_490207910151 // InsLayeredTreeFilters
+ : Target HWL ME_490207910151 // InsLayeredTreeFilters
  ;
  : Parameters
    Seq: ( ME_490207AF030F // aFilter
@@ -549,18 +549,18 @@ ref; // ME_47724B9402ED_ME_490207910151 Context
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47ECAAF901F8 // bsInterfaces
+ : Parent HWL ME_47ECAAF901F8 // bsInterfaces
  ;
  : Inherits
    Seq: ( WL 'ME_47724B6500F6' '4682595B0268.pas.ms.script' // Il3TreeFilters
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_4902079D02D4 // Layer
+   Seq: ( HWL ME_4902079D02D4 // Layer
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_490207AB002D // SetLayer
+   Seq: ( HWL ME_490207AB002D // SetLayer
  )
  ; // Operations
  : Implemented
@@ -584,7 +584,7 @@ FORWARD ME_48FF5116013C
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_48FF5116013C // InsAdapterFilters
+ : Parent HWL ME_48FF5116013C // InsAdapterFilters
  ;
  : Target WL 'ME_45EEBB5002CE' '457450470167.pas.ms.script' // ContextFilter
  ;
@@ -600,7 +600,7 @@ ref; // ME_490596110042 Context
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_48FF5116013C // InsAdapterFilters
+ : Parent HWL ME_48FF5116013C // InsAdapterFilters
  ;
  : Target WL 'ME_45EED57B01AA' '45EEAA96039C.pas.ms.script' // UserFilter
  ;
@@ -616,7 +616,7 @@ ref; // ME_49059620001F UserFlags
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_48FF5116013C // InsAdapterFilters
+ : Parent HWL ME_48FF5116013C // InsAdapterFilters
  ;
  : Target WL 'ME_45EEC54700D2' '457450470167.pas.ms.script' // LayerFilter
  ;
@@ -632,7 +632,7 @@ ref; // ME_4905962D0036 Layer
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_48FF5116013C // InsAdapterFilters
+ : Parent HWL ME_48FF5116013C // InsAdapterFilters
  ;
  : Target WL 'ME_45EEC54700CE' '457450470167.pas.ms.script' // TrimFilter
  ;
@@ -648,7 +648,7 @@ ref; // ME_490596400201 Trim
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_48FF5116013C // InsAdapterFilters
+ : Parent HWL ME_48FF5116013C // InsAdapterFilters
  ;
  : Target WL 'ME_47A1A4FB0255' '457450470167.pas.ms.script' // TrimLeafFilter
  ;
@@ -664,7 +664,7 @@ ref; // ME_4905964F0196 TrimLeaf
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_48FF5116013C // InsAdapterFilters
+ : Parent HWL ME_48FF5116013C // InsAdapterFilters
  ;
  : Target WL 'ME_47F7244B0303' '457450470167.pas.ms.script' // CountryFilter
  ;
@@ -680,7 +680,7 @@ ref; // ME_4905965B03A2 Country
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_48FF5116013C // InsAdapterFilters
+ : Parent HWL ME_48FF5116013C // InsAdapterFilters
  ;
  : Target WL 'ME_483547CA00B2' '457450470167.pas.ms.script' // CutToLeafCountFilter
  ;
@@ -696,7 +696,7 @@ ref; // ME_49059668030F CutToLeaf
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_48FF5116013C // InsAdapterFilters
+ : Parent HWL ME_48FF5116013C // InsAdapterFilters
  ;
  : Target WL 'ME_487C670700D5' '457450470167.pas.ms.script' // BlocksFilter
  ;
@@ -712,7 +712,7 @@ ref; // ME_4905967D0333 Blocks
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_48FF5116013C // InsAdapterFilters
+ : Parent HWL ME_48FF5116013C // InsAdapterFilters
  ;
  : Target WL 'ME_4A8BACAC0281' '457450470167.pas.ms.script' // InpharmFilter
  ;
@@ -728,7 +728,7 @@ ref; // ME_4A8BE475022C Inpharm
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_48FF5116013C // InsAdapterFilters
+ : Parent HWL ME_48FF5116013C // InsAdapterFilters
  ;
  : Target WL 'ME_4AA0FE420344' '457450470167.pas.ms.script' // VariantsForDocFilter
  ;
@@ -742,7 +742,7 @@ ref; // ME_4AA4D48B0234 PromptsTreeFilter
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_48FF5116013C // InsAdapterFilters
+ : Parent HWL ME_48FF5116013C // InsAdapterFilters
  ;
  : Target WL 'ME_45EEBD050271' '457450470167.pas.ms.script' // FilterList
  ;
@@ -755,7 +755,7 @@ ref; // ME_490595C30161 MakeFilterList
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_48FF5116013C // InsAdapterFilters
+ : Parent HWL ME_48FF5116013C // InsAdapterFilters
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -768,7 +768,7 @@ ref; // ME_490595D402BD FiltersCount
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_48FF5116013C // InsAdapterFilters
+ : Parent HWL ME_48FF5116013C // InsAdapterFilters
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -781,7 +781,7 @@ ref; // ME_490595E10299 HasPrefilters
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_48FF5116013C // InsAdapterFilters
+ : Parent HWL ME_48FF5116013C // InsAdapterFilters
  ;
  : Target WL 'ME_45EEBD050271' '457450470167.pas.ms.script' // FilterList
  ;
@@ -794,7 +794,7 @@ ref; // ME_490595EE0289 MakePrefilterList
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_48FF5116013C // InsAdapterFilters
+ : Parent HWL ME_48FF5116013C // InsAdapterFilters
  ;
 
 ref; // ME_490595F90107 MakeTrimLeafFilter
@@ -805,7 +805,7 @@ ref; // ME_490595F90107 MakeTrimLeafFilter
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_48FF5116013C // InsAdapterFilters
+ : Parent HWL ME_48FF5116013C // InsAdapterFilters
  ;
 
 ref; // ME_4905960301EF MakeBlocksFilter
@@ -816,7 +816,7 @@ ref; // ME_4905960301EF MakeBlocksFilter
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_48FF5116013C // InsAdapterFilters
+ : Parent HWL ME_48FF5116013C // InsAdapterFilters
  ;
 
 ref; // ME_4A8BE4990157 MakeInpharmFilter
@@ -836,7 +836,7 @@ ref; // ME_4AA4DC9E0198 aDocID
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_48FF5116013C // InsAdapterFilters
+ : Parent HWL ME_48FF5116013C // InsAdapterFilters
  ;
  : Target WL 'ME_4AA0FE420344' '457450470167.pas.ms.script' // VariantsForDocFilter
  ;
@@ -856,30 +856,30 @@ ref; // ME_4AA4D4B0013D MakePromptsTreeFilter
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47ECAAF901F8 // bsInterfaces
+ : Parent HWL ME_47ECAAF901F8 // bsInterfaces
  ;
  : Attributes
-   Seq: ( ME_490596110042 // Context
- ME_49059620001F // UserFlags
- ME_4905962D0036 // Layer
- ME_490596400201 // Trim
- ME_4905964F0196 // TrimLeaf
- ME_4905965B03A2 // Country
- ME_49059668030F // CutToLeaf
- ME_4905967D0333 // Blocks
- ME_4A8BE475022C // Inpharm
- ME_4AA4D48B0234 // PromptsTreeFilter
+   Seq: ( HWL ME_490596110042 // Context
+ HWL ME_49059620001F // UserFlags
+ HWL ME_4905962D0036 // Layer
+ HWL ME_490596400201 // Trim
+ HWL ME_4905964F0196 // TrimLeaf
+ HWL ME_4905965B03A2 // Country
+ HWL ME_49059668030F // CutToLeaf
+ HWL ME_4905967D0333 // Blocks
+ HWL ME_4A8BE475022C // Inpharm
+ HWL ME_4AA4D48B0234 // PromptsTreeFilter
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_490595C30161 // MakeFilterList
- ME_490595D402BD // FiltersCount
- ME_490595E10299 // HasPrefilters
- ME_490595EE0289 // MakePrefilterList
- ME_490595F90107 // MakeTrimLeafFilter
- ME_4905960301EF // MakeBlocksFilter
- ME_4A8BE4990157 // MakeInpharmFilter
- ME_4AA4D4B0013D // MakePromptsTreeFilter
+   Seq: ( HWL ME_490595C30161 // MakeFilterList
+ HWL ME_490595D402BD // FiltersCount
+ HWL ME_490595E10299 // HasPrefilters
+ HWL ME_490595EE0289 // MakePrefilterList
+ HWL ME_490595F90107 // MakeTrimLeafFilter
+ HWL ME_4905960301EF // MakeBlocksFilter
+ HWL ME_4A8BE4990157 // MakeInpharmFilter
+ HWL ME_4AA4D4B0013D // MakePromptsTreeFilter
  )
  ; // Operations
  CONST extprop:rc:SelfName 'AdapterFilters'
@@ -895,7 +895,7 @@ FORWARD ME_49071AE3035B
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_49071AE3035B // InsMedicFirmsTreeNotifyRecipient
+ : Parent HWL ME_49071AE3035B // InsMedicFirmsTreeNotifyRecipient
  ;
 
 ref; // ME_49071AF00132 CountryFilterResetted
@@ -910,10 +910,10 @@ ref; // ME_49071AF00132 CountryFilterResetted
  %SUMMARY 'Подписчик на нотификацию об изменении дерева фильтров' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47ECAAF901F8 // bsInterfaces
+ : Parent HWL ME_47ECAAF901F8 // bsInterfaces
  ;
  : Operations
-   Seq: ( ME_49071AF00132 // CountryFilterResetted
+   Seq: ( HWL ME_49071AF00132 // CountryFilterResetted
  )
  ; // Operations
  CONST extprop:rc:SelfName 'MedicFirmsTreeNotifyRecipient'
@@ -927,7 +927,7 @@ FORWARD ME_49071AFF0024
  CONST Name 'aSubscriber'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_49071AE3035B // InsMedicFirmsTreeNotifyRecipient
+ : Target HWL ME_49071AE3035B // InsMedicFirmsTreeNotifyRecipient
  ;
 
 ref; // ME_49071B140010 aSubscriber
@@ -938,7 +938,7 @@ ref; // ME_49071B140010 aSubscriber
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_49071AFF0024 // InsMedicFirmsTreeNotificationSource
+ : Parent HWL ME_49071AFF0024 // InsMedicFirmsTreeNotificationSource
  ;
  : Parameters
    Seq: ( ME_49071B140010 // aSubscriber
@@ -951,7 +951,7 @@ ref; // ME_49071B0F0100 Subscribe
  CONST Name 'aSubscriber'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_49071AE3035B // InsMedicFirmsTreeNotifyRecipient
+ : Target HWL ME_49071AE3035B // InsMedicFirmsTreeNotifyRecipient
  ;
 
 ref; // ME_49071B22000C aSubscriber
@@ -962,7 +962,7 @@ ref; // ME_49071B22000C aSubscriber
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_49071AFF0024 // InsMedicFirmsTreeNotificationSource
+ : Parent HWL ME_49071AFF0024 // InsMedicFirmsTreeNotificationSource
  ;
  : Parameters
    Seq: ( ME_49071B22000C // aSubscriber
@@ -980,11 +980,11 @@ ref; // ME_49071B1D0098 Unsubscribe
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47ECAAF901F8 // bsInterfaces
+ : Parent HWL ME_47ECAAF901F8 // bsInterfaces
  ;
  : Operations
-   Seq: ( ME_49071B0F0100 // Subscribe
- ME_49071B1D0098 // Unsubscribe
+   Seq: ( HWL ME_49071B0F0100 // Subscribe
+ HWL ME_49071B1D0098 // Unsubscribe
  )
  ; // Operations
  CONST extprop:rc:SelfName 'MedicFirmsTreeNotificationSource'
@@ -1000,7 +1000,7 @@ FORWARD ME_490896CE00FD
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_490896CE00FD // InsContextFilterParamsInfo
+ : Parent HWL ME_490896CE00FD // InsContextFilterParamsInfo
  ;
  : Target WL 'ME_473D9E950032' '467823B7002C.pas.ms.script' // TafwSettingId
  ;
@@ -1013,7 +1013,7 @@ ref; // ME_490896DA03E4 BaseSettingID
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_490896CE00FD // InsContextFilterParamsInfo
+ : Parent HWL ME_490896CE00FD // InsContextFilterParamsInfo
  ;
  : Target WL 'ME_473D9E950032' '467823B7002C.pas.ms.script' // TafwSettingId
  ;
@@ -1026,7 +1026,7 @@ ref; // ME_490896E600DC WordPositionSettingID
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_490896CE00FD // InsContextFilterParamsInfo
+ : Parent HWL ME_490896CE00FD // InsContextFilterParamsInfo
  ;
  : Target WL 'ME_473D9E950032' '467823B7002C.pas.ms.script' // TafwSettingId
  ;
@@ -1039,7 +1039,7 @@ ref; // ME_490896F300D8 WordOrderSettingID
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_490896CE00FD // InsContextFilterParamsInfo
+ : Parent HWL ME_490896CE00FD // InsContextFilterParamsInfo
  ;
  : Target WL 'ME_473D9E950032' '467823B7002C.pas.ms.script' // TafwSettingId
  ;
@@ -1055,13 +1055,13 @@ ref; // ME_49089705028B TreeLevelDistSettingID
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47ECAAF901F8 // bsInterfaces
+ : Parent HWL ME_47ECAAF901F8 // bsInterfaces
  ;
  : Operations
-   Seq: ( ME_490896DA03E4 // BaseSettingID
- ME_490896E600DC // WordPositionSettingID
- ME_490896F300D8 // WordOrderSettingID
- ME_49089705028B // TreeLevelDistSettingID
+   Seq: ( HWL ME_490896DA03E4 // BaseSettingID
+ HWL ME_490896E600DC // WordPositionSettingID
+ HWL ME_490896F300D8 // WordOrderSettingID
+ HWL ME_49089705028B // TreeLevelDistSettingID
  )
  ; // Operations
  CONST extprop:rc:SelfName 'ContextFilterParamsInfo'
@@ -1079,7 +1079,7 @@ FORWARD ME_4909E0980010
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4909E0980010 // InsRootInfo
+ : Parent HWL ME_4909E0980010 // InsRootInfo
  ;
  : Target WL 'ME_45EEB95901C5' '457450470167.pas.ms.script' // NodeBase
  ;
@@ -1097,10 +1097,10 @@ ref; // ME_4909E0C00304 Root
  %SUMMARY 'Коллеги, это что?' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47ECAAF901F8 // bsInterfaces
+ : Parent HWL ME_47ECAAF901F8 // bsInterfaces
  ;
  : Attributes
-   Seq: ( ME_4909E0C00304 // Root
+   Seq: ( HWL ME_4909E0C00304 // Root
  )
  ; // Attributes
  CONST extprop:rc:SelfName 'RootInfo'
@@ -1117,7 +1117,7 @@ FORWARD ME_491443D20347
  %SUMMARY 'вызывается после изменения\восстановления настроек' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_491443D20347 // InsUserSettingsListener
+ : Parent HWL ME_491443D20347 // InsUserSettingsListener
  ;
 
 ref; // ME_491443FE01BE Changed
@@ -1132,10 +1132,10 @@ ref; // ME_491443FE01BE Changed
  %SUMMARY 'Слушатель событий пользовательских настроек' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47ECAAF901F8 // bsInterfaces
+ : Parent HWL ME_47ECAAF901F8 // bsInterfaces
  ;
  : Operations
-   Seq: ( ME_491443FE01BE // Changed
+   Seq: ( HWL ME_491443FE01BE // Changed
  )
  ; // Operations
  CONST extprop:rc:SelfName 'UserSettingsListener'
@@ -1152,7 +1152,7 @@ FORWARD ME_49144428028D
  %SUMMARY 'вызывается перед началом редактирования конфигурации' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_49144428028D // InsUserSettingsEditListener
+ : Parent HWL ME_49144428028D // InsUserSettingsEditListener
  ;
 
 ref; // ME_4914443E0326 StartEdit
@@ -1167,10 +1167,10 @@ ref; // ME_4914443E0326 StartEdit
  %SUMMARY 'Слушатель событий редактирования конфигураций' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47ECAAF901F8 // bsInterfaces
+ : Parent HWL ME_47ECAAF901F8 // bsInterfaces
  ;
  : Operations
-   Seq: ( ME_4914443E0326 // StartEdit
+   Seq: ( HWL ME_4914443E0326 // StartEdit
  )
  ; // Operations
  CONST extprop:rc:SelfName 'UserSettingsEditListener'
@@ -1184,7 +1184,7 @@ FORWARD ME_4914445E0259
  CONST Name 'aListener'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_49144428028D // InsUserSettingsEditListener
+ : Target HWL ME_49144428028D // InsUserSettingsEditListener
  ;
 
 ref; // ME_4914447200F4 aListener
@@ -1195,7 +1195,7 @@ ref; // ME_4914447200F4 aListener
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4914445E0259 // InsSettingsNotify
+ : Parent HWL ME_4914445E0259 // InsSettingsNotify
  ;
  : Parameters
    Seq: ( ME_4914447200F4 // aListener
@@ -1208,7 +1208,7 @@ ref; // ME_4914446E0280 AddListener
  CONST Name 'aListener'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_49144428028D // InsUserSettingsEditListener
+ : Target HWL ME_49144428028D // InsUserSettingsEditListener
  ;
 
 ref; // ME_4914447F031C aListener
@@ -1219,7 +1219,7 @@ ref; // ME_4914447F031C aListener
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4914445E0259 // InsSettingsNotify
+ : Parent HWL ME_4914445E0259 // InsSettingsNotify
  ;
  : Parameters
    Seq: ( ME_4914447F031C // aListener
@@ -1232,7 +1232,7 @@ ref; // ME_4914447B01C4 RemoveListener
  CONST Name 'aListener'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_491443D20347 // InsUserSettingsListener
+ : Target HWL ME_491443D20347 // InsUserSettingsListener
  ;
 
 ref; // ME_4914448B01AE aListener
@@ -1243,7 +1243,7 @@ ref; // ME_4914448B01AE aListener
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4914445E0259 // InsSettingsNotify
+ : Parent HWL ME_4914445E0259 // InsSettingsNotify
  ;
  : Parameters
    Seq: ( ME_4914448B01AE // aListener
@@ -1256,7 +1256,7 @@ ref; // ME_491444880189 AddListener
  CONST Name 'aListener'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_491443D20347 // InsUserSettingsListener
+ : Target HWL ME_491443D20347 // InsUserSettingsListener
  ;
 
 ref; // ME_49144496003C aListener
@@ -1267,7 +1267,7 @@ ref; // ME_49144496003C aListener
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4914445E0259 // InsSettingsNotify
+ : Parent HWL ME_4914445E0259 // InsSettingsNotify
  ;
  : Parameters
    Seq: ( ME_49144496003C // aListener
@@ -1286,13 +1286,13 @@ ref; // ME_4914449202EA RemoveListener
  %SUMMARY 'Уведомляет о событиях настроек проекта' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47ECAAF901F8 // bsInterfaces
+ : Parent HWL ME_47ECAAF901F8 // bsInterfaces
  ;
  : Operations
-   Seq: ( ME_4914446E0280 // AddListener
- ME_4914447B01C4 // RemoveListener
- ME_491444880189 // AddListener
- ME_4914449202EA // RemoveListener
+   Seq: ( HWL ME_4914446E0280 // AddListener
+ HWL ME_4914447B01C4 // RemoveListener
+ HWL ME_491444880189 // AddListener
+ HWL ME_4914449202EA // RemoveListener
  )
  ; // Operations
  CONST extprop:rc:SelfName 'SettingsNotify'
@@ -1310,9 +1310,9 @@ FORWARD ME_491444C201EB
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_491444C201EB // InsSettings
+ : Parent HWL ME_491444C201EB // InsSettings
  ;
- : Target ME_4914445E0259 // InsSettingsNotify
+ : Target HWL ME_4914445E0259 // InsSettingsNotify
  ;
  CONST "pm" true
 
@@ -1326,7 +1326,7 @@ ref; // ME_4914451B03BB SettingsNotify
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_491444C201EB // InsSettings
+ : Parent HWL ME_491444C201EB // InsSettings
  ;
  : Target WL 'ME_45EEDBE30119' '45EEAA69036E.pas.ms.script' // SettingsManager
  ;
@@ -1341,7 +1341,7 @@ ref; // ME_49144567028A Data
  %SUMMARY 'вызывается перед началом редактирования' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_491444C201EB // InsSettings
+ : Parent HWL ME_491444C201EB // InsSettings
  ;
 
 ref; // ME_491444D00360 StartEdit
@@ -1353,7 +1353,7 @@ ref; // ME_491444D00360 StartEdit
  %SUMMARY 'при изменении\восстановлении пользовательских настроек' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_491444C201EB // InsSettings
+ : Parent HWL ME_491444C201EB // InsSettings
  ;
 
 ref; // ME_491444E70109 UserSettingsChanged
@@ -1365,7 +1365,7 @@ ref; // ME_491444E70109 UserSettingsChanged
  %SUMMARY 'вызывается перед переключением конфигурации' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_491444C201EB // InsSettings
+ : Parent HWL ME_491444C201EB // InsSettings
  ;
 
 ref; // ME_491444FB0228 StartReplace
@@ -1377,7 +1377,7 @@ ref; // ME_491444FB0228 StartReplace
  %SUMMARY 'вызывается по окончании переключения конфигурации' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_491444C201EB // InsSettings
+ : Parent HWL ME_491444C201EB // InsSettings
  ;
 
 ref; // ME_4914450A01D2 FinishReplace
@@ -1392,18 +1392,18 @@ ref; // ME_4914450A01D2 FinishReplace
  %SUMMARY 'Интерфейс замены настроек' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47ECAAF901F8 // bsInterfaces
+ : Parent HWL ME_47ECAAF901F8 // bsInterfaces
  ;
  : Attributes
-   Seq: ( ME_4914451B03BB // SettingsNotify
- ME_49144567028A // Data
+   Seq: ( HWL ME_4914451B03BB // SettingsNotify
+ HWL ME_49144567028A // Data
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_491444D00360 // StartEdit
- ME_491444E70109 // UserSettingsChanged
- ME_491444FB0228 // StartReplace
- ME_4914450A01D2 // FinishReplace
+   Seq: ( HWL ME_491444D00360 // StartEdit
+ HWL ME_491444E70109 // UserSettingsChanged
+ HWL ME_491444FB0228 // StartReplace
+ HWL ME_4914450A01D2 // FinishReplace
  )
  ; // Operations
  CONST extprop:rc:SelfName 'Settings'
@@ -1419,7 +1419,7 @@ FORWARD ME_49144EC703BE
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_49144EC703BE // InsConfigNotifyRecipient
+ : Parent HWL ME_49144EC703BE // InsConfigNotifyRecipient
  ;
 
 ref; // ME_49144F060160 InfoChanged
@@ -1434,10 +1434,10 @@ ref; // ME_49144F060160 InfoChanged
  %SUMMARY 'Подписчик на нотификацию об изменении имени/хинта конфигурации' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47ECAAF901F8 // bsInterfaces
+ : Parent HWL ME_47ECAAF901F8 // bsInterfaces
  ;
  : Operations
-   Seq: ( ME_49144F060160 // InfoChanged
+   Seq: ( HWL ME_49144F060160 // InfoChanged
  )
  ; // Operations
  CONST extprop:rc:SelfName 'ConfigNotifyRecipient'
@@ -1451,7 +1451,7 @@ FORWARD ME_49144F1E018C
  CONST Name 'aSubscriber'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_49144EC703BE // InsConfigNotifyRecipient
+ : Target HWL ME_49144EC703BE // InsConfigNotifyRecipient
  ;
 
 ref; // ME_49144F2C00E9 aSubscriber
@@ -1462,7 +1462,7 @@ ref; // ME_49144F2C00E9 aSubscriber
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_49144F1E018C // InsConfigNotificationSource
+ : Parent HWL ME_49144F1E018C // InsConfigNotificationSource
  ;
  : Parameters
    Seq: ( ME_49144F2C00E9 // aSubscriber
@@ -1475,7 +1475,7 @@ ref; // ME_49144F29019A Subscribe
  CONST Name 'aSubscriber'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_49144EC703BE // InsConfigNotifyRecipient
+ : Target HWL ME_49144EC703BE // InsConfigNotifyRecipient
  ;
 
 ref; // ME_49144F3602A3 aSubscriber
@@ -1486,7 +1486,7 @@ ref; // ME_49144F3602A3 aSubscriber
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_49144F1E018C // InsConfigNotificationSource
+ : Parent HWL ME_49144F1E018C // InsConfigNotificationSource
  ;
  : Parameters
    Seq: ( ME_49144F3602A3 // aSubscriber
@@ -1504,11 +1504,11 @@ ref; // ME_49144F360036 Unsubscribe
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47ECAAF901F8 // bsInterfaces
+ : Parent HWL ME_47ECAAF901F8 // bsInterfaces
  ;
  : Operations
-   Seq: ( ME_49144F29019A // Subscribe
- ME_49144F360036 // Unsubscribe
+   Seq: ( HWL ME_49144F29019A // Subscribe
+ HWL ME_49144F360036 // Unsubscribe
  )
  ; // Operations
  CONST extprop:rc:SelfName 'ConfigNotificationSource'
@@ -1525,7 +1525,7 @@ FORWARD ME_4926A3780038
  %SUMMARY 'изменилось дерево' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4926A3780038 // InsCRSimpleListTypeRootNodeListener
+ : Parent HWL ME_4926A3780038 // InsCRSimpleListTypeRootNodeListener
  ;
 
 ref; // ME_4926A3930339 Updated
@@ -1540,14 +1540,14 @@ ref; // ME_4926A3930339 Updated
  %SUMMARY 'Слушатель событий дерева типов КР' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47ECAAF901F8 // bsInterfaces
+ : Parent HWL ME_47ECAAF901F8 // bsInterfaces
  ;
  : Inherits
    Seq: ( WL 'ME_4680CF330338' '4677FBA70343.pas.ms.script' // Il3Notify
  )
  ; // Inherits
  : Operations
-   Seq: ( ME_4926A3930339 // Updated
+   Seq: ( HWL ME_4926A3930339 // Updated
  )
  ; // Operations
  CONST extprop:rc:SelfName 'CRSimpleListTypeRootNodeListener'
@@ -1566,7 +1566,7 @@ FORWARD ME_4937D05003A2
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4937D05003A2 // IbsFrozenNode
+ : Parent HWL ME_4937D05003A2 // IbsFrozenNode
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -1583,7 +1583,7 @@ ref; // ME_4937D4A90300 HasNode
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4937D05003A2 // IbsFrozenNode
+ : Parent HWL ME_4937D05003A2 // IbsFrozenNode
  ;
  : Target WL 'ME_45EEB95901C5' '457450470167.pas.ms.script' // NodeBase
  ;
@@ -1600,7 +1600,7 @@ ref; // ME_4937D4EB015E Value
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4937D05003A2 // IbsFrozenNode
+ : Parent HWL ME_4937D05003A2 // IbsFrozenNode
  ;
  : Target WL 'ME_47209E670266' '4678193C009C.pas.ms.script' // Tl3PCharLen
  ;
@@ -1612,7 +1612,7 @@ ref; // ME_4937D52802E2 Caption
  CONST Name 'aValue'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_4937D05003A2 // IbsFrozenNode
+ : Target HWL ME_4937D05003A2 // IbsFrozenNode
  ;
 
 ref; // ME_4937D48D0381 aValue
@@ -1624,7 +1624,7 @@ ref; // ME_4937D48D0381 aValue
  %SUMMARY 'проверяет на равенство' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4937D05003A2 // IbsFrozenNode
+ : Parent HWL ME_4937D05003A2 // IbsFrozenNode
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -1639,7 +1639,7 @@ ref; // ME_4937D4840030 IsSame
  CONST Name 'aValue'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_4937D05003A2 // IbsFrozenNode
+ : Target HWL ME_4937D05003A2 // IbsFrozenNode
  ;
 
 ref; // ME_4937D49E00FD aValue
@@ -1651,7 +1651,7 @@ ref; // ME_4937D49E00FD aValue
  %SUMMARY 'скопировать данные' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4937D05003A2 // IbsFrozenNode
+ : Parent HWL ME_4937D05003A2 // IbsFrozenNode
  ;
  : Parameters
    Seq: ( ME_4937D49E00FD // aValue
@@ -1670,17 +1670,17 @@ ref; // ME_4937D49600EE Assign
  %SUMMARY 'Интерфейс для работы с замороженными узлами' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47ECAAF901F8 // bsInterfaces
+ : Parent HWL ME_47ECAAF901F8 // bsInterfaces
  ;
  : Attributes
-   Seq: ( ME_4937D4A90300 // HasNode
- ME_4937D4EB015E // Value
- ME_4937D52802E2 // Caption
+   Seq: ( HWL ME_4937D4A90300 // HasNode
+ HWL ME_4937D4EB015E // Value
+ HWL ME_4937D52802E2 // Caption
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_4937D4840030 // IsSame
- ME_4937D49600EE // Assign
+   Seq: ( HWL ME_4937D4840030 // IsSame
+ HWL ME_4937D49600EE // Assign
  )
  ; // Operations
  CONST extprop:rc:SelfName 'bsFrozenNode'
@@ -1699,7 +1699,7 @@ FORWARD ME_48F73FF3029C
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_48F73FF3029C // IbsListTreeData
+ : Parent HWL ME_48F73FF3029C // IbsListTreeData
  ;
  : Target WL 'ME_45EEDB730265' '45700BFD0251.pas.ms.script' // DynList
  ;
@@ -1716,7 +1716,7 @@ ref; // ME_48F876A900AF List
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_48F73FF3029C // IbsListTreeData
+ : Parent HWL ME_48F73FF3029C // IbsListTreeData
  ;
  : Target WL 'ME_45EEB95901C5' '457450470167.pas.ms.script' // NodeBase
  ;
@@ -1733,7 +1733,7 @@ ref; // ME_48F876C701BD Root
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_48F73FF3029C // IbsListTreeData
+ : Parent HWL ME_48F73FF3029C // IbsListTreeData
  ;
  : Target WL 'ME_45EECAA0007D' '457450470167.pas.ms.script' // NodesClipboard
  ;
@@ -1750,7 +1750,7 @@ ref; // ME_48F876DA0247 Nodes
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_48F73FF3029C // IbsListTreeData
+ : Parent HWL ME_48F73FF3029C // IbsListTreeData
  ;
  : Target WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
  ;
@@ -1768,17 +1768,17 @@ ref; // ME_48F876F10193 Node
  %SUMMARY 'Данные дерева списка' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47ECAAF901F8 // bsInterfaces
+ : Parent HWL ME_47ECAAF901F8 // bsInterfaces
  ;
  : Inherits
    Seq: ( WL 'ME_47AAFE470329' '4682595B0268.pas.ms.script' // Il3Nodes
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_48F876A900AF // List
- ME_48F876C701BD // Root
- ME_48F876DA0247 // Nodes
- ME_48F876F10193 // Node
+   Seq: ( HWL ME_48F876A900AF // List
+ HWL ME_48F876C701BD // Root
+ HWL ME_48F876DA0247 // Nodes
+ HWL ME_48F876F10193 // Node
  )
  ; // Attributes
  CONST extprop:rc:SelfName 'bsListTreeData'
@@ -1796,7 +1796,7 @@ FORWARD ME_495275E40046
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_495275E40046 // IbsDocumentStreamWrapper
+ : Parent HWL ME_495275E40046 // IbsDocumentStreamWrapper
  ;
  : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
  ;
@@ -1812,7 +1812,7 @@ ref; // ME_495276050302 InternalNumber
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_495275E40046 // IbsDocumentStreamWrapper
+ : Parent HWL ME_495275E40046 // IbsDocumentStreamWrapper
  ;
  : Target WL 'ME_47C699BD0247' '47C5207602D1.pas.ms.script' // InevObjectHolder
  ;
@@ -1829,11 +1829,11 @@ ref; // ME_49527634025F EVDStream
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47ECAAF901F8 // bsInterfaces
+ : Parent HWL ME_47ECAAF901F8 // bsInterfaces
  ;
  : Attributes
-   Seq: ( ME_495276050302 // InternalNumber
- ME_49527634025F // EVDStream
+   Seq: ( HWL ME_495276050302 // InternalNumber
+ HWL ME_49527634025F // EVDStream
  )
  ; // Attributes
  CONST extprop:rc:SelfName 'bsDocumentStreamWrapper'
@@ -1858,9 +1858,9 @@ ref; // ME_495278F9011B aValue
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_495278E6028C // IbsCRSettingsConverter
+ : Parent HWL ME_495278E6028C // IbsCRSettingsConverter
  ;
- : Target ME_4937D05003A2 // IbsFrozenNode
+ : Target HWL ME_4937D05003A2 // IbsFrozenNode
  ;
  : Parameters
    Seq: ( ME_495278F9011B // aValue
@@ -1878,10 +1878,10 @@ ref; // ME_495278F403D3 GetCRNodeByValue
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47ECAAF901F8 // bsInterfaces
+ : Parent HWL ME_47ECAAF901F8 // bsInterfaces
  ;
  : Operations
-   Seq: ( ME_495278F403D3 // GetCRNodeByValue
+   Seq: ( HWL ME_495278F403D3 // GetCRNodeByValue
  )
  ; // Operations
  CONST extprop:rc:SelfName 'bsCRSettingsConverter'
@@ -1900,7 +1900,7 @@ FORWARD ME_49527999013D
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_49527999013D // IbsConsultationManager
+ : Parent HWL ME_49527999013D // IbsConsultationManager
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -1916,7 +1916,7 @@ ref; // ME_49527A2702F4 HasUnread
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_49527999013D // IbsConsultationManager
+ : Parent HWL ME_49527999013D // IbsConsultationManager
  ;
  : Target WL 'ME_550136350165' '47EA07FA02CE.pas.ms.script' // TbsConsultationOperations
  ;
@@ -1931,7 +1931,7 @@ ref; // ME_5501366003A9 CurrentStatus
  %SUMMARY 'изменилось количество не прочтенных' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_49527999013D // IbsConsultationManager
+ : Parent HWL ME_49527999013D // IbsConsultationManager
  ;
 
 ref; // ME_495279E501CB UnreadChanged
@@ -1943,7 +1943,7 @@ ref; // ME_495279E501CB UnreadChanged
  %SUMMARY 'нет доступа к серверу консультаций' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_49527999013D // IbsConsultationManager
+ : Parent HWL ME_49527999013D // IbsConsultationManager
  ;
 
 ref; // ME_495279F20005 NoConnection
@@ -1955,7 +1955,7 @@ ref; // ME_495279F20005 NoConnection
  %SUMMARY 'у пользователя нет доступа к сервису консультаций' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_49527999013D // IbsConsultationManager
+ : Parent HWL ME_49527999013D // IbsConsultationManager
  ;
 
 ref; // ME_495279FD039E NoSubscription
@@ -1966,7 +1966,7 @@ ref; // ME_495279FD039E NoSubscription
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_49527999013D // IbsConsultationManager
+ : Parent HWL ME_49527999013D // IbsConsultationManager
  ;
 
 ref; // ME_49527A1B0162 InternetConnected
@@ -1977,7 +1977,7 @@ ref; // ME_49527A1B0162 InternetConnected
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_49527999013D // IbsConsultationManager
+ : Parent HWL ME_49527999013D // IbsConsultationManager
  ;
 
 ref; // ME_4BCD8E0B00AE InternetDisConnected
@@ -2004,23 +2004,23 @@ ref; // ME_46A44FFE0143_ME_49527999013D Unsubscribe
  %SUMMARY 'Менеджер консультаций' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47ECAAF901F8 // bsInterfaces
+ : Parent HWL ME_47ECAAF901F8 // bsInterfaces
  ;
  : Implements
    Seq: ( WL 'ME_46782E7F0307' '4677FBA70343.pas.ms.script' // Il3ChangeNotifier
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_49527A2702F4 // HasUnread
- ME_5501366003A9 // CurrentStatus
+   Seq: ( HWL ME_49527A2702F4 // HasUnread
+ HWL ME_5501366003A9 // CurrentStatus
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_495279E501CB // UnreadChanged
- ME_495279F20005 // NoConnection
- ME_495279FD039E // NoSubscription
- ME_49527A1B0162 // InternetConnected
- ME_4BCD8E0B00AE // InternetDisConnected
+   Seq: ( HWL ME_495279E501CB // UnreadChanged
+ HWL ME_495279F20005 // NoConnection
+ HWL ME_495279FD039E // NoSubscription
+ HWL ME_49527A1B0162 // InternetConnected
+ HWL ME_4BCD8E0B00AE // InternetDisConnected
  )
  ; // Operations
  : Implemented
@@ -2044,9 +2044,9 @@ FORWARD ME_4901E66D024F
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4901E66D024F // InsUserFlagsFilters
+ : Parent HWL ME_4901E66D024F // InsUserFlagsFilters
  ;
- : Target ME_4901E64C0042 // InsUserFlagsFilter
+ : Target HWL ME_4901E64C0042 // InsUserFlagsFilter
  ;
  CONST "pm" true
 
@@ -2061,9 +2061,9 @@ ref; // ME_4901E691032E UserFlags
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4901E66D024F // InsUserFlagsFilters
+ : Parent HWL ME_4901E66D024F // InsUserFlagsFilters
  ;
- : Target ME_49F015CA0381 // InsGroupFilter
+ : Target HWL ME_49F015CA0381 // InsGroupFilter
  ;
  CONST "pm" true
 
@@ -2077,9 +2077,9 @@ ref; // ME_49F0161A037E Group
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4901E66D024F // InsUserFlagsFilters
+ : Parent HWL ME_4901E66D024F // InsUserFlagsFilters
  ;
- : Target ME_4901E64C0042 // InsUserFlagsFilter
+ : Target HWL ME_4901E64C0042 // InsUserFlagsFilter
  ;
  CONST "pm" true
 
@@ -2089,7 +2089,7 @@ ref; // ME_49F1573C02B4 PermanentUserFlags
  CONST Name 'aFilter'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_4901E64C0042 // InsUserFlagsFilter
+ : Target HWL ME_4901E64C0042 // InsUserFlagsFilter
  ;
 
 ref; // ME_4901E6CA016A aFilter
@@ -2100,9 +2100,9 @@ ref; // ME_4901E6CA016A aFilter
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4901E66D024F // InsUserFlagsFilters
+ : Parent HWL ME_4901E66D024F // InsUserFlagsFilters
  ;
- : Target ME_4901E66D024F // InsUserFlagsFilters
+ : Target HWL ME_4901E66D024F // InsUserFlagsFilters
  ;
  : Parameters
    Seq: ( ME_4901E6CA016A // aFilter
@@ -2115,7 +2115,7 @@ ref; // ME_4901E6C301FD SetUserFlag
  CONST Name 'aFilter'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_49F015CA0381 // InsGroupFilter
+ : Target HWL ME_49F015CA0381 // InsGroupFilter
  ;
 
 ref; // ME_49F019DF014C aFilter
@@ -2126,9 +2126,9 @@ ref; // ME_49F019DF014C aFilter
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4901E66D024F // InsUserFlagsFilters
+ : Parent HWL ME_4901E66D024F // InsUserFlagsFilters
  ;
- : Target ME_4901E66D024F // InsUserFlagsFilters
+ : Target HWL ME_4901E66D024F // InsUserFlagsFilters
  ;
  : Parameters
    Seq: ( ME_49F019DF014C // aFilter
@@ -2141,7 +2141,7 @@ ref; // ME_49F019C2015C SetGroup
  CONST Name 'aFilter'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_4901E64C0042 // InsUserFlagsFilter
+ : Target HWL ME_4901E64C0042 // InsUserFlagsFilter
  ;
 
 ref; // ME_49F157760296 aFilter
@@ -2152,9 +2152,9 @@ ref; // ME_49F157760296 aFilter
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4901E66D024F // InsUserFlagsFilters
+ : Parent HWL ME_4901E66D024F // InsUserFlagsFilters
  ;
- : Target ME_4901E66D024F // InsUserFlagsFilters
+ : Target HWL ME_4901E66D024F // InsUserFlagsFilters
  ;
  : Parameters
    Seq: ( ME_49F157760296 // aFilter
@@ -2191,22 +2191,22 @@ ref; // ME_47724B9402ED_ME_4901E66D024F Context
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47ECAAF901F8 // bsInterfaces
+ : Parent HWL ME_47ECAAF901F8 // bsInterfaces
  ;
  : Inherits
    Seq: ( WL 'ME_47724B6500F6' '4682595B0268.pas.ms.script' // Il3TreeFilters
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_4901E691032E // UserFlags
- ME_49F0161A037E // Group
- ME_49F1573C02B4 // PermanentUserFlags
+   Seq: ( HWL ME_4901E691032E // UserFlags
+ HWL ME_49F0161A037E // Group
+ HWL ME_49F1573C02B4 // PermanentUserFlags
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_4901E6C301FD // SetUserFlag
- ME_49F019C2015C // SetGroup
- ME_49F157660281 // SetPermanentUserFlag
+   Seq: ( HWL ME_4901E6C301FD // SetUserFlag
+ HWL ME_49F019C2015C // SetGroup
+ HWL ME_49F157660281 // SetPermanentUserFlag
  )
  ; // Operations
  : Implemented
@@ -2230,7 +2230,7 @@ FORWARD ME_49F1AD9B00B6
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_49F1AD9B00B6 // IbsSelectedUsers
+ : Parent HWL ME_49F1AD9B00B6 // IbsSelectedUsers
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -2247,7 +2247,7 @@ FORWARD ME_49F1AE8F03C3
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_49F1AE8F03C3 // Name
+ : Parent HWL ME_49F1AE8F03C3 // Name
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -2262,12 +2262,12 @@ ref; // ME_49F1AE9A0180 anIndex
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_49F1AD9B00B6 // IbsSelectedUsers
+ : Parent HWL ME_49F1AD9B00B6 // IbsSelectedUsers
  ;
  : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
  ;
  : Attributes
-   Seq: ( ME_49F1AE9A0180 // anIndex
+   Seq: ( HWL ME_49F1AE9A0180 // anIndex
  )
  ; // Attributes
  CONST "pm" true
@@ -2283,7 +2283,7 @@ FORWARD ME_49F1AEFF0284
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_49F1AEFF0284 // UID
+ : Parent HWL ME_49F1AEFF0284 // UID
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -2298,12 +2298,12 @@ ref; // ME_49F1AF050374 anIndex
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_49F1AD9B00B6 // IbsSelectedUsers
+ : Parent HWL ME_49F1AD9B00B6 // IbsSelectedUsers
  ;
  : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
  ;
  : Attributes
-   Seq: ( ME_49F1AF050374 // anIndex
+   Seq: ( HWL ME_49F1AF050374 // anIndex
  )
  ; // Attributes
  CONST "pm" true
@@ -2334,7 +2334,7 @@ ref; // ME_49F1AE0202FE anUID
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_49F1AD9B00B6 // IbsSelectedUsers
+ : Parent HWL ME_49F1AD9B00B6 // IbsSelectedUsers
  ;
  : Parameters
    Seq: ( ME_49F1AE0202DF // aName
@@ -2354,16 +2354,16 @@ ref; // ME_49F1ADEF0280 AddUser
  %SUMMARY 'Выделенные пользователи' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47ECAAF901F8 // bsInterfaces
+ : Parent HWL ME_47ECAAF901F8 // bsInterfaces
  ;
  : Attributes
-   Seq: ( ME_49F1AED002EE // Count
- ME_49F1AE8F03C3 // Name
- ME_49F1AEFF0284 // UID
+   Seq: ( HWL ME_49F1AED002EE // Count
+ HWL ME_49F1AE8F03C3 // Name
+ HWL ME_49F1AEFF0284 // UID
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_49F1ADEF0280 // AddUser
+   Seq: ( HWL ME_49F1ADEF0280 // AddUser
  )
  ; // Operations
  CONST "ifdef" 'Admin'
@@ -2383,7 +2383,7 @@ FORWARD ME_49F17AE6005F
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_49F17AE6005F // IbsUserTreeData
+ : Parent HWL ME_49F17AE6005F // IbsUserTreeData
  ;
  : Target WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
  ;
@@ -2399,9 +2399,9 @@ ref; // ME_49F17C070091 Node
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_49F17AE6005F // IbsUserTreeData
+ : Parent HWL ME_49F17AE6005F // IbsUserTreeData
  ;
- : Target ME_49F1AD9B00B6 // IbsSelectedUsers
+ : Target HWL ME_49F1AD9B00B6 // IbsSelectedUsers
  ;
  CONST "pm" true
 
@@ -2417,15 +2417,15 @@ ref; // ME_49F1AE1D02A4 Users
  %SUMMARY 'Данные для d&d пользователей в группы' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47ECAAF901F8 // bsInterfaces
+ : Parent HWL ME_47ECAAF901F8 // bsInterfaces
  ;
  : Inherits
    Seq: ( WL 'ME_47AAFE470329' '4682595B0268.pas.ms.script' // Il3Nodes
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_49F17C070091 // Node
- ME_49F1AE1D02A4 // Users
+   Seq: ( HWL ME_49F17C070091 // Node
+ HWL ME_49F1AE1D02A4 // Users
  )
  ; // Attributes
  CONST "ifdef" 'Admin'
@@ -2442,7 +2442,7 @@ FORWARD ME_56A872B801DB
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_56A872B801DB // InsTreeStructState
+ : Parent HWL ME_56A872B801DB // InsTreeStructState
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -2464,7 +2464,7 @@ ref; // ME_56CD759A0103 aIndex
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_56A872B801DB // InsTreeStructState
+ : Parent HWL ME_56A872B801DB // InsTreeStructState
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -2484,11 +2484,11 @@ ref; // ME_56CD758B0198 GetSelectedNodeVisibleIndex
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47ECAAF901F8 // bsInterfaces
+ : Parent HWL ME_47ECAAF901F8 // bsInterfaces
  ;
  : Operations
-   Seq: ( ME_56CD757F012F // GetSelectedNodeCount
- ME_56CD758B0198 // GetSelectedNodeVisibleIndex
+   Seq: ( HWL ME_56CD757F012F // GetSelectedNodeCount
+ HWL ME_56CD758B0198 // GetSelectedNodeVisibleIndex
  )
  ; // Operations
  CONST extprop:rc:SelfName 'TreeStructState'
@@ -2504,9 +2504,9 @@ FORWARD ME_56A872FE02E8
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_56A872FE02E8 // InsTreeStructStateProvider
+ : Parent HWL ME_56A872FE02E8 // InsTreeStructStateProvider
  ;
- : Target ME_56A872B801DB // InsTreeStructState
+ : Target HWL ME_56A872B801DB // InsTreeStructState
  ;
 
 ref; // ME_56A873120383 MakeState
@@ -2520,10 +2520,10 @@ ref; // ME_56A873120383 MakeState
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47ECAAF901F8 // bsInterfaces
+ : Parent HWL ME_47ECAAF901F8 // bsInterfaces
  ;
  : Operations
-   Seq: ( ME_56A873120383 // MakeState
+   Seq: ( HWL ME_56A873120383 // MakeState
  )
  ; // Operations
  CONST extprop:rc:SelfName 'TreeStructStateProvider'
@@ -2537,7 +2537,7 @@ FORWARD ME_56A89F5D012C
  CONST Name 'aState'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_56A872B801DB // InsTreeStructState
+ : Target HWL ME_56A872B801DB // InsTreeStructState
  ;
 
 ref; // ME_56A89F7603B2 aState
@@ -2548,7 +2548,7 @@ ref; // ME_56A89F7603B2 aState
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_56A89F5D012C // InsTreeStructStateConsumer
+ : Parent HWL ME_56A89F5D012C // InsTreeStructStateConsumer
  ;
  : Parameters
    Seq: ( ME_56A89F7603B2 // aState
@@ -2566,10 +2566,10 @@ ref; // ME_56A89F6B03A5 AssignState
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47ECAAF901F8 // bsInterfaces
+ : Parent HWL ME_47ECAAF901F8 // bsInterfaces
  ;
  : Operations
-   Seq: ( ME_56A89F6B03A5 // AssignState
+   Seq: ( HWL ME_56A89F6B03A5 // AssignState
  )
  ; // Operations
  CONST extprop:rc:SelfName 'TreeStructStateConsumer'
@@ -2588,39 +2588,39 @@ ref; // ME_56A89F5D012C InsTreeStructStateConsumer
  : Parent WL 'ME_47E9EEC60260' '47E9EEC60260.pas.ms.script' // Model
  ;
  : Children
-   Seq: ( ME_48FF6D050234 // InsTreeDataListener
- ME_48FEE95F0124 // InsDropListener
- ME_4806F15703CF // InsInternalFilterableTree
- ME_4901E64C0042 // InsUserFlagsFilter
- ME_49F015CA0381 // InsGroupFilter
- ME_4901EE8402B6 // InsCountryFilter
- ME_4901EE9D02E5 // InsMedicFirmListFilters
- ME_4902013F03CC // InsAttributeTreeFilters
- ME_4902077602BA // InsLayerFilter
- ME_490207910151 // InsLayeredTreeFilters
- ME_48FF5116013C // InsAdapterFilters
- ME_49071AE3035B // InsMedicFirmsTreeNotifyRecipient
- ME_49071AFF0024 // InsMedicFirmsTreeNotificationSource
- ME_490896CE00FD // InsContextFilterParamsInfo
- ME_4909E0980010 // InsRootInfo
- ME_491443D20347 // InsUserSettingsListener
- ME_49144428028D // InsUserSettingsEditListener
- ME_4914445E0259 // InsSettingsNotify
- ME_491444C201EB // InsSettings
- ME_49144EC703BE // InsConfigNotifyRecipient
- ME_49144F1E018C // InsConfigNotificationSource
- ME_4926A3780038 // InsCRSimpleListTypeRootNodeListener
- ME_4937D05003A2 // IbsFrozenNode
- ME_48F73FF3029C // IbsListTreeData
- ME_495275E40046 // IbsDocumentStreamWrapper
- ME_495278E6028C // IbsCRSettingsConverter
- ME_49527999013D // IbsConsultationManager
- ME_4901E66D024F // InsUserFlagsFilters
- ME_49F1AD9B00B6 // IbsSelectedUsers
- ME_49F17AE6005F // IbsUserTreeData
- ME_56A872B801DB // InsTreeStructState
- ME_56A872FE02E8 // InsTreeStructStateProvider
- ME_56A89F5D012C // InsTreeStructStateConsumer
+   Seq: ( HWL ME_48FF6D050234 // InsTreeDataListener
+ HWL ME_48FEE95F0124 // InsDropListener
+ HWL ME_4806F15703CF // InsInternalFilterableTree
+ HWL ME_4901E64C0042 // InsUserFlagsFilter
+ HWL ME_49F015CA0381 // InsGroupFilter
+ HWL ME_4901EE8402B6 // InsCountryFilter
+ HWL ME_4901EE9D02E5 // InsMedicFirmListFilters
+ HWL ME_4902013F03CC // InsAttributeTreeFilters
+ HWL ME_4902077602BA // InsLayerFilter
+ HWL ME_490207910151 // InsLayeredTreeFilters
+ HWL ME_48FF5116013C // InsAdapterFilters
+ HWL ME_49071AE3035B // InsMedicFirmsTreeNotifyRecipient
+ HWL ME_49071AFF0024 // InsMedicFirmsTreeNotificationSource
+ HWL ME_490896CE00FD // InsContextFilterParamsInfo
+ HWL ME_4909E0980010 // InsRootInfo
+ HWL ME_491443D20347 // InsUserSettingsListener
+ HWL ME_49144428028D // InsUserSettingsEditListener
+ HWL ME_4914445E0259 // InsSettingsNotify
+ HWL ME_491444C201EB // InsSettings
+ HWL ME_49144EC703BE // InsConfigNotifyRecipient
+ HWL ME_49144F1E018C // InsConfigNotificationSource
+ HWL ME_4926A3780038 // InsCRSimpleListTypeRootNodeListener
+ HWL ME_4937D05003A2 // IbsFrozenNode
+ HWL ME_48F73FF3029C // IbsListTreeData
+ HWL ME_495275E40046 // IbsDocumentStreamWrapper
+ HWL ME_495278E6028C // IbsCRSettingsConverter
+ HWL ME_49527999013D // IbsConsultationManager
+ HWL ME_4901E66D024F // InsUserFlagsFilters
+ HWL ME_49F1AD9B00B6 // IbsSelectedUsers
+ HWL ME_49F17AE6005F // IbsUserTreeData
+ HWL ME_56A872B801DB // InsTreeStructState
+ HWL ME_56A872FE02E8 // InsTreeStructStateProvider
+ HWL ME_56A89F5D012C // InsTreeStructStateConsumer
  )
  ; // Children
  : Depends

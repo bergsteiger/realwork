@@ -1,0 +1,543 @@
+// PrimPageSetupOptions 4C88D233003E VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4C88D233003E
+
+FORWARD ME_4C88D996000B
+
+: ME_4C88D9A800C9
+ CONST Name 'SaveAsDefault'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST Value false
+ : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST extprop:pas:Value false
+
+ref; // ME_4C88D9A800C9 SaveAsDefault
+
+: ME_4C88D9A4002B
+ CONST UID '4C88D9A4002B'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4C88D996000B // Save
+ ;
+ : Parameters
+   Seq: ( ME_4C88D9A800C9 // SaveAsDefault
+ )
+ ; // Parameters
+
+ref; // ME_4C88D9A4002B DoIt
+
+: ME_4C88D996000B
+ CONST UID '4C88D996000B'
+ CONST Name 'Save'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_4C88D233003E // PrimPageSetupOptions
+ ;
+ : Operations
+   Seq: ( HWL ME_4C88D9A4002B // DoIt
+ )
+ ; // Operations
+
+ref; // ME_4C88D996000B Save
+
+FORWARD ME_4C88D9B60023
+
+: ME_4C88D9C5015E
+ CONST Name 'aOrientation'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4C88D9C5015E aOrientation
+
+: ME_4C88D9C1007F
+ CONST UID '4C88D9C1007F'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4C88D9B60023 // SetPageFormat
+ ;
+ : Parameters
+   Seq: ( ME_4C88D9C5015E // aOrientation
+ )
+ ; // Parameters
+
+ref; // ME_4C88D9C1007F DoIt
+
+: ME_4C88D9B60023
+ CONST UID '4C88D9B60023'
+ CONST Name 'SetPageFormat'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_4C88D233003E // PrimPageSetupOptions
+ ;
+ : Operations
+   Seq: ( HWL ME_4C88D9C1007F // DoIt
+ )
+ ; // Operations
+
+ref; // ME_4C88D9B60023 SetPageFormat
+
+FORWARD ME_4C88D9D30306
+
+: ME_4C88D9E60265
+ CONST Name 'aString'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_4C88D9E60265 aString
+
+: ME_4C88D9DF031D
+ CONST UID '4C88D9DF031D'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4C88D9D30306 // MacroAdd
+ ;
+ : Parameters
+   Seq: ( ME_4C88D9E60265 // aString
+ )
+ ; // Parameters
+
+ref; // ME_4C88D9DF031D DoIt
+
+: ME_4C88D9D30306
+ CONST UID '4C88D9D30306'
+ CONST Name 'MacroAdd'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_4C88D233003E // PrimPageSetupOptions
+ ;
+ : Operations
+   Seq: ( HWL ME_4C88D9DF031D // DoIt
+ )
+ ; // Operations
+
+ref; // ME_4C88D9D30306 MacroAdd
+
+FORWARD ME_4C88DCA000DD
+
+: ME_4C88DCA60318
+ CONST UID '4C88DCA60318'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4C88DCA000DD // ToGUIColontituls
+ ;
+
+ref; // ME_4C88DCA60318 DoIt
+
+: ME_4C88DCA000DD
+ CONST UID '4C88DCA000DD'
+ CONST Name 'ToGUIColontituls'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_4C88D233003E // PrimPageSetupOptions
+ ;
+ : Operations
+   Seq: ( HWL ME_4C88DCA60318 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_4C88DCA000DD ToGUIColontituls
+
+: ME_4C88D3C20244
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C88D233003E // PrimPageSetupOptions
+ ;
+ : Target WL 'ME_47752AF90375' '47750CE700D0.pas.ms.script' // afwFacade
+ ;
+
+ref; // ME_4C88D3C20244 
+
+: ME_4C88D3DA0099
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C88D233003E // PrimPageSetupOptions
+ ;
+ : Target WL 'ME_4A980B37006B' '4799D29F033F.pas.ms.script' // ModalResults
+ ;
+
+ref; // ME_4C88D3DA0099 
+
+: ME_4C88DA40012A
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C88D233003E // PrimPageSetupOptions
+ ;
+ : Target WL 'ME_4C88DA310019' '47EA968D0155.pas.ms.script' // evHAFPainterMacros
+ ;
+
+ref; // ME_4C88DA40012A 
+
+: ME_49521D8E0295_ME_4C88D233003E
+ : Original WL 'ME_49521D8E0295' '494F898C013E.pas.ms.script' // Print
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" false
+ CONST "ShowInToolbar" true
+ CONST "has states" false
+ CONST "is FormActivate" true
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_49521D8E0295_ME_4C88D233003E Print
+
+: ME_495220DE0298_ME_4C88D233003E
+ : Original WL 'ME_495220DE0298' '494F898C013E.pas.ms.script' // PrintDialog
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" false
+ CONST "ShowInToolbar" true
+ CONST "has states" false
+ CONST "is FormActivate" true
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_495220DE0298_ME_4C88D233003E PrintDialog
+
+: ME_495220F2033A_ME_4C88D233003E
+ : Original WL 'ME_495220F2033A' '494F898C013E.pas.ms.script' // PrintPreview
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" false
+ CONST "ShowInToolbar" true
+ CONST "has states" false
+ CONST "is FormActivate" true
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_495220F2033A_ME_4C88D233003E PrintPreview
+
+: ME_4C52B34E0125_ME_4C88D233003E
+ : Original WL 'ME_4C52B34E0125' '4AE89F8A004B.pas.ms.script' // Restore
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" false
+ CONST "ShowInToolbar" true
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_4C52B34E0125_ME_4C88D233003E Restore
+
+: ME_4C52B36B01B3_ME_4C88D233003E
+ : Original WL 'ME_4C52B36B01B3' '4AE89F8A004B.pas.ms.script' // SaveAsDefault
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" false
+ CONST "ShowInToolbar" true
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_4C52B36B01B3_ME_4C88D233003E SaveAsDefault
+
+: ME_4C762A1501FC_ME_4C88D233003E
+ : Original WL 'ME_4C762A1501FC' '4A8AD3C70195.pas.ms.script' // Ok
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" false
+ CONST "ShowInToolbar" true
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_4C762A1501FC_ME_4C88D233003E Ok
+
+: ME_4C762C910358_ME_4C88D233003E
+ : Original WL 'ME_4C762C910358' '4A8AD3C70195.pas.ms.script' // Cancel
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" false
+ CONST "ShowInToolbar" true
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_4C762C910358_ME_4C88D233003E Cancel
+
+: ME_4C88D40C0029_ME_4C88D233003E
+ : Original WL 'ME_4C88D40C0029' '4AE89F8A004B.pas.ms.script' // AppTitle
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" true
+ CONST "ShowInToolbar" false
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_4C88D40C0029_ME_4C88D233003E AppTitle
+
+: ME_4C88D42001C2_ME_4C88D233003E
+ : Original WL 'ME_4C88D42001C2' '4AE89F8A004B.pas.ms.script' // DocName
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" true
+ CONST "ShowInToolbar" false
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_4C88D42001C2_ME_4C88D233003E DocName
+
+: ME_4C88D43300C7_ME_4C88D233003E
+ : Original WL 'ME_4C88D43300C7' '4AE89F8A004B.pas.ms.script' // DocFullName
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" true
+ CONST "ShowInToolbar" true
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_4C88D43300C7_ME_4C88D233003E DocFullName
+
+: ME_4C88D44401B5_ME_4C88D233003E
+ : Original WL 'ME_4C88D44401B5' '4AE89F8A004B.pas.ms.script' // DocRedactionDate
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" true
+ CONST "ShowInToolbar" false
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_4C88D44401B5_ME_4C88D233003E DocRedactionDate
+
+: ME_4C88D46203BD_ME_4C88D233003E
+ : Original WL 'ME_4C88D46203BD' '4AE89F8A004B.pas.ms.script' // DocCurrentPage
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" true
+ CONST "ShowInToolbar" false
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_4C88D46203BD_ME_4C88D233003E DocCurrentPage
+
+: ME_4C88D4770266_ME_4C88D233003E
+ : Original WL 'ME_4C88D4770266' '4AE89F8A004B.pas.ms.script' // DocPagesCount
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" true
+ CONST "ShowInToolbar" false
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_4C88D4770266_ME_4C88D233003E DocPagesCount
+
+: ME_4C88D48B0325_ME_4C88D233003E
+ : Original WL 'ME_4C88D48B0325' '4AE89F8A004B.pas.ms.script' // CurrentDate
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" true
+ CONST "ShowInToolbar" false
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_4C88D48B0325_ME_4C88D233003E CurrentDate
+
+: ME_4C88D4A6032C_ME_4C88D233003E
+ : Original WL 'ME_4C88D4A6032C' '4AE89F8A004B.pas.ms.script' // CurrentTime
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" true
+ CONST "ShowInToolbar" false
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_4C88D4A6032C_ME_4C88D233003E CurrentTime
+
+: ME_4C88D4BF0213_ME_4C88D233003E
+ : Original WL 'ME_4C88D4BF0213' '4AE89F8A004B.pas.ms.script' // InternalDocNumber
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" true
+ CONST "ShowInToolbar" false
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_4C88D4BF0213_ME_4C88D233003E InternalDocNumber
+
+: ME_4C88D4D202BA_ME_4C88D233003E
+ : Original WL 'ME_4C88D4D202BA' '4AE89F8A004B.pas.ms.script' // DocumentSIze
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" true
+ CONST "ShowInToolbar" false
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_4C88D4D202BA_ME_4C88D233003E DocumentSIze
+
+: ME_4C88D4E8007C_ME_4C88D233003E
+ : Original WL 'ME_4C88D4E8007C' '4AE89F8A004B.pas.ms.script' // FilePosition
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" true
+ CONST "ShowInToolbar" false
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_4C88D4E8007C_ME_4C88D233003E FilePosition
+
+: ME_4C88D233003E
+ CONST UID '4C88D233003E'
+ CONST Name 'PrimPageSetupOptions'
+ CONST Class class_Class
+ : Stereotype st_VCMForm ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Настройка страницы' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4958E382019E' '4958E382019E.pas.ms.script' // Search$Presentation for F1 and Monitorings
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4AAF8637036A' '4AAF8637036A.pas.ms.script' // PrimPageSetup
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_49521D8203A0' '494F898C013E.pas.ms.script' // File
+ WL 'ME_4A97EBC80201' '4A8AD3C70195.pas.ms.script' // Result$Ok
+ WL 'ME_4AC5D5FB0293' '4A8AD3C70195.pas.ms.script' // Result$CancelWithState
+ WL 'ME_4C52B3310159' '4AE89F8A004B.pas.ms.script' // Result$ForStyleEditorContainer
+ WL 'ME_4C88D3FB02D1' '4AE89F8A004B.pas.ms.script' // ColontitulMacro
+ )
+ ; // Implements
+ : Operations
+   Seq: ( HWL ME_4C88D996000B // Save
+ HWL ME_4C88D9B60023 // SetPageFormat
+ HWL ME_4C88D9D30306 // MacroAdd
+ HWL ME_4C88DCA000DD // ToGUIColontituls
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_49521D8E0295_ME_4C88D233003E // Print
+ ME_495220DE0298_ME_4C88D233003E // PrintDialog
+ ME_495220F2033A_ME_4C88D233003E // PrintPreview
+ ME_4C52B34E0125_ME_4C88D233003E // Restore
+ ME_4C52B36B01B3_ME_4C88D233003E // SaveAsDefault
+ ME_4C762A1501FC_ME_4C88D233003E // Ok
+ ME_4C762C910358_ME_4C88D233003E // Cancel
+ ME_4C88D40C0029_ME_4C88D233003E // AppTitle
+ ME_4C88D42001C2_ME_4C88D233003E // DocName
+ ME_4C88D43300C7_ME_4C88D233003E // DocFullName
+ ME_4C88D44401B5_ME_4C88D233003E // DocRedactionDate
+ ME_4C88D46203BD_ME_4C88D233003E // DocCurrentPage
+ ME_4C88D4770266_ME_4C88D233003E // DocPagesCount
+ ME_4C88D48B0325_ME_4C88D233003E // CurrentDate
+ ME_4C88D4A6032C_ME_4C88D233003E // CurrentTime
+ ME_4C88D4BF0213_ME_4C88D233003E // InternalDocNumber
+ ME_4C88D4D202BA_ME_4C88D233003E // DocumentSIze
+ ME_4C88D4E8007C_ME_4C88D233003E // FilePosition
+ )
+ ; // Implemented
+ : Dependencies
+   Seq: ( ME_4C88D3C20244 // afwFacade
+ ME_4C88D3DA0099 // ModalResults
+ ME_4C88DA40012A // evHAFPainterMacros
+ )
+ ; // Dependencies
+ CONST "NeedsHackRef" true
+ CONST "ZoneType" 'ManualModal'
+ CONST "author" 'Люлин А.В.'
+ CONST "finished dfm" true
+ CONST "no hands" true
+ CONST "resizeable" false
+ CONST "restrict form def" 'undefined'
+ CONST "started" '09.09.2010 16:25'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimPageSetupOptions_Form.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms'
+ CONST extprop:pas:TypeName 'TPrimPageSetupOptionsForm'
+ CONST extprop:rc:SelfName 'PrimPageSetupOptionsForm'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'PrimPageSetupOptions_Form'
+ CONST extprop:NeedsInitEntities true
+
+ref; // ME_4C88D233003E PrimPageSetupOptions

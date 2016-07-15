@@ -1,0 +1,106 @@
+// AttributesUserTypes 4D776CFE031E VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4D776CFE031E
+
+: ME_4BD6BA11008E
+ CONST UID '4BD6BA11008E'
+ CONST Name 'fDocAttribute'
+ CONST Class class_Class
+ : Stereotype st_UserType ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Информация о документе' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4D776CFE031E // AttributesUserTypes
+ ;
+ CONST "ImageIndex" 19
+ CONST "NeedOnQueryClose" true
+ CONST "VisibleToUser" false
+ CONST "Weight" 20
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\AttributesUserTypes_fDocAttribute_UserType.pas'
+ CONST extprop:pas:UnitName 'AttributesUserTypes_fDocAttribute_UserType'
+
+ref; // ME_4BD6BA11008E fDocAttribute
+
+: ME_4BD6BA270181
+ CONST UID '4BD6BA270181'
+ CONST Name 'fAttributeSynchroView'
+ CONST Class class_Class
+ : Stereotype st_UserType ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Информация о документе (синхронный просмотр)' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4D776CFE031E // AttributesUserTypes
+ ;
+ : Inherits
+   Seq: ( HWL ME_4BD6BA11008E // fDocAttribute
+ )
+ ; // Inherits
+ CONST "ImageIndex" 19
+ CONST "VisibleToUser" false
+ CONST "Weight" '-1'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\AttributesUserTypes_fAttributeSynchroView_UserType.pas'
+ CONST extprop:pas:UnitName 'AttributesUserTypes_fAttributeSynchroView_UserType'
+
+ref; // ME_4BD6BA270181 fAttributeSynchroView
+
+: ME_16C032E5C750
+ CONST Name 'aSender'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_16C032E5C750 aSender
+
+: ME_37BE60CD03ED
+ CONST UID '37BE60CD03ED'
+ CONST Name 'fDocAttributeQueryClose'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Обработчик события fDocAttribute.OnQueryClose' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_4D776CFE031E // AttributesUserTypes
+ ;
+ : Parameters
+   Seq: ( ME_16C032E5C750 // aSender
+ )
+ ; // Parameters
+
+ref; // ME_37BE60CD03ED fDocAttributeQueryClose
+
+: ME_4D776CFE031E
+ CONST UID '4D776CFE031E'
+ CONST Name 'AttributesUserTypes'
+ CONST Class class_Class
+ : Stereotype st_VCMForm ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent WL 'ME_4A7C0BB70162' '4A7C0BB70162.pas.ms.script' // Base Forms
+ ;
+ : Operations
+   Seq: ( HWL ME_37BE60CD03ED // fDocAttributeQueryClose
+ )
+ ; // Operations
+ : Children
+   Seq: ( HWL ME_4BD6BA11008E // fDocAttribute
+ HWL ME_4BD6BA270181 // fAttributeSynchroView
+ )
+ ; // Children
+ CONST "NeedsHackRef" true
+ CONST "ZoneType" 'Any'
+ CONST "finished dfm" true
+ CONST "resizeable" false
+ CONST "restrict form def" 'undefined'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\AttributesUserTypes.imp.pas'
+ CONST extprop:pas:TypeName '_AttributesUserTypes_'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'AttributesUserTypes.imp'
+
+ref; // ME_4D776CFE031E AttributesUserTypes

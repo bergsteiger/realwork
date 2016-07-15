@@ -13,7 +13,7 @@ FORWARD ME_4AA5503000D7
  %SUMMARY 'Данные для инициализации форм поиска' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4AA5503000D7 // QueryCardInterfaces
+ : Parent HWL ME_4AA5503000D7 // QueryCardInterfaces
  ;
  : Inherits
    Seq: ( WL 'ME_45EEE145027B' '45EEAA8E034E.pas.ms.script' // Query
@@ -34,9 +34,9 @@ FORWARD ME_491DC972029C
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_491DC972029C // IdsQuery
+ : Parent HWL ME_491DC972029C // IdsQuery
  ;
- : Target ME_491DAE5C011F // IdeQuery
+ : Target HWL ME_491DAE5C011F // IdeQuery
  ;
  CONST "pm" true
 
@@ -50,7 +50,7 @@ ref; // ME_491DC9970093 Query
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_491DC972029C // IdsQuery
+ : Parent HWL ME_491DC972029C // IdsQuery
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -68,11 +68,11 @@ ref; // ME_491DC9AE0355 IsQuerySaved
  %SUMMARY 'БОС для карточек запроса' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4AA5503000D7 // QueryCardInterfaces
+ : Parent HWL ME_4AA5503000D7 // QueryCardInterfaces
  ;
  : Attributes
-   Seq: ( ME_491DC9970093 // Query
- ME_491DC9AE0355 // IsQuerySaved
+   Seq: ( HWL ME_491DC9970093 // Query
+ HWL ME_491DC9AE0355 // IsQuerySaved
  )
  ; // Attributes
  CONST extprop:rc:SelfName 'dsQuery'
@@ -90,7 +90,7 @@ ref; // ME_491DC972029C IdsQuery
  %SUMMARY 'Бизнес объект контейнера карточки поиска' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4AA5503000D7 // QueryCardInterfaces
+ : Parent HWL ME_4AA5503000D7 // QueryCardInterfaces
  ;
  CONST extprop:rc:SelfName 'dsSaveLoad'
  CONST extprop:rc:isAcceptableForScripts true
@@ -108,7 +108,7 @@ FORWARD ME_492EF6CD01FF
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_492EF6CD01FF // IsdsAttributeSelect
+ : Parent HWL ME_492EF6CD01FF // IsdsAttributeSelect
  ;
  : Target WL 'ME_4922CE700041' '491DAF4202EE.pas.ms.script' // IdeSearch
  ;
@@ -126,10 +126,10 @@ ref; // ME_492EF70F0275 Search
  %SUMMARY 'Форма выбора реквизитов' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4AA5503000D7 // QueryCardInterfaces
+ : Parent HWL ME_4AA5503000D7 // QueryCardInterfaces
  ;
  : Attributes
-   Seq: ( ME_492EF70F0275 // Search
+   Seq: ( HWL ME_492EF70F0275 // Search
  )
  ; // Attributes
  CONST extprop:rc:SelfName 'sdsAttributeSelect'
@@ -196,7 +196,7 @@ ref; // ME_49590D4802EE_ME_4924450800EC Process
  %SUMMARY 'Бизнес объекта формы "enTreeAttributeFirstLevel"' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4AA5503000D7 // QueryCardInterfaces
+ : Parent HWL ME_4AA5503000D7 // QueryCardInterfaces
  ;
  : Inherits
    Seq: ( WL 'ME_49590A5E0315' '491DAF4202EE.pas.ms.script' // IdsSituation
@@ -228,7 +228,7 @@ FORWARD ME_49243C03023E
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_49243C03023E // IsdsSituation
+ : Parent HWL ME_49243C03023E // IsdsSituation
  ;
  : Target WL 'ME_4922D94500FB' '4922BFA000DD.pas.ms.script' // IdsFilters
  ;
@@ -245,9 +245,9 @@ ref; // ME_492EF8440252 dsFilters
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_49243C03023E // IsdsSituation
+ : Parent HWL ME_49243C03023E // IsdsSituation
  ;
- : Target ME_4924450800EC // IdsTreeAttributeFirstLevel
+ : Target HWL ME_4924450800EC // IdsTreeAttributeFirstLevel
  ;
  CONST "pm" true
 
@@ -262,9 +262,9 @@ ref; // ME_492EF877026C dsTreeAttributeFirstLevel
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_49243C03023E // IsdsSituation
+ : Parent HWL ME_49243C03023E // IsdsSituation
  ;
- : Target ME_4923F61A0112 // IdsSaveLoad
+ : Target HWL ME_4923F61A0112 // IdsSaveLoad
  ;
  CONST "pm" true
 
@@ -279,7 +279,7 @@ ref; // ME_492EF8AA024F dsSaveLoad
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_49243C03023E // IsdsSituation
+ : Parent HWL ME_49243C03023E // IsdsSituation
  ;
  : Target WL 'ME_49241CDE025D' '491DAF4202EE.pas.ms.script' // IdsSelectedAttributes
  ;
@@ -296,7 +296,7 @@ ref; // ME_492EF8E10244 dsSelectedAttributes
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_49243C03023E // IsdsSituation
+ : Parent HWL ME_49243C03023E // IsdsSituation
  ;
  : Target WL 'ME_4924352E01C3' '491DAF4202EE.pas.ms.script' // IdsTreeAttributeSelect
  ;
@@ -313,7 +313,7 @@ ref; // ME_492EF8F20381 dsTreeAttributeSelect
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_49243C03023E // IsdsSituation
+ : Parent HWL ME_49243C03023E // IsdsSituation
  ;
  : Target WL 'ME_4922CF920141' '491DAF4202EE.pas.ms.script' // IdsAttributeSelect
  ;
@@ -328,7 +328,7 @@ ref; // ME_493027030386 dsAttributeSelect
 ref; // ME_47FB2086026D_ME_49243C03023E Open
 
 : ME_492EF70F0275_ME_49243C03023E
- : Original ME_492EF70F0275 // Search
+ : Original HWL ME_492EF70F0275 // Search
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
@@ -355,10 +355,10 @@ ref; // ME_4959149300F9_ME_49243C03023E UpdateSelectedAttributes
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4AA5503000D7 // QueryCardInterfaces
+ : Parent HWL ME_4AA5503000D7 // QueryCardInterfaces
  ;
  : Inherits
-   Seq: ( ME_492EF6CD01FF // IsdsAttributeSelect
+   Seq: ( HWL ME_492EF6CD01FF // IsdsAttributeSelect
  )
  ; // Inherits
  : Implements
@@ -368,12 +368,12 @@ ref; // ME_4959149300F9_ME_49243C03023E UpdateSelectedAttributes
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_492EF8440252 // dsFilters
- ME_492EF877026C // dsTreeAttributeFirstLevel
- ME_492EF8AA024F // dsSaveLoad
- ME_492EF8E10244 // dsSelectedAttributes
- ME_492EF8F20381 // dsTreeAttributeSelect
- ME_493027030386 // dsAttributeSelect
+   Seq: ( HWL ME_492EF8440252 // dsFilters
+ HWL ME_492EF877026C // dsTreeAttributeFirstLevel
+ HWL ME_492EF8AA024F // dsSaveLoad
+ HWL ME_492EF8E10244 // dsSelectedAttributes
+ HWL ME_492EF8F20381 // dsTreeAttributeSelect
+ HWL ME_493027030386 // dsAttributeSelect
  )
  ; // Attributes
  : Implemented
@@ -398,7 +398,7 @@ FORWARD ME_49914E780185
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_49914E780185 // TnsFilterForm
+ : Parent HWL ME_49914E780185 // TnsFilterForm
  ;
 
 ref; // ME_49914E88006B ns_ffAttributeSearch
@@ -411,7 +411,7 @@ ref; // ME_49914E88006B ns_ffAttributeSearch
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_49914E780185 // TnsFilterForm
+ : Parent HWL ME_49914E780185 // TnsFilterForm
  ;
 
 ref; // ME_49914E98023B ns_ffPublishSource
@@ -424,7 +424,7 @@ ref; // ME_49914E98023B ns_ffPublishSource
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_49914E780185 // TnsFilterForm
+ : Parent HWL ME_49914E780185 // TnsFilterForm
  ;
 
 ref; // ME_49914EA80123 ns_ffSituation
@@ -437,7 +437,7 @@ ref; // ME_49914EA80123 ns_ffSituation
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_49914E780185 // TnsFilterForm
+ : Parent HWL ME_49914E780185 // TnsFilterForm
  ;
 
 ref; // ME_49914EB1024D ns_ffOldSituation
@@ -450,7 +450,7 @@ ref; // ME_49914EB1024D ns_ffOldSituation
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_49914E780185 // TnsFilterForm
+ : Parent HWL ME_49914E780185 // TnsFilterForm
  ;
 
 ref; // ME_49914EBA01BA ns_ffBaseSearch
@@ -462,7 +462,7 @@ ref; // ME_49914EBA01BA ns_ffBaseSearch
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_49914E780185 // TnsFilterForm
+ : Parent HWL ME_49914E780185 // TnsFilterForm
  ;
 
 ref; // ME_49914EC301FC ns_ffInpharmSearch
@@ -476,15 +476,15 @@ ref; // ME_49914EC301FC ns_ffInpharmSearch
  %SUMMARY 'Типы карточек используемых при редактировании фильтров' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4AA5503000D7 // QueryCardInterfaces
+ : Parent HWL ME_4AA5503000D7 // QueryCardInterfaces
  ;
  : Attributes
-   Seq: ( ME_49914E88006B // ns_ffAttributeSearch
- ME_49914E98023B // ns_ffPublishSource
- ME_49914EA80123 // ns_ffSituation
- ME_49914EB1024D // ns_ffOldSituation
- ME_49914EBA01BA // ns_ffBaseSearch
- ME_49914EC301FC // ns_ffInpharmSearch
+   Seq: ( HWL ME_49914E88006B // ns_ffAttributeSearch
+ HWL ME_49914E98023B // ns_ffPublishSource
+ HWL ME_49914EA80123 // ns_ffSituation
+ HWL ME_49914EB1024D // ns_ffOldSituation
+ HWL ME_49914EBA01BA // ns_ffBaseSearch
+ HWL ME_49914EC301FC // ns_ffInpharmSearch
  )
  ; // Attributes
  CONST extprop:rc:isAcceptableForScripts true
@@ -500,7 +500,7 @@ FORWARD ME_4AA6590C0189
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4AA6590C0189 // TnsSearchListType
+ : Parent HWL ME_4AA6590C0189 // TnsSearchListType
  ;
 
 ref; // ME_4AA6591A0331 ns_sltWithoutClass
@@ -512,7 +512,7 @@ ref; // ME_4AA6591A0331 ns_sltWithoutClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4AA6590C0189 // TnsSearchListType
+ : Parent HWL ME_4AA6590C0189 // TnsSearchListType
  ;
 
 ref; // ME_4AA6592F0399 ns_sltWithoutKey
@@ -524,7 +524,7 @@ ref; // ME_4AA6592F0399 ns_sltWithoutKey
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4AA6590C0189 // TnsSearchListType
+ : Parent HWL ME_4AA6590C0189 // TnsSearchListType
  ;
 
 ref; // ME_4AA6593B027A ns_sltWithoutInluded
@@ -538,12 +538,12 @@ ref; // ME_4AA6593B027A ns_sltWithoutInluded
  %SUMMARY 'Типы используемые для получения списка в nsSearchManager' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4AA5503000D7 // QueryCardInterfaces
+ : Parent HWL ME_4AA5503000D7 // QueryCardInterfaces
  ;
  : Attributes
-   Seq: ( ME_4AA6591A0331 // ns_sltWithoutClass
- ME_4AA6592F0399 // ns_sltWithoutKey
- ME_4AA6593B027A // ns_sltWithoutInluded
+   Seq: ( HWL ME_4AA6591A0331 // ns_sltWithoutClass
+ HWL ME_4AA6592F0399 // ns_sltWithoutKey
+ HWL ME_4AA6593B027A // ns_sltWithoutInluded
  )
  ; // Attributes
  CONST extprop:rc:isAcceptableForScripts true
@@ -560,14 +560,14 @@ ref; // ME_4AA6590C0189 TnsSearchListType
  : Parent WL 'ME_4A9FFD3F01AD' '4A9FFD3F01AD.pas.ms.script' // Search
  ;
  : Children
-   Seq: ( ME_491DAE5C011F // IdeQuery
- ME_491DC972029C // IdsQuery
- ME_4923F61A0112 // IdsSaveLoad
- ME_492EF6CD01FF // IsdsAttributeSelect
- ME_4924450800EC // IdsTreeAttributeFirstLevel
- ME_49243C03023E // IsdsSituation
- ME_49914E780185 // TnsFilterForm
- ME_4AA6590C0189 // TnsSearchListType
+   Seq: ( HWL ME_491DAE5C011F // IdeQuery
+ HWL ME_491DC972029C // IdsQuery
+ HWL ME_4923F61A0112 // IdsSaveLoad
+ HWL ME_492EF6CD01FF // IsdsAttributeSelect
+ HWL ME_4924450800EC // IdsTreeAttributeFirstLevel
+ HWL ME_49243C03023E // IsdsSituation
+ HWL ME_49914E780185 // TnsFilterForm
+ HWL ME_4AA6590C0189 // TnsSearchListType
  )
  ; // Children
  : Depends

@@ -15,7 +15,7 @@ FORWARD ME_47B30CD40027
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_47B30CD40027 // TipsManager
+ : Parent HWL ME_47B30CD40027 // TipsManager
  ;
  : Target WL 'ME_45EEB95901C5' '457450470167.pas.ms.script' // NodeBase
  ;
@@ -34,7 +34,7 @@ ref; // ME_47B30D8F0330 tips_tree_root
  : Stereotype st_factory::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_47B30CD40027 // TipsManager
+ : Parent HWL ME_47B30CD40027 // TipsManager
  ;
  CONST "const_type" 'read-write'
 
@@ -47,7 +47,7 @@ ref; // ME_47B30CFF0271 make
  %SUMMARY 'Получить текущий (по сценарию) Совет дня' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_47B30CD40027 // TipsManager
+ : Parent HWL ME_47B30CD40027 // TipsManager
  ;
  : Target WL 'ME_45EEC8680109' '457450470167.pas.ms.script' // NodeIndexPath
  ;
@@ -60,7 +60,7 @@ ref; // ME_47B572E3010B get_current_tip
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_47B30CD40027 // TipsManager
+ : Parent HWL ME_47B30CD40027 // TipsManager
  ;
  : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
  ;
@@ -77,16 +77,16 @@ ref; // ME_47B93A910257 is_exist
  %SUMMARY 'Менеджер Советов дня' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47B30C7D02F3 // Tips
+ : Parent HWL ME_47B30C7D02F3 // Tips
  ;
  : Attributes
-   Seq: ( ME_47B30D8F0330 // tips_tree_root
+   Seq: ( HWL ME_47B30D8F0330 // tips_tree_root
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_47B30CFF0271 // make
- ME_47B572E3010B // get_current_tip
- ME_47B93A910257 // is_exist
+   Seq: ( HWL ME_47B30CFF0271 // make
+ HWL ME_47B572E3010B // get_current_tip
+ HWL ME_47B93A910257 // is_exist
  )
  ; // Operations
  CONST "single impl" false
@@ -107,7 +107,7 @@ ref; // ME_47B30CD40027 TipsManager
  : Parent WL 'ME_456EA3D2031C' '456EA3D2031C.pas.ms.script' // GblAdapterLib
  ;
  : Children
-   Seq: ( ME_47B30CD40027 // TipsManager
+   Seq: ( HWL ME_47B30CD40027 // TipsManager
  )
  ; // Children
  : Depends

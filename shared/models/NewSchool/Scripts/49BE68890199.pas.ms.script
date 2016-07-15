@@ -14,7 +14,7 @@ FORWARD ME_49BE68B201D1
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_49BE68B201D1 // Tl3ProxyStream
+ : Parent HWL ME_49BE68B201D1 // Tl3ProxyStream
  ;
  : Target WL 'ME_46A5B0060013' '4677FBA70343.pas.ms.script' // IStream
  ;
@@ -37,7 +37,7 @@ ref; // ME_49BE69A10181 aStream
  : Stereotype st_ctor::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_49BE68B201D1 // Tl3ProxyStream
+ : Parent HWL ME_49BE68B201D1 // Tl3ProxyStream
  ;
  : Parameters
    Seq: ( ME_49BE69A10181 // aStream
@@ -63,7 +63,7 @@ ref; // ME_49BE71BF0014 aStream
  %SUMMARY 'Создаёт обёртку над потоком' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_49BE68B201D1 // Tl3ProxyStream
+ : Parent HWL ME_49BE68B201D1 // Tl3ProxyStream
  ;
  : Target WL 'ME_46A5B0060013' '4677FBA70343.pas.ms.script' // IStream
  ;
@@ -81,7 +81,7 @@ ref; // ME_49BE71A302F3 Make
  %SUMMARY 'Освобождает внутренний поток' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_49BE68B201D1 // Tl3ProxyStream
+ : Parent HWL ME_49BE68B201D1 // Tl3ProxyStream
  ;
 
 ref; // ME_49C0DA3F015D CloseInner
@@ -89,7 +89,7 @@ ref; // ME_49C0DA3F015D CloseInner
 : ME_49BE6D990233
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_49BE68B201D1 // Tl3ProxyStream
+ : Parent HWL ME_49BE68B201D1 // Tl3ProxyStream
  ;
  : Target WL 'ME_4981AC0701C1' '4AB0997B00A2.pas.ms.script' // ComObj
  ;
@@ -99,7 +99,7 @@ ref; // ME_49BE6D990233
 : ME_49BE6F140198
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_49BE68B201D1 // Tl3ProxyStream
+ : Parent HWL ME_49BE68B201D1 // Tl3ProxyStream
  ;
  : Target WL 'ME_48EA3BDD0023' '4678193C009C.pas.ms.script' // ActiveXConsts
  ;
@@ -139,20 +139,20 @@ ref; // ME_49BE65E80020_ME_49BE68B201D1 Seek
  %SUMMARY 'Поток служащий обёрткой над другим потоком' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_49BE68890199 // Streams
+ : Parent HWL ME_49BE68890199 // Streams
  ;
  : Inherits
    Seq: ( WL 'ME_48F4748E0192' '47913B47006E.pas.ms.script' // Tl3Stream
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_49BE693D039F // f_Inner
+   Seq: ( HWL ME_49BE693D039F // f_Inner
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_49BE699000B0 // Create
- ME_49BE71A302F3 // Make
- ME_49C0DA3F015D // CloseInner
+   Seq: ( HWL ME_49BE699000B0 // Create
+ HWL ME_49BE71A302F3 // Make
+ HWL ME_49C0DA3F015D // CloseInner
  )
  ; // Operations
  : Overridden
@@ -188,7 +188,7 @@ ref; // ME_49BE68B201D1 Tl3ProxyStream
  : Parent WL 'ME_4790D09A0378' '4790D09A0378.pas.ms.script' // L3
  ;
  : Children
-   Seq: ( ME_49BE68B201D1 // Tl3ProxyStream
+   Seq: ( HWL ME_49BE68B201D1 // Tl3ProxyStream
  )
  ; // Children
  : Depends

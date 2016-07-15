@@ -1,0 +1,61 @@
+// LeftEdition 4A6EC02E00EA VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A6EC02E00EA
+
+: ME_3A5A330387A0
+ CONST UID '3A5A330387A0'
+ CONST Name 'Ini_FormFactory_LeftEdition'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы LeftEdition' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4A6EC02E00EA // LeftEdition
+ ;
+ : SpelledFor HWL ME_4A6EC02E00EA // LeftEdition
+ ;
+
+ref; // ME_3A5A330387A0 Ini_FormFactory_LeftEdition
+
+: ME_4A6EC02E00EA
+ CONST UID '4A6EC02E00EA'
+ CONST Name 'LeftEdition'
+ CONST Class class_Class
+ : Stereotype st_VCMFinalForm ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Предыдущая редакция' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent WL 'ME_4A6D5F3D03A9' '4A6D5F3D03A9.pas.ms.script' // BaseEditions
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4A6D5A80013C' '4A6D5A80013C.pas.ms.script' // PrimLeftEdition
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4FFC67440230' '4FFC670F012B.pas.ms.script' // LeftEdition
+ )
+ ; // Implements
+ : Operations
+   Seq: ( HWL ME_3A5A330387A0 // Ini_FormFactory_LeftEdition
+ )
+ ; // Operations
+ CONST "NeedsHackRef" true
+ CONST "ZoneType" 'Any'
+ CONST "author" 'Люлин А.В.'
+ CONST "finished dfm" true
+ CONST "no hands" true
+ CONST "resizeable" false
+ CONST "restrict form def" 'undefined'
+ CONST "started" '28.07.2009 13:09'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Editions\Forms\LeftEdition_Form.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Editions\Forms'
+ CONST extprop:pas:TypeName 'TLeftEditionForm'
+ CONST extprop:rc:SelfName 'LeftEditionForm'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'LeftEdition_Form'
+
+ref; // ME_4A6EC02E00EA LeftEdition

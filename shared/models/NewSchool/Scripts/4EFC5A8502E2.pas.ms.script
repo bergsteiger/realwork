@@ -1,0 +1,40 @@
+// TdsSynchroViewWarning 4EFC5A8502E2 ViewAreaControllerImp Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4EFC5A8502E2
+
+: ME_4EFC5A6501C9_ME_4EFC5A8502E2
+ : Original WL 'ME_4EFC5A6501C9' '492189D90209.pas.ms.script' // GetIsForSynchroView
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4EFC5A6501C9_ME_4EFC5A8502E2 GetIsForSynchroView
+
+: ME_4EFC5A8502E2
+ CONST UID '4EFC5A8502E2'
+ CONST Name 'TdsSynchroViewWarning'
+ CONST Class class_Class
+ : Stereotype st_ViewAreaControllerImp ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_47F22C7501F6' '47F22C7501F6.pas.ms.script' // Document
+ ;
+ : Inherits
+   Seq: ( WL 'ME_492189D90209' '492189D90209.pas.ms.script' // TdsWarning
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4FD0899600AE' '484FA67302D7.pas.ms.script' // Если баллон относится к синхронному просмотру, то ссылки `Переключиться в актуальную редакцию документа` быть не должно
+ )
+ ; // Implements
+ : Overridden
+   Seq: ( ME_4EFC5A6501C9_ME_4EFC5A8502E2 // GetIsForSynchroView
+ )
+ ; // Overridden
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Business\Document\dsSynchroViewWarning.pas'
+ CONST extprop:rc:SelfName 'dsSynchroViewWarning'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'dsSynchroViewWarning'
+
+ref; // ME_4EFC5A8502E2 TdsSynchroViewWarning

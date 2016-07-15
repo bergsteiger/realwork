@@ -1,0 +1,682 @@
+// BaseSearch 4CC97D020011 VCMFormsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4CC97D020011
+
+FORWARD ME_4AB79DF40349
+
+: ME_4AB79F390161
+ CONST UID '4AB79F390161'
+ CONST Name 'Processor'
+ CONST Class class_Attribute
+ : Stereotype st_var::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_4AB79DF40349 // TryAnotherBaseSearch
+ ;
+ : Target WL 'ME_495132860112' '4D7A0528021A.pas.ms.script' // InsBaseSearchResultProcessor
+ ;
+ CONST "IsResult" false
+
+ref; // ME_4AB79F390161 Processor
+
+: ME_4AB79E1E022C
+ CONST Name 'aContainer'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
+ ;
+
+ref; // ME_4AB79E1E022C aContainer
+
+: ME_4AB79E1E0255
+ CONST Name 'aProcessor'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_495132860112' '4D7A0528021A.pas.ms.script' // InsBaseSearchResultProcessor
+ ;
+
+ref; // ME_4AB79E1E0255 aProcessor
+
+: ME_4BBED24002AC
+ CONST Name 'TryFullList'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST Value false
+ : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST extprop:pas:Value false
+
+ref; // ME_4BBED24002AC TryFullList
+
+: ME_4AB79E0502D9
+ CONST UID '4AB79E0502D9'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AB79DF40349 // TryAnotherBaseSearch
+ ;
+ : Parameters
+   Seq: ( ME_4AB79E1E022C // aContainer
+ ME_4AB79E1E0255 // aProcessor
+ ME_4BBED24002AC // TryFullList
+ )
+ ; // Parameters
+
+ref; // ME_4AB79E0502D9 DoIt
+
+: ME_4AB79F4E028F
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AB79DF40349 // TryAnotherBaseSearch
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_4AB79F4E028F 
+
+: ME_4AB79DF40349
+ CONST UID '4AB79DF40349'
+ CONST Name 'TryAnotherBaseSearch'
+ CONST Class class_Class
+ : Stereotype st_FactoryMethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4CC97D020011 // BaseSearch
+ ;
+ : Attributes
+   Seq: ( HWL ME_4AB79F390161 // Processor
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( HWL ME_4AB79E0502D9 // DoIt
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_4AB79F4E028F // SysUtils
+ )
+ ; // Dependencies
+ CONST "NO_FACTORY_BRACKECTS" false
+
+ref; // ME_4AB79DF40349 TryAnotherBaseSearch
+
+FORWARD ME_4AB7881B00EA
+
+: ME_4AB78870034B
+ CONST UID '4AB78870034B'
+ CONST Name 'Container'
+ CONST Class class_Attribute
+ : Stereotype st_var::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_4AB7881B00EA // OpenBaseSearch
+ ;
+ : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
+ ;
+ CONST "IsResult" false
+
+ref; // ME_4AB78870034B Container
+
+: ME_4AB788B203DD
+ CONST UID '4AB788B203DD'
+ CONST Name 'Processor'
+ CONST Class class_Attribute
+ : Stereotype st_var::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_4AB7881B00EA // OpenBaseSearch
+ ;
+ : Target WL 'ME_496B533F00AE' '4A9F98B901A5.pas.ms.script' // InsBaseSearchQueryDataProcessor
+ ;
+ CONST "IsResult" false
+
+ref; // ME_4AB788B203DD Processor
+
+: ME_4AB7883D0393
+ CONST Name 'OpenKind'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49512DE00227' '4A9F98B901A5.pas.ms.script' // TnsBaseSearchOpenKind
+ ;
+
+ref; // ME_4AB7883D0393 OpenKind
+
+: ME_4AB7883D03B7
+ CONST Name 'aQuery'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_45EEE145027B' '45EEAA8E034E.pas.ms.script' // Query
+ ;
+
+ref; // ME_4AB7883D03B7 aQuery
+
+: ME_4AB788280363
+ CONST UID '4AB788280363'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AB7881B00EA // OpenBaseSearch
+ ;
+ : Parameters
+   Seq: ( ME_4AB7883D0393 // OpenKind
+ ME_4AB7883D03B7 // aQuery
+ )
+ ; // Parameters
+
+ref; // ME_4AB788280363 DoIt
+
+: ME_4AB78E8A0298
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AB7881B00EA // OpenBaseSearch
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_4AB78E8A0298 
+
+: ME_4AE986FB0290
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AB7881B00EA // OpenBaseSearch
+ ;
+ : Target WL 'ME_4AE8A0D10108' '4AE89F8A004B.pas.ms.script' // Query
+ ;
+
+ref; // ME_4AE986FB0290 
+
+: ME_4AE989BB0286
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AB7881B00EA // OpenBaseSearch
+ ;
+ : Target WL 'ME_4AE831E70016' '4AE831B30019.pas.ms.script' // AttributeTree$Select
+ ;
+
+ref; // ME_4AE989BB0286 
+
+: ME_56F4EBF600E1
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AB7881B00EA // OpenBaseSearch
+ ;
+ : Target WL 'ME_563875050317' '563874EF0183.pas.ms.script' // TnsBaseSearchService
+ ;
+
+ref; // ME_56F4EBF600E1 
+
+: ME_4AB7881B00EA
+ CONST UID '4AB7881B00EA'
+ CONST Name 'OpenBaseSearch'
+ CONST Class class_Class
+ : Stereotype st_FactoryMethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4CC97D020011 // BaseSearch
+ ;
+ : Attributes
+   Seq: ( HWL ME_4AB78870034B // Container
+ HWL ME_4AB788B203DD // Processor
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( HWL ME_4AB788280363 // DoIt
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_4AB78E8A0298 // SysUtils
+ ME_4AE986FB0290 // Query
+ ME_4AE989BB0286 // AttributeTree$Select
+ ME_56F4EBF600E1 // TnsBaseSearchService
+ )
+ ; // Dependencies
+ CONST "NO_FACTORY_BRACKECTS" false
+
+ref; // ME_4AB7881B00EA OpenBaseSearch
+
+FORWARD ME_4AB793B903E6
+
+: ME_4AB793E800E8
+ CONST Name 'aContainer'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
+ ;
+
+ref; // ME_4AB793E800E8 aContainer
+
+: ME_4AB793E8013B
+ CONST Name 'aData'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_496B629D0188' '4A9F98B901A5.pas.ms.script' // InsBaseSearcherWindowData
+ ;
+
+ref; // ME_4AB793E8013B aData
+
+: ME_4D7A29210291
+ CONST Name 'aZoneType'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4992F763038E' '4683F37902CF.pas.ms.script' // TvcmZoneType
+ ;
+
+ref; // ME_4D7A29210291 aZoneType
+
+: ME_4AB793CD023C
+ CONST UID '4AB793CD023C'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AB793B903E6 // MakeBaseSearchWindow
+ ;
+ : Parameters
+   Seq: ( ME_4AB793E800E8 // aContainer
+ ME_4AB793E8013B // aData
+ ME_4D7A29210291 // aZoneType
+ )
+ ; // Parameters
+
+ref; // ME_4AB793CD023C DoIt
+
+: ME_4AB793FB02CB
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AB793B903E6 // MakeBaseSearchWindow
+ ;
+ : Target WL 'ME_4A93BA1802CE' '47D0E1500033.pas.ms.script' // vcmParams
+ ;
+
+ref; // ME_4AB793FB02CB 
+
+: ME_4AB793B903E6
+ CONST UID '4AB793B903E6'
+ CONST Name 'MakeBaseSearchWindow'
+ CONST Class class_Class
+ : Stereotype st_FormFactory ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4CC97D020011 // BaseSearch
+ ;
+ : Operations
+   Seq: ( HWL ME_4AB793CD023C // DoIt
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_4AB793FB02CB // vcmParams
+ )
+ ; // Dependencies
+ CONST "NO_FACTORY_BRACKECTS" false
+
+ref; // ME_4AB793B903E6 MakeBaseSearchWindow
+
+FORWARD ME_4AB79B8201F8
+
+: ME_4AB79BBC0282
+ CONST UID '4AB79BBC0282'
+ CONST Name 'Processor'
+ CONST Class class_Attribute
+ : Stereotype st_var::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_4AB79B8201F8 // BaseSearchCheckFragmentsCount
+ ;
+ : Target WL 'ME_496B533F00AE' '4A9F98B901A5.pas.ms.script' // InsBaseSearchQueryDataProcessor
+ ;
+ CONST "IsResult" false
+
+ref; // ME_4AB79BBC0282 Processor
+
+: ME_4AB79B920363
+ CONST Name 'aContainer'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
+ ;
+
+ref; // ME_4AB79B920363 aContainer
+
+: ME_4AB79B9100CE
+ CONST UID '4AB79B9100CE'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AB79B8201F8 // BaseSearchCheckFragmentsCount
+ ;
+ : Parameters
+   Seq: ( ME_4AB79B920363 // aContainer
+ )
+ ; // Parameters
+
+ref; // ME_4AB79B9100CE DoIt
+
+: ME_4AB79BCA03C6
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AB79B8201F8 // BaseSearchCheckFragmentsCount
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_4AB79BCA03C6 
+
+: ME_4AB79B8201F8
+ CONST UID '4AB79B8201F8'
+ CONST Name 'BaseSearchCheckFragmentsCount'
+ CONST Class class_Class
+ : Stereotype st_FactoryMethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4CC97D020011 // BaseSearch
+ ;
+ : Attributes
+   Seq: ( HWL ME_4AB79BBC0282 // Processor
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( HWL ME_4AB79B9100CE // DoIt
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_4AB79BCA03C6 // SysUtils
+ )
+ ; // Dependencies
+ CONST "NO_FACTORY_BRACKECTS" false
+
+ref; // ME_4AB79B8201F8 BaseSearchCheckFragmentsCount
+
+FORWARD ME_4AB797E7001F
+
+: ME_4AB7982203AC
+ CONST UID '4AB7982203AC'
+ CONST Name 'Checker'
+ CONST Class class_Attribute
+ : Stereotype st_var::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_4AB797E7001F // CheckBaseSearchDataReady
+ ;
+ : Target WL 'ME_496B4F6303E5' '4A9F98B901A5.pas.ms.script' // InsBaseSearchDataReadyChecker
+ ;
+ CONST "IsResult" false
+
+ref; // ME_4AB7982203AC Checker
+
+: ME_4AB79A760146
+ CONST Name 'aContainer'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
+ ;
+
+ref; // ME_4AB79A760146 aContainer
+
+: ME_4AB7997D016A
+ CONST UID '4AB7997D016A'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AB797E7001F // CheckBaseSearchDataReady
+ ;
+ : Parameters
+   Seq: ( ME_4AB79A760146 // aContainer
+ )
+ ; // Parameters
+
+ref; // ME_4AB7997D016A DoIt
+
+: ME_4AB798360023
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AB797E7001F // CheckBaseSearchDataReady
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_4AB798360023 
+
+: ME_4AB797E7001F
+ CONST UID '4AB797E7001F'
+ CONST Name 'CheckBaseSearchDataReady'
+ CONST Class class_Class
+ : Stereotype st_FactoryMethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4CC97D020011 // BaseSearch
+ ;
+ : Attributes
+   Seq: ( HWL ME_4AB7982203AC // Checker
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( HWL ME_4AB7997D016A // DoIt
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_4AB798360023 // SysUtils
+ )
+ ; // Dependencies
+ CONST "NO_FACTORY_BRACKECTS" false
+
+ref; // ME_4AB797E7001F CheckBaseSearchDataReady
+
+FORWARD ME_4AB7A5A500FB
+
+: ME_4AB7A5D90392
+ CONST UID '4AB7A5D90392'
+ CONST Name 'Processor'
+ CONST Class class_Attribute
+ : Stereotype st_var::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_4AB7A5A500FB // BaseSearchCheckFindBack
+ ;
+ : Target WL 'ME_496B533F00AE' '4A9F98B901A5.pas.ms.script' // InsBaseSearchQueryDataProcessor
+ ;
+ CONST "IsResult" false
+
+ref; // ME_4AB7A5D90392 Processor
+
+: ME_4AB7A5B70355
+ CONST Name 'aContainer'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
+ ;
+
+ref; // ME_4AB7A5B70355 aContainer
+
+: ME_4AB7A5AB0357
+ CONST UID '4AB7A5AB0357'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AB7A5A500FB // BaseSearchCheckFindBack
+ ;
+ : Parameters
+   Seq: ( ME_4AB7A5B70355 // aContainer
+ )
+ ; // Parameters
+
+ref; // ME_4AB7A5AB0357 DoIt
+
+: ME_4AB7A5E902CC
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AB7A5A500FB // BaseSearchCheckFindBack
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_4AB7A5E902CC 
+
+: ME_4AB7A5A500FB
+ CONST UID '4AB7A5A500FB'
+ CONST Name 'BaseSearchCheckFindBack'
+ CONST Class class_Class
+ : Stereotype st_FactoryMethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4CC97D020011 // BaseSearch
+ ;
+ : Attributes
+   Seq: ( HWL ME_4AB7A5D90392 // Processor
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( HWL ME_4AB7A5AB0357 // DoIt
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_4AB7A5E902CC // SysUtils
+ )
+ ; // Dependencies
+ CONST "NO_FACTORY_BRACKECTS" false
+
+ref; // ME_4AB7A5A500FB BaseSearchCheckFindBack
+
+FORWARD ME_4AB7A2E20096
+
+: ME_4AB7A2FB02B0
+ CONST Name 'aContainer'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
+ ;
+
+ref; // ME_4AB7A2FB02B0 aContainer
+
+: ME_4AB7A2F0030E
+ CONST UID '4AB7A2F0030E'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AB7A2E20096 // MakeBaseSearchCard
+ ;
+ : Parameters
+   Seq: ( ME_4AB7A2FB02B0 // aContainer
+ )
+ ; // Parameters
+
+ref; // ME_4AB7A2F0030E DoIt
+
+: ME_4AB7A30D01EC
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AB7A2E20096 // MakeBaseSearchCard
+ ;
+ : Target WL 'ME_4A93BA1802CE' '47D0E1500033.pas.ms.script' // vcmParams
+ ;
+
+ref; // ME_4AB7A30D01EC 
+
+: ME_4D7A324700CC
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AB7A2E20096 // MakeBaseSearchCard
+ ;
+ : Target WL 'ME_4D7A26C701BE' '4F5DA09300C5.pas.ms.script' // slqtBaseSearch
+ ;
+
+ref; // ME_4D7A324700CC 
+
+: ME_4AB7A2E20096
+ CONST UID '4AB7A2E20096'
+ CONST Name 'MakeBaseSearchCard'
+ CONST Class class_Class
+ : Stereotype st_FormFactory ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4CC97D020011 // BaseSearch
+ ;
+ : Operations
+   Seq: ( HWL ME_4AB7A2F0030E // DoIt
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_4AB7A30D01EC // vcmParams
+ ME_4D7A324700CC // slqtBaseSearch
+ )
+ ; // Dependencies
+ CONST "NO_FACTORY_BRACKECTS" false
+
+ref; // ME_4AB7A2E20096 MakeBaseSearchCard
+
+: ME_F75B4A9B4CD0
+ CONST UID 'F75B4A9B4CD0'
+ CONST Name 'Ini_FormFactory_NewBaseSearch_NewBaseSearch'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы NewBaseSearch' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4CC97D020011 // BaseSearch
+ ;
+ : SpelledFor WL 'ME_4CF4BE9C035F' '4CF4BE9C035F.pas.ms.script' // NewBaseSearch
+ ;
+
+ref; // ME_F75B4A9B4CD0 Ini_FormFactory_NewBaseSearch_NewBaseSearch
+
+: ME_4CC97D020011
+ CONST UID '4CC97D020011'
+ CONST Name 'BaseSearch'
+ CONST Class class_Class
+ : Stereotype st_VCMFormsPack ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Базовый поиск' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4CC97BDA02DF' '4CC97BDA02DF.pas.ms.script' // BaseSearch$Module
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4AB33E14004E' '47D0E1500033.pas.ms.script' // TvcmModule
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( HWL ME_4AB79DF40349 // TryAnotherBaseSearch
+ HWL ME_4AB7881B00EA // OpenBaseSearch
+ HWL ME_4AB793B903E6 // MakeBaseSearchWindow
+ HWL ME_4AB79B8201F8 // BaseSearchCheckFragmentsCount
+ HWL ME_4AB797E7001F // CheckBaseSearchDataReady
+ HWL ME_4AB7A5A500FB // BaseSearchCheckFindBack
+ HWL ME_4AB7A2E20096 // MakeBaseSearchCard
+ HWL ME_F75B4A9B4CD0 // Ini_FormFactory_NewBaseSearch_NewBaseSearch
+ )
+ ; // Operations
+ : Children
+   Seq: ( WL 'ME_4AB7A34401D0' '4AB7A34401D0.pas.ms.script' // BaseSearchCard
+ WL 'ME_4CF4BE9C035F' '4CF4BE9C035F.pas.ms.script' // NewBaseSearch
+ WL 'ME_4D7A458300CB' '4D7A458300CB.pas.ms.script' // BaseSearchContainer
+ )
+ ; // Children
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\BaseSearch\BaseSearch_Module.pas'
+ CONST extprop:pas:TypeName 'TBaseSearchModule'
+ CONST extprop:rc:SelfName 'BaseSearchModule'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'BaseSearch_Module'
+
+ref; // ME_4CC97D020011 BaseSearch

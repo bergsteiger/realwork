@@ -12,7 +12,7 @@ FORWARD ME_48077E810317
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_48077E810317 // IatNotification
+ : Parent HWL ME_48077E810317 // IatNotification
  ;
  : Target WL 'ME_48077EC0001D' '4AB0C3C60310.pas.ms.script' // Variant
  ;
@@ -28,10 +28,10 @@ ref; // ME_48077ED302B8 GetData
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_48077E620315 // atInterfaces
+ : Parent HWL ME_48077E620315 // atInterfaces
  ;
  : Operations
-   Seq: ( ME_48077ED302B8 // GetData
+   Seq: ( HWL ME_48077ED302B8 // GetData
  )
  ; // Operations
  CONST extprop:rc:SelfName 'atNotification'
@@ -47,7 +47,7 @@ FORWARD ME_48077F320256
  CONST Name 'notifier'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_48077F750303 // IatNotifier
+ : Target HWL ME_48077F750303 // IatNotifier
  ;
 
 ref; // ME_48077F44003D notifier
@@ -58,7 +58,7 @@ ref; // ME_48077F44003D notifier
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_48077F320256 // IatListener
+ : Parent HWL ME_48077F320256 // IatListener
  ;
  : Parameters
    Seq: ( ME_48077F44003D // notifier
@@ -73,7 +73,7 @@ ref; // ME_48077F3F01F9 StartListen
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_48077F320256 // IatListener
+ : Parent HWL ME_48077F320256 // IatListener
  ;
 
 ref; // ME_48077F4B02E8 StopListen
@@ -82,7 +82,7 @@ ref; // ME_48077F4B02E8 StopListen
  CONST Name 'notifier'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_48077F750303 // IatNotifier
+ : Target HWL ME_48077F750303 // IatNotifier
  ;
 
 ref; // ME_48077F5A02C1 notifier
@@ -93,7 +93,7 @@ ref; // ME_48077F5A02C1 notifier
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_48077F320256 // IatListener
+ : Parent HWL ME_48077F320256 // IatListener
  ;
  : Parameters
    Seq: ( ME_48077F5A02C1 // notifier
@@ -115,7 +115,7 @@ ref; // ME_48077F67022D sender
  CONST Name 'notification'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_48077E810317 // IatNotification
+ : Target HWL ME_48077E810317 // IatNotification
  ;
 
 ref; // ME_48077F670248 notification
@@ -126,7 +126,7 @@ ref; // ME_48077F670248 notification
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_48077F320256 // IatListener
+ : Parent HWL ME_48077F320256 // IatListener
  ;
  : Parameters
    Seq: ( ME_48077F67022D // sender
@@ -145,17 +145,17 @@ ref; // ME_48077F6101B4 Fire
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_48077E620315 // atInterfaces
+ : Parent HWL ME_48077E620315 // atInterfaces
  ;
  : Operations
-   Seq: ( ME_48077F3F01F9 // StartListen
- ME_48077F4B02E8 // StopListen
- ME_48077F540156 // StopListen
- ME_48077F6101B4 // Fire
+   Seq: ( HWL ME_48077F3F01F9 // StartListen
+ HWL ME_48077F4B02E8 // StopListen
+ HWL ME_48077F540156 // StopListen
+ HWL ME_48077F6101B4 // Fire
  )
  ; // Operations
  : Forwarded
-   Seq: ( ME_48077F750303 // IatNotifier
+   Seq: ( HWL ME_48077F750303 // IatNotifier
  )
  ; // Forwarded
  CONST extprop:rc:SelfName 'atListener'
@@ -167,7 +167,7 @@ ref; // ME_48077F320256 IatListener
  CONST Name 'listener'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_48077F320256 // IatListener
+ : Target HWL ME_48077F320256 // IatListener
  ;
 
 ref; // ME_48077F87014D listener
@@ -178,7 +178,7 @@ ref; // ME_48077F87014D listener
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_48077F750303 // IatNotifier
+ : Parent HWL ME_48077F750303 // IatNotifier
  ;
  : Parameters
    Seq: ( ME_48077F87014D // listener
@@ -193,7 +193,7 @@ ref; // ME_48077F83039B StartNotify
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_48077F750303 // IatNotifier
+ : Parent HWL ME_48077F750303 // IatNotifier
  ;
 
 ref; // ME_48077F8E00B6 StopNotify
@@ -202,7 +202,7 @@ ref; // ME_48077F8E00B6 StopNotify
  CONST Name 'listener'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_48077F320256 // IatListener
+ : Target HWL ME_48077F320256 // IatListener
  ;
 
 ref; // ME_48077F9A0162 listener
@@ -213,7 +213,7 @@ ref; // ME_48077F9A0162 listener
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_48077F750303 // IatNotifier
+ : Parent HWL ME_48077F750303 // IatNotifier
  ;
  : Parameters
    Seq: ( ME_48077F9A0162 // listener
@@ -235,7 +235,7 @@ ref; // ME_48077FA702B2 sender
  CONST Name 'notification'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_48077E810317 // IatNotification
+ : Target HWL ME_48077E810317 // IatNotification
  ;
 
 ref; // ME_48077FA702CE notification
@@ -246,7 +246,7 @@ ref; // ME_48077FA702CE notification
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_48077F750303 // IatNotifier
+ : Parent HWL ME_48077F750303 // IatNotifier
  ;
  : Parameters
    Seq: ( ME_48077FA702B2 // sender
@@ -265,13 +265,13 @@ ref; // ME_48077FA2038C Trigger
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_48077E620315 // atInterfaces
+ : Parent HWL ME_48077E620315 // atInterfaces
  ;
  : Operations
-   Seq: ( ME_48077F83039B // StartNotify
- ME_48077F8E00B6 // StopNotify
- ME_48077F9601A1 // StopNotify
- ME_48077FA2038C // Trigger
+   Seq: ( HWL ME_48077F83039B // StartNotify
+ HWL ME_48077F8E00B6 // StopNotify
+ HWL ME_48077F9601A1 // StopNotify
+ HWL ME_48077FA2038C // Trigger
  )
  ; // Operations
  CONST extprop:rc:SelfName 'atNotifier'
@@ -287,9 +287,9 @@ FORWARD ME_48077FB30337
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_48077FB30337 // IatNotifyRepeater
+ : Parent HWL ME_48077FB30337 // IatNotifyRepeater
  ;
- : Target ME_48077F320256 // IatListener
+ : Target HWL ME_48077F320256 // IatListener
  ;
 
 ref; // ME_48077FBD01E4 AsListener
@@ -300,9 +300,9 @@ ref; // ME_48077FBD01E4 AsListener
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_48077FB30337 // IatNotifyRepeater
+ : Parent HWL ME_48077FB30337 // IatNotifyRepeater
  ;
- : Target ME_48077F750303 // IatNotifier
+ : Target HWL ME_48077F750303 // IatNotifier
  ;
 
 ref; // ME_48077FC702FA AsNotifier
@@ -316,11 +316,11 @@ ref; // ME_48077FC702FA AsNotifier
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_48077E620315 // atInterfaces
+ : Parent HWL ME_48077E620315 // atInterfaces
  ;
  : Operations
-   Seq: ( ME_48077FBD01E4 // AsListener
- ME_48077FC702FA // AsNotifier
+   Seq: ( HWL ME_48077FBD01E4 // AsListener
+ HWL ME_48077FC702FA // AsNotifier
  )
  ; // Operations
  CONST extprop:rc:SelfName 'atNotifyRepeater'
@@ -345,7 +345,7 @@ ref; // ME_4808B4390031 msg
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4808B4120377 // IatLogger
+ : Parent HWL ME_4808B4120377 // IatLogger
  ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
@@ -371,7 +371,7 @@ ref; // ME_4808B4530201 msg
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4808B4120377 // IatLogger
+ : Parent HWL ME_4808B4120377 // IatLogger
  ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
@@ -397,7 +397,7 @@ ref; // ME_4808B4640100 msg
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4808B4120377 // IatLogger
+ : Parent HWL ME_4808B4120377 // IatLogger
  ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
@@ -436,7 +436,7 @@ ref; // ME_4808B4DE02B9 prefix
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4808B4120377 // IatLogger
+ : Parent HWL ME_4808B4120377 // IatLogger
  ;
  : Parameters
    Seq: ( ME_4808B4DE0299 // ex
@@ -470,7 +470,7 @@ ref; // ME_484A74EB0022 anArgs
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4808B4120377 // IatLogger
+ : Parent HWL ME_4808B4120377 // IatLogger
  ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
@@ -506,7 +506,7 @@ ref; // ME_484A76E6033F anArgs
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4808B4120377 // IatLogger
+ : Parent HWL ME_4808B4120377 // IatLogger
  ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
@@ -542,7 +542,7 @@ ref; // ME_484A771001D7 anArgs
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4808B4120377 // IatLogger
+ : Parent HWL ME_4808B4120377 // IatLogger
  ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
@@ -563,16 +563,16 @@ ref; // ME_484A76ED00FD Error
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_48077E620315 // atInterfaces
+ : Parent HWL ME_48077E620315 // atInterfaces
  ;
  : Operations
-   Seq: ( ME_4808B42B0093 // Info
- ME_4808B44F022E // Warning
- ME_4808B45F00DA // Error
- ME_4808B46D01DF // Exception
- ME_484A74A700FD // Info
- ME_484A76C6037D // Warning
- ME_484A76ED00FD // Error
+   Seq: ( HWL ME_4808B42B0093 // Info
+ HWL ME_4808B44F022E // Warning
+ HWL ME_4808B45F00DA // Error
+ HWL ME_4808B46D01DF // Exception
+ HWL ME_484A74A700FD // Info
+ HWL ME_484A76C6037D // Warning
+ HWL ME_484A76ED00FD // Error
  )
  ; // Operations
  CONST extprop:rc:SelfName 'atLogger'
@@ -591,11 +591,11 @@ ref; // ME_4808B4120377 IatLogger
  : Parent WL 'ME_48075C0E02DE' '48075C0E02DE.pas.ms.script' // AdapterTest
  ;
  : Children
-   Seq: ( ME_48077E810317 // IatNotification
- ME_48077F320256 // IatListener
- ME_48077F750303 // IatNotifier
- ME_48077FB30337 // IatNotifyRepeater
- ME_4808B4120377 // IatLogger
+   Seq: ( HWL ME_48077E810317 // IatNotification
+ HWL ME_48077F320256 // IatListener
+ HWL ME_48077F750303 // IatNotifier
+ HWL ME_48077FB30337 // IatNotifyRepeater
+ HWL ME_4808B4120377 // IatLogger
  )
  ; // Children
  : Depends

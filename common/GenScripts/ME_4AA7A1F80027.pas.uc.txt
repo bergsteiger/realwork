@@ -1,3 +1,5 @@
+//#UC START# *4AA7A1F80027impl_uses*
+//#UC END# *4AA7A1F80027impl_uses*
 //#UC START# *4ABB94DE033F_4AA7A1F80027_impl*
  l_MainMenuKind := TnsMainMenuKind(afw.Settings.LoadInteger(pi_MainMenuKind, dv_MainMenuKind));
  case l_MainMenuKind of
@@ -42,3 +44,17 @@
 //#UC END# *4B151A5B0057_4B151A2302D2_impl*
 //#UC START# *4B151A5B0057_4B151A2302D2_var*
 //#UC END# *4B151A5B0057_4B151A2302D2_var*
+//#UC START# *AD718804750F_4AA7A1F80027_impl*
+ if (afw.Settings = nil) then
+  Result := dv_MainMenu_ChangeableMainMenuType
+ else
+  Result := afw.Settings.LoadInteger(pi_MainMenu_ChangeableMainMenuType, dv_MainMenu_ChangeableMainMenuType);
+//#UC END# *AD718804750F_4AA7A1F80027_impl*
+//#UC START# *AD718804750F_4AA7A1F80027_var*
+//#UC END# *AD718804750F_4AA7A1F80027_var*
+//#UC START# *F62C297CC387_4AA7A1F80027_impl*
+ if (afw.Settings <> nil) then
+  afw.Settings.SaveInteger(pi_MainMenu_ChangeableMainMenuType, aValue);
+//#UC END# *F62C297CC387_4AA7A1F80027_impl*
+//#UC START# *F62C297CC387_4AA7A1F80027_var*
+//#UC END# *F62C297CC387_4AA7A1F80027_var*

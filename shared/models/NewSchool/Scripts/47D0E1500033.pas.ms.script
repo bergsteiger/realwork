@@ -138,7 +138,7 @@ ref; // ME_5600F23B013D_ME_5017EC5602B0 PopToHistory
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_5017EAF4027D // vcmFormDataSourcePrimWithFlexUseCaseControllerType
+ : Parent HWL ME_5017EAF4027D // vcmFormDataSourcePrimWithFlexUseCaseControllerType
  ;
  : Inherits
    Seq: ( WL 'ME_47F252870299' '4683F37902CF.pas.ms.script' // IvcmFormSetDataSource
@@ -237,7 +237,7 @@ ref; // ME_55097FA90148_ME_491C1E280368 IsDataAvailable
  %SUMMARY 'Реальный тип контроллера области ввода' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_5017EAF4027D // vcmFormDataSourcePrimWithFlexUseCaseControllerType
+ : Parent HWL ME_5017EAF4027D // vcmFormDataSourcePrimWithFlexUseCaseControllerType
  ;
  : Inherits
    Seq: ( WL 'ME_47EB900B0216' '4683F37902CF.pas.ms.script' // IvcmFormDataSource
@@ -268,9 +268,9 @@ ref; // ME_491C1E280368 FormDataSourceType
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_lnk
- : Parent ME_5017EAF4027D // vcmFormDataSourcePrimWithFlexUseCaseControllerType
+ : Parent HWL ME_5017EAF4027D // vcmFormDataSourcePrimWithFlexUseCaseControllerType
  ;
- : Target ME_491C1E280368 // FormDataSourceType
+ : Target HWL ME_491C1E280368 // FormDataSourceType
  ;
 
 ref; // ME_5017EBE8012C FormDataSourceType
@@ -283,7 +283,7 @@ ref; // ME_5017EBE8012C FormDataSourceType
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_lnk
- : Parent ME_5017EAF4027D // vcmFormDataSourcePrimWithFlexUseCaseControllerType
+ : Parent HWL ME_5017EAF4027D // vcmFormDataSourcePrimWithFlexUseCaseControllerType
  ;
  : Target WL 'ME_4683C9AC03AC' '467BAB7F021E.pas.ms.script' // IvcmCString
  ;
@@ -298,9 +298,9 @@ ref; // ME_5017EC1701B4 f_DisplayName
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_5017EAF4027D // vcmFormDataSourcePrimWithFlexUseCaseControllerType
+ : Parent HWL ME_5017EAF4027D // vcmFormDataSourcePrimWithFlexUseCaseControllerType
  ;
- : Target ME_5017EC5602B0 // UseCaseControllerType
+ : Target HWL ME_5017EC5602B0 // UseCaseControllerType
  ;
 
 ref; // ME_5017EC7103C1 UseCaseControllerType
@@ -314,9 +314,9 @@ ref; // ME_5017EC7103C1 UseCaseControllerType
  CONST Visibility ProtectedAccess
  CONST Abstraction at_final
  CONST LinkType lt_agr
- : Parent ME_5017EAF4027D // vcmFormDataSourcePrimWithFlexUseCaseControllerType
+ : Parent HWL ME_5017EAF4027D // vcmFormDataSourcePrimWithFlexUseCaseControllerType
  ;
- : Target ME_5017EC5602B0 // UseCaseControllerType
+ : Target HWL ME_5017EC5602B0 // UseCaseControllerType
  ;
  CONST "pm" true
  CONST "reads field" true
@@ -333,7 +333,7 @@ FORWARD ME_55097FF5008E
  %SUMMARY 'существуют ли данные в текущих условиях. Например, на текущей базе.' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_55097FF5008E // GetIsDataAvailable
+ : Parent HWL ME_55097FF5008E // GetIsDataAvailable
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -349,14 +349,14 @@ ref; // ME_1EA050F99E5C DoIt
  %SUMMARY 'существуют ли данные' ;
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_5017EAF4027D // vcmFormDataSourcePrimWithFlexUseCaseControllerType
+ : Parent HWL ME_5017EAF4027D // vcmFormDataSourcePrimWithFlexUseCaseControllerType
  ;
  : Inherits
    Seq: ( WL 'ME_55097FA90148' '4683F37902CF.pas.ms.script' // IsDataAvailable
  )
  ; // Inherits
  : Operations
-   Seq: ( ME_1EA050F99E5C // DoIt
+   Seq: ( HWL ME_1EA050F99E5C // DoIt
  )
  ; // Operations
 
@@ -366,7 +366,7 @@ ref; // ME_55097FF5008E GetIsDataAvailable
  CONST Name 'aDataSource'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_5017EC5602B0 // UseCaseControllerType
+ : Target HWL ME_5017EC5602B0 // UseCaseControllerType
  ;
 
 ref; // ME_492ACF4E008D aDataSource
@@ -378,7 +378,7 @@ ref; // ME_492ACF4E008D aDataSource
  : Stereotype st_ctor::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_5017EAF4027D // vcmFormDataSourcePrimWithFlexUseCaseControllerType
+ : Parent HWL ME_5017EAF4027D // vcmFormDataSourcePrimWithFlexUseCaseControllerType
  ;
  : Parameters
    Seq: ( ME_492ACF4E008D // aDataSource
@@ -391,7 +391,7 @@ ref; // ME_492ACF3D0071 Create
  CONST Name 'aDataSource'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_5017EC5602B0 // UseCaseControllerType
+ : Target HWL ME_5017EC5602B0 // UseCaseControllerType
  ;
 
 ref; // ME_492AD7810114 aDataSource
@@ -403,9 +403,9 @@ ref; // ME_492AD7810114 aDataSource
  : Stereotype st_factory::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_5017EAF4027D // vcmFormDataSourcePrimWithFlexUseCaseControllerType
+ : Parent HWL ME_5017EAF4027D // vcmFormDataSourcePrimWithFlexUseCaseControllerType
  ;
- : Target ME_491C1E280368 // FormDataSourceType
+ : Target HWL ME_491C1E280368 // FormDataSourceType
  ;
  : Parameters
    Seq: ( ME_492AD7810114 // aDataSource
@@ -421,7 +421,7 @@ ref; // ME_492AD77200C5 Make
  %SUMMARY 'Очищает ссылки на различные представления прецедента' ;
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_5017EAF4027D // vcmFormDataSourcePrimWithFlexUseCaseControllerType
+ : Parent HWL ME_5017EAF4027D // vcmFormDataSourcePrimWithFlexUseCaseControllerType
  ;
 
 ref; // ME_49786D6A01E3 ClearRefs
@@ -432,7 +432,7 @@ ref; // ME_49786D6A01E3 ClearRefs
  CONST Class class_Operation
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_5017EAF4027D // vcmFormDataSourcePrimWithFlexUseCaseControllerType
+ : Parent HWL ME_5017EAF4027D // vcmFormDataSourcePrimWithFlexUseCaseControllerType
  ;
 
 ref; // ME_491482DC0216 FormSetDataChanged
@@ -441,7 +441,7 @@ ref; // ME_491482DC0216 FormSetDataChanged
  CONST Name 'aDataSource'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_491C1E280368 // FormDataSourceType
+ : Target HWL ME_491C1E280368 // FormDataSourceType
  ;
 
 ref; // ME_49147B5503C0 aDataSource
@@ -452,7 +452,7 @@ ref; // ME_49147B5503C0 aDataSource
  CONST Class class_Operation
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_5017EAF4027D // vcmFormDataSourcePrimWithFlexUseCaseControllerType
+ : Parent HWL ME_5017EAF4027D // vcmFormDataSourcePrimWithFlexUseCaseControllerType
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -467,7 +467,7 @@ ref; // ME_49147B4602C0 GetIsNeedChangePosition
  CONST Name 'aValue'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_491C1E280368 // FormDataSourceType
+ : Target HWL ME_491C1E280368 // FormDataSourceType
  ;
 
 ref; // ME_49147FBF015F aValue
@@ -478,7 +478,7 @@ ref; // ME_49147FBF015F aValue
  CONST Class class_Operation
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_5017EAF4027D // vcmFormDataSourcePrimWithFlexUseCaseControllerType
+ : Parent HWL ME_5017EAF4027D // vcmFormDataSourcePrimWithFlexUseCaseControllerType
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -505,7 +505,7 @@ ref; // ME_4978712901DB aDS
  %SUMMARY 'Инициализирует ссылки на различные представления прецедента' ;
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_5017EAF4027D // vcmFormDataSourcePrimWithFlexUseCaseControllerType
+ : Parent HWL ME_5017EAF4027D // vcmFormDataSourcePrimWithFlexUseCaseControllerType
  ;
  : Parameters
    Seq: ( ME_4978712901DB // aDS
@@ -520,7 +520,7 @@ ref; // ME_49786D4E034D InitRefs
  CONST Class class_Operation
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_5017EAF4027D // vcmFormDataSourcePrimWithFlexUseCaseControllerType
+ : Parent HWL ME_5017EAF4027D // vcmFormDataSourcePrimWithFlexUseCaseControllerType
  ;
  : Target WL 'ME_4683C9AC03AC' '467BAB7F021E.pas.ms.script' // IvcmCString
  ;
@@ -530,7 +530,7 @@ ref; // ME_491476B001D3 MakeDisplayName
 : ME_5017EBFB0063
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_5017EAF4027D // vcmFormDataSourcePrimWithFlexUseCaseControllerType
+ : Parent HWL ME_5017EAF4027D // vcmFormDataSourcePrimWithFlexUseCaseControllerType
  ;
  : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
  ;
@@ -540,7 +540,7 @@ ref; // ME_5017EBFB0063
 : ME_5017EC26002A
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_5017EAF4027D // vcmFormDataSourcePrimWithFlexUseCaseControllerType
+ : Parent HWL ME_5017EAF4027D // vcmFormDataSourcePrimWithFlexUseCaseControllerType
  ;
  : Target WL 'ME_47CFE7F00221' '47BB24D30205.pas.ms.script' // l3InterfacesMisc
  ;
@@ -611,7 +611,7 @@ ref; // ME_479731C50290_ME_5017EAF4027D Cleanup
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47D0E1500033 // Implementation
+ : Parent HWL ME_47D0E1500033 // Implementation
  ;
  : Inherits
    Seq: ( WL 'ME_4DD26D570378' '47913B47006E.pas.ms.script' // Tl3ProtoObjectWithCOMQI
@@ -624,22 +624,22 @@ ref; // ME_479731C50290_ME_5017EAF4027D Cleanup
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_5017EBE8012C // FormDataSourceType
- ME_5017EC1701B4 // f_DisplayName
- ME_5017EC7103C1 // UseCaseControllerType
- ME_5017EC8F02DB // UseCaseController
+   Seq: ( HWL ME_5017EBE8012C // FormDataSourceType
+ HWL ME_5017EC1701B4 // f_DisplayName
+ HWL ME_5017EC7103C1 // UseCaseControllerType
+ HWL ME_5017EC8F02DB // UseCaseController
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_55097FF5008E // GetIsDataAvailable
- ME_492ACF3D0071 // Create
- ME_492AD77200C5 // Make
- ME_49786D6A01E3 // ClearRefs
- ME_491482DC0216 // FormSetDataChanged
- ME_49147B4602C0 // GetIsNeedChangePosition
- ME_49147FB4028C // GetIsSame
- ME_49786D4E034D // InitRefs
- ME_491476B001D3 // MakeDisplayName
+   Seq: ( HWL ME_55097FF5008E // GetIsDataAvailable
+ HWL ME_492ACF3D0071 // Create
+ HWL ME_492AD77200C5 // Make
+ HWL ME_49786D6A01E3 // ClearRefs
+ HWL ME_491482DC0216 // FormSetDataChanged
+ HWL ME_49147B4602C0 // GetIsNeedChangePosition
+ HWL ME_49147FB4028C // GetIsSame
+ HWL ME_49786D4E034D // InitRefs
+ HWL ME_491476B001D3 // MakeDisplayName
  )
  ; // Operations
  : Implemented
@@ -658,8 +658,8 @@ ref; // ME_479731C50290_ME_5017EAF4027D Cleanup
  )
  ; // Overridden
  : Children
-   Seq: ( ME_5017EC5602B0 // UseCaseControllerType
- ME_491C1E280368 // FormDataSourceType
+   Seq: ( HWL ME_5017EC5602B0 // UseCaseControllerType
+ HWL ME_491C1E280368 // FormDataSourceType
  )
  ; // Children
  : Dependencies
@@ -685,7 +685,7 @@ FORWARD ME_47F25BC801DB
  %SUMMARY 'Базовый класс библиотеки.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47F25BC801DB // vcmBase
+ : Parent HWL ME_47F25BC801DB // vcmBase
  ;
  : Inherits
    Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
@@ -703,7 +703,7 @@ ref; // ME_47F25BEE0389 TvcmBase
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47F25BC801DB // vcmBase
+ : Parent HWL ME_47F25BC801DB // vcmBase
  ;
  CONST extprop:rc:SelfName 'ObjectList'
  CONST extprop:rc:isAcceptableForScripts true
@@ -718,7 +718,7 @@ ref; // ME_502BC72401EC TvcmObjectList
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47F25BC801DB // vcmBase
+ : Parent HWL ME_47F25BC801DB // vcmBase
  ;
  : Inherits
    Seq: ( WL 'ME_4DD26D570378' '47913B47006E.pas.ms.script' // Tl3ProtoObjectWithCOMQI
@@ -746,7 +746,7 @@ ref; // ME_52A1DC5F0092 aParams
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_52A1D97A009E // TvcmExecuteEvent
+ : Parent HWL ME_52A1D97A009E // TvcmExecuteEvent
  ;
  : Parameters
    Seq: ( ME_52A1DC5F0092 // aParams
@@ -763,10 +763,10 @@ ref; // ME_52A1DC570309 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47F25BC801DB // vcmBase
+ : Parent HWL ME_47F25BC801DB // vcmBase
  ;
  : Operations
-   Seq: ( ME_52A1DC570309 // DoIt
+   Seq: ( HWL ME_52A1DC570309 // DoIt
  )
  ; // Operations
  CONST "of object" true
@@ -781,12 +781,31 @@ ref; // ME_52A1D97A009E TvcmExecuteEvent
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47F25BC801DB // vcmBase
+ : Parent HWL ME_47F25BC801DB // vcmBase
  ;
  CONST extprop:rc:SelfName 'LongintList'
  CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_52A82F500189 TvcmLongintList
+
+: ME_577A5A8E02A8
+ CONST UID '577A5A8E02A8'
+ CONST Name 'TvcmClassList'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_47F25BC801DB // vcmBase
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4773DC3502A7' '47913B47006E.pas.ms.script' // Tl3CClassList
+ )
+ ; // Inherits
+ CONST extprop:rc:SelfName 'ClassList'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_577A5A8E02A8 TvcmClassList
 
 : ME_4A8ADF9E0058
  CONST UID '4A8ADF9E0058'
@@ -796,7 +815,7 @@ ref; // ME_52A82F500189 TvcmLongintList
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_47F25BC801DB // vcmBase
+ : Parent HWL ME_47F25BC801DB // vcmBase
  ;
  CONST extprop:rc:SelfName 'Fmt'
 
@@ -810,7 +829,7 @@ ref; // ME_4A8ADF9E0058 vcmFmt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_47F25BC801DB // vcmBase
+ : Parent HWL ME_47F25BC801DB // vcmBase
  ;
  CONST extprop:rc:SelfName 'Params'
 
@@ -824,7 +843,7 @@ ref; // ME_4A93BA1802CE vcmParams
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_47F25BC801DB // vcmBase
+ : Parent HWL ME_47F25BC801DB // vcmBase
  ;
  CONST extprop:rc:SelfName 'ConstString'
 
@@ -838,7 +857,7 @@ ref; // ME_4AA7F1CB012C vcmConstString
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_47F25BC801DB // vcmBase
+ : Parent HWL ME_47F25BC801DB // vcmBase
  ;
  CONST extprop:rc:SelfName 'Dispatcher'
 
@@ -852,7 +871,7 @@ ref; // ME_4AA936DC0154 vcmDispatcher
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_47F25BC801DB // vcmBase
+ : Parent HWL ME_47F25BC801DB // vcmBase
  ;
  CONST extprop:rc:SelfName 'CStr'
 
@@ -865,9 +884,9 @@ FORWARD ME_4AD89C12030A
 : ME_4AD89C5C009D
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4AD89C420296 // vcmMakeParams
+ : Parent HWL ME_4AD89C420296 // vcmMakeParams
  ;
- : Target ME_4AD89C12030A // TvcmMakeParams
+ : Target HWL ME_4AD89C12030A // TvcmMakeParams
  ;
 
 ref; // ME_4AD89C5C009D 
@@ -880,7 +899,7 @@ ref; // ME_4AD89C5C009D
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_47F25BC801DB // vcmBase
+ : Parent HWL ME_47F25BC801DB // vcmBase
  ;
  : Dependencies
    Seq: ( ME_4AD89C5C009D // TvcmMakeParams
@@ -898,7 +917,7 @@ FORWARD ME_4B98D9FD038B
  CONST Name 'aHelper'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_4B98D9FD038B // TvcmStringIDExHelper
+ : Target HWL ME_4B98D9FD038B // TvcmStringIDExHelper
  ;
 
 ref; // ME_4B98E1490387 aHelper
@@ -910,7 +929,7 @@ ref; // ME_4B98E1490387 aHelper
  %SUMMARY 'Это чтобы добиться правильного порядка подключения модулей' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4B98E11603D6 // DoNotCall
+ : Parent HWL ME_4B98E11603D6 // DoNotCall
  ;
  : Parameters
    Seq: ( ME_4B98E1490387 // aHelper
@@ -927,10 +946,10 @@ ref; // ME_4B98E1260192 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_47F25BC801DB // vcmBase
+ : Parent HWL ME_47F25BC801DB // vcmBase
  ;
  : Operations
-   Seq: ( ME_4B98E1260192 // DoIt
+   Seq: ( HWL ME_4B98E1260192 // DoIt
  )
  ; // Operations
 
@@ -944,7 +963,7 @@ ref; // ME_4B98E11603D6 DoNotCall
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_47F25BC801DB // vcmBase
+ : Parent HWL ME_47F25BC801DB // vcmBase
  ;
  CONST extprop:rc:SelfName 'Str'
 
@@ -953,9 +972,9 @@ ref; // ME_508FEA3B02B0 vcmStr
 : ME_4B98DA15023F
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_47F25BC801DB // vcmBase
+ : Parent HWL ME_47F25BC801DB // vcmBase
  ;
- : Target ME_4B98D9FD038B // TvcmStringIDExHelper
+ : Target HWL ME_4B98D9FD038B // TvcmStringIDExHelper
  ;
 
 ref; // ME_4B98DA15023F 
@@ -969,25 +988,26 @@ ref; // ME_4B98DA15023F
  %SUMMARY '- базовые классы библиотеки.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_47D0E1500033 // Implementation
+ : Parent HWL ME_47D0E1500033 // Implementation
  ;
  : Operations
-   Seq: ( ME_4A8ADF9E0058 // vcmFmt
- ME_4A93BA1802CE // vcmParams
- ME_4AA7F1CB012C // vcmConstString
- ME_4AA936DC0154 // vcmDispatcher
- ME_4AC0B9CF018A // vcmCStr
- ME_4AD89C420296 // vcmMakeParams
- ME_4B98E11603D6 // DoNotCall
- ME_508FEA3B02B0 // vcmStr
+   Seq: ( HWL ME_4A8ADF9E0058 // vcmFmt
+ HWL ME_4A93BA1802CE // vcmParams
+ HWL ME_4AA7F1CB012C // vcmConstString
+ HWL ME_4AA936DC0154 // vcmDispatcher
+ HWL ME_4AC0B9CF018A // vcmCStr
+ HWL ME_4AD89C420296 // vcmMakeParams
+ HWL ME_4B98E11603D6 // DoNotCall
+ HWL ME_508FEA3B02B0 // vcmStr
  )
  ; // Operations
  : Children
-   Seq: ( ME_47F25BEE0389 // TvcmBase
- ME_502BC72401EC // TvcmObjectList
- ME_519A130C00B6 // TvcmCacheableBase
- ME_52A1D97A009E // TvcmExecuteEvent
- ME_52A82F500189 // TvcmLongintList
+   Seq: ( HWL ME_47F25BEE0389 // TvcmBase
+ HWL ME_502BC72401EC // TvcmObjectList
+ HWL ME_519A130C00B6 // TvcmCacheableBase
+ HWL ME_52A1D97A009E // TvcmExecuteEvent
+ HWL ME_52A82F500189 // TvcmLongintList
+ HWL ME_577A5A8E02A8 // TvcmClassList
  )
  ; // Children
  : Dependencies
@@ -1018,7 +1038,7 @@ ref; // ME_4995768F007A_ME_494162F500A4 Clone
  %SUMMARY 'Тип "данных сборки"' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_47F37723017A // vcmFormSetDataSource
+ : Parent HWL ME_47F37723017A // vcmFormSetDataSource
  ;
  : Inherits
    Seq: ( WL 'ME_47F378D3029B' '4683F37902CF.pas.ms.script' // IvcmData
@@ -1165,7 +1185,7 @@ ref; // ME_5600F23B013D_ME_49469A350027 PopToHistory
  %SUMMARY 'Реальный интерфейс контроллера прецедента' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_47F37723017A // vcmFormSetDataSource
+ : Parent HWL ME_47F37723017A // vcmFormSetDataSource
  ;
  : Inherits
    Seq: ( WL 'ME_47F252870299' '4683F37902CF.pas.ms.script' // IvcmFormSetDataSource
@@ -1206,7 +1226,7 @@ ref; // ME_49469A350027 SetType
  %SUMMARY 'Тип данных, инициализирующих контроллер прецедента' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_47F37723017A // vcmFormSetDataSource
+ : Parent HWL ME_47F37723017A // vcmFormSetDataSource
  ;
  : Inherits
    Seq: ( WL 'ME_46A451250363' '4AB0C3C60310.pas.ms.script' // IUnknown
@@ -1223,7 +1243,7 @@ ref; // ME_49479A050026 InitDataType
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_ref
- : Parent ME_47F37723017A // vcmFormSetDataSource
+ : Parent HWL ME_47F37723017A // vcmFormSetDataSource
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -1238,7 +1258,7 @@ ref; // ME_491AF18703A0 f_RefreshCount
  CONST Visibility PublicAccess
  CONST Abstraction at_final
  CONST LinkType lt_agr
- : Parent ME_47F37723017A // vcmFormSetDataSource
+ : Parent HWL ME_47F37723017A // vcmFormSetDataSource
  ;
  : Target WL 'ME_491AF0FF01B6' '4683F37902CF.pas.ms.script' // IvcmFormSet
  ;
@@ -1257,7 +1277,7 @@ ref; // ME_491AF1280258 FormSet
  CONST Visibility ProtectedAccess
  CONST Abstraction at_final
  CONST LinkType lt_agr
- : Parent ME_47F37723017A // vcmFormSetDataSource
+ : Parent HWL ME_47F37723017A // vcmFormSetDataSource
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -1275,9 +1295,9 @@ ref; // ME_491B0DC0018E InInit
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_47F37723017A // vcmFormSetDataSource
+ : Parent HWL ME_47F37723017A // vcmFormSetDataSource
  ;
- : Target ME_494162F500A4 // SetDataType
+ : Target HWL ME_494162F500A4 // SetDataType
  ;
 
 ref; // ME_4941630C02AC SetDataType
@@ -1290,9 +1310,9 @@ ref; // ME_4941630C02AC SetDataType
  CONST Visibility ProtectedAccess
  CONST Abstraction at_final
  CONST LinkType lt_agr
- : Parent ME_47F37723017A // vcmFormSetDataSource
+ : Parent HWL ME_47F37723017A // vcmFormSetDataSource
  ;
- : Target ME_494162F500A4 // SetDataType
+ : Target HWL ME_494162F500A4 // SetDataType
  ;
  CONST "needs field" true
  CONST "pm" true
@@ -1308,9 +1328,9 @@ ref; // ME_494163340251 SetData
  CONST Visibility ProtectedAccess
  CONST Abstraction at_final
  CONST LinkType lt_agr
- : Parent ME_47F37723017A // vcmFormSetDataSource
+ : Parent HWL ME_47F37723017A // vcmFormSetDataSource
  ;
- : Target ME_49479A050026 // InitDataType
+ : Target HWL ME_49479A050026 // InitDataType
  ;
  CONST "needs field" true
  CONST "pm" true
@@ -1325,7 +1345,7 @@ ref; // ME_49479AE80237 InitialUseCaseData
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_47F37723017A // vcmFormSetDataSource
+ : Parent HWL ME_47F37723017A // vcmFormSetDataSource
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -1340,7 +1360,7 @@ FORWARD ME_53B3BF9C00EF
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_53B3BF9C00EF // DoGetFormSetImageIndex
+ : Parent HWL ME_53B3BF9C00EF // DoGetFormSetImageIndex
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -1355,10 +1375,10 @@ ref; // ME_53B3BFA80191 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_47F37723017A // vcmFormSetDataSource
+ : Parent HWL ME_47F37723017A // vcmFormSetDataSource
  ;
  : Operations
-   Seq: ( ME_53B3BFA80191 // DoIt
+   Seq: ( HWL ME_53B3BFA80191 // DoIt
  )
  ; // Operations
 
@@ -1372,7 +1392,7 @@ FORWARD ME_54CF10260215
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_54CF10260215 // DoGetTabCaption
+ : Parent HWL ME_54CF10260215 // DoGetTabCaption
  ;
  : Target WL 'ME_4683C9AC03AC' '467BAB7F021E.pas.ms.script' // IvcmCString
  ;
@@ -1387,10 +1407,10 @@ ref; // ME_54CF10410182 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_47F37723017A // vcmFormSetDataSource
+ : Parent HWL ME_47F37723017A // vcmFormSetDataSource
  ;
  : Operations
-   Seq: ( ME_54CF10410182 // DoIt
+   Seq: ( HWL ME_54CF10410182 // DoIt
  )
  ; // Operations
 
@@ -1404,7 +1424,7 @@ FORWARD ME_54CF105502D3
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_54CF105502D3 // DoGetTabHint
+ : Parent HWL ME_54CF105502D3 // DoGetTabHint
  ;
  : Target WL 'ME_4683C9AC03AC' '467BAB7F021E.pas.ms.script' // IvcmCString
  ;
@@ -1419,10 +1439,10 @@ ref; // ME_54CF107003A7 Do
  CONST Kind kind_NormalClass
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_47F37723017A // vcmFormSetDataSource
+ : Parent HWL ME_47F37723017A // vcmFormSetDataSource
  ;
  : Operations
-   Seq: ( ME_54CF107003A7 // Do
+   Seq: ( HWL ME_54CF107003A7 // Do
  )
  ; // Operations
 
@@ -1436,7 +1456,7 @@ FORWARD ME_555B0E0B0084
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_555B0E0B0084 // DoMakeClone
+ : Parent HWL ME_555B0E0B0084 // DoMakeClone
  ;
  : Target WL 'ME_47F252870299' '4683F37902CF.pas.ms.script' // IvcmFormSetDataSource
  ;
@@ -1451,10 +1471,10 @@ ref; // ME_555B0E220095 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_47F37723017A // vcmFormSetDataSource
+ : Parent HWL ME_47F37723017A // vcmFormSetDataSource
  ;
  : Operations
-   Seq: ( ME_555B0E220095 // DoIt
+   Seq: ( HWL ME_555B0E220095 // DoIt
  )
  ; // Operations
 
@@ -1466,7 +1486,7 @@ FORWARD ME_555B165501A4
  CONST Name 'aSetData'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_494162F500A4 // SetDataType
+ : Target HWL ME_494162F500A4 // SetDataType
  ;
 
 ref; // ME_555B16AB02D5 aSetData
@@ -1477,7 +1497,7 @@ ref; // ME_555B16AB02D5 aSetData
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_555B165501A4 // MakeWithSetData
+ : Parent HWL ME_555B165501A4 // MakeWithSetData
  ;
  : Target WL 'ME_47F252870299' '4683F37902CF.pas.ms.script' // IvcmFormSetDataSource
  ;
@@ -1496,10 +1516,10 @@ ref; // ME_555B1677033A DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_47F37723017A // vcmFormSetDataSource
+ : Parent HWL ME_47F37723017A // vcmFormSetDataSource
  ;
  : Operations
-   Seq: ( ME_555B1677033A // DoIt
+   Seq: ( HWL ME_555B1677033A // DoIt
  )
  ; // Operations
  CONST "is static" true
@@ -1514,9 +1534,9 @@ FORWARD ME_55C1DD070354
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_55C1DD070354 // GetDataForClone
+ : Parent HWL ME_55C1DD070354 // GetDataForClone
  ;
- : Target ME_49479A050026 // InitDataType
+ : Target HWL ME_49479A050026 // InitDataType
  ;
 
 ref; // ME_55C1DD1902BA DoIt
@@ -1529,10 +1549,10 @@ ref; // ME_55C1DD1902BA DoIt
  CONST Kind kind_NormalClass
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_47F37723017A // vcmFormSetDataSource
+ : Parent HWL ME_47F37723017A // vcmFormSetDataSource
  ;
  : Operations
-   Seq: ( ME_55C1DD1902BA // DoIt
+   Seq: ( HWL ME_55C1DD1902BA // DoIt
  )
  ; // Operations
 
@@ -1545,9 +1565,9 @@ ref; // ME_55C1DD070354 GetDataForClone
  %SUMMARY 'Данные сборки.' ;
  CONST Visibility ProtectedAccess
  CONST Abstraction at_abstract
- : Parent ME_47F37723017A // vcmFormSetDataSource
+ : Parent HWL ME_47F37723017A // vcmFormSetDataSource
  ;
- : Target ME_494162F500A4 // SetDataType
+ : Target HWL ME_494162F500A4 // SetDataType
  ;
 
 ref; // ME_47F3778403D9 MakeData
@@ -1559,7 +1579,7 @@ ref; // ME_47F3778403D9 MakeData
  %SUMMARY '- вызывается после получения данных инициализации.' ;
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_47F37723017A // vcmFormSetDataSource
+ : Parent HWL ME_47F37723017A // vcmFormSetDataSource
  ;
 
 ref; // ME_47F37DF001FE DataExchange
@@ -1568,7 +1588,7 @@ ref; // ME_47F37DF001FE DataExchange
  CONST Name 'aData'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_49479A050026 // InitDataType
+ : Target HWL ME_49479A050026 // InitDataType
  ;
 
 ref; // ME_4914826C0246 aData
@@ -1580,7 +1600,7 @@ ref; // ME_4914826C0246 aData
  : Stereotype st_ctor::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_47F37723017A // vcmFormSetDataSource
+ : Parent HWL ME_47F37723017A // vcmFormSetDataSource
  ;
  : Parameters
    Seq: ( ME_4914826C0246 // aData
@@ -1593,7 +1613,7 @@ ref; // ME_47FDD4520032 Create
  CONST Name 'aData'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_49479A050026 // InitDataType
+ : Target HWL ME_49479A050026 // InitDataType
  ;
 
 ref; // ME_491AFA6B0274 aData
@@ -1605,9 +1625,9 @@ ref; // ME_491AFA6B0274 aData
  : Stereotype st_factory::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_47F37723017A // vcmFormSetDataSource
+ : Parent HWL ME_47F37723017A // vcmFormSetDataSource
  ;
- : Target ME_49469A350027 // SetType
+ : Target HWL ME_49469A350027 // SetType
  ;
  : Parameters
    Seq: ( ME_491AFA6B0274 // aData
@@ -1620,7 +1640,7 @@ ref; // ME_491AFA530279 Make
  CONST Name 'aDataSource'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_49469A350027 // SetType
+ : Target HWL ME_49469A350027 // SetType
  ;
 
 ref; // ME_491B02E400B1 aDataSource
@@ -1631,7 +1651,7 @@ ref; // ME_491B02E400B1 aDataSource
  CONST Class class_Operation
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_47F37723017A // vcmFormSetDataSource
+ : Parent HWL ME_47F37723017A // vcmFormSetDataSource
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -1649,7 +1669,7 @@ ref; // ME_491B02D80112 GetIsNeedChangePosition
  %SUMMARY 'сборка была выгружена из истории' ;
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_47F37723017A // vcmFormSetDataSource
+ : Parent HWL ME_47F37723017A // vcmFormSetDataSource
  ;
 
 ref; // ME_491B06F000BB DoPushFromHistory
@@ -1661,7 +1681,7 @@ ref; // ME_491B06F000BB DoPushFromHistory
  %SUMMARY 'Очищает ссылки на источники данных' ;
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_47F37723017A // vcmFormSetDataSource
+ : Parent HWL ME_47F37723017A // vcmFormSetDataSource
  ;
 
 ref; // ME_492EEC270358 ClearRefs
@@ -1673,7 +1693,7 @@ ref; // ME_492EEC270358 ClearRefs
  %SUMMARY 'Очищает ссылки на области ввода' ;
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_47F37723017A // vcmFormSetDataSource
+ : Parent HWL ME_47F37723017A // vcmFormSetDataSource
  ;
 
 ref; // ME_4938F7E702B7 ClearAreas
@@ -1681,7 +1701,7 @@ ref; // ME_4938F7E702B7 ClearAreas
 : ME_49943314034E
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_47F37723017A // vcmFormSetDataSource
+ : Parent HWL ME_47F37723017A // vcmFormSetDataSource
  ;
  : Target WL 'ME_491471C8038F' '49942FB2017D.pas.ms.script' // IvcmFormSetDataSourceListener
  ;
@@ -1819,7 +1839,7 @@ ref; // ME_47A042E100E2_ME_47F37723017A InitFields
  %SUMMARY 'Бизнес объект сборки' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47D0E1500033 // Implementation
+ : Parent HWL ME_47D0E1500033 // Implementation
  ;
  : Inherits
    Seq: ( WL 'ME_4DD26D570378' '47913B47006E.pas.ms.script' // Tl3ProtoObjectWithCOMQI
@@ -1831,30 +1851,30 @@ ref; // ME_47A042E100E2_ME_47F37723017A InitFields
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_491AF18703A0 // f_RefreshCount
- ME_491AF1280258 // FormSet
- ME_491B0DC0018E // InInit
- ME_4941630C02AC // SetDataType
- ME_494163340251 // SetData
- ME_49479AE80237 // InitialUseCaseData
- ME_56011AC9015C // f_ForbidRefresh
+   Seq: ( HWL ME_491AF18703A0 // f_RefreshCount
+ HWL ME_491AF1280258 // FormSet
+ HWL ME_491B0DC0018E // InInit
+ HWL ME_4941630C02AC // SetDataType
+ HWL ME_494163340251 // SetData
+ HWL ME_49479AE80237 // InitialUseCaseData
+ HWL ME_56011AC9015C // f_ForbidRefresh
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_53B3BF9C00EF // DoGetFormSetImageIndex
- ME_54CF10260215 // DoGetTabCaption
- ME_54CF105502D3 // DoGetTabHint
- ME_555B0E0B0084 // DoMakeClone
- ME_555B165501A4 // MakeWithSetData
- ME_55C1DD070354 // GetDataForClone
- ME_47F3778403D9 // MakeData
- ME_47F37DF001FE // DataExchange
- ME_47FDD4520032 // Create
- ME_491AFA530279 // Make
- ME_491B02D80112 // GetIsNeedChangePosition
- ME_491B06F000BB // DoPushFromHistory
- ME_492EEC270358 // ClearRefs
- ME_4938F7E702B7 // ClearAreas
+   Seq: ( HWL ME_53B3BF9C00EF // DoGetFormSetImageIndex
+ HWL ME_54CF10260215 // DoGetTabCaption
+ HWL ME_54CF105502D3 // DoGetTabHint
+ HWL ME_555B0E0B0084 // DoMakeClone
+ HWL ME_555B165501A4 // MakeWithSetData
+ HWL ME_55C1DD070354 // GetDataForClone
+ HWL ME_47F3778403D9 // MakeData
+ HWL ME_47F37DF001FE // DataExchange
+ HWL ME_47FDD4520032 // Create
+ HWL ME_491AFA530279 // Make
+ HWL ME_491B02D80112 // GetIsNeedChangePosition
+ HWL ME_491B06F000BB // DoPushFromHistory
+ HWL ME_492EEC270358 // ClearRefs
+ HWL ME_4938F7E702B7 // ClearAreas
  )
  ; // Operations
  : Implemented
@@ -1883,9 +1903,9 @@ ref; // ME_47A042E100E2_ME_47F37723017A InitFields
  )
  ; // Overridden
  : Children
-   Seq: ( ME_494162F500A4 // SetDataType
- ME_49469A350027 // SetType
- ME_49479A050026 // InitDataType
+   Seq: ( HWL ME_494162F500A4 // SetDataType
+ HWL ME_49469A350027 // SetType
+ HWL ME_49479A050026 // InitDataType
  )
  ; // Children
  : Dependencies
@@ -1912,7 +1932,7 @@ FORWARD ME_47ECE94D03D4
  CONST Visibility PrivateAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_47ECE94D03D4 // vcmFormDataSourcePrim
+ : Parent HWL ME_47ECE94D03D4 // vcmFormDataSourcePrim
  ;
  : Target WL 'ME_47F252870299' '4683F37902CF.pas.ms.script' // IvcmFormSetDataSource
  ;
@@ -1922,7 +1942,7 @@ ref; // ME_5017ECB10259 UseCaseControllerType
 : ME_492AA2C101B7
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_47ECE94D03D4 // vcmFormDataSourcePrim
+ : Parent HWL ME_47ECE94D03D4 // vcmFormDataSourcePrim
  ;
  : Target WL 'ME_47CFE7F00221' '47BB24D30205.pas.ms.script' // l3InterfacesMisc
  ;
@@ -1932,7 +1952,7 @@ ref; // ME_492AA2C101B7
 : ME_4992BEF403B8
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_47ECE94D03D4 // vcmFormDataSourcePrim
+ : Parent HWL ME_47ECE94D03D4 // vcmFormDataSourcePrim
  ;
  : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
  ;
@@ -1948,14 +1968,14 @@ ref; // ME_4992BEF403B8
  %SUMMARY 'Бизнес объект формы' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47D0E1500033 // Implementation
+ : Parent HWL ME_47D0E1500033 // Implementation
  ;
  : Inherits
-   Seq: ( ME_5017EAF4027D // vcmFormDataSourcePrimWithFlexUseCaseControllerType
+   Seq: ( HWL ME_5017EAF4027D // vcmFormDataSourcePrimWithFlexUseCaseControllerType
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_5017ECB10259 // UseCaseControllerType
+   Seq: ( HWL ME_5017ECB10259 // UseCaseControllerType
  )
  ; // Attributes
  : Dependencies
@@ -1983,7 +2003,7 @@ FORWARD ME_501802270075
  %SUMMARY 'Данные, которыми инициализируется контроллер ввода' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_501802270075 // vcmFormDataSourceWithData
+ : Parent HWL ME_501802270075 // vcmFormDataSourceWithData
  ;
  : Inherits
    Seq: ( WL 'ME_46A451250363' '4AB0C3C60310.pas.ms.script' // IUnknown
@@ -2001,9 +2021,9 @@ ref; // ME_491B1E8D0051 InitDataType
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_lnk
- : Parent ME_501802270075 // vcmFormDataSourceWithData
+ : Parent HWL ME_501802270075 // vcmFormDataSourceWithData
  ;
- : Target ME_491B1E8D0051 // InitDataType
+ : Target HWL ME_491B1E8D0051 // InitDataType
  ;
 
 ref; // ME_501802610283 InitDataType
@@ -2016,9 +2036,9 @@ ref; // ME_501802610283 InitDataType
  CONST Visibility ProtectedAccess
  CONST Abstraction at_final
  CONST LinkType lt_lnk
- : Parent ME_501802270075 // vcmFormDataSourceWithData
+ : Parent HWL ME_501802270075 // vcmFormDataSourceWithData
  ;
- : Target ME_491B1E8D0051 // InitDataType
+ : Target HWL ME_491B1E8D0051 // InitDataType
  ;
  CONST "pm" true
  CONST "reads field" true
@@ -2029,7 +2049,7 @@ ref; // ME_5018027003D3 PartData
  CONST Name 'aDataSource'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_5017EC5602B0 // UseCaseControllerType
+ : Target HWL ME_5017EC5602B0 // UseCaseControllerType
  ;
 
 ref; // ME_492ACF1E0201 aDataSource
@@ -2038,7 +2058,7 @@ ref; // ME_492ACF1E0201 aDataSource
  CONST Name 'aData'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_49479A050026 // InitDataType
+ : Target HWL ME_49479A050026 // InitDataType
  ;
 
 ref; // ME_492ACF1E024B aData
@@ -2051,7 +2071,7 @@ ref; // ME_492ACF1E024B aData
  %SUMMARY 'Конструктор' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_501802270075 // vcmFormDataSourceWithData
+ : Parent HWL ME_501802270075 // vcmFormDataSourceWithData
  ;
  : Parameters
    Seq: ( ME_492ACF1E0201 // aDataSource
@@ -2065,7 +2085,7 @@ ref; // ME_492ACF1E01C2 Create
  CONST Name 'aDataSource'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_5017EC5602B0 // UseCaseControllerType
+ : Target HWL ME_5017EC5602B0 // UseCaseControllerType
  ;
 
 ref; // ME_492ACEE90294 aDataSource
@@ -2074,7 +2094,7 @@ ref; // ME_492ACEE90294 aDataSource
  CONST Name 'aData'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_49479A050026 // InitDataType
+ : Target HWL ME_49479A050026 // InitDataType
  ;
 
 ref; // ME_492ACEE902D9 aData
@@ -2086,9 +2106,9 @@ ref; // ME_492ACEE902D9 aData
  : Stereotype st_factory::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_501802270075 // vcmFormDataSourceWithData
+ : Parent HWL ME_501802270075 // vcmFormDataSourceWithData
  ;
- : Target ME_491C1E280368 // FormDataSourceType
+ : Target HWL ME_491C1E280368 // FormDataSourceType
  ;
  : Parameters
    Seq: ( ME_492ACEE90294 // aDataSource
@@ -2104,7 +2124,7 @@ ref; // ME_492ACEE90252 Make
  CONST Class class_Operation
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_501802270075 // vcmFormDataSourceWithData
+ : Parent HWL ME_501802270075 // vcmFormDataSourceWithData
  ;
 
 ref; // ME_492BF7900310 DoInit
@@ -2116,7 +2136,7 @@ ref; // ME_492BF7900310 DoInit
  %SUMMARY '- данные изменились.' ;
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_501802270075 // vcmFormDataSourceWithData
+ : Parent HWL ME_501802270075 // vcmFormDataSourceWithData
  ;
 
 ref; // ME_492ACF630072 GotData
@@ -2141,22 +2161,22 @@ ref; // ME_47A042E100E2_ME_501802270075 InitFields
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47D0E1500033 // Implementation
+ : Parent HWL ME_47D0E1500033 // Implementation
  ;
  : Implements
    Seq: ( WL 'ME_4A5CB93700CF' '47913B47006E.pas.ms.script' // Ml3Unknown
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_501802610283 // InitDataType
- ME_5018027003D3 // PartData
+   Seq: ( HWL ME_501802610283 // InitDataType
+ HWL ME_5018027003D3 // PartData
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_492ACF1E01C2 // Create
- ME_492ACEE90252 // Make
- ME_492BF7900310 // DoInit
- ME_492ACF630072 // GotData
+   Seq: ( HWL ME_492ACF1E01C2 // Create
+ HWL ME_492ACEE90252 // Make
+ HWL ME_492BF7900310 // DoInit
+ HWL ME_492ACF630072 // GotData
  )
  ; // Operations
  : Overridden
@@ -2165,7 +2185,7 @@ ref; // ME_47A042E100E2_ME_501802270075 InitFields
  )
  ; // Overridden
  : Children
-   Seq: ( ME_491B1E8D0051 // InitDataType
+   Seq: ( HWL ME_491B1E8D0051 // InitDataType
  )
  ; // Children
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\vcmFormDataSourceWithData.imp.pas'
@@ -2184,7 +2204,7 @@ FORWARD ME_49312C5F0078
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_49312C5F0078 // vcmFormSetRefreshParams
+ : Parent HWL ME_49312C5F0078 // vcmFormSetRefreshParams
  ;
  CONST extprop:rc:SelfName 'MakeDataRefreshParams'
 
@@ -2198,10 +2218,10 @@ ref; // ME_4B6870EE00C4 vcmMakeDataRefreshParams
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_47D0E1500033 // Implementation
+ : Parent HWL ME_47D0E1500033 // Implementation
  ;
  : Operations
-   Seq: ( ME_4B6870EE00C4 // vcmMakeDataRefreshParams
+   Seq: ( HWL ME_4B6870EE00C4 // vcmMakeDataRefreshParams
  )
  ; // Operations
  CONST "finished" false
@@ -2220,7 +2240,7 @@ FORWARD ME_49415C640079
  CONST Visibility PrivateAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_49415C640079 // vcmFormSetDataSourceWithoutData
+ : Parent HWL ME_49415C640079 // vcmFormSetDataSourceWithoutData
  ;
  : Target WL 'ME_47F378D3029B' '4683F37902CF.pas.ms.script' // IvcmData
  ;
@@ -2228,7 +2248,7 @@ FORWARD ME_49415C640079
 ref; // ME_494164B30361 SetDataType
 
 : ME_47F3778403D9_ME_49415C640079
- : Original ME_47F3778403D9 // MakeData
+ : Original HWL ME_47F3778403D9 // MakeData
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_47F3778403D9_ME_49415C640079 MakeData
@@ -2242,14 +2262,14 @@ ref; // ME_47F3778403D9_ME_49415C640079 MakeData
  %SUMMARY 'Бизнес объект сборки. Без "данных сборки"' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47D0E1500033 // Implementation
+ : Parent HWL ME_47D0E1500033 // Implementation
  ;
  : Inherits
-   Seq: ( ME_47F37723017A // vcmFormSetDataSource
+   Seq: ( HWL ME_47F37723017A // vcmFormSetDataSource
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_494164B30361 // SetDataType
+   Seq: ( HWL ME_494164B30361 // SetDataType
  )
  ; // Attributes
  : Implemented
@@ -2272,7 +2292,7 @@ FORWARD ME_494778CD004F
  CONST Visibility PrivateAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_494778CD004F // vcmTinyUseCaseController
+ : Parent HWL ME_494778CD004F // vcmTinyUseCaseController
  ;
  : Target WL 'ME_46A451250363' '4AB0C3C60310.pas.ms.script' // IUnknown
  ;
@@ -2286,7 +2306,7 @@ ref; // ME_49479BB70179 InitDataType
  : Stereotype st_ctor::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_494778CD004F // vcmTinyUseCaseController
+ : Parent HWL ME_494778CD004F // vcmTinyUseCaseController
  ;
 
 ref; // ME_4947799403BE Create
@@ -2298,9 +2318,9 @@ ref; // ME_4947799403BE Create
  : Stereotype st_factory::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_494778CD004F // vcmTinyUseCaseController
+ : Parent HWL ME_494778CD004F // vcmTinyUseCaseController
  ;
- : Target ME_49469A350027 // SetType
+ : Target HWL ME_49469A350027 // SetType
  ;
 
 ref; // ME_494779A9008F Make
@@ -2314,19 +2334,19 @@ ref; // ME_494779A9008F Make
  %SUMMARY 'Контролер прецедента без всяких данных' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47D0E1500033 // Implementation
+ : Parent HWL ME_47D0E1500033 // Implementation
  ;
  : Inherits
-   Seq: ( ME_49415C640079 // vcmFormSetDataSourceWithoutData
+   Seq: ( HWL ME_49415C640079 // vcmFormSetDataSourceWithoutData
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_49479BB70179 // InitDataType
+   Seq: ( HWL ME_49479BB70179 // InitDataType
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_4947799403BE // Create
- ME_494779A9008F // Make
+   Seq: ( HWL ME_4947799403BE // Create
+ HWL ME_494779A9008F // Make
  )
  ; // Operations
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\vcmTinyUseCaseController.imp.pas'
@@ -2345,7 +2365,7 @@ FORWARD ME_494141D20217
  CONST Visibility PrivateAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_494141D20217 // TvcmFormSetDataSource
+ : Parent HWL ME_494141D20217 // TvcmFormSetDataSource
  ;
  : Target WL 'ME_47F252870299' '4683F37902CF.pas.ms.script' // IvcmFormSetDataSource
  ;
@@ -2361,14 +2381,14 @@ ref; // ME_49476E160141 SetType
  %SUMMARY 'Временная реализация абстрактного прецедента для TvcmFormSetFactory.MakeFormSet' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47D0E1500033 // Implementation
+ : Parent HWL ME_47D0E1500033 // Implementation
  ;
  : Inherits
-   Seq: ( ME_494778CD004F // vcmTinyUseCaseController
+   Seq: ( HWL ME_494778CD004F // vcmTinyUseCaseController
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_49476E160141 // SetType
+   Seq: ( HWL ME_49476E160141 // SetType
  )
  ; // Attributes
  CONST "author" 'Люлин А.В.'
@@ -2392,7 +2412,7 @@ FORWARD ME_47EB55FD007A
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_47EB55FD007A // TvcmFormDataSourceRef
+ : Parent HWL ME_47EB55FD007A // TvcmFormDataSourceRef
  ;
  : Target WL 'ME_46A608F00301' '4AB0C3C60310.pas.ms.script' // Pointer
  ;
@@ -2406,7 +2426,7 @@ ref; // ME_4982B70E01B1 f_DataSource
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_47EB55FD007A // TvcmFormDataSourceRef
+ : Parent HWL ME_47EB55FD007A // TvcmFormDataSourceRef
  ;
  : Target WL 'ME_528D9F530036' '528C93040132.pas.ms.script' // TvcmNeedMakeDS
  ;
@@ -2429,7 +2449,7 @@ ref; // ME_4982B8B40042 aNeedMake
  : Stereotype st_ctor::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_47EB55FD007A // TvcmFormDataSourceRef
+ : Parent HWL ME_47EB55FD007A // TvcmFormDataSourceRef
  ;
  : Parameters
    Seq: ( ME_4982B8B40042 // aNeedMake
@@ -2459,7 +2479,7 @@ ref; // ME_4982B8CE01AE aNeedMake
  %SUMMARY 'Фабричный метод' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_47EB55FD007A // TvcmFormDataSourceRef
+ : Parent HWL ME_47EB55FD007A // TvcmFormDataSourceRef
  ;
  : Target WL 'ME_47EB514C0336' '4982BE090383.pas.ms.script' // IvcmFormDataSourceRef
  ;
@@ -2537,7 +2557,7 @@ ref; // ME_479731C50290_ME_47EB55FD007A Cleanup
  %SUMMARY 'Реализация ссылки на бизнес объект формы' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4982B6510327 // vcmFormDataSourceRef
+ : Parent HWL ME_4982B6510327 // vcmFormDataSourceRef
  ;
  : Inherits
    Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
@@ -2549,13 +2569,13 @@ ref; // ME_479731C50290_ME_47EB55FD007A Cleanup
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_4982B70E01B1 // f_DataSource
- ME_4982B71C02FC // f_NeedMake
+   Seq: ( HWL ME_4982B70E01B1 // f_DataSource
+ HWL ME_4982B71C02FC // f_NeedMake
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_4982B8A602BB // Create
- ME_4982B8BD0342 // Make
+   Seq: ( HWL ME_4982B8A602BB // Create
+ HWL ME_4982B8BD0342 // Make
  )
  ; // Operations
  : Implemented
@@ -2589,10 +2609,10 @@ ref; // ME_47EB55FD007A TvcmFormDataSourceRef
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4982B6510327 // vcmFormDataSourceRef
+ : Parent HWL ME_4982B6510327 // vcmFormDataSourceRef
  ;
  : Inherits
-   Seq: ( ME_47EB55FD007A // TvcmFormDataSourceRef
+   Seq: ( HWL ME_47EB55FD007A // TvcmFormDataSourceRef
  )
  ; // Inherits
  CONST extprop:rc:SelfName 'ViewAreaControllerRef'
@@ -2628,7 +2648,7 @@ ref; // ME_4982B74D0282 aNeedMake
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4982B6510327 // vcmFormDataSourceRef
+ : Parent HWL ME_4982B6510327 // vcmFormDataSourceRef
  ;
  : Target WL 'ME_47EB514C0336' '4982BE090383.pas.ms.script' // IvcmFormDataSourceRef
  ;
@@ -2649,15 +2669,15 @@ ref; // ME_4982B743016E vcmCheckAndMake
  %SUMMARY 'Самоочищающаяся ссылка на бизнес объект формы' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_47D0E1500033 // Implementation
+ : Parent HWL ME_47D0E1500033 // Implementation
  ;
  : Operations
-   Seq: ( ME_4982B743016E // vcmCheckAndMake
+   Seq: ( HWL ME_4982B743016E // vcmCheckAndMake
  )
  ; // Operations
  : Children
-   Seq: ( ME_47EB55FD007A // TvcmFormDataSourceRef
- ME_4982B69803AD // TvcmViewAreaControllerRef
+   Seq: ( HWL ME_47EB55FD007A // TvcmFormDataSourceRef
+ HWL ME_4982B69803AD // TvcmViewAreaControllerRef
  )
  ; // Children
  CONST "author" 'Морозов М.А.'
@@ -2676,7 +2696,7 @@ ref; // ME_4982B6510327 vcmFormDataSourceRef
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47D0E1500033 // Implementation
+ : Parent HWL ME_47D0E1500033 // Implementation
  ;
  CONST "finished" false
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\NOT_FINISHED_vcmProfilersCollection.pas'
@@ -2694,7 +2714,7 @@ ref; // ME_499AA39D0014 TvcmProfilersCollection
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47D0E1500033 // Implementation
+ : Parent HWL ME_47D0E1500033 // Implementation
  ;
  CONST "finished" false
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\NOT_FINISHED_vcmProfiler.pas'
@@ -2714,7 +2734,7 @@ FORWARD ME_4AA9377803B5
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4AA9377803B5 // vcmUtils
+ : Parent HWL ME_4AA9377803B5 // vcmUtils
  ;
  CONST extprop:rc:SelfName 'ToAggregate'
 
@@ -2728,7 +2748,7 @@ ref; // ME_4AA9378C03B4 vcmToAggregate
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4AA9377803B5 // vcmUtils
+ : Parent HWL ME_4AA9377803B5 // vcmUtils
  ;
  CONST extprop:rc:SelfName 'SelectDate'
 
@@ -2742,7 +2762,7 @@ ref; // ME_4C3B044D01EB vcmSelectDate
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4AA9377803B5 // vcmUtils
+ : Parent HWL ME_4AA9377803B5 // vcmUtils
  ;
  CONST extprop:rc:SelfName 'ByteShift'
 
@@ -2751,7 +2771,7 @@ ref; // ME_5624CA8601DE vcmByteShift
 : ME_4AAA3CE20258
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4AA9377803B5 // vcmUtils
+ : Parent HWL ME_4AA9377803B5 // vcmUtils
  ;
  : Target WL 'ME_4A8D789702FA' '4A8D6EF403E4.pas.ms.script' // vcmOVCCommands
  ;
@@ -2766,12 +2786,12 @@ ref; // ME_4AAA3CE20258
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_47D0E1500033 // Implementation
+ : Parent HWL ME_47D0E1500033 // Implementation
  ;
  : Operations
-   Seq: ( ME_4AA9378C03B4 // vcmToAggregate
- ME_4C3B044D01EB // vcmSelectDate
- ME_5624CA8601DE // vcmByteShift
+   Seq: ( HWL ME_4AA9378C03B4 // vcmToAggregate
+ HWL ME_4C3B044D01EB // vcmSelectDate
+ HWL ME_5624CA8601DE // vcmByteShift
  )
  ; // Operations
  : Dependencies
@@ -2794,16 +2814,60 @@ FORWARD ME_4AB33E14004E
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4AB33E14004E // TvcmModule
+ : Parent HWL ME_4AB33E14004E // TvcmModule
  ;
  : Inherits
-   Seq: ( ME_4AB33E14004E // TvcmModule
+   Seq: ( HWL ME_4AB33E14004E // TvcmModule
  )
  ; // Inherits
  CONST "isClassRef" true
  CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4AB33E2C03D7 RvcmModule
+
+FORWARD ME_577A5A440158
+
+: ME_577A5A630236
+ CONST Name 'aList'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target HWL ME_577A5A8E02A8 // TvcmClassList
+ ;
+
+ref; // ME_577A5A630236 aList
+
+: ME_577A5A5E0023
+ CONST UID '577A5A5E0023'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_577A5A440158 // GetEntityForms
+ ;
+ : Parameters
+   Seq: ( ME_577A5A630236 // aList
+ )
+ ; // Parameters
+
+ref; // ME_577A5A5E0023 DoIt
+
+: ME_577A5A440158
+ CONST UID '577A5A440158'
+ CONST Name 'GetEntityForms'
+ CONST Class class_Class
+ : Stereotype st_virtualmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4AB33E14004E // TvcmModule
+ ;
+ : Operations
+   Seq: ( HWL ME_577A5A5E0023 // DoIt
+ )
+ ; // Operations
+ CONST "is static" true
+
+ref; // ME_577A5A440158 GetEntityForms
 
 : ME_4AB33E14004E
  CONST UID '4AB33E14004E'
@@ -2813,15 +2877,19 @@ ref; // ME_4AB33E2C03D7 RvcmModule
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47D0E1500033 // Implementation
+ : Parent HWL ME_47D0E1500033 // Implementation
  ;
  : Inherits
    Seq: ( WL 'ME_47913F970159' '47913B47006E.pas.ms.script' // l3Unknown
  WL 'ME_479878FA0103' '4AB0997B00A2.pas.ms.script' // TComponent
  )
  ; // Inherits
+ : Operations
+   Seq: ( HWL ME_577A5A440158 // GetEntityForms
+ )
+ ; // Operations
  : Children
-   Seq: ( ME_4AB33E2C03D7 // RvcmModule
+   Seq: ( HWL ME_4AB33E2C03D7 // RvcmModule
  )
  ; // Children
  CONST "finished" false
@@ -2840,7 +2908,7 @@ ref; // ME_4AB33E14004E TvcmModule
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47D0E1500033 // Implementation
+ : Parent HWL ME_47D0E1500033 // Implementation
  ;
  : Inherits
    Seq: ( WL 'ME_48721F730220' '47E21C730035.pas.ms.script' // Tl3Strings
@@ -2862,10 +2930,10 @@ ref; // ME_4AB8CB630173 TvcmStringList
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47D0E1500033 // Implementation
+ : Parent HWL ME_47D0E1500033 // Implementation
  ;
  : Inherits
-   Seq: ( ME_4AB8CB630173 // TvcmStringList
+   Seq: ( HWL ME_4AB8CB630173 // TvcmStringList
  )
  ; // Inherits
  CONST "finished" false
@@ -2883,7 +2951,7 @@ ref; // ME_4AB8CB4B0256 TvcmItems
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_ref
- : Parent ME_4AD89C12030A // TvcmMakeParams
+ : Parent HWL ME_4AD89C12030A // TvcmMakeParams
  ;
  : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
  ;
@@ -2897,7 +2965,7 @@ ref; // ME_4AD89CCB0356 f_Container
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_ref
- : Parent ME_4AD89C12030A // TvcmMakeParams
+ : Parent HWL ME_4AD89C12030A // TvcmMakeParams
  ;
  : Target WL 'ME_49930CC501C9' '4683F37902CF.pas.ms.script' // IvcmAggregate
  ;
@@ -2911,7 +2979,7 @@ ref; // ME_4AD89CD9010C f_Aggregate
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_lnk
- : Parent ME_4AD89C12030A // TvcmMakeParams
+ : Parent HWL ME_4AD89C12030A // TvcmMakeParams
  ;
  : Target WL 'ME_479878FA0103' '4AB0997B00A2.pas.ms.script' // TComponent
  ;
@@ -2952,7 +3020,7 @@ ref; // ME_4AD89D1500CA anOwner
  : Stereotype st_ctor::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4AD89C12030A // TvcmMakeParams
+ : Parent HWL ME_4AD89C12030A // TvcmMakeParams
  ;
  : Parameters
    Seq: ( ME_4AD89D15003E // anAggregate
@@ -2997,7 +3065,7 @@ ref; // ME_4AD89D2203A4 anOwner
  : Stereotype st_factory::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4AD89C12030A // TvcmMakeParams
+ : Parent HWL ME_4AD89C12030A // TvcmMakeParams
  ;
  : Parameters
    Seq: ( ME_4AD89D22030D // anAggregate
@@ -3043,7 +3111,7 @@ ref; // ME_479731C50290_ME_4AD89C12030A Cleanup
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47D0E1500033 // Implementation
+ : Parent HWL ME_47D0E1500033 // Implementation
  ;
  : Inherits
    Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
@@ -3054,14 +3122,14 @@ ref; // ME_479731C50290_ME_4AD89C12030A Cleanup
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_4AD89CCB0356 // f_Container
- ME_4AD89CD9010C // f_Aggregate
- ME_4AD89CF002B2 // f_Owner
+   Seq: ( HWL ME_4AD89CCB0356 // f_Container
+ HWL ME_4AD89CD9010C // f_Aggregate
+ HWL ME_4AD89CF002B2 // f_Owner
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_4AD89CFA01E7 // Create
- ME_4AD89D1D006F // Make
+   Seq: ( HWL ME_4AD89CFA01E7 // Create
+ HWL ME_4AD89D1D006F // Make
  )
  ; // Operations
  : Implemented
@@ -3094,7 +3162,7 @@ FORWARD ME_4B16B85D03A1
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4B16B85D03A1 // vcmData
+ : Parent HWL ME_4B16B85D03A1 // vcmData
  ;
  CONST extprop:pas:TypeName '_IvcmRealData_'
 
@@ -3107,9 +3175,9 @@ ref; // ME_4B220B4D03B4 IvcmRealData
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4B16B85D03A1 // vcmData
+ : Parent HWL ME_4B16B85D03A1 // vcmData
  ;
- : Target ME_4B220B4D03B4 // IvcmRealData
+ : Target HWL ME_4B220B4D03B4 // IvcmRealData
  ;
 
 ref; // ME_4B220BC1018F 
@@ -3120,7 +3188,7 @@ FORWARD ME_4B16B95802AF
  CONST Name 'aData'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_4B220B4D03B4 // IvcmRealData
+ : Target HWL ME_4B220B4D03B4 // IvcmRealData
  ;
 
 ref; // ME_4B16B97703CC aData
@@ -3131,7 +3199,7 @@ ref; // ME_4B16B97703CC aData
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4B16B95802AF // Create
+ : Parent HWL ME_4B16B95802AF // Create
  ;
  : Parameters
    Seq: ( ME_4B16B97703CC // aData
@@ -3148,10 +3216,10 @@ ref; // ME_4B16B97200FC DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4B16B85D03A1 // vcmData
+ : Parent HWL ME_4B16B85D03A1 // vcmData
  ;
  : Operations
-   Seq: ( ME_4B16B97200FC // DoIt
+   Seq: ( HWL ME_4B16B97200FC // DoIt
  )
  ; // Operations
 
@@ -3165,10 +3233,10 @@ ref; // ME_4B16B95802AF Create
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4B16B85D03A1 // vcmData
+ : Parent HWL ME_4B16B85D03A1 // vcmData
  ;
  : Inherits
-   Seq: ( ME_4B16B95802AF // Create
+   Seq: ( HWL ME_4B16B95802AF // Create
  )
  ; // Inherits
  CONST "is static" true
@@ -3179,7 +3247,7 @@ ref; // ME_4B16B8F80019 MakeFrom
  CONST Name 'aData'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_4B220B4D03B4 // IvcmRealData
+ : Target HWL ME_4B220B4D03B4 // IvcmRealData
  ;
 
 ref; // ME_4B16B8D50085 aData
@@ -3190,7 +3258,7 @@ ref; // ME_4B16B8D50085 aData
  CONST Class class_Operation
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_4B16B85D03A1 // vcmData
+ : Parent HWL ME_4B16B85D03A1 // vcmData
  ;
  : Parameters
    Seq: ( ME_4B16B8D50085 // aData
@@ -3206,7 +3274,7 @@ ref; // ME_4B16B8CF0307 AssignData
  : Stereotype st_vctor::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4B16B85D03A1 // vcmData
+ : Parent HWL ME_4B16B85D03A1 // vcmData
  ;
 
 ref; // ME_4B16B8E3013F Create
@@ -3225,7 +3293,7 @@ ref; // ME_4995768F007A_ME_4B16B85D03A1 Clone
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47D0E1500033 // Implementation
+ : Parent HWL ME_47D0E1500033 // Implementation
  ;
  : Inherits
    Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
@@ -3236,14 +3304,14 @@ ref; // ME_4995768F007A_ME_4B16B85D03A1 Clone
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_4B220BC1018F // 
+   Seq: ( HWL ME_4B220BC1018F // 
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_4B16B95802AF // Create
- ME_4B16B8F80019 // MakeFrom
- ME_4B16B8CF0307 // AssignData
- ME_4B16B8E3013F // Create
+   Seq: ( HWL ME_4B16B95802AF // Create
+ HWL ME_4B16B8F80019 // MakeFrom
+ HWL ME_4B16B8CF0307 // AssignData
+ HWL ME_4B16B8E3013F // Create
  )
  ; // Operations
  : Implemented
@@ -3251,7 +3319,7 @@ ref; // ME_4995768F007A_ME_4B16B85D03A1 Clone
  )
  ; // Implemented
  : Children
-   Seq: ( ME_4B220B4D03B4 // IvcmRealData
+   Seq: ( HWL ME_4B220B4D03B4 // IvcmRealData
  )
  ; // Children
  CONST "author" 'Морозов М.А.'
@@ -3272,10 +3340,10 @@ ref; // ME_4B16B85D03A1 vcmData
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_47D0E1500033 // Implementation
+ : Parent HWL ME_47D0E1500033 // Implementation
  ;
  : Inherits
-   Seq: ( ME_4AB33E14004E // TvcmModule
+   Seq: ( HWL ME_4AB33E14004E // TvcmModule
  )
  ; // Inherits
 
@@ -3291,7 +3359,7 @@ FORWARD ME_4E01F29C0139
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4E01F29C0139 // vcmSettings
+ : Parent HWL ME_4E01F29C0139 // vcmSettings
  ;
  CONST extprop:rc:SelfName 'SaveIntParam'
 
@@ -3305,10 +3373,10 @@ ref; // ME_4E01F2B0003E vcmSaveIntParam
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_47D0E1500033 // Implementation
+ : Parent HWL ME_47D0E1500033 // Implementation
  ;
  : Operations
-   Seq: ( ME_4E01F2B0003E // vcmSaveIntParam
+   Seq: ( HWL ME_4E01F2B0003E // vcmSaveIntParam
  )
  ; // Operations
  CONST "finished" false
@@ -3326,11 +3394,11 @@ ref; // ME_4E01F29C0139 vcmSettings
  %SUMMARY 'Бизнес-объект формы' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47D0E1500033 // Implementation
+ : Parent HWL ME_47D0E1500033 // Implementation
  ;
  : Inherits
-   Seq: ( ME_47ECE94D03D4 // vcmFormDataSourcePrim
- ME_501802270075 // vcmFormDataSourceWithData
+   Seq: ( HWL ME_47ECE94D03D4 // vcmFormDataSourcePrim
+ HWL ME_501802270075 // vcmFormDataSourceWithData
  )
  ; // Inherits
  CONST "author" 'Люлин А.В.'
@@ -3352,7 +3420,7 @@ FORWARD ME_491B1EC400E2
  CONST Visibility PrivateAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_491B1EC400E2 // TvcmFormDataSource
+ : Parent HWL ME_491B1EC400E2 // TvcmFormDataSource
  ;
  : Target WL 'ME_46A451250363' '4AB0C3C60310.pas.ms.script' // IUnknown
  ;
@@ -3367,7 +3435,7 @@ ref; // ME_491B1F0E0194 InitDataType
  CONST Visibility PrivateAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_491B1EC400E2 // TvcmFormDataSource
+ : Parent HWL ME_491B1EC400E2 // TvcmFormDataSource
  ;
  : Target WL 'ME_497841510139' '4982BE090383.pas.ms.script' // IvcmViewAreaController
  ;
@@ -3383,15 +3451,15 @@ ref; // ME_491C1E7D0040 FormDataSourceType
  %SUMMARY '"Бизнес объект формы". Для поддержки старого нетипизированного подхода' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47D0E1500033 // Implementation
+ : Parent HWL ME_47D0E1500033 // Implementation
  ;
  : Inherits
-   Seq: ( ME_492ACB4100B2 // vcmFormDataSource
+   Seq: ( HWL ME_492ACB4100B2 // vcmFormDataSource
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_491B1F0E0194 // InitDataType
- ME_491C1E7D0040 // FormDataSourceType
+   Seq: ( HWL ME_491B1F0E0194 // InitDataType
+ HWL ME_491C1E7D0040 // FormDataSourceType
  )
  ; // Attributes
  CONST "author" 'Люлин А.В.'
@@ -3412,11 +3480,11 @@ ref; // ME_491B1EC400E2 TvcmFormDataSource
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47D0E1500033 // Implementation
+ : Parent HWL ME_47D0E1500033 // Implementation
  ;
  : Inherits
-   Seq: ( ME_5017EAF4027D // vcmFormDataSourcePrimWithFlexUseCaseControllerType
- ME_501802270075 // vcmFormDataSourceWithData
+   Seq: ( HWL ME_5017EAF4027D // vcmFormDataSourcePrimWithFlexUseCaseControllerType
+ HWL ME_501802270075 // vcmFormDataSourceWithData
  )
  ; // Inherits
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\vcmFormDataSourceWithFlexUseCaseControllerType.imp.pas'
@@ -3434,7 +3502,7 @@ FORWARD ME_528609ED0325
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_528609ED0325 // TvcmAggregate
+ : Parent HWL ME_528609ED0325 // TvcmAggregate
  ;
  : Target WL 'ME_4F1ECEEE028F' '4A8D6EF403E4.pas.ms.script' // TvcmIEntityList
  ;
@@ -3448,7 +3516,7 @@ ref; // ME_52860C0403B8 f_List
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_528609ED0325 // TvcmAggregate
+ : Parent HWL ME_528609ED0325 // TvcmAggregate
  ;
  : Target WL 'ME_469F3EEF0024' '4AB0C3C60310.pas.ms.script' // TGUID
  ;
@@ -3476,7 +3544,7 @@ ref; // ME_52860D4002AF aGUID
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_52860CA00075 // Create
+ : Parent HWL ME_52860CA00075 // Create
  ;
  : Parameters
    Seq: ( ME_52860D4002AF // aGUID
@@ -3488,7 +3556,7 @@ ref; // ME_52860D2F002C DoIt
 : ME_52860E170070
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_52860CA00075 // Create
+ : Parent HWL ME_52860CA00075 // Create
  ;
  : Target WL 'ME_49956803035F' '4AB0C3C60310.pas.ms.script' // PGUID
  ;
@@ -3503,10 +3571,10 @@ ref; // ME_52860E170070
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_528609ED0325 // TvcmAggregate
+ : Parent HWL ME_528609ED0325 // TvcmAggregate
  ;
  : Operations
-   Seq: ( ME_52860D2F002C // DoIt
+   Seq: ( HWL ME_52860D2F002C // DoIt
  )
  ; // Operations
  : Dependencies
@@ -3537,7 +3605,7 @@ ref; // ME_52860D1900AD aGUID
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_52860CAD0035 // Make
+ : Parent HWL ME_52860CAD0035 // Make
  ;
  : Target WL 'ME_49930CC501C9' '4683F37902CF.pas.ms.script' // IvcmAggregate
  ;
@@ -3552,9 +3620,9 @@ ref; // ME_52860CBF02D7 DoIt
 : ME_52860D4C00B0
  CONST Class class_Dependency
  : Stereotype st_call::Dependency ;
- : Parent ME_52860CAD0035 // Make
+ : Parent HWL ME_52860CAD0035 // Make
  ;
- : Target ME_52860CA00075 // Create
+ : Target HWL ME_52860CA00075 // Create
  ;
  CONST "iterator needs params" true
  CONST "needs after iterator UC" false
@@ -3564,7 +3632,7 @@ ref; // ME_52860D4C00B0
 : ME_52860E130307
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_52860CAD0035 // Make
+ : Parent HWL ME_52860CAD0035 // Make
  ;
  : Target WL 'ME_49956803035F' '4AB0C3C60310.pas.ms.script' // PGUID
  ;
@@ -3579,10 +3647,10 @@ ref; // ME_52860E130307
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_528609ED0325 // TvcmAggregate
+ : Parent HWL ME_528609ED0325 // TvcmAggregate
  ;
  : Operations
-   Seq: ( ME_52860CBF02D7 // DoIt
+   Seq: ( HWL ME_52860CBF02D7 // DoIt
  )
  ; // Operations
  : Dependencies
@@ -3597,7 +3665,7 @@ ref; // ME_52860CAD0035 Make
 : ME_5289E27801D4
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_528609ED0325 // TvcmAggregate
+ : Parent HWL ME_528609ED0325 // TvcmAggregate
  ;
  : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
  ;
@@ -3607,7 +3675,7 @@ ref; // ME_5289E27801D4
 : ME_5289EBC0028C
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_528609ED0325 // TvcmAggregate
+ : Parent HWL ME_528609ED0325 // TvcmAggregate
  ;
  : Target WL 'ME_4683F5860071' '499EAAE502A8.pas.ms.script' // TvcmOperationMode
  ;
@@ -3679,10 +3747,10 @@ ref; // ME_479731C50290_ME_528609ED0325 Cleanup
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47D0E1500033 // Implementation
+ : Parent HWL ME_47D0E1500033 // Implementation
  ;
  : Inherits
-   Seq: ( ME_519A130C00B6 // TvcmCacheableBase
+   Seq: ( HWL ME_519A130C00B6 // TvcmCacheableBase
  )
  ; // Inherits
  : Implements
@@ -3691,13 +3759,13 @@ ref; // ME_479731C50290_ME_528609ED0325 Cleanup
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_52860C0403B8 // f_List
- ME_52860DB40021 // f_GUID
+   Seq: ( HWL ME_52860C0403B8 // f_List
+ HWL ME_52860DB40021 // f_GUID
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_52860CA00075 // Create
- ME_52860CAD0035 // Make
+   Seq: ( HWL ME_52860CA00075 // Create
+ HWL ME_52860CAD0035 // Make
  )
  ; // Operations
  : Implemented
@@ -3739,7 +3807,7 @@ FORWARD ME_55C1E2610332
  CONST Visibility PrivateAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_55C1E2610332 // TvcmFormSetRefreshDataParamsList
+ : Parent HWL ME_55C1E2610332 // TvcmFormSetRefreshDataParamsList
  ;
  : Target WL 'ME_491AF63D00C1' '4683F37902CF.pas.ms.script' // IvcmFormSetRefreshDataParams
  ;
@@ -3754,7 +3822,7 @@ ref; // ME_55C1E273011F ItemType
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47D0E1500033 // Implementation
+ : Parent HWL ME_47D0E1500033 // Implementation
  ;
  : Inherits
    Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
@@ -3765,7 +3833,7 @@ ref; // ME_55C1E273011F ItemType
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_55C1E273011F // ItemType
+   Seq: ( HWL ME_55C1E273011F // ItemType
  )
  ; // Attributes
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\vcmFormSetRefreshDataParamsList.pas'
@@ -3783,7 +3851,7 @@ ref; // ME_55C1E2610332 TvcmFormSetRefreshDataParamsList
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_47D0E1500033 // Implementation
+ : Parent HWL ME_47D0E1500033 // Implementation
  ;
  CONST "finished" false
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\NOT_FINISHED_vcmExportConst.pas'
@@ -3799,7 +3867,7 @@ ref; // ME_52A7067E0333 vcmExportConst
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_47D0E1500033 // Implementation
+ : Parent HWL ME_47D0E1500033 // Implementation
  ;
  CONST "finished" false
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\NOT_FINISHED_vcmContentConst.pas'
@@ -3815,7 +3883,7 @@ ref; // ME_52A706F903A3 vcmContentConst
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_47D0E1500033 // Implementation
+ : Parent HWL ME_47D0E1500033 // Implementation
  ;
  CONST "finished" false
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\NOT_FINISHED_vcmMessages.pas'
@@ -3833,7 +3901,7 @@ FORWARD ME_52F8A8330237
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_52F8A8330237 // vcmFormSetDataSourceWithFlexFormSetType
+ : Parent HWL ME_52F8A8330237 // vcmFormSetDataSourceWithFlexFormSetType
  ;
  CONST extprop:pas:TypeName '_FormSetType_'
 
@@ -3847,9 +3915,9 @@ ref; // ME_52F8A8A5010D FormSetType
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_52F8A8330237 // vcmFormSetDataSourceWithFlexFormSetType
+ : Parent HWL ME_52F8A8330237 // vcmFormSetDataSourceWithFlexFormSetType
  ;
- : Target ME_52F8A8A5010D // FormSetType
+ : Target HWL ME_52F8A8A5010D // FormSetType
  ;
 
 ref; // ME_52F8A8D0021F FormSetType
@@ -3862,9 +3930,9 @@ ref; // ME_52F8A8D0021F FormSetType
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_52F8A8330237 // vcmFormSetDataSourceWithFlexFormSetType
+ : Parent HWL ME_52F8A8330237 // vcmFormSetDataSourceWithFlexFormSetType
  ;
- : Target ME_52F8A8A5010D // FormSetType
+ : Target HWL ME_52F8A8A5010D // FormSetType
  ;
  CONST "pm" true
 
@@ -3879,19 +3947,19 @@ ref; // ME_52F8A952021E UCFormSet
  %SUMMARY 'Бизнес-объект сборки, параметризуемый типом сборки' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47D0E1500033 // Implementation
+ : Parent HWL ME_47D0E1500033 // Implementation
  ;
  : Inherits
-   Seq: ( ME_47F37723017A // vcmFormSetDataSource
+   Seq: ( HWL ME_47F37723017A // vcmFormSetDataSource
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_52F8A8D0021F // FormSetType
- ME_52F8A952021E // UCFormSet
+   Seq: ( HWL ME_52F8A8D0021F // FormSetType
+ HWL ME_52F8A952021E // UCFormSet
  )
  ; // Attributes
  : Children
-   Seq: ( ME_52F8A8A5010D // FormSetType
+   Seq: ( HWL ME_52F8A8A5010D // FormSetType
  )
  ; // Children
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\vcmFormSetDataSourceWithFlexFormSetType.imp.pas'
@@ -3911,7 +3979,7 @@ FORWARD ME_5559A50B0336
  CONST Visibility PublicAccess
  CONST Abstraction at_final
  CONST LinkType lt_ref
- : Parent ME_5559A50B0336 // TvcmFormSetContainerMapItem
+ : Parent HWL ME_5559A50B0336 // TvcmFormSetContainerMapItem
  ;
  : Target WL 'ME_46A608F00301' '4AB0C3C60310.pas.ms.script' // Pointer
  ;
@@ -3925,7 +3993,7 @@ ref; // ME_5559A51A03C1 rContainer
  CONST Visibility PublicAccess
  CONST Abstraction at_final
  CONST LinkType lt_ref
- : Parent ME_5559A50B0336 // TvcmFormSetContainerMapItem
+ : Parent HWL ME_5559A50B0336 // TvcmFormSetContainerMapItem
  ;
  : Target WL 'ME_46A608F00301' '4AB0C3C60310.pas.ms.script' // Pointer
  ;
@@ -3936,7 +4004,7 @@ ref; // ME_5559A530015A rFormSet
  CONST Name 'anOther'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_5559A50B0336 // TvcmFormSetContainerMapItem
+ : Target HWL ME_5559A50B0336 // TvcmFormSetContainerMapItem
  ;
 
 ref; // ME_5559A54B015D anOther
@@ -3947,7 +4015,7 @@ ref; // ME_5559A54B015D anOther
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_5559A50B0336 // TvcmFormSetContainerMapItem
+ : Parent HWL ME_5559A50B0336 // TvcmFormSetContainerMapItem
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -3983,7 +4051,7 @@ ref; // ME_555AE67B0325 aContainer
  : Stereotype st_ctor::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_5559A50B0336 // TvcmFormSetContainerMapItem
+ : Parent HWL ME_5559A50B0336 // TvcmFormSetContainerMapItem
  ;
  : Parameters
    Seq: ( ME_555AE67B030C // aFormSet
@@ -4001,16 +4069,16 @@ ref; // ME_5559A5520116 C
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_5559A3F601FD // TvcmFormSetContainerRegistry
+ : Parent HWL ME_5559A3F601FD // TvcmFormSetContainerRegistry
  ;
  : Attributes
-   Seq: ( ME_5559A51A03C1 // rContainer
- ME_5559A530015A // rFormSet
+   Seq: ( HWL ME_5559A51A03C1 // rContainer
+ HWL ME_5559A530015A // rFormSet
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_5559A53B02B4 // EQ
- ME_5559A5520116 // C
+   Seq: ( HWL ME_5559A53B02B4 // EQ
+ HWL ME_5559A5520116 // C
  )
  ; // Operations
  CONST extprop:rc:SelfName 'FormSetContainerMapItem'
@@ -4029,7 +4097,7 @@ FORWARD ME_55E04C9E0301
  CONST Visibility PublicAccess
  CONST Abstraction at_final
  CONST LinkType lt_lnk
- : Parent ME_55E04C9E0301 // ForEachF
+ : Parent HWL ME_55E04C9E0301 // ForEachF
  ;
  : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
  ;
@@ -4043,7 +4111,7 @@ ref; // ME_55E3F276015B aContainer
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  CONST LinkType lt_lnk
- : Parent ME_55E04C9E0301 // ForEachF
+ : Parent HWL ME_55E04C9E0301 // ForEachF
  ;
  : Target WL 'ME_491AF0FF01B6' '4683F37902CF.pas.ms.script' // IvcmFormSet
  ;
@@ -4058,11 +4126,11 @@ ref; // ME_55E04CBE0242
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_55E04C2803D7 // TvcmFormSetContainerMapIterator
+ : Parent HWL ME_55E04C2803D7 // TvcmFormSetContainerMapIterator
  ;
  : Attributes
-   Seq: ( ME_55E3F276015B // aContainer
- ME_55E04CBE0242 // 
+   Seq: ( HWL ME_55E3F276015B // aContainer
+ HWL ME_55E04CBE0242 // 
  )
  ; // Attributes
  CONST "needs index" false
@@ -4080,7 +4148,7 @@ FORWARD ME_55E04CAE01EA
  CONST Visibility PublicAccess
  CONST Abstraction at_final
  CONST LinkType lt_lnk
- : Parent ME_55E04CAE01EA // ForOneF
+ : Parent HWL ME_55E04CAE01EA // ForOneF
  ;
  : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
  ;
@@ -4094,7 +4162,7 @@ ref; // ME_55E3F28803CD aContainer
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  CONST LinkType lt_lnk
- : Parent ME_55E04CAE01EA // ForOneF
+ : Parent HWL ME_55E04CAE01EA // ForOneF
  ;
  : Target WL 'ME_491AF0FF01B6' '4683F37902CF.pas.ms.script' // IvcmFormSet
  ;
@@ -4109,7 +4177,7 @@ ref; // ME_55E04CC90002
  CONST Visibility PublicAccess
  CONST Abstraction at_final
  CONST LinkType lt_lnk
- : Parent ME_55E04CAE01EA // ForOneF
+ : Parent HWL ME_55E04CAE01EA // ForOneF
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -4124,12 +4192,12 @@ ref; // ME_55E04CCF02E2 anIndex
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_55E04C2803D7 // TvcmFormSetContainerMapIterator
+ : Parent HWL ME_55E04C2803D7 // TvcmFormSetContainerMapIterator
  ;
  : Attributes
-   Seq: ( ME_55E3F28803CD // aContainer
- ME_55E04CC90002 // 
- ME_55E04CCF02E2 // anIndex
+   Seq: ( HWL ME_55E3F28803CD // aContainer
+ HWL ME_55E04CC90002 // 
+ HWL ME_55E04CCF02E2 // anIndex
  )
  ; // Attributes
  CONST "needs index" false
@@ -4145,11 +4213,11 @@ ref; // ME_55E04CAE01EA ForOneF
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_5559A3F601FD // TvcmFormSetContainerRegistry
+ : Parent HWL ME_5559A3F601FD // TvcmFormSetContainerRegistry
  ;
  : Operations
-   Seq: ( ME_55E04C9E0301 // ForEachF
- ME_55E04CAE01EA // ForOneF
+   Seq: ( HWL ME_55E04C9E0301 // ForEachF
+ HWL ME_55E04CAE01EA // ForOneF
  )
  ; // Operations
 
@@ -4163,10 +4231,10 @@ ref; // ME_55E04C2803D7 TvcmFormSetContainerMapIterator
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_5559A3F601FD // TvcmFormSetContainerRegistry
+ : Parent HWL ME_5559A3F601FD // TvcmFormSetContainerRegistry
  ;
  : Inherits
-   Seq: ( ME_5559A50B0336 // TvcmFormSetContainerMapItem
+   Seq: ( HWL ME_5559A50B0336 // TvcmFormSetContainerMapItem
  )
  ; // Inherits
  CONST "isPointer" true
@@ -4183,9 +4251,9 @@ FORWARD ME_5559A56501B4
  CONST Visibility PrivateAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_5559A56501B4 // TvcmFormSetContainerMap
+ : Parent HWL ME_5559A56501B4 // TvcmFormSetContainerMap
  ;
- : Target ME_5559A50B0336 // TvcmFormSetContainerMapItem
+ : Target HWL ME_5559A50B0336 // TvcmFormSetContainerMapItem
  ;
 
 ref; // ME_5559A5B401A5 ItemType
@@ -4205,7 +4273,7 @@ ref; // ME_47B2C42A0163_ME_5559A56501B4 AssignItem
 ref; // ME_47B99D4503A2_ME_5559A56501B4 CompareExistingItems
 
 : ME_55E04C9E0301_ME_5559A56501B4
- : Original ME_55E04C9E0301 // ForEachF
+ : Original HWL ME_55E04C9E0301 // ForEachF
  ;
  CONST OpKind opkind_Implemented
  CONST "needs index" false
@@ -4213,7 +4281,7 @@ ref; // ME_47B99D4503A2_ME_5559A56501B4 CompareExistingItems
 ref; // ME_55E04C9E0301_ME_5559A56501B4 ForEachF
 
 : ME_55E04CAE01EA_ME_5559A56501B4
- : Original ME_55E04CAE01EA // ForOneF
+ : Original HWL ME_55E04CAE01EA // ForOneF
  ;
  CONST OpKind opkind_Implemented
  CONST "needs index" false
@@ -4228,7 +4296,7 @@ ref; // ME_55E04CAE01EA_ME_5559A56501B4 ForOneF
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_5559A3F601FD // TvcmFormSetContainerRegistry
+ : Parent HWL ME_5559A3F601FD // TvcmFormSetContainerRegistry
  ;
  : Inherits
    Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
@@ -4236,11 +4304,11 @@ ref; // ME_55E04CAE01EA_ME_5559A56501B4 ForOneF
  )
  ; // Inherits
  : Implements
-   Seq: ( ME_55E04C2803D7 // TvcmFormSetContainerMapIterator
+   Seq: ( HWL ME_55E04C2803D7 // TvcmFormSetContainerMapIterator
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_5559A5B401A5 // ItemType
+   Seq: ( HWL ME_5559A5B401A5 // ItemType
  )
  ; // Attributes
  : Implemented
@@ -4263,9 +4331,9 @@ ref; // ME_5559A56501B4 TvcmFormSetContainerMap
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_5559A3F601FD // TvcmFormSetContainerRegistry
+ : Parent HWL ME_5559A3F601FD // TvcmFormSetContainerRegistry
  ;
- : Target ME_5559A56501B4 // TvcmFormSetContainerMap
+ : Target HWL ME_5559A56501B4 // TvcmFormSetContainerMap
  ;
  CONST "needs field" true
  CONST "pm" true
@@ -4290,7 +4358,7 @@ ref; // ME_5559A4A602A3 aFormSet
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_5559A45102B1 // GetFormSetContainer
+ : Parent HWL ME_5559A45102B1 // GetFormSetContainer
  ;
  : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
  ;
@@ -4309,10 +4377,10 @@ ref; // ME_5559A49202F4 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_5559A3F601FD // TvcmFormSetContainerRegistry
+ : Parent HWL ME_5559A3F601FD // TvcmFormSetContainerRegistry
  ;
  : Operations
-   Seq: ( ME_5559A49202F4 // DoIt
+   Seq: ( HWL ME_5559A49202F4 // DoIt
  )
  ; // Operations
 
@@ -4335,7 +4403,7 @@ ref; // ME_5559A4B801DA aContainer
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_5559A45F0070 // GetContainedFormSet
+ : Parent HWL ME_5559A45F0070 // GetContainedFormSet
  ;
  : Target WL 'ME_491AF0FF01B6' '4683F37902CF.pas.ms.script' // IvcmFormSet
  ;
@@ -4354,10 +4422,10 @@ ref; // ME_5559A4AA001C DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_5559A3F601FD // TvcmFormSetContainerRegistry
+ : Parent HWL ME_5559A3F601FD // TvcmFormSetContainerRegistry
  ;
  : Operations
-   Seq: ( ME_5559A4AA001C // DoIt
+   Seq: ( HWL ME_5559A4AA001C // DoIt
  )
  ; // Operations
 
@@ -4371,7 +4439,7 @@ ref; // ME_5559A45F0070 GetContainedFormSet
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_5559A3F601FD // TvcmFormSetContainerRegistry
+ : Parent HWL ME_5559A3F601FD // TvcmFormSetContainerRegistry
  ;
 
 ref; // ME_5559A5EB0130 Create
@@ -4402,7 +4470,7 @@ ref; // ME_5559A629006A aContainer
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_5559A6060079 // RegisterFormSet
+ : Parent HWL ME_5559A6060079 // RegisterFormSet
  ;
  : Parameters
    Seq: ( ME_5559A6290053 // aFormSet
@@ -4420,10 +4488,10 @@ ref; // ME_5559A61A0399 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_5559A3F601FD // TvcmFormSetContainerRegistry
+ : Parent HWL ME_5559A3F601FD // TvcmFormSetContainerRegistry
  ;
  : Operations
-   Seq: ( ME_5559A61A0399 // DoIt
+   Seq: ( HWL ME_5559A61A0399 // DoIt
  )
  ; // Operations
 
@@ -4446,7 +4514,7 @@ ref; // ME_555AEDD20270 aFormSet
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_5559A62F028B // UnregisterFormSet
+ : Parent HWL ME_5559A62F028B // UnregisterFormSet
  ;
  : Parameters
    Seq: ( ME_555AEDD20270 // aFormSet
@@ -4463,10 +4531,10 @@ ref; // ME_5559A642008A DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_5559A3F601FD // TvcmFormSetContainerRegistry
+ : Parent HWL ME_5559A3F601FD // TvcmFormSetContainerRegistry
  ;
  : Operations
-   Seq: ( ME_5559A642008A // DoIt
+   Seq: ( HWL ME_5559A642008A // DoIt
  )
  ; // Operations
 
@@ -4489,7 +4557,7 @@ ref; // ME_55E581860044 aContainer
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_55E5816E00D5 // GetFormSetCount
+ : Parent HWL ME_55E5816E00D5 // GetFormSetCount
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -4508,10 +4576,10 @@ ref; // ME_55E581810367 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_5559A3F601FD // TvcmFormSetContainerRegistry
+ : Parent HWL ME_5559A3F601FD // TvcmFormSetContainerRegistry
  ;
  : Operations
-   Seq: ( ME_55E581810367 // DoIt
+   Seq: ( HWL ME_55E581810367 // DoIt
  )
  ; // Operations
 
@@ -4534,7 +4602,7 @@ ref; // ME_55E949EC0140 aContainer
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_55E949D10216 // UnregisterContainer
+ : Parent HWL ME_55E949D10216 // UnregisterContainer
  ;
  : Parameters
    Seq: ( ME_55E949EC0140 // aContainer
@@ -4551,10 +4619,10 @@ ref; // ME_55E949E500CE DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_5559A3F601FD // TvcmFormSetContainerRegistry
+ : Parent HWL ME_5559A3F601FD // TvcmFormSetContainerRegistry
  ;
  : Operations
-   Seq: ( ME_55E949E500CE // DoIt
+   Seq: ( HWL ME_55E949E500CE // DoIt
  )
  ; // Operations
 
@@ -4563,7 +4631,7 @@ ref; // ME_55E949D10216 UnregisterContainer
 : ME_5559ABC70325
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_5559A3F601FD // TvcmFormSetContainerRegistry
+ : Parent HWL ME_5559A3F601FD // TvcmFormSetContainerRegistry
  ;
  : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
  ;
@@ -4573,7 +4641,7 @@ ref; // ME_5559ABC70325
 : ME_5559ABCC0365
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_5559A3F601FD // TvcmFormSetContainerRegistry
+ : Parent HWL ME_5559A3F601FD // TvcmFormSetContainerRegistry
  ;
  : Target WL 'ME_491AF0FF01B6' '4683F37902CF.pas.ms.script' // IvcmFormSet
  ;
@@ -4583,7 +4651,7 @@ ref; // ME_5559ABCC0365
 : ME_5559ABD1006C
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_5559A3F601FD // TvcmFormSetContainerRegistry
+ : Parent HWL ME_5559A3F601FD // TvcmFormSetContainerRegistry
  ;
  : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
  ;
@@ -4593,7 +4661,7 @@ ref; // ME_5559ABD1006C
 : ME_55E3F8810063
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_5559A3F601FD // TvcmFormSetContainerRegistry
+ : Parent HWL ME_5559A3F601FD // TvcmFormSetContainerRegistry
  ;
  : Target WL 'ME_47CFE7F00221' '47BB24D30205.pas.ms.script' // l3InterfacesMisc
  ;
@@ -4614,24 +4682,24 @@ ref; // ME_479731C50290_ME_5559A3F601FD Cleanup
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47D0E1500033 // Implementation
+ : Parent HWL ME_47D0E1500033 // Implementation
  ;
  : Inherits
    Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_5559A5DD037C // Map
+   Seq: ( HWL ME_5559A5DD037C // Map
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_5559A45102B1 // GetFormSetContainer
- ME_5559A45F0070 // GetContainedFormSet
- ME_5559A5EB0130 // Create
- ME_5559A6060079 // RegisterFormSet
- ME_5559A62F028B // UnregisterFormSet
- ME_55E5816E00D5 // GetFormSetCount
- ME_55E949D10216 // UnregisterContainer
+   Seq: ( HWL ME_5559A45102B1 // GetFormSetContainer
+ HWL ME_5559A45F0070 // GetContainedFormSet
+ HWL ME_5559A5EB0130 // Create
+ HWL ME_5559A6060079 // RegisterFormSet
+ HWL ME_5559A62F028B // UnregisterFormSet
+ HWL ME_55E5816E00D5 // GetFormSetCount
+ HWL ME_55E949D10216 // UnregisterContainer
  )
  ; // Operations
  : Overridden
@@ -4639,10 +4707,10 @@ ref; // ME_479731C50290_ME_5559A3F601FD Cleanup
  )
  ; // Overridden
  : Children
-   Seq: ( ME_5559A50B0336 // TvcmFormSetContainerMapItem
- ME_55E04C2803D7 // TvcmFormSetContainerMapIterator
- ME_5559B460031C // PvcmFormSetContainerMapItem
- ME_5559A56501B4 // TvcmFormSetContainerMap
+   Seq: ( HWL ME_5559A50B0336 // TvcmFormSetContainerMapItem
+ HWL ME_55E04C2803D7 // TvcmFormSetContainerMapIterator
+ HWL ME_5559B460031C // PvcmFormSetContainerMapItem
+ HWL ME_5559A56501B4 // TvcmFormSetContainerMap
  )
  ; // Children
  : Dependencies
@@ -4665,9 +4733,9 @@ FORWARD ME_55714DD30399
 : ME_4B98DA0C0226
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4B98D9FD038B // TvcmStringIDExHelper
+ : Parent HWL ME_4B98D9FD038B // TvcmStringIDExHelper
  ;
- : Target ME_47F25BC801DB // vcmBase
+ : Target HWL ME_47F25BC801DB // vcmBase
  ;
 
 ref; // ME_4B98DA0C0226 
@@ -4675,7 +4743,7 @@ ref; // ME_4B98DA0C0226
 : ME_4B98DB9D03B1
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4B98D9FD038B // TvcmStringIDExHelper
+ : Parent HWL ME_4B98D9FD038B // TvcmStringIDExHelper
  ;
  : Target WL 'ME_4AA7888B0076' '47913B47006E.pas.ms.script' // l3CStr
  ;
@@ -4685,30 +4753,12 @@ ref; // ME_4B98DB9D03B1
 : ME_55714EDF0062
  CONST Class class_Dependency
  : Stereotype st_implements::Dependency ;
- : Parent ME_4B98D9FD038B // TvcmStringIDExHelper
+ : Parent HWL ME_4B98D9FD038B // TvcmStringIDExHelper
  ;
  : Target WL 'ME_4B98D6C201AD' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDExHelper
  ;
 
 ref; // ME_55714EDF0062 
-
-: ME_071573E75439_ME_4B98D9FD038B
- : Original WL 'ME_071573E75439' '4F9BDEEE01BC.pas.ms.script' // Init
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_071573E75439_ME_4B98D9FD038B Init
-
-: ME_201B50E5979A_ME_4B98D9FD038B
- : Original WL 'ME_201B50E5979A' '4F9BDEEE01BC.pas.ms.script' // AsCStr
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_201B50E5979A_ME_4B98D9FD038B AsCStr
-
-: ME_74E80608E1B4_ME_4B98D9FD038B
- : Original WL 'ME_74E80608E1B4' '4F9BDEEE01BC.pas.ms.script' // AsStr
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_74E80608E1B4_ME_4B98D9FD038B AsStr
 
 : ME_4B98D9FD038B
  CONST UID '4B98D9FD038B'
@@ -4718,29 +4768,18 @@ ref; // ME_74E80608E1B4_ME_4B98D9FD038B AsStr
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_55714DD30399 // vcmStringIDExHelper
+ : Parent HWL ME_55714DD30399 // vcmStringIDExHelper
  ;
  : Inherits
    Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
  )
  ; // Inherits
- : Implements
-   Seq: ( WL 'ME_26AFA90E5B84' '4F9BDEEE01BC.pas.ms.script' // Il3StringIDExHelper
- )
- ; // Implements
- : Implemented
-   Seq: ( ME_071573E75439_ME_4B98D9FD038B // Init
- ME_201B50E5979A_ME_4B98D9FD038B // AsCStr
- ME_74E80608E1B4_ME_4B98D9FD038B // AsStr
- )
- ; // Implemented
  : Dependencies
    Seq: ( ME_4B98DA0C0226 // vcmBase
  ME_4B98DB9D03B1 // l3CStr
  ME_55714EDF0062 // Tl3StringIDExHelper
  )
  ; // Dependencies
- CONST "singleton" true
  CONST extprop:rc:SelfName 'StringIDExHelper'
  CONST extprop:rc:isAcceptableForScripts true
 
@@ -4754,10 +4793,10 @@ ref; // ME_4B98D9FD038B TvcmStringIDExHelper
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_47D0E1500033 // Implementation
+ : Parent HWL ME_47D0E1500033 // Implementation
  ;
  : Children
-   Seq: ( ME_4B98D9FD038B // TvcmStringIDExHelper
+   Seq: ( HWL ME_4B98D9FD038B // TvcmStringIDExHelper
  )
  ; // Children
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\vcmStringIDExHelper.pas'
@@ -4774,7 +4813,7 @@ FORWARD ME_5582BCBE00C3
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_5582BCBE00C3 // vcmIterator
+ : Parent HWL ME_5582BCBE00C3 // vcmIterator
  ;
  : Target WL 'ME_47BB26C70176' '47BB24D30205.pas.ms.script' // ListType
  ;
@@ -4788,7 +4827,7 @@ ref; // ME_5582C2CE0346 f_List
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_5582BCBE00C3 // vcmIterator
+ : Parent HWL ME_5582BCBE00C3 // vcmIterator
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -4803,7 +4842,7 @@ FORWARD ME_5582BF2101BD
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_5582BF2101BD // GetNext
+ : Parent HWL ME_5582BF2101BD // GetNext
  ;
  : Target WL 'ME_47A1B1500302' '47BB24D30205.pas.ms.script' // ItemType
  ;
@@ -4818,10 +4857,10 @@ ref; // ME_5582BF2801C1 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility ProtectedAccess
  CONST Abstraction at_final
- : Parent ME_5582BCBE00C3 // vcmIterator
+ : Parent HWL ME_5582BCBE00C3 // vcmIterator
  ;
  : Operations
-   Seq: ( ME_5582BF2801C1 // DoIt
+   Seq: ( HWL ME_5582BF2801C1 // DoIt
  )
  ; // Operations
 
@@ -4844,7 +4883,7 @@ ref; // ME_5582C35B0397 aList
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_5582C3550082 // Create
+ : Parent HWL ME_5582C3550082 // Create
  ;
  : Parameters
    Seq: ( ME_5582C35B0397 // aList
@@ -4861,10 +4900,10 @@ ref; // ME_5582C3590262 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_5582BCBE00C3 // vcmIterator
+ : Parent HWL ME_5582BCBE00C3 // vcmIterator
  ;
  : Operations
-   Seq: ( ME_5582C3590262 // DoIt
+   Seq: ( HWL ME_5582C3590262 // DoIt
  )
  ; // Operations
 
@@ -4884,20 +4923,20 @@ ref; // ME_479731C50290_ME_5582BCBE00C3 Cleanup
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47D0E1500033 // Implementation
+ : Parent HWL ME_47D0E1500033 // Implementation
  ;
  : Inherits
-   Seq: ( ME_519A130C00B6 // TvcmCacheableBase
+   Seq: ( HWL ME_519A130C00B6 // TvcmCacheableBase
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_5582C2CE0346 // f_List
- ME_5582C2EC0018 // f_Index
+   Seq: ( HWL ME_5582C2CE0346 // f_List
+ HWL ME_5582C2EC0018 // f_Index
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_5582BF2101BD // GetNext
- ME_5582C3550082 // Create
+   Seq: ( HWL ME_5582BF2101BD // GetNext
+ HWL ME_5582C3550082 // Create
  )
  ; // Operations
  : Overridden
@@ -4920,7 +4959,7 @@ FORWARD ME_559CEE5A000E
  CONST Visibility PrivateAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_559CEE5A000E // TvcmUserTypeDefList
+ : Parent HWL ME_559CEE5A000E // TvcmUserTypeDefList
  ;
  : Target WL 'ME_49930DA10146' '4683F37902CF.pas.ms.script' // IvcmUserTypeDef
  ;
@@ -4935,7 +4974,7 @@ ref; // ME_559CEEE10178 ItemType
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_47D0E1500033 // Implementation
+ : Parent HWL ME_47D0E1500033 // Implementation
  ;
  : Inherits
    Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
@@ -4946,7 +4985,7 @@ ref; // ME_559CEEE10178 ItemType
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_559CEEE10178 // ItemType
+   Seq: ( HWL ME_559CEEE10178 // ItemType
  )
  ; // Attributes
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\vcmUserTypeDefList.pas'
@@ -4966,7 +5005,7 @@ FORWARD ME_559D25D60004
  CONST Visibility PrivateAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_559D25D60004 // TvcmOperationDefList
+ : Parent HWL ME_559D25D60004 // TvcmOperationDefList
  ;
  : Target WL 'ME_4995624100A6' '499EAAE502A8.pas.ms.script' // IvcmOperationDef
  ;
@@ -4981,7 +5020,7 @@ ref; // ME_559D267A00A2 ItemType
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47D0E1500033 // Implementation
+ : Parent HWL ME_47D0E1500033 // Implementation
  ;
  : Inherits
    Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
@@ -4992,7 +5031,7 @@ ref; // ME_559D267A00A2 ItemType
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_559D267A00A2 // ItemType
+   Seq: ( HWL ME_559D267A00A2 // ItemType
  )
  ; // Attributes
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\vcmOperationDefList.pas'
@@ -5012,7 +5051,7 @@ FORWARD ME_559D24E403DE
  CONST Visibility PrivateAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_559D24E403DE // TvcmEntitiesDefList
+ : Parent HWL ME_559D24E403DE // TvcmEntitiesDefList
  ;
  : Target WL 'ME_49956D4A00C6' '4683F37902CF.pas.ms.script' // IvcmEntityDef
  ;
@@ -5027,7 +5066,7 @@ ref; // ME_559D251600F0 ItemType
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47D0E1500033 // Implementation
+ : Parent HWL ME_47D0E1500033 // Implementation
  ;
  : Inherits
    Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
@@ -5038,7 +5077,7 @@ ref; // ME_559D251600F0 ItemType
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_559D251600F0 // ItemType
+   Seq: ( HWL ME_559D251600F0 // ItemType
  )
  ; // Attributes
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\vcmEntitiesDefList.pas'
@@ -5058,9 +5097,9 @@ FORWARD ME_5582C3AD0167
  CONST Visibility PrivateAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_5582C3AD0167 // TvcmUserTypesIterator
+ : Parent HWL ME_5582C3AD0167 // TvcmUserTypesIterator
  ;
- : Target ME_559CEE5A000E // TvcmUserTypeDefList
+ : Target HWL ME_559CEE5A000E // TvcmUserTypeDefList
  ;
 
 ref; // ME_559D23D402A9 ListType
@@ -5073,7 +5112,7 @@ ref; // ME_559D23D402A9 ListType
  CONST Visibility PrivateAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_5582C3AD0167 // TvcmUserTypesIterator
+ : Parent HWL ME_5582C3AD0167 // TvcmUserTypesIterator
  ;
  : Target WL 'ME_49930DA10146' '4683F37902CF.pas.ms.script' // IvcmUserTypeDef
  ;
@@ -5084,7 +5123,7 @@ ref; // ME_559D23F100E0 ItemType
  CONST Name 'aList'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_559CEE5A000E // TvcmUserTypeDefList
+ : Target HWL ME_559CEE5A000E // TvcmUserTypeDefList
  ;
 
 ref; // ME_5582C407033B aList
@@ -5096,7 +5135,7 @@ ref; // ME_5582C407033B aList
  : Stereotype st_factory::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_5582C3AD0167 // TvcmUserTypesIterator
+ : Parent HWL ME_5582C3AD0167 // TvcmUserTypesIterator
  ;
  : Target WL 'ME_499560BA0000' '4683F37902CF.pas.ms.script' // IvcmUserTypesIterator
  ;
@@ -5121,10 +5160,10 @@ ref; // ME_499560C601FD_ME_5582C3AD0167 Next
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47D0E1500033 // Implementation
+ : Parent HWL ME_47D0E1500033 // Implementation
  ;
  : Inherits
-   Seq: ( ME_5582BCBE00C3 // vcmIterator
+   Seq: ( HWL ME_5582BCBE00C3 // vcmIterator
  )
  ; // Inherits
  : Implements
@@ -5132,12 +5171,12 @@ ref; // ME_499560C601FD_ME_5582C3AD0167 Next
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_559D23D402A9 // ListType
- ME_559D23F100E0 // ItemType
+   Seq: ( HWL ME_559D23D402A9 // ListType
+ HWL ME_559D23F100E0 // ItemType
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_5582C3F6016A // Make
+   Seq: ( HWL ME_5582C3F6016A // Make
  )
  ; // Operations
  : Implemented
@@ -5161,7 +5200,7 @@ FORWARD ME_5582C49B01E9
  CONST Visibility PrivateAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_5582C49B01E9 // TvcmEntitiesDefIterator
+ : Parent HWL ME_5582C49B01E9 // TvcmEntitiesDefIterator
  ;
  : Target WL 'ME_49956D4A00C6' '4683F37902CF.pas.ms.script' // IvcmEntityDef
  ;
@@ -5176,9 +5215,9 @@ ref; // ME_559D245302F0 ItemType
  CONST Visibility PrivateAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_5582C49B01E9 // TvcmEntitiesDefIterator
+ : Parent HWL ME_5582C49B01E9 // TvcmEntitiesDefIterator
  ;
- : Target ME_559D24E403DE // TvcmEntitiesDefList
+ : Target HWL ME_559D24E403DE // TvcmEntitiesDefList
  ;
 
 ref; // ME_559D2502006D ListType
@@ -5198,10 +5237,10 @@ ref; // ME_49956DB300D6_ME_5582C49B01E9 Next
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47D0E1500033 // Implementation
+ : Parent HWL ME_47D0E1500033 // Implementation
  ;
  : Inherits
-   Seq: ( ME_5582BCBE00C3 // vcmIterator
+   Seq: ( HWL ME_5582BCBE00C3 // vcmIterator
  )
  ; // Inherits
  : Implements
@@ -5209,8 +5248,8 @@ ref; // ME_49956DB300D6_ME_5582C49B01E9 Next
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_559D245302F0 // ItemType
- ME_559D2502006D // ListType
+   Seq: ( HWL ME_559D245302F0 // ItemType
+ HWL ME_559D2502006D // ListType
  )
  ; // Attributes
  : Implemented
@@ -5234,7 +5273,7 @@ FORWARD ME_5582C4210160
  CONST Visibility PrivateAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_5582C4210160 // TvcmOperationsDefIterator
+ : Parent HWL ME_5582C4210160 // TvcmOperationsDefIterator
  ;
  : Target WL 'ME_4995624100A6' '499EAAE502A8.pas.ms.script' // IvcmOperationDef
  ;
@@ -5249,9 +5288,9 @@ ref; // ME_559D25B802DA ItemType
  CONST Visibility PrivateAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_5582C4210160 // TvcmOperationsDefIterator
+ : Parent HWL ME_5582C4210160 // TvcmOperationsDefIterator
  ;
- : Target ME_559D25D60004 // TvcmOperationDefList
+ : Target HWL ME_559D25D60004 // TvcmOperationDefList
  ;
 
 ref; // ME_559D260D02A1 ListType
@@ -5271,10 +5310,10 @@ ref; // ME_4995645B02C7_ME_5582C4210160 Next
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47D0E1500033 // Implementation
+ : Parent HWL ME_47D0E1500033 // Implementation
  ;
  : Inherits
-   Seq: ( ME_5582BCBE00C3 // vcmIterator
+   Seq: ( HWL ME_5582BCBE00C3 // vcmIterator
  )
  ; // Inherits
  : Implements
@@ -5282,8 +5321,8 @@ ref; // ME_4995645B02C7_ME_5582C4210160 Next
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_559D25B802DA // ItemType
- ME_559D260D02A1 // ListType
+   Seq: ( HWL ME_559D25B802DA // ItemType
+ HWL ME_559D260D02A1 // ListType
  )
  ; // Attributes
  : Implemented
@@ -5307,10 +5346,10 @@ FORWARD ME_5087BD37023E
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_5087BD37023E // TvcmFormSet
+ : Parent HWL ME_5087BD37023E // TvcmFormSet
  ;
  : Inherits
-   Seq: ( ME_5087BD37023E // TvcmFormSet
+   Seq: ( HWL ME_5087BD37023E // TvcmFormSet
  )
  ; // Inherits
  CONST "isClassRef" true
@@ -5325,7 +5364,7 @@ ref; // ME_52973E2D005E RvcmFormSet
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_lnk
- : Parent ME_5087BD37023E // TvcmFormSet
+ : Parent HWL ME_5087BD37023E // TvcmFormSet
  ;
  : Target WL 'ME_4995708500BA' '4683F37902CF.pas.ms.script' // IvcmFormSetFactory
  ;
@@ -5339,7 +5378,7 @@ ref; // ME_5286066C020F f_Factory
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_5087BD37023E // TvcmFormSet
+ : Parent HWL ME_5087BD37023E // TvcmFormSet
  ;
  : Target WL 'ME_46A608F00301' '4AB0C3C60310.pas.ms.script' // Pointer
  ;
@@ -5353,7 +5392,7 @@ ref; // ME_528607080027 f_Container
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_5087BD37023E // TvcmFormSet
+ : Parent HWL ME_5087BD37023E // TvcmFormSet
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -5367,7 +5406,7 @@ ref; // ME_528607440020 f_CanRefresh
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_5087BD37023E // TvcmFormSet
+ : Parent HWL ME_5087BD37023E // TvcmFormSet
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -5382,9 +5421,9 @@ ref; // ME_5286076B01F8 f_DataSource
  CONST Visibility ProtectedAccess
  CONST Abstraction at_final
  CONST LinkType lt_agr
- : Parent ME_5087BD37023E // TvcmFormSet
+ : Parent HWL ME_5087BD37023E // TvcmFormSet
  ;
- : Target ME_55C1E2610332 // TvcmFormSetRefreshDataParamsList
+ : Target HWL ME_55C1E2610332 // TvcmFormSetRefreshDataParamsList
  ;
  CONST "needs field" true
  CONST "pm" true
@@ -5399,7 +5438,7 @@ ref; // ME_5286081A00D0 RefreshStack
  CONST Visibility ProtectedAccess
  CONST Abstraction at_final
  CONST LinkType lt_lnk
- : Parent ME_5087BD37023E // TvcmFormSet
+ : Parent HWL ME_5087BD37023E // TvcmFormSet
  ;
  : Target WL 'ME_5289CD8F0001' '528C931303C3.pas.ms.script' // TvcmFormSetFormList
  ;
@@ -5434,7 +5473,7 @@ ref; // ME_5286125F00F1 aFactory
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_5286089601AD // Make
+ : Parent HWL ME_5286089601AD // Make
  ;
  : Target WL 'ME_491AF0FF01B6' '4683F37902CF.pas.ms.script' // IvcmFormSet
  ;
@@ -5449,7 +5488,7 @@ ref; // ME_5286124C00DD DoIt
 : ME_528608DF0240
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_5286089601AD // Make
+ : Parent HWL ME_5286089601AD // Make
  ;
  : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
  ;
@@ -5459,7 +5498,7 @@ ref; // ME_528608DF0240
 : ME_5286090A0072
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_5286089601AD // Make
+ : Parent HWL ME_5286089601AD // Make
  ;
  : Target WL 'ME_4995708500BA' '4683F37902CF.pas.ms.script' // IvcmFormSetFactory
  ;
@@ -5471,9 +5510,9 @@ FORWARD ME_528609A20025
 : ME_528612C00020
  CONST Class class_Dependency
  : Stereotype st_call::Dependency ;
- : Parent ME_5286089601AD // Make
+ : Parent HWL ME_5286089601AD // Make
  ;
- : Target ME_528609A20025 // Create
+ : Target HWL ME_528609A20025 // Create
  ;
  CONST "iterator needs params" true
  CONST "needs after iterator UC" false
@@ -5488,10 +5527,10 @@ ref; // ME_528612C00020
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_5087BD37023E // TvcmFormSet
+ : Parent HWL ME_5087BD37023E // TvcmFormSet
  ;
  : Operations
-   Seq: ( ME_5286124C00DD // DoIt
+   Seq: ( HWL ME_5286124C00DD // DoIt
  )
  ; // Operations
  : Dependencies
@@ -5528,7 +5567,7 @@ ref; // ME_528611F602A8 aFactory
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_528609A20025 // Create
+ : Parent HWL ME_528609A20025 // Create
  ;
  : Parameters
    Seq: ( ME_528611F60297 // aContainer
@@ -5541,7 +5580,7 @@ ref; // ME_528611DD02C5 DoIt
 : ME_528612A003E7
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_528609A20025 // Create
+ : Parent HWL ME_528609A20025 // Create
  ;
  : Target WL 'ME_4995708500BA' '4683F37902CF.pas.ms.script' // IvcmFormSetFactory
  ;
@@ -5556,10 +5595,10 @@ ref; // ME_528612A003E7
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_5087BD37023E // TvcmFormSet
+ : Parent HWL ME_5087BD37023E // TvcmFormSet
  ;
  : Operations
-   Seq: ( ME_528611DD02C5 // DoIt
+   Seq: ( HWL ME_528611DD02C5 // DoIt
  )
  ; // Operations
  : Dependencies
@@ -5577,7 +5616,7 @@ FORWARD ME_53034BFF0015
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_53034BFF0015 // FormListAssigned
+ : Parent HWL ME_53034BFF0015 // FormListAssigned
  ;
 
 ref; // ME_53034C180343 DoIt
@@ -5590,10 +5629,10 @@ ref; // ME_53034C180343 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_5087BD37023E // TvcmFormSet
+ : Parent HWL ME_5087BD37023E // TvcmFormSet
  ;
  : Operations
-   Seq: ( ME_53034C180343 // DoIt
+   Seq: ( HWL ME_53034C180343 // DoIt
  )
  ; // Operations
 
@@ -5607,7 +5646,7 @@ FORWARD ME_54B352340122
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_54B352340122 // DoGetFormSetCaption
+ : Parent HWL ME_54B352340122 // DoGetFormSetCaption
  ;
  : Target WL 'ME_4683C9AC03AC' '467BAB7F021E.pas.ms.script' // IvcmCString
  ;
@@ -5622,10 +5661,10 @@ ref; // ME_54B3524801E9 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_5087BD37023E // TvcmFormSet
+ : Parent HWL ME_5087BD37023E // TvcmFormSet
  ;
  : Operations
-   Seq: ( ME_54B3524801E9 // DoIt
+   Seq: ( HWL ME_54B3524801E9 // DoIt
  )
  ; // Operations
 
@@ -5639,7 +5678,7 @@ FORWARD ME_54B3525201F6
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_54B3525201F6 // DoGetFormSetTabCaption
+ : Parent HWL ME_54B3525201F6 // DoGetFormSetTabCaption
  ;
  : Target WL 'ME_4683C9AC03AC' '467BAB7F021E.pas.ms.script' // IvcmCString
  ;
@@ -5654,10 +5693,10 @@ ref; // ME_54B352630308 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_5087BD37023E // TvcmFormSet
+ : Parent HWL ME_5087BD37023E // TvcmFormSet
  ;
  : Operations
-   Seq: ( ME_54B352630308 // DoIt
+   Seq: ( HWL ME_54B352630308 // DoIt
  )
  ; // Operations
 
@@ -5671,7 +5710,7 @@ FORWARD ME_54B3526E020F
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_54B3526E020F // DoGetFormSetTabHint
+ : Parent HWL ME_54B3526E020F // DoGetFormSetTabHint
  ;
  : Target WL 'ME_4683C9AC03AC' '467BAB7F021E.pas.ms.script' // IvcmCString
  ;
@@ -5686,10 +5725,10 @@ ref; // ME_54B3527C0161 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_5087BD37023E // TvcmFormSet
+ : Parent HWL ME_5087BD37023E // TvcmFormSet
  ;
  : Operations
-   Seq: ( ME_54B3527C0161 // DoIt
+   Seq: ( HWL ME_54B3527C0161 // DoIt
  )
  ; // Operations
 
@@ -5703,7 +5742,7 @@ FORWARD ME_555D6A1000F5
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_555D6A1000F5 // DoGetCanBeCloned
+ : Parent HWL ME_555D6A1000F5 // DoGetCanBeCloned
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -5718,10 +5757,10 @@ ref; // ME_555D6A1A0114 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_5087BD37023E // TvcmFormSet
+ : Parent HWL ME_5087BD37023E // TvcmFormSet
  ;
  : Operations
-   Seq: ( ME_555D6A1A0114 // DoIt
+   Seq: ( HWL ME_555D6A1A0114 // DoIt
  )
  ; // Operations
 
@@ -5735,7 +5774,7 @@ FORWARD ME_55E019130227
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_55E019130227 // DoGetCanBeSavedToHistory
+ : Parent HWL ME_55E019130227 // DoGetCanBeSavedToHistory
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -5750,10 +5789,10 @@ ref; // ME_55E019260044 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_5087BD37023E // TvcmFormSet
+ : Parent HWL ME_5087BD37023E // TvcmFormSet
  ;
  : Operations
-   Seq: ( ME_55E019260044 // DoIt
+   Seq: ( HWL ME_55E019260044 // DoIt
  )
  ; // Operations
 
@@ -5762,7 +5801,7 @@ ref; // ME_55E019130227 DoGetCanBeSavedToHistory
 : ME_5289E3AC0164
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_5087BD37023E // TvcmFormSet
+ : Parent HWL ME_5087BD37023E // TvcmFormSet
  ;
  : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
  ;
@@ -5772,9 +5811,9 @@ ref; // ME_5289E3AC0164
 : ME_528AFFD80390
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_5087BD37023E // TvcmFormSet
+ : Parent HWL ME_5087BD37023E // TvcmFormSet
  ;
- : Target ME_49312C5F0078 // vcmFormSetRefreshParams
+ : Target HWL ME_49312C5F0078 // vcmFormSetRefreshParams
  ;
 
 ref; // ME_528AFFD80390 
@@ -5782,7 +5821,7 @@ ref; // ME_528AFFD80390
 : ME_528CB5E5033F
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_5087BD37023E // TvcmFormSet
+ : Parent HWL ME_5087BD37023E // TvcmFormSet
  ;
  : Target WL 'ME_5289C78503E2' '528C931303C3.pas.ms.script' // vcmFormSetFormItemList
  ;
@@ -5792,9 +5831,9 @@ ref; // ME_528CB5E5033F
 : ME_55E3DE510052
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_5087BD37023E // TvcmFormSet
+ : Parent HWL ME_5087BD37023E // TvcmFormSet
  ;
- : Target ME_5559A3F601FD // TvcmFormSetContainerRegistry
+ : Target HWL ME_5559A3F601FD // TvcmFormSetContainerRegistry
  ;
 
 ref; // ME_55E3DE510052 
@@ -5967,10 +6006,10 @@ ref; // ME_479731C50290_ME_5087BD37023E Cleanup
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47D0E1500033 // Implementation
+ : Parent HWL ME_47D0E1500033 // Implementation
  ;
  : Inherits
-   Seq: ( ME_528609ED0325 // TvcmAggregate
+   Seq: ( HWL ME_528609ED0325 // TvcmAggregate
  )
  ; // Inherits
  : Implements
@@ -5978,23 +6017,23 @@ ref; // ME_479731C50290_ME_5087BD37023E Cleanup
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_5286066C020F // f_Factory
- ME_528607080027 // f_Container
- ME_528607440020 // f_CanRefresh
- ME_5286076B01F8 // f_DataSource
- ME_5286081A00D0 // RefreshStack
- ME_528B259002B0 // Forms
+   Seq: ( HWL ME_5286066C020F // f_Factory
+ HWL ME_528607080027 // f_Container
+ HWL ME_528607440020 // f_CanRefresh
+ HWL ME_5286076B01F8 // f_DataSource
+ HWL ME_5286081A00D0 // RefreshStack
+ HWL ME_528B259002B0 // Forms
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_5286089601AD // Make
- ME_528609A20025 // Create
- ME_53034BFF0015 // FormListAssigned
- ME_54B352340122 // DoGetFormSetCaption
- ME_54B3525201F6 // DoGetFormSetTabCaption
- ME_54B3526E020F // DoGetFormSetTabHint
- ME_555D6A1000F5 // DoGetCanBeCloned
- ME_55E019130227 // DoGetCanBeSavedToHistory
+   Seq: ( HWL ME_5286089601AD // Make
+ HWL ME_528609A20025 // Create
+ HWL ME_53034BFF0015 // FormListAssigned
+ HWL ME_54B352340122 // DoGetFormSetCaption
+ HWL ME_54B3525201F6 // DoGetFormSetTabCaption
+ HWL ME_54B3526E020F // DoGetFormSetTabHint
+ HWL ME_555D6A1000F5 // DoGetCanBeCloned
+ HWL ME_55E019130227 // DoGetCanBeSavedToHistory
  )
  ; // Operations
  : Implemented
@@ -6029,7 +6068,7 @@ ref; // ME_479731C50290_ME_5087BD37023E Cleanup
  )
  ; // Overridden
  : Children
-   Seq: ( ME_52973E2D005E // RvcmFormSet
+   Seq: ( HWL ME_52973E2D005E // RvcmFormSet
  )
  ; // Children
  : Dependencies
@@ -6058,7 +6097,7 @@ FORWARD ME_55D3257800A1
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_55D3257800A1 // vcmRepositoryEx
+ : Parent HWL ME_55D3257800A1 // vcmRepositoryEx
  ;
 
 ref; // ME_55D3259B0376 TvcmRep
@@ -6071,10 +6110,10 @@ ref; // ME_55D3259B0376 TvcmRep
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_47D0E1500033 // Implementation
+ : Parent HWL ME_47D0E1500033 // Implementation
  ;
  : Children
-   Seq: ( ME_55D3259B0376 // TvcmRep
+   Seq: ( HWL ME_55D3259B0376 // TvcmRep
  )
  ; // Children
  CONST "finished" false
@@ -6093,7 +6132,7 @@ FORWARD ME_55E6A6BC0318
  CONST Visibility PrivateAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_55E6A6BC0318 // TvcmFormSetRefList
+ : Parent HWL ME_55E6A6BC0318 // TvcmFormSetRefList
  ;
  : Target WL 'ME_491AF0FF01B6' '4683F37902CF.pas.ms.script' // IvcmFormSet
  ;
@@ -6108,7 +6147,7 @@ ref; // ME_55E6A721002B ItemType
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47D0E1500033 // Implementation
+ : Parent HWL ME_47D0E1500033 // Implementation
  ;
  : Inherits
    Seq: ( WL 'ME_47B57D630029' '47913B47006E.pas.ms.script' // l3InterfacePtrList
@@ -6116,7 +6155,7 @@ ref; // ME_55E6A721002B ItemType
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_55E6A721002B // ItemType
+   Seq: ( HWL ME_55E6A721002B // ItemType
  )
  ; // Attributes
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\vcmFormSetRefList.pas'
@@ -6136,7 +6175,7 @@ FORWARD ME_55E6ABBA0293
  CONST Visibility PrivateAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_55E6ABBA0293 // TvcmAggregateRefList
+ : Parent HWL ME_55E6ABBA0293 // TvcmAggregateRefList
  ;
  : Target WL 'ME_49930CC501C9' '4683F37902CF.pas.ms.script' // IvcmAggregate
  ;
@@ -6151,7 +6190,7 @@ ref; // ME_55E6AC0D01F4 ItemType
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47D0E1500033 // Implementation
+ : Parent HWL ME_47D0E1500033 // Implementation
  ;
  : Inherits
    Seq: ( WL 'ME_47B57D630029' '47913B47006E.pas.ms.script' // l3InterfacePtrList
@@ -6159,7 +6198,7 @@ ref; // ME_55E6AC0D01F4 ItemType
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_55E6AC0D01F4 // ItemType
+   Seq: ( HWL ME_55E6AC0D01F4 // ItemType
  )
  ; // Attributes
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\vcmAggregateRefList.pas'
@@ -6177,7 +6216,7 @@ ref; // ME_55E6ABBA0293 TvcmAggregateRefList
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47D0E1500033 // Implementation
+ : Parent HWL ME_47D0E1500033 // Implementation
  ;
  CONST "finished" false
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\NOT_FINISHED_vcmBaseEntityDef.pas'
@@ -6195,7 +6234,7 @@ ref; // ME_56113B1400C7 TvcmBaseEntityDef
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_47D0E1500033 // Implementation
+ : Parent HWL ME_47D0E1500033 // Implementation
  ;
  CONST "finished" false
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\NOT_FINISHED_vcmOperationableIdentifiedUserFriendly.pas'
@@ -6211,7 +6250,7 @@ ref; // ME_56113B640340 vcmOperationableIdentifiedUserFriendly
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47D0E1500033 // Implementation
+ : Parent HWL ME_47D0E1500033 // Implementation
  ;
  CONST "finished" false
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\NOT_FINISHED_vcmBaseOperationDef.pas'
@@ -6232,51 +6271,51 @@ ref; // ME_5624C8410121 TvcmBaseOperationDef
  : Parent WL 'ME_4790C3B8021E' '4790C3B8021E.pas.ms.script' // VCM
  ;
  : Children
-   Seq: ( ME_5017EAF4027D // vcmFormDataSourcePrimWithFlexUseCaseControllerType
- ME_47F25BC801DB // vcmBase
- ME_47F37723017A // vcmFormSetDataSource
- ME_47ECE94D03D4 // vcmFormDataSourcePrim
- ME_501802270075 // vcmFormDataSourceWithData
- ME_49312C5F0078 // vcmFormSetRefreshParams
- ME_49415C640079 // vcmFormSetDataSourceWithoutData
- ME_494778CD004F // vcmTinyUseCaseController
- ME_494141D20217 // TvcmFormSetDataSource
- ME_4982B6510327 // vcmFormDataSourceRef
- ME_499AA39D0014 // TvcmProfilersCollection
- ME_499AA4AD0036 // TvcmProfiler
- ME_4AA9377803B5 // vcmUtils
- ME_4AB33E14004E // TvcmModule
- ME_4AB8CB630173 // TvcmStringList
- ME_4AB8CB4B0256 // TvcmItems
- ME_4AD89C12030A // TvcmMakeParams
- ME_4B16B85D03A1 // vcmData
- ME_4C8F785C005B // MvcmModule
- ME_4E01F29C0139 // vcmSettings
- ME_492ACB4100B2 // vcmFormDataSource
- ME_491B1EC400E2 // TvcmFormDataSource
- ME_50180358024F // vcmFormDataSourceWithFlexUseCaseControllerType
- ME_528609ED0325 // TvcmAggregate
- ME_55C1E2610332 // TvcmFormSetRefreshDataParamsList
- ME_52A7067E0333 // vcmExportConst
- ME_52A706F903A3 // vcmContentConst
- ME_52AB0AFE0049 // vcmMessages
- ME_52F8A8330237 // vcmFormSetDataSourceWithFlexFormSetType
- ME_5559A3F601FD // TvcmFormSetContainerRegistry
- ME_55714DD30399 // vcmStringIDExHelper
- ME_5582BCBE00C3 // vcmIterator
- ME_559CEE5A000E // TvcmUserTypeDefList
- ME_559D25D60004 // TvcmOperationDefList
- ME_559D24E403DE // TvcmEntitiesDefList
- ME_5582C3AD0167 // TvcmUserTypesIterator
- ME_5582C49B01E9 // TvcmEntitiesDefIterator
- ME_5582C4210160 // TvcmOperationsDefIterator
- ME_5087BD37023E // TvcmFormSet
- ME_55D3257800A1 // vcmRepositoryEx
- ME_55E6A6BC0318 // TvcmFormSetRefList
- ME_55E6ABBA0293 // TvcmAggregateRefList
- ME_56113B1400C7 // TvcmBaseEntityDef
- ME_56113B640340 // vcmOperationableIdentifiedUserFriendly
- ME_5624C8410121 // TvcmBaseOperationDef
+   Seq: ( HWL ME_5017EAF4027D // vcmFormDataSourcePrimWithFlexUseCaseControllerType
+ HWL ME_47F25BC801DB // vcmBase
+ HWL ME_47F37723017A // vcmFormSetDataSource
+ HWL ME_47ECE94D03D4 // vcmFormDataSourcePrim
+ HWL ME_501802270075 // vcmFormDataSourceWithData
+ HWL ME_49312C5F0078 // vcmFormSetRefreshParams
+ HWL ME_49415C640079 // vcmFormSetDataSourceWithoutData
+ HWL ME_494778CD004F // vcmTinyUseCaseController
+ HWL ME_494141D20217 // TvcmFormSetDataSource
+ HWL ME_4982B6510327 // vcmFormDataSourceRef
+ HWL ME_499AA39D0014 // TvcmProfilersCollection
+ HWL ME_499AA4AD0036 // TvcmProfiler
+ HWL ME_4AA9377803B5 // vcmUtils
+ HWL ME_4AB33E14004E // TvcmModule
+ HWL ME_4AB8CB630173 // TvcmStringList
+ HWL ME_4AB8CB4B0256 // TvcmItems
+ HWL ME_4AD89C12030A // TvcmMakeParams
+ HWL ME_4B16B85D03A1 // vcmData
+ HWL ME_4C8F785C005B // MvcmModule
+ HWL ME_4E01F29C0139 // vcmSettings
+ HWL ME_492ACB4100B2 // vcmFormDataSource
+ HWL ME_491B1EC400E2 // TvcmFormDataSource
+ HWL ME_50180358024F // vcmFormDataSourceWithFlexUseCaseControllerType
+ HWL ME_528609ED0325 // TvcmAggregate
+ HWL ME_55C1E2610332 // TvcmFormSetRefreshDataParamsList
+ HWL ME_52A7067E0333 // vcmExportConst
+ HWL ME_52A706F903A3 // vcmContentConst
+ HWL ME_52AB0AFE0049 // vcmMessages
+ HWL ME_52F8A8330237 // vcmFormSetDataSourceWithFlexFormSetType
+ HWL ME_5559A3F601FD // TvcmFormSetContainerRegistry
+ HWL ME_55714DD30399 // vcmStringIDExHelper
+ HWL ME_5582BCBE00C3 // vcmIterator
+ HWL ME_559CEE5A000E // TvcmUserTypeDefList
+ HWL ME_559D25D60004 // TvcmOperationDefList
+ HWL ME_559D24E403DE // TvcmEntitiesDefList
+ HWL ME_5582C3AD0167 // TvcmUserTypesIterator
+ HWL ME_5582C49B01E9 // TvcmEntitiesDefIterator
+ HWL ME_5582C4210160 // TvcmOperationsDefIterator
+ HWL ME_5087BD37023E // TvcmFormSet
+ HWL ME_55D3257800A1 // vcmRepositoryEx
+ HWL ME_55E6A6BC0318 // TvcmFormSetRefList
+ HWL ME_55E6ABBA0293 // TvcmAggregateRefList
+ HWL ME_56113B1400C7 // TvcmBaseEntityDef
+ HWL ME_56113B640340 // vcmOperationableIdentifiedUserFriendly
+ HWL ME_5624C8410121 // TvcmBaseOperationDef
  )
  ; // Children
  : Depends

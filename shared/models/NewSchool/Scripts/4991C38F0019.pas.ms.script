@@ -13,7 +13,7 @@ FORWARD ME_4991C3C10331
  %SUMMARY 'данные адаптера были обновлен' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4991C3C10331 // InsDataAdapterListener
+ : Parent HWL ME_4991C3C10331 // InsDataAdapterListener
  ;
 
 ref; // ME_4991C3CD0077 Updated
@@ -28,14 +28,14 @@ ref; // ME_4991C3CD0077 Updated
  %SUMMARY 'Слушатель событий данных адаптера' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4991C38F0019 // DataAdapterInterfaces
+ : Parent HWL ME_4991C38F0019 // DataAdapterInterfaces
  ;
  : Inherits
    Seq: ( WL 'ME_4680CF330338' '4677FBA70343.pas.ms.script' // Il3Notify
  )
  ; // Inherits
  : Operations
-   Seq: ( ME_4991C3CD0077 // Updated
+   Seq: ( HWL ME_4991C3CD0077 // Updated
  )
  ; // Operations
  CONST extprop:rc:SelfName 'DataAdapterListener'
@@ -52,7 +52,7 @@ FORWARD ME_4991C4280185
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4991C4280185 // TTMWarningType
+ : Parent HWL ME_4991C4280185 // TTMWarningType
  ;
 
 ref; // ME_4991C42D02FF tmwNone
@@ -64,7 +64,7 @@ ref; // ME_4991C42D02FF tmwNone
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4991C4280185 // TTMWarningType
+ : Parent HWL ME_4991C4280185 // TTMWarningType
  ;
 
 ref; // ME_4991C4320119 tmwError
@@ -76,7 +76,7 @@ ref; // ME_4991C4320119 tmwError
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4991C4280185 // TTMWarningType
+ : Parent HWL ME_4991C4280185 // TTMWarningType
  ;
 
 ref; // ME_4991C4360236 tmwWarning
@@ -89,12 +89,12 @@ ref; // ME_4991C4360236 tmwWarning
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4991C38F0019 // DataAdapterInterfaces
+ : Parent HWL ME_4991C38F0019 // DataAdapterInterfaces
  ;
  : Attributes
-   Seq: ( ME_4991C42D02FF // tmwNone
- ME_4991C4320119 // tmwError
- ME_4991C4360236 // tmwWarning
+   Seq: ( HWL ME_4991C42D02FF // tmwNone
+ HWL ME_4991C4320119 // tmwError
+ HWL ME_4991C4360236 // tmwWarning
  )
  ; // Attributes
  CONST extprop:rc:isAcceptableForScripts true
@@ -111,7 +111,7 @@ FORWARD ME_4991C3E402FD
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4991C3E402FD // InsTimeMachine
+ : Parent HWL ME_4991C3E402FD // InsTimeMachine
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -127,7 +127,7 @@ ref; // ME_4991C54201B3 IsOn
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4991C3E402FD // InsTimeMachine
+ : Parent HWL ME_4991C3E402FD // InsTimeMachine
  ;
  : Target WL 'ME_456EA6F00109' '456EA56002BF.pas.ms.script' // Date
  ;
@@ -143,7 +143,7 @@ ref; // ME_4991C50D010B Date
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4991C3E402FD // InsTimeMachine
+ : Parent HWL ME_4991C3E402FD // InsTimeMachine
  ;
  : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
  ;
@@ -159,7 +159,7 @@ ref; // ME_4991C52C03DD DateStr
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4991C3E402FD // InsTimeMachine
+ : Parent HWL ME_4991C3E402FD // InsTimeMachine
  ;
  : Target WL 'ME_45EEB6520191' '4570511E038A.pas.ms.script' // Document
  ;
@@ -182,7 +182,7 @@ ref; // ME_4991C3F40251 aDocument
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4991C3E402FD // InsTimeMachine
+ : Parent HWL ME_4991C3E402FD // InsTimeMachine
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -217,9 +217,9 @@ ref; // ME_4991C45B02CE aWarning
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4991C3E402FD // InsTimeMachine
+ : Parent HWL ME_4991C3E402FD // InsTimeMachine
  ;
- : Target ME_4991C4280185 // TTMWarningType
+ : Target HWL ME_4991C4280185 // TTMWarningType
  ;
  : Parameters
    Seq: ( ME_4991C45B02AF // aDocument
@@ -244,7 +244,7 @@ ref; // ME_4991C47702A0 aDocument
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4991C3E402FD // InsTimeMachine
+ : Parent HWL ME_4991C3E402FD // InsTimeMachine
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -279,7 +279,7 @@ ref; // ME_4991C48A018A aComment
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4991C3E402FD // InsTimeMachine
+ : Parent HWL ME_4991C3E402FD // InsTimeMachine
  ;
  : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
  ;
@@ -306,7 +306,7 @@ ref; // ME_4991C4D50328 aDocument
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4991C3E402FD // InsTimeMachine
+ : Parent HWL ME_4991C3E402FD // InsTimeMachine
  ;
  : Target WL 'ME_45EEB6520191' '4570511E038A.pas.ms.script' // Document
  ;
@@ -336,7 +336,7 @@ ref; // ME_4991C4E50063 StayInCurrentRedaction
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4991C3E402FD // InsTimeMachine
+ : Parent HWL ME_4991C3E402FD // InsTimeMachine
  ;
  : Parameters
    Seq: ( ME_4991C4E50063 // StayInCurrentRedaction
@@ -354,22 +354,22 @@ ref; // ME_4991C4E201AB SwitchOff
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4991C38F0019 // DataAdapterInterfaces
+ : Parent HWL ME_4991C38F0019 // DataAdapterInterfaces
  ;
  : Attributes
-   Seq: ( ME_4991C54201B3 // IsOn
- ME_4991C50D010B // Date
- ME_4991C52C03DD // DateStr
- ME_4991C56403B0 // NotSureHelp
+   Seq: ( HWL ME_4991C54201B3 // IsOn
+ HWL ME_4991C50D010B // Date
+ HWL ME_4991C52C03DD // DateStr
+ HWL ME_4991C56403B0 // NotSureHelp
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_4991C3EE032D // HasTimeMachineWarning
- ME_4991C4510277 // GetTimeMachineWarning
- ME_4991C47200DD // HasNotSureWarning
- ME_4991C47C03DF // GetNotSureWarning
- ME_4991C4CE0320 // CorrectDocumentEdition
- ME_4991C4E201AB // SwitchOff
+   Seq: ( HWL ME_4991C3EE032D // HasTimeMachineWarning
+ HWL ME_4991C4510277 // GetTimeMachineWarning
+ HWL ME_4991C47200DD // HasNotSureWarning
+ HWL ME_4991C47C03DF // GetNotSureWarning
+ HWL ME_4991C4CE0320 // CorrectDocumentEdition
+ HWL ME_4991C4E201AB // SwitchOff
  )
  ; // Operations
  CONST extprop:rc:SelfName 'TimeMachine'
@@ -388,9 +388,9 @@ ref; // ME_4991C3E402FD InsTimeMachine
  : Parent WL 'ME_47E9EEC60260' '47E9EEC60260.pas.ms.script' // Model
  ;
  : Children
-   Seq: ( ME_4991C3C10331 // InsDataAdapterListener
- ME_4991C4280185 // TTMWarningType
- ME_4991C3E402FD // InsTimeMachine
+   Seq: ( HWL ME_4991C3C10331 // InsDataAdapterListener
+ HWL ME_4991C4280185 // TTMWarningType
+ HWL ME_4991C3E402FD // InsTimeMachine
  )
  ; // Children
  : Depends

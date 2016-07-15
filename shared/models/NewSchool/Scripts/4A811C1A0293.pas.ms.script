@@ -1,0 +1,108 @@
+// BaseWorkJournal 4A811C1A0293 VCMFormsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A811C1A0293
+
+FORWARD ME_4A827E40004E
+
+: ME_4A827E7800C0
+ CONST UID '4A827E7800C0'
+ CONST Name 'MakeWorkJournal'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4A827E40004E // MakeWorkJournal
+ ;
+ : Target WL 'ME_4A825D920164' '4A825D5D0235.pas.ms.script' // IbsWorkJournal
+ ;
+
+ref; // ME_4A827E7800C0 MakeWorkJournal
+
+: ME_4A827EF40353
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A827E40004E // MakeWorkJournal
+ ;
+ : Target WL 'ME_4A825E1200F4' '4A825D760190.pas.ms.script' // TbsWorkJournal
+ ;
+
+ref; // ME_4A827EF40353 
+
+: ME_4A827E40004E
+ CONST UID '4A827E40004E'
+ CONST Name 'MakeWorkJournal'
+ CONST Class class_Class
+ : Stereotype st_FactoryMethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4A811C1A0293 // BaseWorkJournal
+ ;
+ : Operations
+   Seq: ( HWL ME_4A827E7800C0 // MakeWorkJournal
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_4A827EF40353 // TbsWorkJournal
+ )
+ ; // Dependencies
+ CONST "NO_FACTORY_BRACKECTS" false
+
+ref; // ME_4A827E40004E MakeWorkJournal
+
+: ME_4A97C7C0019C
+ CONST UID '4A97C7C0019C'
+ CONST Name 'OpenJournal'
+ CONST Class class_Operation
+ : Stereotype st_ModuleOperation::Operation ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4A811C1A0293 // BaseWorkJournal
+ ;
+ CONST "ShowInToolbar" 'undefined'
+ CONST "no prefix" false
+ CONST "no test" false
+
+ref; // ME_4A97C7C0019C OpenJournal
+
+: ME_4BD6D84B016B
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A811C1A0293 // BaseWorkJournal
+ ;
+ : Target WL 'ME_4BD6D74C0111' '4BD6D6EA0075.pas.ms.script' // utWorkJournal
+ ;
+
+ref; // ME_4BD6D84B016B 
+
+: ME_4A811C1A0293
+ CONST UID '4A811C1A0293'
+ CONST Name 'BaseWorkJournal'
+ CONST Class class_Class
+ : Stereotype st_VCMFormsPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4A811BCC031F' '4A811BCC031F.pas.ms.script' // WorkJournal
+ ;
+ : Operations
+   Seq: ( HWL ME_4A827E40004E // MakeWorkJournal
+ HWL ME_4A97C7C0019C // OpenJournal
+ )
+ ; // Operations
+ : Children
+   Seq: ( WL 'ME_4A811C620210' '4A811C620210.pas.ms.script' // WorkJournal
+ )
+ ; // Children
+ : Dependencies
+   Seq: ( ME_4BD6D84B016B // utWorkJournal
+ )
+ ; // Dependencies
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\WorkJournal\BaseWorkJournal_Module.pas'
+ CONST extprop:pas:TypeName 'TBaseWorkJournalModule'
+ CONST extprop:rc:SelfName 'BaseWorkJournalModule'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'BaseWorkJournal_Module'
+
+ref; // ME_4A811C1A0293 BaseWorkJournal

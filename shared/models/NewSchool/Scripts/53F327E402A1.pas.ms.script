@@ -19,7 +19,7 @@ FORWARD ME_53F32B410247
  %SUMMARY 'Текст в DOS (Code Page 866) должен читаться в Архивариусе корректно.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_53F32B410247 // Создание документа на основе файла txt
+ : Parent HWL ME_53F32B410247 // Создание документа на основе файла txt
  ;
 
 ref; // ME_540FFE770326 Импорт текста в кодировке MS DOS (CP-866)
@@ -33,7 +33,7 @@ ref; // ME_540FFE770326 Импорт текста в кодировке MS DOS (CP-866)
  %SUMMARY 'Текст в Windows (Code Page 1251) должен читаться в Архивариусе корректно.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_53F32B410247 // Создание документа на основе файла txt
+ : Parent HWL ME_53F32B410247 // Создание документа на основе файла txt
  ;
 
 ref; // ME_540FFEBE0065 Импорт текста в кодировке Windows (CP-1251)
@@ -47,7 +47,7 @@ ref; // ME_540FFEBE0065 Импорт текста в кодировке Windows (CP-1251)
  %SUMMARY 'Текствые таблицы в DOS (Code Page 866) должен читаться в Архивариусе корректно.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_53F32B410247 // Создание документа на основе файла txt
+ : Parent HWL ME_53F32B410247 // Создание документа на основе файла txt
  ;
 
 ref; // ME_540FFEDE03C0 Импорт текстовых таблиц в MS DOS кодировке (CP-866)
@@ -60,12 +60,12 @@ ref; // ME_540FFEDE03C0 Импорт текстовых таблиц в MS DOS кодировке (CP-866)
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_53F32AF20252 // Создание текстовых документов
+ : Parent HWL ME_53F32AF20252 // Создание текстовых документов
  ;
  : Children
-   Seq: ( ME_540FFE770326 // Импорт текста в кодировке MS DOS (CP-866)
- ME_540FFEBE0065 // Импорт текста в кодировке Windows (CP-1251)
- ME_540FFEDE03C0 // Импорт текстовых таблиц в MS DOS кодировке (CP-866)
+   Seq: ( HWL ME_540FFE770326 // Импорт текста в кодировке MS DOS (CP-866)
+ HWL ME_540FFEBE0065 // Импорт текста в кодировке Windows (CP-1251)
+ HWL ME_540FFEDE03C0 // Импорт текстовых таблиц в MS DOS кодировке (CP-866)
  )
  ; // Children
 
@@ -82,7 +82,7 @@ FORWARD ME_53F32B620174
  %SUMMARY 'Стиль заголовков не читается из RTF. http://mdp.garant.ru/pages/viewpage.action?pageId=149784104&focusedCommentId=155027765#comment-155027765' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_53F32B620174 // Создание документа на основе файла rtf
+ : Parent HWL ME_53F32B620174 // Создание документа на основе файла rtf
  ;
 
 ref; // ME_54112A5603C8 Чтение заголовков
@@ -96,7 +96,7 @@ ref; // ME_54112A5603C8 Чтение заголовков
  %SUMMARY 'Все стили игнорирются' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_53F32B620174 // Создание документа на основе файла rtf
+ : Parent HWL ME_53F32B620174 // Создание документа на основе файла rtf
  ;
 
 ref; // ME_54112AE5031C Чтение стилей
@@ -110,7 +110,7 @@ ref; // ME_54112AE5031C Чтение стилей
  %SUMMARY 'Выделение жирным, подчеркивание, курсив, размер и имя шрифта, зачеркивание, цвет шрифта, цвет фона игнорируются при чтении файла из RTF' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_53F32B620174 // Создание документа на основе файла rtf
+ : Parent HWL ME_53F32B620174 // Создание документа на основе файла rtf
  ;
 
 ref; // ME_54112B1E009E Чтение шрифтового оформления текста
@@ -124,7 +124,7 @@ ref; // ME_54112B1E009E Чтение шрифтового оформления текста
  %SUMMARY 'Чтение файлов RTF с картинками PNG внутри' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_53F32B620174 // Создание документа на основе файла rtf
+ : Parent HWL ME_53F32B620174 // Создание документа на основе файла rtf
  ;
 
 ref; // ME_5411312301FB Чтение RTF с картинками PNG
@@ -138,7 +138,7 @@ ref; // ME_5411312301FB Чтение RTF с картинками PNG
  %SUMMARY 'Чтение файла RTF с картинкой JPEG внутри.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_53F32B620174 // Создание документа на основе файла rtf
+ : Parent HWL ME_53F32B620174 // Создание документа на основе файла rtf
  ;
 
 ref; // ME_541131D20320 Чтение RTF с JPEG
@@ -152,7 +152,7 @@ ref; // ME_541131D20320 Чтение RTF с JPEG
  %SUMMARY 'Чтение файлов RTF с картинками PNG внутри' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_53F32B620174 // Создание документа на основе файла rtf
+ : Parent HWL ME_53F32B620174 // Создание документа на основе файла rtf
  ;
 
 ref; // ME_5411321D0168 Чтение RTF с BMP
@@ -167,7 +167,7 @@ FORWARD ME_541A76730230
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_541A76730230 // Чтение таблиц
+ : Parent HWL ME_541A76730230 // Чтение таблиц
  ;
 
 ref; // ME_541A76AB0193 Чтение простых таблиц
@@ -181,7 +181,7 @@ ref; // ME_541A76AB0193 Чтение простых таблиц
  %SUMMARY 'Возможность читать ячейки, объединенные по вертикали и горизонтали.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_541A76730230 // Чтение таблиц
+ : Parent HWL ME_541A76730230 // Чтение таблиц
  ;
 
 ref; // ME_541A76BA0078 Чтение таблиц с объедиенными ячейками
@@ -194,7 +194,7 @@ ref; // ME_541A76BA0078 Чтение таблиц с объедиенными ячейками
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_541A76730230 // Чтение таблиц
+ : Parent HWL ME_541A76730230 // Чтение таблиц
  ;
 
 ref; // ME_541A76DF02AD Чтение вложенных таблиц
@@ -207,7 +207,7 @@ ref; // ME_541A76DF02AD Чтение вложенных таблиц
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_541A76730230 // Чтение таблиц
+ : Parent HWL ME_541A76730230 // Чтение таблиц
  ;
 
 ref; // ME_541A775402EA Чтение рамок таблиц
@@ -220,7 +220,7 @@ ref; // ME_541A775402EA Чтение рамок таблиц
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_541A76730230 // Чтение таблиц
+ : Parent HWL ME_541A76730230 // Чтение таблиц
  ;
 
 ref; // ME_541A792B0344 Чтение выравнивания текста в таблице
@@ -234,7 +234,7 @@ ref; // ME_541A792B0344 Чтение выравнивания текста в таблице
  %SUMMARY 'Из RTF импортируется выравнивание по точке' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_541A76730230 // Чтение таблиц
+ : Parent HWL ME_541A76730230 // Чтение таблиц
  ;
 
 ref; // ME_541A7A3B0054 Чтения выравнивания по точке
@@ -248,15 +248,15 @@ ref; // ME_541A7A3B0054 Чтения выравнивания по точке
  %SUMMARY 'Возможность чтения таблиц из RTF' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_53F32B620174 // Создание документа на основе файла rtf
+ : Parent HWL ME_53F32B620174 // Создание документа на основе файла rtf
  ;
  : Children
-   Seq: ( ME_541A76AB0193 // Чтение простых таблиц
- ME_541A76BA0078 // Чтение таблиц с объедиенными ячейками
- ME_541A76DF02AD // Чтение вложенных таблиц
- ME_541A775402EA // Чтение рамок таблиц
- ME_541A792B0344 // Чтение выравнивания текста в таблице
- ME_541A7A3B0054 // Чтения выравнивания по точке
+   Seq: ( HWL ME_541A76AB0193 // Чтение простых таблиц
+ HWL ME_541A76BA0078 // Чтение таблиц с объедиенными ячейками
+ HWL ME_541A76DF02AD // Чтение вложенных таблиц
+ HWL ME_541A775402EA // Чтение рамок таблиц
+ HWL ME_541A792B0344 // Чтение выравнивания текста в таблице
+ HWL ME_541A7A3B0054 // Чтения выравнивания по точке
  )
  ; // Children
 
@@ -271,7 +271,7 @@ ref; // ME_541A76730230 Чтение таблиц
  %SUMMARY 'При импорте из RTF разрывы разделов игнорируются' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_53F32B620174 // Создание документа на основе файла rtf
+ : Parent HWL ME_53F32B620174 // Создание документа на основе файла rtf
  ;
 
 ref; // ME_541A7B1002EE Разрывы разделов
@@ -285,7 +285,7 @@ ref; // ME_541A7B1002EE Разрывы разделов
  %SUMMARY 'Возможность читать списки с маркерами и номерами из файла RTF'#13#10'{Requestlink:88082837} и {Requestlink:89106434}' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_53F32B620174 // Создание документа на основе файла rtf
+ : Parent HWL ME_53F32B620174 // Создание документа на основе файла rtf
  ;
 
 ref; // ME_542414E903CD Импорт списков из RTF
@@ -299,7 +299,7 @@ ref; // ME_542414E903CD Импорт списков из RTF
  %SUMMARY 'Возможность читать многоуровневые списки из файла RTF'#13#10'{Requestlink:88082837} и {Requestlink:89106434}' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_53F32B620174 // Создание документа на основе файла rtf
+ : Parent HWL ME_53F32B620174 // Создание документа на основе файла rtf
  ;
 
 ref; // ME_542415090051 Импорт многоуровневых списков из RTF
@@ -313,7 +313,7 @@ ref; // ME_542415090051 Импорт многоуровневых списков из RTF
  %SUMMARY 'Возможность читать сноски из RTF. {Requestlink:88082837} и {Requestlink:89106434}' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_53F32B620174 // Создание документа на основе файла rtf
+ : Parent HWL ME_53F32B620174 // Создание документа на основе файла rtf
  ;
 
 ref; // ME_5424157C016E Импорт сносок из RTF
@@ -327,7 +327,7 @@ ref; // ME_5424157C016E Импорт сносок из RTF
  %SUMMARY 'Импорт гиперссылок при чтении файла RTF' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_53F32B620174 // Создание документа на основе файла rtf
+ : Parent HWL ME_53F32B620174 // Создание документа на основе файла rtf
  ;
 
 ref; // ME_54241759019E Импорт гиперссылок из RTF
@@ -341,7 +341,7 @@ ref; // ME_54241759019E Импорт гиперссылок из RTF
  %SUMMARY 'Архивариус читает стили вылитые в RTF с помощью F1 (или самого себя).' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_53F32B620174 // Создание документа на основе файла rtf
+ : Parent HWL ME_53F32B620174 // Создание документа на основе файла rtf
  ;
 
 ref; // ME_542E8F57009E Импорт стилей Гаранта
@@ -355,7 +355,7 @@ ref; // ME_542E8F57009E Импорт стилей Гаранта
  %SUMMARY 'Воможность читать файлы RTF с WMF-картинкой внутри.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_53F32B620174 // Создание документа на основе файла rtf
+ : Parent HWL ME_53F32B620174 // Создание документа на основе файла rtf
  ;
 
 ref; // ME_54113176000F Чтение RTF с WMF
@@ -369,7 +369,7 @@ ref; // ME_54113176000F Чтение RTF с WMF
  %SUMMARY 'Воможность читать файлы RTF с картинкой формата EMF' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_53F32B620174 // Создание документа на основе файла rtf
+ : Parent HWL ME_53F32B620174 // Создание документа на основе файла rtf
  ;
 
 ref; // ME_5411319D000A Чтение RTF с EMF
@@ -382,24 +382,24 @@ ref; // ME_5411319D000A Чтение RTF с EMF
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_53F32AF20252 // Создание текстовых документов
+ : Parent HWL ME_53F32AF20252 // Создание текстовых документов
  ;
  : Children
-   Seq: ( ME_54112A5603C8 // Чтение заголовков
- ME_54112AE5031C // Чтение стилей
- ME_54112B1E009E // Чтение шрифтового оформления текста
- ME_5411312301FB // Чтение RTF с картинками PNG
- ME_541131D20320 // Чтение RTF с JPEG
- ME_5411321D0168 // Чтение RTF с BMP
- ME_541A76730230 // Чтение таблиц
- ME_541A7B1002EE // Разрывы разделов
- ME_542414E903CD // Импорт списков из RTF
- ME_542415090051 // Импорт многоуровневых списков из RTF
- ME_5424157C016E // Импорт сносок из RTF
- ME_54241759019E // Импорт гиперссылок из RTF
- ME_542E8F57009E // Импорт стилей Гаранта
- ME_54113176000F // Чтение RTF с WMF
- ME_5411319D000A // Чтение RTF с EMF
+   Seq: ( HWL ME_54112A5603C8 // Чтение заголовков
+ HWL ME_54112AE5031C // Чтение стилей
+ HWL ME_54112B1E009E // Чтение шрифтового оформления текста
+ HWL ME_5411312301FB // Чтение RTF с картинками PNG
+ HWL ME_541131D20320 // Чтение RTF с JPEG
+ HWL ME_5411321D0168 // Чтение RTF с BMP
+ HWL ME_541A76730230 // Чтение таблиц
+ HWL ME_541A7B1002EE // Разрывы разделов
+ HWL ME_542414E903CD // Импорт списков из RTF
+ HWL ME_542415090051 // Импорт многоуровневых списков из RTF
+ HWL ME_5424157C016E // Импорт сносок из RTF
+ HWL ME_54241759019E // Импорт гиперссылок из RTF
+ HWL ME_542E8F57009E // Импорт стилей Гаранта
+ HWL ME_54113176000F // Чтение RTF с WMF
+ HWL ME_5411319D000A // Чтение RTF с EMF
  )
  ; // Children
 
@@ -413,7 +413,7 @@ ref; // ME_53F32B620174 Создание документа на основе файла rtf
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_53F32AF20252 // Создание текстовых документов
+ : Parent HWL ME_53F32AF20252 // Создание текстовых документов
  ;
 
 ref; // ME_53F32B7800C8 Создание файла на основе doc
@@ -426,7 +426,7 @@ ref; // ME_53F32B7800C8 Создание файла на основе doc
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_53F32AF20252 // Создание текстовых документов
+ : Parent HWL ME_53F32AF20252 // Создание текстовых документов
  ;
 
 ref; // ME_53F32BC2022D Создание файла на основе evd
@@ -439,7 +439,7 @@ ref; // ME_53F32BC2022D Создание файла на основе evd
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_53F32AF20252 // Создание текстовых документов
+ : Parent HWL ME_53F32AF20252 // Создание текстовых документов
  ;
 
 ref; // ME_53F32BD70067 Создание файла на осное nsrc
@@ -453,7 +453,7 @@ ref; // ME_53F32BD70067 Создание файла на осное nsrc
  %SUMMARY 'В документации не упоминается, но есть "прецендент" - {Requestlink:437125222}' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_53F32AF20252 // Создание текстовых документов
+ : Parent HWL ME_53F32AF20252 // Создание текстовых документов
  ;
 
 ref; // ME_53F32C4E0379 Создание документа на основе docx
@@ -466,15 +466,15 @@ ref; // ME_53F32C4E0379 Создание документа на основе docx
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_53F328B0007F // Создание нового документа
+ : Parent HWL ME_53F328B0007F // Создание нового документа
  ;
  : Children
-   Seq: ( ME_53F32B410247 // Создание документа на основе файла txt
- ME_53F32B620174 // Создание документа на основе файла rtf
- ME_53F32B7800C8 // Создание файла на основе doc
- ME_53F32BC2022D // Создание файла на основе evd
- ME_53F32BD70067 // Создание файла на осное nsrc
- ME_53F32C4E0379 // Создание документа на основе docx
+   Seq: ( HWL ME_53F32B410247 // Создание документа на основе файла txt
+ HWL ME_53F32B620174 // Создание документа на основе файла rtf
+ HWL ME_53F32B7800C8 // Создание файла на основе doc
+ HWL ME_53F32BC2022D // Создание файла на основе evd
+ HWL ME_53F32BD70067 // Создание файла на осное nsrc
+ HWL ME_53F32C4E0379 // Создание документа на основе docx
  )
  ; // Children
 
@@ -490,7 +490,7 @@ FORWARD ME_53F32B070049
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_53F32B070049 // Создание документов-объектов
+ : Parent HWL ME_53F32B070049 // Создание документов-объектов
  ;
 
 ref; // ME_53F32C2B0360 Создание документа-объекта на основе BMP
@@ -503,7 +503,7 @@ ref; // ME_53F32C2B0360 Создание документа-объекта на основе BMP
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_53F32B070049 // Создание документов-объектов
+ : Parent HWL ME_53F32B070049 // Создание документов-объектов
  ;
 
 ref; // ME_53F330B3028B Создание документа-объекта на основе jpg
@@ -516,7 +516,7 @@ ref; // ME_53F330B3028B Создание документа-объекта на основе jpg
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_53F32B070049 // Создание документов-объектов
+ : Parent HWL ME_53F32B070049 // Создание документов-объектов
  ;
 
 ref; // ME_53F330D20290 Создание документа-объекта на основе txt
@@ -529,7 +529,7 @@ ref; // ME_53F330D20290 Создание документа-объекта на основе txt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_53F32B070049 // Создание документов-объектов
+ : Parent HWL ME_53F32B070049 // Создание документов-объектов
  ;
 
 ref; // ME_53F330ED0068 Создание документа-обекта на основе rtf
@@ -542,7 +542,7 @@ ref; // ME_53F330ED0068 Создание документа-обекта на основе rtf
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_53F32B070049 // Создание документов-объектов
+ : Parent HWL ME_53F32B070049 // Создание документов-объектов
  ;
 
 ref; // ME_53F331070085 Создание документа-объекта на основе doc
@@ -556,7 +556,7 @@ ref; // ME_53F331070085 Создание документа-объекта на основе doc
  %SUMMARY 'В документации не упоминается, но есть запрос: {Requestlink:401515832}' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_53F32B070049 // Создание документов-объектов
+ : Parent HWL ME_53F32B070049 // Создание документов-объектов
  ;
 
 ref; // ME_53F332AE03DB Создание документа-объекта на основе pdf
@@ -570,7 +570,7 @@ ref; // ME_53F332AE03DB Создание документа-объекта на основе pdf
  %SUMMARY 'В документации не упоминается, но есть запрос: {Requestlink:516165596}' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_53F32B070049 // Создание документов-объектов
+ : Parent HWL ME_53F32B070049 // Создание документов-объектов
  ;
 
 ref; // ME_53F3362701E2 Создание документа-объекта на основе tiff
@@ -584,7 +584,7 @@ ref; // ME_53F3362701E2 Создание документа-объекта на основе tiff
  %SUMMARY 'В документации не упоминается, но есть запрос: {Requestlink:224788955} и {Requestlink:85721219}' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_53F32B070049 // Создание документов-объектов
+ : Parent HWL ME_53F32B070049 // Создание документов-объектов
  ;
 
 ref; // ME_53F338B50231 Создание документа-объкта из PNG
@@ -597,17 +597,17 @@ ref; // ME_53F338B50231 Создание документа-объкта из PNG
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_53F328B0007F // Создание нового документа
+ : Parent HWL ME_53F328B0007F // Создание нового документа
  ;
  : Children
-   Seq: ( ME_53F32C2B0360 // Создание документа-объекта на основе BMP
- ME_53F330B3028B // Создание документа-объекта на основе jpg
- ME_53F330D20290 // Создание документа-объекта на основе txt
- ME_53F330ED0068 // Создание документа-обекта на основе rtf
- ME_53F331070085 // Создание документа-объекта на основе doc
- ME_53F332AE03DB // Создание документа-объекта на основе pdf
- ME_53F3362701E2 // Создание документа-объекта на основе tiff
- ME_53F338B50231 // Создание документа-объкта из PNG
+   Seq: ( HWL ME_53F32C2B0360 // Создание документа-объекта на основе BMP
+ HWL ME_53F330B3028B // Создание документа-объекта на основе jpg
+ HWL ME_53F330D20290 // Создание документа-объекта на основе txt
+ HWL ME_53F330ED0068 // Создание документа-обекта на основе rtf
+ HWL ME_53F331070085 // Создание документа-объекта на основе doc
+ HWL ME_53F332AE03DB // Создание документа-объекта на основе pdf
+ HWL ME_53F3362701E2 // Создание документа-объекта на основе tiff
+ HWL ME_53F338B50231 // Создание документа-объкта из PNG
  )
  ; // Children
 
@@ -621,7 +621,7 @@ ref; // ME_53F32B070049 Создание документов-объектов
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_53F328B0007F // Создание нового документа
+ : Parent HWL ME_53F328B0007F // Создание нового документа
  ;
 
 ref; // ME_53F33C7A0062 Возможность задания номера документа при его создании
@@ -634,7 +634,7 @@ ref; // ME_53F33C7A0062 Возможность задания номера документа при его создании
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_53F328B0007F // Создание нового документа
+ : Parent HWL ME_53F328B0007F // Создание нового документа
  ;
 
 ref; // ME_53F33CBD00F0 Возможность создания документа без номера
@@ -647,7 +647,7 @@ ref; // ME_53F33CBD00F0 Возможность создания документа без номера
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_53F328B0007F // Создание нового документа
+ : Parent HWL ME_53F328B0007F // Создание нового документа
  ;
 
 ref; // ME_53F33CCE0386 Возможность задания названия документа
@@ -660,7 +660,7 @@ ref; // ME_53F33CCE0386 Возможность задания названия документа
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_53F328B0007F // Создание нового документа
+ : Parent HWL ME_53F328B0007F // Создание нового документа
  ;
 
 ref; // ME_53F33D00019B Возможность создания документа без названия
@@ -673,7 +673,7 @@ ref; // ME_53F33D00019B Возможность создания документа без названия
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_53F328B0007F // Создание нового документа
+ : Parent HWL ME_53F328B0007F // Создание нового документа
  ;
 
 ref; // ME_53F33D9E025F Автоматический анализ заголовка
@@ -686,7 +686,7 @@ ref; // ME_53F33D9E025F Автоматический анализ заголовка
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_53F328B0007F // Создание нового документа
+ : Parent HWL ME_53F328B0007F // Создание нового документа
  ;
 
 ref; // ME_53F33DB801B6 Создание словарной статьи
@@ -699,7 +699,7 @@ ref; // ME_53F33DB801B6 Создание словарной статьи
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_53F328B0007F // Создание нового документа
+ : Parent HWL ME_53F328B0007F // Создание нового документа
  ;
 
 ref; // ME_53F33DFF033B Импорт документов
@@ -712,18 +712,18 @@ ref; // ME_53F33DFF033B Импорт документов
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_53F327E402A1 // Требования к созданию и редактированию документа
+ : Parent HWL ME_53F327E402A1 // Требования к созданию и редактированию документа
  ;
  : Children
-   Seq: ( ME_53F32AF20252 // Создание текстовых документов
- ME_53F32B070049 // Создание документов-объектов
- ME_53F33C7A0062 // Возможность задания номера документа при его создании
- ME_53F33CBD00F0 // Возможность создания документа без номера
- ME_53F33CCE0386 // Возможность задания названия документа
- ME_53F33D00019B // Возможность создания документа без названия
- ME_53F33D9E025F // Автоматический анализ заголовка
- ME_53F33DB801B6 // Создание словарной статьи
- ME_53F33DFF033B // Импорт документов
+   Seq: ( HWL ME_53F32AF20252 // Создание текстовых документов
+ HWL ME_53F32B070049 // Создание документов-объектов
+ HWL ME_53F33C7A0062 // Возможность задания номера документа при его создании
+ HWL ME_53F33CBD00F0 // Возможность создания документа без номера
+ HWL ME_53F33CCE0386 // Возможность задания названия документа
+ HWL ME_53F33D00019B // Возможность создания документа без названия
+ HWL ME_53F33D9E025F // Автоматический анализ заголовка
+ HWL ME_53F33DB801B6 // Создание словарной статьи
+ HWL ME_53F33DFF033B // Импорт документов
  )
  ; // Children
 
@@ -743,7 +743,7 @@ FORWARD ME_551123420171
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_551123420171 // Дополнительные преобразования
+ : Parent HWL ME_551123420171 // Дополнительные преобразования
  ;
 
 ref; // ME_5511235903E4 Преобразование текста в верхний регистр
@@ -758,7 +758,7 @@ FORWARD ME_5511236801FE
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_5511236801FE // Преобразование текста в нижний регистр
+ : Parent HWL ME_5511236801FE // Преобразование текста в нижний регистр
  ;
 
 ref; // ME_5511245D0018 Преобразование всего текста
@@ -771,7 +771,7 @@ ref; // ME_5511245D0018 Преобразование всего текста
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_5511236801FE // Преобразование текста в нижний регистр
+ : Parent HWL ME_5511236801FE // Преобразование текста в нижний регистр
  ;
 
 ref; // ME_5511246D0083 Оставлять первую букву заглваной
@@ -784,11 +784,11 @@ ref; // ME_5511246D0083 Оставлять первую букву заглваной
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_551123420171 // Дополнительные преобразования
+ : Parent HWL ME_551123420171 // Дополнительные преобразования
  ;
  : Children
-   Seq: ( ME_5511245D0018 // Преобразование всего текста
- ME_5511246D0083 // Оставлять первую букву заглваной
+   Seq: ( HWL ME_5511245D0018 // Преобразование всего текста
+ HWL ME_5511246D0083 // Оставлять первую букву заглваной
  )
  ; // Children
 
@@ -802,7 +802,7 @@ ref; // ME_5511236801FE Преобразование текста в нижний регистр
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_551123420171 // Дополнительные преобразования
+ : Parent HWL ME_551123420171 // Дополнительные преобразования
  ;
 
 ref; // ME_5511237602FC Русская раскладка
@@ -815,7 +815,7 @@ ref; // ME_5511237602FC Русская раскладка
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_551123420171 // Дополнительные преобразования
+ : Parent HWL ME_551123420171 // Дополнительные преобразования
  ;
 
 ref; // ME_551123960070 Английская раскладка
@@ -828,7 +828,7 @@ ref; // ME_551123960070 Английская раскладка
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_551123420171 // Дополнительные преобразования
+ : Parent HWL ME_551123420171 // Дополнительные преобразования
  ;
 
 ref; // ME_551123A30343 Преобразование даты в текст
@@ -841,7 +841,7 @@ ref; // ME_551123A30343 Преобразование даты в текст
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_551123420171 // Дополнительные преобразования
+ : Parent HWL ME_551123420171 // Дополнительные преобразования
  ;
 
 ref; // ME_551123B602CD Смена кодировки ОЕМ в ANSI
@@ -854,7 +854,7 @@ ref; // ME_551123B602CD Смена кодировки ОЕМ в ANSI
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_551123420171 // Дополнительные преобразования
+ : Parent HWL ME_551123420171 // Дополнительные преобразования
  ;
 
 ref; // ME_551123CA029B Смена кодировки ANSI в ОЕМ
@@ -867,7 +867,7 @@ ref; // ME_551123CA029B Смена кодировки ANSI в ОЕМ
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_551123420171 // Дополнительные преобразования
+ : Parent HWL ME_551123420171 // Дополнительные преобразования
  ;
 
 ref; // ME_551123E2014A Объединение абзацев
@@ -880,7 +880,7 @@ ref; // ME_551123E2014A Объединение абзацев
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_551123420171 // Дополнительные преобразования
+ : Parent HWL ME_551123420171 // Дополнительные преобразования
  ;
 
 ref; // ME_5511248F039E Инвертировать регистр
@@ -894,18 +894,18 @@ ref; // ME_5511248F039E Инвертировать регистр
  %SUMMARY 'Функции из меню "Сервис\Преобразовать"' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_551122A90004 // Изменение текста документа
+ : Parent HWL ME_551122A90004 // Изменение текста документа
  ;
  : Children
-   Seq: ( ME_5511235903E4 // Преобразование текста в верхний регистр
- ME_5511236801FE // Преобразование текста в нижний регистр
- ME_5511237602FC // Русская раскладка
- ME_551123960070 // Английская раскладка
- ME_551123A30343 // Преобразование даты в текст
- ME_551123B602CD // Смена кодировки ОЕМ в ANSI
- ME_551123CA029B // Смена кодировки ANSI в ОЕМ
- ME_551123E2014A // Объединение абзацев
- ME_5511248F039E // Инвертировать регистр
+   Seq: ( HWL ME_5511235903E4 // Преобразование текста в верхний регистр
+ HWL ME_5511236801FE // Преобразование текста в нижний регистр
+ HWL ME_5511237602FC // Русская раскладка
+ HWL ME_551123960070 // Английская раскладка
+ HWL ME_551123A30343 // Преобразование даты в текст
+ HWL ME_551123B602CD // Смена кодировки ОЕМ в ANSI
+ HWL ME_551123CA029B // Смена кодировки ANSI в ОЕМ
+ HWL ME_551123E2014A // Объединение абзацев
+ HWL ME_5511248F039E // Инвертировать регистр
  )
  ; // Children
 
@@ -919,10 +919,10 @@ ref; // ME_551123420171 Дополнительные преобразования
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_551121E4029E // Редактирование документа
+ : Parent HWL ME_551121E4029E // Редактирование документа
  ;
  : Children
-   Seq: ( ME_551123420171 // Дополнительные преобразования
+   Seq: ( HWL ME_551123420171 // Дополнительные преобразования
  )
  ; // Children
 
@@ -940,7 +940,7 @@ FORWARD ME_56EB9D38014F
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_56EB9D38014F // Копирование в буфер
+ : Parent HWL ME_56EB9D38014F // Копирование в буфер
  ;
 
 ref; // ME_56EB9D88023B Копирование текста
@@ -953,7 +953,7 @@ ref; // ME_56EB9D88023B Копирование текста
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_56EB9D38014F // Копирование в буфер
+ : Parent HWL ME_56EB9D38014F // Копирование в буфер
  ;
 
 ref; // ME_56EB9D940275 Копирование таблицы
@@ -966,7 +966,7 @@ ref; // ME_56EB9D940275 Копирование таблицы
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_56EB9D38014F // Копирование в буфер
+ : Parent HWL ME_56EB9D38014F // Копирование в буфер
  ;
 
 ref; // ME_56EB9D9C0381 Копирование картики
@@ -979,7 +979,7 @@ ref; // ME_56EB9D9C0381 Копирование картики
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_56EB9D38014F // Копирование в буфер
+ : Parent HWL ME_56EB9D38014F // Копирование в буфер
  ;
 
 ref; // ME_56EB9DA903BD Копирование формулы
@@ -992,7 +992,7 @@ ref; // ME_56EB9DA903BD Копирование формулы
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_56EB9D38014F // Копирование в буфер
+ : Parent HWL ME_56EB9D38014F // Копирование в буфер
  ;
 
 ref; // ME_56EB9DB60167 Копирование блока
@@ -1005,7 +1005,7 @@ ref; // ME_56EB9DB60167 Копирование блока
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_56EB9D38014F // Копирование в буфер
+ : Parent HWL ME_56EB9D38014F // Копирование в буфер
  ;
 
 ref; // ME_56EB9DC101F2 Копирование строки
@@ -1018,7 +1018,7 @@ ref; // ME_56EB9DC101F2 Копирование строки
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_56EB9D38014F // Копирование в буфер
+ : Parent HWL ME_56EB9D38014F // Копирование в буфер
  ;
 
 ref; // ME_56EB9DE002F8 Копирование ячейки
@@ -1031,7 +1031,7 @@ ref; // ME_56EB9DE002F8 Копирование ячейки
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_56EB9D38014F // Копирование в буфер
+ : Parent HWL ME_56EB9D38014F // Копирование в буфер
  ;
 
 ref; // ME_56EB9E3600E9 Копирование столбца таблицы
@@ -1044,7 +1044,7 @@ ref; // ME_56EB9E3600E9 Копирование столбца таблицы
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_56EB9D38014F // Копирование в буфер
+ : Parent HWL ME_56EB9D38014F // Копирование в буфер
  ;
 
 ref; // ME_56EB9EC9015A Копирование с помощью Ctrl+C
@@ -1057,7 +1057,7 @@ ref; // ME_56EB9EC9015A Копирование с помощью Ctrl+C
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_56EB9D38014F // Копирование в буфер
+ : Parent HWL ME_56EB9D38014F // Копирование в буфер
  ;
 
 ref; // ME_56EB9EDB026D Копирование с помощью Ctrl+Ins
@@ -1070,19 +1070,19 @@ ref; // ME_56EB9EDB026D Копирование с помощью Ctrl+Ins
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_551122C1020D // Работа с буфером обмена
+ : Parent HWL ME_551122C1020D // Работа с буфером обмена
  ;
  : Children
-   Seq: ( ME_56EB9D88023B // Копирование текста
- ME_56EB9D940275 // Копирование таблицы
- ME_56EB9D9C0381 // Копирование картики
- ME_56EB9DA903BD // Копирование формулы
- ME_56EB9DB60167 // Копирование блока
- ME_56EB9DC101F2 // Копирование строки
- ME_56EB9DE002F8 // Копирование ячейки
- ME_56EB9E3600E9 // Копирование столбца таблицы
- ME_56EB9EC9015A // Копирование с помощью Ctrl+C
- ME_56EB9EDB026D // Копирование с помощью Ctrl+Ins
+   Seq: ( HWL ME_56EB9D88023B // Копирование текста
+ HWL ME_56EB9D940275 // Копирование таблицы
+ HWL ME_56EB9D9C0381 // Копирование картики
+ HWL ME_56EB9DA903BD // Копирование формулы
+ HWL ME_56EB9DB60167 // Копирование блока
+ HWL ME_56EB9DC101F2 // Копирование строки
+ HWL ME_56EB9DE002F8 // Копирование ячейки
+ HWL ME_56EB9E3600E9 // Копирование столбца таблицы
+ HWL ME_56EB9EC9015A // Копирование с помощью Ctrl+C
+ HWL ME_56EB9EDB026D // Копирование с помощью Ctrl+Ins
  )
  ; // Children
 
@@ -1098,7 +1098,7 @@ FORWARD ME_56EB9D4400A2
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_56EB9D4400A2 // Вырезание в буфер
+ : Parent HWL ME_56EB9D4400A2 // Вырезание в буфер
  ;
 
 ref; // ME_56EB9FB4039B Вырезание в буфер текста
@@ -1111,7 +1111,7 @@ ref; // ME_56EB9FB4039B Вырезание в буфер текста
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_56EB9D4400A2 // Вырезание в буфер
+ : Parent HWL ME_56EB9D4400A2 // Вырезание в буфер
  ;
 
 ref; // ME_56EB9FC302A9 Вырезание в буфер картинки
@@ -1124,7 +1124,7 @@ ref; // ME_56EB9FC302A9 Вырезание в буфер картинки
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_56EB9D4400A2 // Вырезание в буфер
+ : Parent HWL ME_56EB9D4400A2 // Вырезание в буфер
  ;
 
 ref; // ME_56EB9FCE0278 Вырезание в буфер формулы
@@ -1137,7 +1137,7 @@ ref; // ME_56EB9FCE0278 Вырезание в буфер формулы
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_56EB9D4400A2 // Вырезание в буфер
+ : Parent HWL ME_56EB9D4400A2 // Вырезание в буфер
  ;
 
 ref; // ME_56EB9FDC0271 Вырезание в буфер таблицы
@@ -1150,7 +1150,7 @@ ref; // ME_56EB9FDC0271 Вырезание в буфер таблицы
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_56EB9D4400A2 // Вырезание в буфер
+ : Parent HWL ME_56EB9D4400A2 // Вырезание в буфер
  ;
 
 ref; // ME_56EBA08902EB Вырезание в буфер блока
@@ -1163,7 +1163,7 @@ ref; // ME_56EBA08902EB Вырезание в буфер блока
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_56EB9D4400A2 // Вырезание в буфер
+ : Parent HWL ME_56EB9D4400A2 // Вырезание в буфер
  ;
 
 ref; // ME_56EBA16C02D7 Вырезание в буфер с помощью Ctrl+X
@@ -1176,7 +1176,7 @@ ref; // ME_56EBA16C02D7 Вырезание в буфер с помощью Ctrl+X
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_56EB9D4400A2 // Вырезание в буфер
+ : Parent HWL ME_56EB9D4400A2 // Вырезание в буфер
  ;
 
 ref; // ME_56EBA17D009A Вырезание в буфер с помощью Shift+Del
@@ -1189,16 +1189,16 @@ ref; // ME_56EBA17D009A Вырезание в буфер с помощью Shift+Del
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_551122C1020D // Работа с буфером обмена
+ : Parent HWL ME_551122C1020D // Работа с буфером обмена
  ;
  : Children
-   Seq: ( ME_56EB9FB4039B // Вырезание в буфер текста
- ME_56EB9FC302A9 // Вырезание в буфер картинки
- ME_56EB9FCE0278 // Вырезание в буфер формулы
- ME_56EB9FDC0271 // Вырезание в буфер таблицы
- ME_56EBA08902EB // Вырезание в буфер блока
- ME_56EBA16C02D7 // Вырезание в буфер с помощью Ctrl+X
- ME_56EBA17D009A // Вырезание в буфер с помощью Shift+Del
+   Seq: ( HWL ME_56EB9FB4039B // Вырезание в буфер текста
+ HWL ME_56EB9FC302A9 // Вырезание в буфер картинки
+ HWL ME_56EB9FCE0278 // Вырезание в буфер формулы
+ HWL ME_56EB9FDC0271 // Вырезание в буфер таблицы
+ HWL ME_56EBA08902EB // Вырезание в буфер блока
+ HWL ME_56EBA16C02D7 // Вырезание в буфер с помощью Ctrl+X
+ HWL ME_56EBA17D009A // Вырезание в буфер с помощью Shift+Del
  )
  ; // Children
 
@@ -1214,7 +1214,7 @@ FORWARD ME_56EB9D560289
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_56EB9D560289 // Вставка из буфера
+ : Parent HWL ME_56EB9D560289 // Вставка из буфера
  ;
 
 ref; // ME_56EB9FF7034F Вставки из буфера текста
@@ -1227,7 +1227,7 @@ ref; // ME_56EB9FF7034F Вставки из буфера текста
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_56EB9D560289 // Вставка из буфера
+ : Parent HWL ME_56EB9D560289 // Вставка из буфера
  ;
 
 ref; // ME_56EBA00D033E Вставка из буфера таблицы
@@ -1240,7 +1240,7 @@ ref; // ME_56EBA00D033E Вставка из буфера таблицы
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_56EB9D560289 // Вставка из буфера
+ : Parent HWL ME_56EB9D560289 // Вставка из буфера
  ;
 
 ref; // ME_56EBA01B022E Вставка из буфера картинки
@@ -1253,7 +1253,7 @@ ref; // ME_56EBA01B022E Вставка из буфера картинки
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_56EB9D560289 // Вставка из буфера
+ : Parent HWL ME_56EB9D560289 // Вставка из буфера
  ;
 
 ref; // ME_56EBA0290006 Вставка из буфера формулы
@@ -1266,7 +1266,7 @@ ref; // ME_56EBA0290006 Вставка из буфера формулы
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_56EB9D560289 // Вставка из буфера
+ : Parent HWL ME_56EB9D560289 // Вставка из буфера
  ;
 
 ref; // ME_56EBA038008A Вставка из буфера блока
@@ -1279,7 +1279,7 @@ ref; // ME_56EBA038008A Вставка из буфера блока
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_56EB9D560289 // Вставка из буфера
+ : Parent HWL ME_56EB9D560289 // Вставка из буфера
  ;
 
 ref; // ME_56EBA0450027 Вставка из буфера текста в формате RTF
@@ -1292,7 +1292,7 @@ ref; // ME_56EBA0450027 Вставка из буфера текста в формате RTF
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_56EB9D560289 // Вставка из буфера
+ : Parent HWL ME_56EB9D560289 // Вставка из буфера
  ;
 
 ref; // ME_56EBA0790121 Вставка из буфера в формате HTML
@@ -1305,7 +1305,7 @@ ref; // ME_56EBA0790121 Вставка из буфера в формате HTML
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_56EB9D560289 // Вставка из буфера
+ : Parent HWL ME_56EB9D560289 // Вставка из буфера
  ;
 
 ref; // ME_56EBA12E034A Вставка из буфера с помощью Ctrl+V
@@ -1318,7 +1318,7 @@ ref; // ME_56EBA12E034A Вставка из буфера с помощью Ctrl+V
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_56EB9D560289 // Вставка из буфера
+ : Parent HWL ME_56EB9D560289 // Вставка из буфера
  ;
 
 ref; // ME_56EBA13E03DC Вставка из буфера с помощью Shift+Ins
@@ -1331,18 +1331,18 @@ ref; // ME_56EBA13E03DC Вставка из буфера с помощью Shift+Ins
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_551122C1020D // Работа с буфером обмена
+ : Parent HWL ME_551122C1020D // Работа с буфером обмена
  ;
  : Children
-   Seq: ( ME_56EB9FF7034F // Вставки из буфера текста
- ME_56EBA00D033E // Вставка из буфера таблицы
- ME_56EBA01B022E // Вставка из буфера картинки
- ME_56EBA0290006 // Вставка из буфера формулы
- ME_56EBA038008A // Вставка из буфера блока
- ME_56EBA0450027 // Вставка из буфера текста в формате RTF
- ME_56EBA0790121 // Вставка из буфера в формате HTML
- ME_56EBA12E034A // Вставка из буфера с помощью Ctrl+V
- ME_56EBA13E03DC // Вставка из буфера с помощью Shift+Ins
+   Seq: ( HWL ME_56EB9FF7034F // Вставки из буфера текста
+ HWL ME_56EBA00D033E // Вставка из буфера таблицы
+ HWL ME_56EBA01B022E // Вставка из буфера картинки
+ HWL ME_56EBA0290006 // Вставка из буфера формулы
+ HWL ME_56EBA038008A // Вставка из буфера блока
+ HWL ME_56EBA0450027 // Вставка из буфера текста в формате RTF
+ HWL ME_56EBA0790121 // Вставка из буфера в формате HTML
+ HWL ME_56EBA12E034A // Вставка из буфера с помощью Ctrl+V
+ HWL ME_56EBA13E03DC // Вставка из буфера с помощью Shift+Ins
  )
  ; // Children
 
@@ -1358,7 +1358,7 @@ FORWARD ME_56EB9F1503E4
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_56EB9F1503E4 // Добавление в буфер
+ : Parent HWL ME_56EB9F1503E4 // Добавление в буфер
  ;
 
 ref; // ME_56EB9F2A01C0 Добавление в буфер выделенного текста
@@ -1371,7 +1371,7 @@ ref; // ME_56EB9F2A01C0 Добавление в буфер выделенного текста
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_56EB9F1503E4 // Добавление в буфер
+ : Parent HWL ME_56EB9F1503E4 // Добавление в буфер
  ;
 
 ref; // ME_56EB9F3B0291 Добавление в буфер таблицы
@@ -1384,7 +1384,7 @@ ref; // ME_56EB9F3B0291 Добавление в буфер таблицы
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_56EB9F1503E4 // Добавление в буфер
+ : Parent HWL ME_56EB9F1503E4 // Добавление в буфер
  ;
 
 ref; // ME_56EB9F4D033F Добавление в буфер картинки
@@ -1397,7 +1397,7 @@ ref; // ME_56EB9F4D033F Добавление в буфер картинки
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_56EB9F1503E4 // Добавление в буфер
+ : Parent HWL ME_56EB9F1503E4 // Добавление в буфер
  ;
 
 ref; // ME_56EBA0A002A7 Добавление в буфер формулы
@@ -1410,7 +1410,7 @@ ref; // ME_56EBA0A002A7 Добавление в буфер формулы
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_56EB9F1503E4 // Добавление в буфер
+ : Parent HWL ME_56EB9F1503E4 // Добавление в буфер
  ;
 
 ref; // ME_56EBA0AB039F Добавление в буфер блока
@@ -1423,14 +1423,14 @@ ref; // ME_56EBA0AB039F Добавление в буфер блока
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_551122C1020D // Работа с буфером обмена
+ : Parent HWL ME_551122C1020D // Работа с буфером обмена
  ;
  : Children
-   Seq: ( ME_56EB9F2A01C0 // Добавление в буфер выделенного текста
- ME_56EB9F3B0291 // Добавление в буфер таблицы
- ME_56EB9F4D033F // Добавление в буфер картинки
- ME_56EBA0A002A7 // Добавление в буфер формулы
- ME_56EBA0AB039F // Добавление в буфер блока
+   Seq: ( HWL ME_56EB9F2A01C0 // Добавление в буфер выделенного текста
+ HWL ME_56EB9F3B0291 // Добавление в буфер таблицы
+ HWL ME_56EB9F4D033F // Добавление в буфер картинки
+ HWL ME_56EBA0A002A7 // Добавление в буфер формулы
+ HWL ME_56EBA0AB039F // Добавление в буфер блока
  )
  ; // Children
 
@@ -1444,7 +1444,7 @@ ref; // ME_56EB9F1503E4 Добавление в буфер
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_551122C1020D // Работа с буфером обмена
+ : Parent HWL ME_551122C1020D // Работа с буфером обмена
  ;
 
 ref; // ME_56EBA0E3032E Специальная вставка
@@ -1457,14 +1457,14 @@ ref; // ME_56EBA0E3032E Специальная вставка
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_551121E4029E // Редактирование документа
+ : Parent HWL ME_551121E4029E // Редактирование документа
  ;
  : Children
-   Seq: ( ME_56EB9D38014F // Копирование в буфер
- ME_56EB9D4400A2 // Вырезание в буфер
- ME_56EB9D560289 // Вставка из буфера
- ME_56EB9F1503E4 // Добавление в буфер
- ME_56EBA0E3032E // Специальная вставка
+   Seq: ( HWL ME_56EB9D38014F // Копирование в буфер
+ HWL ME_56EB9D4400A2 // Вырезание в буфер
+ HWL ME_56EB9D560289 // Вставка из буфера
+ HWL ME_56EB9F1503E4 // Добавление в буфер
+ HWL ME_56EBA0E3032E // Специальная вставка
  )
  ; // Children
 
@@ -1481,7 +1481,7 @@ FORWARD ME_551122D603B9
  %SUMMARY 'Возможность изменить стиль текста на котором стоит курсор, так и выделенного текста.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_551122D603B9 // Изменение оформления
+ : Parent HWL ME_551122D603B9 // Изменение оформления
  ;
 
 ref; // ME_551125330170 Изменение стиля текста
@@ -1495,7 +1495,7 @@ ref; // ME_551125330170 Изменение стиля текста
  %SUMMARY 'Возможность изменить шрифт текста на котором стоит курсор, так и выделенного текста.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_551122D603B9 // Изменение оформления
+ : Parent HWL ME_551122D603B9 // Изменение оформления
  ;
 
 ref; // ME_55112554000C Изменение шрифта
@@ -1509,7 +1509,7 @@ ref; // ME_55112554000C Изменение шрифта
  %SUMMARY 'Возможность изменить размер шрифта текста на котором стоит курсор, так и выделенного текста.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_551122D603B9 // Изменение оформления
+ : Parent HWL ME_551122D603B9 // Изменение оформления
  ;
 
 ref; // ME_551125650353 Изменение размер шрифта текста
@@ -1523,7 +1523,7 @@ ref; // ME_551125650353 Изменение размер шрифта текста
  %SUMMARY 'Возможность изменить цвет текста на котором стоит курсор, так и выделенного текста.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_551122D603B9 // Изменение оформления
+ : Parent HWL ME_551122D603B9 // Изменение оформления
  ;
 
 ref; // ME_551125720398 Изменение цвета текста
@@ -1537,7 +1537,7 @@ ref; // ME_551125720398 Изменение цвета текста
  %SUMMARY 'Возможность задать тексту под курсором, так и выделенном тексту признак ''Жирный''.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_551122D603B9 // Изменение оформления
+ : Parent HWL ME_551122D603B9 // Изменение оформления
  ;
 
 ref; // ME_5511261B02BC Оформление текста жирным шрифтом
@@ -1551,7 +1551,7 @@ ref; // ME_5511261B02BC Оформление текста жирным шрифтом
  %SUMMARY 'Возможность задать тексту под курсором, так и выделенном тексту признак ''Курсив''.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_551122D603B9 // Изменение оформления
+ : Parent HWL ME_551122D603B9 // Изменение оформления
  ;
 
 ref; // ME_551126A00241 Оформление текста курсивом
@@ -1565,7 +1565,7 @@ ref; // ME_551126A00241 Оформление текста курсивом
  %SUMMARY 'Возможность задать тексту под курсором, так и выделенном тексту признак ''Подчеркнутый''.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_551122D603B9 // Изменение оформления
+ : Parent HWL ME_551122D603B9 // Изменение оформления
  ;
 
 ref; // ME_551126BC0233 Оформление текста подчеркиванием
@@ -1579,7 +1579,7 @@ ref; // ME_551126BC0233 Оформление текста подчеркиванием
  %SUMMARY 'Возможность задать тексту под курсором, так и выделенном тексту признак ''Невидимый''.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_551122D603B9 // Изменение оформления
+ : Parent HWL ME_551122D603B9 // Изменение оформления
  ;
 
 ref; // ME_551126DB0270 Изменение видимости текста
@@ -1594,7 +1594,7 @@ FORWARD ME_56EBA1A102FF
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_56EBA1A102FF // Изменение вырванивания текста
+ : Parent HWL ME_56EBA1A102FF // Изменение вырванивания текста
  ;
 
 ref; // ME_56EBA1B401A9 Выравнивание текста по ширине
@@ -1607,7 +1607,7 @@ ref; // ME_56EBA1B401A9 Выравнивание текста по ширине
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_56EBA1A102FF // Изменение вырванивания текста
+ : Parent HWL ME_56EBA1A102FF // Изменение вырванивания текста
  ;
 
 ref; // ME_56EBA1BE0199 Выравнивание текста по левому краю
@@ -1620,7 +1620,7 @@ ref; // ME_56EBA1BE0199 Выравнивание текста по левому краю
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_56EBA1A102FF // Изменение вырванивания текста
+ : Parent HWL ME_56EBA1A102FF // Изменение вырванивания текста
  ;
 
 ref; // ME_56EBA1D20050 Вырванивание текста по правому краю
@@ -1633,7 +1633,7 @@ ref; // ME_56EBA1D20050 Вырванивание текста по правому краю
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_56EBA1A102FF // Изменение вырванивания текста
+ : Parent HWL ME_56EBA1A102FF // Изменение вырванивания текста
  ;
 
 ref; // ME_56EBA1DE030B Выравнивание текста по центру
@@ -1646,13 +1646,13 @@ ref; // ME_56EBA1DE030B Выравнивание текста по центру
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_551122D603B9 // Изменение оформления
+ : Parent HWL ME_551122D603B9 // Изменение оформления
  ;
  : Children
-   Seq: ( ME_56EBA1B401A9 // Выравнивание текста по ширине
- ME_56EBA1BE0199 // Выравнивание текста по левому краю
- ME_56EBA1D20050 // Вырванивание текста по правому краю
- ME_56EBA1DE030B // Выравнивание текста по центру
+   Seq: ( HWL ME_56EBA1B401A9 // Выравнивание текста по ширине
+ HWL ME_56EBA1BE0199 // Выравнивание текста по левому краю
+ HWL ME_56EBA1D20050 // Вырванивание текста по правому краю
+ HWL ME_56EBA1DE030B // Выравнивание текста по центру
  )
  ; // Children
 
@@ -1666,18 +1666,18 @@ ref; // ME_56EBA1A102FF Изменение вырванивания текста
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_551121E4029E // Редактирование документа
+ : Parent HWL ME_551121E4029E // Редактирование документа
  ;
  : Children
-   Seq: ( ME_551125330170 // Изменение стиля текста
- ME_55112554000C // Изменение шрифта
- ME_551125650353 // Изменение размер шрифта текста
- ME_551125720398 // Изменение цвета текста
- ME_5511261B02BC // Оформление текста жирным шрифтом
- ME_551126A00241 // Оформление текста курсивом
- ME_551126BC0233 // Оформление текста подчеркиванием
- ME_551126DB0270 // Изменение видимости текста
- ME_56EBA1A102FF // Изменение вырванивания текста
+   Seq: ( HWL ME_551125330170 // Изменение стиля текста
+ HWL ME_55112554000C // Изменение шрифта
+ HWL ME_551125650353 // Изменение размер шрифта текста
+ HWL ME_551125720398 // Изменение цвета текста
+ HWL ME_5511261B02BC // Оформление текста жирным шрифтом
+ HWL ME_551126A00241 // Оформление текста курсивом
+ HWL ME_551126BC0233 // Оформление текста подчеркиванием
+ HWL ME_551126DB0270 // Изменение видимости текста
+ HWL ME_56EBA1A102FF // Изменение вырванивания текста
  )
  ; // Children
 
@@ -1694,7 +1694,7 @@ FORWARD ME_570B3C440128
  %SUMMARY 'Вставка подписи осущетсвляется с помощью команды "Подпись" в меню "Вставка". В результате выполнения появляется табилца, состоящая из двух ячеек.. В правом текст выравнен по правому краю, в левом - по левому. Рамки у таблицы и у ячеек отсутствуют. Таблица автоматически изменяет ширину по ширине документа (в режиме форматирования по метрикам принтера) или экрана в режиме веб-стиля.'#13#10'Вставить подпись можно с помощью комбинации "Shft+Space". При этом, если курсор установлен в тексте, то текст делится в месте установки курсора на две части. Часть до курсора помещается в левую ячейку. Часть после курсора -  в правую.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_570B3C440128 // Вставка в документ
+ : Parent HWL ME_570B3C440128 // Вставка в документ
  ;
 
 ref; // ME_570B3C5F03C7 Вставка подписи
@@ -1708,7 +1708,7 @@ ref; // ME_570B3C5F03C7 Вставка подписи
  %SUMMARY 'Вставка осуществляется с помощью меню "Вставка\Раздел". '#13#10'Текущий абзац разбивается на два абзаца, если он не пустой. Между ними появляется разрыв раздела (двойная непрерывная линия с надписью "Разрыв раздела (А4, книжная). В случае пустого абзаца разрыв появляется на его месте. '#13#10'Если курсор находится в табилце, то разрыв раздела в документ не добавляется.'#13#10'В режиме форматирования по метрикам принтера изменения параметров раздела  (формат старницы, ориентация страницы) приводит к изменению форматирования, следующего за ним текста (вплоть до следующего разрыва раздела). На таблицы и картинки (формулы) раздел не влияет. '#13#10'В режиме веб-форматирования разделы не вляют на форматирование документа.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_570B3C440128 // Вставка в документ
+ : Parent HWL ME_570B3C440128 // Вставка в документ
  ;
 
 ref; // ME_570B3C75008B Вставка раздела
@@ -1722,7 +1722,7 @@ ref; // ME_570B3C75008B Вставка раздела
  %SUMMARY 'Разрыв страницы добавляется по месту установки курсора с помощью меню "Вставка\Разрыв страницы".'#13#10'При этом, текущий абзац разбивается на два абзаца. Между ними появляется одинарная линия с надписью "Начало страницы". В случае, если азац пустой, то разрыв страницы помещается вместо него.'#13#10'Если курсор находится в табилце, то разрыв страницы в документ не добавляется.'#13#10'С помощью клавиатуры можно добавить разрыв страницы с помощью "Shift+Enter"' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_570B3C440128 // Вставка в документ
+ : Parent HWL ME_570B3C440128 // Вставка в документ
  ;
 
 ref; // ME_570B3C910214 Вставка разрыва страницы
@@ -1736,7 +1736,7 @@ ref; // ME_570B3C910214 Вставка разрыва страницы
  %SUMMARY 'Вставка формул осуществляется с помощью меню "Вставка\Формула". Или с помощью клавиатуры: "Ctrl+Shift+F).'#13#10'При этом появляется окно редактора формул, в котором можно:'#13#10'* набить текст формулы с помощью клавиатуры'#13#10'* выбрать формулу из уже готовых шаблонов.'#13#10'По окончании ввода формулы пользователь нажимает кнопку "ОК" для вставки формулы в текст документа иили "Отмена" для отказа от вставки формулы в документ.'#13#10'Формула вставляется по месту курсора в редакторе текста.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_570B3C440128 // Вставка в документ
+ : Parent HWL ME_570B3C440128 // Вставка в документ
  ;
 
 ref; // ME_570B3CAB0184 Вставка формулы
@@ -1752,7 +1752,7 @@ FORWARD ME_570B3CC80287
  %SUMMARY 'Вызов из меню: Вставка\Текстовый шаблон\Редактирование'#13#10'В окне редактирования можно ввести шаблон вручную или выбрать уже готовый через выпадающий список.'#13#10'Для удобства ввода доступен выпадащее меню, вызываемое по кнопке "Макросы".  В нем находится список поддерживаемых макросов, доступных для вставки в шаблон. При выборе пункта меню в текст в редакторе шаблона вставляется макрос. '#13#10'Готовый макрос можно сохранить. Для чего досупна кнопка "Сохранить текущий шаблон". После нажатия на кнопку будет запрошено имя сохраняемого шаблона. После сохранения имя шаблона будет помещено в список.'#13#10'Шаблон можно удалить. Для этого справа от списка находится кнопка. Кнопка доступна только после выбора любого шаблона из списка. Если ни одни шаблон не выбран, то на кнопку нельзя будет нажать.'#13#10'Реализованна в задаче: {Requestlink:202342677}' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_570B3CC80287 // Вставка текстового шаблона
+ : Parent HWL ME_570B3CC80287 // Вставка текстового шаблона
  ;
 
 ref; // ME_5715C52B0299 Работа с диалогом шаблонов
@@ -1766,10 +1766,10 @@ ref; // ME_5715C52B0299 Работа с диалогом шаблонов
  %SUMMARY 'Текстовый шаблон вставляется с помощью меню "Вставка\Текстовый шаблон". С помощью клавиатуры используется комбинация клавиш "Alt+Ins". '#13#10'В результате появляется окно работы с текстовым шаблоном, в котором можно:'#13#10'* написать шаблон вручную'#13#10'* выбрать из уже готовых шаблонов.'#13#10'По окончании работы с шаблоном, пользователь нажимает "ОК" для обработки шаблона и вставки результата в текст документа. Или "Отмена" для закрытия окна без изменения документа.'#13#10'Доступна также кнопка "Помощь" для вызова справки по шаблонам.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_570B3C440128 // Вставка в документ
+ : Parent HWL ME_570B3C440128 // Вставка в документ
  ;
  : Children
-   Seq: ( ME_5715C52B0299 // Работа с диалогом шаблонов
+   Seq: ( HWL ME_5715C52B0299 // Работа с диалогом шаблонов
  )
  ; // Children
 
@@ -1783,14 +1783,14 @@ ref; // ME_570B3CC80287 Вставка текстового шаблона
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_551121E4029E // Редактирование документа
+ : Parent HWL ME_551121E4029E // Редактирование документа
  ;
  : Children
-   Seq: ( ME_570B3C5F03C7 // Вставка подписи
- ME_570B3C75008B // Вставка раздела
- ME_570B3C910214 // Вставка разрыва страницы
- ME_570B3CAB0184 // Вставка формулы
- ME_570B3CC80287 // Вставка текстового шаблона
+   Seq: ( HWL ME_570B3C5F03C7 // Вставка подписи
+ HWL ME_570B3C75008B // Вставка раздела
+ HWL ME_570B3C910214 // Вставка разрыва страницы
+ HWL ME_570B3CAB0184 // Вставка формулы
+ HWL ME_570B3CC80287 // Вставка текстового шаблона
  )
  ; // Children
 
@@ -1805,7 +1805,7 @@ ref; // ME_570B3C440128 Вставка в документ
  %SUMMARY 'Позволяет создавать текстовые схемы в Архивариусе с пмощью клавиатуры.'#13#10'Для создания схемы следует:'#13#10'* Перейти на стиль Нормальный OEM (Alt+4)'#13#10'* Включить режим рисования линий'#13#10'* Рисование линий осуществляется с помощью кнопок на клавиатуре:'#13#10'** Рисование указателей выполняется с помощью Ctrl + стрелки вправо/влево/вниз/вверх'#13#10'** Рисование простых линий - с помощью Shift + стрелки вправо/влево/вниз/вверх'#13#10'** Удаление лишних линий - с помощью Ctrl+Shift+стрелки вправо/влево/вниз/вверх' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_551121E4029E // Редактирование документа
+ : Parent HWL ME_551121E4029E // Редактирование документа
  ;
 
 ref; // ME_570DE64F021D Создание схем
@@ -1819,7 +1819,7 @@ ref; // ME_570DE64F021D Создание схем
  %SUMMARY 'Запускает процесс проверки орфографии для текста документа.'#13#10'Вызывается с помощью кнопки на панели инструментов "Проверка орфографии".'#13#10'Проверка начинается с текущего положения курсора.'#13#10'Окно содержит два поля: "Нет в словаре", где содерится слово, которое не найдено в орфографическом словаре системой проверки орфографии. Такое слово считается ошибочным. И окно "Варианты" - слова, на которые система предлагает заменить ошибочное слово. '#13#10'Справа от полей находятся кнопки: '#13#10'"Пропустить" - считать слово правильным.'#13#10'"Пропустить все" - считать текущее слово и все последующие слова правильными '#13#10'"Добавить" - добавляет текущее слово в орфографический словарь. Такое слово будет считаться правильным в этом и других документах.'#13#10'"Заменить" - заменить текущее слово на выбранное в поле "Варианты"'#13#10'"Заменить все" - заменять все ошибочные слова на первые слова в поле "Варианты"'#13#10'Если в редакторе выделена часть текста, то проверка будет производится для выделенного фрагмента.'#13#10'В нижней части окна есть две кнопки: "Помощь" и "Завершить".' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_551121E4029E // Редактирование документа
+ : Parent HWL ME_551121E4029E // Редактирование документа
  ;
 
 ref; // ME_5715CB480335 Проверка орфографии
@@ -1837,7 +1837,7 @@ FORWARD ME_5715D02202C0
  %SUMMARY 'Справа от поля есть кнопка "Спецсимволы" для добавленя в поиск специальных условий поиска:'#13#10'* любой буквы '#13#10'* перевода строки'#13#10'* табуляции'#13#10'* параграфа'#13#10'* любого символа'#13#10'* любой цифры'#13#10'* неразрывного пробела'#13#10'* тире'#13#10'* длинного тире.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_5715D02202C0 // Поиск текста
+ : Parent HWL ME_5715D02202C0 // Поиск текста
  ;
 
 ref; // ME_5718697D017C Поиск со специсимволами
@@ -1851,7 +1851,7 @@ ref; // ME_5718697D017C Поиск со специсимволами
  %SUMMARY 'При поиске учитывается регистр слова или выражения.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_5715D02202C0 // Поиск текста
+ : Parent HWL ME_5715D02202C0 // Поиск текста
  ;
 
 ref; // ME_571869930272 Поиск с учетом регистра
@@ -1865,7 +1865,7 @@ ref; // ME_571869930272 Поиск с учетом регистра
  %SUMMARY 'При выделении параметра ищется целое вхождение слова в текст.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_5715D02202C0 // Поиск текста
+ : Parent HWL ME_5715D02202C0 // Поиск текста
  ;
 
 ref; // ME_571869ED0204 Поиск слова целиком
@@ -1879,7 +1879,7 @@ ref; // ME_571869ED0204 Поиск слова целиком
  %SUMMARY 'Поиск словоформ подразумевает поиск различных склонений имён существительных и прилагательных (по падежам, родам и числам), спряжений глаголов. Поиск неизменяемых частей речи, например, предлогов, вводных слов, наречий и'#13#10'союзов, будет осуществляться в исходном виде. Например, для слова "идти" будут найдены следующие словоформы: "шёл", "идут", "пойдем" и т.д.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_5715D02202C0 // Поиск текста
+ : Parent HWL ME_5715D02202C0 // Поиск текста
  ;
 
 ref; // ME_57186A120064 Поиск со словоформами
@@ -1893,7 +1893,7 @@ ref; // ME_57186A120064 Поиск со словоформами
  %SUMMARY 'Слова, имеющие разные окончания, будут считаться одинаковыми при поиске. Для поиск строгозаданной последовательности символов в конце слова используется восклицательный знак.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_5715D02202C0 // Поиск текста
+ : Parent HWL ME_5715D02202C0 // Поиск текста
  ;
 
 ref; // ME_57186A6B0265 Поиск слова с любыми окончаниями
@@ -1907,7 +1907,7 @@ ref; // ME_57186A6B0265 Поиск слова с любыми окончаниями
  %SUMMARY 'Поиск текста с использованием регулярных выражений.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_5715D02202C0 // Поиск текста
+ : Parent HWL ME_5715D02202C0 // Поиск текста
  ;
 
 ref; // ME_57186B160007 Поиск с регулярными выраженями
@@ -1921,7 +1921,7 @@ ref; // ME_57186B160007 Поиск с регулярными выраженями
  %SUMMARY 'Искать можно по всему тексту или по выделенному фрагменту' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_5715D02202C0 // Поиск текста
+ : Parent HWL ME_5715D02202C0 // Поиск текста
  ;
 
 ref; // ME_57186B560280 Параметры области поиска
@@ -1935,7 +1935,7 @@ ref; // ME_57186B560280 Параметры области поиска
  %SUMMARY 'Искать можно от курсора или от начала текста.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_5715D02202C0 // Поиск текста
+ : Parent HWL ME_5715D02202C0 // Поиск текста
  ;
 
 ref; // ME_57186B7D031F Начало поиска
@@ -1949,7 +1949,7 @@ ref; // ME_57186B7D031F Начало поиска
  %SUMMARY 'До 20 предыдущих слов или словосочетаний сохраняются в выпадающем списке поля поиска и могут быть использованы для последующего поиска.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_5715D02202C0 // Поиск текста
+ : Parent HWL ME_5715D02202C0 // Поиск текста
  ;
 
 ref; // ME_57186CB300D4 Использование текста из предыдущего поиска
@@ -1963,7 +1963,7 @@ ref; // ME_57186CB300D4 Использование текста из предыдущего поиска
  %SUMMARY 'При поиске можно задавать различные сочетания опций поиска. '#13#10'Поддерживаются следующие сочетания:'#13#10'* "Учитывать регистр" - со всеми, кроме "Со словоформами"'#13#10'* "Со словоформами" - ни с одной из опций.'#13#10'* Остальные опции сочетаются только с опцией"Учитывать регистр"' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_5715D02202C0 // Поиск текста
+ : Parent HWL ME_5715D02202C0 // Поиск текста
  ;
 
 ref; // ME_5732E3C3027B Несколько опций поиска
@@ -1977,7 +1977,7 @@ ref; // ME_5732E3C3027B Несколько опций поиска
  %SUMMARY 'Спецсимволы могут применяться не только по одному, но и в различных сочетаниях. Например, ^# ^$' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_5715D02202C0 // Поиск текста
+ : Parent HWL ME_5715D02202C0 // Поиск текста
  ;
 
 ref; // ME_5732E66F0014 Сочетания спецсимволов
@@ -1991,20 +1991,20 @@ ref; // ME_5732E66F0014 Сочетания спецсимволов
  %SUMMARY 'Вызывается с помощью меню "Поиск\Найти" или по комбинации клавиш "Ctrl+F" или "Ctrl+T".'#13#10'В окне поиска можно набить слово или словосочетание для поиска. Слова могут вводиться не полностью.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_5715CFEF0244 // Поиск и замена
+ : Parent HWL ME_5715CFEF0244 // Поиск и замена
  ;
  : Children
-   Seq: ( ME_5718697D017C // Поиск со специсимволами
- ME_571869930272 // Поиск с учетом регистра
- ME_571869ED0204 // Поиск слова целиком
- ME_57186A120064 // Поиск со словоформами
- ME_57186A6B0265 // Поиск слова с любыми окончаниями
- ME_57186B160007 // Поиск с регулярными выраженями
- ME_57186B560280 // Параметры области поиска
- ME_57186B7D031F // Начало поиска
- ME_57186CB300D4 // Использование текста из предыдущего поиска
- ME_5732E3C3027B // Несколько опций поиска
- ME_5732E66F0014 // Сочетания спецсимволов
+   Seq: ( HWL ME_5718697D017C // Поиск со специсимволами
+ HWL ME_571869930272 // Поиск с учетом регистра
+ HWL ME_571869ED0204 // Поиск слова целиком
+ HWL ME_57186A120064 // Поиск со словоформами
+ HWL ME_57186A6B0265 // Поиск слова с любыми окончаниями
+ HWL ME_57186B160007 // Поиск с регулярными выраженями
+ HWL ME_57186B560280 // Параметры области поиска
+ HWL ME_57186B7D031F // Начало поиска
+ HWL ME_57186CB300D4 // Использование текста из предыдущего поиска
+ HWL ME_5732E3C3027B // Несколько опций поиска
+ HWL ME_5732E66F0014 // Сочетания спецсимволов
  )
  ; // Children
 
@@ -2018,7 +2018,7 @@ ref; // ME_5715D02202C0 Поиск текста
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_5715CFEF0244 // Поиск и замена
+ : Parent HWL ME_5715CFEF0244 // Поиск и замена
  ;
 
 ref; // ME_5715D06103E1 Поиск стиля
@@ -2031,7 +2031,7 @@ ref; // ME_5715D06103E1 Поиск стиля
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_5715CFEF0244 // Поиск и замена
+ : Parent HWL ME_5715CFEF0244 // Поиск и замена
  ;
 
 ref; // ME_5715D06C00C8 Поиск гиперссылок
@@ -2045,7 +2045,7 @@ ref; // ME_5715D06C00C8 Поиск гиперссылок
  %SUMMARY 'Поиск таблицы находится в меню "Поиск". Команда "Найти таблицу" или с помощью сочетания клавиш "Alt+T"'#13#10'При выборе команды ищется таблица вниз от курсора. Изменить направления поиска нельзя. '#13#10'Подпись по этой команде на находтися.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_5715CFEF0244 // Поиск и замена
+ : Parent HWL ME_5715CFEF0244 // Поиск и замена
  ;
 
 ref; // ME_5715D0770375 Поиск таблиц
@@ -2058,7 +2058,7 @@ ref; // ME_5715D0770375 Поиск таблиц
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_5715CFEF0244 // Поиск и замена
+ : Parent HWL ME_5715CFEF0244 // Поиск и замена
  ;
 
 ref; // ME_5715D16B0195 Продолжения поиска
@@ -2071,7 +2071,7 @@ ref; // ME_5715D16B0195 Продолжения поиска
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_5715CFEF0244 // Поиск и замена
+ : Parent HWL ME_5715CFEF0244 // Поиск и замена
  ;
 
 ref; // ME_5715D17C0051 Поиск по фрагменту
@@ -2086,7 +2086,7 @@ FORWARD ME_57186C3A0215
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_57186C3A0215 // Замента текста
+ : Parent HWL ME_57186C3A0215 // Замента текста
  ;
 
 ref; // ME_573EA7110089 Замена текста с учетом регистра
@@ -2099,7 +2099,7 @@ ref; // ME_573EA7110089 Замена текста с учетом регистра
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_57186C3A0215 // Замента текста
+ : Parent HWL ME_57186C3A0215 // Замента текста
  ;
 
 ref; // ME_573EA7340209 Замена только слова целиком
@@ -2112,7 +2112,7 @@ ref; // ME_573EA7340209 Замена только слова целиком
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_57186C3A0215 // Замента текста
+ : Parent HWL ME_57186C3A0215 // Замента текста
  ;
 
 ref; // ME_573EA74900BF Замена со словоформами
@@ -2125,7 +2125,7 @@ ref; // ME_573EA74900BF Замена со словоформами
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_57186C3A0215 // Замента текста
+ : Parent HWL ME_57186C3A0215 // Замента текста
  ;
 
 ref; // ME_573EA76A0148 Замена с любыми окончаниями
@@ -2138,7 +2138,7 @@ ref; // ME_573EA76A0148 Замена с любыми окончаниями
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_57186C3A0215 // Замента текста
+ : Parent HWL ME_57186C3A0215 // Замента текста
  ;
 
 ref; // ME_573EA776025D Замена с использованием регулярных выражений
@@ -2151,7 +2151,7 @@ ref; // ME_573EA776025D Замена с использованием регулярных выражений
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_57186C3A0215 // Замента текста
+ : Parent HWL ME_57186C3A0215 // Замента текста
  ;
 
 ref; // ME_573EA7BA007F Замена с исользованием спецсимволов
@@ -2165,7 +2165,7 @@ ref; // ME_573EA7BA007F Замена с исользованием спецсимволов
  %SUMMARY 'Ссылка - указанный текст преобразуется в гиперссылку на указанный документ. Формат задаётся в форме: DocID.SubID, где DocID - идентификационный номер документа, а SubID - номер метки. Документ должен присутствовать в базе, метка должна быть в документе;' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_57186C3A0215 // Замента текста
+ : Parent HWL ME_57186C3A0215 // Замента текста
  ;
 
 ref; // ME_573EA821024F Замена текста на ссылку
@@ -2179,7 +2179,7 @@ ref; // ME_573EA821024F Замена текста на ссылку
  %SUMMARY 'Стиль - применяет выбранный стиль к указанному тексту. Если установлена опция Применить к параграфу, то стиль применяется ко всему абзацу, в котором присутствует указанный текст;' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_57186C3A0215 // Замента текста
+ : Parent HWL ME_57186C3A0215 // Замента текста
  ;
 
 ref; // ME_573EA86C0100 Замена текста на стиль
@@ -2193,7 +2193,7 @@ ref; // ME_573EA86C0100 Замена текста на стиль
  %SUMMARY 'Метка - ставится метка на абзац, содержащий указанный текст.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_57186C3A0215 // Замента текста
+ : Parent HWL ME_57186C3A0215 // Замента текста
  ;
 
 ref; // ME_573EA87800FC Установка метки на найденный параграф
@@ -2206,7 +2206,7 @@ ref; // ME_573EA87800FC Установка метки на найденный параграф
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_57186C3A0215 // Замента текста
+ : Parent HWL ME_57186C3A0215 // Замента текста
  ;
 
 ref; // ME_573EA8940014 Замена в выделенном фрагменте
@@ -2219,7 +2219,7 @@ ref; // ME_573EA8940014 Замена в выделенном фрагменте
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_57186C3A0215 // Замента текста
+ : Parent HWL ME_57186C3A0215 // Замента текста
  ;
 
 ref; // ME_573EA8AA01F6 Замена при поиске от курсора
@@ -2233,7 +2233,7 @@ ref; // ME_573EA8AA01F6 Замена при поиске от курсора
  %SUMMARY 'Находится текст с помощью кнопки "Найти", а потом нажимается "Замена".' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_57186C3A0215 // Замента текста
+ : Parent HWL ME_57186C3A0215 // Замента текста
  ;
 
 ref; // ME_573EA8F30206 Поиск и замена текста
@@ -2247,7 +2247,7 @@ ref; // ME_573EA8F30206 Поиск и замена текста
  %SUMMARY 'Использование кнопки "Заменить все" приводит к замене всех вхождений текста в документе.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_57186C3A0215 // Замента текста
+ : Parent HWL ME_57186C3A0215 // Замента текста
  ;
 
 ref; // ME_573EA92300E6 Заменить все вхождение
@@ -2260,22 +2260,22 @@ ref; // ME_573EA92300E6 Заменить все вхождение
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_5715CFEF0244 // Поиск и замена
+ : Parent HWL ME_5715CFEF0244 // Поиск и замена
  ;
  : Children
-   Seq: ( ME_573EA7110089 // Замена текста с учетом регистра
- ME_573EA7340209 // Замена только слова целиком
- ME_573EA74900BF // Замена со словоформами
- ME_573EA76A0148 // Замена с любыми окончаниями
- ME_573EA776025D // Замена с использованием регулярных выражений
- ME_573EA7BA007F // Замена с исользованием спецсимволов
- ME_573EA821024F // Замена текста на ссылку
- ME_573EA86C0100 // Замена текста на стиль
- ME_573EA87800FC // Установка метки на найденный параграф
- ME_573EA8940014 // Замена в выделенном фрагменте
- ME_573EA8AA01F6 // Замена при поиске от курсора
- ME_573EA8F30206 // Поиск и замена текста
- ME_573EA92300E6 // Заменить все вхождение
+   Seq: ( HWL ME_573EA7110089 // Замена текста с учетом регистра
+ HWL ME_573EA7340209 // Замена только слова целиком
+ HWL ME_573EA74900BF // Замена со словоформами
+ HWL ME_573EA76A0148 // Замена с любыми окончаниями
+ HWL ME_573EA776025D // Замена с использованием регулярных выражений
+ HWL ME_573EA7BA007F // Замена с исользованием спецсимволов
+ HWL ME_573EA821024F // Замена текста на ссылку
+ HWL ME_573EA86C0100 // Замена текста на стиль
+ HWL ME_573EA87800FC // Установка метки на найденный параграф
+ HWL ME_573EA8940014 // Замена в выделенном фрагменте
+ HWL ME_573EA8AA01F6 // Замена при поиске от курсора
+ HWL ME_573EA8F30206 // Поиск и замена текста
+ HWL ME_573EA92300E6 // Заменить все вхождение
  )
  ; // Children
 
@@ -2289,7 +2289,7 @@ ref; // ME_57186C3A0215 Замента текста
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_5715CFEF0244 // Поиск и замена
+ : Parent HWL ME_5715CFEF0244 // Поиск и замена
  ;
 
 ref; // ME_57186C4500FA Замена гиперссылки
@@ -2302,7 +2302,7 @@ ref; // ME_57186C4500FA Замена гиперссылки
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_5715CFEF0244 // Поиск и замена
+ : Parent HWL ME_5715CFEF0244 // Поиск и замена
  ;
 
 ref; // ME_57186C740391 Замена стиля
@@ -2315,7 +2315,7 @@ ref; // ME_57186C740391 Замена стиля
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_5715CFEF0244 // Поиск и замена
+ : Parent HWL ME_5715CFEF0244 // Поиск и замена
  ;
 
 ref; // ME_57186C7F0298 Установка метки на найденный фрагмент
@@ -2328,19 +2328,19 @@ ref; // ME_57186C7F0298 Установка метки на найденный фрагмент
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_551121E4029E // Редактирование документа
+ : Parent HWL ME_551121E4029E // Редактирование документа
  ;
  : Children
-   Seq: ( ME_5715D02202C0 // Поиск текста
- ME_5715D06103E1 // Поиск стиля
- ME_5715D06C00C8 // Поиск гиперссылок
- ME_5715D0770375 // Поиск таблиц
- ME_5715D16B0195 // Продолжения поиска
- ME_5715D17C0051 // Поиск по фрагменту
- ME_57186C3A0215 // Замента текста
- ME_57186C4500FA // Замена гиперссылки
- ME_57186C740391 // Замена стиля
- ME_57186C7F0298 // Установка метки на найденный фрагмент
+   Seq: ( HWL ME_5715D02202C0 // Поиск текста
+ HWL ME_5715D06103E1 // Поиск стиля
+ HWL ME_5715D06C00C8 // Поиск гиперссылок
+ HWL ME_5715D0770375 // Поиск таблиц
+ HWL ME_5715D16B0195 // Продолжения поиска
+ HWL ME_5715D17C0051 // Поиск по фрагменту
+ HWL ME_57186C3A0215 // Замента текста
+ HWL ME_57186C4500FA // Замена гиперссылки
+ HWL ME_57186C740391 // Замена стиля
+ HWL ME_57186C7F0298 // Установка метки на найденный фрагмент
  )
  ; // Children
 
@@ -2358,7 +2358,7 @@ FORWARD ME_574BDC34037B
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_574BDC34037B // Работа с блоками
+ : Parent HWL ME_574BDC34037B // Работа с блоками
  ;
 
 ref; // ME_574BDCB10368 Установка блока с помощью меню
@@ -2371,7 +2371,7 @@ ref; // ME_574BDCB10368 Установка блока с помощью меню
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_574BDC34037B // Работа с блоками
+ : Parent HWL ME_574BDC34037B // Работа с блоками
  ;
 
 ref; // ME_574BDCD203DB Установка блока с помощью клавиатуры
@@ -2385,7 +2385,7 @@ ref; // ME_574BDCD203DB Установка блока с помощью клавиатуры
  %SUMMARY 'Возможность задания имени блока вручную.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_574BDC34037B // Работа с блоками
+ : Parent HWL ME_574BDC34037B // Работа с блоками
  ;
 
 ref; // ME_574BDCED026F Задание имени блока
@@ -2399,7 +2399,7 @@ ref; // ME_574BDCED026F Задание имени блока
  %SUMMARY 'Возможность задания номера блока вручную.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_574BDC34037B // Работа с блоками
+ : Parent HWL ME_574BDC34037B // Работа с блоками
  ;
 
 ref; // ME_574BDD330108 Задание номера блока
@@ -2413,7 +2413,7 @@ ref; // ME_574BDD330108 Задание номера блока
  %SUMMARY 'Возможность установить стиль на блок' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_574BDC34037B // Работа с блоками
+ : Parent HWL ME_574BDC34037B // Работа с блоками
  ;
 
 ref; // ME_574BDD5C02C9 Задание стиля блока
@@ -2427,7 +2427,7 @@ ref; // ME_574BDD5C02C9 Задание стиля блока
  %SUMMARY 'Проверяется есть ли уже блок с таким номером.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_574BDC34037B // Работа с блоками
+ : Parent HWL ME_574BDC34037B // Работа с блоками
  ;
 
 ref; // ME_574BDD84016D Проверка на одинаковые номера
@@ -2441,7 +2441,7 @@ ref; // ME_574BDD84016D Проверка на одинаковые номера
  %SUMMARY 'Чтобы вставить текст между соседними блоками, нужно установить курсор в конец последнего абзаца верхнего блока и нажать Ctrl+Alt+Enter. В результате этой операции между блоками появится пустой абзац.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_574BDC34037B // Работа с блоками
+ : Parent HWL ME_574BDC34037B // Работа с блоками
  ;
 
 ref; // ME_574BDDD400B8 Вставка текста между соседними блоками
@@ -2454,7 +2454,7 @@ ref; // ME_574BDDD400B8 Вставка текста между соседними блоками
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_574BDC34037B // Работа с блоками
+ : Parent HWL ME_574BDC34037B // Работа с блоками
  ;
 
 ref; // ME_574BDDFE024E Удаление блока
@@ -2467,7 +2467,7 @@ ref; // ME_574BDDFE024E Удаление блока
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_574BDC34037B // Работа с блоками
+ : Parent HWL ME_574BDC34037B // Работа с блоками
  ;
 
 ref; // ME_574BDE080241 Удаление всех блоков
@@ -2480,18 +2480,18 @@ ref; // ME_574BDE080241 Удаление всех блоков
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_574BDBC70389 // Структурирование документа
+ : Parent HWL ME_574BDBC70389 // Структурирование документа
  ;
  : Children
-   Seq: ( ME_574BDCB10368 // Установка блока с помощью меню
- ME_574BDCD203DB // Установка блока с помощью клавиатуры
- ME_574BDCED026F // Задание имени блока
- ME_574BDD330108 // Задание номера блока
- ME_574BDD5C02C9 // Задание стиля блока
- ME_574BDD84016D // Проверка на одинаковые номера
- ME_574BDDD400B8 // Вставка текста между соседними блоками
- ME_574BDDFE024E // Удаление блока
- ME_574BDE080241 // Удаление всех блоков
+   Seq: ( HWL ME_574BDCB10368 // Установка блока с помощью меню
+ HWL ME_574BDCD203DB // Установка блока с помощью клавиатуры
+ HWL ME_574BDCED026F // Задание имени блока
+ HWL ME_574BDD330108 // Задание номера блока
+ HWL ME_574BDD5C02C9 // Задание стиля блока
+ HWL ME_574BDD84016D // Проверка на одинаковые номера
+ HWL ME_574BDDD400B8 // Вставка текста между соседними блоками
+ HWL ME_574BDDFE024E // Удаление блока
+ HWL ME_574BDE080241 // Удаление всех блоков
  )
  ; // Children
 
@@ -2507,7 +2507,7 @@ FORWARD ME_574BE0790216
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_574BE0790216 // Разбивка на блоки
+ : Parent HWL ME_574BE0790216 // Разбивка на блоки
  ;
 
 ref; // ME_574BE08800D5 Установка уровня вложенности
@@ -2521,7 +2521,7 @@ ref; // ME_574BE08800D5 Установка уровня вложенности
  %SUMMARY 'Для того, чтобы заголовки, в тексте которых встречаются символы переноса ка-'#13#10'ретки, воспринимались как единое целое, установите отметку в поле Подтвер-'#13#10'ждать слияние заголовков.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_574BE0790216 // Разбивка на блоки
+ : Parent HWL ME_574BE0790216 // Разбивка на блоки
  ;
 
 ref; // ME_574BE0C801B2 Подтверждать слияние заголовков
@@ -2535,7 +2535,7 @@ ref; // ME_574BE0C801B2 Подтверждать слияние заголовков
  %SUMMARY 'Выделить содержащиеся в конце документа сноски в отдельный блок позволяет'#13#10'отметка в поле Выделять сноски в блок.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_574BE0790216 // Разбивка на блоки
+ : Parent HWL ME_574BE0790216 // Разбивка на блоки
  ;
 
 ref; // ME_574BE0FF01DE Выделять сноски в блок
@@ -2550,7 +2550,7 @@ FORWARD ME_574BE12503BE
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_574BE12503BE // Настройка структуры блоков
+ : Parent HWL ME_574BE12503BE // Настройка структуры блоков
  ;
 
 ref; // ME_574BE14501FF Возможность авторасстановки блоков без настройки
@@ -2563,7 +2563,7 @@ ref; // ME_574BE14501FF Возможность авторасстановки блоков без настройки
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_574BE12503BE // Настройка структуры блоков
+ : Parent HWL ME_574BE12503BE // Настройка структуры блоков
  ;
 
 ref; // ME_574BE16E01EB Включение блока в структуру
@@ -2576,7 +2576,7 @@ ref; // ME_574BE16E01EB Включение блока в структуру
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_574BE12503BE // Настройка структуры блоков
+ : Parent HWL ME_574BE12503BE // Настройка структуры блоков
  ;
 
 ref; // ME_574BE18A01D5 Исключение блока из структуры
@@ -2589,7 +2589,7 @@ ref; // ME_574BE18A01D5 Исключение блока из структуры
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_574BE12503BE // Настройка структуры блоков
+ : Parent HWL ME_574BE12503BE // Настройка структуры блоков
  ;
 
 ref; // ME_574BE1A5030D Увеличение уровня вложенности блока
@@ -2602,7 +2602,7 @@ ref; // ME_574BE1A5030D Увеличение уровня вложенности блока
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_574BE12503BE // Настройка структуры блоков
+ : Parent HWL ME_574BE12503BE // Настройка структуры блоков
  ;
 
 ref; // ME_574BE2910078 Уменьшение уровня вложенности блока
@@ -2616,7 +2616,7 @@ ref; // ME_574BE2910078 Уменьшение уровня вложенности блока
  %SUMMARY 'Удаление блока кнопкой "Удалить" в окне изменения структуры.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_574BE12503BE // Настройка структуры блоков
+ : Parent HWL ME_574BE12503BE // Настройка структуры блоков
  ;
 
 ref; // ME_574BE349026D Удаление блока из структуры
@@ -2629,15 +2629,15 @@ ref; // ME_574BE349026D Удаление блока из структуры
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_574BE0790216 // Разбивка на блоки
+ : Parent HWL ME_574BE0790216 // Разбивка на блоки
  ;
  : Children
-   Seq: ( ME_574BE14501FF // Возможность авторасстановки блоков без настройки
- ME_574BE16E01EB // Включение блока в структуру
- ME_574BE18A01D5 // Исключение блока из структуры
- ME_574BE1A5030D // Увеличение уровня вложенности блока
- ME_574BE2910078 // Уменьшение уровня вложенности блока
- ME_574BE349026D // Удаление блока из структуры
+   Seq: ( HWL ME_574BE14501FF // Возможность авторасстановки блоков без настройки
+ HWL ME_574BE16E01EB // Включение блока в структуру
+ HWL ME_574BE18A01D5 // Исключение блока из структуры
+ HWL ME_574BE1A5030D // Увеличение уровня вложенности блока
+ HWL ME_574BE2910078 // Уменьшение уровня вложенности блока
+ HWL ME_574BE349026D // Удаление блока из структуры
  )
  ; // Children
 
@@ -2652,7 +2652,7 @@ ref; // ME_574BE12503BE Настройка структуры блоков
  %SUMMARY 'Автоматически анализируется наличие подписи при автоматической расстановке блоков. Если такая подпись найдена, то предлагается её установить. Появляется соответствующий диалог.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_574BE0790216 // Разбивка на блоки
+ : Parent HWL ME_574BE0790216 // Разбивка на блоки
  ;
 
 ref; // ME_574BE39B038A Анализ подписи
@@ -2665,14 +2665,14 @@ ref; // ME_574BE39B038A Анализ подписи
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_574BDBC70389 // Структурирование документа
+ : Parent HWL ME_574BDBC70389 // Структурирование документа
  ;
  : Children
-   Seq: ( ME_574BE08800D5 // Установка уровня вложенности
- ME_574BE0C801B2 // Подтверждать слияние заголовков
- ME_574BE0FF01DE // Выделять сноски в блок
- ME_574BE12503BE // Настройка структуры блоков
- ME_574BE39B038A // Анализ подписи
+   Seq: ( HWL ME_574BE08800D5 // Установка уровня вложенности
+ HWL ME_574BE0C801B2 // Подтверждать слияние заголовков
+ HWL ME_574BE0FF01DE // Выделять сноски в блок
+ HWL ME_574BE12503BE // Настройка структуры блоков
+ HWL ME_574BE39B038A // Анализ подписи
  )
  ; // Children
 
@@ -2686,15 +2686,482 @@ ref; // ME_574BE0790216 Разбивка на блоки
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_551121E4029E // Редактирование документа
+ : Parent HWL ME_551121E4029E // Редактирование документа
  ;
  : Children
-   Seq: ( ME_574BDC34037B // Работа с блоками
- ME_574BE0790216 // Разбивка на блоки
+   Seq: ( HWL ME_574BDC34037B // Работа с блоками
+ HWL ME_574BE0790216 // Разбивка на блоки
  )
  ; // Children
 
 ref; // ME_574BDBC70389 Структурирование документа
+
+FORWARD ME_576246200120
+
+: ME_5762466003B6
+ CONST UID '5762466003B6'
+ CONST Name 'Изменение курсора мыши при наведении на гиперссылку'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'При подведении к ссылке указателя мыши он принимает вид ().' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_576246200120 // Гипертекстовая связь
+ ;
+
+ref; // ME_5762466003B6 Изменение курсора мыши при наведении на гиперссылку
+
+FORWARD ME_576246B10374
+
+: ME_5762470502B8
+ CONST UID '5762470502B8'
+ CONST Name 'Изменение курсора мыши при установке гиперссыки'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'При переходе в режим "определения гипертекстовой связи" курсор приобретает вид стрелки со скрепкой.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_576246B10374 // Установка гиперссылки
+ ;
+
+ref; // ME_5762470502B8 Изменение курсора мыши при установке гиперссыки
+
+: ME_5762484A03DB
+ CONST UID '5762484A03DB'
+ CONST Name 'Запрет редактирования документа'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'В режиме установки гиперссылки запрещено редактирование документа.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_576246B10374 // Установка гиперссылки
+ ;
+
+ref; // ME_5762484A03DB Запрет редактирования документа
+
+: ME_5762488400A9
+ CONST UID '5762488400A9'
+ CONST Name 'Установка гиперссылки на метку'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_576246B10374 // Установка гиперссылки
+ ;
+
+ref; // ME_5762488400A9 Установка гиперссылки на метку
+
+: ME_5762489300A1
+ CONST UID '5762489300A1'
+ CONST Name 'Установка гиперссылки на блок'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_576246B10374 // Установка гиперссылки
+ ;
+
+ref; // ME_5762489300A1 Установка гиперссылки на блок
+
+: ME_576248A002A1
+ CONST UID '576248A002A1'
+ CONST Name 'Установка гиперссылки на начало документа'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Так же, существует возможность постановки ссылки на начало документа или справки. Для этого достаточно во время постановки ссылки применить комбинацию Alt+ЛМ, кликнуть мышью на закладку Текст или Справка соответственно.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_576246B10374 // Установка гиперссылки
+ ;
+
+ref; // ME_576248A002A1 Установка гиперссылки на начало документа
+
+: ME_576248C10293
+ CONST UID '576248C10293'
+ CONST Name 'Установка гиперссылки на справку'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Так же, существует возможность постановки ссылки на начало документа или справки. Для этого достаточно во время постановки ссылки применить комбинацию Alt+ЛМ, кликнуть мышью на закладку Текст или Справка соответственно.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_576246B10374 // Установка гиперссылки
+ ;
+
+ref; // ME_576248C10293 Установка гиперссылки на справку
+
+: ME_576248F800CB
+ CONST UID '576248F800CB'
+ CONST Name 'Установка гиперссылки на документ в выборке'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Последний этап установки гипертекстовой ссылки может быть выполнен в окне выборки документов. В том случае, когда в качестве объекта выбран весь документ (метка в начале документа), то для завершения операции достаточно нажать комбинацию Alt+ЛМ по названию соответствующего документа в окне выборки документов.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_576246B10374 // Установка гиперссылки
+ ;
+
+ref; // ME_576248F800CB Установка гиперссылки на документ в выборке
+
+: ME_576249310233
+ CONST UID '576249310233'
+ CONST Name 'Выход из режима установки гиперссылки'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Для выхода из режима "определения гипертекстовой связи", отказавшись от установки ссылки, предназначена комбинация Alt+ПМ.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_576246B10374 // Установка гиперссылки
+ ;
+
+ref; // ME_576249310233 Выход из режима установки гиперссылки
+
+: ME_576249EF033E
+ CONST UID '576249EF033E'
+ CONST Name 'Обратная установка гиперссылки'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'В Архивариусе предусмотрена возможность "обратного" способа установки ссылок (от метки к ссылке). Она может быть использована при редактировании документа, на который должна быть установлена ссылка.'#13#10'* На вкладке Текст окна редактор подведите указатель мыши к значку метки (), расположенному слева от соответствующего абзаца текста;'#13#10'* В динамическом меню выберите команду Запомнить, при этом указатель мыши примет вид -;'#13#10'* В документе, в котором необходимо установить ссылку, выделите фрагмент текста, предназначенный для установки ссылки, нажмите комбинацию Alt+ЛМ.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_576246B10374 // Установка гиперссылки
+ ;
+
+ref; // ME_576249EF033E Обратная установка гиперссылки
+
+: ME_57624A9801C6
+ CONST UID '57624A9801C6'
+ CONST Name 'Установка нескольких гиперссылок на одну метку'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'При необходимости установки нескольких ссылок на одну и ту же метку, вместо Alt+ЛМ нужно использовать комбинацию Alt+Shift+ЛМ. При этом указатель мыши сохранит вид - , и операция установки ссылок сможет быть продолжена. Для выхода из режима определения ссылки воспользуйтесь комбинацией Alt+ПМ.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_576246B10374 // Установка гиперссылки
+ ;
+
+ref; // ME_57624A9801C6 Установка нескольких гиперссылок на одну метку
+
+: ME_57624AE8024D
+ CONST UID '57624AE8024D'
+ CONST Name 'Установка гиперссылки вручную'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Если известен адрес гиперссылки на которую следует сослаться, то операция установки ссылки может быть выполнена "вручную". Для этого нужно выбрать в меню Гипертекст команду Установить ссылку "вручную" или воспользоваться комбинацией клавиш Alt+F7. После чего в открывшемся окне в поле ID номер задать нужное значение номера.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_576246B10374 // Установка гиперссылки
+ ;
+
+ref; // ME_57624AE8024D Установка гиперссылки вручную
+
+: ME_576246B10374
+ CONST UID '576246B10374'
+ CONST Name 'Установка гиперссылки'
+ CONST Class class_Class
+ : Stereotype st_UseCase ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '# В ссылающемся документе выделите слово или словосочетание, по которому будет осуществляться переход к нужному объекту;'#13#10'# Воспользуйтесь командой Установить ссылку в меню Гипертекст или клавишей F11. При этом произойдёт переход в режим "определения гипертекстовой связи", признаком которого является курсор вида . В данном режиме невозможно редактирование документа;'#13#10'# Перейдите к выбранному объекту и установите указатель мыши на значок метки, расположенный напротив него, в колонке Метки;'#13#10'# Примените комбинацию Alt+ЛМ' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_576246200120 // Гипертекстовая связь
+ ;
+ : Children
+   Seq: ( HWL ME_5762470502B8 // Изменение курсора мыши при установке гиперссыки
+ HWL ME_5762484A03DB // Запрет редактирования документа
+ HWL ME_5762488400A9 // Установка гиперссылки на метку
+ HWL ME_5762489300A1 // Установка гиперссылки на блок
+ HWL ME_576248A002A1 // Установка гиперссылки на начало документа
+ HWL ME_576248C10293 // Установка гиперссылки на справку
+ HWL ME_576248F800CB // Установка гиперссылки на документ в выборке
+ HWL ME_576249310233 // Выход из режима установки гиперссылки
+ HWL ME_576249EF033E // Обратная установка гиперссылки
+ HWL ME_57624A9801C6 // Установка нескольких гиперссылок на одну метку
+ HWL ME_57624AE8024D // Установка гиперссылки вручную
+ )
+ ; // Children
+
+ref; // ME_576246B10374 Установка гиперссылки
+
+FORWARD ME_57624B2800FD
+
+: ME_57624B4700F8
+ CONST UID '57624B4700F8'
+ CONST Name 'Переход по гиперссылке мышью'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Для перехода по установленной ссылке необходимо дважды кликнуть по ней мышью.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_57624B2800FD // Переходы по гиперссылкам
+ ;
+
+ref; // ME_57624B4700F8 Переход по гиперссылке мышью
+
+: ME_57624BF50128
+ CONST UID '57624BF50128'
+ CONST Name 'Переход по гиперссылке с помощью меню'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Также можно воспользоваться командой Перейти по ссылке в меню Гипертекст' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_57624B2800FD // Переходы по гиперссылкам
+ ;
+
+ref; // ME_57624BF50128 Переход по гиперссылке с помощью меню
+
+: ME_57624C14000C
+ CONST UID '57624C14000C'
+ CONST Name 'Переход по гиперссылке с помощью клавиатуры'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Также можно воспользоваться командой Перейти по ссылке  комбинацией клавиш Alt+Enter' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_57624B2800FD // Переходы по гиперссылкам
+ ;
+
+ref; // ME_57624C14000C Переход по гиперссылке с помощью клавиатуры
+
+: ME_57624C62023D
+ CONST UID '57624C62023D'
+ CONST Name 'Переход по гиперссылке с помощью динамического меню'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_57624B2800FD // Переходы по гиперссылкам
+ ;
+
+ref; // ME_57624C62023D Переход по гиперссылке с помощью динамического меню
+
+: ME_57624B2800FD
+ CONST UID '57624B2800FD'
+ CONST Name 'Переходы по гиперссылкам'
+ CONST Class class_Class
+ : Stereotype st_UseCase ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_576246200120 // Гипертекстовая связь
+ ;
+ : Children
+   Seq: ( HWL ME_57624B4700F8 // Переход по гиперссылке мышью
+ HWL ME_57624BF50128 // Переход по гиперссылке с помощью меню
+ HWL ME_57624C14000C // Переход по гиперссылке с помощью клавиатуры
+ HWL ME_57624C62023D // Переход по гиперссылке с помощью динамического меню
+ )
+ ; // Children
+
+ref; // ME_57624B2800FD Переходы по гиперссылкам
+
+FORWARD ME_57624CAD03CB
+
+: ME_57624CC1039B
+ CONST UID '57624CC1039B'
+ CONST Name 'Возврат назад с помощью кнопки'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Возврат с помощью кнопки "Вернуться на ссылку с которой перешли" на панели инструментов' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_57624CAD03CB // Работа с историей переходов
+ ;
+
+ref; // ME_57624CC1039B Возврат назад с помощью кнопки
+
+: ME_57624D0B0048
+ CONST UID '57624D0B0048'
+ CONST Name 'Возврат назад с помощью комбинации клавиш'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Alt+"<-"' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_57624CAD03CB // Работа с историей переходов
+ ;
+
+ref; // ME_57624D0B0048 Возврат назад с помощью комбинации клавиш
+
+: ME_57624D5003B3
+ CONST UID '57624D5003B3'
+ CONST Name 'Переход по истории вперед с помощью кнопки'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Переход по кнопке "Вернуться на метку на которую перешли"' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_57624CAD03CB // Работа с историей переходов
+ ;
+
+ref; // ME_57624D5003B3 Переход по истории вперед с помощью кнопки
+
+: ME_57624D8203C0
+ CONST UID '57624D8203C0'
+ CONST Name 'Переход по истории вперед с помощью комбинации клавиш'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Alt+"->"' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_57624CAD03CB // Работа с историей переходов
+ ;
+
+ref; // ME_57624D8203C0 Переход по истории вперед с помощью комбинации клавиш
+
+: ME_57624CAD03CB
+ CONST UID '57624CAD03CB'
+ CONST Name 'Работа с историей переходов'
+ CONST Class class_Class
+ : Stereotype st_UseCase ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_576246200120 // Гипертекстовая связь
+ ;
+ : Children
+   Seq: ( HWL ME_57624CC1039B // Возврат назад с помощью кнопки
+ HWL ME_57624D0B0048 // Возврат назад с помощью комбинации клавиш
+ HWL ME_57624D5003B3 // Переход по истории вперед с помощью кнопки
+ HWL ME_57624D8203C0 // Переход по истории вперед с помощью комбинации клавиш
+ )
+ ; // Children
+
+ref; // ME_57624CAD03CB Работа с историей переходов
+
+FORWARD ME_57624DD50173
+
+: ME_57624DEC0333
+ CONST UID '57624DEC0333'
+ CONST Name 'Удаление гиперсылки с помощью клавиатуры'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'комбинацией клавиш Alt+Del' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_57624DD50173 // Удаление гиперссылки
+ ;
+
+ref; // ME_57624DEC0333 Удаление гиперсылки с помощью клавиатуры
+
+: ME_57624E4F02BC
+ CONST UID '57624E4F02BC'
+ CONST Name 'Удаление гиперсылки с помощью меню'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'воспользоваться командой Удалить ссылку в меню Гипертекст' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_57624DD50173 // Удаление гиперссылки
+ ;
+
+ref; // ME_57624E4F02BC Удаление гиперсылки с помощью меню
+
+: ME_57624E710341
+ CONST UID '57624E710341'
+ CONST Name 'Удаление гиперссылки с помощью динамического меню'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_57624DD50173 // Удаление гиперссылки
+ ;
+
+ref; // ME_57624E710341 Удаление гиперссылки с помощью динамического меню
+
+: ME_57624EB9034C
+ CONST UID '57624EB9034C'
+ CONST Name 'Удаление нескольких гиперссылок из фрагмента'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Если предварительно выделить фрагмент текста, то в результате выполнения данной операции будут удалены все содержащиеся в нём ссылки. После выполнения команды удаления ссылки, выделенные зелёным цветом и функция гипертекстовой связи, исчезнут.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_57624DD50173 // Удаление гиперссылки
+ ;
+
+ref; // ME_57624EB9034C Удаление нескольких гиперссылок из фрагмента
+
+: ME_57624DD50173
+ CONST UID '57624DD50173'
+ CONST Name 'Удаление гиперссылки'
+ CONST Class class_Class
+ : Stereotype st_UseCase ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Чтобы удалить установленную ранее ссылку, нужно выделить её с помощью мыши, после чего воспользоваться командой Удалить ссылку в меню Гипертекст или комбинацией клавиш Alt+Del, а также командой в динамическом меню.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_576246200120 // Гипертекстовая связь
+ ;
+ : Children
+   Seq: ( HWL ME_57624DEC0333 // Удаление гиперсылки с помощью клавиатуры
+ HWL ME_57624E4F02BC // Удаление гиперсылки с помощью меню
+ HWL ME_57624E710341 // Удаление гиперссылки с помощью динамического меню
+ HWL ME_57624EB9034C // Удаление нескольких гиперссылок из фрагмента
+ )
+ ; // Children
+
+ref; // ME_57624DD50173 Удаление гиперссылки
+
+: ME_57624EF3009A
+ CONST UID '57624EF3009A'
+ CONST Name 'Копирование гиперссылки'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '* Подведите курсор к ссылке и нажмите правую кнопку мыши;'#13#10'•В контекстном меню мыши выберите команду Запомнить адрес;'#13#10'•По комбинации Alt+ЛМ вставьте адрес ссылки выбранному слову или выражению' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_576246200120 // Гипертекстовая связь
+ ;
+
+ref; // ME_57624EF3009A Копирование гиперссылки
+
+: ME_576246200120
+ CONST UID '576246200120'
+ CONST Name 'Гипертекстовая связь'
+ CONST Class class_Class
+ : Stereotype st_UseCase ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_551121E4029E // Редактирование документа
+ ;
+ : Children
+   Seq: ( HWL ME_5762466003B6 // Изменение курсора мыши при наведении на гиперссылку
+ HWL ME_576246B10374 // Установка гиперссылки
+ HWL ME_57624B2800FD // Переходы по гиперссылкам
+ HWL ME_57624CAD03CB // Работа с историей переходов
+ HWL ME_57624DD50173 // Удаление гиперссылки
+ HWL ME_57624EF3009A // Копирование гиперссылки
+ )
+ ; // Children
+
+ref; // ME_576246200120 Гипертекстовая связь
 
 : ME_551121E4029E
  CONST UID '551121E4029E'
@@ -2704,17 +3171,18 @@ ref; // ME_574BDBC70389 Структурирование документа
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_53F327E402A1 // Требования к созданию и редактированию документа
+ : Parent HWL ME_53F327E402A1 // Требования к созданию и редактированию документа
  ;
  : Children
-   Seq: ( ME_551122A90004 // Изменение текста документа
- ME_551122C1020D // Работа с буфером обмена
- ME_551122D603B9 // Изменение оформления
- ME_570B3C440128 // Вставка в документ
- ME_570DE64F021D // Создание схем
- ME_5715CB480335 // Проверка орфографии
- ME_5715CFEF0244 // Поиск и замена
- ME_574BDBC70389 // Структурирование документа
+   Seq: ( HWL ME_551122A90004 // Изменение текста документа
+ HWL ME_551122C1020D // Работа с буфером обмена
+ HWL ME_551122D603B9 // Изменение оформления
+ HWL ME_570B3C440128 // Вставка в документ
+ HWL ME_570DE64F021D // Создание схем
+ HWL ME_5715CB480335 // Проверка орфографии
+ HWL ME_5715CFEF0244 // Поиск и замена
+ HWL ME_574BDBC70389 // Структурирование документа
+ HWL ME_576246200120 // Гипертекстовая связь
  )
  ; // Children
 
@@ -2730,8 +3198,8 @@ ref; // ME_551121E4029E Редактирование документа
  : Parent WL 'ME_4E3130EB007F' '4E3130EB007F.pas.ms.script' // Требования к Архивариусу
  ;
  : Children
-   Seq: ( ME_53F328B0007F // Создание нового документа
- ME_551121E4029E // Редактирование документа
+   Seq: ( HWL ME_53F328B0007F // Создание нового документа
+ HWL ME_551121E4029E // Редактирование документа
  )
  ; // Children
 

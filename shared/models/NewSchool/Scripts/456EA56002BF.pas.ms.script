@@ -13,7 +13,7 @@ FORWARD ME_456EA56002BF
  %SUMMARY 'Идентификатор класса объекта' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_456EA56002BF // BaseTypes
+ : Parent HWL ME_456EA56002BF // BaseTypes
  ;
  : Inherits
    Seq: ( WL 'ME_3DBFFDE101CA' '3DBFDB23006E.pas.ms.script' // unsigned long
@@ -33,7 +33,7 @@ ref; // ME_456EA5D9030D ClassId
  %SUMMARY 'Идентификатор объекта внутри класса' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_456EA56002BF // BaseTypes
+ : Parent HWL ME_456EA56002BF // BaseTypes
  ;
  : Inherits
    Seq: ( WL 'ME_3DBFFDE101CA' '3DBFDB23006E.pas.ms.script' // unsigned long
@@ -54,9 +54,9 @@ FORWARD ME_456EA676037A
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_456EA676037A // PId
+ : Parent HWL ME_456EA676037A // PId
  ;
- : Target ME_456EA5D9030D // ClassId
+ : Target HWL ME_456EA5D9030D // ClassId
  ;
 
 ref; // ME_456EA6870109 class_id
@@ -69,9 +69,9 @@ ref; // ME_456EA6870109 class_id
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_456EA676037A // PId
+ : Parent HWL ME_456EA676037A // PId
  ;
- : Target ME_456EA5EF01A5 // ObjectId
+ : Target HWL ME_456EA5EF01A5 // ObjectId
  ;
 
 ref; // ME_456EA6B3030D object_id
@@ -85,11 +85,11 @@ ref; // ME_456EA6B3030D object_id
  %SUMMARY 'Persistent ID, тип для идентификации хранимых объектов.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_456EA56002BF // BaseTypes
+ : Parent HWL ME_456EA56002BF // BaseTypes
  ;
  : Attributes
-   Seq: ( ME_456EA6870109 // class_id
- ME_456EA6B3030D // object_id
+   Seq: ( HWL ME_456EA6870109 // class_id
+ HWL ME_456EA6B3030D // object_id
  )
  ; // Attributes
  CONST extprop:pas:TypeName 'TPId'
@@ -106,7 +106,7 @@ FORWARD ME_456EA6F00109
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_456EA6F00109 // Date
+ : Parent HWL ME_456EA6F00109 // Date
  ;
  : Target WL 'ME_3DBFFDC502B0' '3DBFDB23006E.pas.ms.script' // unsigned short
  ;
@@ -121,7 +121,7 @@ ref; // ME_456EA70202CE day
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_456EA6F00109 // Date
+ : Parent HWL ME_456EA6F00109 // Date
  ;
  : Target WL 'ME_3DBFFDC502B0' '3DBFDB23006E.pas.ms.script' // unsigned short
  ;
@@ -136,7 +136,7 @@ ref; // ME_456EA70D0222 month
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_456EA6F00109 // Date
+ : Parent HWL ME_456EA6F00109 // Date
  ;
  : Target WL 'ME_3DBFFDC502B0' '3DBFDB23006E.pas.ms.script' // unsigned short
  ;
@@ -151,7 +151,7 @@ ref; // ME_456EA71C00AB year
  %SUMMARY 'создать нулевую дату' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_456EA6F00109 // Date
+ : Parent HWL ME_456EA6F00109 // Date
  ;
 
 ref; // ME_462C9BE5030D make
@@ -191,7 +191,7 @@ ref; // ME_462C9C7C005D d
  %SUMMARY 'создать заданную дату' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_456EA6F00109 // Date
+ : Parent HWL ME_456EA6F00109 // Date
  ;
  : Parameters
    Seq: ( ME_462C9C7B034B // y
@@ -211,17 +211,17 @@ ref; // ME_462C9BF10128 make
  %SUMMARY 'Дата.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_456EA56002BF // BaseTypes
+ : Parent HWL ME_456EA56002BF // BaseTypes
  ;
  : Attributes
-   Seq: ( ME_456EA70202CE // day
- ME_456EA70D0222 // month
- ME_456EA71C00AB // year
+   Seq: ( HWL ME_456EA70202CE // day
+ HWL ME_456EA70D0222 // month
+ HWL ME_456EA71C00AB // year
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_462C9BE5030D // make
- ME_462C9BF10128 // make
+   Seq: ( HWL ME_462C9BE5030D // make
+ HWL ME_462C9BF10128 // make
  )
  ; // Operations
  CONST "need UC" true
@@ -239,9 +239,9 @@ FORWARD ME_456EA6DA0280
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_456EA6DA0280 // DateInterval
+ : Parent HWL ME_456EA6DA0280 // DateInterval
  ;
- : Target ME_456EA6F00109 // Date
+ : Target HWL ME_456EA6F00109 // Date
  ;
 
 ref; // ME_456ECA20001F start
@@ -254,9 +254,9 @@ ref; // ME_456ECA20001F start
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_456EA6DA0280 // DateInterval
+ : Parent HWL ME_456EA6DA0280 // DateInterval
  ;
- : Target ME_456EA6F00109 // Date
+ : Target HWL ME_456EA6F00109 // Date
  ;
 
 ref; // ME_456ECA2B0138 finish
@@ -270,11 +270,11 @@ ref; // ME_456ECA2B0138 finish
  %SUMMARY 'Интервал дат (включающий).' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_456EA56002BF // BaseTypes
+ : Parent HWL ME_456EA56002BF // BaseTypes
  ;
  : Attributes
-   Seq: ( ME_456ECA20001F // start
- ME_456ECA2B0138 // finish
+   Seq: ( HWL ME_456ECA20001F // start
+ HWL ME_456ECA2B0138 // finish
  )
  ; // Attributes
  CONST extprop:pas:TypeName 'TDateInterval'
@@ -291,7 +291,7 @@ FORWARD ME_456EA801037A
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_456EA801037A // Time
+ : Parent HWL ME_456EA801037A // Time
  ;
  : Target WL 'ME_3DBFFDC502B0' '3DBFDB23006E.pas.ms.script' // unsigned short
  ;
@@ -306,7 +306,7 @@ ref; // ME_456EA8120232 hour
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_456EA801037A // Time
+ : Parent HWL ME_456EA801037A // Time
  ;
  : Target WL 'ME_3DBFFDC502B0' '3DBFDB23006E.pas.ms.script' // unsigned short
  ;
@@ -321,7 +321,7 @@ ref; // ME_456EA81D034B min
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_456EA801037A // Time
+ : Parent HWL ME_456EA801037A // Time
  ;
  : Target WL 'ME_3DBFFDC502B0' '3DBFDB23006E.pas.ms.script' // unsigned short
  ;
@@ -337,12 +337,12 @@ ref; // ME_456EA82302FD sec
  %SUMMARY 'Время' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_456EA56002BF // BaseTypes
+ : Parent HWL ME_456EA56002BF // BaseTypes
  ;
  : Attributes
-   Seq: ( ME_456EA8120232 // hour
- ME_456EA81D034B // min
- ME_456EA82302FD // sec
+   Seq: ( HWL ME_456EA8120232 // hour
+ HWL ME_456EA81D034B // min
+ HWL ME_456EA82302FD // sec
  )
  ; // Attributes
  CONST extprop:pas:TypeName 'TTime'
@@ -359,9 +359,9 @@ FORWARD ME_456EA7D402DE
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_456EA7D402DE // DateTime
+ : Parent HWL ME_456EA7D402DE // DateTime
  ;
- : Target ME_456EA6F00109 // Date
+ : Target HWL ME_456EA6F00109 // Date
  ;
 
 ref; // ME_456EA7E10213 date
@@ -374,9 +374,9 @@ ref; // ME_456EA7E10213 date
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_456EA7D402DE // DateTime
+ : Parent HWL ME_456EA7D402DE // DateTime
  ;
- : Target ME_456EA801037A // Time
+ : Target HWL ME_456EA801037A // Time
  ;
 
 ref; // ME_456EB2BE0177 time
@@ -390,11 +390,11 @@ ref; // ME_456EB2BE0177 time
  %SUMMARY 'Дата и время' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_456EA56002BF // BaseTypes
+ : Parent HWL ME_456EA56002BF // BaseTypes
  ;
  : Attributes
-   Seq: ( ME_456EA7E10213 // date
- ME_456EB2BE0177 // time
+   Seq: ( HWL ME_456EA7E10213 // date
+ HWL ME_456EB2BE0177 // time
  )
  ; // Attributes
  CONST extprop:pas:TypeName 'TDateTime'
@@ -411,7 +411,7 @@ FORWARD ME_456EB2F1034B
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_456EB2F1034B // Languages
+ : Parent HWL ME_456EB2F1034B // Languages
  ;
 
 ref; // ME_456EB2F1034C LG_RUSSIAN
@@ -424,7 +424,7 @@ ref; // ME_456EB2F1034C LG_RUSSIAN
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_456EB2F1034B // Languages
+ : Parent HWL ME_456EB2F1034B // Languages
  ;
 
 ref; // ME_456EB2F1034D LG_ENGLISH
@@ -437,7 +437,7 @@ ref; // ME_456EB2F1034D LG_ENGLISH
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_456EB2F1034B // Languages
+ : Parent HWL ME_456EB2F1034B // Languages
  ;
 
 ref; // ME_456EB2F1034E LG_FRENCH
@@ -450,7 +450,7 @@ ref; // ME_456EB2F1034E LG_FRENCH
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_456EB2F1034B // Languages
+ : Parent HWL ME_456EB2F1034B // Languages
  ;
 
 ref; // ME_456EB2F1034F LG_GERMAN
@@ -463,7 +463,7 @@ ref; // ME_456EB2F1034F LG_GERMAN
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_456EB2F1034B // Languages
+ : Parent HWL ME_456EB2F1034B // Languages
  ;
 
 ref; // ME_456EB2F10350 LG_SPANISH
@@ -476,7 +476,7 @@ ref; // ME_456EB2F10350 LG_SPANISH
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_456EB2F1034B // Languages
+ : Parent HWL ME_456EB2F1034B // Languages
  ;
 
 ref; // ME_456EB2F10351 LG_ITALIAN
@@ -490,15 +490,15 @@ ref; // ME_456EB2F10351 LG_ITALIAN
  %SUMMARY 'Языки' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_456EA56002BF // BaseTypes
+ : Parent HWL ME_456EA56002BF // BaseTypes
  ;
  : Attributes
-   Seq: ( ME_456EB2F1034C // LG_RUSSIAN
- ME_456EB2F1034D // LG_ENGLISH
- ME_456EB2F1034E // LG_FRENCH
- ME_456EB2F1034F // LG_GERMAN
- ME_456EB2F10350 // LG_SPANISH
- ME_456EB2F10351 // LG_ITALIAN
+   Seq: ( HWL ME_456EB2F1034C // LG_RUSSIAN
+ HWL ME_456EB2F1034D // LG_ENGLISH
+ HWL ME_456EB2F1034E // LG_FRENCH
+ HWL ME_456EB2F1034F // LG_GERMAN
+ HWL ME_456EB2F10350 // LG_SPANISH
+ HWL ME_456EB2F10351 // LG_ITALIAN
  )
  ; // Attributes
  CONST extprop:pas:TypeName 'TLanguages'
@@ -517,7 +517,7 @@ FORWARD ME_456EB35E001F
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_456EB35E001F // NamedElement
+ : Parent HWL ME_456EB35E001F // NamedElement
  ;
  : Target WL 'ME_431841610361' '4423F94903C8.pas.ms.script' // String
  ;
@@ -534,7 +534,7 @@ ref; // ME_456EB377035B name
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_456EB35E001F // NamedElement
+ : Parent HWL ME_456EB35E001F // NamedElement
  ;
  : Target WL 'ME_431841610361' '4423F94903C8.pas.ms.script' // String
  ;
@@ -552,11 +552,11 @@ ref; // ME_456EB386034B comment
  %SUMMARY 'Именованный элемент.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_456EA56002BF // BaseTypes
+ : Parent HWL ME_456EA56002BF // BaseTypes
  ;
  : Attributes
-   Seq: ( ME_456EB377035B // name
- ME_456EB386034B // comment
+   Seq: ( HWL ME_456EB377035B // name
+ HWL ME_456EB386034B // comment
  )
  ; // Attributes
  CONST "single impl" false
@@ -575,7 +575,7 @@ ref; // ME_456EB35E001F NamedElement
  %SUMMARY 'Исключение возникает при попытке изменить константный параметер.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_456EA56002BF // BaseTypes
+ : Parent HWL ME_456EA56002BF // BaseTypes
  ;
 
 ref; // ME_456EB4540177 ConstantModify
@@ -589,7 +589,7 @@ ref; // ME_456EB4540177 ConstantModify
  %SUMMARY 'Возбуждается в случае нарушения прав доступа.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_456EA56002BF // BaseTypes
+ : Parent HWL ME_456EA56002BF // BaseTypes
  ;
 
 ref; // ME_456EB4540188 AccessDenied
@@ -603,7 +603,7 @@ ref; // ME_456EB4540188 AccessDenied
  %SUMMARY 'Исключение возбуждается в случае если запрошенная операция не может быть выполнена на сервер, по причине неверной метки синхронизации. Возможно необходимо повторить вызов.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_456EA56002BF // BaseTypes
+ : Parent HWL ME_456EA56002BF // BaseTypes
  ;
  CONST "force usage" true
 
@@ -618,7 +618,7 @@ ref; // ME_456EB4540179 InvalidTimeStamp
  %SUMMARY 'База блокирована' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_456EA56002BF // BaseTypes
+ : Parent HWL ME_456EA56002BF // BaseTypes
  ;
  CONST "force usage" true
 
@@ -633,7 +633,7 @@ ref; // ME_456EB4540186 StorageLocked
  %SUMMARY 'Возвращается в случае если вызванная опреация не поддеоживается объектом.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_456EA56002BF // BaseTypes
+ : Parent HWL ME_456EA56002BF // BaseTypes
  ;
 
 ref; // ME_456EB454018A Unsupported
@@ -647,7 +647,7 @@ ref; // ME_456EB454018A Unsupported
  %SUMMARY 'Возвращается при попытке сохранить/восстановить изменения в несохраненном (т.е не привязанном к месту хранения, например к папкам) объекте' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_456EA56002BF // BaseTypes
+ : Parent HWL ME_456EA56002BF // BaseTypes
  ;
 
 ref; // ME_456EB4540190 NotSaved
@@ -661,7 +661,7 @@ ref; // ME_456EB4540190 NotSaved
  %SUMMARY 'Папки недоступны.'#13#10'Возвращается в случае, если у пользователя нет доступа к папкам.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_456EA56002BF // BaseTypes
+ : Parent HWL ME_456EA56002BF // BaseTypes
  ;
  CONST "force usage" true
 
@@ -676,7 +676,7 @@ ref; // ME_456EB454018C FoldersNotAvailable
  %SUMMARY 'Запрошенные данные не найдены.'#13#10'Возвращается в случае, если данные запрошенные по операции get_<something> отсутствуют.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_456EA56002BF // BaseTypes
+ : Parent HWL ME_456EA56002BF // BaseTypes
  ;
 
 ref; // ME_456EB454018E CanNotFindData
@@ -690,7 +690,7 @@ ref; // ME_456EB454018E CanNotFindData
  %SUMMARY 'Возникает в случае добавления узла в дерево, где уже есть такой же узел. При этом уникальность определяется самим узлом.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_456EA56002BF // BaseTypes
+ : Parent HWL ME_456EA56002BF // BaseTypes
  ;
 
 ref; // ME_456EB4540194 DuplicateNode
@@ -704,7 +704,7 @@ ref; // ME_456EB4540194 DuplicateNode
  %SUMMARY 'Плохой тип данных' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_456EA56002BF // BaseTypes
+ : Parent HWL ME_456EA56002BF // BaseTypes
  ;
 
 ref; // ME_456EB4540192 InvalidType
@@ -718,7 +718,7 @@ ref; // ME_456EB4540192 InvalidType
  %SUMMARY 'объект не может быть сохранён' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_456EA56002BF // BaseTypes
+ : Parent HWL ME_456EA56002BF // BaseTypes
  ;
 
 ref; // ME_456EC75801B5 CanNotSave
@@ -732,7 +732,7 @@ ref; // ME_456EC75801B5 CanNotSave
  %SUMMARY 'Ошибка при разборе XML' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_456EA56002BF // BaseTypes
+ : Parent HWL ME_456EA56002BF // BaseTypes
  ;
 
 ref; // ME_456EB4540197 InvalidXMLType
@@ -747,7 +747,7 @@ FORWARD ME_456EB7070196
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_456EB7070196 // AdapterConstants
+ : Parent HWL ME_456EB7070196 // AdapterConstants
  ;
  : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
  ;
@@ -769,7 +769,7 @@ ref; // ME_456EB70701A5 NODE_FLAG_STORABLE_ENTITY
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_456EB7070196 // AdapterConstants
+ : Parent HWL ME_456EB7070196 // AdapterConstants
  ;
  : Target WL 'ME_3DBFFE240068' '3DBFDB23006E.pas.ms.script' // string
  ;
@@ -791,7 +791,7 @@ ref; // ME_456EB70701A6 PROPERTY_PATH_DELIMITER
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_456EB7070196 // AdapterConstants
+ : Parent HWL ME_456EB7070196 // AdapterConstants
  ;
  : Target WL 'ME_3DBFFDE101CA' '3DBFDB23006E.pas.ms.script' // unsigned long
  ;
@@ -813,7 +813,7 @@ ref; // ME_456EB70701A7 DEFAULT_PRELOAD_CACHE
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_456EB7070196 // AdapterConstants
+ : Parent HWL ME_456EB7070196 // AdapterConstants
  ;
  : Target WL 'ME_3DBFFE240068' '3DBFDB23006E.pas.ms.script' // string
  ;
@@ -836,13 +836,13 @@ ref; // ME_456EB70701A8 LIBRARY_NAME
  %SUMMARY 'Общие константы, используемые в GblAdapter' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_456EA56002BF // BaseTypes
+ : Parent HWL ME_456EA56002BF // BaseTypes
  ;
  : Attributes
-   Seq: ( ME_456EB70701A5 // NODE_FLAG_STORABLE_ENTITY
- ME_456EB70701A6 // PROPERTY_PATH_DELIMITER
- ME_456EB70701A7 // DEFAULT_PRELOAD_CACHE
- ME_456EB70701A8 // LIBRARY_NAME
+   Seq: ( HWL ME_456EB70701A5 // NODE_FLAG_STORABLE_ENTITY
+ HWL ME_456EB70701A6 // PROPERTY_PATH_DELIMITER
+ HWL ME_456EB70701A7 // DEFAULT_PRELOAD_CACHE
+ HWL ME_456EB70701A8 // LIBRARY_NAME
  )
  ; // Attributes
  CONST "spell names" false
@@ -858,7 +858,7 @@ ref; // ME_456EB7070196 AdapterConstants
  %SUMMARY 'Всё сожержимое отфильтровано, что противоречит бизнес-логике' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_456EA56002BF // BaseTypes
+ : Parent HWL ME_456EA56002BF // BaseTypes
  ;
  CONST "force usage" true
 
@@ -873,7 +873,7 @@ ref; // ME_456EB7430222 AllContentIsFiltered
  %SUMMARY 'номер кодовой страницы' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_456EA56002BF // BaseTypes
+ : Parent HWL ME_456EA56002BF // BaseTypes
  ;
  : Inherits
    Seq: ( WL 'ME_3DBFFD5402AE' '3DBFDB23006E.pas.ms.script' // short
@@ -893,7 +893,7 @@ FORWARD ME_456EC7C300DA
  %SUMMARY 'получить тип содержимого' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_456EC7C300DA // EntityStorage
+ : Parent HWL ME_456EC7C300DA // EntityStorage
  ;
  CONST "dll export" false
 
@@ -906,7 +906,7 @@ ref; // ME_461636870045 get_content_type
  %SUMMARY 'получить содежимое' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_456EC7C300DA // EntityStorage
+ : Parent HWL ME_456EC7C300DA // EntityStorage
  ;
  CONST "dll export" false
 
@@ -922,11 +922,11 @@ ref; // ME_4616371B010F get_cached_content
  %SUMMARY 'Хранилище сущностей' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_456EA56002BF // BaseTypes
+ : Parent HWL ME_456EA56002BF // BaseTypes
  ;
  : Operations
-   Seq: ( ME_461636870045 // get_content_type
- ME_4616371B010F // get_cached_content
+   Seq: ( HWL ME_461636870045 // get_content_type
+ HWL ME_4616371B010F // get_cached_content
  )
  ; // Operations
  CONST "single impl" false
@@ -947,7 +947,7 @@ FORWARD ME_456EB3E10177
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_456EB3E10177 // EntityBase
+ : Parent HWL ME_456EB3E10177 // EntityBase
  ;
  : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
  ;
@@ -964,7 +964,7 @@ ref; // ME_456EB3E1017C is_saved
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_456EB3E10177 // EntityBase
+ : Parent HWL ME_456EB3E10177 // EntityBase
  ;
  : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
  ;
@@ -981,12 +981,12 @@ ref; // ME_456EB3E1017D is_changed
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_456EB3E10177 // EntityBase
+ : Parent HWL ME_456EB3E10177 // EntityBase
  ;
  : Target WL 'ME_3DBFFDE101CA' '3DBFDB23006E.pas.ms.script' // unsigned long
  ;
  : CanRaise
-   Seq: ( ME_456EB454018A // Unsupported
+   Seq: ( HWL ME_456EB454018A // Unsupported
  )
  ; // CanRaise
  CONST "pm" false
@@ -997,7 +997,7 @@ ref; // ME_456EE084033C eid
  CONST Name 'storage'
  CONST Class class_Parameter
  : Stereotype st_inout ;
- : Target ME_456EC7C300DA // EntityStorage
+ : Target HWL ME_456EC7C300DA // EntityStorage
  ;
 
 ref; // ME_46286BC2034B storage
@@ -1010,16 +1010,16 @@ ref; // ME_46286BC2034B storage
  %SUMMARY 'Перезаписать сущность текущей сущностью.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_456EB3E10177 // EntityBase
+ : Parent HWL ME_456EB3E10177 // EntityBase
  ;
- : Target ME_456EC7C300DA // EntityStorage
+ : Target HWL ME_456EC7C300DA // EntityStorage
  ;
  : CanRaise
-   Seq: ( ME_456EB4540188 // AccessDenied
- ME_456EB454018A // Unsupported
- ME_456EB4540190 // NotSaved
- ME_456EB4540194 // DuplicateNode
- ME_456EC75801B5 // CanNotSave
+   Seq: ( HWL ME_456EB4540188 // AccessDenied
+ HWL ME_456EB454018A // Unsupported
+ HWL ME_456EB4540190 // NotSaved
+ HWL ME_456EB4540194 // DuplicateNode
+ HWL ME_456EC75801B5 // CanNotSave
  )
  ; // CanRaise
  : Parameters
@@ -1033,7 +1033,7 @@ ref; // ME_456EB3E10178 save_to
  CONST Name 'storage'
  CONST Class class_Parameter
  : Stereotype st_inout ;
- : Target ME_456EC7C300DA // EntityStorage
+ : Target HWL ME_456EC7C300DA // EntityStorage
  ;
 
 ref; // ME_46286BC900CB storage
@@ -1046,15 +1046,15 @@ ref; // ME_46286BC900CB storage
  %SUMMARY 'Сохраняет в базе  измененное состояние объекта.'#13#10'Объеденяя с с ранее сохраненными данными' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_456EB3E10177 // EntityBase
+ : Parent HWL ME_456EB3E10177 // EntityBase
  ;
- : Target ME_456EC7C300DA // EntityStorage
+ : Target HWL ME_456EC7C300DA // EntityStorage
  ;
  : CanRaise
-   Seq: ( ME_456EB4540177 // ConstantModify
- ME_456EB4540188 // AccessDenied
- ME_456EB454018A // Unsupported
- ME_456EC75801B5 // CanNotSave
+   Seq: ( HWL ME_456EB4540177 // ConstantModify
+ HWL ME_456EB4540188 // AccessDenied
+ HWL ME_456EB454018A // Unsupported
+ HWL ME_456EC75801B5 // CanNotSave
  )
  ; // CanRaise
  : Parameters
@@ -1074,17 +1074,17 @@ ref; // ME_456EB3E1017A append_to
  %SUMMARY 'Базовый абстрактный интерфейс для сущностей. Данный интерфейс должен заменить устаревыший BaseTreeSupport::BaseEntity .' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_456EA56002BF // BaseTypes
+ : Parent HWL ME_456EA56002BF // BaseTypes
  ;
  : Attributes
-   Seq: ( ME_456EB3E1017C // is_saved
- ME_456EB3E1017D // is_changed
- ME_456EE084033C // eid
+   Seq: ( HWL ME_456EB3E1017C // is_saved
+ HWL ME_456EB3E1017D // is_changed
+ HWL ME_456EE084033C // eid
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_456EB3E10178 // save_to
- ME_456EB3E1017A // append_to
+   Seq: ( HWL ME_456EB3E10178 // save_to
+ HWL ME_456EB3E1017A // append_to
  )
  ; // Operations
  CONST "TODO" 'перенести в DynamicTree'
@@ -1104,7 +1104,7 @@ ref; // ME_456EB3E10177 EntityBase
  %SUMMARY 'Возвращается при операции по изменению дерева в случае, если результат получается пустой, и это запрещенно логикой конкретеного дерева.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_456EA56002BF // BaseTypes
+ : Parent HWL ME_456EA56002BF // BaseTypes
  ;
  CONST "force usage" true
 
@@ -1120,7 +1120,7 @@ FORWARD ME_456EC8A60000
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_456EC8A60000 // ItemStatus
+ : Parent HWL ME_456EC8A60000 // ItemStatus
  ;
 
 ref; // ME_456EC8A60001 IS_ABOLISHED
@@ -1133,7 +1133,7 @@ ref; // ME_456EC8A60001 IS_ABOLISHED
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_456EC8A60000 // ItemStatus
+ : Parent HWL ME_456EC8A60000 // ItemStatus
  ;
 
 ref; // ME_456EC8A60002 IS_ACTIVE
@@ -1146,7 +1146,7 @@ ref; // ME_456EC8A60002 IS_ACTIVE
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_456EC8A60000 // ItemStatus
+ : Parent HWL ME_456EC8A60000 // ItemStatus
  ;
 
 ref; // ME_456EC8A60003 IS_PREACTIVE
@@ -1159,7 +1159,7 @@ ref; // ME_456EC8A60003 IS_PREACTIVE
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_456EC8A60000 // ItemStatus
+ : Parent HWL ME_456EC8A60000 // ItemStatus
  ;
 
 ref; // ME_456EC8A60004 IS_UNKNOWN
@@ -1173,13 +1173,13 @@ ref; // ME_456EC8A60004 IS_UNKNOWN
  %SUMMARY 'Статус элемента.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_456EA56002BF // BaseTypes
+ : Parent HWL ME_456EA56002BF // BaseTypes
  ;
  : Attributes
-   Seq: ( ME_456EC8A60001 // IS_ABOLISHED
- ME_456EC8A60002 // IS_ACTIVE
- ME_456EC8A60003 // IS_PREACTIVE
- ME_456EC8A60004 // IS_UNKNOWN
+   Seq: ( HWL ME_456EC8A60001 // IS_ABOLISHED
+ HWL ME_456EC8A60002 // IS_ACTIVE
+ HWL ME_456EC8A60003 // IS_PREACTIVE
+ HWL ME_456EC8A60004 // IS_UNKNOWN
  )
  ; // Attributes
  CONST extprop:pas:TypeName 'TItemStatus'
@@ -1197,7 +1197,7 @@ FORWARD ME_456EC91500FA
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_456EC91500FA // NavigatorMenuItemType
+ : Parent HWL ME_456EC91500FA // NavigatorMenuItemType
  ;
 
 ref; // ME_456EC91500FB NM_FOLDER
@@ -1210,7 +1210,7 @@ ref; // ME_456EC91500FB NM_FOLDER
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_456EC91500FA // NavigatorMenuItemType
+ : Parent HWL ME_456EC91500FA // NavigatorMenuItemType
  ;
 
 ref; // ME_456EC91500FC NM_RUBRICATOR
@@ -1223,7 +1223,7 @@ ref; // ME_456EC91500FC NM_RUBRICATOR
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_456EC91500FA // NavigatorMenuItemType
+ : Parent HWL ME_456EC91500FA // NavigatorMenuItemType
  ;
 
 ref; // ME_456EC91500FD NM_ATTRIBUTE_SEARCH
@@ -1236,7 +1236,7 @@ ref; // ME_456EC91500FD NM_ATTRIBUTE_SEARCH
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_456EC91500FA // NavigatorMenuItemType
+ : Parent HWL ME_456EC91500FA // NavigatorMenuItemType
  ;
 
 ref; // ME_456EC91500FE NM_SITUATION_SEARCH
@@ -1249,7 +1249,7 @@ ref; // ME_456EC91500FE NM_SITUATION_SEARCH
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_456EC91500FA // NavigatorMenuItemType
+ : Parent HWL ME_456EC91500FA // NavigatorMenuItemType
  ;
 
 ref; // ME_456EC91500FF NM_PUBLISH_SOURCE_SEARCH
@@ -1262,7 +1262,7 @@ ref; // ME_456EC91500FF NM_PUBLISH_SOURCE_SEARCH
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_456EC91500FA // NavigatorMenuItemType
+ : Parent HWL ME_456EC91500FA // NavigatorMenuItemType
  ;
 
 ref; // ME_456EC9150100 NM_SINGLE_CONTEXT_SEARCH
@@ -1275,7 +1275,7 @@ ref; // ME_456EC9150100 NM_SINGLE_CONTEXT_SEARCH
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_456EC91500FA // NavigatorMenuItemType
+ : Parent HWL ME_456EC91500FA // NavigatorMenuItemType
  ;
 
 ref; // ME_456EC9150101 NM_SINGLE_ATTRIBUTE_SEARCH
@@ -1288,7 +1288,7 @@ ref; // ME_456EC9150101 NM_SINGLE_ATTRIBUTE_SEARCH
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_456EC91500FA // NavigatorMenuItemType
+ : Parent HWL ME_456EC91500FA // NavigatorMenuItemType
  ;
 
 ref; // ME_456EC9150102 NM_SINGLE_DATE_NUMBER_SEARCH
@@ -1301,7 +1301,7 @@ ref; // ME_456EC9150102 NM_SINGLE_DATE_NUMBER_SEARCH
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_456EC91500FA // NavigatorMenuItemType
+ : Parent HWL ME_456EC91500FA // NavigatorMenuItemType
  ;
 
 ref; // ME_456EC9150103 NM_FILTER_5X
@@ -1314,7 +1314,7 @@ ref; // ME_456EC9150103 NM_FILTER_5X
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_456EC91500FA // NavigatorMenuItemType
+ : Parent HWL ME_456EC91500FA // NavigatorMenuItemType
  ;
 
 ref; // ME_456EC9150104 NM_ATTRIBUTE_SEARCH_5X
@@ -1327,7 +1327,7 @@ ref; // ME_456EC9150104 NM_ATTRIBUTE_SEARCH_5X
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_456EC91500FA // NavigatorMenuItemType
+ : Parent HWL ME_456EC91500FA // NavigatorMenuItemType
  ;
 
 ref; // ME_456EC9150105 NM_SITUATION_SEARCH_5X
@@ -1340,7 +1340,7 @@ ref; // ME_456EC9150105 NM_SITUATION_SEARCH_5X
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_456EC91500FA // NavigatorMenuItemType
+ : Parent HWL ME_456EC91500FA // NavigatorMenuItemType
  ;
 
 ref; // ME_456EC9150106 NM_UPDATE
@@ -1353,7 +1353,7 @@ ref; // ME_456EC9150106 NM_UPDATE
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_456EC91500FA // NavigatorMenuItemType
+ : Parent HWL ME_456EC91500FA // NavigatorMenuItemType
  ;
 
 ref; // ME_456EC9150107 NM_CONFIGURATION_LIST
@@ -1366,7 +1366,7 @@ ref; // ME_456EC9150107 NM_CONFIGURATION_LIST
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_456EC91500FA // NavigatorMenuItemType
+ : Parent HWL ME_456EC91500FA // NavigatorMenuItemType
  ;
 
 ref; // ME_456EC9150108 NM_LIST
@@ -1379,7 +1379,7 @@ ref; // ME_456EC9150108 NM_LIST
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_456EC91500FA // NavigatorMenuItemType
+ : Parent HWL ME_456EC91500FA // NavigatorMenuItemType
  ;
 
 ref; // ME_456EC9150109 NM_COMPLECT_INFO
@@ -1392,7 +1392,7 @@ ref; // ME_456EC9150109 NM_COMPLECT_INFO
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_456EC91500FA // NavigatorMenuItemType
+ : Parent HWL ME_456EC91500FA // NavigatorMenuItemType
  ;
 
 ref; // ME_456EC915010A NM_DOCUMENT
@@ -1405,7 +1405,7 @@ ref; // ME_456EC915010A NM_DOCUMENT
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_456EC91500FA // NavigatorMenuItemType
+ : Parent HWL ME_456EC91500FA // NavigatorMenuItemType
  ;
 
 ref; // ME_456EC915010B NM_LAW_NAVIGATOR_FOLDER
@@ -1418,7 +1418,7 @@ ref; // ME_456EC915010B NM_LAW_NAVIGATOR_FOLDER
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_456EC91500FA // NavigatorMenuItemType
+ : Parent HWL ME_456EC91500FA // NavigatorMenuItemType
  ;
 
 ref; // ME_456EC915010C NM_BUSINESS_INFO_FOLDER
@@ -1431,7 +1431,7 @@ ref; // ME_456EC915010C NM_BUSINESS_INFO_FOLDER
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_456EC91500FA // NavigatorMenuItemType
+ : Parent HWL ME_456EC91500FA // NavigatorMenuItemType
  ;
 
 ref; // ME_456EC915010D NM_SEARCH_FOLDER
@@ -1444,7 +1444,7 @@ ref; // ME_456EC915010D NM_SEARCH_FOLDER
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_456EC91500FA // NavigatorMenuItemType
+ : Parent HWL ME_456EC91500FA // NavigatorMenuItemType
  ;
 
 ref; // ME_456EC915010E NM_UPDATE_FOLDER
@@ -1457,7 +1457,7 @@ ref; // ME_456EC915010E NM_UPDATE_FOLDER
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_456EC91500FA // NavigatorMenuItemType
+ : Parent HWL ME_456EC91500FA // NavigatorMenuItemType
  ;
 
 ref; // ME_456EC915010F NM_RECENTLY_DOCUMENTS_FOLDER
@@ -1470,7 +1470,7 @@ ref; // ME_456EC915010F NM_RECENTLY_DOCUMENTS_FOLDER
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_456EC91500FA // NavigatorMenuItemType
+ : Parent HWL ME_456EC91500FA // NavigatorMenuItemType
  ;
 
 ref; // ME_456EC9150110 NM_EXPLANATORY_DICTIONARY
@@ -1483,7 +1483,7 @@ ref; // ME_456EC9150110 NM_EXPLANATORY_DICTIONARY
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_456EC91500FA // NavigatorMenuItemType
+ : Parent HWL ME_456EC91500FA // NavigatorMenuItemType
  ;
 
 ref; // ME_456EC9150111 NM_NEW_DOCS
@@ -1496,7 +1496,7 @@ ref; // ME_456EC9150111 NM_NEW_DOCS
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_456EC91500FA // NavigatorMenuItemType
+ : Parent HWL ME_456EC91500FA // NavigatorMenuItemType
  ;
 
 ref; // ME_456EC9150112 NM_PRIME_FOLDER
@@ -1509,7 +1509,7 @@ ref; // ME_456EC9150112 NM_PRIME_FOLDER
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_456EC91500FA // NavigatorMenuItemType
+ : Parent HWL ME_456EC91500FA // NavigatorMenuItemType
  ;
 
 ref; // ME_456EC9150113 NM_REVIEW
@@ -1522,7 +1522,7 @@ ref; // ME_456EC9150113 NM_REVIEW
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_456EC91500FA // NavigatorMenuItemType
+ : Parent HWL ME_456EC91500FA // NavigatorMenuItemType
  ;
 
 ref; // ME_456EC9150114 NM_NEWS_LINE
@@ -1535,7 +1535,7 @@ ref; // ME_456EC9150114 NM_NEWS_LINE
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_456EC91500FA // NavigatorMenuItemType
+ : Parent HWL ME_456EC91500FA // NavigatorMenuItemType
  ;
 
 ref; // ME_456EC9150115 NM_SEARCH_WITH_LAW_SUPPORT
@@ -1548,7 +1548,7 @@ ref; // ME_456EC9150115 NM_SEARCH_WITH_LAW_SUPPORT
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_456EC91500FA // NavigatorMenuItemType
+ : Parent HWL ME_456EC91500FA // NavigatorMenuItemType
  ;
 
 ref; // ME_456EC9150116 NM_LAW_SUPPORT
@@ -1560,7 +1560,7 @@ ref; // ME_456EC9150116 NM_LAW_SUPPORT
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_456EC91500FA // NavigatorMenuItemType
+ : Parent HWL ME_456EC91500FA // NavigatorMenuItemType
  ;
 
 ref; // ME_462F31630251 NM_CALENDAR
@@ -1572,7 +1572,7 @@ ref; // ME_462F31630251 NM_CALENDAR
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_456EC91500FA // NavigatorMenuItemType
+ : Parent HWL ME_456EC91500FA // NavigatorMenuItemType
  ;
 
 ref; // ME_462F316B00DA NM_BUSINESS_REFERENCES
@@ -1584,7 +1584,7 @@ ref; // ME_462F316B00DA NM_BUSINESS_REFERENCES
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_456EC91500FA // NavigatorMenuItemType
+ : Parent HWL ME_456EC91500FA // NavigatorMenuItemType
  ;
 
 ref; // ME_462F318001E4 NM_HOT_INFORMATION
@@ -1597,7 +1597,7 @@ ref; // ME_462F318001E4 NM_HOT_INFORMATION
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_456EC91500FA // NavigatorMenuItemType
+ : Parent HWL ME_456EC91500FA // NavigatorMenuItemType
  ;
 
 ref; // ME_4746F01602CE NM_CODEX
@@ -1610,7 +1610,7 @@ ref; // ME_4746F01602CE NM_CODEX
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_456EC91500FA // NavigatorMenuItemType
+ : Parent HWL ME_456EC91500FA // NavigatorMenuItemType
  ;
 
 ref; // ME_4746F02701C0 NM_FORMS
@@ -1623,7 +1623,7 @@ ref; // ME_4746F02701C0 NM_FORMS
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_456EC91500FA // NavigatorMenuItemType
+ : Parent HWL ME_456EC91500FA // NavigatorMenuItemType
  ;
 
 ref; // ME_4746F04201E9 NM_MONITORINGS
@@ -1636,7 +1636,7 @@ ref; // ME_4746F04201E9 NM_MONITORINGS
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_456EC91500FA // NavigatorMenuItemType
+ : Parent HWL ME_456EC91500FA // NavigatorMenuItemType
  ;
 
 ref; // ME_47D1668301D8 NM_PHARM_SEARCH
@@ -1649,7 +1649,7 @@ ref; // ME_47D1668301D8 NM_PHARM_SEARCH
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_456EC91500FA // NavigatorMenuItemType
+ : Parent HWL ME_456EC91500FA // NavigatorMenuItemType
  ;
 
 ref; // ME_47D8084301E9 NM_INPHARM
@@ -1662,7 +1662,7 @@ ref; // ME_47D8084301E9 NM_INPHARM
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_456EC91500FA // NavigatorMenuItemType
+ : Parent HWL ME_456EC91500FA // NavigatorMenuItemType
  ;
 
 ref; // ME_47D8085B006B NM_PHARM_LEK
@@ -1675,7 +1675,7 @@ ref; // ME_47D8085B006B NM_PHARM_LEK
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_456EC91500FA // NavigatorMenuItemType
+ : Parent HWL ME_456EC91500FA // NavigatorMenuItemType
  ;
 
 ref; // ME_47D808AA0163 NM_PHARM_FIRMS
@@ -1688,7 +1688,7 @@ ref; // ME_47D808AA0163 NM_PHARM_FIRMS
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_456EC91500FA // NavigatorMenuItemType
+ : Parent HWL ME_456EC91500FA // NavigatorMenuItemType
  ;
 
 ref; // ME_47D808B80350 NM_PHARM_DICT
@@ -1701,7 +1701,7 @@ ref; // ME_47D808B80350 NM_PHARM_DICT
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_456EC91500FA // NavigatorMenuItemType
+ : Parent HWL ME_456EC91500FA // NavigatorMenuItemType
  ;
 
 ref; // ME_48454FC60315 NM_PHARM_BASIC_SECTION
@@ -1714,7 +1714,7 @@ ref; // ME_48454FC60315 NM_PHARM_BASIC_SECTION
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_456EC91500FA // NavigatorMenuItemType
+ : Parent HWL ME_456EC91500FA // NavigatorMenuItemType
  ;
 
 ref; // ME_4ACC6D3600A3 NM_TAXES_AND_FINANCE
@@ -1727,7 +1727,7 @@ ref; // ME_4ACC6D3600A3 NM_TAXES_AND_FINANCE
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_456EC91500FA // NavigatorMenuItemType
+ : Parent HWL ME_456EC91500FA // NavigatorMenuItemType
  ;
 
 ref; // ME_4AFAC8BB0030 NM_BUSINESS_REFERENCES_FOLDER
@@ -1740,7 +1740,7 @@ ref; // ME_4AFAC8BB0030 NM_BUSINESS_REFERENCES_FOLDER
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_456EC91500FA // NavigatorMenuItemType
+ : Parent HWL ME_456EC91500FA // NavigatorMenuItemType
  ;
 
 ref; // ME_4DA8081C0390 NM_LEGAL_ISSUES
@@ -1753,7 +1753,7 @@ ref; // ME_4DA8081C0390 NM_LEGAL_ISSUES
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_456EC91500FA // NavigatorMenuItemType
+ : Parent HWL ME_456EC91500FA // NavigatorMenuItemType
  ;
 
 ref; // ME_4DA808500212 NM_HR
@@ -1766,7 +1766,7 @@ ref; // ME_4DA808500212 NM_HR
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_456EC91500FA // NavigatorMenuItemType
+ : Parent HWL ME_456EC91500FA // NavigatorMenuItemType
  ;
 
 ref; // ME_4DA8089C0287 NM_BUDGET_ORGS
@@ -1779,7 +1779,7 @@ ref; // ME_4DA8089C0287 NM_BUDGET_ORGS
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_456EC91500FA // NavigatorMenuItemType
+ : Parent HWL ME_456EC91500FA // NavigatorMenuItemType
  ;
 
 ref; // ME_5225F1C10076 NM_LAW_FOR_ALL
@@ -1791,7 +1791,7 @@ ref; // ME_5225F1C10076 NM_LAW_FOR_ALL
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_456EC91500FA // NavigatorMenuItemType
+ : Parent HWL ME_456EC91500FA // NavigatorMenuItemType
  ;
 
 ref; // ME_56E170AB0087 NM_GOS_ZAKUPKI
@@ -1805,56 +1805,56 @@ ref; // ME_56E170AB0087 NM_GOS_ZAKUPKI
  %SUMMARY 'Возможные типы элементов основного меню.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_456EA56002BF // BaseTypes
+ : Parent HWL ME_456EA56002BF // BaseTypes
  ;
  : Attributes
-   Seq: ( ME_456EC91500FB // NM_FOLDER
- ME_456EC91500FC // NM_RUBRICATOR
- ME_456EC91500FD // NM_ATTRIBUTE_SEARCH
- ME_456EC91500FE // NM_SITUATION_SEARCH
- ME_456EC91500FF // NM_PUBLISH_SOURCE_SEARCH
- ME_456EC9150100 // NM_SINGLE_CONTEXT_SEARCH
- ME_456EC9150101 // NM_SINGLE_ATTRIBUTE_SEARCH
- ME_456EC9150102 // NM_SINGLE_DATE_NUMBER_SEARCH
- ME_456EC9150103 // NM_FILTER_5X
- ME_456EC9150104 // NM_ATTRIBUTE_SEARCH_5X
- ME_456EC9150105 // NM_SITUATION_SEARCH_5X
- ME_456EC9150106 // NM_UPDATE
- ME_456EC9150107 // NM_CONFIGURATION_LIST
- ME_456EC9150108 // NM_LIST
- ME_456EC9150109 // NM_COMPLECT_INFO
- ME_456EC915010A // NM_DOCUMENT
- ME_456EC915010B // NM_LAW_NAVIGATOR_FOLDER
- ME_456EC915010C // NM_BUSINESS_INFO_FOLDER
- ME_456EC915010D // NM_SEARCH_FOLDER
- ME_456EC915010E // NM_UPDATE_FOLDER
- ME_456EC915010F // NM_RECENTLY_DOCUMENTS_FOLDER
- ME_456EC9150110 // NM_EXPLANATORY_DICTIONARY
- ME_456EC9150111 // NM_NEW_DOCS
- ME_456EC9150112 // NM_PRIME_FOLDER
- ME_456EC9150113 // NM_REVIEW
- ME_456EC9150114 // NM_NEWS_LINE
- ME_456EC9150115 // NM_SEARCH_WITH_LAW_SUPPORT
- ME_456EC9150116 // NM_LAW_SUPPORT
- ME_462F31630251 // NM_CALENDAR
- ME_462F316B00DA // NM_BUSINESS_REFERENCES
- ME_462F318001E4 // NM_HOT_INFORMATION
- ME_4746F01602CE // NM_CODEX
- ME_4746F02701C0 // NM_FORMS
- ME_4746F04201E9 // NM_MONITORINGS
- ME_47D1668301D8 // NM_PHARM_SEARCH
- ME_47D8084301E9 // NM_INPHARM
- ME_47D8085B006B // NM_PHARM_LEK
- ME_47D808AA0163 // NM_PHARM_FIRMS
- ME_47D808B80350 // NM_PHARM_DICT
- ME_48454FC60315 // NM_PHARM_BASIC_SECTION
- ME_4ACC6D3600A3 // NM_TAXES_AND_FINANCE
- ME_4AFAC8BB0030 // NM_BUSINESS_REFERENCES_FOLDER
- ME_4DA8081C0390 // NM_LEGAL_ISSUES
- ME_4DA808500212 // NM_HR
- ME_4DA8089C0287 // NM_BUDGET_ORGS
- ME_5225F1C10076 // NM_LAW_FOR_ALL
- ME_56E170AB0087 // NM_GOS_ZAKUPKI
+   Seq: ( HWL ME_456EC91500FB // NM_FOLDER
+ HWL ME_456EC91500FC // NM_RUBRICATOR
+ HWL ME_456EC91500FD // NM_ATTRIBUTE_SEARCH
+ HWL ME_456EC91500FE // NM_SITUATION_SEARCH
+ HWL ME_456EC91500FF // NM_PUBLISH_SOURCE_SEARCH
+ HWL ME_456EC9150100 // NM_SINGLE_CONTEXT_SEARCH
+ HWL ME_456EC9150101 // NM_SINGLE_ATTRIBUTE_SEARCH
+ HWL ME_456EC9150102 // NM_SINGLE_DATE_NUMBER_SEARCH
+ HWL ME_456EC9150103 // NM_FILTER_5X
+ HWL ME_456EC9150104 // NM_ATTRIBUTE_SEARCH_5X
+ HWL ME_456EC9150105 // NM_SITUATION_SEARCH_5X
+ HWL ME_456EC9150106 // NM_UPDATE
+ HWL ME_456EC9150107 // NM_CONFIGURATION_LIST
+ HWL ME_456EC9150108 // NM_LIST
+ HWL ME_456EC9150109 // NM_COMPLECT_INFO
+ HWL ME_456EC915010A // NM_DOCUMENT
+ HWL ME_456EC915010B // NM_LAW_NAVIGATOR_FOLDER
+ HWL ME_456EC915010C // NM_BUSINESS_INFO_FOLDER
+ HWL ME_456EC915010D // NM_SEARCH_FOLDER
+ HWL ME_456EC915010E // NM_UPDATE_FOLDER
+ HWL ME_456EC915010F // NM_RECENTLY_DOCUMENTS_FOLDER
+ HWL ME_456EC9150110 // NM_EXPLANATORY_DICTIONARY
+ HWL ME_456EC9150111 // NM_NEW_DOCS
+ HWL ME_456EC9150112 // NM_PRIME_FOLDER
+ HWL ME_456EC9150113 // NM_REVIEW
+ HWL ME_456EC9150114 // NM_NEWS_LINE
+ HWL ME_456EC9150115 // NM_SEARCH_WITH_LAW_SUPPORT
+ HWL ME_456EC9150116 // NM_LAW_SUPPORT
+ HWL ME_462F31630251 // NM_CALENDAR
+ HWL ME_462F316B00DA // NM_BUSINESS_REFERENCES
+ HWL ME_462F318001E4 // NM_HOT_INFORMATION
+ HWL ME_4746F01602CE // NM_CODEX
+ HWL ME_4746F02701C0 // NM_FORMS
+ HWL ME_4746F04201E9 // NM_MONITORINGS
+ HWL ME_47D1668301D8 // NM_PHARM_SEARCH
+ HWL ME_47D8084301E9 // NM_INPHARM
+ HWL ME_47D8085B006B // NM_PHARM_LEK
+ HWL ME_47D808AA0163 // NM_PHARM_FIRMS
+ HWL ME_47D808B80350 // NM_PHARM_DICT
+ HWL ME_48454FC60315 // NM_PHARM_BASIC_SECTION
+ HWL ME_4ACC6D3600A3 // NM_TAXES_AND_FINANCE
+ HWL ME_4AFAC8BB0030 // NM_BUSINESS_REFERENCES_FOLDER
+ HWL ME_4DA8081C0390 // NM_LEGAL_ISSUES
+ HWL ME_4DA808500212 // NM_HR
+ HWL ME_4DA8089C0287 // NM_BUDGET_ORGS
+ HWL ME_5225F1C10076 // NM_LAW_FOR_ALL
+ HWL ME_56E170AB0087 // NM_GOS_ZAKUPKI
  )
  ; // Attributes
  CONST "force usage" true
@@ -1873,7 +1873,7 @@ FORWARD ME_456ECAE100EA
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_456ECAE100EA // SearchResultType
+ : Parent HWL ME_456ECAE100EA // SearchResultType
  ;
 
 ref; // ME_456ECAE100EB SRT_DOCUMENT_LIST
@@ -1886,7 +1886,7 @@ ref; // ME_456ECAE100EB SRT_DOCUMENT_LIST
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_456ECAE100EA // SearchResultType
+ : Parent HWL ME_456ECAE100EA // SearchResultType
  ;
 
 ref; // ME_456ECAE100EC SRT_AUTOREFERAT
@@ -1899,7 +1899,7 @@ ref; // ME_456ECAE100EC SRT_AUTOREFERAT
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_456ECAE100EA // SearchResultType
+ : Parent HWL ME_456ECAE100EA // SearchResultType
  ;
 
 ref; // ME_456ECAE100ED SRT_CONSULTATION
@@ -1913,12 +1913,12 @@ ref; // ME_456ECAE100ED SRT_CONSULTATION
  %SUMMARY 'Тип результата поиска' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_456EA56002BF // BaseTypes
+ : Parent HWL ME_456EA56002BF // BaseTypes
  ;
  : Attributes
-   Seq: ( ME_456ECAE100EB // SRT_DOCUMENT_LIST
- ME_456ECAE100EC // SRT_AUTOREFERAT
- ME_456ECAE100ED // SRT_CONSULTATION
+   Seq: ( HWL ME_456ECAE100EB // SRT_DOCUMENT_LIST
+ HWL ME_456ECAE100EC // SRT_AUTOREFERAT
+ HWL ME_456ECAE100ED // SRT_CONSULTATION
  )
  ; // Attributes
  CONST extprop:pas:TypeName 'TSearchResultType'
@@ -1937,9 +1937,9 @@ FORWARD ME_456ECA9603A9
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_456ECA9603A9 // SearchEntity
+ : Parent HWL ME_456ECA9603A9 // SearchEntity
  ;
- : Target ME_456ECAE100EA // SearchResultType
+ : Target HWL ME_456ECAE100EA // SearchResultType
  ;
  CONST "pm" false
 
@@ -1954,7 +1954,7 @@ ref; // ME_456ECA9603AA result_type
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_456ECA9603A9 // SearchEntity
+ : Parent HWL ME_456ECA9603A9 // SearchEntity
  ;
  : Target WL 'ME_4538E9230233' '3DBFDB23006E.pas.ms.script' // size
  ;
@@ -1971,7 +1971,7 @@ ref; // ME_456ECA9603AB document_count
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_456ECA9603A9 // SearchEntity
+ : Parent HWL ME_456ECA9603A9 // SearchEntity
  ;
  : Target WL 'ME_4538E9230233' '3DBFDB23006E.pas.ms.script' // size
  ;
@@ -1988,7 +1988,7 @@ ref; // ME_4602A0A801F4 entry_count
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_456ECA9603A9 // SearchEntity
+ : Parent HWL ME_456ECA9603A9 // SearchEntity
  ;
  : Target WL 'ME_4538E9230233' '3DBFDB23006E.pas.ms.script' // size
  ;
@@ -2000,7 +2000,7 @@ ref; // ME_46286B3A029F edition_count
  CONST Name 'result_type'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_456ECAE100EA // SearchResultType
+ : Target HWL ME_456ECAE100EA // SearchResultType
  ;
 
 ref; // ME_456EE317002E result_type
@@ -2040,7 +2040,7 @@ ref; // ME_474AA14E02E2 edition_count
  %SUMMARY 'фабрика' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_456ECA9603A9 // SearchEntity
+ : Parent HWL ME_456ECA9603A9 // SearchEntity
  ;
  : Parameters
    Seq: ( ME_456EE317002E // result_type
@@ -2068,7 +2068,7 @@ ref; // ME_46029F0B001F search_entity
  %SUMMARY 'фабрика' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_456ECA9603A9 // SearchEntity
+ : Parent HWL ME_456ECA9603A9 // SearchEntity
  ;
  : Parameters
    Seq: ( ME_46029F0B001F // search_entity
@@ -2089,18 +2089,18 @@ ref; // ME_460299EF0138 make
  %SUMMARY 'Сущность, передаваемая в метод finish_process на прогресс индикаторе, как результат поиска' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_456EA56002BF // BaseTypes
+ : Parent HWL ME_456EA56002BF // BaseTypes
  ;
  : Attributes
-   Seq: ( ME_456ECA9603AA // result_type
- ME_456ECA9603AB // document_count
- ME_4602A0A801F4 // entry_count
- ME_46286B3A029F // edition_count
+   Seq: ( HWL ME_456ECA9603AA // result_type
+ HWL ME_456ECA9603AB // document_count
+ HWL ME_4602A0A801F4 // entry_count
+ HWL ME_46286B3A029F // edition_count
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_456EE2B102EE // make
- ME_460299EF0138 // make
+   Seq: ( HWL ME_456EE2B102EE // make
+ HWL ME_460299EF0138 // make
  )
  ; // Operations
  CONST "single impl" false
@@ -2120,7 +2120,7 @@ FORWARD ME_456ECB110222
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_456ECB110222 // SortOrder
+ : Parent HWL ME_456ECB110222 // SortOrder
  ;
 
 ref; // ME_456ECB110223 SO_ASCENDING
@@ -2133,7 +2133,7 @@ ref; // ME_456ECB110223 SO_ASCENDING
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_456ECB110222 // SortOrder
+ : Parent HWL ME_456ECB110222 // SortOrder
  ;
 
 ref; // ME_456ECB110224 SO_DESCENDING
@@ -2147,11 +2147,11 @@ ref; // ME_456ECB110224 SO_DESCENDING
  %SUMMARY 'Направление сортировки.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_456EA56002BF // BaseTypes
+ : Parent HWL ME_456EA56002BF // BaseTypes
  ;
  : Attributes
-   Seq: ( ME_456ECB110223 // SO_ASCENDING
- ME_456ECB110224 // SO_DESCENDING
+   Seq: ( HWL ME_456ECB110223 // SO_ASCENDING
+ HWL ME_456ECB110224 // SO_DESCENDING
  )
  ; // Attributes
  CONST extprop:pas:TypeName 'TSortOrder'
@@ -2169,7 +2169,7 @@ FORWARD ME_456ECC87033C
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_456ECC87033C // SortType
+ : Parent HWL ME_456ECC87033C // SortType
  ;
 
 ref; // ME_456ECC87033D ST_PRIORITY
@@ -2182,7 +2182,7 @@ ref; // ME_456ECC87033D ST_PRIORITY
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_456ECC87033C // SortType
+ : Parent HWL ME_456ECC87033C // SortType
  ;
 
 ref; // ME_456ECC87033E ST_CREATE_DATE
@@ -2195,7 +2195,7 @@ ref; // ME_456ECC87033E ST_CREATE_DATE
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_456ECC87033C // SortType
+ : Parent HWL ME_456ECC87033C // SortType
  ;
 
 ref; // ME_456ECC87033F ST_LAST_EDIT_DATE
@@ -2208,7 +2208,7 @@ ref; // ME_456ECC87033F ST_LAST_EDIT_DATE
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_456ECC87033C // SortType
+ : Parent HWL ME_456ECC87033C // SortType
  ;
 
 ref; // ME_456ECC870340 ST_NOT_SORTED
@@ -2221,7 +2221,7 @@ ref; // ME_456ECC870340 ST_NOT_SORTED
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_456ECC87033C // SortType
+ : Parent HWL ME_456ECC87033C // SortType
  ;
 
 ref; // ME_456ECC870341 ST_RELEVANCE
@@ -2235,14 +2235,14 @@ ref; // ME_456ECC870341 ST_RELEVANCE
  %SUMMARY 'Тип сортировки.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_456EA56002BF // BaseTypes
+ : Parent HWL ME_456EA56002BF // BaseTypes
  ;
  : Attributes
-   Seq: ( ME_456ECC87033D // ST_PRIORITY
- ME_456ECC87033E // ST_CREATE_DATE
- ME_456ECC87033F // ST_LAST_EDIT_DATE
- ME_456ECC870340 // ST_NOT_SORTED
- ME_456ECC870341 // ST_RELEVANCE
+   Seq: ( HWL ME_456ECC87033D // ST_PRIORITY
+ HWL ME_456ECC87033E // ST_CREATE_DATE
+ HWL ME_456ECC87033F // ST_LAST_EDIT_DATE
+ HWL ME_456ECC870340 // ST_NOT_SORTED
+ HWL ME_456ECC870341 // ST_RELEVANCE
  )
  ; // Attributes
  CONST extprop:pas:TypeName 'TSortType'
@@ -2260,9 +2260,9 @@ FORWARD ME_456ECB2C030D
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_456ECB2C030D // SortParams
+ : Parent HWL ME_456ECB2C030D // SortParams
  ;
- : Target ME_456ECB110222 // SortOrder
+ : Target HWL ME_456ECB110222 // SortOrder
  ;
 
 ref; // ME_456ECC5B034B sort_order
@@ -2275,9 +2275,9 @@ ref; // ME_456ECC5B034B sort_order
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_456ECB2C030D // SortParams
+ : Parent HWL ME_456ECB2C030D // SortParams
  ;
- : Target ME_456ECC87033C // SortType
+ : Target HWL ME_456ECC87033C // SortType
  ;
 
 ref; // ME_456ECC9D005D sort_type
@@ -2291,11 +2291,11 @@ ref; // ME_456ECC9D005D sort_type
  %SUMMARY 'Параметры сортировки.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_456EA56002BF // BaseTypes
+ : Parent HWL ME_456EA56002BF // BaseTypes
  ;
  : Attributes
-   Seq: ( ME_456ECC5B034B // sort_order
- ME_456ECC9D005D // sort_type
+   Seq: ( HWL ME_456ECC5B034B // sort_order
+ HWL ME_456ECC9D005D // sort_type
  )
  ; // Attributes
  CONST extprop:pas:TypeName 'TSortParams'
@@ -2312,7 +2312,7 @@ FORWARD ME_456ED2A0008C
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_456ED2A0008C // TextSearchOptionType
+ : Parent HWL ME_456ED2A0008C // TextSearchOptionType
  ;
 
 ref; // ME_456ED2A0008D TSO_TEXT
@@ -2325,7 +2325,7 @@ ref; // ME_456ED2A0008D TSO_TEXT
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_456ED2A0008C // TextSearchOptionType
+ : Parent HWL ME_456ED2A0008C // TextSearchOptionType
  ;
 
 ref; // ME_456ED2A0008E TSO_NAME
@@ -2338,7 +2338,7 @@ ref; // ME_456ED2A0008E TSO_NAME
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_456ED2A0008C // TextSearchOptionType
+ : Parent HWL ME_456ED2A0008C // TextSearchOptionType
  ;
 
 ref; // ME_456ED2A0008F TSO_PARA
@@ -2351,7 +2351,7 @@ ref; // ME_456ED2A0008F TSO_PARA
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_456ED2A0008C // TextSearchOptionType
+ : Parent HWL ME_456ED2A0008C // TextSearchOptionType
  ;
 
 ref; // ME_456ED2A00090 TSO_SENTENCE
@@ -2365,13 +2365,13 @@ ref; // ME_456ED2A00090 TSO_SENTENCE
  %SUMMARY 'Типы поиска по контексту' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_456EA56002BF // BaseTypes
+ : Parent HWL ME_456EA56002BF // BaseTypes
  ;
  : Attributes
-   Seq: ( ME_456ED2A0008D // TSO_TEXT
- ME_456ED2A0008E // TSO_NAME
- ME_456ED2A0008F // TSO_PARA
- ME_456ED2A00090 // TSO_SENTENCE
+   Seq: ( HWL ME_456ED2A0008D // TSO_TEXT
+ HWL ME_456ED2A0008E // TSO_NAME
+ HWL ME_456ED2A0008F // TSO_PARA
+ HWL ME_456ED2A00090 // TSO_SENTENCE
  )
  ; // Attributes
  CONST "force usage" true
@@ -2389,12 +2389,12 @@ FORWARD ME_456ED2D701D4
  %SUMMARY 'вернуть целое' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_456ED2D701D4 // Variant
+ : Parent HWL ME_456ED2D701D4 // Variant
  ;
  : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
  ;
  : CanRaise
-   Seq: ( ME_456EB4540192 // InvalidType
+   Seq: ( HWL ME_456EB4540192 // InvalidType
  )
  ; // CanRaise
 
@@ -2407,12 +2407,12 @@ ref; // ME_456ED2D701D5 get_long
  %SUMMARY 'вернуть булево значение' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_456ED2D701D4 // Variant
+ : Parent HWL ME_456ED2D701D4 // Variant
  ;
  : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
  ;
  : CanRaise
-   Seq: ( ME_456EB4540192 // InvalidType
+   Seq: ( HWL ME_456EB4540192 // InvalidType
  )
  ; // CanRaise
 
@@ -2426,12 +2426,12 @@ ref; // ME_456ED2D701D6 get_bool
  %SUMMARY 'вернуть строку' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_456ED2D701D4 // Variant
+ : Parent HWL ME_456ED2D701D4 // Variant
  ;
  : Target WL 'ME_431841610361' '4423F94903C8.pas.ms.script' // String
  ;
  : CanRaise
-   Seq: ( ME_456EB4540192 // InvalidType
+   Seq: ( HWL ME_456EB4540192 // InvalidType
  )
  ; // CanRaise
 
@@ -2445,12 +2445,12 @@ ref; // ME_456ED2D701D7 get_string
  %SUMMARY 'вернуть объект' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_456ED2D701D4 // Variant
+ : Parent HWL ME_456ED2D701D4 // Variant
  ;
  : Target WL 'ME_4242EBBB03B9' '3DBFDB23006E.pas.ms.script' // object
  ;
  : CanRaise
-   Seq: ( ME_456EB4540192 // InvalidType
+   Seq: ( HWL ME_456EB4540192 // InvalidType
  )
  ; // CanRaise
 
@@ -2464,7 +2464,7 @@ ref; // ME_456ED2D701D8 get_object
  %SUMMARY 'фабрика' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_456ED2D701D4 // Variant
+ : Parent HWL ME_456ED2D701D4 // Variant
  ;
  CONST "const_type" 'read-write'
 
@@ -2487,7 +2487,7 @@ ref; // ME_456EEACA0177 value
  %SUMMARY 'создать обёртку вокруг лонг' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_456ED2D701D4 // Variant
+ : Parent HWL ME_456ED2D701D4 // Variant
  ;
  : Parameters
    Seq: ( ME_456EEACA0177 // value
@@ -2514,7 +2514,7 @@ ref; // ME_456EEAD1037A value
  %SUMMARY 'создать обёртку вокруг bool' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_456ED2D701D4 // Variant
+ : Parent HWL ME_456ED2D701D4 // Variant
  ;
  : Parameters
    Seq: ( ME_456EEAD1037A // value
@@ -2541,7 +2541,7 @@ ref; // ME_4610E571006D value
  %SUMMARY 'создать обёртку вокруг IString' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_456ED2D701D4 // Variant
+ : Parent HWL ME_456ED2D701D4 // Variant
  ;
  : Parameters
    Seq: ( ME_4610E571006D // value
@@ -2568,7 +2568,7 @@ ref; // ME_4610E57601A5 value
  %SUMMARY 'создать обёртку вокруг объекта' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_456ED2D701D4 // Variant
+ : Parent HWL ME_456ED2D701D4 // Variant
  ;
  : Parameters
    Seq: ( ME_4610E57601A5 // value
@@ -2588,18 +2588,18 @@ ref; // ME_456EEA9C01E4 make_object
  %SUMMARY 'тип данных для нотификации' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_456EA56002BF // BaseTypes
+ : Parent HWL ME_456EA56002BF // BaseTypes
  ;
  : Operations
-   Seq: ( ME_456ED2D701D5 // get_long
- ME_456ED2D701D6 // get_bool
- ME_456ED2D701D7 // get_string
- ME_456ED2D701D8 // get_object
- ME_4602A882007D // make
- ME_456EE9DF038A // make_long
- ME_456EEA5F005D // make_bool
- ME_456EEA7E0261 // make_string
- ME_456EEA9C01E4 // make_object
+   Seq: ( HWL ME_456ED2D701D5 // get_long
+ HWL ME_456ED2D701D6 // get_bool
+ HWL ME_456ED2D701D7 // get_string
+ HWL ME_456ED2D701D8 // get_object
+ HWL ME_4602A882007D // make
+ HWL ME_456EE9DF038A // make_long
+ HWL ME_456EEA5F005D // make_bool
+ HWL ME_456EEA7E0261 // make_string
+ HWL ME_456EEA9C01E4 // make_object
  )
  ; // Operations
  CONST "single impl" false
@@ -2617,9 +2617,9 @@ FORWARD ME_456EE8920119
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_ref
- : Parent ME_456EE8920119 // LanguagesList
+ : Parent HWL ME_456EE8920119 // LanguagesList
  ;
- : Target ME_456EB2F1034B // Languages
+ : Target HWL ME_456EB2F1034B // Languages
  ;
 
 ref; // ME_456EE8D2030D 
@@ -2633,10 +2633,10 @@ ref; // ME_456EE8D2030D
  %SUMMARY 'Список языков' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_456EA56002BF // BaseTypes
+ : Parent HWL ME_456EA56002BF // BaseTypes
  ;
  : Attributes
-   Seq: ( ME_456EE8D2030D // 
+   Seq: ( HWL ME_456EE8D2030D // 
  )
  ; // Attributes
  CONST "array type" 'dynamic'
@@ -2652,7 +2652,7 @@ FORWARD ME_457453C10000
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_ref
- : Parent ME_457453C10000 // StringList
+ : Parent HWL ME_457453C10000 // StringList
  ;
  : Target WL 'ME_431841610361' '4423F94903C8.pas.ms.script' // String
  ;
@@ -2668,10 +2668,10 @@ ref; // ME_457453E4009C
  %SUMMARY 'контейнер строк' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_456EA56002BF // BaseTypes
+ : Parent HWL ME_456EA56002BF // BaseTypes
  ;
  : Attributes
-   Seq: ( ME_457453E4009C // 
+   Seq: ( HWL ME_457453E4009C // 
  )
  ; // Attributes
  CONST "array type" 'dynamic'
@@ -2688,7 +2688,7 @@ ref; // ME_457453C10000 StringList
  %SUMMARY 'Произошла внутреняя ошибка при обращении к базе' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_456EA56002BF // BaseTypes
+ : Parent HWL ME_456EA56002BF // BaseTypes
  ;
  CONST "force usage" true
 
@@ -2703,7 +2703,7 @@ ref; // ME_462F037A0337 InternalDatabaseError
  %SUMMARY 'выбрасывается из методов, которые могут дергаться только в контексте сессии, т.е. после логина' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_456EA56002BF // BaseTypes
+ : Parent HWL ME_456EA56002BF // BaseTypes
  ;
 
 ref; // ME_478B818E0072 NoSession
@@ -2717,7 +2717,7 @@ ref; // ME_478B818E0072 NoSession
  %SUMMARY 'Элемент с таким именем уже существует, а два и более созадвать нельзя' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_456EA56002BF // BaseTypes
+ : Parent HWL ME_456EA56002BF // BaseTypes
  ;
 
 ref; // ME_47C80D8E019B DuplicateName
@@ -2731,7 +2731,7 @@ ref; // ME_47C80D8E019B DuplicateName
  %SUMMARY 'идентификатор пользователя или группы' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_456EA56002BF // BaseTypes
+ : Parent HWL ME_456EA56002BF // BaseTypes
  ;
  : Inherits
    Seq: ( WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
@@ -2752,7 +2752,7 @@ FORWARD ME_45EEDB5602C3
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_45EEDB5602C3 // ListNodeType
+ : Parent HWL ME_45EEDB5602C3 // ListNodeType
  ;
 
 ref; // ME_45EEDB5602C4 LNT_SUB
@@ -2765,7 +2765,7 @@ ref; // ME_45EEDB5602C4 LNT_SUB
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_45EEDB5602C3 // ListNodeType
+ : Parent HWL ME_45EEDB5602C3 // ListNodeType
  ;
 
 ref; // ME_45EEDB5602C5 LNT_PARA
@@ -2778,7 +2778,7 @@ ref; // ME_45EEDB5602C5 LNT_PARA
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_45EEDB5602C3 // ListNodeType
+ : Parent HWL ME_45EEDB5602C3 // ListNodeType
  ;
 
 ref; // ME_45EEDB5602C6 LNT_EXTERNAL_OBJECT
@@ -2790,7 +2790,7 @@ ref; // ME_45EEDB5602C6 LNT_EXTERNAL_OBJECT
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_45EEDB5602C3 // ListNodeType
+ : Parent HWL ME_45EEDB5602C3 // ListNodeType
  ;
 
 ref; // ME_45EEDB5602C7 LNT_EXTERNAL_LINK
@@ -2803,7 +2803,7 @@ ref; // ME_45EEDB5602C7 LNT_EXTERNAL_LINK
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_45EEDB5602C3 // ListNodeType
+ : Parent HWL ME_45EEDB5602C3 // ListNodeType
  ;
 
 ref; // ME_45EEDB5602C8 LNT_DOCUMENT_ABOLISHED
@@ -2816,7 +2816,7 @@ ref; // ME_45EEDB5602C8 LNT_DOCUMENT_ABOLISHED
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_45EEDB5602C3 // ListNodeType
+ : Parent HWL ME_45EEDB5602C3 // ListNodeType
  ;
 
 ref; // ME_45EEDB5602C9 LNT_DOCUMENT_ACTIVE
@@ -2829,7 +2829,7 @@ ref; // ME_45EEDB5602C9 LNT_DOCUMENT_ACTIVE
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_45EEDB5602C3 // ListNodeType
+ : Parent HWL ME_45EEDB5602C3 // ListNodeType
  ;
 
 ref; // ME_45EEDB5602CA LNT_DOCUMENT_PREACTIVE
@@ -2842,7 +2842,7 @@ ref; // ME_45EEDB5602CA LNT_DOCUMENT_PREACTIVE
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_45EEDB5602C3 // ListNodeType
+ : Parent HWL ME_45EEDB5602C3 // ListNodeType
  ;
 
 ref; // ME_45EEDB5602CB LNT_DOCUMENT_UNKNOWN
@@ -2855,7 +2855,7 @@ ref; // ME_45EEDB5602CB LNT_DOCUMENT_UNKNOWN
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_45EEDB5602C3 // ListNodeType
+ : Parent HWL ME_45EEDB5602C3 // ListNodeType
  ;
 
 ref; // ME_45EEDB5602CC LNT_EDITION_ABOLISHED
@@ -2868,7 +2868,7 @@ ref; // ME_45EEDB5602CC LNT_EDITION_ABOLISHED
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_45EEDB5602C3 // ListNodeType
+ : Parent HWL ME_45EEDB5602C3 // ListNodeType
  ;
 
 ref; // ME_45EEDB5602CD LNT_EDITION_ACTIVE
@@ -2881,7 +2881,7 @@ ref; // ME_45EEDB5602CD LNT_EDITION_ACTIVE
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_45EEDB5602C3 // ListNodeType
+ : Parent HWL ME_45EEDB5602C3 // ListNodeType
  ;
 
 ref; // ME_45EEDB5602CE LNT_EDITION_PREACTIVE
@@ -2894,7 +2894,7 @@ ref; // ME_45EEDB5602CE LNT_EDITION_PREACTIVE
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_45EEDB5602C3 // ListNodeType
+ : Parent HWL ME_45EEDB5602C3 // ListNodeType
  ;
 
 ref; // ME_45EEDB5602CF LNT_EDITION_UNKNOWN
@@ -2907,7 +2907,7 @@ ref; // ME_45EEDB5602CF LNT_EDITION_UNKNOWN
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_45EEDB5602C3 // ListNodeType
+ : Parent HWL ME_45EEDB5602C3 // ListNodeType
  ;
 
 ref; // ME_45EEDB5602D0 LNT_EDITIONS_GROUP
@@ -2920,7 +2920,7 @@ ref; // ME_45EEDB5602D0 LNT_EDITIONS_GROUP
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_45EEDB5602C3 // ListNodeType
+ : Parent HWL ME_45EEDB5602C3 // ListNodeType
  ;
 
 ref; // ME_45EEDB5602D1 LNT_BLOCK
@@ -2933,7 +2933,7 @@ ref; // ME_45EEDB5602D1 LNT_BLOCK
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_45EEDB5602C3 // ListNodeType
+ : Parent HWL ME_45EEDB5602C3 // ListNodeType
  ;
 
 ref; // ME_47E1326900E1 LNT_DRUG_ANNULED
@@ -2946,7 +2946,7 @@ ref; // ME_47E1326900E1 LNT_DRUG_ANNULED
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_45EEDB5602C3 // ListNodeType
+ : Parent HWL ME_45EEDB5602C3 // ListNodeType
  ;
 
 ref; // ME_47E1328300B2 LNT_DRUG_NARCOTIC
@@ -2959,7 +2959,7 @@ ref; // ME_47E1328300B2 LNT_DRUG_NARCOTIC
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_45EEDB5602C3 // ListNodeType
+ : Parent HWL ME_45EEDB5602C3 // ListNodeType
  ;
 
 ref; // ME_47E132840354 LNT_DRUG_NONANNULED_NONNARCOTIC
@@ -2972,7 +2972,7 @@ ref; // ME_47E132840354 LNT_DRUG_NONANNULED_NONNARCOTIC
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_45EEDB5602C3 // ListNodeType
+ : Parent HWL ME_45EEDB5602C3 // ListNodeType
  ;
 
 ref; // ME_47E286F303D5 LNT_FORM_ANNULED
@@ -2985,7 +2985,7 @@ ref; // ME_47E286F303D5 LNT_FORM_ANNULED
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_45EEDB5602C3 // ListNodeType
+ : Parent HWL ME_45EEDB5602C3 // ListNodeType
  ;
 
 ref; // ME_47E287050076 LNT_FORM_RUSSIAN_IMPORTANT
@@ -2998,7 +2998,7 @@ ref; // ME_47E287050076 LNT_FORM_RUSSIAN_IMPORTANT
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_45EEDB5602C3 // ListNodeType
+ : Parent HWL ME_45EEDB5602C3 // ListNodeType
  ;
 
 ref; // ME_47E28727015D LNT_FORM_NONRUSSIAN_IMPORTANT
@@ -3011,7 +3011,7 @@ ref; // ME_47E28727015D LNT_FORM_NONRUSSIAN_IMPORTANT
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_45EEDB5602C3 // ListNodeType
+ : Parent HWL ME_45EEDB5602C3 // ListNodeType
  ;
 
 ref; // ME_47E2873A000C LNT_FORM_RUSSIAN_NONIMPORTANT
@@ -3024,7 +3024,7 @@ ref; // ME_47E2873A000C LNT_FORM_RUSSIAN_NONIMPORTANT
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_45EEDB5602C3 // ListNodeType
+ : Parent HWL ME_45EEDB5602C3 // ListNodeType
  ;
 
 ref; // ME_47E28755011A LNT_FORM_NONRUSSIAN_NONIMPORTANT
@@ -3037,7 +3037,7 @@ ref; // ME_47E28755011A LNT_FORM_NONRUSSIAN_NONIMPORTANT
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_45EEDB5602C3 // ListNodeType
+ : Parent HWL ME_45EEDB5602C3 // ListNodeType
  ;
 
 ref; // ME_4D5129F30047 LNT_FIRM
@@ -3050,7 +3050,7 @@ ref; // ME_4D5129F30047 LNT_FIRM
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_45EEDB5602C3 // ListNodeType
+ : Parent HWL ME_45EEDB5602C3 // ListNodeType
  ;
 
 ref; // ME_503C6D19025E LNT_AAK
@@ -3063,33 +3063,33 @@ ref; // ME_503C6D19025E LNT_AAK
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_456EA56002BF // BaseTypes
+ : Parent HWL ME_456EA56002BF // BaseTypes
  ;
  : Attributes
-   Seq: ( ME_45EEDB5602C4 // LNT_SUB
- ME_45EEDB5602C5 // LNT_PARA
- ME_45EEDB5602C6 // LNT_EXTERNAL_OBJECT
- ME_45EEDB5602C7 // LNT_EXTERNAL_LINK
- ME_45EEDB5602C8 // LNT_DOCUMENT_ABOLISHED
- ME_45EEDB5602C9 // LNT_DOCUMENT_ACTIVE
- ME_45EEDB5602CA // LNT_DOCUMENT_PREACTIVE
- ME_45EEDB5602CB // LNT_DOCUMENT_UNKNOWN
- ME_45EEDB5602CC // LNT_EDITION_ABOLISHED
- ME_45EEDB5602CD // LNT_EDITION_ACTIVE
- ME_45EEDB5602CE // LNT_EDITION_PREACTIVE
- ME_45EEDB5602CF // LNT_EDITION_UNKNOWN
- ME_45EEDB5602D0 // LNT_EDITIONS_GROUP
- ME_45EEDB5602D1 // LNT_BLOCK
- ME_47E1326900E1 // LNT_DRUG_ANNULED
- ME_47E1328300B2 // LNT_DRUG_NARCOTIC
- ME_47E132840354 // LNT_DRUG_NONANNULED_NONNARCOTIC
- ME_47E286F303D5 // LNT_FORM_ANNULED
- ME_47E287050076 // LNT_FORM_RUSSIAN_IMPORTANT
- ME_47E28727015D // LNT_FORM_NONRUSSIAN_IMPORTANT
- ME_47E2873A000C // LNT_FORM_RUSSIAN_NONIMPORTANT
- ME_47E28755011A // LNT_FORM_NONRUSSIAN_NONIMPORTANT
- ME_4D5129F30047 // LNT_FIRM
- ME_503C6D19025E // LNT_AAK
+   Seq: ( HWL ME_45EEDB5602C4 // LNT_SUB
+ HWL ME_45EEDB5602C5 // LNT_PARA
+ HWL ME_45EEDB5602C6 // LNT_EXTERNAL_OBJECT
+ HWL ME_45EEDB5602C7 // LNT_EXTERNAL_LINK
+ HWL ME_45EEDB5602C8 // LNT_DOCUMENT_ABOLISHED
+ HWL ME_45EEDB5602C9 // LNT_DOCUMENT_ACTIVE
+ HWL ME_45EEDB5602CA // LNT_DOCUMENT_PREACTIVE
+ HWL ME_45EEDB5602CB // LNT_DOCUMENT_UNKNOWN
+ HWL ME_45EEDB5602CC // LNT_EDITION_ABOLISHED
+ HWL ME_45EEDB5602CD // LNT_EDITION_ACTIVE
+ HWL ME_45EEDB5602CE // LNT_EDITION_PREACTIVE
+ HWL ME_45EEDB5602CF // LNT_EDITION_UNKNOWN
+ HWL ME_45EEDB5602D0 // LNT_EDITIONS_GROUP
+ HWL ME_45EEDB5602D1 // LNT_BLOCK
+ HWL ME_47E1326900E1 // LNT_DRUG_ANNULED
+ HWL ME_47E1328300B2 // LNT_DRUG_NARCOTIC
+ HWL ME_47E132840354 // LNT_DRUG_NONANNULED_NONNARCOTIC
+ HWL ME_47E286F303D5 // LNT_FORM_ANNULED
+ HWL ME_47E287050076 // LNT_FORM_RUSSIAN_IMPORTANT
+ HWL ME_47E28727015D // LNT_FORM_NONRUSSIAN_IMPORTANT
+ HWL ME_47E2873A000C // LNT_FORM_RUSSIAN_NONIMPORTANT
+ HWL ME_47E28755011A // LNT_FORM_NONRUSSIAN_NONIMPORTANT
+ HWL ME_4D5129F30047 // LNT_FIRM
+ HWL ME_503C6D19025E // LNT_AAK
  )
  ; // Attributes
  CONST "force usage" true
@@ -3107,10 +3107,10 @@ ref; // ME_45EEDB5602C3 ListNodeType
  %SUMMARY 'Это создал Шура, т.к. были коллизии с модулем ActiveX и его ObjectId в модуле Document' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_456EA56002BF // BaseTypes
+ : Parent HWL ME_456EA56002BF // BaseTypes
  ;
  : Inherits
-   Seq: ( ME_456EA5EF01A5 // ObjectId
+   Seq: ( HWL ME_456EA5EF01A5 // ObjectId
  )
  ; // Inherits
  CONST extprop:pas:TypeName 'TBaseTypesObjectId'
@@ -3127,7 +3127,7 @@ FORWARD ME_51D3F8A002AD
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_51D3F8A002AD // KindConstants
+ : Parent HWL ME_51D3F8A002AD // KindConstants
  ;
  : Target WL 'ME_3DBFFDF10213' '3DBFDB23006E.pas.ms.script' // unsigned long long
  ;
@@ -3149,10 +3149,10 @@ ref; // ME_51D3F8B00117 ALL_DOCUMENTS_KIND
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_456EA56002BF // BaseTypes
+ : Parent HWL ME_456EA56002BF // BaseTypes
  ;
  : Attributes
-   Seq: ( ME_51D3F8B00117 // ALL_DOCUMENTS_KIND
+   Seq: ( HWL ME_51D3F8B00117 // ALL_DOCUMENTS_KIND
  )
  ; // Attributes
  CONST "spell names" false
@@ -3170,54 +3170,54 @@ ref; // ME_51D3F8A002AD KindConstants
  : Parent WL 'ME_456EA3D2031C' '456EA3D2031C.pas.ms.script' // GblAdapterLib
  ;
  : Children
-   Seq: ( ME_456EA5D9030D // ClassId
- ME_456EA5EF01A5 // ObjectId
- ME_456EA676037A // PId
- ME_456EA6F00109 // Date
- ME_456EA6DA0280 // DateInterval
- ME_456EA801037A // Time
- ME_456EA7D402DE // DateTime
- ME_456EB2F1034B // Languages
- ME_456EB35E001F // NamedElement
- ME_456EB4540177 // ConstantModify
- ME_456EB4540188 // AccessDenied
- ME_456EB4540179 // InvalidTimeStamp
- ME_456EB4540186 // StorageLocked
- ME_456EB454018A // Unsupported
- ME_456EB4540190 // NotSaved
- ME_456EB454018C // FoldersNotAvailable
- ME_456EB454018E // CanNotFindData
- ME_456EB4540194 // DuplicateNode
- ME_456EB4540192 // InvalidType
- ME_456EC75801B5 // CanNotSave
- ME_456EB4540197 // InvalidXMLType
- ME_456EB7430222 // AllContentIsFiltered
- ME_456EB7F00177 // CodePage
- ME_456EC7C300DA // EntityStorage
- ME_456EB3E10177 // EntityBase
- ME_456EC825009C // EmptyResult
- ME_456EC8A60000 // ItemStatus
- ME_456EC91500FA // NavigatorMenuItemType
- ME_456ECAE100EA // SearchResultType
- ME_456ECA9603A9 // SearchEntity
- ME_456ECB110222 // SortOrder
- ME_456ECC87033C // SortType
- ME_456ECB2C030D // SortParams
- ME_456ED2A0008C // TextSearchOptionType
- ME_456ED2D701D4 // Variant
- ME_456EE8920119 // LanguagesList
- ME_457453C10000 // StringList
- ME_462F037A0337 // InternalDatabaseError
- ME_478B818E0072 // NoSession
- ME_47C80D8E019B // DuplicateName
- ME_49DC72D80235 // Uid
- ME_45EEDB5602C3 // ListNodeType
- ME_4DCD6C7401B5 // BaseTypesObjectId
+   Seq: ( HWL ME_456EA5D9030D // ClassId
+ HWL ME_456EA5EF01A5 // ObjectId
+ HWL ME_456EA676037A // PId
+ HWL ME_456EA6F00109 // Date
+ HWL ME_456EA6DA0280 // DateInterval
+ HWL ME_456EA801037A // Time
+ HWL ME_456EA7D402DE // DateTime
+ HWL ME_456EB2F1034B // Languages
+ HWL ME_456EB35E001F // NamedElement
+ HWL ME_456EB4540177 // ConstantModify
+ HWL ME_456EB4540188 // AccessDenied
+ HWL ME_456EB4540179 // InvalidTimeStamp
+ HWL ME_456EB4540186 // StorageLocked
+ HWL ME_456EB454018A // Unsupported
+ HWL ME_456EB4540190 // NotSaved
+ HWL ME_456EB454018C // FoldersNotAvailable
+ HWL ME_456EB454018E // CanNotFindData
+ HWL ME_456EB4540194 // DuplicateNode
+ HWL ME_456EB4540192 // InvalidType
+ HWL ME_456EC75801B5 // CanNotSave
+ HWL ME_456EB4540197 // InvalidXMLType
+ HWL ME_456EB7430222 // AllContentIsFiltered
+ HWL ME_456EB7F00177 // CodePage
+ HWL ME_456EC7C300DA // EntityStorage
+ HWL ME_456EB3E10177 // EntityBase
+ HWL ME_456EC825009C // EmptyResult
+ HWL ME_456EC8A60000 // ItemStatus
+ HWL ME_456EC91500FA // NavigatorMenuItemType
+ HWL ME_456ECAE100EA // SearchResultType
+ HWL ME_456ECA9603A9 // SearchEntity
+ HWL ME_456ECB110222 // SortOrder
+ HWL ME_456ECC87033C // SortType
+ HWL ME_456ECB2C030D // SortParams
+ HWL ME_456ED2A0008C // TextSearchOptionType
+ HWL ME_456ED2D701D4 // Variant
+ HWL ME_456EE8920119 // LanguagesList
+ HWL ME_457453C10000 // StringList
+ HWL ME_462F037A0337 // InternalDatabaseError
+ HWL ME_478B818E0072 // NoSession
+ HWL ME_47C80D8E019B // DuplicateName
+ HWL ME_49DC72D80235 // Uid
+ HWL ME_45EEDB5602C3 // ListNodeType
+ HWL ME_4DCD6C7401B5 // BaseTypesObjectId
  )
  ; // Children
  : Constants
-   Seq: ( ME_456EB7070196 // AdapterConstants
- ME_51D3F8A002AD // KindConstants
+   Seq: ( HWL ME_456EB7070196 // AdapterConstants
+ HWL ME_51D3F8A002AD // KindConstants
  )
  ; // Constants
  : Depends

@@ -16,7 +16,7 @@ FORWARD ME_49EC6E080148
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_49EC6E080148 // IdsInternetAgent
+ : Parent HWL ME_49EC6E080148 // IdsInternetAgent
  ;
  : Target WL 'ME_498849D803A8' '4AB0C3C60310.pas.ms.script' // WideString
  ;
@@ -34,10 +34,10 @@ ref; // ME_49EDE45A02EB URL
  %SUMMARY 'Область вывода Интернет-агента' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_49EC6E2B0118 // IsdsInternetAgent
+ : Parent HWL ME_49EC6E2B0118 // IsdsInternetAgent
  ;
  : Attributes
-   Seq: ( ME_49EDE45A02EB // URL
+   Seq: ( HWL ME_49EDE45A02EB // URL
  )
  ; // Attributes
  CONST extprop:rc:SelfName 'dsInternetAgent'
@@ -48,7 +48,7 @@ ref; // ME_49EC6E080148 IdsInternetAgent
 FORWARD ME_4A37A70E01DE
 
 : ME_49EDE45A02EB_ME_4A37A70E01DE
- : Original ME_49EDE45A02EB // URL
+ : Original HWL ME_49EDE45A02EB // URL
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
@@ -62,10 +62,10 @@ ref; // ME_49EDE45A02EB_ME_4A37A70E01DE URL
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_49EC6E2B0118 // IsdsInternetAgent
+ : Parent HWL ME_49EC6E2B0118 // IsdsInternetAgent
  ;
  : Inherits
-   Seq: ( ME_49EC6E080148 // IdsInternetAgent
+   Seq: ( HWL ME_49EC6E080148 // IdsInternetAgent
  )
  ; // Inherits
  : Implemented
@@ -86,14 +86,14 @@ ref; // ME_4A37A70E01DE MainViewArea
  %SUMMARY 'Прецедент работы с Интернет-агентом' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_49EC6D9000EE // InternetAgentInterfaces
+ : Parent HWL ME_49EC6D9000EE // InternetAgentInterfaces
  ;
  : Attributes
-   Seq: ( ME_4A37A70E01DE // MainViewArea
+   Seq: ( HWL ME_4A37A70E01DE // MainViewArea
  )
  ; // Attributes
  : Children
-   Seq: ( ME_49EC6E080148 // IdsInternetAgent
+   Seq: ( HWL ME_49EC6E080148 // IdsInternetAgent
  )
  ; // Children
  CONST extprop:rc:SelfName 'sdsInternetAgent'
@@ -112,7 +112,7 @@ ref; // ME_49EC6E2B0118 IsdsInternetAgent
  : Parent WL 'ME_49EC6D0903DD' '49EC6D0903DD.pas.ms.script' // InternetAgent
  ;
  : Children
-   Seq: ( ME_49EC6E2B0118 // IsdsInternetAgent
+   Seq: ( HWL ME_49EC6E2B0118 // IsdsInternetAgent
  )
  ; // Children
  : Depends

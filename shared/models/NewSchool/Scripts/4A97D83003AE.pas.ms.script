@@ -1,0 +1,62 @@
+// Folders 4A97D83003AE VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A97D83003AE
+
+: ME_D41E64F06757
+ CONST UID 'D41E64F06757'
+ CONST Name 'Ini_FormFactory_Folders'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы Folders' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4A97D83003AE // Folders
+ ;
+ : SpelledFor HWL ME_4A97D83003AE // Folders
+ ;
+
+ref; // ME_D41E64F06757 Ini_FormFactory_Folders
+
+: ME_4A97D83003AE
+ CONST UID '4A97D83003AE'
+ CONST Name 'Folders'
+ CONST Class class_Class
+ : Stereotype st_VCMFinalForm ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Мои документы' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent WL 'ME_4A96B68A03B1' '4A96B68A03B1.pas.ms.script' // PrimFolders$UC
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4C7E5E980303' '4C7E5E980303.pas.ms.script' // PrimFoldersOptions
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4BD86FD703DC' '4BD856E802F9.pas.ms.script' // Folders
+ )
+ ; // Implements
+ : Operations
+   Seq: ( HWL ME_D41E64F06757 // Ini_FormFactory_Folders
+ )
+ ; // Operations
+ CONST "NeedsHackRef" true
+ CONST "ZoneType" 'Navigator'
+ CONST "author" 'Тучнин Д.А.'
+ CONST "finished dfm" true
+ CONST "form name prefix" 'cf'
+ CONST "no hands" true
+ CONST "resizeable" false
+ CONST "restrict form def" 'undefined'
+ CONST "started" '2003/08/06 08:30:59'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Folders\Forms\Folders_Form.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Folders\Forms'
+ CONST extprop:pas:TypeName 'TcfFolders'
+ CONST extprop:rc:SelfName 'cfFolders'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'Folders_Form'
+
+ref; // ME_4A97D83003AE Folders

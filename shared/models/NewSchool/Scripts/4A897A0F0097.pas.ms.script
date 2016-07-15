@@ -13,7 +13,7 @@ FORWARD ME_4A8993050237
  %SUMMARY 'Предыдущее изменение' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4A8993050237 // Edition
+ : Parent HWL ME_4A8993050237 // Edition
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -34,7 +34,7 @@ ref; // ME_4A8996E000FF PrevChange
  %SUMMARY 'Следующее изменение' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4A8993050237 // Edition
+ : Parent HWL ME_4A8993050237 // Edition
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -72,15 +72,15 @@ ref; // ME_4B1E37CE00C1_ME_4A8993050237 ReturnToDocument
  %SUMMARY 'Редакция' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4A897A0F0097 // CompareEditions
+ : Parent HWL ME_4A897A0F0097 // CompareEditions
  ;
  : Inherits
    Seq: ( WL 'ME_4E8C3C6C0244' '4A77058200BA.pas.ms.script' // Edition
  )
  ; // Inherits
  : Operations
-   Seq: ( ME_4A8996E000FF // PrevChange
- ME_4A8996FA03B8 // NextChange
+   Seq: ( HWL ME_4A8996E000FF // PrevChange
+ HWL ME_4A8996FA03B8 // NextChange
  )
  ; // Operations
  : Implemented
@@ -100,7 +100,7 @@ FORWARD ME_4B6ADBAC0014
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4B6ADBAC0014 // TGotoParaResult
+ : Parent HWL ME_4B6ADBAC0014 // TGotoParaResult
  ;
 
 ref; // ME_4B6ADBEF0081 Fail
@@ -113,7 +113,7 @@ ref; // ME_4B6ADBEF0081 Fail
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4B6ADBAC0014 // TGotoParaResult
+ : Parent HWL ME_4B6ADBAC0014 // TGotoParaResult
  ;
 
 ref; // ME_4B6ADBF900C7 Ok
@@ -126,7 +126,7 @@ ref; // ME_4B6ADBF900C7 Ok
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4B6ADBAC0014 // TGotoParaResult
+ : Parent HWL ME_4B6ADBAC0014 // TGotoParaResult
  ;
 
 ref; // ME_4B6ADC03006C Already
@@ -140,12 +140,12 @@ ref; // ME_4B6ADC03006C Already
  %SUMMARY 'Результат перехода на параграф' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4A897A0F0097 // CompareEditions
+ : Parent HWL ME_4A897A0F0097 // CompareEditions
  ;
  : Attributes
-   Seq: ( ME_4B6ADBEF0081 // Fail
- ME_4B6ADBF900C7 // Ok
- ME_4B6ADC03006C // Already
+   Seq: ( HWL ME_4B6ADBEF0081 // Fail
+ HWL ME_4B6ADBF900C7 // Ok
+ HWL ME_4B6ADC03006C // Already
  )
  ; // Attributes
  CONST "children prefix" 'gtpr'
@@ -191,7 +191,7 @@ ref; // ME_54D30CC5035D aBehaviour
  %SUMMARY 'Переход по локальной ссылке на редакцию' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4B065085018D // Document
+ : Parent HWL ME_4B065085018D // Document
  ;
  : Parameters
    Seq: ( ME_54D30CC50329 // aDocument
@@ -218,10 +218,10 @@ ref; // ME_4B0650D4035A OpenEditionLocalLink
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4A897A0F0097 // CompareEditions
+ : Parent HWL ME_4A897A0F0097 // CompareEditions
  ;
  : Operations
-   Seq: ( ME_4B0650D4035A // OpenEditionLocalLink
+   Seq: ( HWL ME_4B0650D4035A // OpenEditionLocalLink
  )
  ; // Operations
 
@@ -237,7 +237,7 @@ FORWARD ME_4B1E38210086
  %SUMMARY 'Вернуться в текст документа' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4B1E38210086 // RightEdition
+ : Parent HWL ME_4B1E38210086 // RightEdition
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -258,7 +258,7 @@ ref; // ME_4B1E3833024A ReturnToDocument
  %SUMMARY 'Устанавливает фокус тексту' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4B1E38210086 // RightEdition
+ : Parent HWL ME_4B1E38210086 // RightEdition
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -288,7 +288,7 @@ ref; // ME_4B6AF2C401E0 aPara
  %SUMMARY 'Является ли параграф текущим' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4B1E38210086 // RightEdition
+ : Parent HWL ME_4B1E38210086 // RightEdition
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -316,12 +316,12 @@ ref; // ME_4B6AF2A502AE IsCurrentPara
  %SUMMARY 'Текущая редакция' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4A897A0F0097 // CompareEditions
+ : Parent HWL ME_4A897A0F0097 // CompareEditions
  ;
  : Operations
-   Seq: ( ME_4B1E3833024A // ReturnToDocument
- ME_4B69B5A802C2 // SetFocusToText
- ME_4B6AF2A502AE // IsCurrentPara
+   Seq: ( HWL ME_4B1E3833024A // ReturnToDocument
+ HWL ME_4B69B5A802C2 // SetFocusToText
+ HWL ME_4B6AF2A502AE // IsCurrentPara
  )
  ; // Operations
 
@@ -346,9 +346,9 @@ ref; // ME_4AE042630148 aPara
  %SUMMARY 'Перейти к параграфу по номеру' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4ADC8B0F02CF // Finder
+ : Parent HWL ME_4ADC8B0F02CF // Finder
  ;
- : Target ME_4B6ADBAC0014 // TGotoParaResult
+ : Target HWL ME_4B6ADBAC0014 // TGotoParaResult
  ;
  : Parameters
    Seq: ( ME_4AE042630148 // aPara
@@ -373,7 +373,7 @@ ref; // ME_4AE042520302 GotoPara
  %SUMMARY 'Запрещает рисование фокусной рамки' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4ADC8B0F02CF // Finder
+ : Parent HWL ME_4ADC8B0F02CF // Finder
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -395,11 +395,11 @@ ref; // ME_4B59C1F401F8 DisableForceDrawFocusRect
  %SUMMARY 'Инструмент для поиска' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4A897A0F0097 // CompareEditions
+ : Parent HWL ME_4A897A0F0097 // CompareEditions
  ;
  : Operations
-   Seq: ( ME_4AE042520302 // GotoPara
- ME_4B59C1F401F8 // DisableForceDrawFocusRect
+   Seq: ( HWL ME_4AE042520302 // GotoPara
+ HWL ME_4B59C1F401F8 // DisableForceDrawFocusRect
  )
  ; // Operations
 
@@ -416,11 +416,11 @@ ref; // ME_4ADC8B0F02CF Finder
  : Parent WL 'ME_4A6D59C9005C' '4A6D59C9005C.pas.ms.script' // View
  ;
  : Children
-   Seq: ( ME_4A8993050237 // Edition
- ME_4B6ADBAC0014 // TGotoParaResult
- ME_4B065085018D // Document
- ME_4B1E38210086 // RightEdition
- ME_4ADC8B0F02CF // Finder
+   Seq: ( HWL ME_4A8993050237 // Edition
+ HWL ME_4B6ADBAC0014 // TGotoParaResult
+ HWL ME_4B065085018D // Document
+ HWL ME_4B1E38210086 // RightEdition
+ HWL ME_4ADC8B0F02CF // Finder
  )
  ; // Children
  : Depends

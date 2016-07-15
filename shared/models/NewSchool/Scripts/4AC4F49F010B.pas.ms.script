@@ -1,0 +1,731 @@
+// PrimStartupTips 4AC4F49F010B VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AC4F49F010B
+
+FORWARD ME_5268EBD40048
+
+: ME_5268EBF003C1
+ CONST UID '5268EBF003C1'
+ CONST Name 'TitlePaintBox'
+ CONST Class class_Class
+ : Stereotype st_Control ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_5268EBD40048 // TopPanel
+ ;
+ CONST "ControlClass" 'TPaintBox'
+ CONST "pm" true
+ CONST "put to dfm" false
+
+ref; // ME_5268EBF003C1 TitlePaintBox
+
+: ME_5268EC02039B
+ CONST UID '5268EC02039B'
+ CONST Name 'TitleLabel'
+ CONST Class class_Class
+ : Stereotype st_Control ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Знаете ли Вы, что...' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_5268EBD40048 // TopPanel
+ ;
+ CONST "ControlClass" 'TvtLabel'
+ CONST "pm" true
+ CONST "put to dfm" false
+
+ref; // ME_5268EC02039B TitleLabel
+
+: ME_5268EBD40048
+ CONST UID '5268EBD40048'
+ CONST Name 'TopPanel'
+ CONST Class class_Class
+ : Stereotype st_Control ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AC4F49F010B // PrimStartupTips
+ ;
+ : Attributes
+   Seq: ( HWL ME_5268EBF003C1 // TitlePaintBox
+ HWL ME_5268EC02039B // TitleLabel
+ )
+ ; // Attributes
+ CONST "ControlClass" 'TvtPanel'
+ CONST "pm" true
+ CONST "put to dfm" false
+
+ref; // ME_5268EBD40048 TopPanel
+
+FORWARD ME_5268EC280102
+
+FORWARD ME_5268EC4202BA
+
+: ME_5268EC620000
+ CONST UID '5268EC620000'
+ CONST Name 'TipLabel'
+ CONST Class class_Class
+ : Stereotype st_Control ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_5268EC4202BA // HintPanel
+ ;
+ CONST "ControlClass" 'TvtLabel'
+ CONST "pm" true
+ CONST "put to dfm" false
+
+ref; // ME_5268EC620000 TipLabel
+
+: ME_5268EC6B0162
+ CONST UID '5268EC6B0162'
+ CONST Name 'DetailLabel'
+ CONST Class class_Class
+ : Stereotype st_Control ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'См. подробнее' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_5268EC4202BA // HintPanel
+ ;
+ CONST "ControlClass" 'TvtFocusLabel'
+ CONST "pm" true
+ CONST "put to dfm" false
+
+ref; // ME_5268EC6B0162 DetailLabel
+
+: ME_5268EC4202BA
+ CONST UID '5268EC4202BA'
+ CONST Name 'HintPanel'
+ CONST Class class_Class
+ : Stereotype st_Control ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_5268EC280102 // BottomPanel
+ ;
+ : Attributes
+   Seq: ( HWL ME_5268EC620000 // TipLabel
+ HWL ME_5268EC6B0162 // DetailLabel
+ )
+ ; // Attributes
+ CONST "ControlClass" 'TvtPanel'
+ CONST "pm" true
+ CONST "put to dfm" false
+
+ref; // ME_5268EC4202BA HintPanel
+
+: ME_5268EF9F01AC
+ CONST UID '5268EF9F01AC'
+ CONST Name 'ShowCheckBox'
+ CONST Class class_Class
+ : Stereotype st_Control ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Не показывать совет дня при запуске' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_5268EC280102 // BottomPanel
+ ;
+ CONST "ControlClass" 'TvtCheckBox'
+ CONST "pm" true
+ CONST "put to dfm" false
+
+ref; // ME_5268EF9F01AC ShowCheckBox
+
+FORWARD ME_5268EFBF02B2
+
+: ME_5268EFDB0252
+ CONST UID '5268EFDB0252'
+ CONST Name 'wwwPaintBox'
+ CONST Class class_Class
+ : Stereotype st_Control ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_5268EFBF02B2 // wwwPanel
+ ;
+ CONST "ControlClass" 'TPaintBox'
+ CONST "pm" true
+ CONST "put to dfm" false
+
+ref; // ME_5268EFDB0252 wwwPaintBox
+
+: ME_5268EFEE0313
+ CONST UID '5268EFEE0313'
+ CONST Name 'wwwLabel'
+ CONST Class class_Class
+ : Stereotype st_Control ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Советы дня в Новостях онлайн' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_5268EFBF02B2 // wwwPanel
+ ;
+ CONST "ControlClass" 'TvtFocusLabel'
+ CONST "pm" true
+ CONST "put to dfm" false
+
+ref; // ME_5268EFEE0313 wwwLabel
+
+: ME_5268EFBF02B2
+ CONST UID '5268EFBF02B2'
+ CONST Name 'wwwPanel'
+ CONST Class class_Class
+ : Stereotype st_Control ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_5268EC280102 // BottomPanel
+ ;
+ : Attributes
+   Seq: ( HWL ME_5268EFDB0252 // wwwPaintBox
+ HWL ME_5268EFEE0313 // wwwLabel
+ )
+ ; // Attributes
+ CONST "ControlClass" 'TvtPanel'
+ CONST "pm" true
+ CONST "put to dfm" false
+
+ref; // ME_5268EFBF02B2 wwwPanel
+
+: ME_5268F01602E5
+ CONST UID '5268F01602E5'
+ CONST Name 'NextButton'
+ CONST Class class_Class
+ : Stereotype st_Control ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Следующий' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_5268EC280102 // BottomPanel
+ ;
+ CONST "ControlClass" 'TElPopupButton'
+ CONST "pm" true
+ CONST "put to dfm" false
+
+ref; // ME_5268F01602E5 NextButton
+
+: ME_5268F02C0233
+ CONST UID '5268F02C0233'
+ CONST Name 'PrevButton'
+ CONST Class class_Class
+ : Stereotype st_Control ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Предыдущий' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_5268EC280102 // BottomPanel
+ ;
+ CONST "ControlClass" 'TElPopupButton'
+ CONST "pm" true
+ CONST "put to dfm" false
+
+ref; // ME_5268F02C0233 PrevButton
+
+: ME_5268F04700BD
+ CONST UID '5268F04700BD'
+ CONST Name 'CloseButton'
+ CONST Class class_Class
+ : Stereotype st_Control ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Закрыть' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_5268EC280102 // BottomPanel
+ ;
+ CONST "ControlClass" 'TElPopupButton'
+ CONST "pm" true
+ CONST "put to dfm" false
+
+ref; // ME_5268F04700BD CloseButton
+
+: ME_5268EC280102
+ CONST UID '5268EC280102'
+ CONST Name 'BottomPanel'
+ CONST Class class_Class
+ : Stereotype st_Control ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AC4F49F010B // PrimStartupTips
+ ;
+ : Attributes
+   Seq: ( HWL ME_5268EC4202BA // HintPanel
+ HWL ME_5268EF9F01AC // ShowCheckBox
+ HWL ME_5268EFBF02B2 // wwwPanel
+ HWL ME_5268F01602E5 // NextButton
+ HWL ME_5268F02C0233 // PrevButton
+ HWL ME_5268F04700BD // CloseButton
+ )
+ ; // Attributes
+ CONST "ControlClass" 'TvtPanel'
+ CONST "pm" true
+ CONST "put to dfm" false
+
+ref; // ME_5268EC280102 BottomPanel
+
+: ME_4AC5E42E018E
+ CONST UID '4AC5E42E018E'
+ CONST Name 'f_Data'
+ CONST Class class_Attribute
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4AC4F49F010B // PrimStartupTips
+ ;
+ : Target WL 'ME_4991C6FF00C7' '4991C6930254.pas.ms.script' // InsStartupTips
+ ;
+
+ref; // ME_4AC5E42E018E f_Data
+
+: ME_5268E6380393
+ CONST UID '5268E6380393'
+ CONST Name 'UpdateTip'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AC4F49F010B // PrimStartupTips
+ ;
+
+ref; // ME_5268E6380393 UpdateTip
+
+: ME_5268E6B602FF
+ CONST UID '5268E6B602FF'
+ CONST Name 'TitlePaintBoxPaint'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AC4F49F010B // PrimStartupTips
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
+ )
+ ; // Inherits
+
+ref; // ME_5268E6B602FF TitlePaintBoxPaint
+
+: ME_5268E6C000C2
+ CONST UID '5268E6C000C2'
+ CONST Name 'wwwPaintBoxPaint'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AC4F49F010B // PrimStartupTips
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
+ )
+ ; // Inherits
+
+ref; // ME_5268E6C000C2 wwwPaintBoxPaint
+
+: ME_5268E6C90064
+ CONST UID '5268E6C90064'
+ CONST Name 'CloseButtonClick'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AC4F49F010B // PrimStartupTips
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
+ )
+ ; // Inherits
+
+ref; // ME_5268E6C90064 CloseButtonClick
+
+: ME_5268E6D90201
+ CONST UID '5268E6D90201'
+ CONST Name 'vcmEntityFormShow'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AC4F49F010B // PrimStartupTips
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
+ )
+ ; // Inherits
+ CONST extprop:rc:SelfName 'EntityFormShow'
+
+ref; // ME_5268E6D90201 vcmEntityFormShow
+
+: ME_5268E6E102F5
+ CONST UID '5268E6E102F5'
+ CONST Name 'wwwLabelClick'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AC4F49F010B // PrimStartupTips
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
+ )
+ ; // Inherits
+
+ref; // ME_5268E6E102F5 wwwLabelClick
+
+: ME_5268E6EA00F5
+ CONST UID '5268E6EA00F5'
+ CONST Name 'DetailLabelClick'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AC4F49F010B // PrimStartupTips
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
+ )
+ ; // Inherits
+
+ref; // ME_5268E6EA00F5 DetailLabelClick
+
+: ME_5268E6F1015A
+ CONST UID '5268E6F1015A'
+ CONST Name 'NextButtonClick'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AC4F49F010B // PrimStartupTips
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
+ )
+ ; // Inherits
+
+ref; // ME_5268E6F1015A NextButtonClick
+
+: ME_5268E6F902E6
+ CONST UID '5268E6F902E6'
+ CONST Name 'PrevButtonClick'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AC4F49F010B // PrimStartupTips
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
+ )
+ ; // Inherits
+
+ref; // ME_5268E6F902E6 PrevButtonClick
+
+: ME_5268E701030F
+ CONST UID '5268E701030F'
+ CONST Name 'ShowCheckBoxClick'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AC4F49F010B // PrimStartupTips
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
+ )
+ ; // Inherits
+
+ref; // ME_5268E701030F ShowCheckBoxClick
+
+: ME_4AC4F574003B
+ CONST Name 'aData'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4991C6FF00C7' '4991C6930254.pas.ms.script' // InsStartupTips
+ ;
+
+ref; // ME_4AC4F574003B aData
+
+: ME_4AC4F567002A
+ CONST UID '4AC4F567002A'
+ CONST Name 'MakeSingleChild'
+ CONST Class class_Operation
+ : Stereotype st_factory::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AC4F49F010B // PrimStartupTips
+ ;
+ : Parameters
+   Seq: ( ME_4AC4F574003B // aData
+ )
+ ; // Parameters
+
+ref; // ME_4AC4F567002A MakeSingleChild
+
+: ME_52691A0000CD
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AC4F49F010B // PrimStartupTips
+ ;
+ : Target WL 'ME_47FB50E4008E' '48F747EC0073.pas.ms.script' // nsConst
+ ;
+
+ref; // ME_52691A0000CD 
+
+: ME_52691A0602D6
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AC4F49F010B // PrimStartupTips
+ ;
+ : Target WL 'ME_47E13C6B0341' '4799D29F033F.pas.ms.script' // Forms
+ ;
+
+ref; // ME_52691A0602D6 
+
+: ME_52691A0901D1
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AC4F49F010B // PrimStartupTips
+ ;
+ : Target WL 'ME_47ECBD5D03BB' '476F78840219.pas.ms.script' // Msg Codes
+ ;
+
+ref; // ME_52691A0901D1 
+
+: ME_52691A0C00FE
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AC4F49F010B // PrimStartupTips
+ ;
+ : Target WL 'ME_48A41FF10094' '4AB0C3F60375.pas.ms.script' // Windows
+ ;
+
+ref; // ME_52691A0C00FE 
+
+: ME_52691A0F0105
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AC4F49F010B // PrimStartupTips
+ ;
+ : Target WL 'ME_47E11FC3021E' '4799D29F033F.pas.ms.script' // Controls
+ ;
+
+ref; // ME_52691A0F0105 
+
+: ME_52691A12006D
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AC4F49F010B // PrimStartupTips
+ ;
+ : Target WL 'ME_48C78D5402A6' '4799D29F033F.pas.ms.script' // StdCtrls
+ ;
+
+ref; // ME_52691A12006D 
+
+: ME_52691B9202D2
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AC4F49F010B // PrimStartupTips
+ ;
+ : Target WL 'ME_473D8FFE01CB' '467823B7002C.pas.ms.script' // IafwDropDownWindow
+ ;
+
+ref; // ME_52691B9202D2 
+
+: ME_52691B95029A
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AC4F49F010B // PrimStartupTips
+ ;
+ : Target WL 'ME_52691A8D018E' '47CD07B900E0.pas.ms.script' // vtNavigatorUtils
+ ;
+
+ref; // ME_52691B95029A 
+
+: ME_52691B970356
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AC4F49F010B // PrimStartupTips
+ ;
+ : Target WL 'ME_4F636139008F' '4F635E1901E5.pas.ms.script' // Tl3ListenersManager
+ ;
+
+ref; // ME_52691B970356 
+
+: ME_52691B9A023A
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AC4F49F010B // PrimStartupTips
+ ;
+ : Target WL 'ME_52691B2501E3' '47E3DF460095.pas.ms.script' // evCursorShapeMisc
+ ;
+
+ref; // ME_52691B9A023A 
+
+: ME_526A48C30013
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AC4F49F010B // PrimStartupTips
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_526A48C30013 
+
+: ME_526A48C503DC
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AC4F49F010B // PrimStartupTips
+ ;
+ : Target WL 'ME_47D15712022D' '55C4AEC801CA.pas.ms.script' // Graphics
+ ;
+
+ref; // ME_526A48C503DC 
+
+: ME_55E99BE80251
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AC4F49F010B // PrimStartupTips
+ ;
+ : Target WL 'ME_47752AF90375' '47750CE700D0.pas.ms.script' // afwFacade
+ ;
+
+ref; // ME_55E99BE80251 
+
+: ME_4F79CF3400BB_ME_4AC4F49F010B
+ : Original WL 'ME_4F79CF3400BB' '4677FBA70343.pas.ms.script' // WndProcListenerNotify
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4F79CF3400BB_ME_4AC4F49F010B WndProcListenerNotify
+
+: ME_479731C50290_ME_4AC4F49F010B
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_479731C50290_ME_4AC4F49F010B Cleanup
+
+: ME_47A042E100E2_ME_4AC4F49F010B
+ : Original WL 'ME_47A042E100E2' '47913B47006E.pas.ms.script' // InitFields
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_47A042E100E2_ME_4AC4F49F010B InitFields
+
+: ME_47EA4E9002C6_ME_4AC4F49F010B
+ : Original WL 'ME_47EA4E9002C6' '47EA4BB502F9.pas.ms.script' // FinishDataUpdate
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_47EA4E9002C6_ME_4AC4F49F010B FinishDataUpdate
+
+: ME_4A8E8F2E0195_ME_4AC4F49F010B
+ : Original WL 'ME_4A8E8F2E0195' '5000041101C8.pas.ms.script' // InitControls
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4A8E8F2E0195_ME_4AC4F49F010B InitControls
+
+: ME_529332B40230_ME_4AC4F49F010B
+ : Original WL 'ME_529332B40230' '4AADF9450143.pas.ms.script' // SetupFormLayout
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_529332B40230_ME_4AC4F49F010B SetupFormLayout
+
+: ME_55B9F0BD0069_ME_4AC4F49F010B
+ : Original WL 'ME_55B9F0BD0069' '4AADF9450143.pas.ms.script' // DoGetNeedSaveToTabHistory
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_55B9F0BD0069_ME_4AC4F49F010B DoGetNeedSaveToTabHistory
+
+: ME_4AC4F49F010B
+ CONST UID '4AC4F49F010B'
+ CONST Name 'PrimStartupTips'
+ CONST Class class_Class
+ : Stereotype st_VCMForm ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Совет дня' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4AA0D52202F3' '4AA0D52202F3.pas.ms.script' // DayTips
+ ;
+ : Inherits
+   Seq: ( WL 'ME_49525B34022A' '4AADF9450143.pas.ms.script' // TvcmEntityForm
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_46A5B4170363' '4677FBA70343.pas.ms.script' // Il3WndProcListener
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( HWL ME_5268EBD40048 // TopPanel
+ HWL ME_5268EC280102 // BottomPanel
+ HWL ME_4AC5E42E018E // f_Data
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( HWL ME_5268E6380393 // UpdateTip
+ HWL ME_5268E6B602FF // TitlePaintBoxPaint
+ HWL ME_5268E6C000C2 // wwwPaintBoxPaint
+ HWL ME_5268E6C90064 // CloseButtonClick
+ HWL ME_5268E6D90201 // vcmEntityFormShow
+ HWL ME_5268E6E102F5 // wwwLabelClick
+ HWL ME_5268E6EA00F5 // DetailLabelClick
+ HWL ME_5268E6F1015A // NextButtonClick
+ HWL ME_5268E6F902E6 // PrevButtonClick
+ HWL ME_5268E701030F // ShowCheckBoxClick
+ HWL ME_4AC4F567002A // MakeSingleChild
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4F79CF3400BB_ME_4AC4F49F010B // WndProcListenerNotify
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_479731C50290_ME_4AC4F49F010B // Cleanup
+ ME_47A042E100E2_ME_4AC4F49F010B // InitFields
+ ME_47EA4E9002C6_ME_4AC4F49F010B // FinishDataUpdate
+ ME_4A8E8F2E0195_ME_4AC4F49F010B // InitControls
+ ME_529332B40230_ME_4AC4F49F010B // SetupFormLayout
+ ME_55B9F0BD0069_ME_4AC4F49F010B // DoGetNeedSaveToTabHistory
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_52691A0000CD // nsConst
+ ME_52691A0602D6 // Forms
+ ME_52691A0901D1 // Msg Codes
+ ME_52691A0C00FE // Windows
+ ME_52691A0F0105 // Controls
+ ME_52691A12006D // StdCtrls
+ ME_52691B9202D2 // IafwDropDownWindow
+ ME_52691B95029A // vtNavigatorUtils
+ ME_52691B970356 // Tl3ListenersManager
+ ME_52691B9A023A // evCursorShapeMisc
+ ME_526A48C30013 // SysUtils
+ ME_526A48C503DC // Graphics
+ ME_55E99BE80251 // afwFacade
+ )
+ ; // Dependencies
+ CONST "NeedsHackRef" true
+ CONST "ZoneType" 'Floating'
+ CONST "author" 'Люлин А.В.'
+ CONST "finished dfm" true
+ CONST "no hands" true
+ CONST "resizeable" false
+ CONST "restrict form def" 'undefined'
+ CONST "started" '01.10.2009 22:27'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\DayTips\Forms\PrimStartupTips_Form.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\DayTips\Forms'
+ CONST extprop:pas:TypeName 'TPrimStartupTipsForm'
+ CONST extprop:rc:SelfName 'PrimStartupTipsForm'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'PrimStartupTips_Form'
+
+ref; // ME_4AC4F49F010B PrimStartupTips

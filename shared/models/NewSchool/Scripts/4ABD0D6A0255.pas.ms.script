@@ -4,1092 +4,9 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 FORWARD ME_4ABD0D6A0255
 
-FORWARD ME_4958DD7002B6
-
-FORWARD ME_4B4F49FD03DF
-
-FORWARD ME_4B4F4A4E0355
-
-: ME_4B4F4A550052
- CONST UID '4B4F4A550052'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4B4F4A4E0355 // Make
- ;
-
-ref; // ME_4B4F4A550052 DoIt
-
-: ME_4B4F4A4E0355
- CONST UID '4B4F4A4E0355'
- CONST Name 'Make'
- CONST Class class_Class
- : Stereotype st_Factory ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4B4F49FD03DF // TPrimMainMenuState
- ;
- : Operations
-   Seq: ( ME_4B4F4A550052 // DoIt
- )
- ; // Operations
-
-ref; // ME_4B4F4A4E0355 Make
-
-: ME_4B4F49FD03DF
- CONST UID '4B4F49FD03DF'
- CONST Name 'TPrimMainMenuState'
- CONST Class class_Class
- : Stereotype st_SimpleClass ;
- CONST Kind kind_NormalClass
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- : Parent ME_4958DD7002B6 // PrimMainMenu
- ;
- : Inherits
-   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- )
- ; // Inherits
- : Implements
-   Seq: ( WL 'ME_4683CEAD00CF' '467BAB7F021E.pas.ms.script' // IvcmBase
- )
- ; // Implements
- : Operations
-   Seq: ( ME_4B4F4A4E0355 // Make
- )
- ; // Operations
- CONST extprop:rc:SelfName 'PrimMainMenuState'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_4B4F49FD03DF TPrimMainMenuState
-
-FORWARD ME_4AC9B24403CD
-
-FORWARD ME_4AC9C69B016C
-
-FORWARD ME_4AC9C6C301EC
-
-: ME_46A5AA4B003C_ME_4AC9C6C301EC
- : Original WL 'ME_46A5AA4B003C' '4677FBA70343.pas.ms.script' // Invalidate
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_46A5AA4B003C_ME_4AC9C6C301EC Invalidate
-
-: ME_477243870072_ME_4AC9C6C301EC
- : Original WL 'ME_477243870072' '4682595B0268.pas.ms.script' // RootChanged
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_477243870072_ME_4AC9C6C301EC RootChanged
-
-: ME_4951285702E1_ME_4AC9C6C301EC
- : Original WL 'ME_4951285702E1' '495127DD017C.pas.ms.script' // Cut
- ;
- CONST OpKind opkind_Implemented
- CONST "AutoFocus" false
- CONST "AutoLock" false
- CONST "LongProcess" false
- CONST "ShowInContextMenu" 'undefined'
- CONST "ShowInToolbar" 'undefined'
- CONST "has states" false
- CONST "is FormActivate" false
- CONST "is query" false
- CONST "no prefix" false
-ref; // ME_4951285702E1_ME_4AC9C6C301EC Cut
-
-: ME_49512B5D0009_ME_4AC9C6C301EC
- : Original WL 'ME_49512B5D0009' '495127DD017C.pas.ms.script' // FindContext
- ;
- CONST OpKind opkind_Implemented
- CONST "AutoFocus" false
- CONST "AutoLock" false
- CONST "LongProcess" false
- CONST "ShowInContextMenu" 'undefined'
- CONST "ShowInToolbar" 'undefined'
- CONST "has states" false
- CONST "is FormActivate" false
- CONST "is query" false
- CONST "no prefix" false
-ref; // ME_49512B5D0009_ME_4AC9C6C301EC FindContext
-
-: ME_495130C40123_ME_4AC9C6C301EC
- : Original WL 'ME_495130C40123' '495127DD017C.pas.ms.script' // FindNext
- ;
- CONST OpKind opkind_Implemented
- CONST "AutoFocus" false
- CONST "AutoLock" false
- CONST "LongProcess" false
- CONST "ShowInContextMenu" 'undefined'
- CONST "ShowInToolbar" 'undefined'
- CONST "has states" false
- CONST "is FormActivate" false
- CONST "is query" false
- CONST "no prefix" false
-ref; // ME_495130C40123_ME_4AC9C6C301EC FindNext
-
-: ME_49EDFCA2006D_ME_4AC9C6C301EC
- : Original WL 'ME_49EDFCA2006D' '495127DD017C.pas.ms.script' // Undo
- ;
- CONST OpKind opkind_Implemented
- CONST "AutoFocus" false
- CONST "AutoLock" false
- CONST "LongProcess" false
- CONST "ShowInContextMenu" 'undefined'
- CONST "ShowInToolbar" 'undefined'
- CONST "has states" false
- CONST "is FormActivate" false
- CONST "is query" false
- CONST "no prefix" false
-ref; // ME_49EDFCA2006D_ME_4AC9C6C301EC Undo
-
-: ME_49EDFCB100BC_ME_4AC9C6C301EC
- : Original WL 'ME_49EDFCB100BC' '495127DD017C.pas.ms.script' // Redo
- ;
- CONST OpKind opkind_Implemented
- CONST "AutoFocus" false
- CONST "AutoLock" false
- CONST "LongProcess" false
- CONST "ShowInContextMenu" 'undefined'
- CONST "ShowInToolbar" 'undefined'
- CONST "has states" false
- CONST "is FormActivate" false
- CONST "is query" false
- CONST "no prefix" false
-ref; // ME_49EDFCB100BC_ME_4AC9C6C301EC Redo
-
-: ME_49FEDE4703B8_ME_4AC9C6C301EC
- : Original WL 'ME_49FEDE4703B8' '495127DD017C.pas.ms.script' // FindPrev
- ;
- CONST OpKind opkind_Implemented
- CONST "AutoFocus" false
- CONST "AutoLock" false
- CONST "LongProcess" false
- CONST "ShowInContextMenu" 'undefined'
- CONST "ShowInToolbar" 'undefined'
- CONST "has states" false
- CONST "is FormActivate" false
- CONST "is query" false
- CONST "no prefix" false
-ref; // ME_49FEDE4703B8_ME_4AC9C6C301EC FindPrev
-
-: ME_4C7D0C7B0185_ME_4AC9C6C301EC
- : Original WL 'ME_4C7D0C7B0185' '495127DD017C.pas.ms.script' // Copy
- ;
- CONST OpKind opkind_Implemented
- CONST "AutoFocus" false
- CONST "AutoLock" false
- CONST "LongProcess" false
- CONST "ShowInContextMenu" 'undefined'
- CONST "ShowInToolbar" 'undefined'
- CONST "has states" true
- CONST "is FormActivate" false
- CONST "is query" false
- CONST "no prefix" false
-ref; // ME_4C7D0C7B0185_ME_4AC9C6C301EC Copy
-
-: ME_4AC9C6C301EC
- CONST UID '4AC9C6C301EC'
- CONST Name 'tvLastOpenDocs'
- CONST Class class_Class
- : Stereotype st_Control ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4AC9C69B016C // hfLastOpenDocs
- ;
- : Inherits
-   Seq: ( WL 'ME_4B60346A022E' '499C2614028C.pas.ms.script' // TnscTreeViewHotTruck
- )
- ; // Inherits
- : Implemented
-   Seq: ( ME_46A5AA4B003C_ME_4AC9C6C301EC // Invalidate
- ME_477243870072_ME_4AC9C6C301EC // RootChanged
- ME_4951285702E1_ME_4AC9C6C301EC // Cut
- ME_49512B5D0009_ME_4AC9C6C301EC // FindContext
- ME_495130C40123_ME_4AC9C6C301EC // FindNext
- ME_49EDFCA2006D_ME_4AC9C6C301EC // Undo
- ME_49EDFCB100BC_ME_4AC9C6C301EC // Redo
- ME_49FEDE4703B8_ME_4AC9C6C301EC // FindPrev
- ME_4C7D0C7B0185_ME_4AC9C6C301EC // Copy
- )
- ; // Implemented
- CONST "ControlClass" 'TnscTreeViewHotTruck'
- CONST "pm" true
- CONST "put to dfm" false
-
-ref; // ME_4AC9C6C301EC tvLastOpenDocs
-
-: ME_4AC9C69B016C
- CONST UID '4AC9C69B016C'
- CONST Name 'hfLastOpenDocs'
- CONST Class class_Class
- : Stereotype st_Control ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Последние открытые документы' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4AC9B24403CD // pnlMain
- ;
- : Inherits
-   Seq: ( WL 'ME_4AC9C67300A2' '4AC9B14A02E3.pas.ms.script' // TnscHideField
- )
- ; // Inherits
- : Attributes
-   Seq: ( ME_4AC9C6C301EC // tvLastOpenDocs
- )
- ; // Attributes
- CONST "ControlClass" 'TnscHideField'
- CONST "pm" true
- CONST "put to dfm" false
-
-ref; // ME_4AC9C69B016C hfLastOpenDocs
-
-: ME_4AC9B24403CD
- CONST UID '4AC9B24403CD'
- CONST Name 'pnlMain'
- CONST Class class_Class
- : Stereotype st_Control ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4958DD7002B6 // PrimMainMenu
- ;
- : Inherits
-   Seq: ( WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
- )
- ; // Inherits
- : Attributes
-   Seq: ( ME_4AC9C69B016C // hfLastOpenDocs
- )
- ; // Attributes
- CONST "ControlClass" 'TvtPanel'
- CONST "pm" true
- CONST "put to dfm" false
-
-ref; // ME_4AC9B24403CD pnlMain
-
-: ME_4AC9AFF40081
- CONST UID '4AC9AFF40081'
- CONST Name 'Grid'
- CONST Class class_Attribute
- : Stereotype st_readonly::Attribute ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_4958DD7002B6 // PrimMainMenu
- ;
- : Target WL 'ME_4AC9AFDC013C' '4AC9AFCE00DC.pas.ms.script' // InscArrangeGrid
- ;
- CONST "needs field" true
- CONST "pm" true
- CONST "reads field" true
-
-ref; // ME_4AC9AFF40081 Grid
+FORWARD ME_4AC9A3F801F3
 
 FORWARD ME_4AC9C1F40041
-
-: ME_4AC9C7020324
- CONST UID '4AC9C7020324'
- CONST Name 'f_LastOpenDocsManager'
- CONST Class class_Attribute
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_4958DD7002B6 // PrimMainMenu
- ;
- : Target ME_4AC9C1F40041 // TnsLastOpenDocsManager
- ;
-
-ref; // ME_4AC9C7020324 f_LastOpenDocsManager
-
-FORWARD ME_4AC9C91202FA
-
-: ME_4AC9C93202F7
- CONST UID '4AC9C93202F7'
- CONST Name 'TreeStyle'
- CONST Class class_Attribute
- : Stereotype st_readonly::Attribute ;
- CONST Visibility ProtectedAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_4958DD7002B6 // PrimMainMenu
- ;
- : Target ME_4AC9C91202FA // TnsTreeStyleManager
- ;
- CONST "needs field" true
- CONST "pm" true
-
-ref; // ME_4AC9C93202F7 TreeStyle
-
-: ME_4AC9CB47002A
- CONST UID '4AC9CB47002A'
- CONST Name 'f_TabTable'
- CONST Class class_Attribute
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_4958DD7002B6 // PrimMainMenu
- ;
- : Target WL 'ME_4AC9CB3003B4' '4AC9AFCE00DC.pas.ms.script' // InscTabTable
- ;
-
-ref; // ME_4AC9CB47002A f_TabTable
-
-: ME_4ACA197F0147
- CONST UID '4ACA197F0147'
- CONST Name 'ContainerForBaseSearch'
- CONST Class class_Attribute
- : Stereotype st_readonly::Attribute ;
- CONST Visibility ProtectedAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_4958DD7002B6 // PrimMainMenu
- ;
- : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
- ;
- CONST "needs field" false
- CONST "pm" true
-
-ref; // ME_4ACA197F0147 ContainerForBaseSearch
-
-: ME_4AD6F68901A0
- CONST UID '4AD6F68901A0'
- CONST Name 'f_ArrangeCount'
- CONST Class class_Attribute
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_4958DD7002B6 // PrimMainMenu
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_4AD6F68901A0 f_ArrangeCount
-
-FORWARD ME_4AC9B1BB022A
-
-: ME_4AC9B1C8033D
- CONST UID '4AC9B1C8033D'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AC9B1BB022A // ArrangeGrid
- ;
-
-ref; // ME_4AC9B1C8033D DoIt
-
-: ME_4AC9B19700A6
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AC9B1BB022A // ArrangeGrid
- ;
- : Target WL 'ME_4AC9B17D0364' '4AC9B14A02E3.pas.ms.script' // agArrangeGrid
- ;
-
-ref; // ME_4AC9B19700A6 
-
-: ME_4AC9B1BB022A
- CONST UID '4AC9B1BB022A'
- CONST Name 'ArrangeGrid'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- %SUMMARY 'установить размеры таблицы' ;
- CONST Visibility ProtectedAccess
- CONST Abstraction at_final
- : Parent ME_4958DD7002B6 // PrimMainMenu
- ;
- : Operations
-   Seq: ( ME_4AC9B1C8033D // DoIt
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_4AC9B19700A6 // agArrangeGrid
- )
- ; // Dependencies
-
-ref; // ME_4AC9B1BB022A ArrangeGrid
-
-FORWARD ME_4AC9B367032D
-
-: ME_4AC9B390021C
- CONST UID '4AC9B390021C'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AC9B367032D // RecalcGrid
- ;
-
-ref; // ME_4AC9B390021C DoIt
-
-: ME_4AC9B367032D
- CONST UID '4AC9B367032D'
- CONST Name 'RecalcGrid'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility ProtectedAccess
- CONST Abstraction at_final
- : Parent ME_4958DD7002B6 // PrimMainMenu
- ;
- : Operations
-   Seq: ( ME_4AC9B390021C // DoIt
- )
- ; // Operations
-
-ref; // ME_4AC9B367032D RecalcGrid
-
-FORWARD ME_4AC9B6A80163
-
-: ME_4AC9B6B30390
- CONST UID '4AC9B6B30390'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AC9B6A80163 // BuildGrid
- ;
-
-ref; // ME_4AC9B6B30390 DoIt
-
-: ME_4AC9B6A80163
- CONST UID '4AC9B6A80163'
- CONST Name 'BuildGrid'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility ProtectedAccess
- CONST Abstraction at_final
- : Parent ME_4958DD7002B6 // PrimMainMenu
- ;
- : Operations
-   Seq: ( ME_4AC9B6B30390 // DoIt
- )
- ; // Operations
-
-ref; // ME_4AC9B6A80163 BuildGrid
-
-FORWARD ME_4AC9B71F032F
-
-: ME_4AC9B73A0174
- CONST Name 'aSender'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_4AC9B73A0174 aSender
-
-: ME_4AC9B7310086
- CONST UID '4AC9B7310086'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AC9B71F032F // GridSizeChanged
- ;
- : Parameters
-   Seq: ( ME_4AC9B73A0174 // aSender
- )
- ; // Parameters
-
-ref; // ME_4AC9B7310086 DoIt
-
-: ME_4AC9B71F032F
- CONST UID '4AC9B71F032F'
- CONST Name 'GridSizeChanged'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- %SUMMARY 'изменился размер таблицы, возможно нужно будет изменить размер скроллеров' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4958DD7002B6 // PrimMainMenu
- ;
- : Operations
-   Seq: ( ME_4AC9B7310086 // DoIt
- )
- ; // Operations
-
-ref; // ME_4AC9B71F032F GridSizeChanged
-
-FORWARD ME_4AC9CB6100E4
-
-: ME_4AC9CB6C00C3
- CONST UID '4AC9CB6C00C3'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AC9CB6100E4 // InitKeyboardNavigation
- ;
-
-ref; // ME_4AC9CB6C00C3 DoIt
-
-: ME_4AC9CB810054
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AC9CB6100E4 // InitKeyboardNavigation
- ;
- : Target WL 'ME_4AC9CB12015D' '4AC9B14A02E3.pas.ms.script' // TnscTabTable
- ;
-
-ref; // ME_4AC9CB810054 
-
-: ME_4AC9CB6100E4
- CONST UID '4AC9CB6100E4'
- CONST Name 'InitKeyboardNavigation'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4958DD7002B6 // PrimMainMenu
- ;
- : Operations
-   Seq: ( ME_4AC9CB6C00C3 // DoIt
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_4AC9CB810054 // TnscTabTable
- )
- ; // Dependencies
-
-ref; // ME_4AC9CB6100E4 InitKeyboardNavigation
-
-FORWARD ME_4AC9E13902F9
-
-: ME_4AC9E2CD00CC
- CONST UID '4AC9E2CD00CC'
- CONST Name 'Node'
- CONST Class class_Attribute
- : Stereotype st_var::Attribute ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_4AC9E13902F9 // ActionElement
- ;
- : Target WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
- ;
- CONST "IsResult" false
-
-ref; // ME_4AC9E2CD00CC Node
-
-: ME_4ACCBB4C00B0
- CONST UID '4ACCBB4C00B0'
- CONST Name 'MenuNode'
- CONST Class class_Attribute
- : Stereotype st_var::Attribute ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_4AC9E13902F9 // ActionElement
- ;
- : Target WL 'ME_49904B3802CD' '49904AF102FD.pas.ms.script' // InsMainMenuNode
- ;
- CONST "IsResult" false
-
-ref; // ME_4ACCBB4C00B0 MenuNode
-
-: ME_4AC9E16201A9
- CONST Name 'Sender'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_4AC9E16201A9 Sender
-
-: ME_4AC9E16201DD
- CONST Name 'Index'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_4AC9E16201DD Index
-
-: ME_4AC9E1480232
- CONST UID '4AC9E1480232'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AC9E13902F9 // ActionElement
- ;
- : Parameters
-   Seq: ( ME_4AC9E16201A9 // Sender
- ME_4AC9E16201DD // Index
- )
- ; // Parameters
-
-ref; // ME_4AC9E1480232 DoIt
-
-: ME_4AC9E18A02AF
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AC9E13902F9 // ActionElement
- ;
- : Target WL 'ME_499C26240034' '499C2614028C.pas.ms.script' // TnscTreeView
- ;
-
-ref; // ME_4AC9E18A02AF 
-
-: ME_4AC9E3000352
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AC9E13902F9 // ActionElement
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_4AC9E3000352 
-
-: ME_4AC9E3E502DA
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AC9E13902F9 // ActionElement
- ;
- : Target WL 'ME_47ECE41C00D2' '4799D29F033F.pas.ms.script' // TApplication
- ;
-
-ref; // ME_4AC9E3E502DA 
-
-: ME_4AC9E4200035
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AC9E13902F9 // ActionElement
- ;
- : Target WL 'ME_4AC9E4080336' '48F747EC0073.pas.ms.script' // nsOpenNavigatorItem
- ;
-
-ref; // ME_4AC9E4200035 
-
-: ME_4AC9E458019F
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AC9E13902F9 // ActionElement
- ;
- : Target WL 'ME_47FB50E4008E' '48F747EC0073.pas.ms.script' // nsConst
- ;
-
-ref; // ME_4AC9E458019F 
-
-: ME_4AC9E13902F9
- CONST UID '4AC9E13902F9'
- CONST Name 'ActionElement'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4958DD7002B6 // PrimMainMenu
- ;
- : Attributes
-   Seq: ( ME_4AC9E2CD00CC // Node
- ME_4ACCBB4C00B0 // MenuNode
- )
- ; // Attributes
- : Operations
-   Seq: ( ME_4AC9E1480232 // DoIt
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_4AC9E18A02AF // TnscTreeView
- ME_4AC9E3000352 // SysUtils
- ME_4AC9E3E502DA // TApplication
- ME_4AC9E4200035 // nsOpenNavigatorItem
- ME_4AC9E458019F // nsConst
- )
- ; // Dependencies
-
-ref; // ME_4AC9E13902F9 ActionElement
-
-FORWARD ME_4ACC82D6017B
-
-: ME_4ACC82EB000F
- CONST Name 'aSender'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_4ACC82EB000F aSender
-
-: ME_4ACC82E10394
- CONST UID '4ACC82E10394'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4ACC82D6017B // pnlMainResize
- ;
- : Parameters
-   Seq: ( ME_4ACC82EB000F // aSender
- )
- ; // Parameters
-
-ref; // ME_4ACC82E10394 DoIt
-
-: ME_4ACC82D6017B
- CONST UID '4ACC82D6017B'
- CONST Name 'pnlMainResize'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility ProtectedAccess
- CONST Abstraction at_regular
- : Parent ME_4958DD7002B6 // PrimMainMenu
- ;
- : Operations
-   Seq: ( ME_4ACC82E10394 // DoIt
- )
- ; // Operations
-
-ref; // ME_4ACC82D6017B pnlMainResize
-
-: ME_4AC9A3E1030B
- CONST Name 'Message'
- CONST Class class_Parameter
- : Stereotype st_inout ;
- : Target WL 'ME_4AC9A47200C3' '476F78840219.pas.ms.script' // TWMMouseWheel
- ;
-
-ref; // ME_4AC9A3E1030B Message
-
-: ME_4AC9A3AD01DE
- CONST UID '4AC9A3AD01DE'
- CONST Name 'WMMouseWheel'
- CONST Class class_Operation
- : Stereotype st_message::Operation ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4958DD7002B6 // PrimMainMenu
- ;
- : Parameters
-   Seq: ( ME_4AC9A3E1030B // Message
- )
- ; // Parameters
- CONST "Message ID" 'WM_MOUSEWHEEL'
-
-ref; // ME_4AC9A3AD01DE WMMouseWheel
-
-: ME_4AC9B6D00250
- CONST UID '4AC9B6D00250'
- CONST Name 'DoBuildGrid'
- CONST Class class_Operation
- CONST Visibility ProtectedAccess
- CONST Abstraction at_abstract
- : Parent ME_4958DD7002B6 // PrimMainMenu
- ;
- : Target WL 'ME_4AC9AFDC013C' '4AC9AFCE00DC.pas.ms.script' // InscArrangeGrid
- ;
-
-ref; // ME_4AC9B6D00250 DoBuildGrid
-
-: ME_4AC9CBA60136
- CONST Name 'aTable'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4AC9CB3003B4' '4AC9AFCE00DC.pas.ms.script' // InscTabTable
- ;
-
-ref; // ME_4AC9CBA60136 aTable
-
-: ME_4AC9CB8B01D3
- CONST UID '4AC9CB8B01D3'
- CONST Name 'DoInitKeyboardNavigation'
- CONST Class class_Operation
- CONST Visibility ProtectedAccess
- CONST Abstraction at_regular
- : Parent ME_4958DD7002B6 // PrimMainMenu
- ;
- : Parameters
-   Seq: ( ME_4AC9CBA60136 // aTable
- )
- ; // Parameters
-
-ref; // ME_4AC9CB8B01D3 DoInitKeyboardNavigation
-
-: ME_4AC9D12600E0
- CONST UID '4AC9D12600E0'
- CONST Name 'LoadLastOpenDocs'
- CONST Class class_Operation
- CONST Visibility ProtectedAccess
- CONST Abstraction at_regular
- : Parent ME_4958DD7002B6 // PrimMainMenu
- ;
-
-ref; // ME_4AC9D12600E0 LoadLastOpenDocs
-
-: ME_4AC9E1B00369
- CONST Name 'aNode'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_49904B3802CD' '49904AF102FD.pas.ms.script' // InsMainMenuNode
- ;
-
-ref; // ME_4AC9E1B00369 aNode
-
-: ME_4AC9E19E022B
- CONST UID '4AC9E19E022B'
- CONST Name 'DoActionElement'
- CONST Class class_Operation
- CONST Visibility ProtectedAccess
- CONST Abstraction at_regular
- : Parent ME_4958DD7002B6 // PrimMainMenu
- ;
- : Parameters
-   Seq: ( ME_4AC9E1B00369 // aNode
- )
- ; // Parameters
-
-ref; // ME_4AC9E19E022B DoActionElement
-
-: ME_4AC9E9EC0064
- CONST UID '4AC9E9EC0064'
- CONST Name 'LoadTrees'
- CONST Class class_Operation
- CONST Visibility ProtectedAccess
- CONST Abstraction at_regular
- : Parent ME_4958DD7002B6 // PrimMainMenu
- ;
-
-ref; // ME_4AC9E9EC0064 LoadTrees
-
-: ME_4ACB2F98002B
- CONST UID '4ACB2F98002B'
- CONST Name 'NewSchool'
- CONST Class class_Operation
- %SUMMARY 'Определяет, что основное меню вида 2009 - [$164601183]' ;
- CONST Visibility ProtectedAccess
- CONST Abstraction at_regular
- : Parent ME_4958DD7002B6 // PrimMainMenu
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_4ACB2F98002B NewSchool
-
-: ME_4AD34690022E
- CONST Name 'aGrid'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4AC9AFDC013C' '4AC9AFCE00DC.pas.ms.script' // InscArrangeGrid
- ;
-
-ref; // ME_4AD34690022E aGrid
-
-: ME_4AD3468102DB
- CONST UID '4AD3468102DB'
- CONST Name 'DoRecalcGrid'
- CONST Class class_Operation
- CONST Visibility ProtectedAccess
- CONST Abstraction at_regular
- : Parent ME_4958DD7002B6 // PrimMainMenu
- ;
- : Parameters
-   Seq: ( ME_4AD34690022E // aGrid
- )
- ; // Parameters
-
-ref; // ME_4AD3468102DB DoRecalcGrid
-
-FORWARD ME_4AC9A40B038E
-
-: ME_4AC9A423001E
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4958DD7002B6 // PrimMainMenu
- ;
- : Target ME_4AC9A40B038E // nsScrollMainMenu
- ;
-
-ref; // ME_4AC9A423001E 
-
-: ME_4AC9C71201D7
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4958DD7002B6 // PrimMainMenu
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_4AC9C71201D7 
-
-: ME_4AC9C74B039B
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4958DD7002B6 // PrimMainMenu
- ;
- : Target WL 'ME_47FB50E4008E' '48F747EC0073.pas.ms.script' // nsConst
- ;
-
-ref; // ME_4AC9C74B039B 
-
-: ME_4AC9D3CE0102
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4958DD7002B6 // PrimMainMenu
- ;
- : Target WL 'ME_47F260EC02C7' '521C9DA50125.pas.ms.script' // StdRes
- ;
-
-ref; // ME_4AC9D3CE0102 
-
-: ME_4ACDD79200DA
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4958DD7002B6 // PrimMainMenu
- ;
- : Target WL 'ME_4AB366EC0271' '46837A08002C.pas.ms.script' // TlgQueryType
- ;
-
-ref; // ME_4ACDD79200DA 
-
-: ME_4A485B710126_ME_4958DD7002B6
- : Original WL 'ME_4A485B710126' '47ECB2870309.pas.ms.script' // DoStyleTableChanged
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4A485B710126_ME_4958DD7002B6 DoStyleTableChanged
-
-: ME_4A83AA610299_ME_4958DD7002B6
- : Original WL 'ME_4A83AA610299' '4D7A05A000C1.pas.ms.script' // JournalShrinked
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4A83AA610299_ME_4958DD7002B6 JournalShrinked
-
-: ME_479731C50290_ME_4958DD7002B6
- : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_479731C50290_ME_4958DD7002B6 Cleanup
-
-: ME_47EA4E9002C6_ME_4958DD7002B6
- : Original WL 'ME_47EA4E9002C6' '47EA4BB502F9.pas.ms.script' // FinishDataUpdate
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_47EA4E9002C6_ME_4958DD7002B6 FinishDataUpdate
-
-: ME_49803F5503AA_ME_4958DD7002B6
- : Original WL 'ME_49803F5503AA' '4AADF9450143.pas.ms.script' // DoInit
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_49803F5503AA_ME_4958DD7002B6 DoInit
-
-: ME_49807428008C_ME_4958DD7002B6
- : Original WL 'ME_49807428008C' '4AADF9450143.pas.ms.script' // DoLoadState
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_49807428008C_ME_4958DD7002B6 DoLoadState
-
-: ME_4A8E8F2E0195_ME_4958DD7002B6
- : Original WL 'ME_4A8E8F2E0195' '5000041101C8.pas.ms.script' // InitControls
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4A8E8F2E0195_ME_4958DD7002B6 InitControls
-
-: ME_4B4F49900003_ME_4958DD7002B6
- : Original WL 'ME_4B4F49900003' '4AADF9450143.pas.ms.script' // SaveOwnFormState
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4B4F49900003_ME_4958DD7002B6 SaveOwnFormState
-
-: ME_4958DD7002B6
- CONST UID '4958DD7002B6'
- CONST Name 'PrimMainMenu'
- CONST Class class_Class
- : Stereotype st_VCMForm ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Основное меню' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_abstract
- : Parent ME_4ABD0D6A0255 // MainMenu
- ;
- : Inherits
-   Seq: ( WL 'ME_49525C240170' '4AADF9450143.pas.ms.script' // TvcmContainerForm
- )
- ; // Inherits
- : Implements
-   Seq: ( WL 'ME_480DA68701CE' '47ECB2870309.pas.ms.script' // evStyleTableListener
- WL 'ME_4958BD880163' '48F747EC0073.pas.ms.script' // nsUserSettingsListener
- WL 'ME_4A83AA5202C1' '4D7A05A000C1.pas.ms.script' // InsWorkJournalListener
- )
- ; // Implements
- : Attributes
-   Seq: ( ME_4AC9B24403CD // pnlMain
- ME_4AC9AFF40081 // Grid
- ME_4AC9C7020324 // f_LastOpenDocsManager
- ME_4AC9C93202F7 // TreeStyle
- ME_4AC9CB47002A // f_TabTable
- ME_4ACA197F0147 // ContainerForBaseSearch
- ME_4AD6F68901A0 // f_ArrangeCount
- )
- ; // Attributes
- : Operations
-   Seq: ( ME_4AC9B1BB022A // ArrangeGrid
- ME_4AC9B367032D // RecalcGrid
- ME_4AC9B6A80163 // BuildGrid
- ME_4AC9B71F032F // GridSizeChanged
- ME_4AC9CB6100E4 // InitKeyboardNavigation
- ME_4AC9E13902F9 // ActionElement
- ME_4ACC82D6017B // pnlMainResize
- ME_4AC9A3AD01DE // WMMouseWheel
- ME_4AC9B6D00250 // DoBuildGrid
- ME_4AC9CB8B01D3 // DoInitKeyboardNavigation
- ME_4AC9D12600E0 // LoadLastOpenDocs
- ME_4AC9E19E022B // DoActionElement
- ME_4AC9E9EC0064 // LoadTrees
- ME_4ACB2F98002B // NewSchool
- ME_4AD3468102DB // DoRecalcGrid
- )
- ; // Operations
- : Implemented
-   Seq: ( ME_4A485B710126_ME_4958DD7002B6 // DoStyleTableChanged
- ME_4A83AA610299_ME_4958DD7002B6 // JournalShrinked
- )
- ; // Implemented
- : Overridden
-   Seq: ( ME_479731C50290_ME_4958DD7002B6 // Cleanup
- ME_47EA4E9002C6_ME_4958DD7002B6 // FinishDataUpdate
- ME_49803F5503AA_ME_4958DD7002B6 // DoInit
- ME_49807428008C_ME_4958DD7002B6 // DoLoadState
- ME_4A8E8F2E0195_ME_4958DD7002B6 // InitControls
- ME_4B4F49900003_ME_4958DD7002B6 // SaveOwnFormState
- )
- ; // Overridden
- : Children
-   Seq: ( ME_4B4F49FD03DF // TPrimMainMenuState
- )
- ; // Children
- : Dependencies
-   Seq: ( ME_4AC9A423001E // nsScrollMainMenu
- ME_4AC9C71201D7 // SysUtils
- ME_4AC9C74B039B // nsConst
- ME_4AC9D3CE0102 // StdRes
- ME_4ACDD79200DA // TlgQueryType
- )
- ; // Dependencies
- CONST "NeedsHackRef" false
- CONST "ZoneType" 'Any'
- CONST "author" 'Люлин А.В.'
- CONST "finished dfm" true
- CONST "no hands" true
- CONST "resizeable" false
- CONST "restrict form def" 'undefined'
- CONST "started" '29.12.2008 17:23'
- CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\MainMenu\Forms\PrimMainMenu_Form.pas'
- CONST extprop:pas:TypeName 'TPrimMainMenuForm'
- CONST extprop:rc:SelfName 'PrimMainMenuForm'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'PrimMainMenu_Form'
-
-ref; // ME_4958DD7002B6 PrimMainMenu
-
-FORWARD ME_4AC9A3F801F3
 
 FORWARD ME_4B0BE93B0070
 
@@ -1118,7 +35,7 @@ ref; // ME_559BFBE60062 aPara
  : Stereotype st_static::Operation ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
- : Parent ME_4B0BE93B0070 // TnsOpenDocumentFromHistory
+ : Parent HWL ME_4B0BE93B0070 // TnsOpenDocumentFromHistory
  ;
  : Parameters
    Seq: ( ME_4B0BE9830395 // aDoc
@@ -1131,7 +48,7 @@ ref; // ME_4B0BE97A0326 Log
 : ME_4B0BE99701A1
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4B0BE93B0070 // TnsOpenDocumentFromHistory
+ : Parent HWL ME_4B0BE93B0070 // TnsOpenDocumentFromHistory
  ;
  : Target WL 'ME_45ED58FF0201' '45ED58CF03E6.pas.ms.script' // LogEvent
  ;
@@ -1146,14 +63,14 @@ ref; // ME_4B0BE99701A1
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4AC9C1F40041 // TnsLastOpenDocsManager
+ : Parent HWL ME_4AC9C1F40041 // TnsLastOpenDocsManager
  ;
  : Inherits
    Seq: ( WL 'ME_4B0A6109010C' '4B0A60DF01F2.pas.ms.script' // TnsLogEvent
  )
  ; // Inherits
  : Operations
-   Seq: ( ME_4B0BE97A0326 // Log
+   Seq: ( HWL ME_4B0BE97A0326 // Log
  )
  ; // Operations
  : Dependencies
@@ -1172,7 +89,7 @@ ref; // ME_4B0BE93B0070 TnsOpenDocumentFromHistory
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4AC9C1F40041 // TnsLastOpenDocsManager
+ : Parent HWL ME_4AC9C1F40041 // TnsLastOpenDocsManager
  ;
  : Target WL 'ME_46A44A2F01C7' '55C4AEC801CA.pas.ms.script' // TColor
  ;
@@ -1186,7 +103,7 @@ ref; // ME_559BCC950175 f_MainMenuColor
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4AC9C1F40041 // TnsLastOpenDocsManager
+ : Parent HWL ME_4AC9C1F40041 // TnsLastOpenDocsManager
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -1201,10 +118,10 @@ ref; // ME_559BCC9D0003 f_NewSchool
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4AC9C1F40041 // TnsLastOpenDocsManager
+ : Parent HWL ME_4AC9C1F40041 // TnsLastOpenDocsManager
  ;
  : Inherits
-   Seq: ( WL 'ME_515DAD4A03AB' '4B97E7FD006C.pas.ms.script' // TGetItemStyleEvent
+   Seq: ( WL 'ME_515DAD4A03AB' '515DA5860015.pas.ms.script' // TGetItemStyleEvent
  )
  ; // Inherits
 
@@ -1218,10 +135,10 @@ ref; // ME_559BCCE9036A GetItemStyle
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4AC9C1F40041 // TnsLastOpenDocsManager
+ : Parent HWL ME_4AC9C1F40041 // TnsLastOpenDocsManager
  ;
  : Inherits
-   Seq: ( WL 'ME_514B3667022C' '4B97E7FD006C.pas.ms.script' // TGetItemCursor
+   Seq: ( WL 'ME_514B3667022C' '4CFFE3470249.pas.ms.script' // TGetItemCursor
  )
  ; // Inherits
 
@@ -1235,10 +152,10 @@ ref; // ME_559BDAD602E3 GetItemCursor
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4AC9C1F40041 // TnsLastOpenDocsManager
+ : Parent HWL ME_4AC9C1F40041 // TnsLastOpenDocsManager
  ;
  : Inherits
-   Seq: ( WL 'ME_51432026033F' '4B97E7FD006C.pas.ms.script' // TActionElement
+   Seq: ( WL 'ME_51432026033F' '4CFFE3470249.pas.ms.script' // TActionElement
  )
  ; // Inherits
 
@@ -1252,10 +169,10 @@ ref; // ME_559BDAE200EE ActionElement
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4AC9C1F40041 // TnsLastOpenDocsManager
+ : Parent HWL ME_4AC9C1F40041 // TnsLastOpenDocsManager
  ;
  : Inherits
-   Seq: ( WL 'ME_514B3629029D' '4B97E7FD006C.pas.ms.script' // TGetItemTextHint
+   Seq: ( WL 'ME_514B3629029D' '4CFFE3470249.pas.ms.script' // TGetItemTextHint
  )
  ; // Inherits
 
@@ -1269,10 +186,10 @@ ref; // ME_559BDAF3021A GetItemTextHint
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4AC9C1F40041 // TnsLastOpenDocsManager
+ : Parent HWL ME_4AC9C1F40041 // TnsLastOpenDocsManager
  ;
  : Inherits
-   Seq: ( WL 'ME_559BCDD6010D' '499C2614028C.pas.ms.script' // TOnAllowHotTruck
+   Seq: ( WL 'ME_559BCDD6010D' '4B60346A022E.pas.ms.script' // TOnAllowHotTruck
  )
  ; // Inherits
 
@@ -1295,7 +212,7 @@ ref; // ME_559BDB1F0300 aNode
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_559BDB16017C // IsBookmark
+ : Parent HWL ME_559BDB16017C // IsBookmark
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -1314,10 +231,10 @@ ref; // ME_559BDB1D021F DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4AC9C1F40041 // TnsLastOpenDocsManager
+ : Parent HWL ME_4AC9C1F40041 // TnsLastOpenDocsManager
  ;
  : Operations
-   Seq: ( ME_559BDB1D021F // DoIt
+   Seq: ( HWL ME_559BDB1D021F // DoIt
  )
  ; // Operations
 
@@ -1329,7 +246,7 @@ FORWARD ME_559BDB2B038C
  CONST Name 'aTree'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target WL 'ME_4B60346A022E' '499C2614028C.pas.ms.script' // TnscTreeViewHotTruck
+ : Target WL 'ME_4B60346A022E' '4B60346A022E.pas.ms.script' // TnscTreeViewHotTruck
  ;
 
 ref; // ME_559BDB33003A aTree
@@ -1340,7 +257,7 @@ ref; // ME_559BDB33003A aTree
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_559BDB2B038C // Init
+ : Parent HWL ME_559BDB2B038C // Init
  ;
  : Parameters
    Seq: ( ME_559BDB33003A // aTree
@@ -1357,10 +274,10 @@ ref; // ME_559BDB31001C DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4AC9C1F40041 // TnsLastOpenDocsManager
+ : Parent HWL ME_4AC9C1F40041 // TnsLastOpenDocsManager
  ;
  : Operations
-   Seq: ( ME_559BDB31001C // DoIt
+   Seq: ( HWL ME_559BDB31001C // DoIt
  )
  ; // Operations
 
@@ -1381,7 +298,7 @@ ref; // ME_559BDB4E01E9 aMainMenuColor
  CONST Name 'aTree'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target WL 'ME_4B60346A022E' '499C2614028C.pas.ms.script' // TnscTreeViewHotTruck
+ : Target WL 'ME_4B60346A022E' '4B60346A022E.pas.ms.script' // TnscTreeViewHotTruck
  ;
 
 ref; // ME_559BDB4E0207 aTree
@@ -1401,7 +318,7 @@ ref; // ME_559BDB4E022F aNewSchool
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_559BDB4701AD // Create
+ : Parent HWL ME_559BDB4701AD // Create
  ;
  : Parameters
    Seq: ( ME_559BDB4E01E9 // aMainMenuColor
@@ -1420,10 +337,10 @@ ref; // ME_559BDB4B031F DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4AC9C1F40041 // TnsLastOpenDocsManager
+ : Parent HWL ME_4AC9C1F40041 // TnsLastOpenDocsManager
  ;
  : Operations
-   Seq: ( ME_559BDB4B031F // DoIt
+   Seq: ( HWL ME_559BDB4B031F // DoIt
  )
  ; // Operations
 
@@ -1438,30 +355,30 @@ ref; // ME_559BDB4701AD Create
  %SUMMARY 'менеджер дерева последних открытых документов' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4AC9A3F801F3 // nsMainMenuNew
+ : Parent HWL ME_4AC9A3F801F3 // nsMainMenuNew
  ;
  : Inherits
    Seq: ( WL 'ME_47F25BEE0389' '47D0E1500033.pas.ms.script' // TvcmBase
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_559BCC950175 // f_MainMenuColor
- ME_559BCC9D0003 // f_NewSchool
+   Seq: ( HWL ME_559BCC950175 // f_MainMenuColor
+ HWL ME_559BCC9D0003 // f_NewSchool
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_559BCCE9036A // GetItemStyle
- ME_559BDAD602E3 // GetItemCursor
- ME_559BDAE200EE // ActionElement
- ME_559BDAF3021A // GetItemTextHint
- ME_559BDAFF0396 // AllowHotTruck
- ME_559BDB16017C // IsBookmark
- ME_559BDB2B038C // Init
- ME_559BDB4701AD // Create
+   Seq: ( HWL ME_559BCCE9036A // GetItemStyle
+ HWL ME_559BDAD602E3 // GetItemCursor
+ HWL ME_559BDAE200EE // ActionElement
+ HWL ME_559BDAF3021A // GetItemTextHint
+ HWL ME_559BDAFF0396 // AllowHotTruck
+ HWL ME_559BDB16017C // IsBookmark
+ HWL ME_559BDB2B038C // Init
+ HWL ME_559BDB4701AD // Create
  )
  ; // Operations
  : Children
-   Seq: ( ME_4B0BE93B0070 // TnsOpenDocumentFromHistory
+   Seq: ( HWL ME_4B0BE93B0070 // TnsOpenDocumentFromHistory
  )
  ; // Children
  CONST "finished" false
@@ -1470,6 +387,8 @@ ref; // ME_559BDB4701AD Create
 
 ref; // ME_4AC9C1F40041 TnsLastOpenDocsManager
 
+FORWARD ME_4AC9C91202FA
+
 : ME_559BC9470382
  CONST UID '559BC9470382'
  CONST Name 'f_MainMenuColor'
@@ -1477,7 +396,7 @@ ref; // ME_4AC9C1F40041 TnsLastOpenDocsManager
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4AC9C91202FA // TnsTreeStyleManager
+ : Parent HWL ME_4AC9C91202FA // TnsTreeStyleManager
  ;
  : Target WL 'ME_46A44A2F01C7' '55C4AEC801CA.pas.ms.script' // TColor
  ;
@@ -1491,7 +410,7 @@ ref; // ME_559BC9470382 f_MainMenuColor
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4AC9C91202FA // TnsTreeStyleManager
+ : Parent HWL ME_4AC9C91202FA // TnsTreeStyleManager
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -1506,10 +425,10 @@ ref; // ME_559BC94F01F2 f_NewSchool
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4AC9C91202FA // TnsTreeStyleManager
+ : Parent HWL ME_4AC9C91202FA // TnsTreeStyleManager
  ;
  : Inherits
-   Seq: ( WL 'ME_515DAD4A03AB' '4B97E7FD006C.pas.ms.script' // TGetItemStyleEvent
+   Seq: ( WL 'ME_515DAD4A03AB' '515DA5860015.pas.ms.script' // TGetItemStyleEvent
  )
  ; // Inherits
 
@@ -1523,7 +442,7 @@ ref; // ME_559BCA25016A TreeGetItemStyle
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4AC9C91202FA // TnsTreeStyleManager
+ : Parent HWL ME_4AC9C91202FA // TnsTreeStyleManager
  ;
  : Inherits
    Seq: ( WL 'ME_47D63B6D0157' '47D036150077.pas.ms.script' // Tl3GetItemImage
@@ -1538,7 +457,7 @@ FORWARD ME_559BCA4A02E1
  CONST Name 'aTree'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target WL 'ME_494B949E022B' '494B947D0127.pas.ms.script' // TeeTreeView
+ : Target WL 'ME_494B949E022B' '494B949E022B.pas.ms.script' // TeeTreeView
  ;
 
 ref; // ME_559BCA5503C5 aTree
@@ -1549,7 +468,7 @@ ref; // ME_559BCA5503C5 aTree
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_559BCA4A02E1 // Init
+ : Parent HWL ME_559BCA4A02E1 // Init
  ;
  : Parameters
    Seq: ( ME_559BCA5503C5 // aTree
@@ -1566,10 +485,10 @@ ref; // ME_559BCA5400AF DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4AC9C91202FA // TnsTreeStyleManager
+ : Parent HWL ME_4AC9C91202FA // TnsTreeStyleManager
  ;
  : Operations
-   Seq: ( ME_559BCA5400AF // DoIt
+   Seq: ( HWL ME_559BCA5400AF // DoIt
  )
  ; // Operations
 
@@ -1601,7 +520,7 @@ ref; // ME_559BCA75011C aNewSchool
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_559BCA680342 // Create
+ : Parent HWL ME_559BCA680342 // Create
  ;
  : Parameters
    Seq: ( ME_559BCA7500FE // aMainMenuColor
@@ -1619,10 +538,10 @@ ref; // ME_559BCA7200AE DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4AC9C91202FA // TnsTreeStyleManager
+ : Parent HWL ME_4AC9C91202FA // TnsTreeStyleManager
  ;
  : Operations
-   Seq: ( ME_559BCA7200AE // DoIt
+   Seq: ( HWL ME_559BCA7200AE // DoIt
  )
  ; // Operations
 
@@ -1637,22 +556,22 @@ ref; // ME_559BCA680342 Create
  %SUMMARY 'менеджер стилей деревьев для основного меню' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4AC9A3F801F3 // nsMainMenuNew
+ : Parent HWL ME_4AC9A3F801F3 // nsMainMenuNew
  ;
  : Inherits
    Seq: ( WL 'ME_47F25BEE0389' '47D0E1500033.pas.ms.script' // TvcmBase
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_559BC9470382 // f_MainMenuColor
- ME_559BC94F01F2 // f_NewSchool
+   Seq: ( HWL ME_559BC9470382 // f_MainMenuColor
+ HWL ME_559BC94F01F2 // f_NewSchool
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_559BCA25016A // TreeGetItemStyle
- ME_559BCA3300B9 // TreeGetItemImage
- ME_559BCA4A02E1 // Init
- ME_559BCA680342 // Create
+   Seq: ( HWL ME_559BCA25016A // TreeGetItemStyle
+ HWL ME_559BCA3300B9 // TreeGetItemImage
+ HWL ME_559BCA4A02E1 // Init
+ HWL ME_559BCA680342 // Create
  )
  ; // Operations
  CONST "finished" false
@@ -1671,7 +590,7 @@ FORWARD ME_559BC4A30149
  CONST Visibility PrivateAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_559BC4A30149 // TnsQueryHistory
+ : Parent HWL ME_559BC4A30149 // TnsQueryHistory
  ;
  : Target WL 'ME_49904E7A0175' '49904AF102FD.pas.ms.script' // InsQueryNode
  ;
@@ -1685,7 +604,7 @@ ref; // ME_559BC4F9006D ItemType
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_559BC4A30149 // TnsQueryHistory
+ : Parent HWL ME_559BC4A30149 // TnsQueryHistory
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -1699,7 +618,7 @@ ref; // ME_559BC74302BF f_MaxCount
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_559BC4A30149 // TnsQueryHistory
+ : Parent HWL ME_559BC4A30149 // TnsQueryHistory
  ;
  : Target WL 'ME_45EEE13200E5' '45EEAA8E034E.pas.ms.script' // QueryType
  ;
@@ -1714,7 +633,7 @@ ref; // ME_559BC755039B f_QueryType
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_559BC4A30149 // TnsQueryHistory
+ : Parent HWL ME_559BC4A30149 // TnsQueryHistory
  ;
 
 ref; // ME_559BC7B5001A LoadQueries
@@ -1745,7 +664,7 @@ ref; // ME_559BC7DE0279 aQueryType
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_559BC7CA015F // Create
+ : Parent HWL ME_559BC7CA015F // Create
  ;
  : Parameters
    Seq: ( ME_559BC7DE025B // aMaxCount
@@ -1763,10 +682,10 @@ ref; // ME_559BC7DA0125 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_559BC4A30149 // TnsQueryHistory
+ : Parent HWL ME_559BC4A30149 // TnsQueryHistory
  ;
  : Operations
-   Seq: ( ME_559BC7DA0125 // DoIt
+   Seq: ( HWL ME_559BC7DA0125 // DoIt
  )
  ; // Operations
 
@@ -1781,7 +700,7 @@ ref; // ME_559BC7CA015F Create
  %SUMMARY 'История запросов' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4AC9A3F801F3 // nsMainMenuNew
+ : Parent HWL ME_4AC9A3F801F3 // nsMainMenuNew
  ;
  : Inherits
    Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
@@ -1792,14 +711,14 @@ ref; // ME_559BC7CA015F Create
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_559BC4F9006D // ItemType
- ME_559BC74302BF // f_MaxCount
- ME_559BC755039B // f_QueryType
+   Seq: ( HWL ME_559BC4F9006D // ItemType
+ HWL ME_559BC74302BF // f_MaxCount
+ HWL ME_559BC755039B // f_QueryType
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_559BC7B5001A // LoadQueries
- ME_559BC7CA015F // Create
+   Seq: ( HWL ME_559BC7B5001A // LoadQueries
+ HWL ME_559BC7CA015F // Create
  )
  ; // Operations
  CONST extprop:rc:SelfName 'QueryHistory'
@@ -1816,9 +735,9 @@ FORWARD ME_5123CA5D0361
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_5123CA5D0361 // TQHRec
+ : Parent HWL ME_5123CA5D0361 // TQHRec
  ;
- : Target ME_559BC4A30149 // TnsQueryHistory
+ : Target HWL ME_559BC4A30149 // TnsQueryHistory
  ;
 
 ref; // ME_559BC8A00314 rH
@@ -1831,10 +750,10 @@ ref; // ME_559BC8A00314 rH
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4AC9A3F801F3 // nsMainMenuNew
+ : Parent HWL ME_4AC9A3F801F3 // nsMainMenuNew
  ;
  : Attributes
-   Seq: ( ME_559BC8A00314 // rH
+   Seq: ( HWL ME_559BC8A00314 // rH
  )
  ; // Attributes
 
@@ -1849,7 +768,7 @@ FORWARD ME_559BDBC1011E
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_559BDBC1011E // nsMainMenuNew const
+ : Parent HWL ME_559BDBC1011E // nsMainMenuNew const
  ;
  CONST Value 'clWhite'
  CONST "AutoInc" false
@@ -1866,7 +785,7 @@ ref; // ME_559BDBD401BF c_mmTreeColor
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_559BDBC1011E // nsMainMenuNew const
+ : Parent HWL ME_559BDBC1011E // nsMainMenuNew const
  ;
  CONST Value '$00F2F2F2'
  CONST "AutoInc" false
@@ -1884,17 +803,19 @@ ref; // ME_559BDBDE022B c_mmSecondItemColor
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4AC9A3F801F3 // nsMainMenuNew
+ : Parent HWL ME_4AC9A3F801F3 // nsMainMenuNew
  ;
  : Attributes
-   Seq: ( ME_559BDBD401BF // c_mmTreeColor
- ME_559BDBDE022B // c_mmSecondItemColor
+   Seq: ( HWL ME_559BDBD401BF // c_mmTreeColor
+ HWL ME_559BDBDE022B // c_mmSecondItemColor
  )
  ; // Attributes
  CONST "spell names" false
  CONST extprop:rc:SelfName 'MainMenuNew const'
 
 ref; // ME_559BDBC1011E nsMainMenuNew const
+
+FORWARD ME_4AC9A40B038E
 
 : ME_559BDB8D01FE
  CONST Name 'aWindow'
@@ -1920,7 +841,7 @@ ref; // ME_559BDB8D0226 Message
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4AC9A40B038E // nsScrollMainMenu
+ : Parent HWL ME_4AC9A40B038E // nsScrollMainMenu
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -1940,10 +861,10 @@ ref; // ME_559BDB880212 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4AC9A3F801F3 // nsMainMenuNew
+ : Parent HWL ME_4AC9A3F801F3 // nsMainMenuNew
  ;
  : Operations
-   Seq: ( ME_559BDB880212 // DoIt
+   Seq: ( HWL ME_559BDB880212 // DoIt
  )
  ; // Operations
  CONST extprop:rc:SelfName 'ScrollMainMenu'
@@ -1958,7 +879,7 @@ FORWARD ME_4AC9F24E031B
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4AC9F24E031B // nsMakeMainMenuCaption
+ : Parent HWL ME_4AC9F24E031B // nsMakeMainMenuCaption
  ;
  : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
  ;
@@ -1973,10 +894,10 @@ ref; // ME_559BDB6D025F DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4AC9A3F801F3 // nsMainMenuNew
+ : Parent HWL ME_4AC9A3F801F3 // nsMainMenuNew
  ;
  : Operations
-   Seq: ( ME_559BDB6D025F // DoIt
+   Seq: ( HWL ME_559BDB6D025F // DoIt
  )
  ; // Operations
  CONST extprop:rc:SelfName 'MakeMainMenuCaption'
@@ -1989,7 +910,7 @@ FORWARD ME_559BDBA00236
  CONST Name 'aBuf'
  CONST Class class_Parameter
  : Stereotype st_inout ;
- : Target ME_5123CA5D0361 // TQHRec
+ : Target HWL ME_5123CA5D0361 // TQHRec
  ;
 
 ref; // ME_559BDBAB02E0 aBuf
@@ -2022,7 +943,7 @@ ref; // ME_559BDBAB036C aHint
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_559BDBA00236 // nsMakeQueryStr
+ : Parent HWL ME_559BDBA00236 // nsMakeQueryStr
  ;
  : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
  ;
@@ -2043,10 +964,10 @@ ref; // ME_559BDBA70038 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4AC9A3F801F3 // nsMainMenuNew
+ : Parent HWL ME_4AC9A3F801F3 // nsMainMenuNew
  ;
  : Operations
-   Seq: ( ME_559BDBA70038 // DoIt
+   Seq: ( HWL ME_559BDBA70038 // DoIt
  )
  ; // Operations
  CONST extprop:rc:SelfName 'MakeQueryStr'
@@ -2056,7 +977,7 @@ ref; // ME_559BDBA00236 nsMakeQueryStr
 : ME_559BFBBE00EB
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4AC9A3F801F3 // nsMainMenuNew
+ : Parent HWL ME_4AC9A3F801F3 // nsMainMenuNew
  ;
  : Target WL 'ME_48A41FF10094' '4AB0C3F60375.pas.ms.script' // Windows
  ;
@@ -2066,7 +987,7 @@ ref; // ME_559BFBBE00EB
 : ME_559C021D003A
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4AC9A3F801F3 // nsMainMenuNew
+ : Parent HWL ME_4AC9A3F801F3 // nsMainMenuNew
  ;
  : Target WL 'ME_47F260EC02C7' '521C9DA50125.pas.ms.script' // StdRes
  ;
@@ -2076,7 +997,7 @@ ref; // ME_559C021D003A
 : ME_559C023F0267
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4AC9A3F801F3 // nsMainMenuNew
+ : Parent HWL ME_4AC9A3F801F3 // nsMainMenuNew
  ;
  : Target WL 'ME_47878E0E0191' '54B90AC6014B.pas.ms.script' // l3String
  ;
@@ -2086,7 +1007,7 @@ ref; // ME_559C023F0267
 : ME_559C0FA001F9
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4AC9A3F801F3 // nsMainMenuNew
+ : Parent HWL ME_4AC9A3F801F3 // nsMainMenuNew
  ;
  : Target WL 'ME_48C78D5402A6' '4799D29F033F.pas.ms.script' // StdCtrls
  ;
@@ -2096,7 +1017,7 @@ ref; // ME_559C0FA001F9
 : ME_559C0FCE015B
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4AC9A3F801F3 // nsMainMenuNew
+ : Parent HWL ME_4AC9A3F801F3 // nsMainMenuNew
  ;
  : Target WL 'ME_48FF556602BA' '48F747EC0073.pas.ms.script' // DataAdapter
  ;
@@ -2106,7 +1027,7 @@ ref; // ME_559C0FCE015B
 : ME_559C0FE1022D
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4AC9A3F801F3 // nsMainMenuNew
+ : Parent HWL ME_4AC9A3F801F3 // nsMainMenuNew
  ;
  : Target WL 'ME_4A6854C70390' '47F2170002B2.pas.ms.script' // nsTypes
  ;
@@ -2116,7 +1037,7 @@ ref; // ME_559C0FE1022D
 : ME_559C0FF70138
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4AC9A3F801F3 // nsMainMenuNew
+ : Parent HWL ME_4AC9A3F801F3 // nsMainMenuNew
  ;
  : Target WL 'ME_47A082F101DB' '476BE98C01B8.pas.ms.script' // Ext Chars
  ;
@@ -2126,7 +1047,7 @@ ref; // ME_559C0FF70138
 : ME_559C100B01F8
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4AC9A3F801F3 // nsMainMenuNew
+ : Parent HWL ME_4AC9A3F801F3 // nsMainMenuNew
  ;
  : Target WL 'ME_4ADDF50A00E2' '4909EECE01D5.pas.ms.script' // TnsQueryNode
  ;
@@ -2136,7 +1057,7 @@ ref; // ME_559C100B01F8
 : ME_559C102702FE
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4AC9A3F801F3 // nsMainMenuNew
+ : Parent HWL ME_4AC9A3F801F3 // nsMainMenuNew
  ;
  : Target WL 'ME_490C47C70210' '48F747EC0073.pas.ms.script' // nsUtils
  ;
@@ -2146,7 +1067,7 @@ ref; // ME_559C102702FE
 : ME_559C104D0063
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4AC9A3F801F3 // nsMainMenuNew
+ : Parent HWL ME_4AC9A3F801F3 // nsMainMenuNew
  ;
  : Target WL 'ME_456EB454018E' '456EA56002BF.pas.ms.script' // CanNotFindData
  ;
@@ -2161,23 +1082,23 @@ ref; // ME_559C104D0063
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4ABD0D6A0255 // MainMenu
+ : Parent HWL ME_4ABD0D6A0255 // MainMenu
  ;
  : Operations
-   Seq: ( ME_4AC9A40B038E // nsScrollMainMenu
- ME_4AC9F24E031B // nsMakeMainMenuCaption
- ME_559BDBA00236 // nsMakeQueryStr
+   Seq: ( HWL ME_4AC9A40B038E // nsScrollMainMenu
+ HWL ME_4AC9F24E031B // nsMakeMainMenuCaption
+ HWL ME_559BDBA00236 // nsMakeQueryStr
  )
  ; // Operations
  : Children
-   Seq: ( ME_4AC9C1F40041 // TnsLastOpenDocsManager
- ME_4AC9C91202FA // TnsTreeStyleManager
- ME_559BC4A30149 // TnsQueryHistory
- ME_5123CA5D0361 // TQHRec
+   Seq: ( HWL ME_4AC9C1F40041 // TnsLastOpenDocsManager
+ HWL ME_4AC9C91202FA // TnsTreeStyleManager
+ HWL ME_559BC4A30149 // TnsQueryHistory
+ HWL ME_5123CA5D0361 // TQHRec
  )
  ; // Children
  : Constants
-   Seq: ( ME_559BDBC1011E // nsMainMenuNew const
+   Seq: ( HWL ME_559BDBC1011E // nsMainMenuNew const
  )
  ; // Constants
  : Dependencies
@@ -2208,8 +1129,8 @@ ref; // ME_4AC9A3F801F3 nsMainMenuNew
  : Parent WL 'ME_4A7C099B004F' '4A7C099B004F.pas.ms.script' // View
  ;
  : Children
-   Seq: ( ME_4958DD7002B6 // PrimMainMenu
- ME_4AC9A3F801F3 // nsMainMenuNew
+   Seq: ( WL 'ME_4958DD7002B6' '4958DD7002B6.pas.ms.script' // PrimMainMenu
+ HWL ME_4AC9A3F801F3 // nsMainMenuNew
  )
  ; // Children
  : Depends

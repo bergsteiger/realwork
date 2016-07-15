@@ -1,0 +1,249 @@
+// TdsChangesBetweenEditions 4DDCDD68019E ViewAreaControllerImp Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4DDCDD68019E
+
+FORWARD ME_4F62E92B005E
+
+: ME_4F62EB3000FC
+ CONST UID '4F62EB3000FC'
+ CONST Name 'cnevChangesBetweenEditions'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4F62E92B005E // Обзор изменений документа
+ ;
+ CONST "AutoInc" false
+ CONST "Value" '''Обзор изменений документа: '''
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_4F62EB3000FC cnevChangesBetweenEditions
+
+: ME_4F62E92B005E
+ CONST UID '4F62E92B005E'
+ CONST Name 'Обзор изменений документа'
+ CONST Class class_Class
+ : Stereotype st_LocalConst ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4DDCDD68019E // TdsChangesBetweenEditions
+ ;
+ : Attributes
+   Seq: ( HWL ME_4F62EB3000FC // cnevChangesBetweenEditions
+ )
+ ; // Attributes
+ CONST "Need map interface" false
+ CONST "Need mapping support" false
+ CONST "spell names" false
+
+ref; // ME_4F62E92B005E Обзор изменений документа
+
+: ME_4DDCDDC50088
+ CONST UID '4DDCDDC50088'
+ CONST Name 'InitDataType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent HWL ME_4DDCDD68019E // TdsChangesBetweenEditions
+ ;
+ : Target WL 'ME_4DDCD8CD008D' '4DDCD71E027C.pas.ms.script' // InsChangesBetweenEditionsInfo
+ ;
+
+ref; // ME_4DDCDDC50088 InitDataType
+
+: ME_4DDD0C6B01FB
+ CONST UID '4DDD0C6B01FB'
+ CONST Name 'f_Cont'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent HWL ME_4DDCDD68019E // TdsChangesBetweenEditions
+ ;
+ : Target WL 'ME_47C6A603009D' '47C5207602D1.pas.ms.script' // InevDocumentContainer
+ ;
+
+ref; // ME_4DDD0C6B01FB f_Cont
+
+: ME_4F6307F40063
+ CONST UID '4F6307F40063'
+ CONST Name 'FormDataSourceType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent HWL ME_4DDCDD68019E // TdsChangesBetweenEditions
+ ;
+ : Target WL 'ME_4DDCD7420084' '4DDCD71E027C.pas.ms.script' // IdsChangesBetweenEditions
+ ;
+
+ref; // ME_4F6307F40063 FormDataSourceType
+
+: ME_4DDD0DAA01D8
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4DDCDD68019E // TdsChangesBetweenEditions
+ ;
+ : Target WL 'ME_4DDD0D92039C' '4DDCD7B600D5.pas.ms.script' // TnsChangesBetweenEditionsDocumentContainer
+ ;
+
+ref; // ME_4DDD0DAA01D8 
+
+: ME_4F62F823034F
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4DDCDD68019E // TdsChangesBetweenEditions
+ ;
+ : Target WL 'ME_4954878B03CF' '47EA968D0155.pas.ms.script' // TevFormatHAFMacroReplacer
+ ;
+
+ref; // ME_4F62F823034F 
+
+: ME_4F62FB5A03B2
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4DDCDD68019E // TdsChangesBetweenEditions
+ ;
+ : Target WL 'ME_4958968201A7' '47EA50050263.pas.ms.script' // TnsDocInfoHAFMacroReplacer
+ ;
+
+ref; // ME_4F62FB5A03B2 
+
+: ME_4F632228016A
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4DDCDD68019E // TdsChangesBetweenEditions
+ ;
+ : Target WL 'ME_431841610361' '4423F94903C8.pas.ms.script' // String
+ ;
+
+ref; // ME_4F632228016A 
+
+: ME_4F6322710181
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4DDCDD68019E // TdsChangesBetweenEditions
+ ;
+ : Target WL 'ME_46780D0003AF' '4677FBA70343.pas.ms.script' // Tl3WString
+ ;
+
+ref; // ME_4F6322710181 
+
+: ME_4F6322AA017C
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4DDCDD68019E // TdsChangesBetweenEditions
+ ;
+ : Target WL 'ME_4ADEE542029C' '47F2170002B2.pas.ms.script' // nsWStr
+ ;
+
+ref; // ME_4F6322AA017C 
+
+: ME_4F6336BB00F3
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4DDCDD68019E // TdsChangesBetweenEditions
+ ;
+ : Target WL 'ME_4C80CE9A0164' '54B90AC6014B.pas.ms.script' // l3Cat
+ ;
+
+ref; // ME_4F6336BB00F3 
+
+: ME_4AE56DE80093_ME_4DDCDD68019E
+ : Original WL 'ME_4AE56DE80093' '491B305A0096.pas.ms.script' // MakeHAFMacroReplacer
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4AE56DE80093_ME_4DDCDD68019E MakeHAFMacroReplacer
+
+: ME_4DDCE9110130_ME_4DDCDD68019E
+ : Original WL 'ME_4DDCE9110130' '4DDCD71E027C.pas.ms.script' // RightEdition
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_4DDCE9110130_ME_4DDCDD68019E RightEdition
+
+: ME_4DDD0C170344_ME_4DDCDD68019E
+ : Original WL 'ME_4DDD0C170344' '4DDCD71E027C.pas.ms.script' // DocumentContainer
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_4DDD0C170344_ME_4DDCDD68019E DocumentContainer
+
+: ME_4F2BF187026F_ME_4DDCDD68019E
+ : Original WL 'ME_4F2BF187026F' '4DDCD71E027C.pas.ms.script' // LeftEdition
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_4F2BF187026F_ME_4DDCDD68019E LeftEdition
+
+: ME_4F548A0D0096_ME_4DDCDD68019E
+ : Original WL 'ME_4F548A0D0096' '4F546F810266.pas.ms.script' // DocumentForDocInfoProvider
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4F548A0D0096_ME_4DDCDD68019E DocumentForDocInfoProvider
+
+: ME_4DDCDD68019E
+ CONST UID '4DDCDD68019E'
+ CONST Name 'TdsChangesBetweenEditions'
+ CONST Class class_Class
+ : Stereotype st_ViewAreaControllerImp ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4DDCD7B600D5' '4DDCD7B600D5.pas.ms.script' // ChangesBetweenEditionsImplementation
+ ;
+ : Inherits
+   Seq: ( WL 'ME_492ACB4100B2' '47D0E1500033.pas.ms.script' // vcmFormDataSource
+ WL 'ME_4F54899502EA' '4F546F810266.pas.ms.script' // deDocInfoProvider
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4AE56DB003D5' '491B305A0096.pas.ms.script' // IucpHAFMacroReplacerFactory
+ WL 'ME_4DDCD7420084' '4DDCD71E027C.pas.ms.script' // IdsChangesBetweenEditions
+ WL 'ME_4F633C0803B4' '48200CF8039E.pas.ms.script' // В колонтитулах перед именем документа должна быть фраза "Обзор изменений документа"
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( HWL ME_4DDCDDC50088 // InitDataType
+ HWL ME_4DDD0C6B01FB // f_Cont
+ HWL ME_4F6307F40063 // FormDataSourceType
+ )
+ ; // Attributes
+ : Implemented
+   Seq: ( ME_4AE56DE80093_ME_4DDCDD68019E // MakeHAFMacroReplacer
+ ME_4DDCE9110130_ME_4DDCDD68019E // RightEdition
+ ME_4DDD0C170344_ME_4DDCDD68019E // DocumentContainer
+ ME_4F2BF187026F_ME_4DDCDD68019E // LeftEdition
+ ME_4F548A0D0096_ME_4DDCDD68019E // DocumentForDocInfoProvider
+ )
+ ; // Implemented
+ : Constants
+   Seq: ( HWL ME_4F62E92B005E // Обзор изменений документа
+ )
+ ; // Constants
+ : Dependencies
+   Seq: ( ME_4DDD0DAA01D8 // TnsChangesBetweenEditionsDocumentContainer
+ ME_4F62F823034F // TevFormatHAFMacroReplacer
+ ME_4F62FB5A03B2 // TnsDocInfoHAFMacroReplacer
+ ME_4F632228016A // String
+ ME_4F6322710181 // Tl3WString
+ ME_4F6322AA017C // nsWStr
+ ME_4F6336BB00F3 // l3Cat
+ )
+ ; // Dependencies
+ CONST "author" 'Люлин А.В.'
+ CONST "no hands" true
+ CONST "started" '25.05.2011 14:14'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\ChangesBetweenEditions\dsChangesBetweenEditions.pas'
+ CONST extprop:rc:SelfName 'dsChangesBetweenEditions'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'dsChangesBetweenEditions'
+
+ref; // ME_4DDCDD68019E TdsChangesBetweenEditions

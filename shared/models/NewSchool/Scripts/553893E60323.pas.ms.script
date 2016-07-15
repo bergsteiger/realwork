@@ -14,7 +14,7 @@ FORWARD ME_5538B7640154
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_5538B7640154 // MvcmTabbedContainersService
+ : Parent HWL ME_5538B7640154 // MvcmTabbedContainersService
  ;
  : Target WL 'ME_47E124E90272' '4799D29F033F.pas.ms.script' // TWinControl
  ;
@@ -62,6 +62,12 @@ ref; // ME_185C64EF3184_ME_5538B7640154 Lock
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_1BFA5AA0644C_ME_5538B7640154 UnlockContainer
+
+: ME_27138C52AC0C_ME_5538B7640154
+ : Original WL 'ME_27138C52AC0C' '553213B80041.pas.ms.script' // IsTabClosing
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_27138C52AC0C_ME_5538B7640154 IsTabClosing
 
 : ME_2774A286694A_ME_5538B7640154
  : Original WL 'ME_2774A286694A' '553213B80041.pas.ms.script' // GetActiveTabbedContainer
@@ -203,14 +209,14 @@ ref; // ME_F550802110EC_ME_5538B7640154 CloseAll
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_5538940C00DD // TvcmTabbedContainersService
+ : Parent HWL ME_5538940C00DD // TvcmTabbedContainersService
  ;
  : Inherits
    Seq: ( WL 'ME_553886F600CF' '553213B80041.pas.ms.script' // Ml3TabbedContainersDispatcher
  )
  ; // Inherits
  : Operations
-   Seq: ( ME_5538B77B0192 // GetCurrentMainForm
+   Seq: ( HWL ME_5538B77B0192 // GetCurrentMainForm
  )
  ; // Operations
  : Implemented
@@ -221,6 +227,7 @@ ref; // ME_F550802110EC_ME_5538B7640154 CloseAll
  ME_1561A6522B5C_ME_5538B7640154 // Subscribe
  ME_185C64EF3184_ME_5538B7640154 // Lock
  ME_1BFA5AA0644C_ME_5538B7640154 // UnlockContainer
+ ME_27138C52AC0C_ME_5538B7640154 // IsTabClosing
  ME_2774A286694A_ME_5538B7640154 // GetActiveTabbedContainer
  ME_2A43AA8AA799_ME_5538B7640154 // StopFlashing
  ME_2EC8C1E48517_ME_5538B7640154 // CanReopenClosedTab
@@ -253,186 +260,12 @@ FORWARD ME_5539E9010272
 : ME_5539E92602C9
  CONST Class class_Dependency
  : Stereotype st_implements::Dependency ;
- : Parent ME_5539E9010272 // TvcmTabbedContainersDispatcher
+ : Parent HWL ME_5539E9010272 // TvcmTabbedContainersDispatcher
  ;
  : Target WL 'ME_553213D902E0' '553213B80041.pas.ms.script' // Tl3TabbedContainersDispatcher
  ;
 
 ref; // ME_5539E92602C9 
-
-: ME_02157F96E465_ME_5539E9010272
- : Original WL 'ME_02157F96E465' '553213B80041.pas.ms.script' // GetTabIcon
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_02157F96E465_ME_5539E9010272 GetTabIcon
-
-: ME_06D14140190A_ME_5539E9010272
- : Original WL 'ME_06D14140190A' '553213B80041.pas.ms.script' // IsInBF
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_06D14140190A_ME_5539E9010272 IsInBF
-
-: ME_086A3DF2665B_ME_5539E9010272
- : Original WL 'ME_086A3DF2665B' '553213B80041.pas.ms.script' // GetTabCaption
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_086A3DF2665B_ME_5539E9010272 GetTabCaption
-
-: ME_0E111B36F193_ME_5539E9010272
- : Original WL 'ME_0E111B36F193' '553213B80041.pas.ms.script' // CloseTab
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_0E111B36F193_ME_5539E9010272 CloseTab
-
-: ME_1561A6522B5C_ME_5539E9010272
- : Original WL 'ME_1561A6522B5C' '553213B80041.pas.ms.script' // Subscribe
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_1561A6522B5C_ME_5539E9010272 Subscribe
-
-: ME_185C64EF3184_ME_5539E9010272
- : Original WL 'ME_185C64EF3184' '553213B80041.pas.ms.script' // Lock
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_185C64EF3184_ME_5539E9010272 Lock
-
-: ME_1BFA5AA0644C_ME_5539E9010272
- : Original WL 'ME_1BFA5AA0644C' '553213B80041.pas.ms.script' // UnlockContainer
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_1BFA5AA0644C_ME_5539E9010272 UnlockContainer
-
-: ME_2774A286694A_ME_5539E9010272
- : Original WL 'ME_2774A286694A' '553213B80041.pas.ms.script' // GetActiveTabbedContainer
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_2774A286694A_ME_5539E9010272 GetActiveTabbedContainer
-
-: ME_2A43AA8AA799_ME_5539E9010272
- : Original WL 'ME_2A43AA8AA799' '553213B80041.pas.ms.script' // StopFlashing
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_2A43AA8AA799_ME_5539E9010272 StopFlashing
-
-: ME_2EC8C1E48517_ME_5539E9010272
- : Original WL 'ME_2EC8C1E48517' '553213B80041.pas.ms.script' // CanReopenClosedTab
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_2EC8C1E48517_ME_5539E9010272 CanReopenClosedTab
-
-: ME_3F5E73D5D2B0_ME_5539E9010272
- : Original WL 'ME_3F5E73D5D2B0' '553213B80041.pas.ms.script' // CascadeWindows
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_3F5E73D5D2B0_ME_5539E9010272 CascadeWindows
-
-: ME_424D166E6D0C_ME_5539E9010272
- : Original WL 'ME_424D166E6D0C' '553213B80041.pas.ms.script' // ReopenClosedTab
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_424D166E6D0C_ME_5539E9010272 ReopenClosedTab
-
-: ME_44A2D9FC0500_ME_5539E9010272
- : Original WL 'ME_44A2D9FC0500' '553213B80041.pas.ms.script' // LockContainer
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_44A2D9FC0500_ME_5539E9010272 LockContainer
-
-: ME_4526B341C1C6_ME_5539E9010272
- : Original WL 'ME_4526B341C1C6' '553213B80041.pas.ms.script' // Unsubscribe
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4526B341C1C6_ME_5539E9010272 Unsubscribe
-
-: ME_5E78F22AF1FF_ME_5539E9010272
- : Original WL 'ME_5E78F22AF1FF' '553213B80041.pas.ms.script' // IsFormInContainer
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_5E78F22AF1FF_ME_5539E9010272 IsFormInContainer
-
-: ME_651C515DADEE_ME_5539E9010272
- : Original WL 'ME_651C515DADEE' '553213B80041.pas.ms.script' // TileWindowsHorizontal
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_651C515DADEE_ME_5539E9010272 TileWindowsHorizontal
-
-: ME_89B204B9A81A_ME_5539E9010272
- : Original WL 'ME_89B204B9A81A' '553213B80041.pas.ms.script' // IsContainerLocked
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_89B204B9A81A_ME_5539E9010272 IsContainerLocked
-
-: ME_94E9E4364244_ME_5539E9010272
- : Original WL 'ME_94E9E4364244' '553213B80041.pas.ms.script' // ActivateForm
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_94E9E4364244_ME_5539E9010272 ActivateForm
-
-: ME_9584664239A7_ME_5539E9010272
- : Original WL 'ME_9584664239A7' '553213B80041.pas.ms.script' // NeedUseTabs
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_9584664239A7_ME_5539E9010272 NeedUseTabs
-
-: ME_9D76EEC368A2_ME_5539E9010272
- : Original WL 'ME_9D76EEC368A2' '553213B80041.pas.ms.script' // TileWindowsVertical
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_9D76EEC368A2_ME_5539E9010272 TileWindowsVertical
-
-: ME_AEF0183D2054_ME_5539E9010272
- : Original WL 'ME_AEF0183D2054' '553213B80041.pas.ms.script' // ContainedFormBecomeActive
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_AEF0183D2054_ME_5539E9010272 ContainedFormBecomeActive
-
-: ME_BFD6868132D2_ME_5539E9010272
- : Original WL 'ME_BFD6868132D2' '553213B80041.pas.ms.script' // IsTabEmpty
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_BFD6868132D2_ME_5539E9010272 IsTabEmpty
-
-: ME_CA81A004E69C_ME_5539E9010272
- : Original WL 'ME_CA81A004E69C' '553213B80041.pas.ms.script' // CloneTab
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_CA81A004E69C_ME_5539E9010272 CloneTab
-
-: ME_E6CFFF63C7BA_ME_5539E9010272
- : Original WL 'ME_E6CFFF63C7BA' '553213B80041.pas.ms.script' // GetFormTab
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_E6CFFF63C7BA_ME_5539E9010272 GetFormTab
-
-: ME_E781A200DBB9_ME_5539E9010272
- : Original WL 'ME_E781A200DBB9' '553213B80041.pas.ms.script' // Unlock
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_E781A200DBB9_ME_5539E9010272 Unlock
-
-: ME_EE61E6DE4383_ME_5539E9010272
- : Original WL 'ME_EE61E6DE4383' '553213B80041.pas.ms.script' // CanCloneTab
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_EE61E6DE4383_ME_5539E9010272 CanCloneTab
-
-: ME_F09F327B084A_ME_5539E9010272
- : Original WL 'ME_F09F327B084A' '553213B80041.pas.ms.script' // StartFlashing
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_F09F327B084A_ME_5539E9010272 StartFlashing
-
-: ME_F2A394FBFE56_ME_5539E9010272
- : Original WL 'ME_F2A394FBFE56' '553213B80041.pas.ms.script' // SaveTabToHistory
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_F2A394FBFE56_ME_5539E9010272 SaveTabToHistory
-
-: ME_F550802110EC_ME_5539E9010272
- : Original WL 'ME_F550802110EC' '553213B80041.pas.ms.script' // CloseAll
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_F550802110EC_ME_5539E9010272 CloseAll
 
 : ME_5539E9010272
  CONST UID '5539E9010272'
@@ -442,299 +275,25 @@ ref; // ME_F550802110EC_ME_5539E9010272 CloseAll
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_5538940C00DD // TvcmTabbedContainersService
+ : Parent HWL ME_5538940C00DD // TvcmTabbedContainersService
  ;
  : Inherits
    Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
  )
  ; // Inherits
- : Implements
-   Seq: ( WL 'ME_D7B11E9421DB' '553213B80041.pas.ms.script' // Il3TabbedContainersDispatcher
- )
- ; // Implements
- : Implemented
-   Seq: ( ME_02157F96E465_ME_5539E9010272 // GetTabIcon
- ME_06D14140190A_ME_5539E9010272 // IsInBF
- ME_086A3DF2665B_ME_5539E9010272 // GetTabCaption
- ME_0E111B36F193_ME_5539E9010272 // CloseTab
- ME_1561A6522B5C_ME_5539E9010272 // Subscribe
- ME_185C64EF3184_ME_5539E9010272 // Lock
- ME_1BFA5AA0644C_ME_5539E9010272 // UnlockContainer
- ME_2774A286694A_ME_5539E9010272 // GetActiveTabbedContainer
- ME_2A43AA8AA799_ME_5539E9010272 // StopFlashing
- ME_2EC8C1E48517_ME_5539E9010272 // CanReopenClosedTab
- ME_3F5E73D5D2B0_ME_5539E9010272 // CascadeWindows
- ME_424D166E6D0C_ME_5539E9010272 // ReopenClosedTab
- ME_44A2D9FC0500_ME_5539E9010272 // LockContainer
- ME_4526B341C1C6_ME_5539E9010272 // Unsubscribe
- ME_5E78F22AF1FF_ME_5539E9010272 // IsFormInContainer
- ME_651C515DADEE_ME_5539E9010272 // TileWindowsHorizontal
- ME_89B204B9A81A_ME_5539E9010272 // IsContainerLocked
- ME_94E9E4364244_ME_5539E9010272 // ActivateForm
- ME_9584664239A7_ME_5539E9010272 // NeedUseTabs
- ME_9D76EEC368A2_ME_5539E9010272 // TileWindowsVertical
- ME_AEF0183D2054_ME_5539E9010272 // ContainedFormBecomeActive
- ME_BFD6868132D2_ME_5539E9010272 // IsTabEmpty
- ME_CA81A004E69C_ME_5539E9010272 // CloneTab
- ME_E6CFFF63C7BA_ME_5539E9010272 // GetFormTab
- ME_E781A200DBB9_ME_5539E9010272 // Unlock
- ME_EE61E6DE4383_ME_5539E9010272 // CanCloneTab
- ME_F09F327B084A_ME_5539E9010272 // StartFlashing
- ME_F2A394FBFE56_ME_5539E9010272 // SaveTabToHistory
- ME_F550802110EC_ME_5539E9010272 // CloseAll
- )
- ; // Implemented
  : Dependencies
    Seq: ( ME_5539E92602C9 // Tl3TabbedContainersDispatcher
  )
  ; // Dependencies
- CONST "singleton" true
  CONST extprop:rc:SelfName 'TabbedContainersDispatcher'
  CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_5539E9010272 TvcmTabbedContainersDispatcher
 
-FORWARD ME_31E98986F011
-
-: ME_02157F96E465_ME_31E98986F011
- : Original WL 'ME_02157F96E465' '553213B80041.pas.ms.script' // GetTabIcon
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_02157F96E465_ME_31E98986F011 GetTabIcon
-
-: ME_06D14140190A_ME_31E98986F011
- : Original WL 'ME_06D14140190A' '553213B80041.pas.ms.script' // IsInBF
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_06D14140190A_ME_31E98986F011 IsInBF
-
-: ME_086A3DF2665B_ME_31E98986F011
- : Original WL 'ME_086A3DF2665B' '553213B80041.pas.ms.script' // GetTabCaption
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_086A3DF2665B_ME_31E98986F011 GetTabCaption
-
-: ME_0E111B36F193_ME_31E98986F011
- : Original WL 'ME_0E111B36F193' '553213B80041.pas.ms.script' // CloseTab
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_0E111B36F193_ME_31E98986F011 CloseTab
-
-: ME_1561A6522B5C_ME_31E98986F011
- : Original WL 'ME_1561A6522B5C' '553213B80041.pas.ms.script' // Subscribe
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_1561A6522B5C_ME_31E98986F011 Subscribe
-
-: ME_185C64EF3184_ME_31E98986F011
- : Original WL 'ME_185C64EF3184' '553213B80041.pas.ms.script' // Lock
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_185C64EF3184_ME_31E98986F011 Lock
-
-: ME_1BFA5AA0644C_ME_31E98986F011
- : Original WL 'ME_1BFA5AA0644C' '553213B80041.pas.ms.script' // UnlockContainer
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_1BFA5AA0644C_ME_31E98986F011 UnlockContainer
-
-: ME_2774A286694A_ME_31E98986F011
- : Original WL 'ME_2774A286694A' '553213B80041.pas.ms.script' // GetActiveTabbedContainer
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_2774A286694A_ME_31E98986F011 GetActiveTabbedContainer
-
-: ME_2A43AA8AA799_ME_31E98986F011
- : Original WL 'ME_2A43AA8AA799' '553213B80041.pas.ms.script' // StopFlashing
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_2A43AA8AA799_ME_31E98986F011 StopFlashing
-
-: ME_2EC8C1E48517_ME_31E98986F011
- : Original WL 'ME_2EC8C1E48517' '553213B80041.pas.ms.script' // CanReopenClosedTab
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_2EC8C1E48517_ME_31E98986F011 CanReopenClosedTab
-
-: ME_3F5E73D5D2B0_ME_31E98986F011
- : Original WL 'ME_3F5E73D5D2B0' '553213B80041.pas.ms.script' // CascadeWindows
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_3F5E73D5D2B0_ME_31E98986F011 CascadeWindows
-
-: ME_424D166E6D0C_ME_31E98986F011
- : Original WL 'ME_424D166E6D0C' '553213B80041.pas.ms.script' // ReopenClosedTab
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_424D166E6D0C_ME_31E98986F011 ReopenClosedTab
-
-: ME_44A2D9FC0500_ME_31E98986F011
- : Original WL 'ME_44A2D9FC0500' '553213B80041.pas.ms.script' // LockContainer
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_44A2D9FC0500_ME_31E98986F011 LockContainer
-
-: ME_4526B341C1C6_ME_31E98986F011
- : Original WL 'ME_4526B341C1C6' '553213B80041.pas.ms.script' // Unsubscribe
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4526B341C1C6_ME_31E98986F011 Unsubscribe
-
-: ME_5538B77B0192_ME_31E98986F011
- : Original ME_5538B77B0192 // GetCurrentMainForm
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_5538B77B0192_ME_31E98986F011 GetCurrentMainForm
-
-: ME_5E78F22AF1FF_ME_31E98986F011
- : Original WL 'ME_5E78F22AF1FF' '553213B80041.pas.ms.script' // IsFormInContainer
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_5E78F22AF1FF_ME_31E98986F011 IsFormInContainer
-
-: ME_651C515DADEE_ME_31E98986F011
- : Original WL 'ME_651C515DADEE' '553213B80041.pas.ms.script' // TileWindowsHorizontal
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_651C515DADEE_ME_31E98986F011 TileWindowsHorizontal
-
-: ME_89B204B9A81A_ME_31E98986F011
- : Original WL 'ME_89B204B9A81A' '553213B80041.pas.ms.script' // IsContainerLocked
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_89B204B9A81A_ME_31E98986F011 IsContainerLocked
-
-: ME_94E9E4364244_ME_31E98986F011
- : Original WL 'ME_94E9E4364244' '553213B80041.pas.ms.script' // ActivateForm
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_94E9E4364244_ME_31E98986F011 ActivateForm
-
-: ME_9584664239A7_ME_31E98986F011
- : Original WL 'ME_9584664239A7' '553213B80041.pas.ms.script' // NeedUseTabs
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_9584664239A7_ME_31E98986F011 NeedUseTabs
-
-: ME_9D76EEC368A2_ME_31E98986F011
- : Original WL 'ME_9D76EEC368A2' '553213B80041.pas.ms.script' // TileWindowsVertical
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_9D76EEC368A2_ME_31E98986F011 TileWindowsVertical
-
-: ME_AEF0183D2054_ME_31E98986F011
- : Original WL 'ME_AEF0183D2054' '553213B80041.pas.ms.script' // ContainedFormBecomeActive
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_AEF0183D2054_ME_31E98986F011 ContainedFormBecomeActive
-
-: ME_BFD6868132D2_ME_31E98986F011
- : Original WL 'ME_BFD6868132D2' '553213B80041.pas.ms.script' // IsTabEmpty
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_BFD6868132D2_ME_31E98986F011 IsTabEmpty
-
-: ME_CA81A004E69C_ME_31E98986F011
- : Original WL 'ME_CA81A004E69C' '553213B80041.pas.ms.script' // CloneTab
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_CA81A004E69C_ME_31E98986F011 CloneTab
-
-: ME_E6CFFF63C7BA_ME_31E98986F011
- : Original WL 'ME_E6CFFF63C7BA' '553213B80041.pas.ms.script' // GetFormTab
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_E6CFFF63C7BA_ME_31E98986F011 GetFormTab
-
-: ME_E781A200DBB9_ME_31E98986F011
- : Original WL 'ME_E781A200DBB9' '553213B80041.pas.ms.script' // Unlock
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_E781A200DBB9_ME_31E98986F011 Unlock
-
-: ME_EE61E6DE4383_ME_31E98986F011
- : Original WL 'ME_EE61E6DE4383' '553213B80041.pas.ms.script' // CanCloneTab
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_EE61E6DE4383_ME_31E98986F011 CanCloneTab
-
-: ME_F09F327B084A_ME_31E98986F011
- : Original WL 'ME_F09F327B084A' '553213B80041.pas.ms.script' // StartFlashing
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_F09F327B084A_ME_31E98986F011 StartFlashing
-
-: ME_F2A394FBFE56_ME_31E98986F011
- : Original WL 'ME_F2A394FBFE56' '553213B80041.pas.ms.script' // SaveTabToHistory
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_F2A394FBFE56_ME_31E98986F011 SaveTabToHistory
-
-: ME_F550802110EC_ME_31E98986F011
- : Original WL 'ME_F550802110EC' '553213B80041.pas.ms.script' // CloseAll
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_F550802110EC_ME_31E98986F011 CloseAll
-
-: ME_31E98986F011
- CONST UID '31E98986F011'
- CONST GUID '6167A81B-B284-49FD-A747-69B65256A05C'
- CONST Name 'IvcmTabbedContainersService'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Facet ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Интерфейс сервиса TvcmTabbedContainersService' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_5538940C00DD // TvcmTabbedContainersService
- ;
- : Implements
-   Seq: ( ME_5538B7640154 // MvcmTabbedContainersService
- )
- ; // Implements
- : Implemented
-   Seq: ( ME_02157F96E465_ME_31E98986F011 // GetTabIcon
- ME_06D14140190A_ME_31E98986F011 // IsInBF
- ME_086A3DF2665B_ME_31E98986F011 // GetTabCaption
- ME_0E111B36F193_ME_31E98986F011 // CloseTab
- ME_1561A6522B5C_ME_31E98986F011 // Subscribe
- ME_185C64EF3184_ME_31E98986F011 // Lock
- ME_1BFA5AA0644C_ME_31E98986F011 // UnlockContainer
- ME_2774A286694A_ME_31E98986F011 // GetActiveTabbedContainer
- ME_2A43AA8AA799_ME_31E98986F011 // StopFlashing
- ME_2EC8C1E48517_ME_31E98986F011 // CanReopenClosedTab
- ME_3F5E73D5D2B0_ME_31E98986F011 // CascadeWindows
- ME_424D166E6D0C_ME_31E98986F011 // ReopenClosedTab
- ME_44A2D9FC0500_ME_31E98986F011 // LockContainer
- ME_4526B341C1C6_ME_31E98986F011 // Unsubscribe
- ME_5538B77B0192_ME_31E98986F011 // GetCurrentMainForm
- ME_5E78F22AF1FF_ME_31E98986F011 // IsFormInContainer
- ME_651C515DADEE_ME_31E98986F011 // TileWindowsHorizontal
- ME_89B204B9A81A_ME_31E98986F011 // IsContainerLocked
- ME_94E9E4364244_ME_31E98986F011 // ActivateForm
- ME_9584664239A7_ME_31E98986F011 // NeedUseTabs
- ME_9D76EEC368A2_ME_31E98986F011 // TileWindowsVertical
- ME_AEF0183D2054_ME_31E98986F011 // ContainedFormBecomeActive
- ME_BFD6868132D2_ME_31E98986F011 // IsTabEmpty
- ME_CA81A004E69C_ME_31E98986F011 // CloneTab
- ME_E6CFFF63C7BA_ME_31E98986F011 // GetFormTab
- ME_E781A200DBB9_ME_31E98986F011 // Unlock
- ME_EE61E6DE4383_ME_31E98986F011 // CanCloneTab
- ME_F09F327B084A_ME_31E98986F011 // StartFlashing
- ME_F2A394FBFE56_ME_31E98986F011 // SaveTabToHistory
- ME_F550802110EC_ME_31E98986F011 // CloseAll
- )
- ; // Implemented
- CONST extprop:rc:SelfName 'TabbedContainersService'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_31E98986F011 IvcmTabbedContainersService
-
 : ME_5538BD7D01B5
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_5538940C00DD // TvcmTabbedContainersService
+ : Parent HWL ME_5538940C00DD // TvcmTabbedContainersService
  ;
  : Target WL 'ME_4F7DCF5E0198' '467BAB7F021E.pas.ms.script' // IvcmFlashingWindow
  ;
@@ -744,7 +303,7 @@ ref; // ME_5538BD7D01B5
 : ME_5538C60B032F
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_5538940C00DD // TvcmTabbedContainersService
+ : Parent HWL ME_5538940C00DD // TvcmTabbedContainersService
  ;
  : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
  ;
@@ -754,7 +313,7 @@ ref; // ME_5538C60B032F
 : ME_5538CC270261
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_5538940C00DD // TvcmTabbedContainersService
+ : Parent HWL ME_5538940C00DD // TvcmTabbedContainersService
  ;
  : Target WL 'ME_47F25BC801DB' '47D0E1500033.pas.ms.script' // vcmBase
  ;
@@ -764,192 +323,12 @@ ref; // ME_5538CC270261
 : ME_5538D0350105
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_5538940C00DD // TvcmTabbedContainersService
+ : Parent HWL ME_5538940C00DD // TvcmTabbedContainersService
  ;
  : Target WL 'ME_4AA936DC0154' '47D0E1500033.pas.ms.script' // vcmDispatcher
  ;
 
 ref; // ME_5538D0350105 
-
-: ME_02157F96E465_ME_5538940C00DD
- : Original WL 'ME_02157F96E465' '553213B80041.pas.ms.script' // GetTabIcon
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_02157F96E465_ME_5538940C00DD GetTabIcon
-
-: ME_06D14140190A_ME_5538940C00DD
- : Original WL 'ME_06D14140190A' '553213B80041.pas.ms.script' // IsInBF
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_06D14140190A_ME_5538940C00DD IsInBF
-
-: ME_086A3DF2665B_ME_5538940C00DD
- : Original WL 'ME_086A3DF2665B' '553213B80041.pas.ms.script' // GetTabCaption
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_086A3DF2665B_ME_5538940C00DD GetTabCaption
-
-: ME_0E111B36F193_ME_5538940C00DD
- : Original WL 'ME_0E111B36F193' '553213B80041.pas.ms.script' // CloseTab
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_0E111B36F193_ME_5538940C00DD CloseTab
-
-: ME_1561A6522B5C_ME_5538940C00DD
- : Original WL 'ME_1561A6522B5C' '553213B80041.pas.ms.script' // Subscribe
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_1561A6522B5C_ME_5538940C00DD Subscribe
-
-: ME_185C64EF3184_ME_5538940C00DD
- : Original WL 'ME_185C64EF3184' '553213B80041.pas.ms.script' // Lock
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_185C64EF3184_ME_5538940C00DD Lock
-
-: ME_1BFA5AA0644C_ME_5538940C00DD
- : Original WL 'ME_1BFA5AA0644C' '553213B80041.pas.ms.script' // UnlockContainer
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_1BFA5AA0644C_ME_5538940C00DD UnlockContainer
-
-: ME_2774A286694A_ME_5538940C00DD
- : Original WL 'ME_2774A286694A' '553213B80041.pas.ms.script' // GetActiveTabbedContainer
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_2774A286694A_ME_5538940C00DD GetActiveTabbedContainer
-
-: ME_2A43AA8AA799_ME_5538940C00DD
- : Original WL 'ME_2A43AA8AA799' '553213B80041.pas.ms.script' // StopFlashing
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_2A43AA8AA799_ME_5538940C00DD StopFlashing
-
-: ME_2EC8C1E48517_ME_5538940C00DD
- : Original WL 'ME_2EC8C1E48517' '553213B80041.pas.ms.script' // CanReopenClosedTab
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_2EC8C1E48517_ME_5538940C00DD CanReopenClosedTab
-
-: ME_3F5E73D5D2B0_ME_5538940C00DD
- : Original WL 'ME_3F5E73D5D2B0' '553213B80041.pas.ms.script' // CascadeWindows
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_3F5E73D5D2B0_ME_5538940C00DD CascadeWindows
-
-: ME_424D166E6D0C_ME_5538940C00DD
- : Original WL 'ME_424D166E6D0C' '553213B80041.pas.ms.script' // ReopenClosedTab
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_424D166E6D0C_ME_5538940C00DD ReopenClosedTab
-
-: ME_44A2D9FC0500_ME_5538940C00DD
- : Original WL 'ME_44A2D9FC0500' '553213B80041.pas.ms.script' // LockContainer
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_44A2D9FC0500_ME_5538940C00DD LockContainer
-
-: ME_4526B341C1C6_ME_5538940C00DD
- : Original WL 'ME_4526B341C1C6' '553213B80041.pas.ms.script' // Unsubscribe
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4526B341C1C6_ME_5538940C00DD Unsubscribe
-
-: ME_5538B77B0192_ME_5538940C00DD
- : Original ME_5538B77B0192 // GetCurrentMainForm
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_5538B77B0192_ME_5538940C00DD GetCurrentMainForm
-
-: ME_5E78F22AF1FF_ME_5538940C00DD
- : Original WL 'ME_5E78F22AF1FF' '553213B80041.pas.ms.script' // IsFormInContainer
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_5E78F22AF1FF_ME_5538940C00DD IsFormInContainer
-
-: ME_651C515DADEE_ME_5538940C00DD
- : Original WL 'ME_651C515DADEE' '553213B80041.pas.ms.script' // TileWindowsHorizontal
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_651C515DADEE_ME_5538940C00DD TileWindowsHorizontal
-
-: ME_89B204B9A81A_ME_5538940C00DD
- : Original WL 'ME_89B204B9A81A' '553213B80041.pas.ms.script' // IsContainerLocked
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_89B204B9A81A_ME_5538940C00DD IsContainerLocked
-
-: ME_94E9E4364244_ME_5538940C00DD
- : Original WL 'ME_94E9E4364244' '553213B80041.pas.ms.script' // ActivateForm
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_94E9E4364244_ME_5538940C00DD ActivateForm
-
-: ME_9584664239A7_ME_5538940C00DD
- : Original WL 'ME_9584664239A7' '553213B80041.pas.ms.script' // NeedUseTabs
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_9584664239A7_ME_5538940C00DD NeedUseTabs
-
-: ME_9D76EEC368A2_ME_5538940C00DD
- : Original WL 'ME_9D76EEC368A2' '553213B80041.pas.ms.script' // TileWindowsVertical
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_9D76EEC368A2_ME_5538940C00DD TileWindowsVertical
-
-: ME_AEF0183D2054_ME_5538940C00DD
- : Original WL 'ME_AEF0183D2054' '553213B80041.pas.ms.script' // ContainedFormBecomeActive
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_AEF0183D2054_ME_5538940C00DD ContainedFormBecomeActive
-
-: ME_BFD6868132D2_ME_5538940C00DD
- : Original WL 'ME_BFD6868132D2' '553213B80041.pas.ms.script' // IsTabEmpty
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_BFD6868132D2_ME_5538940C00DD IsTabEmpty
-
-: ME_CA81A004E69C_ME_5538940C00DD
- : Original WL 'ME_CA81A004E69C' '553213B80041.pas.ms.script' // CloneTab
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_CA81A004E69C_ME_5538940C00DD CloneTab
-
-: ME_E6CFFF63C7BA_ME_5538940C00DD
- : Original WL 'ME_E6CFFF63C7BA' '553213B80041.pas.ms.script' // GetFormTab
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_E6CFFF63C7BA_ME_5538940C00DD GetFormTab
-
-: ME_E781A200DBB9_ME_5538940C00DD
- : Original WL 'ME_E781A200DBB9' '553213B80041.pas.ms.script' // Unlock
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_E781A200DBB9_ME_5538940C00DD Unlock
-
-: ME_EE61E6DE4383_ME_5538940C00DD
- : Original WL 'ME_EE61E6DE4383' '553213B80041.pas.ms.script' // CanCloneTab
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_EE61E6DE4383_ME_5538940C00DD CanCloneTab
-
-: ME_F09F327B084A_ME_5538940C00DD
- : Original WL 'ME_F09F327B084A' '553213B80041.pas.ms.script' // StartFlashing
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_F09F327B084A_ME_5538940C00DD StartFlashing
-
-: ME_F2A394FBFE56_ME_5538940C00DD
- : Original WL 'ME_F2A394FBFE56' '553213B80041.pas.ms.script' // SaveTabToHistory
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_F2A394FBFE56_ME_5538940C00DD SaveTabToHistory
-
-: ME_F550802110EC_ME_5538940C00DD
- : Original WL 'ME_F550802110EC' '553213B80041.pas.ms.script' // CloseAll
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_F550802110EC_ME_5538940C00DD CloseAll
 
 : ME_5538940C00DD
  CONST UID '5538940C00DD'
@@ -959,53 +338,15 @@ ref; // ME_F550802110EC_ME_5538940C00DD CloseAll
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_553893E60323 // Services
+ : Parent HWL ME_553893E60323 // Services
  ;
  : Inherits
    Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
  )
  ; // Inherits
- : Implements
-   Seq: ( ME_5538B7640154 // MvcmTabbedContainersService
- )
- ; // Implements
- : Implemented
-   Seq: ( ME_02157F96E465_ME_5538940C00DD // GetTabIcon
- ME_06D14140190A_ME_5538940C00DD // IsInBF
- ME_086A3DF2665B_ME_5538940C00DD // GetTabCaption
- ME_0E111B36F193_ME_5538940C00DD // CloseTab
- ME_1561A6522B5C_ME_5538940C00DD // Subscribe
- ME_185C64EF3184_ME_5538940C00DD // Lock
- ME_1BFA5AA0644C_ME_5538940C00DD // UnlockContainer
- ME_2774A286694A_ME_5538940C00DD // GetActiveTabbedContainer
- ME_2A43AA8AA799_ME_5538940C00DD // StopFlashing
- ME_2EC8C1E48517_ME_5538940C00DD // CanReopenClosedTab
- ME_3F5E73D5D2B0_ME_5538940C00DD // CascadeWindows
- ME_424D166E6D0C_ME_5538940C00DD // ReopenClosedTab
- ME_44A2D9FC0500_ME_5538940C00DD // LockContainer
- ME_4526B341C1C6_ME_5538940C00DD // Unsubscribe
- ME_5538B77B0192_ME_5538940C00DD // GetCurrentMainForm
- ME_5E78F22AF1FF_ME_5538940C00DD // IsFormInContainer
- ME_651C515DADEE_ME_5538940C00DD // TileWindowsHorizontal
- ME_89B204B9A81A_ME_5538940C00DD // IsContainerLocked
- ME_94E9E4364244_ME_5538940C00DD // ActivateForm
- ME_9584664239A7_ME_5538940C00DD // NeedUseTabs
- ME_9D76EEC368A2_ME_5538940C00DD // TileWindowsVertical
- ME_AEF0183D2054_ME_5538940C00DD // ContainedFormBecomeActive
- ME_BFD6868132D2_ME_5538940C00DD // IsTabEmpty
- ME_CA81A004E69C_ME_5538940C00DD // CloneTab
- ME_E6CFFF63C7BA_ME_5538940C00DD // GetFormTab
- ME_E781A200DBB9_ME_5538940C00DD // Unlock
- ME_EE61E6DE4383_ME_5538940C00DD // CanCloneTab
- ME_F09F327B084A_ME_5538940C00DD // StartFlashing
- ME_F2A394FBFE56_ME_5538940C00DD // SaveTabToHistory
- ME_F550802110EC_ME_5538940C00DD // CloseAll
- )
- ; // Implemented
  : Children
-   Seq: ( ME_5538B7640154 // MvcmTabbedContainersService
- ME_5539E9010272 // TvcmTabbedContainersDispatcher
- ME_31E98986F011 // IvcmTabbedContainersService
+   Seq: ( HWL ME_5538B7640154 // MvcmTabbedContainersService
+ HWL ME_5539E9010272 // TvcmTabbedContainersDispatcher
  )
  ; // Children
  : Dependencies
@@ -1019,15 +360,10 @@ ref; // ME_F550802110EC_ME_5538940C00DD CloseAll
    Seq: ( WL 'ME_55C8A9BA007E' '55AE409701EA.pas.ms.script' // vcmTabsWordsPack
  )
  ; // Injected
- CONST "singleton" true
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\vcmTabbedContainersService.pas'
  CONST extprop:rc:SelfName 'TabbedContainersService'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'vcmTabbedContainersService'
- : Facet ME_31E98986F011 // IvcmTabbedContainersService
- ;
- : Mixin ME_5538B7640154 // MvcmTabbedContainersService
- ;
 
 ref; // ME_5538940C00DD TvcmTabbedContainersService
 
@@ -1052,7 +388,7 @@ ref; // ME_493AC3689E3E aForm
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_401DD96F3E52 // MvcmHistoryService
+ : Parent HWL ME_401DD96F3E52 // MvcmHistoryService
  ;
  : Target WL 'ME_49940B4A02FC' '4683F37902CF.pas.ms.script' // IvcmHistory
  ;
@@ -1080,7 +416,7 @@ ref; // ME_B4096AE580A2 aForm
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_401DD96F3E52 // MvcmHistoryService
+ : Parent HWL ME_401DD96F3E52 // MvcmHistoryService
  ;
  : Parameters
    Seq: ( ME_B4096AE580A2 // aForm
@@ -1106,7 +442,7 @@ ref; // ME_B3743F6FCC10 aContainer
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_401DD96F3E52 // MvcmHistoryService
+ : Parent HWL ME_401DD96F3E52 // MvcmHistoryService
  ;
  : Target WL 'ME_49940B4A02FC' '4683F37902CF.pas.ms.script' // IvcmHistory
  ;
@@ -1134,7 +470,7 @@ ref; // ME_F7A0DB6ABDCF aForm
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_401DD96F3E52 // MvcmHistoryService
+ : Parent HWL ME_401DD96F3E52 // MvcmHistoryService
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -1162,7 +498,7 @@ ref; // ME_3361EEC787AF aForm
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_401DD96F3E52 // MvcmHistoryService
+ : Parent HWL ME_401DD96F3E52 // MvcmHistoryService
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -1183,80 +519,18 @@ ref; // ME_18FC3BA729CF Back
  %SUMMARY 'Контракт сервиса TvcmHistoryService' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_559BA19C0076 // TvcmHistoryService
+ : Parent HWL ME_559BA19C0076 // TvcmHistoryService
  ;
  : Operations
-   Seq: ( ME_96E2DB43E67B // GetFormHistory
- ME_975F702287E2 // SaveFormState
- ME_27BEBF0EE9FD // GetContainerHistory
- ME_A872A2AAB575 // IsInBF
- ME_18FC3BA729CF // Back
+   Seq: ( HWL ME_96E2DB43E67B // GetFormHistory
+ HWL ME_975F702287E2 // SaveFormState
+ HWL ME_27BEBF0EE9FD // GetContainerHistory
+ HWL ME_A872A2AAB575 // IsInBF
+ HWL ME_18FC3BA729CF // Back
  )
  ; // Operations
 
 ref; // ME_401DD96F3E52 MvcmHistoryService
-
-FORWARD ME_5E9754328486
-
-: ME_18FC3BA729CF_ME_5E9754328486
- : Original ME_18FC3BA729CF // Back
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_18FC3BA729CF_ME_5E9754328486 Back
-
-: ME_27BEBF0EE9FD_ME_5E9754328486
- : Original ME_27BEBF0EE9FD // GetContainerHistory
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_27BEBF0EE9FD_ME_5E9754328486 GetContainerHistory
-
-: ME_96E2DB43E67B_ME_5E9754328486
- : Original ME_96E2DB43E67B // GetFormHistory
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_96E2DB43E67B_ME_5E9754328486 GetFormHistory
-
-: ME_975F702287E2_ME_5E9754328486
- : Original ME_975F702287E2 // SaveFormState
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_975F702287E2_ME_5E9754328486 SaveFormState
-
-: ME_A872A2AAB575_ME_5E9754328486
- : Original ME_A872A2AAB575 // IsInBF
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_A872A2AAB575_ME_5E9754328486 IsInBF
-
-: ME_5E9754328486
- CONST UID '5E9754328486'
- CONST GUID 'CA5C1514-1050-411B-A26C-25710B226DA2'
- CONST Name 'IvcmHistoryService'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Facet ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Интерфейс сервиса TvcmHistoryService' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_559BA19C0076 // TvcmHistoryService
- ;
- : Implements
-   Seq: ( ME_401DD96F3E52 // MvcmHistoryService
- )
- ; // Implements
- : Implemented
-   Seq: ( ME_18FC3BA729CF_ME_5E9754328486 // Back
- ME_27BEBF0EE9FD_ME_5E9754328486 // GetContainerHistory
- ME_96E2DB43E67B_ME_5E9754328486 // GetFormHistory
- ME_975F702287E2_ME_5E9754328486 // SaveFormState
- ME_A872A2AAB575_ME_5E9754328486 // IsInBF
- )
- ; // Implemented
- CONST extprop:rc:SelfName 'HistoryService'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_5E9754328486 IvcmHistoryService
 
 : ME_559BA32202BC
  CONST Name 'aForm'
@@ -1274,7 +548,7 @@ ref; // ME_559BA32202BC aForm
  : Stereotype st_responsibility::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_559BA19C0076 // TvcmHistoryService
+ : Parent HWL ME_559BA19C0076 // TvcmHistoryService
  ;
  : Target WL 'ME_49940B4A02FC' '4683F37902CF.pas.ms.script' // IvcmHistory
  ;
@@ -1301,7 +575,7 @@ ref; // ME_559BA33401A0 aForm
  : Stereotype st_responsibility::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_559BA19C0076 // TvcmHistoryService
+ : Parent HWL ME_559BA19C0076 // TvcmHistoryService
  ;
  : Parameters
    Seq: ( ME_559BA33401A0 // aForm
@@ -1326,7 +600,7 @@ ref; // ME_559CB2E2007D aContainer
  : Stereotype st_responsibility::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_559BA19C0076 // TvcmHistoryService
+ : Parent HWL ME_559BA19C0076 // TvcmHistoryService
  ;
  : Target WL 'ME_49940B4A02FC' '4683F37902CF.pas.ms.script' // IvcmHistory
  ;
@@ -1353,7 +627,7 @@ ref; // ME_55B8A65200C1 aForm
  : Stereotype st_responsibility::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_559BA19C0076 // TvcmHistoryService
+ : Parent HWL ME_559BA19C0076 // TvcmHistoryService
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -1380,7 +654,7 @@ ref; // ME_569E019A000B aForm
  : Stereotype st_responsibility::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_559BA19C0076 // TvcmHistoryService
+ : Parent HWL ME_559BA19C0076 // TvcmHistoryService
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -1394,7 +668,7 @@ ref; // ME_569E01920150 Back
 : ME_559BA1F00004
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_559BA19C0076 // TvcmHistoryService
+ : Parent HWL ME_559BA19C0076 // TvcmHistoryService
  ;
  : Target WL 'ME_47752AF90375' '47750CE700D0.pas.ms.script' // afwFacade
  ;
@@ -1404,42 +678,12 @@ ref; // ME_559BA1F00004
 : ME_559BA2950341
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_559BA19C0076 // TvcmHistoryService
+ : Parent HWL ME_559BA19C0076 // TvcmHistoryService
  ;
  : Target WL 'ME_47F25BC801DB' '47D0E1500033.pas.ms.script' // vcmBase
  ;
 
 ref; // ME_559BA2950341 
-
-: ME_18FC3BA729CF_ME_559BA19C0076
- : Original ME_18FC3BA729CF // Back
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_18FC3BA729CF_ME_559BA19C0076 Back
-
-: ME_27BEBF0EE9FD_ME_559BA19C0076
- : Original ME_27BEBF0EE9FD // GetContainerHistory
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_27BEBF0EE9FD_ME_559BA19C0076 GetContainerHistory
-
-: ME_96E2DB43E67B_ME_559BA19C0076
- : Original ME_96E2DB43E67B // GetFormHistory
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_96E2DB43E67B_ME_559BA19C0076 GetFormHistory
-
-: ME_975F702287E2_ME_559BA19C0076
- : Original ME_975F702287E2 // SaveFormState
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_975F702287E2_ME_559BA19C0076 SaveFormState
-
-: ME_A872A2AAB575_ME_559BA19C0076
- : Original ME_A872A2AAB575 // IsInBF
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_A872A2AAB575_ME_559BA19C0076 IsInBF
 
 : ME_559BA19C0076
  CONST UID '559BA19C0076'
@@ -1449,35 +693,22 @@ ref; // ME_A872A2AAB575_ME_559BA19C0076 IsInBF
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_553893E60323 // Services
+ : Parent HWL ME_553893E60323 // Services
  ;
  : Inherits
    Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
  )
  ; // Inherits
- : Implements
-   Seq: ( ME_401DD96F3E52 // MvcmHistoryService
- )
- ; // Implements
  : Operations
-   Seq: ( ME_559BA1B80327 // GetFormHistory
- ME_559BA3270003 // SaveFormState
- ME_559CAE8C0067 // GetContainerHistory
- ME_55B8A6460123 // IsInBF
- ME_569E01920150 // Back
+   Seq: ( HWL ME_559BA1B80327 // GetFormHistory
+ HWL ME_559BA3270003 // SaveFormState
+ HWL ME_559CAE8C0067 // GetContainerHistory
+ HWL ME_55B8A6460123 // IsInBF
+ HWL ME_569E01920150 // Back
  )
  ; // Operations
- : Implemented
-   Seq: ( ME_18FC3BA729CF_ME_559BA19C0076 // Back
- ME_27BEBF0EE9FD_ME_559BA19C0076 // GetContainerHistory
- ME_96E2DB43E67B_ME_559BA19C0076 // GetFormHistory
- ME_975F702287E2_ME_559BA19C0076 // SaveFormState
- ME_A872A2AAB575_ME_559BA19C0076 // IsInBF
- )
- ; // Implemented
  : Children
-   Seq: ( ME_401DD96F3E52 // MvcmHistoryService
- ME_5E9754328486 // IvcmHistoryService
+   Seq: ( HWL ME_401DD96F3E52 // MvcmHistoryService
  )
  ; // Children
  : Dependencies
@@ -1485,15 +716,10 @@ ref; // ME_A872A2AAB575_ME_559BA19C0076 IsInBF
  ME_559BA2950341 // vcmBase
  )
  ; // Dependencies
- CONST "singleton" true
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\vcmHistoryService.pas'
  CONST extprop:rc:SelfName 'HistoryService'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'vcmHistoryService'
- : Facet ME_5E9754328486 // IvcmHistoryService
- ;
- : Mixin ME_401DD96F3E52 // MvcmHistoryService
- ;
 
 ref; // ME_559BA19C0076 TvcmHistoryService
 
@@ -1507,8 +733,8 @@ ref; // ME_559BA19C0076 TvcmHistoryService
  : Parent WL 'ME_4E13416D0227' '4E13416D0227.pas.ms.script' // VCM$Visual
  ;
  : Children
-   Seq: ( ME_5538940C00DD // TvcmTabbedContainersService
- ME_559BA19C0076 // TvcmHistoryService
+   Seq: ( HWL ME_5538940C00DD // TvcmTabbedContainersService
+ HWL ME_559BA19C0076 // TvcmHistoryService
  )
  ; // Children
  : Depends

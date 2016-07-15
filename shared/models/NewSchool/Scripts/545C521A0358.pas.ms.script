@@ -1,0 +1,63 @@
+// TvcmMainMenuStripForChromeLike 545C521A0358 GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_545C521A0358
+
+: ME_545C537A01C1
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_545C521A0358 // TvcmMainMenuStripForChromeLike
+ ;
+ : Target WL 'ME_545C535201B3' '533D53FF00C2.pas.ms.script' // TvcmMenuForChromeLikeItems
+ ;
+
+ref; // ME_545C537A01C1 
+
+: ME_545C68F000C6
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_545C521A0358 // TvcmMainMenuStripForChromeLike
+ ;
+ : Target WL 'ME_545C51F90170' '545C51F90170.pas.ms.script' // TvcmDropDownMenuForChromeLike
+ ;
+
+ref; // ME_545C68F000C6 
+
+: ME_5587BD9E0045
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_545C521A0358 // TvcmMainMenuStripForChromeLike
+ ;
+ : Target WL 'ME_5587AAF10290' '533D53FF00C2.pas.ms.script' // vcmPopupControlWindowService
+ ;
+
+ref; // ME_5587BD9E0045 
+
+: ME_545C521A0358
+ CONST UID '545C521A0358'
+ CONST Name 'TvcmMainMenuStripForChromeLike'
+ CONST Class class_Class
+ : Stereotype st_GuiControl ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_533D53FF00C2' '533D53FF00C2.pas.ms.script' // Visual$ChromeLike
+ ;
+ : Inherits
+   Seq: ( WL 'ME_545C51CB0171' '545C51CB0171.pas.ms.script' // TvcmBaseMenuForChromeLike
+ )
+ ; // Inherits
+ : Dependencies
+   Seq: ( ME_545C537A01C1 // TvcmMenuForChromeLikeItems
+ ME_545C68F000C6 // TvcmDropDownMenuForChromeLike
+ ME_5587BD9E0045 // vcmPopupControlWindowService
+ )
+ ; // Dependencies
+ CONST "finished" false
+ CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\NOT_FINISHED_vcmMainMenuStripForChromeLike.pas'
+ CONST extprop:rc:SelfName 'MainMenuStripForChromeLike'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vcmMainMenuStripForChromeLike'
+
+ref; // ME_545C521A0358 TvcmMainMenuStripForChromeLike

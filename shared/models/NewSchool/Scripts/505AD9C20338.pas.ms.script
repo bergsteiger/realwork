@@ -23,7 +23,7 @@ ref; // ME_552BD7FA0110 aFileName
  %SUMMARY 'Берёт со стека имя имя входного файла (EVD) и генератор (или цепочку). Затем делает трубу и прогоняет через неё файл.' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_505AFAF6026B // kwFiltersAndGeneratorsPack
+ : Parent HWL ME_505AFAF6026B // kwFiltersAndGeneratorsPack
  ;
  : Parameters
    Seq: ( ME_552BD7FA0110 // aFileName
@@ -49,7 +49,7 @@ ref; // ME_552BD9280319 aGenHead
  %SUMMARY 'Берёт со стека два генератора и делает из них цепочку. В результате на стеке остаётся один генератор (к которому подклеен другой)' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_505AFAF6026B // kwFiltersAndGeneratorsPack
+ : Parent HWL ME_505AFAF6026B // kwFiltersAndGeneratorsPack
  ;
  : Target WL 'ME_4678160E01BE' '47913B47006E.pas.ms.script' // Ik2TagGenerator
  ;
@@ -63,7 +63,7 @@ ref; // ME_552BD8F60043 generators_Link
 : ME_552BE8F800BE
  CONST Class class_Dependency
  : Stereotype st_injects::Dependency ;
- : Parent ME_505AFAF6026B // kwFiltersAndGeneratorsPack
+ : Parent HWL ME_505AFAF6026B // kwFiltersAndGeneratorsPack
  ;
  : Target WL 'ME_47ECAA5B0394' '47ECA80B000D.pas.ms.script' // Tk2TagGenerator
  ;
@@ -73,7 +73,7 @@ ref; // ME_552BE8F800BE
 : ME_55701B120158
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_505AFAF6026B // kwFiltersAndGeneratorsPack
+ : Parent HWL ME_505AFAF6026B // kwFiltersAndGeneratorsPack
  ;
  : Target WL 'ME_555DB43B00BD' '482D6E960087.pas.ms.script' // Tk2EVDReaderService
  ;
@@ -83,7 +83,7 @@ ref; // ME_55701B120158
 : ME_55701B1B00EB
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_505AFAF6026B // kwFiltersAndGeneratorsPack
+ : Parent HWL ME_505AFAF6026B // kwFiltersAndGeneratorsPack
  ;
  : Target WL 'ME_555DCEA8017E' '482D6E960087.pas.ms.script' // Tk2EVDWriterService
  ;
@@ -235,15 +235,15 @@ ref; // ME_533C0C71011C_ME_505AFAF6026B Context
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_505AD9C20338 // FiltersAndGenerators
+ : Parent HWL ME_505AD9C20338 // FiltersAndGenerators
  ;
  : Inherits
    Seq: ( WL 'ME_4678160E01BE' '47913B47006E.pas.ms.script' // Ik2TagGenerator
  )
  ; // Inherits
  : Operations
-   Seq: ( ME_552BD7AD0110 // generators_Execute
- ME_552BD8F60043 // generators_Link
+   Seq: ( HWL ME_552BD7AD0110 // generators_Execute
+ HWL ME_552BD8F60043 // generators_Link
  )
  ; // Operations
  : Implemented
@@ -295,7 +295,7 @@ ref; // ME_505AFAF6026B kwFiltersAndGeneratorsPack
  : Parent WL 'ME_552D08860307' '552D08860307.pas.ms.script' // ScriptEngine$EVD
  ;
  : Children
-   Seq: ( ME_505AFAF6026B // kwFiltersAndGeneratorsPack
+   Seq: ( HWL ME_505AFAF6026B // kwFiltersAndGeneratorsPack
  )
  ; // Children
  : Depends

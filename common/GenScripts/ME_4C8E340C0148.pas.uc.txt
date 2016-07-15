@@ -40,6 +40,9 @@
 //#UC END# *4992FCAD02D1_4C8E340C0148get_impl*
 //#UC START# *4992FCAD02D1_4C8E340C0148get_var*
 //#UC END# *4992FCAD02D1_4C8E340C0148get_var*
+//#UC START# *4C8E340C0148impl_uses*
+ , StdRes
+//#UC END# *4C8E340C0148impl_uses*
 //#UC START# *4C8E3A170399_4C8E340C0148exec_impl*
  DoNotify;
  {$IfNDef DesignTimeLibrary}
@@ -65,7 +68,7 @@
   if not Supports(l_Toolbar.Owner, IvcmEntityForm, l_Form) then
    Assert(False);
   {$IfDef Nemesis}
-  TdmStdRes.CustomizePanel(TvcmCustAvailableToolbarOps.Make(l_Form));
+  TvcmModulesFactories.CustomizePanel(TvcmCustAvailableToolbarOps.Make(l_Form));
   {$Else}
   Assert(false);
   {$EndIf Nemesis}

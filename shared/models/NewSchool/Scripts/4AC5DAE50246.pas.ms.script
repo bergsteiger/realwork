@@ -1,0 +1,36 @@
+// TvtDblClickDateEdit 4AC5DAE50246 GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AC5DAE50246
+
+: ME_554CA3BF011D_ME_4AC5DAE50246
+ : Original WL 'ME_554CA3BF011D' '4AA8AB7B038F.pas.ms.script' // MakeCalendar
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_554CA3BF011D_ME_4AC5DAE50246 MakeCalendar
+
+: ME_4AC5DAE50246
+ CONST UID '4AC5DAE50246'
+ CONST Name 'TvtDblClickDateEdit'
+ CONST Class class_Class
+ : Stereotype st_GuiControl ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4AC5DADB00C9' '4AC5DADB00C9.pas.ms.script' // DateEdit
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4AA8AB7B038F' '4AA8AB7B038F.pas.ms.script' // TvtDateEdit
+ )
+ ; // Inherits
+ : Overridden
+   Seq: ( ME_554CA3BF011D_ME_4AC5DAE50246 // MakeCalendar
+ )
+ ; // Overridden
+ CONST intf.pas:Path 'common\components\gui\Garant\VT\vtDblClickDateEdit.pas'
+ CONST extprop:rc:SelfName 'DblClickDateEdit'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vtDblClickDateEdit'
+
+ref; // ME_4AC5DAE50246 TvtDblClickDateEdit

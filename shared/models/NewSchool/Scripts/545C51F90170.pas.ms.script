@@ -1,0 +1,63 @@
+// TvcmDropDownMenuForChromeLike 545C51F90170 GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_545C51F90170
+
+: ME_545C538C0260
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_545C51F90170 // TvcmDropDownMenuForChromeLike
+ ;
+ : Target WL 'ME_545C535201B3' '533D53FF00C2.pas.ms.script' // TvcmMenuForChromeLikeItems
+ ;
+
+ref; // ME_545C538C0260 
+
+: ME_545C5C5802F6
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_545C51F90170 // TvcmDropDownMenuForChromeLike
+ ;
+ : Target WL 'ME_545C5B8703C7' '4799D29F033F.pas.ms.script' // ShadowWnd
+ ;
+
+ref; // ME_545C5C5802F6 
+
+: ME_545C5C9E00B2
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_545C51F90170 // TvcmDropDownMenuForChromeLike
+ ;
+ : Target WL 'ME_53EB1F03021A' '4AB0C3F60375.pas.ms.script' // multimon
+ ;
+
+ref; // ME_545C5C9E00B2 
+
+: ME_545C51F90170
+ CONST UID '545C51F90170'
+ CONST Name 'TvcmDropDownMenuForChromeLike'
+ CONST Class class_Class
+ : Stereotype st_GuiControl ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_533D53FF00C2' '533D53FF00C2.pas.ms.script' // Visual$ChromeLike
+ ;
+ : Inherits
+   Seq: ( WL 'ME_545C51CB0171' '545C51CB0171.pas.ms.script' // TvcmBaseMenuForChromeLike
+ )
+ ; // Inherits
+ : Dependencies
+   Seq: ( ME_545C538C0260 // TvcmMenuForChromeLikeItems
+ ME_545C5C5802F6 // ShadowWnd
+ ME_545C5C9E00B2 // multimon
+ )
+ ; // Dependencies
+ CONST "finished" false
+ CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\NOT_FINISHED_vcmDropDownMenuForChromeLike.pas'
+ CONST extprop:rc:SelfName 'DropDownMenuForChromeLike'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vcmDropDownMenuForChromeLike'
+
+ref; // ME_545C51F90170 TvcmDropDownMenuForChromeLike

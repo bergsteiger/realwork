@@ -11,9 +11,9 @@ FORWARD ME_552BF78902EE
 : ME_552BF793035A
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_505C064A02A4 // ddAutoLinkFilter
+ : Parent HWL ME_505C064A02A4 // ddAutoLinkFilter
  ;
- : Target ME_552BF78902EE // ddAutoLinkServices
+ : Target HWL ME_552BF78902EE // ddAutoLinkServices
  ;
 
 ref; // ME_552BF793035A 
@@ -26,7 +26,7 @@ ref; // ME_552BF793035A
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_5069A3DE03D5 // Autolink
+ : Parent HWL ME_5069A3DE03D5 // Autolink
  ;
  : Dependencies
    Seq: ( ME_552BF793035A // ddAutoLinkServices
@@ -42,7 +42,7 @@ FORWARD ME_552BF7B201EE
 : ME_552BF7BB011A
  CONST Class class_Dependency
  : Stereotype st_implements::Dependency ;
- : Parent ME_552BF7B201EE // TddAutolinkService
+ : Parent HWL ME_552BF7B201EE // TddAutolinkService
  ;
  : Target WL 'ME_552BF69B039B' '552BF68E0188.pas.ms.script' // Tl3AutolinkService
  ;
@@ -52,24 +52,12 @@ ref; // ME_552BF7BB011A
 : ME_552BF7C8008A
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_552BF7B201EE // TddAutolinkService
+ : Parent HWL ME_552BF7B201EE // TddAutolinkService
  ;
- : Target ME_505C064A02A4 // ddAutoLinkFilter
+ : Target HWL ME_505C064A02A4 // ddAutoLinkFilter
  ;
 
 ref; // ME_552BF7C8008A 
-
-: ME_27BE83734EFD_ME_552BF7B201EE
- : Original WL 'ME_27BE83734EFD' '552BF68E0188.pas.ms.script' // GetAutolinkFilter
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_27BE83734EFD_ME_552BF7B201EE GetAutolinkFilter
-
-: ME_A18BB0B1A222_ME_552BF7B201EE
- : Original WL 'ME_A18BB0B1A222' '552BF68E0188.pas.ms.script' // CleanAutolinkFilter
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_A18BB0B1A222_ME_552BF7B201EE CleanAutolinkFilter
 
 : ME_552BF7B201EE
  CONST UID '552BF7B201EE'
@@ -79,27 +67,17 @@ ref; // ME_A18BB0B1A222_ME_552BF7B201EE CleanAutolinkFilter
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_552BF78902EE // ddAutoLinkServices
+ : Parent HWL ME_552BF78902EE // ddAutoLinkServices
  ;
  : Inherits
    Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
  )
  ; // Inherits
- : Implements
-   Seq: ( WL 'ME_DA0E680BD126' '552BF68E0188.pas.ms.script' // Il3AutolinkService
- )
- ; // Implements
- : Implemented
-   Seq: ( ME_27BE83734EFD_ME_552BF7B201EE // GetAutolinkFilter
- ME_A18BB0B1A222_ME_552BF7B201EE // CleanAutolinkFilter
- )
- ; // Implemented
  : Dependencies
    Seq: ( ME_552BF7BB011A // Tl3AutolinkService
  ME_552BF7C8008A // ddAutoLinkFilter
  )
  ; // Dependencies
- CONST "singleton" true
  CONST extprop:rc:SelfName 'ddAutolinkService'
  CONST extprop:rc:isAcceptableForScripts true
 
@@ -108,9 +86,9 @@ ref; // ME_552BF7B201EE TddAutolinkService
 : ME_552BF79C0244
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_552BF78902EE // ddAutoLinkServices
+ : Parent HWL ME_552BF78902EE // ddAutoLinkServices
  ;
- : Target ME_505C064A02A4 // ddAutoLinkFilter
+ : Target HWL ME_505C064A02A4 // ddAutoLinkFilter
  ;
 
 ref; // ME_552BF79C0244 
@@ -123,10 +101,10 @@ ref; // ME_552BF79C0244
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_5069A3DE03D5 // Autolink
+ : Parent HWL ME_5069A3DE03D5 // Autolink
  ;
  : Children
-   Seq: ( ME_552BF7B201EE // TddAutolinkService
+   Seq: ( HWL ME_552BF7B201EE // TddAutolinkService
  )
  ; // Children
  : Dependencies
@@ -147,8 +125,8 @@ ref; // ME_552BF78902EE ddAutoLinkServices
  : Parent WL 'ME_47BC4FCB0115' '47BC4FCB0115.pas.ms.script' // DT
  ;
  : Children
-   Seq: ( ME_505C064A02A4 // ddAutoLinkFilter
- ME_552BF78902EE // ddAutoLinkServices
+   Seq: ( HWL ME_505C064A02A4 // ddAutoLinkFilter
+ HWL ME_552BF78902EE // ddAutoLinkServices
  )
  ; // Children
  : Depends

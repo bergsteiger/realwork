@@ -1,0 +1,58 @@
+// SynchroView_WarningBaloon 4EE223D80391 VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4EE223D80391
+
+: ME_7706FF39C57D
+ CONST UID '7706FF39C57D'
+ CONST Name 'Ini_FormFactory_SynchroView_WarningBaloon'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы SynchroView_WarningBaloon' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4EE223D80391 // SynchroView_WarningBaloon
+ ;
+ : SpelledFor HWL ME_4EE223D80391 // SynchroView_WarningBaloon
+ ;
+
+ref; // ME_7706FF39C57D Ini_FormFactory_SynchroView_WarningBaloon
+
+: ME_4EE223D80391
+ CONST UID '4EE223D80391'
+ CONST Name 'SynchroView_WarningBaloon'
+ CONST Class class_Class
+ : Stereotype st_VCMFinalForm ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Баллон с предупреждением для документа в синхронном просмотре' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent WL 'ME_498B135601B6' '498B135601B6.pas.ms.script' // Document
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4EA599F501CF' '4EA599F501CF.pas.ms.script' // PrimWarningBaloonOptions
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4EE2239F01FD' '4BD856E802F9.pas.ms.script' // SynchroView_WarningBaloon
+ )
+ ; // Implements
+ : Operations
+   Seq: ( HWL ME_7706FF39C57D // Ini_FormFactory_SynchroView_WarningBaloon
+ )
+ ; // Operations
+ CONST "NeedsHackRef" true
+ CONST "ZoneType" 'Any'
+ CONST "finished dfm" true
+ CONST "resizeable" false
+ CONST "restrict form def" 'undefined'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\SynchroView_WarningBaloon_Form.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms'
+ CONST extprop:pas:TypeName 'TSynchroView_WarningBaloonForm'
+ CONST extprop:rc:SelfName 'SynchroView_WarningBaloonForm'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'SynchroView_WarningBaloon_Form'
+
+ref; // ME_4EE223D80391 SynchroView_WarningBaloon

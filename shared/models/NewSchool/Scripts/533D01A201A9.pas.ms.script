@@ -4,539 +4,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 FORWARD ME_533D01A201A9
 
-FORWARD ME_533D01CB01B1
-
-FORWARD ME_533D01FF01FB
-
-: ME_533D02110359
- CONST UID '533D02110359'
- CONST Name 'cbsDisabled'
- CONST Class class_Attribute
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_533D01FF01FB // TChromeLikeWindowCaptionButtonState
- ;
-
-ref; // ME_533D02110359 cbsDisabled
-
-: ME_533D021A0311
- CONST UID '533D021A0311'
- CONST Name 'cbsHot'
- CONST Class class_Attribute
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_533D01FF01FB // TChromeLikeWindowCaptionButtonState
- ;
-
-ref; // ME_533D021A0311 cbsHot
-
-: ME_533D022102B8
- CONST UID '533D022102B8'
- CONST Name 'cbsNormal'
- CONST Class class_Attribute
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_533D01FF01FB // TChromeLikeWindowCaptionButtonState
- ;
-
-ref; // ME_533D022102B8 cbsNormal
-
-: ME_533D02290299
- CONST UID '533D02290299'
- CONST Name 'cbsPushed'
- CONST Class class_Attribute
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_533D01FF01FB // TChromeLikeWindowCaptionButtonState
- ;
-
-ref; // ME_533D02290299 cbsPushed
-
-: ME_533D01FF01FB
- CONST UID '533D01FF01FB'
- CONST Name 'TChromeLikeWindowCaptionButtonState'
- CONST Class class_Class
- : Stereotype st_Enum ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_533D01CB01B1 // TChromeLikeBaseWindowCaptionButton
- ;
- : Attributes
-   Seq: ( ME_533D02110359 // cbsDisabled
- ME_533D021A0311 // cbsHot
- ME_533D022102B8 // cbsNormal
- ME_533D02290299 // cbsPushed
- )
- ; // Attributes
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_533D01FF01FB TChromeLikeWindowCaptionButtonState
-
-: ME_533D023A005A
- CONST UID '533D023A005A'
- CONST Name 'RChromeLikeWindowCaptionbuttonClass'
- CONST Class class_Class
- : Stereotype st_Typedef ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_533D01CB01B1 // TChromeLikeBaseWindowCaptionButton
- ;
- : Inherits
-   Seq: ( ME_533D01CB01B1 // TChromeLikeBaseWindowCaptionButton
- )
- ; // Inherits
- CONST "isClassRef" true
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_533D023A005A RChromeLikeWindowCaptionbuttonClass
-
-: ME_533D0269002B
- CONST UID '533D0269002B'
- CONST Name 'State'
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility ProtectedAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_533D01CB01B1 // TChromeLikeBaseWindowCaptionButton
- ;
- : Target ME_533D01FF01FB // TChromeLikeWindowCaptionButtonState
- ;
- CONST "needs field" true
- CONST "pm" true
-
-ref; // ME_533D0269002B State
-
-: ME_533D02A3034C
- CONST UID '533D02A3034C'
- CONST Name 'Active'
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_533D01CB01B1 // TChromeLikeBaseWindowCaptionButton
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST "needs field" true
- CONST "pm" true
-
-ref; // ME_533D02A3034C Active
-
-: ME_533D035E03BC
- CONST UID '533D035E03BC'
- CONST Name 'ParentForm'
- CONST Class class_Attribute
- : Stereotype st_readonly::Attribute ;
- CONST Visibility ProtectedAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_533D01CB01B1 // TChromeLikeBaseWindowCaptionButton
- ;
- : Target WL 'ME_4952591E0263' '4799D29F033F.pas.ms.script' // TForm
- ;
- CONST "needs field" true
- CONST "pm" true
-
-ref; // ME_533D035E03BC ParentForm
-
-: ME_533EA4A70020
- CONST UID '533EA4A70020'
- CONST Name 'OnClick'
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_533D01CB01B1 // TChromeLikeBaseWindowCaptionButton
- ;
- : Target WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
- ;
- CONST "needs field" true
- CONST "pm" true
- CONST "reads field" true
- CONST "writes field" true
-
-ref; // ME_533EA4A70020 OnClick
-
-FORWARD ME_54744FB502AB
-
-: ME_54744FDA0046
- CONST UID '54744FDA0046'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_54744FB502AB // NotifyFormResized
- ;
-
-ref; // ME_54744FDA0046 DoIt
-
-: ME_54744FB502AB
- CONST UID '54744FB502AB'
- CONST Name 'NotifyFormResized'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_533D01CB01B1 // TChromeLikeBaseWindowCaptionButton
- ;
- : Operations
-   Seq: ( ME_54744FDA0046 // DoIt
- )
- ; // Operations
-
-ref; // ME_54744FB502AB NotifyFormResized
-
-FORWARD ME_54744FED0113
-
-: ME_54744FF900EF
- CONST UID '54744FF900EF'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_54744FED0113 // NeedUpdateHint
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_54744FF900EF DoIt
-
-: ME_54744FED0113
- CONST UID '54744FED0113'
- CONST Name 'NeedUpdateHint'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility ProtectedAccess
- CONST Abstraction at_regular
- : Parent ME_533D01CB01B1 // TChromeLikeBaseWindowCaptionButton
- ;
- : Operations
-   Seq: ( ME_54744FF900EF // DoIt
- )
- ; // Operations
-
-ref; // ME_54744FED0113 NeedUpdateHint
-
-FORWARD ME_5474500600DA
-
-: ME_5474510601D2
- CONST UID '5474510601D2'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5474500600DA // GetHintText
- ;
- : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
- ;
-
-ref; // ME_5474510601D2 DoIt
-
-: ME_5474500600DA
- CONST UID '5474500600DA'
- CONST Name 'GetHintText'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility ProtectedAccess
- CONST Abstraction at_regular
- : Parent ME_533D01CB01B1 // TChromeLikeBaseWindowCaptionButton
- ;
- : Operations
-   Seq: ( ME_5474510601D2 // DoIt
- )
- ; // Operations
-
-ref; // ME_5474500600DA GetHintText
-
-: ME_533D039F0373
- CONST Name 'aMessage'
- CONST Class class_Parameter
- : Stereotype st_inout ;
- : Target WL 'ME_476F78A602B2' '476F78840219.pas.ms.script' // TMessage
- ;
-
-ref; // ME_533D039F0373 aMessage
-
-: ME_533D037C00E9
- CONST UID '533D037C00E9'
- CONST Name 'CMMouseEnter'
- CONST Class class_Operation
- : Stereotype st_message::Operation ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_533D01CB01B1 // TChromeLikeBaseWindowCaptionButton
- ;
- : Parameters
-   Seq: ( ME_533D039F0373 // aMessage
- )
- ; // Parameters
- CONST "Message ID" 'CM_MOUSEENTER'
-
-ref; // ME_533D037C00E9 CMMouseEnter
-
-: ME_533D03B900F3
- CONST Name 'aMessage'
- CONST Class class_Parameter
- : Stereotype st_inout ;
- : Target WL 'ME_476F78A602B2' '476F78840219.pas.ms.script' // TMessage
- ;
-
-ref; // ME_533D03B900F3 aMessage
-
-: ME_533D03A40389
- CONST UID '533D03A40389'
- CONST Name 'CMMouseLeave'
- CONST Class class_Operation
- : Stereotype st_message::Operation ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_533D01CB01B1 // TChromeLikeBaseWindowCaptionButton
- ;
- : Parameters
-   Seq: ( ME_533D03B900F3 // aMessage
- )
- ; // Parameters
- CONST "Message ID" 'CM_MOUSELEAVE'
-
-ref; // ME_533D03A40389 CMMouseLeave
-
-: ME_533D03D80303
- CONST Name 'aMessage'
- CONST Class class_Parameter
- : Stereotype st_inout ;
- : Target WL 'ME_4F86F32B0299' '476F78840219.pas.ms.script' // TWMEraseBkgnd
- ;
-
-ref; // ME_533D03D80303 aMessage
-
-: ME_533D03BE0299
- CONST UID '533D03BE0299'
- CONST Name 'WMEraseBkgnd'
- CONST Class class_Operation
- : Stereotype st_message::Operation ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_533D01CB01B1 // TChromeLikeBaseWindowCaptionButton
- ;
- : Parameters
-   Seq: ( ME_533D03D80303 // aMessage
- )
- ; // Parameters
- CONST "Message ID" 'WM_ERASEBKGND'
-
-ref; // ME_533D03BE0299 WMEraseBkgnd
-
-: ME_533D04B403AC
- CONST Name 'aMessage'
- CONST Class class_Parameter
- : Stereotype st_inout ;
- : Target WL 'ME_476F78A602B2' '476F78840219.pas.ms.script' // TMessage
- ;
-
-ref; // ME_533D04B403AC aMessage
-
-: ME_533D04A00242
- CONST UID '533D04A00242'
- CONST Name 'CMEnabledChanged'
- CONST Class class_Operation
- : Stereotype st_message::Operation ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_533D01CB01B1 // TChromeLikeBaseWindowCaptionButton
- ;
- : Parameters
-   Seq: ( ME_533D04B403AC // aMessage
- )
- ; // Parameters
- CONST "Message ID" 'CM_ENABLEDCHANGED'
-
-ref; // ME_533D04A00242 CMEnabledChanged
-
-: ME_533D053901F4
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_533D01CB01B1 // TChromeLikeBaseWindowCaptionButton
- ;
- : Target WL 'ME_46A104F4028B' '4AB0C3F60375.pas.ms.script' // TPoint
- ;
-
-ref; // ME_533D053901F4 
-
-: ME_533D056F02EB
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_533D01CB01B1 // TChromeLikeBaseWindowCaptionButton
- ;
- : Target WL 'ME_4952591E0263' '4799D29F033F.pas.ms.script' // TForm
- ;
-
-ref; // ME_533D056F02EB 
-
-: ME_533D064301AD
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_533D01CB01B1 // TChromeLikeBaseWindowCaptionButton
- ;
- : Target WL 'ME_47E13C6B0341' '4799D29F033F.pas.ms.script' // Forms
- ;
-
-ref; // ME_533D064301AD 
-
-: ME_533D064700EC
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_533D01CB01B1 // TChromeLikeBaseWindowCaptionButton
- ;
- : Target WL 'ME_47E11FC3021E' '4799D29F033F.pas.ms.script' // Controls
- ;
-
-ref; // ME_533D064700EC 
-
-: ME_533D064E009D
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_533D01CB01B1 // TChromeLikeBaseWindowCaptionButton
- ;
- : Target WL 'ME_533BC8E40286' '4AB0C3F60375.pas.ms.script' // UxTheme
- ;
-
-ref; // ME_533D064E009D 
-
-: ME_533D0656021C
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_533D01CB01B1 // TChromeLikeBaseWindowCaptionButton
- ;
- : Target WL 'ME_48A41FF10094' '4AB0C3F60375.pas.ms.script' // Windows
- ;
-
-ref; // ME_533D0656021C 
-
-: ME_5474505C0023
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_533D01CB01B1 // TChromeLikeBaseWindowCaptionButton
- ;
- : Target WL 'ME_47878E0E0191' '54B90AC6014B.pas.ms.script' // l3String
- ;
-
-ref; // ME_5474505C0023 
-
-: ME_547450AB01FC
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_533D01CB01B1 // TChromeLikeBaseWindowCaptionButton
- ;
- : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
- ;
-
-ref; // ME_547450AB01FC 
-
-: ME_47D1602000C6_ME_533D01CB01B1
- : Original WL 'ME_47D1602000C6' '4AB0997B00A2.pas.ms.script' // Create
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_47D1602000C6_ME_533D01CB01B1 Create
-
-: ME_4A97E78202FC_ME_533D01CB01B1
- : Original WL 'ME_4A97E78202FC' '4799D29F033F.pas.ms.script' // SetParent
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4A97E78202FC_ME_533D01CB01B1 SetParent
-
-: ME_4E7896270076_ME_533D01CB01B1
- : Original WL 'ME_4E7896270076' '4799D29F033F.pas.ms.script' // MouseUp
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4E7896270076_ME_533D01CB01B1 MouseUp
-
-: ME_4F88469E0021_ME_533D01CB01B1
- : Original WL 'ME_4F88469E0021' '4799D29F033F.pas.ms.script' // Click
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4F88469E0021_ME_533D01CB01B1 Click
-
-: ME_4F88473B03CD_ME_533D01CB01B1
- : Original WL 'ME_4F88473B03CD' '4799D29F033F.pas.ms.script' // MouseDown
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4F88473B03CD_ME_533D01CB01B1 MouseDown
-
-: ME_533D01CB01B1
- CONST UID '533D01CB01B1'
- CONST Name 'TChromeLikeBaseWindowCaptionButton'
- CONST Class class_Class
- : Stereotype st_GuiControl ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_533D01A201A9 // ChromeLikeWindowCaptionButtons
- ;
- : Inherits
-   Seq: ( WL 'ME_47E1388A03A7' '4799D29F033F.pas.ms.script' // TCustomControl
- )
- ; // Inherits
- : Attributes
-   Seq: ( ME_533D0269002B // State
- ME_533D02A3034C // Active
- ME_533D035E03BC // ParentForm
- ME_533EA4A70020 // OnClick
- )
- ; // Attributes
- : Operations
-   Seq: ( ME_54744FB502AB // NotifyFormResized
- ME_54744FED0113 // NeedUpdateHint
- ME_5474500600DA // GetHintText
- ME_533D037C00E9 // CMMouseEnter
- ME_533D03A40389 // CMMouseLeave
- ME_533D03BE0299 // WMEraseBkgnd
- ME_533D04A00242 // CMEnabledChanged
- )
- ; // Operations
- : Overridden
-   Seq: ( ME_47D1602000C6_ME_533D01CB01B1 // Create
- ME_4A97E78202FC_ME_533D01CB01B1 // SetParent
- ME_4E7896270076_ME_533D01CB01B1 // MouseUp
- ME_4F88469E0021_ME_533D01CB01B1 // Click
- ME_4F88473B03CD_ME_533D01CB01B1 // MouseDown
- )
- ; // Overridden
- : Children
-   Seq: ( ME_533D01FF01FB // TChromeLikeWindowCaptionButtonState
- ME_533D023A005A // RChromeLikeWindowCaptionbuttonClass
- )
- ; // Children
- : Dependencies
-   Seq: ( ME_533D053901F4 // TPoint
- ME_533D056F02EB // TForm
- ME_533D064301AD // Forms
- ME_533D064700EC // Controls
- ME_533D064E009D // UxTheme
- ME_533D0656021C // Windows
- ME_5474505C0023 // l3String
- ME_547450AB01FC // Il3CString
- )
- ; // Dependencies
- CONST "ifndef" 'NoVGScene, NoVCM'
- CONST intf.pas:Path 'common\components\gui\Garant\ChromeLikeControls\ChromeLikeBaseWindowCaptionButton.pas'
- CONST extprop:rc:SelfName 'ChromeLikeBaseWindowCaptionButton'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'ChromeLikeBaseWindowCaptionButton'
-
-ref; // ME_533D01CB01B1 TChromeLikeBaseWindowCaptionButton
-
 FORWARD ME_533D14960061
 
 FORWARD ME_533D0BCB00A2
@@ -549,7 +16,7 @@ FORWARD ME_533D11CA0022
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_533D11CA0022 // GetButtonStateFlag
+ : Parent HWL ME_533D11CA0022 // GetButtonStateFlag
  ;
  : Target WL 'ME_49B14F7E013A' '4AB0C3F60375.pas.ms.script' // UINT
  ;
@@ -564,10 +31,10 @@ ref; // ME_533D11E200B4 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_533D0BCB00A2 // TChromeLikeLegacyWindowCaptionButton
+ : Parent HWL ME_533D0BCB00A2 // TChromeLikeLegacyWindowCaptionButton
  ;
  : Operations
-   Seq: ( ME_533D11E200B4 // DoIt
+   Seq: ( HWL ME_533D11E200B4 // DoIt
  )
  ; // Operations
 
@@ -576,7 +43,7 @@ ref; // ME_533D11CA0022 GetButtonStateFlag
 : ME_533D0CE4012C
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_533D0BCB00A2 // TChromeLikeLegacyWindowCaptionButton
+ : Parent HWL ME_533D0BCB00A2 // TChromeLikeLegacyWindowCaptionButton
  ;
  : Target WL 'ME_48A41FF10094' '4AB0C3F60375.pas.ms.script' // Windows
  ;
@@ -586,7 +53,7 @@ ref; // ME_533D0CE4012C
 : ME_533D0CEB0074
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_533D0BCB00A2 // TChromeLikeLegacyWindowCaptionButton
+ : Parent HWL ME_533D0BCB00A2 // TChromeLikeLegacyWindowCaptionButton
  ;
  : Target WL 'ME_47E11FC3021E' '4799D29F033F.pas.ms.script' // Controls
  ;
@@ -596,7 +63,7 @@ ref; // ME_533D0CEB0074
 : ME_533D0CF102CC
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_533D0BCB00A2 // TChromeLikeLegacyWindowCaptionButton
+ : Parent HWL ME_533D0BCB00A2 // TChromeLikeLegacyWindowCaptionButton
  ;
  : Target WL 'ME_47E13C6B0341' '4799D29F033F.pas.ms.script' // Forms
  ;
@@ -606,7 +73,7 @@ ref; // ME_533D0CF102CC
 : ME_533D120803A4
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_533D0BCB00A2 // TChromeLikeLegacyWindowCaptionButton
+ : Parent HWL ME_533D0BCB00A2 // TChromeLikeLegacyWindowCaptionButton
  ;
  : Target WL 'ME_49B14F7E013A' '4AB0C3F60375.pas.ms.script' // UINT
  ;
@@ -621,14 +88,14 @@ ref; // ME_533D120803A4
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_533D14960061 // ChromeLikeLegacyWindowCaptionButtons
+ : Parent HWL ME_533D14960061 // ChromeLikeLegacyWindowCaptionButtons
  ;
  : Inherits
-   Seq: ( ME_533D01CB01B1 // TChromeLikeBaseWindowCaptionButton
+   Seq: ( WL 'ME_533D01CB01B1' '533D01CB01B1.pas.ms.script' // TChromeLikeBaseWindowCaptionButton
  )
  ; // Inherits
  : Operations
-   Seq: ( ME_533D11CA0022 // GetButtonStateFlag
+   Seq: ( HWL ME_533D11CA0022 // GetButtonStateFlag
  )
  ; // Operations
  : Dependencies
@@ -652,7 +119,7 @@ FORWARD ME_533D0C2F000A
 ref; // ME_5028A60300AD_ME_533D0C2F000A Paint
 
 : ME_5474500600DA_ME_533D0C2F000A
- : Original ME_5474500600DA // GetHintText
+ : Original WL 'ME_5474500600DA' '533D01CB01B1.pas.ms.script' // GetHintText
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_5474500600DA_ME_533D0C2F000A GetHintText
@@ -665,10 +132,10 @@ ref; // ME_5474500600DA_ME_533D0C2F000A GetHintText
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_533D14960061 // ChromeLikeLegacyWindowCaptionButtons
+ : Parent HWL ME_533D14960061 // ChromeLikeLegacyWindowCaptionButtons
  ;
  : Inherits
-   Seq: ( ME_533D0BCB00A2 // TChromeLikeLegacyWindowCaptionButton
+   Seq: ( HWL ME_533D0BCB00A2 // TChromeLikeLegacyWindowCaptionButton
  )
  ; // Inherits
  : Overridden
@@ -690,13 +157,13 @@ FORWARD ME_533D0C3A0179
 ref; // ME_5028A60300AD_ME_533D0C3A0179 Paint
 
 : ME_54744FED0113_ME_533D0C3A0179
- : Original ME_54744FED0113 // NeedUpdateHint
+ : Original WL 'ME_54744FED0113' '533D01CB01B1.pas.ms.script' // NeedUpdateHint
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_54744FED0113_ME_533D0C3A0179 NeedUpdateHint
 
 : ME_5474500600DA_ME_533D0C3A0179
- : Original ME_5474500600DA // GetHintText
+ : Original WL 'ME_5474500600DA' '533D01CB01B1.pas.ms.script' // GetHintText
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_5474500600DA_ME_533D0C3A0179 GetHintText
@@ -709,10 +176,10 @@ ref; // ME_5474500600DA_ME_533D0C3A0179 GetHintText
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_533D14960061 // ChromeLikeLegacyWindowCaptionButtons
+ : Parent HWL ME_533D14960061 // ChromeLikeLegacyWindowCaptionButtons
  ;
  : Inherits
-   Seq: ( ME_533D0BCB00A2 // TChromeLikeLegacyWindowCaptionButton
+   Seq: ( HWL ME_533D0BCB00A2 // TChromeLikeLegacyWindowCaptionButton
  )
  ; // Inherits
  : Overridden
@@ -731,7 +198,7 @@ FORWARD ME_533D0C20013A
 : ME_533D0CFD024C
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_533D0C20013A // TChromeLikeLegacyCloseCaptionButton
+ : Parent HWL ME_533D0C20013A // TChromeLikeLegacyCloseCaptionButton
  ;
  : Target WL 'ME_48A41FF10094' '4AB0C3F60375.pas.ms.script' // Windows
  ;
@@ -745,7 +212,7 @@ ref; // ME_533D0CFD024C
 ref; // ME_5028A60300AD_ME_533D0C20013A Paint
 
 : ME_5474500600DA_ME_533D0C20013A
- : Original ME_5474500600DA // GetHintText
+ : Original WL 'ME_5474500600DA' '533D01CB01B1.pas.ms.script' // GetHintText
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_5474500600DA_ME_533D0C20013A GetHintText
@@ -758,10 +225,10 @@ ref; // ME_5474500600DA_ME_533D0C20013A GetHintText
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_533D14960061 // ChromeLikeLegacyWindowCaptionButtons
+ : Parent HWL ME_533D14960061 // ChromeLikeLegacyWindowCaptionButtons
  ;
  : Inherits
-   Seq: ( ME_533D0BCB00A2 // TChromeLikeLegacyWindowCaptionButton
+   Seq: ( HWL ME_533D0BCB00A2 // TChromeLikeLegacyWindowCaptionButton
  )
  ; // Inherits
  : Overridden
@@ -781,7 +248,7 @@ ref; // ME_533D0C20013A TChromeLikeLegacyCloseCaptionButton
 : ME_547453A803E3
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_533D14960061 // ChromeLikeLegacyWindowCaptionButtons
+ : Parent HWL ME_533D14960061 // ChromeLikeLegacyWindowCaptionButtons
  ;
  : Target WL 'ME_47E11FC3021E' '4799D29F033F.pas.ms.script' // Controls
  ;
@@ -791,7 +258,7 @@ ref; // ME_547453A803E3
 : ME_547453AC0100
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_533D14960061 // ChromeLikeLegacyWindowCaptionButtons
+ : Parent HWL ME_533D14960061 // ChromeLikeLegacyWindowCaptionButtons
  ;
  : Target WL 'ME_48A41FF10094' '4AB0C3F60375.pas.ms.script' // Windows
  ;
@@ -801,7 +268,7 @@ ref; // ME_547453AC0100
 : ME_547453AF007E
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_533D14960061 // ChromeLikeLegacyWindowCaptionButtons
+ : Parent HWL ME_533D14960061 // ChromeLikeLegacyWindowCaptionButtons
  ;
  : Target WL 'ME_47E13C6B0341' '4799D29F033F.pas.ms.script' // Forms
  ;
@@ -813,9 +280,9 @@ FORWARD ME_545B531C026F
 : ME_547463CD039A
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_533D14960061 // ChromeLikeLegacyWindowCaptionButtons
+ : Parent HWL ME_533D14960061 // ChromeLikeLegacyWindowCaptionButtons
  ;
- : Target ME_545B531C026F // ChromeLikeWindowCaptionButtonsRes
+ : Target HWL ME_545B531C026F // ChromeLikeWindowCaptionButtonsRes
  ;
 
 ref; // ME_547463CD039A 
@@ -828,13 +295,13 @@ ref; // ME_547463CD039A
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_533D01A201A9 // ChromeLikeWindowCaptionButtons
+ : Parent HWL ME_533D01A201A9 // ChromeLikeWindowCaptionButtons
  ;
  : Children
-   Seq: ( ME_533D0BCB00A2 // TChromeLikeLegacyWindowCaptionButton
- ME_533D0C2F000A // TChromeLikeLegacyMinimizeCaptionButton
- ME_533D0C3A0179 // TChromeLikeLegacyMaximizeCaptionButton
- ME_533D0C20013A // TChromeLikeLegacyCloseCaptionButton
+   Seq: ( HWL ME_533D0BCB00A2 // TChromeLikeLegacyWindowCaptionButton
+ HWL ME_533D0C2F000A // TChromeLikeLegacyMinimizeCaptionButton
+ HWL ME_533D0C3A0179 // TChromeLikeLegacyMaximizeCaptionButton
+ HWL ME_533D0C20013A // TChromeLikeLegacyCloseCaptionButton
  )
  ; // Children
  : Dependencies
@@ -849,272 +316,18 @@ ref; // ME_547463CD039A
 
 ref; // ME_533D14960061 ChromeLikeLegacyWindowCaptionButtons
 
-FORWARD ME_533D07A201C1
-
-FORWARD ME_533D08920033
-
-: ME_533D08B5038B
- CONST UID '533D08B5038B'
- CONST Name 'rPartID'
- CONST Class class_Attribute
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_533D08920033 // TChromeLikeThemedWindowCaptionButtonPaintParams
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_533D08B5038B rPartID
-
-: ME_533D08C20067
- CONST UID '533D08C20067'
- CONST Name 'rStateID'
- CONST Class class_Attribute
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_533D08920033 // TChromeLikeThemedWindowCaptionButtonPaintParams
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_533D08C20067 rStateID
-
-: ME_533D08920033
- CONST UID '533D08920033'
- CONST Name 'TChromeLikeThemedWindowCaptionButtonPaintParams'
- CONST Class class_Class
- : Stereotype st_Struct ;
- CONST Kind kind_NormalClass
- %SUMMARY 'параметры отрисовки кнопок' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_533D07A201C1 // TChromeLikeBaseThemedWindowCaptionButton
- ;
- : Attributes
-   Seq: ( ME_533D08B5038B // rPartID
- ME_533D08C20067 // rStateID
- )
- ; // Attributes
-
-ref; // ME_533D08920033 TChromeLikeThemedWindowCaptionButtonPaintParams
-
-: ME_533D09010204
- CONST UID '533D09010204'
- CONST Name 'Theme'
- CONST Class class_Attribute
- : Stereotype st_readonly::Attribute ;
- CONST Visibility ProtectedAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_533D07A201C1 // TChromeLikeBaseThemedWindowCaptionButton
- ;
- : Target WL 'ME_533D08DE039A' '4AB0C3F60375.pas.ms.script' // HTHEME
- ;
- CONST "needs field" true
- CONST "pm" true
-
-ref; // ME_533D09010204 Theme
-
-FORWARD ME_533D091902B8
-
-: ME_533D092C00AB
- CONST UID '533D092C00AB'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_533D091902B8 // GetPaintParams
- ;
- : Target ME_533D08920033 // TChromeLikeThemedWindowCaptionButtonPaintParams
- ;
-
-ref; // ME_533D092C00AB DoIt
-
-: ME_533D091902B8
- CONST UID '533D091902B8'
- CONST Name 'GetPaintParams'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility ProtectedAccess
- CONST Abstraction at_regular
- : Parent ME_533D07A201C1 // TChromeLikeBaseThemedWindowCaptionButton
- ;
- : Operations
-   Seq: ( ME_533D092C00AB // DoIt
- )
- ; // Operations
-
-ref; // ME_533D091902B8 GetPaintParams
-
-: ME_533D087000D3
- CONST Name 'aMessage'
- CONST Class class_Parameter
- : Stereotype st_inout ;
- : Target WL 'ME_476F78A602B2' '476F78840219.pas.ms.script' // TMessage
- ;
-
-ref; // ME_533D087000D3 aMessage
-
-: ME_533D08600262
- CONST UID '533D08600262'
- CONST Name 'WMThemeChanged'
- CONST Class class_Operation
- : Stereotype st_message::Operation ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_533D07A201C1 // TChromeLikeBaseThemedWindowCaptionButton
- ;
- : Parameters
-   Seq: ( ME_533D087000D3 // aMessage
- )
- ; // Parameters
- CONST "Message ID" 'WM_THEMECHANGED'
-
-ref; // ME_533D08600262 WMThemeChanged
-
-: ME_533D0A6F02A4
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_533D07A201C1 // TChromeLikeBaseThemedWindowCaptionButton
- ;
- : Target WL 'ME_533BC8E40286' '4AB0C3F60375.pas.ms.script' // UxTheme
- ;
-
-ref; // ME_533D0A6F02A4 
-
-: ME_533D0A810334
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_533D07A201C1 // TChromeLikeBaseThemedWindowCaptionButton
- ;
- : Target WL 'ME_48A41FF10094' '4AB0C3F60375.pas.ms.script' // Windows
- ;
-
-ref; // ME_533D0A810334 
-
-: ME_533D0AAA032C
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_533D07A201C1 // TChromeLikeBaseThemedWindowCaptionButton
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_533D0AAA032C 
-
-: ME_533D0AB402F4
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_533D07A201C1 // TChromeLikeBaseThemedWindowCaptionButton
- ;
- : Target WL 'ME_47E11FC3021E' '4799D29F033F.pas.ms.script' // Controls
- ;
-
-ref; // ME_533D0AB402F4 
-
-: ME_533D0AD900C4
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_533D07A201C1 // TChromeLikeBaseThemedWindowCaptionButton
- ;
- : Target WL 'ME_47D15712022D' '55C4AEC801CA.pas.ms.script' // Graphics
- ;
-
-ref; // ME_533D0AD900C4 
-
-: ME_533D1DE8005C
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_533D07A201C1 // TChromeLikeBaseThemedWindowCaptionButton
- ;
- : Target WL 'ME_4773D64E036C' '47913B47006E.pas.ms.script' // l3Base
- ;
-
-ref; // ME_533D1DE8005C 
-
-: ME_47D1602000C6_ME_533D07A201C1
- : Original WL 'ME_47D1602000C6' '4AB0997B00A2.pas.ms.script' // Create
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_47D1602000C6_ME_533D07A201C1 Create
-
-: ME_4CC841540158_ME_533D07A201C1
- : Original WL 'ME_4CC841540158' '4799D29F033F.pas.ms.script' // DestroyWnd
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4CC841540158_ME_533D07A201C1 DestroyWnd
-
-: ME_5028A60300AD_ME_533D07A201C1
- : Original WL 'ME_5028A60300AD' '4799D29F033F.pas.ms.script' // Paint
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5028A60300AD_ME_533D07A201C1 Paint
-
-: ME_533D07A201C1
- CONST UID '533D07A201C1'
- CONST Name 'TChromeLikeBaseThemedWindowCaptionButton'
- CONST Class class_Class
- : Stereotype st_GuiControl ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_533D01A201A9 // ChromeLikeWindowCaptionButtons
- ;
- : Inherits
-   Seq: ( ME_533D01CB01B1 // TChromeLikeBaseWindowCaptionButton
- )
- ; // Inherits
- : Attributes
-   Seq: ( ME_533D09010204 // Theme
- )
- ; // Attributes
- : Operations
-   Seq: ( ME_533D091902B8 // GetPaintParams
- ME_533D08600262 // WMThemeChanged
- )
- ; // Operations
- : Overridden
-   Seq: ( ME_47D1602000C6_ME_533D07A201C1 // Create
- ME_4CC841540158_ME_533D07A201C1 // DestroyWnd
- ME_5028A60300AD_ME_533D07A201C1 // Paint
- )
- ; // Overridden
- : Children
-   Seq: ( ME_533D08920033 // TChromeLikeThemedWindowCaptionButtonPaintParams
- )
- ; // Children
- : Dependencies
-   Seq: ( ME_533D0A6F02A4 // UxTheme
- ME_533D0A810334 // Windows
- ME_533D0AAA032C // SysUtils
- ME_533D0AB402F4 // Controls
- ME_533D0AD900C4 // Graphics
- ME_533D1DE8005C // l3Base
- )
- ; // Dependencies
- CONST "ifndef" 'NoVGScene, NoVCM'
- CONST intf.pas:Path 'common\components\gui\Garant\ChromeLikeControls\ChromeLikeBaseThemedWindowCaptionButton.pas'
- CONST extprop:rc:SelfName 'ChromeLikeBaseThemedWindowCaptionButton'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'ChromeLikeBaseThemedWindowCaptionButton'
-
-ref; // ME_533D07A201C1 TChromeLikeBaseThemedWindowCaptionButton
-
 FORWARD ME_533D1518032F
 
 FORWARD ME_533D0B3A02F3
 
 : ME_533D091902B8_ME_533D0B3A02F3
- : Original ME_533D091902B8 // GetPaintParams
+ : Original WL 'ME_533D091902B8' '533D07A201C1.pas.ms.script' // GetPaintParams
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_533D091902B8_ME_533D0B3A02F3 GetPaintParams
 
 : ME_5474500600DA_ME_533D0B3A02F3
- : Original ME_5474500600DA // GetHintText
+ : Original WL 'ME_5474500600DA' '533D01CB01B1.pas.ms.script' // GetHintText
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_5474500600DA_ME_533D0B3A02F3 GetHintText
@@ -1127,10 +340,10 @@ ref; // ME_5474500600DA_ME_533D0B3A02F3 GetHintText
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_533D1518032F // ChromeLikeThemedWindowCaptionButtons
+ : Parent HWL ME_533D1518032F // ChromeLikeThemedWindowCaptionButtons
  ;
  : Inherits
-   Seq: ( ME_533D07A201C1 // TChromeLikeBaseThemedWindowCaptionButton
+   Seq: ( WL 'ME_533D07A201C1' '533D07A201C1.pas.ms.script' // TChromeLikeBaseThemedWindowCaptionButton
  )
  ; // Inherits
  : Overridden
@@ -1146,19 +359,19 @@ ref; // ME_533D0B3A02F3 TChromeLikeThemedCloseCaptionButton
 FORWARD ME_533D0B640155
 
 : ME_533D091902B8_ME_533D0B640155
- : Original ME_533D091902B8 // GetPaintParams
+ : Original WL 'ME_533D091902B8' '533D07A201C1.pas.ms.script' // GetPaintParams
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_533D091902B8_ME_533D0B640155 GetPaintParams
 
 : ME_54744FED0113_ME_533D0B640155
- : Original ME_54744FED0113 // NeedUpdateHint
+ : Original WL 'ME_54744FED0113' '533D01CB01B1.pas.ms.script' // NeedUpdateHint
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_54744FED0113_ME_533D0B640155 NeedUpdateHint
 
 : ME_5474500600DA_ME_533D0B640155
- : Original ME_5474500600DA // GetHintText
+ : Original WL 'ME_5474500600DA' '533D01CB01B1.pas.ms.script' // GetHintText
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_5474500600DA_ME_533D0B640155 GetHintText
@@ -1171,10 +384,10 @@ ref; // ME_5474500600DA_ME_533D0B640155 GetHintText
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_533D1518032F // ChromeLikeThemedWindowCaptionButtons
+ : Parent HWL ME_533D1518032F // ChromeLikeThemedWindowCaptionButtons
  ;
  : Inherits
-   Seq: ( ME_533D07A201C1 // TChromeLikeBaseThemedWindowCaptionButton
+   Seq: ( WL 'ME_533D07A201C1' '533D07A201C1.pas.ms.script' // TChromeLikeBaseThemedWindowCaptionButton
  )
  ; // Inherits
  : Overridden
@@ -1191,13 +404,13 @@ ref; // ME_533D0B640155 TChromeLikeThemedMaximizeCaptionButton
 FORWARD ME_533D0B4B022A
 
 : ME_533D091902B8_ME_533D0B4B022A
- : Original ME_533D091902B8 // GetPaintParams
+ : Original WL 'ME_533D091902B8' '533D07A201C1.pas.ms.script' // GetPaintParams
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_533D091902B8_ME_533D0B4B022A GetPaintParams
 
 : ME_5474500600DA_ME_533D0B4B022A
- : Original ME_5474500600DA // GetHintText
+ : Original WL 'ME_5474500600DA' '533D01CB01B1.pas.ms.script' // GetHintText
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_5474500600DA_ME_533D0B4B022A GetHintText
@@ -1210,10 +423,10 @@ ref; // ME_5474500600DA_ME_533D0B4B022A GetHintText
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_533D1518032F // ChromeLikeThemedWindowCaptionButtons
+ : Parent HWL ME_533D1518032F // ChromeLikeThemedWindowCaptionButtons
  ;
  : Inherits
-   Seq: ( ME_533D07A201C1 // TChromeLikeBaseThemedWindowCaptionButton
+   Seq: ( WL 'ME_533D07A201C1' '533D07A201C1.pas.ms.script' // TChromeLikeBaseThemedWindowCaptionButton
  )
  ; // Inherits
  : Overridden
@@ -1229,7 +442,7 @@ ref; // ME_533D0B4B022A TChromeLikeThemedMinimizeCaptionButton
 : ME_533D202C017C
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_533D1518032F // ChromeLikeThemedWindowCaptionButtons
+ : Parent HWL ME_533D1518032F // ChromeLikeThemedWindowCaptionButtons
  ;
  : Target WL 'ME_533BC8E40286' '4AB0C3F60375.pas.ms.script' // UxTheme
  ;
@@ -1239,7 +452,7 @@ ref; // ME_533D202C017C
 : ME_533EA91C02A0
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_533D1518032F // ChromeLikeThemedWindowCaptionButtons
+ : Parent HWL ME_533D1518032F // ChromeLikeThemedWindowCaptionButtons
  ;
  : Target WL 'ME_47E13C6B0341' '4799D29F033F.pas.ms.script' // Forms
  ;
@@ -1249,9 +462,9 @@ ref; // ME_533EA91C02A0
 : ME_53424FB2005E
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_533D1518032F // ChromeLikeThemedWindowCaptionButtons
+ : Parent HWL ME_533D1518032F // ChromeLikeThemedWindowCaptionButtons
  ;
- : Target ME_533D01CB01B1 // TChromeLikeBaseWindowCaptionButton
+ : Target WL 'ME_533D01CB01B1' '533D01CB01B1.pas.ms.script' // TChromeLikeBaseWindowCaptionButton
  ;
 
 ref; // ME_53424FB2005E 
@@ -1259,9 +472,9 @@ ref; // ME_53424FB2005E
 : ME_54745227012C
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_533D1518032F // ChromeLikeThemedWindowCaptionButtons
+ : Parent HWL ME_533D1518032F // ChromeLikeThemedWindowCaptionButtons
  ;
- : Target ME_545B531C026F // ChromeLikeWindowCaptionButtonsRes
+ : Target HWL ME_545B531C026F // ChromeLikeWindowCaptionButtonsRes
  ;
 
 ref; // ME_54745227012C 
@@ -1274,12 +487,12 @@ ref; // ME_54745227012C
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_533D01A201A9 // ChromeLikeWindowCaptionButtons
+ : Parent HWL ME_533D01A201A9 // ChromeLikeWindowCaptionButtons
  ;
  : Children
-   Seq: ( ME_533D0B3A02F3 // TChromeLikeThemedCloseCaptionButton
- ME_533D0B640155 // TChromeLikeThemedMaximizeCaptionButton
- ME_533D0B4B022A // TChromeLikeThemedMinimizeCaptionButton
+   Seq: ( HWL ME_533D0B3A02F3 // TChromeLikeThemedCloseCaptionButton
+ HWL ME_533D0B640155 // TChromeLikeThemedMaximizeCaptionButton
+ HWL ME_533D0B4B022A // TChromeLikeThemedMinimizeCaptionButton
  )
  ; // Children
  : Dependencies
@@ -1313,7 +526,7 @@ ref; // ME_53C4BFF7030A aHWnd
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_53C4BE5F0029 // UpdateWindowFrame
+ : Parent HWL ME_53C4BE5F0029 // UpdateWindowFrame
  ;
  : Parameters
    Seq: ( ME_53C4BFF7030A // aHWnd
@@ -1331,10 +544,10 @@ ref; // ME_53C4BFE30197 DoIt
  %SUMMARY 'Заставляет перерисовать неклиентскую область окна' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_533D33DC0092 // ChromeLikeWinUtils
+ : Parent HWL ME_533D33DC0092 // ChromeLikeWinUtils
  ;
  : Operations
-   Seq: ( ME_53C4BFE30197 // DoIt
+   Seq: ( HWL ME_53C4BFE30197 // DoIt
  )
  ; // Operations
 
@@ -1393,7 +606,7 @@ FORWARD ME_53C4BC0F0094
  CONST Name 'aDirection'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_53C4BC0F0094 // TGradientDirection
+ : Target HWL ME_53C4BC0F0094 // TGradientDirection
  ;
 
 ref; // ME_53C4CEB802DD aDirection
@@ -1404,7 +617,7 @@ ref; // ME_53C4CEB802DD aDirection
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_53C4BE7000A3 // FillGradient
+ : Parent HWL ME_53C4BE7000A3 // FillGradient
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -1428,10 +641,10 @@ ref; // ME_53C4BFFA0361 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_533D33DC0092 // ChromeLikeWinUtils
+ : Parent HWL ME_533D33DC0092 // ChromeLikeWinUtils
  ;
  : Operations
-   Seq: ( ME_53C4BFFA0361 // DoIt
+   Seq: ( HWL ME_53C4BFFA0361 // DoIt
  )
  ; // Operations
 
@@ -1445,7 +658,7 @@ FORWARD ME_53C4BE7C00E6
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_53C4BE7C00E6 // IsWindowsVistaOrLater
+ : Parent HWL ME_53C4BE7C00E6 // IsWindowsVistaOrLater
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -1460,10 +673,10 @@ ref; // ME_53C4C03401F9 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_533D33DC0092 // ChromeLikeWinUtils
+ : Parent HWL ME_533D33DC0092 // ChromeLikeWinUtils
  ;
  : Operations
-   Seq: ( ME_53C4C03401F9 // DoIt
+   Seq: ( HWL ME_53C4C03401F9 // DoIt
  )
  ; // Operations
 
@@ -1477,7 +690,7 @@ FORWARD ME_53C4BE8E00A8
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_53C4BE8E00A8 // IsWindowsXP
+ : Parent HWL ME_53C4BE8E00A8 // IsWindowsXP
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -1492,10 +705,10 @@ ref; // ME_53C4C03D0383 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_533D33DC0092 // ChromeLikeWinUtils
+ : Parent HWL ME_533D33DC0092 // ChromeLikeWinUtils
  ;
  : Operations
-   Seq: ( ME_53C4C03D0383 // DoIt
+   Seq: ( HWL ME_53C4C03D0383 // DoIt
  )
  ; // Operations
 
@@ -1520,9 +733,9 @@ FORWARD ME_53C4BBCA026C
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_53C4BE9B03E2 // GetVistaWindowCaptionMetrics
+ : Parent HWL ME_53C4BE9B03E2 // GetVistaWindowCaptionMetrics
  ;
- : Target ME_53C4BBCA026C // TVistaWindowCaptionMetrics
+ : Target HWL ME_53C4BBCA026C // TVistaWindowCaptionMetrics
  ;
  : Parameters
    Seq: ( ME_53C4C059033D // aParentHWnd
@@ -1540,10 +753,10 @@ ref; // ME_53C4C04C0300 DoIt
  %SUMMARY 'Получает размеры элементов заголовка окна для текущего оформления Windows Vista и новее' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_533D33DC0092 // ChromeLikeWinUtils
+ : Parent HWL ME_533D33DC0092 // ChromeLikeWinUtils
  ;
  : Operations
-   Seq: ( ME_53C4C04C0300 // DoIt
+   Seq: ( HWL ME_53C4C04C0300 // DoIt
  )
  ; // Operations
 
@@ -1568,9 +781,9 @@ FORWARD ME_53C4BC31003C
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_53C4BEB2027A // GetWindowZOrderInfo
+ : Parent HWL ME_53C4BEB2027A // GetWindowZOrderInfo
  ;
- : Target ME_53C4BC31003C // TWindowZOrderInfo
+ : Target HWL ME_53C4BC31003C // TWindowZOrderInfo
  ;
  : Parameters
    Seq: ( ME_53C4C06E0234 // aHWnd
@@ -1588,10 +801,10 @@ ref; // ME_53C4C0620356 DoIt
  %SUMMARY 'Получает Z-Order окна' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_533D33DC0092 // ChromeLikeWinUtils
+ : Parent HWL ME_533D33DC0092 // ChromeLikeWinUtils
  ;
  : Operations
-   Seq: ( ME_53C4C0620356 // DoIt
+   Seq: ( HWL ME_53C4C0620356 // DoIt
  )
  ; // Operations
 
@@ -1612,7 +825,7 @@ ref; // ME_53C4C08E01EA aHWnd
  CONST Name 'aZOrderInfo'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_53C4BC31003C // TWindowZOrderInfo
+ : Target HWL ME_53C4BC31003C // TWindowZOrderInfo
  ;
 
 ref; // ME_53C4C08E0212 aZOrderInfo
@@ -1623,7 +836,7 @@ ref; // ME_53C4C08E0212 aZOrderInfo
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_53C4BEBD012C // SetWindowZOrderInfo
+ : Parent HWL ME_53C4BEBD012C // SetWindowZOrderInfo
  ;
  : Parameters
    Seq: ( ME_53C4C08E01EA // aHWnd
@@ -1642,10 +855,10 @@ ref; // ME_53C4C076027D DoIt
  %SUMMARY 'Устанавливает Z-Order окну' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_533D33DC0092 // ChromeLikeWinUtils
+ : Parent HWL ME_533D33DC0092 // ChromeLikeWinUtils
  ;
  : Operations
-   Seq: ( ME_53C4C076027D // DoIt
+   Seq: ( HWL ME_53C4C076027D // DoIt
  )
  ; // Operations
 
@@ -1656,9 +869,9 @@ FORWARD ME_53C4BB200287
 : ME_53C4BE370303
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_533D33DC0092 // ChromeLikeWinUtils
+ : Parent HWL ME_533D33DC0092 // ChromeLikeWinUtils
  ;
- : Target ME_53C4BB200287 // ChromeLikeTypes
+ : Target HWL ME_53C4BB200287 // ChromeLikeTypes
  ;
 
 ref; // ME_53C4BE370303 
@@ -1666,7 +879,7 @@ ref; // ME_53C4BE370303
 : ME_53C4BFCF0072
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_533D33DC0092 // ChromeLikeWinUtils
+ : Parent HWL ME_533D33DC0092 // ChromeLikeWinUtils
  ;
  : Target WL 'ME_47D15712022D' '55C4AEC801CA.pas.ms.script' // Graphics
  ;
@@ -1676,7 +889,7 @@ ref; // ME_53C4BFCF0072
 : ME_53C4BFD200CA
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_533D33DC0092 // ChromeLikeWinUtils
+ : Parent HWL ME_533D33DC0092 // ChromeLikeWinUtils
  ;
  : Target WL 'ME_48A41FF10094' '4AB0C3F60375.pas.ms.script' // Windows
  ;
@@ -1686,7 +899,7 @@ ref; // ME_53C4BFD200CA
 : ME_53C4BFD5035A
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_533D33DC0092 // ChromeLikeWinUtils
+ : Parent HWL ME_533D33DC0092 // ChromeLikeWinUtils
  ;
  : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
  ;
@@ -1696,7 +909,7 @@ ref; // ME_53C4BFD5035A
 : ME_53C4BFD903C3
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_533D33DC0092 // ChromeLikeWinUtils
+ : Parent HWL ME_533D33DC0092 // ChromeLikeWinUtils
  ;
  : Target WL 'ME_4773D64E036C' '47913B47006E.pas.ms.script' // l3Base
  ;
@@ -1711,16 +924,16 @@ ref; // ME_53C4BFD903C3
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_533D01A201A9 // ChromeLikeWindowCaptionButtons
+ : Parent HWL ME_533D01A201A9 // ChromeLikeWindowCaptionButtons
  ;
  : Operations
-   Seq: ( ME_53C4BE5F0029 // UpdateWindowFrame
- ME_53C4BE7000A3 // FillGradient
- ME_53C4BE7C00E6 // IsWindowsVistaOrLater
- ME_53C4BE8E00A8 // IsWindowsXP
- ME_53C4BE9B03E2 // GetVistaWindowCaptionMetrics
- ME_53C4BEB2027A // GetWindowZOrderInfo
- ME_53C4BEBD012C // SetWindowZOrderInfo
+   Seq: ( HWL ME_53C4BE5F0029 // UpdateWindowFrame
+ HWL ME_53C4BE7000A3 // FillGradient
+ HWL ME_53C4BE7C00E6 // IsWindowsVistaOrLater
+ HWL ME_53C4BE8E00A8 // IsWindowsXP
+ HWL ME_53C4BE9B03E2 // GetVistaWindowCaptionMetrics
+ HWL ME_53C4BEB2027A // GetWindowZOrderInfo
+ HWL ME_53C4BEBD012C // SetWindowZOrderInfo
  )
  ; // Operations
  : Dependencies
@@ -1747,7 +960,7 @@ FORWARD ME_533D363201D2
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_533D363201D2 // TChromeLikeFormCaptionButtonKind
+ : Parent HWL ME_533D363201D2 // TChromeLikeFormCaptionButtonKind
  ;
 
 ref; // ME_533D365103BF cbkMinimize
@@ -1759,7 +972,7 @@ ref; // ME_533D365103BF cbkMinimize
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_533D363201D2 // TChromeLikeFormCaptionButtonKind
+ : Parent HWL ME_533D363201D2 // TChromeLikeFormCaptionButtonKind
  ;
 
 ref; // ME_533D366300DA cbkMaximizeRestore
@@ -1771,7 +984,7 @@ ref; // ME_533D366300DA cbkMaximizeRestore
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_533D363201D2 // TChromeLikeFormCaptionButtonKind
+ : Parent HWL ME_533D363201D2 // TChromeLikeFormCaptionButtonKind
  ;
 
 ref; // ME_533D366C03CA cbkClose
@@ -1784,12 +997,12 @@ ref; // ME_533D366C03CA cbkClose
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_533D343C02FF // TChromeLikeFormCaptionData
+ : Parent HWL ME_533D343C02FF // TChromeLikeFormCaptionData
  ;
  : Attributes
-   Seq: ( ME_533D365103BF // cbkMinimize
- ME_533D366300DA // cbkMaximizeRestore
- ME_533D366C03CA // cbkClose
+   Seq: ( HWL ME_533D365103BF // cbkMinimize
+ HWL ME_533D366300DA // cbkMaximizeRestore
+ HWL ME_533D366C03CA // cbkClose
  )
  ; // Attributes
  CONST extprop:rc:isAcceptableForScripts true
@@ -1805,7 +1018,7 @@ FORWARD ME_533D36FB02E3
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_533D36FB02E3 // WindowCaptionConsts
+ : Parent HWL ME_533D36FB02E3 // WindowCaptionConsts
  ;
  CONST Value 2
  CONST "AutoInc" false
@@ -1823,10 +1036,10 @@ ref; // ME_533D370E0047 cWindowCaptionButtonPadding
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_533D343C02FF // TChromeLikeFormCaptionData
+ : Parent HWL ME_533D343C02FF // TChromeLikeFormCaptionData
  ;
  : Attributes
-   Seq: ( ME_533D370E0047 // cWindowCaptionButtonPadding
+   Seq: ( HWL ME_533D370E0047 // cWindowCaptionButtonPadding
  )
  ; // Attributes
  CONST "spell names" false
@@ -1841,7 +1054,7 @@ ref; // ME_533D36FB02E3 WindowCaptionConsts
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_533D343C02FF // TChromeLikeFormCaptionData
+ : Parent HWL ME_533D343C02FF // TChromeLikeFormCaptionData
  ;
  : Target WL 'ME_4728A7190065' '4728A7020026.pas.ms.script' // TRect
  ;
@@ -1856,7 +1069,7 @@ ref; // ME_533D34A40155 f_CloseButtonRect
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_533D343C02FF // TChromeLikeFormCaptionData
+ : Parent HWL ME_533D343C02FF // TChromeLikeFormCaptionData
  ;
  : Target WL 'ME_4728A7190065' '4728A7020026.pas.ms.script' // TRect
  ;
@@ -1871,7 +1084,7 @@ ref; // ME_533D34BA0135 f_MaximizeButtonRect
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_533D343C02FF // TChromeLikeFormCaptionData
+ : Parent HWL ME_533D343C02FF // TChromeLikeFormCaptionData
  ;
  : Target WL 'ME_4728A7190065' '4728A7020026.pas.ms.script' // TRect
  ;
@@ -1886,7 +1099,7 @@ ref; // ME_533D34C503D5 f_MinimizeButtonRect
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_533D343C02FF // TChromeLikeFormCaptionData
+ : Parent HWL ME_533D343C02FF // TChromeLikeFormCaptionData
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -1919,7 +1132,7 @@ ref; // ME_533D358603AA aButtonRect
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_533D3553015B // MakeRelativeRect
+ : Parent HWL ME_533D3553015B // MakeRelativeRect
  ;
  : Target WL 'ME_4728A7190065' '4728A7020026.pas.ms.script' // TRect
  ;
@@ -1939,10 +1152,10 @@ ref; // ME_533D356E016C DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_533D343C02FF // TChromeLikeFormCaptionData
+ : Parent HWL ME_533D343C02FF // TChromeLikeFormCaptionData
  ;
  : Operations
-   Seq: ( ME_533D356E016C // DoIt
+   Seq: ( HWL ME_533D356E016C // DoIt
  )
  ; // Operations
 
@@ -1956,7 +1169,7 @@ FORWARD ME_533D358C033A
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_533D358C033A // InitTitleBarInfo
+ : Parent HWL ME_533D358C033A // InitTitleBarInfo
  ;
 
 ref; // ME_533D35AD03E5 DoIt
@@ -1969,10 +1182,10 @@ ref; // ME_533D35AD03E5 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_533D343C02FF // TChromeLikeFormCaptionData
+ : Parent HWL ME_533D343C02FF // TChromeLikeFormCaptionData
  ;
  : Operations
-   Seq: ( ME_533D35AD03E5 // DoIt
+   Seq: ( HWL ME_533D35AD03E5 // DoIt
  )
  ; // Operations
 
@@ -1995,7 +1208,7 @@ ref; // ME_533D35EC0374 aHwnd
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_533D35BB0292 // UpdateTitleBarInfo
+ : Parent HWL ME_533D35BB0292 // UpdateTitleBarInfo
  ;
  : Parameters
    Seq: ( ME_533D35EC0374 // aHwnd
@@ -2012,10 +1225,10 @@ ref; // ME_533D35CE0292 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_533D343C02FF // TChromeLikeFormCaptionData
+ : Parent HWL ME_533D343C02FF // TChromeLikeFormCaptionData
  ;
  : Operations
-   Seq: ( ME_533D35CE0292 // DoIt
+   Seq: ( HWL ME_533D35CE0292 // DoIt
  )
  ; // Operations
 
@@ -2036,7 +1249,7 @@ ref; // ME_533D36E90044 aRight
  CONST Name 'aButtonKind'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_533D363201D2 // TChromeLikeFormCaptionButtonKind
+ : Target HWL ME_533D363201D2 // TChromeLikeFormCaptionButtonKind
  ;
 
 ref; // ME_533D36E9005A aButtonKind
@@ -2047,7 +1260,7 @@ ref; // ME_533D36E9005A aButtonKind
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_533D3681003B // MakeButtonRect
+ : Parent HWL ME_533D3681003B // MakeButtonRect
  ;
  : Target WL 'ME_4728A7190065' '4728A7020026.pas.ms.script' // TRect
  ;
@@ -2067,10 +1280,10 @@ ref; // ME_533D36C20019 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_533D343C02FF // TChromeLikeFormCaptionData
+ : Parent HWL ME_533D343C02FF // TChromeLikeFormCaptionData
  ;
  : Operations
-   Seq: ( ME_533D36C20019 // DoIt
+   Seq: ( HWL ME_533D36C20019 // DoIt
  )
  ; // Operations
 
@@ -2079,7 +1292,7 @@ ref; // ME_533D3681003B MakeButtonRect
 : ME_533D37F5016C
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_533D343C02FF // TChromeLikeFormCaptionData
+ : Parent HWL ME_533D343C02FF // TChromeLikeFormCaptionData
  ;
  : Target WL 'ME_48A41FF10094' '4AB0C3F60375.pas.ms.script' // Windows
  ;
@@ -2089,9 +1302,9 @@ ref; // ME_533D37F5016C
 : ME_533D37FD0165
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_533D343C02FF // TChromeLikeFormCaptionData
+ : Parent HWL ME_533D343C02FF // TChromeLikeFormCaptionData
  ;
- : Target ME_533D33DC0092 // ChromeLikeWinUtils
+ : Target HWL ME_533D33DC0092 // ChromeLikeWinUtils
  ;
 
 ref; // ME_533D37FD0165 
@@ -2099,7 +1312,7 @@ ref; // ME_533D37FD0165
 : ME_533D3801012C
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_533D343C02FF // TChromeLikeFormCaptionData
+ : Parent HWL ME_533D343C02FF // TChromeLikeFormCaptionData
  ;
  : Target WL 'ME_4773D64E036C' '47913B47006E.pas.ms.script' // l3Base
  ;
@@ -2109,9 +1322,9 @@ ref; // ME_533D3801012C
 : ME_53C4C8F2020B
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_533D343C02FF // TChromeLikeFormCaptionData
+ : Parent HWL ME_533D343C02FF // TChromeLikeFormCaptionData
  ;
- : Target ME_53C4BB200287 // ChromeLikeTypes
+ : Target HWL ME_53C4BB200287 // ChromeLikeTypes
  ;
 
 ref; // ME_53C4C8F2020B 
@@ -2130,24 +1343,24 @@ ref; // ME_47A042E100E2_ME_533D343C02FF InitFields
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_533D01A201A9 // ChromeLikeWindowCaptionButtons
+ : Parent HWL ME_533D01A201A9 // ChromeLikeWindowCaptionButtons
  ;
  : Inherits
    Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_533D34A40155 // f_CloseButtonRect
- ME_533D34BA0135 // f_MaximizeButtonRect
- ME_533D34C503D5 // f_MinimizeButtonRect
- ME_533D34EB02DD // f_WasPopulatedThemed
+   Seq: ( HWL ME_533D34A40155 // f_CloseButtonRect
+ HWL ME_533D34BA0135 // f_MaximizeButtonRect
+ HWL ME_533D34C503D5 // f_MinimizeButtonRect
+ HWL ME_533D34EB02DD // f_WasPopulatedThemed
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_533D3553015B // MakeRelativeRect
- ME_533D358C033A // InitTitleBarInfo
- ME_533D35BB0292 // UpdateTitleBarInfo
- ME_533D3681003B // MakeButtonRect
+   Seq: ( HWL ME_533D3553015B // MakeRelativeRect
+ HWL ME_533D358C033A // InitTitleBarInfo
+ HWL ME_533D35BB0292 // UpdateTitleBarInfo
+ HWL ME_533D3681003B // MakeButtonRect
  )
  ; // Operations
  : Overridden
@@ -2155,11 +1368,11 @@ ref; // ME_47A042E100E2_ME_533D343C02FF InitFields
  )
  ; // Overridden
  : Children
-   Seq: ( ME_533D363201D2 // TChromeLikeFormCaptionButtonKind
+   Seq: ( HWL ME_533D363201D2 // TChromeLikeFormCaptionButtonKind
  )
  ; // Children
  : Constants
-   Seq: ( ME_533D36FB02E3 // WindowCaptionConsts
+   Seq: ( HWL ME_533D36FB02E3 // WindowCaptionConsts
  )
  ; // Constants
  : Dependencies
@@ -2185,7 +1398,7 @@ ref; // ME_533D343C02FF TChromeLikeFormCaptionData
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_53C4BB200287 // ChromeLikeTypes
+ : Parent HWL ME_53C4BB200287 // ChromeLikeTypes
  ;
 
 ref; // ME_53C4BB4A00D5 tagTitleBarInfoEx
@@ -2198,10 +1411,10 @@ ref; // ME_53C4BB4A00D5 tagTitleBarInfoEx
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_53C4BB200287 // ChromeLikeTypes
+ : Parent HWL ME_53C4BB200287 // ChromeLikeTypes
  ;
  : Inherits
-   Seq: ( ME_53C4BB4A00D5 // tagTitleBarInfoEx
+   Seq: ( HWL ME_53C4BB4A00D5 // tagTitleBarInfoEx
  )
  ; // Inherits
 
@@ -2215,10 +1428,10 @@ ref; // ME_53C4BB760184 TITLEBARINFOEX
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_53C4BB200287 // ChromeLikeTypes
+ : Parent HWL ME_53C4BB200287 // ChromeLikeTypes
  ;
  : Inherits
-   Seq: ( ME_53C4BB760184 // TITLEBARINFOEX
+   Seq: ( HWL ME_53C4BB760184 // TITLEBARINFOEX
  )
  ; // Inherits
 
@@ -2232,10 +1445,10 @@ ref; // ME_53C4BB8E0144 TTitleBarInfoEx
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_53C4BB200287 // ChromeLikeTypes
+ : Parent HWL ME_53C4BB200287 // ChromeLikeTypes
  ;
  : Inherits
-   Seq: ( ME_53C4BB8E0144 // TTitleBarInfoEx
+   Seq: ( HWL ME_53C4BB8E0144 // TTitleBarInfoEx
  )
  ; // Inherits
  CONST "isPointer" true
@@ -2249,9 +1462,9 @@ ref; // ME_53C4BBA701EA PTitleBarInfoEx
  CONST Visibility PublicAccess
  CONST Abstraction at_final
  CONST LinkType lt_agr
- : Parent ME_53C4BBCA026C // TVistaWindowCaptionMetrics
+ : Parent HWL ME_53C4BBCA026C // TVistaWindowCaptionMetrics
  ;
- : Target ME_53C4BB8E0144 // TTitleBarInfoEx
+ : Target HWL ME_53C4BB8E0144 // TTitleBarInfoEx
  ;
 
 ref; // ME_53C4BBDB00E5 rTitleBarInfo
@@ -2263,7 +1476,7 @@ ref; // ME_53C4BBDB00E5 rTitleBarInfo
  CONST Visibility PublicAccess
  CONST Abstraction at_final
  CONST LinkType lt_agr
- : Parent ME_53C4BBCA026C // TVistaWindowCaptionMetrics
+ : Parent HWL ME_53C4BBCA026C // TVistaWindowCaptionMetrics
  ;
  : Target WL 'ME_4728A7190065' '4728A7020026.pas.ms.script' // TRect
  ;
@@ -2278,11 +1491,11 @@ ref; // ME_53C4BBEC026A rWindowRect
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_53C4BB200287 // ChromeLikeTypes
+ : Parent HWL ME_53C4BB200287 // ChromeLikeTypes
  ;
  : Attributes
-   Seq: ( ME_53C4BBDB00E5 // rTitleBarInfo
- ME_53C4BBEC026A // rWindowRect
+   Seq: ( HWL ME_53C4BBDB00E5 // rTitleBarInfo
+ HWL ME_53C4BBEC026A // rWindowRect
  )
  ; // Attributes
 
@@ -2295,7 +1508,7 @@ ref; // ME_53C4BBCA026C TVistaWindowCaptionMetrics
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_53C4BC0F0094 // TGradientDirection
+ : Parent HWL ME_53C4BC0F0094 // TGradientDirection
  ;
 
 ref; // ME_53C4BC1A035B gdVertical
@@ -2307,7 +1520,7 @@ ref; // ME_53C4BC1A035B gdVertical
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_53C4BC0F0094 // TGradientDirection
+ : Parent HWL ME_53C4BC0F0094 // TGradientDirection
  ;
 
 ref; // ME_53C4BC2103E7 gdHorizontal
@@ -2320,11 +1533,11 @@ ref; // ME_53C4BC2103E7 gdHorizontal
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_53C4BB200287 // ChromeLikeTypes
+ : Parent HWL ME_53C4BB200287 // ChromeLikeTypes
  ;
  : Attributes
-   Seq: ( ME_53C4BC1A035B // gdVertical
- ME_53C4BC2103E7 // gdHorizontal
+   Seq: ( HWL ME_53C4BC1A035B // gdVertical
+ HWL ME_53C4BC2103E7 // gdHorizontal
  )
  ; // Attributes
  CONST extprop:rc:isAcceptableForScripts true
@@ -2338,7 +1551,7 @@ ref; // ME_53C4BC0F0094 TGradientDirection
  CONST Visibility PublicAccess
  CONST Abstraction at_final
  CONST LinkType lt_agr
- : Parent ME_53C4BC31003C // TWindowZOrderInfo
+ : Parent HWL ME_53C4BC31003C // TWindowZOrderInfo
  ;
  : Target WL 'ME_4E95755B0162' '4AB0C3F60375.pas.ms.script' // HWND
  ;
@@ -2352,7 +1565,7 @@ ref; // ME_53C4BC3F0288 rHWndBackground
  CONST Visibility PublicAccess
  CONST Abstraction at_final
  CONST LinkType lt_agr
- : Parent ME_53C4BC31003C // TWindowZOrderInfo
+ : Parent HWL ME_53C4BC31003C // TWindowZOrderInfo
  ;
  : Target WL 'ME_4E95755B0162' '4AB0C3F60375.pas.ms.script' // HWND
  ;
@@ -2367,11 +1580,11 @@ ref; // ME_53C4BC4E0285 rHWndForeground
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_53C4BB200287 // ChromeLikeTypes
+ : Parent HWL ME_53C4BB200287 // ChromeLikeTypes
  ;
  : Attributes
-   Seq: ( ME_53C4BC3F0288 // rHWndBackground
- ME_53C4BC4E0285 // rHWndForeground
+   Seq: ( HWL ME_53C4BC3F0288 // rHWndBackground
+ HWL ME_53C4BC4E0285 // rHWndForeground
  )
  ; // Attributes
 
@@ -2386,7 +1599,7 @@ FORWARD ME_53C4BC65034D
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_53C4BC65034D // ChromeLikeTypesConsts
+ : Parent HWL ME_53C4BC65034D // ChromeLikeTypesConsts
  ;
  CONST Value '$033F'
  CONST "AutoInc" false
@@ -2403,7 +1616,7 @@ ref; // ME_53C4BC7800B1 WM_GETTITLEBARINFOEX
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_53C4BC65034D // ChromeLikeTypesConsts
+ : Parent HWL ME_53C4BC65034D // ChromeLikeTypesConsts
  ;
  CONST Value '$031E'
  CONST "AutoInc" false
@@ -2420,7 +1633,7 @@ ref; // ME_53C4BC8603D4 WM_DWMCOMPOSITIONCHANGED
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_53C4BC65034D // ChromeLikeTypesConsts
+ : Parent HWL ME_53C4BC65034D // ChromeLikeTypesConsts
  ;
  CONST Value 5
  CONST "AutoInc" false
@@ -2437,7 +1650,7 @@ ref; // ME_53C4BCAB01B4 BS_INACTIVE
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_53C4BC65034D // ChromeLikeTypesConsts
+ : Parent HWL ME_53C4BC65034D // ChromeLikeTypesConsts
  ;
  CONST Value '$8000'
  CONST "AutoInc" false
@@ -2455,13 +1668,13 @@ ref; // ME_53C4BCB6003B SWP_STATECHANGED
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_53C4BB200287 // ChromeLikeTypes
+ : Parent HWL ME_53C4BB200287 // ChromeLikeTypes
  ;
  : Attributes
-   Seq: ( ME_53C4BC7800B1 // WM_GETTITLEBARINFOEX
- ME_53C4BC8603D4 // WM_DWMCOMPOSITIONCHANGED
- ME_53C4BCAB01B4 // BS_INACTIVE
- ME_53C4BCB6003B // SWP_STATECHANGED
+   Seq: ( HWL ME_53C4BC7800B1 // WM_GETTITLEBARINFOEX
+ HWL ME_53C4BC8603D4 // WM_DWMCOMPOSITIONCHANGED
+ HWL ME_53C4BCAB01B4 // BS_INACTIVE
+ HWL ME_53C4BCB6003B // SWP_STATECHANGED
  )
  ; // Attributes
  CONST "spell names" false
@@ -2471,7 +1684,7 @@ ref; // ME_53C4BC65034D ChromeLikeTypesConsts
 : ME_53C4BD2F0152
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_53C4BB200287 // ChromeLikeTypes
+ : Parent HWL ME_53C4BB200287 // ChromeLikeTypes
  ;
  : Target WL 'ME_48A41FF10094' '4AB0C3F60375.pas.ms.script' // Windows
  ;
@@ -2481,7 +1694,7 @@ ref; // ME_53C4BD2F0152
 : ME_53C4BD3302DB
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_53C4BB200287 // ChromeLikeTypes
+ : Parent HWL ME_53C4BB200287 // ChromeLikeTypes
  ;
  : Target WL 'ME_4728A7190065' '4728A7020026.pas.ms.script' // TRect
  ;
@@ -2491,7 +1704,7 @@ ref; // ME_53C4BD3302DB
 : ME_53C4BD3703B2
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_53C4BB200287 // ChromeLikeTypes
+ : Parent HWL ME_53C4BB200287 // ChromeLikeTypes
  ;
  : Target WL 'ME_49B14F3C0099' '4728A7020026.pas.ms.script' // DWORD
  ;
@@ -2506,20 +1719,20 @@ ref; // ME_53C4BD3703B2
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_533D01A201A9 // ChromeLikeWindowCaptionButtons
+ : Parent HWL ME_533D01A201A9 // ChromeLikeWindowCaptionButtons
  ;
  : Children
-   Seq: ( ME_53C4BB4A00D5 // tagTitleBarInfoEx
- ME_53C4BB760184 // TITLEBARINFOEX
- ME_53C4BB8E0144 // TTitleBarInfoEx
- ME_53C4BBA701EA // PTitleBarInfoEx
- ME_53C4BBCA026C // TVistaWindowCaptionMetrics
- ME_53C4BC0F0094 // TGradientDirection
- ME_53C4BC31003C // TWindowZOrderInfo
+   Seq: ( HWL ME_53C4BB4A00D5 // tagTitleBarInfoEx
+ HWL ME_53C4BB760184 // TITLEBARINFOEX
+ HWL ME_53C4BB8E0144 // TTitleBarInfoEx
+ HWL ME_53C4BBA701EA // PTitleBarInfoEx
+ HWL ME_53C4BBCA026C // TVistaWindowCaptionMetrics
+ HWL ME_53C4BC0F0094 // TGradientDirection
+ HWL ME_53C4BC31003C // TWindowZOrderInfo
  )
  ; // Children
  : Constants
-   Seq: ( ME_53C4BC65034D // ChromeLikeTypesConsts
+   Seq: ( HWL ME_53C4BC65034D // ChromeLikeTypesConsts
  )
  ; // Constants
  : Dependencies
@@ -2543,7 +1756,7 @@ FORWARD ME_545B532F004D
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_545B532F004D // WindowCaptionButtonsHints
+ : Parent HWL ME_545B532F004D // WindowCaptionButtonsHints
  ;
  CONST "AutoInc" false
  CONST "Value" '''Закрыть'''
@@ -2559,7 +1772,7 @@ ref; // ME_545B538C015A Close
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_545B532F004D // WindowCaptionButtonsHints
+ : Parent HWL ME_545B532F004D // WindowCaptionButtonsHints
  ;
  CONST "AutoInc" false
  CONST "Value" '''Свернуть'''
@@ -2575,7 +1788,7 @@ ref; // ME_545B53980065 Minimize
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_545B532F004D // WindowCaptionButtonsHints
+ : Parent HWL ME_545B532F004D // WindowCaptionButtonsHints
  ;
  CONST "AutoInc" false
  CONST "Value" '''Свернуть в окно'''
@@ -2591,7 +1804,7 @@ ref; // ME_545B53BE02C8 Restore
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_545B532F004D // WindowCaptionButtonsHints
+ : Parent HWL ME_545B532F004D // WindowCaptionButtonsHints
  ;
  CONST "AutoInc" false
  CONST "Value" '''Развернуть'''
@@ -2608,13 +1821,13 @@ ref; // ME_545B53CE00AC Maximize
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_545B531C026F // ChromeLikeWindowCaptionButtonsRes
+ : Parent HWL ME_545B531C026F // ChromeLikeWindowCaptionButtonsRes
  ;
  : Attributes
-   Seq: ( ME_545B538C015A // Close
- ME_545B53980065 // Minimize
- ME_545B53BE02C8 // Restore
- ME_545B53CE00AC // Maximize
+   Seq: ( HWL ME_545B538C015A // Close
+ HWL ME_545B53980065 // Minimize
+ HWL ME_545B53BE02C8 // Restore
+ HWL ME_545B53CE00AC // Maximize
  )
  ; // Attributes
  CONST "Need map interface" false
@@ -2631,10 +1844,10 @@ ref; // ME_545B532F004D WindowCaptionButtonsHints
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_533D01A201A9 // ChromeLikeWindowCaptionButtons
+ : Parent HWL ME_533D01A201A9 // ChromeLikeWindowCaptionButtons
  ;
  : Constants
-   Seq: ( ME_545B532F004D // WindowCaptionButtonsHints
+   Seq: ( HWL ME_545B532F004D // WindowCaptionButtonsHints
  )
  ; // Constants
  CONST intf.pas:Path 'common\components\gui\Garant\ChromeLikeControls\ChromeLikeWindowCaptionButtonsRes.pas'
@@ -2651,14 +1864,14 @@ ref; // ME_545B531C026F ChromeLikeWindowCaptionButtonsRes
  : Parent WL 'ME_533D017702F1' '533D017702F1.pas.ms.script' // ChromeLikeControls
  ;
  : Children
-   Seq: ( ME_533D01CB01B1 // TChromeLikeBaseWindowCaptionButton
- ME_533D14960061 // ChromeLikeLegacyWindowCaptionButtons
- ME_533D07A201C1 // TChromeLikeBaseThemedWindowCaptionButton
- ME_533D1518032F // ChromeLikeThemedWindowCaptionButtons
- ME_533D33DC0092 // ChromeLikeWinUtils
- ME_533D343C02FF // TChromeLikeFormCaptionData
- ME_53C4BB200287 // ChromeLikeTypes
- ME_545B531C026F // ChromeLikeWindowCaptionButtonsRes
+   Seq: ( WL 'ME_533D01CB01B1' '533D01CB01B1.pas.ms.script' // TChromeLikeBaseWindowCaptionButton
+ HWL ME_533D14960061 // ChromeLikeLegacyWindowCaptionButtons
+ WL 'ME_533D07A201C1' '533D07A201C1.pas.ms.script' // TChromeLikeBaseThemedWindowCaptionButton
+ HWL ME_533D1518032F // ChromeLikeThemedWindowCaptionButtons
+ HWL ME_533D33DC0092 // ChromeLikeWinUtils
+ HWL ME_533D343C02FF // TChromeLikeFormCaptionData
+ HWL ME_53C4BB200287 // ChromeLikeTypes
+ HWL ME_545B531C026F // ChromeLikeWindowCaptionButtonsRes
  )
  ; // Children
  : Depends

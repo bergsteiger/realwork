@@ -1,0 +1,59 @@
+// WarningBaloon 4EA58A3903B4 VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4EA58A3903B4
+
+: ME_D18A1AF77354
+ CONST UID 'D18A1AF77354'
+ CONST Name 'Ini_FormFactory_WarningBaloon'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY '–егистраци€ фабрики формы WarningBaloon' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4EA58A3903B4 // WarningBaloon
+ ;
+ : SpelledFor HWL ME_4EA58A3903B4 // WarningBaloon
+ ;
+
+ref; // ME_D18A1AF77354 Ini_FormFactory_WarningBaloon
+
+: ME_4EA58A3903B4
+ CONST UID '4EA58A3903B4'
+ CONST Name 'WarningBaloon'
+ CONST Class class_Class
+ : Stereotype st_VCMFinalForm ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Ѕаллон с предупреждением' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent WL 'ME_498B135601B6' '498B135601B6.pas.ms.script' // Document
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4EA599F501CF' '4EA599F501CF.pas.ms.script' // PrimWarningBaloonOptions
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4E76FC4000A4' '484FA67302D7.pas.ms.script' // ≈сли с медали пытаемс€ вызвать вкладку соответствующего предупреждени€, а оно уже открыто, то оно должно закрыватьс€, а операци€ должна называтьс€ "—крыть текст предупреждени€"
+ WL 'ME_4EA58AEA012E' '4BD856E802F9.pas.ms.script' // WarningBaloon
+ )
+ ; // Implements
+ : Operations
+   Seq: ( HWL ME_D18A1AF77354 // Ini_FormFactory_WarningBaloon
+ )
+ ; // Operations
+ CONST "NeedsHackRef" true
+ CONST "ZoneType" 'Any'
+ CONST "finished dfm" true
+ CONST "resizeable" false
+ CONST "restrict form def" 'undefined'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\WarningBaloon_Form.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms'
+ CONST extprop:pas:TypeName 'TWarningBaloonForm'
+ CONST extprop:rc:SelfName 'WarningBaloonForm'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'WarningBaloon_Form'
+
+ref; // ME_4EA58A3903B4 WarningBaloon

@@ -1,0 +1,101 @@
+// TsdsTips 493D0AFD02F6 UseCaseControllerImp Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_493D0AFD02F6
+
+: ME_493D0B3002B4
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_493D0AFD02F6 // TsdsTips
+ ;
+ : Target WL 'ME_491D56370182' '491D56370182.pas.ms.script' // TdsTipsDocument
+ ;
+
+ref; // ME_493D0B3002B4 
+
+: ME_493D0B3D00BB
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_493D0AFD02F6 // TsdsTips
+ ;
+ : Target WL 'ME_49254BC1019C' '49254BC1019C.pas.ms.script' // TdsTips
+ ;
+
+ref; // ME_493D0B3D00BB 
+
+: ME_493D0B780263
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_493D0AFD02F6 // TsdsTips
+ ;
+ : Target WL 'ME_49254B6F0325' '491D560F01F4.pas.ms.script' // TdeTips
+ ;
+
+ref; // ME_493D0B780263 
+
+: ME_493D0BE8015F
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_493D0AFD02F6 // TsdsTips
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_493D0BE8015F 
+
+: ME_4925B1EC0100_ME_493D0AFD02F6
+ : Original WL 'ME_4925B1EC0100' '47EA106D035E.pas.ms.script' // BaseDocumentClass
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4925B1EC0100_ME_493D0AFD02F6 BaseDocumentClass
+
+: ME_4936B89C037F_ME_493D0AFD02F6
+ : Original WL 'ME_4936B89C037F' '4936B666032A.pas.ms.script' // MakeDocInfo
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4936B89C037F_ME_493D0AFD02F6 MakeDocInfo
+
+: ME_4936BA0D0286_ME_493D0AFD02F6
+ : Original WL 'ME_4936BA0D0286' '4936B666032A.pas.ms.script' // MakeContents
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4936BA0D0286_ME_493D0AFD02F6 MakeContents
+
+: ME_493D0AFD02F6
+ CONST UID '493D0AFD02F6'
+ CONST Name 'TsdsTips'
+ CONST Class class_Class
+ : Stereotype st_UseCaseControllerImp ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Бизнес объект сборки "Совет дня"' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_491D560F01F4' '491D560F01F4.pas.ms.script' // DayTips
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4941654603E7' '4941654603E7.pas.ms.script' // TsdsCommonDiction
+ )
+ ; // Inherits
+ : Implemented
+   Seq: ( ME_4925B1EC0100_ME_493D0AFD02F6 // BaseDocumentClass
+ ME_4936B89C037F_ME_493D0AFD02F6 // MakeDocInfo
+ ME_4936BA0D0286_ME_493D0AFD02F6 // MakeContents
+ )
+ ; // Implemented
+ : Dependencies
+   Seq: ( ME_493D0B3002B4 // TdsTipsDocument
+ ME_493D0B3D00BB // TdsTips
+ ME_493D0B780263 // TdeTips
+ ME_493D0BE8015F // SysUtils
+ )
+ ; // Dependencies
+ CONST "author" 'Лукьянец Р.В.'
+ CONST "no hands" true
+ CONST "started" '2008/02/20 13:01:22'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\DayTips\sdsTips.pas'
+ CONST extprop:rc:SelfName 'sdsTips'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'sdsTips'
+
+ref; // ME_493D0AFD02F6 TsdsTips

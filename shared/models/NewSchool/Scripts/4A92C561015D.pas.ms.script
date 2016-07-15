@@ -2,51 +2,6 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-FORWARD ME_4A92C561015D
-
-FORWARD ME_4A8EC7F80245
-
-: ME_54FECF61028A
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4A8EC7F80245 // Common$FP
- ;
- : Target WL 'ME_54FECC970155' '47EA50050263.pas.ms.script' // TnsDataExchangeRealization
- ;
-
-ref; // ME_54FECF61028A 
-
-: ME_4A8EC7F80245
- CONST UID '4A8EC7F80245'
- CONST Name 'Common'
- CONST Class class_Class
- : Stereotype st_VCMFormsPack ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Окна' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4A92C561015D // Common
- ;
- : Inherits
-   Seq: ( WL 'ME_4A92C1380380' '497ED74F0032.pas.ms.script' // PrimF1Common
- )
- ; // Inherits
- : Dependencies
-   Seq: ( ME_54FECF61028A // TnsDataExchangeRealization
- )
- ; // Dependencies
- CONST "author" 'Тучнин Д.А.'
- CONST "no hands" true
- CONST "started" '2003/05/23 14:19:16'
- CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\moCommon.pas'
- CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
- CONST extprop:pas:TypeName 'Tmo_Common'
- CONST extprop:rc:SelfName 'mo_Common'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'moCommon'
-
-ref; // ME_4A8EC7F80245 Common$FP
-
 : ME_4A92C561015D
  CONST UID '4A92C561015D'
  CONST Name 'Common'
@@ -58,7 +13,7 @@ ref; // ME_4A8EC7F80245 Common$FP
  : Parent WL 'ME_4AC23B8E0397' '4AC23B8E0397.pas.ms.script' // F1 Core
  ;
  : Children
-   Seq: ( ME_4A8EC7F80245 // Common$FP
+   Seq: ( WL 'ME_4A8EC7F80245' '4A8EC7F80245.pas.ms.script' // Common$FP
  WL 'ME_4D1B6BAB022D' '4D1B6BAB022D.pas.ms.script' // F1DocumentProcessingInterfaces
  WL 'ME_4BA08E8D00CD' '4BA08E8D00CD.pas.ms.script' // UnderControl$Resetter
  WL 'ME_4C6A65ED0374' '4C6A65ED0374.pas.ms.script' // F1DocumentProcessing
@@ -100,7 +55,6 @@ ref; // ME_4A8EC7F80245 Common$FP
  WL 'ME_4CFCE4F203CE' '4CFCE4F203CE.pas.ms.script' // VGScene
  WL 'ME_4D4927B5008B' '4D4927B5008B.pas.ms.script' // VT$Core
  WL 'ME_4E13416D0227' '4E13416D0227.pas.ms.script' // VCM$Visual
- WL 'ME_4E200FC9003B' '4E200FC9003B.pas.ms.script' // VCM$Scripting
  WL 'ME_4E2F0E1B03BB' '4E2F0E1B03BB.pas.ms.script' // L3$Domain
  WL 'ME_4F6B65EA0392' '4F6B65EA0392.pas.ms.script' // F1Like
  WL 'ME_5226F61C0109' '5226F61C0109.pas.ms.script' // Samples

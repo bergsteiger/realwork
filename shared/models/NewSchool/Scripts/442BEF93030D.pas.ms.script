@@ -14,7 +14,7 @@ FORWARD ME_442BEFCB030D
  %SUMMARY 'Получение данных запроса. Возвращается запрос (оценка) в XML формате (описание см в реквизите).' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_442BEFCB030D // ConsultingData
+ : Parent HWL ME_442BEFCB030D // ConsultingData
  ;
  : Target WL 'ME_4423FB5903D8' '4423F94903C8.pas.ms.script' // Stream
  ;
@@ -28,7 +28,7 @@ ref; // ME_442BF015006D get_data
  %SUMMARY 'Подтверждение получения данных текущего запроса. При вызове этого метода запрос помечается как переданный на обработку (при получении оценки, как полностью обработанный).' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_442BEFCB030D // ConsultingData
+ : Parent HWL ME_442BEFCB030D // ConsultingData
  ;
 
 ref; // ME_442BFEEF0399 data_received
@@ -43,11 +43,11 @@ ref; // ME_442BFEEF0399 data_received
  %SUMMARY 'Интерфейс для получения и подтверждения факта получения запроса.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_442BEF93030D // HCInterfaces
+ : Parent HWL ME_442BEF93030D // HCInterfaces
  ;
  : Operations
-   Seq: ( ME_442BF015006D // get_data
- ME_442BFEEF0399 // data_received
+   Seq: ( HWL ME_442BF015006D // get_data
+ HWL ME_442BFEEF0399 // data_received
  )
  ; // Operations
  CONST "single impl" false
@@ -67,7 +67,7 @@ FORWARD ME_443D043D02EE
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_443D043D02EE // ResultValue
+ : Parent HWL ME_443D043D02EE // ResultValue
  ;
  : Target WL 'ME_3DBFFE6F0305' '3DBFDB23006E.pas.ms.script' // char
  ;
@@ -86,7 +86,7 @@ ref; // ME_443D04AD0148 RV_SUCCESS
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_443D043D02EE // ResultValue
+ : Parent HWL ME_443D043D02EE // ResultValue
  ;
  : Target WL 'ME_3DBFFE6F0305' '3DBFDB23006E.pas.ms.script' // char
  ;
@@ -105,7 +105,7 @@ ref; // ME_443D04E8007D RV_DUPLICATED
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_443D043D02EE // ResultValue
+ : Parent HWL ME_443D043D02EE // ResultValue
  ;
  : Target WL 'ME_3DBFFE6F0305' '3DBFDB23006E.pas.ms.script' // char
  ;
@@ -124,7 +124,7 @@ ref; // ME_448035C4036B RV_EMPTY
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_443D043D02EE // ResultValue
+ : Parent HWL ME_443D043D02EE // ResultValue
  ;
  : Target WL 'ME_3DBFFE6F0305' '3DBFDB23006E.pas.ms.script' // char
  ;
@@ -143,7 +143,7 @@ ref; // ME_443D04FB02DE RV_ERROR
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_443D043D02EE // ResultValue
+ : Parent HWL ME_443D043D02EE // ResultValue
  ;
  : Target WL 'ME_3DBFFE6F0305' '3DBFDB23006E.pas.ms.script' // char
  ;
@@ -162,7 +162,7 @@ ref; // ME_443D050C0232 RV_BAD_XML
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_443D043D02EE // ResultValue
+ : Parent HWL ME_443D043D02EE // ResultValue
  ;
  : Target WL 'ME_3DBFFE6F0305' '3DBFDB23006E.pas.ms.script' // char
  ;
@@ -181,7 +181,7 @@ ref; // ME_48DB4BC003CA RV_COMPLECT_REMOVED_ERROR
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_443D043D02EE // ResultValue
+ : Parent HWL ME_443D043D02EE // ResultValue
  ;
  : Target WL 'ME_3DBFFE6F0305' '3DBFDB23006E.pas.ms.script' // char
  ;
@@ -201,16 +201,16 @@ ref; // ME_4EE08CF90023 RV_INVALID_QUERY_ID
  %SUMMARY 'Возможные значения возвращаемых значений функций' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_442BEF93030D // HCInterfaces
+ : Parent HWL ME_442BEF93030D // HCInterfaces
  ;
  : Attributes
-   Seq: ( ME_443D04AD0148 // RV_SUCCESS
- ME_443D04E8007D // RV_DUPLICATED
- ME_448035C4036B // RV_EMPTY
- ME_443D04FB02DE // RV_ERROR
- ME_443D050C0232 // RV_BAD_XML
- ME_48DB4BC003CA // RV_COMPLECT_REMOVED_ERROR
- ME_4EE08CF90023 // RV_INVALID_QUERY_ID
+   Seq: ( HWL ME_443D04AD0148 // RV_SUCCESS
+ HWL ME_443D04E8007D // RV_DUPLICATED
+ HWL ME_448035C4036B // RV_EMPTY
+ HWL ME_443D04FB02DE // RV_ERROR
+ HWL ME_443D050C0232 // RV_BAD_XML
+ HWL ME_48DB4BC003CA // RV_COMPLECT_REMOVED_ERROR
+ HWL ME_4EE08CF90023 // RV_INVALID_QUERY_ID
  )
  ; // Attributes
  CONST extprop:pas:TypeName 'TResultValue'
@@ -226,7 +226,7 @@ ref; // ME_443D043D02EE ResultValue
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_442BEF93030D // HCInterfaces
+ : Parent HWL ME_442BEF93030D // HCInterfaces
  ;
  : Inherits
    Seq: ( WL 'ME_3DBFFE240068' '3DBFDB23006E.pas.ms.script' // string
@@ -245,7 +245,7 @@ ref; // ME_4EE089A301DA QueryID
  %SUMMARY 'Не смогли загрузить библиотеку для работы с XML' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_442BEF93030D // HCInterfaces
+ : Parent HWL ME_442BEF93030D // HCInterfaces
  ;
  CONST "force usage" true
 
@@ -260,7 +260,7 @@ FORWARD ME_44D1B68701B5
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_44D1B68701B5 // OnlineData
+ : Parent HWL ME_44D1B68701B5 // OnlineData
  ;
  : Target WL 'ME_3DBFFE240068' '3DBFDB23006E.pas.ms.script' // string
  ;
@@ -291,7 +291,7 @@ ref; // ME_44D1B6C103B9 consultation_id
  %SUMMARY 'фабрика для получения интерфейса' ;
  CONST Visibility ProtectedAccess
  CONST Abstraction at_abstract
- : Parent ME_44D1B68701B5 // OnlineData
+ : Parent HWL ME_44D1B68701B5 // OnlineData
  ;
  : Parameters
    Seq: ( ME_44D1B6C10399 // xml_stream
@@ -304,13 +304,13 @@ ref; // ME_44D1B6C103B9 consultation_id
 ref; // ME_44D1B6C0004E make
 
 : ME_442BF015006D_ME_44D1B68701B5
- : Original ME_442BF015006D // get_data
+ : Original HWL ME_442BF015006D // get_data
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_442BF015006D_ME_44D1B68701B5 get_data
 
 : ME_442BFEEF0399_ME_44D1B68701B5
- : Original ME_442BFEEF0399 // data_received
+ : Original HWL ME_442BFEEF0399 // data_received
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_442BFEEF0399_ME_44D1B68701B5 data_received
@@ -325,18 +325,18 @@ ref; // ME_442BFEEF0399_ME_44D1B68701B5 data_received
  %SUMMARY 'Консультации, проходящие через СК. Имеют уникальный идентификатор.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_442BEF93030D // HCInterfaces
+ : Parent HWL ME_442BEF93030D // HCInterfaces
  ;
  : Inherits
-   Seq: ( ME_442BEFCB030D // ConsultingData
+   Seq: ( HWL ME_442BEFCB030D // ConsultingData
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_47B910640058 // 
+   Seq: ( HWL ME_47B910640058 // 
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_44D1B6C0004E // make
+   Seq: ( HWL ME_44D1B6C0004E // make
  )
  ; // Operations
  : Implemented
@@ -361,7 +361,7 @@ FORWARD ME_464422AC00BB
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_464422AC00BB // HCConstants
+ : Parent HWL ME_464422AC00BB // HCConstants
  ;
  : Target WL 'ME_3DBFFE240068' '3DBFDB23006E.pas.ms.script' // string
  ;
@@ -383,7 +383,7 @@ ref; // ME_464422E8032C STATISTIC_PACKET_SIZE_PARAMETER
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_464422AC00BB // HCConstants
+ : Parent HWL ME_464422AC00BB // HCConstants
  ;
  : Target WL 'ME_4538E9230233' '3DBFDB23006E.pas.ms.script' // size
  ;
@@ -405,7 +405,7 @@ ref; // ME_464424E20186 STATISTIC_PACKET_SIZE
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_464422AC00BB // HCConstants
+ : Parent HWL ME_464422AC00BB // HCConstants
  ;
  : Target WL 'ME_3DBFFE240068' '3DBFDB23006E.pas.ms.script' // string
  ;
@@ -427,7 +427,7 @@ ref; // ME_464425F3029F STATISTIC_SLEEP_TIME_PARAMETER
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_464422AC00BB // HCConstants
+ : Parent HWL ME_464422AC00BB // HCConstants
  ;
  : Target WL 'ME_450A6117003E' '3DBFDB23006E.pas.ms.script' // unsigned integer
  ;
@@ -450,13 +450,13 @@ ref; // ME_464425AC035B STATISTIC_SLEEP_TIME
  %SUMMARY 'Константы для адаптера консультаций.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_442BEF93030D // HCInterfaces
+ : Parent HWL ME_442BEF93030D // HCInterfaces
  ;
  : Attributes
-   Seq: ( ME_464422E8032C // STATISTIC_PACKET_SIZE_PARAMETER
- ME_464424E20186 // STATISTIC_PACKET_SIZE
- ME_464425F3029F // STATISTIC_SLEEP_TIME_PARAMETER
- ME_464425AC035B // STATISTIC_SLEEP_TIME
+   Seq: ( HWL ME_464422E8032C // STATISTIC_PACKET_SIZE_PARAMETER
+ HWL ME_464424E20186 // STATISTIC_PACKET_SIZE
+ HWL ME_464425F3029F // STATISTIC_SLEEP_TIME_PARAMETER
+ HWL ME_464425AC035B // STATISTIC_SLEEP_TIME
  )
  ; // Attributes
  CONST "spell names" false
@@ -473,7 +473,7 @@ FORWARD ME_47861964033F
  %SUMMARY 'метод должен быть вызван первым после загрузки dll библиотеки' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_47861964033F // BusinessLogicLifeCycle
+ : Parent HWL ME_47861964033F // BusinessLogicLifeCycle
  ;
 
 ref; // ME_478619CE0231 start
@@ -486,7 +486,7 @@ ref; // ME_478619CE0231 start
  %SUMMARY 'метод должен быть вызван перед завершением работы библиотеки' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_47861964033F // BusinessLogicLifeCycle
+ : Parent HWL ME_47861964033F // BusinessLogicLifeCycle
  ;
 
 ref; // ME_478619F80225 stop
@@ -499,7 +499,7 @@ ref; // ME_478619F80225 stop
  %SUMMARY 'кешированная фабрика объекта' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_47861964033F // BusinessLogicLifeCycle
+ : Parent HWL ME_47861964033F // BusinessLogicLifeCycle
  ;
  CONST "const_type" 'read-write'
 
@@ -512,7 +512,7 @@ ref; // ME_47861A37017B make
  %SUMMARY 'получить интерфейс к СК  версии 7' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_47861964033F // BusinessLogicLifeCycle
+ : Parent HWL ME_47861964033F // BusinessLogicLifeCycle
  ;
  CONST TargetStereotype 'const,cached'
  CONST "dll export" false
@@ -529,13 +529,13 @@ ref; // ME_47861DA9035C get_consultation_manager70
  %SUMMARY 'Интерфейс для управления жизненным циклом бизнес-объектов адаптера' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_442BEF93030D // HCInterfaces
+ : Parent HWL ME_442BEF93030D // HCInterfaces
  ;
  : Operations
-   Seq: ( ME_478619CE0231 // start
- ME_478619F80225 // stop
- ME_47861A37017B // make
- ME_47861DA9035C // get_consultation_manager70
+   Seq: ( HWL ME_478619CE0231 // start
+ HWL ME_478619F80225 // stop
+ HWL ME_47861A37017B // make
+ HWL ME_47861DA9035C // get_consultation_manager70
  )
  ; // Operations
  CONST "single impl" false
@@ -555,7 +555,7 @@ FORWARD ME_47B0645400B5
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_47B0645400B5 // EraseErrorStatuses
+ : Parent HWL ME_47B0645400B5 // EraseErrorStatuses
  ;
  : Target WL 'ME_3DBFFE240068' '3DBFDB23006E.pas.ms.script' // string
  ;
@@ -577,7 +577,7 @@ ref; // ME_47B064D30045 EES_INVALID_STATUS
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_47B0645400B5 // EraseErrorStatuses
+ : Parent HWL ME_47B0645400B5 // EraseErrorStatuses
  ;
  : Target WL 'ME_3DBFFE240068' '3DBFDB23006E.pas.ms.script' // string
  ;
@@ -599,7 +599,7 @@ ref; // ME_47B065E100E6 EES_NOT_FOUND
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_47B0645400B5 // EraseErrorStatuses
+ : Parent HWL ME_47B0645400B5 // EraseErrorStatuses
  ;
  : Target WL 'ME_3DBFFE240068' '3DBFDB23006E.pas.ms.script' // string
  ;
@@ -622,12 +622,12 @@ ref; // ME_47B0660001BB EES_UNKNOWN
  %SUMMARY 'текстовые значения ошибок в xml при удалении запросов из базы.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_442BEF93030D // HCInterfaces
+ : Parent HWL ME_442BEF93030D // HCInterfaces
  ;
  : Attributes
-   Seq: ( ME_47B064D30045 // EES_INVALID_STATUS
- ME_47B065E100E6 // EES_NOT_FOUND
- ME_47B0660001BB // EES_UNKNOWN
+   Seq: ( HWL ME_47B064D30045 // EES_INVALID_STATUS
+ HWL ME_47B065E100E6 // EES_NOT_FOUND
+ HWL ME_47B0660001BB // EES_UNKNOWN
  )
  ; // Attributes
  CONST "spell names" false
@@ -643,7 +643,7 @@ FORWARD ME_47B910740109
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_47B910740109 // OnlineDataKeys
+ : Parent HWL ME_47B910740109 // OnlineDataKeys
  ;
  : Target WL 'ME_3DBFFE240068' '3DBFDB23006E.pas.ms.script' // string
  ;
@@ -664,7 +664,7 @@ ref; // ME_47B910B8005E QUERY70
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_47B910740109 // OnlineDataKeys
+ : Parent HWL ME_47B910740109 // OnlineDataKeys
  ;
  : Target WL 'ME_3DBFFE240068' '3DBFDB23006E.pas.ms.script' // string
  ;
@@ -687,11 +687,11 @@ ref; // ME_47B910E000E8 MARK70
  %SUMMARY 'ключи мульти фабрик для интерфейса консультации' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_442BEF93030D // HCInterfaces
+ : Parent HWL ME_442BEF93030D // HCInterfaces
  ;
  : Attributes
-   Seq: ( ME_47B910B8005E // QUERY70
- ME_47B910E000E8 // MARK70
+   Seq: ( HWL ME_47B910B8005E // QUERY70
+ HWL ME_47B910E000E8 // MARK70
  )
  ; // Attributes
  CONST "spell names" false
@@ -708,7 +708,7 @@ FORWARD ME_442BFF3E0232
  %SUMMARY 'получить интерфейс работы  с запросами консультационной услуги' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_442BFF3E0232 // ConsultingRequests
+ : Parent HWL ME_442BFF3E0232 // ConsultingRequests
  ;
  CONST "const_type" 'read-write'
 
@@ -718,7 +718,7 @@ ref; // ME_442CE1BE03C8 make
  CONST Name 'query_id'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_4EE089A301DA // QueryID
+ : Target HWL ME_4EE089A301DA // QueryID
  ;
 
 ref; // ME_4EE089FD0120 query_id
@@ -727,7 +727,7 @@ ref; // ME_4EE089FD0120 query_id
  CONST Name 'data'
  CONST Class class_Parameter
  : Stereotype st_out ;
- : Target ME_442BEFCB030D // ConsultingData
+ : Target HWL ME_442BEFCB030D // ConsultingData
  ;
 
 ref; // ME_4480357A0232 data
@@ -739,9 +739,9 @@ ref; // ME_4480357A0232 data
  %SUMMARY 'получить следующий запрос для обработки' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_442BFF3E0232 // ConsultingRequests
+ : Parent HWL ME_442BFF3E0232 // ConsultingRequests
  ;
- : Target ME_443D043D02EE // ResultValue
+ : Target HWL ME_443D043D02EE // ResultValue
  ;
  : Parameters
    Seq: ( ME_4EE089FD0120 // query_id
@@ -755,7 +755,7 @@ ref; // ME_442BFF9202EE get_query_by_id
  CONST Name 'data'
  CONST Class class_Parameter
  : Stereotype st_out ;
- : Target ME_442BEFCB030D // ConsultingData
+ : Target HWL ME_442BEFCB030D // ConsultingData
  ;
 
 ref; // ME_448035BD007D data
@@ -767,9 +767,9 @@ ref; // ME_448035BD007D data
  %SUMMARY 'Получение очередной оценки на запрос.'#13#10'При вызове этой операции происходит передача объекта "Оценка" для получения данных. До тех пор пока не будет проведен вызов DataRecieved, эта операция будет возвращать этот запрос.'#13#10'Если нет ни одного нового запроса, получившего оценку пользователя, возвращается нулевой объект.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_442BFF3E0232 // ConsultingRequests
+ : Parent HWL ME_442BFF3E0232 // ConsultingRequests
  ;
- : Target ME_443D043D02EE // ResultValue
+ : Target HWL ME_443D043D02EE // ResultValue
  ;
  : Parameters
    Seq: ( ME_448035BD007D // data
@@ -794,9 +794,9 @@ ref; // ME_443233BF007D answer
  %SUMMARY 'Ответ на запрос или предварительное уведомление о сроках обработки запроса.'#13#10'Ответ оформлен в XML формате (описание cм. в реквизите).'#13#10'Варианты возвращаемых значений:'#13#10'[0] - если ответ успешно помещен в базу.'#13#10'[1] - если запрос в базе уже помечен, как отвеченный.'#13#10'[-1] - если серверу не удалось прочесть ответ, или положить его в базу, или произошел еще какой-то внутренний сбой. В этом случае необходимо повторить попытку отдачи ответа.'#13#10'[-2] - если формат ответа не соответствует "ожиданиям" сервера.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_442BFF3E0232 // ConsultingRequests
+ : Parent HWL ME_442BFF3E0232 // ConsultingRequests
  ;
- : Target ME_443D043D02EE // ResultValue
+ : Target HWL ME_443D043D02EE // ResultValue
  ;
  : Parameters
    Seq: ( ME_443233BF007D // answer
@@ -830,9 +830,9 @@ ref; // ME_45B49D07006D result
  %SUMMARY 'функция выдаёт статусы консультаций и даты их последней модификации по их идентификаторам.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_442BFF3E0232 // ConsultingRequests
+ : Parent HWL ME_442BFF3E0232 // ConsultingRequests
  ;
- : Target ME_443D043D02EE // ResultValue
+ : Target HWL ME_443D043D02EE // ResultValue
  ;
  : Parameters
    Seq: ( ME_45B5CD1B007D // query
@@ -867,9 +867,9 @@ ref; // ME_47B0665202A1 result
  %SUMMARY 'удалить запросы из базы СК' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_442BFF3E0232 // ConsultingRequests
+ : Parent HWL ME_442BFF3E0232 // ConsultingRequests
  ;
- : Target ME_443D043D02EE // ResultValue
+ : Target HWL ME_443D043D02EE // ResultValue
  ;
  : Parameters
    Seq: ( ME_47B066520265 // query
@@ -904,9 +904,9 @@ ref; // ME_4844033D030B signed_query
  %SUMMARY 'добавить в xml контрольную сумму' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_442BFF3E0232 // ConsultingRequests
+ : Parent HWL ME_442BFF3E0232 // ConsultingRequests
  ;
- : Target ME_443D043D02EE // ResultValue
+ : Target HWL ME_443D043D02EE // ResultValue
  ;
  : Parameters
    Seq: ( ME_4844033D02C9 // query
@@ -932,9 +932,9 @@ ref; // ME_4EE08E770212 result
  %SUMMARY 'получить список идентификаторов консультаций, которые нужно забрать на обработку в ППО' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_442BFF3E0232 // ConsultingRequests
+ : Parent HWL ME_442BFF3E0232 // ConsultingRequests
  ;
- : Target ME_443D043D02EE // ResultValue
+ : Target HWL ME_443D043D02EE // ResultValue
  ;
  : Parameters
    Seq: ( ME_4EE08E770212 // result
@@ -946,9 +946,9 @@ ref; // ME_4EE08E2C0010 get_list_of_new_queries
 : ME_44D1C0B1002E
  CONST Class class_Dependency
  : Stereotype st_friend::Dependency ;
- : Parent ME_442BFF3E0232 // ConsultingRequests
+ : Parent HWL ME_442BFF3E0232 // ConsultingRequests
  ;
- : Target ME_44D1B68701B5 // OnlineData
+ : Target HWL ME_44D1B68701B5 // OnlineData
  ;
 
 ref; // ME_44D1C0B1002E 
@@ -963,17 +963,17 @@ ref; // ME_44D1C0B1002E
  %SUMMARY 'Интерфейс для получения запросов от пользователей и их оценок.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_442BEF93030D // HCInterfaces
+ : Parent HWL ME_442BEF93030D // HCInterfaces
  ;
  : Operations
-   Seq: ( ME_442CE1BE03C8 // make
- ME_442BFF9202EE // get_query_by_id
- ME_442BFFFE038A // get_next_mark
- ME_442C007702FD // set_answer
- ME_45B49CBD03B9 // get_status_statistic
- ME_47B0663F0363 // erase_queries_by_id
- ME_484402BF023D // sign_query
- ME_4EE08E2C0010 // get_list_of_new_queries
+   Seq: ( HWL ME_442CE1BE03C8 // make
+ HWL ME_442BFF9202EE // get_query_by_id
+ HWL ME_442BFFFE038A // get_next_mark
+ HWL ME_442C007702FD // set_answer
+ HWL ME_45B49CBD03B9 // get_status_statistic
+ HWL ME_47B0663F0363 // erase_queries_by_id
+ HWL ME_484402BF023D // sign_query
+ HWL ME_4EE08E2C0010 // get_list_of_new_queries
  )
  ; // Operations
  : Dependencies
@@ -998,19 +998,19 @@ ref; // ME_442BFF3E0232 ConsultingRequests
  : Parent WL 'ME_45E43D74036B' '45E43D74036B.pas.ms.script' // HCAdapterLib
  ;
  : Children
-   Seq: ( ME_442BEFCB030D // ConsultingData
- ME_443D043D02EE // ResultValue
- ME_4EE089A301DA // QueryID
- ME_44870AB700BB // CantFindXerces
- ME_44D1B68701B5 // OnlineData
- ME_47861964033F // BusinessLogicLifeCycle
- ME_442BFF3E0232 // ConsultingRequests
+   Seq: ( HWL ME_442BEFCB030D // ConsultingData
+ HWL ME_443D043D02EE // ResultValue
+ HWL ME_4EE089A301DA // QueryID
+ HWL ME_44870AB700BB // CantFindXerces
+ HWL ME_44D1B68701B5 // OnlineData
+ HWL ME_47861964033F // BusinessLogicLifeCycle
+ HWL ME_442BFF3E0232 // ConsultingRequests
  )
  ; // Children
  : Constants
-   Seq: ( ME_464422AC00BB // HCConstants
- ME_47B0645400B5 // EraseErrorStatuses
- ME_47B910740109 // OnlineDataKeys
+   Seq: ( HWL ME_464422AC00BB // HCConstants
+ HWL ME_47B0645400B5 // EraseErrorStatuses
+ HWL ME_47B910740109 // OnlineDataKeys
  )
  ; // Constants
  : Depends

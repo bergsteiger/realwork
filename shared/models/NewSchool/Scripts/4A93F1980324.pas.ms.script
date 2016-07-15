@@ -1,0 +1,603 @@
+// PrimProgressIndicator 4A93F1980324 VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A93F1980324
+
+: ME_50F667D30021
+ CONST UID '50F667D30021'
+ CONST Name 'utProgressIndicator'
+ CONST Class class_Class
+ : Stereotype st_UserType ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Ход выполнения' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4A93F1980324 // PrimProgressIndicator
+ ;
+ CONST "ImageIndex" '-1'
+ CONST "SettingsCaption" 'Ход выполнения'
+ CONST "Weight" '-1'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\PrimProgressIndicator_utProgressIndicator_UserType.pas'
+ CONST extprop:pas:UnitName 'PrimProgressIndicator_utProgressIndicator_UserType'
+
+ref; // ME_50F667D30021 utProgressIndicator
+
+FORWARD ME_50F988320278
+
+: ME_50F98852031C
+ CONST UID '50F98852031C'
+ CONST Name 'WM_USER_SET_CURRENT'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_50F988320278 // ProgressIndicatorConstants
+ ;
+ CONST Value 'WM_USER + $0101'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value 'WM_USER + $0101'
+
+ref; // ME_50F98852031C WM_USER_SET_CURRENT
+
+: ME_50F9885D0077
+ CONST UID '50F9885D0077'
+ CONST Name 'WM_USER_FINISH_PROCESS'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_50F988320278 // ProgressIndicatorConstants
+ ;
+ CONST Value 'WM_USER + $0102'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value 'WM_USER + $0102'
+
+ref; // ME_50F9885D0077 WM_USER_FINISH_PROCESS
+
+: ME_50F988320278
+ CONST UID '50F988320278'
+ CONST Name 'ProgressIndicatorConstants'
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4A93F1980324 // PrimProgressIndicator
+ ;
+ : Attributes
+   Seq: ( HWL ME_50F98852031C // WM_USER_SET_CURRENT
+ HWL ME_50F9885D0077 // WM_USER_FINISH_PROCESS
+ )
+ ; // Attributes
+ CONST "spell names" false
+
+ref; // ME_50F988320278 ProgressIndicatorConstants
+
+FORWARD ME_50F97F89002A
+
+: ME_50F98032028A
+ CONST UID '50F98032028A'
+ CONST Name 'CancelButtonCaption'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_50F97F89002A // ProgressIndicatorLocalConst
+ ;
+ CONST "AutoInc" false
+ CONST "Value" '''&Отмена'''
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_50F98032028A CancelButtonCaption
+
+: ME_50F97F89002A
+ CONST UID '50F97F89002A'
+ CONST Name 'ProgressIndicatorLocalConst'
+ CONST Class class_Class
+ : Stereotype st_LocalConst ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4A93F1980324 // PrimProgressIndicator
+ ;
+ : Attributes
+   Seq: ( HWL ME_50F98032028A // CancelButtonCaption
+ )
+ ; // Attributes
+ CONST "Need map interface" false
+ CONST "Need mapping support" false
+ CONST "spell names" false
+
+ref; // ME_50F97F89002A ProgressIndicatorLocalConst
+
+: ME_4AC627D2039B
+ CONST UID '4AC627D2039B'
+ CONST Name 'ProgressBar'
+ CONST Class class_Class
+ : Stereotype st_Control ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4A93F1980324 // PrimProgressIndicator
+ ;
+ CONST "ControlClass" 'TProgressBar'
+ CONST "pm" true
+ CONST "put to dfm" true
+
+ref; // ME_4AC627D2039B ProgressBar
+
+: ME_4AC62689022F
+ CONST UID '4AC62689022F'
+ CONST Name 'f_Owner'
+ CONST Class class_Attribute
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4A93F1980324 // PrimProgressIndicator
+ ;
+ : Target WL 'ME_4991AAF4000A' '491DAF4202EE.pas.ms.script' // InsProgressIndicator
+ ;
+
+ref; // ME_4AC62689022F f_Owner
+
+: ME_4AC626C902A9
+ CONST UID '4AC626C902A9'
+ CONST Name 'f_Caption'
+ CONST Class class_Attribute
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4A93F1980324 // PrimProgressIndicator
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_4AC626C902A9 f_Caption
+
+: ME_4AC626E60338
+ CONST UID '4AC626E60338'
+ CONST Name 'f_SearchStarted'
+ CONST Class class_Attribute
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4A93F1980324 // PrimProgressIndicator
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4AC626E60338 f_SearchStarted
+
+: ME_50F82ACB0256
+ CONST UID '50F82ACB0256'
+ CONST Name 'f_SearchFinished'
+ CONST Class class_Attribute
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4A93F1980324 // PrimProgressIndicator
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_50F82ACB0256 f_SearchFinished
+
+: ME_50F82ADF010F
+ CONST UID '50F82ADF010F'
+ CONST Name 'f_SearchFinishing'
+ CONST Class class_Attribute
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4A93F1980324 // PrimProgressIndicator
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_50F82ADF010F f_SearchFinishing
+
+: ME_50F83173019D
+ CONST UID '50F83173019D'
+ CONST Name 'f_CancelButton'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4A93F1980324 // PrimProgressIndicator
+ ;
+ : Target WL 'ME_4D494D3601A8' '4B8E675402AB.pas.ms.script' // TvtVGButton
+ ;
+
+ref; // ME_50F83173019D f_CancelButton
+
+: ME_50F927B30145
+ CONST UID '50F927B30145'
+ CONST Name 'f_Scene'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4A93F1980324 // PrimProgressIndicator
+ ;
+ : Target WL 'ME_4CFFB562010C' '4CFCE51A00B0.pas.ms.script' // TvgScene
+ ;
+
+ref; // ME_50F927B30145 f_Scene
+
+: ME_50F927BC0149
+ CONST UID '50F927BC0149'
+ CONST Name 'f_Background'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4A93F1980324 // PrimProgressIndicator
+ ;
+ : Target WL 'ME_4FC762770058' '4CFCE51A00B0.pas.ms.script' // TvgBackground
+ ;
+
+ref; // ME_50F927BC0149 f_Background
+
+FORWARD ME_50F98967031E
+
+: ME_50F989830047
+ CONST Name 'Sender'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_50F989830047 Sender
+
+: ME_50F989830066
+ CONST Name 'CanClose'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_50F989830066 CanClose
+
+: ME_50F989800152
+ CONST UID '50F989800152'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_50F98967031E // VcmEntityFormRefCloseQuery
+ ;
+ : Parameters
+   Seq: ( ME_50F989830047 // Sender
+ ME_50F989830066 // CanClose
+ )
+ ; // Parameters
+
+ref; // ME_50F989800152 DoIt
+
+: ME_50F98967031E
+ CONST UID '50F98967031E'
+ CONST Name 'VcmEntityFormRefCloseQuery'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4A93F1980324 // PrimProgressIndicator
+ ;
+ : Operations
+   Seq: ( HWL ME_50F989800152 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_50F98967031E VcmEntityFormRefCloseQuery
+
+: ME_4AC62714014D
+ CONST Name 'aProgress'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4991AAF4000A' '491DAF4202EE.pas.ms.script' // InsProgressIndicator
+ ;
+
+ref; // ME_4AC62714014D aProgress
+
+: ME_4AC6271401A3
+ CONST Name 'aCaption'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_4AC6271401A3 aCaption
+
+: ME_4AC6271401F7
+ CONST Name 'aMaxCount'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4AC6271401F7 aMaxCount
+
+: ME_4AC6270C00E2
+ CONST UID '4AC6270C00E2'
+ CONST Name 'Make'
+ CONST Class class_Operation
+ : Stereotype st_factory::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4A93F1980324 // PrimProgressIndicator
+ ;
+ : Parameters
+   Seq: ( ME_4AC62714014D // aProgress
+ ME_4AC6271401A3 // aCaption
+ ME_4AC6271401F7 // aMaxCount
+ )
+ ; // Parameters
+
+ref; // ME_4AC6270C00E2 Make
+
+: ME_50F9879B01E1
+ CONST Name 'Message'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_476F78A602B2' '476F78840219.pas.ms.script' // TMessage
+ ;
+
+ref; // ME_50F9879B01E1 Message
+
+: ME_50F98780007B
+ CONST UID '50F98780007B'
+ CONST Name 'WMUserSetCurrent'
+ CONST Class class_Operation
+ : Stereotype st_message::Operation ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4A93F1980324 // PrimProgressIndicator
+ ;
+ : Parameters
+   Seq: ( ME_50F9879B01E1 // Message
+ )
+ ; // Parameters
+ CONST "Message ID" 'WM_USER_SET_CURRENT'
+
+ref; // ME_50F98780007B WMUserSetCurrent
+
+: ME_50F987AC0371
+ CONST Name 'Message'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_476F78A602B2' '476F78840219.pas.ms.script' // TMessage
+ ;
+
+ref; // ME_50F987AC0371 Message
+
+: ME_50F987AA03D9
+ CONST UID '50F987AA03D9'
+ CONST Name 'WMUserFinishProcess'
+ CONST Class class_Operation
+ : Stereotype st_message::Operation ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4A93F1980324 // PrimProgressIndicator
+ ;
+ : Parameters
+   Seq: ( ME_50F987AC0371 // Message
+ )
+ ; // Parameters
+ CONST "Message ID" 'WM_USER_FINISH_PROCESS'
+
+ref; // ME_50F987AA03D9 WMUserFinishProcess
+
+: ME_50F9850803DE
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A93F1980324 // PrimProgressIndicator
+ ;
+ : Target WL 'ME_4799ED060093' '4799EC9300AF.pas.ms.script' // l3Defaults
+ ;
+
+ref; // ME_50F9850803DE 
+
+: ME_50F9850B0087
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A93F1980324 // PrimProgressIndicator
+ ;
+ : Target WL 'ME_4A8ADF9E0058' '47D0E1500033.pas.ms.script' // vcmFmt
+ ;
+
+ref; // ME_50F9850B0087 
+
+: ME_50F9850D0082
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A93F1980324 // PrimProgressIndicator
+ ;
+ : Target WL 'ME_47F260EC02C7' '521C9DA50125.pas.ms.script' // StdRes
+ ;
+
+ref; // ME_50F9850D0082 
+
+: ME_50F9850F002E
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A93F1980324 // PrimProgressIndicator
+ ;
+ : Target WL 'ME_4D99E1E7012A' '4B8E675402AB.pas.ms.script' // vtGetDlgBtnCaption
+ ;
+
+ref; // ME_50F9850F002E 
+
+: ME_50F9851203A9
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A93F1980324 // PrimProgressIndicator
+ ;
+ : Target WL 'ME_4F916D9B0033' '54B90AC6014B.pas.ms.script' // l3WideString
+ ;
+
+ref; // ME_50F9851203A9 
+
+: ME_50F985140221
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A93F1980324 // PrimProgressIndicator
+ ;
+ : Target WL 'ME_47E0C36201C7' '537B83AD01F0.pas.ms.script' // l3Math
+ ;
+
+ref; // ME_50F985140221 
+
+: ME_50F9851C01FA
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A93F1980324 // PrimProgressIndicator
+ ;
+ : Target WL 'ME_47E11FC3021E' '4799D29F033F.pas.ms.script' // Controls
+ ;
+
+ref; // ME_50F9851C01FA 
+
+: ME_50F9851E00E0
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A93F1980324 // PrimProgressIndicator
+ ;
+ : Target WL 'ME_482B17100178' '4799D29F033F.pas.ms.script' // TBorderStyle
+ ;
+
+ref; // ME_50F9851E00E0 
+
+: ME_50F9852003D8
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A93F1980324 // PrimProgressIndicator
+ ;
+ : Target WL 'ME_49930A3703D8' '4799D29F033F.pas.ms.script' // TMsgDlgButtons
+ ;
+
+ref; // ME_50F9852003D8 
+
+: ME_50F985220320
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A93F1980324 // PrimProgressIndicator
+ ;
+ : Target WL 'ME_50F928A102E2' '55C4AEC801CA.pas.ms.script' // ColorToRGB
+ ;
+
+ref; // ME_50F985220320 
+
+: ME_50F98524015D
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A93F1980324 // PrimProgressIndicator
+ ;
+ : Target WL 'ME_4D494D090395' '4B8E675402AB.pas.ms.script' // vtVGSceneRes
+ ;
+
+ref; // ME_50F98524015D 
+
+: ME_479731C50290_ME_4A93F1980324
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_479731C50290_ME_4A93F1980324 Cleanup
+
+: ME_4A8AE0FA03B2_ME_4A93F1980324
+ : Original WL 'ME_4A8AE0FA03B2' '4AADF9450143.pas.ms.script' // BecomeActive
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4A8AE0FA03B2_ME_4A93F1980324 BecomeActive
+
+: ME_4A8E8F2E0195_ME_4A93F1980324
+ : Original WL 'ME_4A8E8F2E0195' '5000041101C8.pas.ms.script' // InitControls
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4A8E8F2E0195_ME_4A93F1980324 InitControls
+
+: ME_4A93F1980324
+ CONST UID '4A93F1980324'
+ CONST Name 'PrimProgressIndicator'
+ CONST Class class_Class
+ : Stereotype st_VCMForm ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Индикатор прогресса' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_497ED74F0032' '497ED74F0032.pas.ms.script' // Common
+ ;
+ : Inherits
+   Seq: ( WL 'ME_49525B34022A' '4AADF9450143.pas.ms.script' // TvcmEntityForm
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( HWL ME_4AC627D2039B // ProgressBar
+ HWL ME_4AC62689022F // f_Owner
+ HWL ME_4AC626C902A9 // f_Caption
+ HWL ME_4AC626E60338 // f_SearchStarted
+ HWL ME_50F82ACB0256 // f_SearchFinished
+ HWL ME_50F82ADF010F // f_SearchFinishing
+ HWL ME_50F83173019D // f_CancelButton
+ HWL ME_50F927B30145 // f_Scene
+ HWL ME_50F927BC0149 // f_Background
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( HWL ME_50F98967031E // VcmEntityFormRefCloseQuery
+ HWL ME_4AC6270C00E2 // Make
+ HWL ME_50F98780007B // WMUserSetCurrent
+ HWL ME_50F987AA03D9 // WMUserFinishProcess
+ )
+ ; // Operations
+ : Overridden
+   Seq: ( ME_479731C50290_ME_4A93F1980324 // Cleanup
+ ME_4A8AE0FA03B2_ME_4A93F1980324 // BecomeActive
+ ME_4A8E8F2E0195_ME_4A93F1980324 // InitControls
+ )
+ ; // Overridden
+ : Children
+   Seq: ( HWL ME_50F667D30021 // utProgressIndicator
+ )
+ ; // Children
+ : Constants
+   Seq: ( HWL ME_50F988320278 // ProgressIndicatorConstants
+ HWL ME_50F97F89002A // ProgressIndicatorLocalConst
+ )
+ ; // Constants
+ : Dependencies
+   Seq: ( ME_50F9850803DE // l3Defaults
+ ME_50F9850B0087 // vcmFmt
+ ME_50F9850D0082 // StdRes
+ ME_50F9850F002E // vtGetDlgBtnCaption
+ ME_50F9851203A9 // l3WideString
+ ME_50F985140221 // l3Math
+ ME_50F9851C01FA // Controls
+ ME_50F9851E00E0 // TBorderStyle
+ ME_50F9852003D8 // TMsgDlgButtons
+ ME_50F985220320 // ColorToRGB
+ ME_50F98524015D // vtVGSceneRes
+ )
+ ; // Dependencies
+ CONST "NeedsHackRef" true
+ CONST "ZoneType" 'ManualModal'
+ CONST "author" 'Люлин А.В.'
+ CONST "finished dfm" true
+ CONST "no hands" true
+ CONST "resizeable" false
+ CONST "restrict form def" 'undefined'
+ CONST "started" '25.08.2009 18:14'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\PrimProgressIndicator_Form.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms'
+ CONST extprop:pas:TypeName 'TPrimProgressIndicatorForm'
+ CONST extprop:rc:SelfName 'PrimProgressIndicatorForm'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'PrimProgressIndicator_Form'
+
+ref; // ME_4A93F1980324 PrimProgressIndicator

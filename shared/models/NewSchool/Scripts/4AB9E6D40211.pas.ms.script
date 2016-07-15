@@ -1,0 +1,59 @@
+// MedicListSynchroView 4AB9E6D40211 VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AB9E6D40211
+
+: ME_420C4953C331
+ CONST UID '420C4953C331'
+ CONST Name 'Ini_FormFactory_MedicListSynchroView'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы MedicListSynchroView' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AB9E6D40211 // MedicListSynchroView
+ ;
+ : SpelledFor HWL ME_4AB9E6D40211 // MedicListSynchroView
+ ;
+
+ref; // ME_420C4953C331 Ini_FormFactory_MedicListSynchroView
+
+: ME_4AB9E6D40211
+ CONST UID '4AB9E6D40211'
+ CONST Name 'MedicListSynchroView'
+ CONST Class class_Class
+ : Stereotype st_VCMFinalForm ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Синхронный просмотр' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent WL 'ME_4AA0D66F0159' '4AA0D66F0159.pas.ms.script' // Inpharm
+ ;
+ : Inherits
+   Seq: ( WL 'ME_497EE1F10134' '497EE1F10134.pas.ms.script' // PrimMedicListSynchroView
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4FFAF05A024E' '4BD856E802F9.pas.ms.script' // MedicListSynchroView
+ )
+ ; // Implements
+ : Operations
+   Seq: ( HWL ME_420C4953C331 // Ini_FormFactory_MedicListSynchroView
+ )
+ ; // Operations
+ CONST "NeedsHackRef" true
+ CONST "ZoneType" 'Any'
+ CONST "finished dfm" true
+ CONST "form name prefix" 'en_'
+ CONST "resizeable" false
+ CONST "restrict form def" 'undefined'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Inpharm\Forms\MedicListSynchroView_Form.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Inpharm\Forms'
+ CONST extprop:pas:TypeName 'Ten_MedicListSynchroView'
+ CONST extprop:rc:SelfName 'en_MedicListSynchroView'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'MedicListSynchroView_Form'
+
+ref; // ME_4AB9E6D40211 MedicListSynchroView

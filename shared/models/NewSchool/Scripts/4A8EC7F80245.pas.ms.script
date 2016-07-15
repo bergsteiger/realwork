@@ -1,0 +1,46 @@
+// Common$FP 4A8EC7F80245 VCMFormsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A8EC7F80245
+
+: ME_54FECF61028A
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A8EC7F80245 // Common$FP
+ ;
+ : Target WL 'ME_54FECC970155' '47EA50050263.pas.ms.script' // TnsDataExchangeRealization
+ ;
+
+ref; // ME_54FECF61028A 
+
+: ME_4A8EC7F80245
+ CONST UID '4A8EC7F80245'
+ CONST Name 'Common'
+ CONST Class class_Class
+ : Stereotype st_VCMFormsPack ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Окна' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent WL 'ME_4A92C561015D' '4A92C561015D.pas.ms.script' // Common
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4A92C1380380' '4A92C1380380.pas.ms.script' // PrimF1Common
+ )
+ ; // Inherits
+ : Dependencies
+   Seq: ( ME_54FECF61028A // TnsDataExchangeRealization
+ )
+ ; // Dependencies
+ CONST "author" 'Тучнин Д.А.'
+ CONST "no hands" true
+ CONST "started" '2003/05/23 14:19:16'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\moCommon.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST extprop:pas:TypeName 'Tmo_Common'
+ CONST extprop:rc:SelfName 'mo_Common'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'moCommon'
+
+ref; // ME_4A8EC7F80245 Common$FP

@@ -1,0 +1,34 @@
+// List$UC 4A9BF3F302BF VCMUseCaseRealization Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+: ME_4A9BF3F302BF
+ CONST UID '4A9BF3F302BF'
+ CONST Name 'List'
+ CONST Class class_Class
+ : Stereotype st_VCMUseCaseRealization ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Список' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent WL 'ME_4A9BEF6C0297' '4A9BEF6C0297.pas.ms.script' // WorkWithList
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4A9BF42601A9' '4A9BF42601A9.pas.ms.script' // List$FP
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_484CE5E503D4' '484CE48E02E6.pas.ms.script' // Просмотр списка
+ )
+ ; // Implements
+ CONST "author" 'Люлин А.В.'
+ CONST "no hands" true
+ CONST "started" '07.09.2009 15:45'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\moList.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST extprop:pas:TypeName 'Tmo_List'
+ CONST extprop:rc:SelfName 'mo_List'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'moList'
+
+ref; // ME_4A9BF3F302BF List$UC

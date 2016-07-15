@@ -15,7 +15,7 @@ FORWARD ME_47D15712022D
  %SUMMARY 'TGraphic is the abstract base class type for objects such as icons, bitmaps, and metafiles that can store and display visual images.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47D15712022D // Graphics
+ : Parent HWL ME_47D15712022D // Graphics
  ;
  : Inherits
    Seq: ( WL 'ME_47E1214E00F2' '4AB0997B00A2.pas.ms.script' // TInterfacedPersistent
@@ -34,7 +34,7 @@ ref; // ME_47E12114038D TGraphic
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47D15712022D // Graphics
+ : Parent HWL ME_47D15712022D // Graphics
  ;
  CONST extprop:rc:SelfName 'MetafileCanvas'
  CONST extprop:rc:isAcceptableForScripts true
@@ -50,7 +50,7 @@ ref; // ME_47E0CB3C022E TMetafileCanvas
  %SUMMARY 'TGraphicsObject is the abstract base class for objects which encapsulate a system graphics object: TBrush, TFont, and TPen.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47D15712022D // Graphics
+ : Parent HWL ME_47D15712022D // Graphics
  ;
  : Inherits
    Seq: ( WL 'ME_478CF32A03B6' '4AB0997B00A2.pas.ms.script' // TPersistent
@@ -70,10 +70,10 @@ ref; // ME_47E120B90203 TGraphicsObject
  %SUMMARY 'TFont encapsulates a system font.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47D15712022D // Graphics
+ : Parent HWL ME_47D15712022D // Graphics
  ;
  : Inherits
-   Seq: ( ME_47E120B90203 // TGraphicsObject
+   Seq: ( HWL ME_47E120B90203 // TGraphicsObject
  )
  ; // Inherits
  CONST extprop:rc:SelfName 'Font'
@@ -89,10 +89,10 @@ ref; // ME_47E120930217 TFont
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47D15712022D // Graphics
+ : Parent HWL ME_47D15712022D // Graphics
  ;
  : Inherits
-   Seq: ( ME_47E12114038D // TGraphic
+   Seq: ( HWL ME_47E12114038D // TGraphic
  )
  ; // Inherits
  CONST extprop:rc:SelfName 'Bitmap'
@@ -109,10 +109,10 @@ ref; // ME_47D15723038A TBitmap
  %SUMMARY 'TMetafile is an encapsulation of the Win32 Enhanced metafile.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47D15712022D // Graphics
+ : Parent HWL ME_47D15712022D // Graphics
  ;
  : Inherits
-   Seq: ( ME_47E12114038D // TGraphic
+   Seq: ( HWL ME_47E12114038D // TGraphic
  )
  ; // Inherits
  CONST extprop:rc:SelfName 'Metafile'
@@ -128,7 +128,7 @@ ref; // ME_47E121B5039E TMetafile
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47D15712022D // Graphics
+ : Parent HWL ME_47D15712022D // Graphics
  ;
  CONST "spell names" false
 
@@ -144,7 +144,7 @@ FORWARD ME_4683FD5B018D
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4683FD5B018D // TFontPitch
+ : Parent HWL ME_4683FD5B018D // TFontPitch
  ;
 
 ref; // ME_4684FA4B00C7 fpDefault
@@ -157,7 +157,7 @@ ref; // ME_4684FA4B00C7 fpDefault
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4683FD5B018D // TFontPitch
+ : Parent HWL ME_4683FD5B018D // TFontPitch
  ;
 
 ref; // ME_4684FA61005B fpVariable
@@ -170,7 +170,7 @@ ref; // ME_4684FA61005B fpVariable
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4683FD5B018D // TFontPitch
+ : Parent HWL ME_4683FD5B018D // TFontPitch
  ;
 
 ref; // ME_4684FA77037E fpFixed
@@ -184,12 +184,12 @@ ref; // ME_4684FA77037E fpFixed
  %SUMMARY 'Тип шрифта' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47D15712022D // Graphics
+ : Parent HWL ME_47D15712022D // Graphics
  ;
  : Attributes
-   Seq: ( ME_4684FA4B00C7 // fpDefault
- ME_4684FA61005B // fpVariable
- ME_4684FA77037E // fpFixed
+   Seq: ( HWL ME_4684FA4B00C7 // fpDefault
+ HWL ME_4684FA61005B // fpVariable
+ HWL ME_4684FA77037E // fpFixed
  )
  ; // Attributes
  CONST extprop:rc:isAcceptableForScripts true
@@ -205,7 +205,7 @@ ref; // ME_4683FD5B018D TFontPitch
  %SUMMARY 'Цвет.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47D15712022D // Graphics
+ : Parent HWL ME_47D15712022D // Graphics
  ;
  : Inherits
    Seq: ( WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
@@ -224,7 +224,7 @@ ref; // ME_46A44A2F01C7 TColor
  %SUMMARY 'Гарнитура шрифта.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47D15712022D // Graphics
+ : Parent HWL ME_47D15712022D // Graphics
  ;
  : Inherits
    Seq: ( WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
@@ -245,7 +245,7 @@ FORWARD ME_46A611BA02F3
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_46A611BA02F3 // TFontStyle
+ : Parent HWL ME_46A611BA02F3 // TFontStyle
  ;
 
 ref; // ME_46A611D20211 fsBold
@@ -258,7 +258,7 @@ ref; // ME_46A611D20211 fsBold
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_46A611BA02F3 // TFontStyle
+ : Parent HWL ME_46A611BA02F3 // TFontStyle
  ;
 
 ref; // ME_46A611E500A6 fsItalic
@@ -271,7 +271,7 @@ ref; // ME_46A611E500A6 fsItalic
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_46A611BA02F3 // TFontStyle
+ : Parent HWL ME_46A611BA02F3 // TFontStyle
  ;
 
 ref; // ME_46A611F601C2 fsUnderline
@@ -284,7 +284,7 @@ ref; // ME_46A611F601C2 fsUnderline
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_46A611BA02F3 // TFontStyle
+ : Parent HWL ME_46A611BA02F3 // TFontStyle
  ;
 
 ref; // ME_46A61206023E fsStrikeOut
@@ -297,13 +297,13 @@ ref; // ME_46A61206023E fsStrikeOut
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47D15712022D // Graphics
+ : Parent HWL ME_47D15712022D // Graphics
  ;
  : Attributes
-   Seq: ( ME_46A611D20211 // fsBold
- ME_46A611E500A6 // fsItalic
- ME_46A611F601C2 // fsUnderline
- ME_46A61206023E // fsStrikeOut
+   Seq: ( HWL ME_46A611D20211 // fsBold
+ HWL ME_46A611E500A6 // fsItalic
+ HWL ME_46A611F601C2 // fsUnderline
+ HWL ME_46A61206023E // fsStrikeOut
  )
  ; // Attributes
  CONST extprop:rc:isAcceptableForScripts true
@@ -319,10 +319,10 @@ ref; // ME_46A611BA02F3 TFontStyle
  %SUMMARY 'TFontStyles is a set of TFontStyle values.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47D15712022D // Graphics
+ : Parent HWL ME_47D15712022D // Graphics
  ;
  : Inherits
-   Seq: ( ME_46A611BA02F3 // TFontStyle
+   Seq: ( HWL ME_46A611BA02F3 // TFontStyle
  )
  ; // Inherits
 
@@ -337,7 +337,7 @@ ref; // ME_46A61216025F TFontStyles
  %SUMMARY 'TGraphicsObject is the abstract base class for objects which encapsulate a system graphics object: TBrush, TFont, and TPen.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47D15712022D // Graphics
+ : Parent HWL ME_47D15712022D // Graphics
  ;
  : Inherits
    Seq: ( WL 'ME_476F72030260' '4AB0997B00A2.pas.ms.script' // TPersistent$Stub
@@ -357,7 +357,7 @@ FORWARD ME_47CBD5980343
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_47CBD5980343 // Colors
+ : Parent HWL ME_47CBD5980343 // Colors
  ;
  CONST Value 'TColor($20000000)'
  CONST "AutoInc" false
@@ -374,7 +374,7 @@ ref; // ME_47CBD5B0010A clDefault
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_47CBD5980343 // Colors
+ : Parent HWL ME_47CBD5980343 // Colors
  ;
  CONST Value 'TColor($00FFFF)'
  CONST "AutoInc" false
@@ -391,7 +391,7 @@ ref; // ME_487DC8560219 clYellow
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_47CBD5980343 // Colors
+ : Parent HWL ME_47CBD5980343 // Colors
  ;
  CONST Value 'TColor($FFFF00)'
  CONST "AutoInc" false
@@ -408,7 +408,7 @@ ref; // ME_4A6988F200D9 clAqua
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_47CBD5980343 // Colors
+ : Parent HWL ME_47CBD5980343 // Colors
  ;
  CONST Value 'TColor($0000FF)'
  CONST "AutoInc" false
@@ -425,7 +425,7 @@ ref; // ME_4AB0F52B0282 clRed
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_47CBD5980343 // Colors
+ : Parent HWL ME_47CBD5980343 // Colors
  ;
  CONST "AutoInc" false
  CONST "forced type" 'none'
@@ -440,7 +440,7 @@ ref; // ME_4EC294EC020A clSilver
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_47CBD5980343 // Colors
+ : Parent HWL ME_47CBD5980343 // Colors
  ;
  CONST "AutoInc" false
  CONST "forced type" 'none'
@@ -455,7 +455,7 @@ ref; // ME_53FF1DA000BD clWindowText
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_47CBD5980343 // Colors
+ : Parent HWL ME_47CBD5980343 // Colors
  ;
  CONST "AutoInc" false
  CONST "forced type" 'none'
@@ -470,7 +470,7 @@ ref; // ME_53FF1E9D0329 clGrayText
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_47CBD5980343 // Colors
+ : Parent HWL ME_47CBD5980343 // Colors
  ;
  CONST "AutoInc" false
  CONST "forced type" 'none'
@@ -486,17 +486,17 @@ ref; // ME_53FF1F7802D2 clBlue
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47D15712022D // Graphics
+ : Parent HWL ME_47D15712022D // Graphics
  ;
  : Attributes
-   Seq: ( ME_47CBD5B0010A // clDefault
- ME_487DC8560219 // clYellow
- ME_4A6988F200D9 // clAqua
- ME_4AB0F52B0282 // clRed
- ME_4EC294EC020A // clSilver
- ME_53FF1DA000BD // clWindowText
- ME_53FF1E9D0329 // clGrayText
- ME_53FF1F7802D2 // clBlue
+   Seq: ( HWL ME_47CBD5B0010A // clDefault
+ HWL ME_487DC8560219 // clYellow
+ HWL ME_4A6988F200D9 // clAqua
+ HWL ME_4AB0F52B0282 // clRed
+ HWL ME_4EC294EC020A // clSilver
+ HWL ME_53FF1DA000BD // clWindowText
+ HWL ME_53FF1E9D0329 // clGrayText
+ HWL ME_53FF1F7802D2 // clBlue
  )
  ; // Attributes
  CONST "spell names" false
@@ -512,10 +512,10 @@ ref; // ME_47CBD5980343 Colors
  %SUMMARY 'Шрифт.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47D15712022D // Graphics
+ : Parent HWL ME_47D15712022D // Graphics
  ;
  : Inherits
-   Seq: ( ME_47880F360291 // TGraphicsObject$Stub
+   Seq: ( HWL ME_47880F360291 // TGraphicsObject$Stub
  )
  ; // Inherits
  CONST extprop:rc:SelfName 'Font'
@@ -532,7 +532,7 @@ ref; // ME_46A614C90258 TFont$Stub
  %SUMMARY 'Канва для вывода.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47D15712022D // Graphics
+ : Parent HWL ME_47D15712022D // Graphics
  ;
  : Inherits
    Seq: ( WL 'ME_476F72030260' '4AB0997B00A2.pas.ms.script' // TPersistent$Stub
@@ -552,7 +552,7 @@ ref; // ME_46A4659D003A TCanvas$Stub
  %SUMMARY 'TGraphic is the abstract base class type for objects such as icons, bitmaps, and metafiles that can store and display visual images.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47D15712022D // Graphics
+ : Parent HWL ME_47D15712022D // Graphics
  ;
  : Inherits
    Seq: ( WL 'ME_47880FB90325' '4AB0997B00A2.pas.ms.script' // TInterfacedPersistent$Stub
@@ -572,10 +572,10 @@ ref; // ME_4728B75003B7 TGraphic$Stub
  %SUMMARY 'Картинка. TBitmap is an encapsulation of a Windows bitmap (HBITMAP), including its palette (HPALETTE).' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47D15712022D // Graphics
+ : Parent HWL ME_47D15712022D // Graphics
  ;
  : Inherits
-   Seq: ( ME_4728B75003B7 // TGraphic$Stub
+   Seq: ( HWL ME_4728B75003B7 // TGraphic$Stub
  )
  ; // Inherits
  CONST extprop:rc:SelfName 'Bitmap'
@@ -591,7 +591,7 @@ ref; // ME_473C530803BE TBitmap$Stub
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47D15712022D // Graphics
+ : Parent HWL ME_47D15712022D // Graphics
  ;
  CONST "finished" false
  CONST extprop:rc:SelfName 'MetafileImage'
@@ -607,7 +607,7 @@ ref; // ME_4BE3C76100D2 TMetafileImage
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47D15712022D // Graphics
+ : Parent HWL ME_47D15712022D // Graphics
  ;
  CONST extprop:rc:SelfName 'SharedImage'
  CONST extprop:rc:isAcceptableForScripts true
@@ -622,7 +622,7 @@ ref; // ME_4BE3CA8703CF TSharedImage
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47D15712022D // Graphics
+ : Parent HWL ME_47D15712022D // Graphics
  ;
  CONST "finished" false
  CONST extprop:rc:SelfName 'Picture'
@@ -638,7 +638,7 @@ ref; // ME_4F86C9E50302 TPicture
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47D15712022D // Graphics
+ : Parent HWL ME_47D15712022D // Graphics
  ;
  CONST extprop:rc:SelfName 'Canvas'
  CONST extprop:rc:isAcceptableForScripts true
@@ -653,7 +653,7 @@ ref; // ME_515581580039 TCanvas
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47D15712022D // Graphics
+ : Parent HWL ME_47D15712022D // Graphics
  ;
 
 ref; // ME_54B780970326 TMetafileHeader
@@ -666,7 +666,7 @@ ref; // ME_54B780970326 TMetafileHeader
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47D15712022D // Graphics
+ : Parent HWL ME_47D15712022D // Graphics
  ;
  : Inherits
    Seq: ( WL 'ME_46A465F9028C' '4AB0C3F60375.pas.ms.script' // THandle
@@ -684,7 +684,7 @@ ref; // ME_54BE0AF000A6 HENHMETAFILE
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_47D15712022D // Graphics
+ : Parent HWL ME_47D15712022D // Graphics
  ;
  CONST extprop:rc:SelfName 'Brush'
  CONST extprop:rc:isAcceptableForScripts true
@@ -699,7 +699,7 @@ ref; // ME_56AD0AC101CC TBrush
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_47D15712022D // Graphics
+ : Parent HWL ME_47D15712022D // Graphics
  ;
  CONST extprop:rc:SelfName 'Pen'
  CONST extprop:rc:isAcceptableForScripts true
@@ -714,7 +714,7 @@ ref; // ME_56B09CC90000 TPen
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_47D15712022D // Graphics
+ : Parent HWL ME_47D15712022D // Graphics
  ;
 
 ref; // ME_50F928A102E2 ColorToRGB
@@ -727,42 +727,42 @@ ref; // ME_50F928A102E2 ColorToRGB
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_55C4AEC801CA // Graphics
+ : Parent HWL ME_55C4AEC801CA // Graphics
  ;
  : Operations
-   Seq: ( ME_50F928A102E2 // ColorToRGB
+   Seq: ( HWL ME_50F928A102E2 // ColorToRGB
  )
  ; // Operations
  : Children
-   Seq: ( ME_47E12114038D // TGraphic
- ME_47E0CB3C022E // TMetafileCanvas
- ME_47E120B90203 // TGraphicsObject
- ME_47E120930217 // TFont
- ME_47D15723038A // TBitmap
- ME_47E121B5039E // TMetafile
- ME_4683FD5B018D // TFontPitch
- ME_46A44A2F01C7 // TColor
- ME_46A60DAA01D5 // TFontName
- ME_46A611BA02F3 // TFontStyle
- ME_46A61216025F // TFontStyles
- ME_47880F360291 // TGraphicsObject$Stub
- ME_46A614C90258 // TFont$Stub
- ME_46A4659D003A // TCanvas$Stub
- ME_4728B75003B7 // TGraphic$Stub
- ME_473C530803BE // TBitmap$Stub
- ME_4BE3C76100D2 // TMetafileImage
- ME_4BE3CA8703CF // TSharedImage
- ME_4F86C9E50302 // TPicture
- ME_515581580039 // TCanvas
- ME_54B780970326 // TMetafileHeader
- ME_54BE0AF000A6 // HENHMETAFILE
- ME_56AD0AC101CC // TBrush
- ME_56B09CC90000 // TPen
+   Seq: ( HWL ME_47E12114038D // TGraphic
+ HWL ME_47E0CB3C022E // TMetafileCanvas
+ HWL ME_47E120B90203 // TGraphicsObject
+ HWL ME_47E120930217 // TFont
+ HWL ME_47D15723038A // TBitmap
+ HWL ME_47E121B5039E // TMetafile
+ HWL ME_4683FD5B018D // TFontPitch
+ HWL ME_46A44A2F01C7 // TColor
+ HWL ME_46A60DAA01D5 // TFontName
+ HWL ME_46A611BA02F3 // TFontStyle
+ HWL ME_46A61216025F // TFontStyles
+ HWL ME_47880F360291 // TGraphicsObject$Stub
+ HWL ME_46A614C90258 // TFont$Stub
+ HWL ME_46A4659D003A // TCanvas$Stub
+ HWL ME_4728B75003B7 // TGraphic$Stub
+ HWL ME_473C530803BE // TBitmap$Stub
+ HWL ME_4BE3C76100D2 // TMetafileImage
+ HWL ME_4BE3CA8703CF // TSharedImage
+ HWL ME_4F86C9E50302 // TPicture
+ HWL ME_515581580039 // TCanvas
+ HWL ME_54B780970326 // TMetafileHeader
+ HWL ME_54BE0AF000A6 // HENHMETAFILE
+ HWL ME_56AD0AC101CC // TBrush
+ HWL ME_56B09CC90000 // TPen
  )
  ; // Children
  : Constants
-   Seq: ( ME_4804ABA703CA // Colors$1
- ME_47CBD5980343 // Colors
+   Seq: ( HWL ME_4804ABA703CA // Colors$1
+ HWL ME_47CBD5980343 // Colors
  )
  ; // Constants
  CONST "finished" false
@@ -780,7 +780,7 @@ ref; // ME_47D15712022D Graphics
  : Parent WL 'ME_4684F91300DD' '4684F91300DD.pas.ms.script' // Vcl
  ;
  : Children
-   Seq: ( ME_47D15712022D // Graphics
+   Seq: ( HWL ME_47D15712022D // Graphics
  )
  ; // Children
 

@@ -1,0 +1,60 @@
+// QueryCard 4AA9393C0164 VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AA9393C0164
+
+: ME_2BDD2E5A8C6B
+ CONST UID '2BDD2E5A8C6B'
+ CONST Name 'Ini_FormFactory_QueryCard'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы QueryCard' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AA9393C0164 // QueryCard
+ ;
+ : SpelledFor HWL ME_4AA9393C0164 // QueryCard
+ ;
+
+ref; // ME_2BDD2E5A8C6B Ini_FormFactory_QueryCard
+
+: ME_4AA9393C0164
+ CONST UID '4AA9393C0164'
+ CONST Name 'QueryCard'
+ CONST Class class_Class
+ : Stereotype st_VCMFinalForm ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Карточка запросов' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent WL 'ME_4AA931390118' '4AA931390118.pas.ms.script' // CommonSearch
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4C87C62302CF' '4C87C62302CF.pas.ms.script' // PrimQueryCardOptions
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4BD97FFF0005' '4BD97FDB031A.pas.ms.script' // QueryCard
+ WL 'ME_4E9860E7038E' '484407720166.pas.ms.script' // Ссылка на справку Правового календаря должна вести в page-man-search-req-fields.htm law_calendar
+ )
+ ; // Implements
+ : Operations
+   Seq: ( HWL ME_2BDD2E5A8C6B // Ini_FormFactory_QueryCard
+ )
+ ; // Operations
+ CONST "NeedsHackRef" true
+ CONST "ZoneType" 'Parent'
+ CONST "finished dfm" true
+ CONST "form name prefix" 'en'
+ CONST "resizeable" false
+ CONST "restrict form def" 'undefined'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\QueryCard_Form.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms'
+ CONST extprop:pas:TypeName 'TenQueryCard'
+ CONST extprop:rc:SelfName 'enQueryCard'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'QueryCard_Form'
+
+ref; // ME_4AA9393C0164 QueryCard

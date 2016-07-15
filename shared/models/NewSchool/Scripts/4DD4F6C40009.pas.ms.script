@@ -6,6 +6,24 @@ FORWARD ME_4DD4F6C40009
 
 FORWARD ME_4DD4F6EA03D9
 
+FORWARD ME_4DD4F6FB0012
+
+: ME_5776502302CC
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4DD4F6FB0012 // TevOperationDispatcher
+ ;
+ : Target WL 'ME_57762BA20039' '57762B5A0168.pas.ms.script' // Tl3ClipSpyService
+ ;
+
+ref; // ME_5776502302CC 
+
+: ME_57762C1A029F_ME_4DD4F6FB0012
+ : Original WL 'ME_57762C1A029F' '57762BD601E1.pas.ms.script' // Change
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_57762C1A029F_ME_4DD4F6FB0012 Change
+
 : ME_4DD4F6FB0012
  CONST UID '4DD4F6FB0012'
  CONST Name 'TevOperationDispatcher'
@@ -14,8 +32,20 @@ FORWARD ME_4DD4F6EA03D9
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4DD4F6EA03D9 // evDisp
+ : Parent HWL ME_4DD4F6EA03D9 // evDisp
  ;
+ : Implements
+   Seq: ( WL 'ME_57762C030193' '57762BD601E1.pas.ms.script' // Il3ClipListner
+ )
+ ; // Implements
+ : Implemented
+   Seq: ( ME_57762C1A029F_ME_4DD4F6FB0012 // Change
+ )
+ ; // Implemented
+ : Dependencies
+   Seq: ( ME_5776502302CC // Tl3ClipSpyService
+ )
+ ; // Dependencies
  CONST extprop:rc:SelfName 'OperationDispatcher'
  CONST extprop:rc:isAcceptableForScripts true
 
@@ -26,9 +56,9 @@ FORWARD ME_4DD4F7060070
 : ME_4DD4F71E0262
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4DD4F6EA03D9 // evDisp
+ : Parent HWL ME_4DD4F6EA03D9 // evDisp
  ;
- : Target ME_4DD4F7060070 // TevOperationDispatcherEx
+ : Target HWL ME_4DD4F7060070 // TevOperationDispatcherEx
  ;
 
 ref; // ME_4DD4F71E0262 
@@ -41,10 +71,10 @@ ref; // ME_4DD4F71E0262
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4DD4F6C40009 // Dispatcher
+ : Parent HWL ME_4DD4F6C40009 // Dispatcher
  ;
  : Children
-   Seq: ( ME_4DD4F6FB0012 // TevOperationDispatcher
+   Seq: ( HWL ME_4DD4F6FB0012 // TevOperationDispatcher
  )
  ; // Children
  : Dependencies
@@ -65,10 +95,10 @@ ref; // ME_4DD4F6EA03D9 evDisp
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4DD4F6C40009 // Dispatcher
+ : Parent HWL ME_4DD4F6C40009 // Dispatcher
  ;
  : Inherits
-   Seq: ( ME_4DD4F6FB0012 // TevOperationDispatcher
+   Seq: ( HWL ME_4DD4F6FB0012 // TevOperationDispatcher
  )
  ; // Inherits
  CONST "author" 'Ëþëèí À.Â.'
@@ -92,9 +122,14 @@ ref; // ME_4DD4F7060070 TevOperationDispatcherEx
  : Parent WL 'ME_4797632D0273' '4797632D0273.pas.ms.script' // Everest
  ;
  : Children
-   Seq: ( ME_4DD4F6EA03D9 // evDisp
- ME_4DD4F7060070 // TevOperationDispatcherEx
+   Seq: ( HWL ME_4DD4F6EA03D9 // evDisp
+ HWL ME_4DD4F7060070 // TevOperationDispatcherEx
  )
  ; // Children
+ : Depends
+   Seq: ( WL 'ME_57762B5A0168' '57762B5A0168.pas.ms.script' // vtServices
+ WL 'ME_57762BD601E1' '57762BD601E1.pas.ms.script' // l3ClipboardSpy
+ )
+ ; // Depends
 
 ref; // ME_4DD4F6C40009 Dispatcher

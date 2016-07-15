@@ -2,36 +2,6 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-FORWARD ME_4FF2E55B02CF
-
-: ME_4FF2E5990355
- CONST UID '4FF2E5990355'
- CONST Name 'AAC'
- CONST Class class_Class
- : Stereotype st_VCMUseCaseRealization ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Актуальная аналитика' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4FF2E55B02CF // AAC
- ;
- : Inherits
-   Seq: ( WL 'ME_4FF2E5C70060' '4FF2E5B80387.pas.ms.script' // AACPrim
- )
- ; // Inherits
- : Implements
-   Seq: ( WL 'ME_4FBB5FF302D2' '484FA67302D7.pas.ms.script' // Актуальная аналитика
- )
- ; // Implements
- CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\moAAC.pas'
- CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
- CONST extprop:pas:TypeName 'Tmo_AAC'
- CONST extprop:rc:SelfName 'mo_AAC'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'moAAC'
-
-ref; // ME_4FF2E5990355 AAC
-
 : ME_4FF2E55B02CF
  CONST UID '4FF2E55B02CF'
  CONST Name 'AAC'
@@ -43,7 +13,7 @@ ref; // ME_4FF2E5990355 AAC
  : Parent WL 'ME_4C852A4201E6' '4C852A4201E6.pas.ms.script' // F1 Пользовательские сервисы
  ;
  : Children
-   Seq: ( ME_4FF2E5990355 // AAC
+   Seq: ( WL 'ME_4FF2E5990355' '4FF2E5990355.pas.ms.script' // AAC
  WL 'ME_4FF2E61D00CA' '4FF2E61D00CA.pas.ms.script' // AAC$DataSources
  WL 'ME_4FF2E5AD017D' '4FF2E5AD017D.pas.ms.script' // View
  )

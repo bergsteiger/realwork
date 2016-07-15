@@ -2,44 +2,6 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-FORWARD ME_4AC5E84C02AA
-
-: ME_4AC60C4B00AA
- CONST UID '4AC60C4B00AA'
- CONST Name 'TnscPageControl'
- CONST Class class_Class
- : Stereotype st_GuiControl ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4AC5E84C02AA // PageControl
- ;
- CONST "finished" false
- CONST intf.pas:Path 'common\components\gui\Garant\Nemesis\NOT_FINISHED_nscPageControl.pas'
- CONST extprop:rc:SelfName 'PageControl'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'nscPageControl'
-
-ref; // ME_4AC60C4B00AA TnscPageControl
-
-: ME_4AF296620379
- CONST UID '4AF296620379'
- CONST Name 'TnscFormsPageControl'
- CONST Class class_Class
- : Stereotype st_GuiControl ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4AC5E84C02AA // PageControl
- ;
- CONST "finished" false
- CONST intf.pas:Path 'common\components\gui\Garant\Nemesis\NOT_FINISHED_nscFormsPageControl.pas'
- CONST extprop:rc:SelfName 'FormsPageControl'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'nscFormsPageControl'
-
-ref; // ME_4AF296620379 TnscFormsPageControl
-
 : ME_4AC5E84C02AA
  CONST UID '4AC5E84C02AA'
  CONST Name 'PageControl'
@@ -50,8 +12,8 @@ ref; // ME_4AF296620379 TnscFormsPageControl
  : Parent WL 'ME_490838AA02D0' '490838AA02D0.pas.ms.script' // Nemesis
  ;
  : Children
-   Seq: ( ME_4AC60C4B00AA // TnscPageControl
- ME_4AF296620379 // TnscFormsPageControl
+   Seq: ( WL 'ME_4AC60C4B00AA' '4AC60C4B00AA.pas.ms.script' // TnscPageControl
+ WL 'ME_4AF296620379' '4AF296620379.pas.ms.script' // TnscFormsPageControl
  )
  ; // Children
  CONST "UseNewGen" true

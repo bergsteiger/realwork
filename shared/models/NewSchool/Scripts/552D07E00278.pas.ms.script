@@ -14,7 +14,7 @@ FORWARD ME_552CF9C50052
  %SUMMARY 'Создаёт на стеке фильтр TddAutolinkFilter (в виде Ik2TagGenerator).' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_552CF9C50052 // AutolinkFilterWordsPack
+ : Parent HWL ME_552CF9C50052 // AutolinkFilterWordsPack
  ;
  : Target WL 'ME_4678160E01BE' '47913B47006E.pas.ms.script' // Ik2TagGenerator
  ;
@@ -30,7 +30,7 @@ ref; // ME_552BE03C03E2 filter_AutolinkFilter
  %SUMMARY 'Поскольку TddAutolinkFilter создаётся один на всё приложение, от него нужно отрезать Generator после использования. А иначе цепочка сохранится и будет мешать другим тестам.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_552CF9C50052 // AutolinkFilterWordsPack
+ : Parent HWL ME_552CF9C50052 // AutolinkFilterWordsPack
  ;
  CONST "ifdef" 'Archi'
 
@@ -39,7 +39,7 @@ ref; // ME_552BE009014C filter_CleanAutolinkFilter
 : ME_552CFA0300CA
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_552CF9C50052 // AutolinkFilterWordsPack
+ : Parent HWL ME_552CF9C50052 // AutolinkFilterWordsPack
  ;
  : Target WL 'ME_552BF69B039B' '552BF68E0188.pas.ms.script' // Tl3AutolinkService
  ;
@@ -49,7 +49,7 @@ ref; // ME_552CFA0300CA
 : ME_552CFA080079
  CONST Class class_Dependency
  : Stereotype st_injects::Dependency ;
- : Parent ME_552CF9C50052 // AutolinkFilterWordsPack
+ : Parent HWL ME_552CF9C50052 // AutolinkFilterWordsPack
  ;
  : Target WL 'ME_552BF69B039B' '552BF68E0188.pas.ms.script' // Tl3AutolinkService
  ;
@@ -64,11 +64,11 @@ ref; // ME_552CFA080079
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_552D07E00278 // Autolink
+ : Parent HWL ME_552D07E00278 // Autolink
  ;
  : Operations
-   Seq: ( ME_552BE03C03E2 // filter_AutolinkFilter
- ME_552BE009014C // filter_CleanAutolinkFilter
+   Seq: ( HWL ME_552BE03C03E2 // filter_AutolinkFilter
+ HWL ME_552BE009014C // filter_CleanAutolinkFilter
  )
  ; // Operations
  : Dependencies
@@ -92,7 +92,7 @@ ref; // ME_552CF9C50052 AutolinkFilterWordsPack
  : Parent WL 'ME_54EF440B0244' '54EF440B0244.pas.ms.script' // ScriptEngine$L3
  ;
  : Children
-   Seq: ( ME_552CF9C50052 // AutolinkFilterWordsPack
+   Seq: ( HWL ME_552CF9C50052 // AutolinkFilterWordsPack
  )
  ; // Children
  : Depends

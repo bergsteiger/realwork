@@ -1,0 +1,213 @@
+// TextLoad 4B30C7E800EE VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B30C7E800EE
+
+: ME_A419F118ED8E
+ CONST UID 'A419F118ED8E'
+ CONST Name 'ut_TextLoad'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_UserType ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Форма для загрузки документа' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4B30C7E800EE // TextLoad
+ ;
+ CONST "ImageIndex" '-1'
+ CONST "VisibleToUser" false
+ CONST "Weight" '-1'
+ CONST intf.pas:Path 'common\components\gui\Garant\Daily\Forms\TextLoad_ut_TextLoad_UserType.pas'
+ CONST extprop:pas:UnitName 'TextLoad_ut_TextLoad_UserType'
+
+ref; // ME_A419F118ED8E ut_TextLoad
+
+: ME_247EE1BD7B9F
+ CONST UID '247EE1BD7B9F'
+ CONST GUID '0D52D59A-6EBD-46A6-AA44-2467ABBFDC5C'
+ CONST Name 'TextLoad'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_VCMFormDefinition ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Идентификатор формы TextLoad' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4B30C7E800EE // TextLoad
+ ;
+ : Implementors
+   Seq: ( HWL ME_4B30C7E800EE // TextLoad
+ )
+ ; // Implementors
+ CONST extprop:pas:TypeName 'TextLoadFormDef'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_247EE1BD7B9F TextLoad$Def
+
+: ME_4B322A36019F
+ CONST UID '4B322A36019F'
+ CONST Name 'Text'
+ CONST Class class_Class
+ : Stereotype st_Control ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4B30C7E800EE // TextLoad
+ ;
+ : Inherits
+   Seq: ( WL 'ME_484544370206' '484544370206.pas.ms.script' // TevEditor
+ )
+ ; // Inherits
+ CONST "ControlClass" 'none'
+ CONST "needs field" true
+ CONST "pm" true
+ CONST "put to dfm" false
+
+ref; // ME_4B322A36019F Text
+
+: ME_4B322AC50048
+ CONST UID '4B322AC50048'
+ CONST Name 'TextSource'
+ CONST Class class_Class
+ : Stereotype st_Component ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4B30C7E800EE // TextLoad
+ ;
+ : Inherits
+   Seq: ( WL 'ME_482D98DE00A9' '482BFB50007B.pas.ms.script' // TevTextSource
+ )
+ ; // Inherits
+ CONST "ComponentClass" 'none'
+ CONST "need Caption" false
+ CONST "needs field" true
+ CONST "pm" true
+ CONST "put to dfm" false
+
+ref; // ME_4B322AC50048 TextSource
+
+: ME_92ED638D8A30
+ CONST UID '92ED638D8A30'
+ CONST Name 'Ini_FormFactory_TextLoad'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы TextLoad' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4B30C7E800EE // TextLoad
+ ;
+ : SpelledFor HWL ME_4B30C7E800EE // TextLoad
+ ;
+
+ref; // ME_92ED638D8A30 Ini_FormFactory_TextLoad$Def
+
+: ME_4B32392A023A
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4B30C7E800EE // TextLoad
+ ;
+ : Target WL 'ME_47E12539018D' '4799D29F033F.pas.ms.script' // TAlign
+ ;
+
+ref; // ME_4B32392A023A 
+
+: ME_4B323A55004A
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4B30C7E800EE // TextLoad
+ ;
+ : Target WL 'ME_476A77110209' '4799D29F033F.pas.ms.script' // TWindowState
+ ;
+
+ref; // ME_4B323A55004A 
+
+: ME_4B98F827038E
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4B30C7E800EE // TextLoad
+ ;
+ : Target WL 'ME_4B98D9FD038B' '47D0E1500033.pas.ms.script' // TvcmStringIDExHelper
+ ;
+ CONST "isHighPriority" true
+
+ref; // ME_4B98F827038E 
+
+: ME_4C9B21D20187_ME_4B30C7E800EE
+ : Original WL 'ME_4C9B21D20187' '4C9B20790302.pas.ms.script' // TextSource
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "needs field" false
+ CONST "pm" true
+ref; // ME_4C9B21D20187_ME_4B30C7E800EE TextSource
+
+: ME_4C9B21E400A4_ME_4B30C7E800EE
+ : Original WL 'ME_4C9B21E400A4' '4C9B20790302.pas.ms.script' // Text
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "needs field" false
+ CONST "pm" true
+ref; // ME_4C9B21E400A4_ME_4B30C7E800EE Text
+
+: ME_4B30C7E800EE
+ CONST UID '4B30C7E800EE'
+ CONST Name 'TextLoad'
+ CONST Class class_Class
+ : Stereotype st_VCMForm ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Форма для загрузки документа' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent WL 'ME_4B30C72000B3' '4B30C72000B3.pas.ms.script' // Everest
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4C9B20790302' '4C9B20790302.pas.ms.script' // PrimTextLoad
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( HWL ME_247EE1BD7B9F // TextLoad$Def
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( HWL ME_4B322A36019F // Text
+ HWL ME_4B322AC50048 // TextSource
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( HWL ME_92ED638D8A30 // Ini_FormFactory_TextLoad$Def
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4C9B21D20187_ME_4B30C7E800EE // TextSource
+ ME_4C9B21E400A4_ME_4B30C7E800EE // Text
+ )
+ ; // Implemented
+ : Children
+   Seq: ( HWL ME_A419F118ED8E // ut_TextLoad
+ HWL ME_247EE1BD7B9F // TextLoad$Def
+ )
+ ; // Children
+ : Dependencies
+   Seq: ( ME_4B32392A023A // TAlign
+ ME_4B323A55004A // TWindowState
+ ME_4B98F827038E // TvcmStringIDExHelper
+ )
+ ; // Dependencies
+ CONST "NeedsHackRef" true
+ CONST "ZoneType" 'Any'
+ CONST "author" 'Люлин А.В.'
+ CONST "finished dfm" true
+ CONST "no hands" true
+ CONST "resizeable" false
+ CONST "restrict form def" 'undefined'
+ CONST "started" '22.12.2009 16:32'
+ CONST intf.pas:Path 'common\components\gui\Garant\Daily\Forms\TextLoad_Form.pas'
+ CONST extprop:pas:TypeName 'TTextLoadForm'
+ CONST extprop:rc:SelfName 'TextLoadForm'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'TextLoad_Form'
+
+ref; // ME_4B30C7E800EE TextLoad

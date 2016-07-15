@@ -1,0 +1,82 @@
+// TvtStatusBar 4E15A00502A3 GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E15A00502A3
+
+: ME_4E15A01301E2
+ CONST UID '4E15A01301E2'
+ CONST Name 'TvtCustomStatusBar'
+ CONST Class class_Class
+ : Stereotype st_GuiControl ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4E15A00502A3 // TvtStatusBar
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4E159FC602F5' '4799D29F033F.pas.ms.script' // TCustomStatusBar
+ )
+ ; // Inherits
+ CONST "register in scripts" true
+ CONST extprop:rc:SelfName 'StatusBar'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4E15A01301E2 TvtCustomStatusBar
+
+: ME_53F7021D0257
+ CONST UID '53F7021D0257'
+ CONST Name 'TvtStatusPanel'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4E15A00502A3 // TvtStatusBar
+ ;
+ CONST "register in scripts" true
+ CONST extprop:rc:SelfName 'StatusPanel'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_53F7021D0257 TvtStatusPanel
+
+: ME_4E257A110115
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4E15A00502A3 // TvtStatusBar
+ ;
+ : Target WL 'ME_4E2579780027' '474144E20301.pas.ms.script' // afwDrawing
+ ;
+
+ref; // ME_4E257A110115 
+
+: ME_4E15A00502A3
+ CONST UID '4E15A00502A3'
+ CONST Name 'TvtStatusBar'
+ CONST Class class_Class
+ : Stereotype st_GuiControl ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4E159FE900E2' '4E159FE900E2.pas.ms.script' // StatusBar
+ ;
+ : Inherits
+   Seq: ( HWL ME_4E15A01301E2 // TvtCustomStatusBar
+ )
+ ; // Inherits
+ : Children
+   Seq: ( HWL ME_4E15A01301E2 // TvtCustomStatusBar
+ HWL ME_53F7021D0257 // TvtStatusPanel
+ )
+ ; // Children
+ : Dependencies
+   Seq: ( ME_4E257A110115 // afwDrawing
+ )
+ ; // Dependencies
+ CONST "finished" false
+ CONST intf.pas:Path 'common\components\gui\Garant\VT\NOT_FINISHED_vtStatusBar.pas'
+ CONST extprop:rc:SelfName 'StatusBar'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vtStatusBar'
+
+ref; // ME_4E15A00502A3 TvtStatusBar

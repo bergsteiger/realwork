@@ -1,0 +1,54 @@
+// TdsInpharmMainMenu 550C0DA5022E ViewAreaControllerImp Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_550C0DA5022E
+
+: ME_55113FC40368
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_550C0DA5022E // TdsInpharmMainMenu
+ ;
+ : Target WL 'ME_48FF556602BA' '48F747EC0073.pas.ms.script' // DataAdapter
+ ;
+
+ref; // ME_55113FC40368 
+
+: ME_55097FF5008E_ME_550C0DA5022E
+ : Original WL 'ME_55097FF5008E' '47D0E1500033.pas.ms.script' // GetIsDataAvailable
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_55097FF5008E_ME_550C0DA5022E GetIsDataAvailable
+
+: ME_550C0DA5022E
+ CONST UID '550C0DA5022E'
+ CONST Name 'TdsInpharmMainMenu'
+ CONST Class class_Class
+ : Stereotype st_ViewAreaControllerImp ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent WL 'ME_550AA7200370' '550AA7200370.pas.ms.script' // InpharmMainMenuControllerRealization
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47ECE94D03D4' '47D0E1500033.pas.ms.script' // vcmFormDataSourcePrim
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_550C0CF90324' '4AC241AC01FC.pas.ms.script' // IdsInpharmMainMenu
+ )
+ ; // Implements
+ : Overridden
+   Seq: ( ME_55097FF5008E_ME_550C0DA5022E // GetIsDataAvailable
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_55113FC40368 // DataAdapter
+ )
+ ; // Dependencies
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\InpharmControllers\dsInpharmMainMenu.pas'
+ CONST extprop:rc:SelfName 'dsInpharmMainMenu'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'dsInpharmMainMenu'
+
+ref; // ME_550C0DA5022E TdsInpharmMainMenu

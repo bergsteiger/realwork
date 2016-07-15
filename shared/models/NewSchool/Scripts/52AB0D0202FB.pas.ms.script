@@ -2,30 +2,6 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-FORWARD ME_52AB0D0202FB
-
-: ME_5028DFB00090
- CONST UID '5028DFB00090'
- CONST Name 'TvcmControl'
- CONST Class class_Class
- : Stereotype st_GuiControl ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_52AB0D0202FB // Visual$Controls
- ;
- : Inherits
-   Seq: ( WL 'ME_48BBE37E00A2' '467BA8C8017E.pas.ms.script' // TafwCustomCommonControl
- )
- ; // Inherits
- CONST "finished" false
- CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Visual\NOT_FINISHED_vcmControl.pas'
- CONST extprop:rc:SelfName 'Control'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'vcmControl'
-
-ref; // ME_5028DFB00090 TvcmControl
-
 : ME_52AB0D0202FB
  CONST UID '52AB0D0202FB'
  CONST Name 'Visual'
@@ -36,7 +12,7 @@ ref; // ME_5028DFB00090 TvcmControl
  : Parent WL 'ME_4E13416D0227' '4E13416D0227.pas.ms.script' // VCM$Visual
  ;
  : Children
-   Seq: ( ME_5028DFB00090 // TvcmControl
+   Seq: ( WL 'ME_5028DFB00090' '5028DFB00090.pas.ms.script' // TvcmControl
  )
  ; // Children
  : Depends

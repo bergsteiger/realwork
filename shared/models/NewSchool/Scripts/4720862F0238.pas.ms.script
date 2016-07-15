@@ -13,7 +13,7 @@ FORWARD ME_4720862F0238
  %SUMMARY 'тип доступа к хранилищу.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4720862F0238 // m3StorageInterfaces
+ : Parent HWL ME_4720862F0238 // m3StorageInterfaces
  ;
  : Inherits
    Seq: ( WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
@@ -33,7 +33,7 @@ FORWARD ME_4720867203D9
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4720867203D9 // m3StoreAcessConsts
+ : Parent HWL ME_4720867203D9 // m3StoreAcessConsts
  ;
  CONST Value 'Tm3StoreAccess(STGM_READ or STGM_SHARE_EXCLUSIVE)'
  CONST "AutoInc" false
@@ -51,7 +51,7 @@ ref; // ME_472086970332 m3_saRead
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4720867203D9 // m3StoreAcessConsts
+ : Parent HWL ME_4720867203D9 // m3StoreAcessConsts
  ;
  CONST Value 'Tm3StoreAccess(STGM_READWRITE or STGM_SHARE_EXCLUSIVE)'
  CONST "AutoInc" false
@@ -69,7 +69,7 @@ ref; // ME_472086AF0156 m3_saReadWrite
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4720867203D9 // m3StoreAcessConsts
+ : Parent HWL ME_4720867203D9 // m3StoreAcessConsts
  ;
  CONST Value 'Tm3StoreAccess(STGM_READWRITE or STGM_SHARE_EXCLUSIVE or STGM_CREATE)'
  CONST "AutoInc" false
@@ -88,12 +88,12 @@ ref; // ME_472086CA0029 m3_saCreate
  %SUMMARY 'Режимы доступа к хранилищу.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4720862F0238 // m3StorageInterfaces
+ : Parent HWL ME_4720862F0238 // m3StorageInterfaces
  ;
  : Attributes
-   Seq: ( ME_472086970332 // m3_saRead
- ME_472086AF0156 // m3_saReadWrite
- ME_472086CA0029 // m3_saCreate
+   Seq: ( HWL ME_472086970332 // m3_saRead
+ HWL ME_472086AF0156 // m3_saReadWrite
+ HWL ME_472086CA0029 // m3_saCreate
  )
  ; // Attributes
  CONST "spell names" false
@@ -110,7 +110,7 @@ FORWARD ME_472086DD0134
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_472086DD0134 // msStoreTypes
+ : Parent HWL ME_472086DD0134 // msStoreTypes
  ;
  CONST Value 'Pred(STGTY_STORAGE)'
  CONST "AutoInc" false
@@ -128,7 +128,7 @@ ref; // ME_472087000243 m3_stNone
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_472086DD0134 // msStoreTypes
+ : Parent HWL ME_472086DD0134 // msStoreTypes
  ;
  CONST Value 'STGTY_STREAM'
  CONST "AutoInc" false
@@ -146,7 +146,7 @@ ref; // ME_4720871100C1 m3_stStream
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_472086DD0134 // msStoreTypes
+ : Parent HWL ME_472086DD0134 // msStoreTypes
  ;
  CONST Value 'STGTY_Storage'
  CONST "AutoInc" false
@@ -165,12 +165,12 @@ ref; // ME_4720871E032C m3_stStorage
  %SUMMARY 'Типы хранилищ.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4720862F0238 // m3StorageInterfaces
+ : Parent HWL ME_4720862F0238 // m3StorageInterfaces
  ;
  : Attributes
-   Seq: ( ME_472087000243 // m3_stNone
- ME_4720871100C1 // m3_stStream
- ME_4720871E032C // m3_stStorage
+   Seq: ( HWL ME_472087000243 // m3_stNone
+ HWL ME_4720871100C1 // m3_stStream
+ HWL ME_4720871E032C // m3_stStorage
  )
  ; // Attributes
  CONST "spell names" false
@@ -186,7 +186,7 @@ FORWARD ME_4720876A01FF
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4720876A01FF // Tm3StoreType
+ : Parent HWL ME_4720876A01FF // Tm3StoreType
  ;
  CONST Value 'm3_stNone'
  CONST "AutoInc" false
@@ -203,7 +203,7 @@ ref; // ME_47208782029A first
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4720876A01FF // Tm3StoreType
+ : Parent HWL ME_4720876A01FF // Tm3StoreType
  ;
  CONST Value 'm3_stStream'
  CONST "AutoInc" false
@@ -222,15 +222,15 @@ ref; // ME_4720878D00F1 last
  %SUMMARY 'Тип элемента хранилища.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4720862F0238 // m3StorageInterfaces
+ : Parent HWL ME_4720862F0238 // m3StorageInterfaces
  ;
  : Inherits
-   Seq: ( ME_47208653003B // Tm3StoreAccess
+   Seq: ( HWL ME_47208653003B // Tm3StoreAccess
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_47208782029A // first
- ME_4720878D00F1 // last
+   Seq: ( HWL ME_47208782029A // first
+ HWL ME_4720878D00F1 // last
  )
  ; // Attributes
  CONST "spell names" false
@@ -246,10 +246,10 @@ ref; // ME_4720876A01FF Tm3StoreType
  %SUMMARY 'Указатель на Tm3StoreType.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4720862F0238 // m3StorageInterfaces
+ : Parent HWL ME_4720862F0238 // m3StorageInterfaces
  ;
  : Inherits
-   Seq: ( ME_4720876A01FF // Tm3StoreType
+   Seq: ( HWL ME_4720876A01FF // Tm3StoreType
  )
  ; // Inherits
  CONST "isPointer" true
@@ -265,7 +265,7 @@ FORWARD ME_472088A703E6
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_472088A703E6 // Tm3StoreMode
+ : Parent HWL ME_472088A703E6 // Tm3StoreMode
  ;
 
 ref; // ME_472088B700C8 m3_smCreate
@@ -277,7 +277,7 @@ ref; // ME_472088B700C8 m3_smCreate
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_472088A703E6 // Tm3StoreMode
+ : Parent HWL ME_472088A703E6 // Tm3StoreMode
  ;
 
 ref; // ME_472088C00233 m3_smOpen
@@ -291,11 +291,11 @@ ref; // ME_472088C00233 m3_smOpen
  %SUMMARY 'Режим открытия элемента каталога.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4720862F0238 // m3StorageInterfaces
+ : Parent HWL ME_4720862F0238 // m3StorageInterfaces
  ;
  : Attributes
-   Seq: ( ME_472088B700C8 // m3_smCreate
- ME_472088C00233 // m3_smOpen
+   Seq: ( HWL ME_472088B700C8 // m3_smCreate
+ HWL ME_472088C00233 // m3_smOpen
  )
  ; // Attributes
  CONST extprop:rc:isAcceptableForScripts true
@@ -311,7 +311,7 @@ FORWARD ME_47208CA50237
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_47208CA50237 // Tm3StoreInfo
+ : Parent HWL ME_47208CA50237 // Tm3StoreInfo
  ;
  : Target WL 'ME_47208C70028B' '4AB0C3C60310.pas.ms.script' // Int64
  ;
@@ -325,9 +325,9 @@ ref; // ME_47208CC1033B rPosition
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_47208CA50237 // Tm3StoreInfo
+ : Parent HWL ME_47208CA50237 // Tm3StoreInfo
  ;
- : Target ME_4720876A01FF // Tm3StoreType
+ : Target HWL ME_4720876A01FF // Tm3StoreType
  ;
 
 ref; // ME_47208CCC035F rStoreType
@@ -347,7 +347,7 @@ ref; // ME_5451F56802CF aPosition
  CONST Name 'aType'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_4720876A01FF // Tm3StoreType
+ : Target HWL ME_4720876A01FF // Tm3StoreType
  ;
 
 ref; // ME_5451F56802FD aType
@@ -358,7 +358,7 @@ ref; // ME_5451F56802FD aType
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_5451F543029B // C
+ : Parent HWL ME_5451F543029B // C
  ;
  : Parameters
    Seq: ( ME_5451F56802CF // aPosition
@@ -376,10 +376,10 @@ ref; // ME_5451F5510091 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_47208CA50237 // Tm3StoreInfo
+ : Parent HWL ME_47208CA50237 // Tm3StoreInfo
  ;
  : Operations
-   Seq: ( ME_5451F5510091 // DoIt
+   Seq: ( HWL ME_5451F5510091 // DoIt
  )
  ; // Operations
 
@@ -394,15 +394,15 @@ ref; // ME_5451F543029B C
  %SUMMARY 'Информация об элементе хранилища.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4720862F0238 // m3StorageInterfaces
+ : Parent HWL ME_4720862F0238 // m3StorageInterfaces
  ;
  : Attributes
-   Seq: ( ME_47208CC1033B // rPosition
- ME_47208CCC035F // rStoreType
+   Seq: ( HWL ME_47208CC1033B // rPosition
+ HWL ME_47208CCC035F // rStoreType
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_5451F543029B // C
+   Seq: ( HWL ME_5451F543029B // C
  )
  ; // Operations
  CONST "packed" true
@@ -417,7 +417,7 @@ ref; // ME_47208CA50237 Tm3StoreInfo
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4720862F0238 // m3StorageInterfaces
+ : Parent HWL ME_4720862F0238 // m3StorageInterfaces
  ;
  : Inherits
    Seq: ( WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
@@ -436,9 +436,9 @@ FORWARD ME_5451F4E50226
  CONST Visibility PublicAccess
  CONST Abstraction at_final
  CONST LinkType lt_agr
- : Parent ME_5451F4E50226 // Tm3StorageElementInfo
+ : Parent HWL ME_5451F4E50226 // Tm3StorageElementInfo
  ;
- : Target ME_47208CA50237 // Tm3StoreInfo
+ : Target HWL ME_47208CA50237 // Tm3StoreInfo
  ;
 
 ref; // ME_5451F4F90006 rInfo
@@ -450,7 +450,7 @@ ref; // ME_5451F4F90006 rInfo
  CONST Visibility PublicAccess
  CONST Abstraction at_final
  CONST LinkType lt_agr
- : Parent ME_5451F4E50226 // Tm3StorageElementInfo
+ : Parent HWL ME_5451F4E50226 // Tm3StorageElementInfo
  ;
  : Target WL 'ME_46780D0003AF' '4677FBA70343.pas.ms.script' // Tl3WString
  ;
@@ -463,7 +463,7 @@ FORWARD ME_5451F57B0181
  CONST Name 'anInfo'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_47208CA50237 // Tm3StoreInfo
+ : Target HWL ME_47208CA50237 // Tm3StoreInfo
  ;
 
 ref; // ME_5451F5950016 anInfo
@@ -483,7 +483,7 @@ ref; // ME_5451F5950044 aName
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_5451F57B0181 // C
+ : Parent HWL ME_5451F57B0181 // C
  ;
  : Parameters
    Seq: ( ME_5451F5950016 // anInfo
@@ -501,10 +501,10 @@ ref; // ME_5451F584001A DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_5451F4E50226 // Tm3StorageElementInfo
+ : Parent HWL ME_5451F4E50226 // Tm3StorageElementInfo
  ;
  : Operations
-   Seq: ( ME_5451F584001A // DoIt
+   Seq: ( HWL ME_5451F584001A // DoIt
  )
  ; // Operations
 
@@ -518,15 +518,15 @@ ref; // ME_5451F57B0181 C
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4720862F0238 // m3StorageInterfaces
+ : Parent HWL ME_4720862F0238 // m3StorageInterfaces
  ;
  : Attributes
-   Seq: ( ME_5451F4F90006 // rInfo
- ME_5451F5360030 // rName
+   Seq: ( HWL ME_5451F4F90006 // rInfo
+ HWL ME_5451F5360030 // rName
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_5451F57B0181 // C
+   Seq: ( HWL ME_5451F57B0181 // C
  )
  ; // Operations
 
@@ -542,9 +542,9 @@ FORWARD ME_4828623D0134
  CONST Visibility PrivateAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_ref
- : Parent ME_4828623D0134 // Im3StorageElementIDList
+ : Parent HWL ME_4828623D0134 // Im3StorageElementIDList
  ;
- : Target ME_4828606702D4 // Tm3StorageElementID
+ : Target HWL ME_4828606702D4 // Tm3StorageElementID
  ;
 
 ref; // ME_4828625A012F ItemType
@@ -606,14 +606,14 @@ ref; // ME_4BB08B8902F2_ME_4828623D0134 Count
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4720862F0238 // m3StorageInterfaces
+ : Parent HWL ME_4720862F0238 // m3StorageInterfaces
  ;
  : Implements
    Seq: ( WL 'ME_482955720131' '47D810610398.pas.ms.script' // Ml3ListEx
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_4828625A012F // ItemType
+   Seq: ( HWL ME_4828625A012F // ItemType
  )
  ; // Attributes
  : Implemented
@@ -639,7 +639,7 @@ ref; // ME_4828623D0134 Im3StorageElementIDList
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4720862F0238 // m3StorageInterfaces
+ : Parent HWL ME_4720862F0238 // m3StorageInterfaces
  ;
  : Inherits
    Seq: ( WL 'ME_4FA27F3E0193' '46A0E6C5023A.pas.ms.script' // TStatStg
@@ -657,7 +657,7 @@ FORWARD ME_5417FCC40029
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_5417FCC40029 // Tm3StorageType
+ : Parent HWL ME_5417FCC40029 // Tm3StorageType
  ;
 
 ref; // ME_5417FCCF0331 m3_stArchive
@@ -669,7 +669,7 @@ ref; // ME_5417FCCF0331 m3_stArchive
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_5417FCC40029 // Tm3StorageType
+ : Parent HWL ME_5417FCC40029 // Tm3StorageType
  ;
 
 ref; // ME_5417FCD8007F m3_stPlugin
@@ -681,7 +681,7 @@ ref; // ME_5417FCD8007F m3_stPlugin
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_5417FCC40029 // Tm3StorageType
+ : Parent HWL ME_5417FCC40029 // Tm3StorageType
  ;
 
 ref; // ME_5417FCE301B8 m3_stPlain
@@ -694,12 +694,12 @@ ref; // ME_5417FCE301B8 m3_stPlain
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4720862F0238 // m3StorageInterfaces
+ : Parent HWL ME_4720862F0238 // m3StorageInterfaces
  ;
  : Attributes
-   Seq: ( ME_5417FCCF0331 // m3_stArchive
- ME_5417FCD8007F // m3_stPlugin
- ME_5417FCE301B8 // m3_stPlain
+   Seq: ( HWL ME_5417FCCF0331 // m3_stArchive
+ HWL ME_5417FCD8007F // m3_stPlugin
+ HWL ME_5417FCE301B8 // m3_stPlain
  )
  ; // Attributes
  CONST extprop:rc:isAcceptableForScripts true
@@ -717,9 +717,9 @@ FORWARD ME_545255C003CB
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  CONST LinkType lt_lnk
- : Parent ME_545255C003CB // IterateIndexedF
+ : Parent HWL ME_545255C003CB // IterateIndexedF
  ;
- : Target ME_47208CA50237 // Tm3StoreInfo
+ : Target HWL ME_47208CA50237 // Tm3StoreInfo
  ;
 
 ref; // ME_545255CC0357 
@@ -732,10 +732,10 @@ ref; // ME_545255CC0357
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_5452559202F8 // Mm3StorageIterators
+ : Parent HWL ME_5452559202F8 // Mm3StorageIterators
  ;
  : Attributes
-   Seq: ( ME_545255CC0357 // 
+   Seq: ( HWL ME_545255CC0357 // 
  )
  ; // Attributes
  CONST "needs index" true
@@ -752,9 +752,9 @@ FORWARD ME_54525E3A02BF
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  CONST LinkType lt_lnk
- : Parent ME_54525E3A02BF // IterateAllF
+ : Parent HWL ME_54525E3A02BF // IterateAllF
  ;
- : Target ME_5451F4E50226 // Tm3StorageElementInfo
+ : Target HWL ME_5451F4E50226 // Tm3StorageElementInfo
  ;
 
 ref; // ME_54525E430248 
@@ -767,10 +767,10 @@ ref; // ME_54525E430248
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_5452559202F8 // Mm3StorageIterators
+ : Parent HWL ME_5452559202F8 // Mm3StorageIterators
  ;
  : Attributes
-   Seq: ( ME_54525E430248 // 
+   Seq: ( HWL ME_54525E430248 // 
  )
  ; // Attributes
  CONST "needs index" false
@@ -786,11 +786,11 @@ ref; // ME_54525E3A02BF IterateAllF
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4720862F0238 // m3StorageInterfaces
+ : Parent HWL ME_4720862F0238 // m3StorageInterfaces
  ;
  : Operations
-   Seq: ( ME_545255C003CB // IterateIndexedF
- ME_54525E3A02BF // IterateAllF
+   Seq: ( HWL ME_545255C003CB // IterateIndexedF
+ HWL ME_54525E3A02BF // IterateAllF
  )
  ; // Operations
 
@@ -804,10 +804,10 @@ ref; // ME_5452559202F8 Mm3StorageIterators
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4720862F0238 // m3StorageInterfaces
+ : Parent HWL ME_4720862F0238 // m3StorageInterfaces
  ;
  : Inherits
-   Seq: ( ME_4828606702D4 // Tm3StorageElementID
+   Seq: ( HWL ME_4828606702D4 // Tm3StorageElementID
  )
  ; // Inherits
  CONST extprop:rc:isAcceptableForScripts true
@@ -825,7 +825,7 @@ FORWARD ME_545210E8021B
  CONST Visibility PublicAccess
  CONST Abstraction at_final
  CONST LinkType lt_lnk
- : Parent ME_545210E8021B // Tm3Store
+ : Parent HWL ME_545210E8021B // Tm3Store
  ;
  : Target WL 'ME_46A5AFF103CA' '46A0E6C5023A.pas.ms.script' // IStream
  ;
@@ -839,9 +839,9 @@ ref; // ME_5452110003BC rStream
  CONST Visibility PublicAccess
  CONST Abstraction at_final
  CONST LinkType lt_lnk
- : Parent ME_545210E8021B // Tm3Store
+ : Parent HWL ME_545210E8021B // Tm3Store
  ;
- : Target ME_4720937500A4 // Im3IndexedStorage
+ : Target HWL ME_4720937500A4 // Im3IndexedStorage
  ;
 
 ref; // ME_5452110A037C rStorage
@@ -853,7 +853,7 @@ ref; // ME_5452110A037C rStorage
  CONST Visibility PublicAccess
  CONST Abstraction at_final
  CONST LinkType lt_ref
- : Parent ME_545210E8021B // Tm3Store
+ : Parent HWL ME_545210E8021B // Tm3Store
  ;
  : Target WL 'ME_469F99BD026B' '4AB0C3C60310.pas.ms.script' // HResult
  ;
@@ -877,7 +877,7 @@ ref; // ME_5452155D0015 aStream
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_5452154901F5 // C$Stream
+ : Parent HWL ME_5452154901F5 // C$Stream
  ;
  : Parameters
    Seq: ( ME_5452155D0015 // aStream
@@ -894,10 +894,10 @@ ref; // ME_5452154F035F DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_545210E8021B // Tm3Store
+ : Parent HWL ME_545210E8021B // Tm3Store
  ;
  : Operations
-   Seq: ( ME_5452154F035F // DoIt
+   Seq: ( HWL ME_5452154F035F // DoIt
  )
  ; // Operations
 
@@ -909,7 +909,7 @@ FORWARD ME_5452156A0229
  CONST Name 'aStorage'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_4720937500A4 // Im3IndexedStorage
+ : Target HWL ME_4720937500A4 // Im3IndexedStorage
  ;
 
 ref; // ME_54521A1C022E aStorage
@@ -920,7 +920,7 @@ ref; // ME_54521A1C022E aStorage
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_5452156A0229 // C$Storage
+ : Parent HWL ME_5452156A0229 // C$Storage
  ;
  : Parameters
    Seq: ( ME_54521A1C022E // aStorage
@@ -937,10 +937,10 @@ ref; // ME_545215730248 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_545210E8021B // Tm3Store
+ : Parent HWL ME_545210E8021B // Tm3Store
  ;
  : Operations
-   Seq: ( ME_545215730248 // DoIt
+   Seq: ( HWL ME_545215730248 // DoIt
  )
  ; // Operations
 
@@ -954,7 +954,7 @@ FORWARD ME_5452198301A0
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_5452198301A0 // AsIStorage
+ : Parent HWL ME_5452198301A0 // AsIStorage
  ;
  : Target WL 'ME_472093480190' '46A0E6C5023A.pas.ms.script' // IStorage
  ;
@@ -969,10 +969,10 @@ ref; // ME_54521992038D DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_545210E8021B // Tm3Store
+ : Parent HWL ME_545210E8021B // Tm3Store
  ;
  : Operations
-   Seq: ( ME_54521992038D // DoIt
+   Seq: ( HWL ME_54521992038D // DoIt
  )
  ; // Operations
 
@@ -986,7 +986,7 @@ FORWARD ME_545221CD0019
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_545221CD0019 // E
+ : Parent HWL ME_545221CD0019 // E
  ;
 
 ref; // ME_545221D601D1 DoIt
@@ -999,10 +999,10 @@ ref; // ME_545221D601D1 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_545210E8021B // Tm3Store
+ : Parent HWL ME_545210E8021B // Tm3Store
  ;
  : Operations
-   Seq: ( ME_545221D601D1 // DoIt
+   Seq: ( HWL ME_545221D601D1 // DoIt
  )
  ; // Operations
 
@@ -1025,7 +1025,7 @@ ref; // ME_5452276A00CB aResult
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_545227580181 // E$Res
+ : Parent HWL ME_545227580181 // E$Res
  ;
  : Parameters
    Seq: ( ME_5452276A00CB // aResult
@@ -1042,10 +1042,10 @@ ref; // ME_5452275F0193 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_545210E8021B // Tm3Store
+ : Parent HWL ME_545210E8021B // Tm3Store
  ;
  : Operations
-   Seq: ( ME_5452275F0193 // DoIt
+   Seq: ( HWL ME_5452275F0193 // DoIt
  )
  ; // Operations
 
@@ -1059,24 +1059,24 @@ ref; // ME_545227580181 E$Res
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4720862F0238 // m3StorageInterfaces
+ : Parent HWL ME_4720862F0238 // m3StorageInterfaces
  ;
  : Attributes
-   Seq: ( ME_5452110003BC // rStream
- ME_5452110A037C // rStorage
- ME_545221B303B6 // rResult
+   Seq: ( HWL ME_5452110003BC // rStream
+ HWL ME_5452110A037C // rStorage
+ HWL ME_545221B303B6 // rResult
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_5452154901F5 // C$Stream
- ME_5452156A0229 // C$Storage
- ME_5452198301A0 // AsIStorage
- ME_545221CD0019 // E
- ME_545227580181 // E$Res
+   Seq: ( HWL ME_5452154901F5 // C$Stream
+ HWL ME_5452156A0229 // C$Storage
+ HWL ME_5452198301A0 // AsIStorage
+ HWL ME_545221CD0019 // E
+ HWL ME_545227580181 // E$Res
  )
  ; // Operations
  : Forwarded
-   Seq: ( ME_4720937500A4 // Im3IndexedStorage
+   Seq: ( HWL ME_4720937500A4 // Im3IndexedStorage
  )
  ; // Forwarded
  CONST extprop:rc:SelfName 'm3Store'
@@ -1091,7 +1091,7 @@ FORWARD ME_545221EB010C
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_545221EB010C // ClearAll
+ : Parent HWL ME_545221EB010C // ClearAll
  ;
 
 ref; // ME_545221F401F7 DoIt
@@ -1104,10 +1104,10 @@ ref; // ME_545221F401F7 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4720937500A4 // Im3IndexedStorage
+ : Parent HWL ME_4720937500A4 // Im3IndexedStorage
  ;
  : Operations
-   Seq: ( ME_545221F401F7 // DoIt
+   Seq: ( HWL ME_545221F401F7 // DoIt
  )
  ; // Operations
 
@@ -1119,7 +1119,7 @@ FORWARD ME_5452222303C7
  CONST Name 'aSource'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_4720937500A4 // Im3IndexedStorage
+ : Target HWL ME_4720937500A4 // Im3IndexedStorage
  ;
 
 ref; // ME_5452223B00ED aSource
@@ -1130,7 +1130,7 @@ ref; // ME_5452223B00ED aSource
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_5452222303C7 // CopyFrom
+ : Parent HWL ME_5452222303C7 // CopyFrom
  ;
  : Parameters
    Seq: ( ME_5452223B00ED // aSource
@@ -1147,10 +1147,10 @@ ref; // ME_5452222C03C1 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4720937500A4 // Im3IndexedStorage
+ : Parent HWL ME_4720937500A4 // Im3IndexedStorage
  ;
  : Operations
-   Seq: ( ME_5452222C03C1 // DoIt
+   Seq: ( HWL ME_5452222C03C1 // DoIt
  )
  ; // Operations
 
@@ -1181,7 +1181,7 @@ ref; // ME_472093BC00EC aMaxBits
  %SUMMARY 'устанавливает параметры "размазывания" индекса.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4720937500A4 // Im3IndexedStorage
+ : Parent HWL ME_4720937500A4 // Im3IndexedStorage
  ;
  : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
  ;
@@ -1197,7 +1197,7 @@ ref; // ME_4720939E0233 SetIndexParam
  CONST Name 'anIndex'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_54539FA10228 // Tm3StoreElementIndex
+ : Target HWL ME_54539FA10228 // Tm3StoreElementIndex
  ;
 
 ref; // ME_472093D90198 anIndex
@@ -1209,7 +1209,7 @@ ref; // ME_472093D90198 anIndex
  %SUMMARY 'удаляет элемент хранилища.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4720937500A4 // Im3IndexedStorage
+ : Parent HWL ME_4720937500A4 // Im3IndexedStorage
  ;
  : Target WL 'ME_472094E70218' '4AB0C3C60310.pas.ms.script' // hResult
  ;
@@ -1224,7 +1224,7 @@ ref; // ME_472093CD005A DeleteStore
  CONST Name 'anIndex'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_54539FA10228 // Tm3StoreElementIndex
+ : Target HWL ME_54539FA10228 // Tm3StoreElementIndex
  ;
 
 ref; // ME_47209429012F anIndex
@@ -1233,7 +1233,7 @@ ref; // ME_47209429012F anIndex
  CONST Name 'anAccess'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_47208653003B // Tm3StoreAccess
+ : Target HWL ME_47208653003B // Tm3StoreAccess
  ;
 
 ref; // ME_472094290161 anAccess
@@ -1242,7 +1242,7 @@ ref; // ME_472094290161 anAccess
  CONST Name 'aStoreType'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_4720876A01FF // Tm3StoreType
+ : Target HWL ME_4720876A01FF // Tm3StoreType
  ;
 
 ref; // ME_472094290193 aStoreType
@@ -1251,7 +1251,7 @@ ref; // ME_472094290193 aStoreType
  CONST Name 'aStore'
  CONST Class class_Parameter
  : Stereotype st_out ;
- : Target ME_545210E8021B // Tm3Store
+ : Target HWL ME_545210E8021B // Tm3Store
  ;
 
 ref; // ME_4720942901C5 aStore
@@ -1272,7 +1272,7 @@ ref; // ME_4720942901F7 aUseCompression
  %SUMMARY 'создает элемент хранилища.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4720937500A4 // Im3IndexedStorage
+ : Parent HWL ME_4720937500A4 // Im3IndexedStorage
  ;
  : Target WL 'ME_472094E70218' '4AB0C3C60310.pas.ms.script' // hResult
  ;
@@ -1291,7 +1291,7 @@ ref; // ME_472093E4036B CreateStore
  CONST Name 'anIndex'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_54539FA10228 // Tm3StoreElementIndex
+ : Target HWL ME_54539FA10228 // Tm3StoreElementIndex
  ;
 
 ref; // ME_4720944301FF anIndex
@@ -1300,7 +1300,7 @@ ref; // ME_4720944301FF anIndex
  CONST Name 'anAccess'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_47208653003B // Tm3StoreAccess
+ : Target HWL ME_47208653003B // Tm3StoreAccess
  ;
 
 ref; // ME_472094430231 anAccess
@@ -1309,7 +1309,7 @@ ref; // ME_472094430231 anAccess
  CONST Name 'aStoreType'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_4720876A01FF // Tm3StoreType
+ : Target HWL ME_4720876A01FF // Tm3StoreType
  ;
 
 ref; // ME_472094430263 aStoreType
@@ -1318,7 +1318,7 @@ ref; // ME_472094430263 aStoreType
  CONST Name 'aStore'
  CONST Class class_Parameter
  : Stereotype st_out ;
- : Target ME_545210E8021B // Tm3Store
+ : Target HWL ME_545210E8021B // Tm3Store
  ;
 
 ref; // ME_47209443029F aStore
@@ -1339,7 +1339,7 @@ ref; // ME_4720944302DB aUseCompression
  %SUMMARY 'открывает элемент хранилища.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4720937500A4 // Im3IndexedStorage
+ : Parent HWL ME_4720937500A4 // Im3IndexedStorage
  ;
  : Target WL 'ME_472094E70218' '4AB0C3C60310.pas.ms.script' // hResult
  ;
@@ -1367,7 +1367,7 @@ ref; // ME_476B892B0036 aName
  CONST Name 'anAccess'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_47208653003B // Tm3StoreAccess
+ : Target HWL ME_47208653003B // Tm3StoreAccess
  ;
 
 ref; // ME_47209BD30339 anAccess
@@ -1376,7 +1376,7 @@ ref; // ME_47209BD30339 anAccess
  CONST Name 'aStoreType'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_4720876A01FF // Tm3StoreType
+ : Target HWL ME_4720876A01FF // Tm3StoreType
  ;
 
 ref; // ME_47209BD30375 aStoreType
@@ -1385,7 +1385,7 @@ ref; // ME_47209BD30375 aStoreType
  CONST Name 'aStore'
  CONST Class class_Parameter
  : Stereotype st_out ;
- : Target ME_545210E8021B // Tm3Store
+ : Target HWL ME_545210E8021B // Tm3Store
  ;
 
 ref; // ME_47209BD303BB aStore
@@ -1406,7 +1406,7 @@ ref; // ME_47209BD40005 aUseCompression
  %SUMMARY 'создает элемент хранилища' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4720937500A4 // Im3IndexedStorage
+ : Parent HWL ME_4720937500A4 // Im3IndexedStorage
  ;
  : Target WL 'ME_472094E70218' '4AB0C3C60310.pas.ms.script' // hResult
  ;
@@ -1434,7 +1434,7 @@ ref; // ME_476B893802A7 aName
  CONST Name 'anAccess'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_47208653003B // Tm3StoreAccess
+ : Target HWL ME_47208653003B // Tm3StoreAccess
  ;
 
 ref; // ME_47209BEB036F anAccess
@@ -1443,7 +1443,7 @@ ref; // ME_47209BEB036F anAccess
  CONST Name 'aStoreType'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_4720876A01FF // Tm3StoreType
+ : Target HWL ME_4720876A01FF // Tm3StoreType
  ;
 
 ref; // ME_47209BEB03B6 aStoreType
@@ -1452,7 +1452,7 @@ ref; // ME_47209BEB03B6 aStoreType
  CONST Name 'aStore'
  CONST Class class_Parameter
  : Stereotype st_out ;
- : Target ME_545210E8021B // Tm3Store
+ : Target HWL ME_545210E8021B // Tm3Store
  ;
 
 ref; // ME_47209BEC0014 aStore
@@ -1473,7 +1473,7 @@ ref; // ME_47209BEC005A aUseCompression
  %SUMMARY 'открывает элемент хранилища' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4720937500A4 // Im3IndexedStorage
+ : Parent HWL ME_4720937500A4 // Im3IndexedStorage
  ;
  : Target WL 'ME_472094E70218' '4AB0C3C60310.pas.ms.script' // hResult
  ;
@@ -1492,7 +1492,7 @@ ref; // ME_47209BD8008D OpenStore
  CONST Name 'aStoreInfo'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_5451F4E50226 // Tm3StorageElementInfo
+ : Target HWL ME_5451F4E50226 // Tm3StorageElementInfo
  ;
 
 ref; // ME_54539F0A02E1 aStoreInfo
@@ -1501,7 +1501,7 @@ ref; // ME_54539F0A02E1 aStoreInfo
  CONST Name 'anAccess'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_47208653003B // Tm3StoreAccess
+ : Target HWL ME_47208653003B // Tm3StoreAccess
  ;
 
 ref; // ME_47209C1F0161 anAccess
@@ -1522,9 +1522,9 @@ ref; // ME_47209C1F023E aUseCompression
  %SUMMARY 'открывает элемент хранилища.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4720937500A4 // Im3IndexedStorage
+ : Parent HWL ME_4720937500A4 // Im3IndexedStorage
  ;
- : Target ME_545210E8021B // Tm3Store
+ : Target HWL ME_545210E8021B // Tm3Store
  ;
  : Parameters
    Seq: ( ME_54539F0A02E1 // aStoreInfo
@@ -1539,7 +1539,7 @@ ref; // ME_47209BF501C5 OpenStore
  CONST Name 'aStoreInfo'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_47208CA50237 // Tm3StoreInfo
+ : Target HWL ME_47208CA50237 // Tm3StoreInfo
  ;
 
 ref; // ME_54539F0400D1 aStoreInfo
@@ -1548,7 +1548,7 @@ ref; // ME_54539F0400D1 aStoreInfo
  CONST Name 'anAccess'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_47208653003B // Tm3StoreAccess
+ : Target HWL ME_47208653003B // Tm3StoreAccess
  ;
 
 ref; // ME_47209CB90299 anAccess
@@ -1557,7 +1557,7 @@ ref; // ME_47209CB90299 anAccess
  CONST Name 'anIndex'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_54539FA10228 // Tm3StoreElementIndex
+ : Target HWL ME_54539FA10228 // Tm3StoreElementIndex
  ;
 
 ref; // ME_47209CB902EA anIndex
@@ -1578,9 +1578,9 @@ ref; // ME_47209CB9038A aUseCompression
  %SUMMARY 'открывает элемент хранилища' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4720937500A4 // Im3IndexedStorage
+ : Parent HWL ME_4720937500A4 // Im3IndexedStorage
  ;
- : Target ME_545210E8021B // Tm3Store
+ : Target HWL ME_545210E8021B // Tm3Store
  ;
  : Parameters
    Seq: ( ME_54539F0400D1 // aStoreInfo
@@ -1617,7 +1617,7 @@ ref; // ME_49C0E0C50047 aNewName
  %SUMMARY 'Переименовывает элемент хранилища' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4720937500A4 // Im3IndexedStorage
+ : Parent HWL ME_4720937500A4 // Im3IndexedStorage
  ;
  : Target WL 'ME_472094E70218' '4AB0C3C60310.pas.ms.script' // hResult
  ;
@@ -1645,7 +1645,7 @@ ref; // ME_4B0FC319037A aName
  %SUMMARY 'Проверяет существование элемента с указанным именем' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4720937500A4 // Im3IndexedStorage
+ : Parent HWL ME_4720937500A4 // Im3IndexedStorage
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -1675,7 +1675,7 @@ ref; // ME_5452303401DA_ME_4720937500A4 EnumElements
 ref; // ME_545244AA00BB_ME_4720937500A4 Stat
 
 : ME_545255C003CB_ME_4720937500A4
- : Original ME_545255C003CB // IterateIndexedF
+ : Original HWL ME_545255C003CB // IterateIndexedF
  ;
  CONST OpKind opkind_Implemented
  CONST "needs index" true
@@ -1683,7 +1683,7 @@ ref; // ME_545244AA00BB_ME_4720937500A4 Stat
 ref; // ME_545255C003CB_ME_4720937500A4 IterateIndexedF
 
 : ME_54525E3A02BF_ME_4720937500A4
- : Original ME_54525E3A02BF // IterateAllF
+ : Original HWL ME_54525E3A02BF // IterateAllF
  ;
  CONST OpKind opkind_Implemented
  CONST "needs index" false
@@ -1700,7 +1700,7 @@ ref; // ME_54525E3A02BF_ME_4720937500A4 IterateAllF
  %SUMMARY 'Хранилище с возможностью доступа по индексу.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4720862F0238 // m3StorageInterfaces
+ : Parent HWL ME_4720862F0238 // m3StorageInterfaces
  ;
  : Inherits
    Seq: ( WL 'ME_46A451250363' '4AB0C3C60310.pas.ms.script' // IUnknown
@@ -1709,22 +1709,22 @@ ref; // ME_54525E3A02BF_ME_4720937500A4 IterateAllF
  : Implements
    Seq: ( WL 'ME_472093480190' '46A0E6C5023A.pas.ms.script' // IStorage
  WL 'ME_54522C020216' '46A0E6C5023A.pas.ms.script' // MCommonStorage
- ME_5452559202F8 // Mm3StorageIterators
+ HWL ME_5452559202F8 // Mm3StorageIterators
  )
  ; // Implements
  : Operations
-   Seq: ( ME_545221EB010C // ClearAll
- ME_5452222303C7 // CopyFrom
- ME_4720939E0233 // SetIndexParam
- ME_472093CD005A // DeleteStore
- ME_472093E4036B // CreateStore
- ME_472094380181 // OpenStore
- ME_47209BA50026 // CreateStore
- ME_47209BD8008D // OpenStore
- ME_47209BF501C5 // OpenStore
- ME_47209C92017B // OpenStore
- ME_49C0E07203A8 // RenameElementA
- ME_4B0FC2FB02DA // ElementExists
+   Seq: ( HWL ME_545221EB010C // ClearAll
+ HWL ME_5452222303C7 // CopyFrom
+ HWL ME_4720939E0233 // SetIndexParam
+ HWL ME_472093CD005A // DeleteStore
+ HWL ME_472093E4036B // CreateStore
+ HWL ME_472094380181 // OpenStore
+ HWL ME_47209BA50026 // CreateStore
+ HWL ME_47209BD8008D // OpenStore
+ HWL ME_47209BF501C5 // OpenStore
+ HWL ME_47209C92017B // OpenStore
+ HWL ME_49C0E07203A8 // RenameElementA
+ HWL ME_4B0FC2FB02DA // ElementExists
  )
  ; // Operations
  : Implemented
@@ -1750,9 +1750,9 @@ FORWARD ME_542E5D380067
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_542E5D380067 // Im3StorageHolder
+ : Parent HWL ME_542E5D380067 // Im3StorageHolder
  ;
- : Target ME_4720937500A4 // Im3IndexedStorage
+ : Target HWL ME_4720937500A4 // Im3IndexedStorage
  ;
  CONST "pm" false
 
@@ -1784,9 +1784,9 @@ ref; // ME_542E73D3031B aSharedMode
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_542E736E0204 // StoreToCache
+ : Parent HWL ME_542E736E0204 // StoreToCache
  ;
- : Target ME_4720937500A4 // Im3IndexedStorage
+ : Target HWL ME_4720937500A4 // Im3IndexedStorage
  ;
  : Parameters
    Seq: ( ME_542E73D302E6 // aFileName
@@ -1804,10 +1804,10 @@ ref; // ME_542E737B0341 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_542E5D380067 // Im3StorageHolder
+ : Parent HWL ME_542E5D380067 // Im3StorageHolder
  ;
  : Operations
-   Seq: ( ME_542E737B0341 // DoIt
+   Seq: ( HWL ME_542E737B0341 // DoIt
  )
  ; // Operations
 
@@ -1822,14 +1822,14 @@ ref; // ME_542E736E0204 StoreToCache
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4720862F0238 // m3StorageInterfaces
+ : Parent HWL ME_4720862F0238 // m3StorageInterfaces
  ;
  : Attributes
-   Seq: ( ME_542E5D4E01DD // Storage
+   Seq: ( HWL ME_542E5D4E01DD // Storage
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_542E736E0204 // StoreToCache
+   Seq: ( HWL ME_542E736E0204 // StoreToCache
  )
  ; // Operations
  CONST extprop:rc:SelfName 'm3StorageHolder'
@@ -1848,26 +1848,26 @@ ref; // ME_542E5D380067 Im3StorageHolder
  : Parent WL 'ME_472082480337' '472082480337.pas.ms.script' // m3
  ;
  : Children
-   Seq: ( ME_47208653003B // Tm3StoreAccess
- ME_4720876A01FF // Tm3StoreType
- ME_47208860027B // Pm3StoreType
- ME_472088A703E6 // Tm3StoreMode
- ME_47208CA50237 // Tm3StoreInfo
- ME_4828606702D4 // Tm3StorageElementID
- ME_5451F4E50226 // Tm3StorageElementInfo
- ME_4828623D0134 // Im3StorageElementIDList
- ME_4FA27F590255 // TStatStg
- ME_5417FCC40029 // Tm3StorageType
- ME_5452559202F8 // Mm3StorageIterators
- ME_54539FA10228 // Tm3StoreElementIndex
- ME_545210E8021B // Tm3Store
- ME_4720937500A4 // Im3IndexedStorage
- ME_542E5D380067 // Im3StorageHolder
+   Seq: ( HWL ME_47208653003B // Tm3StoreAccess
+ HWL ME_4720876A01FF // Tm3StoreType
+ HWL ME_47208860027B // Pm3StoreType
+ HWL ME_472088A703E6 // Tm3StoreMode
+ HWL ME_47208CA50237 // Tm3StoreInfo
+ HWL ME_4828606702D4 // Tm3StorageElementID
+ HWL ME_5451F4E50226 // Tm3StorageElementInfo
+ HWL ME_4828623D0134 // Im3StorageElementIDList
+ HWL ME_4FA27F590255 // TStatStg
+ HWL ME_5417FCC40029 // Tm3StorageType
+ HWL ME_5452559202F8 // Mm3StorageIterators
+ HWL ME_54539FA10228 // Tm3StoreElementIndex
+ HWL ME_545210E8021B // Tm3Store
+ HWL ME_4720937500A4 // Im3IndexedStorage
+ HWL ME_542E5D380067 // Im3StorageHolder
  )
  ; // Children
  : Constants
-   Seq: ( ME_4720867203D9 // m3StoreAcessConsts
- ME_472086DD0134 // msStoreTypes
+   Seq: ( HWL ME_4720867203D9 // m3StoreAcessConsts
+ HWL ME_472086DD0134 // msStoreTypes
  )
  ; // Constants
  : Depends

@@ -13,7 +13,7 @@ FORWARD ME_467C182A01BE
  %SUMMARY 'Инструмент для работы с тегом.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_467C182A01BE // k2TagTool
+ : Parent HWL ME_467C182A01BE // k2TagTool
  ;
  : Inherits
    Seq: ( WL 'ME_467C185C03E7' '49A58A1A03C4.pas.ms.script' // Tk2TagPointer
@@ -37,7 +37,7 @@ FORWARD ME_4BBF3D8B00CD
  CONST Visibility ProtectedAccess
  CONST Abstraction at_final
  CONST LinkType lt_ref
- : Parent ME_4BBF3D8B00CD // Tk2ProcessorTagTool
+ : Parent HWL ME_4BBF3D8B00CD // Tk2ProcessorTagTool
  ;
  : Target WL 'ME_4A51D59703DF' '4678137501EA.pas.ms.script' // Ik2Processor
  ;
@@ -72,7 +72,7 @@ ref; // ME_4BBF40EA0169 aProcessor
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4BBF40C603BD // Create
+ : Parent HWL ME_4BBF40C603BD // Create
  ;
  : Parameters
    Seq: ( ME_4BBF40EA0117 // aTag
@@ -90,10 +90,10 @@ ref; // ME_4BBF40D0021D DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4BBF3D8B00CD // Tk2ProcessorTagTool
+ : Parent HWL ME_4BBF3D8B00CD // Tk2ProcessorTagTool
  ;
  : Operations
-   Seq: ( ME_4BBF40D0021D // DoIt
+   Seq: ( HWL ME_4BBF40D0021D // DoIt
  )
  ; // Operations
 
@@ -107,7 +107,7 @@ FORWARD ME_54BD0F310322
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_54BD0F310322 // GetProcessor
+ : Parent HWL ME_54BD0F310322 // GetProcessor
  ;
  : Target WL 'ME_4A51D59703DF' '4678137501EA.pas.ms.script' // Ik2Processor
  ;
@@ -122,10 +122,10 @@ ref; // ME_54BD0F400339 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_4BBF3D8B00CD // Tk2ProcessorTagTool
+ : Parent HWL ME_4BBF3D8B00CD // Tk2ProcessorTagTool
  ;
  : Operations
-   Seq: ( ME_54BD0F400339 // DoIt
+   Seq: ( HWL ME_54BD0F400339 // DoIt
  )
  ; // Operations
 
@@ -165,7 +165,7 @@ ref; // ME_54BD16D703CC DoLock
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_54BD16B6032F // StartOp
+ : Parent HWL ME_54BD16B6032F // StartOp
  ;
  : Target WL 'ME_4A51CF380145' '4678137501EA.pas.ms.script' // Ik2Op
  ;
@@ -185,10 +185,10 @@ ref; // ME_54BD16CB00B2 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility ProtectedAccess
  CONST Abstraction at_final
- : Parent ME_4BBF3D8B00CD // Tk2ProcessorTagTool
+ : Parent HWL ME_4BBF3D8B00CD // Tk2ProcessorTagTool
  ;
  : Operations
-   Seq: ( ME_54BD16CB00B2 // DoIt
+   Seq: ( HWL ME_54BD16CB00B2 // DoIt
  )
  ; // Operations
 
@@ -202,10 +202,10 @@ ref; // ME_54BD16B6032F StartOp
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4BBF3D8B00CD // Tk2ProcessorTagTool
+ : Parent HWL ME_4BBF3D8B00CD // Tk2ProcessorTagTool
  ;
  : Inherits
-   Seq: ( ME_4BBF40C603BD // Create
+   Seq: ( HWL ME_4BBF40C603BD // Create
  )
  ; // Inherits
  : Implements
@@ -248,10 +248,10 @@ ref; // ME_4A60B23E00C3_ME_4BBF3D8B00CD COMQueryInterface
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_467C182A01BE // k2TagTool
+ : Parent HWL ME_467C182A01BE // k2TagTool
  ;
  : Inherits
-   Seq: ( ME_467C18A303CB // Tk2TagTool
+   Seq: ( HWL ME_467C18A303CB // Tk2TagTool
  )
  ; // Inherits
  : Implements
@@ -259,14 +259,14 @@ ref; // ME_4A60B23E00C3_ME_4BBF3D8B00CD COMQueryInterface
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_54BD169902EF // Processor
+   Seq: ( HWL ME_54BD169902EF // Processor
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_4BBF40C603BD // Create
- ME_54BD0F310322 // GetProcessor
- ME_54BD16B6032F // StartOp
- ME_54BD284F0204 // Make
+   Seq: ( HWL ME_4BBF40C603BD // Create
+ HWL ME_54BD0F310322 // GetProcessor
+ HWL ME_54BD16B6032F // StartOp
+ HWL ME_54BD284F0204 // Make
  )
  ; // Operations
  : Implemented
@@ -294,7 +294,7 @@ ref; // ME_4BBF3D8B00CD Tk2ProcessorTagTool
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_467C182A01BE // k2TagTool
+ : Parent HWL ME_467C182A01BE // k2TagTool
  ;
  : Inherits
    Seq: ( WL 'ME_467C185C03E7' '49A58A1A03C4.pas.ms.script' // Tk2TagPointer
@@ -312,10 +312,10 @@ ref; // ME_508ADEB001A2 Mk2TagPointer
  %SUMMARY 'Инструмент для работы с тегом. Знает про процессор операций.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_467C182A01BE // k2TagTool
+ : Parent HWL ME_467C182A01BE // k2TagTool
  ;
  : Inherits
-   Seq: ( ME_4BBF3D8B00CD // Tk2ProcessorTagTool
+   Seq: ( HWL ME_4BBF3D8B00CD // Tk2ProcessorTagTool
  )
  ; // Inherits
  CONST intf.pas:Path 'common\components\rtl\Garant\K2\k2ProcTagTool.pas'
@@ -336,10 +336,10 @@ ref; // ME_467C18BF0367 Tk2ProcTagTool
  : Parent WL 'ME_4677E16A022A' '4677E16A022A.pas.ms.script' // K2
  ;
  : Children
-   Seq: ( ME_467C18A303CB // Tk2TagTool
- ME_4BBF3D8B00CD // Tk2ProcessorTagTool
- ME_508ADEB001A2 // Mk2TagPointer
- ME_467C18BF0367 // Tk2ProcTagTool
+   Seq: ( HWL ME_467C18A303CB // Tk2TagTool
+ HWL ME_4BBF3D8B00CD // Tk2ProcessorTagTool
+ HWL ME_508ADEB001A2 // Mk2TagPointer
+ HWL ME_467C18BF0367 // Tk2ProcTagTool
  )
  ; // Children
  : Depends

@@ -964,7 +964,7 @@ implementation @ <<SimpleClass>>
 end. // <<SimpleClass>>
 
 : SimpleClassSpell OBJECT IN %S
-//	[{%f_UseNewGenRecG(%S)!=true}{\
+//	[{%f_UseNewGenRecG(%S)!=true}\
  if ( ( [%f] UseNewGenRecG %( %S )% ) %!=  true ) then
  begin
 //	[{%S{singleton}=true}\
@@ -1388,11 +1388,6 @@ end. // <<SimpleClass>>
 //	%f_SpellFriends(%S)\
   [%f] SpellFriends %( %S )% 
 
-
-//	%S#[inherited]\
-//	%f_SpellAreaLinks(%S)\
-  [%f] SpellAreaLinks %( %S )% 
-
 //	%f_set_var(WasRegisterInEngine,"false")\
   [%f] set_var %( 'WasRegisterInEngine' %, false )% 
 //	[{%S#f_IsMixIn()!=true}\
@@ -1490,14 +1485,6 @@ end. // <<SimpleClass>>
   [%f] SpellScriptFramework %( %S )% 
 //	]
  end // if
- else
- begin
-
-//	%S#[inherited]\
-//	%f_SpellAreaLinks(%S)\
-  [%f] SpellAreaLinks %( %S )% 
-//	}\
- end // else
 
 //f _outInherited
 ; // SimpleClassSpell

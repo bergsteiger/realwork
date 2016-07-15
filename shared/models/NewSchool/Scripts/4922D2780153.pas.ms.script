@@ -1,0 +1,80 @@
+// TdsAttributeSelect 4922D2780153 ViewAreaControllerImp Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4922D2780153
+
+: ME_4922D2BB007C
+ CONST UID '4922D2BB007C'
+ CONST Name 'FormDataSourceType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent HWL ME_4922D2780153 // TdsAttributeSelect
+ ;
+ : Target WL 'ME_4922CF920141' '491DAF4202EE.pas.ms.script' // IdsAttributeSelect
+ ;
+
+ref; // ME_4922D2BB007C FormDataSourceType
+
+: ME_4922D2F50378
+ CONST UID '4922D2F50378'
+ CONST Name 'InitDataType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent HWL ME_4922D2780153 // TdsAttributeSelect
+ ;
+ : Target WL 'ME_4922CE700041' '491DAF4202EE.pas.ms.script' // IdeSearch
+ ;
+
+ref; // ME_4922D2F50378 InitDataType
+
+: ME_4922D0440266_ME_4922D2780153
+ : Original WL 'ME_4922D0440266' '491DAF4202EE.pas.ms.script' // Search
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_4922D0440266_ME_4922D2780153 Search
+
+: ME_4922D2780153
+ CONST UID '4922D2780153'
+ CONST Name 'TdsAttributeSelect'
+ CONST Class class_Class
+ : Stereotype st_ViewAreaControllerImp ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'бизнес объект формы выбранные атрибуты дерева' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_491DCA2C00A9' '491DCA2C00A9.pas.ms.script' // Search
+ ;
+ : Inherits
+   Seq: ( WL 'ME_492ACB4100B2' '47D0E1500033.pas.ms.script' // vcmFormDataSource
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4922CF920141' '491DAF4202EE.pas.ms.script' // IdsAttributeSelect
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( HWL ME_4922D2BB007C // FormDataSourceType
+ HWL ME_4922D2F50378 // InitDataType
+ )
+ ; // Attributes
+ : Implemented
+   Seq: ( ME_4922D0440266_ME_4922D2780153 // Search
+ )
+ ; // Implemented
+ CONST "author" 'Морозов М.А.'
+ CONST "no hands" true
+ CONST "started" '29.07.2005 17.07'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Search\dsAttributeSelect.pas'
+ CONST extprop:rc:SelfName 'dsAttributeSelect'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'dsAttributeSelect'
+
+ref; // ME_4922D2780153 TdsAttributeSelect

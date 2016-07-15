@@ -1,0 +1,26 @@
+// ParentAndChild 4F6B663803AE VCMFormsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+: ME_4F6B663803AE
+ CONST UID '4F6B663803AE'
+ CONST Name 'ParentAndChild'
+ CONST Class class_Class
+ : Stereotype st_VCMFormsPack ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Поддержка работы с родительской и дочерней зонами' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent WL 'ME_4F6B66140294' '4F6B66140294.pas.ms.script' // ParentAndChild
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4F6B66260326' '4F6B66260326.pas.ms.script' // ParentAndChildPrim
+ )
+ ; // Inherits
+ CONST intf.pas:Path 'common\components\gui\Garant\VCM\View\ParentAndChild\moParentAndChild.pas'
+ CONST extprop:pas:TypeName 'Tmo_ParentAndChild'
+ CONST extprop:rc:SelfName 'mo_ParentAndChild'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'moParentAndChild'
+
+ref; // ME_4F6B663803AE ParentAndChild

@@ -1,5 +1,6 @@
 //#UC START# *479731C50290_55F6875803A8_impl*
  FreeAndNil(f_LongProcessList);
+ FreeAndNil(f_Listeners);
  inherited;
 //#UC END# *479731C50290_55F6875803A8_impl*
 //#UC START# *479731C50290_55F6875803A8_var*
@@ -16,6 +17,7 @@
    if PQstatus(f_Handle) <> CONNECTION_OK then
     raise EPgError.Create(PQerrorMessage(f_Handle))
   finally
+   NotifyBeforeDisconnect;
    PQfinish(f_Handle);
    f_Handle := nil;
   end;
@@ -180,6 +182,7 @@ var
 //#UC START# *565EA7B30042_55F6875803A8_impl*
  inherited Create;
  aList.SetRefTo(f_LongProcessList);
+ f_Listeners := TpgConnectionListenerList.Make;
 //#UC END# *565EA7B30042_55F6875803A8_impl*
 //#UC START# *565EA7B30042_55F6875803A8_var*
 //#UC END# *565EA7B30042_55F6875803A8_var*
@@ -194,8 +197,36 @@ var
  end;
  if not Lock(pg_llShared) then
   EPgError.Create('Не удалось захватить базу');
+ NotifyAfterConnect; 
 //#UC END# *569636A400D9_55F6875803A8_impl*
 //#UC START# *569636A400D9_55F6875803A8_var*
 var
  l_Message: AnsiString;
 //#UC END# *569636A400D9_55F6875803A8_var*
+//#UC START# *5769250A0041_55F6875803A8_impl*
+ if f_Listeners.IndexOf(aListener) = -1 then
+  f_Listeners.Add(aListener);
+//#UC END# *5769250A0041_55F6875803A8_impl*
+//#UC START# *5769250A0041_55F6875803A8_var*
+//#UC END# *5769250A0041_55F6875803A8_var*
+//#UC START# *576925380066_55F6875803A8_impl*
+ f_Listeners.Remove(aListener);
+//#UC END# *576925380066_55F6875803A8_impl*
+//#UC START# *576925380066_55F6875803A8_var*
+//#UC END# *576925380066_55F6875803A8_var*
+//#UC START# *57692617007C_55F6875803A8_impl*
+ for l_IDX := 0 to f_Listeners.Count - 1 do
+  f_Listeners[l_IDX].AfterConnect;
+//#UC END# *57692617007C_55F6875803A8_impl*
+//#UC START# *57692617007C_55F6875803A8_var*
+var
+ l_IDX: Integer;
+//#UC END# *57692617007C_55F6875803A8_var*
+//#UC START# *5769262501D9_55F6875803A8_impl*
+ for l_IDX := 0 to f_Listeners.Count - 1 do
+  f_Listeners[l_IDX].BeforeDisconnect;
+//#UC END# *5769262501D9_55F6875803A8_impl*
+//#UC START# *5769262501D9_55F6875803A8_var*
+var
+ l_IDX: Integer;
+//#UC END# *5769262501D9_55F6875803A8_var*

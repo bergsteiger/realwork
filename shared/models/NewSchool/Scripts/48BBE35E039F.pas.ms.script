@@ -1,0 +1,51 @@
+// TafwCustomCommonControlPrim 48BBE35E039F GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_48BBE35E039F
+
+: ME_48BBE38D0061
+ CONST UID '48BBE38D0061'
+ CONST Name 'DoPaint'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_48BBE35E039F // TafwCustomCommonControlPrim
+ ;
+
+ref; // ME_48BBE38D0061 DoPaint
+
+: ME_48C6C044025E_ME_48BBE35E039F
+ : Original WL 'ME_48C6C044025E' '48BD1975029B.pas.ms.script' // Paint
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_48C6C044025E_ME_48BBE35E039F Paint
+
+: ME_48BBE35E039F
+ CONST UID '48BBE35E039F'
+ CONST Name 'TafwCustomCommonControlPrim'
+ CONST Class class_Class
+ : Stereotype st_GuiControl ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_467BA8C8017E' '467BA8C8017E.pas.ms.script' // afwControl
+ ;
+ : Inherits
+   Seq: ( WL 'ME_467BA96E003C' '467BA96E003C.pas.ms.script' // TafwControl
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( HWL ME_48BBE38D0061 // DoPaint
+ )
+ ; // Operations
+ : Overridden
+   Seq: ( ME_48C6C044025E_ME_48BBE35E039F // Paint
+ )
+ ; // Overridden
+ CONST intf.pas:Path 'common\components\gui\Garant\AFW\implementation\Visual\afwCustomCommonControlPrim.pas'
+ CONST extprop:rc:SelfName 'afwCustomCommonControlPrim'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'afwCustomCommonControlPrim'
+
+ref; // ME_48BBE35E039F TafwCustomCommonControlPrim

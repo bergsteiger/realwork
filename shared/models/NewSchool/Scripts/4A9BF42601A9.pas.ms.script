@@ -1,0 +1,506 @@
+// List$FP 4A9BF42601A9 VCMFormsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A9BF42601A9
+
+FORWARD ME_4AA4D7EA0094
+
+: ME_4AA4D9750025
+ CONST UID '4AA4D9750025'
+ CONST Name 'Info'
+ CONST Class class_Attribute
+ : Stereotype st_var::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_4AA4D7EA0094 // TryOpenDocument
+ ;
+ : Target WL 'ME_4AA4D8A6012B' '47F475660140.pas.ms.script' // TbsOpenListInfo
+ ;
+ CONST "IsResult" false
+
+ref; // ME_4AA4D9750025 Info
+
+: ME_52AEC5AD0135
+ CONST UID '52AEC5AD0135'
+ CONST Name 'DocInfo'
+ CONST Class class_Attribute
+ : Stereotype st_var::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_4AA4D7EA0094 // TryOpenDocument
+ ;
+ : Target WL 'ME_47EA0784000D' '4B1FC2FF03CD.pas.ms.script' // IdeDocInfo
+ ;
+ CONST "IsResult" false
+
+ref; // ME_52AEC5AD0135 DocInfo
+
+: ME_4AA4D80900A4
+ CONST Name 'aList'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47F20DEA0340' '4B1D3D250382.pas.ms.script' // IdeList
+ ;
+
+ref; // ME_4AA4D80900A4 aList
+
+: ME_4AA4F1040159
+ CONST Name 'aContainer'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
+ ;
+
+ref; // ME_4AA4F1040159 aContainer
+
+: ME_4AA4D7FC0119
+ CONST UID '4AA4D7FC0119'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AA4D7EA0094 // TryOpenDocument
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   Seq: ( ME_4AA4D80900A4 // aList
+ ME_4AA4F1040159 // aContainer
+ )
+ ; // Parameters
+
+ref; // ME_4AA4D7FC0119 DoIt
+
+: ME_4AA4DA4D0106
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AA4D7EA0094 // TryOpenDocument
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_4AA4DA4D0106 
+
+: ME_4AA4D7EA0094
+ CONST UID '4AA4D7EA0094'
+ CONST Name 'TryOpenDocument'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4A9BF42601A9 // List$FP
+ ;
+ : Attributes
+   Seq: ( HWL ME_4AA4D9750025 // Info
+ HWL ME_52AEC5AD0135 // DocInfo
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( HWL ME_4AA4D7FC0119 // DoIt
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_4AA4DA4D0106 // SysUtils
+ )
+ ; // Dependencies
+
+ref; // ME_4AA4D7EA0094 TryOpenDocument
+
+FORWARD ME_4AA4DB140235
+
+: ME_4AA4DB3D02BD
+ CONST Name 'aTree'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46825CC00249' '4682595B0268.pas.ms.script' // Il3SimpleTree
+ ;
+
+ref; // ME_4AA4DB3D02BD aTree
+
+: ME_4AA4DB3900A7
+ CONST UID '4AA4DB3900A7'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AA4DB140235 // MakeListAnalizer
+ ;
+ : Parameters
+   Seq: ( ME_4AA4DB3D02BD // aTree
+ )
+ ; // Parameters
+
+ref; // ME_4AA4DB3900A7 DoIt
+
+: ME_4AB23270026C
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AA4DB140235 // MakeListAnalizer
+ ;
+ : Target WL 'ME_47E13C6B0341' '4799D29F033F.pas.ms.script' // Forms
+ ;
+
+ref; // ME_4AB23270026C 
+
+: ME_4AA4DB140235
+ CONST UID '4AA4DB140235'
+ CONST Name 'MakeListAnalizer'
+ CONST Class class_Class
+ : Stereotype st_FactoryMethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4A9BF42601A9 // List$FP
+ ;
+ : Operations
+   Seq: ( HWL ME_4AA4DB3900A7 // DoIt
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_4AB23270026C // Forms
+ )
+ ; // Dependencies
+ CONST "NO_FACTORY_BRACKECTS" false
+ CONST "is static" false
+
+ref; // ME_4AA4DB140235 MakeListAnalizer
+
+FORWARD ME_4AA4DB5100EF
+
+: ME_4AA4DDB602AC
+ CONST UID '4AA4DDB602AC'
+ CONST Name 'Form'
+ CONST Class class_Attribute
+ : Stereotype st_var::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_4AA4DB5100EF // OpenList
+ ;
+ : Target WL 'ME_4914746C019E' '4683F37902CF.pas.ms.script' // IvcmEntityForm
+ ;
+ CONST "IsResult" false
+
+ref; // ME_4AA4DDB602AC Form
+
+: ME_4AA4E9D400BE
+ CONST UID '4AA4E9D400BE'
+ CONST Name 'Cont'
+ CONST Class class_Attribute
+ : Stereotype st_var::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_4AA4DB5100EF // OpenList
+ ;
+ : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
+ ;
+ CONST "IsResult" false
+
+ref; // ME_4AA4E9D400BE Cont
+
+: ME_4AA4DB7B0115
+ CONST Name 'aList'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47F20DEA0340' '4B1D3D250382.pas.ms.script' // IdeList
+ ;
+
+ref; // ME_4AA4DB7B0115 aList
+
+: ME_4AA4DB7B0135
+ CONST Name 'aContainer'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
+ ;
+
+ref; // ME_4AA4DB7B0135 aContainer
+
+: ME_4AA4DB670046
+ CONST UID '4AA4DB670046'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AA4DB5100EF // OpenList
+ ;
+ : Parameters
+   Seq: ( ME_4AA4DB7B0115 // aList
+ ME_4AA4DB7B0135 // aContainer
+ )
+ ; // Parameters
+
+ref; // ME_4AA4DB670046 DoIt
+
+: ME_4AA4DDC60099
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AA4DB5100EF // OpenList
+ ;
+ : Target WL 'ME_493E78640269' '493E78640269.pas.ms.script' // TsdsList
+ ;
+
+ref; // ME_4AA4DDC60099 
+
+: ME_4AA4E23F028D
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AA4DB5100EF // OpenList
+ ;
+ : Target WL 'ME_4AA4E1BB00D0' '4AA4E182008E.pas.ms.script' // TbsLinkType
+ ;
+
+ref; // ME_4AA4E23F028D 
+
+: ME_4AA4E6E00173
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AA4DB5100EF // OpenList
+ ;
+ : Target WL 'ME_47E228F401ED' '45700BFD0251.pas.ms.script' // DynListContent
+ ;
+
+ref; // ME_4AA4E6E00173 
+
+: ME_4B1D48AC0345
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AA4DB5100EF // OpenList
+ ;
+ : Target WL 'ME_47F274F101E1' '4B1D394B00E5.pas.ms.script' // IdeDocumentList
+ ;
+
+ref; // ME_4B1D48AC0345 
+
+: ME_4AA4DB5100EF
+ CONST UID '4AA4DB5100EF'
+ CONST Name 'OpenList'
+ CONST Class class_Class
+ : Stereotype st_FormSetFactory ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Открывает список в указанном контейнере' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4A9BF42601A9 // List$FP
+ ;
+ : Attributes
+   Seq: ( HWL ME_4AA4DDB602AC // Form
+ HWL ME_4AA4E9D400BE // Cont
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( HWL ME_4AA4DB670046 // DoIt
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_4AA4DDC60099 // TsdsList
+ ME_4AA4E23F028D // TbsLinkType
+ ME_4AA4E6E00173 // DynListContent
+ ME_4B1D48AC0345 // IdeDocumentList
+ )
+ ; // Dependencies
+ CONST "NO_FACTORY_BRACKECTS" false
+
+ref; // ME_4AA4DB5100EF OpenList
+
+FORWARD ME_4AA4EF7803A4
+
+: ME_4AA4EF8E0080
+ CONST Name 'aList'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47F20DEA0340' '4B1D3D250382.pas.ms.script' // IdeList
+ ;
+
+ref; // ME_4AA4EF8E0080 aList
+
+: ME_4AA4EF8E00A3
+ CONST Name 'aContainer'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
+ ;
+
+ref; // ME_4AA4EF8E00A3 aContainer
+
+: ME_4AA4EF8B01EF
+ CONST UID '4AA4EF8B01EF'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AA4EF7803A4 // OpenListWithReplace
+ ;
+ : Parameters
+   Seq: ( ME_4AA4EF8E0080 // aList
+ ME_4AA4EF8E00A3 // aContainer
+ )
+ ; // Parameters
+
+ref; // ME_4AA4EF8B01EF DoIt
+
+: ME_4AA4EFAD03B1
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AA4EF7803A4 // OpenListWithReplace
+ ;
+ : Target WL 'ME_493E78640269' '493E78640269.pas.ms.script' // TsdsList
+ ;
+
+ref; // ME_4AA4EFAD03B1 
+
+: ME_4AA4EF7803A4
+ CONST UID '4AA4EF7803A4'
+ CONST Name 'OpenListWithReplace'
+ CONST Class class_Class
+ : Stereotype st_FormSetFactory ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Открывает список в указанном контейнере. БЕЗ сохранения в историю. [$164601301]' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4A9BF42601A9 // List$FP
+ ;
+ : Operations
+   Seq: ( HWL ME_4AA4EF8B01EF // DoIt
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_4AA4EFAD03B1 // TsdsList
+ )
+ ; // Dependencies
+ CONST "NO_FACTORY_BRACKECTS" false
+
+ref; // ME_4AA4EF7803A4 OpenListWithReplace
+
+: ME_4AA4D8AE00B8
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A9BF42601A9 // List$FP
+ ;
+ : Target WL 'ME_4AA4D8A6012B' '47F475660140.pas.ms.script' // TbsOpenListInfo
+ ;
+
+ref; // ME_4AA4D8AE00B8 
+
+: ME_4BD1E8800011
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A9BF42601A9 // List$FP
+ ;
+ : Target WL 'ME_4B0410A102E1' '4BD1E3DE02FB.pas.ms.script' // dftDrugSynchroView
+ ;
+
+ref; // ME_4BD1E8800011 
+
+: ME_4BD9620B0138
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A9BF42601A9 // List$FP
+ ;
+ : Target WL 'ME_4BD8574A03A5' '4BD856E802F9.pas.ms.script' // Text
+ ;
+
+ref; // ME_4BD9620B0138 
+
+: ME_4DDFAE3B013F
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A9BF42601A9 // List$FP
+ ;
+ : Target WL 'ME_4B1E8FAE0380' '48F747EC0073.pas.ms.script' // DefDataAdapter
+ ;
+
+ref; // ME_4DDFAE3B013F 
+
+: ME_4DDFBDC80229
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A9BF42601A9 // List$FP
+ ;
+ : Target WL 'ME_4A9D129E00FA' '4AADF9450143.pas.ms.script' // Say
+ ;
+
+ref; // ME_4DDFBDC80229 
+
+: ME_4DE4A23A000C
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A9BF42601A9 // List$FP
+ ;
+ : Target WL 'ME_4AB0EE02004E' '4799D29F033F.pas.ms.script' // Dialogs
+ ;
+
+ref; // ME_4DE4A23A000C 
+
+: ME_4E033AAB0365
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A9BF42601A9 // List$FP
+ ;
+ : Target WL 'ME_4E01D696020C' '4AADF9450143.pas.ms.script' // vcmMessagesSupport
+ ;
+
+ref; // ME_4E033AAB0365 
+
+: ME_52A82341035B
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A9BF42601A9 // List$FP
+ ;
+ : Target WL 'ME_52A821F90360' '497DDB0A0168.pas.ms.script' // nsListEvents
+ ;
+
+ref; // ME_52A82341035B 
+
+: ME_4A9BF42601A9
+ CONST UID '4A9BF42601A9'
+ CONST Name 'List'
+ CONST Class class_Class
+ : Stereotype st_VCMFormsPack ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Работа со списком документов' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_497DDB0A0168' '497DDB0A0168.pas.ms.script' // List
+ ;
+ : Operations
+   Seq: ( HWL ME_4AA4D7EA0094 // TryOpenDocument
+ HWL ME_4AA4DB140235 // MakeListAnalizer
+ HWL ME_4AA4DB5100EF // OpenList
+ HWL ME_4AA4EF7803A4 // OpenListWithReplace
+ )
+ ; // Operations
+ : Children
+   Seq: ( WL 'ME_4A8921960298' '4A8921960298.pas.ms.script' // List
+ WL 'ME_4A9BF56C0166' '4A9BF56C0166.pas.ms.script' // ListInfo
+ WL 'ME_4AA0CE0E02C4' '4AA0CE0E02C4.pas.ms.script' // ListAnalizer
+ WL 'ME_4AA4D6C7036F' '4AA4D6C7036F.pas.ms.script' // List$FSF
+ WL 'ME_4E36959002CA' '4E36959002CA.pas.ms.script' // ListAnalize
+ )
+ ; // Children
+ : Dependencies
+   Seq: ( ME_4AA4D8AE00B8 // TbsOpenListInfo
+ ME_4BD1E8800011 // dftDrugSynchroView
+ ME_4BD9620B0138 // Text
+ ME_4DDFAE3B013F // DefDataAdapter
+ ME_4DDFBDC80229 // Say
+ ME_4DE4A23A000C // Dialogs
+ ME_4E033AAB0365 // vcmMessagesSupport
+ ME_52A82341035B // nsListEvents
+ )
+ ; // Dependencies
+ CONST "author" 'Люлин А.В.'
+ CONST "no hands" true
+ CONST "started" '31.08.2009 20:51'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\List\List_Module.pas'
+ CONST extprop:pas:TypeName 'TListModule'
+ CONST extprop:rc:SelfName 'ListModule'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'List_Module'
+
+ref; // ME_4A9BF42601A9 List$FP

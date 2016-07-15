@@ -1,0 +1,72 @@
+// TdsAACDocumentPrim 500E749D0046 ViewAreaControllerImp Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_500E749D0046
+
+FORWARD ME_500E74C30088
+
+: ME_500E74CD0101
+ CONST UID '500E74CD0101'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_500E74C30088 // BlockViewKind
+ ;
+ : Target WL 'ME_4FBE15CD02C7' '469D0AC7005E.pas.ms.script' // BlockViewKind
+ ;
+
+ref; // ME_500E74CD0101 DoIt
+
+: ME_500E74C30088
+ CONST UID '500E74C30088'
+ CONST Name 'BlockViewKind'
+ CONST Class class_Class
+ : Stereotype st_abstractmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_500E749D0046 // TdsAACDocumentPrim
+ ;
+ : Operations
+   Seq: ( HWL ME_500E74CD0101 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_500E74C30088 BlockViewKind
+
+: ME_49147B4602C0_ME_500E749D0046
+ : Original WL 'ME_49147B4602C0' '47D0E1500033.pas.ms.script' // GetIsNeedChangePosition
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_49147B4602C0_ME_500E749D0046 GetIsNeedChangePosition
+
+: ME_500E749D0046
+ CONST UID '500E749D0046'
+ CONST Name 'TdsAACDocumentPrim'
+ CONST Class class_Class
+ : Stereotype st_ViewAreaControllerImp ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4FF2E66802B4' '4FF2E66802B4.pas.ms.script' // AACImplementation
+ ;
+ : Inherits
+   Seq: ( WL 'ME_493D63D20049' '493D63D20049.pas.ms.script' // TdsDocument
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( HWL ME_500E74C30088 // BlockViewKind
+ )
+ ; // Operations
+ : Overridden
+   Seq: ( ME_49147B4602C0_ME_500E749D0046 // GetIsNeedChangePosition
+ )
+ ; // Overridden
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\AAC\dsAACDocumentPrim.pas'
+ CONST extprop:rc:SelfName 'dsAACDocumentPrim'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'dsAACDocumentPrim'
+
+ref; // ME_500E749D0046 TdsAACDocumentPrim

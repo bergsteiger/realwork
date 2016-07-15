@@ -201,3 +201,136 @@ var
 //#UC END# *575A8B790353_56C428E4014A_impl*
 //#UC START# *575A8B790353_56C428E4014A_var*
 //#UC END# *575A8B790353_56C428E4014A_var*
+//#UC START# *57625B5002DD_56C428E4014A_impl*
+ Result := f_HTManager.GetUserGroups(aUserID);
+ l_Check := f_PGManager.GetUserGroups(aUserID);
+ Assert(Length(Result) = Length(l_Check));
+ for l_IDX := Low(Result) to High(Result) do
+  Assert(Result[l_IDX] = l_Check[l_IDX]);
+//#UC END# *57625B5002DD_56C428E4014A_impl*
+//#UC START# *57625B5002DD_56C428E4014A_var*
+var
+ l_Check: TdaUserGroupIDArray;
+ l_IDX: Integer;
+//#UC END# *57625B5002DD_56C428E4014A_var*
+//#UC START# *576289510024_56C428E4014A_impl*
+ l_Check := Tl3StringDataList.Create;
+ try
+  l_Check.DataSize := aList.DataSize;
+  l_Check.Assign(aList);
+  f_HTManager.GetUserGroupsList(aUser, aList);
+  f_PGManager.GetUserGroupsList(aUser, l_Check);
+  Assert(l3IsIdenticalLists(aList, l_Check));
+ finally
+  FreeAndNil(l_Check);
+ end;
+//#UC END# *576289510024_56C428E4014A_impl*
+//#UC START# *576289510024_56C428E4014A_var*
+var
+ l_Check: Tl3StringDataList;
+//#UC END# *576289510024_56C428E4014A_var*
+//#UC START# *57628A9403C6_56C428E4014A_impl*
+ l_Check := Tl3LongintList.Make;
+ try
+  l_Check.Assign(aList);
+  f_HTManager.GetUserGroupsList(aUser, aList);
+  f_PGManager.GetUserGroupsList(aUser, l_Check);
+  Assert(l3IsIdenticalLists(aList, l_Check));
+ finally
+  FreeAndNil(l_Check);
+ end;
+//#UC END# *57628A9403C6_56C428E4014A_impl*
+//#UC START# *57628A9403C6_56C428E4014A_var*
+var
+ l_Check: Tl3LongintList;
+//#UC END# *57628A9403C6_56C428E4014A_var*
+//#UC START# *5767ABE002DC_56C428E4014A_impl*
+ f_HTManager.SetUserGroupsList(aUser, aList);
+ f_PGManager.SetUserGroupsList(aUser, aList);
+//#UC END# *5767ABE002DC_56C428E4014A_impl*
+//#UC START# *5767ABE002DC_56C428E4014A_var*
+//#UC END# *5767ABE002DC_56C428E4014A_var*
+//#UC START# *576B95A600B9_56C428E4014A_impl*
+ Result := f_HTManager.AddUserGroup(aName);
+ if Result <> 0 then
+  (f_PGManager as IdaComboAccessUserManagerHelper).AddUserGroupShadow(Result, aName);
+//#UC END# *576B95A600B9_56C428E4014A_impl*
+//#UC START# *576B95A600B9_56C428E4014A_var*
+//#UC END# *576B95A600B9_56C428E4014A_var*
+//#UC START# *576B960500C5_56C428E4014A_impl*
+ f_HTManager.EditUserGroup(aGroupID, aName, aImportPriority, aExportPriority);
+ f_PGManager.EditUserGroup(aGroupID, aName, aImportPriority, aExportPriority);
+//#UC END# *576B960500C5_56C428E4014A_impl*
+//#UC START# *576B960500C5_56C428E4014A_var*
+//#UC END# *576B960500C5_56C428E4014A_var*
+//#UC START# *576BAC4402D8_56C428E4014A_impl*
+ f_HTManager.DelUserGroup(aGroupID);
+ f_PGManager.DelUserGroup(aGroupID);
+//#UC END# *576BAC4402D8_56C428E4014A_impl*
+//#UC START# *576BAC4402D8_56C428E4014A_var*
+//#UC END# *576BAC4402D8_56C428E4014A_var*
+//#UC START# *577F6AD90170_56C428E4014A_impl*
+ f_HTManager.RemoveUserFromAllGroups(aUser);
+ f_PGManager.RemoveUserFromAllGroups(aUser);
+//#UC END# *577F6AD90170_56C428E4014A_impl*
+//#UC START# *577F6AD90170_56C428E4014A_var*
+//#UC END# *577F6AD90170_56C428E4014A_var*
+//#UC START# *577F80C503AF_56C428E4014A_impl*
+ f_HTManager.SetUserGroup(aUser, aGroup, Add);
+ f_PGManager.SetUserGroup(aUser, aGroup, Add);
+//#UC END# *577F80C503AF_56C428E4014A_impl*
+//#UC START# *577F80C503AF_56C428E4014A_var*
+//#UC END# *577F80C503AF_56C428E4014A_var*
+//#UC START# *5783537E00A1_56C428E4014A_impl*
+ f_HTManager.AdminChangePassWord(aUser, NewPass);
+ f_PGManager.AdminChangePassWord(aUser, NewPass);
+//#UC END# *5783537E00A1_56C428E4014A_impl*
+//#UC START# *5783537E00A1_56C428E4014A_var*
+//#UC END# *5783537E00A1_56C428E4014A_var*
+//#UC START# *578392E7026A_56C428E4014A_impl*
+ l_Check := Tl3StringDataList.Create;
+ try
+  l_Check.DataSize := aList.DataSize;
+  l_Check.Assign(aList);
+  f_HTManager.GetHostUserListOnGroup(aGroupID, aList, NeedSort);
+  f_PGManager.GetHostUserListOnGroup(aGroupID, l_Check, NeedSort);
+  Assert(l3IsIdenticalLists(aList, l_Check));
+ finally
+  FreeAndNil(l_Check);
+ end;
+//#UC END# *578392E7026A_56C428E4014A_impl*
+//#UC START# *578392E7026A_56C428E4014A_var*
+var
+ l_Check: Tl3StringDataList;
+//#UC END# *578392E7026A_56C428E4014A_var*
+//#UC START# *5783933A010B_56C428E4014A_impl*
+ f_HTManager.SetHostUserListOnGroup(aGroupID, aList);
+ f_PGManager.SetHostUserListOnGroup(aGroupID, aList);
+//#UC END# *5783933A010B_56C428E4014A_impl*
+//#UC START# *5783933A010B_56C428E4014A_var*
+//#UC END# *5783933A010B_56C428E4014A_var*
+//#UC START# *5784BBF10299_56C428E4014A_impl*
+ Result := f_HTManager.AddUser(aUserName, aLoginName, aPassword, ActFlag);
+ Assert(Result = f_PGManager.AddUserID(Result, aUserName, aLoginName, aPassword, ActFlag));
+//#UC END# *5784BBF10299_56C428E4014A_impl*
+//#UC START# *5784BBF10299_56C428E4014A_var*
+//#UC END# *5784BBF10299_56C428E4014A_var*
+//#UC START# *5784BC420208_56C428E4014A_impl*
+ Result := f_HTManager.AddUserID(anID, aUserName, aLoginName, aPassword, ActFlag);
+ Assert((anID = 0) or (anID = Result));
+ Assert(Result = f_PGManager.AddUserID(Result, aUserName, aLoginName, aPassword, ActFlag));
+//#UC END# *5784BC420208_56C428E4014A_impl*
+//#UC START# *5784BC420208_56C428E4014A_var*
+//#UC END# *5784BC420208_56C428E4014A_var*
+//#UC START# *5784BD1501E8_56C428E4014A_impl*
+ f_HTManager.EditUser(aUser, aUserName, aLoginName, ActFlag, EditMask);
+ f_PGManager.EditUser(aUser, aUserName, aLoginName, ActFlag, EditMask);
+//#UC END# *5784BD1501E8_56C428E4014A_impl*
+//#UC START# *5784BD1501E8_56C428E4014A_var*
+//#UC END# *5784BD1501E8_56C428E4014A_var*
+//#UC START# *5784BE1E02F7_56C428E4014A_impl*
+ f_HTManager.DelUser(aUser);
+ f_PGManager.DelUser(aUser);
+//#UC END# *5784BE1E02F7_56C428E4014A_impl*
+//#UC START# *5784BE1E02F7_56C428E4014A_var*
+//#UC END# *5784BE1E02F7_56C428E4014A_var*

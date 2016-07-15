@@ -1,0 +1,73 @@
+// TsdsCommonDiction 4941654603E7 UseCaseControllerImp Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4941654603E7
+
+: ME_4941657B03CE
+ CONST UID '4941657B03CE'
+ CONST Name 'SetDataType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent HWL ME_4941654603E7 // TsdsCommonDiction
+ ;
+ : Target WL 'ME_492545F700BF' '492540AF02CD.pas.ms.script' // IdCommonDiction
+ ;
+
+ref; // ME_4941657B03CE SetDataType
+
+: ME_4D81DFB400BD
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4941654603E7 // TsdsCommonDiction
+ ;
+ : Target WL 'ME_4923F66E0262' '4923F66E0262.pas.ms.script' // TdsSaveLoad
+ ;
+
+ref; // ME_4D81DFB400BD 
+
+: ME_47F3778403D9_ME_4941654603E7
+ : Original WL 'ME_47F3778403D9' '47D0E1500033.pas.ms.script' // MakeData
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_47F3778403D9_ME_4941654603E7 MakeData
+
+: ME_4941654603E7
+ CONST UID '4941654603E7'
+ CONST Name 'TsdsCommonDiction'
+ CONST Class class_Class
+ : Stereotype st_UseCaseControllerImp ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Обобщённый словарь' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_492543E30278' '492543E30278.pas.ms.script' // CommonDiction
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4936B666032A' '4936B666032A.pas.ms.script' // sdsCommonDiction
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( HWL ME_4941657B03CE // SetDataType
+ )
+ ; // Attributes
+ : Implemented
+   Seq: ( ME_47F3778403D9_ME_4941654603E7 // MakeData
+ )
+ ; // Implemented
+ : Dependencies
+   Seq: ( ME_4D81DFB400BD // TdsSaveLoad
+ )
+ ; // Dependencies
+ CONST "author" 'Люлин А.В.'
+ CONST "no hands" true
+ CONST "started" '11.12.2008 22:09'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\CommonDiction\sdsCommonDiction.pas'
+ CONST extprop:rc:SelfName 'sdsCommonDiction'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'sdsCommonDiction'
+
+ref; // ME_4941654603E7 TsdsCommonDiction

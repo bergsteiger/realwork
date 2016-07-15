@@ -4,573 +4,7 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 FORWARD ME_4E030FC801EB
 
-FORWARD ME_5507FDD203E1
-
-FORWARD ME_5509AAAC0313
-
-: ME_5509AAC00331
- CONST Class class_Dependency
- : Stereotype st_implements::Dependency ;
- : Parent ME_5509AAAC0313 // Tl3BatchScriptService
- ;
- : Target WL 'ME_5509AA5400EA' '4F7338A800A7.pas.ms.script' // Tl3ScriptService
- ;
-
-ref; // ME_5509AAC00331 
-
-: ME_97F121633B1B_ME_5509AAAC0313
- : Original WL 'ME_97F121633B1B' '4F7338A800A7.pas.ms.script' // EnterScript
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_97F121633B1B_ME_5509AAAC0313 EnterScript
-
-: ME_BA3808340B4E_ME_5509AAAC0313
- : Original WL 'ME_BA3808340B4E' '4F7338A800A7.pas.ms.script' // LeaveScript
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_BA3808340B4E_ME_5509AAAC0313 LeaveScript
-
-: ME_5509AAAC0313
- CONST UID '5509AAAC0313'
- CONST Name 'Tl3BatchScriptService'
- CONST Class class_Class
- : Stereotype st_ServiceImplementation ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_5507FDD203E1 // Tl3BatchService
- ;
- : Inherits
-   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- )
- ; // Inherits
- : Implements
-   Seq: ( WL 'ME_DAC1F2DB132D' '4F7338A800A7.pas.ms.script' // Il3ScriptService
- )
- ; // Implements
- : Implemented
-   Seq: ( ME_97F121633B1B_ME_5509AAAC0313 // EnterScript
- ME_BA3808340B4E_ME_5509AAAC0313 // LeaveScript
- )
- ; // Implemented
- : Dependencies
-   Seq: ( ME_5509AAC00331 // Tl3ScriptService
- )
- ; // Dependencies
- CONST "singleton" true
- CONST extprop:rc:SelfName 'BatchScriptService'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_5509AAAC0313 Tl3BatchScriptService
-
-FORWARD ME_61A12D8261F1
-
-: ME_8A081B195E08
- CONST UID '8A081B195E08'
- CONST Name 'IsBatchMode'
- CONST IsSummoned true
- CONST Class class_Operation
- CONST Visibility PublicAccess
- CONST Abstraction at_abstract
- : Parent ME_61A12D8261F1 // Ml3BatchService
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_8A081B195E08 IsBatchMode
-
-: ME_3E2DB431FD1A
- CONST UID '3E2DB431FD1A'
- CONST Name 'EnterBatchMode'
- CONST IsSummoned true
- CONST Class class_Operation
- CONST Visibility PublicAccess
- CONST Abstraction at_abstract
- : Parent ME_61A12D8261F1 // Ml3BatchService
- ;
-
-ref; // ME_3E2DB431FD1A EnterBatchMode
-
-: ME_FE46A80B1DA3
- CONST UID 'FE46A80B1DA3'
- CONST Name 'LeaveBatchMode'
- CONST IsSummoned true
- CONST Class class_Operation
- CONST Visibility PublicAccess
- CONST Abstraction at_abstract
- : Parent ME_61A12D8261F1 // Ml3BatchService
- ;
-
-ref; // ME_FE46A80B1DA3 LeaveBatchMode
-
-: ME_3BBB07EEB463
- CONST Name 'aValue'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_3BBB07EEB463 aValue
-
-: ME_194C97B8A2DF
- CONST UID '194C97B8A2DF'
- CONST Name 'PushAnswer'
- CONST IsSummoned true
- CONST Class class_Operation
- CONST Visibility PublicAccess
- CONST Abstraction at_abstract
- : Parent ME_61A12D8261F1 // Ml3BatchService
- ;
- : Parameters
-   Seq: ( ME_3BBB07EEB463 // aValue
- )
- ; // Parameters
-
-ref; // ME_194C97B8A2DF PushAnswer
-
-: ME_FE26372CAD8B
- CONST UID 'FE26372CAD8B'
- CONST Name 'PopAnswer'
- CONST IsSummoned true
- CONST Class class_Operation
- CONST Visibility PublicAccess
- CONST Abstraction at_abstract
- : Parent ME_61A12D8261F1 // Ml3BatchService
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_FE26372CAD8B PopAnswer
-
-: ME_23858A465AF6
- CONST UID '23858A465AF6'
- CONST Name 'SignalWasDialog'
- CONST IsSummoned true
- CONST Class class_Operation
- CONST Visibility PublicAccess
- CONST Abstraction at_abstract
- : Parent ME_61A12D8261F1 // Ml3BatchService
- ;
-
-ref; // ME_23858A465AF6 SignalWasDialog
-
-: ME_217998C234EE
- CONST UID '217998C234EE'
- CONST Name 'CheckWasDialog'
- CONST IsSummoned true
- CONST Class class_Operation
- CONST Visibility PublicAccess
- CONST Abstraction at_abstract
- : Parent ME_61A12D8261F1 // Ml3BatchService
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_217998C234EE CheckWasDialog
-
-: ME_37CC2CF2A1FF
- CONST UID '37CC2CF2A1FF'
- CONST Name 'ClearAnswers'
- CONST IsSummoned true
- CONST Class class_Operation
- CONST Visibility PublicAccess
- CONST Abstraction at_abstract
- : Parent ME_61A12D8261F1 // Ml3BatchService
- ;
-
-ref; // ME_37CC2CF2A1FF ClearAnswers
-
-: ME_61A12D8261F1
- CONST UID '61A12D8261F1'
- CONST Name 'Ml3BatchService'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_PureMixIn ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Контракт сервиса Tl3BatchService' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_5507FDD203E1 // Tl3BatchService
- ;
- : Operations
-   Seq: ( ME_8A081B195E08 // IsBatchMode
- ME_3E2DB431FD1A // EnterBatchMode
- ME_FE46A80B1DA3 // LeaveBatchMode
- ME_194C97B8A2DF // PushAnswer
- ME_FE26372CAD8B // PopAnswer
- ME_23858A465AF6 // SignalWasDialog
- ME_217998C234EE // CheckWasDialog
- ME_37CC2CF2A1FF // ClearAnswers
- )
- ; // Operations
-
-ref; // ME_61A12D8261F1 Ml3BatchService
-
-FORWARD ME_4FB9430ADD7C
-
-: ME_194C97B8A2DF_ME_4FB9430ADD7C
- : Original ME_194C97B8A2DF // PushAnswer
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_194C97B8A2DF_ME_4FB9430ADD7C PushAnswer
-
-: ME_217998C234EE_ME_4FB9430ADD7C
- : Original ME_217998C234EE // CheckWasDialog
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_217998C234EE_ME_4FB9430ADD7C CheckWasDialog
-
-: ME_23858A465AF6_ME_4FB9430ADD7C
- : Original ME_23858A465AF6 // SignalWasDialog
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_23858A465AF6_ME_4FB9430ADD7C SignalWasDialog
-
-: ME_37CC2CF2A1FF_ME_4FB9430ADD7C
- : Original ME_37CC2CF2A1FF // ClearAnswers
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_37CC2CF2A1FF_ME_4FB9430ADD7C ClearAnswers
-
-: ME_3E2DB431FD1A_ME_4FB9430ADD7C
- : Original ME_3E2DB431FD1A // EnterBatchMode
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_3E2DB431FD1A_ME_4FB9430ADD7C EnterBatchMode
-
-: ME_8A081B195E08_ME_4FB9430ADD7C
- : Original ME_8A081B195E08 // IsBatchMode
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_8A081B195E08_ME_4FB9430ADD7C IsBatchMode
-
-: ME_FE26372CAD8B_ME_4FB9430ADD7C
- : Original ME_FE26372CAD8B // PopAnswer
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_FE26372CAD8B_ME_4FB9430ADD7C PopAnswer
-
-: ME_FE46A80B1DA3_ME_4FB9430ADD7C
- : Original ME_FE46A80B1DA3 // LeaveBatchMode
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_FE46A80B1DA3_ME_4FB9430ADD7C LeaveBatchMode
-
-: ME_4FB9430ADD7C
- CONST UID '4FB9430ADD7C'
- CONST GUID 'F011DB29-11CB-4024-B2FC-89B3245D418D'
- CONST Name 'Il3BatchService'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Facet ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Интерфейс сервиса Tl3BatchService' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_5507FDD203E1 // Tl3BatchService
- ;
- : Implements
-   Seq: ( ME_61A12D8261F1 // Ml3BatchService
- )
- ; // Implements
- : Implemented
-   Seq: ( ME_194C97B8A2DF_ME_4FB9430ADD7C // PushAnswer
- ME_217998C234EE_ME_4FB9430ADD7C // CheckWasDialog
- ME_23858A465AF6_ME_4FB9430ADD7C // SignalWasDialog
- ME_37CC2CF2A1FF_ME_4FB9430ADD7C // ClearAnswers
- ME_3E2DB431FD1A_ME_4FB9430ADD7C // EnterBatchMode
- ME_8A081B195E08_ME_4FB9430ADD7C // IsBatchMode
- ME_FE26372CAD8B_ME_4FB9430ADD7C // PopAnswer
- ME_FE46A80B1DA3_ME_4FB9430ADD7C // LeaveBatchMode
- )
- ; // Implemented
- CONST extprop:rc:SelfName 'BatchService'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_4FB9430ADD7C Il3BatchService
-
-FORWARD ME_553F84500218
-
-FORWARD ME_553F7345032E
-
-FORWARD ME_553F8EA30300
-
-: ME_5507FDED0373
- CONST UID '5507FDED0373'
- CONST Name 'IsBatchMode'
- CONST Class class_Operation
- : Stereotype st_responsibility::Operation ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_5507FDD203E1 // Tl3BatchService
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_5507FDED0373 IsBatchMode
-
-: ME_55099B480169
- CONST UID '55099B480169'
- CONST Name 'EnterBatchMode'
- CONST Class class_Operation
- : Stereotype st_responsibility::Operation ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_5507FDD203E1 // Tl3BatchService
- ;
-
-ref; // ME_55099B480169 EnterBatchMode
-
-: ME_55099B590257
- CONST UID '55099B590257'
- CONST Name 'LeaveBatchMode'
- CONST Class class_Operation
- : Stereotype st_responsibility::Operation ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_5507FDD203E1 // Tl3BatchService
- ;
-
-ref; // ME_55099B590257 LeaveBatchMode
-
-: ME_553F341F03E3
- CONST Name 'aValue'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_553F341F03E3 aValue
-
-: ME_553F341100FE
- CONST UID '553F341100FE'
- CONST Name 'PushAnswer'
- CONST Class class_Operation
- : Stereotype st_responsibility::Operation ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_5507FDD203E1 // Tl3BatchService
- ;
- : Parameters
-   Seq: ( ME_553F341F03E3 // aValue
- )
- ; // Parameters
-
-ref; // ME_553F341100FE PushAnswer
-
-: ME_553F3424010C
- CONST UID '553F3424010C'
- CONST Name 'PopAnswer'
- CONST Class class_Operation
- : Stereotype st_responsibility::Operation ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_5507FDD203E1 // Tl3BatchService
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_553F3424010C PopAnswer
-
-: ME_553F428003A3
- CONST UID '553F428003A3'
- CONST Name 'SignalWasDialog'
- CONST Class class_Operation
- : Stereotype st_responsibility::Operation ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_5507FDD203E1 // Tl3BatchService
- ;
-
-ref; // ME_553F428003A3 SignalWasDialog
-
-: ME_553F429502D1
- CONST UID '553F429502D1'
- CONST Name 'CheckWasDialog'
- CONST Class class_Operation
- : Stereotype st_responsibility::Operation ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_5507FDD203E1 // Tl3BatchService
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_553F429502D1 CheckWasDialog
-
-: ME_553F4C9802D8
- CONST UID '553F4C9802D8'
- CONST Name 'ClearAnswers'
- CONST Class class_Operation
- : Stereotype st_responsibility::Operation ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_5507FDD203E1 // Tl3BatchService
- ;
-
-ref; // ME_553F4C9802D8 ClearAnswers
-
 FORWARD ME_4E03119F00B2
-
-: ME_553F33E200B6
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_5507FDD203E1 // Tl3BatchService
- ;
- : Target ME_4E03119F00B2 // afwAnswer
- ;
-
-ref; // ME_553F33E200B6 
-
-: ME_553F34080180
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_5507FDD203E1 // Tl3BatchService
- ;
- : Target WL 'ME_4A980B37006B' '4799D29F033F.pas.ms.script' // ModalResults
- ;
-
-ref; // ME_553F34080180 
-
-FORWARD ME_553F71BE03E0
-
-: ME_553F71DE029D
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_5507FDD203E1 // Tl3BatchService
- ;
- : Target ME_553F71BE03E0 // Tl3ModalService
- ;
-
-ref; // ME_553F71DE029D 
-
-: ME_194C97B8A2DF_ME_5507FDD203E1
- : Original ME_194C97B8A2DF // PushAnswer
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_194C97B8A2DF_ME_5507FDD203E1 PushAnswer
-
-: ME_217998C234EE_ME_5507FDD203E1
- : Original ME_217998C234EE // CheckWasDialog
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_217998C234EE_ME_5507FDD203E1 CheckWasDialog
-
-: ME_23858A465AF6_ME_5507FDD203E1
- : Original ME_23858A465AF6 // SignalWasDialog
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_23858A465AF6_ME_5507FDD203E1 SignalWasDialog
-
-: ME_37CC2CF2A1FF_ME_5507FDD203E1
- : Original ME_37CC2CF2A1FF // ClearAnswers
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_37CC2CF2A1FF_ME_5507FDD203E1 ClearAnswers
-
-: ME_3E2DB431FD1A_ME_5507FDD203E1
- : Original ME_3E2DB431FD1A // EnterBatchMode
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_3E2DB431FD1A_ME_5507FDD203E1 EnterBatchMode
-
-: ME_553F7345032E_ME_5507FDD203E1
- : Original ME_553F7345032E // HasModalWorker
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_553F7345032E_ME_5507FDD203E1 HasModalWorker
-
-: ME_553F8EA30300_ME_5507FDD203E1
- : Original ME_553F8EA30300 // ExecuteCurrentModalWorker
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_553F8EA30300_ME_5507FDD203E1 ExecuteCurrentModalWorker
-
-: ME_8A081B195E08_ME_5507FDD203E1
- : Original ME_8A081B195E08 // IsBatchMode
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_8A081B195E08_ME_5507FDD203E1 IsBatchMode
-
-: ME_FE26372CAD8B_ME_5507FDD203E1
- : Original ME_FE26372CAD8B // PopAnswer
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_FE26372CAD8B_ME_5507FDD203E1 PopAnswer
-
-: ME_FE46A80B1DA3_ME_5507FDD203E1
- : Original ME_FE46A80B1DA3 // LeaveBatchMode
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_FE46A80B1DA3_ME_5507FDD203E1 LeaveBatchMode
-
-: ME_5507FDD203E1
- CONST UID '5507FDD203E1'
- CONST Name 'Tl3BatchService'
- CONST Class class_Class
- : Stereotype st_Service ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4E030FC801EB // BatchServices
- ;
- : Inherits
-   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- )
- ; // Inherits
- : Implements
-   Seq: ( ME_553F84500218 // Ml3ModalService
- ME_61A12D8261F1 // Ml3BatchService
- )
- ; // Implements
- : Operations
-   Seq: ( ME_5507FDED0373 // IsBatchMode
- ME_55099B480169 // EnterBatchMode
- ME_55099B590257 // LeaveBatchMode
- ME_553F341100FE // PushAnswer
- ME_553F3424010C // PopAnswer
- ME_553F428003A3 // SignalWasDialog
- ME_553F429502D1 // CheckWasDialog
- ME_553F4C9802D8 // ClearAnswers
- )
- ; // Operations
- : Implemented
-   Seq: ( ME_194C97B8A2DF_ME_5507FDD203E1 // PushAnswer
- ME_217998C234EE_ME_5507FDD203E1 // CheckWasDialog
- ME_23858A465AF6_ME_5507FDD203E1 // SignalWasDialog
- ME_37CC2CF2A1FF_ME_5507FDD203E1 // ClearAnswers
- ME_3E2DB431FD1A_ME_5507FDD203E1 // EnterBatchMode
- ME_553F7345032E_ME_5507FDD203E1 // HasModalWorker
- ME_553F8EA30300_ME_5507FDD203E1 // ExecuteCurrentModalWorker
- ME_8A081B195E08_ME_5507FDD203E1 // IsBatchMode
- ME_FE26372CAD8B_ME_5507FDD203E1 // PopAnswer
- ME_FE46A80B1DA3_ME_5507FDD203E1 // LeaveBatchMode
- )
- ; // Implemented
- : Children
-   Seq: ( ME_5509AAAC0313 // Tl3BatchScriptService
- ME_61A12D8261F1 // Ml3BatchService
- ME_4FB9430ADD7C // Il3BatchService
- )
- ; // Children
- : Dependencies
-   Seq: ( ME_553F33E200B6 // afwAnswer
- ME_553F34080180 // ModalResults
- ME_553F71DE029D // Tl3ModalService
- )
- ; // Dependencies
- CONST "singleton" true
- CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3BatchService.pas'
- CONST extprop:rc:SelfName 'BatchService'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'l3BatchService'
- : Facet ME_4FB9430ADD7C // Il3BatchService
- ;
- : Mixin ME_61A12D8261F1 // Ml3BatchService
- ;
-
-ref; // ME_5507FDD203E1 Tl3BatchService
 
 : ME_5507EB89020D
  CONST UID '5507EB89020D'
@@ -580,7 +14,7 @@ ref; // ME_5507FDD203E1 Tl3BatchService
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4E03119F00B2 // afwAnswer
+ : Parent HWL ME_4E03119F00B2 // afwAnswer
  ;
  : Inherits
    Seq: ( WL 'ME_4FC77244014D' '5507EB5803E7.pas.ms.script' // El3TryEnterModalState
@@ -598,7 +32,7 @@ FORWARD ME_5507FE0A0095
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_5507FE0A0095 // TafwBatchService
+ : Parent HWL ME_5507FE0A0095 // TafwBatchService
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -612,70 +46,24 @@ ref; // ME_55099BAF026D f_BatchMode
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_5507FE0A0095 // TafwBatchService
+ : Parent HWL ME_5507FE0A0095 // TafwBatchService
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
 
 ref; // ME_553F4303012B f_WasDialog
 
+FORWARD ME_5507FDD203E1
+
 : ME_5507FE1D0222
  CONST Class class_Dependency
  : Stereotype st_implements::Dependency ;
- : Parent ME_5507FE0A0095 // TafwBatchService
+ : Parent HWL ME_5507FE0A0095 // TafwBatchService
  ;
- : Target ME_5507FDD203E1 // Tl3BatchService
+ : Target HWL ME_5507FDD203E1 // Tl3BatchService
  ;
 
 ref; // ME_5507FE1D0222 
-
-: ME_194C97B8A2DF_ME_5507FE0A0095
- : Original ME_194C97B8A2DF // PushAnswer
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_194C97B8A2DF_ME_5507FE0A0095 PushAnswer
-
-: ME_217998C234EE_ME_5507FE0A0095
- : Original ME_217998C234EE // CheckWasDialog
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_217998C234EE_ME_5507FE0A0095 CheckWasDialog
-
-: ME_23858A465AF6_ME_5507FE0A0095
- : Original ME_23858A465AF6 // SignalWasDialog
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_23858A465AF6_ME_5507FE0A0095 SignalWasDialog
-
-: ME_37CC2CF2A1FF_ME_5507FE0A0095
- : Original ME_37CC2CF2A1FF // ClearAnswers
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_37CC2CF2A1FF_ME_5507FE0A0095 ClearAnswers
-
-: ME_3E2DB431FD1A_ME_5507FE0A0095
- : Original ME_3E2DB431FD1A // EnterBatchMode
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_3E2DB431FD1A_ME_5507FE0A0095 EnterBatchMode
-
-: ME_8A081B195E08_ME_5507FE0A0095
- : Original ME_8A081B195E08 // IsBatchMode
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_8A081B195E08_ME_5507FE0A0095 IsBatchMode
-
-: ME_FE26372CAD8B_ME_5507FE0A0095
- : Original ME_FE26372CAD8B // PopAnswer
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_FE26372CAD8B_ME_5507FE0A0095 PopAnswer
-
-: ME_FE46A80B1DA3_ME_5507FE0A0095
- : Original ME_FE46A80B1DA3 // LeaveBatchMode
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_FE46A80B1DA3_ME_5507FE0A0095 LeaveBatchMode
 
 : ME_5507FE0A0095
  CONST UID '5507FE0A0095'
@@ -685,37 +73,21 @@ ref; // ME_FE46A80B1DA3_ME_5507FE0A0095 LeaveBatchMode
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4E03119F00B2 // afwAnswer
+ : Parent HWL ME_4E03119F00B2 // afwAnswer
  ;
  : Inherits
    Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
  )
  ; // Inherits
- : Implements
-   Seq: ( ME_4FB9430ADD7C // Il3BatchService
- )
- ; // Implements
  : Attributes
-   Seq: ( ME_55099BAF026D // f_BatchMode
- ME_553F4303012B // f_WasDialog
+   Seq: ( HWL ME_55099BAF026D // f_BatchMode
+ HWL ME_553F4303012B // f_WasDialog
  )
  ; // Attributes
- : Implemented
-   Seq: ( ME_194C97B8A2DF_ME_5507FE0A0095 // PushAnswer
- ME_217998C234EE_ME_5507FE0A0095 // CheckWasDialog
- ME_23858A465AF6_ME_5507FE0A0095 // SignalWasDialog
- ME_37CC2CF2A1FF_ME_5507FE0A0095 // ClearAnswers
- ME_3E2DB431FD1A_ME_5507FE0A0095 // EnterBatchMode
- ME_8A081B195E08_ME_5507FE0A0095 // IsBatchMode
- ME_FE26372CAD8B_ME_5507FE0A0095 // PopAnswer
- ME_FE46A80B1DA3_ME_5507FE0A0095 // LeaveBatchMode
- )
- ; // Implemented
  : Dependencies
    Seq: ( ME_5507FE1D0222 // Tl3BatchService
  )
  ; // Dependencies
- CONST "singleton" true
  CONST extprop:rc:SelfName 'afwBatchService'
  CONST extprop:rc:isAcceptableForScripts true
 
@@ -731,7 +103,7 @@ FORWARD ME_4E0321910152
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4E0321910152 // GetAnswer
+ : Parent HWL ME_4E0321910152 // GetAnswer
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -741,7 +113,7 @@ ref; // ME_4E0321D50088 DoIt
 : ME_4E0324980239
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4E0321910152 // GetAnswer
+ : Parent HWL ME_4E0321910152 // GetAnswer
  ;
  : Target WL 'ME_4A980B37006B' '4799D29F033F.pas.ms.script' // ModalResults
  ;
@@ -756,10 +128,10 @@ ref; // ME_4E0324980239
  CONST Kind kind_NormalClass
  CONST Visibility ProtectedAccess
  CONST Abstraction at_final
- : Parent ME_553E013F0125 // TafwAnswers
+ : Parent HWL ME_553E013F0125 // TafwAnswers
  ;
  : Operations
-   Seq: ( ME_4E0321D50088 // DoIt
+   Seq: ( HWL ME_4E0321D50088 // DoIt
  )
  ; // Operations
  : Dependencies
@@ -787,7 +159,7 @@ ref; // ME_4E0312FF03D0 anAnswer
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4E0312C70245 // SetAnswer
+ : Parent HWL ME_4E0312C70245 // SetAnswer
  ;
  : Parameters
    Seq: ( ME_4E0312FF03D0 // anAnswer
@@ -804,10 +176,10 @@ ref; // ME_4E0312E70097 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility ProtectedAccess
  CONST Abstraction at_final
- : Parent ME_553E013F0125 // TafwAnswers
+ : Parent HWL ME_553E013F0125 // TafwAnswers
  ;
  : Operations
-   Seq: ( ME_4E0312E70097 // DoIt
+   Seq: ( HWL ME_4E0312E70097 // DoIt
  )
  ; // Operations
  CONST "is static" true
@@ -822,15 +194,15 @@ ref; // ME_4E0312C70245 SetAnswer
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4E03119F00B2 // afwAnswer
+ : Parent HWL ME_4E03119F00B2 // afwAnswer
  ;
  : Inherits
    Seq: ( WL 'ME_4CA9A2EB01E4' '47913B47006E.pas.ms.script' // Tl3ProtoIntegerList
  )
  ; // Inherits
  : Operations
-   Seq: ( ME_4E0321910152 // GetAnswer
- ME_4E0312C70245 // SetAnswer
+   Seq: ( HWL ME_4E0321910152 // GetAnswer
+ HWL ME_4E0312C70245 // SetAnswer
  )
  ; // Operations
  CONST "singleton" true
@@ -847,7 +219,7 @@ ref; // ME_553E013F0125 TafwAnswers
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4E03119F00B2 // afwAnswer
+ : Parent HWL ME_4E03119F00B2 // afwAnswer
  ;
  : Inherits
    Seq: ( WL 'ME_4787A405013D' '4AB0C3C60310.pas.ms.script' // Exception
@@ -859,7 +231,7 @@ ref; // ME_4EF20BF702EE EkwWaitBracketsBalance
 : ME_4E0316E60288
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4E03119F00B2 // afwAnswer
+ : Parent HWL ME_4E03119F00B2 // afwAnswer
  ;
  : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
  ;
@@ -875,13 +247,13 @@ ref; // ME_4E0316E60288
  %SUMMARY 'Хак для диалогов для скриптов.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4E030FC801EB // BatchServices
+ : Parent HWL ME_4E030FC801EB // BatchServices
  ;
  : Children
-   Seq: ( ME_5507EB89020D // EafwTryEnterModalState
- ME_5507FE0A0095 // TafwBatchService
- ME_553E013F0125 // TafwAnswers
- ME_4EF20BF702EE // EkwWaitBracketsBalance
+   Seq: ( HWL ME_5507EB89020D // EafwTryEnterModalState
+ HWL ME_5507FE0A0095 // TafwBatchService
+ HWL ME_553E013F0125 // TafwAnswers
+ HWL ME_4EF20BF702EE // EkwWaitBracketsBalance
  )
  ; // Children
  : Dependencies
@@ -893,6 +265,402 @@ ref; // ME_4E0316E60288
 
 ref; // ME_4E03119F00B2 afwAnswer
 
+FORWARD ME_5509AAAC0313
+
+: ME_5509AAC00331
+ CONST Class class_Dependency
+ : Stereotype st_implements::Dependency ;
+ : Parent HWL ME_5509AAAC0313 // Tl3BatchScriptService
+ ;
+ : Target WL 'ME_5509AA5400EA' '4F7338A800A7.pas.ms.script' // Tl3ScriptService
+ ;
+
+ref; // ME_5509AAC00331 
+
+: ME_5509AAAC0313
+ CONST UID '5509AAAC0313'
+ CONST Name 'Tl3BatchScriptService'
+ CONST Class class_Class
+ : Stereotype st_ServiceImplementation ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_5507FDD203E1 // Tl3BatchService
+ ;
+ : Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ : Dependencies
+   Seq: ( ME_5509AAC00331 // Tl3ScriptService
+ )
+ ; // Dependencies
+ CONST extprop:rc:SelfName 'BatchScriptService'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_5509AAAC0313 Tl3BatchScriptService
+
+FORWARD ME_61A12D8261F1
+
+: ME_8A081B195E08
+ CONST UID '8A081B195E08'
+ CONST Name 'IsBatchMode'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_61A12D8261F1 // Ml3BatchService
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_8A081B195E08 IsBatchMode
+
+: ME_3E2DB431FD1A
+ CONST UID '3E2DB431FD1A'
+ CONST Name 'EnterBatchMode'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_61A12D8261F1 // Ml3BatchService
+ ;
+
+ref; // ME_3E2DB431FD1A EnterBatchMode
+
+: ME_FE46A80B1DA3
+ CONST UID 'FE46A80B1DA3'
+ CONST Name 'LeaveBatchMode'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_61A12D8261F1 // Ml3BatchService
+ ;
+
+ref; // ME_FE46A80B1DA3 LeaveBatchMode
+
+: ME_3BBB07EEB463
+ CONST Name 'aValue'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_3BBB07EEB463 aValue
+
+: ME_194C97B8A2DF
+ CONST UID '194C97B8A2DF'
+ CONST Name 'PushAnswer'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_61A12D8261F1 // Ml3BatchService
+ ;
+ : Parameters
+   Seq: ( ME_3BBB07EEB463 // aValue
+ )
+ ; // Parameters
+
+ref; // ME_194C97B8A2DF PushAnswer
+
+: ME_FE26372CAD8B
+ CONST UID 'FE26372CAD8B'
+ CONST Name 'PopAnswer'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_61A12D8261F1 // Ml3BatchService
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_FE26372CAD8B PopAnswer
+
+: ME_23858A465AF6
+ CONST UID '23858A465AF6'
+ CONST Name 'SignalWasDialog'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_61A12D8261F1 // Ml3BatchService
+ ;
+
+ref; // ME_23858A465AF6 SignalWasDialog
+
+: ME_217998C234EE
+ CONST UID '217998C234EE'
+ CONST Name 'CheckWasDialog'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_61A12D8261F1 // Ml3BatchService
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_217998C234EE CheckWasDialog
+
+: ME_37CC2CF2A1FF
+ CONST UID '37CC2CF2A1FF'
+ CONST Name 'ClearAnswers'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_61A12D8261F1 // Ml3BatchService
+ ;
+
+ref; // ME_37CC2CF2A1FF ClearAnswers
+
+: ME_61A12D8261F1
+ CONST UID '61A12D8261F1'
+ CONST Name 'Ml3BatchService'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_PureMixIn ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Контракт сервиса Tl3BatchService' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_5507FDD203E1 // Tl3BatchService
+ ;
+ : Operations
+   Seq: ( HWL ME_8A081B195E08 // IsBatchMode
+ HWL ME_3E2DB431FD1A // EnterBatchMode
+ HWL ME_FE46A80B1DA3 // LeaveBatchMode
+ HWL ME_194C97B8A2DF // PushAnswer
+ HWL ME_FE26372CAD8B // PopAnswer
+ HWL ME_23858A465AF6 // SignalWasDialog
+ HWL ME_217998C234EE // CheckWasDialog
+ HWL ME_37CC2CF2A1FF // ClearAnswers
+ )
+ ; // Operations
+
+ref; // ME_61A12D8261F1 Ml3BatchService
+
+FORWARD ME_553F84500218
+
+FORWARD ME_553F7345032E
+
+FORWARD ME_553F8EA30300
+
+: ME_5507FDED0373
+ CONST UID '5507FDED0373'
+ CONST Name 'IsBatchMode'
+ CONST Class class_Operation
+ : Stereotype st_responsibility::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_5507FDD203E1 // Tl3BatchService
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_5507FDED0373 IsBatchMode
+
+: ME_55099B480169
+ CONST UID '55099B480169'
+ CONST Name 'EnterBatchMode'
+ CONST Class class_Operation
+ : Stereotype st_responsibility::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_5507FDD203E1 // Tl3BatchService
+ ;
+
+ref; // ME_55099B480169 EnterBatchMode
+
+: ME_55099B590257
+ CONST UID '55099B590257'
+ CONST Name 'LeaveBatchMode'
+ CONST Class class_Operation
+ : Stereotype st_responsibility::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_5507FDD203E1 // Tl3BatchService
+ ;
+
+ref; // ME_55099B590257 LeaveBatchMode
+
+: ME_553F341F03E3
+ CONST Name 'aValue'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_553F341F03E3 aValue
+
+: ME_553F341100FE
+ CONST UID '553F341100FE'
+ CONST Name 'PushAnswer'
+ CONST Class class_Operation
+ : Stereotype st_responsibility::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_5507FDD203E1 // Tl3BatchService
+ ;
+ : Parameters
+   Seq: ( ME_553F341F03E3 // aValue
+ )
+ ; // Parameters
+
+ref; // ME_553F341100FE PushAnswer
+
+: ME_553F3424010C
+ CONST UID '553F3424010C'
+ CONST Name 'PopAnswer'
+ CONST Class class_Operation
+ : Stereotype st_responsibility::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_5507FDD203E1 // Tl3BatchService
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_553F3424010C PopAnswer
+
+: ME_553F428003A3
+ CONST UID '553F428003A3'
+ CONST Name 'SignalWasDialog'
+ CONST Class class_Operation
+ : Stereotype st_responsibility::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_5507FDD203E1 // Tl3BatchService
+ ;
+
+ref; // ME_553F428003A3 SignalWasDialog
+
+: ME_553F429502D1
+ CONST UID '553F429502D1'
+ CONST Name 'CheckWasDialog'
+ CONST Class class_Operation
+ : Stereotype st_responsibility::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_5507FDD203E1 // Tl3BatchService
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_553F429502D1 CheckWasDialog
+
+: ME_553F4C9802D8
+ CONST UID '553F4C9802D8'
+ CONST Name 'ClearAnswers'
+ CONST Class class_Operation
+ : Stereotype st_responsibility::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_5507FDD203E1 // Tl3BatchService
+ ;
+
+ref; // ME_553F4C9802D8 ClearAnswers
+
+: ME_553F33E200B6
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_5507FDD203E1 // Tl3BatchService
+ ;
+ : Target HWL ME_4E03119F00B2 // afwAnswer
+ ;
+
+ref; // ME_553F33E200B6 
+
+: ME_553F34080180
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_5507FDD203E1 // Tl3BatchService
+ ;
+ : Target WL 'ME_4A980B37006B' '4799D29F033F.pas.ms.script' // ModalResults
+ ;
+
+ref; // ME_553F34080180 
+
+FORWARD ME_553F71BE03E0
+
+: ME_553F71DE029D
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_5507FDD203E1 // Tl3BatchService
+ ;
+ : Target HWL ME_553F71BE03E0 // Tl3ModalService
+ ;
+
+ref; // ME_553F71DE029D 
+
+: ME_553F7345032E_ME_5507FDD203E1
+ : Original HWL ME_553F7345032E // HasModalWorker
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_553F7345032E_ME_5507FDD203E1 HasModalWorker
+
+: ME_553F8EA30300_ME_5507FDD203E1
+ : Original HWL ME_553F8EA30300 // ExecuteCurrentModalWorker
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_553F8EA30300_ME_5507FDD203E1 ExecuteCurrentModalWorker
+
+: ME_5507FDD203E1
+ CONST UID '5507FDD203E1'
+ CONST Name 'Tl3BatchService'
+ CONST Class class_Class
+ : Stereotype st_Service ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4E030FC801EB // BatchServices
+ ;
+ : Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( HWL ME_553F84500218 // Ml3ModalService
+ )
+ ; // Implements
+ : Operations
+   Seq: ( HWL ME_5507FDED0373 // IsBatchMode
+ HWL ME_55099B480169 // EnterBatchMode
+ HWL ME_55099B590257 // LeaveBatchMode
+ HWL ME_553F341100FE // PushAnswer
+ HWL ME_553F3424010C // PopAnswer
+ HWL ME_553F428003A3 // SignalWasDialog
+ HWL ME_553F429502D1 // CheckWasDialog
+ HWL ME_553F4C9802D8 // ClearAnswers
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_553F7345032E_ME_5507FDD203E1 // HasModalWorker
+ ME_553F8EA30300_ME_5507FDD203E1 // ExecuteCurrentModalWorker
+ )
+ ; // Implemented
+ : Children
+   Seq: ( HWL ME_5509AAAC0313 // Tl3BatchScriptService
+ HWL ME_61A12D8261F1 // Ml3BatchService
+ )
+ ; // Children
+ : Dependencies
+   Seq: ( ME_553F33E200B6 // afwAnswer
+ ME_553F34080180 // ModalResults
+ ME_553F71DE029D // Tl3ModalService
+ )
+ ; // Dependencies
+ CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3BatchService.pas'
+ CONST extprop:rc:SelfName 'BatchService'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'l3BatchService'
+
+ref; // ME_5507FDD203E1 Tl3BatchService
+
 FORWARD ME_5526316402F9
 
 : ME_5526316E011A
@@ -903,7 +671,7 @@ FORWARD ME_5526316402F9
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_5526316402F9 // TseModalExecute
+ : Parent HWL ME_5526316402F9 // TseModalExecute
  ;
 
 ref; // ME_5526316E011A se_meUsual
@@ -916,7 +684,7 @@ ref; // ME_5526316E011A se_meUsual
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_5526316402F9 // TseModalExecute
+ : Parent HWL ME_5526316402F9 // TseModalExecute
  ;
 
 ref; // ME_552631760238 se_meInLoop
@@ -929,7 +697,7 @@ ref; // ME_552631760238 se_meInLoop
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_5526316402F9 // TseModalExecute
+ : Parent HWL ME_5526316402F9 // TseModalExecute
  ;
 
 ref; // ME_5526317E03E0 se_meAfterLoop
@@ -943,12 +711,12 @@ ref; // ME_5526317E03E0 se_meAfterLoop
  %SUMMARY 'se_meUsual - это обычное поведение модальных диалогов. '#13#10' А остальные - заточка для диалогов поиска и проверки орфографии. Они не MODAL, а StayOnTop. И вызываются в цикле. Для каждого такого вызова используется флаг: se_meInLoop. Плюс после окончания проверки может быть вызов диалога, когда он вызывается с надписью, что все закончилось. Чтобы этот вызов отличить от вызова в цикле и добавлен флаг se_meAfterLoop. '#13#10' Разница есть на уровне скриптов:'#13#10'{code}'#13#10'PROCEDURE SpellNext BOOLEAN IN aLast'#13#10''#13#10';  '#13#10'{code}'#13#10'aLast - как раз и показывает, что диалог уже финальный.'#13#10'Примеры использования: {Requestlink:622826341}' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_553F71BE03E0 // Tl3ModalService
+ : Parent HWL ME_553F71BE03E0 // Tl3ModalService
  ;
  : Attributes
-   Seq: ( ME_5526316E011A // se_meUsual
- ME_552631760238 // se_meInLoop
- ME_5526317E03E0 // se_meAfterLoop
+   Seq: ( HWL ME_5526316E011A // se_meUsual
+ HWL ME_552631760238 // se_meInLoop
+ HWL ME_5526317E03E0 // se_meAfterLoop
  )
  ; // Attributes
  CONST extprop:rc:isAcceptableForScripts true
@@ -961,7 +729,7 @@ ref; // ME_5526316402F9 TseModalExecute
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_553F84500218 // Ml3ModalService
+ : Parent HWL ME_553F84500218 // Ml3ModalService
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -972,10 +740,10 @@ ref; // ME_553F7345032E HasModalWorker
  CONST Name 'aModalExecute'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_5526316402F9 // TseModalExecute
+ : Target HWL ME_5526316402F9 // TseModalExecute
  ;
  CONST Value 'se_meUsual'
- : ValueType ME_5526316402F9 // TseModalExecute
+ : ValueType HWL ME_5526316402F9 // TseModalExecute
  ;
  CONST extprop:pas:Value 'se_meUsual'
 
@@ -987,7 +755,7 @@ ref; // ME_553F8EB603A2 aModalExecute
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_553F84500218 // Ml3ModalService
+ : Parent HWL ME_553F84500218 // Ml3ModalService
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -1006,68 +774,15 @@ ref; // ME_553F8EA30300 ExecuteCurrentModalWorker
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_553F71BE03E0 // Tl3ModalService
+ : Parent HWL ME_553F71BE03E0 // Tl3ModalService
  ;
  : Operations
-   Seq: ( ME_553F7345032E // HasModalWorker
- ME_553F8EA30300 // ExecuteCurrentModalWorker
+   Seq: ( HWL ME_553F7345032E // HasModalWorker
+ HWL ME_553F8EA30300 // ExecuteCurrentModalWorker
  )
  ; // Operations
 
 ref; // ME_553F84500218 Ml3ModalService
-
-FORWARD ME_09072C2825F1
-
-: ME_553F7345032E_ME_09072C2825F1
- : Original ME_553F7345032E // HasModalWorker
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_553F7345032E_ME_09072C2825F1 HasModalWorker
-
-: ME_553F8EA30300_ME_09072C2825F1
- : Original ME_553F8EA30300 // ExecuteCurrentModalWorker
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_553F8EA30300_ME_09072C2825F1 ExecuteCurrentModalWorker
-
-: ME_09072C2825F1
- CONST UID '09072C2825F1'
- CONST GUID '138EC31E-59DE-4996-A7C2-234E73119E5C'
- CONST Name 'Il3ModalService'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Facet ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Интерфейс сервиса Tl3ModalService' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_553F71BE03E0 // Tl3ModalService
- ;
- : Implements
-   Seq: ( ME_553F84500218 // Ml3ModalService
- )
- ; // Implements
- : Implemented
-   Seq: ( ME_553F7345032E_ME_09072C2825F1 // HasModalWorker
- ME_553F8EA30300_ME_09072C2825F1 // ExecuteCurrentModalWorker
- )
- ; // Implemented
- CONST extprop:rc:SelfName 'ModalService'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_09072C2825F1 Il3ModalService
-
-: ME_553F7345032E_ME_553F71BE03E0
- : Original ME_553F7345032E // HasModalWorker
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_553F7345032E_ME_553F71BE03E0 HasModalWorker
-
-: ME_553F8EA30300_ME_553F71BE03E0
- : Original ME_553F8EA30300 // ExecuteCurrentModalWorker
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_553F8EA30300_ME_553F71BE03E0 ExecuteCurrentModalWorker
 
 : ME_553F71BE03E0
  CONST UID '553F71BE03E0'
@@ -1077,36 +792,21 @@ ref; // ME_553F8EA30300_ME_553F71BE03E0 ExecuteCurrentModalWorker
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4E030FC801EB // BatchServices
+ : Parent HWL ME_4E030FC801EB // BatchServices
  ;
  : Inherits
    Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
  )
  ; // Inherits
- : Implements
-   Seq: ( ME_553F84500218 // Ml3ModalService
- )
- ; // Implements
- : Implemented
-   Seq: ( ME_553F7345032E_ME_553F71BE03E0 // HasModalWorker
- ME_553F8EA30300_ME_553F71BE03E0 // ExecuteCurrentModalWorker
- )
- ; // Implemented
  : Children
-   Seq: ( ME_5526316402F9 // TseModalExecute
- ME_553F84500218 // Ml3ModalService
- ME_09072C2825F1 // Il3ModalService
+   Seq: ( HWL ME_5526316402F9 // TseModalExecute
+ HWL ME_553F84500218 // Ml3ModalService
  )
  ; // Children
- CONST "singleton" true
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3ModalService.pas'
  CONST extprop:rc:SelfName 'ModalService'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'l3ModalService'
- : Facet ME_09072C2825F1 // Il3ModalService
- ;
- : Mixin ME_553F84500218 // Ml3ModalService
- ;
 
 ref; // ME_553F71BE03E0 Tl3ModalService
 
@@ -1121,9 +821,9 @@ ref; // ME_553F71BE03E0 Tl3ModalService
  : Parent WL 'ME_550012C403C4' '550012C403C4.pas.ms.script' // L3$AFW
  ;
  : Children
-   Seq: ( ME_5507FDD203E1 // Tl3BatchService
- ME_4E03119F00B2 // afwAnswer
- ME_553F71BE03E0 // Tl3ModalService
+   Seq: ( HWL ME_4E03119F00B2 // afwAnswer
+ HWL ME_5507FDD203E1 // Tl3BatchService
+ HWL ME_553F71BE03E0 // Tl3ModalService
  )
  ; // Children
  : Depends

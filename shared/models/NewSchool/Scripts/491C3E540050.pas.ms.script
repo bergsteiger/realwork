@@ -15,7 +15,7 @@ FORWARD ME_492F005A02C7
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_492F005A02C7 // IsdsQuery
+ : Parent HWL ME_492F005A02C7 // IsdsQuery
  ;
  : Target WL 'ME_491DC972029C' '4AA5503000D7.pas.ms.script' // IdsQuery
  ;
@@ -32,7 +32,7 @@ ref; // ME_492F006F00BE dsQuery
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_492F005A02C7 // IsdsQuery
+ : Parent HWL ME_492F005A02C7 // IsdsQuery
  ;
  : Target WL 'ME_4923F61A0112' '4AA5503000D7.pas.ms.script' // IdsSaveLoad
  ;
@@ -50,11 +50,11 @@ ref; // ME_492F00890059 dsSaveLoad
  %SUMMARY 'Бизнес объект прецедентов "Поисковый запрос"' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_491C3E540050 // ConsultationInterfaces
+ : Parent HWL ME_491C3E540050 // ConsultationInterfaces
  ;
  : Attributes
-   Seq: ( ME_492F006F00BE // dsQuery
- ME_492F00890059 // dsSaveLoad
+   Seq: ( HWL ME_492F006F00BE // dsQuery
+ HWL ME_492F00890059 // dsSaveLoad
  )
  ; // Attributes
  CONST extprop:rc:SelfName 'sdsQuery'
@@ -65,14 +65,14 @@ ref; // ME_492F005A02C7 IsdsQuery
 FORWARD ME_492F01200192
 
 : ME_492F006F00BE_ME_492F01200192
- : Original ME_492F006F00BE // dsQuery
+ : Original HWL ME_492F006F00BE // dsQuery
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_492F006F00BE_ME_492F01200192 dsQuery
 
 : ME_492F00890059_ME_492F01200192
- : Original ME_492F00890059 // dsSaveLoad
+ : Original HWL ME_492F00890059 // dsSaveLoad
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
@@ -87,10 +87,10 @@ ref; // ME_492F00890059_ME_492F01200192 dsSaveLoad
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_491C3E540050 // ConsultationInterfaces
+ : Parent HWL ME_491C3E540050 // ConsultationInterfaces
  ;
  : Inherits
-   Seq: ( ME_492F005A02C7 // IsdsQuery
+   Seq: ( HWL ME_492F005A02C7 // IsdsQuery
  )
  ; // Inherits
  : Implemented
@@ -114,8 +114,8 @@ ref; // ME_492F01200192 IsdsSendConsultation
  : Parent WL 'ME_493FCF1E03DC' '493FCF1E03DC.pas.ms.script' // Consultation
  ;
  : Children
-   Seq: ( ME_492F005A02C7 // IsdsQuery
- ME_492F01200192 // IsdsSendConsultation
+   Seq: ( HWL ME_492F005A02C7 // IsdsQuery
+ HWL ME_492F01200192 // IsdsSendConsultation
  )
  ; // Children
  : Depends

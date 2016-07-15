@@ -5,38 +5,15 @@
 //#UC START# *479731C50290_555F0C89007D_var*
 //#UC END# *479731C50290_555F0C89007D_var*
 //#UC START# *555EF7F5009F_555F0C89007D_impl*
- if TableFamily(aTable) = 0 then
-  Result := ConcatDirName(f_Params.TablePath, cMap[aTable])
+ if TdaScheme.Instance.Table(aTable).FamilyID = MainTblsFamily then
+  Result := ConcatDirName(f_Params.TablePath, TdaScheme.Instance.Table(aTable).Code)
  else
   if aTable in [da_ftAutolinkDocumentsLocal, da_ftAutolinkEditionsLocal, da_ftAutolinkDocumentsRemote, da_ftAutolinkEditionsRemote] then
-   Result := ConcatDirName(f_Params.DocStoragePath, 'garant\' + cMap[aTable])
+   Result := ConcatDirName(f_Params.DocStoragePath, 'garant\' + TdaScheme.Instance.Table(aTable).Code)
   else
-   Result := ConcatDirName(f_Params.DocStoragePath, 'garant\' + cMap[aTable] + IntToHex(TableFamily(aTable), 3));
+   Result := ConcatDirName(f_Params.DocStoragePath, 'garant\' + TdaScheme.Instance.Table(aTable).Code + IntToHex(TdaScheme.Instance.Table(aTable).FamilyID, 3));
 //#UC END# *555EF7F5009F_555F0C89007D_impl*
 //#UC START# *555EF7F5009F_555F0C89007D_var*
-const
- cMap: array [TdaTables] of AnsiString = (
-  'ACCESS','PASS','USERS','GUDT','GULNK',
-  'FAMILY','FREE','BB_LOG', 'CTRL', 'REGIONS',
-
-  '---', // фиктивная таблица
-  'FILE','HLINK','SUB','FREE',
-  'DT#1','DT#2','DT#3','DT#5',
-  'DT#6','DT#7','DT#8','DT#9','DT#A',
-  'DT#B','DT#C','DT#D','DT#E','DT#3E',
-  'DT#F','DT#I','DT#J',
-
-  'LNK#1','LNK#2','LNK#3','LNK#5',
-  'LNK#6','LNK#7','LNK#8','LNK#9',
-  'LNK#B','LNK#C','LNK#D','LNK#E',
-  'LNK#F','LNK#I','LNK#J',
-  'LNK#K',
-  'PRIOR','RENUM','STAGE','LOG',
-  'ACTIV', 'ALARM', 'CTRL',
-  'FILE'{Dup1}, 'FILE'{Dup2},
-  'ALINKML', 'ALINKVL',
-  'ALINKMR', 'ALINKVR'
- );
 //#UC END# *555EF7F5009F_555F0C89007D_var*
 //#UC START# *555EF81A03BF_555F0C89007D_impl*
  Result := cPasswordMap[cIndexMap[aTable]];

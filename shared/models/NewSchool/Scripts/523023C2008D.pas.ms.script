@@ -2,69 +2,6 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-FORWARD ME_523023C2008D
-
-FORWARD ME_523024100274
-
-: ME_0D7FA6427FD9
- CONST UID '0D7FA6427FD9'
- CONST Name 'TvcmApplicationRef'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Typedef ;
- CONST Kind kind_NormalClass
- %SUMMARY '—сылка на приложение дл€ DesignTime редакторов' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_523024100274 // VCMSandBoxTest
- ;
- : Inherits
-   Seq: ( ME_523024100274 // VCMSandBoxTest
- )
- ; // Inherits
- CONST extprop:rc:SelfName 'ApplicationRef'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_0D7FA6427FD9 TvcmApplicationRef
-
-: ME_4F79BCC902C5_ME_523024100274
- : Original WL 'ME_4F79BCC902C5' '51309A4A02FB.pas.ms.script' // CalcBatchMode
- ;
- CONST OpKind opkind_Implemented
- CONST "is static" true
-ref; // ME_4F79BCC902C5_ME_523024100274 CalcBatchMode
-
-: ME_523024100274
- CONST UID '523024100274'
- CONST Name 'VCMSandBoxTest'
- CONST Class class_Class
- : Stereotype st_VCMTestApplication ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_523023C2008D // VCMSandBox
- ;
- : Inherits
-   Seq: ( WL 'ME_4F79CD9F015F' '4F79CD2603DF.pas.ms.script' // VCMAppTester
- WL 'ME_521649770277' '521649450152.pas.ms.script' // VCMSandBox
- )
- ; // Inherits
- : Implemented
-   Seq: ( ME_4F79BCC902C5_ME_523024100274 // CalcBatchMode
- )
- ; // Implemented
- : Children
-   Seq: ( ME_0D7FA6427FD9 // TvcmApplicationRef
- )
- ; // Children
- CONST intf.pas:Path 'common\components\SandBox\VCM\VCMSandBoxTestRes.pas'
- CONST extprop:pas:TypeName 'TVCMSandBoxTestRes'
- CONST extprop:rc:SelfName 'VCMSandBoxTestRes'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'VCMSandBoxTestRes'
-
-ref; // ME_523024100274 VCMSandBoxTest
-
 : ME_523023C2008D
  CONST UID '523023C2008D'
  CONST Name 'VCMSandBox'
@@ -75,7 +12,7 @@ ref; // ME_523024100274 VCMSandBoxTest
  : Parent WL 'ME_5230224E02A3' '5230224E02A3.pas.ms.script' // Shared Delphi Sand Box$TestApp
  ;
  : Children
-   Seq: ( ME_523024100274 // VCMSandBoxTest
+   Seq: ( WL 'ME_523024100274' '523024100274.pas.ms.script' // VCMSandBoxTest
  )
  ; // Children
  : Depends

@@ -21,7 +21,7 @@ ref; // ME_532AE8F2009A_ME_532080BB027A GetIsOrd
  %SUMMARY 'Базовый неатомарный тег' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_467FC43F01F9 // k2CoreObjects
+ : Parent HWL ME_467FC43F01F9 // k2CoreObjects
  ;
  : Inherits
    Seq: ( WL 'ME_5319C00B0313' '49A58A1A03C4.pas.ms.script' // Tk2Tag
@@ -48,7 +48,7 @@ FORWARD ME_4B89152D0120
  CONST Visibility PrivateAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_4B89152D0120 // k2TagByIntegerSearcher
+ : Parent HWL ME_4B89152D0120 // k2TagByIntegerSearcher
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -69,14 +69,14 @@ ref; // ME_47B9BAFD01F4_ME_4B89152D0120 CompareItemWithData
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_467FC43F01F9 // k2CoreObjects
+ : Parent HWL ME_467FC43F01F9 // k2CoreObjects
  ;
  : Inherits
    Seq: ( WL 'ME_47B47E230134' '47BB24D30205.pas.ms.script' // l3Searcher
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_4A5F2B6A0166 // FindDataType
+   Seq: ( HWL ME_4A5F2B6A0166 // FindDataType
  )
  ; // Attributes
  : Implemented
@@ -98,10 +98,10 @@ ref; // ME_4B89152D0120 k2TagByIntegerSearcher
  %SUMMARY 'Базовый тег, содержащий список других тегов (нелистьевой)' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_467FC43F01F9 // k2CoreObjects
+ : Parent HWL ME_467FC43F01F9 // k2CoreObjects
  ;
  : Inherits
-   Seq: ( ME_532080BB027A // Tk2NonAtomicTag
+   Seq: ( HWL ME_532080BB027A // Tk2NonAtomicTag
  )
  ; // Inherits
  CONST intf.pas:Path 'common\components\rtl\Garant\K2\k2ListTag.pas'
@@ -121,7 +121,7 @@ FORWARD ME_47AC67EA00B9
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_47AC67EA00B9 // Tk2TagListPrim
+ : Parent HWL ME_47AC67EA00B9 // Tk2TagListPrim
  ;
  CONST extprop:rc:SelfName 'Items_HasCustomSort'
 
@@ -135,7 +135,7 @@ ref; // ME_4DF0E9A60121 l3Items_HasCustomSort
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_47AC67EA00B9 // Tk2TagListPrim
+ : Parent HWL ME_47AC67EA00B9 // Tk2TagListPrim
  ;
  CONST extprop:rc:SelfName 'Items_NeedsAssignItem'
 
@@ -144,7 +144,7 @@ ref; // ME_5305DFBC01C9 l3Items_NeedsAssignItem
 : ME_49B792AB033D
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_47AC67EA00B9 // Tk2TagListPrim
+ : Parent HWL ME_47AC67EA00B9 // Tk2TagListPrim
  ;
  : Target WL 'ME_469F7CE1016C' '49A6646B0044.pas.ms.script' // k2_amAll
  ;
@@ -181,10 +181,10 @@ ref; // ME_47A6FEE600FC_ME_47AC67EA00B9 IsCacheable
  %SUMMARY 'Список тегов.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_467FC43F01F9 // k2CoreObjects
+ : Parent HWL ME_467FC43F01F9 // k2CoreObjects
  ;
  : Inherits
-   Seq: ( ME_5320814702B4 // Tk2ListTag
+   Seq: ( HWL ME_5320814702B4 // Tk2ListTag
  WL 'ME_534515CD039A' '5345157C01ED.pas.ms.script' // l3VariantListPrim
  )
  ; // Inherits
@@ -198,8 +198,8 @@ ref; // ME_47A6FEE600FC_ME_47AC67EA00B9 IsCacheable
  )
  ; // Overridden
  : Children
-   Seq: ( ME_4DF0E9A60121 // l3Items_HasCustomSort
- ME_5305DFBC01C9 // l3Items_NeedsAssignItem
+   Seq: ( HWL ME_4DF0E9A60121 // l3Items_HasCustomSort
+ HWL ME_5305DFBC01C9 // l3Items_NeedsAssignItem
  )
  ; // Children
  : Dependencies
@@ -222,7 +222,7 @@ FORWARD ME_47B9D76B0301
 : ME_47BAB2680170
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_47B9D76B0301 // Tk2TagList
+ : Parent HWL ME_47B9D76B0301 // Tk2TagList
  ;
  : Target WL 'ME_4773D64E036C' '47913B47006E.pas.ms.script' // l3Base
  ;
@@ -237,14 +237,14 @@ ref; // ME_47BAB2680170
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_467FC43F01F9 // k2CoreObjects
+ : Parent HWL ME_467FC43F01F9 // k2CoreObjects
  ;
  : Inherits
-   Seq: ( ME_47AC67EA00B9 // Tk2TagListPrim
+   Seq: ( HWL ME_47AC67EA00B9 // Tk2TagListPrim
  )
  ; // Inherits
  : Implements
-   Seq: ( ME_4B89152D0120 // k2TagByIntegerSearcher
+   Seq: ( HWL ME_4B89152D0120 // k2TagByIntegerSearcher
  )
  ; // Implements
  : Dependencies
@@ -269,7 +269,7 @@ FORWARD ME_53280B9801E7
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_53280B9801E7 // k2TagPrim
+ : Parent HWL ME_53280B9801E7 // k2TagPrim
  ;
  CONST "ifdef" 'k2TagNoSort'
  CONST extprop:rc:SelfName 'Items_NoSort'
@@ -283,7 +283,7 @@ ref; // ME_53282FDD000D l3Items_NoSort
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_53280B9801E7 // k2TagPrim
+ : Parent HWL ME_53280B9801E7 // k2TagPrim
  ;
  : Target WL 'ME_47AC723D02DC' '49A58A1A03C4.pas.ms.script' // Tk2Type
  ;
@@ -299,7 +299,7 @@ FORWARD ME_5081947501ED
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_5081947501ED // IterateInnerChildrenOnWrite
+ : Parent HWL ME_5081947501ED // IterateInnerChildrenOnWrite
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -314,10 +314,10 @@ ref; // ME_5081947E0248 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_53280B9801E7 // k2TagPrim
+ : Parent HWL ME_53280B9801E7 // k2TagPrim
  ;
  : Operations
-   Seq: ( ME_5081947E0248 // DoIt
+   Seq: ( HWL ME_5081947E0248 // DoIt
  )
  ; // Operations
  CONST "ifndef" 'k2TagIsAtomic'
@@ -332,9 +332,9 @@ FORWARD ME_4A5368DC0050
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4A5368DC0050 // HackChildren
+ : Parent HWL ME_4A5368DC0050 // HackChildren
  ;
- : Target ME_47B9D76B0301 // Tk2TagList
+ : Target HWL ME_47B9D76B0301 // Tk2TagList
  ;
 
 ref; // ME_4A5368F400F7 HackChildren
@@ -342,9 +342,9 @@ ref; // ME_4A5368F400F7 HackChildren
 : ME_4A53692E02B1
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4A5368DC0050 // HackChildren
+ : Parent HWL ME_4A5368DC0050 // HackChildren
  ;
- : Target ME_47B9D76B0301 // Tk2TagList
+ : Target HWL ME_47B9D76B0301 // Tk2TagList
  ;
 
 ref; // ME_4A53692E02B1 
@@ -354,9 +354,9 @@ FORWARD ME_47AC59170251
 : ME_4A536C300250
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4A5368DC0050 // HackChildren
+ : Parent HWL ME_4A5368DC0050 // HackChildren
  ;
- : Target ME_47AC59170251 // Tk2List
+ : Target HWL ME_47AC59170251 // Tk2List
  ;
 
 ref; // ME_4A536C300250 
@@ -369,10 +369,10 @@ ref; // ME_4A536C300250
  CONST Kind kind_NormalClass
  CONST Visibility ProtectedAccess
  CONST Abstraction at_final
- : Parent ME_53280B9801E7 // k2TagPrim
+ : Parent HWL ME_53280B9801E7 // k2TagPrim
  ;
  : Operations
-   Seq: ( ME_4A5368F400F7 // HackChildren
+   Seq: ( HWL ME_4A5368F400F7 // HackChildren
  )
  ; // Operations
  : Dependencies
@@ -419,7 +419,7 @@ ref; // ME_4CED66D80107 anOp
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4CED66B8005F // CheckChildInsert
+ : Parent HWL ME_4CED66B8005F // CheckChildInsert
  ;
  : Parameters
    Seq: ( ME_4CED66D800C1 // anIndex
@@ -438,10 +438,10 @@ ref; // ME_4CED66C7028F DoIt
  CONST Kind kind_NormalClass
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_53280B9801E7 // k2TagPrim
+ : Parent HWL ME_53280B9801E7 // k2TagPrim
  ;
  : Operations
-   Seq: ( ME_4CED66C7028F // DoIt
+   Seq: ( HWL ME_4CED66C7028F // DoIt
  )
  ; // Operations
 
@@ -500,7 +500,7 @@ ref; // ME_533D64640061 anOpPack
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_533D641702ED // ChildAdded
+ : Parent HWL ME_533D641702ED // ChildAdded
  ;
  : Parameters
    Seq: ( ME_533D646303AA // aProp
@@ -521,10 +521,10 @@ ref; // ME_533D642E0000 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_53280B9801E7 // k2TagPrim
+ : Parent HWL ME_53280B9801E7 // k2TagPrim
  ;
  : Operations
-   Seq: ( ME_533D642E0000 // DoIt
+   Seq: ( HWL ME_533D642E0000 // DoIt
  )
  ; // Operations
 
@@ -556,7 +556,7 @@ ref; // ME_5346C8800151 aValue
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_5346C8570369 // DoSetAtom
+ : Parent HWL ME_5346C8570369 // DoSetAtom
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -576,10 +576,10 @@ ref; // ME_5346C87102E0 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility ProtectedAccess
  CONST Abstraction at_final
- : Parent ME_53280B9801E7 // k2TagPrim
+ : Parent HWL ME_53280B9801E7 // k2TagPrim
  ;
  : Operations
-   Seq: ( ME_5346C87102E0 // DoIt
+   Seq: ( HWL ME_5346C87102E0 // DoIt
  )
  ; // Operations
  CONST "ifndef" 'k2TagIsAtomic'
@@ -612,7 +612,7 @@ ref; // ME_5346C8AE0286 theValue
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_5346C88F0297 // GetOwnAttrValue
+ : Parent HWL ME_5346C88F0297 // GetOwnAttrValue
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -632,10 +632,10 @@ ref; // ME_5346C89F0219 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility ProtectedAccess
  CONST Abstraction at_final
- : Parent ME_53280B9801E7 // k2TagPrim
+ : Parent HWL ME_53280B9801E7 // k2TagPrim
  ;
  : Operations
-   Seq: ( ME_5346C89F0219 // DoIt
+   Seq: ( HWL ME_5346C89F0219 // DoIt
  )
  ; // Operations
 
@@ -667,7 +667,7 @@ ref; // ME_5346C8DF0081 theValue
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_5346C8C00133 // GetAttrValue
+ : Parent HWL ME_5346C8C00133 // GetAttrValue
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -687,10 +687,10 @@ ref; // ME_5346C8CE01BB DoIt
  CONST Kind kind_NormalClass
  CONST Visibility ProtectedAccess
  CONST Abstraction at_final
- : Parent ME_53280B9801E7 // k2TagPrim
+ : Parent HWL ME_53280B9801E7 // k2TagPrim
  ;
  : Operations
-   Seq: ( ME_5346C8CE01BB // DoIt
+   Seq: ( HWL ME_5346C8CE01BB // DoIt
  )
  ; // Operations
 
@@ -720,7 +720,7 @@ ref; // ME_49A5456903DC V
  CONST Class class_Operation
  CONST Visibility ProtectedAccess
  CONST Abstraction at_abstract
- : Parent ME_53280B9801E7 // k2TagPrim
+ : Parent HWL ME_53280B9801E7 // k2TagPrim
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -748,7 +748,7 @@ ref; // ME_4A65F9CA01CA aProp
  CONST Class class_Operation
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_53280B9801E7 // k2TagPrim
+ : Parent HWL ME_53280B9801E7 // k2TagPrim
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -784,7 +784,7 @@ ref; // ME_49A545320289 Data
  CONST Class class_Operation
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_53280B9801E7 // k2TagPrim
+ : Parent HWL ME_53280B9801E7 // k2TagPrim
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -820,7 +820,7 @@ ref; // ME_5346C8370334 aValue
  CONST Class class_Operation
  CONST Visibility ProtectedAccess
  CONST Abstraction at_final
- : Parent ME_53280B9801E7 // k2TagPrim
+ : Parent HWL ME_53280B9801E7 // k2TagPrim
  ;
  : Parameters
    Seq: ( ME_5346C83702EE // aProp
@@ -834,7 +834,7 @@ ref; // ME_4C6D1C070249 SetSubAtom
 : ME_533443AF013E
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_53280B9801E7 // k2TagPrim
+ : Parent HWL ME_53280B9801E7 // k2TagPrim
  ;
  : Target WL 'ME_49A6ABFB02BA' '49A58A1A03C4.pas.ms.script' // Tk2NullTagImpl
  ;
@@ -844,7 +844,7 @@ ref; // ME_533443AF013E
 : ME_533C249D033B
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_53280B9801E7 // k2TagPrim
+ : Parent HWL ME_53280B9801E7 // k2TagPrim
  ;
  : Target WL 'ME_49A67D880011' '4678137501EA.pas.ms.script' // Ik2RawData
  ;
@@ -854,7 +854,7 @@ ref; // ME_533C249D033B
 : ME_533C3B3E0264
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_53280B9801E7 // k2TagPrim
+ : Parent HWL ME_53280B9801E7 // k2TagPrim
  ;
  : Target WL 'ME_531075C102DD' '47E3C64F037E.pas.ms.script' // Tk2NonOptimizeContext
  ;
@@ -866,9 +866,9 @@ FORWARD ME_4860AF86034F
 : ME_533C3B4F0302
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_53280B9801E7 // k2TagPrim
+ : Parent HWL ME_53280B9801E7 // k2TagPrim
  ;
- : Target ME_4860AF86034F // Tk2Dictionary
+ : Target HWL ME_4860AF86034F // Tk2Dictionary
  ;
 
 ref; // ME_533C3B4F0302 
@@ -878,9 +878,9 @@ FORWARD ME_5304C94F0101
 : ME_535662200325
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_53280B9801E7 // k2TagPrim
+ : Parent HWL ME_53280B9801E7 // k2TagPrim
  ;
- : Target ME_5304C94F0101 // Tk2DictionaryPrim
+ : Target HWL ME_5304C94F0101 // Tk2DictionaryPrim
  ;
 
 ref; // ME_535662200325 
@@ -1107,7 +1107,7 @@ ref; // ME_533D791300DA_ME_53280B9801E7 DoCAtom
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_467FC43F01F9 // k2CoreObjects
+ : Parent HWL ME_467FC43F01F9 // k2CoreObjects
  ;
  : Inherits
    Seq: ( WL 'ME_4E2EA99702A7' '49A58A1A03C4.pas.ms.script' // k2Int64Holder
@@ -1119,21 +1119,21 @@ ref; // ME_533D791300DA_ME_53280B9801E7 DoCAtom
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_533C38DA0086 // f_TagType
+   Seq: ( HWL ME_533C38DA0086 // f_TagType
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_5081947501ED // IterateInnerChildrenOnWrite
- ME_4A5368DC0050 // HackChildren
- ME_4CED66B8005F // CheckChildInsert
- ME_533D641702ED // ChildAdded
- ME_5346C8570369 // DoSetAtom
- ME_5346C88F0297 // GetOwnAttrValue
- ME_5346C8C00133 // GetAttrValue
- ME_49A545580241 // SetAtomPrim
- ME_49A544E802B2 // GetHasSubAtom
- ME_49A54517029C // GetSubAtom
- ME_4C6D1C070249 // SetSubAtom
+   Seq: ( HWL ME_5081947501ED // IterateInnerChildrenOnWrite
+ HWL ME_4A5368DC0050 // HackChildren
+ HWL ME_4CED66B8005F // CheckChildInsert
+ HWL ME_533D641702ED // ChildAdded
+ HWL ME_5346C8570369 // DoSetAtom
+ HWL ME_5346C88F0297 // GetOwnAttrValue
+ HWL ME_5346C8C00133 // GetAttrValue
+ HWL ME_49A545580241 // SetAtomPrim
+ HWL ME_49A544E802B2 // GetHasSubAtom
+ HWL ME_49A54517029C // GetSubAtom
+ HWL ME_4C6D1C070249 // SetSubAtom
  )
  ; // Operations
  : Overridden
@@ -1175,7 +1175,7 @@ ref; // ME_533D791300DA_ME_53280B9801E7 DoCAtom
  )
  ; // Overridden
  : Children
-   Seq: ( ME_53282FDD000D // l3Items_NoSort
+   Seq: ( HWL ME_53282FDD000D // l3Items_NoSort
  )
  ; // Children
  : Dependencies
@@ -1197,7 +1197,7 @@ FORWARD ME_47AC5591007B
 : ME_47AC76A00110
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_47AC5591007B // k2Tag
+ : Parent HWL ME_47AC5591007B // k2Tag
  ;
  : Target WL 'ME_47AC759800AF' '47AC75550330.pas.ms.script' // ExtTags
  ;
@@ -1207,7 +1207,7 @@ ref; // ME_47AC76A00110
 : ME_47AC7A5F037A
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_47AC5591007B // k2Tag
+ : Parent HWL ME_47AC5591007B // k2Tag
  ;
  : Target WL 'ME_47AC79B70202' '47913B47006E.pas.ms.script' // Tl3Dictionary
  ;
@@ -1217,7 +1217,7 @@ ref; // ME_47AC7A5F037A
 : ME_47AC7C4100EF
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_47AC5591007B // k2Tag
+ : Parent HWL ME_47AC5591007B // k2Tag
  ;
  : Target WL 'ME_47AC7BD90281' '47AC7B760263.pas.ms.script' // Tag Consts
  ;
@@ -1227,7 +1227,7 @@ ref; // ME_47AC7C4100EF
 : ME_47AC7D90014E
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_47AC5591007B // k2Tag
+ : Parent HWL ME_47AC5591007B // k2Tag
  ;
  : Target WL 'ME_47AC7CF90230' '47A1D4C201E8.pas.ms.script' // L3 Core Consts
  ;
@@ -1237,7 +1237,7 @@ ref; // ME_47AC7D90014E
 : ME_47AC7E990260
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_47AC5591007B // k2Tag
+ : Parent HWL ME_47AC5591007B // k2Tag
  ;
  : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
  ;
@@ -1247,7 +1247,7 @@ ref; // ME_47AC7E990260
 : ME_47AC7F7301F3
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_47AC5591007B // k2Tag
+ : Parent HWL ME_47AC5591007B // k2Tag
  ;
  : Target WL 'ME_47878E0E0191' '54B90AC6014B.pas.ms.script' // l3String
  ;
@@ -1257,7 +1257,7 @@ ref; // ME_47AC7F7301F3
 : ME_47AC8213035D
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_47AC5591007B // k2Tag
+ : Parent HWL ME_47AC5591007B // k2Tag
  ;
  : Target WL 'ME_47AC81E002F2' '47AC80BD020B.pas.ms.script' // Ek2ReadOnlyProperty
  ;
@@ -1267,7 +1267,7 @@ ref; // ME_47AC8213035D
 : ME_47AC8437005F
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_47AC5591007B // k2Tag
+ : Parent HWL ME_47AC5591007B // k2Tag
  ;
  : Target WL 'ME_47AC83780196' '47AC830103E6.pas.ms.script' // Exception Messages
  ;
@@ -1277,9 +1277,9 @@ ref; // ME_47AC8437005F
 : ME_47AC85C00370
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_47AC5591007B // k2Tag
+ : Parent HWL ME_47AC5591007B // k2Tag
  ;
- : Target ME_47B9D76B0301 // Tk2TagList
+ : Target HWL ME_47B9D76B0301 // Tk2TagList
  ;
 
 ref; // ME_47AC85C00370 
@@ -1287,7 +1287,7 @@ ref; // ME_47AC85C00370
 : ME_47AC866E022B
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_47AC5591007B // k2Tag
+ : Parent HWL ME_47AC5591007B // k2Tag
  ;
  : Target WL 'ME_478E1EF4036B' '4767743E00E5.pas.ms.script' // TTypeData
  ;
@@ -1297,7 +1297,7 @@ ref; // ME_47AC866E022B
 : ME_47AC871803CA
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_47AC5591007B // k2Tag
+ : Parent HWL ME_47AC5591007B // k2Tag
  ;
  : Target WL 'ME_47A080670100' '47913B47006E.pas.ms.script' // l3Stream
  ;
@@ -1307,7 +1307,7 @@ ref; // ME_47AC871803CA
 : ME_49A5370F01CC
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_47AC5591007B // k2Tag
+ : Parent HWL ME_47AC5591007B // k2Tag
  ;
  : Target WL 'ME_4773D64E036C' '47913B47006E.pas.ms.script' // l3Base
  ;
@@ -1317,7 +1317,7 @@ ref; // ME_49A5370F01CC
 : ME_4A607A930102
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_47AC5591007B // k2Tag
+ : Parent HWL ME_47AC5591007B // k2Tag
  ;
  : Target WL 'ME_480DBA760390' '480DBA6900E6.pas.ms.script' // k2Facade
  ;
@@ -1327,7 +1327,7 @@ ref; // ME_4A607A930102
 : ME_4A69D95C015C
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_47AC5591007B // k2Tag
+ : Parent HWL ME_47AC5591007B // k2Tag
  ;
  : Target WL 'ME_478CF32A03B6' '4AB0997B00A2.pas.ms.script' // TPersistent
  ;
@@ -1337,7 +1337,7 @@ ref; // ME_4A69D95C015C
 : ME_5281ED4D010F
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_47AC5591007B // k2Tag
+ : Parent HWL ME_47AC5591007B // k2Tag
  ;
  : Target WL 'ME_48492AD90142' '52669BFC024E.pas.ms.script' // OList
  ;
@@ -1347,9 +1347,9 @@ ref; // ME_5281ED4D010F
 : ME_5304E10E01B6
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_47AC5591007B // k2Tag
+ : Parent HWL ME_47AC5591007B // k2Tag
  ;
- : Target ME_4860AF86034F // Tk2Dictionary
+ : Target HWL ME_4860AF86034F // Tk2Dictionary
  ;
 
 ref; // ME_5304E10E01B6 
@@ -1357,7 +1357,7 @@ ref; // ME_5304E10E01B6
 : ME_531086CC0301
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_47AC5591007B // k2Tag
+ : Parent HWL ME_47AC5591007B // k2Tag
  ;
  : Target WL 'ME_531075C102DD' '47E3C64F037E.pas.ms.script' // Tk2NonOptimizeContext
  ;
@@ -1369,9 +1369,9 @@ FORWARD ME_530F1BCA00B2
 : ME_5310C13B00A1
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_47AC5591007B // k2Tag
+ : Parent HWL ME_47AC5591007B // k2Tag
  ;
- : Target ME_530F1BCA00B2 // Tk2VariantImpl
+ : Target HWL ME_530F1BCA00B2 // Tk2VariantImpl
  ;
 
 ref; // ME_5310C13B00A1 
@@ -1379,7 +1379,7 @@ ref; // ME_5310C13B00A1
 : ME_5315E3F90251
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_47AC5591007B // k2Tag
+ : Parent HWL ME_47AC5591007B // k2Tag
  ;
  : Target WL 'ME_48492A7A0255' '52669BFC024E.pas.ms.script' // Bool
  ;
@@ -1391,9 +1391,9 @@ FORWARD ME_53073D3D00BE
 : ME_5315F4DC039D
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_47AC5591007B // k2Tag
+ : Parent HWL ME_47AC5591007B // k2Tag
  ;
- : Target ME_53073D3D00BE // Tk2String
+ : Target HWL ME_53073D3D00BE // Tk2String
  ;
 
 ref; // ME_5315F4DC039D 
@@ -1407,10 +1407,10 @@ ref; // ME_5315F4DC039D
  %SUMMARY 'Реализация тега.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_467FC43F01F9 // k2CoreObjects
+ : Parent HWL ME_467FC43F01F9 // k2CoreObjects
  ;
  : Inherits
-   Seq: ( ME_53280B9801E7 // k2TagPrim
+   Seq: ( HWL ME_53280B9801E7 // k2TagPrim
  )
  ; // Inherits
  : Dependencies
@@ -1454,7 +1454,7 @@ FORWARD ME_47AC562D0134
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_47AC562D0134 // k2HashTag
+ : Parent HWL ME_47AC562D0134 // k2HashTag
  ;
  CONST extprop:pas:TypeName '_HashType_'
 
@@ -1468,9 +1468,9 @@ ref; // ME_4A605FE2032D HashType
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
  CONST LinkType lt_lnk
- : Parent ME_47AC562D0134 // k2HashTag
+ : Parent HWL ME_47AC562D0134 // k2HashTag
  ;
- : Target ME_4A605FE2032D // HashType
+ : Target HWL ME_4A605FE2032D // HashType
  ;
  CONST "needs field" true
  CONST "pm" true
@@ -1495,7 +1495,7 @@ ref; // ME_5356A9200325 aTagType
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_5356A90303BD // Make
+ : Parent HWL ME_5356A90303BD // Make
  ;
  : Target WL 'ME_5346BD53015A' '47913B47006E.pas.ms.script' // Il3TagRef
  ;
@@ -1509,7 +1509,7 @@ ref; // ME_5356A91101E4 DoIt
 : ME_5356A92602AD
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_5356A90303BD // Make
+ : Parent HWL ME_5356A90303BD // Make
  ;
  : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
  ;
@@ -1524,10 +1524,10 @@ ref; // ME_5356A92602AD
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_47AC562D0134 // k2HashTag
+ : Parent HWL ME_47AC562D0134 // k2HashTag
  ;
  : Operations
-   Seq: ( ME_5356A91101E4 // DoIt
+   Seq: ( HWL ME_5356A91101E4 // DoIt
  )
  ; // Operations
  : Dependencies
@@ -1554,7 +1554,7 @@ ref; // ME_49A5502C0085 aTagType
  : Stereotype st_ctor::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_47AC562D0134 // k2HashTag
+ : Parent HWL ME_47AC562D0134 // k2HashTag
  ;
  : Parameters
    Seq: ( ME_49A5502C0085 // aTagType
@@ -1569,7 +1569,7 @@ ref; // ME_49A55029014C Create
  CONST Class class_Operation
  CONST Visibility ProtectedAccess
  CONST Abstraction at_final
- : Parent ME_47AC562D0134 // k2HashTag
+ : Parent HWL ME_47AC562D0134 // k2HashTag
  ;
 
 ref; // ME_49A54FAA028F ClearAtoms
@@ -1577,7 +1577,7 @@ ref; // ME_49A54FAA028F ClearAtoms
 : ME_4A673646027C
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_47AC562D0134 // k2HashTag
+ : Parent HWL ME_47AC562D0134 // k2HashTag
  ;
  : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
  ;
@@ -1585,7 +1585,7 @@ ref; // ME_49A54FAA028F ClearAtoms
 ref; // ME_4A673646027C 
 
 : ME_49A545580241_ME_47AC562D0134
- : Original ME_49A545580241 // SetAtomPrim
+ : Original HWL ME_49A545580241 // SetAtomPrim
  ;
  CONST OpKind opkind_Implemented
  CONST "ifndef" 'k2TagIsAtomic'
@@ -1605,14 +1605,14 @@ ref; // ME_479731C50290_ME_47AC562D0134 Cleanup
 ref; // ME_47A6FEE600FC_ME_47AC562D0134 IsCacheable
 
 : ME_49A544E802B2_ME_47AC562D0134
- : Original ME_49A544E802B2 // GetHasSubAtom
+ : Original HWL ME_49A544E802B2 // GetHasSubAtom
  ;
  CONST OpKind opkind_Overridden
  CONST "ifndef" 'k2TagIsAtomic'
 ref; // ME_49A544E802B2_ME_47AC562D0134 GetHasSubAtom
 
 : ME_49A54517029C_ME_47AC562D0134
- : Original ME_49A54517029C // GetSubAtom
+ : Original HWL ME_49A54517029C // GetSubAtom
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_49A54517029C_ME_47AC562D0134 GetSubAtom
@@ -1638,10 +1638,10 @@ ref; // ME_4A54E03B009A_ME_47AC562D0134 GetEmpty
  %SUMMARY 'Одна из реализаций хранилища тегов.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_467FC43F01F9 // k2CoreObjects
+ : Parent HWL ME_467FC43F01F9 // k2CoreObjects
  ;
  : Inherits
-   Seq: ( ME_47AC5591007B // k2Tag
+   Seq: ( HWL ME_47AC5591007B // k2Tag
  )
  ; // Inherits
  : Implements
@@ -1650,13 +1650,13 @@ ref; // ME_4A54E03B009A_ME_47AC562D0134 GetEmpty
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_4A60934401A0 // SubAtoms
+   Seq: ( HWL ME_4A60934401A0 // SubAtoms
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_5356A90303BD // Make
- ME_49A55029014C // Create
- ME_49A54FAA028F // ClearAtoms
+   Seq: ( HWL ME_5356A90303BD // Make
+ HWL ME_49A55029014C // Create
+ HWL ME_49A54FAA028F // ClearAtoms
  )
  ; // Operations
  : Implemented
@@ -1673,7 +1673,7 @@ ref; // ME_4A54E03B009A_ME_47AC562D0134 GetEmpty
  )
  ; // Overridden
  : Children
-   Seq: ( ME_4A605FE2032D // HashType
+   Seq: ( HWL ME_4A605FE2032D // HashType
  )
  ; // Children
  : Dependencies
@@ -1699,10 +1699,10 @@ ref; // ME_47AC562D0134 k2HashTag
  %SUMMARY 'Базовый листьевой тег' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_467FC43F01F9 // k2CoreObjects
+ : Parent HWL ME_467FC43F01F9 // k2CoreObjects
  ;
  : Inherits
-   Seq: ( ME_532080BB027A // Tk2NonAtomicTag
+   Seq: ( HWL ME_532080BB027A // Tk2NonAtomicTag
  )
  ; // Inherits
  CONST intf.pas:Path 'common\components\rtl\Garant\K2\k2LeafTag.pas'
@@ -1720,7 +1720,7 @@ ref; // ME_532081A90261 Tk2LeafTag
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_5304C94F0101 // Tk2DictionaryPrim
+ : Parent HWL ME_5304C94F0101 // Tk2DictionaryPrim
  ;
  CONST extprop:rc:SelfName 'Items_NeedsAssignItem'
 
@@ -1734,7 +1734,7 @@ ref; // ME_5304CA660218 l3Items_NeedsAssignItem
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_5304C94F0101 // Tk2DictionaryPrim
+ : Parent HWL ME_5304C94F0101 // Tk2DictionaryPrim
  ;
  CONST extprop:rc:SelfName 'Items_CaseUnsensitive'
 
@@ -1748,7 +1748,7 @@ ref; // ME_5304CA780342 l3Items_CaseUnsensitive
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_5304C94F0101 // Tk2DictionaryPrim
+ : Parent HWL ME_5304C94F0101 // Tk2DictionaryPrim
  ;
  CONST extprop:rc:SelfName 'Items_NeedsBeforeFreeItem'
 
@@ -1762,7 +1762,7 @@ ref; // ME_5304CA86025B l3Items_NeedsBeforeFreeItem
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_5304C94F0101 // Tk2DictionaryPrim
+ : Parent HWL ME_5304C94F0101 // Tk2DictionaryPrim
  ;
  CONST extprop:rc:SelfName 'Items_NoSort'
 
@@ -1771,7 +1771,7 @@ ref; // ME_5304CA940052 l3Items_NoSort
 : ME_5304D13E0329
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_5304C94F0101 // Tk2DictionaryPrim
+ : Parent HWL ME_5304C94F0101 // Tk2DictionaryPrim
  ;
  : Target WL 'ME_469F6D170322' '49A6646B0044.pas.ms.script' // Tk2AssignMode
  ;
@@ -1781,7 +1781,7 @@ ref; // ME_5304D13E0329
 : ME_5304D14103E1
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_5304C94F0101 // Tk2DictionaryPrim
+ : Parent HWL ME_5304C94F0101 // Tk2DictionaryPrim
  ;
  : Target WL 'ME_47C69EBC00A8' '47AC75550330.pas.ms.script' // Tk2TagID
  ;
@@ -1791,7 +1791,7 @@ ref; // ME_5304D14103E1
 : ME_5304D1440379
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_5304C94F0101 // Tk2DictionaryPrim
+ : Parent HWL ME_5304C94F0101 // Tk2DictionaryPrim
  ;
  : Target WL 'ME_47878E0E0191' '54B90AC6014B.pas.ms.script' // l3String
  ;
@@ -1801,7 +1801,7 @@ ref; // ME_5304D1440379
 : ME_5310852002FD
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_5304C94F0101 // Tk2DictionaryPrim
+ : Parent HWL ME_5304C94F0101 // Tk2DictionaryPrim
  ;
  : Target WL 'ME_531075C102DD' '47E3C64F037E.pas.ms.script' // Tk2NonOptimizeContext
  ;
@@ -1830,7 +1830,7 @@ ref; // ME_47B99D4503A2_ME_5304C94F0101 CompareExistingItems
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_467FC43F01F9 // k2CoreObjects
+ : Parent HWL ME_467FC43F01F9 // k2CoreObjects
  ;
  : Inherits
    Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
@@ -1843,10 +1843,10 @@ ref; // ME_47B99D4503A2_ME_5304C94F0101 CompareExistingItems
  )
  ; // Implemented
  : Children
-   Seq: ( ME_5304CA660218 // l3Items_NeedsAssignItem
- ME_5304CA780342 // l3Items_CaseUnsensitive
- ME_5304CA86025B // l3Items_NeedsBeforeFreeItem
- ME_5304CA940052 // l3Items_NoSort
+   Seq: ( HWL ME_5304CA660218 // l3Items_NeedsAssignItem
+ HWL ME_5304CA780342 // l3Items_CaseUnsensitive
+ HWL ME_5304CA86025B // l3Items_NeedsBeforeFreeItem
+ HWL ME_5304CA940052 // l3Items_NoSort
  )
  ; // Children
  : Dependencies
@@ -1873,7 +1873,7 @@ FORWARD ME_527A6D5A0248
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_527A6D5A0248 // Tk2TypedSmallLeafTag
+ : Parent HWL ME_527A6D5A0248 // Tk2TypedSmallLeafTag
  ;
  CONST extprop:rc:SelfName 'Tag_No_f_TagType'
 
@@ -1887,7 +1887,7 @@ ref; // ME_527A6FD400FF k2Tag_No_f_TagType
  CONST Visibility PrivateAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_527A6D5A0248 // Tk2TypedSmallLeafTag
+ : Parent HWL ME_527A6D5A0248 // Tk2TypedSmallLeafTag
  ;
  : Target WL 'ME_4A605C540221' '47913B47006E.pas.ms.script' // Tl3OneBytePtrHash
  ;
@@ -1903,19 +1903,19 @@ ref; // ME_4A64878701E1 HashType
  %SUMMARY 'Листьевой тег с заранее определённым типом и могущий иметь НЕ более 32 (включительно) атрибутов' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_467FC43F01F9 // k2CoreObjects
+ : Parent HWL ME_467FC43F01F9 // k2CoreObjects
  ;
  : Inherits
-   Seq: ( ME_47AC562D0134 // k2HashTag
- ME_532081A90261 // Tk2LeafTag
+   Seq: ( HWL ME_47AC562D0134 // k2HashTag
+ HWL ME_532081A90261 // Tk2LeafTag
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_4A64878701E1 // HashType
+   Seq: ( HWL ME_4A64878701E1 // HashType
  )
  ; // Attributes
  : Children
-   Seq: ( ME_527A6FD400FF // k2Tag_No_f_TagType
+   Seq: ( HWL ME_527A6FD400FF // k2Tag_No_f_TagType
  )
  ; // Children
  CONST intf.pas:Path 'common\components\rtl\Garant\K2\k2TypedSmallLeafTag.pas'
@@ -1935,7 +1935,7 @@ FORWARD ME_4A5F28820363
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4A5F28820363 // k2SimpleTagListPrim
+ : Parent HWL ME_4A5F28820363 // k2SimpleTagListPrim
  ;
  CONST extprop:rc:SelfName 'Items_NoChanging'
 
@@ -1949,7 +1949,7 @@ ref; // ME_527D0A3D031C l3Items_NoChanging
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4A5F28820363 // k2SimpleTagListPrim
+ : Parent HWL ME_4A5F28820363 // k2SimpleTagListPrim
  ;
  CONST extprop:rc:SelfName 'Items_NoOwner'
 
@@ -1958,7 +1958,7 @@ ref; // ME_527D0A680126 l3Items_NoOwner
 : ME_4A5F2A78003B
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4A5F28820363 // k2SimpleTagListPrim
+ : Parent HWL ME_4A5F28820363 // k2SimpleTagListPrim
  ;
  : Target WL 'ME_469F7CE1016C' '49A6646B0044.pas.ms.script' // k2_amAll
  ;
@@ -1995,7 +1995,7 @@ ref; // ME_47A6FEE600FC_ME_4A5F28820363 IsCacheable
  %SUMMARY 'Список параграфов' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_467FC43F01F9 // k2CoreObjects
+ : Parent HWL ME_467FC43F01F9 // k2CoreObjects
  ;
  : Inherits
    Seq: ( WL 'ME_534515CD039A' '5345157C01ED.pas.ms.script' // l3VariantListPrim
@@ -2015,8 +2015,8 @@ ref; // ME_47A6FEE600FC_ME_4A5F28820363 IsCacheable
  )
  ; // Overridden
  : Children
-   Seq: ( ME_527D0A3D031C // l3Items_NoChanging
- ME_527D0A680126 // l3Items_NoOwner
+   Seq: ( HWL ME_527D0A3D031C // l3Items_NoChanging
+ HWL ME_527D0A680126 // l3Items_NoOwner
  )
  ; // Children
  : Dependencies
@@ -2042,7 +2042,7 @@ FORWARD ME_527D14900028
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_527D14900028 // Tk2TypedSimpleTagListPrim
+ : Parent HWL ME_527D14900028 // Tk2TypedSimpleTagListPrim
  ;
  CONST extprop:rc:SelfName 'Items_NoSort'
 
@@ -2062,11 +2062,11 @@ ref; // ME_47B975AF02ED_ME_527D14900028 ExpandSize
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_467FC43F01F9 // k2CoreObjects
+ : Parent HWL ME_467FC43F01F9 // k2CoreObjects
  ;
  : Inherits
-   Seq: ( ME_4A5F28820363 // k2SimpleTagListPrim
- ME_5320814702B4 // Tk2ListTag
+   Seq: ( HWL ME_4A5F28820363 // k2SimpleTagListPrim
+ HWL ME_5320814702B4 // Tk2ListTag
  )
  ; // Inherits
  : Overridden
@@ -2074,7 +2074,7 @@ ref; // ME_47B975AF02ED_ME_527D14900028 ExpandSize
  )
  ; // Overridden
  : Children
-   Seq: ( ME_527D0A50012F // l3Items_NoSort
+   Seq: ( HWL ME_527D0A50012F // l3Items_NoSort
  )
  ; // Children
  CONST intf.pas:Path 'common\components\rtl\Garant\K2\k2TypedSimpleTagListPrim.pas'
@@ -2089,7 +2089,7 @@ FORWARD ME_53208F54004F
 : ME_535FDD530188
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_53208F54004F // Tk2DictRecTag
+ : Parent HWL ME_53208F54004F // Tk2DictRecTag
  ;
  : Target WL 'ME_47C69EBC00A8' '47AC75550330.pas.ms.script' // Tk2TagID
  ;
@@ -2128,10 +2128,10 @@ ref; // ME_53568FCA01E8_ME_53208F54004F GetAsRef
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_467FC43F01F9 // k2CoreObjects
+ : Parent HWL ME_467FC43F01F9 // k2CoreObjects
  ;
  : Inherits
-   Seq: ( ME_532081A90261 // Tk2LeafTag
+   Seq: ( HWL ME_532081A90261 // Tk2LeafTag
  )
  ; // Inherits
  : Implements
@@ -2164,7 +2164,7 @@ ref; // ME_53208F54004F Tk2DictRecTag
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_47AC59170251 // Tk2List
+ : Parent HWL ME_47AC59170251 // Tk2List
  ;
  CONST extprop:rc:SelfName 'TagIsList'
 
@@ -2179,7 +2179,7 @@ ref; // ME_5281EFE302BB k2TagIsList
  %SUMMARY '- !!! http://mdp.garant.ru/pages/viewpage.action?pageId=228688745&focusedCommentId=273590280#comment-273590280 !!!' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_47AC59170251 // Tk2List
+ : Parent HWL ME_47AC59170251 // Tk2List
  ;
  CONST extprop:rc:SelfName 'TagComplexAssign'
 
@@ -2202,7 +2202,7 @@ ref; // ME_5281F032003A aTagType
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_5281F01E011D // Create
+ : Parent HWL ME_5281F01E011D // Create
  ;
  : Parameters
    Seq: ( ME_5281F032003A // aTagType
@@ -2219,10 +2219,10 @@ ref; // ME_5281F02D0044 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_47AC59170251 // Tk2List
+ : Parent HWL ME_47AC59170251 // Tk2List
  ;
  : Operations
-   Seq: ( ME_5281F02D0044 // DoIt
+   Seq: ( HWL ME_5281F02D0044 // DoIt
  )
  ; // Operations
 
@@ -2245,7 +2245,7 @@ ref; // ME_5356A8AF01E6 aTagType
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_5356A87B0080 // Make
+ : Parent HWL ME_5356A87B0080 // Make
  ;
  : Target WL 'ME_5346BD53015A' '47913B47006E.pas.ms.script' // Il3TagRef
  ;
@@ -2259,7 +2259,7 @@ ref; // ME_5356A8A10026 DoIt
 : ME_5356A89B03A6
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_5356A87B0080 // Make
+ : Parent HWL ME_5356A87B0080 // Make
  ;
  : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
  ;
@@ -2274,10 +2274,10 @@ ref; // ME_5356A89B03A6
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_47AC59170251 // Tk2List
+ : Parent HWL ME_47AC59170251 // Tk2List
  ;
  : Operations
-   Seq: ( ME_5356A8A10026 // DoIt
+   Seq: ( HWL ME_5356A8A10026 // DoIt
  )
  ; // Operations
  : Dependencies
@@ -2289,7 +2289,7 @@ ref; // ME_5356A89B03A6
 ref; // ME_5356A87B0080 Make
 
 : ME_49A545580241_ME_47AC59170251
- : Original ME_49A545580241 // SetAtomPrim
+ : Original HWL ME_49A545580241 // SetAtomPrim
  ;
  CONST OpKind opkind_Implemented
  CONST "ifndef" 'k2TagIsAtomic'
@@ -2309,16 +2309,16 @@ ref; // ME_47B975AF02ED_ME_47AC59170251 ExpandSize
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_467FC43F01F9 // k2CoreObjects
+ : Parent HWL ME_467FC43F01F9 // k2CoreObjects
  ;
  : Inherits
-   Seq: ( ME_47AC5591007B // k2Tag
- ME_47B9D76B0301 // Tk2TagList
+   Seq: ( HWL ME_47AC5591007B // k2Tag
+ HWL ME_47B9D76B0301 // Tk2TagList
  )
  ; // Inherits
  : Operations
-   Seq: ( ME_5281F01E011D // Create
- ME_5356A87B0080 // Make
+   Seq: ( HWL ME_5281F01E011D // Create
+ HWL ME_5356A87B0080 // Make
  )
  ; // Operations
  : Implemented
@@ -2330,8 +2330,8 @@ ref; // ME_47B975AF02ED_ME_47AC59170251 ExpandSize
  )
  ; // Overridden
  : Children
-   Seq: ( ME_5281EFE302BB // k2TagIsList
- ME_5281EFEF01C2 // k2TagComplexAssign
+   Seq: ( HWL ME_5281EFE302BB // k2TagIsList
+ HWL ME_5281EFEF01C2 // k2TagComplexAssign
  )
  ; // Children
  CONST "author" 'Люлин А.В.'
@@ -2353,7 +2353,7 @@ FORWARD ME_4E15EFFA0214
  CONST Visibility PrivateAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_4E15EFFA0214 // Tk2HugeDictRec
+ : Parent HWL ME_4E15EFFA0214 // Tk2HugeDictRec
  ;
  : Target WL 'ME_47AC5BBC025C' '47913B47006E.pas.ms.script' // Tl3PtrHash
  ;
@@ -2363,7 +2363,7 @@ ref; // ME_4E15F022024D HashType
 : ME_4E15F0540337
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4E15EFFA0214 // Tk2HugeDictRec
+ : Parent HWL ME_4E15EFFA0214 // Tk2HugeDictRec
  ;
  : Target WL 'ME_47C69EBC00A8' '47AC75550330.pas.ms.script' // Tk2TagID
  ;
@@ -2378,15 +2378,15 @@ ref; // ME_4E15F0540337
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_467FC43F01F9 // k2CoreObjects
+ : Parent HWL ME_467FC43F01F9 // k2CoreObjects
  ;
  : Inherits
-   Seq: ( ME_47AC562D0134 // k2HashTag
- ME_53208F54004F // Tk2DictRecTag
+   Seq: ( HWL ME_47AC562D0134 // k2HashTag
+ HWL ME_53208F54004F // Tk2DictRecTag
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_4E15F022024D // HashType
+   Seq: ( HWL ME_4E15F022024D // HashType
  )
  ; // Attributes
  : Dependencies
@@ -2413,7 +2413,7 @@ FORWARD ME_4E8347810088
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4E8347810088 // Tk2ParentedTypedHugeLeafTag
+ : Parent HWL ME_4E8347810088 // Tk2ParentedTypedHugeLeafTag
  ;
  CONST extprop:rc:SelfName 'Tag_No_f_TagType'
 
@@ -2427,7 +2427,7 @@ ref; // ME_4E834FE001F5 k2Tag_No_f_TagType
  CONST Visibility PrivateAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_4E8347810088 // Tk2ParentedTypedHugeLeafTag
+ : Parent HWL ME_4E8347810088 // Tk2ParentedTypedHugeLeafTag
  ;
  : Target WL 'ME_47AC5BBC025C' '47913B47006E.pas.ms.script' // Tl3PtrHash
  ;
@@ -2443,11 +2443,11 @@ ref; // ME_4E8347D6033F HashType
  %SUMMARY 'Листьевой тег с заранее определённым типом, имеющий ссылку на родителя и могущий иметь БОЛЕЕ 32 (включительно) атрибутов' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_467FC43F01F9 // k2CoreObjects
+ : Parent HWL ME_467FC43F01F9 // k2CoreObjects
  ;
  : Inherits
-   Seq: ( ME_47AC562D0134 // k2HashTag
- ME_532081A90261 // Tk2LeafTag
+   Seq: ( HWL ME_47AC562D0134 // k2HashTag
+ HWL ME_532081A90261 // Tk2LeafTag
  )
  ; // Inherits
  : Implements
@@ -2455,11 +2455,11 @@ ref; // ME_4E8347D6033F HashType
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_4E8347D6033F // HashType
+   Seq: ( HWL ME_4E8347D6033F // HashType
  )
  ; // Attributes
  : Children
-   Seq: ( ME_4E834FE001F5 // k2Tag_No_f_TagType
+   Seq: ( HWL ME_4E834FE001F5 // k2Tag_No_f_TagType
  )
  ; // Children
  CONST "author" 'Люлин А.В.'
@@ -2482,7 +2482,7 @@ FORWARD ME_4A6062890343
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4A6062890343 // TevHugeParaListPrim
+ : Parent HWL ME_4A6062890343 // TevHugeParaListPrim
  ;
  CONST extprop:rc:SelfName 'Items_NoOwner'
 
@@ -2491,7 +2491,7 @@ ref; // ME_4DD3E109019B l3Items_NoOwner
 : ME_4A60664801E4
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4A6062890343 // TevHugeParaListPrim
+ : Parent HWL ME_4A6062890343 // TevHugeParaListPrim
  ;
  : Target WL 'ME_469F7CE1016C' '49A6646B0044.pas.ms.script' // k2_amAll
  ;
@@ -2521,10 +2521,10 @@ ref; // ME_47B99D4503A2_ME_4A6062890343 CompareExistingItems
  %SUMMARY 'Список параграфов с числом свойств больше 32' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_467FC43F01F9 // k2CoreObjects
+ : Parent HWL ME_467FC43F01F9 // k2CoreObjects
  ;
  : Inherits
-   Seq: ( ME_5320814702B4 // Tk2ListTag
+   Seq: ( HWL ME_5320814702B4 // Tk2ListTag
  WL 'ME_534515CD039A' '5345157C01ED.pas.ms.script' // l3VariantListPrim
  )
  ; // Inherits
@@ -2534,7 +2534,7 @@ ref; // ME_47B99D4503A2_ME_4A6062890343 CompareExistingItems
  )
  ; // Implemented
  : Children
-   Seq: ( ME_4DD3E109019B // l3Items_NoOwner
+   Seq: ( HWL ME_4DD3E109019B // l3Items_NoOwner
  )
  ; // Children
  : Dependencies
@@ -2560,14 +2560,14 @@ ref; // ME_4A6062890343 TevHugeParaListPrim
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_467FC43F01F9 // k2CoreObjects
+ : Parent HWL ME_467FC43F01F9 // k2CoreObjects
  ;
  : Inherits
-   Seq: ( ME_4A6062890343 // TevHugeParaListPrim
+   Seq: ( HWL ME_4A6062890343 // TevHugeParaListPrim
  )
  ; // Inherits
  : Implements
-   Seq: ( ME_4B89152D0120 // k2TagByIntegerSearcher
+   Seq: ( HWL ME_4B89152D0120 // k2TagByIntegerSearcher
  )
  ; // Implements
  CONST "author" 'Люлин А.В.'
@@ -2590,7 +2590,7 @@ FORWARD ME_527BA4EE03B4
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_527BA4EE03B4 // Tk2TypedHugeListTag
+ : Parent HWL ME_527BA4EE03B4 // Tk2TypedHugeListTag
  ;
  CONST extprop:rc:SelfName 'TagIsList'
 
@@ -2604,7 +2604,7 @@ ref; // ME_4FBE321B00EC k2TagIsList
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_527BA4EE03B4 // Tk2TypedHugeListTag
+ : Parent HWL ME_527BA4EE03B4 // Tk2TypedHugeListTag
  ;
  CONST extprop:rc:SelfName 'Tag_No_f_TagType'
 
@@ -2618,7 +2618,7 @@ ref; // ME_4FBE324100A6 k2Tag_No_f_TagType
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_527BA4EE03B4 // Tk2TypedHugeListTag
+ : Parent HWL ME_527BA4EE03B4 // Tk2TypedHugeListTag
  ;
  CONST extprop:rc:SelfName 'TagNoSort'
 
@@ -2632,7 +2632,7 @@ ref; // ME_53023F480187 k2TagNoSort
  CONST Visibility PrivateAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_527BA4EE03B4 // Tk2TypedHugeListTag
+ : Parent HWL ME_527BA4EE03B4 // Tk2TypedHugeListTag
  ;
  : Target WL 'ME_47AC5BBC025C' '47913B47006E.pas.ms.script' // Tl3PtrHash
  ;
@@ -2647,21 +2647,21 @@ ref; // ME_4FBE31E10251 HashType
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_467FC43F01F9 // k2CoreObjects
+ : Parent HWL ME_467FC43F01F9 // k2CoreObjects
  ;
  : Inherits
-   Seq: ( ME_47AC562D0134 // k2HashTag
- ME_4A6062FE02AD // TevHugeParaListPrimWithFind
+   Seq: ( HWL ME_47AC562D0134 // k2HashTag
+ HWL ME_4A6062FE02AD // TevHugeParaListPrimWithFind
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_4FBE31E10251 // HashType
+   Seq: ( HWL ME_4FBE31E10251 // HashType
  )
  ; // Attributes
  : Children
-   Seq: ( ME_4FBE321B00EC // k2TagIsList
- ME_4FBE324100A6 // k2Tag_No_f_TagType
- ME_53023F480187 // k2TagNoSort
+   Seq: ( HWL ME_4FBE321B00EC // k2TagIsList
+ HWL ME_4FBE324100A6 // k2Tag_No_f_TagType
+ HWL ME_53023F480187 // k2TagNoSort
  )
  ; // Children
  CONST intf.pas:Path 'common\components\rtl\Garant\K2\k2TypedHugeListTag.pas'
@@ -2681,10 +2681,10 @@ FORWARD ME_53207C0102F8
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_53207C0102F8 // Tk2AtomicTag
+ : Parent HWL ME_53207C0102F8 // Tk2AtomicTag
  ;
  : Inherits
-   Seq: ( ME_53207C0102F8 // Tk2AtomicTag
+   Seq: ( HWL ME_53207C0102F8 // Tk2AtomicTag
  )
  ; // Inherits
  CONST "isClassRef" true
@@ -2699,7 +2699,7 @@ ref; // ME_53567CE601A4 Rk2AtomicTag
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_53207C0102F8 // Tk2AtomicTag
+ : Parent HWL ME_53207C0102F8 // Tk2AtomicTag
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -2709,7 +2709,7 @@ ref; // ME_53207C650039 f_Value
 : ME_532AA76E00D4
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_53207C0102F8 // Tk2AtomicTag
+ : Parent HWL ME_53207C0102F8 // Tk2AtomicTag
  ;
  : Target WL 'ME_47878E0E0191' '54B90AC6014B.pas.ms.script' // l3String
  ;
@@ -2719,7 +2719,7 @@ ref; // ME_532AA76E00D4
 : ME_5360C95D0096
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_53207C0102F8 // Tk2AtomicTag
+ : Parent HWL ME_53207C0102F8 // Tk2AtomicTag
  ;
  : Target WL 'ME_47AC723D02DC' '49A58A1A03C4.pas.ms.script' // Tk2Type
  ;
@@ -2759,14 +2759,14 @@ ref; // ME_532AE8F2009A_ME_53207C0102F8 GetIsOrd
  %SUMMARY 'Базовый атомарный тег' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_467FC43F01F9 // k2CoreObjects
+ : Parent HWL ME_467FC43F01F9 // k2CoreObjects
  ;
  : Inherits
    Seq: ( WL 'ME_533E8F8D0334' '49A58A1A03C4.pas.ms.script' // Tk2NotStructuredTag
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_53207C650039 // f_Value
+   Seq: ( HWL ME_53207C650039 // f_Value
  )
  ; // Attributes
  : Overridden
@@ -2777,7 +2777,7 @@ ref; // ME_532AE8F2009A_ME_53207C0102F8 GetIsOrd
  )
  ; // Overridden
  : Children
-   Seq: ( ME_53567CE601A4 // Rk2AtomicTag
+   Seq: ( HWL ME_53567CE601A4 // Rk2AtomicTag
  )
  ; // Children
  : Dependencies
@@ -2802,9 +2802,9 @@ FORWARD ME_526918890147
  CONST Visibility PrivateAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_526918890147 // Tk2AtomicTagRefListPrim
+ : Parent HWL ME_526918890147 // Tk2AtomicTagRefListPrim
  ;
- : Target ME_53207C0102F8 // Tk2AtomicTag
+ : Target HWL ME_53207C0102F8 // Tk2AtomicTag
  ;
 
 ref; // ME_53579B8B0022 ItemType
@@ -2831,7 +2831,7 @@ ref; // ME_47B99D4503A2_ME_526918890147 CompareExistingItems
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_467FC43F01F9 // k2CoreObjects
+ : Parent HWL ME_467FC43F01F9 // k2CoreObjects
  ;
  : Inherits
    Seq: ( WL 'ME_47B99E920196' '47913B47006E.pas.ms.script' // l3UncomparabeObjectRefList
@@ -2839,7 +2839,7 @@ ref; // ME_47B99D4503A2_ME_526918890147 CompareExistingItems
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_53579B8B0022 // ItemType
+   Seq: ( HWL ME_53579B8B0022 // ItemType
  )
  ; // Attributes
  : Implemented
@@ -2864,7 +2864,7 @@ FORWARD ME_5273CF4602B7
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_5273CF4602B7 // Tk2TypedAtomicTag
+ : Parent HWL ME_5273CF4602B7 // Tk2TypedAtomicTag
  ;
  CONST extprop:rc:SelfName 'TagIsAtomic'
 
@@ -2878,7 +2878,7 @@ ref; // ME_5273CFB50063 k2TagIsAtomic
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_5273CF4602B7 // Tk2TypedAtomicTag
+ : Parent HWL ME_5273CF4602B7 // Tk2TypedAtomicTag
  ;
  CONST extprop:rc:SelfName 'Tag_No_f_TagType'
 
@@ -2892,10 +2892,10 @@ ref; // ME_5273D4CD0067 k2Tag_No_f_TagType
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_5273CF4602B7 // Tk2TypedAtomicTag
+ : Parent HWL ME_5273CF4602B7 // Tk2TypedAtomicTag
  ;
  : Inherits
-   Seq: ( ME_5273CF4602B7 // Tk2TypedAtomicTag
+   Seq: ( HWL ME_5273CF4602B7 // Tk2TypedAtomicTag
  )
  ; // Inherits
  CONST "isClassRef" true
@@ -2929,7 +2929,7 @@ ref; // ME_5273CF900127 aType
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_5273CF7E0177 // Create
+ : Parent HWL ME_5273CF7E0177 // Create
  ;
  : Parameters
    Seq: ( ME_5273CF900107 // aValue
@@ -2947,17 +2947,17 @@ ref; // ME_5273CF89010F Create
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_5273CF4602B7 // Tk2TypedAtomicTag
+ : Parent HWL ME_5273CF4602B7 // Tk2TypedAtomicTag
  ;
  : Operations
-   Seq: ( ME_5273CF89010F // Create
+   Seq: ( HWL ME_5273CF89010F // Create
  )
  ; // Operations
 
 ref; // ME_5273CF7E0177 Create
 
 : ME_49A545580241_ME_5273CF4602B7
- : Original ME_49A545580241 // SetAtomPrim
+ : Original HWL ME_49A545580241 // SetAtomPrim
  ;
  CONST OpKind opkind_Implemented
  CONST "ifndef" 'k2TagIsAtomic'
@@ -2978,15 +2978,15 @@ ref; // ME_47A6FEE600FC_ME_5273CF4602B7 IsCacheable
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_467FC43F01F9 // k2CoreObjects
+ : Parent HWL ME_467FC43F01F9 // k2CoreObjects
  ;
  : Inherits
-   Seq: ( ME_47AC5591007B // k2Tag
- ME_53207C0102F8 // Tk2AtomicTag
+   Seq: ( HWL ME_47AC5591007B // k2Tag
+ HWL ME_53207C0102F8 // Tk2AtomicTag
  )
  ; // Inherits
  : Operations
-   Seq: ( ME_5273CF7E0177 // Create
+   Seq: ( HWL ME_5273CF7E0177 // Create
  )
  ; // Operations
  : Implemented
@@ -2998,9 +2998,9 @@ ref; // ME_47A6FEE600FC_ME_5273CF4602B7 IsCacheable
  )
  ; // Overridden
  : Children
-   Seq: ( ME_5273CFB50063 // k2TagIsAtomic
- ME_5273D4CD0067 // k2Tag_No_f_TagType
- ME_5273DA510261 // Rk2TypedAtomicTag
+   Seq: ( HWL ME_5273CFB50063 // k2TagIsAtomic
+ HWL ME_5273D4CD0067 // k2Tag_No_f_TagType
+ HWL ME_5273DA510261 // Rk2TypedAtomicTag
  )
  ; // Children
  CONST intf.pas:Path 'common\components\rtl\Garant\K2\k2TypedAtomicTag.pas'
@@ -3019,11 +3019,11 @@ ref; // ME_5273CF4602B7 Tk2TypedAtomicTag
  %SUMMARY 'Листьевой тег с заранее определённым типом, имеющий ссылку на родителя и могущий иметь НЕ более 32 (включительно) атрибутов' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_467FC43F01F9 // k2CoreObjects
+ : Parent HWL ME_467FC43F01F9 // k2CoreObjects
  ;
  : Inherits
    Seq: ( WL 'ME_47AC58810008' '49A5895D00AF.pas.ms.script' // k2ParentedTagObject
- ME_527A6D5A0248 // Tk2TypedSmallLeafTag
+ HWL ME_527A6D5A0248 // Tk2TypedSmallLeafTag
  )
  ; // Inherits
  CONST "author" 'Люлин А.В.'
@@ -3045,10 +3045,10 @@ ref; // ME_4A64874301F2 Tk2ParentedTypedSmallLeafTag
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_467FC43F01F9 // k2CoreObjects
+ : Parent HWL ME_467FC43F01F9 // k2CoreObjects
  ;
  : Inherits
-   Seq: ( ME_527BA4EE03B4 // Tk2TypedHugeListTag
+   Seq: ( HWL ME_527BA4EE03B4 // Tk2TypedHugeListTag
  )
  ; // Inherits
  : Implements
@@ -3071,10 +3071,10 @@ ref; // ME_527B9A3F0164 Tk2OwnedTypedHugeListTag
  %SUMMARY 'Список параграфов с числом атрибутов больше 32' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_467FC43F01F9 // k2CoreObjects
+ : Parent HWL ME_467FC43F01F9 // k2CoreObjects
  ;
  : Inherits
-   Seq: ( ME_527BA4EE03B4 // Tk2TypedHugeListTag
+   Seq: ( HWL ME_527BA4EE03B4 // Tk2TypedHugeListTag
  )
  ; // Inherits
  : Implements
@@ -3098,7 +3098,7 @@ FORWARD ME_4A5F1EC002E5
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4A5F1EC002E5 // Tk2TypedSmallListTag
+ : Parent HWL ME_4A5F1EC002E5 // Tk2TypedSmallListTag
  ;
  CONST extprop:rc:SelfName 'Tag_No_f_TagType'
 
@@ -3112,7 +3112,7 @@ ref; // ME_527D07100298 k2Tag_No_f_TagType
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4A5F1EC002E5 // Tk2TypedSmallListTag
+ : Parent HWL ME_4A5F1EC002E5 // Tk2TypedSmallListTag
  ;
  CONST extprop:rc:SelfName 'TagIsList'
 
@@ -3126,7 +3126,7 @@ ref; // ME_527D072F0329 k2TagIsList
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4A5F1EC002E5 // Tk2TypedSmallListTag
+ : Parent HWL ME_4A5F1EC002E5 // Tk2TypedSmallListTag
  ;
  CONST extprop:rc:SelfName 'TagNoSort'
 
@@ -3140,7 +3140,7 @@ ref; // ME_53023D74019B k2TagNoSort
  CONST Visibility PrivateAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_4A5F1EC002E5 // Tk2TypedSmallListTag
+ : Parent HWL ME_4A5F1EC002E5 // Tk2TypedSmallListTag
  ;
  : Target WL 'ME_4A605C540221' '47913B47006E.pas.ms.script' // Tl3OneBytePtrHash
  ;
@@ -3156,25 +3156,25 @@ ref; // ME_4A606079021A HashType
  %SUMMARY 'Списог тегов с заранее определённым типом, имеющий ссылку на родителя и могущий иметь не более 32 (включительно) атрибутов' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_467FC43F01F9 // k2CoreObjects
+ : Parent HWL ME_467FC43F01F9 // k2CoreObjects
  ;
  : Inherits
-   Seq: ( ME_527D14900028 // Tk2TypedSimpleTagListPrim
+   Seq: ( HWL ME_527D14900028 // Tk2TypedSimpleTagListPrim
  )
  ; // Inherits
  : Implements
-   Seq: ( ME_47AC562D0134 // k2HashTag
- ME_4B89152D0120 // k2TagByIntegerSearcher
+   Seq: ( HWL ME_47AC562D0134 // k2HashTag
+ HWL ME_4B89152D0120 // k2TagByIntegerSearcher
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_4A606079021A // HashType
+   Seq: ( HWL ME_4A606079021A // HashType
  )
  ; // Attributes
  : Children
-   Seq: ( ME_527D07100298 // k2Tag_No_f_TagType
- ME_527D072F0329 // k2TagIsList
- ME_53023D74019B // k2TagNoSort
+   Seq: ( HWL ME_527D07100298 // k2Tag_No_f_TagType
+ HWL ME_527D072F0329 // k2TagIsList
+ HWL ME_53023D74019B // k2TagNoSort
  )
  ; // Children
  CONST "author" 'Люлин А.В.'
@@ -3196,10 +3196,10 @@ ref; // ME_4A5F1EC002E5 Tk2TypedSmallListTag
  %SUMMARY 'Список тегов со ссылкой на родителя' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_467FC43F01F9 // k2CoreObjects
+ : Parent HWL ME_467FC43F01F9 // k2CoreObjects
  ;
  : Inherits
-   Seq: ( ME_4A5F1EC002E5 // Tk2TypedSmallListTag
+   Seq: ( HWL ME_4A5F1EC002E5 // Tk2TypedSmallListTag
  )
  ; // Inherits
  : Implements
@@ -3223,7 +3223,7 @@ FORWARD ME_527D1B86018D
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_527D1B86018D // Tk2TypedSimpleSortableTagListPrim
+ : Parent HWL ME_527D1B86018D // Tk2TypedSimpleSortableTagListPrim
  ;
  CONST extprop:rc:SelfName 'Items_HasCustomSort'
 
@@ -3243,11 +3243,11 @@ ref; // ME_47B975AF02ED_ME_527D1B86018D ExpandSize
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_467FC43F01F9 // k2CoreObjects
+ : Parent HWL ME_467FC43F01F9 // k2CoreObjects
  ;
  : Inherits
-   Seq: ( ME_4A5F28820363 // k2SimpleTagListPrim
- ME_5320814702B4 // Tk2ListTag
+   Seq: ( HWL ME_4A5F28820363 // k2SimpleTagListPrim
+ HWL ME_5320814702B4 // Tk2ListTag
  )
  ; // Inherits
  : Overridden
@@ -3255,7 +3255,7 @@ ref; // ME_47B975AF02ED_ME_527D1B86018D ExpandSize
  )
  ; // Overridden
  : Children
-   Seq: ( ME_527D1E5C0047 // l3Items_HasCustomSort
+   Seq: ( HWL ME_527D1E5C0047 // l3Items_HasCustomSort
  )
  ; // Children
  CONST intf.pas:Path 'common\components\rtl\Garant\K2\k2TypedSimpleSortableTagListPrim.pas'
@@ -3275,7 +3275,7 @@ FORWARD ME_527D1B7103A8
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_527D1B7103A8 // Tk2TypedSmallSortableListTag
+ : Parent HWL ME_527D1B7103A8 // Tk2TypedSmallSortableListTag
  ;
  CONST extprop:rc:SelfName 'Tag_No_f_TagType'
 
@@ -3289,7 +3289,7 @@ ref; // ME_527D1BC10236 k2Tag_No_f_TagType
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_527D1B7103A8 // Tk2TypedSmallSortableListTag
+ : Parent HWL ME_527D1B7103A8 // Tk2TypedSmallSortableListTag
  ;
  CONST extprop:rc:SelfName 'TagIsList'
 
@@ -3303,7 +3303,7 @@ ref; // ME_527D1BD00367 k2TagIsList
  CONST Visibility PrivateAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_527D1B7103A8 // Tk2TypedSmallSortableListTag
+ : Parent HWL ME_527D1B7103A8 // Tk2TypedSmallSortableListTag
  ;
  : Target WL 'ME_4A605C540221' '47913B47006E.pas.ms.script' // Tl3OneBytePtrHash
  ;
@@ -3318,24 +3318,24 @@ ref; // ME_527D1BA5032F HashType
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_467FC43F01F9 // k2CoreObjects
+ : Parent HWL ME_467FC43F01F9 // k2CoreObjects
  ;
  : Inherits
-   Seq: ( ME_527D1B86018D // Tk2TypedSimpleSortableTagListPrim
+   Seq: ( HWL ME_527D1B86018D // Tk2TypedSimpleSortableTagListPrim
  )
  ; // Inherits
  : Implements
-   Seq: ( ME_47AC562D0134 // k2HashTag
- ME_4B89152D0120 // k2TagByIntegerSearcher
+   Seq: ( HWL ME_47AC562D0134 // k2HashTag
+ HWL ME_4B89152D0120 // k2TagByIntegerSearcher
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_527D1BA5032F // HashType
+   Seq: ( HWL ME_527D1BA5032F // HashType
  )
  ; // Attributes
  : Children
-   Seq: ( ME_527D1BC10236 // k2Tag_No_f_TagType
- ME_527D1BD00367 // k2TagIsList
+   Seq: ( HWL ME_527D1BC10236 // k2Tag_No_f_TagType
+ HWL ME_527D1BD00367 // k2TagIsList
  )
  ; // Children
  CONST intf.pas:Path 'common\components\rtl\Garant\K2\k2TypedSmallSortableListTag.pas'
@@ -3350,7 +3350,7 @@ FORWARD ME_5304CA0F01F5
 : ME_5304D43C0105
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_5304CA0F01F5 // Tk2DictionaryIDIndexPrim
+ : Parent HWL ME_5304CA0F01F5 // Tk2DictionaryIDIndexPrim
  ;
  : Target WL 'ME_47C69EBC00A8' '47AC75550330.pas.ms.script' // Tk2TagID
  ;
@@ -3379,7 +3379,7 @@ ref; // ME_47B99D4503A2_ME_5304CA0F01F5 CompareExistingItems
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_467FC43F01F9 // k2CoreObjects
+ : Parent HWL ME_467FC43F01F9 // k2CoreObjects
  ;
  : Inherits
    Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
@@ -3412,7 +3412,7 @@ FORWARD ME_5304CAB003D1
  CONST Visibility PrivateAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_5304CAB003D1 // Tk2DictionaryIDIndex
+ : Parent HWL ME_5304CAB003D1 // Tk2DictionaryIDIndex
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -3422,7 +3422,7 @@ ref; // ME_5304CB26017F FindDataType
 : ME_5304D40E038D
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_5304CAB003D1 // Tk2DictionaryIDIndex
+ : Parent HWL ME_5304CAB003D1 // Tk2DictionaryIDIndex
  ;
  : Target WL 'ME_47C69EBC00A8' '47AC75550330.pas.ms.script' // Tk2TagID
  ;
@@ -3443,10 +3443,10 @@ ref; // ME_47B9BAFD01F4_ME_5304CAB003D1 CompareItemWithData
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_467FC43F01F9 // k2CoreObjects
+ : Parent HWL ME_467FC43F01F9 // k2CoreObjects
  ;
  : Inherits
-   Seq: ( ME_5304CA0F01F5 // Tk2DictionaryIDIndexPrim
+   Seq: ( HWL ME_5304CA0F01F5 // Tk2DictionaryIDIndexPrim
  )
  ; // Inherits
  : Implements
@@ -3454,7 +3454,7 @@ ref; // ME_47B9BAFD01F4_ME_5304CAB003D1 CompareItemWithData
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_5304CB26017F // FindDataType
+   Seq: ( HWL ME_5304CB26017F // FindDataType
  )
  ; // Attributes
  : Overridden
@@ -3480,9 +3480,9 @@ ref; // ME_5304CAB003D1 Tk2DictionaryIDIndex
  CONST Visibility PrivateAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_4860AF86034F // Tk2Dictionary
+ : Parent HWL ME_4860AF86034F // Tk2Dictionary
  ;
- : Target ME_5304CAB003D1 // Tk2DictionaryIDIndex
+ : Target HWL ME_5304CAB003D1 // Tk2DictionaryIDIndex
  ;
 
 ref; // ME_5304CADD036F IDIndexType
@@ -3495,7 +3495,7 @@ ref; // ME_5304CADD036F IDIndexType
  CONST Visibility PrivateAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_4860AF86034F // Tk2Dictionary
+ : Parent HWL ME_4860AF86034F // Tk2Dictionary
  ;
  : Target WL 'ME_532031160122' '47913B47006E.pas.ms.script' // Tl3Variant
  ;
@@ -3505,7 +3505,7 @@ ref; // ME_534518D20117 StringType
 : ME_5304CE0F00CF
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4860AF86034F // Tk2Dictionary
+ : Parent HWL ME_4860AF86034F // Tk2Dictionary
  ;
  : Target WL 'ME_47878E0E0191' '54B90AC6014B.pas.ms.script' // l3String
  ;
@@ -3515,7 +3515,7 @@ ref; // ME_5304CE0F00CF
 : ME_5304D0E10372
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4860AF86034F // Tk2Dictionary
+ : Parent HWL ME_4860AF86034F // Tk2Dictionary
  ;
  : Target WL 'ME_47C69EBC00A8' '47AC75550330.pas.ms.script' // Tk2TagID
  ;
@@ -3525,7 +3525,7 @@ ref; // ME_5304D0E10372
 : ME_5304D0FE000A
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4860AF86034F // Tk2Dictionary
+ : Parent HWL ME_4860AF86034F // Tk2Dictionary
  ;
  : Target WL 'ME_469F6D170322' '49A6646B0044.pas.ms.script' // Tk2AssignMode
  ;
@@ -3547,16 +3547,16 @@ ref; // ME_5304D6C5002B_ME_4860AF86034F ItemToWStr
  %SUMMARY 'Словарь.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_467FC43F01F9 // k2CoreObjects
+ : Parent HWL ME_467FC43F01F9 // k2CoreObjects
  ;
  : Inherits
    Seq: ( WL 'ME_4B8BB87A0089' '47913B47006E.pas.ms.script' // l3DictionaryPrim
- ME_5304C94F0101 // Tk2DictionaryPrim
+ HWL ME_5304C94F0101 // Tk2DictionaryPrim
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_5304CADD036F // IDIndexType
- ME_534518D20117 // StringType
+   Seq: ( HWL ME_5304CADD036F // IDIndexType
+ HWL ME_534518D20117 // StringType
  )
  ; // Attributes
  : Implemented
@@ -3587,7 +3587,7 @@ ref; // ME_4860AF86034F Tk2Dictionary
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_53073D3D00BE // Tk2String
+ : Parent HWL ME_53073D3D00BE // Tk2String
  ;
  CONST extprop:rc:SelfName 'TagIsString'
 
@@ -3601,7 +3601,7 @@ ref; // ME_53073DC7033D k2TagIsString
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_53073D3D00BE // Tk2String
+ : Parent HWL ME_53073D3D00BE // Tk2String
  ;
  CONST extprop:rc:SelfName 'Tag_No_f_TagType'
 
@@ -3624,7 +3624,7 @@ ref; // ME_5315D87F00D6 aType
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_5315D861004C // Create$FromType
+ : Parent HWL ME_5315D861004C // Create$FromType
  ;
  : Parameters
    Seq: ( ME_5315D87F00D6 // aType
@@ -3641,10 +3641,10 @@ ref; // ME_5315D8730239 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_53073D3D00BE // Tk2String
+ : Parent HWL ME_53073D3D00BE // Tk2String
  ;
  : Operations
-   Seq: ( ME_5315D8730239 // DoIt
+   Seq: ( HWL ME_5315D8730239 // DoIt
  )
  ; // Operations
 
@@ -3658,7 +3658,7 @@ FORWARD ME_5315D8840067
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_5315D8840067 // Create
+ : Parent HWL ME_5315D8840067 // Create
  ;
 
 ref; // ME_5315D88A024F DoIt
@@ -3671,10 +3671,10 @@ ref; // ME_5315D88A024F DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_53073D3D00BE // Tk2String
+ : Parent HWL ME_53073D3D00BE // Tk2String
  ;
  : Operations
-   Seq: ( ME_5315D88A024F // DoIt
+   Seq: ( HWL ME_5315D88A024F // DoIt
  )
  ; // Operations
 
@@ -3697,7 +3697,7 @@ ref; // ME_5356A9AB03C4 aType
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_5356A98502EE // Make
+ : Parent HWL ME_5356A98502EE // Make
  ;
  : Target WL 'ME_5346BD53015A' '47913B47006E.pas.ms.script' // Il3TagRef
  ;
@@ -3711,7 +3711,7 @@ ref; // ME_5356A99D0157 DoIt
 : ME_5356A991011C
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_5356A98502EE // Make
+ : Parent HWL ME_5356A98502EE // Make
  ;
  : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
  ;
@@ -3726,10 +3726,10 @@ ref; // ME_5356A991011C
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_53073D3D00BE // Tk2String
+ : Parent HWL ME_53073D3D00BE // Tk2String
  ;
  : Operations
-   Seq: ( ME_5356A99D0157 // DoIt
+   Seq: ( HWL ME_5356A99D0157 // DoIt
  )
  ; // Operations
  : Dependencies
@@ -3744,7 +3744,7 @@ ref; // ME_5356A98502EE Make
 : ME_53073D7400C1
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_53073D3D00BE // Tk2String
+ : Parent HWL ME_53073D3D00BE // Tk2String
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
@@ -3752,7 +3752,7 @@ ref; // ME_5356A98502EE Make
 ref; // ME_53073D7400C1 
 
 : ME_49A545580241_ME_53073D3D00BE
- : Original ME_49A545580241 // SetAtomPrim
+ : Original HWL ME_49A545580241 // SetAtomPrim
  ;
  CONST OpKind opkind_Implemented
  CONST "ifndef" 'k2TagIsAtomic'
@@ -3784,17 +3784,17 @@ ref; // ME_533121AF0203_ME_53073D3D00BE GetTagType
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_467FC43F01F9 // k2CoreObjects
+ : Parent HWL ME_467FC43F01F9 // k2CoreObjects
  ;
  : Inherits
    Seq: ( WL 'ME_4773DED9004C' '47913B47006E.pas.ms.script' // Tl3_String
- ME_47AC5591007B // k2Tag
+ HWL ME_47AC5591007B // k2Tag
  )
  ; // Inherits
  : Operations
-   Seq: ( ME_5315D861004C // Create$FromType
- ME_5315D8840067 // Create
- ME_5356A98502EE // Make
+   Seq: ( HWL ME_5315D861004C // Create$FromType
+ HWL ME_5315D8840067 // Create
+ HWL ME_5356A98502EE // Make
  )
  ; // Operations
  : Implemented
@@ -3808,8 +3808,8 @@ ref; // ME_533121AF0203_ME_53073D3D00BE GetTagType
  )
  ; // Overridden
  : Children
-   Seq: ( ME_53073DC7033D // k2TagIsString
- ME_53578CE80248 // k2Tag_No_f_TagType
+   Seq: ( HWL ME_53073DC7033D // k2TagIsString
+ HWL ME_53578CE80248 // k2Tag_No_f_TagType
  )
  ; // Children
  : Dependencies
@@ -3830,7 +3830,7 @@ ref; // ME_53073D3D00BE Tk2String
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_ref
- : Parent ME_530F1BCA00B2 // Tk2VariantImpl
+ : Parent HWL ME_530F1BCA00B2 // Tk2VariantImpl
  ;
  : Target WL 'ME_532031160122' '47913B47006E.pas.ms.script' // Tl3Variant
  ;
@@ -3844,7 +3844,7 @@ ref; // ME_530F1C0C035A f_Tag
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_530F1BCA00B2 // Tk2VariantImpl
+ : Parent HWL ME_530F1BCA00B2 // Tk2VariantImpl
  ;
  : Target WL 'ME_47E150FF028A' '4AB0997B00A2.pas.ms.script' // TStream
  ;
@@ -3858,7 +3858,7 @@ ref; // ME_530F1C5A0101 f_Stream
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_ref
- : Parent ME_530F1BCA00B2 // Tk2VariantImpl
+ : Parent HWL ME_530F1BCA00B2 // Tk2VariantImpl
  ;
  : Target WL 'ME_46A5B0060013' '4677FBA70343.pas.ms.script' // IStream
  ;
@@ -3882,7 +3882,7 @@ ref; // ME_530F2A480028 aTag
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_530F2A36024A // Create
+ : Parent HWL ME_530F2A36024A // Create
  ;
  : Parameters
    Seq: ( ME_530F2A480028 // aTag
@@ -3899,10 +3899,10 @@ ref; // ME_530F2A4000C7 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_530F1BCA00B2 // Tk2VariantImpl
+ : Parent HWL ME_530F1BCA00B2 // Tk2VariantImpl
  ;
  : Operations
-   Seq: ( ME_530F2A4000C7 // DoIt
+   Seq: ( HWL ME_530F2A4000C7 // DoIt
  )
  ; // Operations
 
@@ -3916,10 +3916,10 @@ ref; // ME_530F2A36024A Create
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_530F1BCA00B2 // Tk2VariantImpl
+ : Parent HWL ME_530F1BCA00B2 // Tk2VariantImpl
  ;
  : Inherits
-   Seq: ( ME_530F2A36024A // Create
+   Seq: ( HWL ME_530F2A36024A // Create
  )
  ; // Inherits
  : Implements
@@ -3946,7 +3946,7 @@ ref; // ME_530F43B60021 aValue
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_530F438C01D2 // Make$FromInt
+ : Parent HWL ME_530F438C01D2 // Make$FromInt
  ;
  : Target WL 'ME_530F1ADF03E1' '47913B47006E.pas.ms.script' // Ik2Variant
  ;
@@ -3960,7 +3960,7 @@ ref; // ME_530F439F02E6 DoIt
 : ME_530F442002F2
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_530F438C01D2 // Make$FromInt
+ : Parent HWL ME_530F438C01D2 // Make$FromInt
  ;
  : Target WL 'ME_48492A0C00ED' '52669BFC024E.pas.ms.script' // Long
  ;
@@ -3975,10 +3975,10 @@ ref; // ME_530F442002F2
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_530F1BCA00B2 // Tk2VariantImpl
+ : Parent HWL ME_530F1BCA00B2 // Tk2VariantImpl
  ;
  : Operations
-   Seq: ( ME_530F439F02E6 // DoIt
+   Seq: ( HWL ME_530F439F02E6 // DoIt
  )
  ; // Operations
  : Dependencies
@@ -3992,7 +3992,7 @@ ref; // ME_530F438C01D2 Make$FromInt
 : ME_530F1C360152
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_530F1BCA00B2 // Tk2VariantImpl
+ : Parent HWL ME_530F1BCA00B2 // Tk2VariantImpl
  ;
  : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
  ;
@@ -4002,7 +4002,7 @@ ref; // ME_530F1C360152
 : ME_530F1C4F0071
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_530F1BCA00B2 // Tk2VariantImpl
+ : Parent HWL ME_530F1BCA00B2 // Tk2VariantImpl
  ;
  : Target WL 'ME_47A080670100' '47913B47006E.pas.ms.script' // l3Stream
  ;
@@ -4012,7 +4012,7 @@ ref; // ME_530F1C4F0071
 : ME_530F1CA80161
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_530F1BCA00B2 // Tk2VariantImpl
+ : Parent HWL ME_530F1BCA00B2 // Tk2VariantImpl
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
@@ -4022,7 +4022,7 @@ ref; // ME_530F1CA80161
 : ME_530F346403DF
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_530F1BCA00B2 // Tk2VariantImpl
+ : Parent HWL ME_530F1BCA00B2 // Tk2VariantImpl
  ;
  : Target WL 'ME_4CB46C85024E' '49A58A1A03C4.pas.ms.script' // k2NullTag
  ;
@@ -4032,7 +4032,7 @@ ref; // ME_530F346403DF
 : ME_532AE67C030A
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_530F1BCA00B2 // Tk2VariantImpl
+ : Parent HWL ME_530F1BCA00B2 // Tk2VariantImpl
  ;
  : Target WL 'ME_49A6ABFB02BA' '49A58A1A03C4.pas.ms.script' // Tk2NullTagImpl
  ;
@@ -4095,7 +4095,7 @@ ref; // ME_47A6FEE600FC_ME_530F1BCA00B2 IsCacheable
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_467FC43F01F9 // k2CoreObjects
+ : Parent HWL ME_467FC43F01F9 // k2CoreObjects
  ;
  : Inherits
    Seq: ( WL 'ME_5319E8FF0107' '47913B47006E.pas.ms.script' // Tl3DataContainerWithoutIUnknownPrim
@@ -4106,15 +4106,15 @@ ref; // ME_47A6FEE600FC_ME_530F1BCA00B2 IsCacheable
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_530F1C0C035A // f_Tag
- ME_530F1C5A0101 // f_Stream
- ME_530F2CB6010C // f_IStream
+   Seq: ( HWL ME_530F1C0C035A // f_Tag
+ HWL ME_530F1C5A0101 // f_Stream
+ HWL ME_530F2CB6010C // f_IStream
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_530F2A36024A // Create
- ME_530F2A4C0182 // Make
- ME_530F438C01D2 // Make$FromInt
+   Seq: ( HWL ME_530F2A36024A // Create
+ HWL ME_530F2A4C0182 // Make
+ HWL ME_530F438C01D2 // Make$FromInt
  )
  ; // Operations
  : Implemented
@@ -4155,7 +4155,7 @@ FORWARD ME_53188A6D02A7
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_53188A6D02A7 // Tk2FontName
+ : Parent HWL ME_53188A6D02A7 // Tk2FontName
  ;
  CONST extprop:rc:SelfName 'TagIsString'
 
@@ -4169,7 +4169,7 @@ ref; // ME_53188A9501AF k2TagIsString
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_53188A6D02A7 // Tk2FontName
+ : Parent HWL ME_53188A6D02A7 // Tk2FontName
  ;
  CONST extprop:rc:SelfName 'Tag_No_f_TagType'
 
@@ -4183,7 +4183,7 @@ ref; // ME_53578D71034F k2Tag_No_f_TagType
  CONST Visibility PublicAccess
  CONST Abstraction at_final
  CONST LinkType lt_agr
- : Parent ME_53188A6D02A7 // Tk2FontName
+ : Parent HWL ME_53188A6D02A7 // Tk2FontName
  ;
  : Target WL 'ME_484CE8FF0292' '473C3BEE0334.pas.ms.script' // Tl3LogFont
  ;
@@ -4209,7 +4209,7 @@ ref; // ME_5318961B02AF aLogFont
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_53189606008A // Create
+ : Parent HWL ME_53189606008A // Create
  ;
  : Parameters
    Seq: ( ME_5318961B02AF // aLogFont
@@ -4226,10 +4226,10 @@ ref; // ME_5318960E033F DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_53188A6D02A7 // Tk2FontName
+ : Parent HWL ME_53188A6D02A7 // Tk2FontName
  ;
  : Operations
-   Seq: ( ME_5318960E033F // DoIt
+   Seq: ( HWL ME_5318960E033F // DoIt
  )
  ; // Operations
 
@@ -4238,7 +4238,7 @@ ref; // ME_53189606008A Create
 : ME_53188B02012A
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_53188A6D02A7 // Tk2FontName
+ : Parent HWL ME_53188A6D02A7 // Tk2FontName
  ;
  : Target WL 'ME_484CE9CE0107' '52669BFC024E.pas.ms.script' // FontName
  ;
@@ -4248,7 +4248,7 @@ ref; // ME_53188B02012A
 : ME_53188BC403E1
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_53188A6D02A7 // Tk2FontName
+ : Parent HWL ME_53188A6D02A7 // Tk2FontName
  ;
  : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
  ;
@@ -4256,7 +4256,7 @@ ref; // ME_53188B02012A
 ref; // ME_53188BC403E1 
 
 : ME_49A545580241_ME_53188A6D02A7
- : Original ME_49A545580241 // SetAtomPrim
+ : Original HWL ME_49A545580241 // SetAtomPrim
  ;
  CONST OpKind opkind_Implemented
  CONST "ifndef" 'k2TagIsAtomic'
@@ -4306,11 +4306,11 @@ ref; // ME_53568FCA01E8_ME_53188A6D02A7 GetAsRef
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_467FC43F01F9 // k2CoreObjects
+ : Parent HWL ME_467FC43F01F9 // k2CoreObjects
  ;
  : Inherits
    Seq: ( WL 'ME_47A8693601A1' '47913B47006E.pas.ms.script' // Tl3PrimString
- ME_47AC5591007B // k2Tag
+ HWL ME_47AC5591007B // k2Tag
  )
  ; // Inherits
  : Implements
@@ -4318,11 +4318,11 @@ ref; // ME_53568FCA01E8_ME_53188A6D02A7 GetAsRef
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_53188B5F0382 // LogFont
+   Seq: ( HWL ME_53188B5F0382 // LogFont
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_53189606008A // Create
+   Seq: ( HWL ME_53189606008A // Create
  )
  ; // Operations
  : Implemented
@@ -4339,8 +4339,8 @@ ref; // ME_53568FCA01E8_ME_53188A6D02A7 GetAsRef
  )
  ; // Overridden
  : Children
-   Seq: ( ME_53188A9501AF // k2TagIsString
- ME_53578D71034F // k2Tag_No_f_TagType
+   Seq: ( HWL ME_53188A9501AF // k2TagIsString
+ HWL ME_53578D71034F // k2Tag_No_f_TagType
  )
  ; // Children
  : Dependencies
@@ -4365,9 +4365,9 @@ FORWARD ME_531895BF02B6
  CONST Visibility PrivateAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_531895BF02B6 // Tk2FontNameListPrim
+ : Parent HWL ME_531895BF02B6 // Tk2FontNameListPrim
  ;
- : Target ME_53188A6D02A7 // Tk2FontName
+ : Target HWL ME_53188A6D02A7 // Tk2FontName
  ;
 
 ref; // ME_531895DD0318 ItemType
@@ -4375,7 +4375,7 @@ ref; // ME_531895DD0318 ItemType
 : ME_53189745010D
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_531895BF02B6 // Tk2FontNameListPrim
+ : Parent HWL ME_531895BF02B6 // Tk2FontNameListPrim
  ;
  : Target WL 'ME_47878E0E0191' '54B90AC6014B.pas.ms.script' // l3String
  ;
@@ -4404,7 +4404,7 @@ ref; // ME_47B99D4503A2_ME_531895BF02B6 CompareExistingItems
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_467FC43F01F9 // k2CoreObjects
+ : Parent HWL ME_467FC43F01F9 // k2CoreObjects
  ;
  : Inherits
    Seq: ( WL 'ME_47B99E920196' '47913B47006E.pas.ms.script' // l3UncomparabeObjectRefList
@@ -4412,7 +4412,7 @@ ref; // ME_47B99D4503A2_ME_531895BF02B6 CompareExistingItems
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_531895DD0318 // ItemType
+   Seq: ( HWL ME_531895DD0318 // ItemType
  )
  ; // Attributes
  : Implemented
@@ -4441,7 +4441,7 @@ FORWARD ME_53189661025E
  CONST Visibility PrivateAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_53189661025E // Tk2FontNameList
+ : Parent HWL ME_53189661025E // Tk2FontNameList
  ;
  : Target WL 'ME_484CE8FF0292' '473C3BEE0334.pas.ms.script' // Tl3LogFont
  ;
@@ -4451,7 +4451,7 @@ ref; // ME_5318971501A5 FindDataType
 : ME_5318973A02E4
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_53189661025E // Tk2FontNameList
+ : Parent HWL ME_53189661025E // Tk2FontNameList
  ;
  : Target WL 'ME_47878E0E0191' '54B90AC6014B.pas.ms.script' // l3String
  ;
@@ -4472,15 +4472,15 @@ ref; // ME_47B9BAFD01F4_ME_53189661025E CompareItemWithData
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_467FC43F01F9 // k2CoreObjects
+ : Parent HWL ME_467FC43F01F9 // k2CoreObjects
  ;
  : Inherits
    Seq: ( WL 'ME_47B47E230134' '47BB24D30205.pas.ms.script' // l3Searcher
- ME_531895BF02B6 // Tk2FontNameListPrim
+ HWL ME_531895BF02B6 // Tk2FontNameListPrim
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_5318971501A5 // FindDataType
+   Seq: ( HWL ME_5318971501A5 // FindDataType
  )
  ; // Attributes
  : Overridden
@@ -4517,9 +4517,9 @@ ref; // ME_53189C5D0257 aName
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_53189C3D034E // FontByName
+ : Parent HWL ME_53189C3D034E // FontByName
  ;
- : Target ME_53188A6D02A7 // Tk2FontName
+ : Target HWL ME_53188A6D02A7 // Tk2FontName
  ;
  : Parameters
    Seq: ( ME_53189C5D0257 // aName
@@ -4536,10 +4536,10 @@ ref; // ME_53189C4D01EE DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_5318974F0065 // Tk2FontManager
+ : Parent HWL ME_5318974F0065 // Tk2FontManager
  ;
  : Operations
-   Seq: ( ME_53189C4D01EE // DoIt
+   Seq: ( HWL ME_53189C4D01EE // DoIt
  )
  ; // Operations
 
@@ -4548,7 +4548,7 @@ ref; // ME_53189C3D034E FontByName
 : ME_53189FEB0186
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_5318974F0065 // Tk2FontManager
+ : Parent HWL ME_5318974F0065 // Tk2FontManager
  ;
  : Target WL 'ME_484CE8FF0292' '473C3BEE0334.pas.ms.script' // Tl3LogFont
  ;
@@ -4558,7 +4558,7 @@ ref; // ME_53189FEB0186
 : ME_5318A00201D6
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_5318974F0065 // Tk2FontManager
+ : Parent HWL ME_5318974F0065 // Tk2FontManager
  ;
  : Target WL 'ME_4B88F0F00211' '473C3BEE0334.pas.ms.script' // Tl3FontManagerEx
  ;
@@ -4568,7 +4568,7 @@ ref; // ME_5318A00201D6
 : ME_5318A196025B
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_5318974F0065 // Tk2FontManager
+ : Parent HWL ME_5318974F0065 // Tk2FontManager
  ;
  : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
  ;
@@ -4589,14 +4589,14 @@ ref; // ME_47A042E100E2_ME_5318974F0065 InitFields
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_467FC43F01F9 // k2CoreObjects
+ : Parent HWL ME_467FC43F01F9 // k2CoreObjects
  ;
  : Inherits
-   Seq: ( ME_53189661025E // Tk2FontNameList
+   Seq: ( HWL ME_53189661025E // Tk2FontNameList
  )
  ; // Inherits
  : Operations
-   Seq: ( ME_53189C3D034E // FontByName
+   Seq: ( HWL ME_53189C3D034E // FontByName
  )
  ; // Operations
  : Overridden
@@ -4627,7 +4627,7 @@ FORWARD ME_531F2B0B0102
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_531F2B0B0102 // Tk2IUnknownTag
+ : Parent HWL ME_531F2B0B0102 // Tk2IUnknownTag
  ;
  CONST extprop:rc:SelfName 'Tag_No_f_TagType'
 
@@ -4640,7 +4640,7 @@ ref; // ME_53578DA102CC k2Tag_No_f_TagType
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_lnk
- : Parent ME_531F2B0B0102 // Tk2IUnknownTag
+ : Parent HWL ME_531F2B0B0102 // Tk2IUnknownTag
  ;
  : Target WL 'ME_46A451250363' '4AB0C3C60310.pas.ms.script' // IUnknown
  ;
@@ -4664,7 +4664,7 @@ ref; // ME_531F2C3101CA anInterface
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_531F2C14010E // Create
+ : Parent HWL ME_531F2C14010E // Create
  ;
  : Parameters
    Seq: ( ME_531F2C3101CA // anInterface
@@ -4681,10 +4681,10 @@ ref; // ME_531F2C1F0390 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_531F2B0B0102 // Tk2IUnknownTag
+ : Parent HWL ME_531F2B0B0102 // Tk2IUnknownTag
  ;
  : Operations
-   Seq: ( ME_531F2C1F0390 // DoIt
+   Seq: ( HWL ME_531F2C1F0390 // DoIt
  )
  ; // Operations
 
@@ -4698,10 +4698,10 @@ ref; // ME_531F2C14010E Create
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_531F2B0B0102 // Tk2IUnknownTag
+ : Parent HWL ME_531F2B0B0102 // Tk2IUnknownTag
  ;
  : Inherits
-   Seq: ( ME_531F2C14010E // Create
+   Seq: ( HWL ME_531F2C14010E // Create
  )
  ; // Inherits
  : Implements
@@ -4714,7 +4714,7 @@ ref; // ME_531F32F7025D Make
 : ME_531F2C01033A
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_531F2B0B0102 // Tk2IUnknownTag
+ : Parent HWL ME_531F2B0B0102 // Tk2IUnknownTag
  ;
  : Target WL 'ME_484929A9018E' '52669BFC024E.pas.ms.script' // IUnknown
  ;
@@ -4722,7 +4722,7 @@ ref; // ME_531F32F7025D Make
 ref; // ME_531F2C01033A 
 
 : ME_49A545580241_ME_531F2B0B0102
- : Original ME_49A545580241 // SetAtomPrim
+ : Original HWL ME_49A545580241 // SetAtomPrim
  ;
  CONST OpKind opkind_Implemented
  CONST "ifndef" 'k2TagIsAtomic'
@@ -4760,20 +4760,20 @@ ref; // ME_533121AF0203_ME_531F2B0B0102 GetTagType
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_467FC43F01F9 // k2CoreObjects
+ : Parent HWL ME_467FC43F01F9 // k2CoreObjects
  ;
  : Inherits
-   Seq: ( ME_47AC5591007B // k2Tag
+   Seq: ( HWL ME_47AC5591007B // k2Tag
  WL 'ME_533E8F8D0334' '49A58A1A03C4.pas.ms.script' // Tk2NotStructuredTag
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_531F2C460271 // f_Interface
+   Seq: ( HWL ME_531F2C460271 // f_Interface
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_531F2C14010E // Create
- ME_531F32F7025D // Make
+   Seq: ( HWL ME_531F2C14010E // Create
+ HWL ME_531F32F7025D // Make
  )
  ; // Operations
  : Implemented
@@ -4788,7 +4788,7 @@ ref; // ME_533121AF0203_ME_531F2B0B0102 GetTagType
  )
  ; // Overridden
  : Children
-   Seq: ( ME_53578DA102CC // k2Tag_No_f_TagType
+   Seq: ( HWL ME_53578DA102CC // k2Tag_No_f_TagType
  )
  ; // Children
  : Dependencies
@@ -4812,7 +4812,7 @@ FORWARD ME_526918BD0308
  CONST Visibility PrivateAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_526918BD0308 // Tk2AtomicTagRefList
+ : Parent HWL ME_526918BD0308 // Tk2AtomicTagRefList
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -4833,15 +4833,15 @@ ref; // ME_47B9BAFD01F4_ME_526918BD0308 CompareItemWithData
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_467FC43F01F9 // k2CoreObjects
+ : Parent HWL ME_467FC43F01F9 // k2CoreObjects
  ;
  : Inherits
    Seq: ( WL 'ME_47B47E230134' '47BB24D30205.pas.ms.script' // l3Searcher
- ME_526918890147 // Tk2AtomicTagRefListPrim
+ HWL ME_526918890147 // Tk2AtomicTagRefListPrim
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_5269196A02A9 // FindDataType
+   Seq: ( HWL ME_5269196A02A9 // FindDataType
  )
  ; // Attributes
  : Overridden
@@ -4865,7 +4865,7 @@ FORWARD ME_467FC49800E8
  CONST Visibility PrivateAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_467FC49800E8 // Tk2HugeTagObject
+ : Parent HWL ME_467FC49800E8 // Tk2HugeTagObject
  ;
  : Target WL 'ME_47AC5BBC025C' '47913B47006E.pas.ms.script' // Tl3PtrHash
  ;
@@ -4881,15 +4881,15 @@ ref; // ME_4A6433BF0110 HashType
  %SUMMARY 'Одна из реализаций хранилища тегов. С неограниченным количеством свойств' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_467FC43F01F9 // k2CoreObjects
+ : Parent HWL ME_467FC43F01F9 // k2CoreObjects
  ;
  : Inherits
-   Seq: ( ME_47AC562D0134 // k2HashTag
- ME_532080BB027A // Tk2NonAtomicTag
+   Seq: ( HWL ME_47AC562D0134 // k2HashTag
+ HWL ME_532080BB027A // Tk2NonAtomicTag
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_4A6433BF0110 // HashType
+   Seq: ( HWL ME_4A6433BF0110 // HashType
  )
  ; // Attributes
  CONST "author" 'Люлин А.В.'
@@ -4911,7 +4911,7 @@ FORWARD ME_47AC597C0320
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_47AC597C0320 // Tk2Layer
+ : Parent HWL ME_47AC597C0320 // Tk2Layer
  ;
  : Target WL 'ME_532031160122' '47913B47006E.pas.ms.script' // Tl3Variant
  ;
@@ -4921,7 +4921,7 @@ ref; // ME_4A60357F0023 f_Handle
 : ME_49A554EF0324
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_47AC597C0320 // Tk2Layer
+ : Parent HWL ME_47AC597C0320 // Tk2Layer
  ;
  : Target WL 'ME_47C69EBC00A8' '47AC75550330.pas.ms.script' // Tk2TagID
  ;
@@ -4931,7 +4931,7 @@ ref; // ME_49A554EF0324
 : ME_4A4E0A2F016A
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_47AC597C0320 // Tk2Layer
+ : Parent HWL ME_47AC597C0320 // Tk2Layer
  ;
  : Target WL 'ME_47AC723D02DC' '49A58A1A03C4.pas.ms.script' // Tk2Type
  ;
@@ -4941,7 +4941,7 @@ ref; // ME_4A4E0A2F016A
 : ME_53233152024E
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_47AC597C0320 // Tk2Layer
+ : Parent HWL ME_47AC597C0320 // Tk2Layer
  ;
  : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
  ;
@@ -4967,20 +4967,20 @@ ref; // ME_479731C50290_ME_47AC597C0320 Cleanup
 ref; // ME_47B975AF02ED_ME_47AC597C0320 ExpandSize
 
 : ME_49A544E802B2_ME_47AC597C0320
- : Original ME_49A544E802B2 // GetHasSubAtom
+ : Original HWL ME_49A544E802B2 // GetHasSubAtom
  ;
  CONST OpKind opkind_Overridden
  CONST "ifndef" 'k2TagIsAtomic'
 ref; // ME_49A544E802B2_ME_47AC597C0320 GetHasSubAtom
 
 : ME_49A54517029C_ME_47AC597C0320
- : Original ME_49A54517029C // GetSubAtom
+ : Original HWL ME_49A54517029C // GetSubAtom
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_49A54517029C_ME_47AC597C0320 GetSubAtom
 
 : ME_49A545580241_ME_47AC597C0320
- : Original ME_49A545580241 // SetAtomPrim
+ : Original HWL ME_49A545580241 // SetAtomPrim
  ;
  CONST OpKind opkind_Overridden
  CONST "ifndef" 'k2TagIsAtomic'
@@ -5001,14 +5001,14 @@ ref; // ME_49A545D501F6_ME_47AC597C0320 DoIterateProperties
  %SUMMARY 'Список тегов, с идентификатором.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_467FC43F01F9 // k2CoreObjects
+ : Parent HWL ME_467FC43F01F9 // k2CoreObjects
  ;
  : Inherits
-   Seq: ( ME_47AC59170251 // Tk2List
+   Seq: ( HWL ME_47AC59170251 // Tk2List
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_4A60357F0023 // f_Handle
+   Seq: ( HWL ME_4A60357F0023 // f_Handle
  )
  ; // Attributes
  : Overridden
@@ -5047,7 +5047,7 @@ FORWARD ME_484D42AC01C3
  CONST Visibility PrivateAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_484D42AC01C3 // Tk2DictItem
+ : Parent HWL ME_484D42AC01C3 // Tk2DictItem
  ;
  : Target WL 'ME_4A605C540221' '47913B47006E.pas.ms.script' // Tl3OneBytePtrHash
  ;
@@ -5063,11 +5063,11 @@ ref; // ME_536107A9016E HashType
  %SUMMARY 'Словарная запись, со ссылкой на родительский тег' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_467FC43F01F9 // k2CoreObjects
+ : Parent HWL ME_467FC43F01F9 // k2CoreObjects
  ;
  : Inherits
-   Seq: ( ME_47AC562D0134 // k2HashTag
- ME_53208F54004F // Tk2DictRecTag
+   Seq: ( HWL ME_47AC562D0134 // k2HashTag
+ HWL ME_53208F54004F // Tk2DictRecTag
  )
  ; // Inherits
  : Implements
@@ -5075,7 +5075,7 @@ ref; // ME_536107A9016E HashType
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_536107A9016E // HashType
+   Seq: ( HWL ME_536107A9016E // HashType
  )
  ; // Attributes
  CONST "author" 'Люлин А.В.'
@@ -5098,7 +5098,7 @@ FORWARD ME_47AC5ED302A1
  CONST Visibility PrivateAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_47AC5ED302A1 // Tk2DictRec
+ : Parent HWL ME_47AC5ED302A1 // Tk2DictRec
  ;
  : Target WL 'ME_4A605C540221' '47913B47006E.pas.ms.script' // Tl3OneBytePtrHash
  ;
@@ -5108,7 +5108,7 @@ ref; // ME_4A606010000E HashType
 : ME_49A65B4A005E
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_47AC5ED302A1 // Tk2DictRec
+ : Parent HWL ME_47AC5ED302A1 // Tk2DictRec
  ;
  : Target WL 'ME_47C69EBC00A8' '47AC75550330.pas.ms.script' // Tk2TagID
  ;
@@ -5123,15 +5123,15 @@ ref; // ME_49A65B4A005E
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_467FC43F01F9 // k2CoreObjects
+ : Parent HWL ME_467FC43F01F9 // k2CoreObjects
  ;
  : Inherits
-   Seq: ( ME_47AC562D0134 // k2HashTag
- ME_53208F54004F // Tk2DictRecTag
+   Seq: ( HWL ME_47AC562D0134 // k2HashTag
+ HWL ME_53208F54004F // Tk2DictRecTag
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_4A606010000E // HashType
+   Seq: ( HWL ME_4A606010000E // HashType
  )
  ; // Attributes
  : Dependencies
@@ -5156,10 +5156,10 @@ ref; // ME_47AC5ED302A1 Tk2DictRec
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_467FC43F01F9 // k2CoreObjects
+ : Parent HWL ME_467FC43F01F9 // k2CoreObjects
  ;
  : Inherits
-   Seq: ( ME_47AC5591007B // k2Tag
+   Seq: ( HWL ME_47AC5591007B // k2Tag
  )
  ; // Inherits
 
@@ -5177,7 +5177,7 @@ FORWARD ME_49A6BDFE0177
  CONST Visibility PublicAccess
  CONST Abstraction at_final
  CONST LinkType lt_agr
- : Parent ME_49A6BDFE0177 // TLastRec
+ : Parent HWL ME_49A6BDFE0177 // TLastRec
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -5192,7 +5192,7 @@ ref; // ME_49A6BE2C0216 rID
  CONST Visibility PublicAccess
  CONST Abstraction at_final
  CONST LinkType lt_agr
- : Parent ME_49A6BDFE0177 // TLastRec
+ : Parent HWL ME_49A6BDFE0177 // TLastRec
  ;
  : Target WL 'ME_534572370056' '47913B47006E.pas.ms.script' // Tl3Tag
  ;
@@ -5208,11 +5208,11 @@ ref; // ME_49A6BE3E00EF rTag
  %SUMMARY 'Предыдущий элемент, к которому обращались' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_535664EC03B3 // Tk2DictionaryEx
+ : Parent HWL ME_535664EC03B3 // Tk2DictionaryEx
  ;
  : Attributes
-   Seq: ( ME_49A6BE2C0216 // rID
- ME_49A6BE3E00EF // rTag
+   Seq: ( HWL ME_49A6BE2C0216 // rID
+ HWL ME_49A6BE3E00EF // rTag
  )
  ; // Attributes
 
@@ -5225,9 +5225,9 @@ ref; // ME_49A6BDFE0177 TLastRec
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
  CONST LinkType lt_lnk
- : Parent ME_535664EC03B3 // Tk2DictionaryEx
+ : Parent HWL ME_535664EC03B3 // Tk2DictionaryEx
  ;
- : Target ME_49A6BDFE0177 // TLastRec
+ : Target HWL ME_49A6BDFE0177 // TLastRec
  ;
 
 ref; // ME_535665440242 f_LastRec
@@ -5240,7 +5240,7 @@ ref; // ME_535665440242 f_LastRec
  CONST Visibility ProtectedAccess
  CONST Abstraction at_final
  CONST LinkType lt_lnk
- : Parent ME_535664EC03B3 // Tk2DictionaryEx
+ : Parent HWL ME_535664EC03B3 // Tk2DictionaryEx
  ;
  : Target WL 'ME_47AC723D02DC' '49A58A1A03C4.pas.ms.script' // Tk2Type
  ;
@@ -5266,7 +5266,7 @@ ref; // ME_53565C690090 aType
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_53565C580228 // Create
+ : Parent HWL ME_53565C580228 // Create
  ;
  : Parameters
    Seq: ( ME_53565C690090 // aType
@@ -5283,10 +5283,10 @@ ref; // ME_53565C60012F DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_535664EC03B3 // Tk2DictionaryEx
+ : Parent HWL ME_535664EC03B3 // Tk2DictionaryEx
  ;
  : Operations
-   Seq: ( ME_53565C60012F // DoIt
+   Seq: ( HWL ME_53565C60012F // DoIt
  )
  ; // Operations
 
@@ -5295,7 +5295,7 @@ ref; // ME_53565C580228 Create
 : ME_5356658600E0
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_535664EC03B3 // Tk2DictionaryEx
+ : Parent HWL ME_535664EC03B3 // Tk2DictionaryEx
  ;
  : Target WL 'ME_47C69EBC00A8' '47AC75550330.pas.ms.script' // Tk2TagID
  ;
@@ -5324,19 +5324,19 @@ ref; // ME_4B8BBA220048_ME_535664EC03B3 DRByID
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_467FC43F01F9 // k2CoreObjects
+ : Parent HWL ME_467FC43F01F9 // k2CoreObjects
  ;
  : Inherits
-   Seq: ( ME_4860AF86034F // Tk2Dictionary
+   Seq: ( HWL ME_4860AF86034F // Tk2Dictionary
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_535665440242 // f_LastRec
- ME_5356656C03E2 // AtomType
+   Seq: ( HWL ME_535665440242 // f_LastRec
+ HWL ME_5356656C03E2 // AtomType
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_53565C580228 // Create
+   Seq: ( HWL ME_53565C580228 // Create
  )
  ; // Operations
  : Overridden
@@ -5345,7 +5345,7 @@ ref; // ME_4B8BBA220048_ME_535664EC03B3 DRByID
  )
  ; // Overridden
  : Children
-   Seq: ( ME_49A6BDFE0177 // TLastRec
+   Seq: ( HWL ME_49A6BDFE0177 // TLastRec
  )
  ; // Children
  : Dependencies
@@ -5369,7 +5369,7 @@ FORWARD ME_53AAF9330342
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_53AAF9330342 // Tk2TypedHugeLeafTag
+ : Parent HWL ME_53AAF9330342 // Tk2TypedHugeLeafTag
  ;
  CONST extprop:rc:SelfName 'Tag_No_f_TagType'
 
@@ -5383,7 +5383,7 @@ ref; // ME_53AAF96000F4 k2Tag_No_f_TagType
  CONST Visibility PrivateAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_53AAF9330342 // Tk2TypedHugeLeafTag
+ : Parent HWL ME_53AAF9330342 // Tk2TypedHugeLeafTag
  ;
  : Target WL 'ME_47AC5BBC025C' '47913B47006E.pas.ms.script' // Tl3PtrHash
  ;
@@ -5398,19 +5398,19 @@ ref; // ME_53AAF98D0290 HashType
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_467FC43F01F9 // k2CoreObjects
+ : Parent HWL ME_467FC43F01F9 // k2CoreObjects
  ;
  : Inherits
-   Seq: ( ME_47AC562D0134 // k2HashTag
- ME_532081A90261 // Tk2LeafTag
+   Seq: ( HWL ME_47AC562D0134 // k2HashTag
+ HWL ME_532081A90261 // Tk2LeafTag
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_53AAF98D0290 // HashType
+   Seq: ( HWL ME_53AAF98D0290 // HashType
  )
  ; // Attributes
  : Children
-   Seq: ( ME_53AAF96000F4 // k2Tag_No_f_TagType
+   Seq: ( HWL ME_53AAF96000F4 // k2Tag_No_f_TagType
  )
  ; // Children
  CONST intf.pas:Path 'common\components\rtl\Garant\K2\k2TypedHugeLeafTag.pas'
@@ -5431,54 +5431,54 @@ ref; // ME_53AAF9330342 Tk2TypedHugeLeafTag
  : Parent WL 'ME_4677E16A022A' '4677E16A022A.pas.ms.script' // K2
  ;
  : Children
-   Seq: ( ME_532080BB027A // Tk2NonAtomicTag
- ME_4B89152D0120 // k2TagByIntegerSearcher
- ME_5320814702B4 // Tk2ListTag
- ME_47AC67EA00B9 // Tk2TagListPrim
- ME_47B9D76B0301 // Tk2TagList
- ME_53280B9801E7 // k2TagPrim
- ME_47AC5591007B // k2Tag
- ME_47AC562D0134 // k2HashTag
- ME_532081A90261 // Tk2LeafTag
- ME_5304C94F0101 // Tk2DictionaryPrim
- ME_527A6D5A0248 // Tk2TypedSmallLeafTag
- ME_4A5F28820363 // k2SimpleTagListPrim
- ME_527D14900028 // Tk2TypedSimpleTagListPrim
- ME_53208F54004F // Tk2DictRecTag
- ME_47AC59170251 // Tk2List
- ME_4E15EFFA0214 // Tk2HugeDictRec
- ME_4E8347810088 // Tk2ParentedTypedHugeLeafTag
- ME_4A6062890343 // TevHugeParaListPrim
- ME_4A6062FE02AD // TevHugeParaListPrimWithFind
- ME_527BA4EE03B4 // Tk2TypedHugeListTag
- ME_53207C0102F8 // Tk2AtomicTag
- ME_526918890147 // Tk2AtomicTagRefListPrim
- ME_5273CF4602B7 // Tk2TypedAtomicTag
- ME_4A64874301F2 // Tk2ParentedTypedSmallLeafTag
- ME_527B9A3F0164 // Tk2OwnedTypedHugeListTag
- ME_4FBE24BC0158 // Tk2ParentedTypedHugeListTag
- ME_4A5F1EC002E5 // Tk2TypedSmallListTag
- ME_527D053500AA // Tk2ParentedTypedSmallListTag
- ME_527D1B86018D // Tk2TypedSimpleSortableTagListPrim
- ME_527D1B7103A8 // Tk2TypedSmallSortableListTag
- ME_5304CA0F01F5 // Tk2DictionaryIDIndexPrim
- ME_5304CAB003D1 // Tk2DictionaryIDIndex
- ME_4860AF86034F // Tk2Dictionary
- ME_53073D3D00BE // Tk2String
- ME_530F1BCA00B2 // Tk2VariantImpl
- ME_53188A6D02A7 // Tk2FontName
- ME_531895BF02B6 // Tk2FontNameListPrim
- ME_53189661025E // Tk2FontNameList
- ME_5318974F0065 // Tk2FontManager
- ME_531F2B0B0102 // Tk2IUnknownTag
- ME_526918BD0308 // Tk2AtomicTagRefList
- ME_467FC49800E8 // Tk2HugeTagObject
- ME_47AC597C0320 // Tk2Layer
- ME_484D42AC01C3 // Tk2DictItem
- ME_47AC5ED302A1 // Tk2DictRec
- ME_4CED570E029C // Mk2Tag
- ME_535664EC03B3 // Tk2DictionaryEx
- ME_53AAF9330342 // Tk2TypedHugeLeafTag
+   Seq: ( HWL ME_532080BB027A // Tk2NonAtomicTag
+ HWL ME_4B89152D0120 // k2TagByIntegerSearcher
+ HWL ME_5320814702B4 // Tk2ListTag
+ HWL ME_47AC67EA00B9 // Tk2TagListPrim
+ HWL ME_47B9D76B0301 // Tk2TagList
+ HWL ME_53280B9801E7 // k2TagPrim
+ HWL ME_47AC5591007B // k2Tag
+ HWL ME_47AC562D0134 // k2HashTag
+ HWL ME_532081A90261 // Tk2LeafTag
+ HWL ME_5304C94F0101 // Tk2DictionaryPrim
+ HWL ME_527A6D5A0248 // Tk2TypedSmallLeafTag
+ HWL ME_4A5F28820363 // k2SimpleTagListPrim
+ HWL ME_527D14900028 // Tk2TypedSimpleTagListPrim
+ HWL ME_53208F54004F // Tk2DictRecTag
+ HWL ME_47AC59170251 // Tk2List
+ HWL ME_4E15EFFA0214 // Tk2HugeDictRec
+ HWL ME_4E8347810088 // Tk2ParentedTypedHugeLeafTag
+ HWL ME_4A6062890343 // TevHugeParaListPrim
+ HWL ME_4A6062FE02AD // TevHugeParaListPrimWithFind
+ HWL ME_527BA4EE03B4 // Tk2TypedHugeListTag
+ HWL ME_53207C0102F8 // Tk2AtomicTag
+ HWL ME_526918890147 // Tk2AtomicTagRefListPrim
+ HWL ME_5273CF4602B7 // Tk2TypedAtomicTag
+ HWL ME_4A64874301F2 // Tk2ParentedTypedSmallLeafTag
+ HWL ME_527B9A3F0164 // Tk2OwnedTypedHugeListTag
+ HWL ME_4FBE24BC0158 // Tk2ParentedTypedHugeListTag
+ HWL ME_4A5F1EC002E5 // Tk2TypedSmallListTag
+ HWL ME_527D053500AA // Tk2ParentedTypedSmallListTag
+ HWL ME_527D1B86018D // Tk2TypedSimpleSortableTagListPrim
+ HWL ME_527D1B7103A8 // Tk2TypedSmallSortableListTag
+ HWL ME_5304CA0F01F5 // Tk2DictionaryIDIndexPrim
+ HWL ME_5304CAB003D1 // Tk2DictionaryIDIndex
+ HWL ME_4860AF86034F // Tk2Dictionary
+ HWL ME_53073D3D00BE // Tk2String
+ HWL ME_530F1BCA00B2 // Tk2VariantImpl
+ HWL ME_53188A6D02A7 // Tk2FontName
+ HWL ME_531895BF02B6 // Tk2FontNameListPrim
+ HWL ME_53189661025E // Tk2FontNameList
+ HWL ME_5318974F0065 // Tk2FontManager
+ HWL ME_531F2B0B0102 // Tk2IUnknownTag
+ HWL ME_526918BD0308 // Tk2AtomicTagRefList
+ HWL ME_467FC49800E8 // Tk2HugeTagObject
+ HWL ME_47AC597C0320 // Tk2Layer
+ HWL ME_484D42AC01C3 // Tk2DictItem
+ HWL ME_47AC5ED302A1 // Tk2DictRec
+ HWL ME_4CED570E029C // Mk2Tag
+ HWL ME_535664EC03B3 // Tk2DictionaryEx
+ HWL ME_53AAF9330342 // Tk2TypedHugeLeafTag
  )
  ; // Children
  : Depends

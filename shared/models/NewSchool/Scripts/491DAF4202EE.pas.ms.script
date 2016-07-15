@@ -22,7 +22,7 @@ ref; // ME_49590D48032C aNode
  %SUMMARY 'обработать событие' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_49590CE80397 // CurrentChangedListener
+ : Parent HWL ME_49590CE80397 // CurrentChangedListener
  ;
  : Parameters
    Seq: ( ME_49590D48032C // aNode
@@ -40,10 +40,10 @@ ref; // ME_49590D4802EE Process
  %SUMMARY 'Слушатель изменения текущей ноды' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_491DAF4202EE // SearchInterfaces
+ : Parent HWL ME_491DAF4202EE // SearchInterfaces
  ;
  : Operations
-   Seq: ( ME_49590D4802EE // Process
+   Seq: ( HWL ME_49590D4802EE // Process
  )
  ; // Operations
 
@@ -52,7 +52,7 @@ ref; // ME_49590CE80397 CurrentChangedListener
 FORWARD ME_492425D101B0
 
 : ME_49590D4802EE_ME_492425D101B0
- : Original ME_49590D4802EE // Process
+ : Original HWL ME_49590D4802EE // Process
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_49590D4802EE_ME_492425D101B0 Process
@@ -67,14 +67,14 @@ ref; // ME_49590D4802EE_ME_492425D101B0 Process
  %SUMMARY 'Слушатель события смены текущего в дереве' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_491DAF4202EE // SearchInterfaces
+ : Parent HWL ME_491DAF4202EE // SearchInterfaces
  ;
  : Inherits
    Seq: ( WL 'ME_4680CF330338' '4677FBA70343.pas.ms.script' // Il3Notify
  )
  ; // Inherits
  : Implements
-   Seq: ( ME_49590CE80397 // CurrentChangedListener
+   Seq: ( HWL ME_49590CE80397 // CurrentChangedListener
  )
  ; // Implements
  : Implemented
@@ -96,7 +96,7 @@ FORWARD ME_4922CE700041
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4922CE700041 // IdeSearch
+ : Parent HWL ME_4922CE700041 // IdeSearch
  ;
  : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
  ;
@@ -112,7 +112,7 @@ ref; // ME_4AE58AA10134 Tag
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4922CE700041 // IdeSearch
+ : Parent HWL ME_4922CE700041 // IdeSearch
  ;
  : Target WL 'ME_45EEE145027B' '45EEAA8E034E.pas.ms.script' // Query
  ;
@@ -129,11 +129,11 @@ ref; // ME_4AE58ABC034A Query
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_491DAF4202EE // SearchInterfaces
+ : Parent HWL ME_491DAF4202EE // SearchInterfaces
  ;
  : Attributes
-   Seq: ( ME_4AE58AA10134 // Tag
- ME_4AE58ABC034A // Query
+   Seq: ( HWL ME_4AE58AA10134 // Tag
+ HWL ME_4AE58ABC034A // Query
  )
  ; // Attributes
  CONST extprop:rc:SelfName 'deSearch'
@@ -150,7 +150,7 @@ FORWARD ME_4959143A00EB
  %SUMMARY 'обновить данные в форме выбранных атрибутов' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4959143A00EB // SelectedAttributes
+ : Parent HWL ME_4959143A00EB // SelectedAttributes
  ;
 
 ref; // ME_4959149300F9 UpdateSelectedAttributes
@@ -164,10 +164,10 @@ ref; // ME_4959149300F9 UpdateSelectedAttributes
  %SUMMARY 'Выделенные атрибуты' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_491DAF4202EE // SearchInterfaces
+ : Parent HWL ME_491DAF4202EE // SearchInterfaces
  ;
  : Operations
-   Seq: ( ME_4959149300F9 // UpdateSelectedAttributes
+   Seq: ( HWL ME_4959149300F9 // UpdateSelectedAttributes
  )
  ; // Operations
 
@@ -184,9 +184,9 @@ FORWARD ME_4923FD8100B7
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4923FD8100B7 // IdsTagSimpleTree
+ : Parent HWL ME_4923FD8100B7 // IdsTagSimpleTree
  ;
- : Target ME_4922CE700041 // IdeSearch
+ : Target HWL ME_4922CE700041 // IdeSearch
  ;
  CONST "pm" true
 
@@ -201,7 +201,7 @@ ref; // ME_4923FDA60287 Search
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4923FD8100B7 // IdsTagSimpleTree
+ : Parent HWL ME_4923FD8100B7 // IdsTagSimpleTree
  ;
  : Target WL 'ME_49006BE702D7' '4990510C0026.pas.ms.script' // TLogicOperationSet
  ;
@@ -218,7 +218,7 @@ ref; // ME_4923FDDB026F Operations
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4923FD8100B7 // IdsTagSimpleTree
+ : Parent HWL ME_4923FD8100B7 // IdsTagSimpleTree
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -256,16 +256,16 @@ ref; // ME_491DD5C90095_ME_4923FD8100B7 CurrentChanged
  %SUMMARY 'Интерфейс бизнес объекта для словарных атрибутов' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_491DAF4202EE // SearchInterfaces
+ : Parent HWL ME_491DAF4202EE // SearchInterfaces
  ;
  : Inherits
    Seq: ( WL 'ME_47E9F96B035A' '491DD2830110.pas.ms.script' // IdsSimpleTree
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_4923FDA60287 // Search
- ME_4923FDDB026F // Operations
- ME_4923FDFA00F7 // IsOneOperation
+   Seq: ( HWL ME_4923FDA60287 // Search
+ HWL ME_4923FDDB026F // Operations
+ HWL ME_4923FDFA00F7 // IsOneOperation
  )
  ; // Attributes
  : Implemented
@@ -296,7 +296,7 @@ ref; // ME_4991AB02006C aProgressIndicator
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4991AAF4000A // InsProgressIndicator
+ : Parent HWL ME_4991AAF4000A // InsProgressIndicator
  ;
  : Parameters
    Seq: ( ME_4991AB02006C // aProgressIndicator
@@ -311,7 +311,7 @@ ref; // ME_4991AAFE0367 StartProcess
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4991AAF4000A // InsProgressIndicator
+ : Parent HWL ME_4991AAF4000A // InsProgressIndicator
  ;
 
 ref; // ME_4991AB07003B StopProcess
@@ -340,7 +340,7 @@ ref; // ME_4A39E1340379 aSearchEntity
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4991AAF4000A // InsProgressIndicator
+ : Parent HWL ME_4991AAF4000A // InsProgressIndicator
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -361,12 +361,12 @@ ref; // ME_4A39E1140024 Execute
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_491DAF4202EE // SearchInterfaces
+ : Parent HWL ME_491DAF4202EE // SearchInterfaces
  ;
  : Operations
-   Seq: ( ME_4991AAFE0367 // StartProcess
- ME_4991AB07003B // StopProcess
- ME_4A39E1140024 // Execute
+   Seq: ( HWL ME_4991AAFE0367 // StartProcess
+ HWL ME_4991AB07003B // StopProcess
+ HWL ME_4A39E1140024 // Execute
  )
  ; // Operations
  CONST extprop:rc:SelfName 'ProgressIndicator'
@@ -384,7 +384,7 @@ FORWARD ME_4AE589BA0016
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4AE589BA0016 // InsSelectedAttributesIterators
+ : Parent HWL ME_4AE589BA0016 // InsSelectedAttributesIterators
  ;
  : Target WL 'ME_45EEC8A6033C' '457450470167.pas.ms.script' // NodeIterator
  ;
@@ -400,7 +400,7 @@ ref; // ME_4AE589E702F9 OrIterator
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4AE589BA0016 // InsSelectedAttributesIterators
+ : Parent HWL ME_4AE589BA0016 // InsSelectedAttributesIterators
  ;
  : Target WL 'ME_45EEC8A6033C' '457450470167.pas.ms.script' // NodeIterator
  ;
@@ -416,7 +416,7 @@ ref; // ME_4AE58A0603A2 AndIterator
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4AE589BA0016 // InsSelectedAttributesIterators
+ : Parent HWL ME_4AE589BA0016 // InsSelectedAttributesIterators
  ;
  : Target WL 'ME_45EEC8A6033C' '457450470167.pas.ms.script' // NodeIterator
  ;
@@ -433,12 +433,12 @@ ref; // ME_4AE58A1203BE NotIterator
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_491DAF4202EE // SearchInterfaces
+ : Parent HWL ME_491DAF4202EE // SearchInterfaces
  ;
  : Attributes
-   Seq: ( ME_4AE589E702F9 // OrIterator
- ME_4AE58A0603A2 // AndIterator
- ME_4AE58A1203BE // NotIterator
+   Seq: ( HWL ME_4AE589E702F9 // OrIterator
+ HWL ME_4AE58A0603A2 // AndIterator
+ HWL ME_4AE58A1203BE // NotIterator
  )
  ; // Attributes
  CONST extprop:rc:SelfName 'SelectedAttributesIterators'
@@ -449,7 +449,7 @@ ref; // ME_4AE589BA0016 InsSelectedAttributesIterators
 FORWARD ME_4959145702D3
 
 : ME_4959149300F9_ME_4959145702D3
- : Original ME_4959149300F9 // UpdateSelectedAttributes
+ : Original HWL ME_4959149300F9 // UpdateSelectedAttributes
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4959149300F9_ME_4959145702D3 UpdateSelectedAttributes
@@ -464,10 +464,10 @@ ref; // ME_4959149300F9_ME_4959145702D3 UpdateSelectedAttributes
  %SUMMARY 'Выделенные атрибуты' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_491DAF4202EE // SearchInterfaces
+ : Parent HWL ME_491DAF4202EE // SearchInterfaces
  ;
  : Implements
-   Seq: ( ME_4959143A00EB // SelectedAttributes
+   Seq: ( HWL ME_4959143A00EB // SelectedAttributes
  )
  ; // Implements
  : Implemented
@@ -502,28 +502,28 @@ ref; // ME_491DD5A10199_ME_49590A5E0315 SimpleTree
 ref; // ME_491DD5C90095_ME_49590A5E0315 CurrentChanged
 
 : ME_4923FDA60287_ME_49590A5E0315
- : Original ME_4923FDA60287 // Search
+ : Original HWL ME_4923FDA60287 // Search
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_4923FDA60287_ME_49590A5E0315 Search
 
 : ME_4923FDDB026F_ME_49590A5E0315
- : Original ME_4923FDDB026F // Operations
+ : Original HWL ME_4923FDDB026F // Operations
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_4923FDDB026F_ME_49590A5E0315 Operations
 
 : ME_4923FDFA00F7_ME_49590A5E0315
- : Original ME_4923FDFA00F7 // IsOneOperation
+ : Original HWL ME_4923FDFA00F7 // IsOneOperation
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_4923FDFA00F7_ME_49590A5E0315 IsOneOperation
 
 : ME_49590D4802EE_ME_49590A5E0315
- : Original ME_49590D4802EE // Process
+ : Original HWL ME_49590D4802EE // Process
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_49590D4802EE_ME_49590A5E0315 Process
@@ -538,14 +538,14 @@ ref; // ME_49590D4802EE_ME_49590A5E0315 Process
  %SUMMARY '"Ситуация"' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_491DAF4202EE // SearchInterfaces
+ : Parent HWL ME_491DAF4202EE // SearchInterfaces
  ;
  : Inherits
-   Seq: ( ME_4923FD8100B7 // IdsTagSimpleTree
+   Seq: ( HWL ME_4923FD8100B7 // IdsTagSimpleTree
  )
  ; // Inherits
  : Implements
-   Seq: ( ME_492425D101B0 // IbsCurrentChangedListener
+   Seq: ( HWL ME_492425D101B0 // IbsCurrentChangedListener
  )
  ; // Implements
  : Implemented
@@ -574,9 +574,9 @@ FORWARD ME_4922CF920141
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4922CF920141 // IdsAttributeSelect
+ : Parent HWL ME_4922CF920141 // IdsAttributeSelect
  ;
- : Target ME_4922CE700041 // IdeSearch
+ : Target HWL ME_4922CE700041 // IdeSearch
  ;
  CONST "pm" true
 
@@ -592,10 +592,10 @@ ref; // ME_4922D0440266 Search
  %SUMMARY 'бизнес объект формы cfAttributeSelect' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_491DAF4202EE // SearchInterfaces
+ : Parent HWL ME_491DAF4202EE // SearchInterfaces
  ;
  : Attributes
-   Seq: ( ME_4922D0440266 // Search
+   Seq: ( HWL ME_4922D0440266 // Search
  )
  ; // Attributes
  CONST extprop:rc:SelfName 'dsAttributeSelect'
@@ -614,9 +614,9 @@ FORWARD ME_4924352E01C3
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4924352E01C3 // IdsTreeAttributeSelect
+ : Parent HWL ME_4924352E01C3 // IdsTreeAttributeSelect
  ;
- : Target ME_4AE589BA0016 // InsSelectedAttributesIterators
+ : Target HWL ME_4AE589BA0016 // InsSelectedAttributesIterators
  ;
  CONST "pm" true
 
@@ -643,34 +643,34 @@ ref; // ME_491DD5A10199_ME_4924352E01C3 SimpleTree
 ref; // ME_491DD5C90095_ME_4924352E01C3 CurrentChanged
 
 : ME_4923FDA60287_ME_4924352E01C3
- : Original ME_4923FDA60287 // Search
+ : Original HWL ME_4923FDA60287 // Search
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_4923FDA60287_ME_4924352E01C3 Search
 
 : ME_4923FDDB026F_ME_4924352E01C3
- : Original ME_4923FDDB026F // Operations
+ : Original HWL ME_4923FDDB026F // Operations
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_4923FDDB026F_ME_4924352E01C3 Operations
 
 : ME_4923FDFA00F7_ME_4924352E01C3
- : Original ME_4923FDFA00F7 // IsOneOperation
+ : Original HWL ME_4923FDFA00F7 // IsOneOperation
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_4923FDFA00F7_ME_4924352E01C3 IsOneOperation
 
 : ME_49590D4802EE_ME_4924352E01C3
- : Original ME_49590D4802EE // Process
+ : Original HWL ME_49590D4802EE // Process
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_49590D4802EE_ME_4924352E01C3 Process
 
 : ME_4959149300F9_ME_4924352E01C3
- : Original ME_4959149300F9 // UpdateSelectedAttributes
+ : Original HWL ME_4959149300F9 // UpdateSelectedAttributes
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4959149300F9_ME_4924352E01C3 UpdateSelectedAttributes
@@ -685,18 +685,18 @@ ref; // ME_4959149300F9_ME_4924352E01C3 UpdateSelectedAttributes
  %SUMMARY 'Бизнес объекта формы "enTreeAttributeSelectForm"' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_491DAF4202EE // SearchInterfaces
+ : Parent HWL ME_491DAF4202EE // SearchInterfaces
  ;
  : Inherits
-   Seq: ( ME_49590A5E0315 // IdsSituation
+   Seq: ( HWL ME_49590A5E0315 // IdsSituation
  )
  ; // Inherits
  : Implements
-   Seq: ( ME_4959143A00EB // SelectedAttributes
+   Seq: ( HWL ME_4959143A00EB // SelectedAttributes
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_4924354D01CC // RefreshValues
+   Seq: ( HWL ME_4924354D01CC // RefreshValues
  )
  ; // Attributes
  : Implemented
@@ -726,9 +726,9 @@ FORWARD ME_49241CDE025D
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_49241CDE025D // IdsSelectedAttributes
+ : Parent HWL ME_49241CDE025D // IdsSelectedAttributes
  ;
- : Target ME_4AE589BA0016 // InsSelectedAttributesIterators
+ : Target HWL ME_4AE589BA0016 // InsSelectedAttributesIterators
  ;
  CONST "pm" true
 
@@ -755,21 +755,21 @@ ref; // ME_491DD5A10199_ME_49241CDE025D SimpleTree
 ref; // ME_491DD5C90095_ME_49241CDE025D CurrentChanged
 
 : ME_4923FDA60287_ME_49241CDE025D
- : Original ME_4923FDA60287 // Search
+ : Original HWL ME_4923FDA60287 // Search
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_4923FDA60287_ME_49241CDE025D Search
 
 : ME_4923FDDB026F_ME_49241CDE025D
- : Original ME_4923FDDB026F // Operations
+ : Original HWL ME_4923FDDB026F // Operations
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_4923FDDB026F_ME_49241CDE025D Operations
 
 : ME_4923FDFA00F7_ME_49241CDE025D
- : Original ME_4923FDFA00F7 // IsOneOperation
+ : Original HWL ME_4923FDFA00F7 // IsOneOperation
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
@@ -784,14 +784,14 @@ ref; // ME_4923FDFA00F7_ME_49241CDE025D IsOneOperation
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_491DAF4202EE // SearchInterfaces
+ : Parent HWL ME_491DAF4202EE // SearchInterfaces
  ;
  : Inherits
-   Seq: ( ME_4923FD8100B7 // IdsTagSimpleTree
+   Seq: ( HWL ME_4923FD8100B7 // IdsTagSimpleTree
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_49241D5D01C0 // RefreshValues
+   Seq: ( HWL ME_49241D5D01C0 // RefreshValues
  )
  ; // Attributes
  : Implemented
@@ -818,23 +818,23 @@ FORWARD ME_49241F6B00D7
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_49241F6B00D7 // IdeSelectedAttributes
+ : Parent HWL ME_49241F6B00D7 // IdeSelectedAttributes
  ;
- : Target ME_4AE589BA0016 // InsSelectedAttributesIterators
+ : Target HWL ME_4AE589BA0016 // InsSelectedAttributesIterators
  ;
  CONST "pm" false
 
 ref; // ME_4AE58AE200AC RefreshValues
 
 : ME_4AE58AA10134_ME_49241F6B00D7
- : Original ME_4AE58AA10134 // Tag
+ : Original HWL ME_4AE58AA10134 // Tag
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_4AE58AA10134_ME_49241F6B00D7 Tag
 
 : ME_4AE58ABC034A_ME_49241F6B00D7
- : Original ME_4AE58ABC034A // Query
+ : Original HWL ME_4AE58ABC034A // Query
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
@@ -849,14 +849,14 @@ ref; // ME_4AE58ABC034A_ME_49241F6B00D7 Query
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_491DAF4202EE // SearchInterfaces
+ : Parent HWL ME_491DAF4202EE // SearchInterfaces
  ;
  : Inherits
-   Seq: ( ME_4922CE700041 // IdeSearch
+   Seq: ( HWL ME_4922CE700041 // IdeSearch
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_4AE58AE200AC // RefreshValues
+   Seq: ( HWL ME_4AE58AE200AC // RefreshValues
  )
  ; // Attributes
  : Implemented
@@ -879,19 +879,19 @@ ref; // ME_49241F6B00D7 IdeSelectedAttributes
  : Parent WL 'ME_4954FAA00232' '4954FAA00232.pas.ms.script' // Search
  ;
  : Children
-   Seq: ( ME_49590CE80397 // CurrentChangedListener
- ME_492425D101B0 // IbsCurrentChangedListener
- ME_4922CE700041 // IdeSearch
- ME_4959143A00EB // SelectedAttributes
- ME_4923FD8100B7 // IdsTagSimpleTree
- ME_4991AAF4000A // InsProgressIndicator
- ME_4AE589BA0016 // InsSelectedAttributesIterators
- ME_4959145702D3 // IbsSelectedAttributes
- ME_49590A5E0315 // IdsSituation
- ME_4922CF920141 // IdsAttributeSelect
- ME_4924352E01C3 // IdsTreeAttributeSelect
- ME_49241CDE025D // IdsSelectedAttributes
- ME_49241F6B00D7 // IdeSelectedAttributes
+   Seq: ( HWL ME_49590CE80397 // CurrentChangedListener
+ HWL ME_492425D101B0 // IbsCurrentChangedListener
+ HWL ME_4922CE700041 // IdeSearch
+ HWL ME_4959143A00EB // SelectedAttributes
+ HWL ME_4923FD8100B7 // IdsTagSimpleTree
+ HWL ME_4991AAF4000A // InsProgressIndicator
+ HWL ME_4AE589BA0016 // InsSelectedAttributesIterators
+ HWL ME_4959145702D3 // IbsSelectedAttributes
+ HWL ME_49590A5E0315 // IdsSituation
+ HWL ME_4922CF920141 // IdsAttributeSelect
+ HWL ME_4924352E01C3 // IdsTreeAttributeSelect
+ HWL ME_49241CDE025D // IdsSelectedAttributes
+ HWL ME_49241F6B00D7 // IdeSelectedAttributes
  )
  ; // Children
  : Depends

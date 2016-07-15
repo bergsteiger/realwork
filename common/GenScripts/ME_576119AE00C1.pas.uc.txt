@@ -1,0 +1,49 @@
+//#UC START# *576117CD013D_576119AE00C1_impl*
+ OutStringLn(csGarantCSSLink);
+//#UC END# *576117CD013D_576119AE00C1_impl*
+//#UC START# *576117CD013D_576119AE00C1_var*
+const
+ csGarantCSSLink = '<link rel="stylesheet" type="text/css" href="garantdoc.css">';
+//#UC END# *576117CD013D_576119AE00C1_var*
+//#UC START# *576117FD021D_576119AE00C1_impl*
+ Result := inherited StyleName(StyleID);
+ case StyleID of
+  ev_saFormulaInAAC: Result := csFormulaStyleName;
+  ev_saColorSelection: Result := csColorSelectionStyleName;
+ end;
+//#UC END# *576117FD021D_576119AE00C1_impl*
+//#UC START# *576117FD021D_576119AE00C1_var*
+//#UC END# *576117FD021D_576119AE00C1_var*
+//#UC START# *5761184D00CB_576119AE00C1_impl*
+ lp_Try2ConvertSingleStyleSegment;
+ inherited;
+//#UC END# *5761184D00CB_576119AE00C1_impl*
+//#UC START# *5761184D00CB_576119AE00C1_var*
+
+ procedure lp_Try2ConvertSingleStyleSegment;
+ var
+  l_Segment        : TddTextSegment;
+  l_StyledWholePara: Boolean;
+ begin
+  if aPara.SegmentCount = 1 then
+  begin
+   l_Segment := aPara.Segments[0];
+   l_StyledWholePara := (l_Segment is TddStyleSegment) and (l_Segment.Stop = (aPara.Text.Len - 1)) and (l_Segment.Start = 0) and
+      not ddStyleUndefined(l_Segment.CHP.Style);
+   if l_StyledWholePara then
+   begin
+    if IgnoreStyle(aPara.PAP.Style) then
+     aPara.PAP.Style := l_Segment.CHP.Style;
+    aPara.RemoveSegment(l_Segment);
+   end; // if l_StyledWholePara then
+  end // if aPara.SegmentCount = 1 then
+ end; 
+
+//#UC END# *5761184D00CB_576119AE00C1_var*
+//#UC START# *5761194803AE_576119AE00C1_impl*
+ Result := inherited PAP2HTML(aPAP, aParaTag, aNeedLI);
+ if aParaTag = dd_ptH1 then
+  Result := GetClassLink(csH1StyleName);
+//#UC END# *5761194803AE_576119AE00C1_impl*
+//#UC START# *5761194803AE_576119AE00C1_var*
+//#UC END# *5761194803AE_576119AE00C1_var*

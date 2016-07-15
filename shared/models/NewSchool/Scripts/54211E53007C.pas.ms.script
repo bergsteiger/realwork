@@ -4,157 +4,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 FORWARD ME_54211E53007C
 
-FORWARD ME_54211E830399
-
-FORWARD ME_54B4B9A20339
-
-: ME_54B4B9D900D9
- CONST Name 'aDecorator'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target ME_54211E830399 // TFormFrameDecorator
- ;
-
-ref; // ME_54B4B9D900D9 aDecorator
-
-: ME_54B4B9C40282
- CONST UID '54B4B9C40282'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_54B4B9A20339 // TFormFrameDecoratorNeedRecreateButtonsEvent
- ;
- : Parameters
-   Seq: ( ME_54B4B9D900D9 // aDecorator
- )
- ; // Parameters
-
-ref; // ME_54B4B9C40282 DoIt
-
-: ME_54B4B9A20339
- CONST UID '54B4B9A20339'
- CONST Name 'TFormFrameDecoratorNeedRecreateButtonsEvent'
- CONST Class class_Class
- : Stereotype st_Function ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_54211E830399 // TFormFrameDecorator
- ;
- : Operations
-   Seq: ( ME_54B4B9C40282 // DoIt
- )
- ; // Operations
- CONST "of object" true
-
-ref; // ME_54B4B9A20339 TFormFrameDecoratorNeedRecreateButtonsEvent
-
-FORWARD ME_54211E9E038E
-
-: ME_545B65B10112
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_54211E830399 // TFormFrameDecorator
- ;
- : Target ME_54211E9E038E // TChromeLikeFormFramePainter
- ;
-
-ref; // ME_545B65B10112 
-
-: ME_545B65C9032D
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_54211E830399 // TFormFrameDecorator
- ;
- : Target WL 'ME_545B531C026F' '533D01A201A9.pas.ms.script' // ChromeLikeWindowCaptionButtonsRes
- ;
-
-ref; // ME_545B65C9032D 
-
-: ME_54B4CD4C01CD
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_54211E830399 // TFormFrameDecorator
- ;
- : Target WL 'ME_533D343C02FF' '533D01A201A9.pas.ms.script' // TChromeLikeFormCaptionData
- ;
-
-ref; // ME_54B4CD4C01CD 
-
-: ME_54B4CD6C01E5
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_54211E830399 // TFormFrameDecorator
- ;
- : Target WL 'ME_533D01CB01B1' '533D01A201A9.pas.ms.script' // TChromeLikeBaseWindowCaptionButton
- ;
-
-ref; // ME_54B4CD6C01E5 
-
-: ME_54B4CD9C0145
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_54211E830399 // TFormFrameDecorator
- ;
- : Target WL 'ME_53C4BB200287' '533D01A201A9.pas.ms.script' // ChromeLikeTypes
- ;
-
-ref; // ME_54B4CD9C0145 
-
-: ME_54B4D23D023D
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_54211E830399 // TFormFrameDecorator
- ;
- : Target WL 'ME_533D14960061' '533D01A201A9.pas.ms.script' // ChromeLikeLegacyWindowCaptionButtons
- ;
-
-ref; // ME_54B4D23D023D 
-
-: ME_54B4D25C0205
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_54211E830399 // TFormFrameDecorator
- ;
- : Target WL 'ME_533D1518032F' '533D01A201A9.pas.ms.script' // ChromeLikeThemedWindowCaptionButtons
- ;
-
-ref; // ME_54B4D25C0205 
-
-: ME_54211E830399
- CONST UID '54211E830399'
- CONST Name 'TFormFrameDecorator'
- CONST Class class_Class
- : Stereotype st_GuiControl ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_54211E53007C // ChromeLikeFormFrameDecorator
- ;
- : Children
-   Seq: ( ME_54B4B9A20339 // TFormFrameDecoratorNeedRecreateButtonsEvent
- )
- ; // Children
- : Dependencies
-   Seq: ( ME_545B65B10112 // TChromeLikeFormFramePainter
- ME_545B65C9032D // ChromeLikeWindowCaptionButtonsRes
- ME_54B4CD4C01CD // TChromeLikeFormCaptionData
- ME_54B4CD6C01E5 // TChromeLikeBaseWindowCaptionButton
- ME_54B4CD9C0145 // ChromeLikeTypes
- ME_54B4D23D023D // ChromeLikeLegacyWindowCaptionButtons
- ME_54B4D25C0205 // ChromeLikeThemedWindowCaptionButtons
- )
- ; // Dependencies
- CONST "finished" false
- CONST "ifndef" 'NoVGScene, NoVCM'
- CONST intf.pas:Path 'common\components\gui\Garant\ChromeLikeControls\NOT_FINISHED_FormFrameDecorator.pas'
- CONST extprop:rc:SelfName 'FormFrameDecorator'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'FormFrameDecorator'
-
-ref; // ME_54211E830399 TFormFrameDecorator
-
 : ME_54211E9E038E
  CONST UID '54211E9E038E'
  CONST Name 'TChromeLikeFormFramePainter'
@@ -163,7 +12,7 @@ ref; // ME_54211E830399 TFormFrameDecorator
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_54211E53007C // ChromeLikeFormFrameDecorator
+ : Parent HWL ME_54211E53007C // ChromeLikeFormFrameDecorator
  ;
  CONST "finished" false
  CONST "ifndef" 'NoVGScene, NoVCM'
@@ -184,8 +33,8 @@ ref; // ME_54211E9E038E TChromeLikeFormFramePainter
  : Parent WL 'ME_533D017702F1' '533D017702F1.pas.ms.script' // ChromeLikeControls
  ;
  : Children
-   Seq: ( ME_54211E830399 // TFormFrameDecorator
- ME_54211E9E038E // TChromeLikeFormFramePainter
+   Seq: ( WL 'ME_54211E830399' '54211E830399.pas.ms.script' // TFormFrameDecorator
+ HWL ME_54211E9E038E // TChromeLikeFormFramePainter
  )
  ; // Children
  : Depends

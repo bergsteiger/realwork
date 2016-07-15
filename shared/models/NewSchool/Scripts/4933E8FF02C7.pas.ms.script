@@ -1,0 +1,50 @@
+// TdsDrugListDocument 4933E8FF02C7 ViewAreaControllerImp Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4933E8FF02C7
+
+: ME_4D357C2102B8
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4933E8FF02C7 // TdsDrugListDocument
+ ;
+ : Target WL 'ME_4C6A9AD101B4' '4C6A7BA001A5.pas.ms.script' // TnsF1DocumentContainer
+ ;
+
+ref; // ME_4D357C2102B8 
+
+: ME_4C6AB38800F3_ME_4933E8FF02C7
+ : Original WL 'ME_4C6AB38800F3' '47EA20430108.pas.ms.script' // MakeContainer
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4C6AB38800F3_ME_4933E8FF02C7 MakeContainer
+
+: ME_4933E8FF02C7
+ CONST UID '4933E8FF02C7'
+ CONST Name 'TdsDrugListDocument'
+ CONST Class class_Class
+ : Stereotype st_ViewAreaControllerImp ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_47EA01EA0070' '47EA01EA0070.pas.ms.script' // sdsDrugList
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4926CAF40166' '4926CAF40166.pas.ms.script' // dsBaseDocument
+ )
+ ; // Inherits
+ : Overridden
+   Seq: ( ME_4C6AB38800F3_ME_4933E8FF02C7 // MakeContainer
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_4D357C2102B8 // TnsF1DocumentContainer
+ )
+ ; // Dependencies
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Drug\dsDrugListDocument.pas'
+ CONST extprop:rc:SelfName 'dsDrugListDocument'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'dsDrugListDocument'
+
+ref; // ME_4933E8FF02C7 TdsDrugListDocument

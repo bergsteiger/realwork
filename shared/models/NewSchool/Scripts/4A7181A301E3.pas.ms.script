@@ -1,0 +1,445 @@
+// TsdsCompareEditions 4A7181A301E3 UseCaseControllerImp Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A7181A301E3
+
+FORWARD ME_4B6875DF0310
+
+: ME_4CCE7B23028E
+ CONST UID '4CCE7B23028E'
+ CONST Name 'TnsDiffData'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4B6875DF0310 // IsdsCompareEditionsState
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4CC80F7E02BB' '4570511E038A.pas.ms.script' // DiffData
+ )
+ ; // Inherits
+
+ref; // ME_4CCE7B23028E TnsDiffData$FromDTP
+
+: ME_4B69581F0199
+ CONST UID '4B69581F0199'
+ CONST Name 'EditionForCompare'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent HWL ME_4B6875DF0310 // IsdsCompareEditionsState
+ ;
+ : Target WL 'ME_45EED84C01FD' '4570511E038A.pas.ms.script' // RedactionID
+ ;
+ CONST "pm" false
+
+ref; // ME_4B69581F0199 EditionForCompare
+
+: ME_4B69683A00C4
+ CONST UID '4B69683A00C4'
+ CONST Name 'UseCaseData'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent HWL ME_4B6875DF0310 // IsdsCompareEditionsState
+ ;
+ : Target WL 'ME_4A784CC802B0' '4A6D56B00065.pas.ms.script' // InsCompareEditionsInfo
+ ;
+ CONST "pm" false
+
+ref; // ME_4B69683A00C4 UseCaseData
+
+: ME_4B6972AA017A
+ CONST UID '4B6972AA017A'
+ CONST Name 'CompareRootPair'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent HWL ME_4B6875DF0310 // IsdsCompareEditionsState
+ ;
+ : Target HWL ME_4CCE7B23028E // TnsDiffData$FromDTP
+ ;
+ CONST "pm" false
+
+ref; // ME_4B6972AA017A CompareRootPair
+
+: ME_4995768F007A_ME_4B6875DF0310
+ : Original WL 'ME_4995768F007A' '4683F37902CF.pas.ms.script' // Clone
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4995768F007A_ME_4B6875DF0310 Clone
+
+: ME_4B6875DF0310
+ CONST UID '4B6875DF0310'
+ CONST GUID '58401E22-1A19-4B3D-90EE-616BC5328B1A'
+ CONST Name 'IsdsCompareEditionsState'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Состояние прецедента TsdsCompareEditions' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4A7181A301E3 // TsdsCompareEditions
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47F378D3029B' '4683F37902CF.pas.ms.script' // IvcmData
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( HWL ME_4B69581F0199 // EditionForCompare
+ HWL ME_4B69683A00C4 // UseCaseData
+ HWL ME_4B6972AA017A // CompareRootPair
+ )
+ ; // Attributes
+ : Implemented
+   Seq: ( ME_4995768F007A_ME_4B6875DF0310 // Clone
+ )
+ ; // Implemented
+ : Children
+   Seq: ( HWL ME_4CCE7B23028E // TnsDiffData$FromDTP
+ )
+ ; // Children
+ CONST extprop:rc:SelfName 'sdsCompareEditionsState'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4B6875DF0310 IsdsCompareEditionsState
+
+: ME_4A783C5902A9
+ CONST UID '4A783C5902A9'
+ CONST Name 'InitDataType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent HWL ME_4A7181A301E3 // TsdsCompareEditions
+ ;
+ : Target WL 'ME_4A784CC802B0' '4A6D56B00065.pas.ms.script' // InsCompareEditionsInfo
+ ;
+
+ref; // ME_4A783C5902A9 InitDataType
+
+: ME_4B68763403AF
+ CONST UID '4B68763403AF'
+ CONST Name 'SetDataType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent HWL ME_4A7181A301E3 // TsdsCompareEditions
+ ;
+ : Target HWL ME_4B6875DF0310 // IsdsCompareEditionsState
+ ;
+
+ref; // ME_4B68763403AF SetDataType
+
+FORWARD ME_4A841D40037E
+
+: ME_4A841D5303D9
+ CONST UID '4A841D5303D9'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4A841D40037E // NotifyEditionChanged
+ ;
+
+ref; // ME_4A841D5303D9 DoIt
+
+: ME_4A841D40037E
+ CONST UID '4A841D40037E'
+ CONST Name 'NotifyEditionChanged'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Нотификация о смене редакции' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4A7181A301E3 // TsdsCompareEditions
+ ;
+ : Operations
+   Seq: ( HWL ME_4A841D5303D9 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_4A841D40037E NotifyEditionChanged
+
+: ME_4A7181C30052
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A7181A301E3 // TsdsCompareEditions
+ ;
+ : Target WL 'ME_4A717F6E0327' '4A717F6E0327.pas.ms.script' // TdsEditionsContainerData
+ ;
+
+ref; // ME_4A7181C30052 
+
+: ME_4A7181D90347
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A7181A301E3 // TsdsCompareEditions
+ ;
+ : Target WL 'ME_4A717FA60328' '4A717FA60328.pas.ms.script' // TdsRightEdition
+ ;
+
+ref; // ME_4A7181D90347 
+
+: ME_4A7181F703C1
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A7181A301E3 // TsdsCompareEditions
+ ;
+ : Target WL 'ME_4A717F9600F4' '4A717F9600F4.pas.ms.script' // TdsLeftEdition
+ ;
+
+ref; // ME_4A7181F703C1 
+
+: ME_4A7FDC930012
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A7181A301E3 // TsdsCompareEditions
+ ;
+ : Target WL 'ME_4A7FD7E9035C' '4A717F3D0221.pas.ms.script' // TnsEditionDiffData
+ ;
+
+ref; // ME_4A7FDC930012 
+
+: ME_4AE03E9A00FD
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A7181A301E3 // TsdsCompareEditions
+ ;
+ : Target WL 'ME_4AE03B550243' '4A785027038D.pas.ms.script' // TnsEditionsContainerData
+ ;
+
+ref; // ME_4AE03E9A00FD 
+
+: ME_4B68710F019E
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A7181A301E3 // TsdsCompareEditions
+ ;
+ : Target WL 'ME_4B6870EE00C4' '47D0E1500033.pas.ms.script' // vcmMakeDataRefreshParams
+ ;
+
+ref; // ME_4B68710F019E 
+
+: ME_4B6958B700C2
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A7181A301E3 // TsdsCompareEditions
+ ;
+ : Target WL 'ME_4B69588202EA' '4A717F3D0221.pas.ms.script' // TsdsCompareEditionsState
+ ;
+
+ref; // ME_4B6958B700C2 
+
+: ME_4B696AC301A1
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A7181A301E3 // TsdsCompareEditions
+ ;
+ : Target WL 'ME_4B69588202EA' '4A717F3D0221.pas.ms.script' // TsdsCompareEditionsState
+ ;
+
+ref; // ME_4B696AC301A1 
+
+: ME_4ED8F842023F
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A7181A301E3 // TsdsCompareEditions
+ ;
+ : Target WL 'ME_491C0BE302FF' '4C6ABB3201AC.pas.ms.script' // TdeDocInfo
+ ;
+
+ref; // ME_4ED8F842023F 
+
+: ME_4ED903DB0305
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A7181A301E3 // TsdsCompareEditions
+ ;
+ : Target WL 'ME_4921809902CF' '4921809902CF.pas.ms.script' // TdsEditions
+ ;
+
+ref; // ME_4ED903DB0305 
+
+: ME_5215D3030194
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A7181A301E3 // TsdsCompareEditions
+ ;
+ : Target WL 'ME_491B329F0330' '47F2170002B2.pas.ms.script' // TbsDocPos
+ ;
+
+ref; // ME_5215D3030194 
+
+: ME_53BA497600F4
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A7181A301E3 // TsdsCompareEditions
+ ;
+ : Target WL 'ME_53BA488F00D8' '53A402C7010D.pas.ms.script' // nsTabbedInterfaceTypes
+ ;
+
+ref; // ME_53BA497600F4 
+
+: ME_47F3778403D9_ME_4A7181A301E3
+ : Original WL 'ME_47F3778403D9' '47D0E1500033.pas.ms.script' // MakeData
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_47F3778403D9_ME_4A7181A301E3 MakeData
+
+: ME_4A6D579203BC_ME_4A7181A301E3
+ : Original WL 'ME_4A6D579203BC' '4A6D56B00065.pas.ms.script' // Left
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_4A6D579203BC_ME_4A7181A301E3 Left
+
+: ME_4A6D57C80079_ME_4A7181A301E3
+ : Original WL 'ME_4A6D57C80079' '4A6D56B00065.pas.ms.script' // Right
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_4A6D57C80079_ME_4A7181A301E3 Right
+
+: ME_4A6EC18E02E3_ME_4A7181A301E3
+ : Original WL 'ME_4A6EC18E02E3' '4A6D56B00065.pas.ms.script' // EditionsContainerData
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_4A6EC18E02E3_ME_4A7181A301E3 EditionsContainerData
+
+: ME_4B4F2EAD0183_ME_4A7181A301E3
+ : Original WL 'ME_4B4F2EAD0183' '4A6D56B00065.pas.ms.script' // ChangedParas
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_4B4F2EAD0183_ME_4A7181A301E3 ChangedParas
+
+: ME_4B6BD5E001F4_ME_4A7181A301E3
+ : Original WL 'ME_4B6BD5E001F4' '4A6D56B00065.pas.ms.script' // EditionForCompare
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_4B6BD5E001F4_ME_4A7181A301E3 EditionForCompare
+
+: ME_4DF9D63B0360_ME_4A7181A301E3
+ : Original WL 'ME_4DF9D63B0360' '4B1FC2FF03CD.pas.ms.script' // DocInfo
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ CONST "reflectable" true
+ref; // ME_4DF9D63B0360_ME_4A7181A301E3 DocInfo
+
+: ME_4EA7F1C400B0_ME_4A7181A301E3
+ : Original WL 'ME_4EA7F1C400B0' '4A6D56B00065.pas.ms.script' // Node
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_4EA7F1C400B0_ME_4A7181A301E3 Node
+
+: ME_4ED906420134_ME_4A7181A301E3
+ : Original WL 'ME_4ED906420134' '491B305A0096.pas.ms.script' // EditionsList
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_4ED906420134_ME_4A7181A301E3 EditionsList
+
+: ME_5214A46601C7_ME_4A7181A301E3
+ : Original WL 'ME_5214A46601C7' '4A6D56B00065.pas.ms.script' // Position
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_5214A46601C7_ME_4A7181A301E3 Position
+
+: ME_53B3BF9C00EF_ME_4A7181A301E3
+ : Original WL 'ME_53B3BF9C00EF' '47D0E1500033.pas.ms.script' // DoGetFormSetImageIndex
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_53B3BF9C00EF_ME_4A7181A301E3 DoGetFormSetImageIndex
+
+: ME_4A7181A301E3
+ CONST UID '4A7181A301E3'
+ CONST Name 'TsdsCompareEditions'
+ CONST Class class_Class
+ : Stereotype st_UseCaseControllerImp ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Реализация прецедента "Сравнение редакций документа"' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent WL 'ME_4A717F3D0221' '4A717F3D0221.pas.ms.script' // Editions
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47F37723017A' '47D0E1500033.pas.ms.script' // vcmFormSetDataSource
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4A6D5729037F' '4A6D56B00065.pas.ms.script' // IsdsCompareEditions
+ WL 'ME_4B548BE50138' '4A717F3D0221.pas.ms.script' // VScroll
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( HWL ME_4A783C5902A9 // InitDataType
+ HWL ME_4B68763403AF // SetDataType
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( HWL ME_4A841D40037E // NotifyEditionChanged
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_47F3778403D9_ME_4A7181A301E3 // MakeData
+ ME_4A6D579203BC_ME_4A7181A301E3 // Left
+ ME_4A6D57C80079_ME_4A7181A301E3 // Right
+ ME_4A6EC18E02E3_ME_4A7181A301E3 // EditionsContainerData
+ ME_4B4F2EAD0183_ME_4A7181A301E3 // ChangedParas
+ ME_4B6BD5E001F4_ME_4A7181A301E3 // EditionForCompare
+ ME_4DF9D63B0360_ME_4A7181A301E3 // DocInfo
+ ME_4EA7F1C400B0_ME_4A7181A301E3 // Node
+ ME_4ED906420134_ME_4A7181A301E3 // EditionsList
+ ME_5214A46601C7_ME_4A7181A301E3 // Position
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_53B3BF9C00EF_ME_4A7181A301E3 // DoGetFormSetImageIndex
+ )
+ ; // Overridden
+ : Children
+   Seq: ( HWL ME_4B6875DF0310 // IsdsCompareEditionsState
+ )
+ ; // Children
+ : Dependencies
+   Seq: ( ME_4A7181C30052 // TdsEditionsContainerData
+ ME_4A7181D90347 // TdsRightEdition
+ ME_4A7181F703C1 // TdsLeftEdition
+ ME_4A7FDC930012 // TnsEditionDiffData
+ ME_4AE03E9A00FD // TnsEditionsContainerData
+ ME_4B68710F019E // vcmMakeDataRefreshParams
+ ME_4B6958B700C2 // TsdsCompareEditionsState
+ ME_4B696AC301A1 // TsdsCompareEditionsState
+ ME_4ED8F842023F // TdeDocInfo
+ ME_4ED903DB0305 // TdsEditions
+ ME_5215D3030194 // TbsDocPos
+ ME_53BA497600F4 // nsTabbedInterfaceTypes
+ )
+ ; // Dependencies
+ CONST "author" 'Люлин А.В.'
+ CONST "no hands" true
+ CONST "started" '30.07.2009 15:52'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Editions\sdsCompareEditions.pas'
+ CONST extprop:rc:SelfName 'sdsCompareEditions'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'sdsCompareEditions'
+
+ref; // ME_4A7181A301E3 TsdsCompareEditions

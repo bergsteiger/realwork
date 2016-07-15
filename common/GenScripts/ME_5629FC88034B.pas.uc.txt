@@ -10,7 +10,15 @@
  f_PriorityCalculator := nil;
  f_AllArchiUsersQuery := nil;
  f_AllGroupsQuery := nil;
+ f_IsMemberOfGroupQuery := nil;
+ f_UserGroupsQuery := nil;
+ f_GroupUsersQuery := nil;
  f_Factory := nil;
+ f_Journal := nil;
+ FreeAndNil(f_GroupModifier);
+ FreeAndNil(f_FunctionFactory);
+ FreeAndNil(f_FreeIDHelperHolder);
+ FreeAndNil(f_Connection);
  inherited;
 //#UC END# *479731C50290_5629FC88034B_impl*
 //#UC START# *479731C50290_5629FC88034B_var*
@@ -61,7 +69,12 @@ var
 //#UC END# *5628D14D0151_5629FC88034B_var*
 //#UC START# *562A074E0321_5629FC88034B_impl*
  inherited Create;
- f_Factory := aFactory;
+ f_Factory := aTableFactory;
+ f_Journal := aJournal;
+
+ aConnection.SetRefTo(f_Connection);
+ aFunctionFactory.SetRefTo(f_FunctionFactory);
+ aFreeIDHelperHolder.SetRefTo(f_FreeIDHelperHolder);
 
  f_ArchiUsers := TdaArchiUserList.Create;
  f_UserStatusChangedSubscriberList := TdaUserStatusChangedSubscriberList.Make;
@@ -126,7 +139,7 @@ var
   l_Query.Prepare;
   l_ResultSet := l_Query.OpenResultSet;
   try
-   FillListByResultSet(aList, l_ResultSet, 'id', 4, 'user_name');
+   FillListByResultSet(aList, l_ResultSet, 'id', cUserIDSize, 'user_name');
   finally
    l_ResultSet := nil;
   end;
@@ -147,7 +160,7 @@ var
   l_Query.Prepare;
   l_ResultSet := l_Query.OpenResultSet;
   try
-   FillListByResultSet(aList, l_ResultSet, 'id', 2, 'group_name');
+   FillListByResultSet(aList, l_ResultSet, 'id', cGroupIDSize, 'group_name');
   finally
    l_ResultSet := nil;
   end;
@@ -659,12 +672,9 @@ var
 //#UC START# *575809C5019A_5629FC88034B_var*
 //#UC END# *575809C5019A_5629FC88034B_var*
 //#UC START# *575A8B790353_5629FC88034B_impl*
- Result := False;
- Assert(False);
-//!! !!! Needs to be implemented !!!
-// IsMemberOfGroupQuery.Param['p_UserID'].AsLargeInt := aUserID;
-// IsMemberOfGroupQuery.Param['p_GroupID'].AsLargeInt := aUserGroupID;
-// l_ResultSet := IsMemberOfGroupQuery.OpenResultSet;
+ IsMemberOfGroupQuery.Param['p_UserID'].AsLargeInt := aUserID;
+ IsMemberOfGroupQuery.Param['p_GroupID'].AsLargeInt := aUserGroupID;
+ l_ResultSet := IsMemberOfGroupQuery.OpenResultSet;
  try
   Result := not l_ResultSet.IsEmpty;
  finally
@@ -675,3 +685,599 @@ var
 var
  l_ResultSet: IdaResultSet;
 //#UC END# *575A8B790353_5629FC88034B_var*
+//#UC START# *575FA96B0019_5629FC88034B_impl*
+ if f_IsMemberOfGroupQuery = nil then
+ begin
+  f_IsMemberOfGroupQuery := f_Factory.MakeTabledQuery(f_Factory.MakeSimpleFromClause(TdaScheme.Instance.Table(da_mtGroupMembers)));
+  f_IsMemberOfGroupQuery.AddSelectField(f_Factory.MakeSelectField('', TdaScheme.Instance.Table(da_mtGroupMembers)['user_id']));
+  f_IsMemberOfGroupQuery.WhereCondition := f_Factory.MakeLogicCondition(f_Factory.MakeParamsCondition('', TdaScheme.Instance.Table(da_mtGroupMembers)['user_id'], da_copEqual, 'p_UserID'), da_loAnd,
+    f_Factory.MakeParamsCondition('', TdaScheme.Instance.Table(da_mtGroupMembers)['group_id'], da_copEqual, 'p_GroupID'));
+  f_IsMemberOfGroupQuery.Prepare;
+ end;
+ Result := f_IsMemberOfGroupQuery;
+//#UC END# *575FA96B0019_5629FC88034B_impl*
+//#UC START# *575FA96B0019_5629FC88034B_var*
+//#UC END# *575FA96B0019_5629FC88034B_var*
+//#UC START# *57625B5002DD_5629FC88034B_impl*
+ UserGroupsQuery.Param['p_UserID'].AsLargeInt := aUserID;
+ l_ResultSet := UserGroupsQuery.OpenResultSet(False);
+ try
+  if l_ResultSet.IsEmpty then
+   Result := nil
+  else
+  begin
+   SetLength(Result, l_ResultSet.CalcRecordCount);
+   l_IDX := 0;
+   l_Field := l_ResultSet.Field['group_id'];
+   while not l_ResultSet.EOF do
+   begin
+    Assert(l_IDX < Length(Result));
+    Result[l_IDX] := l_Field.AsLargeInt;
+    inc(l_IDX);
+    l_ResultSet.Next;
+   end;
+  end;
+ finally
+  l_ResultSet := nil;
+ end;
+//#UC END# *57625B5002DD_5629FC88034B_impl*
+//#UC START# *57625B5002DD_5629FC88034B_var*
+var
+ l_ResultSet: IdaResultSet;
+ l_Field: IdaField;
+ l_IDX: Integer;
+//#UC END# *57625B5002DD_5629FC88034B_var*
+//#UC START# *576289510024_5629FC88034B_impl*
+ aList.Changing;
+ aList.LockModifiedFlag:=True;
+ try
+  aList.Clear;
+  aList.HostDataList := Get_AllGroups;
+  UserGroupsQuery.Param['p_UserID'].AsLargeInt := aUser;
+  l_ResultSet := UserGroupsQuery.OpenResultSet;
+  try
+   l_Field := l_ResultSet.Field['group_id'];
+   while not l_ResultSet.EOF do
+   begin
+    l_TmpID := l_Field.AsLargeInt;
+    l_TmpIndex := aList.IndexOfData(l_TmpID, cGroupIDSize, 0);
+    if l_TmpIndex <> -1 then
+     aList.Select[l_TmpIndex]:=True;
+    l_ResultSet.Next;
+   end;
+  finally
+   l_ResultSet := nil;
+  end;
+ finally
+  aList.Changed;
+  aList.LockModifiedFlag := False;
+ end;
+//#UC END# *576289510024_5629FC88034B_impl*
+//#UC START# *576289510024_5629FC88034B_var*
+var
+ l_ResultSet: IdaResultSet;
+ l_TmpIndex: LongInt;
+ l_TmpID: TdaUserGroupID;
+ l_Field: IdaField;
+//#UC END# *576289510024_5629FC88034B_var*
+//#UC START# *57628A9403C6_5629FC88034B_impl*
+ //aList.Changing;
+ try
+  aList.Clear;
+  UserGroupsQuery.Param['p_UserID'].AsLargeInt := aUser;
+  l_ResultSet := UserGroupsQuery.OpenResultSet;
+  try
+   l_Field := l_ResultSet.Field['group_id'];
+   while not l_ResultSet.EOF do
+   begin
+    l_TmpID := l_Field.AsLargeInt;
+    aList.Add(l_TmpID);
+    l_ResultSet.Next;
+   end;
+  finally
+   l_ResultSet := nil;
+  end;
+ finally
+ //aList.Changed;
+ end;
+//#UC END# *57628A9403C6_5629FC88034B_impl*
+//#UC START# *57628A9403C6_5629FC88034B_var*
+var
+ l_ResultSet: IdaResultSet;
+ l_TmpID: TdaUserGroupID;
+ l_Field: IdaField;
+//#UC END# *57628A9403C6_5629FC88034B_var*
+//#UC START# *5762975302C1_5629FC88034B_impl*
+ if f_UserGroupsQuery = nil then
+ begin
+  f_UserGroupsQuery := f_Factory.MakeTabledQuery(f_Factory.MakeSimpleFromClause(TdaScheme.Instance.Table(da_mtGroupMembers)));
+  f_UserGroupsQuery.AddSelectField(f_Factory.MakeSelectField('', TdaScheme.Instance.Table(da_mtGroupMembers)['group_id']));
+  f_UserGroupsQuery.WhereCondition := f_Factory.MakeParamsCondition('', TdaScheme.Instance.Table(da_mtGroupMembers)['user_id'], da_copEqual, 'p_UserID');
+  f_UserGroupsQuery.Prepare;
+ end;
+ Result := f_UserGroupsQuery;
+//#UC END# *5762975302C1_5629FC88034B_impl*
+//#UC START# *5762975302C1_5629FC88034B_var*
+//#UC END# *5762975302C1_5629FC88034B_var*
+//#UC START# *5767ABE002DC_5629FC88034B_impl*
+ l_Modifier := TpgTableModifier.Create(da_mtGroupMembers, f_Connection, f_Factory.DataConverter);
+ try
+  l_Modifier.BeginTransaction;
+  try
+   RemoveUserFromAllGroups(aUser);
+   for l_IDX := 0 to aList.Count-1 do
+    if aList.Select[l_IDX] then
+    begin
+     l_GroupID := 0;
+     l3Move(aList.Data[l_IDX]^, l_GroupID, Min(SizeOf(l_GroupID), aList.DataSize));
+     l_Modifier.Params['user_id'].AsLargeInt := aUser;
+     l_Modifier.Params['group_id'].AsLargeInt := l_GroupID;
+     l_Modifier.Insert;
+   end;
+   l_Modifier.CommitTransaction;
+  except
+   l_Modifier.RollBackTransaction;
+   raise;
+  end;
+ finally
+  FreeAndNil(l_Modifier);
+ end;
+//#UC END# *5767ABE002DC_5629FC88034B_impl*
+//#UC START# *5767ABE002DC_5629FC88034B_var*
+var
+ l_IDX: Integer;
+ l_Modifier: TpgTableModifier;
+ l_GroupID: TdaUserGroupID;
+//#UC END# *5767ABE002DC_5629FC88034B_var*
+//#UC START# *576B95A600B9_5629FC88034B_impl*
+ Result := f_FreeIDHelperHolder.GetFree(da_mtGroups);
+ AddUserGroupWithID(Result, aName);
+//#UC END# *576B95A600B9_5629FC88034B_impl*
+//#UC START# *576B95A600B9_5629FC88034B_var*
+//#UC END# *576B95A600B9_5629FC88034B_var*
+//#UC START# *576B960500C5_5629FC88034B_impl*
+ l_Modifier := GroupModifier.Use;
+ try
+  l_Modifier.BeginTransaction;
+  try
+   l_Modifier.OldParams['id'].AsLargeInt := aGroupID;
+   l_Modifier.Params['group_name'].AsString := aName;
+   l_Modifier.Params['name_length'].AsInteger := Length(aName);
+   l_Modifier.Params['import_priority'].AsInteger := Ord(aImportPriority);
+   l_Modifier.Params['export_priority'].AsInteger := Ord(aExportPriority);
+   l_Modifier.Update;
+   l_Modifier.CommitTransaction;
+  except
+   l_Modifier.RollBackTransaction;
+   raise;
+  end;
+ finally
+  FreeAndNil(l_Modifier);
+ end;
+
+ f_Journal.LogEditDict(TdaScheme.Instance.Table(da_mtGroups).FamilyID, da_dlNone, da_eoEdit);
+
+ (*
+//!! !!! Что с кэшами в словарях!!
+ if Assigned(fItemList) then
+  if fItemList.FindData(aID,tmpIndex) then
+   TDictITem(fItemList.Items[tmpIndex]).SetSt(aName,StrLen(aName));
+*)
+
+ if f_AllGroups <> nil then
+ begin
+  l_IDX := f_AllGroups.IndexOfData(aGroupID, SizeOf(TdaUserGroupID), 0);
+  f_AllGroups.NeedAllocStr := True;
+  if aName <> '' then
+   f_AllGroups.Strings[l_IDX] := @aName[1]
+  else
+   f_AllGroups.Strings[l_IDX] := nil;
+ end;
+//#UC END# *576B960500C5_5629FC88034B_impl*
+//#UC START# *576B960500C5_5629FC88034B_var*
+Var
+ l_IDX : LongInt;
+ l_Modifier: TpgTableModifier;
+//#UC END# *576B960500C5_5629FC88034B_var*
+//#UC START# *576BAC4402D8_5629FC88034B_impl*
+ try
+  if f_Connection.BeginTransaction([da_mtGroups, da_mtFree, da_mtGroupMembers, da_mtAccess]) then
+   try
+
+//   AccessServer.fMaskTbl.DelUserGroup(aUsGroupID); - Опять проблема с синглетонами - HT уже удалит к этому времени все.
+//!! !!! Needs to be implemented !!!
+
+    l_Function := f_FunctionFactory.MakeFunction('delete_all_users_from_group');
+    try
+      l_Function.Param['p_group_id'].AsLargeInt := aGroupID;
+      l_Function.Execute;
+    finally
+      l_Function := nil;
+    end;
+
+    l_Modifier := GroupModifier.Use;
+    try
+     l_Modifier.OldParams['id'].AsLargeInt := aGroupID;
+     l_Modifier.Delete;
+    finally
+     FreeAndNil(l_Modifier);
+    end;
+    f_Journal.LogEditDict(TdaScheme.Instance.Table(da_mtGroups).FamilyID, da_dlNone, da_eoDelete);
+    f_FreeIDHelperHolder.PutFree(da_mtGroups, aGroupID);
+    f_Connection.CommitTransaction;
+   except
+    f_Connection.RollBackTransaction;
+    raise;
+   end
+  else
+   raise EpgError.Create('Таблицы захвачены, попробуйте позже');
+ finally
+  FreeAndNil(f_AllGroups);
+ end;
+//#UC END# *576BAC4402D8_5629FC88034B_impl*
+//#UC START# *576BAC4402D8_5629FC88034B_var*
+Var
+ l_IDX : LongInt;
+ l_Modifier: TpgTableModifier;
+ l_Function: IdaFunction;
+//#UC END# *576BAC4402D8_5629FC88034B_var*
+//#UC START# *576D17770327_5629FC88034B_impl*
+ AddUserGroupWithID(anID, aName);
+ f_FreeIDHelperHolder.ExcludeFree(da_mtGroups, anID);
+//#UC END# *576D17770327_5629FC88034B_impl*
+//#UC START# *576D17770327_5629FC88034B_var*
+//#UC END# *576D17770327_5629FC88034B_var*
+//#UC START# *5770D18002D5_5629FC88034B_impl*
+ l_Modifier := GroupModifier.Use;
+ try
+  l_Modifier.BeginTransaction;
+  try
+   l_Modifier.Params['id'].AsLargeInt := anID;
+   l_Modifier.Params['group_name'].AsString := aName;
+   l_Modifier.Params['name_length'].AsInteger := Length(aName);
+   l_Modifier.Params['import_priority'].AsInteger := 0;
+   l_Modifier.Params['import_priority'].AsInteger := 0;
+   l_Modifier.Insert;
+   l_Modifier.CommitTransaction;
+  except
+   l_Modifier.RollBackTransaction;
+   raise;
+  end;
+ finally
+  FreeAndNil(l_Modifier);
+ end;
+
+ f_Journal.LogEditDict(TdaScheme.Instance.Table(da_mtGroups).FamilyID, da_dlNone, da_eoAdd);
+
+ if f_AllGroups <> nil then
+ begin
+  f_AllGroups.NeedAllocStr:=True;
+  f_AllGroups.Add(PAnsiChar(aName), @anID);
+ end;
+//#UC END# *5770D18002D5_5629FC88034B_impl*
+//#UC START# *5770D18002D5_5629FC88034B_var*
+var
+ l_Modifier: TpgTableModifier;
+//#UC END# *5770D18002D5_5629FC88034B_var*
+//#UC START# *577CC28003A6_5629FC88034B_impl*
+ if f_GroupModifier = nil then
+  f_GroupModifier := TpgTableModifier.Create(da_mtGroups, f_Connection, f_Factory.DataConverter);
+ Result := f_GroupModifier;
+//#UC END# *577CC28003A6_5629FC88034B_impl*
+//#UC START# *577CC28003A6_5629FC88034B_var*
+//#UC END# *577CC28003A6_5629FC88034B_var*
+//#UC START# *577F6AD90170_5629FC88034B_impl*
+ l_Function := f_FunctionFactory.MakeFunction('delete_user_from_all_groups');
+ try
+   l_Function.Param['p_user_id'].AsLargeInt := aUser;
+   l_Function.Execute;
+ finally
+   l_Function := nil;
+ end;
+//#UC END# *577F6AD90170_5629FC88034B_impl*
+//#UC START# *577F6AD90170_5629FC88034B_var*
+var
+ l_Function: IdaFunction;
+//#UC END# *577F6AD90170_5629FC88034B_var*
+//#UC START# *577F80C503AF_5629FC88034B_impl*
+ l_Modifier := TpgTableModifier.Create(da_mtGroupMembers, f_Connection, f_Factory.DataConverter);
+ try
+  l_Modifier.Params['user_id'].AsLargeInt := aUser;
+  l_Modifier.Params['group_id'].AsLargeInt := aGroup;
+  if Add then
+   l_Modifier.Insert
+  else
+   l_Modifier.Delete;
+ finally
+  FreeAndNil(l_Modifier);
+ end;
+//#UC END# *577F80C503AF_5629FC88034B_impl*
+//#UC START# *577F80C503AF_5629FC88034B_var*
+var
+ l_Modifier: TpgTableModifier;
+//#UC END# *577F80C503AF_5629FC88034B_var*
+//#UC START# *5783537E00A1_5629FC88034B_impl*
+ if not GlobalDataProvider.AdminRights then
+  raise EpgError.Create('Нет прав для доступа');
+ l_Function := f_FunctionFactory.MakeFunction('change_password');
+ try
+  l_Function.Param['p_user_id'].AsLargeInt := aUser;
+  l_Function.Param['p_new_password'].AsString := AnsiUpperCase(NewPass);
+  l_Function.Execute;
+  if l_Function.Param[l_Function.Name+'.Result'].AsInteger <> 1 then
+   raise EpgError.Create('Элемент не найден');
+ finally
+  l_Function := nil;
+ end;
+//#UC END# *5783537E00A1_5629FC88034B_impl*
+//#UC START# *5783537E00A1_5629FC88034B_var*
+var
+ l_Function: IdaFunction;
+//#UC END# *5783537E00A1_5629FC88034B_var*
+//#UC START# *578392E7026A_5629FC88034B_impl*
+ if f_AllUsers = nil then
+  Get_AllUsers;
+ if NeedSort then
+  f_AllUsers.Sort;
+ try
+  aList.Clear;
+  aList.HostDataList := f_AllUsers;
+  if aGroupID <> 0 then
+  begin
+   GroupUsersQuery.Param['p_GroupID'].AsLargeInt := aGroupID;
+   l_ResultSet := GroupUsersQuery.OpenResultSet;
+   try
+    l_Field := l_ResultSet.Field['user_id'];
+    aList.LockModifiedFlag:=True;
+    while not l_ResultSet.EOF do
+    begin
+     TmpID := l_Field.AsLargeInt;
+     TmpIndex:=aList.IndexOfData(TmpID, aList.DataSize, 0);
+     if TmpIndex<>-1 then
+      aList.Select[TmpIndex]:=True;
+     l_ResultSet.Next;
+    end;
+    aList.LockModifiedFlag:=False;
+   finally
+    l_ResultSet := nil;
+   end;
+  end;
+ finally
+  if NeedSort then
+   ReSortUserList;
+ end;
+//#UC END# *578392E7026A_5629FC88034B_impl*
+//#UC START# *578392E7026A_5629FC88034B_var*
+Var
+ TmpID,
+ TmpIndex : LongInt;
+ l_ResultSet: IdaResultSet;
+ l_Field: IdaField;
+//#UC END# *578392E7026A_5629FC88034B_var*
+//#UC START# *5783933A010B_5629FC88034B_impl*
+ for l_IDX := 0 to aList.Count-1 do
+  if aList.Flags[l_IDX] and lfSelModified = lfSelModified then
+  begin
+   aID:=0;
+   l3Move(aList.Data[l_IDX]^, aID, aList.DataSize);
+   SetUserGroup(aID, aGroupID, aList.Select[l_IDX]);
+   with aList do
+   begin
+    LockSelModify;
+    try
+     Flags[l_IDX] := Flags[l_IDX] and not lfSelModified;
+    finally
+     UnLockSelModify;
+    end;
+   end;
+  end;
+//#UC END# *5783933A010B_5629FC88034B_impl*
+//#UC START# *5783933A010B_5629FC88034B_var*
+var
+ l_IDX: Integer;
+ aID : LongInt;
+//#UC END# *5783933A010B_5629FC88034B_var*
+//#UC START# *5784910F00BF_5629FC88034B_impl*
+ if f_GroupUsersQuery = nil then
+ begin
+  f_GroupUsersQuery := f_Factory.MakeTabledQuery(f_Factory.MakeSimpleFromClause(TdaScheme.Instance.Table(da_mtGroupMembers)));
+  f_GroupUsersQuery.AddSelectField(f_Factory.MakeSelectField('', TdaScheme.Instance.Table(da_mtGroupMembers)['user_id']));
+  f_GroupUsersQuery.WhereCondition := f_Factory.MakeParamsCondition('', TdaScheme.Instance.Table(da_mtGroupMembers)['group_id'], da_copEqual, 'p_GroupID');
+  f_GroupUsersQuery.Prepare;
+ end;
+ Result := f_GroupUsersQuery;
+//#UC END# *5784910F00BF_5629FC88034B_impl*
+//#UC START# *5784910F00BF_5629FC88034B_var*
+//#UC END# *5784910F00BF_5629FC88034B_var*
+//#UC START# *5784BBF10299_5629FC88034B_impl*
+ Result := AddUserID(0, aUserName, aLoginName, aPassword, ActFlag);
+//#UC END# *5784BBF10299_5629FC88034B_impl*
+//#UC START# *5784BBF10299_5629FC88034B_var*
+//#UC END# *5784BBF10299_5629FC88034B_var*
+//#UC START# *5784BC420208_5629FC88034B_impl*
+ if IsUserExists(anID) then
+  raise EpgError.Create('Идентификатор уже используется');
+ Result := anID;
+
+ if f_Connection.BeginTransaction([da_mtUsers, da_mtFree, da_mtPassword]) then
+ begin
+  try
+   // В таблице FREE хранятся ID пользователей БЕЗ кода региона,
+   // если добавляем пользователя с существующим ID - таблизу FREE нужно подкорректировать...
+   if (Result <> 0) then
+   begin
+    l_Region := GetUserRegion(Result);
+    if l_Region = GlobalDataProvider.RegionID then // исключаем из FREE только "своих" пользователей
+     f_FreeIDHelperHolder.ExcludeFree(da_mtUsers, GetLocalUserID(Result));
+   end;
+   if Result >= usAdminReservedHard then
+    raise EpgError.Create('Операция невозможна');
+
+   if Result = 0 then
+   begin
+    Result := f_FreeIDHelperHolder.GetFree(da_mtUsers);
+    if GlobalDataProvider.RegionID = cBadRegion then
+     raise EpgError.Create('Не задан код региона!');
+     // приклеиваем номер региона в старший байт
+    Result := CalcGlobalUserID(Result, GlobalDataProvider.RegionID);
+   end;
+
+   Assert(not IsWrongUser(Result));
+
+   l_Modifier := TpgTableModifier.Create(da_mtUsers, f_Connection, f_Factory.DataConverter);
+   try
+    l_Modifier.Params['id'].AsLargeInt := Result;
+    l_Modifier.Params['user_name'].AsString := aUserName;
+    l_Modifier.Params['name_length'].AsInteger := Length(aUserName);
+    l_Modifier.Params['active'].AsByte := ActFlag;
+    l_Modifier.Insert;
+   finally
+    FreeAndNil(l_Modifier);
+   end;
+   if aLoginName <> '' then
+   begin
+    l_Modifier := TpgTableModifier.Create(da_mtPassword, f_Connection, f_Factory.DataConverter);
+    try
+     l_Modifier.Params['ShortName'].AsString := AnsiUpperCase(aLoginName);
+     l_Modifier.Params['Password'].AsString := AnsiUpperCase(aPassword);
+     l_Modifier.Params['User_ID'].AsLargeInt := Result;
+     l_Modifier.Insert;
+    finally
+     FreeAndNil(l_Modifier);
+    end;
+   end;
+
+   f_Journal.LogEditDict(TdaScheme.Instance.Table(da_mtUsers).FamilyID, da_dlNone, da_eoAdd);
+
+   f_Connection.CommitTransaction;
+  except
+   f_Connection.RollBackTransaction;
+   raise;
+  end;
+ end
+ else
+  raise EpgError.Create('Таблицы захвачены, попробуйте позже');
+
+ l_UserName := ConcatRegionAndUserNames(Result, aUserName);
+ if f_AllUsers <> nil then
+ begin
+  f_AllUsers.NeedAllocStr := True;
+  f_AllUsers.Add(@l_UserName[1], @Result);
+  SortUsersInList(f_AllUsers);
+ end;
+//#UC END# *5784BC420208_5629FC88034B_impl*
+//#UC START# *5784BC420208_5629FC88034B_var*
+var
+ l_UserName: String;
+ l_Region: TdaRegionID;
+ l_Modifier: TpgTableModifier;
+//#UC END# *5784BC420208_5629FC88034B_var*
+//#UC START# *5784BD1501E8_5629FC88034B_impl*
+ if f_Connection.BeginTransaction([da_mtUsers, da_mtPassword]) then
+  Try
+   l_Function := f_FunctionFactory.MakeFunction('update_user');
+   try
+     l_Function.Param['p_user_id'].AsLargeInt := aUser;
+     l_Function.Param['p_user_name'].AsString := aUserName;
+     l_Function.Param['p_user_login'].AsString := AnsiUpperCase(aLoginName);
+     l_Function.Param['p_flags'].AsInteger := ActFlag;
+     l_Function.Param['p_change_login'].AsInteger := cMap[EditMask.LoginName];
+     l_Function.Param['p_change_name'].AsInteger := cMap[EditMask.Name];
+     l_Function.Param['p_change_flags'].AsInteger := cMap[EditMask.ActivFlag];
+     l_Function.Execute;
+   finally
+     l_Function := nil;
+   end;
+
+   f_Journal.LogEditDict(TdaScheme.Instance.Table(da_mtUsers).FamilyID, da_dlNone, da_eoEdit);
+
+   f_Connection.CommitTransaction;
+  except
+   f_Connection.RollBackTransaction;
+   raise;
+  end
+ else
+  raise EpgError.Create('Таблицы захвачены, попробуйте позже');
+
+ if EditMask.Name then
+ begin
+  l_UserName := ConcatRegionAndUserNames(aUser, aUserName);
+  if f_AllUsers <> nil then
+  begin
+   TmpIndex := f_AllUsers.IndexOfData(aUser, SizeOf(TdaUserID), 0);
+   f_AllUsers.NeedAllocStr := True;
+   f_AllUsers.Strings[TmpIndex] := @l_UserName[1];
+   SortUsersInList(f_AllUsers);
+  end;
+(*
+  if fIndUList<>nil then
+  begin
+   fIndUList.NeedAllocStr:=True;
+   TmpSize:=StrLen(PAnsichar(@aUserName[1]));
+   fIndUList.Strings[aUser]:=@aUserName[1];
+   fIndUList.Data[aUser]:=@TmpSize;
+  end;
+*)
+ end;
+//#UC END# *5784BD1501E8_5629FC88034B_impl*
+//#UC START# *5784BD1501E8_5629FC88034B_var*
+Var
+ TmpIndex : LongInt;
+// TmpSize  : Word;
+ l_UserName: AnsiString;
+ l_Function: IdaFunction;
+const
+ cMap: array[Boolean] of Integer = (0, 1);
+//#UC END# *5784BD1501E8_5629FC88034B_var*
+//#UC START# *5784BE1E02F7_5629FC88034B_impl*
+ if f_Connection.BeginTransaction([da_mtUsers, da_mtFree, da_mtPassword, da_mtGroupMembers]) then
+  Try
+   RemoveUserFromAllGroups(aUser);
+
+   UserLoginQuery.Param['p_UserID'].AsLargeInt := aUser;
+   l_ResultSet := UserLoginQuery.OpenResultSet;
+   try
+    if not l_ResultSet.IsEmpty then
+    begin
+     l_Modifier := TpgTableModifier.Create(da_mtPassword, f_Connection, f_Factory.DataConverter);
+     try
+      l_Modifier.OldParams['ShortName'].AsString := l_ResultSet.Field['ShortName'].AsString;
+      l_Modifier.Delete;
+     finally
+      FreeAndNil(l_Modifier);
+     end;
+    end;
+   finally
+    l_ResultSet := nil;
+   end;
+
+   l_Modifier := TpgTableModifier.Create(da_mtUsers, f_Connection, f_Factory.DataConverter);
+   try
+    l_Modifier.OldParams['id'].AsLargeInt := aUser;
+    l_Modifier.Delete;
+   finally
+    FreeAndNil(l_Modifier);
+   end;
+   f_FreeIDHelperHolder.PutFree(da_mtUsers, aUser);
+
+   f_Journal.LogEditDict(TdaScheme.Instance.Table(da_mtUsers).FamilyID, da_dlNone, da_eoDelete);
+
+   f_Connection.CommitTransaction;
+  except
+   f_Connection.RollBackTransaction;
+   raise;
+  end
+ else
+  raise EpgError.Create('Таблицы захвачены, попробуйте позже');
+ if f_AllUsers <> nil then
+ begin
+  TmpIndex := f_AllUsers.IndexOfData(aUser, SizeOf(TdaUserID), 0);
+  f_AllUsers.Delete(TmpIndex);
+ end;
+//#UC END# *5784BE1E02F7_5629FC88034B_impl*
+//#UC START# *5784BE1E02F7_5629FC88034B_var*
+Var
+ TmpIndex : LongInt;
+ l_Modifier: TpgTableModifier;
+ l_ResultSet: IdaResultSet;
+//#UC END# *5784BE1E02F7_5629FC88034B_var*

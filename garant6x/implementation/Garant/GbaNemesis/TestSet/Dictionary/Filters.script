@@ -1,6 +1,8 @@
 USES
  axiom:Filters
  axiom:Tree
+ axiom:wait
+ axiom:waited
  
  F1ControlsDefinition.script
 ;
@@ -542,7 +544,7 @@ PROCEDURE "Сравнить с эталоном имя последнего фильтра на вкладке Фильтры"
 CONST Filter_for_test_K263292056 'K263292056'
 
 PROCEDURE "Открыть Лекарственные средства, разрешённые к применению. Создать пустой фильтр."
- "Создать фильтр с именем {(Filter_for_test_K263292056)} и с параметром {(@ NOP )} для {(@ моп::Инфарм_Список_выпускаемых_препаратов )}"
+ "Создать фильтр с именем {(Filter_for_test_K263292056)} и с параметром {(@ NOP )} для {(@ моп::ИнФарм_Госреестр_лекарственных_средств )}"
 ;
 
 CONST Filter_for_test_K274848126 'K274848126'
@@ -664,9 +666,12 @@ PROCEDURE "Убедиться, что вкладка фильтры не активна"
  false ANYUSERTYPE контрол::FiltersList форма::Filters TryFocusOnForm ! ?ASSURE 'Вкладка фильтры доступна!'
 ;
 
-// $Id: Filters.script,v 1.61 2016/05/05 09:48:43 a.trofimov Exp $
+// $Id: Filters.script,v 1.62 2016/06/27 21:06:44 lulin Exp $
 
 // $Log: Filters.script,v $
+// Revision 1.62  2016/06/27 21:06:44  lulin
+// - перегенерация.
+//
 // Revision 1.61  2016/05/05 09:48:43  a.trofimov
 // Разбор результатов автопрогона - новые настройки
 //

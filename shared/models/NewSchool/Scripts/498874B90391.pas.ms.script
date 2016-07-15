@@ -23,7 +23,7 @@ ref; // ME_4AEF0005022D aDocument
  %SUMMARY 'Установить текущую' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4A8EE05B0073 // Editions
+ : Parent HWL ME_4A8EE05B0073 // Editions
  ;
  : Parameters
    Seq: ( ME_4AEF0005022D // aDocument
@@ -49,10 +49,10 @@ ref; // ME_4A8EE08403B3 SetCurrent
  %SUMMARY 'Редакции' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_498874B90391 // Strange
+ : Parent HWL ME_498874B90391 // Strange
  ;
  : Operations
-   Seq: ( ME_4A8EE08403B3 // SetCurrent
+   Seq: ( HWL ME_4A8EE08403B3 // SetCurrent
  )
  ; // Operations
 
@@ -80,7 +80,7 @@ ref; // ME_4AE738EE00CC aStayInCurrentRedaction
  : Stereotype st_InternalOperation::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4A8EF32D0162 // System
+ : Parent HWL ME_4A8EF32D0162 // System
  ;
  : Parameters
    Seq: ( ME_4AE738EE00CC // aStayInCurrentRedaction
@@ -105,10 +105,10 @@ ref; // ME_4A8EF367029E TimeMachineStateChange
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_498874B90391 // Strange
+ : Parent HWL ME_498874B90391 // Strange
  ;
  : Operations
-   Seq: ( ME_4A8EF367029E // TimeMachineStateChange
+   Seq: ( HWL ME_4A8EF367029E // TimeMachineStateChange
  )
  ; // Operations
 
@@ -127,7 +127,7 @@ FORWARD ME_4C7B96FA02DA
  %SUMMARY 'Изменить ссылку...' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4C7B96FA02DA // InsertHyperlink
+ : Parent HWL ME_4C7B96FA02DA // InsertHyperlink
  ;
  CONST "Checked" 'undefined'
  CONST "Enabled" 'undefined'
@@ -144,10 +144,10 @@ ref; // ME_4C7B97340059 ModifyLink
  %SUMMARY 'Поставить ссылку...' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4A9D3FA700E7 // Selection$ForText
+ : Parent HWL ME_4A9D3FA700E7 // Selection$ForText
  ;
  : Children
-   Seq: ( ME_4C7B97340059 // ModifyLink
+   Seq: ( HWL ME_4C7B97340059 // ModifyLink
  )
  ; // Children
  CONST "AutoFocus" false
@@ -169,7 +169,7 @@ ref; // ME_4C7B96FA02DA InsertHyperlink
  %SUMMARY 'Найти в Толковом словаре' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4A9D3FA700E7 // Selection$ForText
+ : Parent HWL ME_4A9D3FA700E7 // Selection$ForText
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -192,11 +192,11 @@ ref; // ME_4A9D3FC50134 FindInDict
  %SUMMARY 'Выделенные элементы' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_498874B90391 // Strange
+ : Parent HWL ME_498874B90391 // Strange
  ;
  : Operations
-   Seq: ( ME_4C7B96FA02DA // InsertHyperlink
- ME_4A9D3FC50134 // FindInDict
+   Seq: ( HWL ME_4C7B96FA02DA // InsertHyperlink
+ HWL ME_4A9D3FC50134 // FindInDict
  )
  ; // Operations
 
@@ -220,7 +220,7 @@ ref; // ME_4A9D4A2300EF aSub
  : Stereotype st_InternalOperation::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4A9D49F70177 // Contents
+ : Parent HWL ME_4A9D49F70177 // Contents
  ;
  : Parameters
    Seq: ( ME_4A9D4A2300EF // aSub
@@ -262,7 +262,7 @@ ref; // ME_4A9D4A65036F aDown
  : Stereotype st_InternalOperation::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4A9D49F70177 // Contents
+ : Parent HWL ME_4A9D49F70177 // Contents
  ;
  : Parameters
    Seq: ( ME_4A9D4A65034A // aSub
@@ -288,7 +288,7 @@ ref; // ME_4A9D4A560164 MoveCurrent
  %SUMMARY 'Есть ли в оглавление пользовательские комментарии' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4A9D49F70177 // Contents
+ : Parent HWL ME_4A9D49F70177 // Contents
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -311,7 +311,7 @@ ref; // ME_4DF1FCA6008C HasUserComments
  %SUMMARY 'Есть ли в оглавлении закладки' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4A9D49F70177 // Contents
+ : Parent HWL ME_4A9D49F70177 // Contents
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -334,7 +334,7 @@ ref; // ME_4DF1FCC602EE HasBookmarks
  %SUMMARY 'Переключает видимость ПЛАВАЮЩЕГО окна оглавления, возвращает true если переключение удалось' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4A9D49F70177 // Contents
+ : Parent HWL ME_4A9D49F70177 // Contents
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -357,7 +357,7 @@ ref; // ME_4E79E67402E7 ToggleContentsVisibility
  %SUMMARY 'Возвращает состояние видимости ПЛАВАЮЩЕГО окна оглавления' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4A9D49F70177 // Contents
+ : Parent HWL ME_4A9D49F70177 // Contents
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -381,19 +381,19 @@ ref; // ME_4E79E6C4018D IsContentsVisible
  %SUMMARY 'Структура документа' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_498874B90391 // Strange
+ : Parent HWL ME_498874B90391 // Strange
  ;
  : Implements
    Seq: ( WL 'ME_4E79E11603D8' '484900780017.pas.ms.script' // Работа с оглавлением документа
  )
  ; // Implements
  : Operations
-   Seq: ( ME_4A9D4A180253 // SetCurrent
- ME_4A9D4A560164 // MoveCurrent
- ME_4DF1FCA6008C // HasUserComments
- ME_4DF1FCC602EE // HasBookmarks
- ME_4E79E67402E7 // ToggleContentsVisibility
- ME_4E79E6C4018D // IsContentsVisible
+   Seq: ( HWL ME_4A9D4A180253 // SetCurrent
+ HWL ME_4A9D4A560164 // MoveCurrent
+ HWL ME_4DF1FCA6008C // HasUserComments
+ HWL ME_4DF1FCC602EE // HasBookmarks
+ HWL ME_4E79E67402E7 // ToggleContentsVisibility
+ HWL ME_4E79E6C4018D // IsContentsVisible
  )
  ; // Operations
 
@@ -417,7 +417,7 @@ ref; // ME_4AE9DF1F0340 aSubID
  : Stereotype st_InternalOperation::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4AE9DEFF0292 // Warning
+ : Parent HWL ME_4AE9DEFF0292 // Warning
  ;
  : Parameters
    Seq: ( ME_4AE9DF1F0340 // aSubID
@@ -450,7 +450,7 @@ ref; // ME_4AE9DF3E02DE aSubID
  : Stereotype st_InternalOperation::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4AE9DEFF0292 // Warning
+ : Parent HWL ME_4AE9DEFF0292 // Warning
  ;
  : Parameters
    Seq: ( ME_4AE9DF3E02DE // aSubID
@@ -475,11 +475,11 @@ ref; // ME_4AE9DF3602B2 SwitchActive
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_498874B90391 // Strange
+ : Parent HWL ME_498874B90391 // Strange
  ;
  : Operations
-   Seq: ( ME_4AE9DF12018A // BecomeActive
- ME_4AE9DF3602B2 // SwitchActive
+   Seq: ( HWL ME_4AE9DF12018A // BecomeActive
+ HWL ME_4AE9DF3602B2 // SwitchActive
  )
  ; // Operations
 
@@ -503,7 +503,7 @@ ref; // ME_4AF32F3E0124 aData
  : Stereotype st_InternalOperation::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4AF32F290177 // Picture
+ : Parent HWL ME_4AF32F290177 // Picture
  ;
  : Parameters
    Seq: ( ME_4AF32F3E0124 // aData
@@ -529,10 +529,10 @@ ref; // ME_4AF32F3102BE InitNewContent
  %SUMMARY 'Картинка' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_498874B90391 // Strange
+ : Parent HWL ME_498874B90391 // Strange
  ;
  : Operations
-   Seq: ( ME_4AF32F3102BE // InitNewContent
+   Seq: ( HWL ME_4AF32F3102BE // InitNewContent
  )
  ; // Operations
 
@@ -551,7 +551,7 @@ FORWARD ME_4C7D362C01B2
  %SUMMARY 'Ссылки на фрагмент:' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4C7D362C01B2 // GetTypedCorrespondentList
+ : Parent HWL ME_4C7D362C01B2 // GetTypedCorrespondentList
  ;
  CONST "Checked" 'undefined'
  CONST "Enabled" 'undefined'
@@ -568,10 +568,10 @@ ref; // ME_4C7D3643036D InText
  %SUMMARY 'Ссылки на фрагмент (вид информации)' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C2AED9B00FF // DocumentBlock
+ : Parent HWL ME_4C2AED9B00FF // DocumentBlock
  ;
  : Children
-   Seq: ( ME_4C7D3643036D // InText
+   Seq: ( HWL ME_4C7D3643036D // InText
  )
  ; // Children
  CONST "AutoFocus" false
@@ -594,7 +594,7 @@ ref; // ME_4C7D362C01B2 GetTypedCorrespondentList
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C2AED9B00FF // DocumentBlock
+ : Parent HWL ME_4C2AED9B00FF // DocumentBlock
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -616,7 +616,7 @@ ref; // ME_4C879306001C PrintPreview
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C2AED9B00FF // DocumentBlock
+ : Parent HWL ME_4C2AED9B00FF // DocumentBlock
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -638,7 +638,7 @@ ref; // ME_4C87931D00FC Select
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C2AED9B00FF // DocumentBlock
+ : Parent HWL ME_4C2AED9B00FF // DocumentBlock
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -658,7 +658,7 @@ ref; // ME_5587AA310201 GetSimilarDocsToBlock
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C2AED9B00FF // DocumentBlock
+ : Parent HWL ME_4C2AED9B00FF // DocumentBlock
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -678,7 +678,7 @@ ref; // ME_4C2AEDB3003B GetCorrespondentList
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C2AED9B00FF // DocumentBlock
+ : Parent HWL ME_4C2AED9B00FF // DocumentBlock
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -698,7 +698,7 @@ ref; // ME_4C2AEDC503CC GetRespondentList
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C2AED9B00FF // DocumentBlock
+ : Parent HWL ME_4C2AED9B00FF // DocumentBlock
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -718,7 +718,7 @@ ref; // ME_4C2AEDDA0335 GetTypedCorrespondentList
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C2AED9B00FF // DocumentBlock
+ : Parent HWL ME_4C2AED9B00FF // DocumentBlock
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -738,7 +738,7 @@ ref; // ME_4C2AEDE7028C GetTypedRespondentList
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C2AED9B00FF // DocumentBlock
+ : Parent HWL ME_4C2AED9B00FF // DocumentBlock
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -758,7 +758,7 @@ ref; // ME_4C3B1AFB0270 ToMSWord
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C2AED9B00FF // DocumentBlock
+ : Parent HWL ME_4C2AED9B00FF // DocumentBlock
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -778,7 +778,7 @@ ref; // ME_4C3B1B0F0237 PrintDialog
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C2AED9B00FF // DocumentBlock
+ : Parent HWL ME_4C2AED9B00FF // DocumentBlock
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -798,7 +798,7 @@ ref; // ME_4C3B1B1D003C Copy
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C2AED9B00FF // DocumentBlock
+ : Parent HWL ME_4C2AED9B00FF // DocumentBlock
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -821,21 +821,21 @@ ref; // ME_4C3B241401AA Print
  %SUMMARY 'Пункт оглавления' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_498874B90391 // Strange
+ : Parent HWL ME_498874B90391 // Strange
  ;
  : Operations
-   Seq: ( ME_4C7D362C01B2 // GetTypedCorrespondentList
- ME_4C879306001C // PrintPreview
- ME_4C87931D00FC // Select
- ME_5587AA310201 // GetSimilarDocsToBlock
- ME_4C2AEDB3003B // GetCorrespondentList
- ME_4C2AEDC503CC // GetRespondentList
- ME_4C2AEDDA0335 // GetTypedCorrespondentList
- ME_4C2AEDE7028C // GetTypedRespondentList
- ME_4C3B1AFB0270 // ToMSWord
- ME_4C3B1B0F0237 // PrintDialog
- ME_4C3B1B1D003C // Copy
- ME_4C3B241401AA // Print
+   Seq: ( HWL ME_4C7D362C01B2 // GetTypedCorrespondentList
+ HWL ME_4C879306001C // PrintPreview
+ HWL ME_4C87931D00FC // Select
+ HWL ME_5587AA310201 // GetSimilarDocsToBlock
+ HWL ME_4C2AEDB3003B // GetCorrespondentList
+ HWL ME_4C2AEDC503CC // GetRespondentList
+ HWL ME_4C2AEDDA0335 // GetTypedCorrespondentList
+ HWL ME_4C2AEDE7028C // GetTypedRespondentList
+ HWL ME_4C3B1AFB0270 // ToMSWord
+ HWL ME_4C3B1B0F0237 // PrintDialog
+ HWL ME_4C3B1B1D003C // Copy
+ HWL ME_4C3B241401AA // Print
  )
  ; // Operations
 
@@ -853,7 +853,7 @@ FORWARD ME_4C7D36900317
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4C7D36900317 // UserCR1
+ : Parent HWL ME_4C7D36900317 // UserCR1
  ;
  CONST "Checked" 'undefined'
  CONST "Enabled" 'undefined'
@@ -871,10 +871,10 @@ ref; // ME_4C7D36A601BA Corr
  %SUMMARY 'Пользовательские ссылки на документ (ссылки из документа) 1' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C3ADF740291 // DocumentBlockHeader
+ : Parent HWL ME_4C3ADF740291 // DocumentBlockHeader
  ;
  : Children
-   Seq: ( ME_4C7D36A601BA // Corr
+   Seq: ( HWL ME_4C7D36A601BA // Corr
  )
  ; // Children
  CONST "AutoFocus" false
@@ -899,7 +899,7 @@ FORWARD ME_4C7D36C40097
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4C7D36C40097 // UserCR2
+ : Parent HWL ME_4C7D36C40097 // UserCR2
  ;
  CONST "Checked" 'undefined'
  CONST "Enabled" 'undefined'
@@ -917,10 +917,10 @@ ref; // ME_4C7D36D80003 Corr
  %SUMMARY 'Пользовательские ссылки на документ (ссылки из документа) 2' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C3ADF740291 // DocumentBlockHeader
+ : Parent HWL ME_4C3ADF740291 // DocumentBlockHeader
  ;
  : Children
-   Seq: ( ME_4C7D36D80003 // Corr
+   Seq: ( HWL ME_4C7D36D80003 // Corr
  )
  ; // Children
  CONST "AutoFocus" false
@@ -941,7 +941,7 @@ ref; // ME_4C7D36C40097 UserCR2
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C3ADF740291 // DocumentBlockHeader
+ : Parent HWL ME_4C3ADF740291 // DocumentBlockHeader
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -961,7 +961,7 @@ ref; // ME_4C3ADF860163 UserCR1
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C3ADF740291 // DocumentBlockHeader
+ : Parent HWL ME_4C3ADF740291 // DocumentBlockHeader
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -981,7 +981,7 @@ ref; // ME_4C3ADF950028 UserCR2
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C3ADF740291 // DocumentBlockHeader
+ : Parent HWL ME_4C3ADF740291 // DocumentBlockHeader
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -1001,7 +1001,7 @@ ref; // ME_4C3ADFA5018F GetTypedCorrespondentList
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C3ADF740291 // DocumentBlockHeader
+ : Parent HWL ME_4C3ADF740291 // DocumentBlockHeader
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -1021,7 +1021,7 @@ ref; // ME_4C3B17DC02C4 AddBookmark
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C3ADF740291 // DocumentBlockHeader
+ : Parent HWL ME_4C3ADF740291 // DocumentBlockHeader
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -1041,7 +1041,7 @@ ref; // ME_4C3B17ED0192 ToMSWord
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C3ADF740291 // DocumentBlockHeader
+ : Parent HWL ME_4C3ADF740291 // DocumentBlockHeader
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -1061,7 +1061,7 @@ ref; // ME_4C3B17FF03D2 Print
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C3ADF740291 // DocumentBlockHeader
+ : Parent HWL ME_4C3ADF740291 // DocumentBlockHeader
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -1084,18 +1084,18 @@ ref; // ME_4C3B180E038F PrintDialog
  %SUMMARY 'Пункт оглавления - Заголовок документ' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_498874B90391 // Strange
+ : Parent HWL ME_498874B90391 // Strange
  ;
  : Operations
-   Seq: ( ME_4C7D36900317 // UserCR1
- ME_4C7D36C40097 // UserCR2
- ME_4C3ADF860163 // UserCR1
- ME_4C3ADF950028 // UserCR2
- ME_4C3ADFA5018F // GetTypedCorrespondentList
- ME_4C3B17DC02C4 // AddBookmark
- ME_4C3B17ED0192 // ToMSWord
- ME_4C3B17FF03D2 // Print
- ME_4C3B180E038F // PrintDialog
+   Seq: ( HWL ME_4C7D36900317 // UserCR1
+ HWL ME_4C7D36C40097 // UserCR2
+ HWL ME_4C3ADF860163 // UserCR1
+ HWL ME_4C3ADF950028 // UserCR2
+ HWL ME_4C3ADFA5018F // GetTypedCorrespondentList
+ HWL ME_4C3B17DC02C4 // AddBookmark
+ HWL ME_4C3B17ED0192 // ToMSWord
+ HWL ME_4C3B17FF03D2 // Print
+ HWL ME_4C3B180E038F // PrintDialog
  )
  ; // Operations
 
@@ -1110,7 +1110,7 @@ FORWARD ME_4C3AFB9A030C
  %SUMMARY 'Способ сброса статуса "изменен"' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C3AFB9A030C // WarnOnControl
+ : Parent HWL ME_4C3AFB9A030C // WarnOnControl
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -1132,7 +1132,7 @@ ref; // ME_4C3AFBA702E4 ClearStatusSettings
  %SUMMARY 'Показать изменения' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C3AFB9A030C // WarnOnControl
+ : Parent HWL ME_4C3AFB9A030C // WarnOnControl
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -1154,7 +1154,7 @@ ref; // ME_4C3B5337022E ShowChanges
  %SUMMARY 'Сбросить статус "изменен"' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C3AFB9A030C // WarnOnControl
+ : Parent HWL ME_4C3AFB9A030C // WarnOnControl
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -1178,12 +1178,12 @@ ref; // ME_4C3B535F0064 ClearStatus
  %SUMMARY 'Предупреждение (на контроле)' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_498874B90391 // Strange
+ : Parent HWL ME_498874B90391 // Strange
  ;
  : Operations
-   Seq: ( ME_4C3AFBA702E4 // ClearStatusSettings
- ME_4C3B5337022E // ShowChanges
- ME_4C3B535F0064 // ClearStatus
+   Seq: ( HWL ME_4C3AFBA702E4 // ClearStatusSettings
+ HWL ME_4C3B5337022E // ShowChanges
+ HWL ME_4C3B535F0064 // ClearStatus
  )
  ; // Operations
 
@@ -1202,7 +1202,7 @@ FORWARD ME_4C7BD60003B6
  %SUMMARY 'Включить Машину времени' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4C7BD60003B6 // TimeMachineOnOff
+ : Parent HWL ME_4C7BD60003B6 // TimeMachineOnOff
  ;
  CONST "Checked" 'undefined'
  CONST "Enabled" 'undefined'
@@ -1220,7 +1220,7 @@ ref; // ME_4C7BD61C00F2 On
  %SUMMARY 'Выключить Машину времени' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4C7BD60003B6 // TimeMachineOnOff
+ : Parent HWL ME_4C7BD60003B6 // TimeMachineOnOff
  ;
  CONST "Checked" 'undefined'
  CONST "Enabled" 'undefined'
@@ -1237,11 +1237,11 @@ ref; // ME_4C7BD62D02A5 Off
  %SUMMARY 'Включить Машину времени с календарной даты\Выключить Машину времени' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C3AFC0702BB // TasksPanel
+ : Parent HWL ME_4C3AFC0702BB // TasksPanel
  ;
  : Children
-   Seq: ( ME_4C7BD61C00F2 // On
- ME_4C7BD62D02A5 // Off
+   Seq: ( HWL ME_4C7BD61C00F2 // On
+ HWL ME_4C7BD62D02A5 // Off
  )
  ; // Children
  CONST "AutoFocus" false
@@ -1262,7 +1262,7 @@ ref; // ME_4C7BD60003B6 TimeMachineOnOff
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C3AFC0702BB // TasksPanel
+ : Parent HWL ME_4C3AFC0702BB // TasksPanel
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -1284,11 +1284,11 @@ ref; // ME_4C3AFC1302FF TimeMachineOnOff
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_498874B90391 // Strange
+ : Parent HWL ME_498874B90391 // Strange
  ;
  : Operations
-   Seq: ( ME_4C7BD60003B6 // TimeMachineOnOff
- ME_4C3AFC1302FF // TimeMachineOnOff
+   Seq: ( HWL ME_4C7BD60003B6 // TimeMachineOnOff
+ HWL ME_4C3AFC1302FF // TimeMachineOnOff
  )
  ; // Operations
 
@@ -1307,7 +1307,7 @@ FORWARD ME_4C7BA9CB0179
  %SUMMARY 'Структура препарата' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4C7BA9CB0179 // OpenContentsFrmAct
+ : Parent HWL ME_4C7BA9CB0179 // OpenContentsFrmAct
  ;
  CONST "Checked" 'undefined'
  CONST "Enabled" 'undefined'
@@ -1324,14 +1324,14 @@ ref; // ME_4C7BA9E701CA Drug
  %SUMMARY 'Структура документа' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C3B374802FA // Document
+ : Parent HWL ME_4C3B374802FA // Document
  ;
  : Implements
    Seq: ( WL 'ME_4E7A0C5700E2' '484900780017.pas.ms.script' // Должна быть кнопка на тулбаре, переключающая видимость окна оглавления
  )
  ; // Implements
  : Children
-   Seq: ( ME_4C7BA9E701CA // Drug
+   Seq: ( HWL ME_4C7BA9E701CA // Drug
  )
  ; // Children
  CONST "AutoFocus" false
@@ -1352,7 +1352,7 @@ ref; // ME_4C7BA9CB0179 OpenContentsFrmAct
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C3B374802FA // Document
+ : Parent HWL ME_4C3B374802FA // Document
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -1372,7 +1372,7 @@ ref; // ME_4C3B3754034D OpenContentsFrmAct
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C3B374802FA // Document
+ : Parent HWL ME_4C3B374802FA // Document
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -1392,7 +1392,7 @@ ref; // ME_4C3B3792000E ShowDocumentPicture
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C3B374802FA // Document
+ : Parent HWL ME_4C3B374802FA // Document
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -1412,7 +1412,7 @@ ref; // ME_4C3EA65F0233 DocumentSynchroOpenWindow
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C3B374802FA // Document
+ : Parent HWL ME_4C3B374802FA // Document
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -1432,7 +1432,7 @@ ref; // ME_4C3EA671007A DocumentSynchroOpenNewWindow
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C3B374802FA // Document
+ : Parent HWL ME_4C3B374802FA // Document
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -1452,7 +1452,7 @@ ref; // ME_4C3EA90300E1 DictListOpenFrmAct
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C3B374802FA // Document
+ : Parent HWL ME_4C3B374802FA // Document
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -1472,7 +1472,7 @@ ref; // ME_4C3EBF860139 GotoBookmark
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C3B374802FA // Document
+ : Parent HWL ME_4C3B374802FA // Document
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -1492,7 +1492,7 @@ ref; // ME_4C3ED13D03A5 LiteratureListForDictionary
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C3B374802FA // Document
+ : Parent HWL ME_4C3B374802FA // Document
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -1512,7 +1512,7 @@ ref; // ME_4C3EDBA7030C OpenProducedDrugList
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C3B374802FA // Document
+ : Parent HWL ME_4C3B374802FA // Document
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -1534,19 +1534,19 @@ ref; // ME_4C3EDBB80283 OpenSimilarDrugList
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_498874B90391 // Strange
+ : Parent HWL ME_498874B90391 // Strange
  ;
  : Operations
-   Seq: ( ME_4C7BA9CB0179 // OpenContentsFrmAct
- ME_4C3B3754034D // OpenContentsFrmAct
- ME_4C3B3792000E // ShowDocumentPicture
- ME_4C3EA65F0233 // DocumentSynchroOpenWindow
- ME_4C3EA671007A // DocumentSynchroOpenNewWindow
- ME_4C3EA90300E1 // DictListOpenFrmAct
- ME_4C3EBF860139 // GotoBookmark
- ME_4C3ED13D03A5 // LiteratureListForDictionary
- ME_4C3EDBA7030C // OpenProducedDrugList
- ME_4C3EDBB80283 // OpenSimilarDrugList
+   Seq: ( HWL ME_4C7BA9CB0179 // OpenContentsFrmAct
+ HWL ME_4C3B3754034D // OpenContentsFrmAct
+ HWL ME_4C3B3792000E // ShowDocumentPicture
+ HWL ME_4C3EA65F0233 // DocumentSynchroOpenWindow
+ HWL ME_4C3EA671007A // DocumentSynchroOpenNewWindow
+ HWL ME_4C3EA90300E1 // DictListOpenFrmAct
+ HWL ME_4C3EBF860139 // GotoBookmark
+ HWL ME_4C3ED13D03A5 // LiteratureListForDictionary
+ HWL ME_4C3EDBA7030C // OpenProducedDrugList
+ HWL ME_4C3EDBB80283 // OpenSimilarDrugList
  )
  ; // Operations
 
@@ -1560,7 +1560,7 @@ FORWARD ME_4C3B49CD0154
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C3B49CD0154 // ExternalObject
+ : Parent HWL ME_4C3B49CD0154 // ExternalObject
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -1580,7 +1580,7 @@ ref; // ME_4C3B49DB03BC Open
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C3B49CD0154 // ExternalObject
+ : Parent HWL ME_4C3B49CD0154 // ExternalObject
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -1602,11 +1602,11 @@ ref; // ME_4C3B49EA00C4 Save
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_498874B90391 // Strange
+ : Parent HWL ME_498874B90391 // Strange
  ;
  : Operations
-   Seq: ( ME_4C3B49DB03BC // Open
- ME_4C3B49EA00C4 // Save
+   Seq: ( HWL ME_4C3B49DB03BC // Open
+ HWL ME_4C3B49EA00C4 // Save
  )
  ; // Operations
 
@@ -1625,7 +1625,7 @@ FORWARD ME_4C7D354603D3
  %SUMMARY 'Скрыть текст предупреждения' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4C7D354603D3 // ShowInfo
+ : Parent HWL ME_4C7D354603D3 // ShowInfo
  ;
  CONST "Checked" 'undefined'
  CONST "Enabled" 'undefined'
@@ -1642,10 +1642,10 @@ ref; // ME_4C7D357A0246 Hide
  %SUMMARY 'Показать текст предупреждения' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C3B4A550032 // WarnRedaction
+ : Parent HWL ME_4C3B4A550032 // WarnRedaction
  ;
  : Children
-   Seq: ( ME_4C7D357A0246 // Hide
+   Seq: ( HWL ME_4C7D357A0246 // Hide
  )
  ; // Children
  CONST "AutoFocus" false
@@ -1666,7 +1666,7 @@ ref; // ME_4C7D354603D3 ShowInfo
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C3B4A550032 // WarnRedaction
+ : Parent HWL ME_4C3B4A550032 // WarnRedaction
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -1690,11 +1690,11 @@ ref; // ME_4C3B4A7D029B OpenActualRedaction
  %SUMMARY 'Предупреждение о неактуальной редакции' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_498874B90391 // Strange
+ : Parent HWL ME_498874B90391 // Strange
  ;
  : Operations
-   Seq: ( ME_4C7D354603D3 // ShowInfo
- ME_4C3B4A7D029B // OpenActualRedaction
+   Seq: ( HWL ME_4C7D354603D3 // ShowInfo
+ HWL ME_4C3B4A7D029B // OpenActualRedaction
  )
  ; // Operations
 
@@ -1713,7 +1713,7 @@ FORWARD ME_4C7D34A903C5
  %SUMMARY 'Скрыть текст предупреждения' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4C7D34A903C5 // ShowInfo
+ : Parent HWL ME_4C7D34A903C5 // ShowInfo
  ;
  CONST "Checked" 'undefined'
  CONST "Enabled" 'undefined'
@@ -1730,10 +1730,10 @@ ref; // ME_4C7D34BD0115 Hide
  %SUMMARY 'Показать текст предупреждения' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C3B4FFE012A // WarnTimeMachine
+ : Parent HWL ME_4C3B4FFE012A // WarnTimeMachine
  ;
  : Children
-   Seq: ( ME_4C7D34BD0115 // Hide
+   Seq: ( HWL ME_4C7D34BD0115 // Hide
  )
  ; // Children
  CONST "AutoFocus" false
@@ -1759,7 +1759,7 @@ FORWARD ME_4C7D34DE02D2
  %SUMMARY 'Включить Машину времени' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4C7D34DE02D2 // TimeMachineOnOffNew
+ : Parent HWL ME_4C7D34DE02D2 // TimeMachineOnOffNew
  ;
  CONST "Checked" 'undefined'
  CONST "Enabled" 'undefined'
@@ -1777,7 +1777,7 @@ ref; // ME_4C7D34FB01B0 MachineOn
  %SUMMARY 'Выключить Машину времени/Изменить дату' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4C7D34DE02D2 // TimeMachineOnOffNew
+ : Parent HWL ME_4C7D34DE02D2 // TimeMachineOnOffNew
  ;
  CONST "Checked" 'undefined'
  CONST "Enabled" 'undefined'
@@ -1794,11 +1794,11 @@ ref; // ME_4C7D3511032C MachineOff
  %SUMMARY 'Включить/Выключить Машину времени' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C3B4FFE012A // WarnTimeMachine
+ : Parent HWL ME_4C3B4FFE012A // WarnTimeMachine
  ;
  : Children
-   Seq: ( ME_4C7D34FB01B0 // MachineOn
- ME_4C7D3511032C // MachineOff
+   Seq: ( HWL ME_4C7D34FB01B0 // MachineOn
+ HWL ME_4C7D3511032C // MachineOff
  )
  ; // Children
  CONST "AutoFocus" false
@@ -1819,7 +1819,7 @@ ref; // ME_4C7D34DE02D2 TimeMachineOnOffNew
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C3B4FFE012A // WarnTimeMachine
+ : Parent HWL ME_4C3B4FFE012A // WarnTimeMachine
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -1839,7 +1839,7 @@ ref; // ME_4C3B500B0126 ShowInfo
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C3B4FFE012A // WarnTimeMachine
+ : Parent HWL ME_4C3B4FFE012A // WarnTimeMachine
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -1862,13 +1862,13 @@ ref; // ME_4C3B504A0202 TimeMachineOnOffNew
  %SUMMARY 'Предупреждение для Машины времени' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_498874B90391 // Strange
+ : Parent HWL ME_498874B90391 // Strange
  ;
  : Operations
-   Seq: ( ME_4C7D34A903C5 // ShowInfo
- ME_4C7D34DE02D2 // TimeMachineOnOffNew
- ME_4C3B500B0126 // ShowInfo
- ME_4C3B504A0202 // TimeMachineOnOffNew
+   Seq: ( HWL ME_4C7D34A903C5 // ShowInfo
+ HWL ME_4C7D34DE02D2 // TimeMachineOnOffNew
+ HWL ME_4C3B500B0126 // ShowInfo
+ HWL ME_4C3B504A0202 // TimeMachineOnOffNew
  )
  ; // Operations
 
@@ -1887,7 +1887,7 @@ FORWARD ME_4C7D345C006D
  %SUMMARY 'Скрыть текст предупреждения' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4C7D345C006D // ShowInfo
+ : Parent HWL ME_4C7D345C006D // ShowInfo
  ;
  CONST "Checked" 'undefined'
  CONST "Enabled" 'undefined'
@@ -1904,10 +1904,10 @@ ref; // ME_4C7D347003BA Hide
  %SUMMARY 'Показать текст предупреждения' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C3B52CA01F1 // WarnJuror
+ : Parent HWL ME_4C3B52CA01F1 // WarnJuror
  ;
  : Children
-   Seq: ( ME_4C7D347003BA // Hide
+   Seq: ( HWL ME_4C7D347003BA // Hide
  )
  ; // Children
  CONST "AutoFocus" false
@@ -1928,7 +1928,7 @@ ref; // ME_4C7D345C006D ShowInfo
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C3B52CA01F1 // WarnJuror
+ : Parent HWL ME_4C3B52CA01F1 // WarnJuror
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -1951,11 +1951,11 @@ ref; // ME_4C3B52D6021F ShowInfo
  %SUMMARY 'Предупреждение (юридическое)' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_498874B90391 // Strange
+ : Parent HWL ME_498874B90391 // Strange
  ;
  : Operations
-   Seq: ( ME_4C7D345C006D // ShowInfo
- ME_4C3B52D6021F // ShowInfo
+   Seq: ( HWL ME_4C7D345C006D // ShowInfo
+ HWL ME_4C3B52D6021F // ShowInfo
  )
  ; // Operations
 
@@ -1969,7 +1969,7 @@ FORWARD ME_4C3C711D032D
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C3C711D032D // BookmarkIcon
+ : Parent HWL ME_4C3C711D032D // BookmarkIcon
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -1989,7 +1989,7 @@ ref; // ME_4C3C71290115 Delete
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C3C711D032D // BookmarkIcon
+ : Parent HWL ME_4C3C711D032D // BookmarkIcon
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -2011,11 +2011,11 @@ ref; // ME_4C3C7131036E Edit
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_498874B90391 // Strange
+ : Parent HWL ME_498874B90391 // Strange
  ;
  : Operations
-   Seq: ( ME_4C3C71290115 // Delete
- ME_4C3C7131036E // Edit
+   Seq: ( HWL ME_4C3C71290115 // Delete
+ HWL ME_4C3C7131036E // Edit
  )
  ; // Operations
 
@@ -2034,7 +2034,7 @@ FORWARD ME_4C7BD3C2000C
  %SUMMARY 'Показать комментарии ГАРАНТа' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4C7BD3C2000C // HideShow
+ : Parent HWL ME_4C7BD3C2000C // HideShow
  ;
  CONST "Checked" 'undefined'
  CONST "Enabled" 'undefined'
@@ -2052,7 +2052,7 @@ ref; // ME_4C7BD3D00035 GarantHidden
  %SUMMARY 'Скрыть комментарии ГАРАНТа' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4C7BD3C2000C // HideShow
+ : Parent HWL ME_4C7BD3C2000C // HideShow
  ;
  CONST "Checked" 'undefined'
  CONST "Enabled" 'undefined'
@@ -2070,7 +2070,7 @@ ref; // ME_4C7BD3EF0114 GarantShown
  %SUMMARY 'Скрыть мои комментарии' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4C7BD3C2000C // HideShow
+ : Parent HWL ME_4C7BD3C2000C // HideShow
  ;
  CONST "Checked" 'undefined'
  CONST "Enabled" 'undefined'
@@ -2088,7 +2088,7 @@ ref; // ME_4C7BD4070278 UserShown
  %SUMMARY 'Показать мои комментарии' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4C7BD3C2000C // HideShow
+ : Parent HWL ME_4C7BD3C2000C // HideShow
  ;
  CONST "Checked" 'undefined'
  CONST "Enabled" 'undefined'
@@ -2105,7 +2105,7 @@ ref; // ME_4C7BD41D00C5 UserHidden
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4C7BD3C2000C // HideShow
+ : Parent HWL ME_4C7BD3C2000C // HideShow
  ;
  CONST "Checked" 'undefined'
  CONST "Enabled" 'undefined'
@@ -2122,7 +2122,7 @@ ref; // ME_4C7BD43501C5 Invisible
  %SUMMARY 'Выключить информацию об изменениях документа' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4C7BD3C2000C // HideShow
+ : Parent HWL ME_4C7BD3C2000C // HideShow
  ;
  CONST "Checked" 'undefined'
  CONST "Enabled" 'undefined'
@@ -2140,7 +2140,7 @@ ref; // ME_4C7BD5580098 VersionShown
  %SUMMARY 'Включить информацию об изменениях документа' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4C7BD3C2000C // HideShow
+ : Parent HWL ME_4C7BD3C2000C // HideShow
  ;
  CONST "Checked" 'undefined'
  CONST "Enabled" 'undefined'
@@ -2158,16 +2158,16 @@ ref; // ME_4C7BD56D0348 VersionHidden
  %SUMMARY 'Скрыть/Показать' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C3C71C4003F // UserCommentIcon
+ : Parent HWL ME_4C3C71C4003F // UserCommentIcon
  ;
  : Children
-   Seq: ( ME_4C7BD3D00035 // GarantHidden
- ME_4C7BD3EF0114 // GarantShown
- ME_4C7BD4070278 // UserShown
- ME_4C7BD41D00C5 // UserHidden
- ME_4C7BD43501C5 // Invisible
- ME_4C7BD5580098 // VersionShown
- ME_4C7BD56D0348 // VersionHidden
+   Seq: ( HWL ME_4C7BD3D00035 // GarantHidden
+ HWL ME_4C7BD3EF0114 // GarantShown
+ HWL ME_4C7BD4070278 // UserShown
+ HWL ME_4C7BD41D00C5 // UserHidden
+ HWL ME_4C7BD43501C5 // Invisible
+ HWL ME_4C7BD5580098 // VersionShown
+ HWL ME_4C7BD56D0348 // VersionHidden
  )
  ; // Children
  CONST "AutoFocus" false
@@ -2188,7 +2188,7 @@ ref; // ME_4C7BD3C2000C HideShow
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C3C71C4003F // UserCommentIcon
+ : Parent HWL ME_4C3C71C4003F // UserCommentIcon
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -2208,7 +2208,7 @@ ref; // ME_4C3C71D20351 Delete
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C3C71C4003F // UserCommentIcon
+ : Parent HWL ME_4C3C71C4003F // UserCommentIcon
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -2230,12 +2230,12 @@ ref; // ME_4C3C71E4033D HideShow
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_498874B90391 // Strange
+ : Parent HWL ME_498874B90391 // Strange
  ;
  : Operations
-   Seq: ( ME_4C7BD3C2000C // HideShow
- ME_4C3C71D20351 // Delete
- ME_4C3C71E4033D // HideShow
+   Seq: ( HWL ME_4C7BD3C2000C // HideShow
+ HWL ME_4C3C71D20351 // Delete
+ HWL ME_4C3C71E4033D // HideShow
  )
  ; // Operations
 
@@ -2249,7 +2249,7 @@ FORWARD ME_4C3C74B40155
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C3C74B40155 // UserComment
+ : Parent HWL ME_4C3C74B40155 // UserComment
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -2271,10 +2271,10 @@ ref; // ME_4C3C74C603B6 Delete
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_498874B90391 // Strange
+ : Parent HWL ME_498874B90391 // Strange
  ;
  : Operations
-   Seq: ( ME_4C3C74C603B6 // Delete
+   Seq: ( HWL ME_4C3C74C603B6 // Delete
  )
  ; // Operations
 
@@ -2288,7 +2288,7 @@ FORWARD ME_4C3C751D00F2
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C3C751D00F2 // Text
+ : Parent HWL ME_4C3C751D00F2 // Text
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -2308,7 +2308,7 @@ ref; // ME_4C3C75240091 AddUserComment
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C3C751D00F2 // Text
+ : Parent HWL ME_4C3C751D00F2 // Text
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -2328,7 +2328,7 @@ ref; // ME_4C3ED54D03D4 DeleteBookmark
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C3C751D00F2 // Text
+ : Parent HWL ME_4C3C751D00F2 // Text
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -2348,7 +2348,7 @@ ref; // ME_4C3ED54100A2 EditBookmark
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C3C751D00F2 // Text
+ : Parent HWL ME_4C3C751D00F2 // Text
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -2368,7 +2368,7 @@ ref; // ME_4C3ED5D502AE AddBookmark
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C3C751D00F2 // Text
+ : Parent HWL ME_4C3C751D00F2 // Text
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -2390,14 +2390,14 @@ ref; // ME_4C3ED7190010 OpenNewWindow
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_498874B90391 // Strange
+ : Parent HWL ME_498874B90391 // Strange
  ;
  : Operations
-   Seq: ( ME_4C3C75240091 // AddUserComment
- ME_4C3ED54D03D4 // DeleteBookmark
- ME_4C3ED54100A2 // EditBookmark
- ME_4C3ED5D502AE // AddBookmark
- ME_4C3ED7190010 // OpenNewWindow
+   Seq: ( HWL ME_4C3C75240091 // AddUserComment
+ HWL ME_4C3ED54D03D4 // DeleteBookmark
+ HWL ME_4C3ED54100A2 // EditBookmark
+ HWL ME_4C3ED5D502AE // AddBookmark
+ HWL ME_4C3ED7190010 // OpenNewWindow
  )
  ; // Operations
 
@@ -2413,7 +2413,7 @@ FORWARD ME_4C7F751001B8
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C7F751001B8 // Warning$IU
+ : Parent HWL ME_4C7F751001B8 // Warning$IU
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -2435,7 +2435,7 @@ ref; // ME_4C7F753E02BC TimeMachineOffAndReset
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C7F751001B8 // Warning$IU
+ : Parent HWL ME_4C7F751001B8 // Warning$IU
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -2457,7 +2457,7 @@ ref; // ME_4C7F7552010A ActualRedaction
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C7F751001B8 // Warning$IU
+ : Parent HWL ME_4C7F751001B8 // Warning$IU
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -2479,12 +2479,12 @@ ref; // ME_4C7F75660342 TimeMachineOff
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_498874B90391 // Strange
+ : Parent HWL ME_498874B90391 // Strange
  ;
  : Operations
-   Seq: ( ME_4C7F753E02BC // TimeMachineOffAndReset
- ME_4C7F7552010A // ActualRedaction
- ME_4C7F75660342 // TimeMachineOff
+   Seq: ( HWL ME_4C7F753E02BC // TimeMachineOffAndReset
+ HWL ME_4C7F7552010A // ActualRedaction
+ HWL ME_4C7F75660342 // TimeMachineOff
  )
  ; // Operations
 
@@ -2500,7 +2500,7 @@ FORWARD ME_4C7FAC970069
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C7FAC970069 // Reminder
+ : Parent HWL ME_4C7FAC970069 // Reminder
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -2522,7 +2522,7 @@ ref; // ME_4C7FACA8026E RemWarnJuror
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C7FAC970069 // Reminder
+ : Parent HWL ME_4C7FAC970069 // Reminder
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -2544,7 +2544,7 @@ ref; // ME_4C7FACBB005C RemWarnTimeMachineOn
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C7FAC970069 // Reminder
+ : Parent HWL ME_4C7FAC970069 // Reminder
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -2566,7 +2566,7 @@ ref; // ME_4C7FACCE013F RemWarnRedaction
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C7FAC970069 // Reminder
+ : Parent HWL ME_4C7FAC970069 // Reminder
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -2588,7 +2588,7 @@ ref; // ME_4C7FACFE01D3 RemWarnOnControl
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C7FAC970069 // Reminder
+ : Parent HWL ME_4C7FAC970069 // Reminder
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -2610,7 +2610,7 @@ ref; // ME_4C7FAD0F014A RemWarnIsAbolished
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C7FAC970069 // Reminder
+ : Parent HWL ME_4C7FAC970069 // Reminder
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -2632,7 +2632,7 @@ ref; // ME_4C7FAD1D038F RemWarnTimeMachineException
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C7FAC970069 // Reminder
+ : Parent HWL ME_4C7FAC970069 // Reminder
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -2654,7 +2654,7 @@ ref; // ME_4C7FAD310195 RemWarnPreActive
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C7FAC970069 // Reminder
+ : Parent HWL ME_4C7FAC970069 // Reminder
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -2676,7 +2676,7 @@ ref; // ME_4C7FAD470142 RemWarnTimeMachineWarning
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C7FAC970069 // Reminder
+ : Parent HWL ME_4C7FAC970069 // Reminder
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -2698,18 +2698,18 @@ ref; // ME_4C7FAD5900EE ViewInactualDocument
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_498874B90391 // Strange
+ : Parent HWL ME_498874B90391 // Strange
  ;
  : Operations
-   Seq: ( ME_4C7FACA8026E // RemWarnJuror
- ME_4C7FACBB005C // RemWarnTimeMachineOn
- ME_4C7FACCE013F // RemWarnRedaction
- ME_4C7FACFE01D3 // RemWarnOnControl
- ME_4C7FAD0F014A // RemWarnIsAbolished
- ME_4C7FAD1D038F // RemWarnTimeMachineException
- ME_4C7FAD310195 // RemWarnPreActive
- ME_4C7FAD470142 // RemWarnTimeMachineWarning
- ME_4C7FAD5900EE // ViewInactualDocument
+   Seq: ( HWL ME_4C7FACA8026E // RemWarnJuror
+ HWL ME_4C7FACBB005C // RemWarnTimeMachineOn
+ HWL ME_4C7FACCE013F // RemWarnRedaction
+ HWL ME_4C7FACFE01D3 // RemWarnOnControl
+ HWL ME_4C7FAD0F014A // RemWarnIsAbolished
+ HWL ME_4C7FAD1D038F // RemWarnTimeMachineException
+ HWL ME_4C7FAD310195 // RemWarnPreActive
+ HWL ME_4C7FAD470142 // RemWarnTimeMachineWarning
+ HWL ME_4C7FAD5900EE // ViewInactualDocument
  )
  ; // Operations
 
@@ -2725,7 +2725,7 @@ FORWARD ME_4C8604F7032C
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C8604F7032C // SynchroView
+ : Parent HWL ME_4C8604F7032C // SynchroView
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" true
@@ -2747,7 +2747,7 @@ ref; // ME_4C86050B01DB ShowText
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C8604F7032C // SynchroView
+ : Parent HWL ME_4C8604F7032C // SynchroView
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -2769,7 +2769,7 @@ ref; // ME_4C860527005A Annotation
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C8604F7032C // SynchroView
+ : Parent HWL ME_4C8604F7032C // SynchroView
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" true
@@ -2791,7 +2791,7 @@ ref; // ME_4C8605460347 ShowAttributes
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C8604F7032C // SynchroView
+ : Parent HWL ME_4C8604F7032C // SynchroView
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" true
@@ -2813,7 +2813,7 @@ ref; // ME_4C86056702CB ShowRelated
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C8604F7032C // SynchroView
+ : Parent HWL ME_4C8604F7032C // SynchroView
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" true
@@ -2835,7 +2835,7 @@ ref; // ME_4C8605850067 ShowUserCRList1
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C8604F7032C // SynchroView
+ : Parent HWL ME_4C8604F7032C // SynchroView
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" true
@@ -2857,7 +2857,7 @@ ref; // ME_4C8605A2018B ShowUserCRList2
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C8604F7032C // SynchroView
+ : Parent HWL ME_4C8604F7032C // SynchroView
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -2879,16 +2879,16 @@ ref; // ME_4C8605BF03B0 SimilarDocuments
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_498874B90391 // Strange
+ : Parent HWL ME_498874B90391 // Strange
  ;
  : Operations
-   Seq: ( ME_4C86050B01DB // ShowText
- ME_4C860527005A // Annotation
- ME_4C8605460347 // ShowAttributes
- ME_4C86056702CB // ShowRelated
- ME_4C8605850067 // ShowUserCRList1
- ME_4C8605A2018B // ShowUserCRList2
- ME_4C8605BF03B0 // SimilarDocuments
+   Seq: ( HWL ME_4C86050B01DB // ShowText
+ HWL ME_4C860527005A // Annotation
+ HWL ME_4C8605460347 // ShowAttributes
+ HWL ME_4C86056702CB // ShowRelated
+ HWL ME_4C8605850067 // ShowUserCRList1
+ HWL ME_4C8605A2018B // ShowUserCRList2
+ HWL ME_4C8605BF03B0 // SimilarDocuments
  )
  ; // Operations
 
@@ -2904,7 +2904,7 @@ FORWARD ME_4C862601016C
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C862601016C // Edition
+ : Parent HWL ME_4C862601016C // Edition
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -2926,7 +2926,7 @@ ref; // ME_4C862614021C OpenNewWindow
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C862601016C // Edition
+ : Parent HWL ME_4C862601016C // Edition
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -2948,11 +2948,11 @@ ref; // ME_55544CF2027E OpenNewTab
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_498874B90391 // Strange
+ : Parent HWL ME_498874B90391 // Strange
  ;
  : Operations
-   Seq: ( ME_4C862614021C // OpenNewWindow
- ME_55544CF2027E // OpenNewTab
+   Seq: ( HWL ME_4C862614021C // OpenNewWindow
+ HWL ME_55544CF2027E // OpenNewTab
  )
  ; // Operations
 
@@ -2968,7 +2968,7 @@ FORWARD ME_4C864A770147
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C864A770147 // Attribute
+ : Parent HWL ME_4C864A770147 // Attribute
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -2990,10 +2990,10 @@ ref; // ME_4C864A87020E Copy
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_498874B90391 // Strange
+ : Parent HWL ME_498874B90391 // Strange
  ;
  : Operations
-   Seq: ( ME_4C864A87020E // Copy
+   Seq: ( HWL ME_4C864A87020E // Copy
  )
  ; // Operations
 
@@ -3009,7 +3009,7 @@ FORWARD ME_4C876BFF0064
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C876BFF0064 // Picture$UI
+ : Parent HWL ME_4C876BFF0064 // Picture$UI
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -3031,7 +3031,7 @@ ref; // ME_4C876C1F014C Resize
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C876BFF0064 // Picture$UI
+ : Parent HWL ME_4C876BFF0064 // Picture$UI
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -3053,7 +3053,7 @@ ref; // ME_4C876E670305 Enlarge
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C876BFF0064 // Picture$UI
+ : Parent HWL ME_4C876BFF0064 // Picture$UI
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -3075,7 +3075,7 @@ ref; // ME_4C876E850207 Shrink
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C876BFF0064 // Picture$UI
+ : Parent HWL ME_4C876BFF0064 // Picture$UI
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -3097,7 +3097,7 @@ ref; // ME_4C876EA202FF ActualSize
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C876BFF0064 // Picture$UI
+ : Parent HWL ME_4C876BFF0064 // Picture$UI
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -3120,14 +3120,14 @@ ref; // ME_4C876EB40188 FitInWIndow
  %SUMMARY 'Картинка' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_498874B90391 // Strange
+ : Parent HWL ME_498874B90391 // Strange
  ;
  : Operations
-   Seq: ( ME_4C876C1F014C // Resize
- ME_4C876E670305 // Enlarge
- ME_4C876E850207 // Shrink
- ME_4C876EA202FF // ActualSize
- ME_4C876EB40188 // FitInWIndow
+   Seq: ( HWL ME_4C876C1F014C // Resize
+ HWL ME_4C876E670305 // Enlarge
+ HWL ME_4C876E850207 // Shrink
+ HWL ME_4C876EA202FF // ActualSize
+ HWL ME_4C876EB40188 // FitInWIndow
  )
  ; // Operations
 
@@ -3151,7 +3151,7 @@ ref; // ME_4D9B1F520365 aNew
  : Stereotype st_InternalOperation::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4D9B1EAD02E4 // ContentsValidator
+ : Parent HWL ME_4D9B1EAD02E4 // ContentsValidator
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -3179,10 +3179,10 @@ ref; // ME_4D9B1F0A0335 IsDocumentAdornmentsChanged
  %SUMMARY 'http://mdp.garant.ru/pages/viewpage.action?pageId=259891063' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_498874B90391 // Strange
+ : Parent HWL ME_498874B90391 // Strange
  ;
  : Operations
-   Seq: ( ME_4D9B1F0A0335 // IsDocumentAdornmentsChanged
+   Seq: ( HWL ME_4D9B1F0A0335 // IsDocumentAdornmentsChanged
  )
  ; // Operations
 
@@ -3197,7 +3197,7 @@ FORWARD ME_4DF2041A00EA
  : Stereotype st_InternalOperation::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4DF2041A00EA // DocumentSubPanel
+ : Parent HWL ME_4DF2041A00EA // DocumentSubPanel
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -3218,10 +3218,10 @@ ref; // ME_4DF20436002A UpdateSubPanel
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_498874B90391 // Strange
+ : Parent HWL ME_498874B90391 // Strange
  ;
  : Operations
-   Seq: ( ME_4DF20436002A // UpdateSubPanel
+   Seq: ( HWL ME_4DF20436002A // UpdateSubPanel
  )
  ; // Operations
 
@@ -3238,7 +3238,7 @@ FORWARD ME_4EC4CD8302F2
  %SUMMARY 'Сравнить редакции' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4EC4CD8302F2 // Editions$UI
+ : Parent HWL ME_4EC4CD8302F2 // Editions$UI
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -3262,7 +3262,7 @@ ref; // ME_4EC4CDDB023C DoCompareEditions
  %SUMMARY 'Построить обзор изменений' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4EC4CD8302F2 // Editions$UI
+ : Parent HWL ME_4EC4CD8302F2 // Editions$UI
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -3286,15 +3286,15 @@ ref; // ME_4EC4CE180122 BuildChangedFragments
  %SUMMARY 'Редакции' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_498874B90391 // Strange
+ : Parent HWL ME_498874B90391 // Strange
  ;
  : Implements
    Seq: ( WL 'ME_4EC25EB5037A' '484900780017.pas.ms.script' // Работа со списком редакций
  )
  ; // Implements
  : Operations
-   Seq: ( ME_4EC4CDDB023C // DoCompareEditions
- ME_4EC4CE180122 // BuildChangedFragments
+   Seq: ( HWL ME_4EC4CDDB023C // DoCompareEditions
+ HWL ME_4EC4CE180122 // BuildChangedFragments
  )
  ; // Operations
 
@@ -3309,7 +3309,7 @@ FORWARD ME_4EE0D0BE0083
  %SUMMARY 'Установить закладку на фрагмент' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4EE0D0BE0083 // DocumentBlockBookmarks
+ : Parent HWL ME_4EE0D0BE0083 // DocumentBlockBookmarks
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -3332,10 +3332,10 @@ ref; // ME_4C3B1AEA0127 AddBookmark
  %SUMMARY 'Закладки на пункт оглавления' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_498874B90391 // Strange
+ : Parent HWL ME_498874B90391 // Strange
  ;
  : Operations
-   Seq: ( ME_4C3B1AEA0127 // AddBookmark
+   Seq: ( HWL ME_4C3B1AEA0127 // AddBookmark
  )
  ; // Operations
 
@@ -3351,7 +3351,7 @@ FORWARD ME_4F184B0D010B
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4F184B0D010B // IntranetSourcePoint
+ : Parent HWL ME_4F184B0D010B // IntranetSourcePoint
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -3373,10 +3373,10 @@ ref; // ME_4F184B42019E GoToIntranet
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_498874B90391 // Strange
+ : Parent HWL ME_498874B90391 // Strange
  ;
  : Operations
-   Seq: ( ME_4F184B42019E // GoToIntranet
+   Seq: ( HWL ME_4F184B42019E // GoToIntranet
  )
  ; // Operations
 
@@ -3393,7 +3393,7 @@ FORWARD ME_4F672A46002D
  %SUMMARY 'Открыть в текущем окне' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4F672A46002D // Picture$Open
+ : Parent HWL ME_4F672A46002D // Picture$Open
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -3417,7 +3417,7 @@ ref; // ME_4F672A7903C1 Open
  %SUMMARY 'Открыть в новом окне' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4F672A46002D // Picture$Open
+ : Parent HWL ME_4F672A46002D // Picture$Open
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -3441,7 +3441,7 @@ ref; // ME_4F672A9C0083 OpenNewWindow
  %SUMMARY 'Открыть в новой вкладке' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4F672A46002D // Picture$Open
+ : Parent HWL ME_4F672A46002D // Picture$Open
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -3465,12 +3465,12 @@ ref; // ME_53DF276802DD OpenNewTab
  %SUMMARY 'Картинка' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_498874B90391 // Strange
+ : Parent HWL ME_498874B90391 // Strange
  ;
  : Operations
-   Seq: ( ME_4F672A7903C1 // Open
- ME_4F672A9C0083 // OpenNewWindow
- ME_53DF276802DD // OpenNewTab
+   Seq: ( HWL ME_4F672A7903C1 // Open
+ HWL ME_4F672A9C0083 // OpenNewWindow
+ HWL ME_53DF276802DD // OpenNewTab
  )
  ; // Operations
 
@@ -3487,7 +3487,7 @@ FORWARD ME_4F8845ED0155
  %SUMMARY 'Изменения в документе' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4F8845ED0155 // Document$ChangesButton
+ : Parent HWL ME_4F8845ED0155 // Document$ChangesButton
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -3510,10 +3510,10 @@ ref; // ME_4F88460903B1 ChangesButton
  %SUMMARY 'Документ' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_498874B90391 // Strange
+ : Parent HWL ME_498874B90391 // Strange
  ;
  : Operations
-   Seq: ( ME_4F88460903B1 // ChangesButton
+   Seq: ( HWL ME_4F88460903B1 // ChangesButton
  )
  ; // Operations
 
@@ -3530,7 +3530,7 @@ FORWARD ME_4F884EDC03D9
  %SUMMARY 'Копировать позицию' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4F884EDC03D9 // SubsPanel
+ : Parent HWL ME_4F884EDC03D9 // SubsPanel
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -3553,10 +3553,10 @@ ref; // ME_4F884EF30187 CopySubNumber
  %SUMMARY 'Панель меток' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_498874B90391 // Strange
+ : Parent HWL ME_498874B90391 // Strange
  ;
  : Operations
-   Seq: ( ME_4F884EF30187 // CopySubNumber
+   Seq: ( HWL ME_4F884EF30187 // CopySubNumber
  )
  ; // Operations
 
@@ -3571,7 +3571,7 @@ FORWARD ME_5072D3D701F9
  : Stereotype st_InternalOperation::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_5072D3D701F9 // BaseSearchPresentationHolder
+ : Parent HWL ME_5072D3D701F9 // BaseSearchPresentationHolder
  ;
  : Target WL 'ME_496B4C2700D5' '4A9F98B901A5.pas.ms.script' // InsBaseSearchPresentation
  ;
@@ -3594,10 +3594,10 @@ ref; // ME_5072D45A035C GetBaseSearchPresentation
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_498874B90391 // Strange
+ : Parent HWL ME_498874B90391 // Strange
  ;
  : Operations
-   Seq: ( ME_5072D45A035C // GetBaseSearchPresentation
+   Seq: ( HWL ME_5072D45A035C // GetBaseSearchPresentation
  )
  ; // Operations
 
@@ -3613,7 +3613,7 @@ FORWARD ME_5287778C02B2
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_5287778C02B2 // Text$Select
+ : Parent HWL ME_5287778C02B2 // Text$Select
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -3635,7 +3635,7 @@ ref; // ME_528777B1010F SelectWord
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_5287778C02B2 // Text$Select
+ : Parent HWL ME_5287778C02B2 // Text$Select
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -3657,11 +3657,11 @@ ref; // ME_528777C803B4 SelectPara
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_498874B90391 // Strange
+ : Parent HWL ME_498874B90391 // Strange
  ;
  : Operations
-   Seq: ( ME_528777B1010F // SelectWord
- ME_528777C803B4 // SelectPara
+   Seq: ( HWL ME_528777B1010F // SelectWord
+ HWL ME_528777C803B4 // SelectPara
  )
  ; // Operations
 
@@ -3678,41 +3678,41 @@ ref; // ME_5287778C02B2 Text$Select
  : Parent WL 'ME_4A9F76D70283' '4A9F76D70283.pas.ms.script' // View
  ;
  : Children
-   Seq: ( ME_4A8EE05B0073 // Editions
- ME_4A8EF32D0162 // System
- ME_4A9D3FA700E7 // Selection$ForText
- ME_4A9D49F70177 // Contents
- ME_4AE9DEFF0292 // Warning
- ME_4AF32F290177 // Picture
- ME_4C2AED9B00FF // DocumentBlock
- ME_4C3ADF740291 // DocumentBlockHeader
- ME_4C3AFB9A030C // WarnOnControl
- ME_4C3AFC0702BB // TasksPanel
- ME_4C3B374802FA // Document
- ME_4C3B49CD0154 // ExternalObject
- ME_4C3B4A550032 // WarnRedaction
- ME_4C3B4FFE012A // WarnTimeMachine
- ME_4C3B52CA01F1 // WarnJuror
- ME_4C3C711D032D // BookmarkIcon
- ME_4C3C71C4003F // UserCommentIcon
- ME_4C3C74B40155 // UserComment
- ME_4C3C751D00F2 // Text
- ME_4C7F751001B8 // Warning$IU
- ME_4C7FAC970069 // Reminder
- ME_4C8604F7032C // SynchroView
- ME_4C862601016C // Edition
- ME_4C864A770147 // Attribute
- ME_4C876BFF0064 // Picture$UI
- ME_4D9B1EAD02E4 // ContentsValidator
- ME_4DF2041A00EA // DocumentSubPanel
- ME_4EC4CD8302F2 // Editions$UI
- ME_4EE0D0BE0083 // DocumentBlockBookmarks
- ME_4F184B0D010B // IntranetSourcePoint
- ME_4F672A46002D // Picture$Open
- ME_4F8845ED0155 // Document$ChangesButton
- ME_4F884EDC03D9 // SubsPanel
- ME_5072D3D701F9 // BaseSearchPresentationHolder
- ME_5287778C02B2 // Text$Select
+   Seq: ( HWL ME_4A8EE05B0073 // Editions
+ HWL ME_4A8EF32D0162 // System
+ HWL ME_4A9D3FA700E7 // Selection$ForText
+ HWL ME_4A9D49F70177 // Contents
+ HWL ME_4AE9DEFF0292 // Warning
+ HWL ME_4AF32F290177 // Picture
+ HWL ME_4C2AED9B00FF // DocumentBlock
+ HWL ME_4C3ADF740291 // DocumentBlockHeader
+ HWL ME_4C3AFB9A030C // WarnOnControl
+ HWL ME_4C3AFC0702BB // TasksPanel
+ HWL ME_4C3B374802FA // Document
+ HWL ME_4C3B49CD0154 // ExternalObject
+ HWL ME_4C3B4A550032 // WarnRedaction
+ HWL ME_4C3B4FFE012A // WarnTimeMachine
+ HWL ME_4C3B52CA01F1 // WarnJuror
+ HWL ME_4C3C711D032D // BookmarkIcon
+ HWL ME_4C3C71C4003F // UserCommentIcon
+ HWL ME_4C3C74B40155 // UserComment
+ HWL ME_4C3C751D00F2 // Text
+ HWL ME_4C7F751001B8 // Warning$IU
+ HWL ME_4C7FAC970069 // Reminder
+ HWL ME_4C8604F7032C // SynchroView
+ HWL ME_4C862601016C // Edition
+ HWL ME_4C864A770147 // Attribute
+ HWL ME_4C876BFF0064 // Picture$UI
+ HWL ME_4D9B1EAD02E4 // ContentsValidator
+ HWL ME_4DF2041A00EA // DocumentSubPanel
+ HWL ME_4EC4CD8302F2 // Editions$UI
+ HWL ME_4EE0D0BE0083 // DocumentBlockBookmarks
+ HWL ME_4F184B0D010B // IntranetSourcePoint
+ HWL ME_4F672A46002D // Picture$Open
+ HWL ME_4F8845ED0155 // Document$ChangesButton
+ HWL ME_4F884EDC03D9 // SubsPanel
+ HWL ME_5072D3D701F9 // BaseSearchPresentationHolder
+ HWL ME_5287778C02B2 // Text$Select
  )
  ; // Children
  : Depends

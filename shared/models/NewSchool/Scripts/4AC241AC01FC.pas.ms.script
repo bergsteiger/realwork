@@ -13,7 +13,7 @@ FORWARD ME_491D7D1B026C
  %SUMMARY 'открыть список выпускаемых препаратов' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_491D7D1B026C // IdsMedicFirmDocument
+ : Parent HWL ME_491D7D1B026C // IdsMedicFirmDocument
  ;
 
 ref; // ME_491D7D2A02E0 OpenDrugList
@@ -161,14 +161,14 @@ ref; // ME_54B3A7C7038F_ME_491D7D1B026C GetDocumentName
  %SUMMARY 'Описание фирмы производителя' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4AC241AC01FC // InpharmInterfaces
+ : Parent HWL ME_4AC241AC01FC // InpharmInterfaces
  ;
  : Inherits
    Seq: ( WL 'ME_47EA0356011B' '491B305A0096.pas.ms.script' // IdsBaseDocument
  )
  ; // Inherits
  : Operations
-   Seq: ( ME_491D7D2A02E0 // OpenDrugList
+   Seq: ( HWL ME_491D7D2A02E0 // OpenDrugList
  )
  ; // Operations
  : Implemented
@@ -208,7 +208,7 @@ FORWARD ME_491D87F50062
  %SUMMARY 'открыть список похожих по международному названию' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_491D87F50062 // IdsDrugDocument
+ : Parent HWL ME_491D87F50062 // IdsDrugDocument
  ;
 
 ref; // ME_491D88070148 OpenDrugInternationalNameSynonims
@@ -402,7 +402,7 @@ ref; // ME_54B3A7C7038F_ME_491D87F50062 GetDocumentName
  %SUMMARY 'Препарат' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4AC241AC01FC // InpharmInterfaces
+ : Parent HWL ME_4AC241AC01FC // InpharmInterfaces
  ;
  : Inherits
    Seq: ( WL 'ME_47EA0356011B' '491B305A0096.pas.ms.script' // IdsBaseDocument
@@ -414,7 +414,7 @@ ref; // ME_54B3A7C7038F_ME_491D87F50062 GetDocumentName
  )
  ; // Implements
  : Operations
-   Seq: ( ME_491D88070148 // OpenDrugInternationalNameSynonims
+   Seq: ( HWL ME_491D88070148 // OpenDrugInternationalNameSynonims
  )
  ; // Operations
  : Implemented
@@ -461,7 +461,7 @@ ref; // ME_491D87F50062 IdsDrugDocument
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4AC241AC01FC // InpharmInterfaces
+ : Parent HWL ME_4AC241AC01FC // InpharmInterfaces
  ;
  CONST extprop:rc:SelfName 'dsInpharmMainMenu'
  CONST extprop:rc:isAcceptableForScripts true
@@ -478,10 +478,10 @@ FORWARD ME_550AA65C0212
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_550AA65C0212 // IsdsInpharmMainMenu
+ : Parent HWL ME_550AA65C0212 // IsdsInpharmMainMenu
  ;
  : Inherits
-   Seq: ( ME_550C0CF90324 // IdsInpharmMainMenu
+   Seq: ( HWL ME_550C0CF90324 // IdsInpharmMainMenu
  )
  ; // Inherits
  CONST "pm" true
@@ -497,10 +497,10 @@ ref; // ME_550C0D1A00CC dsInpharmMainMenuData
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4AC241AC01FC // InpharmInterfaces
+ : Parent HWL ME_4AC241AC01FC // InpharmInterfaces
  ;
  : Attributes
-   Seq: ( ME_550C0D1A00CC // dsInpharmMainMenuData
+   Seq: ( HWL ME_550C0D1A00CC // dsInpharmMainMenuData
  )
  ; // Attributes
  CONST extprop:rc:SelfName 'sdsInpharmMainMenu'
@@ -518,10 +518,10 @@ ref; // ME_550AA65C0212 IsdsInpharmMainMenu
  : Parent WL 'ME_4AC2418902B3' '4AC2418902B3.pas.ms.script' // Medic
  ;
  : Children
-   Seq: ( ME_491D7D1B026C // IdsMedicFirmDocument
- ME_491D87F50062 // IdsDrugDocument
- ME_550C0CF90324 // IdsInpharmMainMenu
- ME_550AA65C0212 // IsdsInpharmMainMenu
+   Seq: ( HWL ME_491D7D1B026C // IdsMedicFirmDocument
+ HWL ME_491D87F50062 // IdsDrugDocument
+ HWL ME_550C0CF90324 // IdsInpharmMainMenu
+ HWL ME_550AA65C0212 // IsdsInpharmMainMenu
  )
  ; // Children
  : Depends

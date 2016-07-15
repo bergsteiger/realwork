@@ -23,7 +23,7 @@ ref; // ME_4E5C806901A6 anURL
  CONST Class class_Operation
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_4E5C7EA10197 // TarHyperLinkProcessor
+ : Parent HWL ME_4E5C7EA10197 // TarHyperLinkProcessor
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -49,7 +49,7 @@ ref; // ME_4E5C807D017F aScript
  CONST Class class_Operation
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_4E5C7EA10197 // TarHyperLinkProcessor
+ : Parent HWL ME_4E5C7EA10197 // TarHyperLinkProcessor
  ;
  : Parameters
    Seq: ( ME_4E5C807D017F // aScript
@@ -61,7 +61,7 @@ ref; // ME_4E5C806F0361 ExecuteScript
 : ME_4E5C91070151
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4E5C7EA10197 // TarHyperLinkProcessor
+ : Parent HWL ME_4E5C7EA10197 // TarHyperLinkProcessor
  ;
  : Target WL 'ME_4ADF0823017C' '54B90AC6014B.pas.ms.script' // l3IsNil
  ;
@@ -71,7 +71,7 @@ ref; // ME_4E5C91070151
 : ME_4E5C917901CF
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4E5C7EA10197 // TarHyperLinkProcessor
+ : Parent HWL ME_4E5C7EA10197 // TarHyperLinkProcessor
  ;
  : Target WL 'ME_4AA7888B0076' '47913B47006E.pas.ms.script' // l3CStr
  ;
@@ -81,7 +81,7 @@ ref; // ME_4E5C917901CF
 : ME_4EF2FBF80183
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4E5C7EA10197 // TarHyperLinkProcessor
+ : Parent HWL ME_4E5C7EA10197 // TarHyperLinkProcessor
  ;
  : Target WL 'ME_4DDA4CFE00E8' '4AB0C3C60310.pas.ms.script' // ExtractFilePath
  ;
@@ -91,7 +91,7 @@ ref; // ME_4EF2FBF80183
 : ME_4F740CC00044
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4E5C7EA10197 // TarHyperLinkProcessor
+ : Parent HWL ME_4E5C7EA10197 // TarHyperLinkProcessor
  ;
  : Target WL 'ME_4DAEEA9E0049' '4DAEEA14018A.pas.ms.script' // TtfwScriptEngine
  ;
@@ -101,7 +101,7 @@ ref; // ME_4F740CC00044
 : ME_509BB18802E0
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4E5C7EA10197 // TarHyperLinkProcessor
+ : Parent HWL ME_4E5C7EA10197 // TarHyperLinkProcessor
  ;
  : Target WL 'ME_484529DC0276' '4799D29F033F.pas.ms.script' // TCustomForm
  ;
@@ -111,7 +111,7 @@ ref; // ME_509BB18802E0
 : ME_55D34FC40339
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4E5C7EA10197 // TarHyperLinkProcessor
+ : Parent HWL ME_4E5C7EA10197 // TarHyperLinkProcessor
  ;
  : Target WL 'ME_55D34A7E0127' '55C481E00003.pas.ms.script' // TtfwArchiHyperlinkScriptCaller
  ;
@@ -127,15 +127,15 @@ ref; // ME_55D34FC40339
  %SUMMARY 'Обработка ссылок со скриптами' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
- : Parent ME_4E5C7F4402E8 // arHyperLinkProcessor
+ : Parent HWL ME_4E5C7F4402E8 // arHyperLinkProcessor
  ;
  : Inherits
    Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
  )
  ; // Inherits
  : Operations
-   Seq: ( ME_4E5C805800FC // OpenURL
- ME_4E5C806F0361 // ExecuteScript
+   Seq: ( HWL ME_4E5C805800FC // OpenURL
+ HWL ME_4E5C806F0361 // ExecuteScript
  )
  ; // Operations
  : Dependencies
@@ -169,7 +169,7 @@ ref; // ME_4E5C863701F8 aHyperLink
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4E5C7FB10117 // arOpenHyperLink
+ : Parent HWL ME_4E5C7FB10117 // arOpenHyperLink
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -189,10 +189,10 @@ ref; // ME_4E5C80ED00BC DoIt
  %SUMMARY 'Открыть ссылку' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4E5C7F4402E8 // arHyperLinkProcessor
+ : Parent HWL ME_4E5C7F4402E8 // arHyperLinkProcessor
  ;
  : Operations
-   Seq: ( ME_4E5C80ED00BC // DoIt
+   Seq: ( HWL ME_4E5C80ED00BC // DoIt
  )
  ; // Operations
 
@@ -207,14 +207,14 @@ ref; // ME_4E5C7FB10117 arOpenHyperLink
  %SUMMARY 'Открытие ссылки со скриптом.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4E5C7E800347 // Scripting Support
+ : Parent HWL ME_4E5C7E800347 // Scripting Support
  ;
  : Operations
-   Seq: ( ME_4E5C7FB10117 // arOpenHyperLink
+   Seq: ( HWL ME_4E5C7FB10117 // arOpenHyperLink
  )
  ; // Operations
  : Children
-   Seq: ( ME_4E5C7EA10197 // TarHyperLinkProcessor
+   Seq: ( HWL ME_4E5C7EA10197 // TarHyperLinkProcessor
  )
  ; // Children
  CONST intf.pas:Path 'archi\source\projects\Archi\Editor\arHyperLinkProcessor.pas'
@@ -231,7 +231,7 @@ ref; // ME_4E5C7F4402E8 arHyperLinkProcessor
  : Parent WL 'ME_4E004D0B033A' '4E004D0B033A.pas.ms.script' // Editor
  ;
  : Children
-   Seq: ( ME_4E5C7F4402E8 // arHyperLinkProcessor
+   Seq: ( HWL ME_4E5C7F4402E8 // arHyperLinkProcessor
  )
  ; // Children
  : Depends

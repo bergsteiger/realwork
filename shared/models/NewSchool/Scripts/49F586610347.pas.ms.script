@@ -1,0 +1,185 @@
+// InternetAgent 49F586610347 VCMFormSetFactory Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49F586610347
+
+FORWARD ME_49F5A832015F
+
+: ME_B64252B538A1
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_49F5A832015F // InternetAgent
+ ;
+ : Target WL 'ME_36BF14AE3334' '49EC74D002B8.pas.ms.script' // InternetAgent$F$Def
+ ;
+
+ref; // ME_B64252B538A1 
+
+: ME_49EDE45A02EB_ME_49F5A832015F
+ : Original WL 'ME_49EDE45A02EB' '49EC6D9000EE.pas.ms.script' // URL
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_49EDE45A02EB_ME_49F5A832015F URL
+
+: ME_49F5A832015F
+ CONST UID '49F5A832015F'
+ CONST Name 'InternetAgent'
+ CONST Class class_Class
+ : Stereotype st_VCMZone ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_49F586610347 // InternetAgent
+ ;
+ : Inherits
+   Seq: ( WL 'ME_49EC74D002B8' '49EC74D002B8.pas.ms.script' // InternetAgent$F
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4A37A70E01DE' '49EC6D9000EE.pas.ms.script' // MainViewArea
+ )
+ ; // Implements
+ : Implemented
+   Seq: ( ME_49EDE45A02EB_ME_49F5A832015F // URL
+ )
+ ; // Implemented
+ : Dependencies
+   Seq: ( ME_B64252B538A1 // InternetAgent$F$Def
+ )
+ ; // Dependencies
+ CONST "ActivateIfUpdate" 'None'
+ CONST "Need GetFormCount" false
+ CONST "Need OnFormWeight" 'undefined'
+ CONST "ZoneType" 'Parent'
+
+ref; // ME_49F5A832015F InternetAgent
+
+FORWARD ME_48016EEB0A62
+
+: ME_61EB5ECACE81
+ CONST UID '61EB5ECACE81'
+ CONST Name 'fsInternetAgentCaption'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY 'Заголовок фабрики сборки форм "InternetAgent"' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_48016EEB0A62 // InternetAgentCaptionLocalConstants
+ ;
+ CONST Value '''Интернет-агент'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '''Интернет-агент'''
+
+ref; // ME_61EB5ECACE81 fsInternetAgentCaption
+
+: ME_48016EEB0A62
+ CONST UID '48016EEB0A62'
+ CONST Name 'InternetAgentCaptionLocalConstants'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_LocalConst ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Локализуемые константы для фабрики сборки форм InternetAgent' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_49F586610347 // InternetAgent
+ ;
+ : Attributes
+   Seq: ( HWL ME_61EB5ECACE81 // fsInternetAgentCaption
+ )
+ ; // Attributes
+ CONST "Need map interface" false
+ CONST "Need mapping support" false
+ CONST "spell names" false
+
+ref; // ME_48016EEB0A62 InternetAgentCaptionLocalConstants
+
+: ME_4C922F4CC339
+ CONST UID '4C922F4CC339'
+ CONST Name 'InternetAgent_Parent_NeedMakeForm'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Обработчик OnNeedMakeForm для InternetAgent' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_49F586610347 // InternetAgent
+ ;
+ : Inherits
+   Seq: ( WL 'ME_50096E800075' '47B9727603BE.pas.ms.script' // TvcmNeedMakeFormEvent
+ )
+ ; // Inherits
+ : Speller HWL ME_49F5A832015F // InternetAgent
+ ;
+
+ref; // ME_4C922F4CC339 InternetAgent_Parent_NeedMakeForm
+
+: ME_47A042E100E2_ME_49F586610347
+ : Original WL 'ME_47A042E100E2' '47913B47006E.pas.ms.script' // InitFields
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_47A042E100E2_ME_49F586610347 InitFields
+
+: ME_4FFE854A009B_ME_49F586610347
+ : Original WL 'ME_4FFE854A009B' '47B9727603BE.pas.ms.script' // GetInstance
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "is static" true
+ref; // ME_4FFE854A009B_ME_49F586610347 GetInstance
+
+: ME_49F586610347
+ CONST UID '49F586610347'
+ CONST Name 'InternetAgent'
+ CONST Class class_Class
+ : Stereotype st_VCMFormSetFactory ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Сборка форм для прецедента Интернет-агент' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent WL 'ME_49EC739C0100' '49EC739C0100.pas.ms.script' // PrimInternetAgent$FP
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47B97312006D' '47B9727603BE.pas.ms.script' // TvcmFormSetFactory
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( HWL ME_4C922F4CC339 // InternetAgent_Parent_NeedMakeForm
+ )
+ ; // Operations
+ : Overridden
+   Seq: ( ME_47A042E100E2_ME_49F586610347 // InitFields
+ ME_4FFE854A009B_ME_49F586610347 // GetInstance
+ )
+ ; // Overridden
+ : Children
+   Seq: ( HWL ME_49F5A832015F // InternetAgent
+ )
+ ; // Children
+ : Constants
+   Seq: ( HWL ME_48016EEB0A62 // InternetAgentCaptionLocalConstants
+ )
+ ; // Constants
+ CONST "Caption" 'Интернет-агент'
+ CONST "DefaultStatusForm" '-1'
+ CONST "Need GetMainCaption" false
+ CONST "Need GetMainImageIndex" false
+ CONST "author" 'Люлин А.В.'
+ CONST "finished dfm" true
+ CONST "no hands" true
+ CONST "singleton" true
+ CONST "started" '27.04.2009 14:19'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\InternetAgent\fsInternetAgent.pas'
+ CONST extprop:pas:TypeName 'Tfs_InternetAgent'
+ CONST extprop:rc:SelfName 'fs_InternetAgent'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'fsInternetAgent'
+ CONST extprop:pas:InitFields ' inherited;'#13#10' with AddZone(''InternetAgent'', vcm_ztParent, fm_InternetAgentForm) do'#13#10' begin'#13#10'  UserType := 0;'#13#10'  OnNeedMakeForm := InternetAgentParentNeedMakeForm;'#13#10' end;'#13#10' Caption := str_fsInternetAgentCaption.AsCStr;'#13#10' OwnerForm := 0;'
+
+ref; // ME_49F586610347 InternetAgent

@@ -1,13 +1,16 @@
+//#UC START# *4AA919B200ABimpl_uses*
+ , StdRes
+//#UC END# *4AA919B200ABimpl_uses*
 //#UC START# *4AA9304801B8_4AA919B200AB_impl*
  // Создание базового контейнера для КЗ
- l_Container := TdmStdRes.MakeSaveLoadForm(vcmMakeParams(anAggregate, aContainer),
+ l_Container := TvcmModulesFactories.MakeSaveLoadForm(vcmMakeParams(anAggregate, aContainer),
                                            vcm_ztParent,
                                            True,
                                            Ord(slqtPostingOrder));
  // Создание конкретной карточки запроса
  vcmDispatcher.FormDispatcher.Lock;
  try
-  Result := TdmStdRes.MakeQueryCardForm(false,
+  Result := TvcmModulesFactories.MakeQueryCardForm(false,
                                         vcmMakeParams(l_Container.Aggregate,
                                                   l_Container.AsContainer),
                                         vcm_ztParent,

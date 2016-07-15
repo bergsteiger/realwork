@@ -1,0 +1,107 @@
+// Folders$UC 4A96B6E00382 VCMUseCaseRealization Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A96B6E00382
+
+: ME_4A9BBD950162
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A96B6E00382 // Folders$UC
+ ;
+ : Target WL 'ME_4A431CD00395' '484900780017.pas.ms.script' // Сравнение редакций документов
+ ;
+
+ref; // ME_4A9BBD950162 
+
+: ME_4A9BBF2902B4
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A96B6E00382 // Folders$UC
+ ;
+ : Target WL 'ME_48490152021B' '484900780017.pas.ms.script' // Просмотр документа
+ ;
+
+ref; // ME_4A9BBF2902B4 
+
+: ME_4A9BFBAA0375
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A96B6E00382 // Folders$UC
+ ;
+ : Target WL 'ME_484CE5E503D4' '484CE48E02E6.pas.ms.script' // Просмотр списка
+ ;
+
+ref; // ME_4A9BFBAA0375 
+
+: ME_4ABCEF8D03B9
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A96B6E00382 // Folders$UC
+ ;
+ : Target WL 'ME_484E635201F4' '484E610E0335.pas.ms.script' // ПРАЙМ
+ ;
+
+ref; // ME_4ABCEF8D03B9 
+
+: ME_4ABCFA1A017A
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A96B6E00382 // Folders$UC
+ ;
+ : Target WL 'ME_484E638701D9' '484E610E0335.pas.ms.script' // Консультации
+ ;
+
+ref; // ME_4ABCFA1A017A 
+
+: ME_4CBEBBAB0150
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A96B6E00382 // Folders$UC
+ ;
+ : Target WL 'ME_484D04FC007B' '484CE48E02E6.pas.ms.script' // Фильтрация сохраненными запросами
+ ;
+
+ref; // ME_4CBEBBAB0150 
+
+: ME_4A96B6E00382
+ CONST UID '4A96B6E00382'
+ CONST Name 'Folders'
+ CONST Class class_Class
+ : Stereotype st_VCMUseCaseRealization ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Папки' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent WL 'ME_4A69C0F70136' '4A69C0F70136.pas.ms.script' // Folders
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4A96B68A03B1' '4A96B68A03B1.pas.ms.script' // PrimFolders$UC
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_484E2FF10125' '484E2D92034B.pas.ms.script' // Управление папками
+ WL 'ME_484E301C00F0' '484E2D92034B.pas.ms.script' // Сохранение в папку
+ WL 'ME_484E5B8902BA' '484900780017.pas.ms.script' // Документы на контроле
+ )
+ ; // Implements
+ : Dependencies
+   Seq: ( ME_4A9BBD950162 // Сравнение редакций документов
+ ME_4A9BBF2902B4 // Просмотр документа
+ ME_4A9BFBAA0375 // Просмотр списка
+ ME_4ABCEF8D03B9 // ПРАЙМ
+ ME_4ABCFA1A017A // Консультации
+ ME_4CBEBBAB0150 // Фильтрация сохраненными запросами
+ )
+ ; // Dependencies
+ CONST "author" 'Тучнин Д.А.'
+ CONST "no hands" true
+ CONST "started" '2003/08/06 08:30:27'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\moFolders.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST extprop:pas:TypeName 'Tmo_Folders'
+ CONST extprop:rc:SelfName 'mo_Folders'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'moFolders'
+
+ref; // ME_4A96B6E00382 Folders$UC

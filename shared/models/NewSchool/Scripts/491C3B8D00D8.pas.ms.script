@@ -1,0 +1,68 @@
+// TdsAutoreferat 491C3B8D00D8 ViewAreaControllerImp Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_491C3B8D00D8
+
+: ME_4CE693DF0188
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_491C3B8D00D8 // TdsAutoreferat
+ ;
+ : Target WL 'ME_4CE6937D031D' '491C3ADB03A5.pas.ms.script' // TnsAutoreferatDocumentContainer
+ ;
+
+ref; // ME_4CE693DF0188 
+
+: ME_491C263E03AF_ME_491C3B8D00D8
+ : Original WL 'ME_491C263E03AF' '47EA20430108.pas.ms.script' // GetIsReadOnly
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_491C263E03AF_ME_491C3B8D00D8 GetIsReadOnly
+
+: ME_491C264C02C2_ME_491C3B8D00D8
+ : Original WL 'ME_491C264C02C2' '47EA20430108.pas.ms.script' // GetTimeMachineOff
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_491C264C02C2_ME_491C3B8D00D8 GetTimeMachineOff
+
+: ME_4C6AB38800F3_ME_491C3B8D00D8
+ : Original WL 'ME_4C6AB38800F3' '47EA20430108.pas.ms.script' // MakeContainer
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4C6AB38800F3_ME_491C3B8D00D8 MakeContainer
+
+: ME_491C3B8D00D8
+ CONST UID '491C3B8D00D8'
+ CONST Name 'TdsAutoreferat'
+ CONST Class class_Class
+ : Stereotype st_ViewAreaControllerImp ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Автореферат' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_491C3ADB03A5' '491C3ADB03A5.pas.ms.script' // Autoreferat
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4926CAF40166' '4926CAF40166.pas.ms.script' // dsBaseDocument
+ )
+ ; // Inherits
+ : Overridden
+   Seq: ( ME_491C263E03AF_ME_491C3B8D00D8 // GetIsReadOnly
+ ME_491C264C02C2_ME_491C3B8D00D8 // GetTimeMachineOff
+ ME_4C6AB38800F3_ME_491C3B8D00D8 // MakeContainer
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_4CE693DF0188 // TnsAutoreferatDocumentContainer
+ )
+ ; // Dependencies
+ CONST "author" 'Морозов М.А.'
+ CONST "no hands" true
+ CONST "started" '06.10.2005 14.52'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Autoreferat\dsAutoreferat.pas'
+ CONST extprop:rc:SelfName 'dsAutoreferat'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'dsAutoreferat'
+
+ref; // ME_491C3B8D00D8 TdsAutoreferat

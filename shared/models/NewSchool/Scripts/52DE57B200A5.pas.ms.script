@@ -4,61 +4,12 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 FORWARD ME_52DE57B200A5
 
-FORWARD ME_52DE57DF007B
-
-FORWARD ME_48F73BBD02B3
-
-: ME_52DE586D02EC
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_52DE57DF007B // TnscTreeViewWithAdapterDragDrop
- ;
- : Target ME_48F73BBD02B3 // TnsEntitiesTreeDataObject
- ;
-
-ref; // ME_52DE586D02EC 
-
-: ME_52DD106403D3_ME_52DE57DF007B
- : Original WL 'ME_52DD106403D3' '4B97E7FD006C.pas.ms.script' // DataObjectClass
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_52DD106403D3_ME_52DE57DF007B DataObjectClass
-
-: ME_52DE57DF007B
- CONST UID '52DE57DF007B'
- CONST Name 'TnscTreeViewWithAdapterDragDrop'
- CONST Class class_Class
- : Stereotype st_GuiControl ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_52DE57B200A5 // Tree$WithDnD
- ;
- : Inherits
-   Seq: ( WL 'ME_499C26240034' '499C2614028C.pas.ms.script' // TnscTreeView
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_52DD106403D3_ME_52DE57DF007B // DataObjectClass
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_52DE586D02EC // TnsEntitiesTreeDataObject
- )
- ; // Dependencies
- CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Components\nscTreeViewWithAdapterDragDrop.pas'
- CONST extprop:rc:SelfName 'TreeViewWithAdapterDragDrop'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'nscTreeViewWithAdapterDragDrop'
-
-ref; // ME_52DE57DF007B TnscTreeViewWithAdapterDragDrop
-
 FORWARD ME_468271030094
 
 : ME_52EBD7C800C5
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_468271030094 // TnsNodeStorable
+ : Parent HWL ME_468271030094 // TnsNodeStorable
  ;
  : Target WL 'ME_45EEDC6F01D7' '4570501E037A.pas.ms.script' // FoldersItemType
  ;
@@ -68,7 +19,7 @@ ref; // ME_52EBD7C800C5
 : ME_52EBD7CA03CF
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_468271030094 // TnsNodeStorable
+ : Parent HWL ME_468271030094 // TnsNodeStorable
  ;
  : Target WL 'ME_45EEB65202A0' '4570511E038A.pas.ms.script' // Bookmark
  ;
@@ -78,7 +29,7 @@ ref; // ME_52EBD7CA03CF
 : ME_52EBD7CC02A4
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_468271030094 // TnsNodeStorable
+ : Parent HWL ME_468271030094 // TnsNodeStorable
  ;
  : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
  ;
@@ -88,7 +39,7 @@ ref; // ME_52EBD7CC02A4
 : ME_52EBD7CE012A
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_468271030094 // TnsNodeStorable
+ : Parent HWL ME_468271030094 // TnsNodeStorable
  ;
  : Target WL 'ME_456EB3E10177' '456EA56002BF.pas.ms.script' // EntityBase
  ;
@@ -98,7 +49,7 @@ ref; // ME_52EBD7CE012A
 : ME_52EBD7D0003E
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_468271030094 // TnsNodeStorable
+ : Parent HWL ME_468271030094 // TnsNodeStorable
  ;
  : Target WL 'ME_456FE63B01D4' '456F02A50196.pas.ms.script' // Node
  ;
@@ -108,7 +59,7 @@ ref; // ME_52EBD7D0003E
 : ME_52EBD7D10379
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_468271030094 // TnsNodeStorable
+ : Parent HWL ME_468271030094 // TnsNodeStorable
  ;
  : Target WL 'ME_47C6B03200AF' '47C5207602D1.pas.ms.script' // IevSub
  ;
@@ -118,7 +69,7 @@ ref; // ME_52EBD7D10379
 : ME_52EBD7D40035
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_468271030094 // TnsNodeStorable
+ : Parent HWL ME_468271030094 // TnsNodeStorable
  ;
  : Target WL 'ME_484AB26803DB' '469D0AC7005E.pas.ms.script' // Hyperlink Const
  ;
@@ -139,7 +90,7 @@ ref; // ME_48F494F102DD_ME_468271030094 GetAddress
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_52DE57B200A5 // Tree$WithDnD
+ : Parent HWL ME_52DE57B200A5 // Tree$WithDnD
  ;
  : Inherits
    Seq: ( WL 'ME_48F4D8230366' '4802FF41005C.pas.ms.script' // TevNodeStorable
@@ -171,9 +122,9 @@ FORWARD ME_468270DC0341
 : ME_52EBD76D038E
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_468270DC0341 // TnsNodeDataObject
+ : Parent HWL ME_468270DC0341 // TnsNodeDataObject
  ;
- : Target ME_468271030094 // TnsNodeStorable
+ : Target HWL ME_468271030094 // TnsNodeStorable
  ;
 
 ref; // ME_52EBD76D038E 
@@ -192,7 +143,7 @@ ref; // ME_48F8CD5401AD_ME_468270DC0341 DataClass
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_52DE57B200A5 // Tree$WithDnD
+ : Parent HWL ME_52DE57B200A5 // Tree$WithDnD
  ;
  : Inherits
    Seq: ( WL 'ME_48F4DC5A018D' '4802FF41005C.pas.ms.script' // TevNodeDataObject
@@ -213,12 +164,14 @@ ref; // ME_48F8CD5401AD_ME_468270DC0341 DataClass
 
 ref; // ME_468270DC0341 TnsNodeDataObject
 
+FORWARD ME_48F73BBD02B3
+
 : ME_52EBD77300B9
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_48F73BBD02B3 // TnsEntitiesTreeDataObject
+ : Parent HWL ME_48F73BBD02B3 // TnsEntitiesTreeDataObject
  ;
- : Target ME_468270DC0341 // TnsNodeDataObject
+ : Target HWL ME_468270DC0341 // TnsNodeDataObject
  ;
 
 ref; // ME_52EBD77300B9 
@@ -226,7 +179,7 @@ ref; // ME_52EBD77300B9
 : ME_52EBD77F0234
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_48F73BBD02B3 // TnsEntitiesTreeDataObject
+ : Parent HWL ME_48F73BBD02B3 // TnsEntitiesTreeDataObject
  ;
  : Target WL 'ME_48A41FF10094' '4AB0C3F60375.pas.ms.script' // Windows
  ;
@@ -236,7 +189,7 @@ ref; // ME_52EBD77F0234
 : ME_52EBD7820113
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_48F73BBD02B3 // TnsEntitiesTreeDataObject
+ : Parent HWL ME_48F73BBD02B3 // TnsEntitiesTreeDataObject
  ;
  : Target WL 'ME_456EB454018E' '456EA56002BF.pas.ms.script' // CanNotFindData
  ;
@@ -275,7 +228,7 @@ ref; // ME_48F8D47302FD_ME_48F73BBD02B3 ExtDataClass
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_52DE57B200A5 // Tree$WithDnD
+ : Parent HWL ME_52DE57B200A5 // Tree$WithDnD
  ;
  : Inherits
    Seq: ( WL 'ME_48F7014003A5' '469C688102A3.pas.ms.script' // TevNodeData
@@ -311,10 +264,10 @@ ref; // ME_48F73BBD02B3 TnsEntitiesTreeDataObject
  : Parent WL 'ME_51DD5AB6022D' '51DD5AB6022D.pas.ms.script' // Components
  ;
  : Children
-   Seq: ( ME_52DE57DF007B // TnscTreeViewWithAdapterDragDrop
- ME_468271030094 // TnsNodeStorable
- ME_468270DC0341 // TnsNodeDataObject
- ME_48F73BBD02B3 // TnsEntitiesTreeDataObject
+   Seq: ( WL 'ME_52DE57DF007B' '52DE57DF007B.pas.ms.script' // TnscTreeViewWithAdapterDragDrop
+ HWL ME_468271030094 // TnsNodeStorable
+ HWL ME_468270DC0341 // TnsNodeDataObject
+ HWL ME_48F73BBD02B3 // TnsEntitiesTreeDataObject
  )
  ; // Children
  : Depends

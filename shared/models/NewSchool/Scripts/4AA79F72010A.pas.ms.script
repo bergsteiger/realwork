@@ -1,0 +1,686 @@
+// Settings 4AA79F72010A VCMFormsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AA79F72010A
+
+FORWARD ME_4ABA122E00AE
+
+: ME_4ABA12C9027D
+ CONST UID '4ABA12C9027D'
+ CONST Name 'SettingsData'
+ CONST Class class_Attribute
+ : Stereotype st_var::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_4ABA122E00AE // OpenStyleEditorAsModal
+ ;
+ : Target WL 'ME_4991666D01FD' '499164F501ED.pas.ms.script' // InsStyleTableSettingsInfo
+ ;
+ CONST "IsResult" false
+
+ref; // ME_4ABA12C9027D SettingsData
+
+: ME_4ABA12F20283
+ CONST UID '4ABA12F20283'
+ CONST Name 'Container'
+ CONST Class class_Attribute
+ : Stereotype st_var::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_4ABA122E00AE // OpenStyleEditorAsModal
+ ;
+ : Target WL 'ME_4914746C019E' '4683F37902CF.pas.ms.script' // IvcmEntityForm
+ ;
+ CONST "IsResult" false
+
+ref; // ME_4ABA12F20283 Container
+
+: ME_4ABA12FD026A
+ CONST UID '4ABA12FD026A'
+ CONST Name 'Params'
+ CONST Class class_Attribute
+ : Stereotype st_var::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_4ABA122E00AE // OpenStyleEditorAsModal
+ ;
+ : Target WL 'ME_49930F8B0367' '4683F37902CF.pas.ms.script' // IvcmMakeParams
+ ;
+ CONST "IsResult" false
+
+ref; // ME_4ABA12FD026A Params
+
+: ME_4ABA129D0377
+ CONST Name 'aData'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4991666D01FD' '499164F501ED.pas.ms.script' // InsStyleTableSettingsInfo
+ ;
+
+ref; // ME_4ABA129D0377 aData
+
+: ME_4ABA12350191
+ CONST UID '4ABA12350191'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4ABA122E00AE // OpenStyleEditorAsModal
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ : Parameters
+   Seq: ( ME_4ABA129D0377 // aData
+ )
+ ; // Parameters
+
+ref; // ME_4ABA12350191 DoIt
+
+: ME_4ABA12E202D2
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4ABA122E00AE // OpenStyleEditorAsModal
+ ;
+ : Target WL 'ME_4A93BA1802CE' '47D0E1500033.pas.ms.script' // vcmParams
+ ;
+
+ref; // ME_4ABA12E202D2 
+
+: ME_4ABA13B0023A
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4ABA122E00AE // OpenStyleEditorAsModal
+ ;
+ : Target WL 'ME_4ABA139D014D' '4F7D8B3A03A0.pas.ms.script' // TnsStyleTableSettingsInfo
+ ;
+
+ref; // ME_4ABA13B0023A 
+
+: ME_4ABA177902A5
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4ABA122E00AE // OpenStyleEditorAsModal
+ ;
+ : Target WL 'ME_480DB927035A' '47ECB2870309.pas.ms.script' // TevStyleInterface
+ ;
+
+ref; // ME_4ABA177902A5 
+
+: ME_4ABA1BA6028F
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4ABA122E00AE // OpenStyleEditorAsModal
+ ;
+ : Target WL 'ME_4A980B37006B' '4799D29F033F.pas.ms.script' // ModalResults
+ ;
+
+ref; // ME_4ABA1BA6028F 
+
+: ME_4ABA1C3101EF
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4ABA122E00AE // OpenStyleEditorAsModal
+ ;
+ : Target WL 'ME_4AD5BB450335' '4F7D8B3A03A0.pas.ms.script' // nsSettingsUtils
+ ;
+
+ref; // ME_4ABA1C3101EF 
+
+: ME_4ABA122E00AE
+ CONST UID '4ABA122E00AE'
+ CONST Name 'OpenStyleEditorAsModal'
+ CONST Class class_Class
+ : Stereotype st_FactoryMethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AA79F72010A // Settings
+ ;
+ : Attributes
+   Seq: ( HWL ME_4ABA12C9027D // SettingsData
+ HWL ME_4ABA12F20283 // Container
+ HWL ME_4ABA12FD026A // Params
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( HWL ME_4ABA12350191 // DoIt
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_4ABA12E202D2 // vcmParams
+ ME_4ABA13B0023A // TnsStyleTableSettingsInfo
+ ME_4ABA177902A5 // TevStyleInterface
+ ME_4ABA1BA6028F // ModalResults
+ ME_4ABA1C3101EF // nsSettingsUtils
+ )
+ ; // Dependencies
+ CONST "NO_FACTORY_BRACKECTS" false
+
+ref; // ME_4ABA122E00AE OpenStyleEditorAsModal
+
+FORWARD ME_4ABB46310087
+
+: ME_4ABB465B0023
+ CONST UID '4ABB465B0023'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4ABB46310087 // OpenStyleEditorAsModal$Op
+ ;
+
+ref; // ME_4ABB465B0023 DoIt
+
+: ME_4ABB46310087
+ CONST UID '4ABB46310087'
+ CONST Name 'OpenStyleEditorAsModal'
+ CONST Class class_Class
+ : Stereotype st_ModuleMethod ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Редактор стилей...' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AA79F72010A // Settings
+ ;
+ : Operations
+   Seq: ( HWL ME_4ABB465B0023 // DoIt
+ )
+ ; // Operations
+ CONST "ShowInToolbar" 'undefined'
+ CONST "is static" false
+ CONST "no prefix" false
+ CONST "no test" true
+
+ref; // ME_4ABB46310087 OpenStyleEditorAsModal$Op
+
+FORWARD ME_4ABB49400064
+
+: ME_4ABB495003A8
+ CONST UID '4ABB495003A8'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4ABB49400064 // AutoLogin
+ ;
+
+ref; // ME_4ABB495003A8 DoIt
+
+: ME_4ABB4AE702D2
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4ABB49400064 // AutoLogin
+ ;
+ : Target WL 'ME_48FF556602BA' '48F747EC0073.pas.ms.script' // DataAdapter
+ ;
+
+ref; // ME_4ABB4AE702D2 
+
+: ME_4ABB49400064
+ CONST UID '4ABB49400064'
+ CONST Name 'AutoLogin'
+ CONST Class class_Class
+ : Stereotype st_ModuleMethod ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Автоматический вход в систему' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AA79F72010A // Settings
+ ;
+ : Operations
+   Seq: ( HWL ME_4ABB495003A8 // DoIt
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_4ABB4AE702D2 // DataAdapter
+ )
+ ; // Dependencies
+ CONST "ShowInToolbar" 'undefined'
+ CONST "no prefix" false
+ CONST "no test" false
+
+ref; // ME_4ABB49400064 AutoLogin
+
+FORWARD ME_4ABB4BB100C0
+
+: ME_4ABB4BBF02D2
+ CONST UID '4ABB4BBF02D2'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4ABB4BB100C0 // SelectConfig
+ ;
+
+ref; // ME_4ABB4BBF02D2 DoIt
+
+: ME_4ABB4BD70240
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4ABB4BB100C0 // SelectConfig
+ ;
+ : Target WL 'ME_49916A0A015E' '499164F501ED.pas.ms.script' // InsConfigNode
+ ;
+
+ref; // ME_4ABB4BD70240 
+
+: ME_4ABB4BEE0146
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4ABB4BB100C0 // SelectConfig
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_4ABB4BEE0146 
+
+: ME_4ABB4BFD0150
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4ABB4BB100C0 // SelectConfig
+ ;
+ : Target WL 'ME_4683D617036D' '467BAB7F021E.pas.ms.script' // IvcmNodes
+ ;
+
+ref; // ME_4ABB4BFD0150 
+
+: ME_4ABB4C5903A3
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4ABB4BB100C0 // SelectConfig
+ ;
+ : Target WL 'ME_4ABB4C3B03D9' '4ABA137C00E5.pas.ms.script' // ConfigurationList
+ ;
+
+ref; // ME_4ABB4C5903A3 
+
+: ME_4ABB4BB100C0
+ CONST UID '4ABB4BB100C0'
+ CONST Name 'SelectConfig'
+ CONST Class class_Class
+ : Stereotype st_ModuleMethod ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Выбор конфигурации' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AA79F72010A // Settings
+ ;
+ : Operations
+   Seq: ( HWL ME_4ABB4BBF02D2 // DoIt
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_4ABB4BD70240 // InsConfigNode
+ ME_4ABB4BEE0146 // SysUtils
+ ME_4ABB4BFD0150 // IvcmNodes
+ ME_4ABB4C5903A3 // ConfigurationList
+ )
+ ; // Dependencies
+ CONST "ShowInToolbar" 'undefined'
+ CONST "no prefix" false
+ CONST "no test" false
+
+ref; // ME_4ABB4BB100C0 SelectConfig
+
+FORWARD ME_4ABB4E9A0064
+
+: ME_4ABB4EB70081
+ CONST UID '4ABB4EB70081'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4ABB4E9A0064 // OpenConfList$Op
+ ;
+
+ref; // ME_4ABB4EB70081 DoIt
+
+: ME_4ABB4E9A0064
+ CONST UID '4ABB4E9A0064'
+ CONST Name 'OpenConfList'
+ CONST Class class_Class
+ : Stereotype st_ModuleMethod ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Список конфигураций' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AA79F72010A // Settings
+ ;
+ : Operations
+   Seq: ( HWL ME_4ABB4EB70081 // DoIt
+ )
+ ; // Operations
+ CONST "ShowInToolbar" 'undefined'
+ CONST "is static" false
+ CONST "no prefix" false
+ CONST "no test" true
+
+ref; // ME_4ABB4E9A0064 OpenConfList$Op
+
+FORWARD ME_4ABB51300045
+
+: ME_4ABB514F0172
+ CONST Name 'aContainer'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
+ ;
+
+ref; // ME_4ABB514F0172 aContainer
+
+: ME_4ABB514B0343
+ CONST UID '4ABB514B0343'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4ABB51300045 // CloseConfList
+ ;
+ : Parameters
+   Seq: ( ME_4ABB514F0172 // aContainer
+ )
+ ; // Parameters
+
+ref; // ME_4ABB514B0343 DoIt
+
+: ME_4ABB51300045
+ CONST UID '4ABB51300045'
+ CONST Name 'CloseConfList'
+ CONST Class class_Class
+ : Stereotype st_FactoryMethod ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Закрыть список конфигураций' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AA79F72010A // Settings
+ ;
+ : Operations
+   Seq: ( HWL ME_4ABB514B0343 // DoIt
+ )
+ ; // Operations
+ CONST "NO_FACTORY_BRACKECTS" false
+
+ref; // ME_4ABB51300045 CloseConfList
+
+FORWARD ME_4ABB5496029E
+
+: ME_4ABB54D7003A
+ CONST Name 'anAggregate'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49930CC501C9' '4683F37902CF.pas.ms.script' // IvcmAggregate
+ ;
+
+ref; // ME_4ABB54D7003A anAggregate
+
+: ME_4ABB54D70062
+ CONST Name 'aData'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_499168FA025D' '499164F501ED.pas.ms.script' // InsConfigSettingsInfo
+ ;
+
+ref; // ME_4ABB54D70062 aData
+
+: ME_4ABB54D202B2
+ CONST UID '4ABB54D202B2'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4ABB5496029E // LoadSettings
+ ;
+ : Parameters
+   Seq: ( ME_4ABB54D7003A // anAggregate
+ ME_4ABB54D70062 // aData
+ )
+ ; // Parameters
+
+ref; // ME_4ABB54D202B2 DoIt
+
+: ME_4ABB54F401F5
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4ABB5496029E // LoadSettings
+ ;
+ : Target WL 'ME_4A93BA1802CE' '47D0E1500033.pas.ms.script' // vcmParams
+ ;
+
+ref; // ME_4ABB54F401F5 
+
+: ME_4ABB5496029E
+ CONST UID '4ABB5496029E'
+ CONST Name 'LoadSettings'
+ CONST Class class_Class
+ : Stereotype st_FormFactory ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Открыть настройки' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AA79F72010A // Settings
+ ;
+ : Operations
+   Seq: ( HWL ME_4ABB54D202B2 // DoIt
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_4ABB54F401F5 // vcmParams
+ )
+ ; // Dependencies
+ CONST "NO_FACTORY_BRACKECTS" false
+
+ref; // ME_4ABB5496029E LoadSettings
+
+FORWARD ME_4ABB5926039A
+
+: ME_4ABB593B0185
+ CONST UID '4ABB593B0185'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4ABB5926039A // LoadActiveSettings
+ ;
+
+ref; // ME_4ABB593B0185 DoIt
+
+: ME_4BD8171902F5
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4ABB5926039A // LoadActiveSettings
+ ;
+ : Target WL 'ME_49525B34022A' '4AADF9450143.pas.ms.script' // TvcmEntityForm
+ ;
+
+ref; // ME_4BD8171902F5 
+
+: ME_4ABB5926039A
+ CONST UID '4ABB5926039A'
+ CONST Name 'LoadActiveSettings'
+ CONST Class class_Class
+ : Stereotype st_ModuleMethod ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Настройка конфигурации...' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AA79F72010A // Settings
+ ;
+ : Operations
+   Seq: ( HWL ME_4ABB593B0185 // DoIt
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_4BD8171902F5 // TvcmEntityForm
+ )
+ ; // Dependencies
+ CONST "ShowInToolbar" 'undefined'
+ CONST "is static" false
+ CONST "no prefix" false
+ CONST "no test" true
+
+ref; // ME_4ABB5926039A LoadActiveSettings
+
+FORWARD ME_4AC0FF9D0332
+
+: ME_4AC0FFF60204
+ CONST Name 'aContainer'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
+ ;
+
+ref; // ME_4AC0FFF60204 aContainer
+
+: ME_4AC0FFEC0167
+ CONST UID '4AC0FFEC0167'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AC0FF9D0332 // OpenConfList$FM
+ ;
+ : Parameters
+   Seq: ( ME_4AC0FFF60204 // aContainer
+ )
+ ; // Parameters
+
+ref; // ME_4AC0FFEC0167 DoIt
+
+: ME_4AC0FF9D0332
+ CONST UID '4AC0FF9D0332'
+ CONST Name 'OpenConfList'
+ CONST Class class_Class
+ : Stereotype st_FactoryMethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AA79F72010A // Settings
+ ;
+ : Operations
+   Seq: ( HWL ME_4AC0FFEC0167 // DoIt
+ )
+ ; // Operations
+ CONST "NO_FACTORY_BRACKECTS" false
+
+ref; // ME_4AC0FF9D0332 OpenConfList$FM
+
+FORWARD ME_4B506F0902B5
+
+: ME_4B506F2A033B
+ CONST UID '4B506F2A033B'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4B506F0902B5 // UserProperties
+ ;
+
+ref; // ME_4B506F2A033B DoIt
+
+: ME_4B5430C80337
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4B506F0902B5 // UserProperties
+ ;
+ : Target WL 'ME_4B5430AC0306' '4B5430AC0306.pas.ms.script' // SelfInfo
+ ;
+
+ref; // ME_4B5430C80337 
+
+: ME_4B506F0902B5
+ CONST UID '4B506F0902B5'
+ CONST Name 'UserProperties'
+ CONST Class class_Class
+ : Stereotype st_ModuleMethod ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Изменить мои регистрационные данные...' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AA79F72010A // Settings
+ ;
+ : Operations
+   Seq: ( HWL ME_4B506F2A033B // DoIt
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_4B5430C80337 // SelfInfo
+ )
+ ; // Dependencies
+ CONST "ShowInToolbar" 'undefined'
+ CONST "no prefix" false
+ CONST "no test" false
+
+ref; // ME_4B506F0902B5 UserProperties
+
+: ME_4BD6DFDD02D6
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AA79F72010A // Settings
+ ;
+ : Target WL 'ME_4BD6DFC00310' '4AF8665A0079.pas.ms.script' // utStyleEditorExample
+ ;
+
+ref; // ME_4BD6DFDD02D6 
+
+: ME_4BD97190003D
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AA79F72010A // Settings
+ ;
+ : Target WL 'ME_4BD971260355' '4BD856E802F9.pas.ms.script' // ConfigurationList
+ ;
+
+ref; // ME_4BD97190003D 
+
+: ME_4AA79F72010A
+ CONST UID '4AA79F72010A'
+ CONST Name 'Settings'
+ CONST Class class_Class
+ : Stereotype st_VCMFormsPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4AA79F630309' '4AA79F630309.pas.ms.script' // Settings
+ ;
+ : Operations
+   Seq: ( HWL ME_4ABA122E00AE // OpenStyleEditorAsModal
+ HWL ME_4ABB46310087 // OpenStyleEditorAsModal$Op
+ HWL ME_4ABB49400064 // AutoLogin
+ HWL ME_4ABB4BB100C0 // SelectConfig
+ HWL ME_4ABB4E9A0064 // OpenConfList$Op
+ HWL ME_4ABB51300045 // CloseConfList
+ HWL ME_4ABB5496029E // LoadSettings
+ HWL ME_4ABB5926039A // LoadActiveSettings
+ HWL ME_4AC0FF9D0332 // OpenConfList$FM
+ HWL ME_4B506F0902B5 // UserProperties
+ )
+ ; // Operations
+ : Children
+   Seq: ( WL 'ME_4ABA142401CA' '4ABA142401CA.pas.ms.script' // StyleEditorContainer
+ WL 'ME_4ABA143303B0' '4ABA143303B0.pas.ms.script' // StyleEditorFont
+ WL 'ME_4ABA14480078' '4ABA14480078.pas.ms.script' // StyleEditorNavigator
+ WL 'ME_4ABA146F00D4' '4ABA146F00D4.pas.ms.script' // ConfigurationList
+ WL 'ME_4ABA14800365' '4ABA14800365.pas.ms.script' // Settings
+ WL 'ME_4ABA14A4011C' '4ABA14A4011C.pas.ms.script' // StyleEditorExample
+ WL 'ME_4B5430AC0306' '4B5430AC0306.pas.ms.script' // SelfInfo
+ )
+ ; // Children
+ : Dependencies
+   Seq: ( ME_4BD6DFDD02D6 // utStyleEditorExample
+ ME_4BD97190003D // ConfigurationList
+ )
+ ; // Dependencies
+ CONST "author" 'Люлин А.В.'
+ CONST "no hands" true
+ CONST "started" '09.09.2009 16:29'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Settings\Settings_Module.pas'
+ CONST extprop:pas:TypeName 'TSettingsModule'
+ CONST extprop:rc:SelfName 'SettingsModule'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'Settings_Module'
+
+ref; // ME_4AA79F72010A Settings

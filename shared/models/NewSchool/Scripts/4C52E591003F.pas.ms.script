@@ -17,7 +17,7 @@ FORWARD ME_4C7D373900D0
  %SUMMARY 'Описание препарата' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4C7D373900D0 // OpenDocument
+ : Parent HWL ME_4C7D373900D0 // OpenDocument
  ;
  CONST "Checked" 'undefined'
  CONST "Enabled" 'undefined'
@@ -34,7 +34,7 @@ ref; // ME_4C7D37940011 Drug
  %SUMMARY 'Описание фирмы' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4C7D373900D0 // OpenDocument
+ : Parent HWL ME_4C7D373900D0 // OpenDocument
  ;
  CONST "Checked" 'undefined'
  CONST "Enabled" 'undefined'
@@ -51,11 +51,11 @@ ref; // ME_4C7D37A2034D MedicFirm
  %SUMMARY 'Текст документа' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C52E5C9005D // MedicListSynchroView
+ : Parent HWL ME_4C52E5C9005D // MedicListSynchroView
  ;
  : Children
-   Seq: ( ME_4C7D37940011 // Drug
- ME_4C7D37A2034D // MedicFirm
+   Seq: ( HWL ME_4C7D37940011 // Drug
+ HWL ME_4C7D37A2034D // MedicFirm
  )
  ; // Children
  CONST "AutoFocus" false
@@ -81,7 +81,7 @@ FORWARD ME_4C7D37C20388
  %SUMMARY 'Препараты-синонимы' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4C7D37C20388 // OpenList
+ : Parent HWL ME_4C7D37C20388 // OpenList
  ;
  CONST "Checked" 'undefined'
  CONST "Enabled" 'undefined'
@@ -100,7 +100,7 @@ ref; // ME_4C7D37DC01D4 Drug
  %SUMMARY 'Производимые препараты' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4C7D37C20388 // OpenList
+ : Parent HWL ME_4C7D37C20388 // OpenList
  ;
  CONST "Checked" 'undefined'
  CONST "Enabled" 'undefined'
@@ -119,11 +119,11 @@ ref; // ME_4C7D37F500F1 MedicFirm
  %SUMMARY 'Список препаратов' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C52E5C9005D // MedicListSynchroView
+ : Parent HWL ME_4C52E5C9005D // MedicListSynchroView
  ;
  : Children
-   Seq: ( ME_4C7D37DC01D4 // Drug
- ME_4C7D37F500F1 // MedicFirm
+   Seq: ( HWL ME_4C7D37DC01D4 // Drug
+ HWL ME_4C7D37F500F1 // MedicFirm
  )
  ; // Children
  CONST "AutoFocus" false
@@ -144,7 +144,7 @@ ref; // ME_4C7D37C20388 OpenList
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C52E5C9005D // MedicListSynchroView
+ : Parent HWL ME_4C52E5C9005D // MedicListSynchroView
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -164,7 +164,7 @@ ref; // ME_4C52E5D702B0 OpenDocument
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C52E5C9005D // MedicListSynchroView
+ : Parent HWL ME_4C52E5C9005D // MedicListSynchroView
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -184,7 +184,7 @@ ref; // ME_4C52E5F203CC OpenAttributesForm
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C52E5C9005D // MedicListSynchroView
+ : Parent HWL ME_4C52E5C9005D // MedicListSynchroView
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -207,14 +207,14 @@ ref; // ME_4C52E61002B5 OpenList
  %SUMMARY 'Синхронный просмотр ИНФАРМ' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4C52E591003F // Strange
+ : Parent HWL ME_4C52E591003F // Strange
  ;
  : Operations
-   Seq: ( ME_4C7D373900D0 // OpenDocument
- ME_4C7D37C20388 // OpenList
- ME_4C52E5D702B0 // OpenDocument
- ME_4C52E5F203CC // OpenAttributesForm
- ME_4C52E61002B5 // OpenList
+   Seq: ( HWL ME_4C7D373900D0 // OpenDocument
+ HWL ME_4C7D37C20388 // OpenList
+ HWL ME_4C52E5D702B0 // OpenDocument
+ HWL ME_4C52E5F203CC // OpenAttributesForm
+ HWL ME_4C52E61002B5 // OpenList
  )
  ; // Operations
 
@@ -230,7 +230,7 @@ FORWARD ME_4C7E415800A1
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C7E415800A1 // MedicFirmList
+ : Parent HWL ME_4C7E415800A1 // MedicFirmList
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -252,10 +252,10 @@ ref; // ME_4C7E4168031D CountryFilter
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4C52E591003F // Strange
+ : Parent HWL ME_4C52E591003F // Strange
  ;
  : Operations
-   Seq: ( ME_4C7E4168031D // CountryFilter
+   Seq: ( HWL ME_4C7E4168031D // CountryFilter
  )
  ; // Operations
 
@@ -271,8 +271,8 @@ ref; // ME_4C7E415800A1 MedicFirmList
  : Parent WL 'ME_4958E46E007B' '4958E46E007B.pas.ms.script' // View
  ;
  : Children
-   Seq: ( ME_4C52E5C9005D // MedicListSynchroView
- ME_4C7E415800A1 // MedicFirmList
+   Seq: ( HWL ME_4C52E5C9005D // MedicListSynchroView
+ HWL ME_4C7E415800A1 // MedicFirmList
  )
  ; // Children
  : Depends

@@ -1,0 +1,501 @@
+// CompareEditions 4A6EBF8301FA VCMFormSetFactory Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A6EBF8301FA
+
+FORWARD ME_4A6EC3DF01FE
+
+FORWARD ME_4A6EC4320102
+
+: ME_011DEB68E6EC
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A6EC4320102 // Left
+ ;
+ : Target WL 'ME_4FFC67440230' '4FFC670F012B.pas.ms.script' // LeftEdition
+ ;
+
+ref; // ME_011DEB68E6EC 
+
+: ME_4A786E2A00A2_ME_4A6EC4320102
+ : Original WL 'ME_4A786E2A00A2' '4A6D56B00065.pas.ms.script' // DocumentContainer
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_4A786E2A00A2_ME_4A6EC4320102 DocumentContainer
+
+: ME_4A7FF1AC035C_ME_4A6EC4320102
+ : Original WL 'ME_4A7FF1AC035C' '4A6D56B00065.pas.ms.script' // RedactionCurrentPara
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_4A7FF1AC035C_ME_4A6EC4320102 RedactionCurrentPara
+
+: ME_4A8006FC02A1_ME_4A6EC4320102
+ : Original WL 'ME_4A8006FC02A1' '4A6D56B00065.pas.ms.script' // Document
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_4A8006FC02A1_ME_4A6EC4320102 Document
+
+: ME_4A83CD9502BE_ME_4A6EC4320102
+ : Original WL 'ME_4A83CD9502BE' '4A6D56B00065.pas.ms.script' // RedactionName
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_4A83CD9502BE_ME_4A6EC4320102 RedactionName
+
+: ME_4A83D4CA00D0_ME_4A6EC4320102
+ : Original WL 'ME_4A83D4CA00D0' '4A6D56B00065.pas.ms.script' // PrevEditions
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_4A83D4CA00D0_ME_4A6EC4320102 PrevEditions
+
+: ME_4AE56DE80093_ME_4A6EC4320102
+ : Original WL 'ME_4AE56DE80093' '491B305A0096.pas.ms.script' // MakeHAFMacroReplacer
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4AE56DE80093_ME_4A6EC4320102 MakeHAFMacroReplacer
+
+: ME_4AE575FA030B_ME_4A6EC4320102
+ : Original WL 'ME_4AE575FA030B' '491B305A0096.pas.ms.script' // MakeFilterInfo
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4AE575FA030B_ME_4A6EC4320102 MakeFilterInfo
+
+: ME_4B5852A800F5_ME_4A6EC4320102
+ : Original WL 'ME_4B5852A800F5' '4A6D56B00065.pas.ms.script' // DocumentForReturn
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_4B5852A800F5_ME_4A6EC4320102 DocumentForReturn
+
+: ME_4DF9D63B0360_ME_4A6EC4320102
+ : Original WL 'ME_4DF9D63B0360' '4B1FC2FF03CD.pas.ms.script' // DocInfo
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ CONST "reflectable" true
+ref; // ME_4DF9D63B0360_ME_4A6EC4320102 DocInfo
+
+: ME_4A6EC4320102
+ CONST UID '4A6EC4320102'
+ CONST Name 'Left'
+ CONST Class class_Class
+ : Stereotype st_VCMZone ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4A6EC3DF01FE // EditionsContainer
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4A6EC02E00EA' '4A6EC02E00EA.pas.ms.script' // LeftEdition
+ WL 'ME_4BD7056800D3' '4A6D5A80013C.pas.ms.script' // utLeftEdition
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4A6D579203BC' '4A6D56B00065.pas.ms.script' // Left
+ )
+ ; // Implements
+ : Implemented
+   Seq: ( ME_4A786E2A00A2_ME_4A6EC4320102 // DocumentContainer
+ ME_4A7FF1AC035C_ME_4A6EC4320102 // RedactionCurrentPara
+ ME_4A8006FC02A1_ME_4A6EC4320102 // Document
+ ME_4A83CD9502BE_ME_4A6EC4320102 // RedactionName
+ ME_4A83D4CA00D0_ME_4A6EC4320102 // PrevEditions
+ ME_4AE56DE80093_ME_4A6EC4320102 // MakeHAFMacroReplacer
+ ME_4AE575FA030B_ME_4A6EC4320102 // MakeFilterInfo
+ ME_4B5852A800F5_ME_4A6EC4320102 // DocumentForReturn
+ ME_4DF9D63B0360_ME_4A6EC4320102 // DocInfo
+ )
+ ; // Implemented
+ : Dependencies
+   Seq: ( ME_011DEB68E6EC // LeftEdition
+ )
+ ; // Dependencies
+ CONST "ActivateIfUpdate" 'None'
+ CONST "Need GetFormCount" false
+ CONST "Need OnFormWeight" 'undefined'
+ CONST "ZoneType" 'Child'
+
+ref; // ME_4A6EC4320102 Left
+
+FORWARD ME_4A6EC45501C8
+
+: ME_02A3740CEDD4
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A6EC45501C8 // Right
+ ;
+ : Target WL 'ME_4FFC674F004A' '4FFC670F012B.pas.ms.script' // RightEdition
+ ;
+
+ref; // ME_02A3740CEDD4 
+
+: ME_4A786E2A00A2_ME_4A6EC45501C8
+ : Original WL 'ME_4A786E2A00A2' '4A6D56B00065.pas.ms.script' // DocumentContainer
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_4A786E2A00A2_ME_4A6EC45501C8 DocumentContainer
+
+: ME_4A7FF1AC035C_ME_4A6EC45501C8
+ : Original WL 'ME_4A7FF1AC035C' '4A6D56B00065.pas.ms.script' // RedactionCurrentPara
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_4A7FF1AC035C_ME_4A6EC45501C8 RedactionCurrentPara
+
+: ME_4A8006FC02A1_ME_4A6EC45501C8
+ : Original WL 'ME_4A8006FC02A1' '4A6D56B00065.pas.ms.script' // Document
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_4A8006FC02A1_ME_4A6EC45501C8 Document
+
+: ME_4A83CD9502BE_ME_4A6EC45501C8
+ : Original WL 'ME_4A83CD9502BE' '4A6D56B00065.pas.ms.script' // RedactionName
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_4A83CD9502BE_ME_4A6EC45501C8 RedactionName
+
+: ME_4AE56DE80093_ME_4A6EC45501C8
+ : Original WL 'ME_4AE56DE80093' '491B305A0096.pas.ms.script' // MakeHAFMacroReplacer
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4AE56DE80093_ME_4A6EC45501C8 MakeHAFMacroReplacer
+
+: ME_4AE575FA030B_ME_4A6EC45501C8
+ : Original WL 'ME_4AE575FA030B' '491B305A0096.pas.ms.script' // MakeFilterInfo
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4AE575FA030B_ME_4A6EC45501C8 MakeFilterInfo
+
+: ME_4B55B0DE0078_ME_4A6EC45501C8
+ : Original WL 'ME_4B55B0DE0078' '4A6D56B00065.pas.ms.script' // NextEditions
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_4B55B0DE0078_ME_4A6EC45501C8 NextEditions
+
+: ME_4B5852A800F5_ME_4A6EC45501C8
+ : Original WL 'ME_4B5852A800F5' '4A6D56B00065.pas.ms.script' // DocumentForReturn
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_4B5852A800F5_ME_4A6EC45501C8 DocumentForReturn
+
+: ME_4DF9D63B0360_ME_4A6EC45501C8
+ : Original WL 'ME_4DF9D63B0360' '4B1FC2FF03CD.pas.ms.script' // DocInfo
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ CONST "reflectable" true
+ref; // ME_4DF9D63B0360_ME_4A6EC45501C8 DocInfo
+
+: ME_4A6EC45501C8
+ CONST UID '4A6EC45501C8'
+ CONST Name 'Right'
+ CONST Class class_Class
+ : Stereotype st_VCMZone ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4A6EC3DF01FE // EditionsContainer
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4A6EC062005F' '4A6EC062005F.pas.ms.script' // RightEdition
+ WL 'ME_4BD705A001E0' '4A6D5ABE020A.pas.ms.script' // utRightEdition
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4A6D57C80079' '4A6D56B00065.pas.ms.script' // Right
+ )
+ ; // Implements
+ : Implemented
+   Seq: ( ME_4A786E2A00A2_ME_4A6EC45501C8 // DocumentContainer
+ ME_4A7FF1AC035C_ME_4A6EC45501C8 // RedactionCurrentPara
+ ME_4A8006FC02A1_ME_4A6EC45501C8 // Document
+ ME_4A83CD9502BE_ME_4A6EC45501C8 // RedactionName
+ ME_4AE56DE80093_ME_4A6EC45501C8 // MakeHAFMacroReplacer
+ ME_4AE575FA030B_ME_4A6EC45501C8 // MakeFilterInfo
+ ME_4B55B0DE0078_ME_4A6EC45501C8 // NextEditions
+ ME_4B5852A800F5_ME_4A6EC45501C8 // DocumentForReturn
+ ME_4DF9D63B0360_ME_4A6EC45501C8 // DocInfo
+ )
+ ; // Implemented
+ : Dependencies
+   Seq: ( ME_02A3740CEDD4 // RightEdition
+ )
+ ; // Dependencies
+ CONST "ActivateIfUpdate" 'None'
+ CONST "Need GetFormCount" false
+ CONST "Need OnFormWeight" 'undefined'
+ CONST "ZoneType" 'Main'
+
+ref; // ME_4A6EC45501C8 Right
+
+: ME_29EC6596B12C
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A6EC3DF01FE // EditionsContainer
+ ;
+ : Target WL 'ME_4FFC675B03C3' '4FFC670F012B.pas.ms.script' // EditionsContainer
+ ;
+
+ref; // ME_29EC6596B12C 
+
+: ME_4A800ED00011_ME_4A6EC3DF01FE
+ : Original WL 'ME_4A800ED00011' '4A6D56B00065.pas.ms.script' // DocumentNameForCaption
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_4A800ED00011_ME_4A6EC3DF01FE DocumentNameForCaption
+
+: ME_4B4F2EAD0183_ME_4A6EC3DF01FE
+ : Original WL 'ME_4B4F2EAD0183' '4A6D56B00065.pas.ms.script' // ChangedParas
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_4B4F2EAD0183_ME_4A6EC3DF01FE ChangedParas
+
+: ME_4DDCC27802BA_ME_4A6EC3DF01FE
+ : Original WL 'ME_4DDCC27802BA' '4A6D56B00065.pas.ms.script' // Right
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_4DDCC27802BA_ME_4A6EC3DF01FE Right
+
+: ME_4DDCC30E0361_ME_4A6EC3DF01FE
+ : Original WL 'ME_4DDCC30E0361' '4A6D56B00065.pas.ms.script' // Left
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_4DDCC30E0361_ME_4A6EC3DF01FE Left
+
+: ME_54743B1A00AC_ME_4A6EC3DF01FE
+ : Original WL 'ME_54743B1A00AC' '4A6D56B00065.pas.ms.script' // DocumentFullNameForCaption
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_54743B1A00AC_ME_4A6EC3DF01FE DocumentFullNameForCaption
+
+: ME_4A6EC3DF01FE
+ CONST UID '4A6EC3DF01FE'
+ CONST Name 'EditionsContainer'
+ CONST Class class_Class
+ : Stereotype st_VCMZone ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4A6EBF8301FA // CompareEditions
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4A6EC095039C' '4A6EC095039C.pas.ms.script' // EditionsContainer
+ WL 'ME_4BD705C900FF' '4A6EC0D0020C.pas.ms.script' // utEditionsContainer
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4A6EC18E02E3' '4A6D56B00065.pas.ms.script' // EditionsContainerData
+ )
+ ; // Implements
+ : Implemented
+   Seq: ( ME_4A800ED00011_ME_4A6EC3DF01FE // DocumentNameForCaption
+ ME_4B4F2EAD0183_ME_4A6EC3DF01FE // ChangedParas
+ ME_4DDCC27802BA_ME_4A6EC3DF01FE // Right
+ ME_4DDCC30E0361_ME_4A6EC3DF01FE // Left
+ ME_54743B1A00AC_ME_4A6EC3DF01FE // DocumentFullNameForCaption
+ )
+ ; // Implemented
+ : Children
+   Seq: ( HWL ME_4A6EC4320102 // Left
+ HWL ME_4A6EC45501C8 // Right
+ )
+ ; // Children
+ : Dependencies
+   Seq: ( ME_29EC6596B12C // EditionsContainer
+ )
+ ; // Dependencies
+ CONST "ActivateIfUpdate" 'None'
+ CONST "Need GetFormCount" false
+ CONST "Need OnFormWeight" 'undefined'
+ CONST "ZoneType" 'Parent'
+
+ref; // ME_4A6EC3DF01FE EditionsContainer
+
+FORWARD ME_6CABF3BFBF2C
+
+: ME_1EA974545AE9
+ CONST UID '1EA974545AE9'
+ CONST Name 'fsCompareEditionsCaption'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY 'Заголовок фабрики сборки форм "CompareEditions"' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_6CABF3BFBF2C // CompareEditionsCaptionLocalConstants
+ ;
+ CONST Value '''Сравнение редакций'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '''Сравнение редакций'''
+
+ref; // ME_1EA974545AE9 fsCompareEditionsCaption
+
+: ME_6CABF3BFBF2C
+ CONST UID '6CABF3BFBF2C'
+ CONST Name 'CompareEditionsCaptionLocalConstants'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_LocalConst ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Локализуемые константы для фабрики сборки форм CompareEditions' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4A6EBF8301FA // CompareEditions
+ ;
+ : Attributes
+   Seq: ( HWL ME_1EA974545AE9 // fsCompareEditionsCaption
+ )
+ ; // Attributes
+ CONST "Need map interface" false
+ CONST "Need mapping support" false
+ CONST "spell names" false
+
+ref; // ME_6CABF3BFBF2C CompareEditionsCaptionLocalConstants
+
+: ME_220564C38BDB
+ CONST UID '220564C38BDB'
+ CONST Name 'EditionsContainer_Parent_utEditionsContainer_NeedMakeForm'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Обработчик OnNeedMakeForm для EditionsContainer' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4A6EBF8301FA // CompareEditions
+ ;
+ : Inherits
+   Seq: ( WL 'ME_50096E800075' '47B9727603BE.pas.ms.script' // TvcmNeedMakeFormEvent
+ )
+ ; // Inherits
+ : Speller HWL ME_4A6EC3DF01FE // EditionsContainer
+ ;
+
+ref; // ME_220564C38BDB EditionsContainer_Parent_utEditionsContainer_NeedMakeForm
+
+: ME_2F2577A83E0B
+ CONST UID '2F2577A83E0B'
+ CONST Name 'Left_Child_utLeftEdition_NeedMakeForm'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Обработчик OnNeedMakeForm для Left' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4A6EBF8301FA // CompareEditions
+ ;
+ : Inherits
+   Seq: ( WL 'ME_50096E800075' '47B9727603BE.pas.ms.script' // TvcmNeedMakeFormEvent
+ )
+ ; // Inherits
+ : Speller HWL ME_4A6EC4320102 // Left
+ ;
+
+ref; // ME_2F2577A83E0B Left_Child_utLeftEdition_NeedMakeForm
+
+: ME_B8C95E6B157E
+ CONST UID 'B8C95E6B157E'
+ CONST Name 'Right_Main_utRightEdition_NeedMakeForm'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Обработчик OnNeedMakeForm для Right' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4A6EBF8301FA // CompareEditions
+ ;
+ : Inherits
+   Seq: ( WL 'ME_50096E800075' '47B9727603BE.pas.ms.script' // TvcmNeedMakeFormEvent
+ )
+ ; // Inherits
+ : Speller HWL ME_4A6EC45501C8 // Right
+ ;
+
+ref; // ME_B8C95E6B157E Right_Main_utRightEdition_NeedMakeForm
+
+: ME_47A042E100E2_ME_4A6EBF8301FA
+ : Original WL 'ME_47A042E100E2' '47913B47006E.pas.ms.script' // InitFields
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_47A042E100E2_ME_4A6EBF8301FA InitFields
+
+: ME_4FFE854A009B_ME_4A6EBF8301FA
+ : Original WL 'ME_4FFE854A009B' '47B9727603BE.pas.ms.script' // GetInstance
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "is static" true
+ref; // ME_4FFE854A009B_ME_4A6EBF8301FA GetInstance
+
+: ME_4A6EBF8301FA
+ CONST UID '4A6EBF8301FA'
+ CONST Name 'CompareEditions'
+ CONST Class class_Class
+ : Stereotype st_VCMFormSetFactory ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Сравнение редакций документа' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent WL 'ME_4A6D5F3D03A9' '4A6D5F3D03A9.pas.ms.script' // BaseEditions
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47B97312006D' '47B9727603BE.pas.ms.script' // TvcmFormSetFactory
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( HWL ME_220564C38BDB // EditionsContainer_Parent_utEditionsContainer_NeedMakeForm
+ HWL ME_2F2577A83E0B // Left_Child_utLeftEdition_NeedMakeForm
+ HWL ME_B8C95E6B157E // Right_Main_utRightEdition_NeedMakeForm
+ )
+ ; // Operations
+ : Overridden
+   Seq: ( ME_47A042E100E2_ME_4A6EBF8301FA // InitFields
+ ME_4FFE854A009B_ME_4A6EBF8301FA // GetInstance
+ )
+ ; // Overridden
+ : Children
+   Seq: ( HWL ME_4A6EC3DF01FE // EditionsContainer
+ )
+ ; // Children
+ : Constants
+   Seq: ( HWL ME_6CABF3BFBF2C // CompareEditionsCaptionLocalConstants
+ )
+ ; // Constants
+ CONST "Caption" 'Сравнение редакций'
+ CONST "DefaultStatusForm" '-1'
+ CONST "Need GetMainCaption" false
+ CONST "Need GetMainImageIndex" false
+ CONST "author" 'Люлин А.В.'
+ CONST "finished dfm" true
+ CONST "no hands" true
+ CONST "singleton" true
+ CONST "started" '28.07.2009 13:07'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Editions\fsCompareEditions.pas'
+ CONST extprop:pas:TypeName 'Tfs_CompareEditions'
+ CONST extprop:rc:SelfName 'fs_CompareEditions'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'fsCompareEditions'
+ CONST extprop:pas:InitFields ' inherited;'#13#10' with AddZone(''EditionsContainer'', vcm_ztParent, fm_EditionsContainerForm) do'#13#10' begin'#13#10'  UserType := utEditionsContainer;'#13#10'  with AddZone(''Left'', vcm_ztChild, fm_LeftEditionForm) do'#13#10'  begin'#13#10'   UserType := utLeftEdition;'#13#10'   OnNeedMakeForm := LeftChildUtLeftEditionNeedMakeForm;'#13#10'  end;'#13#10'  with AddZone(''Right'', vcm_ztMain, fm_RightEditionForm) do'#13#10'  begin'#13#10'   UserType := utRightEdition;'#13#10'   OnNeedMakeForm := RightMainUtRightEditionNeedMakeForm;'#13#10'  end;'#13#10'  OnNeedMakeForm := EditionsContainerParentUtEditionsContainerNeedMakeForm;'#13#10' end;'#13#10' Caption := str_fsCompareEditionsCaption.AsCStr;'#13#10' OwnerForm := 0;'
+
+ref; // ME_4A6EBF8301FA CompareEditions

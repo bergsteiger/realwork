@@ -161,85 +161,85 @@ PROCEDURE "Использовать создание полной выборки"
 	cnSelectionWithList >>> g_ActionWithDocument
 ;
 
-PROCEDURE "Использовать создание текстового документа TXT" 
+PROCEDURE "Создание текстового документа TXT" 
 	cnNewTxtTypeTextDoc >>> g_ActionWithDocument 
 ;
 
-PROCEDURE "Использовать создание текстового документа TIFF"
+PROCEDURE "Создание текстового документа TIFF"
 	cnNewTiffTypeTextDoc >>> g_ActionWithDocument 
 ;
 
-PROCEDURE "Использовать создание документа-объекта DOCX"
+PROCEDURE "Создание документа-объекта DOCX"
 	cnNewDocxTypeDocObj >>> g_ActionWithDocument 
 ;
 
-PROCEDURE "Использовать создание документа-объекта DOC"
+PROCEDURE "Создание документа-объекта DOC"
 	cnNewDocTypeDocObj >>> g_ActionWithDocument 
 ;
 
-PROCEDURE "Использовать создание документа-объекта TXT"
+PROCEDURE "Создание документа-объекта TXT"
 	cnNewTxtTypeDocObj >>> g_ActionWithDocument 
 ;
 
-PROCEDURE "Использовать создание документа-объекта JPG"
+PROCEDURE "Создание документа-объекта JPG"
 	cnNewJpgTypeDocObj >>> g_ActionWithDocument 
 ;
 
-PROCEDURE "Использовать создание документа-объекта PNG"
+PROCEDURE "Создание документа-объекта PNG"
 	cnNewPngTypeDocObj >>> g_ActionWithDocument 
 ;
 
-PROCEDURE "Использовать создание текстового документа PNG" 
+PROCEDURE "Создание текстового документа PNG" 
 	cnNewPngTypeTextDoc >>> g_ActionWithDocument 
 ;
 
-PROCEDURE "Использовать создание текстового документа JPG" 
+PROCEDURE "Создание текстового документа JPG" 
 	cnNewJpgTypeTextDoc >>> g_ActionWithDocument 
 ;
 
-PROCEDURE "Использовать создание текстового документа GIF" 
+PROCEDURE "Создание текстового документа GIF" 
 	cnNewGifTypeTextDoc >>> g_ActionWithDocument 
 ;
 
-PROCEDURE "Использовать создание документа-объекта ICO"
+PROCEDURE "Создание документа-объекта ICO"
 	cnNewIcoTypeDocObj >>> g_ActionWithDocument 
 ;
 
-PROCEDURE "Использовать создание документа-объекта PCX"
+PROCEDURE "Создание документа-объекта PCX"
 	cnNewPcxTypeDocObj >>> g_ActionWithDocument 
 ;
 
-PROCEDURE "Использовать создание документа-объекта HTML"
+PROCEDURE "Создание документа-объекта HTML"
 	cnNewHtmlTypeDocObj >>> g_ActionWithDocument 
 ;
 
-PROCEDURE "Использовать создание документа-объекта TGA"
+PROCEDURE "Создание документа-объекта TGA"
 	cnNewTgaTypeDocObj >>> g_ActionWithDocument 
 ; 
 
-PROCEDURE "Использовать создание документа-объекта GIF"
+PROCEDURE "Создание документа-объекта GIF"
 	cnNewGifTypeDocObj >>> g_ActionWithDocument 
 ; 
 
-PROCEDURE "Использовать создание текстового документа HTML" 
+PROCEDURE "Создание текстового документа HTML" 
 	cnNewHtmlTypeTextDoc >>> g_ActionWithDocument 
 ; 
 
-PROCEDURE "Использовать создание документа-объекта WMF"
+PROCEDURE "Создание документа-объекта WMF"
 	cnNewWmfTypeDocObj >>> g_ActionWithDocument 
 ;
 
-PROCEDURE "Использовать создание текстового документа с названием" STRING IN aDocName
+PROCEDURE "Создание текстового документа с названием" STRING IN aDocName
 	cnNewDocIDWithName >>> g_ActionWithDocument 
 	aDocName >>> glNameDoc
 ;
 
-PROCEDURE "Использовать создание текстового документа с номером" INTEGER IN aDocNumber
+PROCEDURE "Создание текстового документа с номером" INTEGER IN aDocNumber
 	cnNewDocIDWithNumber >>> g_ActionWithDocument 
 	aDocNumber >>> glNumDoc 
 ;
 
-PROCEDURE "Использовать создание текстового документа без названия"
+PROCEDURE "Создание текстового документа без названия"
 	cnNewDocIDNoName >>> g_ActionWithDocument 
 ;
 
@@ -247,7 +247,7 @@ PROCEDURE "Создание новое сообщения"
 	cnNewMessage >>> g_ActionWithDocument 
 ;
 
-PROCEDURE "Использовать создание документа-объекта TIFF"
+PROCEDURE "Создание документа-объекта TIFF"
 	cnNewTiffTypeDocObj >>> g_ActionWithDocument 
 ;
 
@@ -446,7 +446,7 @@ PROCEDURE "Подготовка к работе с редакциями"
 	cnWorkingWithVersion >>> g_How2Prepare
 ;
 
-PROCEDURE "Указать размер главной формы, Спецсимволы, Структура документа" INTEGER IN aWidth INTEGER IN aHeight
+PROCEDURE "Размеры, Спецсимволы, реестр" INTEGER IN aWidth INTEGER IN aHeight
 	aWidth >>> aSizeWidth 
 	aHeight >>> aSizeHeight 
 	cnStandartPrepareAndSpecSymbolAndStructDoc >>> g_How2Prepare
@@ -472,17 +472,16 @@ PROCEDURE "Включить режим 'Спецсимволы'"
  	cnPrepareWideForm >>> g_How2Prepare
  ;
 
- PROCEDURE "Установить размеры для широкой формы, показать реестр, оглавление, блоки"
+ PROCEDURE "Размеры для широкой формы, реестр, оглавление, блоки"
    	cnSymbolStructContent >>> g_How2Prepare
  ;
- 
+
 // -------------------- Проверочные действия -----------------
 
 CONST cnNoneAction cnAnyParamDefValue
 CONST cnCheckWithEVDEtalon 1 // Сравнить с EVD
 CONST cnCheckWithNSREtalon 2 // Сравнить с NSR
 CONST cnCheckTable 3 
-CONST cnCheckDrawing 4
 CONST cnCheckTableLineDrawing 5
 CONST cnCheckTopAnchor 6
 CONST cnCheckBottomAnchor 7
@@ -511,7 +510,11 @@ CONST cnCheckComboboxMetka 29
 CONST cnExport2HTMLAndCheckWithEtalon 30
 CONST cnRTFWithPCName 31
 CONST cnExport2RTFAndCheckWithEtalon 32
-CONST cnCheckDrawingWithPC 33
+CONST cnCheckClipboard 34
+CONST cnCheckClipboardRtf 35
+CONST cnCheckClipboardEvd 36
+CONST cnExport2EVDAndCheckWithEtalon 37
+CONST cnCheckCursorIndexNameEtalon 38
 
 PROCEDURE "Без проверок"
 	cnNoneAction >>> g_CheckAction
@@ -527,6 +530,14 @@ PROCEDURE "Проверка NSR эталона"
 
 PROCEDURE "Вылить в NSR и сравнить c эталоном"
 	cnExport2NSRAndCheckWithEtalon >>> g_CheckAction
+;
+
+PROCEDURE "Вылить в EVD и сравнить c эталоном"
+	cnExport2EVDAndCheckWithEtalon >>> g_CheckAction
+;
+
+PROCEDURE "Эталон курсора мыши"
+	cnCheckCursorIndexNameEtalon >>> g_CheckAction
 ;
 
 PROCEDURE "Проверка таблицы"	
@@ -567,10 +578,6 @@ PROCEDURE "Стиль параграфа с номером" INTEGER IN aParaID
 
 PROCEDURE "Эталон напечатанного"
 	cnCheckPrinting >>> g_CheckAction
-;
-
-PROCEDURE "Эталон отрисованного"
-	cnCheckDrawing >>> g_CheckAction
 ;
 
 PROCEDURE "Эталон для линий таблиц"
@@ -668,8 +675,16 @@ PROCEDURE "Вылить в RTF и сравнить c эталоном"
 	cnExport2RTFAndCheckWithEtalon >>> g_CheckAction
 ;
 
-PROCEDURE "Эталон отрисованного с привязкой к ПК"
-	cnCheckDrawingWithPC >>> g_CheckAction
+PROCEDURE "Эталон для буфера обмена"
+	cnCheckClipboard >>> g_CheckAction
+;
+
+PROCEDURE "Эталон для буфера обмена в RTF"
+	cnCheckClipboardRtf >>> g_CheckAction
+;
+
+PROCEDURE "Проверка содержимого буфера обмена в EVD"
+	cnCheckClipboardEvd >>> g_CheckAction
 ;
 
 // --------------- Предварительные операции -----------
@@ -1020,7 +1035,7 @@ PROCEDURE "Случайный Документ"
 	"Открывать документ из базы"
 ;
 
-PROCEDURE "Документ из английской базы."
+PROCEDURE "Документ на английском"
 	"Документ из английской базы" >>> glNumDoc
 	"Открывать документ из базы"
 ;
@@ -1058,4 +1073,50 @@ PROCEDURE "Документ с картинкой без данных"
 PROCEDURE "Документ для проверки мягких переносов"
 	"Документ Проверки Мягких Переносов" >>> glNumDoc
 	"Открывать документ из базы"	
+;
+
+PROCEDURE "Приказ Минфина России от 17 марта 2015 г. N 38н"
+   	70889104 >>> glNumDoc
+	"Открывать документ из базы"
+;
+
+//--------- //На страницу вниз
+PROCEDURE "Сместиться на страниц вниз" INTEGER IN aPageCount
+	cnPageDownAndMoveCursorDown >>> g_StartAction
+	0 >>> g_MoveCount	
+	aPageCount >>> g_PageCount
+;
+
+PROCEDURE "Эталон для дерева оглавления"
+	"Эталон для дерева {(carContentsTree)}"
+;
+
+PROCEDURE "Тестирование изображения редактора"
+	"Размеры для отрисовки"
+	"Изображение текущего контрола"
+;
+
+PROCEDURE "Тестирование изображения редактора с невидимыми символами"
+	"Подготовка к отрисовке SBS"
+	"Изображение текущего контрола"
+;
+
+PROCEDURE "Тестирование изображения редактора с блоками"
+	"Подготовка для блоков"
+	"Изображение текущего контрола"
+;
+
+PROCEDURE "Тестирование изображения редактора с широкой формой"
+	"Размеры для отрисовки с широкой формой" 
+	"Изображение текущего контрола"
+;
+
+PROCEDURE "Тестирование изображения редактора с разрывами разделов"
+	"Размеры для отрисовки разрывов разделов"
+	"Изображение текущего контрола"
+;
+
+PROCEDURE "Тестирование изображения редактора с спецсимволами и WebStyle"
+    "Стандартные размеры, Спецсимволы, WebStyle"
+    "Изображение текущего контрола"
 ;

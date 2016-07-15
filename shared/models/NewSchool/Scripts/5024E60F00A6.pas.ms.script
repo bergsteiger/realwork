@@ -1,0 +1,61 @@
+// TdsSynchroViewDocument 5024E60F00A6 ViewAreaControllerImp Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5024E60F00A6
+
+: ME_5024E62302DD
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_5024E60F00A6 // TdsSynchroViewDocument
+ ;
+ : Target WL 'ME_5024E55600ED' '4C6A7BA001A5.pas.ms.script' // TnsAACDocumentSynchroViewContainer
+ ;
+
+ref; // ME_5024E62302DD 
+
+: ME_5024E6C20323
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_5024E60F00A6 // TdsSynchroViewDocument
+ ;
+ : Target WL 'ME_45EEB6520208' '4570511E038A.pas.ms.script' // DocumentType
+ ;
+
+ref; // ME_5024E6C20323 
+
+: ME_4C6AB38800F3_ME_5024E60F00A6
+ : Original WL 'ME_4C6AB38800F3' '47EA20430108.pas.ms.script' // MakeContainer
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4C6AB38800F3_ME_5024E60F00A6 MakeContainer
+
+: ME_5024E60F00A6
+ CONST UID '5024E60F00A6'
+ CONST Name 'TdsSynchroViewDocument'
+ CONST Class class_Class
+ : Stereotype st_ViewAreaControllerImp ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4A9F90B7029E' '4A9F90B7029E.pas.ms.script' // List
+ ;
+ : Inherits
+   Seq: ( WL 'ME_493D63D20049' '493D63D20049.pas.ms.script' // TdsDocument
+ )
+ ; // Inherits
+ : Overridden
+   Seq: ( ME_4C6AB38800F3_ME_5024E60F00A6 // MakeContainer
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_5024E62302DD // TnsAACDocumentSynchroViewContainer
+ ME_5024E6C20323 // DocumentType
+ )
+ ; // Dependencies
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\List\dsSynchroViewDocument.pas'
+ CONST extprop:rc:SelfName 'dsSynchroViewDocument'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'dsSynchroViewDocument'
+
+ref; // ME_5024E60F00A6 TdsSynchroViewDocument

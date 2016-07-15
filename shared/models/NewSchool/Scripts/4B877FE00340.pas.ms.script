@@ -1,0 +1,891 @@
+// TeeEditorExportModelPart 4B877FE00340 GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B877FE00340
+
+FORWARD ME_54BF88B903AF
+
+: ME_54BF8922008D
+ CONST UID '54BF8922008D'
+ CONST Name 'f_ID'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_54BF88B903AF // TeeBlock
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_54BF8922008D f_ID
+
+: ME_54BF892C027B
+ CONST UID '54BF892C027B'
+ CONST Name 'f_LayerID'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_54BF88B903AF // TeeBlock
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_54BF892C027B f_LayerID
+
+FORWARD ME_54BF89AF0252
+
+: ME_54BF89C50312
+ CONST Name 'aDocument'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49523C96004A' '49523C640160.pas.ms.script' // IeeDocumentEx
+ ;
+
+ref; // ME_54BF89C50312 aDocument
+
+: ME_54BF89C5032D
+ CONST Name 'anID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_54BF89C5032D anID
+
+: ME_54BF89C50347
+ CONST Name 'aLayerID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_54BF89C50347 aLayerID
+
+: ME_54BF89C2031E
+ CONST UID '54BF89C2031E'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_54BF89AF0252 // Create
+ ;
+ : Parameters
+   Seq: ( ME_54BF89C50312 // aDocument
+ ME_54BF89C5032D // anID
+ ME_54BF89C50347 // aLayerID
+ )
+ ; // Parameters
+
+ref; // ME_54BF89C2031E DoIt
+
+: ME_54BF89AF0252
+ CONST UID '54BF89AF0252'
+ CONST Name 'Create'
+ CONST Class class_Class
+ : Stereotype st_Constructor ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_54BF88B903AF // TeeBlock
+ ;
+ : Operations
+   Seq: ( HWL ME_54BF89C2031E // DoIt
+ )
+ ; // Operations
+
+ref; // ME_54BF89AF0252 Create
+
+: ME_54BF89CB0008
+ CONST UID '54BF89CB0008'
+ CONST Name 'Make'
+ CONST Class class_Class
+ : Stereotype st_Factory ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_54BF88B903AF // TeeBlock
+ ;
+ : Inherits
+   Seq: ( HWL ME_54BF89AF0252 // Create
+ )
+ ; // Inherits
+
+ref; // ME_54BF89CB0008 Make
+
+: ME_54BFA37D03A4
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_54BF88B903AF // TeeBlock
+ ;
+ : Target WL 'ME_47C6B03200AF' '47C5207602D1.pas.ms.script' // IevSub
+ ;
+
+ref; // ME_54BFA37D03A4 
+
+: ME_54BFA3A602BC
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_54BF88B903AF // TeeBlock
+ ;
+ : Target WL 'ME_47CFE7F00221' '47BB24D30205.pas.ms.script' // l3InterfacesMisc
+ ;
+
+ref; // ME_54BFA3A602BC 
+
+: ME_54BFA41A01B5
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_54BF88B903AF // TeeBlock
+ ;
+ : Target WL 'ME_54817DA2016E' '4912E16B01B4.pas.ms.script' // TeeSub
+ ;
+
+ref; // ME_54BFA41A01B5 
+
+: ME_54BFA42C01DA
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_54BF88B903AF // TeeBlock
+ ;
+ : Target WL 'ME_54BE4D0B0117' '4912E16B01B4.pas.ms.script' // eePara
+ ;
+
+ref; // ME_54BFA42C01DA 
+
+: ME_54BFA451005D
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_54BF88B903AF // TeeBlock
+ ;
+ : Target WL 'ME_47878E0E0191' '54B90AC6014B.pas.ms.script' // l3String
+ ;
+
+ref; // ME_54BFA451005D 
+
+: ME_54BFA48900D7
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_54BF88B903AF // TeeBlock
+ ;
+ : Target WL 'ME_53317D14019D' '47913B47006E.pas.ms.script' // l3Variant
+ ;
+
+ref; // ME_54BFA48900D7 
+
+: ME_548188CE0291_ME_54BF88B903AF
+ : Original WL 'ME_548188CE0291' '4912DD020283.pas.ms.script' // Delete
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_548188CE0291_ME_54BF88B903AF Delete
+
+: ME_548188E50006_ME_54BF88B903AF
+ : Original WL 'ME_548188E50006' '4912DD020283.pas.ms.script' // Exists
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_548188E50006_ME_54BF88B903AF Exists
+
+: ME_548188FC0305_ME_54BF88B903AF
+ : Original WL 'ME_548188FC0305' '4912DD020283.pas.ms.script' // Select
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_548188FC0305_ME_54BF88B903AF Select
+
+: ME_5481891302A1_ME_54BF88B903AF
+ : Original WL 'ME_5481891302A1' '4912DD020283.pas.ms.script' // IsSame
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_5481891302A1_ME_54BF88B903AF IsSame
+
+: ME_548189A0022F_ME_54BF88B903AF
+ : Original WL 'ME_548189A0022F' '4912DD020283.pas.ms.script' // SubPlace
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_548189A0022F_ME_54BF88B903AF SubPlace
+
+: ME_548189BC01DF_ME_54BF88B903AF
+ : Original WL 'ME_548189BC01DF' '4912DD020283.pas.ms.script' // ID
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_548189BC01DF_ME_54BF88B903AF ID
+
+: ME_548189D0014C_ME_54BF88B903AF
+ : Original WL 'ME_548189D0014C' '4912DD020283.pas.ms.script' // LayerID
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_548189D0014C_ME_54BF88B903AF LayerID
+
+: ME_548189EE0355_ME_54BF88B903AF
+ : Original WL 'ME_548189EE0355' '4912DD020283.pas.ms.script' // Flag
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_548189EE0355_ME_54BF88B903AF Flag
+
+: ME_548189F9001A_ME_54BF88B903AF
+ : Original WL 'ME_548189F9001A' '4912DD020283.pas.ms.script' // Flags
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_548189F9001A_ME_54BF88B903AF Flags
+
+: ME_54818A59008A_ME_54BF88B903AF
+ : Original WL 'ME_54818A59008A' '4912DD020283.pas.ms.script' // Name
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_54818A59008A_ME_54BF88B903AF Name
+
+: ME_54818A7B0210_ME_54BF88B903AF
+ : Original WL 'ME_54818A7B0210' '4912DD020283.pas.ms.script' // Next
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_54818A7B0210_ME_54BF88B903AF Next
+
+: ME_54818A9700C3_ME_54BF88B903AF
+ : Original WL 'ME_54818A9700C3' '4912DD020283.pas.ms.script' // LeafPara
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_54818A9700C3_ME_54BF88B903AF LeafPara
+
+: ME_54818AA901FF_ME_54BF88B903AF
+ : Original WL 'ME_54818AA901FF' '4912DD020283.pas.ms.script' // Para
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_54818AA901FF_ME_54BF88B903AF Para
+
+: ME_5481960900A7_ME_54BF88B903AF
+ : Original WL 'ME_5481960900A7' '4912DD020283.pas.ms.script' // Document
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_5481960900A7_ME_54BF88B903AF Document
+
+: ME_548196150340_ME_54BF88B903AF
+ : Original WL 'ME_548196150340' '4912DD020283.pas.ms.script' // ParentBlock
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_548196150340_ME_54BF88B903AF ParentBlock
+
+: ME_5481962D00FB_ME_54BF88B903AF
+ : Original WL 'ME_5481962D00FB' '4912DD020283.pas.ms.script' // IsKindOf
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_5481962D00FB_ME_54BF88B903AF IsKindOf
+
+: ME_4A60B23E00C3_ME_54BF88B903AF
+ : Original WL 'ME_4A60B23E00C3' '47BB24D30205.pas.ms.script' // COMQueryInterface
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4A60B23E00C3_ME_54BF88B903AF COMQueryInterface
+
+: ME_54BF88B903AF
+ CONST UID '54BF88B903AF'
+ CONST Name 'TeeBlock'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4B877FE00340 // TeeEditorExportModelPart
+ ;
+ : Inherits
+   Seq: ( WL 'ME_54817DBA01BE' '4912E16B01B4.pas.ms.script' // TeeDocumentTool
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_5481957B01D4' '4912DD020283.pas.ms.script' // IeeBlock
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( HWL ME_54BF8922008D // f_ID
+ HWL ME_54BF892C027B // f_LayerID
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( HWL ME_54BF89AF0252 // Create
+ HWL ME_54BF89CB0008 // Make
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_548188CE0291_ME_54BF88B903AF // Delete
+ ME_548188E50006_ME_54BF88B903AF // Exists
+ ME_548188FC0305_ME_54BF88B903AF // Select
+ ME_5481891302A1_ME_54BF88B903AF // IsSame
+ ME_548189A0022F_ME_54BF88B903AF // SubPlace
+ ME_548189BC01DF_ME_54BF88B903AF // ID
+ ME_548189D0014C_ME_54BF88B903AF // LayerID
+ ME_548189EE0355_ME_54BF88B903AF // Flag
+ ME_548189F9001A_ME_54BF88B903AF // Flags
+ ME_54818A59008A_ME_54BF88B903AF // Name
+ ME_54818A7B0210_ME_54BF88B903AF // Next
+ ME_54818A9700C3_ME_54BF88B903AF // LeafPara
+ ME_54818AA901FF_ME_54BF88B903AF // Para
+ ME_5481960900A7_ME_54BF88B903AF // Document
+ ME_548196150340_ME_54BF88B903AF // ParentBlock
+ ME_5481962D00FB_ME_54BF88B903AF // IsKindOf
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_4A60B23E00C3_ME_54BF88B903AF // COMQueryInterface
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_54BFA37D03A4 // IevSub
+ ME_54BFA3A602BC // l3InterfacesMisc
+ ME_54BFA41A01B5 // TeeSub
+ ME_54BFA42C01DA // eePara
+ ME_54BFA451005D // l3String
+ ME_54BFA48900D7 // l3Variant
+ )
+ ; // Dependencies
+ CONST "ifdef" 'Nemesis'
+ CONST extprop:rc:SelfName 'eeBlock'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_54BF88B903AF TeeBlock
+
+FORWARD ME_54C0D4B10005
+
+: ME_54C0D4CD0299
+ CONST Name 'aSender'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_54C0D4CD0299 aSender
+
+: ME_54C0D4CD02D7
+ CONST Name 'aPara'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_495239F201D9' '4912DD020283.pas.ms.script' // IeePara
+ ;
+
+ref; // ME_54C0D4CD02D7 aPara
+
+: ME_54C0D4CD0315
+ CONST Name 'Allow'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_54C0D4CD0315 Allow
+
+: ME_54C0D4C7031A
+ CONST UID '54C0D4C7031A'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_54C0D4B10005 // TeeCanSplitParaEvent
+ ;
+ : Parameters
+   Seq: ( ME_54C0D4CD0299 // aSender
+ ME_54C0D4CD02D7 // aPara
+ ME_54C0D4CD0315 // Allow
+ )
+ ; // Parameters
+
+ref; // ME_54C0D4C7031A DoIt
+
+: ME_54C0D4B10005
+ CONST UID '54C0D4B10005'
+ CONST Name 'TeeCanSplitParaEvent'
+ CONST Class class_Class
+ : Stereotype st_Function ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4B877FE00340 // TeeEditorExportModelPart
+ ;
+ : Operations
+   Seq: ( HWL ME_54C0D4C7031A // DoIt
+ )
+ ; // Operations
+ CONST "of object" true
+
+ref; // ME_54C0D4B10005 TeeCanSplitParaEvent
+
+: ME_54C0EDDE01B9
+ CONST UID '54C0EDDE01B9'
+ CONST Name 'TeeBlockChangeEvent'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4B877FE00340 // TeeEditorExportModelPart
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
+ )
+ ; // Inherits
+
+ref; // ME_54C0EDDE01B9 TeeBlockChangeEvent
+
+FORWARD ME_54C0EE180013
+
+: ME_54C0EE2D0297
+ CONST Name 'aSender'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_54C0EE2D0297 aSender
+
+: ME_54C0EE2D02B4
+ CONST Name 'aDown'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_54C0EE2D02B4 aDown
+
+: ME_54C0EE2B0057
+ CONST UID '54C0EE2B0057'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_54C0EE180013 // TeeBlockScrollEvent
+ ;
+ : Parameters
+   Seq: ( ME_54C0EE2D0297 // aSender
+ ME_54C0EE2D02B4 // aDown
+ )
+ ; // Parameters
+
+ref; // ME_54C0EE2B0057 DoIt
+
+: ME_54C0EE180013
+ CONST UID '54C0EE180013'
+ CONST Name 'TeeBlockScrollEvent'
+ CONST Class class_Class
+ : Stereotype st_Function ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4B877FE00340 // TeeEditorExportModelPart
+ ;
+ : Operations
+   Seq: ( HWL ME_54C0EE2B0057 // DoIt
+ )
+ ; // Operations
+ CONST "of object" true
+
+ref; // ME_54C0EE180013 TeeBlockScrollEvent
+
+: ME_54C0D4DF0183
+ CONST UID '54C0D4DF0183'
+ CONST Name 'OnCanSplitPara'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4B877FE00340 // TeeEditorExportModelPart
+ ;
+ : Target HWL ME_54C0D4B10005 // TeeCanSplitParaEvent
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_54C0D4DF0183 OnCanSplitPara
+
+: ME_54C0EE450168
+ CONST UID '54C0EE450168'
+ CONST Name 'OnBlockChange'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_4B877FE00340 // TeeEditorExportModelPart
+ ;
+ : Target HWL ME_54C0EDDE01B9 // TeeBlockChangeEvent
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_54C0EE450168 OnBlockChange
+
+: ME_54C0EE6D02AA
+ CONST UID '54C0EE6D02AA'
+ CONST Name 'OnBlockScroll'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_4B877FE00340 // TeeEditorExportModelPart
+ ;
+ : Target HWL ME_54C0EE180013 // TeeBlockScrollEvent
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_54C0EE6D02AA OnBlockScroll
+
+FORWARD ME_54BFFE5B0166
+
+: ME_54BFFEA4016B
+ CONST Name 'aPt'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_473D8F4C03CD' '467823B7002C.pas.ms.script' // TafwPoint
+ ;
+
+ref; // ME_54BFFEA4016B aPt
+
+: ME_54BFFEA40185
+ CONST Name 'aHotSpot'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_48E2665A0259' '4A1FCBA0014C.pas.ms.script' // IevHotSpot
+ ;
+
+ref; // ME_54BFFEA40185 aHotSpot
+
+: ME_54BFFEA4019F
+ CONST Name 'theHotSpot'
+ CONST Class class_Parameter
+ : Stereotype st_out ;
+ : Target WL 'ME_4F82F62D03BE' '4912DD020283.pas.ms.script' // IeeHotSpot
+ ;
+
+ref; // ME_54BFFEA4019F theHotSpot
+
+: ME_54BFFEA002EB
+ CONST UID '54BFFEA002EB'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_54BFFE5B0166 // MakeHotSpot
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   Seq: ( ME_54BFFEA4016B // aPt
+ ME_54BFFEA40185 // aHotSpot
+ ME_54BFFEA4019F // theHotSpot
+ )
+ ; // Parameters
+
+ref; // ME_54BFFEA002EB DoIt
+
+: ME_54BFFE5B0166
+ CONST UID '54BFFE5B0166'
+ CONST Name 'MakeHotSpot'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4B877FE00340 // TeeEditorExportModelPart
+ ;
+ : Operations
+   Seq: ( HWL ME_54BFFEA002EB // DoIt
+ )
+ ; // Operations
+
+ref; // ME_54BFFE5B0166 MakeHotSpot
+
+FORWARD ME_54C0D31200D7
+
+: ME_54C0D31A030D
+ CONST UID '54C0D31A030D'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_54C0D31200D7 // AsIeeDocumentEx
+ ;
+ : Target WL 'ME_49523C96004A' '49523C640160.pas.ms.script' // IeeDocumentEx
+ ;
+
+ref; // ME_54C0D31A030D DoIt
+
+: ME_54C0D31200D7
+ CONST UID '54C0D31200D7'
+ CONST Name 'AsIeeDocumentEx'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_4B877FE00340 // TeeEditorExportModelPart
+ ;
+ : Operations
+   Seq: ( HWL ME_54C0D31A030D // DoIt
+ )
+ ; // Operations
+
+ref; // ME_54C0D31200D7 AsIeeDocumentEx
+
+: ME_54C0D96D0314
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4B877FE00340 // TeeEditorExportModelPart
+ ;
+ : Target WL 'ME_49E5FCDB02E9' '4A251D6E00BD.pas.ms.script' // IevHyperlink
+ ;
+
+ref; // ME_54C0D96D0314 
+
+: ME_54C0D98101EC
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4B877FE00340 // TeeEditorExportModelPart
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_54C0D98101EC 
+
+: ME_54C0D9A00133
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4B877FE00340 // TeeEditorExportModelPart
+ ;
+ : Target WL 'ME_5481DD0C0363' '4912E16B01B4.pas.ms.script' // TeeHotSpot
+ ;
+
+ref; // ME_54C0D9A00133 
+
+: ME_54C0D9A300CB
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4B877FE00340 // TeeEditorExportModelPart
+ ;
+ : Target WL 'ME_54BE41340249' '4912E16B01B4.pas.ms.script' // TeeSubList
+ ;
+
+ref; // ME_54C0D9A300CB 
+
+: ME_54C0DA3B0339
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4B877FE00340 // TeeEditorExportModelPart
+ ;
+ : Target WL 'ME_47C695D90332' '47C695A10172.pas.ms.script' // TevSelectTarget
+ ;
+
+ref; // ME_54C0DA3B0339 
+
+: ME_552BAA5F00D1
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4B877FE00340 // TeeEditorExportModelPart
+ ;
+ : Target WL 'ME_552BAA150205' '47ECB04A01F8.pas.ms.script' // evStandardActions
+ ;
+
+ref; // ME_552BAA5F00D1 
+
+: ME_55CDCC160398
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4B877FE00340 // TeeEditorExportModelPart
+ ;
+ : Target WL 'ME_50222A54016C' '4678209200A6.pas.ms.script' // TnevAACLikeMode
+ ;
+
+ref; // ME_55CDCC160398 
+
+: ME_4A8C083300C3_ME_4B877FE00340
+ : Original WL 'ME_4A8C083300C3' '47F088300159.pas.ms.script' // CanInsertParaOnMove
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4A8C083300C3_ME_4B877FE00340 CanInsertParaOnMove
+
+: ME_4A8C24130193_ME_4B877FE00340
+ : Original WL 'ME_4A8C24130193' '47F088300159.pas.ms.script' // IsInReadOnlyPara
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4A8C24130193_ME_4B877FE00340 IsInReadOnlyPara
+
+: ME_548196F902DF_ME_4B877FE00340
+ : Original WL 'ME_548196F902DF' '4912DD020283.pas.ms.script' // Block
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_548196F902DF_ME_4B877FE00340 Block
+
+: ME_5481973F00EA_ME_4B877FE00340
+ : Original WL 'ME_5481973F00EA' '4912DD020283.pas.ms.script' // BlockEx
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_5481973F00EA_ME_4B877FE00340 BlockEx
+
+: ME_548197920363_ME_4B877FE00340
+ : Original WL 'ME_548197920363' '4912DD020283.pas.ms.script' // Subs
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_548197920363_ME_4B877FE00340 Subs
+
+: ME_548197A50084_ME_4B877FE00340
+ : Original WL 'ME_548197A50084' '4912DD020283.pas.ms.script' // Markers
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_548197A50084_ME_4B877FE00340 Markers
+
+: ME_548197AE02B9_ME_4B877FE00340
+ : Original WL 'ME_548197AE02B9' '4912DD020283.pas.ms.script' // Bookmarks
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_548197AE02B9_ME_4B877FE00340 Bookmarks
+
+: ME_548197B8028C_ME_4B877FE00340
+ : Original WL 'ME_548197B8028C' '4912DD020283.pas.ms.script' // Marks
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_548197B8028C_ME_4B877FE00340 Marks
+
+: ME_548197F202C4_ME_4B877FE00340
+ : Original WL 'ME_548197F202C4' '4912DD020283.pas.ms.script' // ExternalHandle
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_548197F202C4_ME_4B877FE00340 ExternalHandle
+
+: ME_5481988203C9_ME_4B877FE00340
+ : Original WL 'ME_5481988203C9' '4912DD020283.pas.ms.script' // Document
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_5481988203C9_ME_4B877FE00340 Document
+
+: ME_54819F7C006B_ME_4B877FE00340
+ : Original WL 'ME_54819F7C006B' '4912DD020283.pas.ms.script' // GetHotspotOnPoint
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_54819F7C006B_ME_4B877FE00340 GetHotspotOnPoint
+
+: ME_54819FA40295_ME_4B877FE00340
+ : Original WL 'ME_54819FA40295' '4912DD020283.pas.ms.script' // CanSplitPara
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_54819FA40295_ME_4B877FE00340 CanSplitPara
+
+: ME_54819FC5013E_ME_4B877FE00340
+ : Original WL 'ME_54819FC5013E' '4912DD020283.pas.ms.script' // Data
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_54819FC5013E_ME_4B877FE00340 Data
+
+: ME_4B877E7B0330_ME_4B877FE00340
+ : Original WL 'ME_4B877E7B0330' '4B877C5101C1.pas.ms.script' // AllowParaType
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "needs field" false
+ CONST "pm" true
+ref; // ME_4B877E7B0330_ME_4B877FE00340 AllowParaType
+
+: ME_55CDBD7600D4_ME_4B877FE00340
+ : Original WL 'ME_55CDBD7600D4' '4829D89703D2.pas.ms.script' // DoSearchHyperLink
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_55CDBD7600D4_ME_4B877FE00340 DoSearchHyperLink
+
+: ME_4B877FE00340
+ CONST UID '4B877FE00340'
+ CONST Name 'TeeEditorExportModelPart'
+ CONST Class class_Class
+ : Stereotype st_GuiControl ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Часть TeeEditorExport перенесённная на модель' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4952683C007B' '4952683C007B.pas.ms.script' // Editor
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4845367E03B1' '4845367E03B1.pas.ms.script' // TevTunedEditor
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4A8C09B70219' '4912DD020283.pas.ms.script' // IeeEditor
+ WL 'ME_548195EF0017' '4912DD020283.pas.ms.script' // IeeDocument
+ WL 'ME_5481986D03D1' '4912DD020283.pas.ms.script' // IeeData
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( HWL ME_54C0D4DF0183 // OnCanSplitPara
+ HWL ME_54C0EE450168 // OnBlockChange
+ HWL ME_54C0EE6D02AA // OnBlockScroll
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( HWL ME_54BFFE5B0166 // MakeHotSpot
+ HWL ME_54C0D31200D7 // AsIeeDocumentEx
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4A8C083300C3_ME_4B877FE00340 // CanInsertParaOnMove
+ ME_4A8C24130193_ME_4B877FE00340 // IsInReadOnlyPara
+ ME_548196F902DF_ME_4B877FE00340 // Block
+ ME_5481973F00EA_ME_4B877FE00340 // BlockEx
+ ME_548197920363_ME_4B877FE00340 // Subs
+ ME_548197A50084_ME_4B877FE00340 // Markers
+ ME_548197AE02B9_ME_4B877FE00340 // Bookmarks
+ ME_548197B8028C_ME_4B877FE00340 // Marks
+ ME_548197F202C4_ME_4B877FE00340 // ExternalHandle
+ ME_5481988203C9_ME_4B877FE00340 // Document
+ ME_54819F7C006B_ME_4B877FE00340 // GetHotspotOnPoint
+ ME_54819FA40295_ME_4B877FE00340 // CanSplitPara
+ ME_54819FC5013E_ME_4B877FE00340 // Data
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_4B877E7B0330_ME_4B877FE00340 // AllowParaType
+ ME_55CDBD7600D4_ME_4B877FE00340 // DoSearchHyperLink
+ )
+ ; // Overridden
+ : Children
+   Seq: ( HWL ME_54BF88B903AF // TeeBlock
+ HWL ME_54C0D4B10005 // TeeCanSplitParaEvent
+ HWL ME_54C0EDDE01B9 // TeeBlockChangeEvent
+ HWL ME_54C0EE180013 // TeeBlockScrollEvent
+ )
+ ; // Children
+ : Dependencies
+   Seq: ( ME_54C0D96D0314 // IevHyperlink
+ ME_54C0D98101EC // SysUtils
+ ME_54C0D9A00133 // TeeHotSpot
+ ME_54C0D9A300CB // TeeSubList
+ ME_54C0DA3B0339 // TevSelectTarget
+ ME_552BAA5F00D1 // evStandardActions
+ ME_55CDCC160398 // TnevAACLikeMode
+ )
+ ; // Dependencies
+ CONST "author" 'Люлин А.В.'
+ CONST "no hands" true
+ CONST "started" '26.02.2010 11:02'
+ CONST intf.pas:Path 'common\components\gui\Garant\Everest_Engine\eeEditorExportModelPart.pas'
+ CONST extprop:rc:SelfName 'eeEditorExportModelPart'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'eeEditorExportModelPart'
+
+ref; // ME_4B877FE00340 TeeEditorExportModelPart

@@ -1091,20 +1091,6 @@ REDEFINITION : st_attr::Attribute Inherits ( st_attr::Attribute )
  @SELF
 ; // st_OperationsPublisher
 
-: st_FormSetFactoryPublisher
- CONST UID '4A94F2D501C1'
- CONST Name 'FormSetFactoryPublisher'
- CONST Stereotype 'MDAClass'
- @SELF
-; // st_FormSetFactoryPublisher
-
-: st_ModuleOpRecall
- CONST UID '4A76CBA302A2'
- CONST Name 'ModuleOpRecall'
- CONST Stereotype 'MDAClass'
- @SELF
-; // st_ModuleOpRecall
-
 : st_VCMZonePrim Inherits ( st_WikiImplClass )
  CONST UID '4A797DC60043'
  CONST Name 'VCMZonePrim'
@@ -1371,7 +1357,7 @@ REDEFINITION : st_UseCase::Attribute Inherits ( st_VCMController )
  @SELF
 ; // st_VCMFinalContainer
 
-: st_FormSetFactory Inherits ( st_method st_ModuleOpRecall )
+: st_FormSetFactory Inherits ( st_method )
  CONST UID '4A73234800B8'
  CONST Name 'FormSetFactory'
  CONST Stereotype 'MDAClass'
@@ -1392,7 +1378,7 @@ REDEFINITION : st_UseCase::Attribute Inherits ( st_VCMController )
  @SELF
 ; // st_FactoryMethod
 
-: st_VCMFormSetFactory Inherits ( st_SimpleClass st_FormSetFactoryPublisher )
+: st_VCMFormSetFactory Inherits ( st_SimpleClass )
  CONST UID '49F572B403E3'
  CONST Name 'VCMFormSetFactory'
  CONST Stereotype 'MDAClass'
@@ -1427,7 +1413,7 @@ REDEFINITION : st_UseCase::Attribute Inherits ( st_VCMController )
  @SELF
 ; // st_ModuleMethod
 
-: st_VCMFormsPack Inherits ( st_SimpleClass st_ModuleOpRecall st_OperationsPublisher st_FormSetFactoryPublisher )
+: st_VCMFormsPack Inherits ( st_SimpleClass st_OperationsPublisher )
  CONST UID '498AFF8101F5'
  CONST Name 'VCMFormsPack'
  CONST Stereotype 'MDAClass'
@@ -1462,7 +1448,7 @@ REDEFINITION : st_UseCase::Attribute Inherits ( st_VCMController )
  @SELF
 ; // st_VCMAbstractFormSetFactory
 
-: st_VCMMainForm Inherits ( st_VCMContainer st_ModuleOpRecall )
+: st_VCMMainForm Inherits ( st_VCMContainer )
  CONST UID '4958D0210219'
  CONST Name 'VCMMainForm'
  CONST Stereotype 'MDAClass'

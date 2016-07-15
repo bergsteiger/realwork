@@ -14,7 +14,7 @@ FORWARD ME_53CCB9880360
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_53CCB9880360 // IalcuAsyncSubmitterManager
+ : Parent HWL ME_53CCB9880360 // IalcuAsyncSubmitterManager
  ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
@@ -30,7 +30,7 @@ ref; // ME_53CCB9F20088 ServerHostName
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_53CCB9880360 // IalcuAsyncSubmitterManager
+ : Parent HWL ME_53CCB9880360 // IalcuAsyncSubmitterManager
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -42,7 +42,7 @@ ref; // ME_53CCBA0D01C7 ServerPort
  CONST Name 'anID'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target WL 'ME_53B3D9060271' '47BC51FE018B.pas.ms.script' // TUserID
+ : Target WL 'ME_543244A30197' '5432448401BC.pas.ms.script' // TdaUserID
  ;
 
 ref; // ME_53CCBA8E0371 anID
@@ -72,7 +72,7 @@ ref; // ME_53CCBA8E03A0 thePassword
  %SUMMARY 'Получить логин/пароль по ID' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_53CCB9880360 // IalcuAsyncSubmitterManager
+ : Parent HWL ME_53CCB9880360 // IalcuAsyncSubmitterManager
  ;
  : Parameters
    Seq: ( ME_53CCBA8E0371 // anID
@@ -87,7 +87,7 @@ ref; // ME_53CCBA3D0104 GetUserAccountByID
  CONST Name 'aUserID'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target WL 'ME_53B3D9060271' '47BC51FE018B.pas.ms.script' // TUserID
+ : Target WL 'ME_543244A30197' '5432448401BC.pas.ms.script' // TdaUserID
  ;
 
 ref; // ME_53CCBAB20098 aUserID
@@ -98,7 +98,7 @@ ref; // ME_53CCBAB20098 aUserID
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_53CCB9880360 // IalcuAsyncSubmitterManager
+ : Parent HWL ME_53CCB9880360 // IalcuAsyncSubmitterManager
  ;
  : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
  ;
@@ -113,7 +113,7 @@ ref; // ME_53CCBA9702A7 IsUserLogined
  CONST Name 'anID'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target WL 'ME_53B3D9060271' '47BC51FE018B.pas.ms.script' // TUserID
+ : Target WL 'ME_543244A30197' '5432448401BC.pas.ms.script' // TdaUserID
  ;
 
 ref; // ME_53CF9203011B anID
@@ -124,7 +124,7 @@ ref; // ME_53CF9203011B anID
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_53CCB9880360 // IalcuAsyncSubmitterManager
+ : Parent HWL ME_53CCB9880360 // IalcuAsyncSubmitterManager
  ;
  : Parameters
    Seq: ( ME_53CF9203011B // anID
@@ -148,7 +148,7 @@ ref; // ME_53D0AB74029B aTask
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_53CCB9880360 // IalcuAsyncSubmitterManager
+ : Parent HWL ME_53CCB9880360 // IalcuAsyncSubmitterManager
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -174,7 +174,7 @@ ref; // ME_53D0AB8801DF aTask
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_53CCB9880360 // IalcuAsyncSubmitterManager
+ : Parent HWL ME_53CCB9880360 // IalcuAsyncSubmitterManager
  ;
  : Parameters
    Seq: ( ME_53D0AB8801DF // aTask
@@ -193,19 +193,19 @@ ref; // ME_53D0AB7A03A7 LeaveTaskExecution
  %SUMMARY 'Коробка для информации нужной ансинхронному выполнению' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_53CCB94A02A5 // alcuServerAsyncExecutionInterfaces
+ : Parent HWL ME_53CCB94A02A5 // alcuServerAsyncExecutionInterfaces
  ;
  : Attributes
-   Seq: ( ME_53CCB9F20088 // ServerHostName
- ME_53CCBA0D01C7 // ServerPort
+   Seq: ( HWL ME_53CCB9F20088 // ServerHostName
+ HWL ME_53CCBA0D01C7 // ServerPort
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_53CCBA3D0104 // GetUserAccountByID
- ME_53CCBA9702A7 // IsUserLogined
- ME_53CF91EC007A // SendAbortNotification
- ME_53D0AB57028E // EnterTaskExecution
- ME_53D0AB7A03A7 // LeaveTaskExecution
+   Seq: ( HWL ME_53CCBA3D0104 // GetUserAccountByID
+ HWL ME_53CCBA9702A7 // IsUserLogined
+ HWL ME_53CF91EC007A // SendAbortNotification
+ HWL ME_53D0AB57028E // EnterTaskExecution
+ HWL ME_53D0AB7A03A7 // LeaveTaskExecution
  )
  ; // Operations
  CONST extprop:rc:SelfName 'alcuAsyncSubmitterManager'
@@ -230,7 +230,7 @@ ref; // ME_53D0E2E100EF aTask
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_53D0E2B3036C // IalcuAsyncTaskFinishedNotifier
+ : Parent HWL ME_53D0E2B3036C // IalcuAsyncTaskFinishedNotifier
  ;
  : Parameters
    Seq: ( ME_53D0E2E100EF // aTask
@@ -248,10 +248,10 @@ ref; // ME_53D0E2CD0227 TaskFinished
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_53CCB94A02A5 // alcuServerAsyncExecutionInterfaces
+ : Parent HWL ME_53CCB94A02A5 // alcuServerAsyncExecutionInterfaces
  ;
  : Operations
-   Seq: ( ME_53D0E2CD0227 // TaskFinished
+   Seq: ( HWL ME_53D0E2CD0227 // TaskFinished
  )
  ; // Operations
  CONST extprop:rc:SelfName 'alcuAsyncTaskFinishedNotifier'
@@ -267,10 +267,10 @@ ref; // ME_53D0E2B3036C IalcuAsyncTaskFinishedNotifier
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_53CCB94A02A5 // alcuServerAsyncExecutionInterfaces
+ : Parent HWL ME_53CCB94A02A5 // alcuServerAsyncExecutionInterfaces
  ;
  : Inherits
-   Seq: ( ME_53D0E2B3036C // IalcuAsyncTaskFinishedNotifier
+   Seq: ( HWL ME_53D0E2B3036C // IalcuAsyncTaskFinishedNotifier
  )
  ; // Inherits
  CONST "isPointer" true
@@ -288,16 +288,16 @@ ref; // ME_53D0EC410161 PalcuAsyncTaskFinishedNotifier
  : Parent WL 'ME_52FA3D9502BD' '52FA3D9502BD.pas.ms.script' // Tasks
  ;
  : Children
-   Seq: ( ME_53CCB9880360 // IalcuAsyncSubmitterManager
- ME_53D0E2B3036C // IalcuAsyncTaskFinishedNotifier
- ME_53D0EC410161 // PalcuAsyncTaskFinishedNotifier
+   Seq: ( HWL ME_53CCB9880360 // IalcuAsyncSubmitterManager
+ HWL ME_53D0E2B3036C // IalcuAsyncTaskFinishedNotifier
+ HWL ME_53D0EC410161 // PalcuAsyncTaskFinishedNotifier
  )
  ; // Children
  : Depends
    Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.pas.ms.script' // Primitives
- WL 'ME_47BC51FE018B' '47BC51FE018B.pas.ms.script' // dt_Types
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_52F8C298005C' '52F8C298005C.pas.ms.script' // Tasks
+ WL 'ME_5432448401BC' '5432448401BC.pas.ms.script' // daTypes
  )
  ; // Depends
  CONST "ifdef" 'AppServerSide'

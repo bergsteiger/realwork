@@ -1,0 +1,60 @@
+// BaseSearchContainer 4D7A458300CB VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4D7A458300CB
+
+: ME_9FE8B83587EB
+ CONST UID '9FE8B83587EB'
+ CONST Name 'Ini_FormFactory_BaseSearchContainer'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы BaseSearchContainer' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4D7A458300CB // BaseSearchContainer
+ ;
+ : SpelledFor HWL ME_4D7A458300CB // BaseSearchContainer
+ ;
+
+ref; // ME_9FE8B83587EB Ini_FormFactory_BaseSearchContainer
+
+: ME_4D7A458300CB
+ CONST UID '4D7A458300CB'
+ CONST Name 'BaseSearchContainer'
+ CONST Class class_Class
+ : Stereotype st_VCMFinalForm ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent WL 'ME_4CC97D020011' '4CC97D020011.pas.ms.script' // BaseSearch
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4D7A454101A4' '4D7A454101A4.pas.ms.script' // PrimBaseSearchContainer
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4D7A45A50205' '4BD856E802F9.pas.ms.script' // BaseSearchContainer
+ )
+ ; // Implements
+ : Operations
+   Seq: ( HWL ME_9FE8B83587EB // Ini_FormFactory_BaseSearchContainer
+ )
+ ; // Operations
+ CONST "NeedsHackRef" true
+ CONST "ZoneType" 'Any'
+ CONST "author" 'Люлин А.В.'
+ CONST "finished dfm" true
+ CONST "no hands" true
+ CONST "resizeable" false
+ CONST "restrict form def" 'undefined'
+ CONST "started" '11.03.2011 18:53'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\BaseSearch\Forms\BaseSearchContainer_Form.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\BaseSearch\Forms'
+ CONST extprop:pas:TypeName 'TBaseSearchContainerForm'
+ CONST extprop:rc:SelfName 'BaseSearchContainerForm'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'BaseSearchContainer_Form'
+
+ref; // ME_4D7A458300CB BaseSearchContainer

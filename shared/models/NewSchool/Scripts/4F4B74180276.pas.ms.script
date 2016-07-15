@@ -62,7 +62,7 @@ ref; // ME_4E54C668024F CorrectItalic
  %SUMMARY 'получить шрифт объекта.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4E7202E403E1 // MnevFontTool
+ : Parent HWL ME_4E7202E403E1 // MnevFontTool
  ;
  : Target WL 'ME_476BF8E202B0' '4678209200A6.pas.ms.script' // InevFont
  ;
@@ -133,7 +133,7 @@ ref; // ME_4E54C66D0228 CorrectItalic
  %SUMMARY 'получить шрифт объекта.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4E7202E403E1 // MnevFontTool
+ : Parent HWL ME_4E7202E403E1 // MnevFontTool
  ;
  : Target WL 'ME_476BF8E202B0' '4678209200A6.pas.ms.script' // InevFont
  ;
@@ -156,11 +156,11 @@ ref; // ME_486CB85C01FD GetObjIFont
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4F4B74180276 // nevGarbageInterfaces
+ : Parent HWL ME_4F4B74180276 // nevGarbageInterfaces
  ;
  : Operations
-   Seq: ( ME_476BFAA60313 // GetObjRealFont
- ME_486CB85C01FD // GetObjIFont
+   Seq: ( HWL ME_476BFAA60313 // GetObjRealFont
+ HWL ME_486CB85C01FD // GetObjIFont
  )
  ; // Operations
 
@@ -169,13 +169,13 @@ ref; // ME_4E7202E403E1 MnevFontTool
 FORWARD ME_467D2AA900F1
 
 : ME_476BFAA60313_ME_467D2AA900F1
- : Original ME_476BFAA60313 // GetObjRealFont
+ : Original HWL ME_476BFAA60313 // GetObjRealFont
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_476BFAA60313_ME_467D2AA900F1 GetObjRealFont
 
 : ME_486CB85C01FD_ME_467D2AA900F1
- : Original ME_486CB85C01FD // GetObjIFont
+ : Original HWL ME_486CB85C01FD // GetObjIFont
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_486CB85C01FD_ME_467D2AA900F1 GetObjIFont
@@ -190,14 +190,14 @@ ref; // ME_486CB85C01FD_ME_467D2AA900F1 GetObjIFont
  %SUMMARY 'Кэш шрифтов.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4F4B74180276 // nevGarbageInterfaces
+ : Parent HWL ME_4F4B74180276 // nevGarbageInterfaces
  ;
  : Inherits
    Seq: ( WL 'ME_467D2A5403B6' '467823B7002C.pas.ms.script' // IafwFontCache
  )
  ; // Inherits
  : Implements
-   Seq: ( ME_4E7202E403E1 // MnevFontTool
+   Seq: ( HWL ME_4E7202E403E1 // MnevFontTool
  )
  ; // Implements
  : Implemented
@@ -220,8 +220,8 @@ ref; // ME_467D2AA900F1 InevFontTool
  : Parent WL 'ME_4797632D0273' '4797632D0273.pas.ms.script' // Everest
  ;
  : Children
-   Seq: ( ME_4E7202E403E1 // MnevFontTool
- ME_467D2AA900F1 // InevFontTool
+   Seq: ( HWL ME_4E7202E403E1 // MnevFontTool
+ HWL ME_467D2AA900F1 // InevFontTool
  )
  ; // Children
  : Depends

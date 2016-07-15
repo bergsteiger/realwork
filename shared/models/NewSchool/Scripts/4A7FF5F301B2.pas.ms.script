@@ -14,7 +14,7 @@ FORWARD ME_4A7FFAFA023A
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4A7FFAFA023A // JournalObjectType
+ : Parent HWL ME_4A7FFAFA023A // JournalObjectType
  ;
 
 ref; // ME_4A7FFBCD016C JOT_BOOKMARK
@@ -27,7 +27,7 @@ ref; // ME_4A7FFBCD016C JOT_BOOKMARK
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4A7FFAFA023A // JournalObjectType
+ : Parent HWL ME_4A7FFAFA023A // JournalObjectType
  ;
 
 ref; // ME_4A7FFBDC036F JOT_QUERY
@@ -40,7 +40,7 @@ ref; // ME_4A7FFBDC036F JOT_QUERY
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4A7FFAFA023A // JournalObjectType
+ : Parent HWL ME_4A7FFAFA023A // JournalObjectType
  ;
 
 ref; // ME_4A7FFBF20035 JOT_FOLDER
@@ -54,12 +54,12 @@ ref; // ME_4A7FFBF20035 JOT_FOLDER
  %SUMMARY 'Типы элементов Журнала работы' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4A7FF5F301B2 // UserJournal
+ : Parent HWL ME_4A7FF5F301B2 // UserJournal
  ;
  : Attributes
-   Seq: ( ME_4A7FFBCD016C // JOT_BOOKMARK
- ME_4A7FFBDC036F // JOT_QUERY
- ME_4A7FFBF20035 // JOT_FOLDER
+   Seq: ( HWL ME_4A7FFBCD016C // JOT_BOOKMARK
+ HWL ME_4A7FFBDC036F // JOT_QUERY
+ HWL ME_4A7FFBF20035 // JOT_FOLDER
  )
  ; // Attributes
  CONST extprop:pas:TypeName 'TJournalObjectType'
@@ -77,7 +77,7 @@ FORWARD ME_4A8001010232
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4A8001010232 // BookmarkJournalType
+ : Parent HWL ME_4A8001010232 // BookmarkJournalType
  ;
 
 ref; // ME_4A80011400FD BJT_BOOKMARK
@@ -90,7 +90,7 @@ ref; // ME_4A80011400FD BJT_BOOKMARK
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4A8001010232 // BookmarkJournalType
+ : Parent HWL ME_4A8001010232 // BookmarkJournalType
  ;
 
 ref; // ME_4A80011E012C BJT_PHARM_BOOKMARK
@@ -103,11 +103,11 @@ ref; // ME_4A80011E012C BJT_PHARM_BOOKMARK
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4A7FF5F301B2 // UserJournal
+ : Parent HWL ME_4A7FF5F301B2 // UserJournal
  ;
  : Attributes
-   Seq: ( ME_4A80011400FD // BJT_BOOKMARK
- ME_4A80011E012C // BJT_PHARM_BOOKMARK
+   Seq: ( HWL ME_4A80011400FD // BJT_BOOKMARK
+ HWL ME_4A80011E012C // BJT_PHARM_BOOKMARK
  )
  ; // Attributes
  CONST extprop:pas:TypeName 'TBookmarkJournalType'
@@ -130,7 +130,7 @@ ref; // ME_4A7FFECB00CF obj
  CONST Name 'object_type'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_4A7FFAFA023A // JournalObjectType
+ : Target HWL ME_4A7FFAFA023A // JournalObjectType
  ;
 
 ref; // ME_4A7FFECB010F object_type
@@ -142,7 +142,7 @@ ref; // ME_4A7FFECB010F object_type
  %SUMMARY 'Сохранить объект в журнал работы' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4A7FF6610114 // UserJournal
+ : Parent HWL ME_4A7FF6610114 // UserJournal
  ;
  : Parameters
    Seq: ( ME_4A7FFECB00CF // obj
@@ -168,7 +168,7 @@ ref; // ME_4A7FFEC400BD obj
  %SUMMARY 'Удалить объект из журнала работы' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4A7FF6610114 // UserJournal
+ : Parent HWL ME_4A7FF6610114 // UserJournal
  ;
  : Parameters
    Seq: ( ME_4A7FFEC400BD // obj
@@ -184,7 +184,7 @@ ref; // ME_4A7FF9CA0176 remove
  %SUMMARY 'Очистить Журнал работы (аналогичен вызову remove (рут дерева журнала работы)' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4A7FF6610114 // UserJournal
+ : Parent HWL ME_4A7FF6610114 // UserJournal
  ;
 
 ref; // ME_4A7FFA7B03B3 clear
@@ -196,7 +196,7 @@ ref; // ME_4A7FFA7B03B3 clear
  %SUMMARY 'Получить дерево Журнала работы' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4A7FF6610114 // UserJournal
+ : Parent HWL ME_4A7FF6610114 // UserJournal
  ;
  : Target WL 'ME_45EEB95901C5' '457450470167.pas.ms.script' // NodeBase
  ;
@@ -210,7 +210,7 @@ ref; // ME_4A7FFAB30168 get_user_jornal_tree
  : Stereotype st_factory::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4A7FF6610114 // UserJournal
+ : Parent HWL ME_4A7FF6610114 // UserJournal
  ;
  CONST "const_type" 'read-write'
 
@@ -220,7 +220,7 @@ ref; // ME_4A7FFC1801CF make
  CONST Name 'type'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_4A8001010232 // BookmarkJournalType
+ : Target HWL ME_4A8001010232 // BookmarkJournalType
  ;
 
 ref; // ME_4A82545C02BE type
@@ -241,7 +241,7 @@ ref; // ME_4A82545C02C9 max_count
  %SUMMARY 'список закладок заданного типа' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4A7FF6610114 // UserJournal
+ : Parent HWL ME_4A7FF6610114 // UserJournal
  ;
  : Target WL 'ME_4A8A9DCF030D' '4570511E038A.pas.ms.script' // JournalBookmarkList
  ;
@@ -282,7 +282,7 @@ ref; // ME_4A8000D002B8 max_count
  %SUMMARY 'Получит список запросов заданного типа из Журнала' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4A7FF6610114 // UserJournal
+ : Parent HWL ME_4A7FF6610114 // UserJournal
  ;
  : Target WL 'ME_45EEE1BC02F7' '45EEAA8E034E.pas.ms.script' // QueryList
  ;
@@ -308,16 +308,16 @@ ref; // ME_4A8000D00269 get_query_history
  %SUMMARY 'Интерфейс журанла работы' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4A7FF5F301B2 // UserJournal
+ : Parent HWL ME_4A7FF5F301B2 // UserJournal
  ;
  : Operations
-   Seq: ( ME_4A7FF7B40013 // save
- ME_4A7FF9CA0176 // remove
- ME_4A7FFA7B03B3 // clear
- ME_4A7FFAB30168 // get_user_jornal_tree
- ME_4A7FFC1801CF // make
- ME_4A8000BD0335 // get_bookmark_history
- ME_4A8000D00269 // get_query_history
+   Seq: ( HWL ME_4A7FF7B40013 // save
+ HWL ME_4A7FF9CA0176 // remove
+ HWL ME_4A7FFA7B03B3 // clear
+ HWL ME_4A7FFAB30168 // get_user_jornal_tree
+ HWL ME_4A7FFC1801CF // make
+ HWL ME_4A8000BD0335 // get_bookmark_history
+ HWL ME_4A8000D00269 // get_query_history
  )
  ; // Operations
  CONST "single impl" false
@@ -337,9 +337,9 @@ ref; // ME_4A7FF6610114 UserJournal
  : Parent WL 'ME_456EA3D2031C' '456EA3D2031C.pas.ms.script' // GblAdapterLib
  ;
  : Children
-   Seq: ( ME_4A7FFAFA023A // JournalObjectType
- ME_4A8001010232 // BookmarkJournalType
- ME_4A7FF6610114 // UserJournal
+   Seq: ( HWL ME_4A7FFAFA023A // JournalObjectType
+ HWL ME_4A8001010232 // BookmarkJournalType
+ HWL ME_4A7FF6610114 // UserJournal
  )
  ; // Children
  : Depends

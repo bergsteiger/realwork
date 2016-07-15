@@ -34,7 +34,7 @@ ref; // ME_53EC898D029C aFormat
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_53EC895B0384 // IInfoOut
+ : Parent HWL ME_53EC895B0384 // IInfoOut
  ;
  : Parameters
    Seq: ( ME_53EC898D028D // aStr
@@ -50,7 +50,7 @@ ref; // ME_53EC896701E5 AddString
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_53EC895B0384 // IInfoOut
+ : Parent HWL ME_53EC895B0384 // IInfoOut
  ;
 
 ref; // ME_53EC89920323 StartData
@@ -61,7 +61,7 @@ ref; // ME_53EC89920323 StartData
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_53EC895B0384 // IInfoOut
+ : Parent HWL ME_53EC895B0384 // IInfoOut
  ;
 
 ref; // ME_53EC899E0103 EndData
@@ -75,12 +75,12 @@ ref; // ME_53EC899E0103 EndData
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_53EC893302E3 // arInterfaces
+ : Parent HWL ME_53EC893302E3 // arInterfaces
  ;
  : Operations
-   Seq: ( ME_53EC896701E5 // AddString
- ME_53EC89920323 // StartData
- ME_53EC899E0103 // EndData
+   Seq: ( HWL ME_53EC896701E5 // AddString
+ HWL ME_53EC89920323 // StartData
+ HWL ME_53EC899E0103 // EndData
  )
  ; // Operations
  CONST extprop:rc:SelfName 'InfoOut'
@@ -94,7 +94,7 @@ FORWARD ME_53EC89AF0157
  CONST Name 'lInfoOut'
  CONST Class class_Parameter
  : Stereotype st_const ;
- : Target ME_53EC895B0384 // IInfoOut
+ : Target HWL ME_53EC895B0384 // IInfoOut
  ;
 
 ref; // ME_53EC89DA00E0 lInfoOut
@@ -105,7 +105,7 @@ ref; // ME_53EC89DA00E0 lInfoOut
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_53EC89AF0157 // TarFillDocInfo
+ : Parent HWL ME_53EC89AF0157 // TarFillDocInfo
  ;
  : Parameters
    Seq: ( ME_53EC89DA00E0 // lInfoOut
@@ -122,10 +122,10 @@ ref; // ME_53EC89CB0048 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_53EC893302E3 // arInterfaces
+ : Parent HWL ME_53EC893302E3 // arInterfaces
  ;
  : Operations
-   Seq: ( ME_53EC89CB0048 // DoIt
+   Seq: ( HWL ME_53EC89CB0048 // DoIt
  )
  ; // Operations
  CONST "of object" true
@@ -142,8 +142,8 @@ ref; // ME_53EC89AF0157 TarFillDocInfo
  : Parent WL 'ME_4E004D0B033A' '4E004D0B033A.pas.ms.script' // Editor
  ;
  : Children
-   Seq: ( ME_53EC895B0384 // IInfoOut
- ME_53EC89AF0157 // TarFillDocInfo
+   Seq: ( HWL ME_53EC895B0384 // IInfoOut
+ HWL ME_53EC89AF0157 // TarFillDocInfo
  )
  ; // Children
  : Depends

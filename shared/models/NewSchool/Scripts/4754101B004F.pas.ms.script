@@ -13,7 +13,7 @@ FORWARD ME_4754101B004F
  %SUMMARY 'Контроллер команд.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4754101B004F // OvcBase
+ : Parent HWL ME_4754101B004F // OvcBase
  ;
  : Inherits
    Seq: ( WL 'ME_47541E17024E' '47913B47006E.pas.ms.script' // Tl3InterfacedComponent
@@ -27,50 +27,6 @@ FORWARD ME_4754101B004F
 
 ref; // ME_475415C50224 TOvcController
 
-FORWARD ME_475410380119
-
-: ME_475416990003
- CONST UID '475416990003'
- CONST Name 'Controller'
- CONST Class class_Attribute
- %SUMMARY 'Контроллер команд.' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_lnk
- : Parent ME_475410380119 // TOvcBase
- ;
- : Target ME_475415C50224 // TOvcController
- ;
-
-ref; // ME_475416990003 Controller
-
-: ME_475410380119
- CONST UID '475410380119'
- CONST Name 'TOvcBase'
- CONST Class class_Class
- : Stereotype st_GuiControl ;
- CONST Kind kind_NormalClass
- %SUMMARY 'base class for Orpheus components. Provides controller access.' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4754101B004F // OvcBase
- ;
- : Inherits
-   Seq: ( WL 'ME_47E1388A03A7' '4799D29F033F.pas.ms.script' // TCustomControl
- )
- ; // Inherits
- : Attributes
-   Seq: ( ME_475416990003 // Controller
- )
- ; // Attributes
- CONST "finished" false
- CONST intf.pas:Path 'common\components\rtl\external\Orpheus\NOT_FINISHED_OvcBase.pas'
- CONST extprop:rc:SelfName 'OvcBase'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'OvcBase'
-
-ref; // ME_475410380119 TOvcBase
-
 FORWARD ME_5150530901CE
 
 : ME_514C8A3B0262
@@ -81,7 +37,7 @@ FORWARD ME_5150530901CE
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_5150530901CE // OvcColor
+ : Parent HWL ME_5150530901CE // OvcColor
  ;
  CONST "finished" false
  CONST extprop:rc:SelfName 'OvcColors'
@@ -97,10 +53,10 @@ ref; // ME_514C8A3B0262 TOvcColors
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4754101B004F // OvcBase
+ : Parent HWL ME_4754101B004F // OvcBase
  ;
  : Children
-   Seq: ( ME_514C8A3B0262 // TOvcColors
+   Seq: ( HWL ME_514C8A3B0262 // TOvcColors
  )
  ; // Children
  CONST "finished" false
@@ -116,7 +72,7 @@ ref; // ME_5150530901CE OvcColor
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4754101B004F // OvcBase
+ : Parent HWL ME_4754101B004F // OvcBase
  ;
  CONST "finished" false
  CONST intf.pas:Path 'common\components\rtl\external\Orpheus\NOT_FINISHED_OvcData.pas'
@@ -131,7 +87,7 @@ ref; // ME_5159566B0063 OvcData
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4754101B004F // OvcBase
+ : Parent HWL ME_4754101B004F // OvcBase
  ;
  CONST "finished" false
  CONST intf.pas:Path 'common\components\rtl\external\Orpheus\NOT_FINISHED_OvcExcpt.pas'
@@ -149,11 +105,11 @@ ref; // ME_515956AC0167 OvcExcpt
  : Parent WL 'ME_47540FF802AC' '47540FF802AC.pas.ms.script' // Orpheus
  ;
  : Children
-   Seq: ( ME_475415C50224 // TOvcController
- ME_475410380119 // TOvcBase
- ME_5150530901CE // OvcColor
- ME_5159566B0063 // OvcData
- ME_515956AC0167 // OvcExcpt
+   Seq: ( HWL ME_475415C50224 // TOvcController
+ WL 'ME_475410380119' '475410380119.pas.ms.script' // TOvcBase
+ HWL ME_5150530901CE // OvcColor
+ HWL ME_5159566B0063 // OvcData
+ HWL ME_515956AC0167 // OvcExcpt
  )
  ; // Children
  : Depends

@@ -2,56 +2,6 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-FORWARD ME_4A6D566201F3
-
-FORWARD ME_4A6D5A4902D8
-
-: ME_4A9BD2920088
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4A6D5A4902D8 // CompareEditions
- ;
- : Target WL 'ME_48490152021B' '484900780017.pas.ms.script' // Просмотр документа
- ;
-
-ref; // ME_4A9BD2920088 
-
-: ME_4A6D5A4902D8
- CONST UID '4A6D5A4902D8'
- CONST Name 'CompareEditions'
- CONST Class class_Class
- : Stereotype st_VCMUseCaseRealization ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Сравнение редакций' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4A6D566201F3 // CompareEditions
- ;
- : Inherits
-   Seq: ( WL 'ME_4A6D5F3D03A9' '4A6D5A220389.pas.ms.script' // BaseEditions
- )
- ; // Inherits
- : Implements
-   Seq: ( WL 'ME_4A431CD00395' '484900780017.pas.ms.script' // Сравнение редакций документов
- )
- ; // Implements
- : Dependencies
-   Seq: ( ME_4A9BD2920088 // Просмотр документа
- )
- ; // Dependencies
- CONST "author" 'Люлин А.В.'
- CONST "ifndef" 'Admin,Monitorings'
- CONST "no hands" true
- CONST "started" '27.07.2009 11:42'
- CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\moCompareEditions.pas'
- CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
- CONST extprop:pas:TypeName 'Tmo_CompareEditions'
- CONST extprop:rc:SelfName 'mo_CompareEditions'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'moCompareEditions'
-
-ref; // ME_4A6D5A4902D8 CompareEditions
-
 : ME_4A6D566201F3
  CONST UID '4A6D566201F3'
  CONST Name 'CompareEditions'
@@ -63,7 +13,7 @@ ref; // ME_4A6D5A4902D8 CompareEditions
  : Parent WL 'ME_4C852A4201E6' '4C852A4201E6.pas.ms.script' // F1 Пользовательские сервисы
  ;
  : Children
-   Seq: ( ME_4A6D5A4902D8 // CompareEditions
+   Seq: ( WL 'ME_4A6D5A4902D8' '4A6D5A4902D8.pas.ms.script' // CompareEditions
  WL 'ME_4A6D569202A5' '4A6D569202A5.pas.ms.script' // Editions
  WL 'ME_4A6D59C9005C' '4A6D59C9005C.pas.ms.script' // View
  )

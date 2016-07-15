@@ -1,0 +1,46 @@
+// TvtProportionalPanel 4A7AD11C028B GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A7AD11C028B
+
+: ME_4F71F9080285
+ CONST UID '4F71F9080285'
+ CONST Name 'TvtProportionalCustomPanel'
+ CONST Class class_Class
+ : Stereotype st_GuiControl ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4A7AD11C028B // TvtProportionalPanel
+ ;
+ : Inherits
+   Seq: ( HWL ME_4A7AD11C028B // TvtProportionalPanel
+ )
+ ; // Inherits
+ CONST extprop:rc:SelfName 'ProportionalCustomPanel'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4F71F9080285 TvtProportionalCustomPanel
+
+: ME_4A7AD11C028B
+ CONST UID '4A7AD11C028B'
+ CONST Name 'TvtProportionalPanel'
+ CONST Class class_Class
+ : Stereotype st_GuiControl ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4A7960CC03A4' '4A7960CC03A4.pas.ms.script' //  Panels
+ ;
+ : Children
+   Seq: ( HWL ME_4F71F9080285 // TvtProportionalCustomPanel
+ )
+ ; // Children
+ CONST "finished" false
+ CONST intf.pas:Path 'common\components\gui\Garant\VT\NOT_FINISHED_vtProportionalPanel.pas'
+ CONST extprop:rc:SelfName 'ProportionalPanel'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vtProportionalPanel'
+
+ref; // ME_4A7AD11C028B TvtProportionalPanel

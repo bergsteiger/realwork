@@ -15,7 +15,7 @@ FORWARD ME_47ECD4E8023E
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_47ECD4E8023E // IdsSimpleListSynchroViewPrim
+ : Parent HWL ME_47ECD4E8023E // IdsSimpleListSynchroViewPrim
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -32,7 +32,7 @@ ref; // ME_47ECD54803CB HasDocument
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_47ECD4E8023E // IdsSimpleListSynchroViewPrim
+ : Parent HWL ME_47ECD4E8023E // IdsSimpleListSynchroViewPrim
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -49,7 +49,7 @@ ref; // ME_47ECD5490012 IsDocumentActive
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_47ECD4E8023E // IdsSimpleListSynchroViewPrim
+ : Parent HWL ME_47ECD4E8023E // IdsSimpleListSynchroViewPrim
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -66,7 +66,7 @@ ref; // ME_47F08A0E035F HasAttributes
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_47ECD4E8023E // IdsSimpleListSynchroViewPrim
+ : Parent HWL ME_47ECD4E8023E // IdsSimpleListSynchroViewPrim
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -81,7 +81,7 @@ ref; // ME_47F08A2A03E6 IsAttributesActive
  %SUMMARY 'Открыть документ.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_47ECD4E8023E // IdsSimpleListSynchroViewPrim
+ : Parent HWL ME_47ECD4E8023E // IdsSimpleListSynchroViewPrim
  ;
 
 ref; // ME_47ECD5280007 OpenDocument
@@ -93,7 +93,7 @@ ref; // ME_47ECD5280007 OpenDocument
  %SUMMARY 'Открыть атрибуты.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_47ECD4E8023E // IdsSimpleListSynchroViewPrim
+ : Parent HWL ME_47ECD4E8023E // IdsSimpleListSynchroViewPrim
  ;
 
 ref; // ME_47F08A7F0108 OpenAttributes
@@ -108,18 +108,18 @@ ref; // ME_47F08A7F0108 OpenAttributes
  %SUMMARY 'Спецификация синхронного просмотра для списка' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4922BFA000DD // SimpleListInterfaces
+ : Parent HWL ME_4922BFA000DD // SimpleListInterfaces
  ;
  : Attributes
-   Seq: ( ME_47ECD54803CB // HasDocument
- ME_47ECD5490012 // IsDocumentActive
- ME_47F08A0E035F // HasAttributes
- ME_47F08A2A03E6 // IsAttributesActive
+   Seq: ( HWL ME_47ECD54803CB // HasDocument
+ HWL ME_47ECD5490012 // IsDocumentActive
+ HWL ME_47F08A0E035F // HasAttributes
+ HWL ME_47F08A2A03E6 // IsAttributesActive
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_47ECD5280007 // OpenDocument
- ME_47F08A7F0108 // OpenAttributes
+   Seq: ( HWL ME_47ECD5280007 // OpenDocument
+ HWL ME_47F08A7F0108 // OpenAttributes
  )
  ; // Operations
  CONST extprop:rc:SelfName 'dsSimpleListSynchroViewPrim'
@@ -138,7 +138,7 @@ FORWARD ME_494690E5004E
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_494690E5004E // IdsSimpleListSynchroView
+ : Parent HWL ME_494690E5004E // IdsSimpleListSynchroView
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -155,7 +155,7 @@ ref; // ME_4946928403A8 HasList
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_494690E5004E // IdsSimpleListSynchroView
+ : Parent HWL ME_494690E5004E // IdsSimpleListSynchroView
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -170,47 +170,47 @@ ref; // ME_49469292003A IsListActive
  %SUMMARY 'Открыть список.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_494690E5004E // IdsSimpleListSynchroView
+ : Parent HWL ME_494690E5004E // IdsSimpleListSynchroView
  ;
 
 ref; // ME_494692790065 OpenList
 
 : ME_47ECD5280007_ME_494690E5004E
- : Original ME_47ECD5280007 // OpenDocument
+ : Original HWL ME_47ECD5280007 // OpenDocument
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_47ECD5280007_ME_494690E5004E OpenDocument
 
 : ME_47ECD54803CB_ME_494690E5004E
- : Original ME_47ECD54803CB // HasDocument
+ : Original HWL ME_47ECD54803CB // HasDocument
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47ECD54803CB_ME_494690E5004E HasDocument
 
 : ME_47ECD5490012_ME_494690E5004E
- : Original ME_47ECD5490012 // IsDocumentActive
+ : Original HWL ME_47ECD5490012 // IsDocumentActive
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47ECD5490012_ME_494690E5004E IsDocumentActive
 
 : ME_47F08A0E035F_ME_494690E5004E
- : Original ME_47F08A0E035F // HasAttributes
+ : Original HWL ME_47F08A0E035F // HasAttributes
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47F08A0E035F_ME_494690E5004E HasAttributes
 
 : ME_47F08A2A03E6_ME_494690E5004E
- : Original ME_47F08A2A03E6 // IsAttributesActive
+ : Original HWL ME_47F08A2A03E6 // IsAttributesActive
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47F08A2A03E6_ME_494690E5004E IsAttributesActive
 
 : ME_47F08A7F0108_ME_494690E5004E
- : Original ME_47F08A7F0108 // OpenAttributes
+ : Original HWL ME_47F08A7F0108 // OpenAttributes
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_47F08A7F0108_ME_494690E5004E OpenAttributes
@@ -225,19 +225,19 @@ ref; // ME_47F08A7F0108_ME_494690E5004E OpenAttributes
  %SUMMARY 'Синхронный просмотр для списка' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4922BFA000DD // SimpleListInterfaces
+ : Parent HWL ME_4922BFA000DD // SimpleListInterfaces
  ;
  : Inherits
-   Seq: ( ME_47ECD4E8023E // IdsSimpleListSynchroViewPrim
+   Seq: ( HWL ME_47ECD4E8023E // IdsSimpleListSynchroViewPrim
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_4946928403A8 // HasList
- ME_49469292003A // IsListActive
+   Seq: ( HWL ME_4946928403A8 // HasList
+ HWL ME_49469292003A // IsListActive
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_494692790065 // OpenList
+   Seq: ( HWL ME_494692790065 // OpenList
  )
  ; // Operations
  : Implemented
@@ -264,7 +264,7 @@ FORWARD ME_4922D91D0027
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4922D91D0027 // IdeFilter
+ : Parent HWL ME_4922D91D0027 // IdeFilter
  ;
  : Target WL 'ME_45EEE145027B' '45EEAA8E034E.pas.ms.script' // Query
  ;
@@ -281,7 +281,7 @@ ref; // ME_4B1D15D203DC Query
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4922D91D0027 // IdeFilter
+ : Parent HWL ME_4922D91D0027 // IdeFilter
  ;
  : Target WL 'ME_4CA499CA03DD' '45EEA48F011F.pas.ms.script' // FilterFromQuery
  ;
@@ -298,11 +298,11 @@ ref; // ME_4B1D160B00AC Filter
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4922BFA000DD // SimpleListInterfaces
+ : Parent HWL ME_4922BFA000DD // SimpleListInterfaces
  ;
  : Attributes
-   Seq: ( ME_4B1D15D203DC // Query
- ME_4B1D160B00AC // Filter
+   Seq: ( HWL ME_4B1D15D203DC // Query
+ HWL ME_4B1D160B00AC // Filter
  )
  ; // Attributes
  CONST extprop:rc:SelfName 'deFilter'
@@ -319,7 +319,7 @@ FORWARD ME_47FB1D7601A6
  %SUMMARY 'открыть форму фильтры' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_47FB1D7601A6 // IucpFilters
+ : Parent HWL ME_47FB1D7601A6 // IucpFilters
  ;
 
 ref; // ME_47FB2086026D Open
@@ -334,10 +334,10 @@ ref; // ME_47FB2086026D Open
  %SUMMARY 'Управляет открытием формы фильтров' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4922BFA000DD // SimpleListInterfaces
+ : Parent HWL ME_4922BFA000DD // SimpleListInterfaces
  ;
  : Operations
-   Seq: ( ME_47FB2086026D // Open
+   Seq: ( HWL ME_47FB2086026D // Open
  )
  ; // Operations
  CONST extprop:rc:SelfName 'ucpFilters'
@@ -363,9 +363,9 @@ ref; // ME_4922D96A02C6 aNode
  %SUMMARY 'возвращает данные необходимые редактироания фильтра' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4922D94500FB // IdsFilters
+ : Parent HWL ME_4922D94500FB // IdsFilters
  ;
- : Target ME_4922D91D0027 // IdeFilter
+ : Target HWL ME_4922D91D0027 // IdeFilter
  ;
  : Parameters
    Seq: ( ME_4922D96A02C6 // aNode
@@ -383,10 +383,10 @@ ref; // ME_4922D96003C8 OpenFilter
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4922BFA000DD // SimpleListInterfaces
+ : Parent HWL ME_4922BFA000DD // SimpleListInterfaces
  ;
  : Operations
-   Seq: ( ME_4922D96003C8 // OpenFilter
+   Seq: ( HWL ME_4922D96003C8 // OpenFilter
  )
  ; // Operations
  CONST extprop:rc:SelfName 'dsFilters'
@@ -405,11 +405,11 @@ ref; // ME_4922D94500FB IdsFilters
  : Parent WL 'ME_4954F58900E8' '4954F58900E8.pas.ms.script' // List
  ;
  : Children
-   Seq: ( ME_47ECD4E8023E // IdsSimpleListSynchroViewPrim
- ME_494690E5004E // IdsSimpleListSynchroView
- ME_4922D91D0027 // IdeFilter
- ME_47FB1D7601A6 // IucpFilters
- ME_4922D94500FB // IdsFilters
+   Seq: ( HWL ME_47ECD4E8023E // IdsSimpleListSynchroViewPrim
+ HWL ME_494690E5004E // IdsSimpleListSynchroView
+ HWL ME_4922D91D0027 // IdeFilter
+ HWL ME_47FB1D7601A6 // IucpFilters
+ HWL ME_4922D94500FB // IdsFilters
  )
  ; // Children
  : Depends

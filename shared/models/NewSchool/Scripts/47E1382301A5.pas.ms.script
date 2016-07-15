@@ -1,0 +1,113 @@
+// TafwInputControl 47E1382301A5 GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47E1382301A5
+
+: ME_47E139140155
+ CONST Name 'aPt'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4727456300E7' '472745450206.pas.ms.script' // Tl3Point
+ ;
+
+ref; // ME_47E139140155 aPt
+
+: ME_47E13914016D
+ CONST Name 'aButton'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4728CDD0000B' '4677FBA70343.pas.ms.script' // Tl3MouseButton
+ ;
+
+ref; // ME_47E13914016D aButton
+
+: ME_47E139140186
+ CONST Name 'anAction'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4728CDEF038A' '4677FBA70343.pas.ms.script' // Tl3MouseAction
+ ;
+
+ref; // ME_47E139140186 anAction
+
+: ME_47E13914019F
+ CONST Name 'aKeys'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4728CE680258' '4AB0997B00A2.pas.ms.script' // TShiftState
+ ;
+
+ref; // ME_47E13914019F aKeys
+
+: ME_47E138F90081
+ CONST UID '47E138F90081'
+ CONST Name 'MouseAction'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_47E1382301A5 // TafwInputControl
+ ;
+ : Target WL 'ME_4728CE2502E8' '467C0CAA02AB.pas.ms.script' // Tl3MouseResult
+ ;
+ : Parameters
+   Seq: ( ME_47E139140155 // aPt
+ ME_47E13914016D // aButton
+ ME_47E139140186 // anAction
+ ME_47E13914019F // aKeys
+ )
+ ; // Parameters
+
+ref; // ME_47E138F90081 MouseAction
+
+: ME_47E13C8C026C
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_47E1382301A5 // TafwInputControl
+ ;
+ : Target WL 'ME_47E13C6B0341' '4799D29F033F.pas.ms.script' // Forms
+ ;
+
+ref; // ME_47E13C8C026C 
+
+: ME_47E136A80191_ME_47E1382301A5
+ : Original WL 'ME_47E136A80191' '4799D29F033F.pas.ms.script' // WndProc
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_47E136A80191_ME_47E1382301A5 WndProc
+
+: ME_47E1382301A5
+ CONST UID '47E1382301A5'
+ CONST Name 'TafwInputControl'
+ CONST Class class_Class
+ : Stereotype st_GuiControl ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_467BA8C8017E' '467BA8C8017E.pas.ms.script' // afwControl
+ ;
+ : Inherits
+   Seq: ( WL 'ME_467BA96E003C' '467BA96E003C.pas.ms.script' // TafwControl
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( HWL ME_47E138F90081 // MouseAction
+ )
+ ; // Operations
+ : Overridden
+   Seq: ( ME_47E136A80191_ME_47E1382301A5 // WndProc
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_47E13C8C026C // Forms
+ )
+ ; // Dependencies
+ CONST "author" 'Ëþëèí À.Â.'
+ CONST "no hands" true
+ CONST "started" '28.09.1999 10:18'
+ CONST intf.pas:Path 'common\components\gui\Garant\AFW\implementation\Visual\afwInputControl.pas'
+ CONST extprop:rc:SelfName 'afwInputControl'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'afwInputControl'
+
+ref; // ME_47E1382301A5 TafwInputControl

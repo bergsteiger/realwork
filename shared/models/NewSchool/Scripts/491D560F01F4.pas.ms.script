@@ -4,268 +4,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 FORWARD ME_491D560F01F4
 
-FORWARD ME_491D56370182
-
-FORWARD ME_4CE53CC80300
-
-: ME_4CE53D1F00EE
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_491D56370182 // TdsTipsDocument
- ;
- : Target ME_4CE53CC80300 // TnsTipsDocumentContainer
- ;
-
-ref; // ME_4CE53D1F00EE 
-
-: ME_491C263E03AF_ME_491D56370182
- : Original WL 'ME_491C263E03AF' '47EA50050263.pas.ms.script' // GetIsReadOnly
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_491C263E03AF_ME_491D56370182 GetIsReadOnly
-
-: ME_491C264C02C2_ME_491D56370182
- : Original WL 'ME_491C264C02C2' '47EA50050263.pas.ms.script' // GetTimeMachineOff
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_491C264C02C2_ME_491D56370182 GetTimeMachineOff
-
-: ME_4C6AB38800F3_ME_491D56370182
- : Original WL 'ME_4C6AB38800F3' '47EA50050263.pas.ms.script' // MakeContainer
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4C6AB38800F3_ME_491D56370182 MakeContainer
-
-: ME_491D56370182
- CONST UID '491D56370182'
- CONST Name 'TdsTipsDocument'
- CONST Class class_Class
- : Stereotype st_ViewAreaControllerImp ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_491D560F01F4 // DayTips
- ;
- : Inherits
-   Seq: ( WL 'ME_4926CAF40166' '47EA50050263.pas.ms.script' // dsBaseDocument
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_491C263E03AF_ME_491D56370182 // GetIsReadOnly
- ME_491C264C02C2_ME_491D56370182 // GetTimeMachineOff
- ME_4C6AB38800F3_ME_491D56370182 // MakeContainer
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_4CE53D1F00EE // TnsTipsDocumentContainer
- )
- ; // Dependencies
- CONST "author" 'Лукьянец Р.В.'
- CONST "no hands" true
- CONST "started" '2008/02/21 08:50:34'
- CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\DayTips\dsTipsDocument.pas'
- CONST extprop:rc:SelfName 'dsTipsDocument'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'dsTipsDocument'
-
-ref; // ME_491D56370182 TdsTipsDocument
-
-FORWARD ME_49254BC1019C
-
-: ME_492D5EDD012F
- CONST UID '492D5EDD012F'
- CONST Name 'InitDataType'
- CONST Class class_Attribute
- : Stereotype st_impurity_value::Attribute ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_abstract
- CONST LinkType lt_agr
- : Parent ME_49254BC1019C // TdsTips
- ;
- : Target WL 'ME_47EA0784000D' '4B1FC2FF03CD.pas.ms.script' // IdeDocInfo
- ;
-
-ref; // ME_492D5EDD012F InitDataType
-
-FORWARD ME_49254B6F0325
-
-: ME_49254C19037D
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_49254BC1019C // TdsTips
- ;
- : Target ME_49254B6F0325 // TdeTips
- ;
-
-ref; // ME_49254C19037D 
-
-: ME_49254CF00100
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_49254BC1019C // TdsTips
- ;
- : Target WL 'ME_4906F6A103D5' '4906F67500B0.pas.ms.script' // TnsTipsTree
- ;
-
-ref; // ME_49254CF00100 
-
-: ME_47F4C2B9014A_ME_49254BC1019C
- : Original WL 'ME_47F4C2B9014A' '47F282AE0082.pas.ms.script' // MakeSimpleTree
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_47F4C2B9014A_ME_49254BC1019C MakeSimpleTree
-
-: ME_49254515003C_ME_49254BC1019C
- : Original WL 'ME_49254515003C' '492543E30278.pas.ms.script' // MakeDocInfoForCurrentChanged
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_49254515003C_ME_49254BC1019C MakeDocInfoForCurrentChanged
-
-: ME_5571EB84007F_ME_49254BC1019C
- : Original WL 'ME_5571EB84007F' '492543E30278.pas.ms.script' // DictionKind
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" true
-ref; // ME_5571EB84007F_ME_49254BC1019C DictionKind
-
-: ME_49254BC1019C
- CONST UID '49254BC1019C'
- CONST Name 'TdsTips'
- CONST Class class_Class
- : Stereotype st_ViewAreaControllerImp ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Список советов дня' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_491D560F01F4 // DayTips
- ;
- : Inherits
-   Seq: ( WL 'ME_4925449A0296' '492543E30278.pas.ms.script' // dsCommonDiction
- )
- ; // Inherits
- : Attributes
-   Seq: ( ME_492D5EDD012F // InitDataType
- )
- ; // Attributes
- : Implemented
-   Seq: ( ME_47F4C2B9014A_ME_49254BC1019C // MakeSimpleTree
- ME_49254515003C_ME_49254BC1019C // MakeDocInfoForCurrentChanged
- ME_5571EB84007F_ME_49254BC1019C // DictionKind
- )
- ; // Implemented
- : Dependencies
-   Seq: ( ME_49254C19037D // TdeTips
- ME_49254CF00100 // TnsTipsTree
- )
- ; // Dependencies
- CONST "author" 'Лукьянец Р.В.'
- CONST "no hands" true
- CONST "started" '2008/02/20 13:01:22'
- CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\DayTips\dsTips.pas'
- CONST extprop:rc:SelfName 'dsTips'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'dsTips'
-
-ref; // ME_49254BC1019C TdsTips
-
-FORWARD ME_493D0AFD02F6
-
-: ME_493D0B3002B4
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_493D0AFD02F6 // TsdsTips
- ;
- : Target ME_491D56370182 // TdsTipsDocument
- ;
-
-ref; // ME_493D0B3002B4 
-
-: ME_493D0B3D00BB
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_493D0AFD02F6 // TsdsTips
- ;
- : Target ME_49254BC1019C // TdsTips
- ;
-
-ref; // ME_493D0B3D00BB 
-
-: ME_493D0B780263
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_493D0AFD02F6 // TsdsTips
- ;
- : Target ME_49254B6F0325 // TdeTips
- ;
-
-ref; // ME_493D0B780263 
-
-: ME_493D0BE8015F
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_493D0AFD02F6 // TsdsTips
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_493D0BE8015F 
-
-: ME_4925B1EC0100_ME_493D0AFD02F6
- : Original WL 'ME_4925B1EC0100' '47EA50050263.pas.ms.script' // BaseDocumentClass
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4925B1EC0100_ME_493D0AFD02F6 BaseDocumentClass
-
-: ME_4936B89C037F_ME_493D0AFD02F6
- : Original WL 'ME_4936B89C037F' '492543E30278.pas.ms.script' // MakeDocInfo
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4936B89C037F_ME_493D0AFD02F6 MakeDocInfo
-
-: ME_4936BA0D0286_ME_493D0AFD02F6
- : Original WL 'ME_4936BA0D0286' '492543E30278.pas.ms.script' // MakeContents
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4936BA0D0286_ME_493D0AFD02F6 MakeContents
-
-: ME_493D0AFD02F6
- CONST UID '493D0AFD02F6'
- CONST Name 'TsdsTips'
- CONST Class class_Class
- : Stereotype st_UseCaseControllerImp ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Бизнес объект сборки "Совет дня"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_491D560F01F4 // DayTips
- ;
- : Inherits
-   Seq: ( WL 'ME_4941654603E7' '492543E30278.pas.ms.script' // TsdsCommonDiction
- )
- ; // Inherits
- : Implemented
-   Seq: ( ME_4925B1EC0100_ME_493D0AFD02F6 // BaseDocumentClass
- ME_4936B89C037F_ME_493D0AFD02F6 // MakeDocInfo
- ME_4936BA0D0286_ME_493D0AFD02F6 // MakeContents
- )
- ; // Implemented
- : Dependencies
-   Seq: ( ME_493D0B3002B4 // TdsTipsDocument
- ME_493D0B3D00BB // TdsTips
- ME_493D0B780263 // TdeTips
- ME_493D0BE8015F // SysUtils
- )
- ; // Dependencies
- CONST "author" 'Лукьянец Р.В.'
- CONST "no hands" true
- CONST "started" '2008/02/20 13:01:22'
- CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\DayTips\sdsTips.pas'
- CONST extprop:rc:SelfName 'sdsTips'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'sdsTips'
-
-ref; // ME_493D0AFD02F6 TsdsTips
-
 FORWARD ME_4992891800CF
 
 : ME_499289CF03A7
@@ -275,7 +13,7 @@ FORWARD ME_4992891800CF
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4992891800CF // TnsStartupTips
+ : Parent HWL ME_4992891800CF // TnsStartupTips
  ;
  : Target WL 'ME_46825CC00249' '4682595B0268.pas.ms.script' // Il3SimpleTree
  ;
@@ -289,7 +27,7 @@ ref; // ME_499289CF03A7 f_TipsTree
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4992891800CF // TnsStartupTips
+ : Parent HWL ME_4992891800CF // TnsStartupTips
  ;
  : Target WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
  ;
@@ -303,7 +41,7 @@ ref; // ME_499289E00058 f_CurrentNode
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4992891800CF // TnsStartupTips
+ : Parent HWL ME_4992891800CF // TnsStartupTips
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -317,7 +55,7 @@ ref; // ME_49928A3E007F f_DontShow
  : Stereotype st_ctor::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4992891800CF // TnsStartupTips
+ : Parent HWL ME_4992891800CF // TnsStartupTips
  ;
 
 ref; // ME_49928A97027C Create
@@ -329,7 +67,7 @@ ref; // ME_49928A97027C Create
  : Stereotype st_factory::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4992891800CF // TnsStartupTips
+ : Parent HWL ME_4992891800CF // TnsStartupTips
  ;
 
 ref; // ME_49928AA3039A MakePrim
@@ -341,7 +79,7 @@ ref; // ME_49928AA3039A MakePrim
  : Stereotype st_static::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4992891800CF // TnsStartupTips
+ : Parent HWL ME_4992891800CF // TnsStartupTips
  ;
  : Target WL 'ME_4991C6FF00C7' '4991C6930254.pas.ms.script' // InsStartupTips
  ;
@@ -351,7 +89,7 @@ ref; // ME_4993F1F80032 Make
 : ME_49928AD80373
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4992891800CF // TnsStartupTips
+ : Parent HWL ME_4992891800CF // TnsStartupTips
  ;
  : Target WL 'ME_47F260EC02C7' '521C9DA50125.pas.ms.script' // StdRes
  ;
@@ -361,7 +99,7 @@ ref; // ME_49928AD80373
 : ME_49928AEE0176
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4992891800CF // TnsStartupTips
+ : Parent HWL ME_4992891800CF // TnsStartupTips
  ;
  : Target WL 'ME_48FF556602BA' '48F747EC0073.pas.ms.script' // DataAdapter
  ;
@@ -371,7 +109,7 @@ ref; // ME_49928AEE0176
 : ME_49928B1500D8
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4992891800CF // TnsStartupTips
+ : Parent HWL ME_4992891800CF // TnsStartupTips
  ;
  : Target WL 'ME_47752AF90375' '47750CE700D0.pas.ms.script' // afwFacade
  ;
@@ -381,7 +119,7 @@ ref; // ME_49928B1500D8
 : ME_49928B1D0064
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4992891800CF // TnsStartupTips
+ : Parent HWL ME_4992891800CF // TnsStartupTips
  ;
  : Target WL 'ME_47FB50E4008E' '48F747EC0073.pas.ms.script' // nsConst
  ;
@@ -391,7 +129,7 @@ ref; // ME_49928B1D0064
 : ME_49928C4501B7
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4992891800CF // TnsStartupTips
+ : Parent HWL ME_4992891800CF // TnsStartupTips
  ;
  : Target WL 'ME_45EEB95901C5' '457450470167.pas.ms.script' // NodeBase
  ;
@@ -401,7 +139,7 @@ ref; // ME_49928C4501B7
 : ME_49928C59007D
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4992891800CF // TnsStartupTips
+ : Parent HWL ME_4992891800CF // TnsStartupTips
  ;
  : Target WL 'ME_45EEC8680109' '457450470167.pas.ms.script' // NodeIndexPath
  ;
@@ -411,7 +149,7 @@ ref; // ME_49928C59007D
 : ME_49928C8001B8
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4992891800CF // TnsStartupTips
+ : Parent HWL ME_4992891800CF // TnsStartupTips
  ;
  : Target WL 'ME_45EEB6520191' '4570511E038A.pas.ms.script' // Document
  ;
@@ -421,7 +159,7 @@ ref; // ME_49928C8001B8
 : ME_49928C900220
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4992891800CF // TnsStartupTips
+ : Parent HWL ME_4992891800CF // TnsStartupTips
  ;
  : Target WL 'ME_456EB3E10177' '456EA56002BF.pas.ms.script' // EntityBase
  ;
@@ -431,7 +169,7 @@ ref; // ME_49928C900220
 : ME_499297BF035B
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4992891800CF // TnsStartupTips
+ : Parent HWL ME_4992891800CF // TnsStartupTips
  ;
  : Target WL 'ME_46835B4001A4' '48FD8B2702F6.pas.ms.script' // TnsTreeStruct
  ;
@@ -441,7 +179,7 @@ ref; // ME_499297BF035B
 : ME_499297E30231
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4992891800CF // TnsStartupTips
+ : Parent HWL ME_4992891800CF // TnsStartupTips
  ;
  : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
  ;
@@ -451,19 +189,21 @@ ref; // ME_499297E30231
 : ME_499297F800ED
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4992891800CF // TnsStartupTips
+ : Parent HWL ME_4992891800CF // TnsStartupTips
  ;
  : Target WL 'ME_47F25BC801DB' '47D0E1500033.pas.ms.script' // vcmBase
  ;
 
 ref; // ME_499297F800ED 
 
+FORWARD ME_49254B6F0325
+
 : ME_4992981D03AD
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4992891800CF // TnsStartupTips
+ : Parent HWL ME_4992891800CF // TnsStartupTips
  ;
- : Target ME_49254B6F0325 // TdeTips
+ : Target HWL ME_49254B6F0325 // TdeTips
  ;
 
 ref; // ME_4992981D03AD 
@@ -471,7 +211,7 @@ ref; // ME_4992981D03AD
 : ME_49929A8F0396
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4992891800CF // TnsStartupTips
+ : Parent HWL ME_4992891800CF // TnsStartupTips
  ;
  : Target WL 'ME_4909AEB00352' '48FD8B2702F6.pas.ms.script' // TnsINodeWrap
  ;
@@ -481,7 +221,7 @@ ref; // ME_49929A8F0396
 : ME_49929ABF03AB
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4992891800CF // TnsStartupTips
+ : Parent HWL ME_4992891800CF // TnsStartupTips
  ;
  : Target WL 'ME_47F9C7C9010E' '4F4B8FA60272.pas.ms.script' // nsExternalObjectPrim
  ;
@@ -491,7 +231,7 @@ ref; // ME_49929ABF03AB
 : ME_49929C12013C
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4992891800CF // TnsStartupTips
+ : Parent HWL ME_4992891800CF // TnsStartupTips
  ;
  : Target WL 'ME_48FF569700F6' '47F2170002B2.pas.ms.script' // StringRoutines
  ;
@@ -557,7 +297,7 @@ ref; // ME_47EA4E9002C6_ME_4992891800CF FinishDataUpdate
  %SUMMARY 'Советик дня' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_491D560F01F4 // DayTips
+ : Parent HWL ME_491D560F01F4 // DayTips
  ;
  : Inherits
    Seq: ( WL 'ME_47BC391D0259' '47913B47006E.pas.ms.script' // Tl3SimpleObject
@@ -569,15 +309,15 @@ ref; // ME_47EA4E9002C6_ME_4992891800CF FinishDataUpdate
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_499289CF03A7 // f_TipsTree
- ME_499289E00058 // f_CurrentNode
- ME_49928A3E007F // f_DontShow
+   Seq: ( HWL ME_499289CF03A7 // f_TipsTree
+ HWL ME_499289E00058 // f_CurrentNode
+ HWL ME_49928A3E007F // f_DontShow
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_49928A97027C // Create
- ME_49928AA3039A // MakePrim
- ME_4993F1F80032 // Make
+   Seq: ( HWL ME_49928A97027C // Create
+ HWL ME_49928AA3039A // MakePrim
+ HWL ME_4993F1F80032 // Make
  )
  ; // Operations
  : Implemented
@@ -636,7 +376,7 @@ ref; // ME_4B1E714A0125_ME_49254B6F0325 DefaultDocType
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_491D560F01F4 // DayTips
+ : Parent HWL ME_491D560F01F4 // DayTips
  ;
  : Inherits
    Seq: ( WL 'ME_4B1E70D20312' '492543E30278.pas.ms.script' // TdeCommonDiction
@@ -656,10 +396,12 @@ ref; // ME_4B1E714A0125_ME_49254B6F0325 DefaultDocType
 
 ref; // ME_49254B6F0325 TdeTips
 
+FORWARD ME_4CE53CC80300
+
 : ME_4CE53E7702F2
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4CE53CC80300 // TnsTipsDocumentContainer
+ : Parent HWL ME_4CE53CC80300 // TnsTipsDocumentContainer
  ;
  : Target WL 'ME_483E708900B4' '47C695A10172.pas.ms.script' // Clipboard Formats
  ;
@@ -669,7 +411,7 @@ ref; // ME_4CE53E7702F2
 : ME_4CE53F7A02A1
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4CE53CC80300 // TnsTipsDocumentContainer
+ : Parent HWL ME_4CE53CC80300 // TnsTipsDocumentContainer
  ;
  : Target WL 'ME_46A5B0060013' '4677FBA70343.pas.ms.script' // IStream
  ;
@@ -679,7 +421,7 @@ ref; // ME_4CE53F7A02A1
 : ME_4E69E09C0253
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4CE53CC80300 // TnsTipsDocumentContainer
+ : Parent HWL ME_4CE53CC80300 // TnsTipsDocumentContainer
  ;
  : Target WL 'ME_431841610361' '4423F94903C8.pas.ms.script' // String
  ;
@@ -707,7 +449,7 @@ ref; // ME_4B1FBF87020C_ME_4CE53CC80300 AfterCreate
  %SUMMARY 'Контейнер документа для советов дня' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_491D560F01F4 // DayTips
+ : Parent HWL ME_491D560F01F4 // DayTips
  ;
  : Inherits
    Seq: ( WL 'ME_4680E83D00C8' '4680E826036D.pas.ms.script' // TeeDocumentContainer
@@ -746,12 +488,12 @@ ref; // ME_4CE53CC80300 TnsTipsDocumentContainer
  : Parent WL 'ME_493FF75500F3' '493FF75500F3.pas.ms.script' // DayTips
  ;
  : Children
-   Seq: ( ME_491D56370182 // TdsTipsDocument
- ME_49254BC1019C // TdsTips
- ME_493D0AFD02F6 // TsdsTips
- ME_4992891800CF // TnsStartupTips
- ME_49254B6F0325 // TdeTips
- ME_4CE53CC80300 // TnsTipsDocumentContainer
+   Seq: ( WL 'ME_491D56370182' '491D56370182.pas.ms.script' // TdsTipsDocument
+ WL 'ME_49254BC1019C' '49254BC1019C.pas.ms.script' // TdsTips
+ WL 'ME_493D0AFD02F6' '493D0AFD02F6.pas.ms.script' // TsdsTips
+ HWL ME_4992891800CF // TnsStartupTips
+ HWL ME_49254B6F0325 // TdeTips
+ HWL ME_4CE53CC80300 // TnsTipsDocumentContainer
  )
  ; // Children
  : Depends

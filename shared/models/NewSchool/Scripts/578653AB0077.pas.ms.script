@@ -1,0 +1,707 @@
+// Modules 578653AB0077 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_578653AB0077
+
+FORWARD ME_5786541F0012
+
+: ME_5786543A0392
+ CONST UID '5786543A0392'
+ CONST Name 'l3Items_NoSort'
+ CONST Class class_Class
+ : Stereotype st_Define ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_5786541F0012 // TvcmModulesForRegister
+ ;
+ CONST extprop:rc:SelfName 'Items_NoSort'
+
+ref; // ME_5786543A0392 l3Items_NoSort
+
+FORWARD ME_578654600168
+
+: ME_5786546903A4
+ CONST UID '5786546903A4'
+ CONST Name 'rModule'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_ref
+ : Parent HWL ME_578654600168 // TvcmModuleForRegister
+ ;
+ : Target WL 'ME_4AB33E2C03D7' '47D0E1500033.pas.ms.script' // RvcmModule
+ ;
+
+ref; // ME_5786546903A4 rModule
+
+: ME_578654960229
+ CONST UID '578654960229'
+ CONST Name 'rModuleCaption'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_ref
+ : Parent HWL ME_578654600168 // TvcmModuleForRegister
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_578654960229 rModuleCaption
+
+FORWARD ME_578654D00255
+
+: ME_578654E70191
+ CONST Name 'aModule'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4AB33E2C03D7' '47D0E1500033.pas.ms.script' // RvcmModule
+ ;
+
+ref; // ME_578654E70191 aModule
+
+: ME_578654E701CD
+ CONST Name 'aModuleName'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_578654E701CD aModuleName
+
+: ME_578654DB022F
+ CONST UID '578654DB022F'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_578654D00255 // C
+ ;
+ : Parameters
+   Seq: ( ME_578654E70191 // aModule
+ ME_578654E701CD // aModuleName
+ )
+ ; // Parameters
+
+ref; // ME_578654DB022F DoIt
+
+: ME_578654D00255
+ CONST UID '578654D00255'
+ CONST Name 'C'
+ CONST Class class_Class
+ : Stereotype st_Constructor ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_578654600168 // TvcmModuleForRegister
+ ;
+ : Operations
+   Seq: ( HWL ME_578654DB022F // DoIt
+ )
+ ; // Operations
+
+ref; // ME_578654D00255 C
+
+FORWARD ME_578654F80090
+
+: ME_5786550B03D5
+ CONST Name 'anOther'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target HWL ME_578654600168 // TvcmModuleForRegister
+ ;
+
+ref; // ME_5786550B03D5 anOther
+
+: ME_578654FF03B4
+ CONST UID '578654FF03B4'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_578654F80090 // EQ
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   Seq: ( ME_5786550B03D5 // anOther
+ )
+ ; // Parameters
+
+ref; // ME_578654FF03B4 DoIt
+
+: ME_578654F80090
+ CONST UID '578654F80090'
+ CONST Name 'EQ'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_578654600168 // TvcmModuleForRegister
+ ;
+ : Operations
+   Seq: ( HWL ME_578654FF03B4 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_578654F80090 EQ
+
+: ME_578654600168
+ CONST UID '578654600168'
+ CONST Name 'TvcmModuleForRegister'
+ CONST Class class_Class
+ : Stereotype st_StaticObject ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_5786541F0012 // TvcmModulesForRegister
+ ;
+ : Attributes
+   Seq: ( HWL ME_5786546903A4 // rModule
+ HWL ME_578654960229 // rModuleCaption
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( HWL ME_578654D00255 // C
+ HWL ME_578654F80090 // EQ
+ )
+ ; // Operations
+ CONST extprop:rc:SelfName 'ModuleForRegister'
+
+ref; // ME_578654600168 TvcmModuleForRegister
+
+: ME_578654AB03B0
+ CONST UID '578654AB03B0'
+ CONST Name 'ItemType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent HWL ME_5786541F0012 // TvcmModulesForRegister
+ ;
+ : Target HWL ME_578654600168 // TvcmModuleForRegister
+ ;
+
+ref; // ME_578654AB03B0 ItemType
+
+FORWARD ME_57865E0C018D
+
+: ME_57865E250361
+ CONST Name 'aModule'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target HWL ME_578654600168 // TvcmModuleForRegister
+ ;
+
+ref; // ME_57865E250361 aModule
+
+: ME_57865E1A01B9
+ CONST UID '57865E1A01B9'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_57865E0C018D // AddModule
+ ;
+ : Parameters
+   Seq: ( ME_57865E250361 // aModule
+ )
+ ; // Parameters
+
+ref; // ME_57865E1A01B9 DoIt
+
+: ME_57865E0C018D
+ CONST UID '57865E0C018D'
+ CONST Name 'AddModule'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_5786541F0012 // TvcmModulesForRegister
+ ;
+ : Operations
+   Seq: ( HWL ME_57865E1A01B9 // DoIt
+ )
+ ; // Operations
+ CONST "is static" true
+
+ref; // ME_57865E0C018D AddModule
+
+: ME_47B07CF403D0_ME_5786541F0012
+ : Original WL 'ME_47B07CF403D0' '47913B47006E.pas.ms.script' // IsSameItems
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "ifndef" 'l3Items_IsAtomic'
+ref; // ME_47B07CF403D0_ME_5786541F0012 IsSameItems
+
+: ME_47B2C42A0163_ME_5786541F0012
+ : Original WL 'ME_47B2C42A0163' '47913B47006E.pas.ms.script' // AssignItem
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "ifdef" 'l3Items_NeedsAssignItem'
+ CONST "ifndef" 'l3Items_NoSort'
+ref; // ME_47B2C42A0163_ME_5786541F0012 AssignItem
+
+: ME_47B99D4503A2_ME_5786541F0012
+ : Original WL 'ME_47B99D4503A2' '47BB24D30205.pas.ms.script' // CompareExistingItems
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_47B99D4503A2_ME_5786541F0012 CompareExistingItems
+
+: ME_5786541F0012
+ CONST UID '5786541F0012'
+ CONST Name 'TvcmModulesForRegister'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_578653AB0077 // Modules
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+ WL 'ME_4B223ADC02BF' '47913B47006E.pas.ms.script' // l3RecordListPrim
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( HWL ME_578654AB03B0 // ItemType
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( HWL ME_57865E0C018D // AddModule
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_47B07CF403D0_ME_5786541F0012 // IsSameItems
+ ME_47B2C42A0163_ME_5786541F0012 // AssignItem
+ ME_47B99D4503A2_ME_5786541F0012 // CompareExistingItems
+ )
+ ; // Implemented
+ : Children
+   Seq: ( HWL ME_5786543A0392 // l3Items_NoSort
+ HWL ME_578654600168 // TvcmModuleForRegister
+ )
+ ; // Children
+ CONST "singleton" true
+ CONST intf.pas:Path 'common\components\gui\Garant\VCM\vcmModulesForRegister.pas'
+ CONST extprop:rc:SelfName 'ModulesForRegister'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vcmModulesForRegister'
+
+ref; // ME_5786541F0012 TvcmModulesForRegister
+
+FORWARD ME_5787730D03D7
+
+FORWARD ME_5787735E01E4
+
+: ME_57877D8403A7
+ CONST UID '57877D8403A7'
+ CONST Name 'PvcmMOPID'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_5787735E01E4 // TvcmModuleOperationForRegister
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4683CF84010A' '467BAB7F021E.pas.ms.script' // TvcmMOPID
+ )
+ ; // Inherits
+ CONST "isPointer" true
+
+ref; // ME_57877D8403A7 PvcmMOPID
+
+: ME_578773690158
+ CONST UID '578773690158'
+ CONST Name 'rModule'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_ref
+ : Parent HWL ME_5787735E01E4 // TvcmModuleOperationForRegister
+ ;
+ : Target WL 'ME_4AB33E2C03D7' '47D0E1500033.pas.ms.script' // RvcmModule
+ ;
+
+ref; // ME_578773690158 rModule
+
+: ME_5787739C038B
+ CONST UID '5787739C038B'
+ CONST Name 'rOperationName'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_ref
+ : Parent HWL ME_5787735E01E4 // TvcmModuleOperationForRegister
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_5787739C038B rOperationName
+
+: ME_57877DAE01E1
+ CONST UID '57877DAE01E1'
+ CONST Name 'rOperationCaption'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_ref
+ : Parent HWL ME_5787735E01E4 // TvcmModuleOperationForRegister
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_57877DAE01E1 rOperationCaption
+
+: ME_57877DC603D1
+ CONST UID '57877DC603D1'
+ CONST Name 'rNoPrefix'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_ref
+ : Parent HWL ME_5787735E01E4 // TvcmModuleOperationForRegister
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_57877DC603D1 rNoPrefix
+
+: ME_57877DD3006E
+ CONST UID '57877DD3006E'
+ CONST Name 'rVar'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_ref
+ : Parent HWL ME_5787735E01E4 // TvcmModuleOperationForRegister
+ ;
+ : Target HWL ME_57877D8403A7 // PvcmMOPID
+ ;
+
+ref; // ME_57877DD3006E rVar
+
+FORWARD ME_57877404001B
+
+: ME_57877DFE0196
+ CONST Name 'aModule'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4AB33E2C03D7' '47D0E1500033.pas.ms.script' // RvcmModule
+ ;
+
+ref; // ME_57877DFE0196 aModule
+
+: ME_57877DFE01B4
+ CONST Name 'anOperationName'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_57877DFE01B4 anOperationName
+
+: ME_57877DFE01C8
+ CONST Name 'anOperationCaption'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_57877DFE01C8 anOperationCaption
+
+: ME_57877FCE036F
+ CONST Name 'aNoPrefix'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_57877FCE036F aNoPrefix
+
+: ME_57877DFE01FA
+ CONST Name 'theVar'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_4683CF84010A' '467BAB7F021E.pas.ms.script' // TvcmMOPID
+ ;
+
+ref; // ME_57877DFE01FA theVar
+
+: ME_5787740B02B6
+ CONST UID '5787740B02B6'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_57877404001B // C
+ ;
+ : Parameters
+   Seq: ( ME_57877DFE0196 // aModule
+ ME_57877DFE01B4 // anOperationName
+ ME_57877DFE01C8 // anOperationCaption
+ ME_57877FCE036F // aNoPrefix
+ ME_57877DFE01FA // theVar
+ )
+ ; // Parameters
+
+ref; // ME_5787740B02B6 DoIt
+
+: ME_57877404001B
+ CONST UID '57877404001B'
+ CONST Name 'C'
+ CONST Class class_Class
+ : Stereotype st_Constructor ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_5787735E01E4 // TvcmModuleOperationForRegister
+ ;
+ : Operations
+   Seq: ( HWL ME_5787740B02B6 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_57877404001B C
+
+FORWARD ME_578773D500B7
+
+: ME_578773EB0279
+ CONST Name 'anOther'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target HWL ME_5787735E01E4 // TvcmModuleOperationForRegister
+ ;
+
+ref; // ME_578773EB0279 anOther
+
+: ME_578773DC0053
+ CONST UID '578773DC0053'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_578773D500B7 // EQ
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   Seq: ( ME_578773EB0279 // anOther
+ )
+ ; // Parameters
+
+ref; // ME_578773DC0053 DoIt
+
+: ME_578773D500B7
+ CONST UID '578773D500B7'
+ CONST Name 'EQ'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_5787735E01E4 // TvcmModuleOperationForRegister
+ ;
+ : Operations
+   Seq: ( HWL ME_578773DC0053 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_578773D500B7 EQ
+
+: ME_5787735E01E4
+ CONST UID '5787735E01E4'
+ CONST Name 'TvcmModuleOperationForRegister'
+ CONST Class class_Class
+ : Stereotype st_StaticObject ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_5787730D03D7 // TvcmModuleOperationsForRegister
+ ;
+ : Attributes
+   Seq: ( HWL ME_578773690158 // rModule
+ HWL ME_5787739C038B // rOperationName
+ HWL ME_57877DAE01E1 // rOperationCaption
+ HWL ME_57877DC603D1 // rNoPrefix
+ HWL ME_57877DD3006E // rVar
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( HWL ME_57877404001B // C
+ HWL ME_578773D500B7 // EQ
+ )
+ ; // Operations
+ : Children
+   Seq: ( HWL ME_57877D8403A7 // PvcmMOPID
+ )
+ ; // Children
+ CONST extprop:rc:SelfName 'ModuleOperationForRegister'
+
+ref; // ME_5787735E01E4 TvcmModuleOperationForRegister
+
+: ME_5787738D02AF
+ CONST UID '5787738D02AF'
+ CONST Name 'l3Items_NoSort'
+ CONST Class class_Class
+ : Stereotype st_Define ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_5787730D03D7 // TvcmModuleOperationsForRegister
+ ;
+ CONST extprop:rc:SelfName 'Items_NoSort'
+
+ref; // ME_5787738D02AF l3Items_NoSort
+
+: ME_5787737202C4
+ CONST UID '5787737202C4'
+ CONST Name 'ItemType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent HWL ME_5787730D03D7 // TvcmModuleOperationsForRegister
+ ;
+ : Target HWL ME_5787735E01E4 // TvcmModuleOperationForRegister
+ ;
+
+ref; // ME_5787737202C4 ItemType
+
+FORWARD ME_578773AE01A5
+
+: ME_578773C30048
+ CONST Name 'anOp'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target HWL ME_5787735E01E4 // TvcmModuleOperationForRegister
+ ;
+
+ref; // ME_578773C30048 anOp
+
+: ME_578773B90176
+ CONST UID '578773B90176'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_578773AE01A5 // AddOperation
+ ;
+ : Parameters
+   Seq: ( ME_578773C30048 // anOp
+ )
+ ; // Parameters
+
+ref; // ME_578773B90176 DoIt
+
+: ME_578773AE01A5
+ CONST UID '578773AE01A5'
+ CONST Name 'AddOperation'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_5787730D03D7 // TvcmModuleOperationsForRegister
+ ;
+ : Operations
+   Seq: ( HWL ME_578773B90176 // DoIt
+ )
+ ; // Operations
+ CONST "is static" true
+
+ref; // ME_578773AE01A5 AddOperation
+
+: ME_47B07CF403D0_ME_5787730D03D7
+ : Original WL 'ME_47B07CF403D0' '47913B47006E.pas.ms.script' // IsSameItems
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "ifndef" 'l3Items_IsAtomic'
+ref; // ME_47B07CF403D0_ME_5787730D03D7 IsSameItems
+
+: ME_47B2C42A0163_ME_5787730D03D7
+ : Original WL 'ME_47B2C42A0163' '47913B47006E.pas.ms.script' // AssignItem
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "ifdef" 'l3Items_NeedsAssignItem'
+ CONST "ifndef" 'l3Items_NoSort'
+ref; // ME_47B2C42A0163_ME_5787730D03D7 AssignItem
+
+: ME_47B99D4503A2_ME_5787730D03D7
+ : Original WL 'ME_47B99D4503A2' '47BB24D30205.pas.ms.script' // CompareExistingItems
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_47B99D4503A2_ME_5787730D03D7 CompareExistingItems
+
+: ME_5787730D03D7
+ CONST UID '5787730D03D7'
+ CONST Name 'TvcmModuleOperationsForRegister'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_578653AB0077 // Modules
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+ WL 'ME_4B223ADC02BF' '47913B47006E.pas.ms.script' // l3RecordListPrim
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( HWL ME_5787737202C4 // ItemType
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( HWL ME_578773AE01A5 // AddOperation
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_47B07CF403D0_ME_5787730D03D7 // IsSameItems
+ ME_47B2C42A0163_ME_5787730D03D7 // AssignItem
+ ME_47B99D4503A2_ME_5787730D03D7 // CompareExistingItems
+ )
+ ; // Implemented
+ : Children
+   Seq: ( HWL ME_5787735E01E4 // TvcmModuleOperationForRegister
+ HWL ME_5787738D02AF // l3Items_NoSort
+ )
+ ; // Children
+ CONST "singleton" true
+ CONST intf.pas:Path 'common\components\gui\Garant\VCM\vcmModuleOperationsForRegister.pas'
+ CONST extprop:rc:SelfName 'ModuleOperationsForRegister'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vcmModuleOperationsForRegister'
+
+ref; // ME_5787730D03D7 TvcmModuleOperationsForRegister
+
+: ME_578653AB0077
+ CONST UID '578653AB0077'
+ CONST Name 'Modules'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4790C3B8021E' '4790C3B8021E.pas.ms.script' // VCM
+ ;
+ : Children
+   Seq: ( HWL ME_5786541F0012 // TvcmModulesForRegister
+ HWL ME_5787730D03D7 // TvcmModuleOperationsForRegister
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.pas.ms.script' // Primitives
+ WL 'ME_467BAB7F021E' '467BAB7F021E.pas.ms.script' // vcmExternalInterfaces
+ WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_47D0E1500033' '47D0E1500033.pas.ms.script' // Implementation
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ )
+ ; // Depends
+
+ref; // ME_578653AB0077 Modules

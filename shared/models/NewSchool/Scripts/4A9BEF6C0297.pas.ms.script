@@ -2,39 +2,6 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-FORWARD ME_4A9BEF6C0297
-
-: ME_4A9BF3F302BF
- CONST UID '4A9BF3F302BF'
- CONST Name 'List'
- CONST Class class_Class
- : Stereotype st_VCMUseCaseRealization ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Список' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4A9BEF6C0297 // WorkWithList
- ;
- : Inherits
-   Seq: ( WL 'ME_4A9BF42601A9' '497DDB0A0168.pas.ms.script' // List$FP
- )
- ; // Inherits
- : Implements
-   Seq: ( WL 'ME_484CE5E503D4' '484CE48E02E6.pas.ms.script' // Просмотр списка
- )
- ; // Implements
- CONST "author" 'Люлин А.В.'
- CONST "no hands" true
- CONST "started" '07.09.2009 15:45'
- CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\moList.pas'
- CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
- CONST extprop:pas:TypeName 'Tmo_List'
- CONST extprop:rc:SelfName 'mo_List'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'moList'
-
-ref; // ME_4A9BF3F302BF List$UC
-
 : ME_4A9BEF6C0297
  CONST UID '4A9BEF6C0297'
  CONST Name 'WorkWithList'
@@ -46,7 +13,7 @@ ref; // ME_4A9BF3F302BF List$UC
  : Parent WL 'ME_4F7EACCC015D' '4F7EACCC015D.pas.ms.script' // F1 Работа с документом и списком документов
  ;
  : Children
-   Seq: ( ME_4A9BF3F302BF // List$UC
+   Seq: ( WL 'ME_4A9BF3F302BF' '4A9BF3F302BF.pas.ms.script' // List$UC
  WL 'ME_4A9F8D450169' '4A9F8D450169.pas.ms.script' // List
  WL 'ME_4A9BEFA00301' '4A9BEFA00301.pas.ms.script' // View
  )

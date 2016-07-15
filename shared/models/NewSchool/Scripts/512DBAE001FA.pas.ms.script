@@ -12,7 +12,7 @@ FORWARD ME_512DBAE001FA
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_512DBAE001FA // MainUnits
+ : Parent HWL ME_512DBAE001FA // MainUnits
  ;
  CONST "finished" false
  CONST intf.pas:Path 'archi\source\projects\Everest\Lite\7.0\Express\Main\NOT_FINISHED_MainLiteExpressForm.pas'
@@ -24,6 +24,18 @@ ref; // ME_512DBAF20353 TMainLiteExpressForm
 
 FORWARD ME_512DBDD903A5
 
+FORWARD ME_512DBDF8030B
+
+: ME_57765EFC0217
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_512DBDF8030B // TMainEditorForm
+ ;
+ : Target WL 'ME_5776300D0270' '47F485150151.pas.ms.script' // TvtClipSpyService
+ ;
+
+ref; // ME_57765EFC0217 
+
 : ME_512DBDF8030B
  CONST UID '512DBDF8030B'
  CONST Name 'TMainEditorForm'
@@ -32,8 +44,12 @@ FORWARD ME_512DBDD903A5
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_512DBDD903A5 // MainEditor
+ : Parent HWL ME_512DBDD903A5 // MainEditor
  ;
+ : Dependencies
+   Seq: ( ME_57765EFC0217 // TvtClipSpyService
+ )
+ ; // Dependencies
  CONST "finished" false
  CONST extprop:rc:SelfName 'MainEditorForm'
  CONST extprop:rc:isAcceptableForScripts true
@@ -47,9 +63,9 @@ ref; // ME_512DBDF8030B TMainEditorForm
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_512DBDD903A5 // MainEditor
+ : Parent HWL ME_512DBDD903A5 // MainEditor
  ;
- : Target ME_512DBDF8030B // TMainEditorForm
+ : Target HWL ME_512DBDF8030B // TMainEditorForm
  ;
 
 ref; // ME_512DBE1F01ED MainForm
@@ -62,14 +78,14 @@ ref; // ME_512DBE1F01ED MainForm
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_512DBAE001FA // MainUnits
+ : Parent HWL ME_512DBAE001FA // MainUnits
  ;
  : Attributes
-   Seq: ( ME_512DBE1F01ED // MainForm
+   Seq: ( HWL ME_512DBE1F01ED // MainForm
  )
  ; // Attributes
  : Children
-   Seq: ( ME_512DBDF8030B // TMainEditorForm
+   Seq: ( HWL ME_512DBDF8030B // TMainEditorForm
  )
  ; // Children
  CONST "finished" false
@@ -89,7 +105,7 @@ FORWARD ME_5146CA96020D
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_5146CA96020D // IsNeedSave
+ : Parent HWL ME_5146CA96020D // IsNeedSave
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -104,10 +120,10 @@ ref; // ME_5146CAAA013F DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_5146CA34003E // TEditorWindow
+ : Parent HWL ME_5146CA34003E // TEditorWindow
  ;
  : Operations
-   Seq: ( ME_5146CAAA013F // DoIt
+   Seq: ( HWL ME_5146CAAA013F // DoIt
  )
  ; // Operations
 
@@ -116,7 +132,7 @@ ref; // ME_5146CA96020D IsNeedSave
 : ME_55C8E00E0011
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_5146CA34003E // TEditorWindow
+ : Parent HWL ME_5146CA34003E // TEditorWindow
  ;
  : Target WL 'ME_4F22A92D007F' '4DFB501A00F4.pas.ms.script' // TSpellCheckDlg
  ;
@@ -131,10 +147,10 @@ ref; // ME_55C8E00E0011
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_5146CA0A03DE // EdWin
+ : Parent HWL ME_5146CA0A03DE // EdWin
  ;
  : Operations
-   Seq: ( ME_5146CA96020D // IsNeedSave
+   Seq: ( HWL ME_5146CA96020D // IsNeedSave
  )
  ; // Operations
  : Dependencies
@@ -155,10 +171,10 @@ ref; // ME_5146CA34003E TEditorWindow
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_512DBAE001FA // MainUnits
+ : Parent HWL ME_512DBAE001FA // MainUnits
  ;
  : Children
-   Seq: ( ME_5146CA34003E // TEditorWindow
+   Seq: ( HWL ME_5146CA34003E // TEditorWindow
  )
  ; // Children
  CONST "finished" false
@@ -176,13 +192,14 @@ ref; // ME_5146CA0A03DE EdWin
  : Parent WL 'ME_512DBAD202CB' '512DBAD202CB.pas.ms.script' // Main
  ;
  : Children
-   Seq: ( ME_512DBAF20353 // TMainLiteExpressForm
- ME_512DBDD903A5 // MainEditor
- ME_5146CA0A03DE // EdWin
+   Seq: ( HWL ME_512DBAF20353 // TMainLiteExpressForm
+ HWL ME_512DBDD903A5 // MainEditor
+ HWL ME_5146CA0A03DE // EdWin
  )
  ; // Children
  : Depends
-   Seq: ( WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+   Seq: ( WL 'ME_47F485150151' '47F485150151.pas.ms.script' // vtCommon
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_4DFB501A00F4' '4DFB501A00F4.pas.ms.script' // CommonDialogs
  )
  ; // Depends

@@ -12,7 +12,7 @@ FORWARD ME_545CDF1002C9
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_545CDF1002C9 // MemoryManagers
+ : Parent HWL ME_545CDF1002C9 // MemoryManagers
  ;
  CONST "started" '27.02.2002 16:30'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3SimpleMM.pas'
@@ -29,7 +29,7 @@ FORWARD ME_54B6852C0241
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_lnk
- : Parent ME_54B6852C0241 // l3CriticalSectionHolderPrim
+ : Parent HWL ME_54B6852C0241 // l3CriticalSectionHolderPrim
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -43,7 +43,7 @@ ref; // ME_54B685BC0260 f_LockCount
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_lnk
- : Parent ME_54B6852C0241 // l3CriticalSectionHolderPrim
+ : Parent HWL ME_54B6852C0241 // l3CriticalSectionHolderPrim
  ;
  : Target WL 'ME_4807833801D7' '4AB0997B00A2.pas.ms.script' // TCriticalSection
  ;
@@ -58,7 +58,7 @@ FORWARD ME_53A039050219
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_53A039050219 // Lock
+ : Parent HWL ME_53A039050219 // Lock
  ;
 
 ref; // ME_53A0390E0061 DoIt
@@ -71,10 +71,10 @@ ref; // ME_53A0390E0061 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_54B6852C0241 // l3CriticalSectionHolderPrim
+ : Parent HWL ME_54B6852C0241 // l3CriticalSectionHolderPrim
  ;
  : Operations
-   Seq: ( ME_53A0390E0061 // DoIt
+   Seq: ( HWL ME_53A0390E0061 // DoIt
  )
  ; // Operations
 
@@ -88,7 +88,7 @@ FORWARD ME_53A039150130
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_53A039150130 // Unlock
+ : Parent HWL ME_53A039150130 // Unlock
  ;
 
 ref; // ME_53A0391F034A DoIt
@@ -101,10 +101,10 @@ ref; // ME_53A0391F034A DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_54B6852C0241 // l3CriticalSectionHolderPrim
+ : Parent HWL ME_54B6852C0241 // l3CriticalSectionHolderPrim
  ;
  : Operations
-   Seq: ( ME_53A0391F034A // DoIt
+   Seq: ( HWL ME_53A0391F034A // DoIt
  )
  ; // Operations
 
@@ -118,7 +118,7 @@ FORWARD ME_54B6860D01ED
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_54B6860D01ED // CreateCS
+ : Parent HWL ME_54B6860D01ED // CreateCS
  ;
 
 ref; // ME_54B6861B03D9 DoIt
@@ -131,10 +131,10 @@ ref; // ME_54B6861B03D9 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_54B6852C0241 // l3CriticalSectionHolderPrim
+ : Parent HWL ME_54B6852C0241 // l3CriticalSectionHolderPrim
  ;
  : Operations
-   Seq: ( ME_54B6861B03D9 // DoIt
+   Seq: ( HWL ME_54B6861B03D9 // DoIt
  )
  ; // Operations
 
@@ -148,7 +148,7 @@ FORWARD ME_54B686270035
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_54B686270035 // FreeCS
+ : Parent HWL ME_54B686270035 // FreeCS
  ;
 
 ref; // ME_54B6862F00BA DoIt
@@ -161,10 +161,10 @@ ref; // ME_54B6862F00BA DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_54B6852C0241 // l3CriticalSectionHolderPrim
+ : Parent HWL ME_54B6852C0241 // l3CriticalSectionHolderPrim
  ;
  : Operations
-   Seq: ( ME_54B6862F00BA // DoIt
+   Seq: ( HWL ME_54B6862F00BA // DoIt
  )
  ; // Operations
 
@@ -173,7 +173,7 @@ ref; // ME_54B686270035 FreeCS
 : ME_54B685570037
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_54B6852C0241 // l3CriticalSectionHolderPrim
+ : Parent HWL ME_54B6852C0241 // l3CriticalSectionHolderPrim
  ;
  : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
  ;
@@ -188,18 +188,18 @@ ref; // ME_54B685570037
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_545CDF1002C9 // MemoryManagers
+ : Parent HWL ME_545CDF1002C9 // MemoryManagers
  ;
  : Attributes
-   Seq: ( ME_54B685BC0260 // f_LockCount
- ME_54B6858B03AC // f_CS
+   Seq: ( HWL ME_54B685BC0260 // f_LockCount
+ HWL ME_54B6858B03AC // f_CS
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_53A039050219 // Lock
- ME_53A039150130 // Unlock
- ME_54B6860D01ED // CreateCS
- ME_54B686270035 // FreeCS
+   Seq: ( HWL ME_53A039050219 // Lock
+ HWL ME_53A039150130 // Unlock
+ HWL ME_54B6860D01ED // CreateCS
+ HWL ME_54B686270035 // FreeCS
  )
  ; // Operations
  : Dependencies
@@ -222,7 +222,7 @@ FORWARD ME_54B68024012F
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_54B68024012F // Create
+ : Parent HWL ME_54B68024012F // Create
  ;
 
 ref; // ME_54B6802D0156 DoIt
@@ -235,10 +235,10 @@ ref; // ME_54B6802D0156 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_54B67EB9023D // Tl3SimpleMemoryManagerPrim
+ : Parent HWL ME_54B67EB9023D // Tl3SimpleMemoryManagerPrim
  ;
  : Operations
-   Seq: ( ME_54B6802D0156 // DoIt
+   Seq: ( HWL ME_54B6802D0156 // DoIt
  )
  ; // Operations
 
@@ -247,7 +247,7 @@ ref; // ME_54B68024012F Create
 : ME_54B684120169
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_54B67EB9023D // Tl3SimpleMemoryManagerPrim
+ : Parent HWL ME_54B67EB9023D // Tl3SimpleMemoryManagerPrim
  ;
  : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
  ;
@@ -268,15 +268,15 @@ ref; // ME_479F2AFB0397_ME_54B67EB9023D Release
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_545CDF1002C9 // MemoryManagers
+ : Parent HWL ME_545CDF1002C9 // MemoryManagers
  ;
  : Inherits
    Seq: ( WL 'ME_516137AD0362' '51612EBB02F5.pas.ms.script' // TRefcounted
- ME_54B6852C0241 // l3CriticalSectionHolderPrim
+ HWL ME_54B6852C0241 // l3CriticalSectionHolderPrim
  )
  ; // Inherits
  : Operations
-   Seq: ( ME_54B68024012F // Create
+   Seq: ( HWL ME_54B68024012F // Create
  )
  ; // Operations
  : Overridden
@@ -307,9 +307,9 @@ FORWARD ME_54B91B7E02A5
  CONST Visibility PublicAccess
  CONST Abstraction at_final
  CONST LinkType lt_lnk
- : Parent ME_54B91B7E02A5 // Tl3MemoryBlock
+ : Parent HWL ME_54B91B7E02A5 // Tl3MemoryBlock
  ;
- : Target ME_54B91B8A00CB // Pl3MemoryBlock
+ : Target HWL ME_54B91B8A00CB // Pl3MemoryBlock
  ;
 
 ref; // ME_54B91BA2034E rNext
@@ -321,7 +321,7 @@ ref; // ME_54B91BA2034E rNext
  CONST Visibility PublicAccess
  CONST Abstraction at_final
  CONST LinkType lt_ref
- : Parent ME_54B91B7E02A5 // Tl3MemoryBlock
+ : Parent HWL ME_54B91B7E02A5 // Tl3MemoryBlock
  ;
  : Target WL 'ME_46A618AF0053' '4AB0C3C60310.pas.ms.script' // Cardinal
  ;
@@ -336,15 +336,15 @@ ref; // ME_54B91BC202C1 rFree
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_5453AE0C0100 // Tl3SimpleMemoryManager
+ : Parent HWL ME_5453AE0C0100 // Tl3SimpleMemoryManager
  ;
  : Attributes
-   Seq: ( ME_54B91BA2034E // rNext
- ME_54B91BC202C1 // rFree
+   Seq: ( HWL ME_54B91BA2034E // rNext
+ HWL ME_54B91BC202C1 // rFree
  )
  ; // Attributes
  : Forwarded
-   Seq: ( ME_54B91B8A00CB // Pl3MemoryBlock
+   Seq: ( HWL ME_54B91B8A00CB // Pl3MemoryBlock
  )
  ; // Forwarded
  CONST extprop:rc:SelfName 'MemoryBlock'
@@ -359,10 +359,10 @@ ref; // ME_54B91B7E02A5 Tl3MemoryBlock
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_5453AE0C0100 // Tl3SimpleMemoryManager
+ : Parent HWL ME_5453AE0C0100 // Tl3SimpleMemoryManager
  ;
  : Inherits
-   Seq: ( ME_54B91B7E02A5 // Tl3MemoryBlock
+   Seq: ( HWL ME_54B91B7E02A5 // Tl3MemoryBlock
  )
  ; // Inherits
  CONST "isPointer" true
@@ -376,7 +376,7 @@ ref; // ME_54B91B8A00CB Pl3MemoryBlock
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_5453AE0C0100 // Tl3SimpleMemoryManager
+ : Parent HWL ME_5453AE0C0100 // Tl3SimpleMemoryManager
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -390,9 +390,9 @@ ref; // ME_54B91BDA0204 f_AllocCount
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_5453AE0C0100 // Tl3SimpleMemoryManager
+ : Parent HWL ME_5453AE0C0100 // Tl3SimpleMemoryManager
  ;
- : Target ME_54B91B8A00CB // Pl3MemoryBlock
+ : Target HWL ME_54B91B8A00CB // Pl3MemoryBlock
  ;
 
 ref; // ME_54B91BE8018A f_Head
@@ -404,7 +404,7 @@ ref; // ME_54B91BE8018A f_Head
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_5453AE0C0100 // Tl3SimpleMemoryManager
+ : Parent HWL ME_5453AE0C0100 // Tl3SimpleMemoryManager
  ;
  : Target WL 'ME_46A618AF0053' '4AB0C3C60310.pas.ms.script' // Cardinal
  ;
@@ -418,7 +418,7 @@ ref; // ME_54B91C0C032E f_BlockSize
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_5453AE0C0100 // Tl3SimpleMemoryManager
+ : Parent HWL ME_5453AE0C0100 // Tl3SimpleMemoryManager
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -432,7 +432,7 @@ ref; // ME_54B91C1F0365 f_WasAllocCountWarning
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_5453AE0C0100 // Tl3SimpleMemoryManager
+ : Parent HWL ME_5453AE0C0100 // Tl3SimpleMemoryManager
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -448,7 +448,7 @@ FORWARD ME_545A2F6800D6
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_545A2F6800D6 // CanFreeBlocks
+ : Parent HWL ME_545A2F6800D6 // CanFreeBlocks
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -463,10 +463,10 @@ ref; // ME_545A2F84018D DoIt
  CONST Kind kind_NormalClass
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_5453AE0C0100 // Tl3SimpleMemoryManager
+ : Parent HWL ME_5453AE0C0100 // Tl3SimpleMemoryManager
  ;
  : Operations
-   Seq: ( ME_545A2F84018D // DoIt
+   Seq: ( HWL ME_545A2F84018D // DoIt
  )
  ; // Operations
 
@@ -482,7 +482,7 @@ FORWARD ME_54B69FF202FB
  %SUMMARY 'Сигнатура метода FreeBlocks' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_54B69FF202FB // FreeBlocks
+ : Parent HWL ME_54B69FF202FB // FreeBlocks
  ;
 
 ref; // ME_810B15F9C2DF DoIt
@@ -495,10 +495,10 @@ ref; // ME_810B15F9C2DF DoIt
  CONST Kind kind_NormalClass
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_5453AE0C0100 // Tl3SimpleMemoryManager
+ : Parent HWL ME_5453AE0C0100 // Tl3SimpleMemoryManager
  ;
  : Operations
-   Seq: ( ME_810B15F9C2DF // DoIt
+   Seq: ( HWL ME_810B15F9C2DF // DoIt
  )
  ; // Operations
 
@@ -528,7 +528,7 @@ ref; // ME_54B6A21C00FD aSize
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_54B6A20201D7 // DoGetMem
+ : Parent HWL ME_54B6A20201D7 // DoGetMem
  ;
  : Parameters
    Seq: ( ME_54B6A21C00D3 // P
@@ -546,10 +546,10 @@ ref; // ME_54B6A21303B9 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_5453AE0C0100 // Tl3SimpleMemoryManager
+ : Parent HWL ME_5453AE0C0100 // Tl3SimpleMemoryManager
  ;
  : Operations
-   Seq: ( ME_54B6A21303B9 // DoIt
+   Seq: ( HWL ME_54B6A21303B9 // DoIt
  )
  ; // Operations
 
@@ -570,7 +570,7 @@ ref; // ME_54B6A23D0143 P
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_54B6A22902AB // DoFreeMem
+ : Parent HWL ME_54B6A22902AB // DoFreeMem
  ;
  : Parameters
    Seq: ( ME_54B6A23D0143 // P
@@ -587,10 +587,10 @@ ref; // ME_54B6A23603A0 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_5453AE0C0100 // Tl3SimpleMemoryManager
+ : Parent HWL ME_5453AE0C0100 // Tl3SimpleMemoryManager
  ;
  : Operations
-   Seq: ( ME_54B6A23603A0 // DoIt
+   Seq: ( HWL ME_54B6A23603A0 // DoIt
  )
  ; // Operations
 
@@ -604,7 +604,7 @@ ref; // ME_54B6A22902AB DoFreeMem
  CONST Kind kind_NormalClass
  CONST Visibility ProtectedAccess
  CONST Abstraction at_final
- : Parent ME_5453AE0C0100 // Tl3SimpleMemoryManager
+ : Parent HWL ME_5453AE0C0100 // Tl3SimpleMemoryManager
  ;
 
 ref; // ME_54B91C7A027A AllocNewBlock
@@ -626,7 +626,7 @@ ref; // ME_54B91CA4030C aBlockSize
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_54B91C9103A2 // Create
+ : Parent HWL ME_54B91C9103A2 // Create
  ;
  : Parameters
    Seq: ( ME_54B91CA4030C // aBlockSize
@@ -643,10 +643,10 @@ ref; // ME_54B91CA102A4 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_5453AE0C0100 // Tl3SimpleMemoryManager
+ : Parent HWL ME_5453AE0C0100 // Tl3SimpleMemoryManager
  ;
  : Operations
-   Seq: ( ME_54B91CA102A4 // DoIt
+   Seq: ( HWL ME_54B91CA102A4 // DoIt
  )
  ; // Operations
 
@@ -676,7 +676,7 @@ ref; // ME_54B91CCB0110 aSize
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_54B91CB0028C // GetMem
+ : Parent HWL ME_54B91CB0028C // GetMem
  ;
  : Parameters
    Seq: ( ME_54B91CCB00CA // P
@@ -694,10 +694,10 @@ ref; // ME_54B91CBE03A7 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_5453AE0C0100 // Tl3SimpleMemoryManager
+ : Parent HWL ME_5453AE0C0100 // Tl3SimpleMemoryManager
  ;
  : Operations
-   Seq: ( ME_54B91CBE03A7 // DoIt
+   Seq: ( HWL ME_54B91CBE03A7 // DoIt
  )
  ; // Operations
 
@@ -718,7 +718,7 @@ ref; // ME_54B91CEC0109 P
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_54B91CD502DD // FreeMem
+ : Parent HWL ME_54B91CD502DD // FreeMem
  ;
  : Parameters
    Seq: ( ME_54B91CEC0109 // P
@@ -735,10 +735,10 @@ ref; // ME_54B91CE303B2 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_5453AE0C0100 // Tl3SimpleMemoryManager
+ : Parent HWL ME_5453AE0C0100 // Tl3SimpleMemoryManager
  ;
  : Operations
-   Seq: ( ME_54B91CE303B2 // DoIt
+   Seq: ( HWL ME_54B91CE303B2 // DoIt
  )
  ; // Operations
 
@@ -747,7 +747,7 @@ ref; // ME_54B91CD502DD FreeMem
 : ME_54B931040229
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_5453AE0C0100 // Tl3SimpleMemoryManager
+ : Parent HWL ME_5453AE0C0100 // Tl3SimpleMemoryManager
  ;
  : Target WL 'ME_51DD554C0205' '51DAD7EA02D0.pas.ms.script' // Tl3MemUtils
  ;
@@ -757,7 +757,7 @@ ref; // ME_54B931040229
 : ME_54B931130196
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_5453AE0C0100 // Tl3SimpleMemoryManager
+ : Parent HWL ME_5453AE0C0100 // Tl3SimpleMemoryManager
  ;
  : Target WL 'ME_540EE24702BC' '540EE231015D.pas.ms.script' // Tl3ExceptionsLog
  ;
@@ -767,7 +767,7 @@ ref; // ME_54B931130196
 : ME_54B9392C009C
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_5453AE0C0100 // Tl3SimpleMemoryManager
+ : Parent HWL ME_5453AE0C0100 // Tl3SimpleMemoryManager
  ;
  : Target WL 'ME_5485794702B0' '4AB0C3C60310.pas.ms.script' // EOutOfMemory
  ;
@@ -788,29 +788,29 @@ ref; // ME_479731C50290_ME_5453AE0C0100 Cleanup
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_545CDF1002C9 // MemoryManagers
+ : Parent HWL ME_545CDF1002C9 // MemoryManagers
  ;
  : Inherits
-   Seq: ( ME_54B67EB9023D // Tl3SimpleMemoryManagerPrim
+   Seq: ( HWL ME_54B67EB9023D // Tl3SimpleMemoryManagerPrim
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_54B91BDA0204 // f_AllocCount
- ME_54B91BE8018A // f_Head
- ME_54B91C0C032E // f_BlockSize
- ME_54B91C1F0365 // f_WasAllocCountWarning
- ME_54B91C3700BE // f_GlobalAlloc
+   Seq: ( HWL ME_54B91BDA0204 // f_AllocCount
+ HWL ME_54B91BE8018A // f_Head
+ HWL ME_54B91C0C032E // f_BlockSize
+ HWL ME_54B91C1F0365 // f_WasAllocCountWarning
+ HWL ME_54B91C3700BE // f_GlobalAlloc
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_545A2F6800D6 // CanFreeBlocks
- ME_54B69FF202FB // FreeBlocks
- ME_54B6A20201D7 // DoGetMem
- ME_54B6A22902AB // DoFreeMem
- ME_54B91C7A027A // AllocNewBlock
- ME_54B91C9103A2 // Create
- ME_54B91CB0028C // GetMem
- ME_54B91CD502DD // FreeMem
+   Seq: ( HWL ME_545A2F6800D6 // CanFreeBlocks
+ HWL ME_54B69FF202FB // FreeBlocks
+ HWL ME_54B6A20201D7 // DoGetMem
+ HWL ME_54B6A22902AB // DoFreeMem
+ HWL ME_54B91C7A027A // AllocNewBlock
+ HWL ME_54B91C9103A2 // Create
+ HWL ME_54B91CB0028C // GetMem
+ HWL ME_54B91CD502DD // FreeMem
  )
  ; // Operations
  : Overridden
@@ -818,8 +818,8 @@ ref; // ME_479731C50290_ME_5453AE0C0100 Cleanup
  )
  ; // Overridden
  : Children
-   Seq: ( ME_54B91B7E02A5 // Tl3MemoryBlock
- ME_54B91B8A00CB // Pl3MemoryBlock
+   Seq: ( HWL ME_54B91B7E02A5 // Tl3MemoryBlock
+ HWL ME_54B91B8A00CB // Pl3MemoryBlock
  )
  ; // Children
  : Dependencies
@@ -844,7 +844,7 @@ FORWARD ME_545A25F5016C
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_545A25F5016C // Tl3SizedPoolManager
+ : Parent HWL ME_545A25F5016C // Tl3SizedPoolManager
  ;
  : Target WL 'ME_46A618AF0053' '4AB0C3C60310.pas.ms.script' // Cardinal
  ;
@@ -877,7 +877,7 @@ ref; // ME_54B9101300F5 anItemSize
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_54B90FFB019F // Create
+ : Parent HWL ME_54B90FFB019F // Create
  ;
  : Parameters
    Seq: ( ME_54B9101300CD // aBlockSize
@@ -895,10 +895,10 @@ ref; // ME_54B9100700B7 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_545A25F5016C // Tl3SizedPoolManager
+ : Parent HWL ME_545A25F5016C // Tl3SizedPoolManager
  ;
  : Operations
-   Seq: ( ME_54B9100700B7 // DoIt
+   Seq: ( HWL ME_54B9100700B7 // DoIt
  )
  ; // Operations
 
@@ -928,7 +928,7 @@ ref; // ME_54B910480217 aLength
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_54B9101F0107 // AllocItem
+ : Parent HWL ME_54B9101F0107 // AllocItem
  ;
  : Parameters
    Seq: ( ME_54B9104801DB // theItem
@@ -946,10 +946,10 @@ ref; // ME_54B91031005F DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_545A25F5016C // Tl3SizedPoolManager
+ : Parent HWL ME_545A25F5016C // Tl3SizedPoolManager
  ;
  : Operations
-   Seq: ( ME_54B91031005F // DoIt
+   Seq: ( HWL ME_54B91031005F // DoIt
  )
  ; // Operations
 
@@ -970,7 +970,7 @@ ref; // ME_54B9106D0092 theItem
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_54B9105402AC // FreeItem
+ : Parent HWL ME_54B9105402AC // FreeItem
  ;
  : Parameters
    Seq: ( ME_54B9106D0092 // theItem
@@ -987,10 +987,10 @@ ref; // ME_54B9106602E7 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_545A25F5016C // Tl3SizedPoolManager
+ : Parent HWL ME_545A25F5016C // Tl3SizedPoolManager
  ;
  : Operations
-   Seq: ( ME_54B9106602E7 // DoIt
+   Seq: ( HWL ME_54B9106602E7 // DoIt
  )
  ; // Operations
 
@@ -1013,7 +1013,7 @@ ref; // ME_54B9109C00D5 anItem
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_54B9107602B0 // ItemLength
+ : Parent HWL ME_54B9107602B0 // ItemLength
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -1032,10 +1032,10 @@ ref; // ME_54B91097007D DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_545A25F5016C // Tl3SizedPoolManager
+ : Parent HWL ME_545A25F5016C // Tl3SizedPoolManager
  ;
  : Operations
-   Seq: ( ME_54B91097007D // DoIt
+   Seq: ( HWL ME_54B91097007D // DoIt
  )
  ; // Operations
  CONST "is static" true
@@ -1050,21 +1050,21 @@ ref; // ME_54B9107602B0 ItemLength
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_545CDF1002C9 // MemoryManagers
+ : Parent HWL ME_545CDF1002C9 // MemoryManagers
  ;
  : Inherits
-   Seq: ( ME_5453AE0C0100 // Tl3SimpleMemoryManager
+   Seq: ( HWL ME_5453AE0C0100 // Tl3SimpleMemoryManager
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_54B90FEC02C9 // f_ItemSize
+   Seq: ( HWL ME_54B90FEC02C9 // f_ItemSize
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_54B90FFB019F // Create
- ME_54B9101F0107 // AllocItem
- ME_54B9105402AC // FreeItem
- ME_54B9107602B0 // ItemLength
+   Seq: ( HWL ME_54B90FFB019F // Create
+ HWL ME_54B9101F0107 // AllocItem
+ HWL ME_54B9105402AC // FreeItem
+ HWL ME_54B9107602B0 // ItemLength
  )
  ; // Operations
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3SizedPoolManager.pas'
@@ -1093,7 +1093,7 @@ ref; // ME_54B909840374 aBlockSize
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_54B9097403A0 // Create
+ : Parent HWL ME_54B9097403A0 // Create
  ;
  : Parameters
    Seq: ( ME_54B909840374 // aBlockSize
@@ -1110,10 +1110,10 @@ ref; // ME_54B9098000E3 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_5459EE930103 // Tl3WideStringManager
+ : Parent HWL ME_5459EE930103 // Tl3WideStringManager
  ;
  : Operations
-   Seq: ( ME_54B9098000E3 // DoIt
+   Seq: ( HWL ME_54B9098000E3 // DoIt
  )
  ; // Operations
 
@@ -1136,7 +1136,7 @@ ref; // ME_54B909A80349 aString
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_54B9099101F5 // AllocString
+ : Parent HWL ME_54B9099101F5 // AllocString
  ;
  : Target WL 'ME_4FA284CE011F' '4AB0C3C60310.pas.ms.script' // PWideChar
  ;
@@ -1156,10 +1156,10 @@ ref; // ME_54B909A0012D DoIt
  %SUMMARY 'распределяет строку' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_5459EE930103 // Tl3WideStringManager
+ : Parent HWL ME_5459EE930103 // Tl3WideStringManager
  ;
  : Operations
-   Seq: ( ME_54B909A0012D // DoIt
+   Seq: ( HWL ME_54B909A0012D // DoIt
  )
  ; // Operations
 
@@ -1182,7 +1182,7 @@ ref; // ME_54B909E800FE theString
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_54B909CF01F6 // FreeString
+ : Parent HWL ME_54B909CF01F6 // FreeString
  ;
  : Parameters
    Seq: ( ME_54B909E800FE // theString
@@ -1200,10 +1200,10 @@ ref; // ME_54B909E40064 DoIt
  %SUMMARY 'освобождает строку' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_5459EE930103 // Tl3WideStringManager
+ : Parent HWL ME_5459EE930103 // Tl3WideStringManager
  ;
  : Operations
-   Seq: ( ME_54B909E40064 // DoIt
+   Seq: ( HWL ME_54B909E40064 // DoIt
  )
  ; // Operations
 
@@ -1226,7 +1226,7 @@ ref; // ME_54B90A190179 aString
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_54B909F900AB // StringAsPCharLen
+ : Parent HWL ME_54B909F900AB // StringAsPCharLen
  ;
  : Target WL 'ME_46780D0003AF' '4677FBA70343.pas.ms.script' // Tl3WString
  ;
@@ -1246,10 +1246,10 @@ ref; // ME_54B90A140315 DoIt
  %SUMMARY 'приводит строку к Tl3PChatLen' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_5459EE930103 // Tl3WideStringManager
+ : Parent HWL ME_5459EE930103 // Tl3WideStringManager
  ;
  : Operations
-   Seq: ( ME_54B90A140315 // DoIt
+   Seq: ( HWL ME_54B90A140315 // DoIt
  )
  ; // Operations
  CONST "is static" true
@@ -1273,7 +1273,7 @@ ref; // ME_54B90A650303 aString
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_54B90A41007F // StringAsWideString
+ : Parent HWL ME_54B90A41007F // StringAsWideString
  ;
  : Target WL 'ME_498849D803A8' '4AB0C3C60310.pas.ms.script' // WideString
  ;
@@ -1293,10 +1293,10 @@ ref; // ME_54B90A600110 DoIt
  %SUMMARY 'приводит строку к WideString' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_5459EE930103 // Tl3WideStringManager
+ : Parent HWL ME_5459EE930103 // Tl3WideStringManager
  ;
  : Operations
-   Seq: ( ME_54B90A600110 // DoIt
+   Seq: ( HWL ME_54B90A600110 // DoIt
  )
  ; // Operations
  CONST "is static" true
@@ -1306,7 +1306,7 @@ ref; // ME_54B90A41007F StringAsWideString
 : ME_54B90B3F03DA
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_5459EE930103 // Tl3WideStringManager
+ : Parent HWL ME_5459EE930103 // Tl3WideStringManager
  ;
  : Target WL 'ME_47878E0E0191' '54B90AC6014B.pas.ms.script' // l3String
  ;
@@ -1322,18 +1322,18 @@ ref; // ME_54B90B3F03DA
  %SUMMARY 'Менеджер Unicode-строк' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_545CDF1002C9 // MemoryManagers
+ : Parent HWL ME_545CDF1002C9 // MemoryManagers
  ;
  : Inherits
-   Seq: ( ME_545A25F5016C // Tl3SizedPoolManager
+   Seq: ( HWL ME_545A25F5016C // Tl3SizedPoolManager
  )
  ; // Inherits
  : Operations
-   Seq: ( ME_54B9097403A0 // Create
- ME_54B9099101F5 // AllocString
- ME_54B909CF01F6 // FreeString
- ME_54B909F900AB // StringAsPCharLen
- ME_54B90A41007F // StringAsWideString
+   Seq: ( HWL ME_54B9097403A0 // Create
+ HWL ME_54B9099101F5 // AllocString
+ HWL ME_54B909CF01F6 // FreeString
+ HWL ME_54B909F900AB // StringAsPCharLen
+ HWL ME_54B90A41007F // StringAsWideString
  )
  ; // Operations
  : Dependencies
@@ -1356,7 +1356,7 @@ FORWARD ME_54B69F9700DE
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_54B69F9700DE // Tl3BaseBoxMemoryManager
+ : Parent HWL ME_54B69F9700DE // Tl3BaseBoxMemoryManager
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -1371,7 +1371,7 @@ FORWARD ME_54B6A043017E
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_54B6A043017E // SizeSize
+ : Parent HWL ME_54B6A043017E // SizeSize
  ;
  : Target WL 'ME_46A618AF0053' '4AB0C3C60310.pas.ms.script' // Cardinal
  ;
@@ -1386,10 +1386,10 @@ ref; // ME_54B6A04A0123 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility ProtectedAccess
  CONST Abstraction at_abstract
- : Parent ME_54B69F9700DE // Tl3BaseBoxMemoryManager
+ : Parent HWL ME_54B69F9700DE // Tl3BaseBoxMemoryManager
  ;
  : Operations
-   Seq: ( ME_54B6A04A0123 // DoIt
+   Seq: ( HWL ME_54B6A04A0123 // DoIt
  )
  ; // Operations
 
@@ -1412,7 +1412,7 @@ ref; // ME_54B6A07A015E aSize
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_54B6A06A00AF // Size2Index
+ : Parent HWL ME_54B6A06A00AF // Size2Index
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -1431,10 +1431,10 @@ ref; // ME_54B6A076034F DoIt
  CONST Kind kind_NormalClass
  CONST Visibility ProtectedAccess
  CONST Abstraction at_abstract
- : Parent ME_54B69F9700DE // Tl3BaseBoxMemoryManager
+ : Parent HWL ME_54B69F9700DE // Tl3BaseBoxMemoryManager
  ;
  : Operations
-   Seq: ( ME_54B6A076034F // DoIt
+   Seq: ( HWL ME_54B6A076034F // DoIt
  )
  ; // Operations
 
@@ -1457,7 +1457,7 @@ ref; // ME_54B6A09900E6 aSize
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_54B6A0850253 // AlignSize
+ : Parent HWL ME_54B6A0850253 // AlignSize
  ;
  : Target WL 'ME_46A618AF0053' '4AB0C3C60310.pas.ms.script' // Cardinal
  ;
@@ -1476,10 +1476,10 @@ ref; // ME_54B6A09502CB DoIt
  CONST Kind kind_NormalClass
  CONST Visibility ProtectedAccess
  CONST Abstraction at_abstract
- : Parent ME_54B69F9700DE // Tl3BaseBoxMemoryManager
+ : Parent HWL ME_54B69F9700DE // Tl3BaseBoxMemoryManager
  ;
  : Operations
-   Seq: ( ME_54B6A09502CB // DoIt
+   Seq: ( HWL ME_54B6A09502CB // DoIt
  )
  ; // Operations
 
@@ -1502,7 +1502,7 @@ ref; // ME_54B6A0B9013D aPt
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_54B6A0A50097 // GetPSz
+ : Parent HWL ME_54B6A0A50097 // GetPSz
  ;
  : Target WL 'ME_46A618AF0053' '4AB0C3C60310.pas.ms.script' // Cardinal
  ;
@@ -1521,10 +1521,10 @@ ref; // ME_54B6A0B402B8 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility ProtectedAccess
  CONST Abstraction at_abstract
- : Parent ME_54B69F9700DE // Tl3BaseBoxMemoryManager
+ : Parent HWL ME_54B69F9700DE // Tl3BaseBoxMemoryManager
  ;
  : Operations
-   Seq: ( ME_54B6A0B402B8 // DoIt
+   Seq: ( HWL ME_54B6A0B402B8 // DoIt
  )
  ; // Operations
 
@@ -1556,7 +1556,7 @@ ref; // ME_54B6A10401CC aValue
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_54B6A0F1005C // SetPSz
+ : Parent HWL ME_54B6A0F1005C // SetPSz
  ;
  : Parameters
    Seq: ( ME_54B6A10401A5 // aPt
@@ -1574,10 +1574,10 @@ ref; // ME_54B6A0FF03B6 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility ProtectedAccess
  CONST Abstraction at_abstract
- : Parent ME_54B69F9700DE // Tl3BaseBoxMemoryManager
+ : Parent HWL ME_54B69F9700DE // Tl3BaseBoxMemoryManager
  ;
  : Operations
-   Seq: ( ME_54B6A0FF03B6 // DoIt
+   Seq: ( HWL ME_54B6A0FF03B6 // DoIt
  )
  ; // Operations
 
@@ -1591,7 +1591,7 @@ FORWARD ME_54B6A11301EC
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_54B6A11301EC // HasFreed
+ : Parent HWL ME_54B6A11301EC // HasFreed
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -1606,10 +1606,10 @@ ref; // ME_54B6A11801EE DoIt
  CONST Kind kind_NormalClass
  CONST Visibility ProtectedAccess
  CONST Abstraction at_abstract
- : Parent ME_54B69F9700DE // Tl3BaseBoxMemoryManager
+ : Parent HWL ME_54B69F9700DE // Tl3BaseBoxMemoryManager
  ;
  : Operations
-   Seq: ( ME_54B6A11801EE // DoIt
+   Seq: ( HWL ME_54B6A11801EE // DoIt
  )
  ; // Operations
 
@@ -1625,7 +1625,7 @@ FORWARD ME_54B6A1290134
  %SUMMARY 'Сигнатура метода InitFreed' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_54B6A1290134 // InitFreed
+ : Parent HWL ME_54B6A1290134 // InitFreed
  ;
 
 ref; // ME_0DEEA208D030 DoIt
@@ -1638,10 +1638,10 @@ ref; // ME_0DEEA208D030 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility ProtectedAccess
  CONST Abstraction at_abstract
- : Parent ME_54B69F9700DE // Tl3BaseBoxMemoryManager
+ : Parent HWL ME_54B69F9700DE // Tl3BaseBoxMemoryManager
  ;
  : Operations
-   Seq: ( ME_0DEEA208D030 // DoIt
+   Seq: ( HWL ME_0DEEA208D030 // DoIt
  )
  ; // Operations
 
@@ -1657,7 +1657,7 @@ FORWARD ME_54B6A138006E
  %SUMMARY 'Сигнатура метода ClearFreed' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_54B6A138006E // ClearFreed
+ : Parent HWL ME_54B6A138006E // ClearFreed
  ;
 
 ref; // ME_D9CD1DA777B7 DoIt
@@ -1670,10 +1670,10 @@ ref; // ME_D9CD1DA777B7 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility ProtectedAccess
  CONST Abstraction at_abstract
- : Parent ME_54B69F9700DE // Tl3BaseBoxMemoryManager
+ : Parent HWL ME_54B69F9700DE // Tl3BaseBoxMemoryManager
  ;
  : Operations
-   Seq: ( ME_D9CD1DA777B7 // DoIt
+   Seq: ( HWL ME_D9CD1DA777B7 // DoIt
  )
  ; // Operations
 
@@ -1696,7 +1696,7 @@ ref; // ME_54B6A15C016C anIndex
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_54B6A14B000C // IsValidIndex
+ : Parent HWL ME_54B6A14B000C // IsValidIndex
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -1715,10 +1715,10 @@ ref; // ME_54B6A1580353 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility ProtectedAccess
  CONST Abstraction at_abstract
- : Parent ME_54B69F9700DE // Tl3BaseBoxMemoryManager
+ : Parent HWL ME_54B69F9700DE // Tl3BaseBoxMemoryManager
  ;
  : Operations
-   Seq: ( ME_54B6A1580353 // DoIt
+   Seq: ( HWL ME_54B6A1580353 // DoIt
  )
  ; // Operations
 
@@ -1741,7 +1741,7 @@ ref; // ME_54B6A1770024 anIndex
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_54B6A16703DD // GetFreed
+ : Parent HWL ME_54B6A16703DD // GetFreed
  ;
  : Target WL 'ME_46A608F00301' '4AB0C3C60310.pas.ms.script' // Pointer
  ;
@@ -1760,10 +1760,10 @@ ref; // ME_54B6A1720314 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility ProtectedAccess
  CONST Abstraction at_abstract
- : Parent ME_54B69F9700DE // Tl3BaseBoxMemoryManager
+ : Parent HWL ME_54B69F9700DE // Tl3BaseBoxMemoryManager
  ;
  : Operations
-   Seq: ( ME_54B6A1720314 // DoIt
+   Seq: ( HWL ME_54B6A1720314 // DoIt
  )
  ; // Operations
 
@@ -1795,7 +1795,7 @@ ref; // ME_54B6A19A00F1 aValue
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_54B6A1830090 // SetFreed
+ : Parent HWL ME_54B6A1830090 // SetFreed
  ;
  : Parameters
    Seq: ( ME_54B6A19A00AC // anIndex
@@ -1813,10 +1813,10 @@ ref; // ME_54B6A19100A1 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility ProtectedAccess
  CONST Abstraction at_abstract
- : Parent ME_54B69F9700DE // Tl3BaseBoxMemoryManager
+ : Parent HWL ME_54B69F9700DE // Tl3BaseBoxMemoryManager
  ;
  : Operations
-   Seq: ( ME_54B6A19100A1 // DoIt
+   Seq: ( HWL ME_54B6A19100A1 // DoIt
  )
  ; // Operations
 
@@ -1839,7 +1839,7 @@ ref; // ME_54B6A1BC0063 aBlockSize
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_54B6A1AA02CE // Create
+ : Parent HWL ME_54B6A1AA02CE // Create
  ;
  : Parameters
    Seq: ( ME_54B6A1BC0063 // aBlockSize
@@ -1857,10 +1857,10 @@ ref; // ME_54B6A1B70352 DoIt
  %SUMMARY 'создает менеджер' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_54B69F9700DE // Tl3BaseBoxMemoryManager
+ : Parent HWL ME_54B69F9700DE // Tl3BaseBoxMemoryManager
  ;
  : Operations
-   Seq: ( ME_54B6A1B70352 // DoIt
+   Seq: ( HWL ME_54B6A1B70352 // DoIt
  )
  ; // Operations
 
@@ -1883,7 +1883,7 @@ ref; // ME_54B6A1E70144 aPt
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_54B6A1D30099 // GetSize
+ : Parent HWL ME_54B6A1D30099 // GetSize
  ;
  : Target WL 'ME_46A618AF0053' '4AB0C3C60310.pas.ms.script' // Cardinal
  ;
@@ -1902,10 +1902,10 @@ ref; // ME_54B6A1E30161 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_54B69F9700DE // Tl3BaseBoxMemoryManager
+ : Parent HWL ME_54B69F9700DE // Tl3BaseBoxMemoryManager
  ;
  : Operations
-   Seq: ( ME_54B6A1E30161 // DoIt
+   Seq: ( HWL ME_54B6A1E30161 // DoIt
  )
  ; // Operations
 
@@ -1935,7 +1935,7 @@ ref; // ME_54B6A2730217 aNewSize
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_54B6A25901A2 // ReallocMem
+ : Parent HWL ME_54B6A25901A2 // ReallocMem
  ;
  : Parameters
    Seq: ( ME_54B6A27301F3 // P
@@ -1953,10 +1953,10 @@ ref; // ME_54B6A2690191 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_54B69F9700DE // Tl3BaseBoxMemoryManager
+ : Parent HWL ME_54B69F9700DE // Tl3BaseBoxMemoryManager
  ;
  : Operations
-   Seq: ( ME_54B6A2690191 // DoIt
+   Seq: ( HWL ME_54B6A2690191 // DoIt
  )
  ; // Operations
 
@@ -1965,7 +1965,7 @@ ref; // ME_54B6A25901A2 ReallocMem
 : ME_54B9169D0028
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_54B69F9700DE // Tl3BaseBoxMemoryManager
+ : Parent HWL ME_54B69F9700DE // Tl3BaseBoxMemoryManager
  ;
  : Target WL 'ME_47A066980016' '537B83AD01F0.pas.ms.script' // l3MinMax
  ;
@@ -1973,19 +1973,19 @@ ref; // ME_54B6A25901A2 ReallocMem
 ref; // ME_54B9169D0028 
 
 : ME_54B69FF202FB_ME_54B69F9700DE
- : Original ME_54B69FF202FB // FreeBlocks
+ : Original HWL ME_54B69FF202FB // FreeBlocks
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_54B69FF202FB_ME_54B69F9700DE FreeBlocks
 
 : ME_54B6A20201D7_ME_54B69F9700DE
- : Original ME_54B6A20201D7 // DoGetMem
+ : Original HWL ME_54B6A20201D7 // DoGetMem
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_54B6A20201D7_ME_54B69F9700DE DoGetMem
 
 : ME_54B6A22902AB_ME_54B69F9700DE
- : Original ME_54B6A22902AB // DoFreeMem
+ : Original HWL ME_54B6A22902AB // DoFreeMem
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_54B6A22902AB_ME_54B69F9700DE DoFreeMem
@@ -1998,31 +1998,31 @@ ref; // ME_54B6A22902AB_ME_54B69F9700DE DoFreeMem
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_545CDF1002C9 // MemoryManagers
+ : Parent HWL ME_545CDF1002C9 // MemoryManagers
  ;
  : Inherits
-   Seq: ( ME_5453AE0C0100 // Tl3SimpleMemoryManager
+   Seq: ( HWL ME_5453AE0C0100 // Tl3SimpleMemoryManager
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_54B6A03302D7 // f_Lost
+   Seq: ( HWL ME_54B6A03302D7 // f_Lost
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_54B6A043017E // SizeSize
- ME_54B6A06A00AF // Size2Index
- ME_54B6A0850253 // AlignSize
- ME_54B6A0A50097 // GetPSz
- ME_54B6A0F1005C // SetPSz
- ME_54B6A11301EC // HasFreed
- ME_54B6A1290134 // InitFreed
- ME_54B6A138006E // ClearFreed
- ME_54B6A14B000C // IsValidIndex
- ME_54B6A16703DD // GetFreed
- ME_54B6A1830090 // SetFreed
- ME_54B6A1AA02CE // Create
- ME_54B6A1D30099 // GetSize
- ME_54B6A25901A2 // ReallocMem
+   Seq: ( HWL ME_54B6A043017E // SizeSize
+ HWL ME_54B6A06A00AF // Size2Index
+ HWL ME_54B6A0850253 // AlignSize
+ HWL ME_54B6A0A50097 // GetPSz
+ HWL ME_54B6A0F1005C // SetPSz
+ HWL ME_54B6A11301EC // HasFreed
+ HWL ME_54B6A1290134 // InitFreed
+ HWL ME_54B6A138006E // ClearFreed
+ HWL ME_54B6A14B000C // IsValidIndex
+ HWL ME_54B6A16703DD // GetFreed
+ HWL ME_54B6A1830090 // SetFreed
+ HWL ME_54B6A1AA02CE // Create
+ HWL ME_54B6A1D30099 // GetSize
+ HWL ME_54B6A25901A2 // ReallocMem
  )
  ; // Operations
  : Overridden
@@ -2054,7 +2054,7 @@ FORWARD ME_54B6A3B800A5
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_54B6A3B800A5 // Constants
+ : Parent HWL ME_54B6A3B800A5 // Constants
  ;
  CONST Value 4
  CONST "AutoInc" false
@@ -2072,10 +2072,10 @@ ref; // ME_54B6A3CB03C7 cStep
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
- : Parent ME_54B69FAC0256 // Tl3BoxMemoryManagerPrim
+ : Parent HWL ME_54B69FAC0256 // Tl3BoxMemoryManagerPrim
  ;
  : Attributes
-   Seq: ( ME_54B6A3CB03C7 // cStep
+   Seq: ( HWL ME_54B6A3CB03C7 // cStep
  )
  ; // Attributes
  CONST "spell names" false
@@ -2089,7 +2089,7 @@ ref; // ME_54B6A3B800A5 Constants
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_54B69FAC0256 // Tl3BoxMemoryManagerPrim
+ : Parent HWL ME_54B69FAC0256 // Tl3BoxMemoryManagerPrim
  ;
  : Target WL 'ME_54B6A0D8000C' '4AB0C3C60310.pas.ms.script' // PAnsiChar
  ;
@@ -2103,7 +2103,7 @@ ref; // ME_54B6A2A800DA f_Freed
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_54B69FAC0256 // Tl3BoxMemoryManagerPrim
+ : Parent HWL ME_54B69FAC0256 // Tl3BoxMemoryManagerPrim
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -2117,7 +2117,7 @@ ref; // ME_54B6A2BF029A f_LowIndex
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_54B69FAC0256 // Tl3BoxMemoryManagerPrim
+ : Parent HWL ME_54B69FAC0256 // Tl3BoxMemoryManagerPrim
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -2131,7 +2131,7 @@ ref; // ME_54B6A2CB0202 f_HighIndex
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_54B69FAC0256 // Tl3BoxMemoryManagerPrim
+ : Parent HWL ME_54B69FAC0256 // Tl3BoxMemoryManagerPrim
  ;
  : Target WL 'ME_46A618AF0053' '4AB0C3C60310.pas.ms.script' // Cardinal
  ;
@@ -2181,7 +2181,7 @@ ref; // ME_54B6A3250127 aLowIndex
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_54B6A30003E2 // Create
+ : Parent HWL ME_54B6A30003E2 // Create
  ;
  : Parameters
    Seq: ( ME_54B6A32500E1 // aBlockSize
@@ -2200,10 +2200,10 @@ ref; // ME_54B6A309000D DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_54B69FAC0256 // Tl3BoxMemoryManagerPrim
+ : Parent HWL ME_54B69FAC0256 // Tl3BoxMemoryManagerPrim
  ;
  : Operations
-   Seq: ( ME_54B6A309000D // DoIt
+   Seq: ( HWL ME_54B6A309000D // DoIt
  )
  ; // Operations
 
@@ -2212,7 +2212,7 @@ ref; // ME_54B6A30003E2 Create
 : ME_54B6A3430381
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_54B69FAC0256 // Tl3BoxMemoryManagerPrim
+ : Parent HWL ME_54B69FAC0256 // Tl3BoxMemoryManagerPrim
  ;
  : Target WL 'ME_47A066980016' '537B83AD01F0.pas.ms.script' // l3MinMax
  ;
@@ -2222,7 +2222,7 @@ ref; // ME_54B6A3430381
 : ME_54B8F86201AC
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_54B69FAC0256 // Tl3BoxMemoryManagerPrim
+ : Parent HWL ME_54B69FAC0256 // Tl3BoxMemoryManagerPrim
  ;
  : Target WL 'ME_51DD554C0205' '51DAD7EA02D0.pas.ms.script' // Tl3MemUtils
  ;
@@ -2230,67 +2230,67 @@ ref; // ME_54B6A3430381
 ref; // ME_54B8F86201AC 
 
 : ME_54B6A043017E_ME_54B69FAC0256
- : Original ME_54B6A043017E // SizeSize
+ : Original HWL ME_54B6A043017E // SizeSize
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_54B6A043017E_ME_54B69FAC0256 SizeSize
 
 : ME_54B6A06A00AF_ME_54B69FAC0256
- : Original ME_54B6A06A00AF // Size2Index
+ : Original HWL ME_54B6A06A00AF // Size2Index
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_54B6A06A00AF_ME_54B69FAC0256 Size2Index
 
 : ME_54B6A0850253_ME_54B69FAC0256
- : Original ME_54B6A0850253 // AlignSize
+ : Original HWL ME_54B6A0850253 // AlignSize
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_54B6A0850253_ME_54B69FAC0256 AlignSize
 
 : ME_54B6A0A50097_ME_54B69FAC0256
- : Original ME_54B6A0A50097 // GetPSz
+ : Original HWL ME_54B6A0A50097 // GetPSz
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_54B6A0A50097_ME_54B69FAC0256 GetPSz
 
 : ME_54B6A0F1005C_ME_54B69FAC0256
- : Original ME_54B6A0F1005C // SetPSz
+ : Original HWL ME_54B6A0F1005C // SetPSz
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_54B6A0F1005C_ME_54B69FAC0256 SetPSz
 
 : ME_54B6A11301EC_ME_54B69FAC0256
- : Original ME_54B6A11301EC // HasFreed
+ : Original HWL ME_54B6A11301EC // HasFreed
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_54B6A11301EC_ME_54B69FAC0256 HasFreed
 
 : ME_54B6A1290134_ME_54B69FAC0256
- : Original ME_54B6A1290134 // InitFreed
+ : Original HWL ME_54B6A1290134 // InitFreed
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_54B6A1290134_ME_54B69FAC0256 InitFreed
 
 : ME_54B6A138006E_ME_54B69FAC0256
- : Original ME_54B6A138006E // ClearFreed
+ : Original HWL ME_54B6A138006E // ClearFreed
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_54B6A138006E_ME_54B69FAC0256 ClearFreed
 
 : ME_54B6A14B000C_ME_54B69FAC0256
- : Original ME_54B6A14B000C // IsValidIndex
+ : Original HWL ME_54B6A14B000C // IsValidIndex
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_54B6A14B000C_ME_54B69FAC0256 IsValidIndex
 
 : ME_54B6A16703DD_ME_54B69FAC0256
- : Original ME_54B6A16703DD // GetFreed
+ : Original HWL ME_54B6A16703DD // GetFreed
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_54B6A16703DD_ME_54B69FAC0256 GetFreed
 
 : ME_54B6A1830090_ME_54B69FAC0256
- : Original ME_54B6A1830090 // SetFreed
+ : Original HWL ME_54B6A1830090 // SetFreed
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_54B6A1830090_ME_54B69FAC0256 SetFreed
@@ -2303,21 +2303,21 @@ ref; // ME_54B6A1830090_ME_54B69FAC0256 SetFreed
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_545CDF1002C9 // MemoryManagers
+ : Parent HWL ME_545CDF1002C9 // MemoryManagers
  ;
  : Inherits
-   Seq: ( ME_54B69F9700DE // Tl3BaseBoxMemoryManager
+   Seq: ( HWL ME_54B69F9700DE // Tl3BaseBoxMemoryManager
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_54B6A2A800DA // f_Freed
- ME_54B6A2BF029A // f_LowIndex
- ME_54B6A2CB0202 // f_HighIndex
- ME_54B6A2DE003A // f_SizeSize
+   Seq: ( HWL ME_54B6A2A800DA // f_Freed
+ HWL ME_54B6A2BF029A // f_LowIndex
+ HWL ME_54B6A2CB0202 // f_HighIndex
+ HWL ME_54B6A2DE003A // f_SizeSize
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_54B6A30003E2 // Create
+   Seq: ( HWL ME_54B6A30003E2 // Create
  )
  ; // Operations
  : Implemented
@@ -2335,7 +2335,7 @@ ref; // ME_54B6A1830090_ME_54B69FAC0256 SetFreed
  )
  ; // Implemented
  : Constants
-   Seq: ( ME_54B6A3B800A5 // Constants
+   Seq: ( HWL ME_54B6A3B800A5 // Constants
  )
  ; // Constants
  : Dependencies
@@ -2361,7 +2361,7 @@ FORWARD ME_54B91B4101BF
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_54B91B4101BF // Create
+ : Parent HWL ME_54B91B4101BF // Create
  ;
 
 ref; // ME_54B91B490274 DoIt
@@ -2374,10 +2374,10 @@ ref; // ME_54B91B490274 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_54B91B3002D6 // Tl3BoxMemoryManager
+ : Parent HWL ME_54B91B3002D6 // Tl3BoxMemoryManager
  ;
  : Operations
-   Seq: ( ME_54B91B490274 // DoIt
+   Seq: ( HWL ME_54B91B490274 // DoIt
  )
  ; // Operations
 
@@ -2391,14 +2391,14 @@ ref; // ME_54B91B4101BF Create
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_545CDF1002C9 // MemoryManagers
+ : Parent HWL ME_545CDF1002C9 // MemoryManagers
  ;
  : Inherits
-   Seq: ( ME_54B69FAC0256 // Tl3BoxMemoryManagerPrim
+   Seq: ( HWL ME_54B69FAC0256 // Tl3BoxMemoryManagerPrim
  )
  ; // Inherits
  : Operations
-   Seq: ( ME_54B91B4101BF // Create
+   Seq: ( HWL ME_54B91B4101BF // Create
  )
  ; // Operations
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3BoxMemoryManager.pas'
@@ -2418,7 +2418,7 @@ FORWARD ME_545CDFD70320
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_545CDFD70320 // Create
+ : Parent HWL ME_545CDFD70320 // Create
  ;
 
 ref; // ME_545CDFE003C0 DoIt
@@ -2431,10 +2431,10 @@ ref; // ME_545CDFE003C0 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_545CDF7D0249 // Tl3ObjectsMemoryManager
+ : Parent HWL ME_545CDF7D0249 // Tl3ObjectsMemoryManager
  ;
  : Operations
-   Seq: ( ME_545CDFE003C0 // DoIt
+   Seq: ( HWL ME_545CDFE003C0 // DoIt
  )
  ; // Operations
 
@@ -2457,7 +2457,7 @@ ref; // ME_545CE01B034E anObject
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_545CE0010153 // FreeMem
+ : Parent HWL ME_545CE0010153 // FreeMem
  ;
  : Parameters
    Seq: ( ME_545CE01B034E // anObject
@@ -2474,10 +2474,10 @@ ref; // ME_545CE018009C DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_545CDF7D0249 // Tl3ObjectsMemoryManager
+ : Parent HWL ME_545CDF7D0249 // Tl3ObjectsMemoryManager
  ;
  : Operations
-   Seq: ( ME_545CE018009C // DoIt
+   Seq: ( HWL ME_545CE018009C // DoIt
  )
  ; // Operations
 
@@ -2509,7 +2509,7 @@ ref; // ME_545CE10D0207 aClass
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_545CE0BF0347 // GetMem
+ : Parent HWL ME_545CE0BF0347 // GetMem
  ;
  : Parameters
    Seq: ( ME_545CE10D01D4 // thePlace
@@ -2527,10 +2527,10 @@ ref; // ME_545CE0D40350 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_545CDF7D0249 // Tl3ObjectsMemoryManager
+ : Parent HWL ME_545CDF7D0249 // Tl3ObjectsMemoryManager
  ;
  : Operations
-   Seq: ( ME_545CE0D40350 // DoIt
+   Seq: ( HWL ME_545CE0D40350 // DoIt
  )
  ; // Operations
 
@@ -2539,7 +2539,7 @@ ref; // ME_545CE0BF0347 GetMem
 : ME_545CF29A007F
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_545CDF7D0249 // Tl3ObjectsMemoryManager
+ : Parent HWL ME_545CDF7D0249 // Tl3ObjectsMemoryManager
  ;
  : Target WL 'ME_51DD554C0205' '51DAD7EA02D0.pas.ms.script' // Tl3MemUtils
  ;
@@ -2549,7 +2549,7 @@ ref; // ME_545CF29A007F
 : ME_545D0B0E00E8
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_545CDF7D0249 // Tl3ObjectsMemoryManager
+ : Parent HWL ME_545CDF7D0249 // Tl3ObjectsMemoryManager
  ;
  : Target WL 'ME_4B2A12BA0288' '4AB0C3C60310.pas.ms.script' // IntToStr
  ;
@@ -2564,16 +2564,16 @@ ref; // ME_545D0B0E00E8
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_545CDF1002C9 // MemoryManagers
+ : Parent HWL ME_545CDF1002C9 // MemoryManagers
  ;
  : Inherits
-   Seq: ( ME_5453AE0C0100 // Tl3SimpleMemoryManager
+   Seq: ( HWL ME_5453AE0C0100 // Tl3SimpleMemoryManager
  )
  ; // Inherits
  : Operations
-   Seq: ( ME_545CDFD70320 // Create
- ME_545CE0010153 // FreeMem
- ME_545CE0BF0347 // GetMem
+   Seq: ( HWL ME_545CDFD70320 // Create
+ HWL ME_545CE0010153 // FreeMem
+ HWL ME_545CE0BF0347 // GetMem
  )
  ; // Operations
  : Dependencies
@@ -2598,16 +2598,16 @@ ref; // ME_545CDF7D0249 Tl3ObjectsMemoryManager
  : Parent WL 'ME_4790D09A0378' '4790D09A0378.pas.ms.script' // L3
  ;
  : Children
-   Seq: ( ME_5453ADED01B4 // l3SimpleMM
- ME_54B6852C0241 // l3CriticalSectionHolderPrim
- ME_54B67EB9023D // Tl3SimpleMemoryManagerPrim
- ME_5453AE0C0100 // Tl3SimpleMemoryManager
- ME_545A25F5016C // Tl3SizedPoolManager
- ME_5459EE930103 // Tl3WideStringManager
- ME_54B69F9700DE // Tl3BaseBoxMemoryManager
- ME_54B69FAC0256 // Tl3BoxMemoryManagerPrim
- ME_54B91B3002D6 // Tl3BoxMemoryManager
- ME_545CDF7D0249 // Tl3ObjectsMemoryManager
+   Seq: ( HWL ME_5453ADED01B4 // l3SimpleMM
+ HWL ME_54B6852C0241 // l3CriticalSectionHolderPrim
+ HWL ME_54B67EB9023D // Tl3SimpleMemoryManagerPrim
+ HWL ME_5453AE0C0100 // Tl3SimpleMemoryManager
+ HWL ME_545A25F5016C // Tl3SizedPoolManager
+ HWL ME_5459EE930103 // Tl3WideStringManager
+ HWL ME_54B69F9700DE // Tl3BaseBoxMemoryManager
+ HWL ME_54B69FAC0256 // Tl3BoxMemoryManagerPrim
+ HWL ME_54B91B3002D6 // Tl3BoxMemoryManager
+ HWL ME_545CDF7D0249 // Tl3ObjectsMemoryManager
  )
  ; // Children
  : Depends

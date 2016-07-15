@@ -33,7 +33,6 @@ a f
 	[{"%S%{Mixin}N"=""}\
 	<{}{%C#f_IsPureMixIn()=true&"%CN"="M%f_cut_prefix(%f_pas_TypeName(%S),T)"}\
 	%S%f_set_var(Mixin,C)\
-//	%f_cycle_break(%S)\
 	>\
 	]
 //#UC END# *5502CBF50065for5502BABC0193*
@@ -43,15 +42,12 @@ a f
 	[{"%S%{Facet}N"=""}\
 	<{}{%t_interface(%C)=true&"%CN"="I%f_cut_prefix(%f_pas_TypeName(%S),T)"}\
 	%S%f_set_var(Facet,C)\
-//	%f_cycle_break(%S)\
 	>\
 	]
 
 %f _CheckOrMakeFacet
 	%S%f_CheckMixin()\
 	%S%f_CheckFacet()\
-//	%f_warning(Mixin: %S%{Mixin}N)\
-//	%f_warning(Facet: %S%{Facet}N)\
 
 	[{"%S%{Mixin}N"=""}\
 	%S%f_add_class(%SU_Mixin,PureMixIn,M%f_cut_prefix(%f_pas_TypeName(%S),T),Mixin_Inst)\
@@ -59,10 +55,12 @@ a f
 	%S%f_set_var(Mixin,{Mixin_Inst})\
 	]\
 
+	[{%S#f_UseNewGenRec()!=true}\
 	[{"%S%{Facet}N"=""}\
 	%S%f_add_class(%SU_Facet,Facet,I%f_cut_prefix(%f_pas_TypeName(%S),T),Facet_Inst)\
 	%{Facet_Inst}%f_set_documentation(Èםעונפויס סונגטסא %SN)\
 	%S%f_set_var(Facet,{Facet_Inst})\
+	]\
 	]
 //#UC END# *5502CC07027Efor5502BABC0193*
 
@@ -116,10 +114,10 @@ a f
 
 	%f_clear_list(RESPS)\
 
-	%f_addR(%S,%S%{Mixin})\
-	%f_addR(%S%{Facet},%S%{Mixin})\
 
 	[{%S#f_UseNewGenRec()!=true}\
+	%f_addR(%S%{Facet},%S%{Mixin})\
+	%f_addR(%S,%S%{Mixin})\
 	%S%f_add_attribute(%SU_%S%{Facet}U_Alien,writeonly,Alien : %S%{Facet}U,Attr_Inst)\
 
 	%{Attr_Inst}%f_set_link_type(ref)\

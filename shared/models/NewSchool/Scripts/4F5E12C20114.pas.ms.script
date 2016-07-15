@@ -1,0 +1,799 @@
+// BaloonWarningUserTypes 4F5E12C20114 VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F5E12C20114
+
+: ME_4F5E13160332
+ CONST UID '4F5E13160332'
+ CONST Name 'Fake'
+ CONST Class class_Class
+ : Stereotype st_UserType ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Предупреждение' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4F5E12C20114 // BaloonWarningUserTypes
+ ;
+ CONST "ImageIndex" '-1'
+ CONST "VisibleToUser" false
+ CONST "Weight" '-1'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\BaloonWarningUserTypes_Fake_UserType.pas'
+ CONST extprop:pas:UnitName 'BaloonWarningUserTypes_Fake_UserType'
+
+ref; // ME_4F5E13160332 Fake
+
+FORWARD ME_4DA825720193
+
+: ME_4DA825E50050
+ CONST UID '4DA825E50050'
+ CONST Name 'UseToolbarOfUserTypeName'
+ CONST Class class_Attribute
+ : Stereotype st_link::Attribute ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent HWL ME_4DA825720193 // WarnJuror
+ ;
+ : Target HWL ME_4F5E13160332 // Fake
+ ;
+
+ref; // ME_4DA825E50050 UseToolbarOfUserTypeName
+
+: ME_4DA825720193
+ CONST UID '4DA825720193'
+ CONST Name 'WarnJuror'
+ CONST Class class_Class
+ : Stereotype st_UserType ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Юридическое предупреждение' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4F5E12C20114 // BaloonWarningUserTypes
+ ;
+ : Inherits
+   Seq: ( HWL ME_4F5E13160332 // Fake
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( HWL ME_4DA825E50050 // UseToolbarOfUserTypeName
+ )
+ ; // Attributes
+ CONST "ImageIndex" '-1'
+ CONST "VisibleToUser" false
+ CONST "Weight" '-1'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\BaloonWarningUserTypes_WarnJuror_UserType.pas'
+ CONST extprop:pas:UnitName 'BaloonWarningUserTypes_WarnJuror_UserType'
+
+ref; // ME_4DA825720193 WarnJuror
+
+FORWARD ME_4DA82956005C
+
+: ME_4DA82A49019A
+ CONST UID '4DA82A49019A'
+ CONST Name 'UseToolbarOfUserTypeName'
+ CONST Class class_Attribute
+ : Stereotype st_link::Attribute ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent HWL ME_4DA82956005C // WarnPreActive
+ ;
+ : Target HWL ME_4F5E13160332 // Fake
+ ;
+
+ref; // ME_4DA82A49019A UseToolbarOfUserTypeName
+
+: ME_4DA82956005C
+ CONST UID '4DA82956005C'
+ CONST Name 'WarnPreActive'
+ CONST Class class_Class
+ : Stereotype st_UserType ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4F5E12C20114 // BaloonWarningUserTypes
+ ;
+ : Inherits
+   Seq: ( HWL ME_4DA825720193 // WarnJuror
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( HWL ME_4DA82A49019A // UseToolbarOfUserTypeName
+ )
+ ; // Attributes
+ CONST "ImageIndex" '-1'
+ CONST "VisibleToUser" false
+ CONST "Weight" '-1'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\BaloonWarningUserTypes_WarnPreActive_UserType.pas'
+ CONST extprop:pas:UnitName 'BaloonWarningUserTypes_WarnPreActive_UserType'
+
+ref; // ME_4DA82956005C WarnPreActive
+
+FORWARD ME_4DA8296501F2
+
+: ME_4DA82A58039A
+ CONST UID '4DA82A58039A'
+ CONST Name 'UseToolbarOfUserTypeName'
+ CONST Class class_Attribute
+ : Stereotype st_link::Attribute ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent HWL ME_4DA8296501F2 // WarnIsAbolished
+ ;
+ : Target HWL ME_4F5E13160332 // Fake
+ ;
+
+ref; // ME_4DA82A58039A UseToolbarOfUserTypeName
+
+: ME_4DA8296501F2
+ CONST UID '4DA8296501F2'
+ CONST Name 'WarnIsAbolished'
+ CONST Class class_Class
+ : Stereotype st_UserType ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4F5E12C20114 // BaloonWarningUserTypes
+ ;
+ : Inherits
+   Seq: ( HWL ME_4DA82956005C // WarnPreActive
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( HWL ME_4DA82A58039A // UseToolbarOfUserTypeName
+ )
+ ; // Attributes
+ CONST "ImageIndex" '-1'
+ CONST "VisibleToUser" false
+ CONST "Weight" '-1'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\BaloonWarningUserTypes_WarnIsAbolished_UserType.pas'
+ CONST extprop:pas:UnitName 'BaloonWarningUserTypes_WarnIsAbolished_UserType'
+
+ref; // ME_4DA8296501F2 WarnIsAbolished
+
+FORWARD ME_4DA8297800F7
+
+: ME_4DA82A61010C
+ CONST UID '4DA82A61010C'
+ CONST Name 'UseToolbarOfUserTypeName'
+ CONST Class class_Attribute
+ : Stereotype st_link::Attribute ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent HWL ME_4DA8297800F7 // WarnOnControl
+ ;
+ : Target HWL ME_4F5E13160332 // Fake
+ ;
+
+ref; // ME_4DA82A61010C UseToolbarOfUserTypeName
+
+: ME_4DA8297800F7
+ CONST UID '4DA8297800F7'
+ CONST Name 'WarnOnControl'
+ CONST Class class_Class
+ : Stereotype st_UserType ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4F5E12C20114 // BaloonWarningUserTypes
+ ;
+ : Inherits
+   Seq: ( HWL ME_4DA8296501F2 // WarnIsAbolished
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( HWL ME_4DA82A61010C // UseToolbarOfUserTypeName
+ )
+ ; // Attributes
+ CONST "ImageIndex" '-1'
+ CONST "VisibleToUser" false
+ CONST "Weight" '-1'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\BaloonWarningUserTypes_WarnOnControl_UserType.pas'
+ CONST extprop:pas:UnitName 'BaloonWarningUserTypes_WarnOnControl_UserType'
+
+ref; // ME_4DA8297800F7 WarnOnControl
+
+FORWARD ME_4DA8298B020E
+
+: ME_4DA82A6803E1
+ CONST UID '4DA82A6803E1'
+ CONST Name 'UseToolbarOfUserTypeName'
+ CONST Class class_Attribute
+ : Stereotype st_link::Attribute ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent HWL ME_4DA8298B020E // WarnInactualDocument
+ ;
+ : Target HWL ME_4F5E13160332 // Fake
+ ;
+
+ref; // ME_4DA82A6803E1 UseToolbarOfUserTypeName
+
+: ME_4DA8298B020E
+ CONST UID '4DA8298B020E'
+ CONST Name 'WarnInactualDocument'
+ CONST Class class_Class
+ : Stereotype st_UserType ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4F5E12C20114 // BaloonWarningUserTypes
+ ;
+ : Inherits
+   Seq: ( HWL ME_4DA8297800F7 // WarnOnControl
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( HWL ME_4DA82A6803E1 // UseToolbarOfUserTypeName
+ )
+ ; // Attributes
+ CONST "ImageIndex" '-1'
+ CONST "VisibleToUser" false
+ CONST "Weight" '-1'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\BaloonWarningUserTypes_WarnInactualDocument_UserType.pas'
+ CONST extprop:pas:UnitName 'BaloonWarningUserTypes_WarnInactualDocument_UserType'
+
+ref; // ME_4DA8298B020E WarnInactualDocument
+
+FORWARD ME_4DA8299E0144
+
+: ME_4DA82A7702B0
+ CONST UID '4DA82A7702B0'
+ CONST Name 'UseToolbarOfUserTypeName'
+ CONST Class class_Attribute
+ : Stereotype st_link::Attribute ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent HWL ME_4DA8299E0144 // WarnTimeMachineOn
+ ;
+ : Target HWL ME_4F5E13160332 // Fake
+ ;
+
+ref; // ME_4DA82A7702B0 UseToolbarOfUserTypeName
+
+: ME_4DA8299E0144
+ CONST UID '4DA8299E0144'
+ CONST Name 'WarnTimeMachineOn'
+ CONST Class class_Class
+ : Stereotype st_UserType ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4F5E12C20114 // BaloonWarningUserTypes
+ ;
+ : Inherits
+   Seq: ( HWL ME_4DA8298B020E // WarnInactualDocument
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( HWL ME_4DA82A7702B0 // UseToolbarOfUserTypeName
+ )
+ ; // Attributes
+ CONST "ImageIndex" '-1'
+ CONST "VisibleToUser" false
+ CONST "Weight" '-1'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\BaloonWarningUserTypes_WarnTimeMachineOn_UserType.pas'
+ CONST extprop:pas:UnitName 'BaloonWarningUserTypes_WarnTimeMachineOn_UserType'
+
+ref; // ME_4DA8299E0144 WarnTimeMachineOn
+
+FORWARD ME_4DA829BE0146
+
+: ME_4DA82A7300B0
+ CONST UID '4DA82A7300B0'
+ CONST Name 'UseToolbarOfUserTypeName'
+ CONST Class class_Attribute
+ : Stereotype st_link::Attribute ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent HWL ME_4DA829BE0146 // WarnRedaction
+ ;
+ : Target HWL ME_4F5E13160332 // Fake
+ ;
+
+ref; // ME_4DA82A7300B0 UseToolbarOfUserTypeName
+
+: ME_4DA829BE0146
+ CONST UID '4DA829BE0146'
+ CONST Name 'WarnRedaction'
+ CONST Class class_Class
+ : Stereotype st_UserType ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4F5E12C20114 // BaloonWarningUserTypes
+ ;
+ : Inherits
+   Seq: ( HWL ME_4DA8299E0144 // WarnTimeMachineOn
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( HWL ME_4DA82A7300B0 // UseToolbarOfUserTypeName
+ )
+ ; // Attributes
+ CONST "ImageIndex" '-1'
+ CONST "VisibleToUser" false
+ CONST "Weight" '-1'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\BaloonWarningUserTypes_WarnRedaction_UserType.pas'
+ CONST extprop:pas:UnitName 'BaloonWarningUserTypes_WarnRedaction_UserType'
+
+ref; // ME_4DA829BE0146 WarnRedaction
+
+FORWARD ME_4DA82A170063
+
+: ME_4DA82A6E002E
+ CONST UID '4DA82A6E002E'
+ CONST Name 'UseToolbarOfUserTypeName'
+ CONST Class class_Attribute
+ : Stereotype st_link::Attribute ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent HWL ME_4DA82A170063 // WarnTimeMachineWarning
+ ;
+ : Target HWL ME_4F5E13160332 // Fake
+ ;
+
+ref; // ME_4DA82A6E002E UseToolbarOfUserTypeName
+
+: ME_4DA82A170063
+ CONST UID '4DA82A170063'
+ CONST Name 'WarnTimeMachineWarning'
+ CONST Class class_Class
+ : Stereotype st_UserType ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4F5E12C20114 // BaloonWarningUserTypes
+ ;
+ : Inherits
+   Seq: ( HWL ME_4DA829BE0146 // WarnRedaction
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( HWL ME_4DA82A6E002E // UseToolbarOfUserTypeName
+ )
+ ; // Attributes
+ CONST "ImageIndex" '-1'
+ CONST "VisibleToUser" false
+ CONST "Weight" '-1'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\BaloonWarningUserTypes_WarnTimeMachineWarning_UserType.pas'
+ CONST extprop:pas:UnitName 'BaloonWarningUserTypes_WarnTimeMachineWarning_UserType'
+
+ref; // ME_4DA82A170063 WarnTimeMachineWarning
+
+FORWARD ME_4DA82A2C0226
+
+: ME_4DA82A4E00FA
+ CONST UID '4DA82A4E00FA'
+ CONST Name 'UseToolbarOfUserTypeName'
+ CONST Class class_Attribute
+ : Stereotype st_link::Attribute ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent HWL ME_4DA82A2C0226 // WarnTimeMachineException
+ ;
+ : Target HWL ME_4F5E13160332 // Fake
+ ;
+
+ref; // ME_4DA82A4E00FA UseToolbarOfUserTypeName
+
+: ME_4DA82A2C0226
+ CONST UID '4DA82A2C0226'
+ CONST Name 'WarnTimeMachineException'
+ CONST Class class_Class
+ : Stereotype st_UserType ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4F5E12C20114 // BaloonWarningUserTypes
+ ;
+ : Inherits
+   Seq: ( HWL ME_4DA82A170063 // WarnTimeMachineWarning
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( HWL ME_4DA82A4E00FA // UseToolbarOfUserTypeName
+ )
+ ; // Attributes
+ CONST "ImageIndex" '-1'
+ CONST "VisibleToUser" false
+ CONST "Weight" '-1'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\BaloonWarningUserTypes_WarnTimeMachineException_UserType.pas'
+ CONST extprop:pas:UnitName 'BaloonWarningUserTypes_WarnTimeMachineException_UserType'
+
+ref; // ME_4DA82A2C0226 WarnTimeMachineException
+
+FORWARD ME_4DB97E660273
+
+: ME_4DB9AFBA027F
+ CONST UID '4DB9AFBA027F'
+ CONST Name 'UseToolbarOfUserTypeName'
+ CONST Class class_Attribute
+ : Stereotype st_link::Attribute ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent HWL ME_4DB97E660273 // remListModified
+ ;
+ : Target HWL ME_4F5E13160332 // Fake
+ ;
+
+ref; // ME_4DB9AFBA027F UseToolbarOfUserTypeName
+
+: ME_4DB97E660273
+ CONST UID '4DB97E660273'
+ CONST Name 'remListModified'
+ CONST Class class_Class
+ : Stereotype st_UserType ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4F5E12C20114 // BaloonWarningUserTypes
+ ;
+ : Inherits
+   Seq: ( HWL ME_4DA82A2C0226 // WarnTimeMachineException
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( HWL ME_4DB9AFBA027F // UseToolbarOfUserTypeName
+ )
+ ; // Attributes
+ CONST "ImageIndex" '-1'
+ CONST "VisibleToUser" false
+ CONST "Weight" '-1'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\BaloonWarningUserTypes_remListModified_UserType.pas'
+ CONST extprop:pas:UnitName 'BaloonWarningUserTypes_remListModified_UserType'
+
+ref; // ME_4DB97E660273 remListModified
+
+FORWARD ME_4DB97E8001AE
+
+: ME_4DB9AFC201F6
+ CONST UID '4DB9AFC201F6'
+ CONST Name 'UseToolbarOfUserTypeName'
+ CONST Class class_Attribute
+ : Stereotype st_link::Attribute ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent HWL ME_4DB97E8001AE // remListFiltered
+ ;
+ : Target HWL ME_4F5E13160332 // Fake
+ ;
+
+ref; // ME_4DB9AFC201F6 UseToolbarOfUserTypeName
+
+: ME_4DB97E8001AE
+ CONST UID '4DB97E8001AE'
+ CONST Name 'remListFiltered'
+ CONST Class class_Class
+ : Stereotype st_UserType ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4F5E12C20114 // BaloonWarningUserTypes
+ ;
+ : Inherits
+   Seq: ( HWL ME_4DB97E660273 // remListModified
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( HWL ME_4DB9AFC201F6 // UseToolbarOfUserTypeName
+ )
+ ; // Attributes
+ CONST "ImageIndex" '-1'
+ CONST "VisibleToUser" false
+ CONST "Weight" '-1'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\BaloonWarningUserTypes_remListFiltered_UserType.pas'
+ CONST extprop:pas:UnitName 'BaloonWarningUserTypes_remListFiltered_UserType'
+
+ref; // ME_4DB97E8001AE remListFiltered
+
+FORWARD ME_4DB97E9400A2
+
+: ME_4DB9AFC9026E
+ CONST UID '4DB9AFC9026E'
+ CONST Name 'UseToolbarOfUserTypeName'
+ CONST Class class_Attribute
+ : Stereotype st_link::Attribute ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent HWL ME_4DB97E9400A2 // remTimeMachineWarning
+ ;
+ : Target HWL ME_4F5E13160332 // Fake
+ ;
+
+ref; // ME_4DB9AFC9026E UseToolbarOfUserTypeName
+
+: ME_4DB97E9400A2
+ CONST UID '4DB97E9400A2'
+ CONST Name 'remTimeMachineWarning'
+ CONST Class class_Class
+ : Stereotype st_UserType ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4F5E12C20114 // BaloonWarningUserTypes
+ ;
+ : Inherits
+   Seq: ( HWL ME_4DB97E8001AE // remListFiltered
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( HWL ME_4DB9AFC9026E // UseToolbarOfUserTypeName
+ )
+ ; // Attributes
+ CONST "ImageIndex" '-1'
+ CONST "VisibleToUser" false
+ CONST "Weight" '-1'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\BaloonWarningUserTypes_remTimeMachineWarning_UserType.pas'
+ CONST extprop:pas:UnitName 'BaloonWarningUserTypes_remTimeMachineWarning_UserType'
+
+ref; // ME_4DB97E9400A2 remTimeMachineWarning
+
+FORWARD ME_4DBFF59201D0
+
+: ME_4DBFF5B3001C
+ CONST UID '4DBFF5B3001C'
+ CONST Name 'UseToolbarOfUserTypeName'
+ CONST Class class_Attribute
+ : Stereotype st_link::Attribute ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent HWL ME_4DBFF59201D0 // remUnreadConsultations
+ ;
+ : Target HWL ME_4F5E13160332 // Fake
+ ;
+
+ref; // ME_4DBFF5B3001C UseToolbarOfUserTypeName
+
+: ME_4DBFF59201D0
+ CONST UID '4DBFF59201D0'
+ CONST Name 'remUnreadConsultations'
+ CONST Class class_Class
+ : Stereotype st_UserType ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4F5E12C20114 // BaloonWarningUserTypes
+ ;
+ : Inherits
+   Seq: ( HWL ME_4DB97E9400A2 // remTimeMachineWarning
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( HWL ME_4DBFF5B3001C // UseToolbarOfUserTypeName
+ )
+ ; // Attributes
+ CONST "ImageIndex" '-1'
+ CONST "VisibleToUser" false
+ CONST "Weight" '-1'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\BaloonWarningUserTypes_remUnreadConsultations_UserType.pas'
+ CONST extprop:pas:UnitName 'BaloonWarningUserTypes_remUnreadConsultations_UserType'
+
+ref; // ME_4DBFF59201D0 remUnreadConsultations
+
+FORWARD ME_4DBFF5D40211
+
+: ME_4DBFF5E602E1
+ CONST UID '4DBFF5E602E1'
+ CONST Name 'UseToolbarOfUserTypeName'
+ CONST Class class_Attribute
+ : Stereotype st_link::Attribute ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent HWL ME_4DBFF5D40211 // remOnlineDead
+ ;
+ : Target HWL ME_4F5E13160332 // Fake
+ ;
+
+ref; // ME_4DBFF5E602E1 UseToolbarOfUserTypeName
+
+: ME_4DBFF5D40211
+ CONST UID '4DBFF5D40211'
+ CONST Name 'remOnlineDead'
+ CONST Class class_Class
+ : Stereotype st_UserType ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4F5E12C20114 // BaloonWarningUserTypes
+ ;
+ : Inherits
+   Seq: ( HWL ME_4DBFF59201D0 // remUnreadConsultations
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( HWL ME_4DBFF5E602E1 // UseToolbarOfUserTypeName
+ )
+ ; // Attributes
+ CONST "ImageIndex" '-1'
+ CONST "VisibleToUser" false
+ CONST "Weight" '-1'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\BaloonWarningUserTypes_remOnlineDead_UserType.pas'
+ CONST extprop:pas:UnitName 'BaloonWarningUserTypes_remOnlineDead_UserType'
+
+ref; // ME_4DBFF5D40211 remOnlineDead
+
+FORWARD ME_4DBFF62502F4
+
+: ME_4DBFF67400DF
+ CONST UID '4DBFF67400DF'
+ CONST Name 'UseToolbarOfUserTypeName'
+ CONST Class class_Attribute
+ : Stereotype st_link::Attribute ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent HWL ME_4DBFF62502F4 // TrialModeWarning
+ ;
+ : Target HWL ME_4F5E13160332 // Fake
+ ;
+
+ref; // ME_4DBFF67400DF UseToolbarOfUserTypeName
+
+: ME_4DBFF62502F4
+ CONST UID '4DBFF62502F4'
+ CONST Name 'TrialModeWarning'
+ CONST Class class_Class
+ : Stereotype st_UserType ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4F5E12C20114 // BaloonWarningUserTypes
+ ;
+ : Inherits
+   Seq: ( HWL ME_4DBFF5D40211 // remOnlineDead
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( HWL ME_4DBFF67400DF // UseToolbarOfUserTypeName
+ )
+ ; // Attributes
+ CONST "ImageIndex" '-1'
+ CONST "VisibleToUser" false
+ CONST "Weight" '-1'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\BaloonWarningUserTypes_TrialModeWarning_UserType.pas'
+ CONST extprop:pas:UnitName 'BaloonWarningUserTypes_TrialModeWarning_UserType'
+
+ref; // ME_4DBFF62502F4 TrialModeWarning
+
+FORWARD ME_4DBFF6CD00D0
+
+: ME_4DBFF6E9021A
+ CONST UID '4DBFF6E9021A'
+ CONST Name 'UseToolbarOfUserTypeName'
+ CONST Class class_Attribute
+ : Stereotype st_link::Attribute ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent HWL ME_4DBFF6CD00D0 // OldBaseWarning
+ ;
+ : Target HWL ME_4F5E13160332 // Fake
+ ;
+
+ref; // ME_4DBFF6E9021A UseToolbarOfUserTypeName
+
+: ME_4DBFF6CD00D0
+ CONST UID '4DBFF6CD00D0'
+ CONST Name 'OldBaseWarning'
+ CONST Class class_Class
+ : Stereotype st_UserType ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4F5E12C20114 // BaloonWarningUserTypes
+ ;
+ : Inherits
+   Seq: ( HWL ME_4DBFF62502F4 // TrialModeWarning
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( HWL ME_4DBFF6E9021A // UseToolbarOfUserTypeName
+ )
+ ; // Attributes
+ CONST "ImageIndex" '-1'
+ CONST "VisibleToUser" false
+ CONST "Weight" '-1'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\BaloonWarningUserTypes_OldBaseWarning_UserType.pas'
+ CONST extprop:pas:UnitName 'BaloonWarningUserTypes_OldBaseWarning_UserType'
+
+ref; // ME_4DBFF6CD00D0 OldBaseWarning
+
+FORWARD ME_4DBFF6FD020F
+
+: ME_4DBFF71502D3
+ CONST UID '4DBFF71502D3'
+ CONST Name 'UseToolbarOfUserTypeName'
+ CONST Class class_Attribute
+ : Stereotype st_link::Attribute ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent HWL ME_4DBFF6FD020F // ControlledChangingWarning
+ ;
+ : Target HWL ME_4F5E13160332 // Fake
+ ;
+
+ref; // ME_4DBFF71502D3 UseToolbarOfUserTypeName
+
+: ME_4DBFF6FD020F
+ CONST UID '4DBFF6FD020F'
+ CONST Name 'ControlledChangingWarning'
+ CONST Class class_Class
+ : Stereotype st_UserType ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4F5E12C20114 // BaloonWarningUserTypes
+ ;
+ : Inherits
+   Seq: ( HWL ME_4DBFF6CD00D0 // OldBaseWarning
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( HWL ME_4DBFF71502D3 // UseToolbarOfUserTypeName
+ )
+ ; // Attributes
+ CONST "ImageIndex" '-1'
+ CONST "VisibleToUser" false
+ CONST "Weight" '-1'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\BaloonWarningUserTypes_ControlledChangingWarning_UserType.pas'
+ CONST extprop:pas:UnitName 'BaloonWarningUserTypes_ControlledChangingWarning_UserType'
+
+ref; // ME_4DBFF6FD020F ControlledChangingWarning
+
+: ME_4F5E12C20114
+ CONST UID '4F5E12C20114'
+ CONST Name 'BaloonWarningUserTypes'
+ CONST Class class_Class
+ : Stereotype st_VCMForm ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent WL 'ME_4A7C0BB70162' '4A7C0BB70162.pas.ms.script' // Base Forms
+ ;
+ : Children
+   Seq: ( HWL ME_4F5E13160332 // Fake
+ HWL ME_4DA825720193 // WarnJuror
+ HWL ME_4DA82956005C // WarnPreActive
+ HWL ME_4DA8296501F2 // WarnIsAbolished
+ HWL ME_4DA8297800F7 // WarnOnControl
+ HWL ME_4DA8298B020E // WarnInactualDocument
+ HWL ME_4DA8299E0144 // WarnTimeMachineOn
+ HWL ME_4DA829BE0146 // WarnRedaction
+ HWL ME_4DA82A170063 // WarnTimeMachineWarning
+ HWL ME_4DA82A2C0226 // WarnTimeMachineException
+ HWL ME_4DB97E660273 // remListModified
+ HWL ME_4DB97E8001AE // remListFiltered
+ HWL ME_4DB97E9400A2 // remTimeMachineWarning
+ HWL ME_4DBFF59201D0 // remUnreadConsultations
+ HWL ME_4DBFF5D40211 // remOnlineDead
+ HWL ME_4DBFF62502F4 // TrialModeWarning
+ HWL ME_4DBFF6CD00D0 // OldBaseWarning
+ HWL ME_4DBFF6FD020F // ControlledChangingWarning
+ )
+ ; // Children
+ CONST "NeedsHackRef" true
+ CONST "ZoneType" 'Any'
+ CONST "finished dfm" true
+ CONST "resizeable" false
+ CONST "restrict form def" 'undefined'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\BaloonWarningUserTypes.imp.pas'
+ CONST extprop:pas:TypeName '_BaloonWarningUserTypes_'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'BaloonWarningUserTypes.imp'
+
+ref; // ME_4F5E12C20114 BaloonWarningUserTypes

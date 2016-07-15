@@ -9,7 +9,7 @@ FORWARD ME_4889E960019F
 : ME_488DCB920012
  CONST Class class_Dependency
  : Stereotype st_friend::Dependency ;
- : Parent ME_4889E960019F // StoreSettingsToServer
+ : Parent HWL ME_4889E960019F // StoreSettingsToServer
  ;
 
 ref; // ME_488DCB920012 
@@ -23,7 +23,7 @@ ref; // ME_488DCB920012
  %SUMMARY 'класс периодически сбрасывающий изменЄнные настройки на сервер' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_45EEAA6E01A9 // Settings_i
+ : Parent HWL ME_45EEAA6E01A9 // Settings_i
  ;
  : Dependencies
    Seq: ( ME_488DCB920012 // ConfigurationManager_i
@@ -46,7 +46,7 @@ FORWARD ME_488DD13303A4
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_488DD13303A4 // ServerSettingData
+ : Parent HWL ME_488DD13303A4 // ServerSettingData
  ;
  : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
  ;
@@ -60,7 +60,7 @@ ref; // ME_488DD16702A2 conf_id
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_488DD13303A4 // ServerSettingData
+ : Parent HWL ME_488DD13303A4 // ServerSettingData
  ;
  : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
  ;
@@ -74,7 +74,7 @@ ref; // ME_488DD18301C9 prop_id
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_488DD13303A4 // ServerSettingData
+ : Parent HWL ME_488DD13303A4 // ServerSettingData
  ;
 
 ref; // ME_488DD19C0358 prop_value
@@ -86,7 +86,7 @@ ref; // ME_488DD19C0358 prop_value
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_488DD13303A4 // ServerSettingData
+ : Parent HWL ME_488DD13303A4 // ServerSettingData
  ;
  : Target WL 'ME_3DBFFD860205' '3DBFDB23006E.pas.ms.script' // long long
  ;
@@ -119,7 +119,7 @@ ref; // ME_489816FE0200 prop
  %SUMMARY 'используетс€ дл€ поиска элемента в кешированных данных' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_488DD13303A4 // ServerSettingData
+ : Parent HWL ME_488DD13303A4 // ServerSettingData
  ;
  : Parameters
    Seq: ( ME_489816FE01BE // conf
@@ -138,17 +138,17 @@ ref; // ME_489816C3023E ctor
  %SUMMARY 'данные дл€ сохранени€ настройки на сервере' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_45EEAA6E01A9 // Settings_i
+ : Parent HWL ME_45EEAA6E01A9 // Settings_i
  ;
  : Attributes
-   Seq: ( ME_488DD16702A2 // conf_id
- ME_488DD18301C9 // prop_id
- ME_488DD19C0358 // prop_value
- ME_488DD1A9000F // time
+   Seq: ( HWL ME_488DD16702A2 // conf_id
+ HWL ME_488DD18301C9 // prop_id
+ HWL ME_488DD19C0358 // prop_value
+ HWL ME_488DD1A9000F // time
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_489816C3023E // ctor
+   Seq: ( HWL ME_489816C3023E // ctor
  )
  ; // Operations
  CONST "Need init ctor" true
@@ -164,9 +164,9 @@ FORWARD ME_488DD1E30293
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_488DD1E30293 // CachedDataForServer
+ : Parent HWL ME_488DD1E30293 // CachedDataForServer
  ;
- : Target ME_488DD13303A4 // ServerSettingData
+ : Target HWL ME_488DD13303A4 // ServerSettingData
  ;
 
 ref; // ME_488DD2830065 
@@ -180,10 +180,10 @@ ref; // ME_488DD2830065
  %SUMMARY 'данные дл€ отправки на сервер' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_45EEAA6E01A9 // Settings_i
+ : Parent HWL ME_45EEAA6E01A9 // Settings_i
  ;
  : Attributes
-   Seq: ( ME_488DD2830065 // 
+   Seq: ( HWL ME_488DD2830065 // 
  )
  ; // Attributes
  CONST "array type" 'dynamic'
@@ -200,7 +200,7 @@ FORWARD ME_4898316C03A1
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4898316C03A1 // SettingsSaveStrategy
+ : Parent HWL ME_4898316C03A1 // SettingsSaveStrategy
  ;
 
 ref; // ME_489831930115 SSS_INTIME
@@ -213,7 +213,7 @@ ref; // ME_489831930115 SSS_INTIME
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4898316C03A1 // SettingsSaveStrategy
+ : Parent HWL ME_4898316C03A1 // SettingsSaveStrategy
  ;
 
 ref; // ME_489831C2011C SSS_CACHE
@@ -226,7 +226,7 @@ ref; // ME_489831C2011C SSS_CACHE
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4898316C03A1 // SettingsSaveStrategy
+ : Parent HWL ME_4898316C03A1 // SettingsSaveStrategy
  ;
 
 ref; // ME_489831DE03E0 SSS_NOTSAVE
@@ -240,12 +240,12 @@ ref; // ME_489831DE03E0 SSS_NOTSAVE
  %SUMMARY 'стратеги€ сохранени€ настроек' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_45EEAA6E01A9 // Settings_i
+ : Parent HWL ME_45EEAA6E01A9 // Settings_i
  ;
  : Attributes
-   Seq: ( ME_489831930115 // SSS_INTIME
- ME_489831C2011C // SSS_CACHE
- ME_489831DE03E0 // SSS_NOTSAVE
+   Seq: ( HWL ME_489831930115 // SSS_INTIME
+ HWL ME_489831C2011C // SSS_CACHE
+ HWL ME_489831DE03E0 // SSS_NOTSAVE
  )
  ; // Attributes
  CONST extprop:pas:TypeName 'TSettingsSaveStrategy'
@@ -263,7 +263,7 @@ FORWARD ME_488EBACB0163
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_488EBACB0163 // ServerCacheValues
+ : Parent HWL ME_488EBACB0163 // ServerCacheValues
  ;
  : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
  ;
@@ -285,7 +285,7 @@ ref; // ME_488EBB03035A DELTA_OPTION_NAME
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_488EBACB0163 // ServerCacheValues
+ : Parent HWL ME_488EBACB0163 // ServerCacheValues
  ;
  : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
  ;
@@ -308,11 +308,11 @@ ref; // ME_488EBB8B0014 DELTA_OPTION_VALUE
  %SUMMARY 'константы, св€занные с использованием кеша настроек дл€ сбрасывани€ на сервер. ≈сли таймаут меньше нул€, настройеки на сервер вообще не пишутс€, если равен нулю, то пишутс€ сразу без использовани€ кеша' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_45EEAA6E01A9 // Settings_i
+ : Parent HWL ME_45EEAA6E01A9 // Settings_i
  ;
  : Attributes
-   Seq: ( ME_488EBB03035A // DELTA_OPTION_NAME
- ME_488EBB8B0014 // DELTA_OPTION_VALUE
+   Seq: ( HWL ME_488EBB03035A // DELTA_OPTION_NAME
+ HWL ME_488EBB8B0014 // DELTA_OPTION_VALUE
  )
  ; // Attributes
  CONST "spell names" false
@@ -329,14 +329,14 @@ ref; // ME_488EBACB0163 ServerCacheValues
  : Parent WL 'ME_456EA3D2031C' '456EA3D2031C.pas.ms.script' // GblAdapterLib
  ;
  : Children
-   Seq: ( ME_4889E960019F // StoreSettingsToServer
- ME_488DD13303A4 // ServerSettingData
- ME_488DD1E30293 // CachedDataForServer
- ME_4898316C03A1 // SettingsSaveStrategy
+   Seq: ( HWL ME_4889E960019F // StoreSettingsToServer
+ HWL ME_488DD13303A4 // ServerSettingData
+ HWL ME_488DD1E30293 // CachedDataForServer
+ HWL ME_4898316C03A1 // SettingsSaveStrategy
  )
  ; // Children
  : Constants
-   Seq: ( ME_488EBACB0163 // ServerCacheValues
+   Seq: ( HWL ME_488EBACB0163 // ServerCacheValues
  )
  ; // Constants
  : Depends

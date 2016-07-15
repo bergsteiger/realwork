@@ -2,39 +2,6 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-FORWARD ME_4ABCFA76015C
-
-: ME_4ABCFAE400A8
- CONST UID '4ABCFAE400A8'
- CONST Name 'Consultations'
- CONST Class class_Class
- : Stereotype st_VCMUseCaseRealization ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Консультации' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4ABCFA76015C // Consultation
- ;
- : Inherits
-   Seq: ( WL 'ME_4ABCFB7F017B' '4ABCFB650008.pas.ms.script' // Consultation$FP
- )
- ; // Inherits
- : Implements
-   Seq: ( WL 'ME_484E638701D9' '484E610E0335.pas.ms.script' // Консультации
- )
- ; // Implements
- CONST "author" 'Люлин А.В.'
- CONST "no hands" true
- CONST "started" '25.09.2009 21:16'
- CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\moConsultations.pas'
- CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
- CONST extprop:pas:TypeName 'Tmo_Consultations'
- CONST extprop:rc:SelfName 'mo_Consultations'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'moConsultations'
-
-ref; // ME_4ABCFAE400A8 Consultations$UC
-
 : ME_4ABCFA76015C
  CONST UID '4ABCFA76015C'
  CONST Name 'Consultation'
@@ -46,7 +13,7 @@ ref; // ME_4ABCFAE400A8 Consultations$UC
  : Parent WL 'ME_4C852A4201E6' '4C852A4201E6.pas.ms.script' // F1 Пользовательские сервисы
  ;
  : Children
-   Seq: ( ME_4ABCFAE400A8 // Consultations$UC
+   Seq: ( WL 'ME_4ABCFAE400A8' '4ABCFAE400A8.pas.ms.script' // Consultations$UC
  WL 'ME_4CF380E402F8' '4CF380E402F8.pas.ms.script' // Consultation$View
  WL 'ME_493FCF1E03DC' '493FCF1E03DC.pas.ms.script' // Consultation
  WL 'ME_4ABCFB180302' '4ABCFB180302.pas.ms.script' // View
@@ -57,7 +24,6 @@ ref; // ME_4ABCFAE400A8 Consultations$UC
  WL 'ME_447878770121' '447878770121.pas.ms.script' // GCI
  WL 'ME_456EA3D2031C' '456EA3D2031C.pas.ms.script' // GblAdapterLib
  WL 'ME_4677E16A022A' '4677E16A022A.pas.ms.script' // K2
- WL 'ME_467A75D90346' '467A75D90346.pas.ms.script' // VT
  WL 'ME_467A8734039C' '467A8734039C.pas.ms.script' // EVD
  WL 'ME_4680E7D50168' '4680E7D50168.pas.ms.script' // Everest Engine
  WL 'ME_4684F91300DD' '4684F91300DD.pas.ms.script' // Vcl
@@ -75,7 +41,6 @@ ref; // ME_4ABCFAE400A8 Consultations$UC
  WL 'ME_4A92C561015D' '4A92C561015D.pas.ms.script' // Common
  WL 'ME_4E13416D0227' '4E13416D0227.pas.ms.script' // VCM$Visual
  WL 'ME_4E2F0E1B03BB' '4E2F0E1B03BB.pas.ms.script' // L3$Domain
- WL 'ME_547CC9D40158' '547CC9D40158.pas.ms.script' // VT$Panels
  )
  ; // Depends
  CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis'

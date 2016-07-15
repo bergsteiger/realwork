@@ -1,0 +1,34 @@
+// Admin$UC 4AA5122E03B2 VCMUseCaseRealization Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+: ME_4AA5122E03B2
+ CONST UID '4AA5122E03B2'
+ CONST Name 'Admin'
+ CONST Class class_Class
+ : Stereotype st_VCMUseCaseRealization ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Администрирование пользователей' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent WL 'ME_4954D3580364' '4954D3580364.pas.ms.script' // Admin
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4AA5120303E5' '4AA5120303E5.pas.ms.script' // Admin
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_484F8C0C0359' '481F0CA6017E.pas.ms.script' // Администрирование пользователей
+ )
+ ; // Implements
+ CONST "author" 'Люлин А.В.'
+ CONST "no hands" true
+ CONST "started" '10.09.2009 16:00'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\moAdmin.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST extprop:pas:TypeName 'Tmo_Admin'
+ CONST extprop:rc:SelfName 'mo_Admin'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'moAdmin'
+
+ref; // ME_4AA5122E03B2 Admin$UC

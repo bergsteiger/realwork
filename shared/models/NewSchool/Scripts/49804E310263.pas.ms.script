@@ -13,7 +13,7 @@ FORWARD ME_49804E6D0363
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_49804E6D0363 // TnsTurnOnTimeMachineOperation
+ : Parent HWL ME_49804E6D0363 // TnsTurnOnTimeMachineOperation
  ;
 
 ref; // ME_49804E81039D ns_ontmDateOp
@@ -25,7 +25,7 @@ ref; // ME_49804E81039D ns_ontmDateOp
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_49804E6D0363 // TnsTurnOnTimeMachineOperation
+ : Parent HWL ME_49804E6D0363 // TnsTurnOnTimeMachineOperation
  ;
 
 ref; // ME_49804E8701E1 ns_ontmCurrentRedactionOp
@@ -39,11 +39,11 @@ ref; // ME_49804E8701E1 ns_ontmCurrentRedactionOp
  %SUMMARY 'Операции используемые при включении машины времени' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_49804E310263 // PresentationInterfaces
+ : Parent HWL ME_49804E310263 // PresentationInterfaces
  ;
  : Attributes
-   Seq: ( ME_49804E81039D // ns_ontmDateOp
- ME_49804E8701E1 // ns_ontmCurrentRedactionOp
+   Seq: ( HWL ME_49804E81039D // ns_ontmDateOp
+ HWL ME_49804E8701E1 // ns_ontmCurrentRedactionOp
  )
  ; // Attributes
  CONST extprop:rc:isAcceptableForScripts true
@@ -58,10 +58,10 @@ ref; // ME_49804E6D0363 TnsTurnOnTimeMachineOperation
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_49804E310263 // PresentationInterfaces
+ : Parent HWL ME_49804E310263 // PresentationInterfaces
  ;
  : Inherits
-   Seq: ( ME_49804E6D0363 // TnsTurnOnTimeMachineOperation
+   Seq: ( HWL ME_49804E6D0363 // TnsTurnOnTimeMachineOperation
  )
  ; // Inherits
 
@@ -78,9 +78,9 @@ FORWARD ME_49804EA70373
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_49804EA70373 // InsTurnOnTimeMachine
+ : Parent HWL ME_49804EA70373 // InsTurnOnTimeMachine
  ;
- : Target ME_49804E940321 // TnsTurnOnTimeMachineOperations
+ : Target HWL ME_49804E940321 // TnsTurnOnTimeMachineOperations
  ;
  CONST "pm" false
 
@@ -102,7 +102,7 @@ ref; // ME_4A76E3C50280 aDate
  %SUMMARY 'включить на дату' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_49804EA70373 // InsTurnOnTimeMachine
+ : Parent HWL ME_49804EA70373 // InsTurnOnTimeMachine
  ;
  : Parameters
    Seq: ( ME_4A76E3C50280 // aDate
@@ -118,7 +118,7 @@ ref; // ME_49804EB60303 OnDate
  %SUMMARY 'включить с начала действия текущей редакции' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_49804EA70373 // InsTurnOnTimeMachine
+ : Parent HWL ME_49804EA70373 // InsTurnOnTimeMachine
  ;
 
 ref; // ME_49804ED003A8 OnCurrentRedaction
@@ -133,15 +133,15 @@ ref; // ME_49804ED003A8 OnCurrentRedaction
  %SUMMARY 'Включить машину времени' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_49804E310263 // PresentationInterfaces
+ : Parent HWL ME_49804E310263 // PresentationInterfaces
  ;
  : Attributes
-   Seq: ( ME_49805F2C0082 // DisableOps
+   Seq: ( HWL ME_49805F2C0082 // DisableOps
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_49804EB60303 // OnDate
- ME_49804ED003A8 // OnCurrentRedaction
+   Seq: ( HWL ME_49804EB60303 // OnDate
+ HWL ME_49804ED003A8 // OnCurrentRedaction
  )
  ; // Operations
  CONST extprop:rc:SelfName 'TurnOnTimeMachine'
@@ -158,7 +158,7 @@ FORWARD ME_49805E8F00F1
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_49805E8F00F1 // TnsTurnOffTimeMachineOperation
+ : Parent HWL ME_49805E8F00F1 // TnsTurnOffTimeMachineOperation
  ;
 
 ref; // ME_49805EA301FB ns_offtmGotoActualRedaction
@@ -170,7 +170,7 @@ ref; // ME_49805EA301FB ns_offtmGotoActualRedaction
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_49805E8F00F1 // TnsTurnOffTimeMachineOperation
+ : Parent HWL ME_49805E8F00F1 // TnsTurnOffTimeMachineOperation
  ;
 
 ref; // ME_49805EAB02C5 ns_offtmStayInCurrentRedaction
@@ -182,7 +182,7 @@ ref; // ME_49805EAB02C5 ns_offtmStayInCurrentRedaction
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_49805E8F00F1 // TnsTurnOffTimeMachineOperation
+ : Parent HWL ME_49805E8F00F1 // TnsTurnOffTimeMachineOperation
  ;
 
 ref; // ME_49805EB101F5 ns_offtmChangeDate
@@ -196,12 +196,12 @@ ref; // ME_49805EB101F5 ns_offtmChangeDate
  %SUMMARY 'Операции используемые при выключении машины времени' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_49804E310263 // PresentationInterfaces
+ : Parent HWL ME_49804E310263 // PresentationInterfaces
  ;
  : Attributes
-   Seq: ( ME_49805EA301FB // ns_offtmGotoActualRedaction
- ME_49805EAB02C5 // ns_offtmStayInCurrentRedaction
- ME_49805EB101F5 // ns_offtmChangeDate
+   Seq: ( HWL ME_49805EA301FB // ns_offtmGotoActualRedaction
+ HWL ME_49805EAB02C5 // ns_offtmStayInCurrentRedaction
+ HWL ME_49805EB101F5 // ns_offtmChangeDate
  )
  ; // Attributes
  CONST extprop:rc:isAcceptableForScripts true
@@ -216,10 +216,10 @@ ref; // ME_49805E8F00F1 TnsTurnOffTimeMachineOperation
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_49804E310263 // PresentationInterfaces
+ : Parent HWL ME_49804E310263 // PresentationInterfaces
  ;
  : Inherits
-   Seq: ( ME_49805E8F00F1 // TnsTurnOffTimeMachineOperation
+   Seq: ( HWL ME_49805E8F00F1 // TnsTurnOffTimeMachineOperation
  )
  ; // Inherits
 
@@ -236,9 +236,9 @@ FORWARD ME_49805ECD020F
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_49805ECD020F // InsTurnOffTimeMachine
+ : Parent HWL ME_49805ECD020F // InsTurnOffTimeMachine
  ;
- : Target ME_49805EBE036E // TnsTurnOffTimeMachineOperations
+ : Target HWL ME_49805EBE036E // TnsTurnOffTimeMachineOperations
  ;
  CONST "pm" false
 
@@ -251,7 +251,7 @@ ref; // ME_49805F190314 DisableOps
  %SUMMARY 'выключить и перейти в актуальную редакцию' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_49805ECD020F // InsTurnOffTimeMachine
+ : Parent HWL ME_49805ECD020F // InsTurnOffTimeMachine
  ;
 
 ref; // ME_49805EED0054 GotoActualRedaction
@@ -263,7 +263,7 @@ ref; // ME_49805EED0054 GotoActualRedaction
  %SUMMARY 'выключить и остаться в текущей редакции' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_49805ECD020F // InsTurnOffTimeMachine
+ : Parent HWL ME_49805ECD020F // InsTurnOffTimeMachine
  ;
 
 ref; // ME_49805EFF013C StayInCurrentRedaction
@@ -284,7 +284,7 @@ ref; // ME_49805F170081 aDate
  %SUMMARY 'изменить' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_49805ECD020F // InsTurnOffTimeMachine
+ : Parent HWL ME_49805ECD020F // InsTurnOffTimeMachine
  ;
  : Parameters
    Seq: ( ME_49805F170081 // aDate
@@ -303,16 +303,16 @@ ref; // ME_49805F0D0221 ChangeDate
  %SUMMARY 'Выключить машину времени' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_49804E310263 // PresentationInterfaces
+ : Parent HWL ME_49804E310263 // PresentationInterfaces
  ;
  : Attributes
-   Seq: ( ME_49805F190314 // DisableOps
+   Seq: ( HWL ME_49805F190314 // DisableOps
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_49805EED0054 // GotoActualRedaction
- ME_49805EFF013C // StayInCurrentRedaction
- ME_49805F0D0221 // ChangeDate
+   Seq: ( HWL ME_49805EED0054 // GotoActualRedaction
+ HWL ME_49805EFF013C // StayInCurrentRedaction
+ HWL ME_49805F0D0221 // ChangeDate
  )
  ; // Operations
  CONST extprop:rc:SelfName 'TurnOffTimeMachine'
@@ -330,7 +330,7 @@ FORWARD ME_496B58F900AA
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_496B58F900AA // TnsSaveDialogKind
+ : Parent HWL ME_496B58F900AA // TnsSaveDialogKind
  ;
 
 ref; // ME_49903718025B ns_sdkSimple
@@ -343,7 +343,7 @@ ref; // ME_49903718025B ns_sdkSimple
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_496B58F900AA // TnsSaveDialogKind
+ : Parent HWL ME_496B58F900AA // TnsSaveDialogKind
  ;
 
 ref; // ME_4990372300D3 ns_sdkDocument
@@ -356,7 +356,7 @@ ref; // ME_4990372300D3 ns_sdkDocument
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_496B58F900AA // TnsSaveDialogKind
+ : Parent HWL ME_496B58F900AA // TnsSaveDialogKind
  ;
 
 ref; // ME_4990372C01D2 ns_sdkList
@@ -369,7 +369,7 @@ ref; // ME_4990372C01D2 ns_sdkList
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_496B58F900AA // TnsSaveDialogKind
+ : Parent HWL ME_496B58F900AA // TnsSaveDialogKind
  ;
 
 ref; // ME_49903735020E ns_sdkListInternal
@@ -383,13 +383,13 @@ ref; // ME_49903735020E ns_sdkListInternal
  %SUMMARY 'Типы диалогов сохранения' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_49804E310263 // PresentationInterfaces
+ : Parent HWL ME_49804E310263 // PresentationInterfaces
  ;
  : Attributes
-   Seq: ( ME_49903718025B // ns_sdkSimple
- ME_4990372300D3 // ns_sdkDocument
- ME_4990372C01D2 // ns_sdkList
- ME_49903735020E // ns_sdkListInternal
+   Seq: ( HWL ME_49903718025B // ns_sdkSimple
+ HWL ME_4990372300D3 // ns_sdkDocument
+ HWL ME_4990372C01D2 // ns_sdkList
+ HWL ME_49903735020E // ns_sdkListInternal
  )
  ; // Attributes
  CONST extprop:rc:isAcceptableForScripts true
@@ -406,7 +406,7 @@ FORWARD ME_4990374602FC
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4990374602FC // TnsSaveDialogListTarget
+ : Parent HWL ME_4990374602FC // TnsSaveDialogListTarget
  ;
 
 ref; // ME_499037520133 ns_sdlkTitles
@@ -419,7 +419,7 @@ ref; // ME_499037520133 ns_sdlkTitles
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4990374602FC // TnsSaveDialogListTarget
+ : Parent HWL ME_4990374602FC // TnsSaveDialogListTarget
  ;
 
 ref; // ME_4990375B0040 ns_sdlkContents
@@ -432,7 +432,7 @@ ref; // ME_4990375B0040 ns_sdlkContents
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4990374602FC // TnsSaveDialogListTarget
+ : Parent HWL ME_4990374602FC // TnsSaveDialogListTarget
  ;
 
 ref; // ME_49903763029A ns_sdlkIdentifiers
@@ -446,12 +446,12 @@ ref; // ME_49903763029A ns_sdlkIdentifiers
  %SUMMARY 'Что сохранять для списка' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_49804E310263 // PresentationInterfaces
+ : Parent HWL ME_49804E310263 // PresentationInterfaces
  ;
  : Attributes
-   Seq: ( ME_499037520133 // ns_sdlkTitles
- ME_4990375B0040 // ns_sdlkContents
- ME_49903763029A // ns_sdlkIdentifiers
+   Seq: ( HWL ME_499037520133 // ns_sdlkTitles
+ HWL ME_4990375B0040 // ns_sdlkContents
+ HWL ME_49903763029A // ns_sdlkIdentifiers
  )
  ; // Attributes
  CONST extprop:rc:isAcceptableForScripts true
@@ -476,7 +476,7 @@ ref; // ME_4990378703C7 aHeight
  %SUMMARY 'корректирует при необходимости высоту дочерней зоны' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_499037730242 // InsMainFormChildZoneManager
+ : Parent HWL ME_499037730242 // InsMainFormChildZoneManager
  ;
  : Parameters
    Seq: ( ME_4990378703C7 // aHeight
@@ -495,10 +495,10 @@ ref; // ME_499037820017 CorrectHeight
  %SUMMARY 'Для управления дочерней зоной главной формой' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_49804E310263 // PresentationInterfaces
+ : Parent HWL ME_49804E310263 // PresentationInterfaces
  ;
  : Operations
-   Seq: ( ME_499037820017 // CorrectHeight
+   Seq: ( HWL ME_499037820017 // CorrectHeight
  )
  ; // Operations
  CONST extprop:rc:SelfName 'MainFormChildZoneManager'
@@ -517,15 +517,15 @@ ref; // ME_499037730242 InsMainFormChildZoneManager
  : Parent WL 'ME_4F6B660100D5' '4F6B660100D5.pas.ms.script' // View
  ;
  : Children
-   Seq: ( ME_49804E6D0363 // TnsTurnOnTimeMachineOperation
- ME_49804E940321 // TnsTurnOnTimeMachineOperations
- ME_49804EA70373 // InsTurnOnTimeMachine
- ME_49805E8F00F1 // TnsTurnOffTimeMachineOperation
- ME_49805EBE036E // TnsTurnOffTimeMachineOperations
- ME_49805ECD020F // InsTurnOffTimeMachine
- ME_496B58F900AA // TnsSaveDialogKind
- ME_4990374602FC // TnsSaveDialogListTarget
- ME_499037730242 // InsMainFormChildZoneManager
+   Seq: ( HWL ME_49804E6D0363 // TnsTurnOnTimeMachineOperation
+ HWL ME_49804E940321 // TnsTurnOnTimeMachineOperations
+ HWL ME_49804EA70373 // InsTurnOnTimeMachine
+ HWL ME_49805E8F00F1 // TnsTurnOffTimeMachineOperation
+ HWL ME_49805EBE036E // TnsTurnOffTimeMachineOperations
+ HWL ME_49805ECD020F // InsTurnOffTimeMachine
+ HWL ME_496B58F900AA // TnsSaveDialogKind
+ HWL ME_4990374602FC // TnsSaveDialogListTarget
+ HWL ME_499037730242 // InsMainFormChildZoneManager
  )
  ; // Children
  : Depends

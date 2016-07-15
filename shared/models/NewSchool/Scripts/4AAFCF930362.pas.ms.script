@@ -1,0 +1,85 @@
+// Picture 4AAFCF930362 VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AAFCF930362
+
+: ME_6CFD2C21BC7B
+ CONST UID '6CFD2C21BC7B'
+ CONST GUID '9794D84D-10DE-4BC6-A05D-F4C88FBEEBC7'
+ CONST Name 'Picture'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_VCMFormDefinition ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Идентификатор формы Picture' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4AAFCF930362 // Picture
+ ;
+ : Implementors
+   Seq: ( HWL ME_4AAFCF930362 // Picture
+ )
+ ; // Implementors
+ CONST extprop:pas:TypeName 'PictureFormDef'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_6CFD2C21BC7B Picture$Def
+
+: ME_7171E291CB0D
+ CONST UID '7171E291CB0D'
+ CONST Name 'Ini_FormFactory_Picture'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы Picture' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AAFCF930362 // Picture
+ ;
+ : SpelledFor HWL ME_4AAFCF930362 // Picture
+ ;
+
+ref; // ME_7171E291CB0D Ini_FormFactory_Picture$Def
+
+: ME_4AAFCF930362
+ CONST UID '4AAFCF930362'
+ CONST Name 'Picture'
+ CONST Class class_Class
+ : Stereotype st_VCMFinalForm ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Рисунок' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent WL 'ME_498B135601B6' '498B135601B6.pas.ms.script' // Document
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4C8768010125' '4C8768010125.pas.ms.script' // PrimPictureOptions
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( HWL ME_6CFD2C21BC7B // Picture$Def
+ )
+ ; // Implements
+ : Operations
+   Seq: ( HWL ME_7171E291CB0D // Ini_FormFactory_Picture$Def
+ )
+ ; // Operations
+ : Children
+   Seq: ( HWL ME_6CFD2C21BC7B // Picture$Def
+ )
+ ; // Children
+ CONST "NeedsHackRef" true
+ CONST "ZoneType" 'Parent'
+ CONST "finished dfm" true
+ CONST "need UC" true
+ CONST "resizeable" false
+ CONST "restrict form def" 'undefined'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\Picture_Form.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms'
+ CONST extprop:pas:TypeName 'TPictureForm'
+ CONST extprop:rc:SelfName 'PictureForm'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'Picture_Form'
+
+ref; // ME_4AAFCF930362 Picture

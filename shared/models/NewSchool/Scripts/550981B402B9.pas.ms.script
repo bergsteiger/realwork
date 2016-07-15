@@ -14,7 +14,7 @@ FORWARD ME_550981CC01F6
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_550981CC01F6 // IhtParamsStorage
+ : Parent HWL ME_550981CC01F6 // IhtParamsStorage
  ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
@@ -30,7 +30,7 @@ ref; // ME_550981E5026A StationName
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_550981CC01F6 // IhtParamsStorage
+ : Parent HWL ME_550981CC01F6 // IhtParamsStorage
  ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
@@ -46,7 +46,7 @@ ref; // ME_550981FF0138 TablePath
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_550981CC01F6 // IhtParamsStorage
+ : Parent HWL ME_550981CC01F6 // IhtParamsStorage
  ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
@@ -62,7 +62,7 @@ ref; // ME_550982210098 LockPath
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_550981CC01F6 // IhtParamsStorage
+ : Parent HWL ME_550981CC01F6 // IhtParamsStorage
  ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
@@ -76,7 +76,7 @@ ref; // ME_550982360334 TempPath
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_550981CC01F6 // IhtParamsStorage
+ : Parent HWL ME_550981CC01F6 // IhtParamsStorage
  ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
@@ -89,7 +89,7 @@ ref; // ME_5512621F0352 StationErrorMessage
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_550981CC01F6 // IhtParamsStorage
+ : Parent HWL ME_550981CC01F6 // IhtParamsStorage
  ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
@@ -102,7 +102,7 @@ ref; // ME_551262410001 TablePathErrorMessage
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_550981CC01F6 // IhtParamsStorage
+ : Parent HWL ME_550981CC01F6 // IhtParamsStorage
  ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
@@ -186,23 +186,23 @@ ref; // ME_5756BD40014A_ME_550981CC01F6 DocImageCachePath
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_550981B402B9 // htInterfaces
+ : Parent HWL ME_550981B402B9 // htInterfaces
  ;
  : Inherits
    Seq: ( WL 'ME_5507D90F00D2' '5432518A0316.pas.ms.script' // IdaParamsStorage
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_550981E5026A // StationName
- ME_550981FF0138 // TablePath
- ME_550982210098 // LockPath
- ME_550982360334 // TempPath
+   Seq: ( HWL ME_550981E5026A // StationName
+ HWL ME_550981FF0138 // TablePath
+ HWL ME_550982210098 // LockPath
+ HWL ME_550982360334 // TempPath
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_5512621F0352 // StationErrorMessage
- ME_551262410001 // TablePathErrorMessage
- ME_551262530061 // LockPathErrorMessage
+   Seq: ( HWL ME_5512621F0352 // StationErrorMessage
+ HWL ME_551262410001 // TablePathErrorMessage
+ HWL ME_551262530061 // LockPathErrorMessage
  )
  ; // Operations
  : Implemented
@@ -240,7 +240,7 @@ ref; // ME_555EF81501E3 aTable
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_555EF7B1002F // IhtDataSchemeHelper
+ : Parent HWL ME_555EF7B1002F // IhtDataSchemeHelper
  ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
@@ -266,7 +266,7 @@ ref; // ME_555EF83302FB aTable
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_555EF7B1002F // IhtDataSchemeHelper
+ : Parent HWL ME_555EF7B1002F // IhtDataSchemeHelper
  ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
@@ -277,32 +277,6 @@ ref; // ME_555EF83302FB aTable
 
 ref; // ME_555EF81A03BF TablePassword
 
-: ME_555EF84902AA
- CONST Name 'aTable'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_55377C9C0289' '5432448401BC.pas.ms.script' // TdaTables
- ;
-
-ref; // ME_555EF84902AA aTable
-
-: ME_555EF83803BE
- CONST UID '555EF83803BE'
- CONST Name 'TableFamily'
- CONST Class class_Operation
- CONST Visibility PublicAccess
- CONST Abstraction at_abstract
- : Parent ME_555EF7B1002F // IhtDataSchemeHelper
- ;
- : Target WL 'ME_551E7DD302E0' '5432448401BC.pas.ms.script' // TdaFamilyID
- ;
- : Parameters
-   Seq: ( ME_555EF84902AA // aTable
- )
- ; // Parameters
-
-ref; // ME_555EF83803BE TableFamily
-
 : ME_555EF7B1002F
  CONST UID '555EF7B1002F'
  CONST GUID '49B4A6A6-2FE1-4E28-BCD6-101B2639CC07'
@@ -312,12 +286,11 @@ ref; // ME_555EF83803BE TableFamily
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_550981B402B9 // htInterfaces
+ : Parent HWL ME_550981B402B9 // htInterfaces
  ;
  : Operations
-   Seq: ( ME_555EF7F5009F // TableFullPath
- ME_555EF81A03BF // TablePassword
- ME_555EF83803BE // TableFamily
+   Seq: ( HWL ME_555EF7F5009F // TableFullPath
+ HWL ME_555EF81A03BF // TablePassword
  )
  ; // Operations
  CONST extprop:rc:SelfName 'htDataSchemeHelper'
@@ -335,7 +308,7 @@ FORWARD ME_555C848200DA
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_555C848200DA // IhtFromTable
+ : Parent HWL ME_555C848200DA // IhtFromTable
  ;
  : Target WL 'ME_555C84FC0026' '555331D10378.pas.ms.script' // ThtTblHandle
  ;
@@ -347,7 +320,7 @@ ref; // ME_555C8490016F Handle
  CONST Name 'aHelper'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_555EF7B1002F // IhtDataSchemeHelper
+ : Target HWL ME_555EF7B1002F // IhtDataSchemeHelper
  ;
 
 ref; // ME_555EF86C012C aHelper
@@ -367,7 +340,7 @@ ref; // ME_555C91D40222 RequireNewHandle
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_555C848200DA // IhtFromTable
+ : Parent HWL ME_555C848200DA // IhtFromTable
  ;
  : Parameters
    Seq: ( ME_555EF86C012C // aHelper
@@ -377,27 +350,14 @@ ref; // ME_555C91D40222 RequireNewHandle
 
 ref; // ME_555C91AF003A Prepare
 
-: ME_555EFFB70089
- CONST Name 'aHelper'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target ME_555EF7B1002F // IhtDataSchemeHelper
- ;
-
-ref; // ME_555EFFB70089 aHelper
-
 : ME_555C91D8022C
  CONST UID '555C91D8022C'
  CONST Name 'Unprepare'
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_555C848200DA // IhtFromTable
+ : Parent HWL ME_555C848200DA // IhtFromTable
  ;
- : Parameters
-   Seq: ( ME_555EFFB70089 // aHelper
- )
- ; // Parameters
 
 ref; // ME_555C91D8022C Unprepare
 
@@ -424,19 +384,19 @@ ref; // ME_555363590242_ME_555C848200DA Table
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_550981B402B9 // htInterfaces
+ : Parent HWL ME_550981B402B9 // htInterfaces
  ;
  : Inherits
    Seq: ( WL 'ME_555303840193' '5432518A0316.pas.ms.script' // IdaFromTable
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_555C8490016F // Handle
+   Seq: ( HWL ME_555C8490016F // Handle
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_555C91AF003A // Prepare
- ME_555C91D8022C // Unprepare
+   Seq: ( HWL ME_555C91AF003A // Prepare
+ HWL ME_555C91D8022C // Unprepare
  )
  ; // Operations
  : Implemented
@@ -475,7 +435,7 @@ ref; // ME_55C89BA90007 aDesc
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_55C0B2A30315 // IhtDataConverter
+ : Parent HWL ME_55C0B2A30315 // IhtDataConverter
  ;
  : Target WL 'ME_559390220212' '5432448401BC.pas.ms.script' // LargeInt
  ;
@@ -511,7 +471,7 @@ ref; // ME_55C89BC1033D aDesc
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_55C0B2A30315 // IhtDataConverter
+ : Parent HWL ME_55C0B2A30315 // IhtDataConverter
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -547,7 +507,7 @@ ref; // ME_55C89BD601E4 aDesc
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_55C0B2A30315 // IhtDataConverter
+ : Parent HWL ME_55C0B2A30315 // IhtDataConverter
  ;
  : Target WL 'ME_4E8EDFCA01C0' '47D0290B016D.pas.ms.script' // TStDate
  ;
@@ -583,7 +543,7 @@ ref; // ME_55C89BE8013C aDesc
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_55C0B2A30315 // IhtDataConverter
+ : Parent HWL ME_55C0B2A30315 // IhtDataConverter
  ;
  : Target WL 'ME_5593952A0301' '47D0290B016D.pas.ms.script' // TStTime
  ;
@@ -619,7 +579,7 @@ ref; // ME_55FA9B9F0260 aDesc
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_55C0B2A30315 // IhtDataConverter
+ : Parent HWL ME_55C0B2A30315 // IhtDataConverter
  ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
@@ -655,7 +615,7 @@ ref; // ME_562E0F990333 aDesc
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_55C0B2A30315 // IhtDataConverter
+ : Parent HWL ME_55C0B2A30315 // IhtDataConverter
  ;
  : Target WL 'ME_476130E5023C' '4AB0C3C60310.pas.ms.script' // Byte
  ;
@@ -700,19 +660,19 @@ ref; // ME_5559D14D02D1_ME_55C0B2A30315 FreeParamBuffer
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_550981B402B9 // htInterfaces
+ : Parent HWL ME_550981B402B9 // htInterfaces
  ;
  : Inherits
    Seq: ( WL 'ME_5559950F0013' '5432518A0316.pas.ms.script' // IdaDataConverter
  )
  ; // Inherits
  : Operations
-   Seq: ( ME_55C89B830012 // ToLargeInt
- ME_55C89BB40093 // ToInteger
- ME_55C89BC8017D // ToStDate
- ME_55C89BDC012F // ToStTime
- ME_55FA9B9301D7 // ToString
- ME_562E0F8F02F3 // ToByte
+   Seq: ( HWL ME_55C89B830012 // ToLargeInt
+ HWL ME_55C89BB40093 // ToInteger
+ HWL ME_55C89BC8017D // ToStDate
+ HWL ME_55C89BDC012F // ToStTime
+ HWL ME_55FA9B9301D7 // ToString
+ HWL ME_562E0F8F02F3 // ToByte
  )
  ; // Operations
  : Implemented
@@ -735,7 +695,7 @@ FORWARD ME_55C4911E03DF
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_ref
- : Parent ME_55C4911E03DF // ThtSubItemDescriptionArray
+ : Parent HWL ME_55C4911E03DF // ThtSubItemDescriptionArray
  ;
  : Target WL 'ME_559FA10A0133' '555331D10378.pas.ms.script' // OPEL
  ;
@@ -750,10 +710,10 @@ ref; // ME_55C49B6B0265
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_550981B402B9 // htInterfaces
+ : Parent HWL ME_550981B402B9 // htInterfaces
  ;
  : Attributes
-   Seq: ( ME_55C49B6B0265 // 
+   Seq: ( HWL ME_55C49B6B0265 // 
  )
  ; // Attributes
  CONST "array type" 'dynamic'
@@ -770,11 +730,11 @@ ref; // ME_55C4911E03DF ThtSubItemDescriptionArray
  : Parent WL 'ME_543388C10144' '543388C10144.pas.ms.script' // HT
  ;
  : Children
-   Seq: ( ME_550981CC01F6 // IhtParamsStorage
- ME_555EF7B1002F // IhtDataSchemeHelper
- ME_555C848200DA // IhtFromTable
- ME_55C0B2A30315 // IhtDataConverter
- ME_55C4911E03DF // ThtSubItemDescriptionArray
+   Seq: ( HWL ME_550981CC01F6 // IhtParamsStorage
+ HWL ME_555EF7B1002F // IhtDataSchemeHelper
+ HWL ME_555C848200DA // IhtFromTable
+ HWL ME_55C0B2A30315 // IhtDataConverter
+ HWL ME_55C4911E03DF // ThtSubItemDescriptionArray
  )
  ; // Children
  : Depends

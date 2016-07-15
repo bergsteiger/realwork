@@ -2,39 +2,6 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-FORWARD ME_4CCAC68B0128
-
-: ME_4CCAC6B7019D
- CONST UID '4CCAC6B7019D'
- CONST Name 'UnderControl'
- CONST Class class_Class
- : Stereotype st_VCMUseCaseRealization ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Документы на контроле' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4CCAC68B0128 // UnderControl
- ;
- : Inherits
-   Seq: ( WL 'ME_4CCAC71C0347' '4CCAC702007E.pas.ms.script' // UnderControl$FP
- )
- ; // Inherits
- : Implements
-   Seq: ( WL 'ME_484E5B8902BA' '484900780017.pas.ms.script' // Документы на контроле
- )
- ; // Implements
- CONST "author" 'Люлин А.В.'
- CONST "no hands" true
- CONST "started" '29.10.2010 17:06'
- CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\moUnderControl.pas'
- CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
- CONST extprop:pas:TypeName 'Tmo_UnderControl'
- CONST extprop:rc:SelfName 'mo_UnderControl'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'moUnderControl'
-
-ref; // ME_4CCAC6B7019D UnderControl$UC
-
 : ME_4CCAC68B0128
  CONST UID '4CCAC68B0128'
  CONST Name 'UnderControl'
@@ -46,7 +13,7 @@ ref; // ME_4CCAC6B7019D UnderControl$UC
  : Parent WL 'ME_4F7EACCC015D' '4F7EACCC015D.pas.ms.script' // F1 Работа с документом и списком документов
  ;
  : Children
-   Seq: ( ME_4CCAC6B7019D // UnderControl$UC
+   Seq: ( WL 'ME_4CCAC6B7019D' '4CCAC6B7019D.pas.ms.script' // UnderControl$UC
  WL 'ME_4CCAC6EF001D' '4CCAC6EF001D.pas.ms.script' // View
  )
  ; // Children

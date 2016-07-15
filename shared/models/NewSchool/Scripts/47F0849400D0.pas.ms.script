@@ -1,0 +1,174 @@
+// sdsBaseDocumentWithAttributes 47F0849400D0 UseCaseControllerImp Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47F0849400D0
+
+: ME_47FDDACC0101
+ CONST UID '47FDDACC0101'
+ CONST Name 'DoOpenAttributes'
+ CONST Class class_Operation
+ %SUMMARY '- атрибуты.' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_47F0849400D0 // sdsBaseDocumentWithAttributes
+ ;
+
+ref; // ME_47FDDACC0101 DoOpenAttributes
+
+: ME_47FE03AE0225
+ CONST UID '47FE03AE0225'
+ CONST Name 'NeedMakeDSAttributes'
+ CONST Class class_Operation
+ %SUMMARY '- необходимость создания БОФ атрибутов.' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_47F0849400D0 // sdsBaseDocumentWithAttributes
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_47FE03AE0225 NeedMakeDSAttributes
+
+: ME_49352CEF0222
+ CONST UID '49352CEF0222'
+ CONST Name 'GetHasAttributes'
+ CONST Class class_Operation
+ %SUMMARY 'Реализация HasAttributes' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_47F0849400D0 // sdsBaseDocumentWithAttributes
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_49352CEF0222 GetHasAttributes
+
+: ME_49351EC70398
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_47F0849400D0 // sdsBaseDocumentWithAttributes
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_49351EC70398 
+
+: ME_493520270150
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_47F0849400D0 // sdsBaseDocumentWithAttributes
+ ;
+ : Target WL 'ME_49255F4302EE' '49255F4302EE.pas.ms.script' // TdsAttributes
+ ;
+
+ref; // ME_493520270150 
+
+: ME_4935283B009A
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_47F0849400D0 // sdsBaseDocumentWithAttributes
+ ;
+ : Target WL 'ME_491BF08F035F' '4678193C009C.pas.ms.script' // Tl3Bool
+ ;
+
+ref; // ME_4935283B009A 
+
+: ME_4935286F00BC
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_47F0849400D0 // sdsBaseDocumentWithAttributes
+ ;
+ : Target WL 'ME_47F21FE90379' '48F747EC0073.pas.ms.script' // bsUtils
+ ;
+
+ref; // ME_4935286F00BC 
+
+: ME_493528A802FF
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_47F0849400D0 // sdsBaseDocumentWithAttributes
+ ;
+ : Target WL 'ME_480F78BC0146' '47D0290B016D.pas.ms.script' // l3Utils
+ ;
+
+ref; // ME_493528A802FF 
+
+: ME_492598700162_ME_47F0849400D0
+ : Original WL 'ME_492598700162' '4D1B85BF03E4.pas.ms.script' // OpenAttributes
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_492598700162_ME_47F0849400D0 OpenAttributes
+
+: ME_5009A78501A6_ME_47F0849400D0
+ : Original WL 'ME_5009A78501A6' '4D1B85BF03E4.pas.ms.script' // dsAttributes
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "is reference" true
+ CONST "pm" true
+ref; // ME_5009A78501A6_ME_47F0849400D0 dsAttributes
+
+: ME_6DBD21E52E04_ME_47F0849400D0
+ : Original WL 'ME_6DBD21E52E04' '4D1B85BF03E4.pas.ms.script' // HasAttributes
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_6DBD21E52E04_ME_47F0849400D0 HasAttributes
+
+: ME_4925B7F00156_ME_47F0849400D0
+ : Original WL 'ME_4925B7F00156' '47EA106D035E.pas.ms.script' // ClearAllDS
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4925B7F00156_ME_47F0849400D0 ClearAllDS
+
+: ME_47F0849400D0
+ CONST UID '47F0849400D0'
+ CONST Name 'sdsBaseDocumentWithAttributes'
+ CONST Class class_Class
+ : Stereotype st_UseCaseControllerImp ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Документ с атрибутами' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent WL 'ME_47EA50050263' '47EA50050263.pas.ms.script' // BaseDocument
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47EA106D035E' '47EA106D035E.pas.ms.script' // sdsBaseDocument
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_47F083E60105' '4D1B85BF03E4.pas.ms.script' // IsdsBaseDocumentWithAttributes
+ )
+ ; // Implements
+ : Operations
+   Seq: ( HWL ME_47FDDACC0101 // DoOpenAttributes
+ HWL ME_47FE03AE0225 // NeedMakeDSAttributes
+ HWL ME_49352CEF0222 // GetHasAttributes
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_492598700162_ME_47F0849400D0 // OpenAttributes
+ ME_5009A78501A6_ME_47F0849400D0 // dsAttributes
+ ME_6DBD21E52E04_ME_47F0849400D0 // HasAttributes
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_4925B7F00156_ME_47F0849400D0 // ClearAllDS
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_49351EC70398 // SysUtils
+ ME_493520270150 // TdsAttributes
+ ME_4935283B009A // Tl3Bool
+ ME_4935286F00BC // bsUtils
+ ME_493528A802FF // l3Utils
+ )
+ ; // Dependencies
+ CONST "author" 'Люлин А.В.'
+ CONST "no hands" true
+ CONST "started" '2007/06/14 08:06:12'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Business\Document\sdsBaseDocumentWithAttributes.imp.pas'
+ CONST extprop:pas:TypeName '_sdsBaseDocumentWithAttributes_'
+ CONST extprop:pas:UnitName 'sdsBaseDocumentWithAttributes.imp'
+
+ref; // ME_47F0849400D0 sdsBaseDocumentWithAttributes

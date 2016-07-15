@@ -20,7 +20,7 @@ ref; // ME_4CC847800383_ME_517C0F4B027C TuneRegion
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_517C0F37039A // Rounded
+ : Parent HWL ME_517C0F37039A // Rounded
  ;
  : Inherits
    Seq: ( WL 'ME_4CC81FB7008B' '4CC81FAC02D6.pas.ms.script' // RegionableControl
@@ -36,52 +36,6 @@ ref; // ME_4CC847800383_ME_517C0F4B027C TuneRegion
 
 ref; // ME_517C0F4B027C RoundedControl
 
-: ME_517C0F9C03C3
- CONST UID '517C0F9C03C3'
- CONST Name 'TRoundedButton'
- CONST Class class_Class
- : Stereotype st_GuiControl ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_517C0F37039A // Rounded
- ;
- : Inherits
-   Seq: ( WL 'ME_4D5E5A3A0186' '4799D29F033F.pas.ms.script' // TButton
- WL 'ME_51614065019A' '51612EBB02F5.pas.ms.script' // RefCounted
- ME_517C0F4B027C // RoundedControl
- )
- ; // Inherits
- CONST intf.pas:Path 'common\components\SandBox\RoundedButton.pas'
- CONST extprop:rc:SelfName 'RoundedButton'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'RoundedButton'
-
-ref; // ME_517C0F9C03C3 TRoundedButton
-
-: ME_517C102F03B5
- CONST UID '517C102F03B5'
- CONST Name 'TRoundedEdit'
- CONST Class class_Class
- : Stereotype st_GuiControl ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_517C0F37039A // Rounded
- ;
- : Inherits
-   Seq: ( WL 'ME_51614065019A' '51612EBB02F5.pas.ms.script' // RefCounted
- ME_517C0F4B027C // RoundedControl
- WL 'ME_517C0FF50380' '4799D29F033F.pas.ms.script' // TEdit
- )
- ; // Inherits
- CONST intf.pas:Path 'common\components\SandBox\RoundedEdit.pas'
- CONST extprop:rc:SelfName 'RoundedEdit'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'RoundedEdit'
-
-ref; // ME_517C102F03B5 TRoundedEdit
-
 : ME_517C0F37039A
  CONST UID '517C0F37039A'
  CONST Name 'Rounded'
@@ -92,9 +46,9 @@ ref; // ME_517C102F03B5 TRoundedEdit
  : Parent WL 'ME_4861FFCA02CE' '4861FFCA02CE.pas.ms.script' // SandBox
  ;
  : Children
-   Seq: ( ME_517C0F4B027C // RoundedControl
- ME_517C0F9C03C3 // TRoundedButton
- ME_517C102F03B5 // TRoundedEdit
+   Seq: ( HWL ME_517C0F4B027C // RoundedControl
+ WL 'ME_517C0F9C03C3' '517C0F9C03C3.pas.ms.script' // TRoundedButton
+ WL 'ME_517C102F03B5' '517C102F03B5.pas.ms.script' // TRoundedEdit
  )
  ; // Children
  : Depends

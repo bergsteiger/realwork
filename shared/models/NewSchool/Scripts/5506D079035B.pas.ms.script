@@ -15,7 +15,7 @@ FORWARD ME_1D128503AC70
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_1D128503AC70 // Ml3MessagesService
+ : Parent HWL ME_1D128503AC70 // Ml3MessagesService
  ;
 
 ref; // ME_B6C92677BBF7 ProcessMessages
@@ -30,48 +30,14 @@ ref; // ME_B6C92677BBF7 ProcessMessages
  %SUMMARY 'Контракт сервиса Tl3MessagesService' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_5506D3B202FA // Tl3MessagesService
+ : Parent HWL ME_5506D3B202FA // Tl3MessagesService
  ;
  : Operations
-   Seq: ( ME_B6C92677BBF7 // ProcessMessages
+   Seq: ( HWL ME_B6C92677BBF7 // ProcessMessages
  )
  ; // Operations
 
 ref; // ME_1D128503AC70 Ml3MessagesService
-
-FORWARD ME_0B2A9A8C27FB
-
-: ME_B6C92677BBF7_ME_0B2A9A8C27FB
- : Original ME_B6C92677BBF7 // ProcessMessages
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_B6C92677BBF7_ME_0B2A9A8C27FB ProcessMessages
-
-: ME_0B2A9A8C27FB
- CONST UID '0B2A9A8C27FB'
- CONST GUID '8169CB3B-D3C5-412F-82E9-1473799C89FD'
- CONST Name 'Il3MessagesService'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Facet ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Интерфейс сервиса Tl3MessagesService' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_5506D3B202FA // Tl3MessagesService
- ;
- : Implements
-   Seq: ( ME_1D128503AC70 // Ml3MessagesService
- )
- ; // Implements
- : Implemented
-   Seq: ( ME_B6C92677BBF7_ME_0B2A9A8C27FB // ProcessMessages
- )
- ; // Implemented
- CONST extprop:rc:SelfName 'MessagesService'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_0B2A9A8C27FB Il3MessagesService
 
 : ME_5506D3CD02AA
  CONST UID '5506D3CD02AA'
@@ -80,16 +46,10 @@ ref; // ME_0B2A9A8C27FB Il3MessagesService
  : Stereotype st_responsibility::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_5506D3B202FA // Tl3MessagesService
+ : Parent HWL ME_5506D3B202FA // Tl3MessagesService
  ;
 
 ref; // ME_5506D3CD02AA ProcessMessages
-
-: ME_B6C92677BBF7_ME_5506D3B202FA
- : Original ME_B6C92677BBF7 // ProcessMessages
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_B6C92677BBF7_ME_5506D3B202FA ProcessMessages
 
 : ME_5506D3B202FA
  CONST UID '5506D3B202FA'
@@ -99,38 +59,24 @@ ref; // ME_B6C92677BBF7_ME_5506D3B202FA ProcessMessages
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_5506D079035B // AFWServices
+ : Parent HWL ME_5506D079035B // AFWServices
  ;
  : Inherits
    Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
  )
  ; // Inherits
- : Implements
-   Seq: ( ME_1D128503AC70 // Ml3MessagesService
- )
- ; // Implements
  : Operations
-   Seq: ( ME_5506D3CD02AA // ProcessMessages
+   Seq: ( HWL ME_5506D3CD02AA // ProcessMessages
  )
  ; // Operations
- : Implemented
-   Seq: ( ME_B6C92677BBF7_ME_5506D3B202FA // ProcessMessages
- )
- ; // Implemented
  : Children
-   Seq: ( ME_1D128503AC70 // Ml3MessagesService
- ME_0B2A9A8C27FB // Il3MessagesService
+   Seq: ( HWL ME_1D128503AC70 // Ml3MessagesService
  )
  ; // Children
- CONST "singleton" true
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3MessagesService.pas'
  CONST extprop:rc:SelfName 'MessagesService'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'l3MessagesService'
- : Facet ME_0B2A9A8C27FB // Il3MessagesService
- ;
- : Mixin ME_1D128503AC70 // Ml3MessagesService
- ;
 
 ref; // ME_5506D3B202FA Tl3MessagesService
 
@@ -144,7 +90,7 @@ FORWARD ME_5506D56601D6
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_5506D56601D6 // Tl3FormsService
+ : Parent HWL ME_5506D56601D6 // Tl3FormsService
  ;
  : Inherits
    Seq: ( WL 'ME_484529DC0276' '4799D29F033F.pas.ms.script' // TCustomForm
@@ -174,7 +120,7 @@ ref; // ME_C87E24BF9C23 Component
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_B610F360B21E // Ml3FormsService
+ : Parent HWL ME_B610F360B21E // Ml3FormsService
  ;
  : Target WL 'ME_484529DC0276' '4799D29F033F.pas.ms.script' // TCustomForm
  ;
@@ -202,7 +148,7 @@ ref; // ME_DB3AE24018E5 Component
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_B610F360B21E // Ml3FormsService
+ : Parent HWL ME_B610F360B21E // Ml3FormsService
  ;
  : Target WL 'ME_484529DC0276' '4799D29F033F.pas.ms.script' // TCustomForm
  ;
@@ -230,7 +176,7 @@ ref; // ME_3F3ED8A56F58 Component
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_B610F360B21E // Ml3FormsService
+ : Parent HWL ME_B610F360B21E // Ml3FormsService
  ;
  : Target WL 'ME_484529DC0276' '4799D29F033F.pas.ms.script' // TCustomForm
  ;
@@ -258,7 +204,7 @@ ref; // ME_BD56DB3648A8 Component
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_B610F360B21E // Ml3FormsService
+ : Parent HWL ME_B610F360B21E // Ml3FormsService
  ;
  : Target WL 'ME_484529DC0276' '4799D29F033F.pas.ms.script' // TCustomForm
  ;
@@ -279,72 +225,17 @@ ref; // ME_207716257CFB GetMainForm
  %SUMMARY 'Контракт сервиса Tl3FormsService' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_5506D56601D6 // Tl3FormsService
+ : Parent HWL ME_5506D56601D6 // Tl3FormsService
  ;
  : Operations
-   Seq: ( ME_32D6965B86E7 // GetParentForm
- ME_1077E9580F6F // GetAnotherParentForm
- ME_D9663D6CD433 // GetTopParentForm
- ME_207716257CFB // GetMainForm
+   Seq: ( HWL ME_32D6965B86E7 // GetParentForm
+ HWL ME_1077E9580F6F // GetAnotherParentForm
+ HWL ME_D9663D6CD433 // GetTopParentForm
+ HWL ME_207716257CFB // GetMainForm
  )
  ; // Operations
 
 ref; // ME_B610F360B21E Ml3FormsService
-
-FORWARD ME_A10B9C97F853
-
-: ME_1077E9580F6F_ME_A10B9C97F853
- : Original ME_1077E9580F6F // GetAnotherParentForm
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_1077E9580F6F_ME_A10B9C97F853 GetAnotherParentForm
-
-: ME_207716257CFB_ME_A10B9C97F853
- : Original ME_207716257CFB // GetMainForm
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_207716257CFB_ME_A10B9C97F853 GetMainForm
-
-: ME_32D6965B86E7_ME_A10B9C97F853
- : Original ME_32D6965B86E7 // GetParentForm
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_32D6965B86E7_ME_A10B9C97F853 GetParentForm
-
-: ME_D9663D6CD433_ME_A10B9C97F853
- : Original ME_D9663D6CD433 // GetTopParentForm
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_D9663D6CD433_ME_A10B9C97F853 GetTopParentForm
-
-: ME_A10B9C97F853
- CONST UID 'A10B9C97F853'
- CONST GUID '69FEDDF5-3C91-4527-B7FA-B2965BA459E9'
- CONST Name 'Il3FormsService'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Facet ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Интерфейс сервиса Tl3FormsService' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_5506D56601D6 // Tl3FormsService
- ;
- : Implements
-   Seq: ( ME_B610F360B21E // Ml3FormsService
- )
- ; // Implements
- : Implemented
-   Seq: ( ME_1077E9580F6F_ME_A10B9C97F853 // GetAnotherParentForm
- ME_207716257CFB_ME_A10B9C97F853 // GetMainForm
- ME_32D6965B86E7_ME_A10B9C97F853 // GetParentForm
- ME_D9663D6CD433_ME_A10B9C97F853 // GetTopParentForm
- )
- ; // Implemented
- CONST extprop:rc:SelfName 'FormsService'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_A10B9C97F853 Il3FormsService
 
 : ME_5506D59401DF
  CONST Name 'Component'
@@ -362,7 +253,7 @@ ref; // ME_5506D59401DF Component
  : Stereotype st_responsibility::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_5506D56601D6 // Tl3FormsService
+ : Parent HWL ME_5506D56601D6 // Tl3FormsService
  ;
  : Target WL 'ME_484529DC0276' '4799D29F033F.pas.ms.script' // TCustomForm
  ;
@@ -389,7 +280,7 @@ ref; // ME_5506D5BC039F Component
  : Stereotype st_responsibility::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_5506D56601D6 // Tl3FormsService
+ : Parent HWL ME_5506D56601D6 // Tl3FormsService
  ;
  : Target WL 'ME_484529DC0276' '4799D29F033F.pas.ms.script' // TCustomForm
  ;
@@ -416,7 +307,7 @@ ref; // ME_5506E84F005D Component
  : Stereotype st_responsibility::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_5506D56601D6 // Tl3FormsService
+ : Parent HWL ME_5506D56601D6 // Tl3FormsService
  ;
  : Target WL 'ME_484529DC0276' '4799D29F033F.pas.ms.script' // TCustomForm
  ;
@@ -443,7 +334,7 @@ ref; // ME_5506E867032E Component
  : Stereotype st_responsibility::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_5506D56601D6 // Tl3FormsService
+ : Parent HWL ME_5506D56601D6 // Tl3FormsService
  ;
  : Target WL 'ME_484529DC0276' '4799D29F033F.pas.ms.script' // TCustomForm
  ;
@@ -454,30 +345,6 @@ ref; // ME_5506E867032E Component
 
 ref; // ME_5506E861028F GetMainForm
 
-: ME_1077E9580F6F_ME_5506D56601D6
- : Original ME_1077E9580F6F // GetAnotherParentForm
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_1077E9580F6F_ME_5506D56601D6 GetAnotherParentForm
-
-: ME_207716257CFB_ME_5506D56601D6
- : Original ME_207716257CFB // GetMainForm
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_207716257CFB_ME_5506D56601D6 GetMainForm
-
-: ME_32D6965B86E7_ME_5506D56601D6
- : Original ME_32D6965B86E7 // GetParentForm
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_32D6965B86E7_ME_5506D56601D6 GetParentForm
-
-: ME_D9663D6CD433_ME_5506D56601D6
- : Original ME_D9663D6CD433 // GetTopParentForm
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_D9663D6CD433_ME_5506D56601D6 GetTopParentForm
-
 : ME_5506D56601D6
  CONST UID '5506D56601D6'
  CONST Name 'Tl3FormsService'
@@ -486,46 +353,29 @@ ref; // ME_D9663D6CD433_ME_5506D56601D6 GetTopParentForm
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_5506D079035B // AFWServices
+ : Parent HWL ME_5506D079035B // AFWServices
  ;
  : Inherits
    Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
  )
  ; // Inherits
- : Implements
-   Seq: ( ME_B610F360B21E // Ml3FormsService
- )
- ; // Implements
  : Operations
-   Seq: ( ME_5506D58B0238 // GetParentForm
- ME_5506D5B30127 // GetAnotherParentForm
- ME_5506E84700E5 // GetTopParentForm
- ME_5506E861028F // GetMainForm
+   Seq: ( HWL ME_5506D58B0238 // GetParentForm
+ HWL ME_5506D5B30127 // GetAnotherParentForm
+ HWL ME_5506E84700E5 // GetTopParentForm
+ HWL ME_5506E861028F // GetMainForm
  )
  ; // Operations
- : Implemented
-   Seq: ( ME_1077E9580F6F_ME_5506D56601D6 // GetAnotherParentForm
- ME_207716257CFB_ME_5506D56601D6 // GetMainForm
- ME_32D6965B86E7_ME_5506D56601D6 // GetParentForm
- ME_D9663D6CD433_ME_5506D56601D6 // GetTopParentForm
- )
- ; // Implemented
  : Children
-   Seq: ( ME_5506D6F10072 // TCustomForm
- ME_B610F360B21E // Ml3FormsService
- ME_A10B9C97F853 // Il3FormsService
+   Seq: ( HWL ME_5506D6F10072 // TCustomForm
+ HWL ME_B610F360B21E // Ml3FormsService
  )
  ; // Children
  CONST "ifndef" 'NoVCL'
- CONST "singleton" true
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3FormsService.pas'
  CONST extprop:rc:SelfName 'FormsService'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'l3FormsService'
- : Facet ME_A10B9C97F853 // Il3FormsService
- ;
- : Mixin ME_B610F360B21E // Ml3FormsService
- ;
 
 ref; // ME_5506D56601D6 Tl3FormsService
 
@@ -540,7 +390,7 @@ FORWARD ME_58FA1B19298C
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_58FA1B19298C // Ml3KeyboardLayoutService
+ : Parent HWL ME_58FA1B19298C // Ml3KeyboardLayoutService
  ;
 
 ref; // ME_747558CBA739 TryActivateKeyboardLayout
@@ -555,48 +405,14 @@ ref; // ME_747558CBA739 TryActivateKeyboardLayout
  %SUMMARY 'Контракт сервиса Tl3KeyboardLayoutService' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_55099A8303E1 // Tl3KeyboardLayoutService
+ : Parent HWL ME_55099A8303E1 // Tl3KeyboardLayoutService
  ;
  : Operations
-   Seq: ( ME_747558CBA739 // TryActivateKeyboardLayout
+   Seq: ( HWL ME_747558CBA739 // TryActivateKeyboardLayout
  )
  ; // Operations
 
 ref; // ME_58FA1B19298C Ml3KeyboardLayoutService
-
-FORWARD ME_4C80517D75F5
-
-: ME_747558CBA739_ME_4C80517D75F5
- : Original ME_747558CBA739 // TryActivateKeyboardLayout
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_747558CBA739_ME_4C80517D75F5 TryActivateKeyboardLayout
-
-: ME_4C80517D75F5
- CONST UID '4C80517D75F5'
- CONST GUID 'B81FD1FC-A13C-4F60-A0D1-0D1F2E636216'
- CONST Name 'Il3KeyboardLayoutService'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Facet ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Интерфейс сервиса Tl3KeyboardLayoutService' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_55099A8303E1 // Tl3KeyboardLayoutService
- ;
- : Implements
-   Seq: ( ME_58FA1B19298C // Ml3KeyboardLayoutService
- )
- ; // Implements
- : Implemented
-   Seq: ( ME_747558CBA739_ME_4C80517D75F5 // TryActivateKeyboardLayout
- )
- ; // Implemented
- CONST extprop:rc:SelfName 'KeyboardLayoutService'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_4C80517D75F5 Il3KeyboardLayoutService
 
 : ME_55099AAA0207
  CONST UID '55099AAA0207'
@@ -605,16 +421,10 @@ ref; // ME_4C80517D75F5 Il3KeyboardLayoutService
  : Stereotype st_responsibility::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_55099A8303E1 // Tl3KeyboardLayoutService
+ : Parent HWL ME_55099A8303E1 // Tl3KeyboardLayoutService
  ;
 
 ref; // ME_55099AAA0207 TryActivateKeyboardLayout
-
-: ME_747558CBA739_ME_55099A8303E1
- : Original ME_747558CBA739 // TryActivateKeyboardLayout
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_747558CBA739_ME_55099A8303E1 TryActivateKeyboardLayout
 
 : ME_55099A8303E1
  CONST UID '55099A8303E1'
@@ -624,38 +434,24 @@ ref; // ME_747558CBA739_ME_55099A8303E1 TryActivateKeyboardLayout
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_5506D079035B // AFWServices
+ : Parent HWL ME_5506D079035B // AFWServices
  ;
  : Inherits
    Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
  )
  ; // Inherits
- : Implements
-   Seq: ( ME_58FA1B19298C // Ml3KeyboardLayoutService
- )
- ; // Implements
  : Operations
-   Seq: ( ME_55099AAA0207 // TryActivateKeyboardLayout
+   Seq: ( HWL ME_55099AAA0207 // TryActivateKeyboardLayout
  )
  ; // Operations
- : Implemented
-   Seq: ( ME_747558CBA739_ME_55099A8303E1 // TryActivateKeyboardLayout
- )
- ; // Implemented
  : Children
-   Seq: ( ME_58FA1B19298C // Ml3KeyboardLayoutService
- ME_4C80517D75F5 // Il3KeyboardLayoutService
+   Seq: ( HWL ME_58FA1B19298C // Ml3KeyboardLayoutService
  )
  ; // Children
- CONST "singleton" true
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3KeyboardLayoutService.pas'
  CONST extprop:rc:SelfName 'KeyboardLayoutService'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'l3KeyboardLayoutService'
- : Facet ME_4C80517D75F5 // Il3KeyboardLayoutService
- ;
- : Mixin ME_58FA1B19298C // Ml3KeyboardLayoutService
- ;
 
 ref; // ME_55099A8303E1 Tl3KeyboardLayoutService
 
@@ -670,7 +466,7 @@ FORWARD ME_B9924A64571A
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_B9924A64571A // Ml3TabService
+ : Parent HWL ME_B9924A64571A // Ml3TabService
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -687,48 +483,14 @@ ref; // ME_A8AF111E1F35 HasTabs
  %SUMMARY 'Контракт сервиса Tl3TabService' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_550AE937003B // Tl3TabService
+ : Parent HWL ME_550AE937003B // Tl3TabService
  ;
  : Operations
-   Seq: ( ME_A8AF111E1F35 // HasTabs
+   Seq: ( HWL ME_A8AF111E1F35 // HasTabs
  )
  ; // Operations
 
 ref; // ME_B9924A64571A Ml3TabService
-
-FORWARD ME_DB8C4BB17004
-
-: ME_A8AF111E1F35_ME_DB8C4BB17004
- : Original ME_A8AF111E1F35 // HasTabs
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_A8AF111E1F35_ME_DB8C4BB17004 HasTabs
-
-: ME_DB8C4BB17004
- CONST UID 'DB8C4BB17004'
- CONST GUID 'D4A2A5A2-FB9C-4ECA-B050-7914DC032822'
- CONST Name 'Il3TabService'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Facet ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Интерфейс сервиса Tl3TabService' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_550AE937003B // Tl3TabService
- ;
- : Implements
-   Seq: ( ME_B9924A64571A // Ml3TabService
- )
- ; // Implements
- : Implemented
-   Seq: ( ME_A8AF111E1F35_ME_DB8C4BB17004 // HasTabs
- )
- ; // Implemented
- CONST extprop:rc:SelfName 'TabService'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_DB8C4BB17004 Il3TabService
 
 : ME_550AE94503E6
  CONST UID '550AE94503E6'
@@ -737,18 +499,12 @@ ref; // ME_DB8C4BB17004 Il3TabService
  : Stereotype st_responsibility::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_550AE937003B // Tl3TabService
+ : Parent HWL ME_550AE937003B // Tl3TabService
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
 
 ref; // ME_550AE94503E6 HasTabs
-
-: ME_A8AF111E1F35_ME_550AE937003B
- : Original ME_A8AF111E1F35 // HasTabs
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_A8AF111E1F35_ME_550AE937003B HasTabs
 
 : ME_550AE937003B
  CONST UID '550AE937003B'
@@ -758,38 +514,24 @@ ref; // ME_A8AF111E1F35_ME_550AE937003B HasTabs
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_5506D079035B // AFWServices
+ : Parent HWL ME_5506D079035B // AFWServices
  ;
  : Inherits
    Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
  )
  ; // Inherits
- : Implements
-   Seq: ( ME_B9924A64571A // Ml3TabService
- )
- ; // Implements
  : Operations
-   Seq: ( ME_550AE94503E6 // HasTabs
+   Seq: ( HWL ME_550AE94503E6 // HasTabs
  )
  ; // Operations
- : Implemented
-   Seq: ( ME_A8AF111E1F35_ME_550AE937003B // HasTabs
- )
- ; // Implemented
  : Children
-   Seq: ( ME_B9924A64571A // Ml3TabService
- ME_DB8C4BB17004 // Il3TabService
+   Seq: ( HWL ME_B9924A64571A // Ml3TabService
  )
  ; // Children
- CONST "singleton" true
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3TabService.pas'
  CONST extprop:rc:SelfName 'TabService'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'l3TabService'
- : Facet ME_DB8C4BB17004 // Il3TabService
- ;
- : Mixin ME_B9924A64571A // Ml3TabService
- ;
 
 ref; // ME_550AE937003B Tl3TabService
 
@@ -803,10 +545,10 @@ ref; // ME_550AE937003B Tl3TabService
  : Parent WL 'ME_550012C403C4' '550012C403C4.pas.ms.script' // L3$AFW
  ;
  : Children
-   Seq: ( ME_5506D3B202FA // Tl3MessagesService
- ME_5506D56601D6 // Tl3FormsService
- ME_55099A8303E1 // Tl3KeyboardLayoutService
- ME_550AE937003B // Tl3TabService
+   Seq: ( HWL ME_5506D3B202FA // Tl3MessagesService
+ HWL ME_5506D56601D6 // Tl3FormsService
+ HWL ME_55099A8303E1 // Tl3KeyboardLayoutService
+ HWL ME_550AE937003B // Tl3TabService
  )
  ; // Children
  : Depends

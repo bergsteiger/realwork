@@ -1,0 +1,259 @@
+// QFLikeTextLoad 4CA090120212 VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4CA090120212
+
+: ME_15CBBB7D03D3
+ CONST UID '15CBBB7D03D3'
+ CONST Name 'ut_QFLikeTextLoad'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_UserType ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Форма для работы с КЗ' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4CA090120212 // QFLikeTextLoad
+ ;
+ CONST "ImageIndex" '-1'
+ CONST "VisibleToUser" false
+ CONST "Weight" '-1'
+ CONST intf.pas:Path 'common\components\gui\Garant\Daily\Forms\QFLikeTextLoad_ut_QFLikeTextLoad_UserType.pas'
+ CONST extprop:pas:UnitName 'QFLikeTextLoad_ut_QFLikeTextLoad_UserType'
+
+ref; // ME_15CBBB7D03D3 ut_QFLikeTextLoad
+
+: ME_08FE3EE819BF
+ CONST UID '08FE3EE819BF'
+ CONST GUID '41C944FD-8129-43F8-89E8-75E7D231D870'
+ CONST Name 'QFLikeTextLoad'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_VCMFormDefinition ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Идентификатор формы QFLikeTextLoad' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4CA090120212 // QFLikeTextLoad
+ ;
+ : Implementors
+   Seq: ( HWL ME_4CA090120212 // QFLikeTextLoad
+ )
+ ; // Implementors
+ CONST extprop:pas:TypeName 'QFLikeTextLoadFormDef'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_08FE3EE819BF QFLikeTextLoad$Def
+
+: ME_4CA0906401D3
+ CONST UID '4CA0906401D3'
+ CONST Name 'TextSource'
+ CONST Class class_Class
+ : Stereotype st_Component ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4CA090120212 // QFLikeTextLoad
+ ;
+ : Inherits
+   Seq: ( WL 'ME_482D98DE00A9' '482BFB50007B.pas.ms.script' // TevTextSource
+ )
+ ; // Inherits
+ CONST "ComponentClass" 'none'
+ CONST "need Caption" false
+ CONST "needs field" true
+ CONST "pm" true
+ CONST "put to dfm" false
+
+ref; // ME_4CA0906401D3 TextSource
+
+: ME_4CA09097007F
+ CONST UID '4CA09097007F'
+ CONST Name 'Text'
+ CONST Class class_Class
+ : Stereotype st_Control ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4CA090120212 // QFLikeTextLoad
+ ;
+ : Inherits
+   Seq: ( WL 'ME_48E22669037D' '48E22669037D.pas.ms.script' // TevQueryCardEditor
+ )
+ ; // Inherits
+ CONST "ControlClass" 'none'
+ CONST "needs field" true
+ CONST "pm" true
+ CONST "put to dfm" false
+
+ref; // ME_4CA09097007F Text
+
+: ME_4F1546E9029B
+ CONST UID '4F1546E9029B'
+ CONST Name 'f_QueryCard'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4CA090120212 // QFLikeTextLoad
+ ;
+ : Target WL 'ME_47CD6F6D031D' '47CD5C7602CD.pas.ms.script' // IevQueryCard
+ ;
+
+ref; // ME_4F1546E9029B f_QueryCard
+
+: ME_776CC0B72850
+ CONST UID '776CC0B72850'
+ CONST Name 'Ini_FormFactory_QFLikeTextLoad'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы QFLikeTextLoad' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4CA090120212 // QFLikeTextLoad
+ ;
+ : SpelledFor HWL ME_4CA090120212 // QFLikeTextLoad
+ ;
+
+ref; // ME_776CC0B72850 Ini_FormFactory_QFLikeTextLoad$Def
+
+: ME_4F1543A60027
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4CA090120212 // QFLikeTextLoad
+ ;
+ : Target WL 'ME_48DB9DC1035C' '47CEBC900123.pas.ms.script' // TevQueryDocumentContainer
+ ;
+
+ref; // ME_4F1543A60027 
+
+: ME_4F1543F400B2
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4CA090120212 // QFLikeTextLoad
+ ;
+ : Target WL 'ME_47D01F9801D8' '4DFA0AB5029C.pas.ms.script' // TevControlContainerEX
+ ;
+
+ref; // ME_4F1543F400B2 
+
+: ME_4F15444C013F
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4CA090120212 // QFLikeTextLoad
+ ;
+ : Target WL 'ME_47C6BA1C0055' '47C5207602D1.pas.ms.script' // InevQueryDocumentContainer
+ ;
+
+ref; // ME_4F15444C013F 
+
+: ME_4F15446B0109
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4CA090120212 // QFLikeTextLoad
+ ;
+ : Target WL 'ME_4B17E8E10102' '47BB24D30205.pas.ms.script' // l3IOK
+ ;
+
+ref; // ME_4F15446B0109 
+
+: ME_4C9B21D20187_ME_4CA090120212
+ : Original WL 'ME_4C9B21D20187' '4C9B20790302.pas.ms.script' // TextSource
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "needs field" false
+ CONST "pm" true
+ref; // ME_4C9B21D20187_ME_4CA090120212 TextSource
+
+: ME_4C9B21E400A4_ME_4CA090120212
+ : Original WL 'ME_4C9B21E400A4' '4C9B20790302.pas.ms.script' // Text
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "needs field" false
+ CONST "pm" true
+ref; // ME_4C9B21E400A4_ME_4CA090120212 Text
+
+: ME_479731C50290_ME_4CA090120212
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_479731C50290_ME_4CA090120212 Cleanup
+
+: ME_4A8E8F2E0195_ME_4CA090120212
+ : Original WL 'ME_4A8E8F2E0195' '5000041101C8.pas.ms.script' // InitControls
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4A8E8F2E0195_ME_4CA090120212 InitControls
+
+: ME_4F15435202B5_ME_4CA090120212
+ : Original WL 'ME_4F15435202B5' '4C9B20790302.pas.ms.script' // AfterLoad
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4F15435202B5_ME_4CA090120212 AfterLoad
+
+: ME_4CA090120212
+ CONST UID '4CA090120212'
+ CONST Name 'QFLikeTextLoad'
+ CONST Class class_Class
+ : Stereotype st_VCMForm ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Форма для работы с КЗ' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent WL 'ME_4B30C72000B3' '4B30C72000B3.pas.ms.script' // Everest
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4C9B20790302' '4C9B20790302.pas.ms.script' // PrimTextLoad
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( HWL ME_08FE3EE819BF // QFLikeTextLoad$Def
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( HWL ME_4CA0906401D3 // TextSource
+ HWL ME_4CA09097007F // Text
+ HWL ME_4F1546E9029B // f_QueryCard
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( HWL ME_776CC0B72850 // Ini_FormFactory_QFLikeTextLoad$Def
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4C9B21D20187_ME_4CA090120212 // TextSource
+ ME_4C9B21E400A4_ME_4CA090120212 // Text
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_479731C50290_ME_4CA090120212 // Cleanup
+ ME_4A8E8F2E0195_ME_4CA090120212 // InitControls
+ ME_4F15435202B5_ME_4CA090120212 // AfterLoad
+ )
+ ; // Overridden
+ : Children
+   Seq: ( HWL ME_15CBBB7D03D3 // ut_QFLikeTextLoad
+ HWL ME_08FE3EE819BF // QFLikeTextLoad$Def
+ )
+ ; // Children
+ : Dependencies
+   Seq: ( ME_4F1543A60027 // TevQueryDocumentContainer
+ ME_4F1543F400B2 // TevControlContainerEX
+ ME_4F15444C013F // InevQueryDocumentContainer
+ ME_4F15446B0109 // l3IOK
+ )
+ ; // Dependencies
+ CONST "NeedsHackRef" true
+ CONST "ZoneType" 'Any'
+ CONST "finished dfm" true
+ CONST "resizeable" false
+ CONST "restrict form def" 'undefined'
+ CONST intf.pas:Path 'common\components\gui\Garant\Daily\Forms\QFLikeTextLoad_Form.pas'
+ CONST extprop:pas:TypeName 'TQFLikeTextLoadForm'
+ CONST extprop:rc:SelfName 'QFLikeTextLoadForm'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'QFLikeTextLoad_Form'
+
+ref; // ME_4CA090120212 QFLikeTextLoad

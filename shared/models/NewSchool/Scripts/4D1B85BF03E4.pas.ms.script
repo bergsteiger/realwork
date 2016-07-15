@@ -44,7 +44,7 @@ ref; // ME_49255D4A0215_ME_5009A78501A6 DocInfo
  %SUMMARY 'атрибуты документа' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_47F083E60105 // IsdsBaseDocumentWithAttributes
+ : Parent HWL ME_47F083E60105 // IsdsBaseDocumentWithAttributes
  ;
  : Inherits
    Seq: ( WL 'ME_49255D040142' '491B305A0096.pas.ms.script' // IdsAttributes
@@ -72,7 +72,7 @@ ref; // ME_5009A78501A6 dsAttributes
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_47F083E60105 // IsdsBaseDocumentWithAttributes
+ : Parent HWL ME_47F083E60105 // IsdsBaseDocumentWithAttributes
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -87,7 +87,7 @@ ref; // ME_6DBD21E52E04 HasAttributes
  %SUMMARY 'атрибуты' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_47F083E60105 // IsdsBaseDocumentWithAttributes
+ : Parent HWL ME_47F083E60105 // IsdsBaseDocumentWithAttributes
  ;
 
 ref; // ME_492598700162 OpenAttributes
@@ -97,9 +97,9 @@ FORWARD ME_47F085420325
 : ME_5011460E015E
  CONST Class class_Dependency
  : Stereotype st_reflected_by::Dependency ;
- : Parent ME_47F083E60105 // IsdsBaseDocumentWithAttributes
+ : Parent HWL ME_47F083E60105 // IsdsBaseDocumentWithAttributes
  ;
- : Target ME_47F085420325 // IdBaseDocumentWithAttributes
+ : Target HWL ME_47F085420325 // IdBaseDocumentWithAttributes
  ;
  CONST "needs default form" false
 
@@ -150,19 +150,19 @@ ref; // ME_5111C2BAF24F_ME_47F083E60105 HasDocument
  %SUMMARY 'Документ с атрибутами' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4D1B85BF03E4 // BaseDocumentWithAttributesInterfaces
+ : Parent HWL ME_4D1B85BF03E4 // BaseDocumentWithAttributesInterfaces
  ;
  : Inherits
    Seq: ( WL 'ME_47EA0F8D010D' '491B305A0096.pas.ms.script' // IsdsBaseDocument
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_5009A78501A6 // dsAttributes
- ME_6DBD21E52E04 // HasAttributes
+   Seq: ( HWL ME_5009A78501A6 // dsAttributes
+ HWL ME_6DBD21E52E04 // HasAttributes
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_492598700162 // OpenAttributes
+   Seq: ( HWL ME_492598700162 // OpenAttributes
  )
  ; // Operations
  : Implemented
@@ -192,7 +192,7 @@ ref; // ME_47F083E60105 IsdsBaseDocumentWithAttributes
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_47F085420325 // IdBaseDocumentWithAttributes
+ : Parent HWL ME_47F085420325 // IdBaseDocumentWithAttributes
  ;
  : Target WL 'ME_47EB514C0336' '4982BE090383.pas.ms.script' // IvcmFormDataSourceRef
  ;
@@ -211,7 +211,7 @@ ref; // ME_958F281A6FD6 dsAttributesRef
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_47F085420325 // IdBaseDocumentWithAttributes
+ : Parent HWL ME_47F085420325 // IdBaseDocumentWithAttributes
  ;
  : Target WL 'ME_491BF08F035F' '4678193C009C.pas.ms.script' // Tl3Bool
  ;
@@ -227,7 +227,7 @@ ref; // ME_E1561B99CC62 HasAttributes
  %SUMMARY 'очистить логические поля' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_47F085420325 // IdBaseDocumentWithAttributes
+ : Parent HWL ME_47F085420325 // IdBaseDocumentWithAttributes
  ;
 
 ref; // ME_4939245D0171 ResetBooleans
@@ -272,19 +272,19 @@ ref; // ME_CEA3A9CB4068_ME_47F085420325 DocInfo
  %SUMMARY 'Данные документа с атрибутами.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4D1B85BF03E4 // BaseDocumentWithAttributesInterfaces
+ : Parent HWL ME_4D1B85BF03E4 // BaseDocumentWithAttributesInterfaces
  ;
  : Inherits
    Seq: ( WL 'ME_47EB3BD9015F' '491B305A0096.pas.ms.script' // IdBaseDocument
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_958F281A6FD6 // dsAttributesRef
- ME_E1561B99CC62 // HasAttributes
+   Seq: ( HWL ME_958F281A6FD6 // dsAttributesRef
+ HWL ME_E1561B99CC62 // HasAttributes
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_4939245D0171 // ResetBooleans
+   Seq: ( HWL ME_4939245D0171 // ResetBooleans
  )
  ; // Operations
  : Implemented
@@ -309,8 +309,8 @@ ref; // ME_47F085420325 IdBaseDocumentWithAttributes
  : Parent WL 'ME_4D1B64E70031' '4D1B64E70031.pas.ms.script' // BusinessInterfaces
  ;
  : Children
-   Seq: ( ME_47F083E60105 // IsdsBaseDocumentWithAttributes
- ME_47F085420325 // IdBaseDocumentWithAttributes
+   Seq: ( HWL ME_47F083E60105 // IsdsBaseDocumentWithAttributes
+ HWL ME_47F085420325 // IdBaseDocumentWithAttributes
  )
  ; // Children
  : Depends

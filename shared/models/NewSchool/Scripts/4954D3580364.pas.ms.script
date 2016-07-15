@@ -2,39 +2,6 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-FORWARD ME_4954D3580364
-
-: ME_4AA5122E03B2
- CONST UID '4AA5122E03B2'
- CONST Name 'Admin'
- CONST Class class_Class
- : Stereotype st_VCMUseCaseRealization ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Администрирование пользователей' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4954D3580364 // Admin
- ;
- : Inherits
-   Seq: ( WL 'ME_4AA5120303E5' '49480CD20303.pas.ms.script' // Admin
- )
- ; // Inherits
- : Implements
-   Seq: ( WL 'ME_484F8C0C0359' '481F0CA6017E.pas.ms.script' // Администрирование пользователей
- )
- ; // Implements
- CONST "author" 'Люлин А.В.'
- CONST "no hands" true
- CONST "started" '10.09.2009 16:00'
- CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\moAdmin.pas'
- CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
- CONST extprop:pas:TypeName 'Tmo_Admin'
- CONST extprop:rc:SelfName 'mo_Admin'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'moAdmin'
-
-ref; // ME_4AA5122E03B2 Admin$UC
-
 : ME_4954D3580364
  CONST UID '4954D3580364'
  CONST Name 'Admin'
@@ -46,7 +13,7 @@ ref; // ME_4AA5122E03B2 Admin$UC
  : Parent WL 'ME_4A82EED40053' '4A82EED40053.pas.ms.script' // F1 Администратор
  ;
  : Children
-   Seq: ( ME_4AA5122E03B2 // Admin$UC
+   Seq: ( WL 'ME_4AA5122E03B2' '4AA5122E03B2.pas.ms.script' // Admin$UC
  WL 'ME_493FBE3E033A' '493FBE3E033A.pas.ms.script' // Admin
  WL 'ME_4954D3CD0185' '4954D3CD0185.pas.ms.script' // View
  )

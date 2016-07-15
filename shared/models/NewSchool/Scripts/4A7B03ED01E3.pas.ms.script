@@ -1,0 +1,181 @@
+// WorkWithRedactions 4A7B03ED01E3 VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A7B03ED01E3
+
+FORWARD ME_4EF354C8018B
+
+: ME_4EF354F70276
+ CONST UID '4EF354F70276'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4EF354C8018B // CaneHaveDocumentCompareEditionsOperation
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4EF354F70276 DoIt
+
+: ME_4EF354C8018B
+ CONST UID '4EF354C8018B'
+ CONST Name 'CaneHaveDocumentCompareEditionsOperation'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4A7B03ED01E3 // WorkWithRedactions
+ ;
+ : Implements
+   Seq: ( WL 'ME_4EF35363033C' '484900780017.pas.ms.script' // Если список редакций открыт в модальном состоянии, то контекстной операции "Сравнение редакций" - быть не должно
+ )
+ ; // Implements
+ : Operations
+   Seq: ( HWL ME_4EF354F70276 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_4EF354C8018B CaneHaveDocumentCompareEditionsOperation
+
+FORWARD ME_4F2BEF740060
+
+: ME_4F2BF04303AF
+ CONST UID '4F2BF04303AF'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4F2BEF740060 // GetRedactionOnLeftEdition
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4F2BF04303AF DoIt
+
+: ME_4F2BEF740060
+ CONST UID '4F2BEF740060'
+ CONST Name 'GetRedactionOnLeftEdition'
+ CONST Class class_Class
+ : Stereotype st_virtualmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4A7B03ED01E3 // WorkWithRedactions
+ ;
+ : Operations
+   Seq: ( HWL ME_4F2BF04303AF // DoIt
+ )
+ ; // Operations
+
+ref; // ME_4F2BEF740060 GetRedactionOnLeftEdition
+
+: ME_4A7FCEA9025D
+ CONST UID '4A7FCEA9025D'
+ CONST Name 'RedactionCurrentPara'
+ CONST Class class_Operation
+ %SUMMARY 'Текущий параграф редакции для синхронизации с окном сравннения редакций' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_4A7B03ED01E3 // WorkWithRedactions
+ ;
+ : Target WL 'ME_4A7FC9C9008F' '4912DD020283.pas.ms.script' // IeeLeafPara
+ ;
+
+ref; // ME_4A7FCEA9025D RedactionCurrentPara
+
+: ME_4A8931130363
+ CONST UID '4A8931130363'
+ CONST Name 'CanBeChanged'
+ CONST Class class_Operation
+ %SUMMARY 'Может ли документ быть изменён' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_4A7B03ED01E3 // WorkWithRedactions
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4A8931130363 CanBeChanged
+
+: ME_4A8930FC03DC
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A7B03ED01E3 // WorkWithRedactions
+ ;
+ : Target WL 'ME_45EEC17501B5' '45EEAA800226.pas.ms.script' // Controllable
+ ;
+
+ref; // ME_4A8930FC03DC 
+
+: ME_57483CCA035F
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A7B03ED01E3 // WorkWithRedactions
+ ;
+ : Target WL 'ME_4ADEE49C02DF' '4AB0C3C60310.pas.ms.script' // Supports
+ ;
+
+ref; // ME_57483CCA035F 
+
+: ME_4C7BAEB4010E_ME_4A7B03ED01E3
+ : Original WL 'ME_4C7BAEB4010E' '4A77058200BA.pas.ms.script' // CompareEditions
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "has states" true
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_4C7BAEB4010E_ME_4A7B03ED01E3 CompareEditions
+
+: ME_4A7B03ED01E3
+ CONST UID '4A7B03ED01E3'
+ CONST Name 'WorkWithRedactions'
+ CONST Class class_Class
+ : Stereotype st_VCMForm ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Работа с редакциями документа' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent WL 'ME_4A7C0BB70162' '4A7C0BB70162.pas.ms.script' // Base Forms
+ ;
+ : Implements
+   Seq: ( WL 'ME_4A7705AD01AB' '4A77058200BA.pas.ms.script' // Document
+ )
+ ; // Implements
+ : Operations
+   Seq: ( HWL ME_4EF354C8018B // CaneHaveDocumentCompareEditionsOperation
+ HWL ME_4F2BEF740060 // GetRedactionOnLeftEdition
+ HWL ME_4A7FCEA9025D // RedactionCurrentPara
+ HWL ME_4A8931130363 // CanBeChanged
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4C7BAEB4010E_ME_4A7B03ED01E3 // CompareEditions
+ )
+ ; // Implemented
+ : Dependencies
+   Seq: ( ME_4A8930FC03DC // Controllable
+ ME_57483CCA035F // Supports
+ )
+ ; // Dependencies
+ CONST "NeedsHackRef" true
+ CONST "ZoneType" 'Any'
+ CONST "finished dfm" true
+ CONST "needs InstanceR" true
+ CONST "resizeable" false
+ CONST "restrict form def" 'undefined'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\WorkWithRedactions.imp.pas'
+ CONST extprop:pas:TypeName '_WorkWithRedactions_'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'WorkWithRedactions.imp'
+ CONST extprop:NeedsInitEntities true
+
+ref; // ME_4A7B03ED01E3 WorkWithRedactions

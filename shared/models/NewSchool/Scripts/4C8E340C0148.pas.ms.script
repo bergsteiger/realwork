@@ -1,0 +1,560 @@
+// PrimToolbarMenu 4C8E340C0148 VCMFormsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4C8E340C0148
+
+FORWARD ME_4C90B27C032C
+
+: ME_4C90B2B20022
+ CONST UID '4C90B2B20022'
+ CONST Name 'ItemType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent HWL ME_4C90B27C032C // TIvcmToolbarsCustomizeListenerPtrList
+ ;
+ : Target WL 'ME_49525BCE0355' '499465EE030A.pas.ms.script' // IvcmToolbarsCustomizeListener
+ ;
+
+ref; // ME_4C90B2B20022 ItemType
+
+: ME_4C90B27C032C
+ CONST UID '4C90B27C032C'
+ CONST Name 'TIvcmToolbarsCustomizeListenerPtrList'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Список указателей на IvcmToolbarsCustomizeListener' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4C8E340C0148 // PrimToolbarMenu
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47B57D630029' '47913B47006E.pas.ms.script' // l3InterfacePtrList
+ WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( HWL ME_4C90B2B20022 // ItemType
+ )
+ ; // Attributes
+ CONST "author" 'Люлин А.В.'
+ CONST "no hands" true
+ CONST "started" '15.09.2010 15:48'
+ CONST extprop:rc:SelfName 'IvcmToolbarsCustomizeListenerPtrList'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4C90B27C032C TIvcmToolbarsCustomizeListenerPtrList
+
+: ME_4C8E3C930236
+ CONST UID '4C8E3C930236'
+ CONST Name 'f_CustomizeVisible'
+ CONST Class class_Attribute
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4C8E340C0148 // PrimToolbarMenu
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4C8E3C930236 f_CustomizeVisible
+
+: ME_4C8E3D110055
+ CONST UID '4C8E3D110055'
+ CONST Name 'f_LargeIconsVisible'
+ CONST Class class_Attribute
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4C8E340C0148 // PrimToolbarMenu
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4C8E3D110055 f_LargeIconsVisible
+
+: ME_4C8E46EA0263
+ CONST UID '4C8E46EA0263'
+ CONST Name 'MenuManager'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4C8E340C0148 // PrimToolbarMenu
+ ;
+ : Target WL 'ME_52A1F4A201F9' '4AADF9450143.pas.ms.script' // TvcmBaseMenuManager
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_4C8E46EA0263 MenuManager
+
+: ME_4C90B2CB0258
+ CONST UID '4C90B2CB0258'
+ CONST Name 'f_Listeners'
+ CONST Class class_Attribute
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4C8E340C0148 // PrimToolbarMenu
+ ;
+ : Target HWL ME_4C90B27C032C // TIvcmToolbarsCustomizeListenerPtrList
+ ;
+
+ref; // ME_4C90B2CB0258 f_Listeners
+
+FORWARD ME_4C8E3A170399
+
+: ME_4C8E3A1D031E
+ CONST UID '4C8E3A1D031E'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4C8E3A170399 // Customize
+ ;
+
+ref; // ME_4C8E3A1D031E DoIt
+
+: ME_4C8E3A170399
+ CONST UID '4C8E3A170399'
+ CONST Name 'Customize'
+ CONST Class class_Class
+ : Stereotype st_ModuleMethod ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Настройка...' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4C8E340C0148 // PrimToolbarMenu
+ ;
+ : Operations
+   Seq: ( HWL ME_4C8E3A1D031E // DoIt
+ )
+ ; // Operations
+ CONST "ShowInToolbar" false
+ CONST "no prefix" false
+ CONST "no test" false
+
+ref; // ME_4C8E3A170399 Customize
+
+FORWARD ME_4C8E3A290341
+
+: ME_4C8E3A3100E6
+ CONST UID '4C8E3A3100E6'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4C8E3A290341 // AvailableOperations
+ ;
+
+ref; // ME_4C8E3A3100E6 DoIt
+
+: ME_4C8E3A290341
+ CONST UID '4C8E3A290341'
+ CONST Name 'AvailableOperations'
+ CONST Class class_Class
+ : Stereotype st_ModuleMethod ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Доступные операции...' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4C8E340C0148 // PrimToolbarMenu
+ ;
+ : Operations
+   Seq: ( HWL ME_4C8E3A3100E6 // DoIt
+ )
+ ; // Operations
+ CONST "ShowInToolbar" false
+ CONST "ifndef" 'Admin,Monitorings'
+ CONST "is static" false
+ CONST "no prefix" false
+ CONST "no test" false
+
+ref; // ME_4C8E3A290341 AvailableOperations
+
+FORWARD ME_4C8E3A3E011D
+
+: ME_4C8E3A4500AB
+ CONST UID '4C8E3A4500AB'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4C8E3A3E011D // IconsSize
+ ;
+
+ref; // ME_4C8E3A4500AB DoIt
+
+: ME_4C8E3A3E011D
+ CONST UID '4C8E3A3E011D'
+ CONST Name 'IconsSize'
+ CONST Class class_Class
+ : Stereotype st_ModuleMethod ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Размер кнопок' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4C8E340C0148 // PrimToolbarMenu
+ ;
+ : Operations
+   Seq: ( HWL ME_4C8E3A4500AB // DoIt
+ )
+ ; // Operations
+ CONST "ShowInToolbar" false
+ CONST "no prefix" false
+ CONST "no test" false
+
+ref; // ME_4C8E3A3E011D IconsSize
+
+FORWARD ME_4C8E3A5002FF
+
+: ME_4C8E3A560382
+ CONST UID '4C8E3A560382'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4C8E3A5002FF // Fasten
+ ;
+
+ref; // ME_4C8E3A560382 DoIt
+
+: ME_4C8E3A5002FF
+ CONST UID '4C8E3A5002FF'
+ CONST Name 'Fasten'
+ CONST Class class_Class
+ : Stereotype st_ModuleMethod ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Закрепить панели инструментов' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4C8E340C0148 // PrimToolbarMenu
+ ;
+ : Operations
+   Seq: ( HWL ME_4C8E3A560382 // DoIt
+ )
+ ; // Operations
+ CONST "ShowInToolbar" false
+ CONST "no prefix" false
+ CONST "no test" false
+
+ref; // ME_4C8E3A5002FF Fasten
+
+FORWARD ME_4C90B2F500F9
+
+: ME_4C90B2FB0204
+ CONST UID '4C90B2FB0204'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4C90B2F500F9 // DoNotify
+ ;
+
+ref; // ME_4C90B2FB0204 DoIt
+
+: ME_4C90B2F500F9
+ CONST UID '4C90B2F500F9'
+ CONST Name 'DoNotify'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4C8E340C0148 // PrimToolbarMenu
+ ;
+ : Operations
+   Seq: ( HWL ME_4C90B2FB0204 // DoIt
+ )
+ ; // Operations
+ CONST "is static" false
+
+ref; // ME_4C90B2F500F9 DoNotify
+
+FORWARD ME_4C90C066016F
+
+: ME_4C90C07A03AA
+ CONST Name 'Sender'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_4C90C07A03AA Sender
+
+: ME_4C90C0770192
+ CONST UID '4C90C0770192'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4C90C066016F // pmToolbarPopup
+ ;
+ : Parameters
+   Seq: ( ME_4C90C07A03AA // Sender
+ )
+ ; // Parameters
+
+ref; // ME_4C90C0770192 DoIt
+
+: ME_4C90C066016F
+ CONST UID '4C90C066016F'
+ CONST Name 'pmToolbarPopup'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4C8E340C0148 // PrimToolbarMenu
+ ;
+ : Operations
+   Seq: ( HWL ME_4C90C0770192 // DoIt
+ )
+ ; // Operations
+ CONST "is static" false
+
+ref; // ME_4C90C066016F pmToolbarPopup
+
+: ME_4C8E3C850196
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C8E340C0148 // PrimToolbarMenu
+ ;
+ : Target WL 'ME_47752AF90375' '47750CE700D0.pas.ms.script' // afwFacade
+ ;
+
+ref; // ME_4C8E3C850196 
+
+: ME_4C8E411900BE
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C8E340C0148 // PrimToolbarMenu
+ ;
+ : Target WL 'ME_4B9777000394' '4B8E967100D5.pas.ms.script' // vcmToolbarMenuRes
+ ;
+
+ref; // ME_4C8E411900BE 
+
+: ME_4C8E412B02E7
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C8E340C0148 // PrimToolbarMenu
+ ;
+ : Target WL 'ME_467BABAA00D5' '467BAB7F021E.pas.ms.script' // IvcmOperationsProvider
+ ;
+
+ref; // ME_4C8E412B02E7 
+
+: ME_4C8E42040253
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C8E340C0148 // PrimToolbarMenu
+ ;
+ : Target WL 'ME_4B30EC81021A' '4B30EC67025A.pas.ms.script' // TvcmCustomMenuManager
+ ;
+
+ref; // ME_4C8E42040253 
+
+: ME_4C90B1CB0235
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C8E340C0148 // PrimToolbarMenu
+ ;
+ : Target WL 'ME_479878FA0103' '4AB0997B00A2.pas.ms.script' // TComponent
+ ;
+
+ref; // ME_4C90B1CB0235 
+
+: ME_4C90B1ED00C4
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C8E340C0148 // PrimToolbarMenu
+ ;
+ : Target WL 'ME_4914746C019E' '4683F37902CF.pas.ms.script' // IvcmEntityForm
+ ;
+
+ref; // ME_4C90B1ED00C4 
+
+: ME_4C90B9420050
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C8E340C0148 // PrimToolbarMenu
+ ;
+ : Target WL 'ME_47E1201703C3' '4799D29F033F.pas.ms.script' // TControl
+ ;
+
+ref; // ME_4C90B9420050 
+
+: ME_4C90B9A102F1
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C8E340C0148 // PrimToolbarMenu
+ ;
+ : Target WL 'ME_4C90B98901EB' '4AADF9450143.pas.ms.script' // TvcmCustAvailableToolbarOps
+ ;
+
+ref; // ME_4C90B9A102F1 
+
+: ME_4C90BF160135
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C8E340C0148 // PrimToolbarMenu
+ ;
+ : Target WL 'ME_49525B34022A' '4AADF9450143.pas.ms.script' // TvcmEntityForm
+ ;
+
+ref; // ME_4C90BF160135 
+
+: ME_4C90C1D70358
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C8E340C0148 // PrimToolbarMenu
+ ;
+ : Target WL 'ME_4992F80B015F' '499EAAE502A8.pas.ms.script' // TvcmToolBarPos
+ ;
+
+ref; // ME_4C90C1D70358 
+
+: ME_4C90DAF603CC
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C8E340C0148 // PrimToolbarMenu
+ ;
+ : Target WL 'ME_4C8F78FC0067' '4AADF9450143.pas.ms.script' // vcmMakeModuleMenu
+ ;
+
+ref; // ME_4C90DAF603CC 
+
+: ME_52AEC687026D
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C8E340C0148 // PrimToolbarMenu
+ ;
+ : Target WL 'ME_5028A4C0019B' '5028A4C0019B.pas.ms.script' // TvcmToolbar
+ ;
+
+ref; // ME_52AEC687026D 
+
+: ME_552BAE5401BF
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C8E340C0148 // PrimToolbarMenu
+ ;
+ : Target WL 'ME_552BADA90096' '4B30EC67025A.pas.ms.script' // TvcmToolbarGlyphService
+ ;
+
+ref; // ME_552BAE5401BF 
+
+: ME_4992FC7A0212_ME_4C8E340C0148
+ : Original WL 'ME_4992FC7A0212' '499465EE030A.pas.ms.script' // AddListener
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4992FC7A0212_ME_4C8E340C0148 AddListener
+
+: ME_4992FC8900E1_ME_4C8E340C0148
+ : Original WL 'ME_4992FC8900E1' '499465EE030A.pas.ms.script' // RemoveListener
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4992FC8900E1_ME_4C8E340C0148 RemoveListener
+
+: ME_4992FCAD02D1_ME_4C8E340C0148
+ : Original WL 'ME_4992FCAD02D1' '499465EE030A.pas.ms.script' // Notify
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_4992FCAD02D1_ME_4C8E340C0148 Notify
+
+: ME_479731C50290_ME_4C8E340C0148
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_479731C50290_ME_4C8E340C0148 Cleanup
+
+: ME_47D1602000C6_ME_4C8E340C0148
+ : Original WL 'ME_47D1602000C6' '4AB0997B00A2.pas.ms.script' // Create
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_47D1602000C6_ME_4C8E340C0148 Create
+
+: ME_4C8E340C0148
+ CONST UID '4C8E340C0148'
+ CONST Name 'PrimToolbarMenu'
+ CONST Class class_Class
+ : Stereotype st_VCMFormsPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent WL 'ME_4C8E33F40186' '4C8E33F40186.pas.ms.script' // ToolbarMenu
+ ;
+ : Implements
+   Seq: ( WL 'ME_4992FC6D03E1' '499465EE030A.pas.ms.script' // IvcmToolbarsCustomizeNotify
+ WL 'ME_4992FC9F029B' '499465EE030A.pas.ms.script' // IvcmToolbarsCustomize
+ WL 'ME_4C8F785C005B' '47D0E1500033.pas.ms.script' // MvcmModule
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( HWL ME_4C8E3C930236 // f_CustomizeVisible
+ HWL ME_4C8E3D110055 // f_LargeIconsVisible
+ HWL ME_4C8E46EA0263 // MenuManager
+ HWL ME_4C90B2CB0258 // f_Listeners
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( HWL ME_4C8E3A170399 // Customize
+ HWL ME_4C8E3A290341 // AvailableOperations
+ HWL ME_4C8E3A3E011D // IconsSize
+ HWL ME_4C8E3A5002FF // Fasten
+ HWL ME_4C90B2F500F9 // DoNotify
+ HWL ME_4C90C066016F // pmToolbarPopup
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4992FC7A0212_ME_4C8E340C0148 // AddListener
+ ME_4992FC8900E1_ME_4C8E340C0148 // RemoveListener
+ ME_4992FCAD02D1_ME_4C8E340C0148 // Notify
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_479731C50290_ME_4C8E340C0148 // Cleanup
+ ME_47D1602000C6_ME_4C8E340C0148 // Create
+ )
+ ; // Overridden
+ : Children
+   Seq: ( WL 'ME_4C8E42D40131' '4C8E42D40131.pas.ms.script' // CustomizeTools
+ HWL ME_4C90B27C032C // TIvcmToolbarsCustomizeListenerPtrList
+ )
+ ; // Children
+ : Dependencies
+   Seq: ( ME_4C8E3C850196 // afwFacade
+ ME_4C8E411900BE // vcmToolbarMenuRes
+ ME_4C8E412B02E7 // IvcmOperationsProvider
+ ME_4C8E42040253 // TvcmCustomMenuManager
+ ME_4C90B1CB0235 // TComponent
+ ME_4C90B1ED00C4 // IvcmEntityForm
+ ME_4C90B9420050 // TControl
+ ME_4C90B9A102F1 // TvcmCustAvailableToolbarOps
+ ME_4C90BF160135 // TvcmEntityForm
+ ME_4C90C1D70358 // TvcmToolBarPos
+ ME_4C90DAF603CC // vcmMakeModuleMenu
+ ME_52AEC687026D // TvcmToolbar
+ ME_552BAE5401BF // TvcmToolbarGlyphService
+ )
+ ; // Dependencies
+ CONST "author" 'Люлин А.В.'
+ CONST "no hands" true
+ CONST "started" '13.09.2010 18:24'
+ CONST intf.pas:Path 'common\components\gui\Garant\VCM\View\ToolbarMenu\PrimToolbarMenu_Module.pas'
+ CONST extprop:pas:TypeName 'TPrimToolbarMenuModule'
+ CONST extprop:rc:SelfName 'PrimToolbarMenuModule'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'PrimToolbarMenu_Module'
+
+ref; // ME_4C8E340C0148 PrimToolbarMenu

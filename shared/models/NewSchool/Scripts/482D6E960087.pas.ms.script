@@ -14,7 +14,7 @@ FORWARD ME_4F68343D038D
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4F68343D038D // Read
+ : Parent HWL ME_4F68343D038D // Read
  ;
 
 ref; // ME_4F6834510218 DoIt
@@ -27,10 +27,10 @@ ref; // ME_4F6834510218 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_482D6ED9000A // Tk2CustomReader
+ : Parent HWL ME_482D6ED9000A // Tk2CustomReader
  ;
  : Operations
-   Seq: ( ME_4F6834510218 // DoIt
+   Seq: ( HWL ME_4F6834510218 // DoIt
  )
  ; // Operations
 
@@ -44,14 +44,14 @@ ref; // ME_4F68343D038D Read
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_482D6E960087 // Readers
+ : Parent HWL ME_482D6E960087 // Readers
  ;
  : Inherits
    Seq: ( WL 'ME_482D6F380205' '47ECA80B000D.pas.ms.script' // Tk2CustomStackGenerator
  )
  ; // Inherits
  : Operations
-   Seq: ( ME_4F68343D038D // Read
+   Seq: ( HWL ME_4F68343D038D // Read
  )
  ; // Operations
  CONST "author" 'Люлин А.В.'
@@ -72,10 +72,10 @@ ref; // ME_482D6ED9000A Tk2CustomReader
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_482D6E960087 // Readers
+ : Parent HWL ME_482D6E960087 // Readers
  ;
  : Inherits
-   Seq: ( ME_482D6ED9000A // Tk2CustomReader
+   Seq: ( HWL ME_482D6ED9000A // Tk2CustomReader
  )
  ; // Inherits
  CONST "author" 'Люлин А.В.'
@@ -97,10 +97,10 @@ ref; // ME_482D6EB4003A Tk2CustomFileReader
  %SUMMARY 'Базовый класс "читателей" тегов, обладающий парсером.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_482D6E960087 // Readers
+ : Parent HWL ME_482D6E960087 // Readers
  ;
  : Inherits
-   Seq: ( ME_482D6EB4003A // Tk2CustomFileReader
+   Seq: ( HWL ME_482D6EB4003A // Tk2CustomFileReader
  )
  ; // Inherits
  CONST "author" 'Люлин А.В.'
@@ -124,9 +124,9 @@ FORWARD ME_30860C64BDA8
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_30860C64BDA8 // Mk2EVDReaderService
+ : Parent HWL ME_30860C64BDA8 // Mk2EVDReaderService
  ;
- : Target ME_482D6EB4003A // Tk2CustomFileReader
+ : Target HWL ME_482D6EB4003A // Tk2CustomFileReader
  ;
 
 ref; // ME_9F46A5A9DAF5 GetReader
@@ -158,7 +158,7 @@ ref; // ME_A8321E95D8B5 aFilter
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_30860C64BDA8 // Mk2EVDReaderService
+ : Parent HWL ME_30860C64BDA8 // Mk2EVDReaderService
  ;
  : Target WL 'ME_46781657008C' '4677FBA70343.pas.ms.script' // Il3Reader
  ;
@@ -180,56 +180,15 @@ ref; // ME_6A9002DE6C1A MakeReader
  %SUMMARY 'Контракт сервиса Tk2EVDReaderService' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_555DB43B00BD // Tk2EVDReaderService
+ : Parent HWL ME_555DB43B00BD // Tk2EVDReaderService
  ;
  : Operations
-   Seq: ( ME_9F46A5A9DAF5 // GetReader
- ME_6A9002DE6C1A // MakeReader
+   Seq: ( HWL ME_9F46A5A9DAF5 // GetReader
+ HWL ME_6A9002DE6C1A // MakeReader
  )
  ; // Operations
 
 ref; // ME_30860C64BDA8 Mk2EVDReaderService
-
-FORWARD ME_4EE7B78D5AA0
-
-: ME_6A9002DE6C1A_ME_4EE7B78D5AA0
- : Original ME_6A9002DE6C1A // MakeReader
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_6A9002DE6C1A_ME_4EE7B78D5AA0 MakeReader
-
-: ME_9F46A5A9DAF5_ME_4EE7B78D5AA0
- : Original ME_9F46A5A9DAF5 // GetReader
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_9F46A5A9DAF5_ME_4EE7B78D5AA0 GetReader
-
-: ME_4EE7B78D5AA0
- CONST UID '4EE7B78D5AA0'
- CONST GUID '0D7649DC-496C-4118-A5C9-0D36658FB2DC'
- CONST Name 'Ik2EVDReaderService'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Facet ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Интерфейс сервиса Tk2EVDReaderService' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_555DB43B00BD // Tk2EVDReaderService
- ;
- : Implements
-   Seq: ( ME_30860C64BDA8 // Mk2EVDReaderService
- )
- ; // Implements
- : Implemented
-   Seq: ( ME_6A9002DE6C1A_ME_4EE7B78D5AA0 // MakeReader
- ME_9F46A5A9DAF5_ME_4EE7B78D5AA0 // GetReader
- )
- ; // Implemented
- CONST extprop:rc:SelfName 'EVDReaderService'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_4EE7B78D5AA0 Ik2EVDReaderService
 
 : ME_555DB53301DC
  CONST UID '555DB53301DC'
@@ -238,9 +197,9 @@ ref; // ME_4EE7B78D5AA0 Ik2EVDReaderService
  : Stereotype st_responsibility::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_555DB43B00BD // Tk2EVDReaderService
+ : Parent HWL ME_555DB43B00BD // Tk2EVDReaderService
  ;
- : Target ME_482D6EB4003A // Tk2CustomFileReader
+ : Target HWL ME_482D6EB4003A // Tk2CustomFileReader
  ;
 
 ref; // ME_555DB53301DC GetReader
@@ -270,7 +229,7 @@ ref; // ME_55701AA6037A aFilter
  : Stereotype st_responsibility::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_555DB43B00BD // Tk2EVDReaderService
+ : Parent HWL ME_555DB43B00BD // Tk2EVDReaderService
  ;
  : Target WL 'ME_46781657008C' '4677FBA70343.pas.ms.script' // Il3Reader
  ;
@@ -282,18 +241,6 @@ ref; // ME_55701AA6037A aFilter
 
 ref; // ME_55701A7A01B4 MakeReader
 
-: ME_6A9002DE6C1A_ME_555DB43B00BD
- : Original ME_6A9002DE6C1A // MakeReader
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_6A9002DE6C1A_ME_555DB43B00BD MakeReader
-
-: ME_9F46A5A9DAF5_ME_555DB43B00BD
- : Original ME_9F46A5A9DAF5 // GetReader
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_9F46A5A9DAF5_ME_555DB43B00BD GetReader
-
 : ME_555DB43B00BD
  CONST UID '555DB43B00BD'
  CONST Name 'Tk2EVDReaderService'
@@ -302,40 +249,25 @@ ref; // ME_9F46A5A9DAF5_ME_555DB43B00BD GetReader
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_482D6E960087 // Readers
+ : Parent HWL ME_482D6E960087 // Readers
  ;
  : Inherits
    Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
  )
  ; // Inherits
- : Implements
-   Seq: ( ME_30860C64BDA8 // Mk2EVDReaderService
- )
- ; // Implements
  : Operations
-   Seq: ( ME_555DB53301DC // GetReader
- ME_55701A7A01B4 // MakeReader
+   Seq: ( HWL ME_555DB53301DC // GetReader
+ HWL ME_55701A7A01B4 // MakeReader
  )
  ; // Operations
- : Implemented
-   Seq: ( ME_6A9002DE6C1A_ME_555DB43B00BD // MakeReader
- ME_9F46A5A9DAF5_ME_555DB43B00BD // GetReader
- )
- ; // Implemented
  : Children
-   Seq: ( ME_30860C64BDA8 // Mk2EVDReaderService
- ME_4EE7B78D5AA0 // Ik2EVDReaderService
+   Seq: ( HWL ME_30860C64BDA8 // Mk2EVDReaderService
  )
  ; // Children
- CONST "singleton" true
  CONST intf.pas:Path 'common\components\rtl\Garant\K2\k2EVDReaderService.pas'
  CONST extprop:rc:SelfName 'EVDReaderService'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'k2EVDReaderService'
- : Facet ME_4EE7B78D5AA0 // Ik2EVDReaderService
- ;
- : Mixin ME_30860C64BDA8 // Mk2EVDReaderService
- ;
 
 ref; // ME_555DB43B00BD Tk2EVDReaderService
 
@@ -350,7 +282,7 @@ FORWARD ME_57767888A990
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_57767888A990 // Mk2EVDWriterService
+ : Parent HWL ME_57767888A990 // Mk2EVDWriterService
  ;
  : Target WL 'ME_4836BFC9011E' '47ECA80B000D.pas.ms.script' // Tk2CustomFileGenerator
  ;
@@ -374,7 +306,7 @@ ref; // ME_6D37694A9AFF aFileName
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_57767888A990 // Mk2EVDWriterService
+ : Parent HWL ME_57767888A990 // Mk2EVDWriterService
  ;
  : Target WL 'ME_4678160E01BE' '47913B47006E.pas.ms.script' // Ik2TagGenerator
  ;
@@ -395,56 +327,15 @@ ref; // ME_F7BF6A35E2B1 MakeWriter
  %SUMMARY 'Контракт сервиса Tk2EVDWriterService' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_555DCEA8017E // Tk2EVDWriterService
+ : Parent HWL ME_555DCEA8017E // Tk2EVDWriterService
  ;
  : Operations
-   Seq: ( ME_26782C1B9519 // GetWriter
- ME_F7BF6A35E2B1 // MakeWriter
+   Seq: ( HWL ME_26782C1B9519 // GetWriter
+ HWL ME_F7BF6A35E2B1 // MakeWriter
  )
  ; // Operations
 
 ref; // ME_57767888A990 Mk2EVDWriterService
-
-FORWARD ME_45A65DABCE57
-
-: ME_26782C1B9519_ME_45A65DABCE57
- : Original ME_26782C1B9519 // GetWriter
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_26782C1B9519_ME_45A65DABCE57 GetWriter
-
-: ME_F7BF6A35E2B1_ME_45A65DABCE57
- : Original ME_F7BF6A35E2B1 // MakeWriter
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_F7BF6A35E2B1_ME_45A65DABCE57 MakeWriter
-
-: ME_45A65DABCE57
- CONST UID '45A65DABCE57'
- CONST GUID 'B93031D3-1115-441C-B788-BC5802B50265'
- CONST Name 'Ik2EVDWriterService'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Facet ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Интерфейс сервиса Tk2EVDWriterService' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_555DCEA8017E // Tk2EVDWriterService
- ;
- : Implements
-   Seq: ( ME_57767888A990 // Mk2EVDWriterService
- )
- ; // Implements
- : Implemented
-   Seq: ( ME_26782C1B9519_ME_45A65DABCE57 // GetWriter
- ME_F7BF6A35E2B1_ME_45A65DABCE57 // MakeWriter
- )
- ; // Implemented
- CONST extprop:rc:SelfName 'EVDWriterService'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_45A65DABCE57 Ik2EVDWriterService
 
 : ME_555DCEC1021B
  CONST UID '555DCEC1021B'
@@ -453,7 +344,7 @@ ref; // ME_45A65DABCE57 Ik2EVDWriterService
  : Stereotype st_responsibility::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_555DCEA8017E // Tk2EVDWriterService
+ : Parent HWL ME_555DCEA8017E // Tk2EVDWriterService
  ;
  : Target WL 'ME_4836BFC9011E' '47ECA80B000D.pas.ms.script' // Tk2CustomFileGenerator
  ;
@@ -476,7 +367,7 @@ ref; // ME_55701AF401C9 aFileName
  : Stereotype st_responsibility::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_555DCEA8017E // Tk2EVDWriterService
+ : Parent HWL ME_555DCEA8017E // Tk2EVDWriterService
  ;
  : Target WL 'ME_4678160E01BE' '47913B47006E.pas.ms.script' // Ik2TagGenerator
  ;
@@ -487,18 +378,6 @@ ref; // ME_55701AF401C9 aFileName
 
 ref; // ME_55701AE20388 MakeWriter
 
-: ME_26782C1B9519_ME_555DCEA8017E
- : Original ME_26782C1B9519 // GetWriter
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_26782C1B9519_ME_555DCEA8017E GetWriter
-
-: ME_F7BF6A35E2B1_ME_555DCEA8017E
- : Original ME_F7BF6A35E2B1 // MakeWriter
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_F7BF6A35E2B1_ME_555DCEA8017E MakeWriter
-
 : ME_555DCEA8017E
  CONST UID '555DCEA8017E'
  CONST Name 'Tk2EVDWriterService'
@@ -507,40 +386,25 @@ ref; // ME_F7BF6A35E2B1_ME_555DCEA8017E MakeWriter
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_482D6E960087 // Readers
+ : Parent HWL ME_482D6E960087 // Readers
  ;
  : Inherits
    Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
  )
  ; // Inherits
- : Implements
-   Seq: ( ME_57767888A990 // Mk2EVDWriterService
- )
- ; // Implements
  : Operations
-   Seq: ( ME_555DCEC1021B // GetWriter
- ME_55701AE20388 // MakeWriter
+   Seq: ( HWL ME_555DCEC1021B // GetWriter
+ HWL ME_55701AE20388 // MakeWriter
  )
  ; // Operations
- : Implemented
-   Seq: ( ME_26782C1B9519_ME_555DCEA8017E // GetWriter
- ME_F7BF6A35E2B1_ME_555DCEA8017E // MakeWriter
- )
- ; // Implemented
  : Children
-   Seq: ( ME_57767888A990 // Mk2EVDWriterService
- ME_45A65DABCE57 // Ik2EVDWriterService
+   Seq: ( HWL ME_57767888A990 // Mk2EVDWriterService
  )
  ; // Children
- CONST "singleton" true
  CONST intf.pas:Path 'common\components\rtl\Garant\K2\k2EVDWriterService.pas'
  CONST extprop:rc:SelfName 'EVDWriterService'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'k2EVDWriterService'
- : Facet ME_45A65DABCE57 // Ik2EVDWriterService
- ;
- : Mixin ME_57767888A990 // Mk2EVDWriterService
- ;
 
 ref; // ME_555DCEA8017E Tk2EVDWriterService
 
@@ -554,11 +418,11 @@ ref; // ME_555DCEA8017E Tk2EVDWriterService
  : Parent WL 'ME_4677E16A022A' '4677E16A022A.pas.ms.script' // K2
  ;
  : Children
-   Seq: ( ME_482D6ED9000A // Tk2CustomReader
- ME_482D6EB4003A // Tk2CustomFileReader
- ME_483E81520007 // Tk2CustomFileParser
- ME_555DB43B00BD // Tk2EVDReaderService
- ME_555DCEA8017E // Tk2EVDWriterService
+   Seq: ( HWL ME_482D6ED9000A // Tk2CustomReader
+ HWL ME_482D6EB4003A // Tk2CustomFileReader
+ HWL ME_483E81520007 // Tk2CustomFileParser
+ HWL ME_555DB43B00BD // Tk2EVDReaderService
+ HWL ME_555DCEA8017E // Tk2EVDWriterService
  )
  ; // Children
  : Depends

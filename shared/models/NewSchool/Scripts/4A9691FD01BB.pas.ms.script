@@ -2,39 +2,6 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-FORWARD ME_4A9691FD01BB
-
-: ME_49F6E8F90153
- CONST UID '49F6E8F90153'
- CONST Name 'InternetAgent'
- CONST Class class_Class
- : Stereotype st_VCMUseCaseRealization ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Интернет-агент' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4A9691FD01BB // InternetAgent
- ;
- : Inherits
-   Seq: ( WL 'ME_49EC739C0100' '49EC7167004C.pas.ms.script' // PrimInternetAgent$FP
- )
- ; // Inherits
- : Implements
-   Seq: ( WL 'ME_49FE7E780022' '484F80CF0274.pas.ms.script' // Новости онлайн
- )
- ; // Implements
- CONST "author" 'Люлин А.В.'
- CONST "ifndef" 'Admin,Monitorings'
- CONST "no hands" true
- CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\moInternetAgent.pas'
- CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
- CONST extprop:pas:TypeName 'Tmo_InternetAgent'
- CONST extprop:rc:SelfName 'mo_InternetAgent'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'moInternetAgent'
-
-ref; // ME_49F6E8F90153 InternetAgent$UC
-
 : ME_4A9691FD01BB
  CONST UID '4A9691FD01BB'
  CONST Name 'InternetAgent'
@@ -46,7 +13,7 @@ ref; // ME_49F6E8F90153 InternetAgent$UC
  : Parent WL 'ME_4AC2470103B2' '4AC2470103B2.pas.ms.script' // F1 Встроенные продукты
  ;
  : Children
-   Seq: ( ME_49F6E8F90153 // InternetAgent$UC
+   Seq: ( WL 'ME_49F6E8F90153' '49F6E8F90153.pas.ms.script' // InternetAgent$UC
  WL 'ME_49EC6D0903DD' '49EC6D0903DD.pas.ms.script' // InternetAgent
  WL 'ME_4A969297010D' '4A969297010D.pas.ms.script' // View
  )
@@ -72,7 +39,6 @@ ref; // ME_49F6E8F90153 InternetAgent$UC
  WL 'ME_4A92C561015D' '4A92C561015D.pas.ms.script' // Common
  WL 'ME_4D5E61FC01F0' '4D5E61FC01F0.pas.ms.script' // AFW$Core
  WL 'ME_4E13416D0227' '4E13416D0227.pas.ms.script' // VCM$Visual
- WL 'ME_4E200FC9003B' '4E200FC9003B.pas.ms.script' // VCM$Scripting
  WL 'ME_4E2F0E1B03BB' '4E2F0E1B03BB.pas.ms.script' // L3$Domain
  WL 'ME_4F6B65EA0392' '4F6B65EA0392.pas.ms.script' // F1Like
  )

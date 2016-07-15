@@ -14,7 +14,7 @@ FORWARD ME_4CA0DD21015F
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4CA0DD21015F // SecuritySrv_int
+ : Parent HWL ME_4CA0DD21015F // SecuritySrv_int
  ;
  CONST "finished" false
  CONST extprop:rc:SelfName 'CoreSrv_SecuritySrv_Token'
@@ -31,7 +31,7 @@ ref; // ME_4CA0DD3403CA TCoreSrv_SecuritySrv_Token
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4CA0DD21015F // SecuritySrv_int
+ : Parent HWL ME_4CA0DD21015F // SecuritySrv_int
  ;
  CONST extprop:rc:SelfName 'CoreSrv_SecuritySrv_SessionManager'
  CONST extprop:rc:isAcceptableForScripts true
@@ -46,11 +46,11 @@ ref; // ME_4CA1C64B0264 ICoreSrv_SecuritySrv_SessionManager
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4CA0DCFB017A // build
+ : Parent HWL ME_4CA0DCFB017A // build
  ;
  : Children
-   Seq: ( ME_4CA0DD3403CA // TCoreSrv_SecuritySrv_Token
- ME_4CA1C64B0264 // ICoreSrv_SecuritySrv_SessionManager
+   Seq: ( HWL ME_4CA0DD3403CA // TCoreSrv_SecuritySrv_Token
+ HWL ME_4CA1C64B0264 // ICoreSrv_SecuritySrv_SessionManager
  )
  ; // Children
  CONST "finished" false
@@ -68,7 +68,7 @@ FORWARD ME_4CA1D0DD027A
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4CA1D0DD027A // SecuritySrv
+ : Parent HWL ME_4CA1D0DD027A // SecuritySrv
  ;
  CONST extprop:rc:SelfName 'CoreSrv_SecuritySrv_SessionManagerFactoryManagerSrv'
  CONST extprop:rc:isAcceptableForScripts true
@@ -83,10 +83,10 @@ ref; // ME_4CA1D0ED000F TCoreSrv_SecuritySrv_SessionManagerFactoryManagerSrv
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4CA0DCFB017A // build
+ : Parent HWL ME_4CA0DCFB017A // build
  ;
  : Children
-   Seq: ( ME_4CA1D0ED000F // TCoreSrv_SecuritySrv_SessionManagerFactoryManagerSrv
+   Seq: ( HWL ME_4CA1D0ED000F // TCoreSrv_SecuritySrv_SessionManagerFactoryManagerSrv
  )
  ; // Children
  CONST "finished" false
@@ -104,8 +104,8 @@ ref; // ME_4CA1D0DD027A SecuritySrv
  : Parent WL 'ME_4CA0BEBC011E' '4CA0BEBC011E.pas.ms.script' // MTDOrb
  ;
  : Children
-   Seq: ( ME_4CA0DD21015F // SecuritySrv_int
- ME_4CA1D0DD027A // SecuritySrv
+   Seq: ( HWL ME_4CA0DD21015F // SecuritySrv_int
+ HWL ME_4CA1D0DD027A // SecuritySrv
  )
  ; // Children
  CONST "path prefix" '/build'

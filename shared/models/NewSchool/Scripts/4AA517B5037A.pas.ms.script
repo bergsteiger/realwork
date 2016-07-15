@@ -1,0 +1,114 @@
+// AdminApp 4AA517B5037A VCMApplication Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AA517B5037A
+
+FORWARD ME_4F79AF370350
+
+: ME_4F79AF3E036E
+ CONST UID '4F79AF3E036E'
+ CONST Name 'AdminTitle'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4F79AF370350 // AdminTitle
+ ;
+ CONST Value '''ÃÀÐÀÍÒ àýðî'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '''ÃÀÐÀÍÒ àýðî'''
+
+ref; // ME_4F79AF3E036E AdminTitle
+
+: ME_4F79AF370350
+ CONST UID '4F79AF370350'
+ CONST Name 'AdminTitle'
+ CONST Class class_Class
+ : Stereotype st_LocalConst ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AA517B5037A // AdminApp
+ ;
+ : Attributes
+   Seq: ( HWL ME_4F79AF3E036E // AdminTitle
+ )
+ ; // Attributes
+ CONST "Need map interface" false
+ CONST "Need mapping support" false
+ CONST "spell names" false
+
+ref; // ME_4F79AF370350 AdminTitle
+
+: ME_4AA5186D0213
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AA517B5037A // AdminApp
+ ;
+ : Target WL 'ME_4AA5122E03B2' '4AA5122E03B2.pas.ms.script' // Admin$UC
+ ;
+
+ref; // ME_4AA5186D0213 
+
+: ME_4AA7C9A700FE
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AA517B5037A // AdminApp
+ ;
+ : Target WL 'ME_4AA7C26401C4' '48F747EC0073.pas.ms.script' // TnsStartupSupport
+ ;
+
+ref; // ME_4AA7C9A700FE 
+
+: ME_4AA7E4DC0047_ME_4AA517B5037A
+ : Original WL 'ME_4AA7E4DC0047' '4A92BBDF0126.pas.ms.script' // DoRun
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4AA7E4DC0047_ME_4AA517B5037A DoRun
+
+: ME_4AA517B5037A
+ CONST UID '4AA517B5037A'
+ CONST Name 'AdminApp'
+ CONST Class class_Class
+ : Stereotype st_VCMApplication ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Îáîëî÷êà Admin' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent WL 'ME_4AA5181600DC' '4AA5181600DC.pas.ms.script' // Admin$Shell
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4A92BBDF0126' '4A92BBDF0126.pas.ms.script' // PrimF1
+ )
+ ; // Inherits
+ : Overridden
+   Seq: ( ME_4AA7E4DC0047_ME_4AA517B5037A // DoRun
+ )
+ ; // Overridden
+ : Children
+   Seq: ( WL 'ME_4AA518EB039C' '4AA518EB039C.pas.ms.script' // PrimAdminMain
+ WL 'ME_4F7C3C0B035C' '4F7C3C0B035C.pas.ms.script' // AdminMain
+ )
+ ; // Children
+ : Constants
+   Seq: ( HWL ME_4F79AF370350 // AdminTitle
+ )
+ ; // Constants
+ : Dependencies
+   Seq: ( ME_4AA5186D0213 // Admin$UC
+ ME_4AA7C9A700FE // TnsStartupSupport
+ )
+ ; // Dependencies
+ CONST "author" 'Ëþëèí À.Â.'
+ CONST "no hands" true
+ CONST "started" '07.09.2009 18:25'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\AdminAppRes.pas'
+ CONST extprop:pas:TypeName 'TAdminAppRes'
+ CONST extprop:rc:SelfName 'AdminAppRes'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'AdminAppRes'
+
+ref; // ME_4AA517B5037A AdminApp

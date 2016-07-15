@@ -4,871 +4,7 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 FORWARD ME_491D5B360381
 
-FORWARD ME_491D5BE30111
-
-: ME_4978A9500393
- CONST UID '4978A9500393'
- CONST Name 'Diction'
- CONST Class class_Attribute
- : Stereotype st_UseCase::Attribute ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- CONST LinkType lt_lnk
- : Parent ME_491D5BE30111 // TdsDictionDocument
- ;
- : Target WL 'ME_493682F9024E' '491D57C802CD.pas.ms.script' // IsdsDiction
- ;
-
-ref; // ME_4978A9500393 Diction
-
-: ME_491D5F6F0205
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_491D5BE30111 // TdsDictionDocument
- ;
- : Target WL 'ME_48FF556602BA' '48F747EC0073.pas.ms.script' // DataAdapter
- ;
-
-ref; // ME_491D5F6F0205 
-
-: ME_4CE662DB0093
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_491D5BE30111 // TdsDictionDocument
- ;
- : Target WL 'ME_4CE662B803DA' '4D358BD90052.pas.ms.script' // TnsDictionDocumentContainer
- ;
-
-ref; // ME_4CE662DB0093 
-
-: ME_4D82228902B1
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_491D5BE30111 // TdsDictionDocument
- ;
- : Target WL 'ME_47FAFA9601C8' '48F747EC0073.pas.ms.script' // bsConst
- ;
-
-ref; // ME_4D82228902B1 
-
-: ME_4D8222A50084
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_491D5BE30111 // TdsDictionDocument
- ;
- : Target WL 'ME_47FB50E4008E' '48F747EC0073.pas.ms.script' // nsConst
- ;
-
-ref; // ME_4D8222A50084 
-
-: ME_4D8222C700CA
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_491D5BE30111 // TdsDictionDocument
- ;
- : Target WL 'ME_4C6A9AD101B4' '4C6A7BA001A5.pas.ms.script' // TnsF1DocumentContainer
- ;
-
-ref; // ME_4D8222C700CA 
-
-: ME_491D58670154_ME_491D5BE30111
- : Original WL 'ME_491D58670154' '4AC238AF03B8.pas.ms.script' // OpenLiteratureList
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_491D58670154_ME_491D5BE30111 OpenLiteratureList
-
-: ME_491D58890177_ME_491D5BE30111
- : Original WL 'ME_491D58890177' '4AC238AF03B8.pas.ms.script' // IsMainDiction
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" true
-ref; // ME_491D58890177_ME_491D5BE30111 IsMainDiction
-
-: ME_491C264C02C2_ME_491D5BE30111
- : Original WL 'ME_491C264C02C2' '47EA50050263.pas.ms.script' // GetTimeMachineOff
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_491C264C02C2_ME_491D5BE30111 GetTimeMachineOff
-
-: ME_4C6AB38800F3_ME_491D5BE30111
- : Original WL 'ME_4C6AB38800F3' '47EA50050263.pas.ms.script' // MakeContainer
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4C6AB38800F3_ME_491D5BE30111 MakeContainer
-
-: ME_491D5BE30111
- CONST UID '491D5BE30111'
- CONST Name 'TdsDictionDocument'
- CONST Class class_Class
- : Stereotype st_ViewAreaControllerImp ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Документ толкового словаря' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_491D5B360381 // Diction
- ;
- : Inherits
-   Seq: ( WL 'ME_47EA20430108' '47EA50050263.pas.ms.script' // dsBaseDocumentPrim
- )
- ; // Inherits
- : Implements
-   Seq: ( WL 'ME_491D5824017E' '4AC238AF03B8.pas.ms.script' // IdsDictionDocument
- )
- ; // Implements
- : Attributes
-   Seq: ( ME_4978A9500393 // Diction
- )
- ; // Attributes
- : Implemented
-   Seq: ( ME_491D58670154_ME_491D5BE30111 // OpenLiteratureList
- ME_491D58890177_ME_491D5BE30111 // IsMainDiction
- )
- ; // Implemented
- : Overridden
-   Seq: ( ME_491C264C02C2_ME_491D5BE30111 // GetTimeMachineOff
- ME_4C6AB38800F3_ME_491D5BE30111 // MakeContainer
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_491D5F6F0205 // DataAdapter
- ME_4CE662DB0093 // TnsDictionDocumentContainer
- ME_4D82228902B1 // bsConst
- ME_4D8222A50084 // nsConst
- ME_4D8222C700CA // TnsF1DocumentContainer
- )
- ; // Dependencies
- CONST "author" 'Морозов М.А.'
- CONST "no hands" true
- CONST "started" '07.10.2005 17.02'
- CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Diction\dsDictionDocument.pas'
- CONST extprop:rc:SelfName 'dsDictionDocument'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'dsDictionDocument'
- CONST extprop:HasAnyVCMController true
-
-ref; // ME_491D5BE30111 TdsDictionDocument
-
-FORWARD ME_4925526600D0
-
-: ME_492552BB02A2
- CONST UID '492552BB02A2'
- CONST Name 'Language'
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_4925526600D0 // TdsDiction
- ;
- : Target WL 'ME_47EA082B021A' '47EA07FA02CE.pas.ms.script' // TbsLanguage
- ;
- CONST "needs field" true
- CONST "pm" true
- CONST "reads field" true
- CONST "writes field" true
-
-ref; // ME_492552BB02A2 Language
-
-: ME_4925530403CC
- CONST UID '4925530403CC'
- CONST Name 'dDiction'
- CONST Class class_Attribute
- : Stereotype st_UseCase::Attribute ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- CONST LinkType lt_lnk
- : Parent ME_4925526600D0 // TdsDiction
- ;
- : Target WL 'ME_492552F20152' '491D57C802CD.pas.ms.script' // IdDiction
- ;
-
-ref; // ME_4925530403CC dDiction
-
-: ME_492D5E560075
- CONST UID '492D5E560075'
- CONST Name 'InitDataType'
- CONST Class class_Attribute
- : Stereotype st_impurity_value::Attribute ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_abstract
- CONST LinkType lt_agr
- : Parent ME_4925526600D0 // TdsDiction
- ;
- : Target WL 'ME_492553F8032A' '491D57C802CD.pas.ms.script' // IdeDiction
- ;
-
-ref; // ME_492D5E560075 InitDataType
-
-: ME_52D3C1F9012D
- CONST UID '52D3C1F9012D'
- CONST Name 'f_ContextMap'
- CONST Class class_Attribute
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_4925526600D0 // TdsDiction
- ;
- : Target WL 'ME_52D3BD980262' '491D57C802CD.pas.ms.script' // InsLangToContextMap
- ;
-
-ref; // ME_52D3C1F9012D f_ContextMap
-
-: ME_4978A1C0024C
- CONST UID '4978A1C0024C'
- CONST Name 'Diction'
- CONST Class class_Attribute
- : Stereotype st_UseCase::Attribute ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- CONST LinkType lt_lnk
- : Parent ME_4925526600D0 // TdsDiction
- ;
- : Target WL 'ME_493682F9024E' '491D57C802CD.pas.ms.script' // IsdsDiction
- ;
-
-ref; // ME_4978A1C0024C Diction
-
-: ME_5E9558A0769E
- CONST UID '5E9558A0769E'
- CONST Name 'f_Language'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Language' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4925526600D0 // TdsDiction
- ;
- : Target WL 'ME_47EA082B021A' '47EA07FA02CE.pas.ms.script' // TbsLanguage
- ;
- CONST extprop:clearViaProperty 'Language'
-
-ref; // ME_5E9558A0769E f_Language
-
-: ME_492553270362
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4925526600D0 // TdsDiction
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_492553270362 
-
-FORWARD ME_4925538201C4
-
-: ME_4925538E024E
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4925526600D0 // TdsDiction
- ;
- : Target ME_4925538201C4 // TdeDiction
- ;
-
-ref; // ME_4925538E024E 
-
-: ME_492554020031
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4925526600D0 // TdsDiction
- ;
- : Target WL 'ME_492553F8032A' '491D57C802CD.pas.ms.script' // IdeDiction
- ;
-
-ref; // ME_492554020031 
-
-: ME_4925544201DD
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4925526600D0 // TdsDiction
- ;
- : Target WL 'ME_4925542D02E9' '491D57C802CD.pas.ms.script' // IbsDictionListener
- ;
-
-ref; // ME_4925544201DD 
-
-: ME_52D3E98202E7
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4925526600D0 // TdsDiction
- ;
- : Target WL 'ME_490837B901D4' '4902090401E7.pas.ms.script' // TnsLangToContextMap
- ;
-
-ref; // ME_52D3E98202E7 
-
-: ME_5511468F0384
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4925526600D0 // TdsDiction
- ;
- : Target WL 'ME_48FF556602BA' '48F747EC0073.pas.ms.script' // DataAdapter
- ;
-
-ref; // ME_5511468F0384 
-
-: ME_47F4C2B9014A_ME_4925526600D0
- : Original WL 'ME_47F4C2B9014A' '47F282AE0082.pas.ms.script' // MakeSimpleTree
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_47F4C2B9014A_ME_4925526600D0 MakeSimpleTree
-
-: ME_49254515003C_ME_4925526600D0
- : Original WL 'ME_49254515003C' '492543E30278.pas.ms.script' // MakeDocInfoForCurrentChanged
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_49254515003C_ME_4925526600D0 MakeDocInfoForCurrentChanged
-
-: ME_49254FF103A4_ME_4925526600D0
- : Original WL 'ME_49254FF103A4' '491D57C802CD.pas.ms.script' // Language
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" true
-ref; // ME_49254FF103A4_ME_4925526600D0 Language
-
-: ME_52D3BECC00A6_ME_4925526600D0
- : Original WL 'ME_52D3BECC00A6' '491D57C802CD.pas.ms.script' // ContextMap
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" true
-ref; // ME_52D3BECC00A6_ME_4925526600D0 ContextMap
-
-: ME_5571EB84007F_ME_4925526600D0
- : Original WL 'ME_5571EB84007F' '492543E30278.pas.ms.script' // DictionKind
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" true
-ref; // ME_5571EB84007F_ME_4925526600D0 DictionKind
-
-: ME_479731C50290_ME_4925526600D0
- : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_479731C50290_ME_4925526600D0 Cleanup
-
-: ME_491482DC0216_ME_4925526600D0
- : Original WL 'ME_491482DC0216' '47D0E1500033.pas.ms.script' // FormSetDataChanged
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_491482DC0216_ME_4925526600D0 FormSetDataChanged
-
-: ME_492546330316_ME_4925526600D0
- : Original WL 'ME_492546330316' '492543E30278.pas.ms.script' // AfterChangeCurrent
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_492546330316_ME_4925526600D0 AfterChangeCurrent
-
-: ME_492ACF630072_ME_4925526600D0
- : Original WL 'ME_492ACF630072' '47D0E1500033.pas.ms.script' // GotData
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_492ACF630072_ME_4925526600D0 GotData
-
-: ME_4A9E6599035A_ME_4925526600D0
- : Original WL 'ME_4A9E6599035A' '492543E30278.pas.ms.script' // ForceChangeInCurrentChanged
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4A9E6599035A_ME_4925526600D0 ForceChangeInCurrentChanged
-
-: ME_55097FF5008E_ME_4925526600D0
- : Original WL 'ME_55097FF5008E' '47D0E1500033.pas.ms.script' // GetIsDataAvailable
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_55097FF5008E_ME_4925526600D0 GetIsDataAvailable
-
-: ME_4925526600D0
- CONST UID '4925526600D0'
- CONST Name 'TdsDiction'
- CONST Class class_Class
- : Stereotype st_ViewAreaControllerImp ;
- CONST Kind kind_NormalClass
- %SUMMARY 'перевод толкового словаря на сборку' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_491D5B360381 // Diction
- ;
- : Inherits
-   Seq: ( WL 'ME_4925449A0296' '492543E30278.pas.ms.script' // dsCommonDiction
- )
- ; // Inherits
- : Implements
-   Seq: ( WL 'ME_49254FB00390' '491D57C802CD.pas.ms.script' // IdsDiction
- )
- ; // Implements
- : Attributes
-   Seq: ( ME_492552BB02A2 // Language
- ME_4925530403CC // dDiction
- ME_492D5E560075 // InitDataType
- ME_52D3C1F9012D // f_ContextMap
- ME_4978A1C0024C // Diction
- ME_5E9558A0769E // f_Language
- )
- ; // Attributes
- : Implemented
-   Seq: ( ME_47F4C2B9014A_ME_4925526600D0 // MakeSimpleTree
- ME_49254515003C_ME_4925526600D0 // MakeDocInfoForCurrentChanged
- ME_49254FF103A4_ME_4925526600D0 // Language
- ME_52D3BECC00A6_ME_4925526600D0 // ContextMap
- ME_5571EB84007F_ME_4925526600D0 // DictionKind
- )
- ; // Implemented
- : Overridden
-   Seq: ( ME_479731C50290_ME_4925526600D0 // Cleanup
- ME_491482DC0216_ME_4925526600D0 // FormSetDataChanged
- ME_492546330316_ME_4925526600D0 // AfterChangeCurrent
- ME_492ACF630072_ME_4925526600D0 // GotData
- ME_4A9E6599035A_ME_4925526600D0 // ForceChangeInCurrentChanged
- ME_55097FF5008E_ME_4925526600D0 // GetIsDataAvailable
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_492553270362 // SysUtils
- ME_4925538E024E // TdeDiction
- ME_492554020031 // IdeDiction
- ME_4925544201DD // IbsDictionListener
- ME_52D3E98202E7 // TnsLangToContextMap
- ME_5511468F0384 // DataAdapter
- )
- ; // Dependencies
- CONST "author" 'Морозов М.А.'
- CONST "no hands" true
- CONST "started" '2005/10/07 17:03:27'
- CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Diction\dsDiction.pas'
- CONST extprop:rc:SelfName 'dsDiction'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'dsDiction'
- CONST extprop:HasAnyVCMController true
-
-ref; // ME_4925526600D0 TdsDiction
-
-FORWARD ME_4936CB1B0022
-
-: ME_494167380288
- CONST UID '494167380288'
- CONST Name 'SetDataType'
- CONST Class class_Attribute
- : Stereotype st_impurity_value::Attribute ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_abstract
- CONST LinkType lt_agr
- : Parent ME_4936CB1B0022 // TsdsDiction
- ;
- : Target WL 'ME_492552F20152' '491D57C802CD.pas.ms.script' // IdDiction
- ;
-
-ref; // ME_494167380288 SetDataType
-
-: ME_4936CD6503DA
- CONST Name 'aDocument'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_45EEB6520191' '4570511E038A.pas.ms.script' // Document
- ;
-
-ref; // ME_4936CD6503DA aDocument
-
-: ME_4936CD5100A6
- CONST UID '4936CD5100A6'
- CONST Name 'LoadLanguages'
- CONST Class class_Operation
- %SUMMARY 'загружает доступные для документа языки' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4936CB1B0022 // TsdsDiction
- ;
- : Parameters
-   Seq: ( ME_4936CD6503DA // aDocument
- )
- ; // Parameters
-
-ref; // ME_4936CD5100A6 LoadLanguages
-
-: ME_4936CD8700C8
- CONST UID '4936CD8700C8'
- CONST Name 'ClearTranslators'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4936CB1B0022 // TsdsDiction
- ;
-
-ref; // ME_4936CD8700C8 ClearTranslators
-
-: ME_4936CDBE0271
- CONST Name 'aLanguage'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_47EA082B021A' '47EA07FA02CE.pas.ms.script' // TbsLanguage
- ;
-
-ref; // ME_4936CDBE0271 aLanguage
-
-: ME_4936CDB00318
- CONST UID '4936CDB00318'
- CONST Name 'NewDSDocument'
- CONST Class class_Operation
- %SUMMARY 'создать бизнес объект для документа' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4936CB1B0022 // TsdsDiction
- ;
- : Target WL 'ME_491D5824017E' '4AC238AF03B8.pas.ms.script' // IdsDictionDocument
- ;
- : Parameters
-   Seq: ( ME_4936CDBE0271 // aLanguage
- )
- ; // Parameters
-
-ref; // ME_4936CDB00318 NewDSDocument
-
-: ME_4936CBEF011E
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4936CB1B0022 // TsdsDiction
- ;
- : Target ME_4925526600D0 // TdsDiction
- ;
-
-ref; // ME_4936CBEF011E 
-
-: ME_4936CC0C0277
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4936CB1B0022 // TsdsDiction
- ;
- : Target ME_491D5BE30111 // TdsDictionDocument
- ;
-
-ref; // ME_4936CC0C0277 
-
-: ME_4936CC4D02ED
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4936CB1B0022 // TsdsDiction
- ;
- : Target WL 'ME_491C0BE302FF' '4C6ABB3201AC.pas.ms.script' // TdeDocInfo
- ;
-
-ref; // ME_4936CC4D02ED 
-
-: ME_4936CC5E00D0
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4936CB1B0022 // TsdsDiction
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_4936CC5E00D0 
-
 FORWARD ME_4936CCA700F0
-
-: ME_4936CCB402C3
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4936CB1B0022 // TsdsDiction
- ;
- : Target ME_4936CCA700F0 // TdDiction
- ;
-
-ref; // ME_4936CCB402C3 
-
-: ME_4936CD7702CD
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4936CB1B0022 // TsdsDiction
- ;
- : Target WL 'ME_4773D64E036C' '47913B47006E.pas.ms.script' // l3Base
- ;
-
-ref; // ME_4936CD7702CD 
-
-: ME_4936D01900CA
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4936CB1B0022 // TsdsDiction
- ;
- : Target WL 'ME_490C47C70210' '48F747EC0073.pas.ms.script' // nsUtils
- ;
-
-ref; // ME_4936D01900CA 
-
-: ME_4936D04B0322
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4936CB1B0022 // TsdsDiction
- ;
- : Target WL 'ME_47FAFA9601C8' '48F747EC0073.pas.ms.script' // bsConst
- ;
-
-ref; // ME_4936D04B0322 
-
-: ME_4936D1C8004B
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4936CB1B0022 // TsdsDiction
- ;
- : Target WL 'ME_48FF556602BA' '48F747EC0073.pas.ms.script' // DataAdapter
- ;
-
-ref; // ME_4936D1C8004B 
-
-: ME_4936D1F4015E
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4936CB1B0022 // TsdsDiction
- ;
- : Target WL 'ME_456EE8920119' '456EA56002BF.pas.ms.script' // LanguagesList
- ;
-
-ref; // ME_4936D1F4015E 
-
-: ME_4B1E93FC02A3
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4936CB1B0022 // TsdsDiction
- ;
- : Target ME_4925538201C4 // TdeDiction
- ;
-
-ref; // ME_4B1E93FC02A3 
-
-: ME_4D78AFF90052
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4936CB1B0022 // TsdsDiction
- ;
- : Target WL 'ME_4923F66E0262' '491DCA2C00A9.pas.ms.script' // TdsSaveLoad
- ;
-
-ref; // ME_4D78AFF90052 
-
-: ME_4D7A7AF6026F
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4936CB1B0022 // TsdsDiction
- ;
- : Target WL 'ME_4D7A7ADE0122' '492543E30278.pas.ms.script' // TdsChild
- ;
-
-ref; // ME_4D7A7AF6026F 
-
-: ME_53BA4A350273
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4936CB1B0022 // TsdsDiction
- ;
- : Target WL 'ME_53BA488F00D8' '53A402C7010D.pas.ms.script' // nsTabbedInterfaceTypes
- ;
-
-ref; // ME_53BA4A350273 
-
-: ME_47F3778403D9_ME_4936CB1B0022
- : Original WL 'ME_47F3778403D9' '47D0E1500033.pas.ms.script' // MakeData
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_47F3778403D9_ME_4936CB1B0022 MakeData
-
-: ME_4925B1EC0100_ME_4936CB1B0022
- : Original WL 'ME_4925B1EC0100' '47EA50050263.pas.ms.script' // BaseDocumentClass
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4925B1EC0100_ME_4936CB1B0022 BaseDocumentClass
-
-: ME_49368311029E_ME_4936CB1B0022
- : Original WL 'ME_49368311029E' '491D57C802CD.pas.ms.script' // OpenLiteratureList
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_49368311029E_ME_4936CB1B0022 OpenLiteratureList
-
-: ME_49368336033D_ME_4936CB1B0022
- : Original WL 'ME_49368336033D' '491D57C802CD.pas.ms.script' // IsShowLiteratureList
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_49368336033D_ME_4936CB1B0022 IsShowLiteratureList
-
-: ME_4936835F01D2_ME_4936CB1B0022
- : Original WL 'ME_4936835F01D2' '491D57C802CD.pas.ms.script' // TranslationForms
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" true
-ref; // ME_4936835F01D2_ME_4936CB1B0022 TranslationForms
-
-: ME_4936837F0304_ME_4936CB1B0022
- : Original WL 'ME_4936837F0304' '491D57C802CD.pas.ms.script' // DefaultLanguage
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" true
-ref; // ME_4936837F0304_ME_4936CB1B0022 DefaultLanguage
-
-: ME_4936B89C037F_ME_4936CB1B0022
- : Original WL 'ME_4936B89C037F' '492543E30278.pas.ms.script' // MakeDocInfo
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4936B89C037F_ME_4936CB1B0022 MakeDocInfo
-
-: ME_4936BA0D0286_ME_4936CB1B0022
- : Original WL 'ME_4936BA0D0286' '492543E30278.pas.ms.script' // MakeContents
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4936BA0D0286_ME_4936CB1B0022 MakeContents
-
-: ME_4936C62102DD_ME_4936CB1B0022
- : Original WL 'ME_4936C62102DD' '491D57C802CD.pas.ms.script' // dsTranslate
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" true
-ref; // ME_4936C62102DD_ME_4936CB1B0022 dsTranslate
-
-: ME_52D3C29C008E_ME_4936CB1B0022
- : Original WL 'ME_52D3C29C008E' '491D57C802CD.pas.ms.script' // ContextMap
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" true
-ref; // ME_52D3C29C008E_ME_4936CB1B0022 ContextMap
-
-: ME_52D8D3B9012D_ME_4936CB1B0022
- : Original WL 'ME_52D8D3B9012D' '491D57C802CD.pas.ms.script' // dsDiction
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" true
-ref; // ME_52D8D3B9012D_ME_4936CB1B0022 dsDiction
-
-: ME_479731C50290_ME_4936CB1B0022
- : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_479731C50290_ME_4936CB1B0022 Cleanup
-
-: ME_47F37DF001FE_ME_4936CB1B0022
- : Original WL 'ME_47F37DF001FE' '47D0E1500033.pas.ms.script' // DataExchange
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_47F37DF001FE_ME_4936CB1B0022 DataExchange
-
-: ME_4925B9370022_ME_4936CB1B0022
- : Original WL 'ME_4925B9370022' '47EA50050263.pas.ms.script' // DoChangeDocument
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4925B9370022_ME_4936CB1B0022 DoChangeDocument
-
-: ME_4925BE3E0260_ME_4936CB1B0022
- : Original WL 'ME_4925BE3E0260' '47EA50050263.pas.ms.script' // DoMakeGotoPointData
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4925BE3E0260_ME_4936CB1B0022 DoMakeGotoPointData
-
-: ME_4936B8B600F2_ME_4936CB1B0022
- : Original WL 'ME_4936B8B600F2' '492543E30278.pas.ms.script' // BeforeAssignDocument
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4936B8B600F2_ME_4936CB1B0022 BeforeAssignDocument
-
-: ME_4936B8C20119_ME_4936CB1B0022
- : Original WL 'ME_4936B8C20119' '492543E30278.pas.ms.script' // AfterAssignDocument
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4936B8C20119_ME_4936CB1B0022 AfterAssignDocument
-
-: ME_4A60B23E00C3_ME_4936CB1B0022
- : Original WL 'ME_4A60B23E00C3' '47BB24D30205.pas.ms.script' // COMQueryInterface
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4A60B23E00C3_ME_4936CB1B0022 COMQueryInterface
-
-: ME_53B3BF9C00EF_ME_4936CB1B0022
- : Original WL 'ME_53B3BF9C00EF' '47D0E1500033.pas.ms.script' // DoGetFormSetImageIndex
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_53B3BF9C00EF_ME_4936CB1B0022 DoGetFormSetImageIndex
-
-: ME_55C1DD070354_ME_4936CB1B0022
- : Original WL 'ME_55C1DD070354' '47D0E1500033.pas.ms.script' // GetDataForClone
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_55C1DD070354_ME_4936CB1B0022 GetDataForClone
-
-: ME_4936CB1B0022
- CONST UID '4936CB1B0022'
- CONST Name 'TsdsDiction'
- CONST Class class_Class
- : Stereotype st_UseCaseControllerImp ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Бизнес объект сборки "Толковый словарь"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_491D5B360381 // Diction
- ;
- : Inherits
-   Seq: ( WL 'ME_4936B666032A' '492543E30278.pas.ms.script' // sdsCommonDiction
- )
- ; // Inherits
- : Implements
-   Seq: ( WL 'ME_493682F9024E' '491D57C802CD.pas.ms.script' // IsdsDiction
- )
- ; // Implements
- : Attributes
-   Seq: ( ME_494167380288 // SetDataType
- )
- ; // Attributes
- : Operations
-   Seq: ( ME_4936CD5100A6 // LoadLanguages
- ME_4936CD8700C8 // ClearTranslators
- ME_4936CDB00318 // NewDSDocument
- )
- ; // Operations
- : Implemented
-   Seq: ( ME_47F3778403D9_ME_4936CB1B0022 // MakeData
- ME_4925B1EC0100_ME_4936CB1B0022 // BaseDocumentClass
- ME_49368311029E_ME_4936CB1B0022 // OpenLiteratureList
- ME_49368336033D_ME_4936CB1B0022 // IsShowLiteratureList
- ME_4936835F01D2_ME_4936CB1B0022 // TranslationForms
- ME_4936837F0304_ME_4936CB1B0022 // DefaultLanguage
- ME_4936B89C037F_ME_4936CB1B0022 // MakeDocInfo
- ME_4936BA0D0286_ME_4936CB1B0022 // MakeContents
- ME_4936C62102DD_ME_4936CB1B0022 // dsTranslate
- ME_52D3C29C008E_ME_4936CB1B0022 // ContextMap
- ME_52D8D3B9012D_ME_4936CB1B0022 // dsDiction
- )
- ; // Implemented
- : Overridden
-   Seq: ( ME_479731C50290_ME_4936CB1B0022 // Cleanup
- ME_47F37DF001FE_ME_4936CB1B0022 // DataExchange
- ME_4925B9370022_ME_4936CB1B0022 // DoChangeDocument
- ME_4925BE3E0260_ME_4936CB1B0022 // DoMakeGotoPointData
- ME_4936B8B600F2_ME_4936CB1B0022 // BeforeAssignDocument
- ME_4936B8C20119_ME_4936CB1B0022 // AfterAssignDocument
- ME_4A60B23E00C3_ME_4936CB1B0022 // COMQueryInterface
- ME_53B3BF9C00EF_ME_4936CB1B0022 // DoGetFormSetImageIndex
- ME_55C1DD070354_ME_4936CB1B0022 // GetDataForClone
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_4936CBEF011E // TdsDiction
- ME_4936CC0C0277 // TdsDictionDocument
- ME_4936CC4D02ED // TdeDocInfo
- ME_4936CC5E00D0 // SysUtils
- ME_4936CCB402C3 // TdDiction
- ME_4936CD7702CD // l3Base
- ME_4936D01900CA // nsUtils
- ME_4936D04B0322 // bsConst
- ME_4936D1C8004B // DataAdapter
- ME_4936D1F4015E // LanguagesList
- ME_4B1E93FC02A3 // TdeDiction
- ME_4D78AFF90052 // TdsSaveLoad
- ME_4D7A7AF6026F // TdsChild
- ME_53BA4A350273 // nsTabbedInterfaceTypes
- )
- ; // Dependencies
- CONST "author" 'Морозов М.А.'
- CONST "no hands" true
- CONST "started" '2005/10/06 12:32:33'
- CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Diction\sdsDiction.pas'
- CONST extprop:rc:SelfName 'sdsDiction'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'sdsDiction'
-
-ref; // ME_4936CB1B0022 TsdsDiction
 
 : ME_4B19106100BA
  CONST UID '4B19106100BA'
@@ -878,7 +14,7 @@ ref; // ME_4936CB1B0022 TsdsDiction
  CONST Visibility ProtectedAccess
  CONST Abstraction at_final
  CONST LinkType lt_ref
- : Parent ME_4936CCA700F0 // TdDiction
+ : Parent HWL ME_4936CCA700F0 // TdDiction
  ;
  : Target WL 'ME_4773DC580043' '47913B47006E.pas.ms.script' // Tl3InterfaceList
  ;
@@ -894,7 +30,7 @@ ref; // ME_4B19106100BA refTranslationList
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4936CCA700F0 // TdDiction
+ : Parent HWL ME_4936CCA700F0 // TdDiction
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -908,7 +44,7 @@ ref; // ME_4B19107F016E f_IsShowLiteratureList
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4936CCA700F0 // TdDiction
+ : Parent HWL ME_4936CCA700F0 // TdDiction
  ;
  : Target WL 'ME_49527EE8022E' '47EA07FA02CE.pas.ms.script' // TbsLanguages
  ;
@@ -923,7 +59,7 @@ ref; // ME_4B1910A401EF f_Languages
  CONST Visibility PrivateAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_4936CCA700F0 // TdDiction
+ : Parent HWL ME_4936CCA700F0 // TdDiction
  ;
  : Target WL 'ME_492552F20152' '491D57C802CD.pas.ms.script' // IdDiction
  ;
@@ -937,7 +73,7 @@ ref; // ME_4B220F0500F9 IvcmRealData
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4936CCA700F0 // TdDiction
+ : Parent HWL ME_4936CCA700F0 // TdDiction
  ;
  : Target WL 'ME_52D3BD980262' '491D57C802CD.pas.ms.script' // InsLangToContextMap
  ;
@@ -951,7 +87,7 @@ ref; // ME_52D8CBE70309 f_ContextMap
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4936CCA700F0 // TdDiction
+ : Parent HWL ME_4936CCA700F0 // TdDiction
  ;
  : Target WL 'ME_47EA082B021A' '47EA07FA02CE.pas.ms.script' // TbsLanguage
  ;
@@ -966,7 +102,7 @@ FORWARD ME_4B1910C10322
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4B1910C10322 // Make
+ : Parent HWL ME_4B1910C10322 // Make
  ;
 
 ref; // ME_4B1910C900C2 DoIt
@@ -979,10 +115,10 @@ ref; // ME_4B1910C900C2 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4936CCA700F0 // TdDiction
+ : Parent HWL ME_4936CCA700F0 // TdDiction
  ;
  : Operations
-   Seq: ( ME_4B1910C900C2 // DoIt
+   Seq: ( HWL ME_4B1910C900C2 // DoIt
  )
  ; // Operations
 
@@ -1005,7 +141,7 @@ ref; // ME_4B1913F500D2 aValue
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4B1913DE00A8 // SetRefTranslationCount
+ : Parent HWL ME_4B1913DE00A8 // SetRefTranslationCount
  ;
  : Parameters
    Seq: ( ME_4B1913F500D2 // aValue
@@ -1017,7 +153,7 @@ ref; // ME_4B1913EA034A DoIt
 : ME_4B1914760327
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4B1913DE00A8 // SetRefTranslationCount
+ : Parent HWL ME_4B1913DE00A8 // SetRefTranslationCount
  ;
  : Target WL 'ME_47EB55FD007A' '47D0E1500033.pas.ms.script' // TvcmFormDataSourceRef
  ;
@@ -1032,10 +168,10 @@ ref; // ME_4B1914760327
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4936CCA700F0 // TdDiction
+ : Parent HWL ME_4936CCA700F0 // TdDiction
  ;
  : Operations
-   Seq: ( ME_4B1913EA034A // DoIt
+   Seq: ( HWL ME_4B1913EA034A // DoIt
  )
  ; // Operations
  : Dependencies
@@ -1048,7 +184,7 @@ ref; // ME_4B1913DE00A8 SetRefTranslationCount
 : ME_4B1912A50359
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4936CCA700F0 // TdDiction
+ : Parent HWL ME_4936CCA700F0 // TdDiction
  ;
  : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
  ;
@@ -1058,7 +194,7 @@ ref; // ME_4B1912A50359
 : ME_4B1913C6022D
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4936CCA700F0 // TdDiction
+ : Parent HWL ME_4936CCA700F0 // TdDiction
  ;
  : Target WL 'ME_4ADEE49C02DF' '4AB0C3C60310.pas.ms.script' // Supports
  ;
@@ -1068,7 +204,7 @@ ref; // ME_4B1913C6022D
 : ME_4B19194501EB
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4936CCA700F0 // TdDiction
+ : Parent HWL ME_4936CCA700F0 // TdDiction
  ;
  : Target WL 'ME_456EB2F1034B' '456EA56002BF.pas.ms.script' // Languages
  ;
@@ -1143,7 +279,7 @@ ref; // ME_4B16B8CF0307_ME_4936CCA700F0 AssignData
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_491D5B360381 // Diction
+ : Parent HWL ME_491D5B360381 // Diction
  ;
  : Inherits
    Seq: ( WL 'ME_4936B78E0024' '492543E30278.pas.ms.script' // dCommonDiction
@@ -1154,17 +290,17 @@ ref; // ME_4B16B8CF0307_ME_4936CCA700F0 AssignData
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_4B19106100BA // refTranslationList
- ME_4B19107F016E // f_IsShowLiteratureList
- ME_4B1910A401EF // f_Languages
- ME_4B220F0500F9 // IvcmRealData
- ME_52D8CBE70309 // f_ContextMap
- ME_56FB8144033F // f_CurrentLanguage
+   Seq: ( HWL ME_4B19106100BA // refTranslationList
+ HWL ME_4B19107F016E // f_IsShowLiteratureList
+ HWL ME_4B1910A401EF // f_Languages
+ HWL ME_4B220F0500F9 // IvcmRealData
+ HWL ME_52D8CBE70309 // f_ContextMap
+ HWL ME_56FB8144033F // f_CurrentLanguage
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_4B1910C10322 // Make
- ME_4B1913DE00A8 // SetRefTranslationCount
+   Seq: ( HWL ME_4B1910C10322 // Make
+ HWL ME_4B1913DE00A8 // SetRefTranslationCount
  )
  ; // Operations
  : Implemented
@@ -1198,6 +334,8 @@ ref; // ME_4B16B8CF0307_ME_4936CCA700F0 AssignData
 
 ref; // ME_4936CCA700F0 TdDiction
 
+FORWARD ME_4925538201C4
+
 : ME_4B1E9B5B02B0
  CONST UID '4B1E9B5B02B0'
  CONST Name 'f_DictLanguage'
@@ -1205,7 +343,7 @@ ref; // ME_4936CCA700F0 TdDiction
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4925538201C4 // TdeDiction
+ : Parent HWL ME_4925538201C4 // TdeDiction
  ;
  : Target WL 'ME_47EA082B021A' '47EA07FA02CE.pas.ms.script' // TbsLanguage
  ;
@@ -1219,7 +357,7 @@ ref; // ME_4B1E9B5B02B0 f_DictLanguage
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4925538201C4 // TdeDiction
+ : Parent HWL ME_4925538201C4 // TdeDiction
  ;
  : Target WL 'ME_52D3BD980262' '491D57C802CD.pas.ms.script' // InsLangToContextMap
  ;
@@ -1269,7 +407,7 @@ ref; // ME_52D3CDBA0316 aContextMap
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4B1E9B7E023E // Make
+ : Parent HWL ME_4B1E9B7E023E // Make
  ;
  : Target WL 'ME_47EA0784000D' '4B1FC2FF03CD.pas.ms.script' // IdeDocInfo
  ;
@@ -1285,7 +423,7 @@ ref; // ME_4B1E9B8800C1 DoIt
 : ME_4B1E9E740374
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4B1E9B7E023E // Make
+ : Parent HWL ME_4B1E9B7E023E // Make
  ;
  : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
  ;
@@ -1300,10 +438,10 @@ ref; // ME_4B1E9E740374
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4925538201C4 // TdeDiction
+ : Parent HWL ME_4925538201C4 // TdeDiction
  ;
  : Operations
-   Seq: ( ME_4B1E9B8800C1 // DoIt
+   Seq: ( HWL ME_4B1E9B8800C1 // DoIt
  )
  ; // Operations
  : Dependencies
@@ -1340,7 +478,7 @@ ref; // ME_4B1E9BBC000A aLang
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4B1E9BA80018 // Convert
+ : Parent HWL ME_4B1E9BA80018 // Convert
  ;
  : Target WL 'ME_492553F8032A' '491D57C802CD.pas.ms.script' // IdeDiction
  ;
@@ -1355,7 +493,7 @@ ref; // ME_4B1E9BB30134 DoIt
 : ME_4B1E9E92002F
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4B1E9BA80018 // Convert
+ : Parent HWL ME_4B1E9BA80018 // Convert
  ;
  : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
  ;
@@ -1365,7 +503,7 @@ ref; // ME_4B1E9E92002F
 : ME_4B1E9E9D006B
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4B1E9BA80018 // Convert
+ : Parent HWL ME_4B1E9BA80018 // Convert
  ;
  : Target WL 'ME_4B1E84EF03CC' '4C6ABB3201AC.pas.ms.script' // TbsDocumentContainer
  ;
@@ -1380,10 +518,10 @@ ref; // ME_4B1E9E9D006B
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4925538201C4 // TdeDiction
+ : Parent HWL ME_4925538201C4 // TdeDiction
  ;
  : Operations
-   Seq: ( ME_4B1E9BB30134 // DoIt
+   Seq: ( HWL ME_4B1E9BB30134 // DoIt
  )
  ; // Operations
  : Dependencies
@@ -1398,7 +536,7 @@ ref; // ME_4B1E9BA80018 Convert
 : ME_4B1E9EFB0183
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4925538201C4 // TdeDiction
+ : Parent HWL ME_4925538201C4 // TdeDiction
  ;
  : Target WL 'ME_4ADEE49C02DF' '4AB0C3C60310.pas.ms.script' // Supports
  ;
@@ -1445,7 +583,7 @@ ref; // ME_4B1E749D033C_ME_4925538201C4 AssignFromClone
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_491D5B360381 // Diction
+ : Parent HWL ME_491D5B360381 // Diction
  ;
  : Inherits
    Seq: ( WL 'ME_4B1E70D20312' '492543E30278.pas.ms.script' // TdeCommonDiction
@@ -1456,13 +594,13 @@ ref; // ME_4B1E749D033C_ME_4925538201C4 AssignFromClone
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_4B1E9B5B02B0 // f_DictLanguage
- ME_52D3CE3E0256 // f_ContextMap
+   Seq: ( HWL ME_4B1E9B5B02B0 // f_DictLanguage
+ HWL ME_52D3CE3E0256 // f_ContextMap
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_4B1E9B7E023E // Make
- ME_4B1E9BA80018 // Convert
+   Seq: ( HWL ME_4B1E9B7E023E // Make
+ HWL ME_4B1E9BA80018 // Convert
  )
  ; // Operations
  : Implemented
@@ -1501,11 +639,11 @@ ref; // ME_4925538201C4 TdeDiction
  : Parent WL 'ME_4940F539014E' '4940F539014E.pas.ms.script' // Diction
  ;
  : Children
-   Seq: ( ME_491D5BE30111 // TdsDictionDocument
- ME_4925526600D0 // TdsDiction
- ME_4936CB1B0022 // TsdsDiction
- ME_4936CCA700F0 // TdDiction
- ME_4925538201C4 // TdeDiction
+   Seq: ( WL 'ME_491D5BE30111' '491D5BE30111.pas.ms.script' // TdsDictionDocument
+ WL 'ME_4925526600D0' '4925526600D0.pas.ms.script' // TdsDiction
+ WL 'ME_4936CB1B0022' '4936CB1B0022.pas.ms.script' // TsdsDiction
+ HWL ME_4936CCA700F0 // TdDiction
+ HWL ME_4925538201C4 // TdeDiction
  )
  ; // Children
  : Depends

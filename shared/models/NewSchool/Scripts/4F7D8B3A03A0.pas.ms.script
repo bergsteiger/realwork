@@ -14,7 +14,7 @@ FORWARD ME_4E32B50601F3
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4E32B50601F3 // InitialLoadStyleTableFromSettings
+ : Parent HWL ME_4E32B50601F3 // InitialLoadStyleTableFromSettings
  ;
 
 ref; // ME_4E32B5130231 DoIt
@@ -27,10 +27,10 @@ ref; // ME_4E32B5130231 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4AD5BB450335 // nsSettingsUtils
+ : Parent HWL ME_4AD5BB450335 // nsSettingsUtils
  ;
  : Operations
-   Seq: ( ME_4E32B5130231 // DoIt
+   Seq: ( HWL ME_4E32B5130231 // DoIt
  )
  ; // Operations
 
@@ -42,7 +42,7 @@ ref; // ME_4E32B50601F3 InitialLoadStyleTableFromSettings
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4AD5BB450335 // nsSettingsUtils
+ : Parent HWL ME_4AD5BB450335 // nsSettingsUtils
  ;
 
 ref; // ME_4AD5BB7002A2 LoadStyleTableFromSettings
@@ -53,7 +53,7 @@ ref; // ME_4AD5BB7002A2 LoadStyleTableFromSettings
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4AD5BB450335 // nsSettingsUtils
+ : Parent HWL ME_4AD5BB450335 // nsSettingsUtils
  ;
 
 ref; // ME_4AD5BB7F00E5 SaveStyleTableToSettings
@@ -61,7 +61,7 @@ ref; // ME_4AD5BB7F00E5 SaveStyleTableToSettings
 : ME_4AD5BC670387
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4AD5BB450335 // nsSettingsUtils
+ : Parent HWL ME_4AD5BB450335 // nsSettingsUtils
  ;
  : Target WL 'ME_4991656C024F' '499164F501ED.pas.ms.script' // InsEditSettingsInfo
  ;
@@ -73,9 +73,9 @@ FORWARD ME_4ABA139D014D
 : ME_4AD5BECA02D1
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4AD5BB450335 // nsSettingsUtils
+ : Parent HWL ME_4AD5BB450335 // nsSettingsUtils
  ;
- : Target ME_4ABA139D014D // TnsStyleTableSettingsInfo
+ : Target HWL ME_4ABA139D014D // TnsStyleTableSettingsInfo
  ;
 
 ref; // ME_4AD5BECA02D1 
@@ -83,7 +83,7 @@ ref; // ME_4AD5BECA02D1
 : ME_4E32B4A20220
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4AD5BB450335 // nsSettingsUtils
+ : Parent HWL ME_4AD5BB450335 // nsSettingsUtils
  ;
  : Target WL 'ME_4E31743D01F8' '47ECB2870309.pas.ms.script' // TevDefaultStylesFontSizes
  ;
@@ -98,12 +98,12 @@ ref; // ME_4E32B4A20220
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4F7D8B3A03A0 // SettingsUtils
+ : Parent HWL ME_4F7D8B3A03A0 // SettingsUtils
  ;
  : Operations
-   Seq: ( ME_4E32B50601F3 // InitialLoadStyleTableFromSettings
- ME_4AD5BB7002A2 // LoadStyleTableFromSettings
- ME_4AD5BB7F00E5 // SaveStyleTableToSettings
+   Seq: ( HWL ME_4E32B50601F3 // InitialLoadStyleTableFromSettings
+ HWL ME_4AD5BB7002A2 // LoadStyleTableFromSettings
+ HWL ME_4AD5BB7F00E5 // SaveStyleTableToSettings
  )
  ; // Operations
  : Dependencies
@@ -127,7 +127,7 @@ FORWARD ME_4ABA13880316
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4ABA13880316 // nsStyleEditor
+ : Parent HWL ME_4ABA13880316 // nsStyleEditor
  ;
  CONST "finished" false
  CONST extprop:rc:SelfName 'StyleTableSettingsInfo'
@@ -143,10 +143,10 @@ ref; // ME_4ABA139D014D TnsStyleTableSettingsInfo
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4F7D8B3A03A0 // SettingsUtils
+ : Parent HWL ME_4F7D8B3A03A0 // SettingsUtils
  ;
  : Children
-   Seq: ( ME_4ABA139D014D // TnsStyleTableSettingsInfo
+   Seq: ( HWL ME_4ABA139D014D // TnsStyleTableSettingsInfo
  )
  ; // Children
  CONST "finished" false
@@ -165,7 +165,7 @@ FORWARD ME_4F8BF9B20239
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4F8BF9B20239 // nsConfiguration
+ : Parent HWL ME_4F8BF9B20239 // nsConfiguration
  ;
  CONST extprop:rc:SelfName 'EditSettingsInfo'
  CONST extprop:rc:isAcceptableForScripts true
@@ -180,10 +180,10 @@ ref; // ME_5231862D00E6 TnsEditSettingsInfo
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4F7D8B3A03A0 // SettingsUtils
+ : Parent HWL ME_4F7D8B3A03A0 // SettingsUtils
  ;
  : Children
-   Seq: ( ME_5231862D00E6 // TnsEditSettingsInfo
+   Seq: ( HWL ME_5231862D00E6 // TnsEditSettingsInfo
  )
  ; // Children
  CONST "finished" false
@@ -202,9 +202,9 @@ ref; // ME_4F8BF9B20239 nsConfiguration
  : Parent WL 'ME_4F7D7B980383' '4F7D7B980383.pas.ms.script' // View
  ;
  : Children
-   Seq: ( ME_4AD5BB450335 // nsSettingsUtils
- ME_4ABA13880316 // nsStyleEditor
- ME_4F8BF9B20239 // nsConfiguration
+   Seq: ( HWL ME_4AD5BB450335 // nsSettingsUtils
+ HWL ME_4ABA13880316 // nsStyleEditor
+ HWL ME_4F8BF9B20239 // nsConfiguration
  )
  ; // Children
  : Depends

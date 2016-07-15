@@ -1,3 +1,6 @@
+//#UC START# *4A9BF42601A9impl_uses*
+ , StdRes
+//#UC END# *4A9BF42601A9impl_uses*
 //#UC START# *4AA4D7EA0094_4A9BF42601A9_impl*
  l_Info := TbsOpenListInfo.Create(aList);
  try
@@ -13,7 +16,7 @@
      Result := True;
      l_DocInfo := l_Info.Data As IdeDocInfo;
      TnsOpenDocumentFromListEvent.Log(l_DocInfo);
-     TdmStdRes.OpenDocument(l_DocInfo, aContainer);
+     TvcmModulesFactories.OpenDocument(l_DocInfo, aContainer);
      l_DocInfo := nil;
     end;//l_Info.Data = nil
    end;//ltDocument
@@ -48,7 +51,7 @@
    DLC_MEDICAL_DOCUMENTS:
    begin
     l_Cont := CheckContainer(aContainer);
-    TdmStdRes.OpenDrugList(aList, l_Cont);
+    TvcmModulesFactories.OpenDrugList(aList, l_Cont);
     // Синхронный просмотр открыт по умолчанию (CQ: OIT5-29213):
     // http://mdp.garant.ru/pages/viewpage.action?pageId=96484558
     if l_Cont.HasForm(fm_TextForm.rFormID,

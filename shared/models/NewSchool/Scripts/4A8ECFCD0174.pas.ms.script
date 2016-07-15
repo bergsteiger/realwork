@@ -1,0 +1,59 @@
+// NewsLine 4A8ECFCD0174 VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A8ECFCD0174
+
+: ME_4CAA38D5E807
+ CONST UID '4CAA38D5E807'
+ CONST Name 'Ini_FormFactory_NewsLine'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы NewsLine' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4A8ECFCD0174 // NewsLine
+ ;
+ : SpelledFor HWL ME_4A8ECFCD0174 // NewsLine
+ ;
+
+ref; // ME_4CAA38D5E807 Ini_FormFactory_NewsLine
+
+: ME_4A8ECFCD0174
+ CONST UID '4A8ECFCD0174'
+ CONST Name 'NewsLine'
+ CONST Class class_Class
+ : Stereotype st_VCMFinalForm ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'ПРАЙМ. Моя новостная лента' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent WL 'ME_4A8ECF3001D2' '4A8ECF3001D2.pas.ms.script' // PrimMonitorings
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4C87BB9C0143' '4C87BB9C0143.pas.ms.script' // PrimNewsLineOptions
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4EC3A4A80189' '4BD856E802F9.pas.ms.script' // NewsLine
+ )
+ ; // Implements
+ : Operations
+   Seq: ( HWL ME_4CAA38D5E807 // Ini_FormFactory_NewsLine
+ )
+ ; // Operations
+ CONST "NeedsHackRef" true
+ CONST "ZoneType" 'Any'
+ CONST "finished dfm" true
+ CONST "form name prefix" 'en'
+ CONST "resizeable" false
+ CONST "restrict form def" 'undefined'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\NewsLine_Form.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms'
+ CONST extprop:pas:TypeName 'TenNewsLine'
+ CONST extprop:rc:SelfName 'enNewsLine'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'NewsLine_Form'
+
+ref; // ME_4A8ECFCD0174 NewsLine

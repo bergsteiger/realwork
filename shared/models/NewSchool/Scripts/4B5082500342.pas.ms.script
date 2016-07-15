@@ -1,0 +1,56 @@
+// PrimEditionsRes 4B5082500342 VCMDataModule Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B5082500342
+
+: ME_4B50956D00B2
+ CONST UID '4B50956D00B2'
+ CONST Name 'EditionsStateIcons'
+ CONST Class class_Class
+ : Stereotype st_Component ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4B5082500342 // PrimEditionsRes
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4FD2246B017B' '4FD078FF017D.pas.ms.script' // TvtPngImageList
+ )
+ ; // Inherits
+ CONST "ComponentClass" 'none'
+ CONST "need Caption" false
+ CONST "pm" true
+ CONST "put to dfm" true
+
+ref; // ME_4B50956D00B2 EditionsStateIcons
+
+: ME_4B5082500342
+ CONST UID '4B5082500342'
+ CONST Name 'PrimEditionsRes'
+ CONST Class class_Class
+ : Stereotype st_VCMDataModule ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4A6D5A220389' '4A6D5A220389.pas.ms.script' // Editions
+ ;
+ : Attributes
+   Seq: ( HWL ME_4B50956D00B2 // EditionsStateIcons
+ )
+ ; // Attributes
+ CONST "NeedsHackRef" true
+ CONST "author" 'Ëþëèí À.Â.'
+ CONST "finished dfm" true
+ CONST "no hands" true
+ CONST "resizeable" false
+ CONST "singleton" true
+ CONST "started" '15.01.2010 17:57'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Editions\Forms\PrimEditionsRes_Form.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Editions\Forms'
+ CONST extprop:pas:TypeName 'TPrimEditionsResForm'
+ CONST extprop:rc:SelfName 'PrimEditionsResForm'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'PrimEditionsRes_Form'
+
+ref; // ME_4B5082500342 PrimEditionsRes

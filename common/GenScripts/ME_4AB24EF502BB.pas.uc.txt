@@ -108,7 +108,7 @@ var
   if Assigned(f_OnInitCommands) then
    f_OnInitCommands(Self, l_Controller.EntryCommands);
  {$IfNDef DesignTimeLibrary}
- RegisterKeywords;
+ //RegisterKeywords;
  // - http://mdp.garant.ru/pages/viewpage.action?pageId=290266465
  afw.Application.ApplyActiveLanguage(Self);
  {$EndIf  DesignTimeLibrary}
@@ -117,6 +117,13 @@ var
 var
  l_Controller : TOvcController;
 //#UC END# *484516C00214_4AD5DBBD0147_var*
+//#UC START# *4AB24EF502BBimpl_uses*
+ , vcmMessagesCollectionItem
+ , Dialogs
+ , vcmEntities
+//#UC END# *4AB24EF502BBimpl_uses*
+//#UC START# *4AB24EF502BBintf_uses*
+//#UC END# *4AB24EF502BBintf_uses*
 //#UC START# *4BB9C06901AE_4AD5DBBD0147_impl*
  if anAlien <> '' then
   for l_Type := Low(l_Type) to High(l_Type) do

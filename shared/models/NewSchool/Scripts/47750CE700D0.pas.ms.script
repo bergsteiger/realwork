@@ -14,7 +14,7 @@ FORWARD ME_47752AF90375
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47752AF90375 // afwFacade
+ : Parent HWL ME_47752AF90375 // afwFacade
  ;
  : Inherits
    Seq: ( WL 'ME_534F88090053' '467823B7002C.pas.ms.script' // TafwCustomForm
@@ -37,7 +37,7 @@ FORWARD ME_477515240332
  %SUMMARY 'Для доступа к скрытой части TPersistent.' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
- : Parent ME_477515240332 // Tafw
+ : Parent HWL ME_477515240332 // Tafw
  ;
  : Inherits
    Seq: ( WL 'ME_4788074102A7' '467823B7002C.pas.ms.script' // TPersistent
@@ -74,7 +74,7 @@ ref; // ME_4D8B85460032 aGot
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4D8B850600CF // TafwControlFocusHook
+ : Parent HWL ME_4D8B850600CF // TafwControlFocusHook
  ;
  : Parameters
    Seq: ( ME_4D8B854503BE // aControl
@@ -92,10 +92,10 @@ ref; // ME_4D8B853001E5 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_477515240332 // Tafw
+ : Parent HWL ME_477515240332 // Tafw
  ;
  : Operations
-   Seq: ( ME_4D8B853001E5 // DoIt
+   Seq: ( HWL ME_4D8B853001E5 // DoIt
  )
  ; // Operations
  CONST "ifndef" 'NoVCL'
@@ -129,7 +129,7 @@ ref; // ME_4DA723180119 aMessage
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4DA722D70277 // TafwControlMessageHook
+ : Parent HWL ME_4DA722D70277 // TafwControlMessageHook
  ;
  : Parameters
    Seq: ( ME_4DA723180001 // aControl
@@ -147,10 +147,10 @@ ref; // ME_4DA722FB00CF DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_477515240332 // Tafw
+ : Parent HWL ME_477515240332 // Tafw
  ;
  : Operations
-   Seq: ( ME_4DA722FB00CF // DoIt
+   Seq: ( HWL ME_4DA722FB00CF // DoIt
  )
  ; // Operations
  CONST "ifndef" 'NoVCL'
@@ -175,7 +175,7 @@ ref; // ME_4E083E7100FA aControl
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4E083E5500B2 // TafwIsAcceptableControlForTabNavigationHook
+ : Parent HWL ME_4E083E5500B2 // TafwIsAcceptableControlForTabNavigationHook
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -194,10 +194,10 @@ ref; // ME_4E083E620321 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_477515240332 // Tafw
+ : Parent HWL ME_477515240332 // Tafw
  ;
  : Operations
-   Seq: ( ME_4E083E620321 // DoIt
+   Seq: ( HWL ME_4E083E620321 // DoIt
  )
  ; // Operations
  CONST "ifndef" 'NoVCL'
@@ -231,7 +231,7 @@ ref; // ME_4E083EAC00B3 aShift
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4E083E8E0300 // TafwDoTabHook
+ : Parent HWL ME_4E083E8E0300 // TafwDoTabHook
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -251,10 +251,10 @@ ref; // ME_4E083EA800B6 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_477515240332 // Tafw
+ : Parent HWL ME_477515240332 // Tafw
  ;
  : Operations
-   Seq: ( ME_4E083EA800B6 // DoIt
+   Seq: ( HWL ME_4E083EA800B6 // DoIt
  )
  ; // Operations
  CONST "ifndef" 'NoVCL'
@@ -267,18 +267,12 @@ FORWARD ME_5506D47E01D2
 : ME_5506D48903D1
  CONST Class class_Dependency
  : Stereotype st_implements::Dependency ;
- : Parent ME_5506D47E01D2 // TafwMessagesService
+ : Parent HWL ME_5506D47E01D2 // TafwMessagesService
  ;
  : Target WL 'ME_5506D3B202FA' '5506D079035B.pas.ms.script' // Tl3MessagesService
  ;
 
 ref; // ME_5506D48903D1 
-
-: ME_B6C92677BBF7_ME_5506D47E01D2
- : Original WL 'ME_B6C92677BBF7' '5506D079035B.pas.ms.script' // ProcessMessages
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_B6C92677BBF7_ME_5506D47E01D2 ProcessMessages
 
 : ME_5506D47E01D2
  CONST UID '5506D47E01D2'
@@ -288,25 +282,16 @@ ref; // ME_B6C92677BBF7_ME_5506D47E01D2 ProcessMessages
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_477515240332 // Tafw
+ : Parent HWL ME_477515240332 // Tafw
  ;
  : Inherits
    Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
  )
  ; // Inherits
- : Implements
-   Seq: ( WL 'ME_0B2A9A8C27FB' '5506D079035B.pas.ms.script' // Il3MessagesService
- )
- ; // Implements
- : Implemented
-   Seq: ( ME_B6C92677BBF7_ME_5506D47E01D2 // ProcessMessages
- )
- ; // Implemented
  : Dependencies
    Seq: ( ME_5506D48903D1 // Tl3MessagesService
  )
  ; // Dependencies
- CONST "singleton" true
  CONST extprop:rc:SelfName 'afwMessagesService'
  CONST extprop:rc:isAcceptableForScripts true
 
@@ -317,36 +302,12 @@ FORWARD ME_5506D5FB0019
 : ME_5506D6160106
  CONST Class class_Dependency
  : Stereotype st_implements::Dependency ;
- : Parent ME_5506D5FB0019 // TafwFormsService
+ : Parent HWL ME_5506D5FB0019 // TafwFormsService
  ;
  : Target WL 'ME_5506D56601D6' '5506D079035B.pas.ms.script' // Tl3FormsService
  ;
 
 ref; // ME_5506D6160106 
-
-: ME_1077E9580F6F_ME_5506D5FB0019
- : Original WL 'ME_1077E9580F6F' '5506D079035B.pas.ms.script' // GetAnotherParentForm
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_1077E9580F6F_ME_5506D5FB0019 GetAnotherParentForm
-
-: ME_207716257CFB_ME_5506D5FB0019
- : Original WL 'ME_207716257CFB' '5506D079035B.pas.ms.script' // GetMainForm
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_207716257CFB_ME_5506D5FB0019 GetMainForm
-
-: ME_32D6965B86E7_ME_5506D5FB0019
- : Original WL 'ME_32D6965B86E7' '5506D079035B.pas.ms.script' // GetParentForm
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_32D6965B86E7_ME_5506D5FB0019 GetParentForm
-
-: ME_D9663D6CD433_ME_5506D5FB0019
- : Original WL 'ME_D9663D6CD433' '5506D079035B.pas.ms.script' // GetTopParentForm
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_D9663D6CD433_ME_5506D5FB0019 GetTopParentForm
 
 : ME_5506D5FB0019
  CONST UID '5506D5FB0019'
@@ -356,29 +317,17 @@ ref; // ME_D9663D6CD433_ME_5506D5FB0019 GetTopParentForm
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_477515240332 // Tafw
+ : Parent HWL ME_477515240332 // Tafw
  ;
  : Inherits
    Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
  )
  ; // Inherits
- : Implements
-   Seq: ( WL 'ME_A10B9C97F853' '5506D079035B.pas.ms.script' // Il3FormsService
- )
- ; // Implements
- : Implemented
-   Seq: ( ME_1077E9580F6F_ME_5506D5FB0019 // GetAnotherParentForm
- ME_207716257CFB_ME_5506D5FB0019 // GetMainForm
- ME_32D6965B86E7_ME_5506D5FB0019 // GetParentForm
- ME_D9663D6CD433_ME_5506D5FB0019 // GetTopParentForm
- )
- ; // Implemented
  : Dependencies
    Seq: ( ME_5506D6160106 // Tl3FormsService
  )
  ; // Dependencies
  CONST "ifndef" 'NoVCL'
- CONST "singleton" true
  CONST extprop:rc:SelfName 'afwFormsService'
  CONST extprop:rc:isAcceptableForScripts true
 
@@ -389,18 +338,12 @@ FORWARD ME_55099AE90101
 : ME_55099AFA0070
  CONST Class class_Dependency
  : Stereotype st_implements::Dependency ;
- : Parent ME_55099AE90101 // TafwKeyboardLayoutService
+ : Parent HWL ME_55099AE90101 // TafwKeyboardLayoutService
  ;
  : Target WL 'ME_55099A8303E1' '5506D079035B.pas.ms.script' // Tl3KeyboardLayoutService
  ;
 
 ref; // ME_55099AFA0070 
-
-: ME_747558CBA739_ME_55099AE90101
- : Original WL 'ME_747558CBA739' '5506D079035B.pas.ms.script' // TryActivateKeyboardLayout
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_747558CBA739_ME_55099AE90101 TryActivateKeyboardLayout
 
 : ME_55099AE90101
  CONST UID '55099AE90101'
@@ -410,25 +353,16 @@ ref; // ME_747558CBA739_ME_55099AE90101 TryActivateKeyboardLayout
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_477515240332 // Tafw
+ : Parent HWL ME_477515240332 // Tafw
  ;
  : Inherits
    Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
  )
  ; // Inherits
- : Implements
-   Seq: ( WL 'ME_4C80517D75F5' '5506D079035B.pas.ms.script' // Il3KeyboardLayoutService
- )
- ; // Implements
- : Implemented
-   Seq: ( ME_747558CBA739_ME_55099AE90101 // TryActivateKeyboardLayout
- )
- ; // Implemented
  : Dependencies
    Seq: ( ME_55099AFA0070 // Tl3KeyboardLayoutService
  )
  ; // Dependencies
- CONST "singleton" true
  CONST extprop:rc:SelfName 'afwKeyboardLayoutService'
  CONST extprop:rc:isAcceptableForScripts true
 
@@ -439,18 +373,12 @@ FORWARD ME_550AE9D40363
 : ME_550AE9E00232
  CONST Class class_Dependency
  : Stereotype st_implements::Dependency ;
- : Parent ME_550AE9D40363 // TafwTabService
+ : Parent HWL ME_550AE9D40363 // TafwTabService
  ;
  : Target WL 'ME_550AE937003B' '5506D079035B.pas.ms.script' // Tl3TabService
  ;
 
 ref; // ME_550AE9E00232 
-
-: ME_A8AF111E1F35_ME_550AE9D40363
- : Original WL 'ME_A8AF111E1F35' '5506D079035B.pas.ms.script' // HasTabs
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_A8AF111E1F35_ME_550AE9D40363 HasTabs
 
 : ME_550AE9D40363
  CONST UID '550AE9D40363'
@@ -460,25 +388,16 @@ ref; // ME_A8AF111E1F35_ME_550AE9D40363 HasTabs
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_477515240332 // Tafw
+ : Parent HWL ME_477515240332 // Tafw
  ;
  : Inherits
    Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
  )
  ; // Inherits
- : Implements
-   Seq: ( WL 'ME_DB8C4BB17004' '5506D079035B.pas.ms.script' // Il3TabService
- )
- ; // Implements
- : Implemented
-   Seq: ( ME_A8AF111E1F35_ME_550AE9D40363 // HasTabs
- )
- ; // Implemented
  : Dependencies
    Seq: ( ME_550AE9E00232 // Tl3TabService
  )
  ; // Dependencies
- CONST "singleton" true
  CONST extprop:rc:SelfName 'afwTabService'
  CONST extprop:rc:isAcceptableForScripts true
 
@@ -492,7 +411,7 @@ ref; // ME_550AE9D40363 TafwTabService
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_477515240332 // Tafw
+ : Parent HWL ME_477515240332 // Tafw
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -511,7 +430,7 @@ ref; // ME_4DA731A30380 g_DisableMessageHook
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_477515240332 // Tafw
+ : Parent HWL ME_477515240332 // Tafw
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -528,9 +447,9 @@ ref; // ME_4B6C57C40127 g_IsWin2000
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_477515240332 // Tafw
+ : Parent HWL ME_477515240332 // Tafw
  ;
- : Target ME_4D8B850600CF // TafwControlFocusHook
+ : Target HWL ME_4D8B850600CF // TafwControlFocusHook
  ;
  CONST "ifndef" 'NoVCL'
  CONST extprop:pas:Value 'nil'
@@ -545,9 +464,9 @@ ref; // ME_4D8B851F016D g_FocusHook
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_477515240332 // Tafw
+ : Parent HWL ME_477515240332 // Tafw
  ;
- : Target ME_4DA722D70277 // TafwControlMessageHook
+ : Target HWL ME_4DA722D70277 // TafwControlMessageHook
  ;
  CONST "ifndef" 'NoVCL'
  CONST extprop:pas:Value 'nil'
@@ -562,9 +481,9 @@ ref; // ME_4DA72329009F g_MessageHook
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_477515240332 // Tafw
+ : Parent HWL ME_477515240332 // Tafw
  ;
- : Target ME_4E083E5500B2 // TafwIsAcceptableControlForTabNavigationHook
+ : Target HWL ME_4E083E5500B2 // TafwIsAcceptableControlForTabNavigationHook
  ;
  CONST "ifndef" 'NoVCL'
  CONST extprop:pas:Value 'nil'
@@ -579,9 +498,9 @@ ref; // ME_4E083E780343 g_IsAcceptableControlForTabNavigationHook
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_477515240332 // Tafw
+ : Parent HWL ME_477515240332 // Tafw
  ;
- : Target ME_4E083E8E0300 // TafwDoTabHook
+ : Target HWL ME_4E083E8E0300 // TafwDoTabHook
  ;
  CONST "ifndef" 'NoVCL'
  CONST extprop:pas:Value 'nil'
@@ -605,7 +524,7 @@ ref; // ME_4B6C585B032B aControl
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4B6C58480346 // NeedFixWMSIZE
+ : Parent HWL ME_4B6C58480346 // NeedFixWMSIZE
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -619,7 +538,7 @@ ref; // ME_4B6C585402FD NeedFixWMSIZE
 : ME_4B6C62D60011
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4B6C58480346 // NeedFixWMSIZE
+ : Parent HWL ME_4B6C58480346 // NeedFixWMSIZE
  ;
  : Target WL 'ME_48A41FF10094' '4AB0C3F60375.pas.ms.script' // Windows
  ;
@@ -629,7 +548,7 @@ ref; // ME_4B6C62D60011
 : ME_4B6C67A600FB
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4B6C58480346 // NeedFixWMSIZE
+ : Parent HWL ME_4B6C58480346 // NeedFixWMSIZE
  ;
  : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
  ;
@@ -644,10 +563,10 @@ ref; // ME_4B6C67A600FB
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_477515240332 // Tafw
+ : Parent HWL ME_477515240332 // Tafw
  ;
  : Operations
-   Seq: ( ME_4B6C585402FD // NeedFixWMSIZE
+   Seq: ( HWL ME_4B6C585402FD // NeedFixWMSIZE
  )
  ; // Operations
  : Dependencies
@@ -668,7 +587,7 @@ FORWARD ME_4E2FE68C032B
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4E2FE68C032B // TryActivateKeyboardLayout
+ : Parent HWL ME_4E2FE68C032B // TryActivateKeyboardLayout
  ;
 
 ref; // ME_4E2FE6AE012A DoIt
@@ -681,10 +600,10 @@ ref; // ME_4E2FE6AE012A DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_477515240332 // Tafw
+ : Parent HWL ME_477515240332 // Tafw
  ;
  : Operations
-   Seq: ( ME_4E2FE6AE012A // DoIt
+   Seq: ( HWL ME_4E2FE6AE012A // DoIt
  )
  ; // Operations
  CONST "is static" true
@@ -699,7 +618,7 @@ ref; // ME_4E2FE68C032B TryActivateKeyboardLayout
  %SUMMARY 'приложение AFW.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_477515240332 // Tafw
+ : Parent HWL ME_477515240332 // Tafw
  ;
  : Target WL 'ME_473DA1A00014' '467823B7002C.pas.ms.script' // IafwApplication
  ;
@@ -714,7 +633,7 @@ ref; // ME_4775153A0006 Application
  %SUMMARY 'начать операцию, внутри которой нельзя убивать контролы.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_477515240332 // Tafw
+ : Parent HWL ME_477515240332 // Tafw
  ;
 
 ref; // ME_4775163F024C BeginOp
@@ -727,7 +646,7 @@ ref; // ME_4775163F024C BeginOp
  %SUMMARY 'закончить операцию, внутри которой нельзя убивать контролы.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_477515240332 // Tafw
+ : Parent HWL ME_477515240332 // Tafw
  ;
 
 ref; // ME_4775165403AE EndOp
@@ -739,7 +658,7 @@ ref; // ME_4775165403AE EndOp
  : Stereotype st_static::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_477515240332 // Tafw
+ : Parent HWL ME_477515240332 // Tafw
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -767,7 +686,7 @@ ref; // ME_47751687039B aControl
  : Stereotype st_static::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_477515240332 // Tafw
+ : Parent HWL ME_477515240332 // Tafw
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -795,9 +714,9 @@ ref; // ME_477516A100C4 Component
  : Stereotype st_static::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_477515240332 // Tafw
+ : Parent HWL ME_477515240332 // Tafw
  ;
- : Target ME_4788090E01D4 // TafwCustomForm
+ : Target HWL ME_4788090E01D4 // TafwCustomForm
  ;
  : Parameters
    Seq: ( ME_477516A100C4 // Component
@@ -823,9 +742,9 @@ ref; // ME_4775304A0281 Component
  : Stereotype st_static::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_477515240332 // Tafw
+ : Parent HWL ME_477515240332 // Tafw
  ;
- : Target ME_4788090E01D4 // TafwCustomForm
+ : Target HWL ME_4788090E01D4 // TafwCustomForm
  ;
  : Parameters
    Seq: ( ME_4775304A0281 // Component
@@ -851,9 +770,9 @@ ref; // ME_4775305F02C8 Component
  : Stereotype st_static::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_477515240332 // Tafw
+ : Parent HWL ME_477515240332 // Tafw
  ;
- : Target ME_4788090E01D4 // TafwCustomForm
+ : Target HWL ME_4788090E01D4 // TafwCustomForm
  ;
  : Parameters
    Seq: ( ME_4775305F02C8 // Component
@@ -879,9 +798,9 @@ ref; // ME_4775306E0312 Component
  : Stereotype st_static::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_477515240332 // Tafw
+ : Parent HWL ME_477515240332 // Tafw
  ;
- : Target ME_4788090E01D4 // TafwCustomForm
+ : Target HWL ME_4788090E01D4 // TafwCustomForm
  ;
  : Parameters
    Seq: ( ME_4775306E0312 // Component
@@ -898,7 +817,7 @@ ref; // ME_4775306A03AC GetMainForm
  : Stereotype st_static::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_477515240332 // Tafw
+ : Parent HWL ME_477515240332 // Tafw
  ;
 
 ref; // ME_4775307B00B7 ProcessMessages
@@ -911,7 +830,7 @@ ref; // ME_4775307B00B7 ProcessMessages
  %SUMMARY 'для работы с настройками системы.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_477515240332 // Tafw
+ : Parent HWL ME_477515240332 // Tafw
  ;
  : Target WL 'ME_473D9EF10387' '467823B7002C.pas.ms.script' // IafwSettings
  ;
@@ -926,7 +845,7 @@ ref; // ME_47753A3300D9 Settings
  %SUMMARY 'Запретить обновление операций' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_477515240332 // Tafw
+ : Parent HWL ME_477515240332 // Tafw
  ;
 
 ref; // ME_4A362F8A01C0 LockActionUpdate
@@ -939,7 +858,7 @@ ref; // ME_4A362F8A01C0 LockActionUpdate
  %SUMMARY 'Разрешить обновление операций' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_477515240332 // Tafw
+ : Parent HWL ME_477515240332 // Tafw
  ;
 
 ref; // ME_4A362FB70028 UnlockActionUpdate
@@ -952,7 +871,7 @@ ref; // ME_4A362FB70028 UnlockActionUpdate
  %SUMMARY 'Обновление операций запрещено' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_477515240332 // Tafw
+ : Parent HWL ME_477515240332 // Tafw
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -967,7 +886,7 @@ ref; // ME_4A362FC603AF IsActionUpdateLocked
  : Stereotype st_static::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_477515240332 // Tafw
+ : Parent HWL ME_477515240332 // Tafw
  ;
  : Target WL 'ME_4AB728CB025C' '467823B7002C.pas.ms.script' // IafwSettingsPrim
  ;
@@ -990,7 +909,7 @@ ref; // ME_4B0526350068 aControl
  : Stereotype st_static::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_477515240332 // Tafw
+ : Parent HWL ME_477515240332 // Tafw
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -1018,7 +937,7 @@ ref; // ME_4B05370700AF aControl
  : Stereotype st_static::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_477515240332 // Tafw
+ : Parent HWL ME_477515240332 // Tafw
  ;
  : Parameters
    Seq: ( ME_4B05370700AF // aControl
@@ -1034,7 +953,7 @@ ref; // ME_4B0535ED02A1 ControlDestroying
  : Stereotype st_ini::Operation ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_477515240332 // Tafw
+ : Parent HWL ME_477515240332 // Tafw
  ;
  CONST "ifndef" 'DesignTimeLibrary'
 
@@ -1043,9 +962,9 @@ ref; // ME_4B6C57D9019A Ini_g_IsWin2000
 : ME_477540DB0328
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_477515240332 // Tafw
+ : Parent HWL ME_477515240332 // Tafw
  ;
- : Target ME_47753E690255 // TafwHackPersistent
+ : Target HWL ME_47753E690255 // TafwHackPersistent
  ;
 
 ref; // ME_477540DB0328 
@@ -1053,7 +972,7 @@ ref; // ME_477540DB0328
 : ME_47756D780366
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_477515240332 // Tafw
+ : Parent HWL ME_477515240332 // Tafw
  ;
  : Target WL 'ME_47756BD70222' '4799D29F033F.pas.ms.script' // TControl$Stub
  ;
@@ -1069,50 +988,50 @@ ref; // ME_47756D780366
  %SUMMARY 'Метакласс, реализующий точку входа в интерфейсы библиотеки AFW.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47752AF90375 // afwFacade
+ : Parent HWL ME_47752AF90375 // afwFacade
  ;
  : Attributes
-   Seq: ( ME_4DA731A30380 // g_DisableMessageHook
- ME_4B6C57C40127 // g_IsWin2000
- ME_4D8B851F016D // g_FocusHook
- ME_4DA72329009F // g_MessageHook
- ME_4E083E780343 // g_IsAcceptableControlForTabNavigationHook
- ME_4E083EBA008E // g_DoTabHook
+   Seq: ( HWL ME_4DA731A30380 // g_DisableMessageHook
+ HWL ME_4B6C57C40127 // g_IsWin2000
+ HWL ME_4D8B851F016D // g_FocusHook
+ HWL ME_4DA72329009F // g_MessageHook
+ HWL ME_4E083E780343 // g_IsAcceptableControlForTabNavigationHook
+ HWL ME_4E083EBA008E // g_DoTabHook
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_4B6C58480346 // NeedFixWMSIZE
- ME_4E2FE68C032B // TryActivateKeyboardLayout
- ME_4775153A0006 // Application
- ME_4775163F024C // BeginOp
- ME_4775165403AE // EndOp
- ME_4775166D031F // InOp
- ME_47751681028E // IsObjectLocked
- ME_4775169B0334 // GetParentForm
- ME_477530450083 // GetAnotherParentForm
- ME_4775305B0003 // GetTopParentForm
- ME_4775306A03AC // GetMainForm
- ME_4775307B00B7 // ProcessMessages
- ME_47753A3300D9 // Settings
- ME_4A362F8A01C0 // LockActionUpdate
- ME_4A362FB70028 // UnlockActionUpdate
- ME_4A362FC603AF // IsActionUpdateLocked
- ME_4AB73320020A // PermanentSettings
- ME_4B05260901E6 // IsMenuLocked
- ME_4B0535ED02A1 // ControlDestroying
- ME_4B6C57D9019A // Ini_g_IsWin2000
+   Seq: ( HWL ME_4B6C58480346 // NeedFixWMSIZE
+ HWL ME_4E2FE68C032B // TryActivateKeyboardLayout
+ HWL ME_4775153A0006 // Application
+ HWL ME_4775163F024C // BeginOp
+ HWL ME_4775165403AE // EndOp
+ HWL ME_4775166D031F // InOp
+ HWL ME_47751681028E // IsObjectLocked
+ HWL ME_4775169B0334 // GetParentForm
+ HWL ME_477530450083 // GetAnotherParentForm
+ HWL ME_4775305B0003 // GetTopParentForm
+ HWL ME_4775306A03AC // GetMainForm
+ HWL ME_4775307B00B7 // ProcessMessages
+ HWL ME_47753A3300D9 // Settings
+ HWL ME_4A362F8A01C0 // LockActionUpdate
+ HWL ME_4A362FB70028 // UnlockActionUpdate
+ HWL ME_4A362FC603AF // IsActionUpdateLocked
+ HWL ME_4AB73320020A // PermanentSettings
+ HWL ME_4B05260901E6 // IsMenuLocked
+ HWL ME_4B0535ED02A1 // ControlDestroying
+ HWL ME_4B6C57D9019A // Ini_g_IsWin2000
  )
  ; // Operations
  : Children
-   Seq: ( ME_47753E690255 // TafwHackPersistent
- ME_4D8B850600CF // TafwControlFocusHook
- ME_4DA722D70277 // TafwControlMessageHook
- ME_4E083E5500B2 // TafwIsAcceptableControlForTabNavigationHook
- ME_4E083E8E0300 // TafwDoTabHook
- ME_5506D47E01D2 // TafwMessagesService
- ME_5506D5FB0019 // TafwFormsService
- ME_55099AE90101 // TafwKeyboardLayoutService
- ME_550AE9D40363 // TafwTabService
+   Seq: ( HWL ME_47753E690255 // TafwHackPersistent
+ HWL ME_4D8B850600CF // TafwControlFocusHook
+ HWL ME_4DA722D70277 // TafwControlMessageHook
+ HWL ME_4E083E5500B2 // TafwIsAcceptableControlForTabNavigationHook
+ HWL ME_4E083E8E0300 // TafwDoTabHook
+ HWL ME_5506D47E01D2 // TafwMessagesService
+ HWL ME_5506D5FB0019 // TafwFormsService
+ HWL ME_55099AE90101 // TafwKeyboardLayoutService
+ HWL ME_550AE9D40363 // TafwTabService
  )
  ; // Children
  : Dependencies
@@ -1134,10 +1053,10 @@ ref; // ME_477515240332 Tafw
  %SUMMARY 'Ссылка на класс Tafw.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47752AF90375 // afwFacade
+ : Parent HWL ME_47752AF90375 // afwFacade
  ;
  : Inherits
-   Seq: ( ME_477515240332 // Tafw
+   Seq: ( HWL ME_477515240332 // Tafw
  )
  ; // Inherits
  CONST "isClassRef" true
@@ -1153,12 +1072,12 @@ ref; // ME_47752B45023E Rafw
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_47752AF90375 // afwFacade
+ : Parent HWL ME_47752AF90375 // afwFacade
  ;
- : Target ME_47752B45023E // Rafw
+ : Target HWL ME_47752B45023E // Rafw
  ;
  CONST Value 'Tafw'
- : ValueType ME_47752B45023E // Rafw
+ : ValueType HWL ME_47752B45023E // Rafw
  ;
  CONST extprop:pas:Value 'Tafw'
 
@@ -1172,7 +1091,7 @@ ref; // ME_47753B0E0386 afw
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_47752AF90375 // afwFacade
+ : Parent HWL ME_47752AF90375 // afwFacade
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -1190,7 +1109,7 @@ ref; // ME_47753DE50055 g_InOp
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_47752AF90375 // afwFacade
+ : Parent HWL ME_47752AF90375 // afwFacade
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -1204,7 +1123,7 @@ ref; // ME_4A3630010176 g_LockActionUpdate
 : ME_4F6C74F200CE
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_47752AF90375 // afwFacade
+ : Parent HWL ME_47752AF90375 // afwFacade
  ;
  : Target WL 'ME_4F6C7DC2022A' '4F6C5511015F.pas.ms.script' // TafwSettingsImplSing
  ;
@@ -1214,7 +1133,7 @@ ref; // ME_4F6C74F200CE
 : ME_4F6C74FA0366
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_47752AF90375 // afwFacade
+ : Parent HWL ME_47752AF90375 // afwFacade
  ;
  : Target WL 'ME_4F6C6F250398' '4F6C5511015F.pas.ms.script' // TafwSettingsImplemented
  ;
@@ -1224,7 +1143,7 @@ ref; // ME_4F6C74FA0366
 : ME_53F7007A01F0
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_47752AF90375 // afwFacade
+ : Parent HWL ME_47752AF90375 // afwFacade
  ;
  : Target WL 'ME_47E13C6B0341' '4799D29F033F.pas.ms.script' // Forms
  ;
@@ -1240,18 +1159,18 @@ ref; // ME_53F7007A01F0
  %SUMMARY 'Метакласс, реализующий точку входа в интерфейсы библиотеки AFW.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_47750CE700D0 // afwFacade
+ : Parent HWL ME_47750CE700D0 // afwFacade
  ;
  : Attributes
-   Seq: ( ME_47753B0E0386 // afw
- ME_47753DE50055 // g_InOp
- ME_4A3630010176 // g_LockActionUpdate
+   Seq: ( HWL ME_47753B0E0386 // afw
+ HWL ME_47753DE50055 // g_InOp
+ HWL ME_4A3630010176 // g_LockActionUpdate
  )
  ; // Attributes
  : Children
-   Seq: ( ME_4788090E01D4 // TafwCustomForm
- ME_477515240332 // Tafw
- ME_47752B45023E // Rafw
+   Seq: ( HWL ME_4788090E01D4 // TafwCustomForm
+ HWL ME_477515240332 // Tafw
+ HWL ME_47752B45023E // Rafw
  )
  ; // Children
  : Dependencies
@@ -1278,7 +1197,7 @@ FORWARD ME_4AA7E1390061
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4AA7E1390061 // SPHTMLHelp
+ : Parent HWL ME_4AA7E1390061 // SPHTMLHelp
  ;
 
 ref; // ME_4AA7E16800F6 SPCorrectHelpFileName
@@ -1288,9 +1207,9 @@ FORWARD ME_53760B2701DD
 : ME_53760E49030E
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4AA7E1390061 // SPHTMLHelp
+ : Parent HWL ME_4AA7E1390061 // SPHTMLHelp
  ;
- : Target ME_53760B2701DD // TspHelpNotifyManager
+ : Target HWL ME_53760B2701DD // TspHelpNotifyManager
  ;
 
 ref; // ME_53760E49030E 
@@ -1303,10 +1222,10 @@ ref; // ME_53760E49030E
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_47750CE700D0 // afwFacade
+ : Parent HWL ME_47750CE700D0 // afwFacade
  ;
  : Operations
-   Seq: ( ME_4AA7E16800F6 // SPCorrectHelpFileName
+   Seq: ( HWL ME_4AA7E16800F6 // SPCorrectHelpFileName
  )
  ; // Operations
  : Dependencies
@@ -1328,7 +1247,7 @@ FORWARD ME_53760C2B0357
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_53760C2B0357 // IspHelpNotifyListener
+ : Parent HWL ME_53760C2B0357 // IspHelpNotifyListener
  ;
 
 ref; // ME_53760DC000EE HelpShown
@@ -1342,10 +1261,10 @@ ref; // ME_53760DC000EE HelpShown
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_53760B2701DD // TspHelpNotifyManager
+ : Parent HWL ME_53760B2701DD // TspHelpNotifyManager
  ;
  : Operations
-   Seq: ( ME_53760DC000EE // HelpShown
+   Seq: ( HWL ME_53760DC000EE // HelpShown
  )
  ; // Operations
  CONST extprop:rc:SelfName 'spHelpNotifyListener'
@@ -1363,9 +1282,9 @@ FORWARD ME_53760D170199
  CONST Visibility PrivateAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_53760D170199 // TspHelpNotifyListenerList
+ : Parent HWL ME_53760D170199 // TspHelpNotifyListenerList
  ;
- : Target ME_53760C2B0357 // IspHelpNotifyListener
+ : Target HWL ME_53760C2B0357 // IspHelpNotifyListener
  ;
 
 ref; // ME_53760D420072 ItemType
@@ -1378,7 +1297,7 @@ ref; // ME_53760D420072 ItemType
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_53760B2701DD // TspHelpNotifyManager
+ : Parent HWL ME_53760B2701DD // TspHelpNotifyManager
  ;
  : Inherits
    Seq: ( WL 'ME_47BC3A07027F' '47913B47006E.pas.ms.script' // Tl3SimpleDataContainer
@@ -1389,7 +1308,7 @@ ref; // ME_53760D420072 ItemType
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_53760D420072 // ItemType
+   Seq: ( HWL ME_53760D420072 // ItemType
  )
  ; // Attributes
  CONST extprop:rc:SelfName 'spHelpNotifyListenerList'
@@ -1404,9 +1323,9 @@ ref; // ME_53760D170199 TspHelpNotifyListenerList
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_53760B2701DD // TspHelpNotifyManager
+ : Parent HWL ME_53760B2701DD // TspHelpNotifyManager
  ;
- : Target ME_53760D170199 // TspHelpNotifyListenerList
+ : Target HWL ME_53760D170199 // TspHelpNotifyListenerList
  ;
 
 ref; // ME_53760D580355 f_Listeners
@@ -1417,7 +1336,7 @@ FORWARD ME_53760C6703AB
  CONST Name 'aListener'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_53760C2B0357 // IspHelpNotifyListener
+ : Target HWL ME_53760C2B0357 // IspHelpNotifyListener
  ;
 
 ref; // ME_53760C8900FC aListener
@@ -1428,7 +1347,7 @@ ref; // ME_53760C8900FC aListener
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_53760C6703AB // AddListener
+ : Parent HWL ME_53760C6703AB // AddListener
  ;
  : Parameters
    Seq: ( ME_53760C8900FC // aListener
@@ -1445,10 +1364,10 @@ ref; // ME_53760C810353 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_53760B2701DD // TspHelpNotifyManager
+ : Parent HWL ME_53760B2701DD // TspHelpNotifyManager
  ;
  : Operations
-   Seq: ( ME_53760C810353 // DoIt
+   Seq: ( HWL ME_53760C810353 // DoIt
  )
  ; // Operations
  CONST "is static" true
@@ -1461,7 +1380,7 @@ FORWARD ME_53760C9201F9
  CONST Name 'aListener'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_53760C2B0357 // IspHelpNotifyListener
+ : Target HWL ME_53760C2B0357 // IspHelpNotifyListener
  ;
 
 ref; // ME_53760CA603D6 aListener
@@ -1472,7 +1391,7 @@ ref; // ME_53760CA603D6 aListener
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_53760C9201F9 // RemoveListener
+ : Parent HWL ME_53760C9201F9 // RemoveListener
  ;
  : Parameters
    Seq: ( ME_53760CA603D6 // aListener
@@ -1489,10 +1408,10 @@ ref; // ME_53760CA50115 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_53760B2701DD // TspHelpNotifyManager
+ : Parent HWL ME_53760B2701DD // TspHelpNotifyManager
  ;
  : Operations
-   Seq: ( ME_53760CA50115 // DoIt
+   Seq: ( HWL ME_53760CA50115 // DoIt
  )
  ; // Operations
  CONST "is static" true
@@ -1507,7 +1426,7 @@ ref; // ME_53760C9201F9 RemoveListener
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_53760B2701DD // TspHelpNotifyManager
+ : Parent HWL ME_53760B2701DD // TspHelpNotifyManager
  ;
  CONST "is static" true
 
@@ -1521,7 +1440,7 @@ FORWARD ME_53763D88015E
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_53763D88015E // Exists
+ : Parent HWL ME_53763D88015E // Exists
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -1536,10 +1455,10 @@ ref; // ME_537642EC0165 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_53760B2701DD // TspHelpNotifyManager
+ : Parent HWL ME_53760B2701DD // TspHelpNotifyManager
  ;
  : Operations
-   Seq: ( ME_537642EC0165 // DoIt
+   Seq: ( HWL ME_537642EC0165 // DoIt
  )
  ; // Operations
  CONST "is static" true
@@ -1566,21 +1485,21 @@ ref; // ME_47A042E100E2_ME_53760B2701DD InitFields
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47750CE700D0 // afwFacade
+ : Parent HWL ME_47750CE700D0 // afwFacade
  ;
  : Inherits
    Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_53760D580355 // f_Listeners
+   Seq: ( HWL ME_53760D580355 // f_Listeners
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_53760C6703AB // AddListener
- ME_53760C9201F9 // RemoveListener
- ME_53760DE9006D // HelpShown
- ME_53763D88015E // Exists
+   Seq: ( HWL ME_53760C6703AB // AddListener
+ HWL ME_53760C9201F9 // RemoveListener
+ HWL ME_53760DE9006D // HelpShown
+ HWL ME_53763D88015E // Exists
  )
  ; // Operations
  : Overridden
@@ -1589,8 +1508,8 @@ ref; // ME_47A042E100E2_ME_53760B2701DD InitFields
  )
  ; // Overridden
  : Children
-   Seq: ( ME_53760C2B0357 // IspHelpNotifyListener
- ME_53760D170199 // TspHelpNotifyListenerList
+   Seq: ( HWL ME_53760C2B0357 // IspHelpNotifyListener
+ HWL ME_53760D170199 // TspHelpNotifyListenerList
  )
  ; // Children
  CONST "singleton" true
@@ -1612,9 +1531,9 @@ ref; // ME_53760B2701DD TspHelpNotifyManager
  : Parent WL 'ME_4790B4F00236' '4790B4F00236.pas.ms.script' // AFW
  ;
  : Children
-   Seq: ( ME_47752AF90375 // afwFacade
- ME_4AA7E1390061 // SPHTMLHelp
- ME_53760B2701DD // TspHelpNotifyManager
+   Seq: ( HWL ME_47752AF90375 // afwFacade
+ HWL ME_4AA7E1390061 // SPHTMLHelp
+ HWL ME_53760B2701DD // TspHelpNotifyManager
  )
  ; // Children
  : Depends

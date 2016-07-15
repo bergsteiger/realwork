@@ -1,0 +1,577 @@
+// UnderControl$FP 4CCAC71C0347 VCMFormsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4CCAC71C0347
+
+FORWARD ME_4ABCE38D00B4
+
+: ME_4ABCE39D0315
+ CONST Name 'aContainer'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
+ ;
+
+ref; // ME_4ABCE39D0315 aContainer
+
+: ME_4ABCE39B0095
+ CONST UID '4ABCE39B0095'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4ABCE38D00B4 // CloseUnderControl
+ ;
+ : Parameters
+   Seq: ( ME_4ABCE39D0315 // aContainer
+ )
+ ; // Parameters
+
+ref; // ME_4ABCE39B0095 DoIt
+
+: ME_4ABCE38D00B4
+ CONST UID '4ABCE38D00B4'
+ CONST Name 'CloseUnderControl'
+ CONST Class class_Class
+ : Stereotype st_FactoryMethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4CCAC71C0347 // UnderControl$FP
+ ;
+ : Operations
+   Seq: ( HWL ME_4ABCE39B0095 // DoIt
+ )
+ ; // Operations
+ CONST "NO_FACTORY_BRACKECTS" false
+
+ref; // ME_4ABCE38D00B4 CloseUnderControl
+
+FORWARD ME_4AC0938B0336
+
+: ME_4AC093A1016D
+ CONST Name 'aContainer'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
+ ;
+
+ref; // ME_4AC093A1016D aContainer
+
+: ME_4AC0939F013C
+ CONST UID '4AC0939F013C'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AC0938B0336 // OpenUnderControl
+ ;
+ : Parameters
+   Seq: ( ME_4AC093A1016D // aContainer
+ )
+ ; // Parameters
+
+ref; // ME_4AC0939F013C DoIt
+
+: ME_4AC0938B0336
+ CONST UID '4AC0938B0336'
+ CONST Name 'OpenUnderControl'
+ CONST Class class_Class
+ : Stereotype st_FactoryMethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4CCAC71C0347 // UnderControl$FP
+ ;
+ : Operations
+   Seq: ( HWL ME_4AC0939F013C // DoIt
+ )
+ ; // Operations
+ CONST "NO_FACTORY_BRACKECTS" false
+
+ref; // ME_4AC0938B0336 OpenUnderControl
+
+FORWARD ME_4BC807410014
+
+: ME_4BC8076103B8
+ CONST Name 'aContainer'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
+ ;
+
+ref; // ME_4BC8076103B8 aContainer
+
+: ME_4BC8075F036D
+ CONST UID '4BC8075F036D'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4BC807410014 // BuildUnderControlList
+ ;
+ : Parameters
+   Seq: ( ME_4BC8076103B8 // aContainer
+ )
+ ; // Parameters
+
+ref; // ME_4BC8075F036D DoIt
+
+: ME_4BC8105B01EF
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4BC807410014 // BuildUnderControlList
+ ;
+ : Target WL 'ME_45EEBA2C02BF' '457450470167.pas.ms.script' // CatalogBase
+ ;
+
+ref; // ME_4BC8105B01EF 
+
+: ME_4BC81075034B
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4BC807410014 // BuildUnderControlList
+ ;
+ : Target WL 'ME_45EEDB730265' '45700BFD0251.pas.ms.script' // DynList
+ ;
+
+ref; // ME_4BC81075034B 
+
+: ME_4BC8115803A5
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4BC807410014 // BuildUnderControlList
+ ;
+ : Target WL 'ME_4926AE3900B9' '47EA50050263.pas.ms.script' // TdeListSet
+ ;
+
+ref; // ME_4BC8115803A5 
+
+: ME_4CCAD749025D
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4BC807410014 // BuildUnderControlList
+ ;
+ : Target WL 'ME_4B1E8FAE0380' '48F747EC0073.pas.ms.script' // DefDataAdapter
+ ;
+
+ref; // ME_4CCAD749025D 
+
+: ME_4CCAD76903B3
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4BC807410014 // BuildUnderControlList
+ ;
+ : Target WL 'ME_4ADEE49C02DF' '4AB0C3C60310.pas.ms.script' // Supports
+ ;
+
+ref; // ME_4CCAD76903B3 
+
+: ME_4CCAD77F00A2
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4BC807410014 // BuildUnderControlList
+ ;
+ : Target WL 'ME_456EB454018E' '456EA56002BF.pas.ms.script' // CanNotFindData
+ ;
+
+ref; // ME_4CCAD77F00A2 
+
+: ME_4CCAD8B802A8
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4BC807410014 // BuildUnderControlList
+ ;
+ : Target WL 'ME_4A9D129E00FA' '4AADF9450143.pas.ms.script' // Say
+ ;
+
+ref; // ME_4CCAD8B802A8 
+
+: ME_4BC807410014
+ CONST UID '4BC807410014'
+ CONST Name 'BuildUnderControlList'
+ CONST Class class_Class
+ : Stereotype st_FactoryMethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4CCAC71C0347 // UnderControl$FP
+ ;
+ : Operations
+   Seq: ( HWL ME_4BC8075F036D // DoIt
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_4BC8105B01EF // CatalogBase
+ ME_4BC81075034B // DynList
+ ME_4BC8115803A5 // TdeListSet
+ ME_4CCAD749025D // DefDataAdapter
+ ME_4CCAD76903B3 // Supports
+ ME_4CCAD77F00A2 // CanNotFindData
+ ME_4CCAD8B802A8 // Say
+ )
+ ; // Dependencies
+ CONST "NO_FACTORY_BRACKECTS" false
+
+ref; // ME_4BC807410014 BuildUnderControlList
+
+FORWARD ME_4AC09339029B
+
+: ME_4AC0936F0150
+ CONST UID '4AC0936F0150'
+ CONST Name 'Form'
+ CONST Class class_Attribute
+ : Stereotype st_var::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_4AC09339029B // UnderControlOpen
+ ;
+ : Target WL 'ME_4914746C019E' '4683F37902CF.pas.ms.script' // IvcmEntityForm
+ ;
+ CONST "IsResult" false
+
+ref; // ME_4AC0936F0150 Form
+
+: ME_4AC0935400ED
+ CONST Name 'aContainer'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
+ ;
+
+ref; // ME_4AC0935400ED aContainer
+
+: ME_4AC0934503B2
+ CONST UID '4AC0934503B2'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AC09339029B // UnderControlOpen
+ ;
+ : Parameters
+   Seq: ( ME_4AC0935400ED // aContainer
+ )
+ ; // Parameters
+
+ref; // ME_4AC0934503B2 DoIt
+
+: ME_4AC09339029B
+ CONST UID '4AC09339029B'
+ CONST Name 'UnderControlOpen'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4CCAC71C0347 // UnderControl$FP
+ ;
+ : Attributes
+   Seq: ( HWL ME_4AC0936F0150 // Form
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( HWL ME_4AC0934503B2 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_4AC09339029B UnderControlOpen
+
+FORWARD ME_4AC096CB03BD
+
+: ME_4AC096E3027C
+ CONST Name 'aData'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_45EEC17501B5' '45EEAA800226.pas.ms.script' // Controllable
+ ;
+
+ref; // ME_4AC096E3027C aData
+
+: ME_4AC096D70204
+ CONST UID '4AC096D70204'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AC096CB03BD // AddControlledObject
+ ;
+ : Parameters
+   Seq: ( ME_4AC096E3027C // aData
+ )
+ ; // Parameters
+
+ref; // ME_4AC096D70204 DoIt
+
+: ME_4AC096F20220
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AC096CB03BD // AddControlledObject
+ ;
+ : Target WL 'ME_4AC095C002E6' '48F747EC0073.pas.ms.script' // UserFoldersTree
+ ;
+
+ref; // ME_4AC096F20220 
+
+: ME_4AC0990A0254
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AC096CB03BD // AddControlledObject
+ ;
+ : Target WL 'ME_4991AB750179' '4990135D02F1.pas.ms.script' // InsControlledList
+ ;
+
+ref; // ME_4AC0990A0254 
+
+: ME_4AC096CB03BD
+ CONST UID '4AC096CB03BD'
+ CONST Name 'AddControlledObject'
+ CONST Class class_Class
+ : Stereotype st_FactoryMethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4CCAC71C0347 // UnderControl$FP
+ ;
+ : Operations
+   Seq: ( HWL ME_4AC096D70204 // DoIt
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_4AC096F20220 // UserFoldersTree
+ ME_4AC0990A0254 // InsControlledList
+ )
+ ; // Dependencies
+ CONST "NO_FACTORY_BRACKECTS" false
+
+ref; // ME_4AC096CB03BD AddControlledObject
+
+FORWARD ME_4AC097080270
+
+: ME_4AC09716009E
+ CONST Name 'aData'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_45EEC17501B5' '45EEAA800226.pas.ms.script' // Controllable
+ ;
+
+ref; // ME_4AC09716009E aData
+
+: ME_4AC09715020A
+ CONST UID '4AC09715020A'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AC097080270 // DeleteControlledObject
+ ;
+ : Parameters
+   Seq: ( ME_4AC09716009E // aData
+ )
+ ; // Parameters
+
+ref; // ME_4AC09715020A DoIt
+
+: ME_4AC097080270
+ CONST UID '4AC097080270'
+ CONST Name 'DeleteControlledObject'
+ CONST Class class_Class
+ : Stereotype st_FactoryMethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4CCAC71C0347 // UnderControl$FP
+ ;
+ : Operations
+   Seq: ( HWL ME_4AC09715020A // DoIt
+ )
+ ; // Operations
+ CONST "NO_FACTORY_BRACKECTS" false
+
+ref; // ME_4AC097080270 DeleteControlledObject
+
+FORWARD ME_4AC097240029
+
+: ME_4AC097370098
+ CONST Name 'aData'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_45EEC17501B5' '45EEAA800226.pas.ms.script' // Controllable
+ ;
+
+ref; // ME_4AC097370098 aData
+
+: ME_4AC09735006A
+ CONST UID '4AC09735006A'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AC097240029 // MarkControlledAsOpen
+ ;
+ : Parameters
+   Seq: ( ME_4AC097370098 // aData
+ )
+ ; // Parameters
+
+ref; // ME_4AC09735006A DoIt
+
+: ME_4AC097240029
+ CONST UID '4AC097240029'
+ CONST Name 'MarkControlledAsOpen'
+ CONST Class class_Class
+ : Stereotype st_FactoryMethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4CCAC71C0347 // UnderControl$FP
+ ;
+ : Operations
+   Seq: ( HWL ME_4AC09735006A // DoIt
+ )
+ ; // Operations
+ CONST "NO_FACTORY_BRACKECTS" false
+
+ref; // ME_4AC097240029 MarkControlledAsOpen
+
+FORWARD ME_4AC0974303CD
+
+: ME_4AC097530343
+ CONST Name 'aForm'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4914746C019E' '4683F37902CF.pas.ms.script' // IvcmEntityForm
+ ;
+
+ref; // ME_4AC097530343 aForm
+
+: ME_4AC0974D01DD
+ CONST UID '4AC0974D01DD'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AC0974303CD // DropChangeStatusToOpened
+ ;
+ : Parameters
+   Seq: ( ME_4AC097530343 // aForm
+ )
+ ; // Parameters
+
+ref; // ME_4AC0974D01DD DoIt
+
+: ME_4AC0974303CD
+ CONST UID '4AC0974303CD'
+ CONST Name 'DropChangeStatusToOpened'
+ CONST Class class_Class
+ : Stereotype st_FactoryMethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4CCAC71C0347 // UnderControl$FP
+ ;
+ : Operations
+   Seq: ( HWL ME_4AC0974D01DD // DoIt
+ )
+ ; // Operations
+ CONST "NO_FACTORY_BRACKECTS" false
+
+ref; // ME_4AC0974303CD DropChangeStatusToOpened
+
+FORWARD ME_4ABCD31A033C
+
+: ME_4ABCD3310392
+ CONST Name 'aContainer'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
+ ;
+
+ref; // ME_4ABCD3310392 aContainer
+
+: ME_4ABCD32902A6
+ CONST UID '4ABCD32902A6'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4ABCD31A033C // FindUnderControlForm
+ ;
+ : Target WL 'ME_4914746C019E' '4683F37902CF.pas.ms.script' // IvcmEntityForm
+ ;
+ : Parameters
+   Seq: ( ME_4ABCD3310392 // aContainer
+ )
+ ; // Parameters
+
+ref; // ME_4ABCD32902A6 DoIt
+
+: ME_4ABCD31A033C
+ CONST UID '4ABCD31A033C'
+ CONST Name 'FindUnderControlForm'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4CCAC71C0347 // UnderControl$FP
+ ;
+ : Operations
+   Seq: ( HWL ME_4ABCD32902A6 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_4ABCD31A033C FindUnderControlForm
+
+: ME_4E03414001B8
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4CCAC71C0347 // UnderControl$FP
+ ;
+ : Target WL 'ME_4E01D696020C' '4AADF9450143.pas.ms.script' // vcmMessagesSupport
+ ;
+
+ref; // ME_4E03414001B8 
+
+: ME_4CCAC71C0347
+ CONST UID '4CCAC71C0347'
+ CONST Name 'UnderControl'
+ CONST Class class_Class
+ : Stereotype st_VCMFormsPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4CCAC702007E' '4CCAC702007E.pas.ms.script' // UnderControl
+ ;
+ : Operations
+   Seq: ( HWL ME_4ABCE38D00B4 // CloseUnderControl
+ HWL ME_4AC0938B0336 // OpenUnderControl
+ HWL ME_4BC807410014 // BuildUnderControlList
+ HWL ME_4AC09339029B // UnderControlOpen
+ HWL ME_4AC096CB03BD // AddControlledObject
+ HWL ME_4AC097080270 // DeleteControlledObject
+ HWL ME_4AC097240029 // MarkControlledAsOpen
+ HWL ME_4AC0974303CD // DropChangeStatusToOpened
+ HWL ME_4ABCD31A033C // FindUnderControlForm
+ )
+ ; // Operations
+ : Children
+   Seq: ( WL 'ME_4ABCD2D80364' '4ABCD2D80364.pas.ms.script' // UnderControl
+ )
+ ; // Children
+ : Dependencies
+   Seq: ( ME_4E03414001B8 // vcmMessagesSupport
+ )
+ ; // Dependencies
+ CONST "author" 'Ëþëèí À.Â.'
+ CONST "no hands" true
+ CONST "started" '29.10.2010 17:08'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\UnderControl\UnderControl_Module.pas'
+ CONST extprop:pas:TypeName 'TUnderControlModule'
+ CONST extprop:rc:SelfName 'UnderControlModule'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'UnderControl_Module'
+
+ref; // ME_4CCAC71C0347 UnderControl$FP

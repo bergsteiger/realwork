@@ -186,6 +186,12 @@ PROCEDURE "Нажать табуляцию"
  END
 ;
 
+PROCEDURE "Прокрутить вверх раз" INTEGER IN aCount
+	VAR l_Editor
+	focused:control:push >>> l_Editor 	
+	aCount LOOP ( l_Editor pop:Editor:ScrollLineUp )
+;
+
 PROCEDURE "Прокрутить вниз раз" INTEGER IN aCount
 	VAR l_Editor
 	focused:control:push >>> l_Editor 	
@@ -240,10 +246,22 @@ PROCEDURE "Вызывать окно поиска"
  
 PROCEDURE "Вызывать окно замены"
 	'Ctrl+R' key
-; 
+;
+
+PROCEDURE "Нажать 'Ctrl+C'"
+	'Ctrl+C' key		
+;
  
 PROCEDURE "Нажать 'Ctrl+V'"
 	'Ctrl+V' key		
+;
+
+PROCEDURE "Нажать 'Ctrl+Ins'"
+	'Ctrl+Ins' key		
+;
+
+PROCEDURE "Нажать 'Ctrl+X'"
+	'Ctrl+X' key
 ;
  
  PROCEDURE "Вставить пробел"
@@ -645,4 +663,23 @@ PROCEDURE "Нажать 'Ctrl+Alt+Enter'"
 	"Отпустить 'Ctrl'"
 ;
 
+PROCEDURE "Нажать 'Shift+Del'"
+	'Shift+Del' key		
+;
 
+PROCEDURE "Нажать 'Shift+Ins'"
+	'Shift+Ins' key		
+;
+
+PROCEDURE "Начать установку ссылки 'F11'"
+	'F11' key
+;
+
+
+PROCEDURE "Зажать 'Shift'"
+ 'Shift' KeyDown
+;
+
+PROCEDURE "Отпустить 'Shift'"
+ 'Shift' KeyUp
+;

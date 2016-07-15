@@ -1,0 +1,65 @@
+// Document$UC 4A7714BC0212 VCMUseCaseRealization Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A7714BC0212
+
+: ME_4A9BBF5B0235
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A7714BC0212 // Document$UC
+ ;
+ : Target WL 'ME_4A431CD00395' '484900780017.pas.ms.script' // Сравнение редакций документов
+ ;
+
+ref; // ME_4A9BBF5B0235 
+
+: ME_4A9CEA120359
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A7714BC0212 // Document$UC
+ ;
+ : Target WL 'ME_484F849D017B' '484F80CF0274.pas.ms.script' // Толковый словарь
+ ;
+
+ref; // ME_4A9CEA120359 
+
+: ME_4A7714BC0212
+ CONST UID '4A7714BC0212'
+ CONST Name 'Document'
+ CONST Class class_Class
+ : Stereotype st_VCMUseCaseRealization ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Документ' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent WL 'ME_4A9F769C0277' '4A9F769C0277.pas.ms.script' // Document
+ ;
+ : Inherits
+   Seq: ( WL 'ME_498B135601B6' '498B135601B6.pas.ms.script' // Document
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_48490152021B' '484900780017.pas.ms.script' // Просмотр документа
+ WL 'ME_4A89636F0335' '4A89634E0160.pas.ms.script' // Работа с таблицами
+ WL 'ME_4AC1C6FD02B9' '484407720166.pas.ms.script' // Навигация по найденным контекстам
+ WL 'ME_4AF460C10310' '4AF46057003D.pas.ms.script' // Экспорт в Word
+ WL 'ME_4E3024310248' '484FA67302D7.pas.ms.script' // Показывать историю изменений в документе
+ )
+ ; // Implements
+ : Dependencies
+   Seq: ( ME_4A9BBF5B0235 // Сравнение редакций документов
+ ME_4A9CEA120359 // Толковый словарь
+ )
+ ; // Dependencies
+ CONST "author" 'Люлин А.В.'
+ CONST "no hands" true
+ CONST "started" '03.08.2009 20:48'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\moDocument.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST extprop:pas:TypeName 'Tmo_Document'
+ CONST extprop:rc:SelfName 'mo_Document'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'moDocument'
+
+ref; // ME_4A7714BC0212 Document$UC

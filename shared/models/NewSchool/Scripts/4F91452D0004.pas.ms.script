@@ -1,0 +1,257 @@
+// TvcmMessageFormPrim 4F91452D0004 GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F91452D0004
+
+: ME_4F9161C303A6
+ CONST UID '4F9161C303A6'
+ CONST Name 'TCustomCheckBoxHack'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4F91452D0004 // TvcmMessageFormPrim
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4F9161AE00F2' '4799D29F033F.pas.ms.script' // TCustomCheckBox
+ )
+ ; // Inherits
+ CONST extprop:rc:SelfName 'CheckBoxHack'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4F9161C303A6 TCustomCheckBoxHack
+
+: ME_4F9161E00120
+ CONST UID '4F9161E00120'
+ CONST Name 'TvgVisualObjectHack'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4F91452D0004 // TvcmMessageFormPrim
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4D49562A01B7' '4CFCE51A00B0.pas.ms.script' // TvgVisualObject
+ )
+ ; // Inherits
+ CONST extprop:rc:SelfName 'VisualObjectHack'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4F9161E00120 TvgVisualObjectHack
+
+: ME_4F9165E503C3
+ CONST UID '4F9165E503C3'
+ CONST Name 'f_HasButtons'
+ CONST Class class_Attribute
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_lnk
+ : Parent HWL ME_4F91452D0004 // TvcmMessageFormPrim
+ ;
+ : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
+ ;
+
+ref; // ME_4F9165E503C3 f_HasButtons
+
+: ME_4F916617012E
+ CONST UID '4F916617012E'
+ CONST Name 'f_CancelButton'
+ CONST Class class_Attribute
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_lnk
+ : Parent HWL ME_4F91452D0004 // TvcmMessageFormPrim
+ ;
+ : Target WL 'ME_49930A4803E7' '4799D29F033F.pas.ms.script' // TMsgDlgBtn
+ ;
+
+ref; // ME_4F916617012E f_CancelButton
+
+: ME_4F91661E0122
+ CONST UID '4F91661E0122'
+ CONST Name 'f_DefaultButton'
+ CONST Class class_Attribute
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_lnk
+ : Parent HWL ME_4F91452D0004 // TvcmMessageFormPrim
+ ;
+ : Target WL 'ME_49930A4803E7' '4799D29F033F.pas.ms.script' // TMsgDlgBtn
+ ;
+
+ref; // ME_4F91661E0122 f_DefaultButton
+
+: ME_4F9169060090
+ CONST UID '4F9169060090'
+ CONST Name 'Scene'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4F91452D0004 // TvcmMessageFormPrim
+ ;
+ : Target WL 'ME_4CFFB562010C' '4CFCE51A00B0.pas.ms.script' // TvgScene
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_4F9169060090 Scene
+
+: ME_4F9145D60072
+ CONST Name 'Message'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_4F914CD400A4' '4799D29F033F.pas.ms.script' // TCMDialogKey
+ ;
+
+ref; // ME_4F9145D60072 Message
+
+: ME_4F9145B5023E
+ CONST UID '4F9145B5023E'
+ CONST Name 'CMDialogKey'
+ CONST Class class_Operation
+ : Stereotype st_message::Operation ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4F91452D0004 // TvcmMessageFormPrim
+ ;
+ : Parameters
+   Seq: ( ME_4F9145D60072 // Message
+ )
+ ; // Parameters
+ CONST "Message ID" 'CM_DIALOGKEY'
+
+ref; // ME_4F9145B5023E CMDialogKey
+
+: ME_4F9163CC007C
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4F91452D0004 // TvcmMessageFormPrim
+ ;
+ : Target WL 'ME_48A41FF10094' '4AB0C3F60375.pas.ms.script' // Windows
+ ;
+
+ref; // ME_4F9163CC007C 
+
+: ME_4F9167370050
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4F91452D0004 // TvcmMessageFormPrim
+ ;
+ : Target WL 'ME_4F91672600DC' '4CFCE51A00B0.pas.ms.script' // TvgCheckBox
+ ;
+
+ref; // ME_4F9167370050 
+
+: ME_4F91678B01AA
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4F91452D0004 // TvcmMessageFormPrim
+ ;
+ : Target WL 'ME_4F91677002D7' '4799D29F033F.pas.ms.script' // TCheckBox
+ ;
+
+ref; // ME_4F91678B01AA 
+
+: ME_4F9167B0035E
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4F91452D0004 // TvcmMessageFormPrim
+ ;
+ : Target WL 'ME_4CFF5690033D' '4CFCE51A00B0.pas.ms.script' // TvgButton
+ ;
+
+ref; // ME_4F9167B0035E 
+
+: ME_4F9167C301B3
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4F91452D0004 // TvcmMessageFormPrim
+ ;
+ : Target WL 'ME_4D49562A01B7' '4CFCE51A00B0.pas.ms.script' // TvgVisualObject
+ ;
+
+ref; // ME_4F9167C301B3 
+
+: ME_4F916AA500A5
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4F91452D0004 // TvcmMessageFormPrim
+ ;
+ : Target WL 'ME_4D99E2050245' '4B8E675402AB.pas.ms.script' // vtGetDlgBtnResult
+ ;
+
+ref; // ME_4F916AA500A5 
+
+: ME_543BAC000204
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4F91452D0004 // TvcmMessageFormPrim
+ ;
+ : Target WL 'ME_47E13C6B0341' '4799D29F033F.pas.ms.script' // Forms
+ ;
+
+ref; // ME_543BAC000204 
+
+: ME_4FC38C4C0119_ME_4F91452D0004
+ : Original WL 'ME_4FC38C4C0119' '4AADF9450143.pas.ms.script' // NeedSaveInSettings
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4FC38C4C0119_ME_4F91452D0004 NeedSaveInSettings
+
+: ME_4F91452D0004
+ CONST UID '4F91452D0004'
+ CONST Name 'TvcmMessageFormPrim'
+ CONST Class class_Class
+ : Stereotype st_GuiControl ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4AADF9450143' '4AADF9450143.pas.ms.script' // Visual
+ ;
+ : Inherits
+   Seq: ( WL 'ME_49525B34022A' '4AADF9450143.pas.ms.script' // TvcmEntityForm
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( HWL ME_4F9165E503C3 // f_HasButtons
+ HWL ME_4F916617012E // f_CancelButton
+ HWL ME_4F91661E0122 // f_DefaultButton
+ HWL ME_4F9169060090 // Scene
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( HWL ME_4F9145B5023E // CMDialogKey
+ )
+ ; // Operations
+ : Overridden
+   Seq: ( ME_4FC38C4C0119_ME_4F91452D0004 // NeedSaveInSettings
+ )
+ ; // Overridden
+ : Children
+   Seq: ( HWL ME_4F9161C303A6 // TCustomCheckBoxHack
+ HWL ME_4F9161E00120 // TvgVisualObjectHack
+ )
+ ; // Children
+ : Dependencies
+   Seq: ( ME_4F9163CC007C // Windows
+ ME_4F9167370050 // TvgCheckBox
+ ME_4F91678B01AA // TCheckBox
+ ME_4F9167B0035E // TvgButton
+ ME_4F9167C301B3 // TvgVisualObject
+ ME_4F916AA500A5 // vtGetDlgBtnResult
+ ME_543BAC000204 // Forms
+ )
+ ; // Dependencies
+ CONST "ifndef" 'NoVGScene'
+ CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Visual\vcmMessageFormPrim.pas'
+ CONST extprop:rc:SelfName 'MessageFormPrim'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vcmMessageFormPrim'
+
+ref; // ME_4F91452D0004 TvcmMessageFormPrim

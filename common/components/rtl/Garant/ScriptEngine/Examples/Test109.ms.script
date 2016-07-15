@@ -14,7 +14,17 @@ FORWARD Process
    FILE VAR l_File
    anItem File:OpenRead >>> l_File
    TRY
-    l_File File:ReadLines ( W-STRING IN aString aString . )
+    l_File File:ReadLines ( 
+     W-STRING IN aString 
+     RULES
+      ( aString '$Id:' string:Pos -1 != )
+       ( )
+      ( aString '$Log:' string:Pos -1 != )
+       ( )
+      DEFAULT 
+       ( aString . )
+     ; // RULES
+    ) // l_File File:ReadLines
    FINALLY
     l_File := nil
    END

@@ -9,7 +9,7 @@ FORWARD ME_4C500D6101D8
 : ME_4C500DB2025B
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4C500D6101D8 // CursorMover
+ : Parent HWL ME_4C500D6101D8 // CursorMover
  ;
  : Target WL 'ME_47ECAB310336' '47ECAB0B0265.pas.ms.script' // Msg Codes
  ;
@@ -19,7 +19,7 @@ ref; // ME_4C500DB2025B
 : ME_4C500DB90108
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4C500D6101D8 // CursorMover
+ : Parent HWL ME_4C500D6101D8 // CursorMover
  ;
  : Target WL 'ME_48453A750156' '48453A40017C.pas.ms.script' // Operations
  ;
@@ -35,7 +35,7 @@ ref; // ME_4C500DB90108
  %SUMMARY 'Примесь упрощающая навигацию по редактору при помощи управления курсором' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4C500D470030 // MixIns
+ : Parent HWL ME_4C500D470030 // MixIns
  ;
  : Dependencies
    Seq: ( ME_4C500DB2025B // Msg Codes
@@ -57,7 +57,7 @@ FORWARD ME_4C9210B70244
  CONST Name 'aText'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target WL 'ME_4829D92A037B' '4829D7D50156.pas.ms.script' // TevCustomEditorWindow
+ : Target WL 'ME_4829D92A037B' '4829D92A037B.pas.ms.script' // TevCustomEditorWindow
  ;
 
 ref; // ME_4C4FE6AF0398 aText
@@ -78,7 +78,7 @@ ref; // ME_4C4FE8FA0069 anOp
  %SUMMARY 'Устанавливает курсор или выделение' ;
  CONST Visibility ProtectedAccess
  CONST Abstraction at_abstract
- : Parent ME_4C9210B70244 // Navigator
+ : Parent HWL ME_4C9210B70244 // Navigator
  ;
  : Parameters
    Seq: ( ME_4C4FE6AF0398 // aText
@@ -96,10 +96,10 @@ ref; // ME_4C4FE56300FB Navigate
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4C500D470030 // MixIns
+ : Parent HWL ME_4C500D470030 // MixIns
  ;
  : Operations
-   Seq: ( ME_4C4FE56300FB // Navigate
+   Seq: ( HWL ME_4C4FE56300FB // Navigate
  )
  ; // Operations
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\EditorUsers\Navigator.imp.pas'
@@ -113,7 +113,7 @@ FORWARD ME_4CE2958803D0
 : ME_4CE295BA025D
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4CE2958803D0 // ScrollSupport
+ : Parent HWL ME_4CE2958803D0 // ScrollSupport
  ;
  : Target WL 'ME_467D37430253' '467C0CAA02AB.pas.ms.script' // Il3CommandTarget
  ;
@@ -123,7 +123,7 @@ ref; // ME_4CE295BA025D
 : ME_4CE2960B02C7
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4CE2958803D0 // ScrollSupport
+ : Parent HWL ME_4CE2958803D0 // ScrollSupport
  ;
  : Target WL 'ME_47E13C6B0341' '4799D29F033F.pas.ms.script' // Forms
  ;
@@ -138,7 +138,7 @@ ref; // ME_4CE2960B02C7
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4C500D470030 // MixIns
+ : Parent HWL ME_4C500D470030 // MixIns
  ;
  : Dependencies
    Seq: ( ME_4CE295BA025D // Il3CommandTarget
@@ -178,7 +178,7 @@ ref; // ME_4C9B25A50391 aDocument
  %SUMMARY 'Возвращает параграф, относительно которого будет рассчитываться точка для выделения' ;
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_4CED0194038A // Para2Point
+ : Parent HWL ME_4CED0194038A // Para2Point
  ;
  : Target WL 'ME_47C520D80305' '47C5207602D1.pas.ms.script' // InevPara
  ;
@@ -206,7 +206,7 @@ ref; // ME_4C9B25C5031C aMap
  %SUMMARY 'Возвращает точку, на которую нужно спозиционироваться.' ;
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_4CED0194038A // Para2Point
+ : Parent HWL ME_4CED0194038A // Para2Point
  ;
  : Target WL 'ME_4727456300E7' '472745450206.pas.ms.script' // Tl3Point
  ;
@@ -221,7 +221,7 @@ ref; // ME_4C3C927B027E GetPoint
  CONST Name 'aText'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target WL 'ME_4829D92A037B' '4829D7D50156.pas.ms.script' // TevCustomEditorWindow
+ : Target WL 'ME_4829D92A037B' '4829D92A037B.pas.ms.script' // TevCustomEditorWindow
  ;
 
 ref; // ME_4CED03CA031D aText
@@ -233,7 +233,7 @@ ref; // ME_4CED03CA031D aText
  %SUMMARY 'Функци получения точки из мапы параграфа.' ;
  CONST Visibility ProtectedAccess
  CONST Abstraction at_final
- : Parent ME_4CED0194038A // Para2Point
+ : Parent HWL ME_4CED0194038A // Para2Point
  ;
  : Target WL 'ME_4727456300E7' '472745450206.pas.ms.script' // Tl3Point
  ;
@@ -253,12 +253,12 @@ ref; // ME_4CED034C0356 TranslatePara2Point
  %SUMMARY 'Получение точки Tl3Point из мапы параграфа.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4C500D470030 // MixIns
+ : Parent HWL ME_4C500D470030 // MixIns
  ;
  : Operations
-   Seq: ( ME_4BF4E6A00093 // GetInnerPara
- ME_4C3C927B027E // GetPoint
- ME_4CED034C0356 // TranslatePara2Point
+   Seq: ( HWL ME_4BF4E6A00093 // GetInnerPara
+ HWL ME_4C3C927B027E // GetPoint
+ HWL ME_4CED034C0356 // TranslatePara2Point
  )
  ; // Operations
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\EditorUsers\Para2Point.imp.pas'
@@ -273,7 +273,7 @@ FORWARD ME_4D4137E30326
  CONST Name 'aText'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target WL 'ME_4829D92A037B' '4829D7D50156.pas.ms.script' // TevCustomEditorWindow
+ : Target WL 'ME_4829D92A037B' '4829D92A037B.pas.ms.script' // TevCustomEditorWindow
  ;
 
 ref; // ME_4D413E0F028E aText
@@ -285,7 +285,7 @@ ref; // ME_4D413E0F028E aText
  %SUMMARY 'Выделить параграф целиком' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4D4137E30326 // SelectOperation
+ : Parent HWL ME_4D4137E30326 // SelectOperation
  ;
  : Parameters
    Seq: ( ME_4D413E0F028E // aText
@@ -298,7 +298,7 @@ ref; // ME_4D41388401C4 SelectPara
  CONST Name 'aText'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target WL 'ME_4829D92A037B' '4829D7D50156.pas.ms.script' // TevCustomEditorWindow
+ : Target WL 'ME_4829D92A037B' '4829D92A037B.pas.ms.script' // TevCustomEditorWindow
  ;
 
 ref; // ME_4D413E090375 aText
@@ -310,7 +310,7 @@ ref; // ME_4D413E090375 aText
  %SUMMARY 'Выделить документ целиком' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4D4137E30326 // SelectOperation
+ : Parent HWL ME_4D4137E30326 // SelectOperation
  ;
  : Parameters
    Seq: ( ME_4D413E090375 // aText
@@ -322,7 +322,7 @@ ref; // ME_4D4138A60088 SelectDocument
 : ME_4D41387A03C1
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4D4137E30326 // SelectOperation
+ : Parent HWL ME_4D4137E30326 // SelectOperation
  ;
  : Target WL 'ME_47C695D90332' '47C695A10172.pas.ms.script' // TevSelectTarget
  ;
@@ -338,11 +338,11 @@ ref; // ME_4D41387A03C1
  %SUMMARY 'Поддержка выделения параграфа, документа и т.п.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4C500D470030 // MixIns
+ : Parent HWL ME_4C500D470030 // MixIns
  ;
  : Operations
-   Seq: ( ME_4D41388401C4 // SelectPara
- ME_4D4138A60088 // SelectDocument
+   Seq: ( HWL ME_4D41388401C4 // SelectPara
+ HWL ME_4D4138A60088 // SelectDocument
  )
  ; // Operations
  : Dependencies
@@ -361,7 +361,7 @@ FORWARD ME_4D53D342026E
  CONST Name 'aText'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target WL 'ME_4829D92A037B' '4829D7D50156.pas.ms.script' // TevCustomEditorWindow
+ : Target WL 'ME_4829D92A037B' '4829D92A037B.pas.ms.script' // TevCustomEditorWindow
  ;
 
 ref; // ME_4E3786CF010B aText
@@ -391,7 +391,7 @@ ref; // ME_4E3786CF0178 aMoveLeft
  %SUMMARY 'Получить курсор по точке.' ;
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_4D53D342026E // HotSpotTools
+ : Parent HWL ME_4D53D342026E // HotSpotTools
  ;
  : Target WL 'ME_48E2665A0259' '4A1FCBA0014C.pas.ms.script' // IevHotSpot
  ;
@@ -407,7 +407,7 @@ ref; // ME_4D53D37F00AE GetHotSpot
 : ME_4D53DE4F0273
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4D53D342026E // HotSpotTools
+ : Parent HWL ME_4D53D342026E // HotSpotTools
  ;
  : Target WL 'ME_47C5B63D033A' '47C5207602D1.pas.ms.script' // InevMap
  ;
@@ -417,7 +417,7 @@ ref; // ME_4D53DE4F0273
 : ME_4D53E0710297
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4D53D342026E // HotSpotTools
+ : Parent HWL ME_4D53D342026E // HotSpotTools
  ;
  : Target WL 'ME_4AC1F98A0155' '47913B47006E.pas.ms.script' // l3FillChar
  ;
@@ -433,10 +433,10 @@ ref; // ME_4D53E0710297
  %SUMMARY 'Работа с хотспотом' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4C500D470030 // MixIns
+ : Parent HWL ME_4C500D470030 // MixIns
  ;
  : Operations
-   Seq: ( ME_4D53D37F00AE // GetHotSpot
+   Seq: ( HWL ME_4D53D37F00AE // GetHotSpot
  )
  ; // Operations
  : Dependencies
@@ -460,7 +460,7 @@ FORWARD ME_4EF42D190011
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4EF42D190011 // GetKeyData
+ : Parent HWL ME_4EF42D190011 // GetKeyData
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -475,10 +475,10 @@ ref; // ME_4EF42D2D011D DoIt
  CONST Kind kind_NormalClass
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_4D6E5ECF0236 // MouseClickSupport
+ : Parent HWL ME_4D6E5ECF0236 // MouseClickSupport
  ;
  : Operations
-   Seq: ( ME_4EF42D2D011D // DoIt
+   Seq: ( HWL ME_4EF42D2D011D // DoIt
  )
  ; // Operations
 
@@ -499,7 +499,7 @@ ref; // ME_4EF456D40323 aControl
  CONST Class class_Operation
  CONST Visibility ProtectedAccess
  CONST Abstraction at_final
- : Parent ME_4D6E5ECF0236 // MouseClickSupport
+ : Parent HWL ME_4D6E5ECF0236 // MouseClickSupport
  ;
  : Parameters
    Seq: ( ME_4EF456D40323 // aControl
@@ -533,7 +533,7 @@ ref; // ME_4D6E5F5003E3 Y
  %SUMMARY 'Получить кординаты "щелчка" относительно левого верхнего угла контрола.' ;
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_4D6E5ECF0236 // MouseClickSupport
+ : Parent HWL ME_4D6E5ECF0236 // MouseClickSupport
  ;
  : Parameters
    Seq: ( ME_4D6E5F5003B3 // X
@@ -546,7 +546,7 @@ ref; // ME_4D6E5F340304 GetDeltaXY
 : ME_4D6E5FCE0218
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4D6E5ECF0236 // MouseClickSupport
+ : Parent HWL ME_4D6E5ECF0236 // MouseClickSupport
  ;
  : Target WL 'ME_4739AD110072' '4728A7020026.pas.ms.script' // TPoint
  ;
@@ -556,7 +556,7 @@ ref; // ME_4D6E5FCE0218
 : ME_4D6E604F0013
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4D6E5ECF0236 // MouseClickSupport
+ : Parent HWL ME_4D6E5ECF0236 // MouseClickSupport
  ;
  : Target WL 'ME_47ECBD5D03BB' '476F78840219.pas.ms.script' // Msg Codes
  ;
@@ -566,7 +566,7 @@ ref; // ME_4D6E604F0013
 : ME_4D6E60FD0251
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4D6E5ECF0236 // MouseClickSupport
+ : Parent HWL ME_4D6E5ECF0236 // MouseClickSupport
  ;
  : Target WL 'ME_4D6E60D6024F' '4AB0C3F60375.pas.ms.script' // SendMessage
  ;
@@ -582,12 +582,12 @@ ref; // ME_4D6E60FD0251
  %SUMMARY 'Поддержка щелканья мышью на компоненте' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4C500D470030 // MixIns
+ : Parent HWL ME_4C500D470030 // MixIns
  ;
  : Operations
-   Seq: ( ME_4EF42D190011 // GetKeyData
- ME_4D6E5F1900B1 // MakeClick
- ME_4D6E5F340304 // GetDeltaXY
+   Seq: ( HWL ME_4EF42D190011 // GetKeyData
+ HWL ME_4D6E5F1900B1 // MakeClick
+ HWL ME_4D6E5F340304 // GetDeltaXY
  )
  ; // Operations
  : Dependencies
@@ -608,7 +608,7 @@ FORWARD ME_4DDF61B503D1
  CONST Name 'aText'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target WL 'ME_4829D92A037B' '4829D7D50156.pas.ms.script' // TevCustomEditorWindow
+ : Target WL 'ME_4829D92A037B' '4829D92A037B.pas.ms.script' // TevCustomEditorWindow
  ;
 
 ref; // ME_4E2EDFDC028C aText
@@ -628,7 +628,7 @@ ref; // ME_4DDF77C20357 aNeedMouseUp
  CONST Class class_Operation
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_4DDF61B503D1 // MouseClickOnPoint
+ : Parent HWL ME_4DDF61B503D1 // MouseClickOnPoint
  ;
  : Parameters
    Seq: ( ME_4E2EDFDC028C // aText
@@ -647,15 +647,15 @@ ref; // ME_4DDF64120066 ClickOnPoint
  %SUMMARY 'Щелчок мышью на точке в редакторе' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4C500D470030 // MixIns
+ : Parent HWL ME_4C500D470030 // MixIns
  ;
  : Implements
-   Seq: ( ME_4CED0194038A // Para2Point
- ME_4D53D342026E // HotSpotTools
+   Seq: ( HWL ME_4CED0194038A // Para2Point
+ HWL ME_4D53D342026E // HotSpotTools
  )
  ; // Implements
  : Operations
-   Seq: ( ME_4DDF64120066 // ClickOnPoint
+   Seq: ( HWL ME_4DDF64120066 // ClickOnPoint
  )
  ; // Operations
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\EditorUsers\MouseClickOnPoint.imp.pas'
@@ -670,7 +670,7 @@ FORWARD ME_4DE7451703C8
  CONST Name 'aText'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target WL 'ME_4829D92A037B' '4829D7D50156.pas.ms.script' // TevCustomEditorWindow
+ : Target WL 'ME_4829D92A037B' '4829D92A037B.pas.ms.script' // TevCustomEditorWindow
  ;
 
 ref; // ME_5232D5D100DB aText
@@ -681,7 +681,7 @@ ref; // ME_5232D5D100DB aText
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_abstract
- : Parent ME_4DE7451703C8 // ClickOnCommentHeader
+ : Parent HWL ME_4DE7451703C8 // ClickOnCommentHeader
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -693,7 +693,7 @@ ref; // ME_5232D5D100DB aText
 ref; // ME_4DE7456800BE CheckCollapsed
 
 : ME_4C3C927B027E_ME_4DE7451703C8
- : Original ME_4C3C927B027E // GetPoint
+ : Original HWL ME_4C3C927B027E // GetPoint
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_4C3C927B027E_ME_4DE7451703C8 GetPoint
@@ -706,14 +706,14 @@ ref; // ME_4C3C927B027E_ME_4DE7451703C8 GetPoint
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4C500D470030 // MixIns
+ : Parent HWL ME_4C500D470030 // MixIns
  ;
  : Inherits
-   Seq: ( ME_4DDF61B503D1 // MouseClickOnPoint
+   Seq: ( HWL ME_4DDF61B503D1 // MouseClickOnPoint
  )
  ; // Inherits
  : Operations
-   Seq: ( ME_4DE7456800BE // CheckCollapsed
+   Seq: ( HWL ME_4DE7456800BE // CheckCollapsed
  )
  ; // Operations
  : Overridden
@@ -731,7 +731,7 @@ FORWARD ME_4DF1E0DC0289
 : ME_4DF1E14701F1
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4DF1E0DC0289 // PrintRowCompare
+ : Parent HWL ME_4DF1E0DC0289 // PrintRowCompare
  ;
  : Target WL 'ME_4DF1C7300012' '47C52679006D.pas.ms.script' // TPrintRowHeightsSpy
  ;
@@ -746,7 +746,7 @@ ref; // ME_4DF1E14701F1
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4C500D470030 // MixIns
+ : Parent HWL ME_4C500D470030 // MixIns
  ;
  : Dependencies
    Seq: ( ME_4DF1E14701F1 // TPrintRowHeightsSpy
@@ -766,7 +766,7 @@ FORWARD ME_4E32C9D70275
  CONST Name 'aText'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target WL 'ME_4829D92A037B' '4829D7D50156.pas.ms.script' // TevCustomEditorWindow
+ : Target WL 'ME_4829D92A037B' '4829D92A037B.pas.ms.script' // TevCustomEditorWindow
  ;
 
 ref; // ME_4E32C9FF03D9 aText
@@ -777,7 +777,7 @@ ref; // ME_4E32C9FF03D9 aText
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4E32C9D70275 // SelectColumn
+ : Parent HWL ME_4E32C9D70275 // SelectColumn
  ;
  : Parameters
    Seq: ( ME_4E32C9FF03D9 // aText
@@ -794,10 +794,10 @@ ref; // ME_4E32C9F001A8 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility ProtectedAccess
  CONST Abstraction at_final
- : Parent ME_4E32C9540390 // ColumnResizeByMouse
+ : Parent HWL ME_4E32C9540390 // ColumnResizeByMouse
  ;
  : Operations
-   Seq: ( ME_4E32C9F001A8 // DoIt
+   Seq: ( HWL ME_4E32C9F001A8 // DoIt
  )
  ; // Operations
 
@@ -811,7 +811,7 @@ FORWARD ME_4E32CA120170
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4E32CA120170 // GetKeys
+ : Parent HWL ME_4E32CA120170 // GetKeys
  ;
  : Target WL 'ME_4728CE680258' '4AB0997B00A2.pas.ms.script' // TShiftState
  ;
@@ -826,10 +826,10 @@ ref; // ME_4E32CA27009A DoIt
  CONST Kind kind_NormalClass
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_4E32C9540390 // ColumnResizeByMouse
+ : Parent HWL ME_4E32C9540390 // ColumnResizeByMouse
  ;
  : Operations
-   Seq: ( ME_4E32CA27009A // DoIt
+   Seq: ( HWL ME_4E32CA27009A // DoIt
  )
  ; // Operations
 
@@ -861,7 +861,7 @@ ref; // ME_4E32CA570141 aRow
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4E32CA35008A // GetColumnAndRow
+ : Parent HWL ME_4E32CA35008A // GetColumnAndRow
  ;
  : Parameters
    Seq: ( ME_4E32CA570121 // aCol
@@ -879,10 +879,10 @@ ref; // ME_4E32CA450015 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_4E32C9540390 // ColumnResizeByMouse
+ : Parent HWL ME_4E32C9540390 // ColumnResizeByMouse
  ;
  : Operations
-   Seq: ( ME_4E32CA450015 // DoIt
+   Seq: ( HWL ME_4E32CA450015 // DoIt
  )
  ; // Operations
 
@@ -896,7 +896,7 @@ FORWARD ME_4E32CA5E0115
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4E32CA5E0115 // GetDelta
+ : Parent HWL ME_4E32CA5E0115 // GetDelta
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -911,23 +911,23 @@ ref; // ME_4E32CA70023E DoIt
  CONST Kind kind_NormalClass
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_4E32C9540390 // ColumnResizeByMouse
+ : Parent HWL ME_4E32C9540390 // ColumnResizeByMouse
  ;
  : Operations
-   Seq: ( ME_4E32CA70023E // DoIt
+   Seq: ( HWL ME_4E32CA70023E // DoIt
  )
  ; // Operations
 
 ref; // ME_4E32CA5E0115 GetDelta
 
 : ME_4BF4E6A00093_ME_4E32C9540390
- : Original ME_4BF4E6A00093 // GetInnerPara
+ : Original HWL ME_4BF4E6A00093 // GetInnerPara
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_4BF4E6A00093_ME_4E32C9540390 GetInnerPara
 
 : ME_4C3C927B027E_ME_4E32C9540390
- : Original ME_4C3C927B027E // GetPoint
+ : Original HWL ME_4C3C927B027E // GetPoint
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_4C3C927B027E_ME_4E32C9540390 GetPoint
@@ -940,18 +940,18 @@ ref; // ME_4C3C927B027E_ME_4E32C9540390 GetPoint
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4C500D470030 // MixIns
+ : Parent HWL ME_4C500D470030 // MixIns
  ;
  : Inherits
-   Seq: ( ME_4CED0194038A // Para2Point
- ME_4D53D342026E // HotSpotTools
+   Seq: ( HWL ME_4CED0194038A // Para2Point
+ HWL ME_4D53D342026E // HotSpotTools
  )
  ; // Inherits
  : Operations
-   Seq: ( ME_4E32C9D70275 // SelectColumn
- ME_4E32CA120170 // GetKeys
- ME_4E32CA35008A // GetColumnAndRow
- ME_4E32CA5E0115 // GetDelta
+   Seq: ( HWL ME_4E32C9D70275 // SelectColumn
+ HWL ME_4E32CA120170 // GetKeys
+ HWL ME_4E32CA35008A // GetColumnAndRow
+ HWL ME_4E32CA5E0115 // GetDelta
  )
  ; // Operations
  : Overridden
@@ -973,7 +973,7 @@ FORWARD ME_4E97EEAA0320
  CONST Name 'aText'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target WL 'ME_4829D92A037B' '4829D7D50156.pas.ms.script' // TevCustomEditorWindow
+ : Target WL 'ME_4829D92A037B' '4829D92A037B.pas.ms.script' // TevCustomEditorWindow
  ;
 
 ref; // ME_4E97EF1D0049 aText
@@ -984,7 +984,7 @@ ref; // ME_4E97EF1D0049 aText
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4E97EEAA0320 // SelectCell
+ : Parent HWL ME_4E97EEAA0320 // SelectCell
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -1003,10 +1003,10 @@ ref; // ME_4E97EEE903B0 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4E97EE2D00D7 // CellSelectionByMouse
+ : Parent HWL ME_4E97EE2D00D7 // CellSelectionByMouse
  ;
  : Operations
-   Seq: ( ME_4E97EEE903B0 // DoIt
+   Seq: ( HWL ME_4E97EEE903B0 // DoIt
  )
  ; // Operations
 
@@ -1015,7 +1015,7 @@ ref; // ME_4E97EEAA0320 SelectCell
 : ME_4E980EBE010C
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4E97EE2D00D7 // CellSelectionByMouse
+ : Parent HWL ME_4E97EE2D00D7 // CellSelectionByMouse
  ;
  : Target WL 'ME_49C22CE30210' '476BEA0B0103.pas.ms.script' // evL3CoreConsts
  ;
@@ -1023,7 +1023,7 @@ ref; // ME_4E97EEAA0320 SelectCell
 ref; // ME_4E980EBE010C 
 
 : ME_4C3C927B027E_ME_4E97EE2D00D7
- : Original ME_4C3C927B027E // GetPoint
+ : Original HWL ME_4C3C927B027E // GetPoint
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_4C3C927B027E_ME_4E97EE2D00D7 GetPoint
@@ -1036,15 +1036,15 @@ ref; // ME_4C3C927B027E_ME_4E97EE2D00D7 GetPoint
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4C500D470030 // MixIns
+ : Parent HWL ME_4C500D470030 // MixIns
  ;
  : Inherits
-   Seq: ( ME_4CED0194038A // Para2Point
- ME_4D53D342026E // HotSpotTools
+   Seq: ( HWL ME_4CED0194038A // Para2Point
+ HWL ME_4D53D342026E // HotSpotTools
  )
  ; // Inherits
  : Operations
-   Seq: ( ME_4E97EEAA0320 // SelectCell
+   Seq: ( HWL ME_4E97EEAA0320 // SelectCell
  )
  ; // Operations
  : Overridden
@@ -1072,18 +1072,18 @@ ref; // ME_4E97EE2D00D7 CellSelectionByMouse
  : Parent WL 'ME_4E2EE37B0097' '4E2EE37B0097.pas.ms.script' // Everest$EditorUsers
  ;
  : Children
-   Seq: ( ME_4C500D6101D8 // CursorMover
- ME_4C9210B70244 // Navigator
- ME_4CE2958803D0 // ScrollSupport
- ME_4CED0194038A // Para2Point
- ME_4D4137E30326 // SelectOperation
- ME_4D53D342026E // HotSpotTools
- ME_4D6E5ECF0236 // MouseClickSupport
- ME_4DDF61B503D1 // MouseClickOnPoint
- ME_4DE7451703C8 // ClickOnCommentHeader
- ME_4DF1E0DC0289 // PrintRowCompare
- ME_4E32C9540390 // ColumnResizeByMouse
- ME_4E97EE2D00D7 // CellSelectionByMouse
+   Seq: ( HWL ME_4C500D6101D8 // CursorMover
+ HWL ME_4C9210B70244 // Navigator
+ HWL ME_4CE2958803D0 // ScrollSupport
+ HWL ME_4CED0194038A // Para2Point
+ HWL ME_4D4137E30326 // SelectOperation
+ HWL ME_4D53D342026E // HotSpotTools
+ HWL ME_4D6E5ECF0236 // MouseClickSupport
+ HWL ME_4DDF61B503D1 // MouseClickOnPoint
+ HWL ME_4DE7451703C8 // ClickOnCommentHeader
+ HWL ME_4DF1E0DC0289 // PrintRowCompare
+ HWL ME_4E32C9540390 // ColumnResizeByMouse
+ HWL ME_4E97EE2D00D7 // CellSelectionByMouse
  )
  ; // Children
  : Depends

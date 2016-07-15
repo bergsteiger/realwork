@@ -14,7 +14,7 @@ FORWARD ME_552BD71503BD
  %SUMMARY 'Включить режим сохранения картинок при импорте из RTF/DOC/DOCX. Нужно вызывать перед каждой выливкой из RTF, т.к.флаг сбрасывается.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_552BD71503BD // PictureEtalonsWorkingPack
+ : Parent HWL ME_552BD71503BD // PictureEtalonsWorkingPack
  ;
 
 ref; // ME_552BD761009D EnabledSaveRTFPictures
@@ -36,7 +36,7 @@ ref; // ME_552BDFB9027B aValue
  %SUMMARY '*Формат*:'#13#10'{code}'#13#10'aFlag GeneratePDFForEtalon'#13#10'{code}'#13#10'где aFlag - true или false.'#13#10'Включить/выключить режим генерации текстового PDF, который удобно использовать для сравнения. Нужно выставлять при каждом экспорте, т.к.флаг сбрасывается в False.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_552BD71503BD // PictureEtalonsWorkingPack
+ : Parent HWL ME_552BD71503BD // PictureEtalonsWorkingPack
  ;
  : Parameters
    Seq: ( ME_552BDFB9027B // aValue
@@ -48,7 +48,7 @@ ref; // ME_552BD7870165 GeneratePDFForEtalon
 : ME_552BD73E03A6
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_552BD71503BD // PictureEtalonsWorkingPack
+ : Parent HWL ME_552BD71503BD // PictureEtalonsWorkingPack
  ;
  : Target WL 'ME_552406830331' '552405FA0066.pas.ms.script' // Tl3PicturePathService
  ;
@@ -58,7 +58,7 @@ ref; // ME_552BD73E03A6
 : ME_552BD74401A3
  CONST Class class_Dependency
  : Stereotype st_injects::Dependency ;
- : Parent ME_552BD71503BD // PictureEtalonsWorkingPack
+ : Parent HWL ME_552BD71503BD // PictureEtalonsWorkingPack
  ;
  : Target WL 'ME_552406830331' '552405FA0066.pas.ms.script' // Tl3PicturePathService
  ;
@@ -73,11 +73,11 @@ ref; // ME_552BD74401A3
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_552CF42C0230 // PictureEtalonsWorking
+ : Parent HWL ME_552CF42C0230 // PictureEtalonsWorking
  ;
  : Operations
-   Seq: ( ME_552BD761009D // EnabledSaveRTFPictures
- ME_552BD7870165 // GeneratePDFForEtalon
+   Seq: ( HWL ME_552BD761009D // EnabledSaveRTFPictures
+ HWL ME_552BD7870165 // GeneratePDFForEtalon
  )
  ; // Operations
  : Dependencies
@@ -100,7 +100,7 @@ ref; // ME_552BD71503BD PictureEtalonsWorkingPack
  : Parent WL 'ME_54EF440B0244' '54EF440B0244.pas.ms.script' // ScriptEngine$L3
  ;
  : Children
-   Seq: ( ME_552BD71503BD // PictureEtalonsWorkingPack
+   Seq: ( HWL ME_552BD71503BD // PictureEtalonsWorkingPack
  )
  ; // Children
  : Depends

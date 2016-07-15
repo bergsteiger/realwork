@@ -1,0 +1,1999 @@
+// ListUserTypes 4FF59A2F016E VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4FF59A2F016E
+
+: ME_4BD5879903AE
+ CONST UID '4BD5879903AE'
+ CONST Name 'lftNone'
+ CONST Class class_Class
+ : Stereotype st_UserType ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Список' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ CONST "ImageIndex" 64
+ CONST "Weight" '-1'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\ListUserTypes_lftNone_UserType.pas'
+ CONST extprop:pas:UnitName 'ListUserTypes_lftNone_UserType'
+
+ref; // ME_4BD5879903AE lftNone
+
+: ME_4BD587B60291
+ CONST UID '4BD587B60291'
+ CONST Name 'lftRespondent'
+ CONST Class class_Class
+ : Stereotype st_UserType ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Ссылки из документа' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ : Inherits
+   Seq: ( HWL ME_4BD5879903AE // lftNone
+ )
+ ; // Inherits
+ CONST "ImageIndex" 17
+ CONST "NeedOnQueryClose" true
+ CONST "NeedOnQueryMaximized" true
+ CONST "NeedOnQueryOpen" true
+ CONST "SettingsCaption" 'Список: Ссылки из документа (все)/Ссылки на документ (все)'
+ CONST "Weight" 40
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\ListUserTypes_lftRespondent_UserType.pas'
+ CONST extprop:pas:UnitName 'ListUserTypes_lftRespondent_UserType'
+
+ref; // ME_4BD587B60291 lftRespondent
+
+FORWARD ME_4BD5880300BF
+
+: ME_4BD588600256
+ CONST UID '4BD588600256'
+ CONST Name 'UseToolbarOfUserTypeName'
+ CONST Class class_Attribute
+ : Stereotype st_link::Attribute ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent HWL ME_4BD5880300BF // lftCorrespondent
+ ;
+ : Target HWL ME_4BD587B60291 // lftRespondent
+ ;
+
+ref; // ME_4BD588600256 UseToolbarOfUserTypeName
+
+: ME_4BD5880300BF
+ CONST UID '4BD5880300BF'
+ CONST Name 'lftCorrespondent'
+ CONST Class class_Class
+ : Stereotype st_UserType ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Ссылки на документ' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ : Inherits
+   Seq: ( HWL ME_4BD587B60291 // lftRespondent
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( HWL ME_4BD588600256 // UseToolbarOfUserTypeName
+ )
+ ; // Attributes
+ CONST "ImageIndex" 18
+ CONST "NeedOnQueryClose" true
+ CONST "NeedOnQueryMaximized" true
+ CONST "NeedOnQueryOpen" true
+ CONST "SettingsCaption" 'Список: Ссылки на документ'
+ CONST "Weight" 50
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\ListUserTypes_lftCorrespondent_UserType.pas'
+ CONST extprop:pas:UnitName 'ListUserTypes_lftCorrespondent_UserType'
+
+ref; // ME_4BD5880300BF lftCorrespondent
+
+: ME_4BD5888802BA
+ CONST UID '4BD5888802BA'
+ CONST Name 'lftSynchroView'
+ CONST Class class_Class
+ : Stereotype st_UserType ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Синхронный просмотр (ссылки из документа, ссылки на документ)' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ : Inherits
+   Seq: ( HWL ME_4BD5880300BF // lftCorrespondent
+ )
+ ; // Inherits
+ CONST "ImageIndex" '-1'
+ CONST "NeedOnQueryMaximized" true
+ CONST "NeedOnQueryOpen" true
+ CONST "SettingsCaption" 'Синхронный просмотр: Списки ссылок из документа/на документ'
+ CONST "Weight" '-1'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\ListUserTypes_lftSynchroView_UserType.pas'
+ CONST extprop:pas:UnitName 'ListUserTypes_lftSynchroView_UserType'
+
+ref; // ME_4BD5888802BA lftSynchroView
+
+FORWARD ME_4BD588C1029B
+
+: ME_4BD588FA02E3
+ CONST UID '4BD588FA02E3'
+ CONST Name 'UseToolbarOfUserTypeName'
+ CONST Class class_Attribute
+ : Stereotype st_link::Attribute ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent HWL ME_4BD588C1029B // lftCToPart
+ ;
+ : Target HWL ME_4BD587B60291 // lftRespondent
+ ;
+
+ref; // ME_4BD588FA02E3 UseToolbarOfUserTypeName
+
+: ME_4BD588C1029B
+ CONST UID '4BD588C1029B'
+ CONST Name 'lftCToPart'
+ CONST Class class_Class
+ : Stereotype st_UserType ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Ссылки на фрагмент' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ : Inherits
+   Seq: ( HWL ME_4BD5888802BA // lftSynchroView
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( HWL ME_4BD588FA02E3 // UseToolbarOfUserTypeName
+ )
+ ; // Attributes
+ CONST "ImageIndex" '-1'
+ CONST "NeedOnQueryMaximized" true
+ CONST "NeedOnQueryOpen" true
+ CONST "SettingsCaption" 'Список: Ссылки на фрагмент'
+ CONST "VisibleToUser" false
+ CONST "Weight" 60
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\ListUserTypes_lftCToPart_UserType.pas'
+ CONST extprop:pas:UnitName 'ListUserTypes_lftCToPart_UserType'
+
+ref; // ME_4BD588C1029B lftCToPart
+
+: ME_4BD5892F01D4
+ CONST UID '4BD5892F01D4'
+ CONST Name 'lftUserCR1'
+ CONST Class class_Class
+ : Stereotype st_UserType ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Настраиваемая вкладка связанных документов 1' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ : Inherits
+   Seq: ( HWL ME_4BD588C1029B // lftCToPart
+ )
+ ; // Inherits
+ CONST "ImageIndex" '-1'
+ CONST "NeedOnQueryClose" true
+ CONST "NeedOnQueryMaximized" true
+ CONST "NeedOnQueryOpen" true
+ CONST "SettingsCaption" 'Список: Ссылки из документа (вид информации)/Ссылки на документ (вид информации)'
+ CONST "Weight" 80
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\ListUserTypes_lftUserCR1_UserType.pas'
+ CONST extprop:pas:UnitName 'ListUserTypes_lftUserCR1_UserType'
+
+ref; // ME_4BD5892F01D4 lftUserCR1
+
+FORWARD ME_4BD589720381
+
+: ME_4BD5899E034D
+ CONST UID '4BD5899E034D'
+ CONST Name 'UseToolbarOfUserTypeName'
+ CONST Class class_Attribute
+ : Stereotype st_link::Attribute ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent HWL ME_4BD589720381 // lftUserCR2
+ ;
+ : Target HWL ME_4BD5892F01D4 // lftUserCR1
+ ;
+
+ref; // ME_4BD5899E034D UseToolbarOfUserTypeName
+
+: ME_4BD589720381
+ CONST UID '4BD589720381'
+ CONST Name 'lftUserCR2'
+ CONST Class class_Class
+ : Stereotype st_UserType ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Настраиваемая вкладка связанных документов 2' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ : Inherits
+   Seq: ( HWL ME_4BD5892F01D4 // lftUserCR1
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( HWL ME_4BD5899E034D // UseToolbarOfUserTypeName
+ )
+ ; // Attributes
+ CONST "ImageIndex" '-1'
+ CONST "NeedOnQueryClose" true
+ CONST "NeedOnQueryMaximized" true
+ CONST "NeedOnQueryOpen" true
+ CONST "SettingsCaption" 'Список: Пользовательская вкладка ссылки на документ (ссылки из документа) 2'
+ CONST "Weight" 100
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\ListUserTypes_lftUserCR2_UserType.pas'
+ CONST extprop:pas:UnitName 'ListUserTypes_lftUserCR2_UserType'
+
+ref; // ME_4BD589720381 lftUserCR2
+
+: ME_4BD589B50312
+ CONST UID '4BD589B50312'
+ CONST Name 'lftConsultation'
+ CONST Class class_Class
+ : Stereotype st_UserType ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Консультация' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ : Inherits
+   Seq: ( HWL ME_4BD589720381 // lftUserCR2
+ )
+ ; // Inherits
+ CONST "ImageIndex" 64
+ CONST "NeedOnQueryClose" true
+ CONST "NeedOnQueryMaximized" true
+ CONST "NeedOnQueryOpen" true
+ CONST "SettingsCaption" 'Список: Консультация'
+ CONST "Weight" '-1'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\ListUserTypes_lftConsultation_UserType.pas'
+ CONST extprop:pas:UnitName 'ListUserTypes_lftConsultation_UserType'
+
+ref; // ME_4BD589B50312 lftConsultation
+
+: ME_4BD589E40083
+ CONST UID '4BD589E40083'
+ CONST Name 'lftSimilarDocuments'
+ CONST Class class_Class
+ : Stereotype st_UserType ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Похожие документы' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ : Inherits
+   Seq: ( HWL ME_4BD589B50312 // lftConsultation
+ )
+ ; // Inherits
+ CONST "ImageIndex" 166
+ CONST "NeedOnQueryClose" true
+ CONST "NeedOnQueryMaximized" true
+ CONST "NeedOnQueryOpen" true
+ CONST "SettingsCaption" 'Список: Похожие документы'
+ CONST "Weight" 120
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\ListUserTypes_lftSimilarDocuments_UserType.pas'
+ CONST extprop:pas:UnitName 'ListUserTypes_lftSimilarDocuments_UserType'
+
+ref; // ME_4BD589E40083 lftSimilarDocuments
+
+: ME_4BD58A120226
+ CONST UID '4BD58A120226'
+ CONST Name 'lftSimilarDocumentsSynchroView'
+ CONST Class class_Class
+ : Stereotype st_UserType ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Синхронный просмотр (похожие документы)' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ : Inherits
+   Seq: ( HWL ME_4BD589E40083 // lftSimilarDocuments
+ )
+ ; // Inherits
+ CONST "ImageIndex" '-1'
+ CONST "NeedOnQueryMaximized" true
+ CONST "NeedOnQueryOpen" true
+ CONST "SettingsCaption" 'Синхронный просмотр: Похожие документы'
+ CONST "Weight" '-1'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\ListUserTypes_lftSimilarDocumentsSynchroView_UserType.pas'
+ CONST extprop:pas:UnitName 'ListUserTypes_lftSimilarDocumentsSynchroView_UserType'
+
+ref; // ME_4BD58A120226 lftSimilarDocumentsSynchroView
+
+: ME_4BD58A460089
+ CONST UID '4BD58A460089'
+ CONST Name 'lftCorrespondentsSynchroForm'
+ CONST Class class_Class
+ : Stereotype st_UserType ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Синхронный просмотр (ссылки на документ)' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ : Inherits
+   Seq: ( HWL ME_4BD58A120226 // lftSimilarDocumentsSynchroView
+ )
+ ; // Inherits
+ CONST "ImageIndex" 18
+ CONST "NeedOnQueryMaximized" true
+ CONST "NeedOnQueryOpen" true
+ CONST "SettingsCaption" 'Синхронный просмотр: Списки ссылок на документ'
+ CONST "Weight" '-1'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\ListUserTypes_lftCorrespondentsSynchroForm_UserType.pas'
+ CONST extprop:pas:UnitName 'ListUserTypes_lftCorrespondentsSynchroForm_UserType'
+
+ref; // ME_4BD58A460089 lftCorrespondentsSynchroForm
+
+: ME_4BD58A780204
+ CONST UID '4BD58A780204'
+ CONST Name 'lftRespondentsSynchroForm'
+ CONST Class class_Class
+ : Stereotype st_UserType ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Синхронный просмотр (ссылка из документа)' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ : Inherits
+   Seq: ( HWL ME_4BD58A460089 // lftCorrespondentsSynchroForm
+ )
+ ; // Inherits
+ CONST "ImageIndex" 17
+ CONST "NeedOnQueryMaximized" true
+ CONST "NeedOnQueryOpen" true
+ CONST "SettingsCaption" 'Синхронный просмотр: Списки ссылок из документа'
+ CONST "Weight" '-1'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\ListUserTypes_lftRespondentsSynchroForm_UserType.pas'
+ CONST extprop:pas:UnitName 'ListUserTypes_lftRespondentsSynchroForm_UserType'
+
+ref; // ME_4BD58A780204 lftRespondentsSynchroForm
+
+: ME_4BD58AB1025D
+ CONST UID '4BD58AB1025D'
+ CONST Name 'lftUserCRList1_SynchorForm'
+ CONST Class class_Class
+ : Stereotype st_UserType ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Синхронный просмотр (настраиваемая вкладка связанных документов 1)' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ : Inherits
+   Seq: ( HWL ME_4BD58A780204 // lftRespondentsSynchroForm
+ )
+ ; // Inherits
+ CONST "ImageIndex" '-1'
+ CONST "NeedOnQueryMaximized" true
+ CONST "NeedOnQueryOpen" true
+ CONST "SettingsCaption" 'Синхронный просмотр: Первая пользовательская вкладка списка ссылкок на документ\\из документа'
+ CONST "Weight" '-1'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\ListUserTypes_lftUserCRList1_SynchorForm_UserType.pas'
+ CONST extprop:pas:UnitName 'ListUserTypes_lftUserCRList1_SynchorForm_UserType'
+
+ref; // ME_4BD58AB1025D lftUserCRList1_SynchorForm
+
+: ME_4BD58B080255
+ CONST UID '4BD58B080255'
+ CONST Name 'lftUserCRList2_SynchorForm'
+ CONST Class class_Class
+ : Stereotype st_UserType ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Синхронный просмотр (настраиваемая вкладка связанных документов 2)' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ : Inherits
+   Seq: ( HWL ME_4BD58AB1025D // lftUserCRList1_SynchorForm
+ )
+ ; // Inherits
+ CONST "ImageIndex" '-1'
+ CONST "NeedOnQueryMaximized" true
+ CONST "NeedOnQueryOpen" true
+ CONST "SettingsCaption" 'Синхронный просмотр: Вторая пользовательская вкладка списка ссылкок на документ\\из документа'
+ CONST "Weight" '-1'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\ListUserTypes_lftUserCRList2_SynchorForm_UserType.pas'
+ CONST extprop:pas:UnitName 'ListUserTypes_lftUserCRList2_SynchorForm_UserType'
+
+ref; // ME_4BD58B080255 lftUserCRList2_SynchorForm
+
+: ME_4BD58B4002A1
+ CONST UID '4BD58B4002A1'
+ CONST Name 'lftDrugList'
+ CONST Class class_Class
+ : Stereotype st_UserType ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Список препаратов' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ : Inherits
+   Seq: ( HWL ME_4BD58B080255 // lftUserCRList2_SynchorForm
+ )
+ ; // Inherits
+ CONST "ImageIndex" 180
+ CONST "Weight" '-1'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\ListUserTypes_lftDrugList_UserType.pas'
+ CONST extprop:pas:UnitName 'ListUserTypes_lftDrugList_UserType'
+
+ref; // ME_4BD58B4002A1 lftDrugList
+
+: ME_4BD58B5D0377
+ CONST UID '4BD58B5D0377'
+ CONST Name 'lftDrugInternationalNameSynonyms'
+ CONST Class class_Class
+ : Stereotype st_UserType ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Синонимы по международному названию' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ : Inherits
+   Seq: ( HWL ME_4BD58B4002A1 // lftDrugList
+ )
+ ; // Inherits
+ CONST "ImageIndex" 181
+ CONST "NeedOnQueryClose" true
+ CONST "NeedOnQueryMaximized" true
+ CONST "NeedOnQueryOpen" true
+ CONST "Weight" '-1'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\ListUserTypes_lftDrugInternationalNameSynonyms_UserType.pas'
+ CONST extprop:pas:UnitName 'ListUserTypes_lftDrugInternationalNameSynonyms_UserType'
+
+ref; // ME_4BD58B5D0377 lftDrugInternationalNameSynonyms
+
+: ME_4BD58B810263
+ CONST UID '4BD58B810263'
+ CONST Name 'lftProducedDrugs'
+ CONST Class class_Class
+ : Stereotype st_UserType ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Выпускаемые препараты' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ : Inherits
+   Seq: ( HWL ME_4BD58B5D0377 // lftDrugInternationalNameSynonyms
+ )
+ ; // Inherits
+ CONST "ImageIndex" 183
+ CONST "NeedOnQueryClose" true
+ CONST "NeedOnQueryMaximized" true
+ CONST "NeedOnQueryOpen" true
+ CONST "Weight" '-1'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\ListUserTypes_lftProducedDrugs_UserType.pas'
+ CONST extprop:pas:UnitName 'ListUserTypes_lftProducedDrugs_UserType'
+
+ref; // ME_4BD58B810263 lftProducedDrugs
+
+: ME_4BD58BA502EE
+ CONST UID '4BD58BA502EE'
+ CONST Name 'lftProducedDrugsSynchroForm'
+ CONST Class class_Class
+ : Stereotype st_UserType ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Синхронный просмотр (выпускаемые препараты)' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ : Inherits
+   Seq: ( HWL ME_4BD58B810263 // lftProducedDrugs
+ )
+ ; // Inherits
+ CONST "ImageIndex" '-1'
+ CONST "NeedOnQueryMaximized" true
+ CONST "NeedOnQueryOpen" true
+ CONST "SettingsCaption" 'Синхронный просмотр: Выпускаемые препараты'
+ CONST "Weight" '-1'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\ListUserTypes_lftProducedDrugsSynchroForm_UserType.pas'
+ CONST extprop:pas:UnitName 'ListUserTypes_lftProducedDrugsSynchroForm_UserType'
+
+ref; // ME_4BD58BA502EE lftProducedDrugsSynchroForm
+
+: ME_4BD58BC90275
+ CONST UID '4BD58BC90275'
+ CONST Name 'lftDrugInternationalNameSynonymsSynchroForm'
+ CONST Class class_Class
+ : Stereotype st_UserType ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Синхронный просмотр (синонимы по международному названию)' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ : Inherits
+   Seq: ( HWL ME_4BD58BA502EE // lftProducedDrugsSynchroForm
+ )
+ ; // Inherits
+ CONST "ImageIndex" '-1'
+ CONST "NeedOnQueryMaximized" true
+ CONST "NeedOnQueryOpen" true
+ CONST "SettingsCaption" 'Синхронный просмотр: Синонимы по международному названию'
+ CONST "Weight" '-1'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\ListUserTypes_lftDrugInternationalNameSynonymsSynchroForm_UserType.pas'
+ CONST extprop:pas:UnitName 'ListUserTypes_lftDrugInternationalNameSynonymsSynchroForm_UserType'
+
+ref; // ME_4BD58BC90275 lftDrugInternationalNameSynonymsSynchroForm
+
+FORWARD ME_5236CE6D00AC
+
+: ME_5236CEBB025F
+ CONST UID '5236CEBB025F'
+ CONST Name 'UseToolbarOfUserTypeName'
+ CONST Class class_Attribute
+ : Stereotype st_link::Attribute ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent HWL ME_5236CE6D00AC // lftRToPart
+ ;
+ : Target HWL ME_4BD587B60291 // lftRespondent
+ ;
+
+ref; // ME_5236CEBB025F UseToolbarOfUserTypeName
+
+: ME_5236CE6D00AC
+ CONST UID '5236CE6D00AC'
+ CONST Name 'lftRToPart'
+ CONST Class class_Class
+ : Stereotype st_UserType ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Ссылки из фрагмента' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ : Inherits
+   Seq: ( HWL ME_4BD58BC90275 // lftDrugInternationalNameSynonymsSynchroForm
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( HWL ME_5236CEBB025F // UseToolbarOfUserTypeName
+ )
+ ; // Attributes
+ CONST "ImageIndex" '-1'
+ CONST "NeedOnQueryMaximized" true
+ CONST "NeedOnQueryOpen" true
+ CONST "SettingsCaption" 'Список: Ссылки из фрагмента'
+ CONST "VisibleToUser" false
+ CONST "Weight" 61
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\ListUserTypes_lftRToPart_UserType.pas'
+ CONST extprop:pas:UnitName 'ListUserTypes_lftRToPart_UserType'
+
+ref; // ME_5236CE6D00AC lftRToPart
+
+FORWARD ME_5594F3A50378
+
+: ME_5594F3C302F9
+ CONST UID '5594F3C302F9'
+ CONST Name 'UseToolbarOfUserTypeName'
+ CONST Class class_Attribute
+ : Stereotype st_link::Attribute ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent HWL ME_5594F3A50378 // lftSimilarDocumentsToFragment
+ ;
+ : Target HWL ME_4BD589E40083 // lftSimilarDocuments
+ ;
+
+ref; // ME_5594F3C302F9 UseToolbarOfUserTypeName
+
+: ME_5594F3A50378
+ CONST UID '5594F3A50378'
+ CONST Name 'lftSimilarDocumentsToFragment'
+ CONST Class class_Class
+ : Stereotype st_UserType ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Похожие к фрагменту' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ : Inherits
+   Seq: ( HWL ME_5236CE6D00AC // lftRToPart
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( HWL ME_5594F3C302F9 // UseToolbarOfUserTypeName
+ )
+ ; // Attributes
+ CONST "ImageIndex" 166
+ CONST "NeedOnQueryClose" true
+ CONST "NeedOnQueryMaximized" true
+ CONST "NeedOnQueryOpen" true
+ CONST "SettingsCaption" 'Список: Похожие к фрагменту'
+ CONST "Weight" 25
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\ListUserTypes_lftSimilarDocumentsToFragment_UserType.pas'
+ CONST extprop:pas:UnitName 'ListUserTypes_lftSimilarDocumentsToFragment_UserType'
+
+ref; // ME_5594F3A50378 lftSimilarDocumentsToFragment
+
+: ME_E2CA201CD4A6
+ CONST Name 'aSender'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_E2CA201CD4A6 aSender
+
+: ME_631A220E9075
+ CONST UID '631A220E9075'
+ CONST Name 'lftRespondentQueryMaximized'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Обработчик события lftRespondent.OnQueryMaximized' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ : Parameters
+   Seq: ( ME_E2CA201CD4A6 // aSender
+ )
+ ; // Parameters
+
+ref; // ME_631A220E9075 lftRespondentQueryMaximized
+
+: ME_95D55303F528
+ CONST Name 'aSender'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_95D55303F528 aSender
+
+: ME_9FBF6C4D3127
+ CONST UID '9FBF6C4D3127'
+ CONST Name 'lftRespondentQueryOpen'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Обработчик события lftRespondent.OnQueryOpen' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ : Parameters
+   Seq: ( ME_95D55303F528 // aSender
+ )
+ ; // Parameters
+
+ref; // ME_9FBF6C4D3127 lftRespondentQueryOpen
+
+: ME_AC1336D65349
+ CONST Name 'aSender'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_AC1336D65349 aSender
+
+: ME_6784C69651CE
+ CONST UID '6784C69651CE'
+ CONST Name 'lftRespondentQueryClose'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Обработчик события lftRespondent.OnQueryClose' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ : Parameters
+   Seq: ( ME_AC1336D65349 // aSender
+ )
+ ; // Parameters
+
+ref; // ME_6784C69651CE lftRespondentQueryClose
+
+: ME_B4EE34530D73
+ CONST Name 'aSender'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_B4EE34530D73 aSender
+
+: ME_AC1A36740EA8
+ CONST UID 'AC1A36740EA8'
+ CONST Name 'lftCorrespondentQueryMaximized'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Обработчик события lftCorrespondent.OnQueryMaximized' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ : Parameters
+   Seq: ( ME_B4EE34530D73 // aSender
+ )
+ ; // Parameters
+
+ref; // ME_AC1A36740EA8 lftCorrespondentQueryMaximized
+
+: ME_8D9FC29C24C7
+ CONST Name 'aSender'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_8D9FC29C24C7 aSender
+
+: ME_7984D701603A
+ CONST UID '7984D701603A'
+ CONST Name 'lftCorrespondentQueryOpen'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Обработчик события lftCorrespondent.OnQueryOpen' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ : Parameters
+   Seq: ( ME_8D9FC29C24C7 // aSender
+ )
+ ; // Parameters
+
+ref; // ME_7984D701603A lftCorrespondentQueryOpen
+
+: ME_5C267FE80E66
+ CONST Name 'aSender'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_5C267FE80E66 aSender
+
+: ME_BAF9A43F64B1
+ CONST UID 'BAF9A43F64B1'
+ CONST Name 'lftCorrespondentQueryClose'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Обработчик события lftCorrespondent.OnQueryClose' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ : Parameters
+   Seq: ( ME_5C267FE80E66 // aSender
+ )
+ ; // Parameters
+
+ref; // ME_BAF9A43F64B1 lftCorrespondentQueryClose
+
+: ME_DBD3F9693DB7
+ CONST Name 'aSender'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_DBD3F9693DB7 aSender
+
+: ME_BC1EF73BE90E
+ CONST UID 'BC1EF73BE90E'
+ CONST Name 'lftSynchroViewQueryMaximized'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Обработчик события lftSynchroView.OnQueryMaximized' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ : Parameters
+   Seq: ( ME_DBD3F9693DB7 // aSender
+ )
+ ; // Parameters
+
+ref; // ME_BC1EF73BE90E lftSynchroViewQueryMaximized
+
+: ME_D9C940C18024
+ CONST Name 'aSender'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_D9C940C18024 aSender
+
+: ME_7D78C9A85314
+ CONST UID '7D78C9A85314'
+ CONST Name 'lftSynchroViewQueryOpen'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Обработчик события lftSynchroView.OnQueryOpen' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ : Parameters
+   Seq: ( ME_D9C940C18024 // aSender
+ )
+ ; // Parameters
+
+ref; // ME_7D78C9A85314 lftSynchroViewQueryOpen
+
+: ME_358F57B558B1
+ CONST Name 'aSender'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_358F57B558B1 aSender
+
+: ME_FA04A3642350
+ CONST UID 'FA04A3642350'
+ CONST Name 'lftCToPartQueryMaximized'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Обработчик события lftCToPart.OnQueryMaximized' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ : Parameters
+   Seq: ( ME_358F57B558B1 // aSender
+ )
+ ; // Parameters
+
+ref; // ME_FA04A3642350 lftCToPartQueryMaximized
+
+: ME_EC390659B573
+ CONST Name 'aSender'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_EC390659B573 aSender
+
+: ME_FEE09FA84BC5
+ CONST UID 'FEE09FA84BC5'
+ CONST Name 'lftCToPartQueryOpen'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Обработчик события lftCToPart.OnQueryOpen' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ : Parameters
+   Seq: ( ME_EC390659B573 // aSender
+ )
+ ; // Parameters
+
+ref; // ME_FEE09FA84BC5 lftCToPartQueryOpen
+
+: ME_0BAC4B9EF7D3
+ CONST Name 'aSender'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_0BAC4B9EF7D3 aSender
+
+: ME_79E93ABBEBFC
+ CONST UID '79E93ABBEBFC'
+ CONST Name 'lftUserCR1QueryMaximized'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Обработчик события lftUserCR1.OnQueryMaximized' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ : Parameters
+   Seq: ( ME_0BAC4B9EF7D3 // aSender
+ )
+ ; // Parameters
+
+ref; // ME_79E93ABBEBFC lftUserCR1QueryMaximized
+
+: ME_03CA53752E56
+ CONST Name 'aSender'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_03CA53752E56 aSender
+
+: ME_63544B6D4A1B
+ CONST UID '63544B6D4A1B'
+ CONST Name 'lftUserCR1QueryOpen'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Обработчик события lftUserCR1.OnQueryOpen' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ : Parameters
+   Seq: ( ME_03CA53752E56 // aSender
+ )
+ ; // Parameters
+
+ref; // ME_63544B6D4A1B lftUserCR1QueryOpen
+
+: ME_414928516EA3
+ CONST Name 'aSender'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_414928516EA3 aSender
+
+: ME_7C26AE9268E7
+ CONST UID '7C26AE9268E7'
+ CONST Name 'lftUserCR1QueryClose'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Обработчик события lftUserCR1.OnQueryClose' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ : Parameters
+   Seq: ( ME_414928516EA3 // aSender
+ )
+ ; // Parameters
+
+ref; // ME_7C26AE9268E7 lftUserCR1QueryClose
+
+: ME_DC6B49AAEE2D
+ CONST Name 'aSender'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_DC6B49AAEE2D aSender
+
+: ME_68123CAC609E
+ CONST UID '68123CAC609E'
+ CONST Name 'lftUserCR2QueryMaximized'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Обработчик события lftUserCR2.OnQueryMaximized' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ : Parameters
+   Seq: ( ME_DC6B49AAEE2D // aSender
+ )
+ ; // Parameters
+
+ref; // ME_68123CAC609E lftUserCR2QueryMaximized
+
+: ME_85D53607D000
+ CONST Name 'aSender'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_85D53607D000 aSender
+
+: ME_1095984F87C1
+ CONST UID '1095984F87C1'
+ CONST Name 'lftUserCR2QueryOpen'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Обработчик события lftUserCR2.OnQueryOpen' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ : Parameters
+   Seq: ( ME_85D53607D000 // aSender
+ )
+ ; // Parameters
+
+ref; // ME_1095984F87C1 lftUserCR2QueryOpen
+
+: ME_C550C253C111
+ CONST Name 'aSender'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_C550C253C111 aSender
+
+: ME_5B815CDD8F87
+ CONST UID '5B815CDD8F87'
+ CONST Name 'lftUserCR2QueryClose'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Обработчик события lftUserCR2.OnQueryClose' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ : Parameters
+   Seq: ( ME_C550C253C111 // aSender
+ )
+ ; // Parameters
+
+ref; // ME_5B815CDD8F87 lftUserCR2QueryClose
+
+: ME_FA4A9D78A954
+ CONST Name 'aSender'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_FA4A9D78A954 aSender
+
+: ME_B8F5E8ADF26A
+ CONST UID 'B8F5E8ADF26A'
+ CONST Name 'lftConsultationQueryMaximized'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Обработчик события lftConsultation.OnQueryMaximized' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ : Parameters
+   Seq: ( ME_FA4A9D78A954 // aSender
+ )
+ ; // Parameters
+
+ref; // ME_B8F5E8ADF26A lftConsultationQueryMaximized
+
+: ME_E77AB1B826A9
+ CONST Name 'aSender'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_E77AB1B826A9 aSender
+
+: ME_5E40E10FD4BD
+ CONST UID '5E40E10FD4BD'
+ CONST Name 'lftConsultationQueryOpen'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Обработчик события lftConsultation.OnQueryOpen' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ : Parameters
+   Seq: ( ME_E77AB1B826A9 // aSender
+ )
+ ; // Parameters
+
+ref; // ME_5E40E10FD4BD lftConsultationQueryOpen
+
+: ME_5655090833E9
+ CONST Name 'aSender'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_5655090833E9 aSender
+
+: ME_89247CD8E38D
+ CONST UID '89247CD8E38D'
+ CONST Name 'lftConsultationQueryClose'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Обработчик события lftConsultation.OnQueryClose' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ : Parameters
+   Seq: ( ME_5655090833E9 // aSender
+ )
+ ; // Parameters
+
+ref; // ME_89247CD8E38D lftConsultationQueryClose
+
+: ME_340D5586050B
+ CONST Name 'aSender'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_340D5586050B aSender
+
+: ME_3E3ACC41CC2A
+ CONST UID '3E3ACC41CC2A'
+ CONST Name 'lftSimilarDocumentsQueryMaximized'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Обработчик события lftSimilarDocuments.OnQueryMaximized' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ : Parameters
+   Seq: ( ME_340D5586050B // aSender
+ )
+ ; // Parameters
+
+ref; // ME_3E3ACC41CC2A lftSimilarDocumentsQueryMaximized
+
+: ME_46E145BDDBD1
+ CONST Name 'aSender'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_46E145BDDBD1 aSender
+
+: ME_3D942CB394A8
+ CONST UID '3D942CB394A8'
+ CONST Name 'lftSimilarDocumentsQueryOpen'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Обработчик события lftSimilarDocuments.OnQueryOpen' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ : Parameters
+   Seq: ( ME_46E145BDDBD1 // aSender
+ )
+ ; // Parameters
+
+ref; // ME_3D942CB394A8 lftSimilarDocumentsQueryOpen
+
+: ME_0AA7C8A3F905
+ CONST Name 'aSender'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_0AA7C8A3F905 aSender
+
+: ME_9144562E25FB
+ CONST UID '9144562E25FB'
+ CONST Name 'lftSimilarDocumentsQueryClose'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Обработчик события lftSimilarDocuments.OnQueryClose' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ : Parameters
+   Seq: ( ME_0AA7C8A3F905 // aSender
+ )
+ ; // Parameters
+
+ref; // ME_9144562E25FB lftSimilarDocumentsQueryClose
+
+: ME_CE3A79653342
+ CONST Name 'aSender'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_CE3A79653342 aSender
+
+: ME_7662726E4743
+ CONST UID '7662726E4743'
+ CONST Name 'lftSimilarDocumentsSynchroViewQueryMaximized'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Обработчик события lftSimilarDocumentsSynchroView.OnQueryMaximized' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ : Parameters
+   Seq: ( ME_CE3A79653342 // aSender
+ )
+ ; // Parameters
+
+ref; // ME_7662726E4743 lftSimilarDocumentsSynchroViewQueryMaximized
+
+: ME_0EE7C9577024
+ CONST Name 'aSender'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_0EE7C9577024 aSender
+
+: ME_D7AA4578D2D1
+ CONST UID 'D7AA4578D2D1'
+ CONST Name 'lftSimilarDocumentsSynchroViewQueryOpen'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Обработчик события lftSimilarDocumentsSynchroView.OnQueryOpen' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ : Parameters
+   Seq: ( ME_0EE7C9577024 // aSender
+ )
+ ; // Parameters
+
+ref; // ME_D7AA4578D2D1 lftSimilarDocumentsSynchroViewQueryOpen
+
+: ME_B88B078D5820
+ CONST Name 'aSender'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_B88B078D5820 aSender
+
+: ME_79CA491C075A
+ CONST UID '79CA491C075A'
+ CONST Name 'lftCorrespondentsSynchroFormQueryMaximized'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Обработчик события lftCorrespondentsSynchroForm.OnQueryMaximized' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ : Parameters
+   Seq: ( ME_B88B078D5820 // aSender
+ )
+ ; // Parameters
+
+ref; // ME_79CA491C075A lftCorrespondentsSynchroFormQueryMaximized
+
+: ME_44D0F8CFCAF2
+ CONST Name 'aSender'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_44D0F8CFCAF2 aSender
+
+: ME_10133243E89D
+ CONST UID '10133243E89D'
+ CONST Name 'lftCorrespondentsSynchroFormQueryOpen'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Обработчик события lftCorrespondentsSynchroForm.OnQueryOpen' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ : Parameters
+   Seq: ( ME_44D0F8CFCAF2 // aSender
+ )
+ ; // Parameters
+
+ref; // ME_10133243E89D lftCorrespondentsSynchroFormQueryOpen
+
+: ME_1293CD12F895
+ CONST Name 'aSender'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_1293CD12F895 aSender
+
+: ME_068F6EC47A8A
+ CONST UID '068F6EC47A8A'
+ CONST Name 'lftRespondentsSynchroFormQueryMaximized'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Обработчик события lftRespondentsSynchroForm.OnQueryMaximized' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ : Parameters
+   Seq: ( ME_1293CD12F895 // aSender
+ )
+ ; // Parameters
+
+ref; // ME_068F6EC47A8A lftRespondentsSynchroFormQueryMaximized
+
+: ME_E55BC9AC4C8C
+ CONST Name 'aSender'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_E55BC9AC4C8C aSender
+
+: ME_C576738B9A98
+ CONST UID 'C576738B9A98'
+ CONST Name 'lftRespondentsSynchroFormQueryOpen'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Обработчик события lftRespondentsSynchroForm.OnQueryOpen' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ : Parameters
+   Seq: ( ME_E55BC9AC4C8C // aSender
+ )
+ ; // Parameters
+
+ref; // ME_C576738B9A98 lftRespondentsSynchroFormQueryOpen
+
+: ME_D459B01E98EE
+ CONST Name 'aSender'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_D459B01E98EE aSender
+
+: ME_536B8B1C39F1
+ CONST UID '536B8B1C39F1'
+ CONST Name 'lftUserCRList1_SynchorFormQueryMaximized'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Обработчик события lftUserCRList1_SynchorForm.OnQueryMaximized' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ : Parameters
+   Seq: ( ME_D459B01E98EE // aSender
+ )
+ ; // Parameters
+
+ref; // ME_536B8B1C39F1 lftUserCRList1_SynchorFormQueryMaximized
+
+: ME_868F4CA584EC
+ CONST Name 'aSender'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_868F4CA584EC aSender
+
+: ME_D51A85B5EA94
+ CONST UID 'D51A85B5EA94'
+ CONST Name 'lftUserCRList1_SynchorFormQueryOpen'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Обработчик события lftUserCRList1_SynchorForm.OnQueryOpen' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ : Parameters
+   Seq: ( ME_868F4CA584EC // aSender
+ )
+ ; // Parameters
+
+ref; // ME_D51A85B5EA94 lftUserCRList1_SynchorFormQueryOpen
+
+: ME_AEFD58A5B13C
+ CONST Name 'aSender'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_AEFD58A5B13C aSender
+
+: ME_D22B2108D1D7
+ CONST UID 'D22B2108D1D7'
+ CONST Name 'lftUserCRList2_SynchorFormQueryMaximized'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Обработчик события lftUserCRList2_SynchorForm.OnQueryMaximized' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ : Parameters
+   Seq: ( ME_AEFD58A5B13C // aSender
+ )
+ ; // Parameters
+
+ref; // ME_D22B2108D1D7 lftUserCRList2_SynchorFormQueryMaximized
+
+: ME_502DD36CDE81
+ CONST Name 'aSender'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_502DD36CDE81 aSender
+
+: ME_4AE19D392515
+ CONST UID '4AE19D392515'
+ CONST Name 'lftUserCRList2_SynchorFormQueryOpen'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Обработчик события lftUserCRList2_SynchorForm.OnQueryOpen' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ : Parameters
+   Seq: ( ME_502DD36CDE81 // aSender
+ )
+ ; // Parameters
+
+ref; // ME_4AE19D392515 lftUserCRList2_SynchorFormQueryOpen
+
+: ME_56FFF411F915
+ CONST Name 'aSender'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_56FFF411F915 aSender
+
+: ME_DF8DF3016AAE
+ CONST UID 'DF8DF3016AAE'
+ CONST Name 'lftDrugInternationalNameSynonymsQueryMaximized'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Обработчик события lftDrugInternationalNameSynonyms.OnQueryMaximized' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ : Parameters
+   Seq: ( ME_56FFF411F915 // aSender
+ )
+ ; // Parameters
+
+ref; // ME_DF8DF3016AAE lftDrugInternationalNameSynonymsQueryMaximized
+
+: ME_00A5276226FA
+ CONST Name 'aSender'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_00A5276226FA aSender
+
+: ME_8829BBB9E33F
+ CONST UID '8829BBB9E33F'
+ CONST Name 'lftDrugInternationalNameSynonymsQueryOpen'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Обработчик события lftDrugInternationalNameSynonyms.OnQueryOpen' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ : Parameters
+   Seq: ( ME_00A5276226FA // aSender
+ )
+ ; // Parameters
+
+ref; // ME_8829BBB9E33F lftDrugInternationalNameSynonymsQueryOpen
+
+: ME_4E0883836674
+ CONST Name 'aSender'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_4E0883836674 aSender
+
+: ME_7CA1B2391F94
+ CONST UID '7CA1B2391F94'
+ CONST Name 'lftDrugInternationalNameSynonymsQueryClose'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Обработчик события lftDrugInternationalNameSynonyms.OnQueryClose' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ : Parameters
+   Seq: ( ME_4E0883836674 // aSender
+ )
+ ; // Parameters
+
+ref; // ME_7CA1B2391F94 lftDrugInternationalNameSynonymsQueryClose
+
+: ME_D59DBCD8B4C1
+ CONST Name 'aSender'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_D59DBCD8B4C1 aSender
+
+: ME_66C365C924D6
+ CONST UID '66C365C924D6'
+ CONST Name 'lftProducedDrugsQueryMaximized'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Обработчик события lftProducedDrugs.OnQueryMaximized' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ : Parameters
+   Seq: ( ME_D59DBCD8B4C1 // aSender
+ )
+ ; // Parameters
+
+ref; // ME_66C365C924D6 lftProducedDrugsQueryMaximized
+
+: ME_E460817F74ED
+ CONST Name 'aSender'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_E460817F74ED aSender
+
+: ME_DD3CF6B9A1FE
+ CONST UID 'DD3CF6B9A1FE'
+ CONST Name 'lftProducedDrugsQueryOpen'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Обработчик события lftProducedDrugs.OnQueryOpen' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ : Parameters
+   Seq: ( ME_E460817F74ED // aSender
+ )
+ ; // Parameters
+
+ref; // ME_DD3CF6B9A1FE lftProducedDrugsQueryOpen
+
+: ME_4CD8BBE84544
+ CONST Name 'aSender'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_4CD8BBE84544 aSender
+
+: ME_5487A60000CE
+ CONST UID '5487A60000CE'
+ CONST Name 'lftProducedDrugsQueryClose'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Обработчик события lftProducedDrugs.OnQueryClose' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ : Parameters
+   Seq: ( ME_4CD8BBE84544 // aSender
+ )
+ ; // Parameters
+
+ref; // ME_5487A60000CE lftProducedDrugsQueryClose
+
+: ME_FFA20315B53E
+ CONST Name 'aSender'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_FFA20315B53E aSender
+
+: ME_F8F8E6852550
+ CONST UID 'F8F8E6852550'
+ CONST Name 'lftProducedDrugsSynchroFormQueryMaximized'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Обработчик события lftProducedDrugsSynchroForm.OnQueryMaximized' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ : Parameters
+   Seq: ( ME_FFA20315B53E // aSender
+ )
+ ; // Parameters
+
+ref; // ME_F8F8E6852550 lftProducedDrugsSynchroFormQueryMaximized
+
+: ME_83B7ABE3903D
+ CONST Name 'aSender'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_83B7ABE3903D aSender
+
+: ME_B74FCF7BEB24
+ CONST UID 'B74FCF7BEB24'
+ CONST Name 'lftProducedDrugsSynchroFormQueryOpen'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Обработчик события lftProducedDrugsSynchroForm.OnQueryOpen' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ : Parameters
+   Seq: ( ME_83B7ABE3903D // aSender
+ )
+ ; // Parameters
+
+ref; // ME_B74FCF7BEB24 lftProducedDrugsSynchroFormQueryOpen
+
+: ME_BE29A90CB19F
+ CONST Name 'aSender'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_BE29A90CB19F aSender
+
+: ME_F57A05E9D1E3
+ CONST UID 'F57A05E9D1E3'
+ CONST Name 'lftDrugInternationalNameSynonymsSynchroFormQueryMaximized'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Обработчик события lftDrugInternationalNameSynonymsSynchroForm.OnQueryMaximized' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ : Parameters
+   Seq: ( ME_BE29A90CB19F // aSender
+ )
+ ; // Parameters
+
+ref; // ME_F57A05E9D1E3 lftDrugInternationalNameSynonymsSynchroFormQueryMaximized
+
+: ME_911A849B0C8D
+ CONST Name 'aSender'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_911A849B0C8D aSender
+
+: ME_E163385C2B4E
+ CONST UID 'E163385C2B4E'
+ CONST Name 'lftDrugInternationalNameSynonymsSynchroFormQueryOpen'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Обработчик события lftDrugInternationalNameSynonymsSynchroForm.OnQueryOpen' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ : Parameters
+   Seq: ( ME_911A849B0C8D // aSender
+ )
+ ; // Parameters
+
+ref; // ME_E163385C2B4E lftDrugInternationalNameSynonymsSynchroFormQueryOpen
+
+: ME_2E2228D5A17C
+ CONST Name 'aSender'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_2E2228D5A17C aSender
+
+: ME_910DF1C1598C
+ CONST UID '910DF1C1598C'
+ CONST Name 'lftRToPartQueryMaximized'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Обработчик события lftRToPart.OnQueryMaximized' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ : Parameters
+   Seq: ( ME_2E2228D5A17C // aSender
+ )
+ ; // Parameters
+
+ref; // ME_910DF1C1598C lftRToPartQueryMaximized
+
+: ME_3A47B3D905F3
+ CONST Name 'aSender'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_3A47B3D905F3 aSender
+
+: ME_0984ADDC3D53
+ CONST UID '0984ADDC3D53'
+ CONST Name 'lftRToPartQueryOpen'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Обработчик события lftRToPart.OnQueryOpen' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ : Parameters
+   Seq: ( ME_3A47B3D905F3 // aSender
+ )
+ ; // Parameters
+
+ref; // ME_0984ADDC3D53 lftRToPartQueryOpen
+
+: ME_600A16ED8479
+ CONST Name 'aSender'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_600A16ED8479 aSender
+
+: ME_9CAFD9A7C3BD
+ CONST UID '9CAFD9A7C3BD'
+ CONST Name 'lftSimilarDocumentsToFragmentQueryMaximized'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Обработчик события lftSimilarDocumentsToFragment.OnQueryMaximized' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ : Parameters
+   Seq: ( ME_600A16ED8479 // aSender
+ )
+ ; // Parameters
+
+ref; // ME_9CAFD9A7C3BD lftSimilarDocumentsToFragmentQueryMaximized
+
+: ME_FBF80745F928
+ CONST Name 'aSender'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_FBF80745F928 aSender
+
+: ME_B3625EBE1EED
+ CONST UID 'B3625EBE1EED'
+ CONST Name 'lftSimilarDocumentsToFragmentQueryOpen'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Обработчик события lftSimilarDocumentsToFragment.OnQueryOpen' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ : Parameters
+   Seq: ( ME_FBF80745F928 // aSender
+ )
+ ; // Parameters
+
+ref; // ME_B3625EBE1EED lftSimilarDocumentsToFragmentQueryOpen
+
+: ME_2F7F6AC45E15
+ CONST Name 'aSender'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_2F7F6AC45E15 aSender
+
+: ME_E15AA3CCAAFD
+ CONST UID 'E15AA3CCAAFD'
+ CONST Name 'lftSimilarDocumentsToFragmentQueryClose'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Обработчик события lftSimilarDocumentsToFragment.OnQueryClose' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ : Parameters
+   Seq: ( ME_2F7F6AC45E15 // aSender
+ )
+ ; // Parameters
+
+ref; // ME_E15AA3CCAAFD lftSimilarDocumentsToFragmentQueryClose
+
+: ME_4FF59A2F016E
+ CONST UID '4FF59A2F016E'
+ CONST Name 'ListUserTypes'
+ CONST Class class_Class
+ : Stereotype st_VCMForm ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent WL 'ME_4A7C0BB70162' '4A7C0BB70162.pas.ms.script' // Base Forms
+ ;
+ : Operations
+   Seq: ( HWL ME_631A220E9075 // lftRespondentQueryMaximized
+ HWL ME_9FBF6C4D3127 // lftRespondentQueryOpen
+ HWL ME_6784C69651CE // lftRespondentQueryClose
+ HWL ME_AC1A36740EA8 // lftCorrespondentQueryMaximized
+ HWL ME_7984D701603A // lftCorrespondentQueryOpen
+ HWL ME_BAF9A43F64B1 // lftCorrespondentQueryClose
+ HWL ME_BC1EF73BE90E // lftSynchroViewQueryMaximized
+ HWL ME_7D78C9A85314 // lftSynchroViewQueryOpen
+ HWL ME_FA04A3642350 // lftCToPartQueryMaximized
+ HWL ME_FEE09FA84BC5 // lftCToPartQueryOpen
+ HWL ME_79E93ABBEBFC // lftUserCR1QueryMaximized
+ HWL ME_63544B6D4A1B // lftUserCR1QueryOpen
+ HWL ME_7C26AE9268E7 // lftUserCR1QueryClose
+ HWL ME_68123CAC609E // lftUserCR2QueryMaximized
+ HWL ME_1095984F87C1 // lftUserCR2QueryOpen
+ HWL ME_5B815CDD8F87 // lftUserCR2QueryClose
+ HWL ME_B8F5E8ADF26A // lftConsultationQueryMaximized
+ HWL ME_5E40E10FD4BD // lftConsultationQueryOpen
+ HWL ME_89247CD8E38D // lftConsultationQueryClose
+ HWL ME_3E3ACC41CC2A // lftSimilarDocumentsQueryMaximized
+ HWL ME_3D942CB394A8 // lftSimilarDocumentsQueryOpen
+ HWL ME_9144562E25FB // lftSimilarDocumentsQueryClose
+ HWL ME_7662726E4743 // lftSimilarDocumentsSynchroViewQueryMaximized
+ HWL ME_D7AA4578D2D1 // lftSimilarDocumentsSynchroViewQueryOpen
+ HWL ME_79CA491C075A // lftCorrespondentsSynchroFormQueryMaximized
+ HWL ME_10133243E89D // lftCorrespondentsSynchroFormQueryOpen
+ HWL ME_068F6EC47A8A // lftRespondentsSynchroFormQueryMaximized
+ HWL ME_C576738B9A98 // lftRespondentsSynchroFormQueryOpen
+ HWL ME_536B8B1C39F1 // lftUserCRList1_SynchorFormQueryMaximized
+ HWL ME_D51A85B5EA94 // lftUserCRList1_SynchorFormQueryOpen
+ HWL ME_D22B2108D1D7 // lftUserCRList2_SynchorFormQueryMaximized
+ HWL ME_4AE19D392515 // lftUserCRList2_SynchorFormQueryOpen
+ HWL ME_DF8DF3016AAE // lftDrugInternationalNameSynonymsQueryMaximized
+ HWL ME_8829BBB9E33F // lftDrugInternationalNameSynonymsQueryOpen
+ HWL ME_7CA1B2391F94 // lftDrugInternationalNameSynonymsQueryClose
+ HWL ME_66C365C924D6 // lftProducedDrugsQueryMaximized
+ HWL ME_DD3CF6B9A1FE // lftProducedDrugsQueryOpen
+ HWL ME_5487A60000CE // lftProducedDrugsQueryClose
+ HWL ME_F8F8E6852550 // lftProducedDrugsSynchroFormQueryMaximized
+ HWL ME_B74FCF7BEB24 // lftProducedDrugsSynchroFormQueryOpen
+ HWL ME_F57A05E9D1E3 // lftDrugInternationalNameSynonymsSynchroFormQueryMaximized
+ HWL ME_E163385C2B4E // lftDrugInternationalNameSynonymsSynchroFormQueryOpen
+ HWL ME_910DF1C1598C // lftRToPartQueryMaximized
+ HWL ME_0984ADDC3D53 // lftRToPartQueryOpen
+ HWL ME_9CAFD9A7C3BD // lftSimilarDocumentsToFragmentQueryMaximized
+ HWL ME_B3625EBE1EED // lftSimilarDocumentsToFragmentQueryOpen
+ HWL ME_E15AA3CCAAFD // lftSimilarDocumentsToFragmentQueryClose
+ )
+ ; // Operations
+ : Children
+   Seq: ( HWL ME_4BD5879903AE // lftNone
+ HWL ME_4BD587B60291 // lftRespondent
+ HWL ME_4BD5880300BF // lftCorrespondent
+ HWL ME_4BD5888802BA // lftSynchroView
+ HWL ME_4BD588C1029B // lftCToPart
+ HWL ME_4BD5892F01D4 // lftUserCR1
+ HWL ME_4BD589720381 // lftUserCR2
+ HWL ME_4BD589B50312 // lftConsultation
+ HWL ME_4BD589E40083 // lftSimilarDocuments
+ HWL ME_4BD58A120226 // lftSimilarDocumentsSynchroView
+ HWL ME_4BD58A460089 // lftCorrespondentsSynchroForm
+ HWL ME_4BD58A780204 // lftRespondentsSynchroForm
+ HWL ME_4BD58AB1025D // lftUserCRList1_SynchorForm
+ HWL ME_4BD58B080255 // lftUserCRList2_SynchorForm
+ HWL ME_4BD58B4002A1 // lftDrugList
+ HWL ME_4BD58B5D0377 // lftDrugInternationalNameSynonyms
+ HWL ME_4BD58B810263 // lftProducedDrugs
+ HWL ME_4BD58BA502EE // lftProducedDrugsSynchroForm
+ HWL ME_4BD58BC90275 // lftDrugInternationalNameSynonymsSynchroForm
+ HWL ME_5236CE6D00AC // lftRToPart
+ HWL ME_5594F3A50378 // lftSimilarDocumentsToFragment
+ )
+ ; // Children
+ CONST "NeedsHackRef" true
+ CONST "ZoneType" 'Any'
+ CONST "finished dfm" true
+ CONST "resizeable" false
+ CONST "restrict form def" 'undefined'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\ListUserTypes.imp.pas'
+ CONST extprop:pas:TypeName '_ListUserTypes_'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'ListUserTypes.imp'
+
+ref; // ME_4FF59A2F016E ListUserTypes

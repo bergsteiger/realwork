@@ -1,0 +1,40 @@
+USES
+ 'W:\shared\models\NewSchool\Templates\TemplatesCore.tpl.script'
+ CodeDump.script
+;
+
+: TestStereotypeProducerEx
+       <<MDAAttribute>> bool
+        %UID '46E6B9A10135'
+        %DOCUMENTATION 'UP-бинарное значение'#13#10'---'#13#10'Задает пользовательское свойство типа бинарное значение "on/off"'
+        %META
+         %upv "implementable" false
+        ; // %META
+        %TOBEINCLUDED
+         U$ '46E13A3C030D' /* Meta */
+        ; // %TOBEINCLUDED
+        %INHERITS
+         U$ '46EFD6DC0192' /* UserProperty */
+        ; // %INHERITS
+        %REALIZES
+         U$ '46E28D830109' /* mda */
+        ; // %REALIZES
+       ; // bool
+       <<MDADependency>> include
+        %UID '46E6CB280164'
+        %DOCUMENTATION 'Разрешение использования'#13#10'---'#13#10'Связь разрешающая использование одного стереотипра (цель связи) внутри другого (рожитель связи).'
+        %META
+         %upv "personal label" 'code_mda_dep_include'
+        ; // %META
+        %ATTRIBUTES
+         <<bool>> internal
+          %UID '4AE69AC90108'
+          %DOCUMENTATION 'определяет, что пользователь не может использовать стереотип, на который указывает (но можно использовать в суммонинге)'
+          %VALUE false
+         ; // internal
+        ; // %ATTRIBUTES
+       ; // include
+ @SELF DumpElement
+; // TestStereotypeProducerEx
+
+TestStereotypeProducerEx

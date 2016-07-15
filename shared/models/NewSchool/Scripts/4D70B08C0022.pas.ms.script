@@ -24,7 +24,7 @@ ref; // ME_4D70C53302A4 aFileName
  %SUMMARY 'Событие выливки внешнего файла.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4D70B0D50358 // ItstNSRCListener
+ : Parent HWL ME_4D70B0D50358 // ItstNSRCListener
  ;
  : Parameters
    Seq: ( ME_4D70C53302A4 // aFileName
@@ -42,10 +42,10 @@ ref; // ME_4D70B2AF0288 ExtractFileEvent
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4D70B17C001C // TtstNSRCGenerator
+ : Parent HWL ME_4D70B17C001C // TtstNSRCGenerator
  ;
  : Operations
-   Seq: ( ME_4D70B2AF0288 // ExtractFileEvent
+   Seq: ( HWL ME_4D70B2AF0288 // ExtractFileEvent
  )
  ; // Operations
  CONST extprop:rc:SelfName 'tstNSRCListener'
@@ -60,9 +60,9 @@ ref; // ME_4D70B0D50358 ItstNSRCListener
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_ref
- : Parent ME_4D70B17C001C // TtstNSRCGenerator
+ : Parent HWL ME_4D70B17C001C // TtstNSRCGenerator
  ;
- : Target ME_4D70B0D50358 // ItstNSRCListener
+ : Target HWL ME_4D70B0D50358 // ItstNSRCListener
  ;
 
 ref; // ME_4D70C549028D f_Listener
@@ -71,7 +71,7 @@ ref; // ME_4D70C549028D f_Listener
  CONST Name 'aListener'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_4D70B0D50358 // ItstNSRCListener
+ : Target HWL ME_4D70B0D50358 // ItstNSRCListener
  ;
 
 ref; // ME_54EEDFDB0273 aListener
@@ -82,7 +82,7 @@ ref; // ME_54EEDFDB0273 aListener
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4D70B17C001C // TtstNSRCGenerator
+ : Parent HWL ME_4D70B17C001C // TtstNSRCGenerator
  ;
  : Parameters
    Seq: ( ME_54EEDFDB0273 // aListener
@@ -95,7 +95,7 @@ ref; // ME_4D70B25B0190 LinkNSRCListener
  CONST Name 'aListener'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_4D70B0D50358 // ItstNSRCListener
+ : Target HWL ME_4D70B0D50358 // ItstNSRCListener
  ;
 
 ref; // ME_54EEDFEB013B aListener
@@ -106,7 +106,7 @@ ref; // ME_54EEDFEB013B aListener
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4D70B17C001C // TtstNSRCGenerator
+ : Parent HWL ME_4D70B17C001C // TtstNSRCGenerator
  ;
  : Parameters
    Seq: ( ME_54EEDFEB013B // aListener
@@ -131,19 +131,19 @@ ref; // ME_4D70C8250128_ME_4D70B17C001C SaveObjFileName
  %SUMMARY 'Обертка над TddGenerator для чтения данных о внешних файлах и запоминания их в тесте для последующей проверки.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4D70B08C0022 // NSRCUtils
+ : Parent HWL ME_4D70B08C0022 // NSRCUtils
  ;
  : Inherits
    Seq: ( WL 'ME_4B59FBCA0096' '47ECB8BD00A8.pas.ms.script' // TddNSRCGenerator
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_4D70C549028D // f_Listener
+   Seq: ( HWL ME_4D70C549028D // f_Listener
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_4D70B25B0190 // LinkNSRCListener
- ME_4D70B2A203B9 // UnlinkNSRCListener
+   Seq: ( HWL ME_4D70B25B0190 // LinkNSRCListener
+ HWL ME_4D70B2A203B9 // UnlinkNSRCListener
  )
  ; // Operations
  : Overridden
@@ -151,7 +151,7 @@ ref; // ME_4D70C8250128_ME_4D70B17C001C SaveObjFileName
  )
  ; // Overridden
  : Children
-   Seq: ( ME_4D70B0D50358 // ItstNSRCListener
+   Seq: ( HWL ME_4D70B0D50358 // ItstNSRCListener
  )
  ; // Children
  CONST intf.pas:Path 'common\components\rtl\Garant\Daily\tstNSRCGenerator.pas'
@@ -172,7 +172,7 @@ ref; // ME_4D70B17C001C TtstNSRCGenerator
  : Parent WL 'ME_4B2A15810261' '4B2A15810261.pas.ms.script' // DailyTest
  ;
  : Children
-   Seq: ( ME_4D70B17C001C // TtstNSRCGenerator
+   Seq: ( HWL ME_4D70B17C001C // TtstNSRCGenerator
  )
  ; // Children
  : Depends

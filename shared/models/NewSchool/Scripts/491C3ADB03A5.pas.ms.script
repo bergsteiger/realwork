@@ -4,313 +4,12 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 FORWARD ME_491C3ADB03A5
 
-FORWARD ME_491C3B8D00D8
-
 FORWARD ME_4CE6937D031D
-
-: ME_4CE693DF0188
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_491C3B8D00D8 // TdsAutoreferat
- ;
- : Target ME_4CE6937D031D // TnsAutoreferatDocumentContainer
- ;
-
-ref; // ME_4CE693DF0188 
-
-: ME_491C263E03AF_ME_491C3B8D00D8
- : Original WL 'ME_491C263E03AF' '47EA50050263.pas.ms.script' // GetIsReadOnly
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_491C263E03AF_ME_491C3B8D00D8 GetIsReadOnly
-
-: ME_491C264C02C2_ME_491C3B8D00D8
- : Original WL 'ME_491C264C02C2' '47EA50050263.pas.ms.script' // GetTimeMachineOff
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_491C264C02C2_ME_491C3B8D00D8 GetTimeMachineOff
-
-: ME_4C6AB38800F3_ME_491C3B8D00D8
- : Original WL 'ME_4C6AB38800F3' '47EA50050263.pas.ms.script' // MakeContainer
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4C6AB38800F3_ME_491C3B8D00D8 MakeContainer
-
-: ME_491C3B8D00D8
- CONST UID '491C3B8D00D8'
- CONST Name 'TdsAutoreferat'
- CONST Class class_Class
- : Stereotype st_ViewAreaControllerImp ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Автореферат' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_491C3ADB03A5 // Autoreferat
- ;
- : Inherits
-   Seq: ( WL 'ME_4926CAF40166' '47EA50050263.pas.ms.script' // dsBaseDocument
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_491C263E03AF_ME_491C3B8D00D8 // GetIsReadOnly
- ME_491C264C02C2_ME_491C3B8D00D8 // GetTimeMachineOff
- ME_4C6AB38800F3_ME_491C3B8D00D8 // MakeContainer
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_4CE693DF0188 // TnsAutoreferatDocumentContainer
- )
- ; // Dependencies
- CONST "author" 'Морозов М.А.'
- CONST "no hands" true
- CONST "started" '06.10.2005 14.52'
- CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Autoreferat\dsAutoreferat.pas'
- CONST extprop:rc:SelfName 'dsAutoreferat'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'dsAutoreferat'
-
-ref; // ME_491C3B8D00D8 TdsAutoreferat
-
-FORWARD ME_492FDB1603A9
-
-: ME_494166980337
- CONST UID '494166980337'
- CONST Name 'SetDataType'
- CONST Class class_Attribute
- : Stereotype st_impurity_value::Attribute ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_abstract
- CONST LinkType lt_agr
- : Parent ME_492FDB1603A9 // TsdsAutoreferat
- ;
- : Target WL 'ME_47EB3BD9015F' '491B305A0096.pas.ms.script' // IdBaseDocument
- ;
-
-ref; // ME_494166980337 SetDataType
-
-: ME_4947B0ED0257
- CONST UID '4947B0ED0257'
- CONST Name 'InitDataType'
- CONST Class class_Attribute
- : Stereotype st_impurity_value::Attribute ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_abstract
- CONST LinkType lt_agr
- : Parent ME_492FDB1603A9 // TsdsAutoreferat
- ;
- : Target WL 'ME_47EA0784000D' '4B1FC2FF03CD.pas.ms.script' // IdeDocInfo
- ;
-
-ref; // ME_4947B0ED0257 InitDataType
-
-: ME_492FDB5A0045
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_492FDB1603A9 // TsdsAutoreferat
- ;
- : Target ME_491C3B8D00D8 // TdsAutoreferat
- ;
-
-ref; // ME_492FDB5A0045 
-
-FORWARD ME_492FDE91018F
-
-: ME_492FDCBF00F3
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_492FDB1603A9 // TsdsAutoreferat
- ;
- : Target ME_492FDE91018F // TdsNewsLine
- ;
-
-ref; // ME_492FDCBF00F3 
-
-: ME_4B220CE40177
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_492FDB1603A9 // TsdsAutoreferat
- ;
- : Target WL 'ME_4B220C2B001F' '47EA50050263.pas.ms.script' // TdBaseDocument
- ;
-
-ref; // ME_4B220CE40177 
-
-: ME_53D7681800D2
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_492FDB1603A9 // TsdsAutoreferat
- ;
- : Target WL 'ME_53BA488F00D8' '53A402C7010D.pas.ms.script' // nsTabbedInterfaceTypes
- ;
-
-ref; // ME_53D7681800D2 
-
-: ME_47F3778403D9_ME_492FDB1603A9
- : Original WL 'ME_47F3778403D9' '47D0E1500033.pas.ms.script' // MakeData
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_47F3778403D9_ME_492FDB1603A9 MakeData
-
-: ME_4925B1EC0100_ME_492FDB1603A9
- : Original WL 'ME_4925B1EC0100' '47EA50050263.pas.ms.script' // BaseDocumentClass
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4925B1EC0100_ME_492FDB1603A9 BaseDocumentClass
-
-: ME_492F060800A2_ME_492FDB1603A9
- : Original WL 'ME_492F060800A2' '492F0586030C.pas.ms.script' // MakeNewsLineFakeDS
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" true
-ref; // ME_492F060800A2_ME_492FDB1603A9 MakeNewsLineFakeDS
-
-: ME_47F37DF001FE_ME_492FDB1603A9
- : Original WL 'ME_47F37DF001FE' '47D0E1500033.pas.ms.script' // DataExchange
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_47F37DF001FE_ME_492FDB1603A9 DataExchange
-
-: ME_53B3BF9C00EF_ME_492FDB1603A9
- : Original WL 'ME_53B3BF9C00EF' '47D0E1500033.pas.ms.script' // DoGetFormSetImageIndex
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_53B3BF9C00EF_ME_492FDB1603A9 DoGetFormSetImageIndex
-
-: ME_492FDB1603A9
- CONST UID '492FDB1603A9'
- CONST Name 'TsdsAutoreferat'
- CONST Class class_Class
- : Stereotype st_UseCaseControllerImp ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Бизнес объект сборки "Автореферат"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_491C3ADB03A5 // Autoreferat
- ;
- : Inherits
-   Seq: ( WL 'ME_47EA106D035E' '47EA50050263.pas.ms.script' // sdsBaseDocument
- )
- ; // Inherits
- : Implements
-   Seq: ( WL 'ME_492F071B02AC' '492F0586030C.pas.ms.script' // IsdsAutoreferat
- )
- ; // Implements
- : Attributes
-   Seq: ( ME_494166980337 // SetDataType
- ME_4947B0ED0257 // InitDataType
- )
- ; // Attributes
- : Implemented
-   Seq: ( ME_47F3778403D9_ME_492FDB1603A9 // MakeData
- ME_4925B1EC0100_ME_492FDB1603A9 // BaseDocumentClass
- ME_492F060800A2_ME_492FDB1603A9 // MakeNewsLineFakeDS
- )
- ; // Implemented
- : Overridden
-   Seq: ( ME_47F37DF001FE_ME_492FDB1603A9 // DataExchange
- ME_53B3BF9C00EF_ME_492FDB1603A9 // DoGetFormSetImageIndex
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_492FDB5A0045 // TdsAutoreferat
- ME_492FDCBF00F3 // TdsNewsLine
- ME_4B220CE40177 // TdBaseDocument
- ME_53D7681800D2 // nsTabbedInterfaceTypes
- )
- ; // Dependencies
- CONST "author" 'Морозов М.А.'
- CONST "no hands" true
- CONST "started" '2005/10/06 12:32:24'
- CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Autoreferat\sdsAutoreferat.pas'
- CONST extprop:rc:SelfName 'sdsAutoreferat'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'sdsAutoreferat'
-
-ref; // ME_492FDB1603A9 TsdsAutoreferat
-
-: ME_492FE27F0348
- CONST UID '492FE27F0348'
- CONST Name 'FormDataSourceType'
- CONST Class class_Attribute
- : Stereotype st_impurity_value::Attribute ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_abstract
- CONST LinkType lt_agr
- : Parent ME_492FDE91018F // TdsNewsLine
- ;
- : Target WL 'ME_492FDE16013B' '492F0586030C.pas.ms.script' // IdsNewsLine
- ;
-
-ref; // ME_492FE27F0348 FormDataSourceType
-
-: ME_552F96310012
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_492FDE91018F // TdsNewsLine
- ;
- : Target WL 'ME_48FF556602BA' '48F747EC0073.pas.ms.script' // DataAdapter
- ;
-
-ref; // ME_552F96310012 
-
-: ME_479731C50290_ME_492FDE91018F
- : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_479731C50290_ME_492FDE91018F Cleanup
-
-: ME_55097FF5008E_ME_492FDE91018F
- : Original WL 'ME_55097FF5008E' '47D0E1500033.pas.ms.script' // GetIsDataAvailable
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_55097FF5008E_ME_492FDE91018F GetIsDataAvailable
-
-: ME_492FDE91018F
- CONST UID '492FDE91018F'
- CONST Name 'TdsNewsLine'
- CONST Class class_Class
- : Stereotype st_ViewAreaControllerImp ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Новостная лента' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_491C3ADB03A5 // Autoreferat
- ;
- : Inherits
-   Seq: ( WL 'ME_47ECE94D03D4' '47D0E1500033.pas.ms.script' // vcmFormDataSourcePrim
- )
- ; // Inherits
- : Implements
-   Seq: ( WL 'ME_492FDE16013B' '492F0586030C.pas.ms.script' // IdsNewsLine
- )
- ; // Implements
- : Attributes
-   Seq: ( ME_492FE27F0348 // FormDataSourceType
- )
- ; // Attributes
- : Overridden
-   Seq: ( ME_479731C50290_ME_492FDE91018F // Cleanup
- ME_55097FF5008E_ME_492FDE91018F // GetIsDataAvailable
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_552F96310012 // DataAdapter
- )
- ; // Dependencies
- CONST "author" 'Люлин А.В.'
- CONST "no hands" true
- CONST "started" '28.11.2008 15:06'
- CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Autoreferat\dsNewsLine.pas'
- CONST extprop:rc:SelfName 'dsNewsLine'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'dsNewsLine'
-
-ref; // ME_492FDE91018F TdsNewsLine
 
 : ME_4CE694170303
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4CE6937D031D // TnsAutoreferatDocumentContainer
+ : Parent HWL ME_4CE6937D031D // TnsAutoreferatDocumentContainer
  ;
  : Target WL 'ME_4C5AA5CA02DF' '4570511E038A.pas.ms.script' // DocumentTextProvider
  ;
@@ -320,7 +19,7 @@ ref; // ME_4CE694170303
 : ME_4CE694F60218
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4CE6937D031D // TnsAutoreferatDocumentContainer
+ : Parent HWL ME_4CE6937D031D // TnsAutoreferatDocumentContainer
  ;
  : Target WL 'ME_4857B5260267' '48492FC0029D.pas.ms.script' // Document
  ;
@@ -330,7 +29,7 @@ ref; // ME_4CE694F60218
 : ME_4CE69B10002A
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4CE6937D031D // TnsAutoreferatDocumentContainer
+ : Parent HWL ME_4CE6937D031D // TnsAutoreferatDocumentContainer
  ;
  : Target WL 'ME_4C6A750F024E' '467FC9F80281.pas.ms.script' // TnsF1DocumentTagNode
  ;
@@ -340,7 +39,7 @@ ref; // ME_4CE69B10002A
 : ME_4CE69B4E0106
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4CE6937D031D // TnsAutoreferatDocumentContainer
+ : Parent HWL ME_4CE6937D031D // TnsAutoreferatDocumentContainer
  ;
  : Target WL 'ME_4B1E8FAE0380' '48F747EC0073.pas.ms.script' // DefDataAdapter
  ;
@@ -350,7 +49,7 @@ ref; // ME_4CE69B4E0106
 : ME_4CE69D890370
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4CE6937D031D // TnsAutoreferatDocumentContainer
+ : Parent HWL ME_4CE6937D031D // TnsAutoreferatDocumentContainer
  ;
  : Target WL 'ME_47FB50E4008E' '48F747EC0073.pas.ms.script' // nsConst
  ;
@@ -360,7 +59,7 @@ ref; // ME_4CE69D890370
 : ME_4CE69DB5024E
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4CE6937D031D // TnsAutoreferatDocumentContainer
+ : Parent HWL ME_4CE6937D031D // TnsAutoreferatDocumentContainer
  ;
  : Target WL 'ME_45EEB6520191' '4570511E038A.pas.ms.script' // Document
  ;
@@ -370,7 +69,7 @@ ref; // ME_4CE69DB5024E
 : ME_4CE6A35B0292
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4CE6937D031D // TnsAutoreferatDocumentContainer
+ : Parent HWL ME_4CE6937D031D // TnsAutoreferatDocumentContainer
  ;
  : Target WL 'ME_47C69EBC00A8' '47AC75550330.pas.ms.script' // Tk2TagID
  ;
@@ -380,7 +79,7 @@ ref; // ME_4CE6A35B0292
 : ME_4D08D839027A
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4CE6937D031D // TnsAutoreferatDocumentContainer
+ : Parent HWL ME_4CE6937D031D // TnsAutoreferatDocumentContainer
  ;
  : Target WL 'ME_47ECA82403AC' '47ECA80B000D.pas.ms.script' // Tk2DocumentBuffer
  ;
@@ -390,7 +89,7 @@ ref; // ME_4D08D839027A
 : ME_4D08D87003DA
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4CE6937D031D // TnsAutoreferatDocumentContainer
+ : Parent HWL ME_4CE6937D031D // TnsAutoreferatDocumentContainer
  ;
  : Target WL 'ME_483E80FA0312' '483E80C9025F.pas.ms.script' // TevdNativeReader
  ;
@@ -400,7 +99,7 @@ ref; // ME_4D08D87003DA
 : ME_4D08DF2201C5
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4CE6937D031D // TnsAutoreferatDocumentContainer
+ : Parent HWL ME_4CE6937D031D // TnsAutoreferatDocumentContainer
  ;
  : Target WL 'ME_4981AC0701C1' '4AB0997B00A2.pas.ms.script' // ComObj
  ;
@@ -410,7 +109,7 @@ ref; // ME_4D08DF2201C5
 : ME_4D08DF31023D
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4CE6937D031D // TnsAutoreferatDocumentContainer
+ : Parent HWL ME_4CE6937D031D // TnsAutoreferatDocumentContainer
  ;
  : Target WL 'ME_46A5AFF103CA' '46A0E6C5023A.pas.ms.script' // IStream
  ;
@@ -420,7 +119,7 @@ ref; // ME_4D08DF31023D
 : ME_4D08DF800102
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4CE6937D031D // TnsAutoreferatDocumentContainer
+ : Parent HWL ME_4CE6937D031D // TnsAutoreferatDocumentContainer
  ;
  : Target WL 'ME_4C1B918900FD' '4C1B915E0261.pas.ms.script' // Ver
  ;
@@ -430,7 +129,7 @@ ref; // ME_4D08DF800102
 : ME_4D08E325033F
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4CE6937D031D // TnsAutoreferatDocumentContainer
+ : Parent HWL ME_4CE6937D031D // TnsAutoreferatDocumentContainer
  ;
  : Target WL 'ME_485669C9009D' '484A470100DD.pas.ms.script' // LeafPara
  ;
@@ -440,7 +139,7 @@ ref; // ME_4D08E325033F
 : ME_4D08E343021D
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4CE6937D031D // TnsAutoreferatDocumentContainer
+ : Parent HWL ME_4CE6937D031D // TnsAutoreferatDocumentContainer
  ;
  : Target WL 'ME_48579E4A003C' '48492FC0029D.pas.ms.script' // ParaList
  ;
@@ -450,7 +149,7 @@ ref; // ME_4D08E343021D
 : ME_4D08EEF00040
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4CE6937D031D // TnsAutoreferatDocumentContainer
+ : Parent HWL ME_4CE6937D031D // TnsAutoreferatDocumentContainer
  ;
  : Target WL 'ME_485683750360' '48492FC0029D.pas.ms.script' // TextPara
  ;
@@ -460,7 +159,7 @@ ref; // ME_4D08EEF00040
 : ME_4D08EFC50292
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4CE6937D031D // TnsAutoreferatDocumentContainer
+ : Parent HWL ME_4CE6937D031D // TnsAutoreferatDocumentContainer
  ;
  : Target WL 'ME_4799ED060093' '4799EC9300AF.pas.ms.script' // l3Defaults
  ;
@@ -470,7 +169,7 @@ ref; // ME_4D08EFC50292
 : ME_4D1092C503D8
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4CE6937D031D // TnsAutoreferatDocumentContainer
+ : Parent HWL ME_4CE6937D031D // TnsAutoreferatDocumentContainer
  ;
  : Target WL 'ME_456EB454018E' '456EA56002BF.pas.ms.script' // CanNotFindData
  ;
@@ -482,9 +181,9 @@ FORWARD ME_4D6E0C4A001F
 : ME_4D6E0CF50054
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4CE6937D031D // TnsAutoreferatDocumentContainer
+ : Parent HWL ME_4CE6937D031D // TnsAutoreferatDocumentContainer
  ;
- : Target ME_4D6E0C4A001F // TnsAnnotationHeaderTagNode
+ : Target HWL ME_4D6E0C4A001F // TnsAnnotationHeaderTagNode
  ;
 
 ref; // ME_4D6E0CF50054 
@@ -494,9 +193,9 @@ FORWARD ME_4D6E58B300D2
 : ME_4D6E58D701E1
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4CE6937D031D // TnsAutoreferatDocumentContainer
+ : Parent HWL ME_4CE6937D031D // TnsAutoreferatDocumentContainer
  ;
- : Target ME_4D6E58B300D2 // TnsF1AutoreferatDocumentTagNode
+ : Target HWL ME_4D6E58B300D2 // TnsF1AutoreferatDocumentTagNode
  ;
 
 ref; // ME_4D6E58D701E1 
@@ -516,7 +215,7 @@ ref; // ME_47F27DA80172_ME_4CE6937D031D GetDocument
  %SUMMARY 'Контейнер документа для автореферата' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_491C3ADB03A5 // Autoreferat
+ : Parent HWL ME_491C3ADB03A5 // Autoreferat
  ;
  : Inherits
    Seq: ( WL 'ME_4680E83D00C8' '4680E826036D.pas.ms.script' // TeeDocumentContainer
@@ -603,7 +302,7 @@ ref; // ME_4D6FA23601E0 anAnno
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4D6E0CA20143 // Create
+ : Parent HWL ME_4D6E0CA20143 // Create
  ;
  : Parameters
    Seq: ( ME_4D6E0CCA00B7 // anIndex
@@ -623,10 +322,10 @@ ref; // ME_4D6E0CAA00B3 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4D6E0C4A001F // TnsAnnotationHeaderTagNode
+ : Parent HWL ME_4D6E0C4A001F // TnsAnnotationHeaderTagNode
  ;
  : Operations
-   Seq: ( ME_4D6E0CAA00B3 // DoIt
+   Seq: ( HWL ME_4D6E0CAA00B3 // DoIt
  )
  ; // Operations
 
@@ -676,7 +375,7 @@ ref; // ME_535E66A403A4 anAnno
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4D6E0CDD033D // Make
+ : Parent HWL ME_4D6E0CDD033D // Make
  ;
  : Target WL 'ME_5346BD53015A' '47913B47006E.pas.ms.script' // Il3TagRef
  ;
@@ -698,10 +397,10 @@ ref; // ME_535E669E02D8 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4D6E0C4A001F // TnsAnnotationHeaderTagNode
+ : Parent HWL ME_4D6E0C4A001F // TnsAnnotationHeaderTagNode
  ;
  : Operations
-   Seq: ( ME_535E669E02D8 // DoIt
+   Seq: ( HWL ME_535E669E02D8 // DoIt
  )
  ; // Operations
  CONST "is static" true
@@ -713,9 +412,9 @@ FORWARD ME_4D6E0D500395
 : ME_4D6E0D700068
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4D6E0C4A001F // TnsAnnotationHeaderTagNode
+ : Parent HWL ME_4D6E0C4A001F // TnsAnnotationHeaderTagNode
  ;
- : Target ME_4D6E0D500395 // TnsAnnotationHeaderTagData
+ : Target HWL ME_4D6E0D500395 // TnsAnnotationHeaderTagData
  ;
 
 ref; // ME_4D6E0D700068 
@@ -723,7 +422,7 @@ ref; // ME_4D6E0D700068
 : ME_4D6E12E601C8
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4D6E0C4A001F // TnsAnnotationHeaderTagNode
+ : Parent HWL ME_4D6E0C4A001F // TnsAnnotationHeaderTagNode
  ;
  : Target WL 'ME_47C69EBC00A8' '47AC75550330.pas.ms.script' // Tk2TagID
  ;
@@ -751,15 +450,15 @@ ref; // ME_5335815D03DC_ME_4D6E0C4A001F ChildrenCount
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_491C3ADB03A5 // Autoreferat
+ : Parent HWL ME_491C3ADB03A5 // Autoreferat
  ;
  : Inherits
    Seq: ( WL 'ME_4C6A750F024E' '467FC9F80281.pas.ms.script' // TnsF1DocumentTagNode
  )
  ; // Inherits
  : Operations
-   Seq: ( ME_4D6E0CA20143 // Create
- ME_4D6E0CDD033D // Make
+   Seq: ( HWL ME_4D6E0CA20143 // Create
+ HWL ME_4D6E0CDD033D // Make
  )
  ; // Operations
  : Overridden
@@ -789,7 +488,7 @@ ref; // ME_4D6E0C4A001F TnsAnnotationHeaderTagNode
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_ref
- : Parent ME_4D6E0D500395 // TnsAnnotationHeaderTagData
+ : Parent HWL ME_4D6E0D500395 // TnsAnnotationHeaderTagData
  ;
  : Target WL 'ME_45EEB6520191' '4570511E038A.pas.ms.script' // Document
  ;
@@ -803,7 +502,7 @@ ref; // ME_4D6E0DE1028F f_Doc
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4D6E0D500395 // TnsAnnotationHeaderTagData
+ : Parent HWL ME_4D6E0D500395 // TnsAnnotationHeaderTagData
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -817,7 +516,7 @@ ref; // ME_4D6E0E0000C7 f_Index
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_ref
- : Parent ME_4D6E0D500395 // TnsAnnotationHeaderTagData
+ : Parent HWL ME_4D6E0D500395 // TnsAnnotationHeaderTagData
  ;
  : Target WL 'ME_534572370056' '47913B47006E.pas.ms.script' // Tl3Tag
  ;
@@ -859,7 +558,7 @@ ref; // ME_4D6FA26C0294 anAnno
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4D6E0DA7024B // Create
+ : Parent HWL ME_4D6E0DA7024B // Create
  ;
  : Parameters
    Seq: ( ME_4D6E0DB1003F // anIndex
@@ -878,10 +577,10 @@ ref; // ME_4D6E0DAF030D DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4D6E0D500395 // TnsAnnotationHeaderTagData
+ : Parent HWL ME_4D6E0D500395 // TnsAnnotationHeaderTagData
  ;
  : Operations
-   Seq: ( ME_4D6E0DAF030D // DoIt
+   Seq: ( HWL ME_4D6E0DAF030D // DoIt
  )
  ; // Operations
 
@@ -895,10 +594,10 @@ ref; // ME_4D6E0DA7024B Create
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4D6E0D500395 // TnsAnnotationHeaderTagData
+ : Parent HWL ME_4D6E0D500395 // TnsAnnotationHeaderTagData
  ;
  : Inherits
-   Seq: ( ME_4D6E0DA7024B // Create
+   Seq: ( HWL ME_4D6E0DA7024B // Create
  )
  ; // Inherits
  : Implements
@@ -911,7 +610,7 @@ ref; // ME_4D6E0DB90031 Make
 : ME_4D6E12FF0363
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4D6E0D500395 // TnsAnnotationHeaderTagData
+ : Parent HWL ME_4D6E0D500395 // TnsAnnotationHeaderTagData
  ;
  : Target WL 'ME_4857B5260267' '48492FC0029D.pas.ms.script' // Document
  ;
@@ -921,7 +620,7 @@ ref; // ME_4D6E12FF0363
 : ME_4D6E23E80359
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4D6E0D500395 // TnsAnnotationHeaderTagData
+ : Parent HWL ME_4D6E0D500395 // TnsAnnotationHeaderTagData
  ;
  : Target WL 'ME_47C69EBC00A8' '47AC75550330.pas.ms.script' // Tk2TagID
  ;
@@ -931,7 +630,7 @@ ref; // ME_4D6E23E80359
 : ME_535E6615032F
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4D6E0D500395 // TnsAnnotationHeaderTagData
+ : Parent HWL ME_4D6E0D500395 // TnsAnnotationHeaderTagData
  ;
  : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
  ;
@@ -1062,7 +761,7 @@ ref; // ME_479731C50290_ME_4D6E0D500395 Cleanup
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_491C3ADB03A5 // Autoreferat
+ : Parent HWL ME_491C3ADB03A5 // Autoreferat
  ;
  : Inherits
    Seq: ( WL 'ME_4AE5CA2D0034' '47913B47006E.pas.ms.script' // Tl3CProtoObject
@@ -1073,14 +772,14 @@ ref; // ME_479731C50290_ME_4D6E0D500395 Cleanup
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_4D6E0DE1028F // f_Doc
- ME_4D6E0E0000C7 // f_Index
- ME_4D6FA25D00D1 // f_Anno
+   Seq: ( HWL ME_4D6E0DE1028F // f_Doc
+ HWL ME_4D6E0E0000C7 // f_Index
+ HWL ME_4D6FA25D00D1 // f_Anno
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_4D6E0DA7024B // Create
- ME_4D6E0DB90031 // Make
+   Seq: ( HWL ME_4D6E0DA7024B // Create
+ HWL ME_4D6E0DB90031 // Make
  )
  ; // Operations
  : Implemented
@@ -1125,7 +824,7 @@ ref; // ME_4D6E0D500395 TnsAnnotationHeaderTagData
 : ME_4D6E5E40036C
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4D6E58B300D2 // TnsF1AutoreferatDocumentTagNode
+ : Parent HWL ME_4D6E58B300D2 // TnsF1AutoreferatDocumentTagNode
  ;
  : Target WL 'ME_47C69EBC00A8' '47AC75550330.pas.ms.script' // Tk2TagID
  ;
@@ -1135,7 +834,7 @@ ref; // ME_4D6E5E40036C
 : ME_4D6E5F9602FC
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4D6E58B300D2 // TnsF1AutoreferatDocumentTagNode
+ : Parent HWL ME_4D6E58B300D2 // TnsF1AutoreferatDocumentTagNode
  ;
  : Target WL 'ME_4C6D1B070024' '4C6E92E9016E.pas.ms.script' // TnsNodeState
  ;
@@ -1162,7 +861,7 @@ ref; // ME_4CED5CEF011A_ME_4D6E58B300D2 NodeChildrenCount
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_491C3ADB03A5 // Autoreferat
+ : Parent HWL ME_491C3ADB03A5 // Autoreferat
  ;
  : Inherits
    Seq: ( WL 'ME_4C6A750F024E' '467FC9F80281.pas.ms.script' // TnsF1DocumentTagNode
@@ -1199,13 +898,13 @@ ref; // ME_4D6E58B300D2 TnsF1AutoreferatDocumentTagNode
  : Parent WL 'ME_49411E4001AB' '49411E4001AB.pas.ms.script' // Autoreferat
  ;
  : Children
-   Seq: ( ME_491C3B8D00D8 // TdsAutoreferat
- ME_492FDB1603A9 // TsdsAutoreferat
- ME_492FDE91018F // TdsNewsLine
- ME_4CE6937D031D // TnsAutoreferatDocumentContainer
- ME_4D6E0C4A001F // TnsAnnotationHeaderTagNode
- ME_4D6E0D500395 // TnsAnnotationHeaderTagData
- ME_4D6E58B300D2 // TnsF1AutoreferatDocumentTagNode
+   Seq: ( WL 'ME_491C3B8D00D8' '491C3B8D00D8.pas.ms.script' // TdsAutoreferat
+ WL 'ME_492FDB1603A9' '492FDB1603A9.pas.ms.script' // TsdsAutoreferat
+ WL 'ME_492FDE91018F' '492FDE91018F.pas.ms.script' // TdsNewsLine
+ HWL ME_4CE6937D031D // TnsAutoreferatDocumentContainer
+ HWL ME_4D6E0C4A001F // TnsAnnotationHeaderTagNode
+ HWL ME_4D6E0D500395 // TnsAnnotationHeaderTagData
+ HWL ME_4D6E58B300D2 // TnsF1AutoreferatDocumentTagNode
  )
  ; // Children
  : Depends

@@ -113,64 +113,9 @@ p restrict form def:tribool=undefined ?
 // Унаследованная реализация
 
 // реализация абстрактного стереотипа OperationsPublisher::Class
-%f _OperationsToFuncImpl
-// параметры: aCaller: MDAClass = %1
-//#UC START# *4A8E9F9502BBfor4B5DA84A00DD*
-	<%R#f_OperationsToFuncImpl(%1)>\
-	<{}{%G#f_IsVCMMainForm()!=true}%G#f_OperationsToFuncImpl(%1)>\
-	<{}{%o#f_IsVCMOperation()=true}\
-	%o#f_OperationsToFuncImpl(%1)\
-	>\
-	<%C%T#f_OperationsToFuncImpl(%1)>
-//#UC END# *4A8E9F9502BBfor4B5DA84A00DD*
-
-// реализация абстрактного стереотипа OperationsPublisher::Class
-// Операции в функции
-%f _OperationsToFuncIntf
-// параметры: aCaller: MDAClass = %1
-//#UC START# *4A8E9D5E0038for4B5DA84A00DD*
-	<%R#f_OperationsToFuncIntf(%1)>\
-	<{}{%G#f_IsVCMMainForm()!=true}%G#f_OperationsToFuncIntf(%1)>\
-	<{}{%o#f_IsVCMOperation()=true}\
-	%o#f_OperationsToFuncIntf(%1)>\
-	>\
-	<%C%T#f_OperationsToFuncIntf(%1)>
-//#UC END# *4A8E9D5E0038for4B5DA84A00DD*
-
-// реализация абстрактного стереотипа OperationsPublisher::Class
-// Определяет необходимые uses для операций
-%f _OperationsToUses
-//#UC START# *4A82DDA6016Afor4B5DA84A00DD*
-	<%R#f_OperationsToUses()>\
-	<{}{%G#f_IsVCMMainForm()!=true}%G#f_OperationsToUses()>\
-	<{}{%o#f_IsVCMOperation()=true}\
-	%o#f_OperationsToUses()\
-	>\
-	<%C%T#f_OperationsToUses()>
-//#UC END# *4A82DDA6016Afor4B5DA84A00DD*
-
-// реализация абстрактного стереотипа OperationsPublisher::Class
-// Операции в секцию Var
-%f _OperationsToVar
-//#UC START# *4A8E9D3A01FEfor4B5DA84A00DD*
-	<%R#f_OperationsToVar()>\
-	<{}{%G#f_IsVCMMainForm()!=true}%G#f_OperationsToVar()>\
-	<{}{%o#f_IsVCMOperation()=true}\
-	%o#f_OperationsToVar()\
-	>\
-	<%C%T#f_OperationsToVar()>
-//#UC END# *4A8E9D3A01FEfor4B5DA84A00DD*
-
-// реализация абстрактного стереотипа OperationsPublisher::Class
 // Публикует операции
 %f _PublishOperations
 //#UC START# *4A770F770199for4B5DA84A00DD*
-	<%R#f_PublishOperations()>\
-	<{}{%G#f_IsVCMMainForm()!=true}%G#f_PublishOperations()>\
-	<{}{%o#f_IsVCMOperation()=true}\
-	%o#f_PublishOperations()\
-	>\
-	<%C%T#f_PublishOperations()>
 //#UC END# *4A770F770199for4B5DA84A00DD*
 
 // перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator

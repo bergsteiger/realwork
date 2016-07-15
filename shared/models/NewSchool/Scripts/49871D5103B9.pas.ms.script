@@ -12,7 +12,7 @@ FORWARD ME_49871D5103B9
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_49871D5103B9 // StatusBar
+ : Parent HWL ME_49871D5103B9 // StatusBar
  ;
  CONST "finished" false
  CONST intf.pas:Path 'common\components\gui\Garant\Nemesis\NOT_FINISHED_nscStatusBarOperationDefsList.pas'
@@ -21,881 +21,6 @@ FORWARD ME_49871D5103B9
  CONST extprop:pas:UnitName 'nscStatusBarOperationDefsList'
 
 ref; // ME_49871E3F01D0 TnscStatusBarOperationDefsList
-
-FORWARD ME_4E15A08E030D
-
-FORWARD ME_503DEB310216
-
-: ME_503DEC330219
- CONST UID '503DEC330219'
- CONST Name 'Def'
- CONST Class class_Attribute
- : Stereotype st_readonly::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_503DEB310216 // TOperationInternalDef
- ;
- : Target WL 'ME_4980350B00FA' '490838E10313.pas.ms.script' // InscStatusBarItemDef
- ;
- CONST "pm" true
- CONST "reads field" true
-
-ref; // ME_503DEC330219 Def
-
-: ME_503DEC5200A9
- CONST UID '503DEC5200A9'
- CONST Name 'Provider'
- CONST Class class_Attribute
- : Stereotype st_readonly::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_503DEB310216 // TOperationInternalDef
- ;
- : Target WL 'ME_498036AD03AB' '490838E10313.pas.ms.script' // InscStatusBarItemsProvider
- ;
- CONST "pm" true
-
-ref; // ME_503DEC5200A9 Provider
-
-: ME_503DECB70334
- CONST UID '503DECB70334'
- CONST Name 'f_Provider'
- CONST Class class_Attribute
- %SUMMARY 'InscStatusBarItemsProvider' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_503DEB310216 // TOperationInternalDef
- ;
- : Target WL 'ME_46A608F00301' '4AB0C3C60310.pas.ms.script' // Pointer
- ;
-
-ref; // ME_503DECB70334 f_Provider
-
-FORWARD ME_503DFE350045
-
-: ME_503DFE4901D4
- CONST Name 'aDef'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4980350B00FA' '490838E10313.pas.ms.script' // InscStatusBarItemDef
- ;
-
-ref; // ME_503DFE4901D4 aDef
-
-: ME_503DFE4901FA
- CONST Name 'aProvider'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_498036AD03AB' '490838E10313.pas.ms.script' // InscStatusBarItemsProvider
- ;
-
-ref; // ME_503DFE4901FA aProvider
-
-: ME_503DFE3D024E
- CONST UID '503DFE3D024E'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_503DFE350045 // Create
- ;
- : Parameters
-   Seq: ( ME_503DFE4901D4 // aDef
- ME_503DFE4901FA // aProvider
- )
- ; // Parameters
-
-ref; // ME_503DFE3D024E DoIt
-
-: ME_503DFE350045
- CONST UID '503DFE350045'
- CONST Name 'Create'
- CONST Class class_Class
- : Stereotype st_Constructor ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_503DEB310216 // TOperationInternalDef
- ;
- : Operations
-   Seq: ( ME_503DFE3D024E // DoIt
- )
- ; // Operations
-
-ref; // ME_503DFE350045 Create
-
-: ME_479731C50290_ME_503DEB310216
- : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_479731C50290_ME_503DEB310216 Cleanup
-
-: ME_503DEB310216
- CONST UID '503DEB310216'
- CONST Name 'TOperationInternalDef'
- CONST Class class_Class
- : Stereotype st_SimpleClass ;
- CONST Kind kind_NormalClass
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- : Parent ME_4E15A08E030D // TnscStatusBar
- ;
- : Inherits
-   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- )
- ; // Inherits
- : Attributes
-   Seq: ( ME_503DEC330219 // Def
- ME_503DEC5200A9 // Provider
- ME_503DECB70334 // f_Provider
- )
- ; // Attributes
- : Operations
-   Seq: ( ME_503DFE350045 // Create
- )
- ; // Operations
- : Overridden
-   Seq: ( ME_479731C50290_ME_503DEB310216 // Cleanup
- )
- ; // Overridden
- CONST extprop:rc:SelfName 'OperationInternalDef'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_503DEB310216 TOperationInternalDef
-
-: ME_503DE730029F
- CONST UID '503DE730029F'
- CONST Name 'TnscStatusBarDock'
- CONST Class class_Class
- : Stereotype st_GuiControl ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4E15A08E030D // TnscStatusBar
- ;
- : Inherits
-   Seq: ( WL 'ME_5028DD12007F' '5028898902A2.pas.ms.script' // TDock97
- )
- ; // Inherits
- : Implements
-   Seq: ( WL 'ME_47D67714034A' '467823B7002C.pas.ms.script' // IafwAlwaysOnTopControl
- )
- ; // Implements
- CONST extprop:rc:SelfName 'StatusBarDock'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_503DE730029F TnscStatusBarDock
-
-: ME_503DE89502B5
- CONST UID '503DE89502B5'
- CONST Name 'f_Dock'
- CONST Class class_Attribute
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_4E15A08E030D // TnscStatusBar
- ;
- : Target ME_503DE730029F // TnscStatusBarDock
- ;
-
-ref; // ME_503DE89502B5 f_Dock
-
-: ME_503DE8E000AA
- CONST UID '503DE8E000AA'
- CONST Name 'f_Strings'
- CONST Class class_Attribute
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_4E15A08E030D // TnscStatusBar
- ;
- : Target WL 'ME_473D95DC03D3' '467823B7002C.pas.ms.script' // TafwStatusInfo
- ;
-
-ref; // ME_503DE8E000AA f_Strings
-
-: ME_503DE909017D
- CONST UID '503DE909017D'
- CONST Name 'f_Visible'
- CONST Class class_Attribute
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_4E15A08E030D // TnscStatusBar
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_503DE909017D f_Visible
-
-: ME_503DE91F01DC
- CONST UID '503DE91F01DC'
- CONST Name 'f_Timer'
- CONST Class class_Attribute
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_4E15A08E030D // TnscStatusBar
- ;
- : Target WL 'ME_48C7C96E0135' '4799D29F033F.pas.ms.script' // TTimer
- ;
-
-ref; // ME_503DE91F01DC f_Timer
-
-: ME_503DE94F01AC
- CONST UID '503DE94F01AC'
- CONST Name 'f_OperationsList'
- CONST Class class_Attribute
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_4E15A08E030D // TnscStatusBar
- ;
- : Target WL 'ME_4CE521C80107' '4A6D65B9022A.pas.ms.script' // Tl3ProtoObjectRefList
- ;
-
-ref; // ME_503DE94F01AC f_OperationsList
-
-: ME_503DE97A01F2
- CONST UID '503DE97A01F2'
- CONST Name 'f_Form'
- CONST Class class_Attribute
- %SUMMARY 'IafwMainForm' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_4E15A08E030D // TnscStatusBar
- ;
- : Target WL 'ME_46A608F00301' '4AB0C3C60310.pas.ms.script' // Pointer
- ;
-
-ref; // ME_503DE97A01F2 f_Form
-
-: ME_50477A7203DB
- CONST UID '50477A7203DB'
- CONST Name 'f_InAdjustSizeForPanels'
- CONST Class class_Attribute
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_4E15A08E030D // TnscStatusBar
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_50477A7203DB f_InAdjustSizeForPanels
-
-: ME_5049B38503C0
- CONST UID '5049B38503C0'
- CONST Name 'f_UpdateStringsTimer'
- CONST Class class_Attribute
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_4E15A08E030D // TnscStatusBar
- ;
- : Target WL 'ME_48C7C96E0135' '4799D29F033F.pas.ms.script' // TTimer
- ;
-
-ref; // ME_5049B38503C0 f_UpdateStringsTimer
-
-: ME_505C55130356
- CONST UID '505C55130356'
- CONST Name 'f_GroupIndex'
- CONST Class class_Attribute
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_4E15A08E030D // TnscStatusBar
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_505C55130356 f_GroupIndex
-
-: ME_503DE99801D3
- CONST UID '503DE99801D3'
- CONST Name 'SetLink'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility ProtectedAccess
- CONST Abstraction at_final
- : Parent ME_4E15A08E030D // TnscStatusBar
- ;
-
-ref; // ME_503DE99801D3 SetLink
-
-: ME_503DE9AA03AD
- CONST UID '503DE9AA03AD'
- CONST Name 'ReleaseLink'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility ProtectedAccess
- CONST Abstraction at_final
- : Parent ME_4E15A08E030D // TnscStatusBar
- ;
-
-ref; // ME_503DE9AA03AD ReleaseLink
-
-FORWARD ME_503DE9C60211
-
-: ME_5044A4050272
- CONST Name 'aStrings'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_473D95DC03D3' '467823B7002C.pas.ms.script' // TafwStatusInfo
- ;
-
-ref; // ME_5044A4050272 aStrings
-
-: ME_5044A405029C
- CONST Name 'aCheckActions'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_5044A405029C aCheckActions
-
-: ME_5049B6F60100
- CONST Name 'aDelayed'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_5049B6F60100 aDelayed
-
-: ME_503DE9CF0309
- CONST UID '503DE9CF0309'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_503DE9C60211 // DoUpdateStrings
- ;
- : Parameters
-   Seq: ( ME_5044A4050272 // aStrings
- ME_5044A405029C // aCheckActions
- ME_5049B6F60100 // aDelayed
- )
- ; // Parameters
-
-ref; // ME_503DE9CF0309 DoIt
-
-: ME_503DE9C60211
- CONST UID '503DE9C60211'
- CONST Name 'DoUpdateStrings'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility ProtectedAccess
- CONST Abstraction at_final
- : Parent ME_4E15A08E030D // TnscStatusBar
- ;
- : Operations
-   Seq: ( ME_503DE9CF0309 // DoIt
- )
- ; // Operations
-
-ref; // ME_503DE9C60211 DoUpdateStrings
-
-: ME_503DEA120182
- CONST UID '503DEA120182'
- CONST Name 'TimerProc'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility ProtectedAccess
- CONST Abstraction at_final
- : Parent ME_4E15A08E030D // TnscStatusBar
- ;
- : Inherits
-   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
- )
- ; // Inherits
-
-ref; // ME_503DEA120182 TimerProc
-
-: ME_5049B3BE0205
- CONST UID '5049B3BE0205'
- CONST Name 'FireUpUpdateStringsTimer'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility ProtectedAccess
- CONST Abstraction at_final
- : Parent ME_4E15A08E030D // TnscStatusBar
- ;
-
-ref; // ME_5049B3BE0205 FireUpUpdateStringsTimer
-
-: ME_5049B3DB0227
- CONST UID '5049B3DB0227'
- CONST Name 'UpdateStringsTimerProc'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility ProtectedAccess
- CONST Abstraction at_final
- : Parent ME_4E15A08E030D // TnscStatusBar
- ;
- : Inherits
-   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
- )
- ; // Inherits
-
-ref; // ME_5049B3DB0227 UpdateStringsTimerProc
-
-FORWARD ME_504F30D900F7
-
-: ME_504F30F40351
- CONST UID '504F30F40351'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_504F30D900F7 // AllVisiblePanelsText
- ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
-
-ref; // ME_504F30F40351 DoIt
-
-: ME_504F30D900F7
- CONST UID '504F30D900F7'
- CONST Name 'AllVisiblePanelsText'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4E15A08E030D // TnscStatusBar
- ;
- : Operations
-   Seq: ( ME_504F30F40351 // DoIt
- )
- ; // Operations
-
-ref; // ME_504F30D900F7 AllVisiblePanelsText
-
-: ME_575516E4010D
- CONST UID '575516E4010D'
- CONST Name 'InitPanels'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4E15A08E030D // TnscStatusBar
- ;
-
-ref; // ME_575516E4010D InitPanels
-
-: ME_504F1E040200
- CONST Name 'Msg'
- CONST Class class_Parameter
- : Stereotype st_inout ;
- : Target WL 'ME_504F1A2302CE' '476F78840219.pas.ms.script' // TWMGetText
- ;
-
-ref; // ME_504F1E040200 Msg
-
-: ME_504F1A870252
- CONST UID '504F1A870252'
- CONST Name 'WMGetText'
- CONST Class class_Operation
- : Stereotype st_message::Operation ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4E15A08E030D // TnscStatusBar
- ;
- : Parameters
-   Seq: ( ME_504F1E040200 // Msg
- )
- ; // Parameters
- CONST "Message ID" 'WM_GETTEXT'
-
-ref; // ME_504F1A870252 WMGetText
-
-: ME_504F1E340367
- CONST Name 'Msg'
- CONST Class class_Parameter
- : Stereotype st_inout ;
- : Target WL 'ME_504F1A3900B2' '476F78840219.pas.ms.script' // TWMGetTextLength
- ;
-
-ref; // ME_504F1E340367 Msg
-
-: ME_504F1E0F03AE
- CONST UID '504F1E0F03AE'
- CONST Name 'WMGetTextLength'
- CONST Class class_Operation
- : Stereotype st_message::Operation ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4E15A08E030D // TnscStatusBar
- ;
- : Parameters
-   Seq: ( ME_504F1E340367 // Msg
- )
- ; // Parameters
- CONST "Message ID" 'WM_GETTEXTLENGTH'
-
-ref; // ME_504F1E0F03AE WMGetTextLength
-
-: ME_503DF8F0018A
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4E15A08E030D // TnscStatusBar
- ;
- : Target WL 'ME_4ADEE49C02DF' '4AB0C3C60310.pas.ms.script' // Supports
- ;
-
-ref; // ME_503DF8F0018A 
-
-: ME_503DF9900351
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4E15A08E030D // TnscStatusBar
- ;
- : Target WL 'ME_477515240332' '47750CE700D0.pas.ms.script' // Tafw
- ;
-
-ref; // ME_503DF9900351 
-
-: ME_503DFA0D0169
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4E15A08E030D // TnscStatusBar
- ;
- : Target WL 'ME_502CD8FA02E1' '5028898902A2.pas.ms.script' // Ttb97GraphicControl
- ;
-
-ref; // ME_503DFA0D0169 
-
-: ME_503DFAD80384
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4E15A08E030D // TnscStatusBar
- ;
- : Target WL 'ME_4AD5DBBD0147' '4AADF9450143.pas.ms.script' // TvcmBaseMenuManagerPrim
- ;
-
-ref; // ME_503DFAD80384 
-
-: ME_503DFB4C00B2
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4E15A08E030D // TnscStatusBar
- ;
- : Target WL 'ME_47E7626B0083' '4799D29F033F.pas.ms.script' // TCustomAction
- ;
-
-ref; // ME_503DFB4C00B2 
-
-: ME_503DFBDA00BB
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4E15A08E030D // TnscStatusBar
- ;
- : Target WL 'ME_46A611BA02F3' '55C4AEC801CA.pas.ms.script' // TFontStyle
- ;
-
-ref; // ME_503DFBDA00BB 
-
-: ME_503DFCB001D5
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4E15A08E030D // TnscStatusBar
- ;
- : Target WL 'ME_4AA936DC0154' '47D0E1500033.pas.ms.script' // vcmDispatcher
- ;
-
-ref; // ME_503DFCB001D5 
-
-: ME_503DFD0803D0
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4E15A08E030D // TnscStatusBar
- ;
- : Target WL 'ME_47A066980016' '537B83AD01F0.pas.ms.script' // l3MinMax
- ;
-
-ref; // ME_503DFD0803D0 
-
-: ME_503DFDB0022A
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4E15A08E030D // TnscStatusBar
- ;
- : Target WL 'ME_503DFD9B0044' '47913B47006E.pas.ms.script' // l3CStringArrayEmpty
- ;
-
-ref; // ME_503DFDB0022A 
-
-: ME_503DFEFB00E6
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4E15A08E030D // TnscStatusBar
- ;
- : Target WL 'ME_4ADEE4C90303' '47BB24D30205.pas.ms.script' // l3IEQ
- ;
-
-ref; // ME_503DFEFB00E6 
-
-: ME_504F1A610298
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4E15A08E030D // TnscStatusBar
- ;
- : Target WL 'ME_504F1A2302CE' '476F78840219.pas.ms.script' // TWMGetText
- ;
-
-ref; // ME_504F1A610298 
-
-: ME_504F1A680300
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4E15A08E030D // TnscStatusBar
- ;
- : Target WL 'ME_504F1A3900B2' '476F78840219.pas.ms.script' // TWMGetTextLength
- ;
-
-ref; // ME_504F1A680300 
-
-: ME_504F1E8B038A
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4E15A08E030D // TnscStatusBar
- ;
- : Target WL 'ME_4ACF4D6E03B5' '54B90AC6014B.pas.ms.script' // l3Str
- ;
-
-ref; // ME_504F1E8B038A 
-
-FORWARD ME_5058B67D0085
-
-: ME_5060100C03E6
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4E15A08E030D // TnscStatusBar
- ;
- : Target ME_5058B67D0085 // TnscSizeGripPanel
- ;
-
-ref; // ME_5060100C03E6 
-
-FORWARD ME_503DE6F30027
-
-: ME_5060101003AA
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4E15A08E030D // TnscStatusBar
- ;
- : Target ME_503DE6F30027 // TnscStatusBarButton
- ;
-
-ref; // ME_5060101003AA 
-
-FORWARD ME_503DEACA03BB
-
-: ME_506010160165
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4E15A08E030D // TnscStatusBar
- ;
- : Target ME_503DEACA03BB // TnscStatusBarPanel
- ;
-
-ref; // ME_506010160165 
-
-FORWARD ME_5058B74F01A1
-
-: ME_50601018029A
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4E15A08E030D // TnscStatusBar
- ;
- : Target ME_5058B74F01A1 // TnscStatusBarSep
- ;
-
-ref; // ME_50601018029A 
-
-: ME_50602F78001B
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4E15A08E030D // TnscStatusBar
- ;
- : Target WL 'ME_4F69EF8C027C' '4C43E8750153.pas.ms.script' // TCustomToolbarButton97
- ;
-
-ref; // ME_50602F78001B 
-
-: ME_50603CD901CF
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4E15A08E030D // TnscStatusBar
- ;
- : Target WL 'ME_505DA91D017B' '505DA8FC03CF.pas.ms.script' // InscStatusBarItem
- ;
-
-ref; // ME_50603CD901CF 
-
-: ME_473D95CA02B5_ME_4E15A08E030D
- : Original WL 'ME_473D95CA02B5' '467823B7002C.pas.ms.script' // UpdateStrings
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_473D95CA02B5_ME_4E15A08E030D UpdateStrings
-
-: ME_498036D4036F_ME_4E15A08E030D
- : Original WL 'ME_498036D4036F' '490838E10313.pas.ms.script' // RegisterProvider
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_498036D4036F_ME_4E15A08E030D RegisterProvider
-
-: ME_498036E00030_ME_4E15A08E030D
- : Original WL 'ME_498036E00030' '490838E10313.pas.ms.script' // UnregisterProvider
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_498036E00030_ME_4E15A08E030D UnregisterProvider
-
-: ME_479731C50290_ME_4E15A08E030D
- : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_479731C50290_ME_4E15A08E030D Cleanup
-
-: ME_47D1602000C6_ME_4E15A08E030D
- : Original WL 'ME_47D1602000C6' '4AB0997B00A2.pas.ms.script' // Create
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_47D1602000C6_ME_4E15A08E030D Create
-
-: ME_4A97E78202FC_ME_4E15A08E030D
- : Original WL 'ME_4A97E78202FC' '4799D29F033F.pas.ms.script' // SetParent
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4A97E78202FC_ME_4E15A08E030D SetParent
-
-: ME_4F2A599E0283_ME_4E15A08E030D
- : Original WL 'ME_4F2A599E0283' '4799D29F033F.pas.ms.script' // SetBounds
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4F2A599E0283_ME_4E15A08E030D SetBounds
-
-: ME_503DE79F02BA_ME_4E15A08E030D
- : Original WL 'ME_503DE79F02BA' '5028887002FD.pas.ms.script' // IsGToolbarSizeNeeded
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_503DE79F02BA_ME_4E15A08E030D IsGToolbarSizeNeeded
-
-: ME_5058B29A007C_ME_4E15A08E030D
- : Original WL 'ME_5058B29A007C' '5028887002FD.pas.ms.script' // AdjustSizeForPanels
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5058B29A007C_ME_4E15A08E030D AdjustSizeForPanels
-
-: ME_4E15A08E030D
- CONST UID '4E15A08E030D'
- CONST Name 'TnscStatusBar'
- CONST Class class_Class
- : Stereotype st_GuiControl ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_49871D5103B9 // StatusBar
- ;
- : Inherits
-   Seq: ( WL 'ME_502888EA0114' '5028887002FD.pas.ms.script' // TCustomToolbar97
- )
- ; // Inherits
- : Implements
-   Seq: ( WL 'ME_473D95A90159' '467823B7002C.pas.ms.script' // IafwStatusBar
- WL 'ME_498036CB01D2' '490838E10313.pas.ms.script' // InscStatusBarItemsVisualizer
- )
- ; // Implements
- : Attributes
-   Seq: ( ME_503DE89502B5 // f_Dock
- ME_503DE8E000AA // f_Strings
- ME_503DE909017D // f_Visible
- ME_503DE91F01DC // f_Timer
- ME_503DE94F01AC // f_OperationsList
- ME_503DE97A01F2 // f_Form
- ME_50477A7203DB // f_InAdjustSizeForPanels
- ME_5049B38503C0 // f_UpdateStringsTimer
- ME_505C55130356 // f_GroupIndex
- )
- ; // Attributes
- : Operations
-   Seq: ( ME_503DE99801D3 // SetLink
- ME_503DE9AA03AD // ReleaseLink
- ME_503DE9C60211 // DoUpdateStrings
- ME_503DEA120182 // TimerProc
- ME_5049B3BE0205 // FireUpUpdateStringsTimer
- ME_5049B3DB0227 // UpdateStringsTimerProc
- ME_504F30D900F7 // AllVisiblePanelsText
- ME_575516E4010D // InitPanels
- ME_504F1A870252 // WMGetText
- ME_504F1E0F03AE // WMGetTextLength
- )
- ; // Operations
- : Implemented
-   Seq: ( ME_473D95CA02B5_ME_4E15A08E030D // UpdateStrings
- ME_498036D4036F_ME_4E15A08E030D // RegisterProvider
- ME_498036E00030_ME_4E15A08E030D // UnregisterProvider
- )
- ; // Implemented
- : Overridden
-   Seq: ( ME_479731C50290_ME_4E15A08E030D // Cleanup
- ME_47D1602000C6_ME_4E15A08E030D // Create
- ME_4A97E78202FC_ME_4E15A08E030D // SetParent
- ME_4F2A599E0283_ME_4E15A08E030D // SetBounds
- ME_503DE79F02BA_ME_4E15A08E030D // IsGToolbarSizeNeeded
- ME_5058B29A007C_ME_4E15A08E030D // AdjustSizeForPanels
- )
- ; // Overridden
- : Children
-   Seq: ( ME_503DEB310216 // TOperationInternalDef
- ME_503DE730029F // TnscStatusBarDock
- )
- ; // Children
- : Dependencies
-   Seq: ( ME_503DF8F0018A // Supports
- ME_503DF9900351 // Tafw
- ME_503DFA0D0169 // Ttb97GraphicControl
- ME_503DFAD80384 // TvcmBaseMenuManagerPrim
- ME_503DFB4C00B2 // TCustomAction
- ME_503DFBDA00BB // TFontStyle
- ME_503DFCB001D5 // vcmDispatcher
- ME_503DFD0803D0 // l3MinMax
- ME_503DFDB0022A // l3CStringArrayEmpty
- ME_503DFEFB00E6 // l3IEQ
- ME_504F1A610298 // TWMGetText
- ME_504F1A680300 // TWMGetTextLength
- ME_504F1E8B038A // l3Str
- ME_5060100C03E6 // TnscSizeGripPanel
- ME_5060101003AA // TnscStatusBarButton
- ME_506010160165 // TnscStatusBarPanel
- ME_50601018029A // TnscStatusBarSep
- ME_50602F78001B // TCustomToolbarButton97
- ME_50603CD901CF // InscStatusBarItem
- )
- ; // Dependencies
- CONST "author" 'Костицын М.Ю.'
- CONST "register in scripts" true
- CONST "started" '14.08.12'
- CONST intf.pas:Path 'common\components\gui\Garant\Nemesis\nscStatusBar.pas'
- CONST extprop:rc:SelfName 'StatusBar'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'nscStatusBar'
-
-ref; // ME_4E15A08E030D TnscStatusBar
 
 FORWARD ME_4FEC3C34003F
 
@@ -906,7 +31,7 @@ FORWARD ME_4FEC3C34003F
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4FEC3C34003F // TnscStatusBarItemDef
+ : Parent HWL ME_4FEC3C34003F // TnscStatusBarItemDef
  ;
  : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
  ;
@@ -920,7 +45,7 @@ ref; // ME_4FEC3F0F0322 f_ShowCaption
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4FEC3C34003F // TnscStatusBarItemDef
+ : Parent HWL ME_4FEC3C34003F // TnscStatusBarItemDef
  ;
  : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
  ;
@@ -934,7 +59,7 @@ ref; // ME_4FEC3F4A0347 f_Caption
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4FEC3C34003F // TnscStatusBarItemDef
+ : Parent HWL ME_4FEC3C34003F // TnscStatusBarItemDef
  ;
  : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
  ;
@@ -948,7 +73,7 @@ ref; // ME_4FEC3F64008C f_UseTooltip
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4FEC3C34003F // TnscStatusBarItemDef
+ : Parent HWL ME_4FEC3C34003F // TnscStatusBarItemDef
  ;
  : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
  ;
@@ -962,7 +87,7 @@ ref; // ME_4FEC3F860101 f_RequireAutoPopup
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4FEC3C34003F // TnscStatusBarItemDef
+ : Parent HWL ME_4FEC3C34003F // TnscStatusBarItemDef
  ;
  : Target WL 'ME_3DBFFDE101CA' '3DBFDB23006E.pas.ms.script' // unsigned long
  ;
@@ -976,7 +101,7 @@ ref; // ME_4FEC3FCD01D0 f_AutoPopupTimeout
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4FEC3C34003F // TnscStatusBarItemDef
+ : Parent HWL ME_4FEC3C34003F // TnscStatusBarItemDef
  ;
  : Target WL 'ME_498035FA00E9' '490838E10313.pas.ms.script' // TnscToolTipKind
  ;
@@ -990,7 +115,7 @@ ref; // ME_4FEC400A012F f_ToolTipKind
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4FEC3C34003F // TnscStatusBarItemDef
+ : Parent HWL ME_4FEC3C34003F // TnscStatusBarItemDef
  ;
  : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
  ;
@@ -1004,9 +129,9 @@ ref; // ME_4FEC54210207 f_Enabled
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4FEC3C34003F // TnscStatusBarItemDef
+ : Parent HWL ME_4FEC3C34003F // TnscStatusBarItemDef
  ;
- : Target ME_49871E3F01D0 // TnscStatusBarOperationDefsList
+ : Target HWL ME_49871E3F01D0 // TnscStatusBarOperationDefsList
  ;
 
 ref; // ME_506038EB01CD f_SubscribedList
@@ -1073,7 +198,7 @@ ref; // ME_4FEC5C8502D6 aToolTipKind
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4FEC3D23013F // Create
+ : Parent HWL ME_4FEC3D23013F // Create
  ;
  : Parameters
    Seq: ( ME_4FEC3D520137 // aShowCaption
@@ -1095,10 +220,10 @@ ref; // ME_4FEC3D2C02B2 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4FEC3C34003F // TnscStatusBarItemDef
+ : Parent HWL ME_4FEC3C34003F // TnscStatusBarItemDef
  ;
  : Operations
-   Seq: ( ME_4FEC3D2C02B2 // DoIt
+   Seq: ( HWL ME_4FEC3D2C02B2 // DoIt
  )
  ; // Operations
 
@@ -1112,10 +237,10 @@ ref; // ME_4FEC3D23013F Create
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4FEC3C34003F // TnscStatusBarItemDef
+ : Parent HWL ME_4FEC3C34003F // TnscStatusBarItemDef
  ;
  : Inherits
-   Seq: ( ME_4FEC3D23013F // Create
+   Seq: ( HWL ME_4FEC3D23013F // Create
  )
  ; // Inherits
 
@@ -1124,7 +249,7 @@ ref; // ME_4FEC3D9A0253 Make
 : ME_506039230134
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4FEC3C34003F // TnscStatusBarItemDef
+ : Parent HWL ME_4FEC3C34003F // TnscStatusBarItemDef
  ;
  : Target WL 'ME_4DFF098B00CC' '47913B47006E.pas.ms.script' // l3Free
  ;
@@ -1207,7 +332,7 @@ ref; // ME_479731C50290_ME_4FEC3C34003F Cleanup
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_49871D5103B9 // StatusBar
+ : Parent HWL ME_49871D5103B9 // StatusBar
  ;
  : Inherits
    Seq: ( WL 'ME_46780E690001' '47913B47006E.pas.ms.script' // Tl3CacheableBase
@@ -1218,19 +343,19 @@ ref; // ME_479731C50290_ME_4FEC3C34003F Cleanup
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_4FEC3F0F0322 // f_ShowCaption
- ME_4FEC3F4A0347 // f_Caption
- ME_4FEC3F64008C // f_UseTooltip
- ME_4FEC3F860101 // f_RequireAutoPopup
- ME_4FEC3FCD01D0 // f_AutoPopupTimeout
- ME_4FEC400A012F // f_ToolTipKind
- ME_4FEC54210207 // f_Enabled
- ME_506038EB01CD // f_SubscribedList
+   Seq: ( HWL ME_4FEC3F0F0322 // f_ShowCaption
+ HWL ME_4FEC3F4A0347 // f_Caption
+ HWL ME_4FEC3F64008C // f_UseTooltip
+ HWL ME_4FEC3F860101 // f_RequireAutoPopup
+ HWL ME_4FEC3FCD01D0 // f_AutoPopupTimeout
+ HWL ME_4FEC400A012F // f_ToolTipKind
+ HWL ME_4FEC54210207 // f_Enabled
+ HWL ME_506038EB01CD // f_SubscribedList
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_4FEC3D23013F // Create
- ME_4FEC3D9A0253 // Make
+   Seq: ( HWL ME_4FEC3D23013F // Create
+ HWL ME_4FEC3D9A0253 // Make
  )
  ; // Operations
  : Implemented
@@ -1270,7 +395,7 @@ FORWARD ME_4FEC3C5B007C
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4FEC3C5B007C // TnscStatusBarDelimiterDef
+ : Parent HWL ME_4FEC3C5B007C // TnscStatusBarDelimiterDef
  ;
  : Target WL 'ME_4FF314BE007F' '490838E10313.pas.ms.script' // TsbdSeparatorPos
  ;
@@ -1284,7 +409,7 @@ ref; // ME_4FF3275E0226 f_SeparatorPos
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4FEC3C5B007C // TnscStatusBarDelimiterDef
+ : Parent HWL ME_4FEC3C5B007C // TnscStatusBarDelimiterDef
  ;
  : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
  ;
@@ -1298,7 +423,7 @@ ref; // ME_4FF3277C03D5 f_SeparatorVisible
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4FEC3C5B007C // TnscStatusBarDelimiterDef
+ : Parent HWL ME_4FEC3C5B007C // TnscStatusBarDelimiterDef
  ;
  : Target WL 'ME_450A61050251' '3DBFDB23006E.pas.ms.script' // integer
  ;
@@ -1348,7 +473,7 @@ ref; // ME_4FF324EC0390 aWidth
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4FEC49660337 // Create
+ : Parent HWL ME_4FEC49660337 // Create
  ;
  : Parameters
    Seq: ( ME_4FF31C50019B // aSeparatorVisible
@@ -1367,10 +492,10 @@ ref; // ME_4FEC497001EF DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4FEC3C5B007C // TnscStatusBarDelimiterDef
+ : Parent HWL ME_4FEC3C5B007C // TnscStatusBarDelimiterDef
  ;
  : Operations
-   Seq: ( ME_4FEC497001EF // DoIt
+   Seq: ( HWL ME_4FEC497001EF // DoIt
  )
  ; // Operations
 
@@ -1384,10 +509,10 @@ ref; // ME_4FEC49660337 Create
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4FEC3C5B007C // TnscStatusBarDelimiterDef
+ : Parent HWL ME_4FEC3C5B007C // TnscStatusBarDelimiterDef
  ;
  : Inherits
-   Seq: ( ME_4FEC49660337 // Create
+   Seq: ( HWL ME_4FEC49660337 // Create
  )
  ; // Inherits
 
@@ -1422,10 +547,10 @@ ref; // ME_4FF3159402B4_ME_4FEC3C5B007C Width
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_49871D5103B9 // StatusBar
+ : Parent HWL ME_49871D5103B9 // StatusBar
  ;
  : Inherits
-   Seq: ( ME_4FEC3C34003F // TnscStatusBarItemDef
+   Seq: ( HWL ME_4FEC3C34003F // TnscStatusBarItemDef
  )
  ; // Inherits
  : Implements
@@ -1433,14 +558,14 @@ ref; // ME_4FF3159402B4_ME_4FEC3C5B007C Width
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_4FF3275E0226 // f_SeparatorPos
- ME_4FF3277C03D5 // f_SeparatorVisible
- ME_4FF3279603BB // f_Width
+   Seq: ( HWL ME_4FF3275E0226 // f_SeparatorPos
+ HWL ME_4FF3277C03D5 // f_SeparatorVisible
+ HWL ME_4FF3279603BB // f_Width
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_4FEC49660337 // Create
- ME_4FEC4982036E // Make
+   Seq: ( HWL ME_4FEC49660337 // Create
+ HWL ME_4FEC4982036E // Make
  )
  ; // Operations
  : Implemented
@@ -1466,7 +591,7 @@ FORWARD ME_49871E4F01AF
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_49871E4F01AF // TnscStatusBarOperationDef
+ : Parent HWL ME_49871E4F01AF // TnscStatusBarOperationDef
  ;
  : Target WL 'ME_4683D016009C' '467BAB7F021E.pas.ms.script' // TvcmOpSelector
  ;
@@ -1544,7 +669,7 @@ ref; // ME_4FEC5C7002A9 aToolTipKind
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4FEC4A26030E // Create
+ : Parent HWL ME_4FEC4A26030E // Create
  ;
  : Parameters
    Seq: ( ME_4FEC64C10123 // anOperation
@@ -1567,10 +692,10 @@ ref; // ME_4FEC4A3F0164 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_49871E4F01AF // TnscStatusBarOperationDef
+ : Parent HWL ME_49871E4F01AF // TnscStatusBarOperationDef
  ;
  : Operations
-   Seq: ( ME_4FEC4A3F0164 // DoIt
+   Seq: ( HWL ME_4FEC4A3F0164 // DoIt
  )
  ; // Operations
 
@@ -1584,10 +709,10 @@ ref; // ME_4FEC4A26030E Create
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_49871E4F01AF // TnscStatusBarOperationDef
+ : Parent HWL ME_49871E4F01AF // TnscStatusBarOperationDef
  ;
  : Inherits
-   Seq: ( ME_4FEC4A26030E // Create
+   Seq: ( HWL ME_4FEC4A26030E // Create
  )
  ; // Inherits
 
@@ -1664,7 +789,7 @@ ref; // ME_4FEC6E2D00F3 aToolTipKind
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4FEC5B7B00CE // MakeS
+ : Parent HWL ME_4FEC5B7B00CE // MakeS
  ;
  : Target WL 'ME_4FE9F428027C' '490838E10313.pas.ms.script' // InscStatusBarOperationDef
  ;
@@ -1689,10 +814,10 @@ ref; // ME_4FEC5BBA0070 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_49871E4F01AF // TnscStatusBarOperationDef
+ : Parent HWL ME_49871E4F01AF // TnscStatusBarOperationDef
  ;
  : Operations
-   Seq: ( ME_4FEC5BBA0070 // DoIt
+   Seq: ( HWL ME_4FEC5BBA0070 // DoIt
  )
  ; // Operations
  CONST "is static" true
@@ -1752,7 +877,7 @@ ref; // ME_4FF59E2F02BB aToolTipKind
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4FF59E080381 // MakeSDefaultCaption
+ : Parent HWL ME_4FF59E080381 // MakeSDefaultCaption
  ;
  : Target WL 'ME_4FE9F428027C' '490838E10313.pas.ms.script' // InscStatusBarOperationDef
  ;
@@ -1775,10 +900,10 @@ ref; // ME_4FF59E2D0301 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_49871E4F01AF // TnscStatusBarOperationDef
+ : Parent HWL ME_49871E4F01AF // TnscStatusBarOperationDef
  ;
  : Operations
-   Seq: ( ME_4FF59E2D0301 // DoIt
+   Seq: ( HWL ME_4FF59E2D0301 // DoIt
  )
  ; // Operations
  CONST "is static" true
@@ -1838,7 +963,7 @@ ref; // ME_4FFAFB2202B5 aToolTipKind
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4FFAFB0B03CC // MakeSNoCaption
+ : Parent HWL ME_4FFAFB0B03CC // MakeSNoCaption
  ;
  : Target WL 'ME_4FE9F428027C' '490838E10313.pas.ms.script' // InscStatusBarOperationDef
  ;
@@ -1861,10 +986,10 @@ ref; // ME_4FFAFB1F038C DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_49871E4F01AF // TnscStatusBarOperationDef
+ : Parent HWL ME_49871E4F01AF // TnscStatusBarOperationDef
  ;
  : Operations
-   Seq: ( ME_4FFAFB1F038C // DoIt
+   Seq: ( HWL ME_4FFAFB1F038C // DoIt
  )
  ; // Operations
  CONST "is static" true
@@ -1874,7 +999,7 @@ ref; // ME_4FFAFB0B03CC MakeSNoCaption
 : ME_4FEC6C0702BD
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_49871E4F01AF // TnscStatusBarOperationDef
+ : Parent HWL ME_49871E4F01AF // TnscStatusBarOperationDef
  ;
  : Target WL 'ME_4AC0B9CF018A' '47D0E1500033.pas.ms.script' // vcmCStr
  ;
@@ -1896,10 +1021,10 @@ ref; // ME_4FE9F49C0299_ME_49871E4F01AF Operation
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_49871D5103B9 // StatusBar
+ : Parent HWL ME_49871D5103B9 // StatusBar
  ;
  : Inherits
-   Seq: ( ME_4FEC3C34003F // TnscStatusBarItemDef
+   Seq: ( HWL ME_4FEC3C34003F // TnscStatusBarItemDef
  )
  ; // Inherits
  : Implements
@@ -1907,15 +1032,15 @@ ref; // ME_4FE9F49C0299_ME_49871E4F01AF Operation
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_4FEC4A090334 // f_Operation
+   Seq: ( HWL ME_4FEC4A090334 // f_Operation
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_4FEC4A26030E // Create
- ME_4FEC4A6C02E8 // Make
- ME_4FEC5B7B00CE // MakeS
- ME_4FF59E080381 // MakeSDefaultCaption
- ME_4FFAFB0B03CC // MakeSNoCaption
+   Seq: ( HWL ME_4FEC4A26030E // Create
+ HWL ME_4FEC4A6C02E8 // Make
+ HWL ME_4FEC5B7B00CE // MakeS
+ HWL ME_4FF59E080381 // MakeSDefaultCaption
+ HWL ME_4FFAFB0B03CC // MakeSNoCaption
  )
  ; // Operations
  : Implemented
@@ -1934,155 +1059,6 @@ ref; // ME_4FE9F49C0299_ME_49871E4F01AF Operation
 
 ref; // ME_49871E4F01AF TnscStatusBarOperationDef
 
-: ME_53CE39CD0045_ME_5058B67D0085
- : Original WL 'ME_53CE39CD0045' '4C43E8750153.pas.ms.script' // GetFormToResize
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_53CE39CD0045_ME_5058B67D0085 GetFormToResize
-
-: ME_5058B67D0085
- CONST UID '5058B67D0085'
- CONST Name 'TnscSizeGripPanel'
- CONST Class class_Class
- : Stereotype st_GuiControl ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_49871D5103B9 // StatusBar
- ;
- : Inherits
-   Seq: ( WL 'ME_5058B6600074' '4C43E8750153.pas.ms.script' // TSizeGripPanel
- WL 'ME_505DA5E7038D' '505DA8FC03CF.pas.ms.script' // nscStatusBarItemNotification
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_53CE39CD0045_ME_5058B67D0085 // GetFormToResize
- )
- ; // Overridden
- CONST "register in scripts" true
- CONST intf.pas:Path 'common\components\gui\Garant\Nemesis\nscSizeGripPanel.pas'
- CONST extprop:rc:SelfName 'SizeGripPanel'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'nscSizeGripPanel'
-
-ref; // ME_5058B67D0085 TnscSizeGripPanel
-
-: ME_506028E800FD
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_503DE6F30027 // TnscStatusBarButton
- ;
- : Target WL 'ME_47E7626B0083' '4799D29F033F.pas.ms.script' // TCustomAction
- ;
-
-ref; // ME_506028E800FD 
-
-: ME_503DE82B0311_ME_503DE6F30027
- : Original WL 'ME_503DE82B0311' '4C43E8750153.pas.ms.script' // IsGtbToolbarButtonSizeNeeded
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_503DE82B0311_ME_503DE6F30027 IsGtbToolbarButtonSizeNeeded
-
-: ME_503E27CA010E_ME_503DE6F30027
- : Original WL 'ME_503E27CA010E' '4C43E8750153.pas.ms.script' // GetIsAutoCenter
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_503E27CA010E_ME_503DE6F30027 GetIsAutoCenter
-
-: ME_504779E00385_ME_503DE6F30027
- : Original WL 'ME_504779E00385' '4C43E8750153.pas.ms.script' // CalcSize
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_504779E00385_ME_503DE6F30027 CalcSize
-
-: ME_50477A430157_ME_503DE6F30027
- : Original WL 'ME_50477A430157' '4C43E8750153.pas.ms.script' // NeedAutoDown
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_50477A430157_ME_503DE6F30027 NeedAutoDown
-
-: ME_503DE6F30027
- CONST UID '503DE6F30027'
- CONST Name 'TnscStatusBarButton'
- CONST Class class_Class
- : Stereotype st_GuiControl ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_49871D5103B9 // StatusBar
- ;
- : Inherits
-   Seq: ( WL 'ME_4F69EF8C027C' '4C43E8750153.pas.ms.script' // TCustomToolbarButton97
- WL 'ME_505DA5E7038D' '505DA8FC03CF.pas.ms.script' // nscStatusBarItemNotification
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_503DE82B0311_ME_503DE6F30027 // IsGtbToolbarButtonSizeNeeded
- ME_503E27CA010E_ME_503DE6F30027 // GetIsAutoCenter
- ME_504779E00385_ME_503DE6F30027 // CalcSize
- ME_50477A430157_ME_503DE6F30027 // NeedAutoDown
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_506028E800FD // TCustomAction
- )
- ; // Dependencies
- CONST "need UC" true
- CONST "register in scripts" true
- CONST intf.pas:Path 'common\components\gui\Garant\Nemesis\nscStatusBarButton.pas'
- CONST extprop:rc:SelfName 'StatusBarButton'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'nscStatusBarButton'
-
-ref; // ME_503DE6F30027 TnscStatusBarButton
-
-: ME_503DEACA03BB
- CONST UID '503DEACA03BB'
- CONST Name 'TnscStatusBarPanel'
- CONST Class class_Class
- : Stereotype st_GuiControl ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_49871D5103B9 // StatusBar
- ;
- : Inherits
-   Seq: ( WL 'ME_503DEAA102E9' '4C43E8750153.pas.ms.script' // TCustomToolbarPanel97
- WL 'ME_505DA5E7038D' '505DA8FC03CF.pas.ms.script' // nscStatusBarItemNotification
- )
- ; // Inherits
- CONST "need UC" true
- CONST "register in scripts" true
- CONST intf.pas:Path 'common\components\gui\Garant\Nemesis\nscStatusBarPanel.pas'
- CONST extprop:rc:SelfName 'StatusBarPanel'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'nscStatusBarPanel'
-
-ref; // ME_503DEACA03BB TnscStatusBarPanel
-
-: ME_5058B74F01A1
- CONST UID '5058B74F01A1'
- CONST Name 'TnscStatusBarSep'
- CONST Class class_Class
- : Stereotype st_GuiControl ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_49871D5103B9 // StatusBar
- ;
- : Inherits
-   Seq: ( WL 'ME_5028A2FC03A5' '5028887002FD.pas.ms.script' // TToolbarSep97
- WL 'ME_505DA5E7038D' '505DA8FC03CF.pas.ms.script' // nscStatusBarItemNotification
- )
- ; // Inherits
- CONST "register in scripts" true
- CONST intf.pas:Path 'common\components\gui\Garant\Nemesis\nscStatusBarSep.pas'
- CONST extprop:rc:SelfName 'StatusBarSep'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'nscStatusBarSep'
-
-ref; // ME_5058B74F01A1 TnscStatusBarSep
-
 : ME_49871D5103B9
  CONST UID '49871D5103B9'
  CONST Name 'StatusBar'
@@ -2094,15 +1070,15 @@ ref; // ME_5058B74F01A1 TnscStatusBarSep
  : Parent WL 'ME_490838AA02D0' '490838AA02D0.pas.ms.script' // Nemesis
  ;
  : Children
-   Seq: ( ME_49871E3F01D0 // TnscStatusBarOperationDefsList
- ME_4E15A08E030D // TnscStatusBar
- ME_4FEC3C34003F // TnscStatusBarItemDef
- ME_4FEC3C5B007C // TnscStatusBarDelimiterDef
- ME_49871E4F01AF // TnscStatusBarOperationDef
- ME_5058B67D0085 // TnscSizeGripPanel
- ME_503DE6F30027 // TnscStatusBarButton
- ME_503DEACA03BB // TnscStatusBarPanel
- ME_5058B74F01A1 // TnscStatusBarSep
+   Seq: ( HWL ME_49871E3F01D0 // TnscStatusBarOperationDefsList
+ WL 'ME_4E15A08E030D' '4E15A08E030D.pas.ms.script' // TnscStatusBar
+ HWL ME_4FEC3C34003F // TnscStatusBarItemDef
+ HWL ME_4FEC3C5B007C // TnscStatusBarDelimiterDef
+ HWL ME_49871E4F01AF // TnscStatusBarOperationDef
+ WL 'ME_5058B67D0085' '5058B67D0085.pas.ms.script' // TnscSizeGripPanel
+ WL 'ME_503DE6F30027' '503DE6F30027.pas.ms.script' // TnscStatusBarButton
+ WL 'ME_503DEACA03BB' '503DEACA03BB.pas.ms.script' // TnscStatusBarPanel
+ WL 'ME_5058B74F01A1' '5058B74F01A1.pas.ms.script' // TnscStatusBarSep
  )
  ; // Children
  : Depends

@@ -14,7 +14,7 @@ FORWARD ME_4F6096D500C3
  %SUMMARY 'Возвращает текщее состояние DDSupport'#13#10'Формат: '#13#10'{code}'#13#10'DDSupport:GetState'#13#10'{code}' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4F6096D500C3 // kwVTControlsPack
+ : Parent HWL ME_4F6096D500C3 // kwVTControlsPack
  ;
  : Target WL 'ME_552E443E0209' '47F485150151.pas.ms.script' // TDragDataState
  ;
@@ -24,7 +24,7 @@ ref; // ME_552E449000E2 DDSupport_GetState
 : ME_552E446F01A5
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4F6096D500C3 // kwVTControlsPack
+ : Parent HWL ME_4F6096D500C3 // kwVTControlsPack
  ;
  : Target WL 'ME_4F0C0B870141' '47F485150151.pas.ms.script' // TDragDataSupport
  ;
@@ -34,7 +34,7 @@ ref; // ME_552E446F01A5
 : ME_552E4473008D
  CONST Class class_Dependency
  : Stereotype st_injects::Dependency ;
- : Parent ME_4F6096D500C3 // kwVTControlsPack
+ : Parent HWL ME_4F6096D500C3 // kwVTControlsPack
  ;
  : Target WL 'ME_4F0C0B870141' '47F485150151.pas.ms.script' // TDragDataSupport
  ;
@@ -49,10 +49,10 @@ ref; // ME_552E4473008D
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4F6094D80196 // vtControlsFromStackWords
+ : Parent HWL ME_4F6094D80196 // vtControlsFromStackWords
  ;
  : Operations
-   Seq: ( ME_552E449000E2 // DDSupport_GetState
+   Seq: ( HWL ME_552E449000E2 // DDSupport_GetState
  )
  ; // Operations
  : Dependencies
@@ -85,9 +85,9 @@ ref; // ME_552E3F9C03AA anIndex
  %SUMMARY '*Описание:* Помещает в стек панель статусбара по номеру.'#13#10'Формат:'#13#10'{code}'#13#10'anIndex aStatusControl pop:vtStatusBar:GetPanel'#13#10'{code}'#13#10'anIndex - номер панели.'#13#10'aStatusControl - контрол статус-бар.'#13#10'В стек помещается объект класса TvtStatusPanel' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_552E3E7E023A // StatusBarWordsPack
+ : Parent HWL ME_552E3E7E023A // StatusBarWordsPack
  ;
- : Target WL 'ME_53F7021D0257' '4E159FE900E2.pas.ms.script' // TvtStatusPanel
+ : Target WL 'ME_53F7021D0257' '4E15A00502A3.pas.ms.script' // TvtStatusPanel
  ;
  : Parameters
    Seq: ( ME_552E3F9C03AA // anIndex
@@ -105,14 +105,14 @@ ref; // ME_552E3EE00284 GetPanel
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4F6094D80196 // vtControlsFromStackWords
+ : Parent HWL ME_4F6094D80196 // vtControlsFromStackWords
  ;
  : Inherits
-   Seq: ( WL 'ME_4E15A00502A3' '4E159FE900E2.pas.ms.script' // TvtStatusBar
+   Seq: ( WL 'ME_4E15A00502A3' '4E15A00502A3.pas.ms.script' // TvtStatusBar
  )
  ; // Inherits
  : Operations
-   Seq: ( ME_552E3EE00284 // GetPanel
+   Seq: ( HWL ME_552E3EE00284 // GetPanel
  )
  ; // Operations
  CONST "ifndef" 'NoScripts'
@@ -130,7 +130,7 @@ FORWARD ME_552E403E0038
  %SUMMARY '*Описание:* Возвращает текст панели'#13#10'*Формат:* '#13#10'{code}'#13#10'aPanel pop:vtStatusPanel:GetText'#13#10'{code}'#13#10'aPanel - объект класса TvtStatusPanel, который можно получить с помощью pop:vtStatusPanel:GetText' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_552E403E0038 // StatusPanelWordsPack
+ : Parent HWL ME_552E403E0038 // StatusPanelWordsPack
  ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
@@ -146,14 +146,14 @@ ref; // ME_552E40740003 GetText
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4F6094D80196 // vtControlsFromStackWords
+ : Parent HWL ME_4F6094D80196 // vtControlsFromStackWords
  ;
  : Inherits
-   Seq: ( WL 'ME_53F7021D0257' '4E159FE900E2.pas.ms.script' // TvtStatusPanel
+   Seq: ( WL 'ME_53F7021D0257' '4E15A00502A3.pas.ms.script' // TvtStatusPanel
  )
  ; // Inherits
  : Operations
-   Seq: ( ME_552E40740003 // GetText
+   Seq: ( HWL ME_552E40740003 // GetText
  )
  ; // Operations
  CONST "ifndef" 'NoScripts'
@@ -171,7 +171,7 @@ FORWARD ME_552E413F010E
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  CONST LinkType lt_agr
- : Parent ME_552E413F010E // SpinEditWordsPack
+ : Parent HWL ME_552E413F010E // SpinEditWordsPack
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -186,14 +186,14 @@ ref; // ME_552E41740211 Value
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4F6094D80196 // vtControlsFromStackWords
+ : Parent HWL ME_4F6094D80196 // vtControlsFromStackWords
  ;
  : Inherits
-   Seq: ( WL 'ME_4C52C0600246' '4C52C05501D8.pas.ms.script' // TvtSpinEdit
+   Seq: ( WL 'ME_4C52C0600246' '4C52C0600246.pas.ms.script' // TvtSpinEdit
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_552E41740211 // Value
+   Seq: ( HWL ME_552E41740211 // Value
  )
  ; // Attributes
  CONST "ifndef" 'NoScripts'
@@ -211,7 +211,7 @@ FORWARD ME_552E47C10290
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  CONST LinkType lt_agr
- : Parent ME_552E47C10290 // ListerWordsPack
+ : Parent HWL ME_552E47C10290 // ListerWordsPack
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -236,7 +236,7 @@ ref; // ME_552E4841002D aFinish
  %SUMMARY '*Формат:* '#13#10'{code}'#13#10'aFinishID aLister pop:Lister:SelectWithShift'#13#10'{code} '#13#10'*Описание:* Выделяет несколько элементов от текущего до aFinishID у контролов TvtCustomListner и их потомков (TvtOutliner и т.п.). Полный аналог выделения с пощью Shift мышью.' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_552E47C10290 // ListerWordsPack
+ : Parent HWL ME_552E47C10290 // ListerWordsPack
  ;
  : Parameters
    Seq: ( ME_552E4841002D // aFinish
@@ -261,7 +261,7 @@ ref; // ME_552E486601BC anIndex
  : Stereotype st_keyword::Operation ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_552E47C10290 // ListerWordsPack
+ : Parent HWL ME_552E47C10290 // ListerWordsPack
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -279,7 +279,7 @@ ref; // ME_552E485701AB GetSelected
  : Stereotype st_keyword::Operation ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_552E47C10290 // ListerWordsPack
+ : Parent HWL ME_552E47C10290 // ListerWordsPack
  ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
@@ -289,9 +289,9 @@ ref; // ME_552E48AF00FD FooterCaption
 : ME_552E47E403B6
  CONST Class class_Dependency
  : Stereotype st_friend::Dependency ;
- : Parent ME_552E47C10290 // ListerWordsPack
+ : Parent HWL ME_552E47C10290 // ListerWordsPack
  ;
- : Target WL 'ME_515062D301C4' '4B97E7FD006C.pas.ms.script' // TvtCustomLister
+ : Target WL 'ME_515062D301C4' '4CFFE3470249.pas.ms.script' // TvtCustomLister
  ;
 
 ref; // ME_552E47E403B6 
@@ -310,20 +310,20 @@ ref; // ME_46A5AA4B003C_ME_552E47C10290 Invalidate
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4F6094D80196 // vtControlsFromStackWords
+ : Parent HWL ME_4F6094D80196 // vtControlsFromStackWords
  ;
  : Inherits
-   Seq: ( WL 'ME_515062D301C4' '4B97E7FD006C.pas.ms.script' // TvtCustomLister
+   Seq: ( WL 'ME_515062D301C4' '4CFFE3470249.pas.ms.script' // TvtCustomLister
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_552E48810254 // Current
+   Seq: ( HWL ME_552E48810254 // Current
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_552E482B0030 // SelectWithShift
- ME_552E485701AB // GetSelected
- ME_552E48AF00FD // FooterCaption
+   Seq: ( HWL ME_552E482B0030 // SelectWithShift
+ HWL ME_552E485701AB // GetSelected
+ HWL ME_552E48AF00FD // FooterCaption
  )
  ; // Operations
  : Implemented
@@ -357,7 +357,7 @@ ref; // ME_552E499F012A aCaption
  : Stereotype st_keyword::Operation ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_552E49070307 // PageControlWordsPack
+ : Parent HWL ME_552E49070307 // PageControlWordsPack
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -384,7 +384,7 @@ ref; // ME_552E49C6034B anIndex
  : Stereotype st_keyword::Operation ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_552E49070307 // PageControlWordsPack
+ : Parent HWL ME_552E49070307 // PageControlWordsPack
  ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
@@ -411,7 +411,7 @@ ref; // ME_552E4A1C0261 anIndex
  : Stereotype st_keyword::Operation ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_552E49070307 // PageControlWordsPack
+ : Parent HWL ME_552E49070307 // PageControlWordsPack
  ;
  : Target WL 'ME_499ABF9802AC' '499ABF4F02A1.pas.ms.script' // TElTabSheet
  ;
@@ -429,7 +429,7 @@ ref; // ME_552E49E00306 PageByIndex
  : Stereotype st_keyword::Operation ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_552E49070307 // PageControlWordsPack
+ : Parent HWL ME_552E49070307 // PageControlWordsPack
  ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
@@ -439,7 +439,7 @@ ref; // ME_552E4A5E02C9 GetAllPageCaptions
 : ME_552E496C017C
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_552E49070307 // PageControlWordsPack
+ : Parent HWL ME_552E49070307 // PageControlWordsPack
  ;
  : Target WL 'ME_4C8A3B45005E' '54B90AC6014B.pas.ms.script' // l3Same
  ;
@@ -454,17 +454,17 @@ ref; // ME_552E496C017C
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4F6094D80196 // vtControlsFromStackWords
+ : Parent HWL ME_4F6094D80196 // vtControlsFromStackWords
  ;
  : Inherits
    Seq: ( WL 'ME_4E36C0C3014B' '499ABF4F02A1.pas.ms.script' // TElCustomPageControl
  )
  ; // Inherits
  : Operations
-   Seq: ( ME_552E497A03E2 // FindPageByCaption
- ME_552E49BC0078 // PageCaptionByIndex
- ME_552E49E00306 // PageByIndex
- ME_552E4A5E02C9 // GetAllPageCaptions
+   Seq: ( HWL ME_552E497A03E2 // FindPageByCaption
+ HWL ME_552E49BC0078 // PageCaptionByIndex
+ HWL ME_552E49E00306 // PageByIndex
+ HWL ME_552E4A5E02C9 // GetAllPageCaptions
  )
  ; // Operations
  : Dependencies
@@ -486,12 +486,12 @@ ref; // ME_552E49070307 PageControlWordsPack
  : Parent WL 'ME_54EC57FA0285' '54EC57FA0285.pas.ms.script' // ScriptEngine$VT
  ;
  : Children
-   Seq: ( ME_4F6096D500C3 // kwVTControlsPack
- ME_552E3E7E023A // StatusBarWordsPack
- ME_552E403E0038 // StatusPanelWordsPack
- ME_552E413F010E // SpinEditWordsPack
- ME_552E47C10290 // ListerWordsPack
- ME_552E49070307 // PageControlWordsPack
+   Seq: ( HWL ME_4F6096D500C3 // kwVTControlsPack
+ HWL ME_552E3E7E023A // StatusBarWordsPack
+ HWL ME_552E403E0038 // StatusPanelWordsPack
+ HWL ME_552E413F010E // SpinEditWordsPack
+ HWL ME_552E47C10290 // ListerWordsPack
+ HWL ME_552E49070307 // PageControlWordsPack
  )
  ; // Children
  : Depends

@@ -1,0 +1,4970 @@
+// ExTextOptions 4C7F801D0304 VCMContainer Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4C7F801D0304
+
+FORWARD ME_4DA8424103A2
+
+: ME_4F7EE01B022E
+ CONST UID '4F7EE01B022E'
+ CONST Name 'RemindersLineZone'
+ CONST Class class_Class
+ : Stereotype st_VCMFormZone ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Inherits
+   Seq: ( HWL ME_4DA8424103A2 // RemindersLine
+ )
+ ; // Inherits
+ CONST "MergeBottomTollbarWithContainer" false
+ CONST "MergeTopTollbarWithContainer" false
+ CONST "ZoneType" 'Child'
+
+ref; // ME_4F7EE01B022E RemindersLineZone
+
+FORWARD ME_4F83021B014F
+
+: ME_4F83022C01C3
+ CONST UID '4F83022C01C3'
+ CONST Name 'c_Div'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4F83021B014F // SubLayers
+ ;
+ CONST Value 10
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value 10
+
+ref; // ME_4F83022C01C3 c_Div
+
+: ME_4F8302410042
+ CONST UID '4F8302410042'
+ CONST Name 'c_GarantComment'
+ CONST Class class_Attribute
+ %SUMMARY 'Комментарий юристов в SubPanel' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4F83021B014F // SubLayers
+ ;
+ CONST Value '- (Ord(ev_sbtMark) * c_Div + 0)'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '- (Ord(ev_sbtMark) * c_Div + 0)'
+
+ref; // ME_4F8302410042 c_GarantComment
+
+: ME_4F830254038D
+ CONST UID '4F830254038D'
+ CONST Name 'c_UserComment'
+ CONST Class class_Attribute
+ %SUMMARY 'Пользовательский комментарий в SubPanel' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4F83021B014F // SubLayers
+ ;
+ CONST Value '- (Ord(ev_sbtMark) * c_Div + 1)'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '- (Ord(ev_sbtMark) * c_Div + 1)'
+
+ref; // ME_4F830254038D c_UserComment
+
+: ME_4F83026703A1
+ CONST UID '4F83026703A1'
+ CONST Name 'c_VersionComment'
+ CONST Class class_Attribute
+ %SUMMARY 'Версионный комментарий юристов в SubPanel' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4F83021B014F // SubLayers
+ ;
+ CONST Value '- (Ord(ev_sbtMark) * c_Div + 2)'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '- (Ord(ev_sbtMark) * c_Div + 2)'
+
+ref; // ME_4F83026703A1 c_VersionComment
+
+: ME_4F83021B014F
+ CONST UID '4F83021B014F'
+ CONST Name 'SubLayers'
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Attributes
+   Seq: ( HWL ME_4F83022C01C3 // c_Div
+ HWL ME_4F8302410042 // c_GarantComment
+ HWL ME_4F830254038D // c_UserComment
+ HWL ME_4F83026703A1 // c_VersionComment
+ )
+ ; // Attributes
+ CONST "spell names" false
+
+ref; // ME_4F83021B014F SubLayers
+
+FORWARD ME_53690412016C
+
+: ME_53690427005F
+ CONST UID '53690427005F'
+ CONST Name 'WarnRedactionHint'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_53690412016C // Reminders' Hints
+ ;
+ CONST "AutoInc" false
+ CONST "Value" '''Внимание! Настоящая редакция документа не действует'''
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_53690427005F WarnRedactionHint
+
+: ME_53690471005A
+ CONST UID '53690471005A'
+ CONST Name 'WarnTimeMachineOnHint'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_53690412016C // Reminders' Hints
+ ;
+ CONST "AutoInc" false
+ CONST "Value" '''Машина времени включена'''
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_53690471005A WarnTimeMachineOnHint
+
+: ME_53690412016C
+ CONST UID '53690412016C'
+ CONST Name 'Reminders'' Hints'
+ CONST Class class_Class
+ : Stereotype st_LocalConst ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Attributes
+   Seq: ( HWL ME_53690427005F // WarnRedactionHint
+ HWL ME_53690471005A // WarnTimeMachineOnHint
+ )
+ ; // Attributes
+ CONST "Need map interface" false
+ CONST "Need mapping support" false
+ CONST "spell names" false
+
+ref; // ME_53690412016C Reminders' Hints
+
+: ME_4C80D18A02AA
+ CONST UID '4C80D18A02AA'
+ CONST Name 'WarnTimeMachineException'
+ CONST Class class_Class
+ : Stereotype st_Control ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4DA8424103A2 // RemindersLine
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4C52A66C0209' '4C52A6610123.pas.ms.script' // TnscReminder
+ )
+ ; // Inherits
+ CONST "ControlClass" 'none'
+ CONST "need Caption" false
+ CONST "pm" true
+ CONST "put to dfm" false
+
+ref; // ME_4C80D18A02AA WarnTimeMachineException
+
+: ME_4C80D1AE016E
+ CONST UID '4C80D1AE016E'
+ CONST Name 'WarnIsAbolished'
+ CONST Class class_Class
+ : Stereotype st_Control ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4DA8424103A2 // RemindersLine
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4C52A66C0209' '4C52A6610123.pas.ms.script' // TnscReminder
+ )
+ ; // Inherits
+ CONST "ControlClass" 'none'
+ CONST "need Caption" false
+ CONST "pm" true
+ CONST "put to dfm" false
+
+ref; // ME_4C80D1AE016E WarnIsAbolished
+
+: ME_4C80D1630252
+ CONST UID '4C80D1630252'
+ CONST Name 'WarnPreActive'
+ CONST Class class_Class
+ : Stereotype st_Control ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4DA8424103A2 // RemindersLine
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4C52A66C0209' '4C52A6610123.pas.ms.script' // TnscReminder
+ )
+ ; // Inherits
+ CONST "ControlClass" 'none'
+ CONST "need Caption" false
+ CONST "pm" true
+ CONST "put to dfm" false
+
+ref; // ME_4C80D1630252 WarnPreActive
+
+: ME_4C80D1F60248
+ CONST UID '4C80D1F60248'
+ CONST Name 'WarnTimeMachineWarning'
+ CONST Class class_Class
+ : Stereotype st_Control ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4DA8424103A2 // RemindersLine
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4C52A66C0209' '4C52A6610123.pas.ms.script' // TnscReminder
+ )
+ ; // Inherits
+ CONST "ControlClass" 'none'
+ CONST "need Caption" false
+ CONST "pm" true
+ CONST "put to dfm" false
+
+ref; // ME_4C80D1F60248 WarnTimeMachineWarning
+
+FORWARD ME_4C80D1D30117
+
+: ME_4C3AFBA702E4_ME_4C80D1D30117
+ : Original WL 'ME_4C3AFBA702E4' '498874B90391.pas.ms.script' // ClearStatusSettings
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "ContextMenuWeight" 3
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_4C3AFBA702E4_ME_4C80D1D30117 ClearStatusSettings
+
+: ME_4C3B5337022E_ME_4C80D1D30117
+ : Original WL 'ME_4C3B5337022E' '498874B90391.pas.ms.script' // ShowChanges
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "ContextMenuWeight" 1
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_4C3B5337022E_ME_4C80D1D30117 ShowChanges
+
+: ME_4C3B535F0064_ME_4C80D1D30117
+ : Original WL 'ME_4C3B535F0064' '498874B90391.pas.ms.script' // ClearStatus
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "ContextMenuWeight" 2
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_4C3B535F0064_ME_4C80D1D30117 ClearStatus
+
+: ME_4C80D1D30117
+ CONST UID '4C80D1D30117'
+ CONST Name 'WarnOnControl'
+ CONST Class class_Class
+ : Stereotype st_Control ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4DA8424103A2 // RemindersLine
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4C52A66C0209' '4C52A6610123.pas.ms.script' // TnscReminder
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4C3AFB9A030C' '498874B90391.pas.ms.script' // WarnOnControl
+ )
+ ; // Implements
+ : Implemented
+   Seq: ( ME_4C3AFBA702E4_ME_4C80D1D30117 // ClearStatusSettings
+ ME_4C3B5337022E_ME_4C80D1D30117 // ShowChanges
+ ME_4C3B535F0064_ME_4C80D1D30117 // ClearStatus
+ )
+ ; // Implemented
+ CONST "ControlClass" 'none'
+ CONST "need Caption" false
+ CONST "pm" true
+ CONST "put to dfm" false
+
+ref; // ME_4C80D1D30117 WarnOnControl
+
+FORWARD ME_4C80D1C000B9
+
+: ME_4C3B52D6021F_ME_4C80D1C000B9
+ : Original WL 'ME_4C3B52D6021F' '498874B90391.pas.ms.script' // ShowInfo
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "has states" true
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" true
+ref; // ME_4C3B52D6021F_ME_4C80D1C000B9 ShowInfo
+
+: ME_4C7D345C006D_ME_4C80D1C000B9
+ : Original WL 'ME_4C7D345C006D' '498874B90391.pas.ms.script' // ShowInfo
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "has states" true
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" true
+ref; // ME_4C7D345C006D_ME_4C80D1C000B9 ShowInfo
+
+: ME_4F672A7903C1_ME_4C80D1C000B9
+ : Original WL 'ME_4F672A7903C1' '498874B90391.pas.ms.script' // Open
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "ContextMenuWeight" 5
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_4F672A7903C1_ME_4C80D1C000B9 Open
+
+: ME_4F672A9C0083_ME_4C80D1C000B9
+ : Original WL 'ME_4F672A9C0083' '498874B90391.pas.ms.script' // OpenNewWindow
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "ContextMenuWeight" 15
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_4F672A9C0083_ME_4C80D1C000B9 OpenNewWindow
+
+: ME_53DF276802DD_ME_4C80D1C000B9
+ : Original WL 'ME_53DF276802DD' '498874B90391.pas.ms.script' // OpenNewTab
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "ContextMenuWeight" 10
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" true
+ CONST "ShowInToolbar" 'undefined'
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_53DF276802DD_ME_4C80D1C000B9 OpenNewTab
+
+: ME_4C80D1C000B9
+ CONST UID '4C80D1C000B9'
+ CONST Name 'WarnJuror'
+ CONST Class class_Class
+ : Stereotype st_Control ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4DA8424103A2 // RemindersLine
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4C52A66C0209' '4C52A6610123.pas.ms.script' // TnscReminder
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4C3B52CA01F1' '498874B90391.pas.ms.script' // WarnJuror
+ WL 'ME_4F672A46002D' '498874B90391.pas.ms.script' // Picture$Open
+ )
+ ; // Implements
+ : Implemented
+   Seq: ( ME_4C3B52D6021F_ME_4C80D1C000B9 // ShowInfo
+ ME_4C7D345C006D_ME_4C80D1C000B9 // ShowInfo
+ ME_4F672A7903C1_ME_4C80D1C000B9 // Open
+ ME_4F672A9C0083_ME_4C80D1C000B9 // OpenNewWindow
+ ME_53DF276802DD_ME_4C80D1C000B9 // OpenNewTab
+ )
+ ; // Implemented
+ CONST "ControlClass" 'none'
+ CONST "need Caption" false
+ CONST "pm" true
+ CONST "put to dfm" false
+
+ref; // ME_4C80D1C000B9 WarnJuror
+
+FORWARD ME_4C80D1730357
+
+: ME_4C3B4A7D029B_ME_4C80D1730357
+ : Original WL 'ME_4C3B4A7D029B' '498874B90391.pas.ms.script' // OpenActualRedaction
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "ContextMenuWeight" 1
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" true
+ref; // ME_4C3B4A7D029B_ME_4C80D1730357 OpenActualRedaction
+
+: ME_4C7D354603D3_ME_4C80D1730357
+ : Original WL 'ME_4C7D354603D3' '498874B90391.pas.ms.script' // ShowInfo
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "has states" true
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" true
+ref; // ME_4C7D354603D3_ME_4C80D1730357 ShowInfo
+
+: ME_4C80D1730357
+ CONST UID '4C80D1730357'
+ CONST Name 'WarnRedaction'
+ CONST Class class_Class
+ : Stereotype st_Control ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4DA8424103A2 // RemindersLine
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4C52A66C0209' '4C52A6610123.pas.ms.script' // TnscReminder
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4C3B4A550032' '498874B90391.pas.ms.script' // WarnRedaction
+ )
+ ; // Implements
+ : Implemented
+   Seq: ( ME_4C3B4A7D029B_ME_4C80D1730357 // OpenActualRedaction
+ ME_4C7D354603D3_ME_4C80D1730357 // ShowInfo
+ )
+ ; // Implemented
+ CONST "ControlClass" 'none'
+ CONST "need Caption" false
+ CONST "pm" true
+ CONST "put to dfm" false
+
+ref; // ME_4C80D1730357 WarnRedaction
+
+: ME_4C80D20502C8
+ CONST UID '4C80D20502C8'
+ CONST Name 'WarnInactualDocument'
+ CONST Class class_Class
+ : Stereotype st_Control ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4DA8424103A2 // RemindersLine
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4C52A66C0209' '4C52A6610123.pas.ms.script' // TnscReminder
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4E7C455C0147' '48561FA8027F.pas.ms.script' // Сообщение об изменении документа в МГО должно зависеть от статуса документа
+ )
+ ; // Implements
+ CONST "ControlClass" 'none'
+ CONST "need Caption" false
+ CONST "pm" true
+ CONST "put to dfm" false
+
+ref; // ME_4C80D20502C8 WarnInactualDocument
+
+FORWARD ME_4C80D1E6009A
+
+: ME_4C3B500B0126_ME_4C80D1E6009A
+ : Original WL 'ME_4C3B500B0126' '498874B90391.pas.ms.script' // ShowInfo
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "has states" true
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_4C3B500B0126_ME_4C80D1E6009A ShowInfo
+
+: ME_4C3B504A0202_ME_4C80D1E6009A
+ : Original WL 'ME_4C3B504A0202' '498874B90391.pas.ms.script' // TimeMachineOnOffNew
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "has states" true
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_4C3B504A0202_ME_4C80D1E6009A TimeMachineOnOffNew
+
+: ME_4C7D34A903C5_ME_4C80D1E6009A
+ : Original WL 'ME_4C7D34A903C5' '498874B90391.pas.ms.script' // ShowInfo
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "has states" true
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_4C7D34A903C5_ME_4C80D1E6009A ShowInfo
+
+: ME_4C7D34DE02D2_ME_4C80D1E6009A
+ : Original WL 'ME_4C7D34DE02D2' '498874B90391.pas.ms.script' // TimeMachineOnOffNew
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "has states" true
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_4C7D34DE02D2_ME_4C80D1E6009A TimeMachineOnOffNew
+
+: ME_4C80D1E6009A
+ CONST UID '4C80D1E6009A'
+ CONST Name 'WarnTimeMachineOn'
+ CONST Class class_Class
+ : Stereotype st_Control ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4DA8424103A2 // RemindersLine
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4C52A66C0209' '4C52A6610123.pas.ms.script' // TnscReminder
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4C3B4FFE012A' '498874B90391.pas.ms.script' // WarnTimeMachine
+ )
+ ; // Implements
+ : Implemented
+   Seq: ( ME_4C3B500B0126_ME_4C80D1E6009A // ShowInfo
+ ME_4C3B504A0202_ME_4C80D1E6009A // TimeMachineOnOffNew
+ ME_4C7D34A903C5_ME_4C80D1E6009A // ShowInfo
+ ME_4C7D34DE02D2_ME_4C80D1E6009A // TimeMachineOnOffNew
+ )
+ ; // Implemented
+ CONST "ControlClass" 'none'
+ CONST "need Caption" false
+ CONST "pm" true
+ CONST "put to dfm" false
+
+ref; // ME_4C80D1E6009A WarnTimeMachineOn
+
+: ME_4DA8424103A2
+ CONST UID '4DA8424103A2'
+ CONST Name 'RemindersLine'
+ CONST Class class_Class
+ : Stereotype st_Control ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4DA8339901A7' '4C52A6610123.pas.ms.script' // TnscRemindersLine
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( HWL ME_4C80D18A02AA // WarnTimeMachineException
+ HWL ME_4C80D1AE016E // WarnIsAbolished
+ HWL ME_4C80D1630252 // WarnPreActive
+ HWL ME_4C80D1F60248 // WarnTimeMachineWarning
+ HWL ME_4C80D1D30117 // WarnOnControl
+ HWL ME_4C80D1C000B9 // WarnJuror
+ HWL ME_4C80D1730357 // WarnRedaction
+ HWL ME_4C80D20502C8 // WarnInactualDocument
+ HWL ME_4C80D1E6009A // WarnTimeMachineOn
+ )
+ ; // Attributes
+ : Zones
+   Seq: ( HWL ME_4F7EE01B022E // RemindersLineZone
+ )
+ ; // Zones
+ CONST "ControlClass" 'none'
+ CONST "need Caption" false
+ CONST "pm" true
+ CONST "put to dfm" false
+
+ref; // ME_4DA8424103A2 RemindersLine
+
+: ME_4F8845BD00FD
+ CONST UID '4F8845BD00FD'
+ CONST Name 'f_DocOpsList'
+ CONST Class class_Attribute
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Target WL 'ME_4683D1660352' '467BAB7F021E.pas.ms.script' // IvcmItems
+ ;
+
+ref; // ME_4F8845BD00FD f_DocOpsList
+
+FORWARD ME_4C7FAE9B01E1
+
+FORWARD ME_4F916DF101C2
+
+FORWARD ME_4F916E210355
+
+: ME_4F916E3E01A0
+ CONST Name 'aRoot'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_534572370056' '47913B47006E.pas.ms.script' // Tl3Tag
+ ;
+
+ref; // ME_4F916E3E01A0 aRoot
+
+: ME_4F916E3E01F0
+ CONST Name 'theText'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_4F916E3E01F0 theText
+
+: ME_4F916E2F0059
+ CONST UID '4F916E2F0059'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4F916E210355 // MergeText
+ ;
+ : Parameters
+   Seq: ( ME_4F916E3E01A0 // aRoot
+ ME_4F916E3E01F0 // theText
+ )
+ ; // Parameters
+
+ref; // ME_4F916E2F0059 DoIt
+
+FORWARD ME_66C7C35BA1A6
+
+: ME_7D133E6F44F9
+ CONST Name 'anItem'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_532031160122' '47913B47006E.pas.ms.script' // Tl3Variant
+ ;
+
+ref; // ME_7D133E6F44F9 anItem
+
+: ME_7D133E6F44FA
+ CONST Name 'anIndex'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_7D133E6F44FA anIndex
+
+: ME_EE7E1AC03964
+ CONST UID 'EE7E1AC03964'
+ CONST Name 'DoIt'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_66C7C35BA1A6 // DoIt
+ ;
+ : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
+ ;
+ : Parameters
+   Seq: ( ME_7D133E6F44F9 // anItem
+ ME_7D133E6F44FA // anIndex
+ )
+ ; // Parameters
+
+ref; // ME_EE7E1AC03964 DoIt
+
+: ME_66C7C35BA1A6
+ CONST UID '66C7C35BA1A6'
+ CONST Name 'DoIt'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_localmethod ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Подитеративная функция для вызова IterateChildrenF из MergeText' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4F916E210355 // MergeText
+ ;
+ : Operations
+   Seq: ( HWL ME_EE7E1AC03964 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_66C7C35BA1A6 DoIt
+
+: ME_4F916EC2016B
+ CONST Class class_Dependency
+ : Stereotype st_call::Dependency ;
+ : Parent HWL ME_4F916E210355 // MergeText
+ ;
+ : Target WL 'ME_4BB21F9D022F' '47913B47006E.pas.ms.script' // IterateChildrenF
+ ;
+ CONST "iterator func name" 'DoIt'
+ CONST "iterator needs params" false
+ CONST "needs after iterator UC" false
+
+ref; // ME_4F916EC2016B 
+
+: ME_4F916EF60155
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4F916E210355 // MergeText
+ ;
+ : Target WL 'ME_47878E0E0191' '54B90AC6014B.pas.ms.script' // l3String
+ ;
+
+ref; // ME_4F916EF60155 
+
+: ME_4F916F43021E
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4F916E210355 // MergeText
+ ;
+ : Target WL 'ME_48579E4A003C' '48492FC0029D.pas.ms.script' // ParaList
+ ;
+
+ref; // ME_4F916F43021E 
+
+: ME_4F916F6701FF
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4F916E210355 // MergeText
+ ;
+ : Target WL 'ME_47C69EBC00A8' '47AC75550330.pas.ms.script' // Tk2TagID
+ ;
+
+ref; // ME_4F916F6701FF 
+
+: ME_B67C9D16929E
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4F916E210355 // MergeText
+ ;
+ : Target WL 'ME_4A422BA20187' '47913B47006E.pas.ms.script' // Mk2Children
+ ;
+
+ref; // ME_B67C9D16929E 
+
+: ME_4F916E210355
+ CONST UID '4F916E210355'
+ CONST Name 'MergeText'
+ CONST Class class_Class
+ : Stereotype st_localmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4F916DF101C2 // RefineBaloonHint
+ ;
+ : Operations
+   Seq: ( HWL ME_4F916E2F0059 // DoIt
+ HWL ME_66C7C35BA1A6 // DoIt
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_4F916EC2016B // IterateChildrenF
+ ME_4F916EF60155 // l3String
+ ME_4F916F43021E // ParaList
+ ME_4F916F6701FF // Tk2TagID
+ ME_B67C9D16929E // Mk2Children
+ )
+ ; // Dependencies
+
+ref; // ME_4F916E210355 MergeText
+
+: ME_4F916E0B014B
+ CONST Name 'aHint'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_4F916E0B014B aHint
+
+: ME_4F916E0300E3
+ CONST UID '4F916E0300E3'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4F916DF101C2 // RefineBaloonHint
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+ : Parameters
+   Seq: ( ME_4F916E0B014B // aHint
+ )
+ ; // Parameters
+
+ref; // ME_4F916E0300E3 DoIt
+
+: ME_4F916E5D015E
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4F916DF101C2 // RefineBaloonHint
+ ;
+ : Target WL 'ME_499D47A502DE' '47913B47006E.pas.ms.script' // Tl3ConstMemoryStream
+ ;
+
+ref; // ME_4F916E5D015E 
+
+: ME_4F916E770294
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4F916DF101C2 // RefineBaloonHint
+ ;
+ : Target WL 'ME_47ECA82403AC' '47ECA80B000D.pas.ms.script' // Tk2DocumentBuffer
+ ;
+
+ref; // ME_4F916E770294 
+
+: ME_4F916E90039B
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4F916DF101C2 // RefineBaloonHint
+ ;
+ : Target WL 'ME_4D6BB1E0012D' '482D6E13011F.pas.ms.script' // TevCustomWikiReader
+ ;
+
+ref; // ME_4F916E90039B 
+
+: ME_4F916DF101C2
+ CONST UID '4F916DF101C2'
+ CONST Name 'RefineBaloonHint'
+ CONST Class class_Class
+ : Stereotype st_localmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4C7FAE9B01E1 // SetReminderOpParams
+ ;
+ : Operations
+   Seq: ( HWL ME_4F916E210355 // MergeText
+ HWL ME_4F916E0300E3 // DoIt
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_4F916E5D015E // Tl3ConstMemoryStream
+ ME_4F916E770294 // Tk2DocumentBuffer
+ ME_4F916E90039B // TevCustomWikiReader
+ )
+ ; // Dependencies
+
+ref; // ME_4F916DF101C2 RefineBaloonHint
+
+: ME_4C7FAEC80131
+ CONST Name 'aParams'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4683E07E004B' '467BAB7F021E.pas.ms.script' // IvcmTestParamsPrim
+ ;
+
+ref; // ME_4C7FAEC80131 aParams
+
+: ME_4C7FAEC8019A
+ CONST Name 'aInfo'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_4C7FAEC8019A aInfo
+
+: ME_4C7FAEC801C4
+ CONST Name 'aCaption'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+ CONST Value 'nil'
+ : ValueType WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+ CONST extprop:pas:Value 'nil'
+
+ref; // ME_4C7FAEC801C4 aCaption
+
+: ME_4C7FAEB30067
+ CONST UID '4C7FAEB30067'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4C7FAE9B01E1 // SetReminderOpParams
+ ;
+ : Parameters
+   Seq: ( ME_4C7FAEC80131 // aParams
+ ME_4C7FAEC8019A // aInfo
+ ME_4C7FAEC801C4 // aCaption
+ )
+ ; // Parameters
+
+ref; // ME_4C7FAEB30067 DoIt
+
+: ME_4C7FAE9B01E1
+ CONST UID '4C7FAE9B01E1'
+ CONST Name 'SetReminderOpParams'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Operations
+   Seq: ( HWL ME_4F916DF101C2 // RefineBaloonHint
+ HWL ME_4C7FAEB30067 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_4C7FAE9B01E1 SetReminderOpParams
+
+FORWARD ME_4C80CFC301F1
+
+: ME_4C80CFDC02FC
+ CONST UID '4C80CFDC02FC'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4C80CFC301F1 // WarnJurorInfo
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_4C80CFDC02FC DoIt
+
+: ME_4C80CFC301F1
+ CONST UID '4C80CFC301F1'
+ CONST Name 'WarnJurorInfo'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'сообщение к предупреждению "В настоящий документ внесены изменения"' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Operations
+   Seq: ( HWL ME_4C80CFDC02FC // DoIt
+ )
+ ; // Operations
+
+ref; // ME_4C80CFC301F1 WarnJurorInfo
+
+FORWARD ME_4C80D03001DC
+
+: ME_4C80D0530254
+ CONST UID '4C80D0530254'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4C80D03001DC // TimeMachineWarningOnInfo
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_4C80D0530254 DoIt
+
+: ME_4C80D03001DC
+ CONST UID '4C80D03001DC'
+ CONST Name 'TimeMachineWarningOnInfo'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'сообщение к предупреждению машина времени включена' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Operations
+   Seq: ( HWL ME_4C80D0530254 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_4C80D03001DC TimeMachineWarningOnInfo
+
+FORWARD ME_4C80D0730151
+
+: ME_4C80D0870387
+ CONST UID '4C80D0870387'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4C80D0730151 // TimeMachineWarningOnHint
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_4C80D0870387 DoIt
+
+: ME_4C80D0730151
+ CONST UID '4C80D0730151'
+ CONST Name 'TimeMachineWarningOnHint'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'сообщение к предупреждению машина времени включена' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Operations
+   Seq: ( HWL ME_4C80D0870387 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_4C80D0730151 TimeMachineWarningOnHint
+
+FORWARD ME_4C80D2370306
+
+: ME_4C80D25103CA
+ CONST UID '4C80D25103CA'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4C80D2370306 // WarnPreActiveInfo
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_4C80D25103CA DoIt
+
+: ME_4C80D2370306
+ CONST UID '4C80D2370306'
+ CONST Name 'WarnPreActiveInfo'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'сообщение к предупреждению документ не вступил в силу' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Operations
+   Seq: ( HWL ME_4C80D25103CA // DoIt
+ )
+ ; // Operations
+
+ref; // ME_4C80D2370306 WarnPreActiveInfo
+
+FORWARD ME_4C80D52A007B
+
+: ME_4C80D533033E
+ CONST UID '4C80D533033E'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4C80D52A007B // HasWarning
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4C80D533033E DoIt
+
+: ME_4C80D52A007B
+ CONST UID '4C80D52A007B'
+ CONST Name 'HasWarning'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Operations
+   Seq: ( HWL ME_4C80D533033E // DoIt
+ )
+ ; // Operations
+
+ref; // ME_4C80D52A007B HasWarning
+
+FORWARD ME_4C80D61203E4
+
+: ME_4C80D62501CE
+ CONST UID '4C80D62501CE'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4C80D61203E4 // WarnOnControlInfo
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_4C80D62501CE DoIt
+
+: ME_4C80D61203E4
+ CONST UID '4C80D61203E4'
+ CONST Name 'WarnOnControlInfo'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'сообщение к предупреждению документ на контроле измене' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Operations
+   Seq: ( HWL ME_4C80D62501CE // DoIt
+ )
+ ; // Operations
+
+ref; // ME_4C80D61203E4 WarnOnControlInfo
+
+FORWARD ME_4C80D65C01D8
+
+: ME_4C80D66E00F1
+ CONST UID '4C80D66E00F1'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4C80D65C01D8 // WarnIsAbolishedInfo
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_4C80D66E00F1 DoIt
+
+: ME_4C80D65C01D8
+ CONST UID '4C80D65C01D8'
+ CONST Name 'WarnIsAbolishedInfo'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'сообщение к предупреждению документ устратил силу' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Operations
+   Seq: ( HWL ME_4C80D66E00F1 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_4C80D65C01D8 WarnIsAbolishedInfo
+
+FORWARD ME_4C80D68600A1
+
+: ME_4C80D6AE0217
+ CONST Name 'aType'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4991C4280185' '4991C38F0019.pas.ms.script' // TTMWarningType
+ ;
+
+ref; // ME_4C80D6AE0217 aType
+
+: ME_4C80D6A701D6
+ CONST UID '4C80D6A701D6'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4C80D68600A1 // BaseTimeMachineWarningInfo
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+ : Parameters
+   Seq: ( ME_4C80D6AE0217 // aType
+ )
+ ; // Parameters
+
+ref; // ME_4C80D6A701D6 DoIt
+
+: ME_4C80D68600A1
+ CONST UID '4C80D68600A1'
+ CONST Name 'BaseTimeMachineWarningInfo'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'сообщение к предупрежедению включенной машины времени' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Operations
+   Seq: ( HWL ME_4C80D6A701D6 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_4C80D68600A1 BaseTimeMachineWarningInfo
+
+FORWARD ME_4C80D6CB002A
+
+: ME_4C80D6E2010A
+ CONST UID '4C80D6E2010A'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4C80D6CB002A // TimeMachineWarningInfo
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_4C80D6E2010A DoIt
+
+: ME_4C80D6CB002A
+ CONST UID '4C80D6CB002A'
+ CONST Name 'TimeMachineWarningInfo'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'сообщение к предупреждению ???' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Operations
+   Seq: ( HWL ME_4C80D6E2010A // DoIt
+ )
+ ; // Operations
+
+ref; // ME_4C80D6CB002A TimeMachineWarningInfo
+
+FORWARD ME_4F82F0810313
+
+: ME_4F82F095002B
+ CONST Name 'aSender'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_4F82F095002B aSender
+
+: ME_4F82F0900012
+ CONST UID '4F82F0900012'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4F82F0810313 // TextBlockChange
+ ;
+ : Parameters
+   Seq: ( ME_4F82F095002B // aSender
+ )
+ ; // Parameters
+
+ref; // ME_4F82F0900012 DoIt
+
+: ME_4F82F0810313
+ CONST UID '4F82F0810313'
+ CONST Name 'TextBlockChange'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Operations
+   Seq: ( HWL ME_4F82F0900012 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_4F82F0810313 TextBlockChange
+
+FORWARD ME_4F82F0A0030A
+
+: ME_4F82F0B40341
+ CONST Name 'aSender'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_4F82F0B40341 aSender
+
+: ME_54D4875D0020
+ CONST Name 'aDown'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_54D4875D0020 aDown
+
+: ME_4F82F0A7029F
+ CONST UID '4F82F0A7029F'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4F82F0A0030A // TextBlockScroll
+ ;
+ : Parameters
+   Seq: ( ME_4F82F0B40341 // aSender
+ ME_54D4875D0020 // aDown
+ )
+ ; // Parameters
+
+ref; // ME_4F82F0A7029F DoIt
+
+: ME_4F82F0A0030A
+ CONST UID '4F82F0A0030A'
+ CONST Name 'TextBlockScroll'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Operations
+   Seq: ( HWL ME_4F82F0A7029F // DoIt
+ )
+ ; // Operations
+
+ref; // ME_4F82F0A0030A TextBlockScroll
+
+FORWARD ME_4F82F0C7004D
+
+: ME_4F82F0F6016E
+ CONST Name 'aSender'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_4F82F0F6016E aSender
+
+: ME_4F82F0F601CB
+ CONST Name 'aHotSpot'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4F82F62D03BE' '4912DD020283.pas.ms.script' // IeeHotSpot
+ ;
+
+ref; // ME_4F82F0F601CB aHotSpot
+
+: ME_4F82F0F60225
+ CONST Name 'aButton'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4F82F5DD00CA' '4912DD020283.pas.ms.script' // TeeMouseButton
+ ;
+
+ref; // ME_4F82F0F60225 aButton
+
+: ME_4F82F0F60281
+ CONST Name 'anAction'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4F82F5E703B6' '4912DD020283.pas.ms.script' // TeeMouseAction
+ ;
+
+ref; // ME_4F82F0F60281 anAction
+
+: ME_4F82F0F602DF
+ CONST Name 'Keys'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4F82F5F402A5' '4912DD020283.pas.ms.script' // TeeShiftState
+ ;
+
+ref; // ME_4F82F0F602DF Keys
+
+: ME_4F82F0F60337
+ CONST Name 'aWasSelection'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4F82F0F60337 aWasSelection
+
+: ME_4F82F0D60358
+ CONST UID '4F82F0D60358'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4F82F0C7004D // TextMouseAction
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   Seq: ( ME_4F82F0F6016E // aSender
+ ME_4F82F0F601CB // aHotSpot
+ ME_4F82F0F60225 // aButton
+ ME_4F82F0F60281 // anAction
+ ME_4F82F0F602DF // Keys
+ ME_4F82F0F60337 // aWasSelection
+ )
+ ; // Parameters
+
+ref; // ME_4F82F0D60358 DoIt
+
+: ME_4F82F0C7004D
+ CONST UID '4F82F0C7004D'
+ CONST Name 'TextMouseAction'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Operations
+   Seq: ( HWL ME_4F82F0D60358 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_4F82F0C7004D TextMouseAction
+
+FORWARD ME_4F82F10600ED
+
+: ME_4F82F12B02A2
+ CONST Name 'aSender'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_4F82F12B02A2 aSender
+
+: ME_4F82F12B02FB
+ CONST Name 'aPara'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_495239F201D9' '4912DD020283.pas.ms.script' // IeePara
+ ;
+
+ref; // ME_4F82F12B02FB aPara
+
+: ME_4F82F12B0356
+ CONST Name 'Allow'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4F82F12B0356 Allow
+
+: ME_4F82F11D025D
+ CONST UID '4F82F11D025D'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4F82F10600ED // TextCanSplitPara
+ ;
+ : Parameters
+   Seq: ( ME_4F82F12B02A2 // aSender
+ ME_4F82F12B02FB // aPara
+ ME_4F82F12B0356 // Allow
+ )
+ ; // Parameters
+
+ref; // ME_4F82F11D025D DoIt
+
+: ME_4F82F10600ED
+ CONST UID '4F82F10600ED'
+ CONST Name 'TextCanSplitPara'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Operations
+   Seq: ( HWL ME_4F82F11D025D // DoIt
+ )
+ ; // Operations
+
+ref; // ME_4F82F10600ED TextCanSplitPara
+
+FORWARD ME_4F82F137005B
+
+: ME_4F82F1500298
+ CONST Name 'Sender'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_4F82F1500298 Sender
+
+: ME_4F82F14B0367
+ CONST UID '4F82F14B0367'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4F82F137005B // TextUserCommentsHidden
+ ;
+ : Parameters
+   Seq: ( ME_4F82F1500298 // Sender
+ )
+ ; // Parameters
+
+ref; // ME_4F82F14B0367 DoIt
+
+: ME_4F82F137005B
+ CONST UID '4F82F137005B'
+ CONST Name 'TextUserCommentsHidden'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Operations
+   Seq: ( HWL ME_4F82F14B0367 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_4F82F137005B TextUserCommentsHidden
+
+FORWARD ME_4F82F15D0133
+
+: ME_4F82F17100C6
+ CONST Name 'Sender'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_4F82F17100C6 Sender
+
+: ME_4F82F16C0298
+ CONST UID '4F82F16C0298'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4F82F15D0133 // TextAfterFirstPaint
+ ;
+ : Parameters
+   Seq: ( ME_4F82F17100C6 // Sender
+ )
+ ; // Parameters
+
+ref; // ME_4F82F16C0298 DoIt
+
+: ME_4F82F15D0133
+ CONST UID '4F82F15D0133'
+ CONST Name 'TextAfterFirstPaint'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Operations
+   Seq: ( HWL ME_4F82F16C0298 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_4F82F15D0133 TextAfterFirstPaint
+
+FORWARD ME_4F82F18203A7
+
+: ME_4F82F1940304
+ CONST Name 'Sender'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_4F82F1940304 Sender
+
+: ME_4F82F190019F
+ CONST UID '4F82F190019F'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4F82F18203A7 // TextCommentsVisibleChanged
+ ;
+ : Parameters
+   Seq: ( ME_4F82F1940304 // Sender
+ )
+ ; // Parameters
+
+ref; // ME_4F82F190019F DoIt
+
+: ME_4F82F18203A7
+ CONST UID '4F82F18203A7'
+ CONST Name 'TextCommentsVisibleChanged'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Operations
+   Seq: ( HWL ME_4F82F190019F // DoIt
+ )
+ ; // Operations
+
+ref; // ME_4F82F18203A7 TextCommentsVisibleChanged
+
+FORWARD ME_4F82F1A901BD
+
+: ME_4F82F1BD0132
+ CONST Name 'Sender'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_4F82F1BD0132 Sender
+
+: ME_4F82F1B8037E
+ CONST UID '4F82F1B8037E'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4F82F1A901BD // TextShowDocumentPartsChanged
+ ;
+ : Parameters
+   Seq: ( ME_4F82F1BD0132 // Sender
+ )
+ ; // Parameters
+
+ref; // ME_4F82F1B8037E DoIt
+
+: ME_4F82F1A901BD
+ CONST UID '4F82F1A901BD'
+ CONST Name 'TextShowDocumentPartsChanged'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Operations
+   Seq: ( HWL ME_4F82F1B8037E // DoIt
+ )
+ ; // Operations
+
+ref; // ME_4F82F1A901BD TextShowDocumentPartsChanged
+
+FORWARD ME_4F82F1CC00F6
+
+: ME_4F82F1E000A0
+ CONST Name 'Sender'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_4F82F1E000A0 Sender
+
+: ME_4F82F1DB02F4
+ CONST UID '4F82F1DB02F4'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4F82F1CC00F6 // TextDrawSpecialChange
+ ;
+ : Parameters
+   Seq: ( ME_4F82F1E000A0 // Sender
+ )
+ ; // Parameters
+
+ref; // ME_4F82F1DB02F4 DoIt
+
+: ME_4F82F1CC00F6
+ CONST UID '4F82F1CC00F6'
+ CONST Name 'TextDrawSpecialChange'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Operations
+   Seq: ( HWL ME_4F82F1DB02F4 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_4F82F1CC00F6 TextDrawSpecialChange
+
+FORWARD ME_4F82F1F10297
+
+: ME_4F82F21D00D5
+ CONST Name 'Sender'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_4F82F21D00D5 Sender
+
+: ME_4F82F21D012E
+ CONST Name 'Pt'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target WL 'ME_47289677028A' '472745450206.pas.ms.script' // Tl3SPoint
+ ;
+
+ref; // ME_4F82F21D012E Pt
+
+: ME_4F82F21D018F
+ CONST Name 'R'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target WL 'ME_4728976B0154' '472745450206.pas.ms.script' // Tl3SRect
+ ;
+
+ref; // ME_4F82F21D018F R
+
+: ME_4F82F21D01FB
+ CONST Name 'aSub'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target WL 'ME_47C6B03200AF' '47C5207602D1.pas.ms.script' // IevSub
+ ;
+
+ref; // ME_4F82F21D01FB aSub
+
+: ME_4F82F21D025D
+ CONST Name 'aLayer'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4F82F21D025D aLayer
+
+: ME_4F82F20200BA
+ CONST UID '4F82F20200BA'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4F82F1F10297 // SubPanelMouseOverSub
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   Seq: ( ME_4F82F21D00D5 // Sender
+ ME_4F82F21D012E // Pt
+ ME_4F82F21D018F // R
+ ME_4F82F21D01FB // aSub
+ ME_4F82F21D025D // aLayer
+ )
+ ; // Parameters
+
+ref; // ME_4F82F20200BA DoIt
+
+: ME_4F82F1F10297
+ CONST UID '4F82F1F10297'
+ CONST Name 'SubPanelMouseOverSub'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Operations
+   Seq: ( HWL ME_4F82F20200BA // DoIt
+ )
+ ; // Operations
+
+ref; // ME_4F82F1F10297 SubPanelMouseOverSub
+
+FORWARD ME_4F82F22B023D
+
+: ME_4F82F25200A2
+ CONST Name 'Sender'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_4F82F25200A2 Sender
+
+: ME_4F82F2520105
+ CONST Name 'SubType'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4F82F2520105 SubType
+
+: ME_4F82F2520163
+ CONST Name 'SubHandle'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4F82F2520163 SubHandle
+
+: ME_4F82F25201C5
+ CONST Name 'aKind'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_473DA5F40175' '467823B7002C.pas.ms.script' // TafwClickKind
+ ;
+
+ref; // ME_4F82F25201C5 aKind
+
+: ME_4F82F23B0286
+ CONST UID '4F82F23B0286'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4F82F22B023D // SubPanelClickSub
+ ;
+ : Parameters
+   Seq: ( ME_4F82F25200A2 // Sender
+ ME_4F82F2520105 // SubType
+ ME_4F82F2520163 // SubHandle
+ ME_4F82F25201C5 // aKind
+ )
+ ; // Parameters
+
+ref; // ME_4F82F23B0286 DoIt
+
+: ME_4F82F22B023D
+ CONST UID '4F82F22B023D'
+ CONST Name 'SubPanelClickSub'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Operations
+   Seq: ( HWL ME_4F82F23B0286 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_4F82F22B023D SubPanelClickSub
+
+FORWARD ME_4F82F2FF00B9
+
+: ME_4F82F3190056
+ CONST Name 'aSender'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_4F82F3190056 aSender
+
+: ME_4F82F31900BC
+ CONST Name 'theStatus'
+ CONST Class class_Parameter
+ : Stereotype st_out ;
+ : Target WL 'ME_473D95DC03D3' '467823B7002C.pas.ms.script' // TafwStatusInfo
+ ;
+
+ref; // ME_4F82F31900BC theStatus
+
+: ME_4F82F30D01AF
+ CONST UID '4F82F30D01AF'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4F82F2FF00B9 // vcmEntityFormRefGetStatus
+ ;
+ : Parameters
+   Seq: ( ME_4F82F3190056 // aSender
+ ME_4F82F31900BC // theStatus
+ )
+ ; // Parameters
+
+ref; // ME_4F82F30D01AF DoIt
+
+: ME_4F82F2FF00B9
+ CONST UID '4F82F2FF00B9'
+ CONST Name 'vcmEntityFormRefGetStatus'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Operations
+   Seq: ( HWL ME_4F82F30D01AF // DoIt
+ )
+ ; // Operations
+ CONST extprop:rc:SelfName 'EntityFormRefGetStatus'
+
+ref; // ME_4F82F2FF00B9 vcmEntityFormRefGetStatus
+
+FORWARD ME_4F82FDD7022B
+
+: ME_4F82FDF90057
+ CONST Name 'aBlock'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47C6B7A6039D' '47C5207602D1.pas.ms.script' // IevDocumentPart
+ ;
+
+ref; // ME_4F82FDF90057 aBlock
+
+: ME_4F82FDF30201
+ CONST UID '4F82FDF30201'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4F82FDD7022B // GetContentsElement
+ ;
+ : Target WL 'ME_47C6B7A6039D' '47C5207602D1.pas.ms.script' // IevDocumentPart
+ ;
+ : Parameters
+   Seq: ( ME_4F82FDF90057 // aBlock
+ )
+ ; // Parameters
+
+ref; // ME_4F82FDF30201 DoIt
+
+: ME_4F82FDD7022B
+ CONST UID '4F82FDD7022B'
+ CONST Name 'GetContentsElement'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Operations
+   Seq: ( HWL ME_4F82FDF30201 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_4F82FDD7022B GetContentsElement
+
+FORWARD ME_4F85B70C035A
+
+: ME_4F85B71601A9
+ CONST UID '4F85B71601A9'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4F85B70C035A // CurrentParaPos
+ ;
+ : Target WL 'ME_491B329F0330' '47F2170002B2.pas.ms.script' // TbsDocPos
+ ;
+
+ref; // ME_4F85B71601A9 DoIt
+
+: ME_4F85B70C035A
+ CONST UID '4F85B70C035A'
+ CONST Name 'CurrentParaPos'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Operations
+   Seq: ( HWL ME_4F85B71601A9 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_4F85B70C035A CurrentParaPos
+
+FORWARD ME_4F88454E023C
+
+: ME_4F884577024D
+ CONST Name 'aControl'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_479878FA0103' '4AB0997B00A2.pas.ms.script' // TComponent
+ ;
+
+ref; // ME_4F884577024D aControl
+
+: ME_4F88457702B3
+ CONST Name 'aX'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4F88457702B3 aX
+
+: ME_4F8845770312
+ CONST Name 'aY'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4F8845770312 aY
+
+: ME_4F8845770377
+ CONST Name 'theTarget'
+ CONST Class class_Parameter
+ : Stereotype st_out ;
+ : Target WL 'ME_46A451250363' '4AB0C3C60310.pas.ms.script' // IUnknown
+ ;
+
+ref; // ME_4F8845770377 theTarget
+
+: ME_4F88455C021A
+ CONST UID '4F88455C021A'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4F88454E023C // ContextEntitiesGetTarget
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   Seq: ( ME_4F884577024D // aControl
+ ME_4F88457702B3 // aX
+ ME_4F8845770312 // aY
+ ME_4F8845770377 // theTarget
+ )
+ ; // Parameters
+
+ref; // ME_4F88455C021A DoIt
+
+: ME_4F88454E023C
+ CONST UID '4F88454E023C'
+ CONST Name 'ContextEntitiesGetTarget'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Operations
+   Seq: ( HWL ME_4F88455C021A // DoIt
+ )
+ ; // Operations
+
+ref; // ME_4F88454E023C ContextEntitiesGetTarget
+
+FORWARD ME_4F884583015D
+
+: ME_4F88459702CB
+ CONST Name 'aControl'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_479878FA0103' '4AB0997B00A2.pas.ms.script' // TComponent
+ ;
+
+ref; // ME_4F88459702CB aControl
+
+: ME_4F884597032A
+ CONST Name 'aX'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4F884597032A aX
+
+: ME_4F8845970394
+ CONST Name 'aY'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4F8845970394 aY
+
+: ME_4F8845980012
+ CONST Name 'theTarget'
+ CONST Class class_Parameter
+ : Stereotype st_out ;
+ : Target WL 'ME_46A451250363' '4AB0C3C60310.pas.ms.script' // IUnknown
+ ;
+
+ref; // ME_4F8845980012 theTarget
+
+: ME_4F8845930009
+ CONST UID '4F8845930009'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4F884583015D // SubPanelEntitiesGetTarget
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   Seq: ( ME_4F88459702CB // aControl
+ ME_4F884597032A // aX
+ ME_4F8845970394 // aY
+ ME_4F8845980012 // theTarget
+ )
+ ; // Parameters
+
+ref; // ME_4F8845930009 DoIt
+
+: ME_4F884583015D
+ CONST UID '4F884583015D'
+ CONST Name 'SubPanelEntitiesGetTarget'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Operations
+   Seq: ( HWL ME_4F8845930009 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_4F884583015D SubPanelEntitiesGetTarget
+
+: ME_4C7F8E5B03BA
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Target WL 'ME_4B1E8FAE0380' '48F747EC0073.pas.ms.script' // DefDataAdapter
+ ;
+
+ref; // ME_4C7F8E5B03BA 
+
+: ME_4C7F9019013B
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Target WL 'ME_49E5FCDB02E9' '4A251D6E00BD.pas.ms.script' // IevHyperlink
+ ;
+
+ref; // ME_4C7F9019013B 
+
+: ME_4C7F902F02B3
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Target WL 'ME_4ADEE49C02DF' '4AB0C3C60310.pas.ms.script' // Supports
+ ;
+
+ref; // ME_4C7F902F02B3 
+
+: ME_4C7F9065031E
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Target WL 'ME_4C7F905401FD' '4A815BFF0168.pas.ms.script' // nsProcessHyperLink
+ ;
+
+ref; // ME_4C7F9065031E 
+
+: ME_4C7F936402D1
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Target WL 'ME_4829D89703D2' '4829D89703D2.pas.ms.script' // TevCustomEditor
+ ;
+
+ref; // ME_4C7F936402D1 
+
+: ME_4C7F982B0200
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Target WL 'ME_495239F201D9' '4912DD020283.pas.ms.script' // IeePara
+ ;
+
+ref; // ME_4C7F982B0200 
+
+: ME_4C7F9853016E
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Target WL 'ME_47C5BA5F017D' '47C5207602D1.pas.ms.script' // InevSelection
+ ;
+
+ref; // ME_4C7F9853016E 
+
+: ME_4C7F987200BA
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Target WL 'ME_49523F8B0208' '4912E16B01B4.pas.ms.script' // TeePara
+ ;
+
+ref; // ME_4C7F987200BA 
+
+: ME_4C7F9891028F
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Target WL 'ME_49523C96004A' '49523C640160.pas.ms.script' // IeeDocumentEx
+ ;
+
+ref; // ME_4C7F9891028F 
+
+: ME_4C7F98BE0128
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Target WL 'ME_484AB26803DB' '469D0AC7005E.pas.ms.script' // Hyperlink Const
+ ;
+
+ref; // ME_4C7F98BE0128 
+
+: ME_4C80CE6C0248
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Target WL 'ME_4A9D12BB00CC' '4AADF9450143.pas.ms.script' // ShowMessageDlg
+ ;
+
+ref; // ME_4C80CE6C0248 
+
+: ME_4C80CEAC0335
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Target WL 'ME_4C80CE9A0164' '54B90AC6014B.pas.ms.script' // l3Cat
+ ;
+
+ref; // ME_4C80CEAC0335 
+
+: ME_4C80D01403B5
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Target WL 'ME_4AB0EE02004E' '4799D29F033F.pas.ms.script' // Dialogs
+ ;
+
+ref; // ME_4C80D01403B5 
+
+: ME_4C80D0F6006C
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Target WL 'ME_493E4FE20195' '491B305A0096.pas.ms.script' // WarningConstants
+ ;
+
+ref; // ME_4C80D0F6006C 
+
+: ME_4C80D12401E5
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Target WL 'ME_47F260EC02C7' '521C9DA50125.pas.ms.script' // StdRes
+ ;
+
+ref; // ME_4C80D12401E5 
+
+: ME_4C80D56903E5
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Target WL 'ME_456EC8A60000' '456EA56002BF.pas.ms.script' // ItemStatus
+ ;
+
+ref; // ME_4C80D56903E5 
+
+: ME_4C80D5A0004D
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Target WL 'ME_4C80D59101F1' '47F260DC003F.pas.ms.script' // nsGetDocumentWarning
+ ;
+
+ref; // ME_4C80D5A0004D 
+
+: ME_4C80D5C10111
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Target WL 'ME_4B040A5E0051' '4BD1E3DE02FB.pas.ms.script' // dftDocument
+ ;
+
+ref; // ME_4C80D5C10111 
+
+: ME_4C80D5DB035E
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Target WL 'ME_4AA7F1CB012C' '47D0E1500033.pas.ms.script' // vcmConstString
+ ;
+
+ref; // ME_4C80D5DB035E 
+
+: ME_4C80D5FA021D
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Target WL 'ME_4AA7888B0076' '47913B47006E.pas.ms.script' // l3CStr
+ ;
+
+ref; // ME_4C80D5FA021D 
+
+: ME_4C80D64203CA
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Target WL 'ME_4B040A84030D' '4BD1E3DE02FB.pas.ms.script' // dftRelatedDoc
+ ;
+
+ref; // ME_4C80D64203CA 
+
+: ME_4C80D9880042
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Target WL 'ME_4C80D9790182' '48F747EC0073.pas.ms.script' // bsFullControlStatusHint
+ ;
+
+ref; // ME_4C80D9880042 
+
+: ME_4DAC43B901B6
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Target WL 'ME_4DAC3D400271' '51B09C1D0367.pas.ms.script' // WarningConst
+ ;
+
+ref; // ME_4DAC43B901B6 
+
+: ME_4E7C5F910200
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Target WL 'ME_4E7C528C00BE' '4B9A347B0217.pas.ms.script' // ControlStatusUtils
+ ;
+
+ref; // ME_4E7C5F910200 
+
+: ME_4F7EDDE900CF
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Target WL 'ME_4AAA21970352' '4AAA216F032C.pas.ms.script' // resWarnImages
+ ;
+
+ref; // ME_4F7EDDE900CF 
+
+: ME_4F82FE260244
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Target WL 'ME_4B04104F0026' '4BD1E3DE02FB.pas.ms.script' // dftDrug
+ ;
+
+ref; // ME_4F82FE260244 
+
+: ME_4F82FE40004B
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Target WL 'ME_4B04102D00B6' '4BD1E3DE02FB.pas.ms.script' // dftAutoreferat
+ ;
+
+ref; // ME_4F82FE40004B 
+
+: ME_4F82FE470373
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Target WL 'ME_4B040F34030A' '4BD1E3DE02FB.pas.ms.script' // dftAutoreferatAfterSearch
+ ;
+
+ref; // ME_4F82FE470373 
+
+: ME_4F8301820243
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Target WL 'ME_49228EF60100' '48F747EC0073.pas.ms.script' // nsManagers
+ ;
+
+ref; // ME_4F8301820243 
+
+: ME_4F8301A10189
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Target WL 'ME_47FB50E4008E' '48F747EC0073.pas.ms.script' // nsConst
+ ;
+
+ref; // ME_4F8301A10189 
+
+: ME_4F8301F2025D
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Target WL 'ME_49523C160394' '4912E16B01B4.pas.ms.script' // eeParaTools
+ ;
+
+ref; // ME_4F8301F2025D 
+
+: ME_4F83059602EF
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Target WL 'ME_467817DD0200' '47913B47006E.pas.ms.script' // Ik2Tag
+ ;
+
+ref; // ME_4F83059602EF 
+
+: ME_4F8305AD0336
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Target WL 'ME_47A082F101DB' '476BE98C01B8.pas.ms.script' // Ext Chars
+ ;
+
+ref; // ME_4F8305AD0336 
+
+: ME_4F8307E4002E
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Target WL 'ME_47E11FC3021E' '4799D29F033F.pas.ms.script' // Controls
+ ;
+
+ref; // ME_4F8307E4002E 
+
+: ME_4F83087F0125
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Target WL 'ME_4DFF31800349' '47F1F38601A3.pas.ms.script' // evGetBlockName
+ ;
+
+ref; // ME_4F83087F0125 
+
+: ME_4F830AA20296
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Target WL 'ME_47E13C6B0341' '4799D29F033F.pas.ms.script' // Forms
+ ;
+
+ref; // ME_4F830AA20296 
+
+: ME_4F831726021F
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Target WL 'ME_4AD5BB3D0079' '48F747EC0073.pas.ms.script' // nsStringMapManager
+ ;
+
+ref; // ME_4F831726021F 
+
+: ME_4F8317B80056
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Target WL 'ME_4924422E0249' '48F747EC0073.pas.ms.script' // nsValueMapsIDs
+ ;
+
+ref; // ME_4F8317B80056 
+
+: ME_4F831E6C0104
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Target WL 'ME_4B040EB3003F' '4BD1E3DE02FB.pas.ms.script' // dftDictEntry
+ ;
+
+ref; // ME_4F831E6C0104 
+
+: ME_4F831E7C026B
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Target WL 'ME_4B04100D0197' '4BD1E3DE02FB.pas.ms.script' // dftMedDictEntry
+ ;
+
+ref; // ME_4F831E7C026B 
+
+: ME_4F831E8F039C
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Target WL 'ME_4B040F540027' '4BD1E3DE02FB.pas.ms.script' // dftConsultation
+ ;
+
+ref; // ME_4F831E8F039C 
+
+: ME_4F85B5C10184
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Target WL 'ME_4AD5AD840233' '48F747EC0073.pas.ms.script' // TbsChangeRedationById
+ ;
+
+ref; // ME_4F85B5C10184 
+
+: ME_4F85B5EB013F
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Target WL 'ME_491B329F0330' '47F2170002B2.pas.ms.script' // TbsDocPos
+ ;
+
+ref; // ME_4F85B5EB013F 
+
+: ME_4F85B60C00A5
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Target WL 'ME_4A2393970155' '4A23913602C3.pas.ms.script' // InevFlatSubsList
+ ;
+
+ref; // ME_4F85B60C00A5 
+
+: ME_4F85B6990359
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Target WL 'ME_477515240332' '47750CE700D0.pas.ms.script' // Tafw
+ ;
+
+ref; // ME_4F85B6990359 
+
+: ME_4F85B6BD0303
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Target WL 'ME_48F4940C01C0' '4A23935A0282.pas.ms.script' // TevAddress
+ ;
+
+ref; // ME_4F85B6BD0303 
+
+: ME_4F85B6ED00C1
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Target WL 'ME_49895C3C02D6' '48F747EC0073.pas.ms.script' // nsOpenUtils
+ ;
+
+ref; // ME_4F85B6ED00C1 
+
+: ME_4F85B7380322
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Target WL 'ME_468362CA028D' '4B1FC2FF03CD.pas.ms.script' // InsContentsTree
+ ;
+
+ref; // ME_4F85B7380322 
+
+: ME_4F85B75100B3
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Target WL 'ME_46835C050374' '4682595B0268.pas.ms.script' // Il3FilterableTree
+ ;
+
+ref; // ME_4F85B75100B3 
+
+: ME_4F85B770013E
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Target WL 'ME_46825CC00249' '4682595B0268.pas.ms.script' // Il3SimpleTree
+ ;
+
+ref; // ME_4F85B770013E 
+
+: ME_4F85B7A200AE
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Target WL 'ME_4D2DC8590283' '47EA50050263.pas.ms.script' // TdeSimpleTree
+ ;
+
+ref; // ME_4F85B7A200AE 
+
+: ME_4F85BB7900AE
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Target WL 'ME_47E26A16008E' '47C52679006D.pas.ms.script' // TnevRangeList
+ ;
+
+ref; // ME_4F85BB7900AE 
+
+: ME_4F85BBA40124
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Target WL 'ME_4A23BAEF006A' '47C52679006D.pas.ms.script' // nevRangeListTools
+ ;
+
+ref; // ME_4F85BBA40124 
+
+: ME_4F85BBC500EA
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Target WL 'ME_48E3B83B0187' '4829D7D50156.pas.ms.script' // TevMultiSelectionBlock
+ ;
+
+ref; // ME_4F85BBC500EA 
+
+: ME_4F8846DD01EB
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Target WL 'ME_4AB8CB4B0256' '47D0E1500033.pas.ms.script' // TvcmItems
+ ;
+
+ref; // ME_4F8846DD01EB 
+
+: ME_4F884F4103E5
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Target WL 'ME_4C3ADF740291' '498874B90391.pas.ms.script' // DocumentBlockHeader
+ ;
+
+ref; // ME_4F884F4103E5 
+
+: ME_4F884F7D0210
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Target WL 'ME_4C3C751D00F2' '498874B90391.pas.ms.script' // Text
+ ;
+
+ref; // ME_4F884F7D0210 
+
+: ME_4F88557E038B
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Target WL 'ME_48F4CF9903D6' '469C688102A3.pas.ms.script' // TevConstStringData
+ ;
+
+ref; // ME_4F88557E038B 
+
+: ME_4F8855940309
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Target WL 'ME_495268900201' '495268900201.pas.ms.script' // TeeEditor
+ ;
+
+ref; // ME_4F8855940309 
+
+: ME_4F8855A602E8
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Target WL 'ME_4C7F948C03BD' '4C7F948C03BD.pas.ms.script' // TeeSubPanel
+ ;
+
+ref; // ME_4F8855A602E8 
+
+: ME_5066D868013B
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Target WL 'ME_4FF2ECC2023E' '4BD1E3DE02FB.pas.ms.script' // dftAACRight
+ ;
+
+ref; // ME_5066D868013B 
+
+: ME_50BDC7970114
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Target WL 'ME_4FF2ECB40153' '4BD1E3DE02FB.pas.ms.script' // dftAACLeft
+ ;
+
+ref; // ME_50BDC7970114 
+
+: ME_528D01C702EE
+ CONST Class class_Dependency
+ : Stereotype st_ContextMenuWeight::Dependency ;
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Target WL 'ME_4F884EDC03D9' '498874B90391.pas.ms.script' // SubsPanel
+ ;
+ CONST "Value" '-10'
+
+ref; // ME_528D01C702EE 
+
+: ME_528D059601C5
+ CONST Class class_Dependency
+ : Stereotype st_ContextMenuWeight::Dependency ;
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Target WL 'ME_4C7F8DE70364' '4AE89F8A004B.pas.ms.script' // SubPanelSettings$ShowSubNumbers
+ ;
+ CONST "Value" 40
+
+ref; // ME_528D059601C5 
+
+: ME_528D05E201F1
+ CONST Class class_Dependency
+ : Stereotype st_ContextMenuWeight::Dependency ;
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Target WL 'ME_4A7C1889033B' '4AE89F8A004B.pas.ms.script' // SubPanelSettings
+ ;
+ CONST "Value" 50
+
+ref; // ME_528D05E201F1 
+
+: ME_528DDAA80352
+ CONST Class class_Dependency
+ : Stereotype st_ContextMenuWeight::Dependency ;
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Target WL 'ME_4C3B4FFE012A' '498874B90391.pas.ms.script' // WarnTimeMachine
+ ;
+ CONST "Value" 35
+
+ref; // ME_528DDAA80352 
+
+: ME_5294C7540329
+ CONST Class class_Dependency
+ : Stereotype st_ContextMenuWeight::Dependency ;
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Target WL 'ME_4C3B4A550032' '498874B90391.pas.ms.script' // WarnRedaction
+ ;
+ CONST "Value" 35
+
+ref; // ME_5294C7540329 
+
+: ME_5294C7790052
+ CONST Class class_Dependency
+ : Stereotype st_ContextMenuWeight::Dependency ;
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Target WL 'ME_4C3B52CA01F1' '498874B90391.pas.ms.script' // WarnJuror
+ ;
+ CONST "Value" 35
+
+ref; // ME_5294C7790052 
+
+: ME_5294C793036E
+ CONST Class class_Dependency
+ : Stereotype st_ContextMenuWeight::Dependency ;
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Target WL 'ME_4C3AFB9A030C' '498874B90391.pas.ms.script' // WarnOnControl
+ ;
+ CONST "Value" 35
+
+ref; // ME_5294C793036E 
+
+: ME_535E71DE0229
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Target WL 'ME_4DA82956005C' '4F5E12C20114.pas.ms.script' // WarnPreActive
+ ;
+
+ref; // ME_535E71DE0229 
+
+: ME_535E71EB0361
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Target WL 'ME_4DA829BE0146' '4F5E12C20114.pas.ms.script' // WarnRedaction
+ ;
+
+ref; // ME_535E71EB0361 
+
+: ME_535E71FB00C1
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Target WL 'ME_4DA8296501F2' '4F5E12C20114.pas.ms.script' // WarnIsAbolished
+ ;
+
+ref; // ME_535E71FB00C1 
+
+: ME_535E72080131
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Target WL 'ME_4DA825720193' '4F5E12C20114.pas.ms.script' // WarnJuror
+ ;
+
+ref; // ME_535E72080131 
+
+: ME_535E72170118
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Target WL 'ME_4DA82A2C0226' '4F5E12C20114.pas.ms.script' // WarnTimeMachineException
+ ;
+
+ref; // ME_535E72170118 
+
+: ME_535E72230373
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Target WL 'ME_4DA8297800F7' '4F5E12C20114.pas.ms.script' // WarnOnControl
+ ;
+
+ref; // ME_535E72230373 
+
+: ME_535E72350150
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Target WL 'ME_4DA8299E0144' '4F5E12C20114.pas.ms.script' // WarnTimeMachineOn
+ ;
+
+ref; // ME_535E72350150 
+
+: ME_535E72440398
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Target WL 'ME_4DA82A170063' '4F5E12C20114.pas.ms.script' // WarnTimeMachineWarning
+ ;
+
+ref; // ME_535E72440398 
+
+: ME_535E72580049
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Target WL 'ME_4DA8298B020E' '4F5E12C20114.pas.ms.script' // WarnInactualDocument
+ ;
+
+ref; // ME_535E72580049 
+
+: ME_55B88FD10001
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Target WL 'ME_4B13AFDF013A' '4951181B02B6.pas.ms.script' // TnsUseDocumentSubPanelOperationEvent
+ ;
+
+ref; // ME_55B88FD10001 
+
+: ME_56C5CC3D018A
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Target WL 'ME_4E283FC201DC' '4A9F83AD0235.pas.ms.script' // bsUtilsConst
+ ;
+
+ref; // ME_56C5CC3D018A 
+
+: ME_5786271A0053
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C7F801D0304 // ExTextOptions
+ ;
+ : Target WL 'ME_553213D902E0' '553213B80041.pas.ms.script' // Tl3TabbedContainersDispatcher
+ ;
+
+ref; // ME_5786271A0053 
+
+: ME_4AE7354E03A4_ME_4C7F801D0304
+ : Original WL 'ME_4AE7354E03A4' '49539DBA029D.pas.ms.script' // ReloadRedaction
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4AE7354E03A4_ME_4C7F801D0304 ReloadRedaction
+
+: ME_4AE7358F03E2_ME_4C7F801D0304
+ : Original WL 'ME_4AE7358F03E2' '49539DBA029D.pas.ms.script' // ReloadRedaction
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4AE7358F03E2_ME_4C7F801D0304 ReloadRedaction
+
+: ME_4AE73936003E_ME_4C7F801D0304
+ : Original WL 'ME_4AE73936003E' '49539DBA029D.pas.ms.script' // SetActualRedaction
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4AE73936003E_ME_4C7F801D0304 SetActualRedaction
+
+: ME_4AE9DB55008E_ME_4C7F801D0304
+ : Original WL 'ME_4AE9DB55008E' '49539DBA029D.pas.ms.script' // ExtractRangeFromContents
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4AE9DB55008E_ME_4C7F801D0304 ExtractRangeFromContents
+
+: ME_4AE9DC630356_ME_4C7F801D0304
+ : Original WL 'ME_4AE9DC630356' '49539DBA029D.pas.ms.script' // ExportBlock
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4AE9DC630356_ME_4C7F801D0304 ExportBlock
+
+: ME_4AEB099C0216_ME_4C7F801D0304
+ : Original WL 'ME_4AEB099C0216' '49539DBA029D.pas.ms.script' // SelectBlock
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4AEB099C0216_ME_4C7F801D0304 SelectBlock
+
+: ME_4AEB09F0027F_ME_4C7F801D0304
+ : Original WL 'ME_4AEB09F0027F' '49539DBA029D.pas.ms.script' // CopyBlock
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4AEB09F0027F_ME_4C7F801D0304 CopyBlock
+
+: ME_4AEB0A3A028D_ME_4C7F801D0304
+ : Original WL 'ME_4AEB0A3A028D' '49539DBA029D.pas.ms.script' // PrintBlock
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4AEB0A3A028D_ME_4C7F801D0304 PrintBlock
+
+: ME_4AEB0A7902CA_ME_4C7F801D0304
+ : Original WL 'ME_4AEB0A7902CA' '49539DBA029D.pas.ms.script' // PrintDialogBlock
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4AEB0A7902CA_ME_4C7F801D0304 PrintDialogBlock
+
+: ME_4AEB0AA60373_ME_4C7F801D0304
+ : Original WL 'ME_4AEB0AA60373' '49539DBA029D.pas.ms.script' // PreviewBlock
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4AEB0AA60373_ME_4C7F801D0304 PreviewBlock
+
+: ME_4AEEF8180282_ME_4C7F801D0304
+ : Original WL 'ME_4AEEF8180282' '49539DBA029D.pas.ms.script' // FindBookmarkInText
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4AEEF8180282_ME_4C7F801D0304 FindBookmarkInText
+
+: ME_4AEEFBF102AF_ME_4C7F801D0304
+ : Original WL 'ME_4AEEFBF102AF' '49539DBA029D.pas.ms.script' // InitHyperLink
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4AEEFBF102AF_ME_4C7F801D0304 InitHyperLink
+
+: ME_4AFAF4620059_ME_4C7F801D0304
+ : Original WL 'ME_4AFAF4620059' '49539DBA029D.pas.ms.script' // EnableRedactionOps
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4AFAF4620059_ME_4C7F801D0304 EnableRedactionOps
+
+: ME_4B04318202FC_ME_4C7F801D0304
+ : Original WL 'ME_4B04318202FC' '49539DBA029D.pas.ms.script' // OpenInWindow
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4B04318202FC_ME_4C7F801D0304 OpenInWindow
+
+: ME_4C4EB6710127_ME_4C7F801D0304
+ : Original WL 'ME_4C4EB6710127' '4A9807DB01A5.pas.ms.script' // OpenInNewWindow
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_4C4EB6710127_ME_4C7F801D0304 OpenInNewWindow
+
+: ME_4C7F8DFF02BF_ME_4C7F801D0304
+ : Original WL 'ME_4C7F8DFF02BF' '4AE89F8A004B.pas.ms.script' // Show
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" true
+ CONST "ShowInToolbar" false
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_4C7F8DFF02BF_ME_4C7F801D0304 Show
+
+: ME_4C7FACA8026E_ME_4C7F801D0304
+ : Original WL 'ME_4C7FACA8026E' '498874B90391.pas.ms.script' // RemWarnJuror
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" true
+ CONST "ShowInToolbar" false
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_4C7FACA8026E_ME_4C7F801D0304 RemWarnJuror
+
+: ME_4C7FACBB005C_ME_4C7F801D0304
+ : Original WL 'ME_4C7FACBB005C' '498874B90391.pas.ms.script' // RemWarnTimeMachineOn
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" true
+ CONST "ShowInToolbar" false
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_4C7FACBB005C_ME_4C7F801D0304 RemWarnTimeMachineOn
+
+: ME_4C7FACCE013F_ME_4C7F801D0304
+ : Original WL 'ME_4C7FACCE013F' '498874B90391.pas.ms.script' // RemWarnRedaction
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" true
+ CONST "ShowInToolbar" false
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_4C7FACCE013F_ME_4C7F801D0304 RemWarnRedaction
+
+: ME_4C7FACFE01D3_ME_4C7F801D0304
+ : Original WL 'ME_4C7FACFE01D3' '498874B90391.pas.ms.script' // RemWarnOnControl
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" true
+ CONST "ShowInToolbar" false
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_4C7FACFE01D3_ME_4C7F801D0304 RemWarnOnControl
+
+: ME_4C7FAD0F014A_ME_4C7F801D0304
+ : Original WL 'ME_4C7FAD0F014A' '498874B90391.pas.ms.script' // RemWarnIsAbolished
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" true
+ CONST "ShowInToolbar" false
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_4C7FAD0F014A_ME_4C7F801D0304 RemWarnIsAbolished
+
+: ME_4C7FAD1D038F_ME_4C7F801D0304
+ : Original WL 'ME_4C7FAD1D038F' '498874B90391.pas.ms.script' // RemWarnTimeMachineException
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" true
+ CONST "ShowInToolbar" false
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_4C7FAD1D038F_ME_4C7F801D0304 RemWarnTimeMachineException
+
+: ME_4C7FAD310195_ME_4C7F801D0304
+ : Original WL 'ME_4C7FAD310195' '498874B90391.pas.ms.script' // RemWarnPreActive
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" true
+ CONST "ShowInToolbar" false
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_4C7FAD310195_ME_4C7F801D0304 RemWarnPreActive
+
+: ME_4C7FAD470142_ME_4C7F801D0304
+ : Original WL 'ME_4C7FAD470142' '498874B90391.pas.ms.script' // RemWarnTimeMachineWarning
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" true
+ CONST "ShowInToolbar" false
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_4C7FAD470142_ME_4C7F801D0304 RemWarnTimeMachineWarning
+
+: ME_4C7FAD5900EE_ME_4C7F801D0304
+ : Original WL 'ME_4C7FAD5900EE' '498874B90391.pas.ms.script' // ViewInactualDocument
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" true
+ CONST "ShowInToolbar" false
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_4C7FAD5900EE_ME_4C7F801D0304 ViewInactualDocument
+
+: ME_4EBAA060033D_ME_4C7F801D0304
+ : Original WL 'ME_4EBAA060033D' '49539DBA029D.pas.ms.script' // CreateTOC
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4EBAA060033D_ME_4C7F801D0304 CreateTOC
+
+: ME_4F88460903B1_ME_4C7F801D0304
+ : Original WL 'ME_4F88460903B1' '498874B90391.pas.ms.script' // ChangesButton
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "has states" false
+ CONST "is FormActivate" true
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_4F88460903B1_ME_4C7F801D0304 ChangesButton
+
+: ME_4F884EF30187_ME_4C7F801D0304
+ : Original WL 'ME_4F884EF30187' '498874B90391.pas.ms.script' // CopySubNumber
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" true
+ CONST "ShowInToolbar" false
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_4F884EF30187_ME_4C7F801D0304 CopySubNumber
+
+: ME_528373EC0026_ME_4C7F801D0304
+ : Original WL 'ME_528373EC0026' '4AE89F8A004B.pas.ms.script' // ShowByShortCut
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" false
+ CONST "ShowInToolbar" false
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_528373EC0026_ME_4C7F801D0304 ShowByShortCut
+
+: ME_479731C50290_ME_4C7F801D0304
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_479731C50290_ME_4C7F801D0304 Cleanup
+
+: ME_49512B5D0009_ME_4C7F801D0304
+ : Original WL 'ME_49512B5D0009' '495127DD017C.pas.ms.script' // FindContext
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "AutoFocus" true
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" true
+ CONST "ShowInToolbar" true
+ CONST "has states" false
+ CONST "is FormActivate" true
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_49512B5D0009_ME_4C7F801D0304 FindContext
+
+: ME_495130C40123_ME_4C7F801D0304
+ : Original WL 'ME_495130C40123' '495127DD017C.pas.ms.script' // FindNext
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" true
+ CONST "ShowInToolbar" false
+ CONST "has states" false
+ CONST "is FormActivate" true
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_495130C40123_ME_4C7F801D0304 FindNext
+
+: ME_49521D8E0295_ME_4C7F801D0304
+ : Original WL 'ME_49521D8E0295' '494F898C013E.pas.ms.script' // Print
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" false
+ CONST "ShowInToolbar" true
+ CONST "has states" false
+ CONST "is FormActivate" true
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_49521D8E0295_ME_4C7F801D0304 Print
+
+: ME_495220DE0298_ME_4C7F801D0304
+ : Original WL 'ME_495220DE0298' '494F898C013E.pas.ms.script' // PrintDialog
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" false
+ CONST "ShowInToolbar" false
+ CONST "has states" false
+ CONST "is FormActivate" true
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_495220DE0298_ME_4C7F801D0304 PrintDialog
+
+: ME_495220F2033A_ME_4C7F801D0304
+ : Original WL 'ME_495220F2033A' '494F898C013E.pas.ms.script' // PrintPreview
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "AutoFocus" false
+ CONST "AutoLock" true
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" false
+ CONST "ShowInToolbar" true
+ CONST "has states" false
+ CONST "is FormActivate" true
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_495220F2033A_ME_4C7F801D0304 PrintPreview
+
+: ME_495235F401C0_ME_4C7F801D0304
+ : Original WL 'ME_495235F401C0' '494F898C013E.pas.ms.script' // Save
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" false
+ CONST "ShowInToolbar" true
+ CONST "has states" false
+ CONST "is FormActivate" true
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_495235F401C0_ME_4C7F801D0304 Save
+
+: ME_495238EB0160_ME_4C7F801D0304
+ : Original WL 'ME_495238EB0160' '495237D80268.pas.ms.script' // ToMSWord
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" false
+ CONST "ShowInToolbar" true
+ CONST "has states" false
+ CONST "is FormActivate" true
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_495238EB0160_ME_4C7F801D0304 ToMSWord
+
+: ME_495253870002_ME_4C7F801D0304
+ : Original WL 'ME_495253870002' '495237D80268.pas.ms.script' // SendMailAsAttachment
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" false
+ CONST "ShowInToolbar" false
+ CONST "has states" false
+ CONST "is FormActivate" true
+ CONST "is query" true
+ CONST "no prefix" true
+ref; // ME_495253870002_ME_4C7F801D0304 SendMailAsAttachment
+
+: ME_497469C90140_ME_4C7F801D0304
+ : Original WL 'ME_497469C90140' '5000041101C8.pas.ms.script' // NotifyDataSourceChanged
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_497469C90140_ME_4C7F801D0304 NotifyDataSourceChanged
+
+: ME_49803F5503AA_ME_4C7F801D0304
+ : Original WL 'ME_49803F5503AA' '4AADF9450143.pas.ms.script' // DoInit
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_49803F5503AA_ME_4C7F801D0304 DoInit
+
+: ME_4980407F0076_ME_4C7F801D0304
+ : Original WL 'ME_4980407F0076' '4AADF9450143.pas.ms.script' // CallCloseQuery
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4980407F0076_ME_4C7F801D0304 CallCloseQuery
+
+: ME_49880FD20039_ME_4C7F801D0304
+ : Original WL 'ME_49880FD20039' '4A9807DB01A5.pas.ms.script' // NextDocumentInList
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" false
+ CONST "ShowInToolbar" true
+ CONST "has states" false
+ CONST "is FormActivate" true
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_49880FD20039_ME_4C7F801D0304 NextDocumentInList
+
+: ME_49880FE90145_ME_4C7F801D0304
+ : Original WL 'ME_49880FE90145' '4A9807DB01A5.pas.ms.script' // ReturnToList
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" false
+ CONST "ShowInToolbar" true
+ CONST "has states" false
+ CONST "is FormActivate" true
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_49880FE90145_ME_4C7F801D0304 ReturnToList
+
+: ME_49885D540232_ME_4C7F801D0304
+ : Original WL 'ME_49885D540232' '4AE89F8A004B.pas.ms.script' // SaveToFolder
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" false
+ CONST "ShowInToolbar" true
+ CONST "has states" false
+ CONST "is FormActivate" true
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_49885D540232_ME_4C7F801D0304 SaveToFolder
+
+: ME_49885D59018D_ME_4C7F801D0304
+ : Original WL 'ME_49885D59018D' '4AE89F8A004B.pas.ms.script' // LoadFromFolder
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" false
+ CONST "ShowInToolbar" true
+ CONST "has states" false
+ CONST "is FormActivate" true
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_49885D59018D_ME_4C7F801D0304 LoadFromFolder
+
+: ME_498891640253_ME_4C7F801D0304
+ : Original WL 'ME_498891640253' '4AEEE2A40281.pas.ms.script' // GetAttributesFrmAct
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" false
+ CONST "ShowInToolbar" true
+ CONST "has states" false
+ CONST "is FormActivate" true
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_498891640253_ME_4C7F801D0304 GetAttributesFrmAct
+
+: ME_498993C801DC_ME_4C7F801D0304
+ : Original WL 'ME_498993C801DC' '4AEEE2A40281.pas.ms.script' // GetRelatedDocFrmAct
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" false
+ CONST "ShowInToolbar" true
+ CONST "has states" false
+ CONST "is FormActivate" true
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_498993C801DC_ME_4C7F801D0304 GetRelatedDocFrmAct
+
+: ME_4989D06D014E_ME_4C7F801D0304
+ : Original WL 'ME_4989D06D014E' '4A9807DB01A5.pas.ms.script' // AddBookmark
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" false
+ CONST "ShowInToolbar" false
+ CONST "has states" false
+ CONST "is FormActivate" true
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_4989D06D014E_ME_4C7F801D0304 AddBookmark
+
+: ME_4989D65C0275_ME_4C7F801D0304
+ : Original WL 'ME_4989D65C0275' '4AEEE2A40281.pas.ms.script' // GetCorrespondentList
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" false
+ CONST "ShowInToolbar" false
+ CONST "has states" false
+ CONST "is FormActivate" true
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_4989D65C0275_ME_4C7F801D0304 GetCorrespondentList
+
+: ME_4989D8430128_ME_4C7F801D0304
+ : Original WL 'ME_4989D8430128' '4AEEE2A40281.pas.ms.script' // GetRespondentList
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" false
+ CONST "ShowInToolbar" false
+ CONST "has states" false
+ CONST "is FormActivate" true
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_4989D8430128_ME_4C7F801D0304 GetRespondentList
+
+: ME_49EDFCA2006D_ME_4C7F801D0304
+ : Original WL 'ME_49EDFCA2006D' '495127DD017C.pas.ms.script' // Undo
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" false
+ CONST "ShowInToolbar" false
+ CONST "has states" false
+ CONST "is FormActivate" true
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_49EDFCA2006D_ME_4C7F801D0304 Undo
+
+: ME_49EDFCB100BC_ME_4C7F801D0304
+ : Original WL 'ME_49EDFCB100BC' '495127DD017C.pas.ms.script' // Redo
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" false
+ CONST "ShowInToolbar" false
+ CONST "has states" false
+ CONST "is FormActivate" true
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_49EDFCB100BC_ME_4C7F801D0304 Redo
+
+: ME_49FEDE4703B8_ME_4C7F801D0304
+ : Original WL 'ME_49FEDE4703B8' '495127DD017C.pas.ms.script' // FindPrev
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" true
+ CONST "ShowInToolbar" false
+ CONST "has states" false
+ CONST "is FormActivate" true
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_49FEDE4703B8_ME_4C7F801D0304 FindPrev
+
+: ME_4A7C0AFD02BA_ME_4C7F801D0304
+ : Original WL 'ME_4A7C0AFD02BA' '4A7C0A8202A9.pas.ms.script' // ShowJurorComments
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" false
+ CONST "ShowInToolbar" true
+ CONST "has states" false
+ CONST "is FormActivate" true
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_4A7C0AFD02BA_ME_4C7F801D0304 ShowJurorComments
+
+: ME_4A7C18B20241_ME_4C7F801D0304
+ : Original WL 'ME_4A7C18B20241' '4AE89F8A004B.pas.ms.script' // ShowSpecial
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "ContextMenuWeight" 2
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" true
+ CONST "ShowInToolbar" false
+ CONST "has states" false
+ CONST "is FormActivate" true
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_4A7C18B20241_ME_4C7F801D0304 ShowSpecial
+
+: ME_4A7C1F420169_ME_4C7F801D0304
+ : Original WL 'ME_4A7C1F420169' '4AE89F8A004B.pas.ms.script' // ShowInfo
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "ContextMenuWeight" 1
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" true
+ CONST "ShowInToolbar" false
+ CONST "has states" false
+ CONST "is FormActivate" true
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_4A7C1F420169_ME_4C7F801D0304 ShowInfo
+
+: ME_4A8E8F2E0195_ME_4C7F801D0304
+ : Original WL 'ME_4A8E8F2E0195' '5000041101C8.pas.ms.script' // InitControls
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4A8E8F2E0195_ME_4C7F801D0304 InitControls
+
+: ME_4A9D3FC50134_ME_4C7F801D0304
+ : Original WL 'ME_4A9D3FC50134' '498874B90391.pas.ms.script' // FindInDict
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "ContextMenuWeight" 10
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_4A9D3FC50134_ME_4C7F801D0304 FindInDict
+
+: ME_4AE1948900DE_ME_4C7F801D0304
+ : Original WL 'ME_4AE1948900DE' '5000041101C8.pas.ms.script' // EntitiesInited
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4AE1948900DE_ME_4C7F801D0304 EntitiesInited
+
+: ME_4AF329F6002A_ME_4C7F801D0304
+ : Original WL 'ME_4AF329F6002A' '4AEEE2A40281.pas.ms.script' // GetCorrespondentListExFrmAct
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" false
+ CONST "ShowInToolbar" true
+ CONST "has states" false
+ CONST "is FormActivate" true
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_4AF329F6002A_ME_4C7F801D0304 GetCorrespondentListExFrmAct
+
+: ME_4AF329FD014D_ME_4C7F801D0304
+ : Original WL 'ME_4AF329FD014D' '4AEEE2A40281.pas.ms.script' // GetRespondentListExFrmAct
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" false
+ CONST "ShowInToolbar" true
+ CONST "has states" false
+ CONST "is FormActivate" true
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_4AF329FD014D_ME_4C7F801D0304 GetRespondentListExFrmAct
+
+: ME_4AFAF4900270_ME_4C7F801D0304
+ : Original WL 'ME_4AFAF4900270' '4AEEE2A40281.pas.ms.script' // ActualRedaction
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "ContextMenuWeight" 1
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" false
+ CONST "ShowInToolbar" false
+ CONST "has states" false
+ CONST "is FormActivate" true
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_4AFAF4900270_ME_4C7F801D0304 ActualRedaction
+
+: ME_4B262F9701DE_ME_4C7F801D0304
+ : Original WL 'ME_4B262F9701DE' '4AEEE2A40281.pas.ms.script' // OpenRedactionListFrmAct
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" false
+ CONST "ShowInToolbar" true
+ CONST "has states" true
+ CONST "is FormActivate" true
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_4B262F9701DE_ME_4C7F801D0304 OpenRedactionListFrmAct
+
+: ME_4B4F49900003_ME_4C7F801D0304
+ : Original WL 'ME_4B4F49900003' '4AADF9450143.pas.ms.script' // SaveOwnFormState
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4B4F49900003_ME_4C7F801D0304 SaveOwnFormState
+
+: ME_4C2AEDB3003B_ME_4C7F801D0304
+ : Original WL 'ME_4C2AEDB3003B' '498874B90391.pas.ms.script' // GetCorrespondentList
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "ContextMenuWeight" 110
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_4C2AEDB3003B_ME_4C7F801D0304 GetCorrespondentList
+
+: ME_4C2AEDC503CC_ME_4C7F801D0304
+ : Original WL 'ME_4C2AEDC503CC' '498874B90391.pas.ms.script' // GetRespondentList
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "ContextMenuWeight" 120
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_4C2AEDC503CC_ME_4C7F801D0304 GetRespondentList
+
+: ME_4C3AA77E00A3_ME_4C7F801D0304
+ : Original WL 'ME_4C3AA77E00A3' '4A9807DB01A5.pas.ms.script' // GetAnnotationDocFrmAct
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" false
+ CONST "ShowInToolbar" true
+ CONST "has states" false
+ CONST "is FormActivate" true
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_4C3AA77E00A3_ME_4C7F801D0304 GetAnnotationDocFrmAct
+
+: ME_4C3AA78E024D_ME_4C7F801D0304
+ : Original WL 'ME_4C3AA78E024D' '4A9807DB01A5.pas.ms.script' // SimilarDocuments
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" false
+ CONST "ShowInToolbar" true
+ CONST "has states" false
+ CONST "is FormActivate" true
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_4C3AA78E024D_ME_4C7F801D0304 SimilarDocuments
+
+: ME_4C3ADFA5018F_ME_4C7F801D0304
+ : Original WL 'ME_4C3ADFA5018F' '498874B90391.pas.ms.script' // GetTypedCorrespondentList
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_4C3ADFA5018F_ME_4C7F801D0304 GetTypedCorrespondentList
+
+: ME_4C3AE0950253_ME_4C7F801D0304
+ : Original WL 'ME_4C3AE0950253' '4AEEE2A40281.pas.ms.script' // PrevRedaction
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" false
+ CONST "ShowInToolbar" false
+ CONST "has states" false
+ CONST "is FormActivate" true
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_4C3AE0950253_ME_4C7F801D0304 PrevRedaction
+
+: ME_4C3AE0CD0079_ME_4C7F801D0304
+ : Original WL 'ME_4C3AE0CD0079' '4AEEE2A40281.pas.ms.script' // NextRedaction
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" false
+ CONST "ShowInToolbar" false
+ CONST "has states" false
+ CONST "is FormActivate" true
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_4C3AE0CD0079_ME_4C7F801D0304 NextRedaction
+
+: ME_4C3AFAD90234_ME_4C7F801D0304
+ : Original WL 'ME_4C3AFAD90234' '49885BF10395.pas.ms.script' // AddToControl
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "ContextMenuWeight" 1
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "has states" true
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_4C3AFAD90234_ME_4C7F801D0304 AddToControl
+
+: ME_4C3AFB450234_ME_4C7F801D0304
+ : Original WL 'ME_4C3AFB450234' '49885BF10395.pas.ms.script' // ShowCorrespondentListToPart
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" true
+ CONST "ShowInToolbar" false
+ CONST "has states" false
+ CONST "is FormActivate" true
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_4C3AFB450234_ME_4C7F801D0304 ShowCorrespondentListToPart
+
+: ME_4C3AFB51020D_ME_4C7F801D0304
+ : Original WL 'ME_4C3AFB51020D' '49885BF10395.pas.ms.script' // ShowRespondentListToPart
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" true
+ CONST "ShowInToolbar" false
+ CONST "has states" false
+ CONST "is FormActivate" true
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_4C3AFB51020D_ME_4C7F801D0304 ShowRespondentListToPart
+
+: ME_4C3AFBA702E4_ME_4C7F801D0304
+ : Original WL 'ME_4C3AFBA702E4' '498874B90391.pas.ms.script' // ClearStatusSettings
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "ContextMenuWeight" 3
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" true
+ CONST "ShowInToolbar" false
+ CONST "has states" false
+ CONST "is FormActivate" true
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_4C3AFBA702E4_ME_4C7F801D0304 ClearStatusSettings
+
+: ME_4C3B17DC02C4_ME_4C7F801D0304
+ : Original WL 'ME_4C3B17DC02C4' '498874B90391.pas.ms.script' // AddBookmark
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_4C3B17DC02C4_ME_4C7F801D0304 AddBookmark
+
+: ME_4C3B17ED0192_ME_4C7F801D0304
+ : Original WL 'ME_4C3B17ED0192' '498874B90391.pas.ms.script' // ToMSWord
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_4C3B17ED0192_ME_4C7F801D0304 ToMSWord
+
+: ME_4C3B17FF03D2_ME_4C7F801D0304
+ : Original WL 'ME_4C3B17FF03D2' '498874B90391.pas.ms.script' // Print
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" false
+ CONST "ShowInToolbar" false
+ CONST "has states" false
+ CONST "is FormActivate" true
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_4C3B17FF03D2_ME_4C7F801D0304 Print
+
+: ME_4C3B180E038F_ME_4C7F801D0304
+ : Original WL 'ME_4C3B180E038F' '498874B90391.pas.ms.script' // PrintDialog
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_4C3B180E038F_ME_4C7F801D0304 PrintDialog
+
+: ME_4C3B1AEA0127_ME_4C7F801D0304
+ : Original WL 'ME_4C3B1AEA0127' '498874B90391.pas.ms.script' // AddBookmark
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" true
+ CONST "ShowInToolbar" false
+ CONST "has states" false
+ CONST "is FormActivate" true
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_4C3B1AEA0127_ME_4C7F801D0304 AddBookmark
+
+: ME_4C3B3754034D_ME_4C7F801D0304
+ : Original WL 'ME_4C3B3754034D' '498874B90391.pas.ms.script' // OpenContentsFrmAct
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" false
+ CONST "ShowInToolbar" true
+ CONST "has states" false
+ CONST "is FormActivate" true
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_4C3B3754034D_ME_4C7F801D0304 OpenContentsFrmAct
+
+: ME_4C3B3792000E_ME_4C7F801D0304
+ : Original WL 'ME_4C3B3792000E' '498874B90391.pas.ms.script' // ShowDocumentPicture
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" true
+ CONST "ShowInToolbar" true
+ CONST "has states" false
+ CONST "is FormActivate" true
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_4C3B3792000E_ME_4C7F801D0304 ShowDocumentPicture
+
+: ME_4C3B4A7D029B_ME_4C7F801D0304
+ : Original WL 'ME_4C3B4A7D029B' '498874B90391.pas.ms.script' // OpenActualRedaction
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "ContextMenuWeight" 1
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" true
+ CONST "ShowInToolbar" false
+ CONST "has states" false
+ CONST "is FormActivate" true
+ CONST "is query" true
+ CONST "no prefix" true
+ref; // ME_4C3B4A7D029B_ME_4C7F801D0304 OpenActualRedaction
+
+: ME_4C3B5337022E_ME_4C7F801D0304
+ : Original WL 'ME_4C3B5337022E' '498874B90391.pas.ms.script' // ShowChanges
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "ContextMenuWeight" 1
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" true
+ CONST "ShowInToolbar" false
+ CONST "has states" false
+ CONST "is FormActivate" true
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_4C3B5337022E_ME_4C7F801D0304 ShowChanges
+
+: ME_4C3B535F0064_ME_4C7F801D0304
+ : Original WL 'ME_4C3B535F0064' '498874B90391.pas.ms.script' // ClearStatus
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "ContextMenuWeight" 2
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" true
+ CONST "ShowInToolbar" false
+ CONST "has states" false
+ CONST "is FormActivate" true
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_4C3B535F0064_ME_4C7F801D0304 ClearStatus
+
+: ME_4C3C75240091_ME_4C7F801D0304
+ : Original WL 'ME_4C3C75240091' '498874B90391.pas.ms.script' // AddUserComment
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "ContextMenuWeight" 5
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_4C3C75240091_ME_4C7F801D0304 AddUserComment
+
+: ME_4C3C77CC012A_ME_4C7F801D0304
+ : Original WL 'ME_4C3C77CC012A' '4A9807DB01A5.pas.ms.script' // GetGraphicImage
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" false
+ CONST "ShowInToolbar" true
+ CONST "has states" false
+ CONST "is FormActivate" true
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_4C3C77CC012A_ME_4C7F801D0304 GetGraphicImage
+
+: ME_4C3EA65F0233_ME_4C7F801D0304
+ : Original WL 'ME_4C3EA65F0233' '498874B90391.pas.ms.script' // DocumentSynchroOpenWindow
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" false
+ CONST "ShowInToolbar" false
+ CONST "has states" false
+ CONST "is FormActivate" true
+ CONST "is query" true
+ CONST "no prefix" true
+ref; // ME_4C3EA65F0233_ME_4C7F801D0304 DocumentSynchroOpenWindow
+
+: ME_4C3EA671007A_ME_4C7F801D0304
+ : Original WL 'ME_4C3EA671007A' '498874B90391.pas.ms.script' // DocumentSynchroOpenNewWindow
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" false
+ CONST "ShowInToolbar" false
+ CONST "has states" false
+ CONST "is FormActivate" true
+ CONST "is query" true
+ CONST "no prefix" true
+ref; // ME_4C3EA671007A_ME_4C7F801D0304 DocumentSynchroOpenNewWindow
+
+: ME_4C3EA90300E1_ME_4C7F801D0304
+ : Original WL 'ME_4C3EA90300E1' '498874B90391.pas.ms.script' // DictListOpenFrmAct
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" true
+ CONST "ShowInToolbar" true
+ CONST "has states" false
+ CONST "is FormActivate" true
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_4C3EA90300E1_ME_4C7F801D0304 DictListOpenFrmAct
+
+: ME_4C3EBF860139_ME_4C7F801D0304
+ : Original WL 'ME_4C3EBF860139' '498874B90391.pas.ms.script' // GotoBookmark
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" false
+ CONST "ShowInToolbar" true
+ CONST "has states" false
+ CONST "is FormActivate" true
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_4C3EBF860139_ME_4C7F801D0304 GotoBookmark
+
+: ME_4C3ED13D03A5_ME_4C7F801D0304
+ : Original WL 'ME_4C3ED13D03A5' '498874B90391.pas.ms.script' // LiteratureListForDictionary
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" false
+ CONST "ShowInToolbar" true
+ CONST "has states" false
+ CONST "is FormActivate" true
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_4C3ED13D03A5_ME_4C7F801D0304 LiteratureListForDictionary
+
+: ME_4C3ED5D502AE_ME_4C7F801D0304
+ : Original WL 'ME_4C3ED5D502AE' '498874B90391.pas.ms.script' // AddBookmark
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "ContextMenuWeight" 3
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_4C3ED5D502AE_ME_4C7F801D0304 AddBookmark
+
+: ME_4C3ED7190010_ME_4C7F801D0304
+ : Original WL 'ME_4C3ED7190010' '498874B90391.pas.ms.script' // OpenNewWindow
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "ContextMenuWeight" 2
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" false
+ CONST "ShowInToolbar" false
+ CONST "has states" false
+ CONST "is FormActivate" true
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_4C3ED7190010_ME_4C7F801D0304 OpenNewWindow
+
+: ME_4C3EDBA7030C_ME_4C7F801D0304
+ : Original WL 'ME_4C3EDBA7030C' '498874B90391.pas.ms.script' // OpenProducedDrugList
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" false
+ CONST "ShowInToolbar" false
+ CONST "has states" false
+ CONST "is FormActivate" true
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_4C3EDBA7030C_ME_4C7F801D0304 OpenProducedDrugList
+
+: ME_4C3EDBB80283_ME_4C7F801D0304
+ : Original WL 'ME_4C3EDBB80283' '498874B90391.pas.ms.script' // OpenSimilarDrugList
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" false
+ CONST "ShowInToolbar" false
+ CONST "has states" false
+ CONST "is FormActivate" true
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_4C3EDBB80283_ME_4C7F801D0304 OpenSimilarDrugList
+
+: ME_4C7BAA4800A7_ME_4C7F801D0304
+ : Original WL 'ME_4C7BAA4800A7' '4A7C0A8202A9.pas.ms.script' // ShowJurorComments
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" false
+ CONST "ShowInToolbar" true
+ CONST "has states" false
+ CONST "is FormActivate" true
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_4C7BAA4800A7_ME_4C7F801D0304 ShowJurorComments
+
+: ME_4C7BAA9102F7_ME_4C7F801D0304
+ : Original WL 'ME_4C7BAA9102F7' '4A7C0A8202A9.pas.ms.script' // ShowUserComments
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" false
+ CONST "ShowInToolbar" true
+ CONST "has states" false
+ CONST "is FormActivate" true
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_4C7BAA9102F7_ME_4C7F801D0304 ShowUserComments
+
+: ME_4C7BAADA039E_ME_4C7F801D0304
+ : Original WL 'ME_4C7BAADA039E' '4A7C0A8202A9.pas.ms.script' // ShowTechComments
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" true
+ CONST "ShowInToolbar" false
+ CONST "has states" false
+ CONST "is FormActivate" true
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_4C7BAADA039E_ME_4C7F801D0304 ShowTechComments
+
+: ME_4C7BABCE03C0_ME_4C7F801D0304
+ : Original WL 'ME_4C7BABCE03C0' '4A9807DB01A5.pas.ms.script' // AddToControl
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" false
+ CONST "ShowInToolbar" true
+ CONST "has states" false
+ CONST "is FormActivate" true
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_4C7BABCE03C0_ME_4C7F801D0304 AddToControl
+
+: ME_4C7BAC1902F5_ME_4C7F801D0304
+ : Original WL 'ME_4C7BAC1902F5' '4A9807DB01A5.pas.ms.script' // UserCR1
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" false
+ CONST "ShowInToolbar" true
+ CONST "has states" false
+ CONST "is FormActivate" true
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_4C7BAC1902F5_ME_4C7F801D0304 UserCR1
+
+: ME_4C7BAC5101CA_ME_4C7F801D0304
+ : Original WL 'ME_4C7BAC5101CA' '4A9807DB01A5.pas.ms.script' // UserCR2
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" false
+ CONST "ShowInToolbar" true
+ CONST "has states" false
+ CONST "is FormActivate" true
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_4C7BAC5101CA_ME_4C7F801D0304 UserCR2
+
+: ME_4C7BAC9C0105_ME_4C7F801D0304
+ : Original WL 'ME_4C7BAC9C0105' '4A7C0A8202A9.pas.ms.script' // ShowVersionComments
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" false
+ CONST "ShowInToolbar" true
+ CONST "has states" false
+ CONST "is FormActivate" true
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_4C7BAC9C0105_ME_4C7F801D0304 ShowVersionComments
+
+: ME_4C7BAEB4010E_ME_4C7F801D0304
+ : Original WL 'ME_4C7BAEB4010E' '4A77058200BA.pas.ms.script' // CompareEditions
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" false
+ CONST "ShowInToolbar" true
+ CONST "has states" false
+ CONST "is FormActivate" true
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_4C7BAEB4010E_ME_4C7F801D0304 CompareEditions
+
+: ME_4C7BD34501EB_ME_4C7F801D0304
+ : Original WL 'ME_4C7BD34501EB' '4A9807DB01A5.pas.ms.script' // TimeMachineOnOffNew
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" true
+ CONST "ShowInToolbar" false
+ CONST "has states" false
+ CONST "is FormActivate" true
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_4C7BD34501EB_ME_4C7F801D0304 TimeMachineOnOffNew
+
+: ME_4C7D0C7B0185_ME_4C7F801D0304
+ : Original WL 'ME_4C7D0C7B0185' '495127DD017C.pas.ms.script' // Copy
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" true
+ CONST "ShowInToolbar" true
+ CONST "has states" false
+ CONST "is FormActivate" true
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_4C7D0C7B0185_ME_4C7F801D0304 Copy
+
+: ME_4C7D345C006D_ME_4C7F801D0304
+ : Original WL 'ME_4C7D345C006D' '498874B90391.pas.ms.script' // ShowInfo
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" true
+ CONST "ShowInToolbar" false
+ CONST "has states" false
+ CONST "is FormActivate" true
+ CONST "is query" true
+ CONST "no prefix" true
+ref; // ME_4C7D345C006D_ME_4C7F801D0304 ShowInfo
+
+: ME_4C7D34A903C5_ME_4C7F801D0304
+ : Original WL 'ME_4C7D34A903C5' '498874B90391.pas.ms.script' // ShowInfo
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" true
+ CONST "ShowInToolbar" false
+ CONST "has states" false
+ CONST "is FormActivate" true
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_4C7D34A903C5_ME_4C7F801D0304 ShowInfo
+
+: ME_4C7D34DE02D2_ME_4C7F801D0304
+ : Original WL 'ME_4C7D34DE02D2' '498874B90391.pas.ms.script' // TimeMachineOnOffNew
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" true
+ CONST "ShowInToolbar" false
+ CONST "has states" false
+ CONST "is FormActivate" true
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_4C7D34DE02D2_ME_4C7F801D0304 TimeMachineOnOffNew
+
+: ME_4C7D354603D3_ME_4C7F801D0304
+ : Original WL 'ME_4C7D354603D3' '498874B90391.pas.ms.script' // ShowInfo
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" true
+ CONST "ShowInToolbar" false
+ CONST "has states" false
+ CONST "is FormActivate" true
+ CONST "is query" true
+ CONST "no prefix" true
+ref; // ME_4C7D354603D3_ME_4C7F801D0304 ShowInfo
+
+: ME_4C7D36900317_ME_4C7F801D0304
+ : Original WL 'ME_4C7D36900317' '498874B90391.pas.ms.script' // UserCR1
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" true
+ CONST "ShowInToolbar" false
+ CONST "has states" true
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_4C7D36900317_ME_4C7F801D0304 UserCR1
+
+: ME_4C7D36C40097_ME_4C7F801D0304
+ : Original WL 'ME_4C7D36C40097' '498874B90391.pas.ms.script' // UserCR2
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" true
+ CONST "ShowInToolbar" false
+ CONST "has states" true
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_4C7D36C40097_ME_4C7F801D0304 UserCR2
+
+: ME_4C7D39A7029B_ME_4C7F801D0304
+ : Original WL 'ME_4C7D39A7029B' '49885BF10395.pas.ms.script' // AddToControl
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "ContextMenuWeight" 1
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "has states" true
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_4C7D39A7029B_ME_4C7F801D0304 AddToControl
+
+: ME_4CDD5C3901E0_ME_4C7F801D0304
+ : Original WL 'ME_4CDD5C3901E0' '4CDD18640278.pas.ms.script' // MakeHyperlinkToDocument
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "ContextMenuWeight" 4
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" true
+ CONST "ShowInToolbar" false
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_4CDD5C3901E0_ME_4C7F801D0304 MakeHyperlinkToDocument
+
+: ME_4FE1BA1303D3_ME_4C7F801D0304
+ : Original WL 'ME_4FE1BA1303D3' '4A9807DB01A5.pas.ms.script' // PrevDocumentInList
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" false
+ CONST "ShowInToolbar" false
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_4FE1BA1303D3_ME_4C7F801D0304 PrevDocumentInList
+
+: ME_4FE1EF1201D6_ME_4C7F801D0304
+ : Original WL 'ME_4FE1EF1201D6' '4A9807DB01A5.pas.ms.script' // DocumentIsUseful
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" false
+ CONST "ShowInToolbar" false
+ CONST "has states" true
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_4FE1EF1201D6_ME_4C7F801D0304 DocumentIsUseful
+
+: ME_4FE1EF1B039A_ME_4C7F801D0304
+ : Original WL 'ME_4FE1EF1B039A' '4A9807DB01A5.pas.ms.script' // DocumentIsUseless
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" false
+ CONST "ShowInToolbar" false
+ CONST "has states" true
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_4FE1EF1B039A_ME_4C7F801D0304 DocumentIsUseless
+
+: ME_528777B1010F_ME_4C7F801D0304
+ : Original WL 'ME_528777B1010F' '498874B90391.pas.ms.script' // SelectWord
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "ContextMenuWeight" 6
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" false
+ CONST "ShowInToolbar" 'undefined'
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_528777B1010F_ME_4C7F801D0304 SelectWord
+
+: ME_528777C803B4_ME_4C7F801D0304
+ : Original WL 'ME_528777C803B4' '498874B90391.pas.ms.script' // SelectPara
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "ContextMenuWeight" 7
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" false
+ CONST "ShowInToolbar" 'undefined'
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_528777C803B4_ME_4C7F801D0304 SelectPara
+
+: ME_538C374A00B7_ME_4C7F801D0304
+ : Original WL 'ME_538C374A00B7' '4AADF9450143.pas.ms.script' // ReleaseResources
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_538C374A00B7_ME_4C7F801D0304 ReleaseResources
+
+: ME_5587AA310201_ME_4C7F801D0304
+ : Original WL 'ME_5587AA310201' '498874B90391.pas.ms.script' // GetSimilarDocsToBlock
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "ContextMenuWeight" 130
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_5587AA310201_ME_4C7F801D0304 GetSimilarDocsToBlock
+
+: ME_4C7F801D0304
+ CONST UID '4C7F801D0304'
+ CONST Name 'ExTextOptions'
+ CONST Class class_Class
+ : Stereotype st_VCMContainer ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4951181B02B6' '4951181B02B6.pas.ms.script' // Document
+ ;
+ : Inherits
+   Seq: ( WL 'ME_49539DBA029D' '49539DBA029D.pas.ms.script' // ExText
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4C4EB66600F3' '4A9807DB01A5.pas.ms.script' // Openable
+ WL 'ME_4C7F8DE70364' '4AE89F8A004B.pas.ms.script' // SubPanelSettings$ShowSubNumbers
+ WL 'ME_4C7FAC970069' '498874B90391.pas.ms.script' // Reminder
+ WL 'ME_4F8845ED0155' '498874B90391.pas.ms.script' // Document$ChangesButton
+ WL 'ME_4F884EDC03D9' '498874B90391.pas.ms.script' // SubsPanel
+ WL 'ME_528373C80349' '4AE89F8A004B.pas.ms.script' // SubPanelSettings$WithShowByShortCut
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( HWL ME_4DA8424103A2 // RemindersLine
+ HWL ME_4F8845BD00FD // f_DocOpsList
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( HWL ME_4C7FAE9B01E1 // SetReminderOpParams
+ HWL ME_4C80CFC301F1 // WarnJurorInfo
+ HWL ME_4C80D03001DC // TimeMachineWarningOnInfo
+ HWL ME_4C80D0730151 // TimeMachineWarningOnHint
+ HWL ME_4C80D2370306 // WarnPreActiveInfo
+ HWL ME_4C80D52A007B // HasWarning
+ HWL ME_4C80D61203E4 // WarnOnControlInfo
+ HWL ME_4C80D65C01D8 // WarnIsAbolishedInfo
+ HWL ME_4C80D68600A1 // BaseTimeMachineWarningInfo
+ HWL ME_4C80D6CB002A // TimeMachineWarningInfo
+ HWL ME_4F82F0810313 // TextBlockChange
+ HWL ME_4F82F0A0030A // TextBlockScroll
+ HWL ME_4F82F0C7004D // TextMouseAction
+ HWL ME_4F82F10600ED // TextCanSplitPara
+ HWL ME_4F82F137005B // TextUserCommentsHidden
+ HWL ME_4F82F15D0133 // TextAfterFirstPaint
+ HWL ME_4F82F18203A7 // TextCommentsVisibleChanged
+ HWL ME_4F82F1A901BD // TextShowDocumentPartsChanged
+ HWL ME_4F82F1CC00F6 // TextDrawSpecialChange
+ HWL ME_4F82F1F10297 // SubPanelMouseOverSub
+ HWL ME_4F82F22B023D // SubPanelClickSub
+ HWL ME_4F82F2FF00B9 // vcmEntityFormRefGetStatus
+ HWL ME_4F82FDD7022B // GetContentsElement
+ HWL ME_4F85B70C035A // CurrentParaPos
+ HWL ME_4F88454E023C // ContextEntitiesGetTarget
+ HWL ME_4F884583015D // SubPanelEntitiesGetTarget
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4AE7354E03A4_ME_4C7F801D0304 // ReloadRedaction
+ ME_4AE7358F03E2_ME_4C7F801D0304 // ReloadRedaction
+ ME_4AE73936003E_ME_4C7F801D0304 // SetActualRedaction
+ ME_4AE9DB55008E_ME_4C7F801D0304 // ExtractRangeFromContents
+ ME_4AE9DC630356_ME_4C7F801D0304 // ExportBlock
+ ME_4AEB099C0216_ME_4C7F801D0304 // SelectBlock
+ ME_4AEB09F0027F_ME_4C7F801D0304 // CopyBlock
+ ME_4AEB0A3A028D_ME_4C7F801D0304 // PrintBlock
+ ME_4AEB0A7902CA_ME_4C7F801D0304 // PrintDialogBlock
+ ME_4AEB0AA60373_ME_4C7F801D0304 // PreviewBlock
+ ME_4AEEF8180282_ME_4C7F801D0304 // FindBookmarkInText
+ ME_4AEEFBF102AF_ME_4C7F801D0304 // InitHyperLink
+ ME_4AFAF4620059_ME_4C7F801D0304 // EnableRedactionOps
+ ME_4B04318202FC_ME_4C7F801D0304 // OpenInWindow
+ ME_4C4EB6710127_ME_4C7F801D0304 // OpenInNewWindow
+ ME_4C7F8DFF02BF_ME_4C7F801D0304 // Show
+ ME_4C7FACA8026E_ME_4C7F801D0304 // RemWarnJuror
+ ME_4C7FACBB005C_ME_4C7F801D0304 // RemWarnTimeMachineOn
+ ME_4C7FACCE013F_ME_4C7F801D0304 // RemWarnRedaction
+ ME_4C7FACFE01D3_ME_4C7F801D0304 // RemWarnOnControl
+ ME_4C7FAD0F014A_ME_4C7F801D0304 // RemWarnIsAbolished
+ ME_4C7FAD1D038F_ME_4C7F801D0304 // RemWarnTimeMachineException
+ ME_4C7FAD310195_ME_4C7F801D0304 // RemWarnPreActive
+ ME_4C7FAD470142_ME_4C7F801D0304 // RemWarnTimeMachineWarning
+ ME_4C7FAD5900EE_ME_4C7F801D0304 // ViewInactualDocument
+ ME_4EBAA060033D_ME_4C7F801D0304 // CreateTOC
+ ME_4F88460903B1_ME_4C7F801D0304 // ChangesButton
+ ME_4F884EF30187_ME_4C7F801D0304 // CopySubNumber
+ ME_528373EC0026_ME_4C7F801D0304 // ShowByShortCut
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_479731C50290_ME_4C7F801D0304 // Cleanup
+ ME_49512B5D0009_ME_4C7F801D0304 // FindContext
+ ME_495130C40123_ME_4C7F801D0304 // FindNext
+ ME_49521D8E0295_ME_4C7F801D0304 // Print
+ ME_495220DE0298_ME_4C7F801D0304 // PrintDialog
+ ME_495220F2033A_ME_4C7F801D0304 // PrintPreview
+ ME_495235F401C0_ME_4C7F801D0304 // Save
+ ME_495238EB0160_ME_4C7F801D0304 // ToMSWord
+ ME_495253870002_ME_4C7F801D0304 // SendMailAsAttachment
+ ME_497469C90140_ME_4C7F801D0304 // NotifyDataSourceChanged
+ ME_49803F5503AA_ME_4C7F801D0304 // DoInit
+ ME_4980407F0076_ME_4C7F801D0304 // CallCloseQuery
+ ME_49880FD20039_ME_4C7F801D0304 // NextDocumentInList
+ ME_49880FE90145_ME_4C7F801D0304 // ReturnToList
+ ME_49885D540232_ME_4C7F801D0304 // SaveToFolder
+ ME_49885D59018D_ME_4C7F801D0304 // LoadFromFolder
+ ME_498891640253_ME_4C7F801D0304 // GetAttributesFrmAct
+ ME_498993C801DC_ME_4C7F801D0304 // GetRelatedDocFrmAct
+ ME_4989D06D014E_ME_4C7F801D0304 // AddBookmark
+ ME_4989D65C0275_ME_4C7F801D0304 // GetCorrespondentList
+ ME_4989D8430128_ME_4C7F801D0304 // GetRespondentList
+ ME_49EDFCA2006D_ME_4C7F801D0304 // Undo
+ ME_49EDFCB100BC_ME_4C7F801D0304 // Redo
+ ME_49FEDE4703B8_ME_4C7F801D0304 // FindPrev
+ ME_4A7C0AFD02BA_ME_4C7F801D0304 // ShowJurorComments
+ ME_4A7C18B20241_ME_4C7F801D0304 // ShowSpecial
+ ME_4A7C1F420169_ME_4C7F801D0304 // ShowInfo
+ ME_4A8E8F2E0195_ME_4C7F801D0304 // InitControls
+ ME_4A9D3FC50134_ME_4C7F801D0304 // FindInDict
+ ME_4AE1948900DE_ME_4C7F801D0304 // EntitiesInited
+ ME_4AF329F6002A_ME_4C7F801D0304 // GetCorrespondentListExFrmAct
+ ME_4AF329FD014D_ME_4C7F801D0304 // GetRespondentListExFrmAct
+ ME_4AFAF4900270_ME_4C7F801D0304 // ActualRedaction
+ ME_4B262F9701DE_ME_4C7F801D0304 // OpenRedactionListFrmAct
+ ME_4B4F49900003_ME_4C7F801D0304 // SaveOwnFormState
+ ME_4C2AEDB3003B_ME_4C7F801D0304 // GetCorrespondentList
+ ME_4C2AEDC503CC_ME_4C7F801D0304 // GetRespondentList
+ ME_4C3AA77E00A3_ME_4C7F801D0304 // GetAnnotationDocFrmAct
+ ME_4C3AA78E024D_ME_4C7F801D0304 // SimilarDocuments
+ ME_4C3ADFA5018F_ME_4C7F801D0304 // GetTypedCorrespondentList
+ ME_4C3AE0950253_ME_4C7F801D0304 // PrevRedaction
+ ME_4C3AE0CD0079_ME_4C7F801D0304 // NextRedaction
+ ME_4C3AFAD90234_ME_4C7F801D0304 // AddToControl
+ ME_4C3AFB450234_ME_4C7F801D0304 // ShowCorrespondentListToPart
+ ME_4C3AFB51020D_ME_4C7F801D0304 // ShowRespondentListToPart
+ ME_4C3AFBA702E4_ME_4C7F801D0304 // ClearStatusSettings
+ ME_4C3B17DC02C4_ME_4C7F801D0304 // AddBookmark
+ ME_4C3B17ED0192_ME_4C7F801D0304 // ToMSWord
+ ME_4C3B17FF03D2_ME_4C7F801D0304 // Print
+ ME_4C3B180E038F_ME_4C7F801D0304 // PrintDialog
+ ME_4C3B1AEA0127_ME_4C7F801D0304 // AddBookmark
+ ME_4C3B3754034D_ME_4C7F801D0304 // OpenContentsFrmAct
+ ME_4C3B3792000E_ME_4C7F801D0304 // ShowDocumentPicture
+ ME_4C3B4A7D029B_ME_4C7F801D0304 // OpenActualRedaction
+ ME_4C3B5337022E_ME_4C7F801D0304 // ShowChanges
+ ME_4C3B535F0064_ME_4C7F801D0304 // ClearStatus
+ ME_4C3C75240091_ME_4C7F801D0304 // AddUserComment
+ ME_4C3C77CC012A_ME_4C7F801D0304 // GetGraphicImage
+ ME_4C3EA65F0233_ME_4C7F801D0304 // DocumentSynchroOpenWindow
+ ME_4C3EA671007A_ME_4C7F801D0304 // DocumentSynchroOpenNewWindow
+ ME_4C3EA90300E1_ME_4C7F801D0304 // DictListOpenFrmAct
+ ME_4C3EBF860139_ME_4C7F801D0304 // GotoBookmark
+ ME_4C3ED13D03A5_ME_4C7F801D0304 // LiteratureListForDictionary
+ ME_4C3ED5D502AE_ME_4C7F801D0304 // AddBookmark
+ ME_4C3ED7190010_ME_4C7F801D0304 // OpenNewWindow
+ ME_4C3EDBA7030C_ME_4C7F801D0304 // OpenProducedDrugList
+ ME_4C3EDBB80283_ME_4C7F801D0304 // OpenSimilarDrugList
+ ME_4C7BAA4800A7_ME_4C7F801D0304 // ShowJurorComments
+ ME_4C7BAA9102F7_ME_4C7F801D0304 // ShowUserComments
+ ME_4C7BAADA039E_ME_4C7F801D0304 // ShowTechComments
+ ME_4C7BABCE03C0_ME_4C7F801D0304 // AddToControl
+ ME_4C7BAC1902F5_ME_4C7F801D0304 // UserCR1
+ ME_4C7BAC5101CA_ME_4C7F801D0304 // UserCR2
+ ME_4C7BAC9C0105_ME_4C7F801D0304 // ShowVersionComments
+ ME_4C7BAEB4010E_ME_4C7F801D0304 // CompareEditions
+ ME_4C7BD34501EB_ME_4C7F801D0304 // TimeMachineOnOffNew
+ ME_4C7D0C7B0185_ME_4C7F801D0304 // Copy
+ ME_4C7D345C006D_ME_4C7F801D0304 // ShowInfo
+ ME_4C7D34A903C5_ME_4C7F801D0304 // ShowInfo
+ ME_4C7D34DE02D2_ME_4C7F801D0304 // TimeMachineOnOffNew
+ ME_4C7D354603D3_ME_4C7F801D0304 // ShowInfo
+ ME_4C7D36900317_ME_4C7F801D0304 // UserCR1
+ ME_4C7D36C40097_ME_4C7F801D0304 // UserCR2
+ ME_4C7D39A7029B_ME_4C7F801D0304 // AddToControl
+ ME_4CDD5C3901E0_ME_4C7F801D0304 // MakeHyperlinkToDocument
+ ME_4FE1BA1303D3_ME_4C7F801D0304 // PrevDocumentInList
+ ME_4FE1EF1201D6_ME_4C7F801D0304 // DocumentIsUseful
+ ME_4FE1EF1B039A_ME_4C7F801D0304 // DocumentIsUseless
+ ME_528777B1010F_ME_4C7F801D0304 // SelectWord
+ ME_528777C803B4_ME_4C7F801D0304 // SelectPara
+ ME_538C374A00B7_ME_4C7F801D0304 // ReleaseResources
+ ME_5587AA310201_ME_4C7F801D0304 // GetSimilarDocsToBlock
+ )
+ ; // Overridden
+ : Children
+   Seq: ( HWL ME_4F7EE01B022E // RemindersLineZone
+ )
+ ; // Children
+ : Constants
+   Seq: ( HWL ME_4F83021B014F // SubLayers
+ HWL ME_53690412016C // Reminders' Hints
+ )
+ ; // Constants
+ : Dependencies
+   Seq: ( ME_4C7F8E5B03BA // DefDataAdapter
+ ME_4C7F9019013B // IevHyperlink
+ ME_4C7F902F02B3 // Supports
+ ME_4C7F9065031E // nsProcessHyperLink
+ ME_4C7F936402D1 // TevCustomEditor
+ ME_4C7F982B0200 // IeePara
+ ME_4C7F9853016E // InevSelection
+ ME_4C7F987200BA // TeePara
+ ME_4C7F9891028F // IeeDocumentEx
+ ME_4C7F98BE0128 // Hyperlink Const
+ ME_4C80CE6C0248 // ShowMessageDlg
+ ME_4C80CEAC0335 // l3Cat
+ ME_4C80D01403B5 // Dialogs
+ ME_4C80D0F6006C // WarningConstants
+ ME_4C80D12401E5 // StdRes
+ ME_4C80D56903E5 // ItemStatus
+ ME_4C80D5A0004D // nsGetDocumentWarning
+ ME_4C80D5C10111 // dftDocument
+ ME_4C80D5DB035E // vcmConstString
+ ME_4C80D5FA021D // l3CStr
+ ME_4C80D64203CA // dftRelatedDoc
+ ME_4C80D9880042 // bsFullControlStatusHint
+ ME_4DAC43B901B6 // WarningConst
+ ME_4E7C5F910200 // ControlStatusUtils
+ ME_4F7EDDE900CF // resWarnImages
+ ME_4F82FE260244 // dftDrug
+ ME_4F82FE40004B // dftAutoreferat
+ ME_4F82FE470373 // dftAutoreferatAfterSearch
+ ME_4F8301820243 // nsManagers
+ ME_4F8301A10189 // nsConst
+ ME_4F8301F2025D // eeParaTools
+ ME_4F83059602EF // Ik2Tag
+ ME_4F8305AD0336 // Ext Chars
+ ME_4F8307E4002E // Controls
+ ME_4F83087F0125 // evGetBlockName
+ ME_4F830AA20296 // Forms
+ ME_4F831726021F // nsStringMapManager
+ ME_4F8317B80056 // nsValueMapsIDs
+ ME_4F831E6C0104 // dftDictEntry
+ ME_4F831E7C026B // dftMedDictEntry
+ ME_4F831E8F039C // dftConsultation
+ ME_4F85B5C10184 // TbsChangeRedationById
+ ME_4F85B5EB013F // TbsDocPos
+ ME_4F85B60C00A5 // InevFlatSubsList
+ ME_4F85B6990359 // Tafw
+ ME_4F85B6BD0303 // TevAddress
+ ME_4F85B6ED00C1 // nsOpenUtils
+ ME_4F85B7380322 // InsContentsTree
+ ME_4F85B75100B3 // Il3FilterableTree
+ ME_4F85B770013E // Il3SimpleTree
+ ME_4F85B7A200AE // TdeSimpleTree
+ ME_4F85BB7900AE // TnevRangeList
+ ME_4F85BBA40124 // nevRangeListTools
+ ME_4F85BBC500EA // TevMultiSelectionBlock
+ ME_4F8846DD01EB // TvcmItems
+ ME_4F884F4103E5 // DocumentBlockHeader
+ ME_4F884F7D0210 // Text
+ ME_4F88557E038B // TevConstStringData
+ ME_4F8855940309 // TeeEditor
+ ME_4F8855A602E8 // TeeSubPanel
+ ME_5066D868013B // dftAACRight
+ ME_50BDC7970114 // dftAACLeft
+ ME_528D01C702EE // SubsPanel
+ ME_528D059601C5 // SubPanelSettings$ShowSubNumbers
+ ME_528D05E201F1 // SubPanelSettings
+ ME_528DDAA80352 // WarnTimeMachine
+ ME_5294C7540329 // WarnRedaction
+ ME_5294C7790052 // WarnJuror
+ ME_5294C793036E // WarnOnControl
+ ME_535E71DE0229 // WarnPreActive
+ ME_535E71EB0361 // WarnRedaction
+ ME_535E71FB00C1 // WarnIsAbolished
+ ME_535E72080131 // WarnJuror
+ ME_535E72170118 // WarnTimeMachineException
+ ME_535E72230373 // WarnOnControl
+ ME_535E72350150 // WarnTimeMachineOn
+ ME_535E72440398 // WarnTimeMachineWarning
+ ME_535E72580049 // WarnInactualDocument
+ ME_55B88FD10001 // TnsUseDocumentSubPanelOperationEvent
+ ME_56C5CC3D018A // bsUtilsConst
+ ME_5786271A0053 // Tl3TabbedContainersDispatcher
+ )
+ ; // Dependencies
+ CONST "NeedsHackRef" true
+ CONST "ZoneType" 'Any'
+ CONST "author" 'Люлин А.В.'
+ CONST "finished dfm" true
+ CONST "no hands" true
+ CONST "resizeable" false
+ CONST "restrict form def" 'undefined'
+ CONST "started" '02.09.2010 14:45'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\ExTextOptions_Form.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms'
+ CONST extprop:pas:TypeName 'TExTextOptionsForm'
+ CONST extprop:rc:SelfName 'ExTextOptionsForm'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'ExTextOptions_Form'
+ CONST extprop:NeedsInitEntities true
+
+ref; // ME_4C7F801D0304 ExTextOptions

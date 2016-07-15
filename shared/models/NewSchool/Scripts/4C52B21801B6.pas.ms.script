@@ -1,0 +1,179 @@
+// PrimStyleEditorContainerOptions 4C52B21801B6 VCMContainer Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4C52B21801B6
+
+: ME_4C52B30B00BA
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C52B21801B6 // PrimStyleEditorContainerOptions
+ ;
+ : Target WL 'ME_4A980B37006B' '4799D29F033F.pas.ms.script' // ModalResults
+ ;
+
+ref; // ME_4C52B30B00BA 
+
+: ME_4C52B3ED0269
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C52B21801B6 // PrimStyleEditorContainerOptions
+ ;
+ : Target WL 'ME_4AE869590212' '4AE824CB035A.pas.ms.script' // StyleEditor$Font
+ ;
+
+ref; // ME_4C52B3ED0269 
+
+: ME_526A57CE013A
+ CONST Class class_Dependency
+ : Stereotype st_ToolbarAtBottom::Dependency ;
+ : Parent HWL ME_4C52B21801B6 // PrimStyleEditorContainerOptions
+ ;
+ : Target WL 'ME_4A97EBC80201' '4A8AD3C70195.pas.ms.script' // Result$Ok
+ ;
+
+ref; // ME_526A57CE013A 
+
+: ME_4A8AD46D0226_ME_4C52B21801B6
+ : Original WL 'ME_4A8AD46D0226' '4A8AD3C70195.pas.ms.script' // Cancel
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" true
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_4A8AD46D0226_ME_4C52B21801B6 Cancel
+
+: ME_4A97EBE702F8_ME_4C52B21801B6
+ : Original WL 'ME_4A97EBE702F8' '4A8AD3C70195.pas.ms.script' // Ok
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" true
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_4A97EBE702F8_ME_4C52B21801B6 Ok
+
+: ME_4C52B34E0125_ME_4C52B21801B6
+ : Original WL 'ME_4C52B34E0125' '4AE89F8A004B.pas.ms.script' // Restore
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" true
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_4C52B34E0125_ME_4C52B21801B6 Restore
+
+: ME_4C52B36B01B3_ME_4C52B21801B6
+ : Original WL 'ME_4C52B36B01B3' '4AE89F8A004B.pas.ms.script' // SaveAsDefault
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" true
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_4C52B36B01B3_ME_4C52B21801B6 SaveAsDefault
+
+: ME_4C762A1501FC_ME_4C52B21801B6
+ : Original WL 'ME_4C762A1501FC' '4A8AD3C70195.pas.ms.script' // Ok
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" true
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_4C762A1501FC_ME_4C52B21801B6 Ok
+
+: ME_4C762AB601E1_ME_4C52B21801B6
+ : Original WL 'ME_4C762AB601E1' '4A8AD3C70195.pas.ms.script' // Cancel
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" true
+ CONST "has states" true
+ CONST "is FormActivate" false
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_4C762AB601E1_ME_4C52B21801B6 Cancel
+
+: ME_4C52B21801B6
+ CONST UID '4C52B21801B6'
+ CONST Name 'PrimStyleEditorContainerOptions'
+ CONST Class class_Class
+ : Stereotype st_VCMContainer ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Редактор стилей' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4AA79F630309' '4AA79F630309.pas.ms.script' // Settings
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4AC6402401E4' '4AC6402401E4.pas.ms.script' // PrimStyleEditorContainer
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4A8AD409003A' '4A8AD3C70195.pas.ms.script' // Result$Cancel
+ WL 'ME_4A97EBC80201' '4A8AD3C70195.pas.ms.script' // Result$Ok
+ WL 'ME_4C52B3310159' '4AE89F8A004B.pas.ms.script' // Result$ForStyleEditorContainer
+ )
+ ; // Implements
+ : Implemented
+   Seq: ( ME_4A8AD46D0226_ME_4C52B21801B6 // Cancel
+ ME_4A97EBE702F8_ME_4C52B21801B6 // Ok
+ ME_4C52B34E0125_ME_4C52B21801B6 // Restore
+ ME_4C52B36B01B3_ME_4C52B21801B6 // SaveAsDefault
+ ME_4C762A1501FC_ME_4C52B21801B6 // Ok
+ ME_4C762AB601E1_ME_4C52B21801B6 // Cancel
+ )
+ ; // Implemented
+ : Dependencies
+   Seq: ( ME_4C52B30B00BA // ModalResults
+ ME_4C52B3ED0269 // StyleEditor$Font
+ ME_526A57CE013A // Result$Ok
+ )
+ ; // Dependencies
+ CONST "NeedsHackRef" true
+ CONST "ZoneType" 'ManualModal'
+ CONST "author" 'Люлин А.В.'
+ CONST "finished dfm" true
+ CONST "no hands" true
+ CONST "resizeable" false
+ CONST "restrict form def" 'undefined'
+ CONST "started" '30.07.2010 15:06'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms\PrimStyleEditorContainerOptions_Form.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms'
+ CONST extprop:pas:TypeName 'TPrimStyleEditorContainerOptionsForm'
+ CONST extprop:rc:SelfName 'PrimStyleEditorContainerOptionsForm'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'PrimStyleEditorContainerOptions_Form'
+ CONST extprop:NeedsInitEntities true
+
+ref; // ME_4C52B21801B6 PrimStyleEditorContainerOptions

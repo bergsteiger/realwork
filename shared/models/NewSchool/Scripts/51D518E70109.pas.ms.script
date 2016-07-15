@@ -16,7 +16,7 @@ FORWARD ME_51D519310249
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_51D519310249 // IddConfigStorage
+ : Parent HWL ME_51D519310249 // IddConfigStorage
  ;
  : Target WL 'ME_483C2FA400B1' '4AB0C3C60310.pas.ms.script' // AnsiString
  ;
@@ -49,7 +49,7 @@ ref; // ME_51D5199B00F4 Default
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_51D519310249 // IddConfigStorage
+ : Parent HWL ME_51D519310249 // IddConfigStorage
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -86,7 +86,7 @@ ref; // ME_51D519B20017 Default
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_51D519310249 // IddConfigStorage
+ : Parent HWL ME_51D519310249 // IddConfigStorage
  ;
  : Target WL 'ME_47272C8B0128' '4AB0C3C60310.pas.ms.script' // TDateTime
  ;
@@ -123,7 +123,7 @@ ref; // ME_51D519C902B2 Default
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_51D519310249 // IddConfigStorage
+ : Parent HWL ME_51D519310249 // IddConfigStorage
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -160,7 +160,7 @@ ref; // ME_51D519E2036F Default
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_51D519310249 // IddConfigStorage
+ : Parent HWL ME_51D519310249 // IddConfigStorage
  ;
  : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
  ;
@@ -197,7 +197,7 @@ ref; // ME_51D51A03012F B
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_51D519310249 // IddConfigStorage
+ : Parent HWL ME_51D519310249 // IddConfigStorage
  ;
  : Parameters
    Seq: ( ME_51D51A030110 // Alias
@@ -232,7 +232,7 @@ ref; // ME_51D51A1202DA DT
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_51D519310249 // IddConfigStorage
+ : Parent HWL ME_51D519310249 // IddConfigStorage
  ;
  : Parameters
    Seq: ( ME_51D51A1202CA // Alias
@@ -267,7 +267,7 @@ ref; // ME_51D51A25038C I
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_51D519310249 // IddConfigStorage
+ : Parent HWL ME_51D519310249 // IddConfigStorage
  ;
  : Parameters
    Seq: ( ME_51D51A25037D // Alias
@@ -302,7 +302,7 @@ ref; // ME_51D51A370338 S
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_51D519310249 // IddConfigStorage
+ : Parent HWL ME_51D519310249 // IddConfigStorage
  ;
  : Parameters
    Seq: ( ME_51D51A370318 // Alias
@@ -323,21 +323,21 @@ ref; // ME_51D51A3201BA WriteString
  %SUMMARY 'Интерфейс для чтения-записи данных конфигурации' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_5214AEF201AE // ddConfigStorages
+ : Parent HWL ME_5214AEF201AE // ddConfigStorages
  ;
  : Attributes
-   Seq: ( ME_51D51A48025D // Section
+   Seq: ( HWL ME_51D51A48025D // Section
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_51D51983016F // ReadBool
- ME_51D519A40189 // ReadDateTime
- ME_51D519B403D0 // ReadInteger
- ME_51D519D00291 // ReadString
- ME_51D519FC00D5 // WriteBool
- ME_51D51A0D0133 // WriteDateTime
- ME_51D51A1E025E // WriteInteger
- ME_51D51A3201BA // WriteString
+   Seq: ( HWL ME_51D51983016F // ReadBool
+ HWL ME_51D519A40189 // ReadDateTime
+ HWL ME_51D519B403D0 // ReadInteger
+ HWL ME_51D519D00291 // ReadString
+ HWL ME_51D519FC00D5 // WriteBool
+ HWL ME_51D51A0D0133 // WriteDateTime
+ HWL ME_51D51A1E025E // WriteInteger
+ HWL ME_51D51A3201BA // WriteString
  )
  ; // Operations
  CONST extprop:rc:SelfName 'ddConfigStorage'
@@ -353,10 +353,10 @@ ref; // ME_51D519310249 IddConfigStorage
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_51D518E70109 // ddConfigStorages
+ : Parent HWL ME_51D518E70109 // ddConfigStorages
  ;
  : Children
-   Seq: ( ME_51D519310249 // IddConfigStorage
+   Seq: ( HWL ME_51D519310249 // IddConfigStorage
  )
  ; // Children
  CONST intf.pas:Path 'common\components\rtl\Garant\dd\ddConfigStorages.pas'
@@ -371,7 +371,7 @@ ref; // ME_5214AEF201AE ddConfigStorages
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_51D518E70109 // ddConfigStorages
+ : Parent HWL ME_51D518E70109 // ddConfigStorages
  ;
  CONST "finished" false
  CONST "ifndef" 'Nemesis'
@@ -392,8 +392,8 @@ ref; // ME_5214AF4C01AF TddIniStorage
  : Parent WL 'ME_5214D28E024C' '5214D28E024C.pas.ms.script' // dd$AppConfig
  ;
  : Children
-   Seq: ( ME_5214AEF201AE // ddConfigStorages
- ME_5214AF4C01AF // TddIniStorage
+   Seq: ( HWL ME_5214AEF201AE // ddConfigStorages
+ HWL ME_5214AF4C01AF // TddIniStorage
  )
  ; // Children
  : Depends

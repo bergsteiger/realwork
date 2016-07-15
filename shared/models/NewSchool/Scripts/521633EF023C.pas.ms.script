@@ -2,36 +2,6 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-FORWARD ME_521633EF023C
-
-: ME_5216340000E6
- CONST UID '5216340000E6'
- CONST Name 'Document'
- CONST Class class_Class
- : Stereotype st_VCMUseCaseRealization ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Документ' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_521633EF023C // Document
- ;
- : Inherits
-   Seq: ( WL 'ME_5216345D004A' '5216343A0088.pas.ms.script' // Document
- )
- ; // Inherits
- : Implements
-   Seq: ( WL 'ME_5214960C034B' '4E3160C802DA.pas.ms.script' // Печать и экспорт
- )
- ; // Implements
- CONST intf.pas:Path 'common\components\SandBox\VCM\View\moDocument.pas'
- CONST intf.pas:PathOnly '\common\components\SandBox\VCM\View'
- CONST extprop:pas:TypeName 'Tmo_Document'
- CONST extprop:rc:SelfName 'mo_Document'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'moDocument'
-
-ref; // ME_5216340000E6 Document$UC
-
 : ME_521633EF023C
  CONST UID '521633EF023C'
  CONST Name 'Document'
@@ -43,7 +13,7 @@ ref; // ME_5216340000E6 Document$UC
  : Parent WL 'ME_521632B1034E' '521632B1034E.pas.ms.script' // Shared Delphi Sand Box$UC
  ;
  : Children
-   Seq: ( ME_5216340000E6 // Document$UC
+   Seq: ( WL 'ME_5216340000E6' '5216340000E6.pas.ms.script' // Document$UC
  WL 'ME_5216341A01BF' '5216341A01BF.pas.ms.script' // View
  )
  ; // Children

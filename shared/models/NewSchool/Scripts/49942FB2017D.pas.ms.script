@@ -13,7 +13,7 @@ FORWARD ME_491471C8038F
  %SUMMARY 'данные изменились' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_491471C8038F // IvcmFormSetDataSourceListener
+ : Parent HWL ME_491471C8038F // IvcmFormSetDataSourceListener
  ;
 
 ref; // ME_491471F80112 DataChanged
@@ -28,14 +28,14 @@ ref; // ME_491471F80112 DataChanged
  %SUMMARY 'Слушатель событий бизнес объекта сборки' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_49942FB2017D // vcmLocalInterfaces
+ : Parent HWL ME_49942FB2017D // vcmLocalInterfaces
  ;
  : Inherits
    Seq: ( WL 'ME_4680CF330338' '4677FBA70343.pas.ms.script' // Il3Notify
  )
  ; // Inherits
  : Operations
-   Seq: ( ME_491471F80112 // DataChanged
+   Seq: ( HWL ME_491471F80112 // DataChanged
  )
  ; // Operations
  CONST extprop:rc:SelfName 'FormSetDataSourceListener'
@@ -54,7 +54,7 @@ FORWARD ME_499303230362
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_499303230362 // IvcmDock
+ : Parent HWL ME_499303230362 // IvcmDock
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -71,7 +71,7 @@ ref; // ME_49930330017B FullWidth
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_499303230362 // IvcmDock
+ : Parent HWL ME_499303230362 // IvcmDock
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -88,7 +88,7 @@ ref; // ME_4993033E03CC FullHeight
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_499303230362 // IvcmDock
+ : Parent HWL ME_499303230362 // IvcmDock
  ;
  : Target WL 'ME_4992F83801C5' '499EAAE502A8.pas.ms.script' // TvcmEffectiveToolBarPos
  ;
@@ -106,12 +106,12 @@ ref; // ME_4993035101C9 Pos
  %SUMMARY 'интерфейс поддерживаемый dock-ом toolbar-ов' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_49942FB2017D // vcmLocalInterfaces
+ : Parent HWL ME_49942FB2017D // vcmLocalInterfaces
  ;
  : Attributes
-   Seq: ( ME_49930330017B // FullWidth
- ME_4993033E03CC // FullHeight
- ME_4993035101C9 // Pos
+   Seq: ( HWL ME_49930330017B // FullWidth
+ HWL ME_4993033E03CC // FullHeight
+ HWL ME_4993035101C9 // Pos
  )
  ; // Attributes
  CONST extprop:rc:SelfName 'Dock'
@@ -130,8 +130,8 @@ ref; // ME_499303230362 IvcmDock
  : Parent WL 'ME_4790C3B8021E' '4790C3B8021E.pas.ms.script' // VCM
  ;
  : Children
-   Seq: ( ME_491471C8038F // IvcmFormSetDataSourceListener
- ME_499303230362 // IvcmDock
+   Seq: ( HWL ME_491471C8038F // IvcmFormSetDataSourceListener
+ HWL ME_499303230362 // IvcmDock
  )
  ; // Children
  : Depends

@@ -10,7 +10,7 @@ FORWARD ME_4C9214C80098
  CONST Name 'aText'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target WL 'ME_4829D92A037B' '4829D7D50156.pas.ms.script' // TevCustomEditorWindow
+ : Target WL 'ME_4829D92A037B' '4829D92A037B.pas.ms.script' // TevCustomEditorWindow
  ;
 
 ref; // ME_4C92164901AE aText
@@ -30,7 +30,7 @@ ref; // ME_4C92181603DD anOp
  CONST Class class_Operation
  CONST Visibility ProtectedAccess
  CONST Abstraction at_abstract
- : Parent ME_4C9214C80098 // TTextViaEditorProcessorWithNavigate
+ : Parent HWL ME_4C9214C80098 // TTextViaEditorProcessorWithNavigate
  ;
  : Parameters
    Seq: ( ME_4C92164901AE // aText
@@ -54,7 +54,7 @@ ref; // ME_4BE13147032C_ME_4C9214C80098 Process
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C4FDBF703DB // EditorTests
+ : Parent HWL ME_4C4FDBF703DB // EditorTests
  ;
  : Inherits
    Seq: ( WL 'ME_4BE111D30229' '4B30C89F035F.pas.ms.script' // TTextViaEditorProcessor
@@ -65,7 +65,7 @@ ref; // ME_4BE13147032C_ME_4C9214C80098 Process
  )
  ; // Implements
  : Operations
-   Seq: ( ME_4C9214F6002C // DoProcess
+   Seq: ( HWL ME_4C9214F6002C // DoProcess
  )
  ; // Operations
  : Implemented
@@ -91,7 +91,7 @@ FORWARD ME_4C4FDC620374
  %SUMMARY 'Текст для вставки' ;
  CONST Visibility ProtectedAccess
  CONST Abstraction at_abstract
- : Parent ME_4C4FDC620374 // TInsertStreamTest
+ : Parent HWL ME_4C4FDC620374 // TInsertStreamTest
  ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
@@ -101,7 +101,7 @@ ref; // ME_4C4FDCBA002F TextForInsert
 : ME_4C4FDF2100E2
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4C4FDC620374 // TInsertStreamTest
+ : Parent HWL ME_4C4FDC620374 // TInsertStreamTest
  ;
  : Target WL 'ME_46A626BC0145' '4677FBA70343.pas.ms.script' // ClipboardFormats
  ;
@@ -111,7 +111,7 @@ ref; // ME_4C4FDF2100E2
 : ME_4C4FDF59039C
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4C4FDC620374 // TInsertStreamTest
+ : Parent HWL ME_4C4FDC620374 // TInsertStreamTest
  ;
  : Target WL 'ME_499D47A502DE' '47913B47006E.pas.ms.script' // Tl3ConstMemoryStream
  ;
@@ -121,7 +121,7 @@ ref; // ME_4C4FDF59039C
 : ME_4C4FE31D00D2
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4C4FDC620374 // TInsertStreamTest
+ : Parent HWL ME_4C4FDC620374 // TInsertStreamTest
  ;
  : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
  ;
@@ -129,7 +129,7 @@ ref; // ME_4C4FDF59039C
 ref; // ME_4C4FE31D00D2 
 
 : ME_4C9214F6002C_ME_4C4FDC620374
- : Original ME_4C9214F6002C // DoProcess
+ : Original HWL ME_4C9214F6002C // DoProcess
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4C9214F6002C_ME_4C4FDC620374 DoProcess
@@ -143,14 +143,14 @@ ref; // ME_4C9214F6002C_ME_4C4FDC620374 DoProcess
  %SUMMARY 'Тест вставки в редактор текста при помощи InsertStream' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C4FDBF703DB // EditorTests
+ : Parent HWL ME_4C4FDBF703DB // EditorTests
  ;
  : Inherits
-   Seq: ( ME_4C9214C80098 // TTextViaEditorProcessorWithNavigate
+   Seq: ( HWL ME_4C9214C80098 // TTextViaEditorProcessorWithNavigate
  )
  ; // Inherits
  : Operations
-   Seq: ( ME_4C4FDCBA002F // TextForInsert
+   Seq: ( HWL ME_4C4FDCBA002F // TextForInsert
  )
  ; // Operations
  : Implemented
@@ -178,7 +178,7 @@ FORWARD ME_4C920D930026
 : ME_4C920DFC0394
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4C920D930026 // TMoveSubTest
+ : Parent HWL ME_4C920D930026 // TMoveSubTest
  ;
  : Target WL 'ME_47C6B03200AF' '47C5207602D1.pas.ms.script' // IevSub
  ;
@@ -192,7 +192,7 @@ ref; // ME_4C920DFC0394
 ref; // ME_4C4FE56300FB_ME_4C920D930026 Navigate
 
 : ME_4C9214F6002C_ME_4C920D930026
- : Original ME_4C9214F6002C // DoProcess
+ : Original HWL ME_4C9214F6002C // DoProcess
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4C9214F6002C_ME_4C920D930026 DoProcess
@@ -205,10 +205,10 @@ ref; // ME_4C9214F6002C_ME_4C920D930026 DoProcess
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C4FDBF703DB // EditorTests
+ : Parent HWL ME_4C4FDBF703DB // EditorTests
  ;
  : Inherits
-   Seq: ( ME_4C9214C80098 // TTextViaEditorProcessorWithNavigate
+   Seq: ( HWL ME_4C9214C80098 // TTextViaEditorProcessorWithNavigate
  )
  ; // Inherits
  : Implements
@@ -251,10 +251,10 @@ ref; // ME_4C4FE56300FB_ME_4C501582010E Navigate
  %SUMMARY 'То же что и TInsertStreamTest, но с пустым Navigate' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C4FDBF703DB // EditorTests
+ : Parent HWL ME_4C4FDBF703DB // EditorTests
  ;
  : Inherits
-   Seq: ( ME_4C4FDC620374 // TInsertStreamTest
+   Seq: ( HWL ME_4C4FDC620374 // TInsertStreamTest
  )
  ; // Inherits
  : Implemented
@@ -279,7 +279,7 @@ FORWARD ME_4C93538E0218
  CONST Name 'aText'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target WL 'ME_4829D92A037B' '4829D7D50156.pas.ms.script' // TevCustomEditorWindow
+ : Target WL 'ME_4829D92A037B' '4829D92A037B.pas.ms.script' // TevCustomEditorWindow
  ;
 
 ref; // ME_4C9353BD0212 aText
@@ -299,7 +299,7 @@ ref; // ME_4C9353BD0234 anOp
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4C93538E0218 // DoSelect
+ : Parent HWL ME_4C93538E0218 // DoSelect
  ;
  : Target WL 'ME_47C5B54401B2' '47C5207602D1.pas.ms.script' // InevRange
  ;
@@ -320,10 +320,10 @@ ref; // ME_4C9353B70163 DoIt
  %SUMMARY 'Выделяет текст в редакторе' ;
  CONST Visibility ProtectedAccess
  CONST Abstraction at_abstract
- : Parent ME_4C93529B018C // TCopyPasteTest
+ : Parent HWL ME_4C93529B018C // TCopyPasteTest
  ;
  : Operations
-   Seq: ( ME_4C9353B70163 // DoIt
+   Seq: ( HWL ME_4C9353B70163 // DoIt
  )
  ; // Operations
 
@@ -332,7 +332,7 @@ ref; // ME_4C93538E0218 DoSelect
 : ME_4C9355CD01B9
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4C93529B018C // TCopyPasteTest
+ : Parent HWL ME_4C93529B018C // TCopyPasteTest
  ;
  : Target WL 'ME_47C5BA5F017D' '47C5207602D1.pas.ms.script' // InevSelection
  ;
@@ -342,7 +342,7 @@ ref; // ME_4C9355CD01B9
 : ME_4C9355EB0326
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4C93529B018C // TCopyPasteTest
+ : Parent HWL ME_4C93529B018C // TCopyPasteTest
  ;
  : Target WL 'ME_53317DDB0223' '4A4DE16302A2.pas.ms.script' // Il3OpPack
  ;
@@ -352,7 +352,7 @@ ref; // ME_4C9355EB0326
 : ME_4C93571C039A
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4C93529B018C // TCopyPasteTest
+ : Parent HWL ME_4C93529B018C // TCopyPasteTest
  ;
  : Target WL 'ME_47C695D90332' '47C695A10172.pas.ms.script' // TevSelectTarget
  ;
@@ -374,7 +374,7 @@ ref; // ME_4BE13147032C_ME_4C93529B018C Process
  %SUMMARY 'Тест копирования/вставки через буфер обмена' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C4FDBF703DB // EditorTests
+ : Parent HWL ME_4C4FDBF703DB // EditorTests
  ;
  : Inherits
    Seq: ( WL 'ME_4BE111D30229' '4B30C89F035F.pas.ms.script' // TTextViaEditorProcessor
@@ -386,7 +386,7 @@ ref; // ME_4BE13147032C_ME_4C93529B018C Process
  )
  ; // Implements
  : Operations
-   Seq: ( ME_4C93538E0218 // DoSelect
+   Seq: ( HWL ME_4C93538E0218 // DoSelect
  )
  ; // Operations
  : Implemented
@@ -419,7 +419,7 @@ FORWARD ME_4DF781CB0217
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4DF781CB0217 // CharCount
+ : Parent HWL ME_4DF781CB0217 // CharCount
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -434,10 +434,10 @@ ref; // ME_4DF781D803D4 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_4CA30546032E // TDeleteCharTest
+ : Parent HWL ME_4CA30546032E // TDeleteCharTest
  ;
  : Operations
-   Seq: ( ME_4DF781D803D4 // DoIt
+   Seq: ( HWL ME_4DF781D803D4 // DoIt
  )
  ; // Operations
 
@@ -450,7 +450,7 @@ ref; // ME_4DF781CB0217 CharCount
 ref; // ME_4C4FE56300FB_ME_4CA30546032E Navigate
 
 : ME_4C9214F6002C_ME_4CA30546032E
- : Original ME_4C9214F6002C // DoProcess
+ : Original HWL ME_4C9214F6002C // DoProcess
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4C9214F6002C_ME_4CA30546032E DoProcess
@@ -463,15 +463,15 @@ ref; // ME_4C9214F6002C_ME_4CA30546032E DoProcess
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C4FDBF703DB // EditorTests
+ : Parent HWL ME_4C4FDBF703DB // EditorTests
  ;
  : Inherits
    Seq: ( WL 'ME_4C500D6101D8' '4C500D470030.pas.ms.script' // CursorMover
- ME_4C9214C80098 // TTextViaEditorProcessorWithNavigate
+ HWL ME_4C9214C80098 // TTextViaEditorProcessorWithNavigate
  )
  ; // Inherits
  : Operations
-   Seq: ( ME_4DF781CB0217 // CharCount
+   Seq: ( HWL ME_4DF781CB0217 // CharCount
  )
  ; // Operations
  : Implemented
@@ -506,7 +506,7 @@ ref; // ME_4BE419AF0217_ME_4CB6E426014A DoVisit
  %SUMMARY 'Тест прокрутки вниз построчно' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C4FDBF703DB // EditorTests
+ : Parent HWL ME_4C4FDBF703DB // EditorTests
  ;
  : Inherits
    Seq: ( WL 'ME_4BE425C70228' '4B30C89F035F.pas.ms.script' // TTextEditorVisitor
@@ -528,7 +528,7 @@ FORWARD ME_4CC6E92E0233
 : ME_4CC6EC0E01AD
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4CC6E92E0233 // TDeleteColumnToolTest
+ : Parent HWL ME_4CC6E92E0233 // TDeleteColumnToolTest
  ;
  : Target WL 'ME_48453B7601F9' '47F1F38601A3.pas.ms.script' // evCursorTools
  ;
@@ -538,7 +538,7 @@ ref; // ME_4CC6EC0E01AD
 : ME_4CC6ED7002A0
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4CC6E92E0233 // TDeleteColumnToolTest
+ : Parent HWL ME_4CC6E92E0233 // TDeleteColumnToolTest
  ;
  : Target WL 'ME_47C5BA5F017D' '47C5207602D1.pas.ms.script' // InevSelection
  ;
@@ -560,7 +560,7 @@ ref; // ME_4BE13147032C_ME_4CC6E92E0233 Process
  %SUMMARY 'Тест удаления колонки через редактор' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C4FDBF703DB // EditorTests
+ : Parent HWL ME_4C4FDBF703DB // EditorTests
  ;
  : Inherits
    Seq: ( WL 'ME_4BE111D30229' '4B30C89F035F.pas.ms.script' // TTextViaEditorProcessor
@@ -611,7 +611,7 @@ ref; // ME_4DA2F7900393_ME_4CC7F3170362 UseFormExtentAsClientSize
  %SUMMARY 'Тест вида: нарисовали и сравнили с эталоном.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C4FDBF703DB // EditorTests
+ : Parent HWL ME_4C4FDBF703DB // EditorTests
  ;
  : Inherits
    Seq: ( WL 'ME_4CAC405703AE' '4B30C89F035F.pas.ms.script' // TDrawTestPrim
@@ -666,7 +666,7 @@ ref; // ME_4CC81D4101AC_ME_4CC8196F0219 GetSelectParam
  %SUMMARY 'Тест объединения ячеек и сравнения отрисованного' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C4FDBF703DB // EditorTests
+ : Parent HWL ME_4C4FDBF703DB // EditorTests
  ;
  : Inherits
    Seq: ( WL 'ME_4CAC405703AE' '4B30C89F035F.pas.ms.script' // TDrawTestPrim
@@ -697,7 +697,7 @@ FORWARD ME_4CD7EBBB02D3
 : ME_4CD7F9BC03C1
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4CD7EBBB02D3 // TInsertBreakInTextTableTest
+ : Parent HWL ME_4CD7EBBB02D3 // TInsertBreakInTextTableTest
  ;
  : Target WL 'ME_476BEF7B0378' '4678209200A6.pas.ms.script' // InevOp
  ;
@@ -711,7 +711,7 @@ ref; // ME_4CD7F9BC03C1
 ref; // ME_4C4FE56300FB_ME_4CD7EBBB02D3 Navigate
 
 : ME_4C9214F6002C_ME_4CD7EBBB02D3
- : Original ME_4C9214F6002C // DoProcess
+ : Original HWL ME_4C9214F6002C // DoProcess
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4C9214F6002C_ME_4CD7EBBB02D3 DoProcess
@@ -725,10 +725,10 @@ ref; // ME_4C9214F6002C_ME_4CD7EBBB02D3 DoProcess
  %SUMMARY 'Вставка текста в моноширинную таблицу в режиме рисования текста.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C4FDBF703DB // EditorTests
+ : Parent HWL ME_4C4FDBF703DB // EditorTests
  ;
  : Inherits
-   Seq: ( ME_4C9214C80098 // TTextViaEditorProcessorWithNavigate
+   Seq: ( HWL ME_4C9214C80098 // TTextViaEditorProcessorWithNavigate
  )
  ; // Inherits
  : Implements
@@ -780,7 +780,7 @@ ref; // ME_4C937013031D_ME_4C345A91014E GetFolder
  %SUMMARY 'Тесты инструментов работы с таблицами' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C4FDBF703DB // EditorTests
+ : Parent HWL ME_4C4FDBF703DB // EditorTests
  ;
  : Inherits
    Seq: ( WL 'ME_4CE38AD60265' '4B30C89F035F.pas.ms.script' // TTableToolsTestPrim
@@ -824,7 +824,7 @@ ref; // ME_4BE419AF0217_ME_4CE282AD019D DoVisit
  %SUMMARY 'Прокрутка документа стрелкой на клавиатуре.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C4FDBF703DB // EditorTests
+ : Parent HWL ME_4C4FDBF703DB // EditorTests
  ;
  : Inherits
    Seq: ( WL 'ME_4C9899150030' '4B30C89F035F.pas.ms.script' // TPrimScrollTest
@@ -869,10 +869,10 @@ ref; // ME_4C937013031D_ME_4C123E8103B3 GetFolder
  %SUMMARY 'Объединение ячеек в таблице.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C4FDBF703DB // EditorTests
+ : Parent HWL ME_4C4FDBF703DB // EditorTests
  ;
  : Inherits
-   Seq: ( ME_4C345A91014E // TTableToolsTest
+   Seq: ( HWL ME_4C345A91014E // TTableToolsTest
  )
  ; // Inherits
  : Implemented
@@ -913,10 +913,10 @@ ref; // ME_4C937013031D_ME_4C3463D800E5 GetFolder
  %SUMMARY 'Преобразовать таблицу или её часть в текст' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C4FDBF703DB // EditorTests
+ : Parent HWL ME_4C4FDBF703DB // EditorTests
  ;
  : Inherits
-   Seq: ( ME_4C345A91014E // TTableToolsTest
+   Seq: ( HWL ME_4C345A91014E // TTableToolsTest
  )
  ; // Inherits
  : Implemented
@@ -939,7 +939,7 @@ FORWARD ME_4C99945800BC
 : ME_4CE3B52E02E8
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4C99945800BC // TSelectColumnAndDelete
+ : Parent HWL ME_4C99945800BC // TSelectColumnAndDelete
  ;
  : Target WL 'ME_47FB31D1033A' '47C5207602D1.pas.ms.script' // InevLeafPoint
  ;
@@ -973,10 +973,10 @@ ref; // ME_4C9999C50326_ME_4C99945800BC CheckOperation
  %SUMMARY 'Тест выделения и удаления колонки.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C4FDBF703DB // EditorTests
+ : Parent HWL ME_4C4FDBF703DB // EditorTests
  ;
  : Inherits
-   Seq: ( ME_4C345A91014E // TTableToolsTest
+   Seq: ( HWL ME_4C345A91014E // TTableToolsTest
  )
  ; // Inherits
  : Implemented
@@ -1022,10 +1022,10 @@ ref; // ME_4C937013031D_ME_4C3C2BE800AF GetFolder
  %SUMMARY 'Выравнивание текста в колонке горизотально.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C4FDBF703DB // EditorTests
+ : Parent HWL ME_4C4FDBF703DB // EditorTests
  ;
  : Inherits
-   Seq: ( ME_4C345A91014E // TTableToolsTest
+   Seq: ( HWL ME_4C345A91014E // TTableToolsTest
  )
  ; // Inherits
  : Implemented
@@ -1066,10 +1066,10 @@ ref; // ME_4CC8189D02DF_ME_4CE133F801BA NeedSelection
  %SUMMARY 'Тест проверки выделения после объединения ячеек.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C4FDBF703DB // EditorTests
+ : Parent HWL ME_4C4FDBF703DB // EditorTests
  ;
  : Inherits
-   Seq: ( ME_4C123E8103B3 // TMergeCellsTest
+   Seq: ( HWL ME_4C123E8103B3 // TMergeCellsTest
  )
  ; // Inherits
  : Implements
@@ -1118,10 +1118,10 @@ ref; // ME_4CC8189D02DF_ME_4C3AF74701A6 NeedSelection
  %SUMMARY 'Тестирование объединения таблиц' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C4FDBF703DB // EditorTests
+ : Parent HWL ME_4C4FDBF703DB // EditorTests
  ;
  : Inherits
-   Seq: ( ME_4C345A91014E // TTableToolsTest
+   Seq: ( HWL ME_4C345A91014E // TTableToolsTest
  )
  ; // Inherits
  : Implemented
@@ -1149,7 +1149,7 @@ FORWARD ME_4C6CF18001AE
  %SUMMARY 'Количество строчек (текста), на которое нужно сдинуть курсор перед разбиванием табилцы на две.' ;
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_4C6CF18001AE // TSplitTableTest
+ : Parent HWL ME_4C6CF18001AE // TSplitTableTest
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -1189,10 +1189,10 @@ ref; // ME_4CC8189D02DF_ME_4C6CF18001AE NeedSelection
  %SUMMARY 'Тесты разбиения таблиц' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C4FDBF703DB // EditorTests
+ : Parent HWL ME_4C4FDBF703DB // EditorTests
  ;
  : Inherits
-   Seq: ( ME_4C345A91014E // TTableToolsTest
+   Seq: ( HWL ME_4C345A91014E // TTableToolsTest
  )
  ; // Inherits
  : Implements
@@ -1200,7 +1200,7 @@ ref; // ME_4CC8189D02DF_ME_4C6CF18001AE NeedSelection
  )
  ; // Implements
  : Operations
-   Seq: ( ME_4C6CFAE20264 // GetLineCount
+   Seq: ( HWL ME_4C6CFAE20264 // GetLineCount
  )
  ; // Operations
  : Implemented
@@ -1255,7 +1255,7 @@ ref; // ME_4CC81D4101AC_ME_4CE3E5F3012B GetSelectParam
  %SUMMARY 'Выделить строку и удалить.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C4FDBF703DB // EditorTests
+ : Parent HWL ME_4C4FDBF703DB // EditorTests
  ;
  : Inherits
    Seq: ( WL 'ME_4BE111D30229' '4B30C89F035F.pas.ms.script' // TTextViaEditorProcessor
@@ -1287,7 +1287,7 @@ FORWARD ME_4BF4E6650245
 : ME_4BF4E7CC01B7
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4BF4E6650245 // TSelectPtTest
+ : Parent HWL ME_4BF4E6650245 // TSelectPtTest
  ;
  : Target WL 'ME_4727456300E7' '472745450206.pas.ms.script' // Tl3Point
  ;
@@ -1309,7 +1309,7 @@ ref; // ME_4BE419AF0217_ME_4BF4E6650245 DoVisit
  %SUMMARY 'Тест вида - загрузили и ткнули в точку со смещением относительно какого-нибудь параграфа' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C4FDBF703DB // EditorTests
+ : Parent HWL ME_4C4FDBF703DB // EditorTests
  ;
  : Inherits
    Seq: ( WL 'ME_4BE425C70228' '4B30C89F035F.pas.ms.script' // TTextEditorVisitor
@@ -1344,7 +1344,7 @@ FORWARD ME_4E44C98700AE
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4E44C98700AE // NeedScrollUp
+ : Parent HWL ME_4E44C98700AE // NeedScrollUp
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -1359,10 +1359,10 @@ ref; // ME_4E44C9A20188 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_4BFE38A8006A // TScrollAndSelectPtTest
+ : Parent HWL ME_4BFE38A8006A // TScrollAndSelectPtTest
  ;
  : Operations
-   Seq: ( ME_4E44C9A20188 // DoIt
+   Seq: ( HWL ME_4E44C9A20188 // DoIt
  )
  ; // Operations
 
@@ -1376,7 +1376,7 @@ FORWARD ME_4E44C9B00324
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4E44C9B00324 // NeedScrollByLine
+ : Parent HWL ME_4E44C9B00324 // NeedScrollByLine
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -1391,10 +1391,10 @@ ref; // ME_4E44C9C10187 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_4BFE38A8006A // TScrollAndSelectPtTest
+ : Parent HWL ME_4BFE38A8006A // TScrollAndSelectPtTest
  ;
  : Operations
-   Seq: ( ME_4E44C9C10187 // DoIt
+   Seq: ( HWL ME_4E44C9C10187 // DoIt
  )
  ; // Operations
 
@@ -1406,7 +1406,7 @@ ref; // ME_4E44C9B00324 NeedScrollByLine
  CONST Class class_Operation
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_4BFE38A8006A // TScrollAndSelectPtTest
+ : Parent HWL ME_4BFE38A8006A // TScrollAndSelectPtTest
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -1429,7 +1429,7 @@ ref; // ME_4C9B259F00C2 aView
  %SUMMARY 'Операции после прокрутки' ;
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_4BFE38A8006A // TScrollAndSelectPtTest
+ : Parent HWL ME_4BFE38A8006A // TScrollAndSelectPtTest
  ;
  : Parameters
    Seq: ( ME_4C9B259F00C2 // aView
@@ -1453,17 +1453,17 @@ ref; // ME_4BE419AF0217_ME_4BFE38A8006A DoVisit
  %SUMMARY 'тесты вида - загрузили, прокрутили и ткнули' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C4FDBF703DB // EditorTests
+ : Parent HWL ME_4C4FDBF703DB // EditorTests
  ;
  : Inherits
-   Seq: ( ME_4BF4E6650245 // TSelectPtTest
+   Seq: ( HWL ME_4BF4E6650245 // TSelectPtTest
  )
  ; // Inherits
  : Operations
-   Seq: ( ME_4E44C98700AE // NeedScrollUp
- ME_4E44C9B00324 // NeedScrollByLine
- ME_4BFE40CD0337 // GetScrollCount
- ME_4C3C80AF002D // CheckAfterScroll
+   Seq: ( HWL ME_4E44C98700AE // NeedScrollUp
+ HWL ME_4E44C9B00324 // NeedScrollByLine
+ HWL ME_4BFE40CD0337 // GetScrollCount
+ HWL ME_4C3C80AF002D // CheckAfterScroll
  )
  ; // Operations
  : Overridden
@@ -1487,7 +1487,7 @@ FORWARD ME_4C3C771A002D
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4C3C771A002D // TCheckTopAnchorTest
+ : Parent HWL ME_4C3C771A002D // TCheckTopAnchorTest
  ;
  : Target WL 'ME_47C5B57E0390' '47C5207602D1.pas.ms.script' // InevBasePoint
  ;
@@ -1507,7 +1507,7 @@ ref; // ME_4B2F40FD0088_ME_4C3C771A002D Cleanup
 ref; // ME_4BE419AF0217_ME_4C3C771A002D DoVisit
 
 : ME_4C3C80AF002D_ME_4C3C771A002D
- : Original ME_4C3C80AF002D // CheckAfterScroll
+ : Original HWL ME_4C3C80AF002D // CheckAfterScroll
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_4C3C80AF002D_ME_4C3C771A002D CheckAfterScroll
@@ -1521,14 +1521,14 @@ ref; // ME_4C3C80AF002D_ME_4C3C771A002D CheckAfterScroll
  %SUMMARY 'Тест для выбора точки после прокрутки и проверки изменился ли TopAnchor' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C4FDBF703DB // EditorTests
+ : Parent HWL ME_4C4FDBF703DB // EditorTests
  ;
  : Inherits
-   Seq: ( ME_4BFE38A8006A // TScrollAndSelectPtTest
+   Seq: ( HWL ME_4BFE38A8006A // TScrollAndSelectPtTest
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_4C3C79020323 // f_PrevTopAnchor
+   Seq: ( HWL ME_4C3C79020323 // f_PrevTopAnchor
  )
  ; // Attributes
  : Overridden
@@ -1549,7 +1549,7 @@ FORWARD ME_4CED2FCF0081
 : ME_4CEFC4F4037F
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4CED2FCF0081 // TCellMouseSelectionTest
+ : Parent HWL ME_4CED2FCF0081 // TCellMouseSelectionTest
  ;
  : Target WL 'ME_49C22CE30210' '476BEA0B0103.pas.ms.script' // evL3CoreConsts
  ;
@@ -1583,7 +1583,7 @@ ref; // ME_4C937013031D_ME_4CED2FCF0081 GetFolder
  %SUMMARY 'Выделение ячейки с помощью мыши.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C4FDBF703DB // EditorTests
+ : Parent HWL ME_4C4FDBF703DB // EditorTests
  ;
  : Inherits
    Seq: ( WL 'ME_4CED106503D0' '4D02566F01E6.pas.ms.script' // THotSpotSelectionTest
@@ -1629,7 +1629,7 @@ ref; // ME_4C937013031D_ME_4D19DD6A0378 GetFolder
  %SUMMARY 'Проверка метрик после вставки-копирования текста.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C4FDBF703DB // EditorTests
+ : Parent HWL ME_4C4FDBF703DB // EditorTests
  ;
  : Inherits
    Seq: ( WL 'ME_4D076A0C03C4' '4D02566F01E6.pas.ms.script' // TTextMetricsTest
@@ -1681,7 +1681,7 @@ ref; // ME_4CC8189D02DF_ME_4D1B16D302DD NeedSelection
  %SUMMARY 'Проверка метрик после удаления.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C4FDBF703DB // EditorTests
+ : Parent HWL ME_4C4FDBF703DB // EditorTests
  ;
  : Inherits
    Seq: ( WL 'ME_4D076A0C03C4' '4D02566F01E6.pas.ms.script' // TTextMetricsTest
@@ -1709,7 +1709,7 @@ FORWARD ME_4D3D429001F4
 : ME_4D3D51E60211
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4D3D429001F4 // TMouseMoveCellsSelectTest
+ : Parent HWL ME_4D3D429001F4 // TMouseMoveCellsSelectTest
  ;
  : Target WL 'ME_49C22CE30210' '476BEA0B0103.pas.ms.script' // evL3CoreConsts
  ;
@@ -1743,7 +1743,7 @@ ref; // ME_4C937013031D_ME_4D3D429001F4 GetFolder
  %SUMMARY 'Тест выделения с помощью мыши диапазона ячеек.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C4FDBF703DB // EditorTests
+ : Parent HWL ME_4C4FDBF703DB // EditorTests
  ;
  : Inherits
    Seq: ( WL 'ME_4D3D40C70045' '4D02566F01E6.pas.ms.script' // TMouseMoveSelectionTest
@@ -1783,7 +1783,7 @@ ref; // ME_4BE13147032C_ME_4D413AD401BD Process
  %SUMMARY 'Тест на выделение ячейки.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C4FDBF703DB // EditorTests
+ : Parent HWL ME_4C4FDBF703DB // EditorTests
  ;
  : Inherits
    Seq: ( WL 'ME_4BE111D30229' '4B30C89F035F.pas.ms.script' // TTextViaEditorProcessor
@@ -1829,7 +1829,7 @@ ref; // ME_4E32CA120170_ME_4D53D6AA0038 GetKeys
  %SUMMARY 'Изменение размера колонки с зажатым Ctrl' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C4FDBF703DB // EditorTests
+ : Parent HWL ME_4C4FDBF703DB // EditorTests
  ;
  : Inherits
    Seq: ( WL 'ME_4D53D6170280' '4D02566F01E6.pas.ms.script' // TColumnResizeByMousePrimTest
@@ -1855,7 +1855,7 @@ FORWARD ME_4D5A63ED011A
  CONST Class class_Operation
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_4D5A63ED011A // TSplitCellTest
+ : Parent HWL ME_4D5A63ED011A // TSplitCellTest
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -1868,7 +1868,7 @@ ref; // ME_4D5A6EE600D3 GetLineCount
  CONST Class class_Operation
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_4D5A63ED011A // TSplitCellTest
+ : Parent HWL ME_4D5A63ED011A // TSplitCellTest
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -1908,10 +1908,10 @@ ref; // ME_4CC8189D02DF_ME_4D5A63ED011A NeedSelection
  %SUMMARY 'Тест разделения ячеек' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C4FDBF703DB // EditorTests
+ : Parent HWL ME_4C4FDBF703DB // EditorTests
  ;
  : Inherits
-   Seq: ( ME_4C345A91014E // TTableToolsTest
+   Seq: ( HWL ME_4C345A91014E // TTableToolsTest
  )
  ; // Inherits
  : Implements
@@ -1919,8 +1919,8 @@ ref; // ME_4CC8189D02DF_ME_4D5A63ED011A NeedSelection
  )
  ; // Implements
  : Operations
-   Seq: ( ME_4D5A6EE600D3 // GetLineCount
- ME_4D5A6F4802CB // GetTabCount
+   Seq: ( HWL ME_4D5A6EE600D3 // GetLineCount
+ HWL ME_4D5A6F4802CB // GetTabCount
  )
  ; // Operations
  : Implemented
@@ -1962,7 +1962,7 @@ ref; // ME_4C9B31F6015E_ME_4D6B85E6037B F1Like
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C4FDBF703DB // EditorTests
+ : Parent HWL ME_4C4FDBF703DB // EditorTests
  ;
  : Inherits
    Seq: ( WL 'ME_4BE425C70228' '4B30C89F035F.pas.ms.script' // TTextEditorVisitor
@@ -2000,7 +2000,7 @@ ref; // ME_4D777A0303A1 aFirst
  CONST Class class_Operation
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_4D7777390386 // TComplexScrollParams
+ : Parent HWL ME_4D7777390386 // TComplexScrollParams
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -2014,7 +2014,7 @@ ref; // ME_4D7779F503A4 GetSubNumber
 : ME_4DAEBBCE009E
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4D7777390386 // TComplexScrollParams
+ : Parent HWL ME_4D7777390386 // TComplexScrollParams
  ;
  : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
  ;
@@ -2065,7 +2065,7 @@ ref; // ME_4C937013031D_ME_4D7777390386 GetFolder
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C4FDBF703DB // EditorTests
+ : Parent HWL ME_4C4FDBF703DB // EditorTests
  ;
  : Inherits
    Seq: ( WL 'ME_4BE425C70228' '4B30C89F035F.pas.ms.script' // TTextEditorVisitor
@@ -2076,7 +2076,7 @@ ref; // ME_4C937013031D_ME_4D7777390386 GetFolder
  )
  ; // Implements
  : Operations
-   Seq: ( ME_4D7779F503A4 // GetSubNumber
+   Seq: ( HWL ME_4D7779F503A4 // GetSubNumber
  )
  ; // Operations
  : Implemented
@@ -2110,7 +2110,7 @@ FORWARD ME_4D80B9060123
  CONST Class class_Operation
  CONST Visibility ProtectedAccess
  CONST Abstraction at_abstract
- : Parent ME_4D80B9060123 // TScrollByArrowAndCheckShapesTest
+ : Parent HWL ME_4D80B9060123 // TScrollByArrowAndCheckShapesTest
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -2132,10 +2132,10 @@ ref; // ME_4CAC45AE011E_ME_4D80B9060123 DoBeforeDrawing
  %SUMMARY 'Прокрутить стрелкой до определенной позиции и сравнить "картинку".' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C4FDBF703DB // EditorTests
+ : Parent HWL ME_4C4FDBF703DB // EditorTests
  ;
  : Inherits
-   Seq: ( ME_4CC7F3170362 // TDrawTest
+   Seq: ( HWL ME_4CC7F3170362 // TDrawTest
  )
  ; // Inherits
  : Implements
@@ -2144,7 +2144,7 @@ ref; // ME_4CAC45AE011E_ME_4D80B9060123 DoBeforeDrawing
  )
  ; // Implements
  : Operations
-   Seq: ( ME_4D80BB670151 // GetScrollCount
+   Seq: ( HWL ME_4D80BB670151 // GetScrollCount
  )
  ; // Operations
  : Overridden
@@ -2175,7 +2175,7 @@ ref; // ME_4D9AE20F0229 aUp
  CONST Class class_Operation
  CONST Visibility ProtectedAccess
  CONST Abstraction at_abstract
- : Parent ME_4D9AE118015C // TScrollUpAndDownAndCheckShapes
+ : Parent HWL ME_4D9AE118015C // TScrollUpAndDownAndCheckShapes
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -2207,10 +2207,10 @@ ref; // ME_4CAC45AE011E_ME_4D9AE118015C DoBeforeDrawing
  %SUMMARY 'Прокрутка вниз, потом вверх и сравнение разультатов.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C4FDBF703DB // EditorTests
+ : Parent HWL ME_4C4FDBF703DB // EditorTests
  ;
  : Inherits
-   Seq: ( ME_4CC7F3170362 // TDrawTest
+   Seq: ( HWL ME_4CC7F3170362 // TDrawTest
  )
  ; // Inherits
  : Implements
@@ -2219,7 +2219,7 @@ ref; // ME_4CAC45AE011E_ME_4D9AE118015C DoBeforeDrawing
  )
  ; // Implements
  : Operations
-   Seq: ( ME_4D9AE1F40181 // GetScrollCount
+   Seq: ( HWL ME_4D9AE1F40181 // GetScrollCount
  )
  ; // Operations
  : Overridden
@@ -2251,10 +2251,10 @@ ref; // ME_4C345B580083_ME_4DCA1D3D034A ApplyTools
  %SUMMARY 'Объединение ячеек по горизонтали.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C4FDBF703DB // EditorTests
+ : Parent HWL ME_4C4FDBF703DB // EditorTests
  ;
  : Inherits
-   Seq: ( ME_4C345A91014E // TTableToolsTest
+   Seq: ( HWL ME_4C345A91014E // TTableToolsTest
  )
  ; // Inherits
  : Implemented
@@ -2277,7 +2277,7 @@ FORWARD ME_4E44C60E0060
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4E44C60E0060 // TScrollByLineBackAndSelectPt
+ : Parent HWL ME_4E44C60E0060 // TScrollByLineBackAndSelectPt
  ;
  : Target WL 'ME_47C5B57E0390' '47C5207602D1.pas.ms.script' // InevBasePoint
  ;
@@ -2291,7 +2291,7 @@ ref; // ME_4E44D18E0379 f_PrevAnchor
 ref; // ME_4BE419AF0217_ME_4E44C60E0060 DoVisit
 
 : ME_4C3C80AF002D_ME_4E44C60E0060
- : Original ME_4C3C80AF002D // CheckAfterScroll
+ : Original HWL ME_4C3C80AF002D // CheckAfterScroll
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_4C3C80AF002D_ME_4E44C60E0060 CheckAfterScroll
@@ -2309,13 +2309,13 @@ ref; // ME_4C937013031D_ME_4E44C60E0060 GetFolder
 ref; // ME_4DAED6F60146_ME_4E44C60E0060 GetModelElementGUID
 
 : ME_4E44C98700AE_ME_4E44C60E0060
- : Original ME_4E44C98700AE // NeedScrollUp
+ : Original HWL ME_4E44C98700AE // NeedScrollUp
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_4E44C98700AE_ME_4E44C60E0060 NeedScrollUp
 
 : ME_4E44C9B00324_ME_4E44C60E0060
- : Original ME_4E44C9B00324 // NeedScrollByLine
+ : Original HWL ME_4E44C9B00324 // NeedScrollByLine
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_4E44C9B00324_ME_4E44C60E0060 NeedScrollByLine
@@ -2328,14 +2328,14 @@ ref; // ME_4E44C9B00324_ME_4E44C60E0060 NeedScrollByLine
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C4FDBF703DB // EditorTests
+ : Parent HWL ME_4C4FDBF703DB // EditorTests
  ;
  : Inherits
-   Seq: ( ME_4BFE38A8006A // TScrollAndSelectPtTest
+   Seq: ( HWL ME_4BFE38A8006A // TScrollAndSelectPtTest
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_4E44D18E0379 // f_PrevAnchor
+   Seq: ( HWL ME_4E44D18E0379 // f_PrevAnchor
  )
  ; // Attributes
  : Overridden
@@ -2365,43 +2365,43 @@ ref; // ME_4E44C60E0060 TScrollByLineBackAndSelectPt
  : Parent WL 'ME_4B2A15810261' '4B2A15810261.pas.ms.script' // DailyTest
  ;
  : Children
-   Seq: ( ME_4C9214C80098 // TTextViaEditorProcessorWithNavigate
- ME_4C4FDC620374 // TInsertStreamTest
- ME_4C920D930026 // TMoveSubTest
- ME_4C501582010E // TInsertStreamTestWithImplementedNavigate
- ME_4C93529B018C // TCopyPasteTest
- ME_4CA30546032E // TDeleteCharTest
- ME_4CB6E426014A // TScrollByLineTest
- ME_4CC6E92E0233 // TDeleteColumnToolTest
- ME_4CC7F3170362 // TDrawTest
- ME_4CC8196F0219 // TMergeAndCheck
- ME_4CD7EBBB02D3 // TInsertBreakInTextTableTest
- ME_4C345A91014E // TTableToolsTest
- ME_4CE282AD019D // TScrollByArrow
- ME_4C123E8103B3 // TMergeCellsTest
- ME_4C3463D800E5 // TTranslate2TextTest
- ME_4C99945800BC // TSelectColumnAndDelete
- ME_4C3C2BE800AF // TColumnAlignHorisontallyTest
- ME_4CE133F801BA // TMergeAndCheckSelectionTest
- ME_4C3AF74701A6 // TMergeTablesTest
- ME_4C6CF18001AE // TSplitTableTest
- ME_4CE3E5F3012B // TSelectRowAndDeleteTest
- ME_4BF4E6650245 // TSelectPtTest
- ME_4BFE38A8006A // TScrollAndSelectPtTest
- ME_4C3C771A002D // TCheckTopAnchorTest
- ME_4CED2FCF0081 // TCellMouseSelectionTest
- ME_4D19DD6A0378 // TTextMetricsAfterCopyPasteTest
- ME_4D1B16D302DD // TTextMericsAfterDeleteTest
- ME_4D3D429001F4 // TMouseMoveCellsSelectTest
- ME_4D413AD401BD // TSelectionCellTest
- ME_4D53D6AA0038 // TColumnResizeWithCtrl
- ME_4D5A63ED011A // TSplitCellTest
- ME_4D6B85E6037B // TScrollAndCheckCursorTest
- ME_4D7777390386 // TComplexScrollParams
- ME_4D80B9060123 // TScrollByArrowAndCheckShapesTest
- ME_4D9AE118015C // TScrollUpAndDownAndCheckShapes
- ME_4DCA1D3D034A // THorzMergeCells
- ME_4E44C60E0060 // TScrollByLineBackAndSelectPt
+   Seq: ( HWL ME_4C9214C80098 // TTextViaEditorProcessorWithNavigate
+ HWL ME_4C4FDC620374 // TInsertStreamTest
+ HWL ME_4C920D930026 // TMoveSubTest
+ HWL ME_4C501582010E // TInsertStreamTestWithImplementedNavigate
+ HWL ME_4C93529B018C // TCopyPasteTest
+ HWL ME_4CA30546032E // TDeleteCharTest
+ HWL ME_4CB6E426014A // TScrollByLineTest
+ HWL ME_4CC6E92E0233 // TDeleteColumnToolTest
+ HWL ME_4CC7F3170362 // TDrawTest
+ HWL ME_4CC8196F0219 // TMergeAndCheck
+ HWL ME_4CD7EBBB02D3 // TInsertBreakInTextTableTest
+ HWL ME_4C345A91014E // TTableToolsTest
+ HWL ME_4CE282AD019D // TScrollByArrow
+ HWL ME_4C123E8103B3 // TMergeCellsTest
+ HWL ME_4C3463D800E5 // TTranslate2TextTest
+ HWL ME_4C99945800BC // TSelectColumnAndDelete
+ HWL ME_4C3C2BE800AF // TColumnAlignHorisontallyTest
+ HWL ME_4CE133F801BA // TMergeAndCheckSelectionTest
+ HWL ME_4C3AF74701A6 // TMergeTablesTest
+ HWL ME_4C6CF18001AE // TSplitTableTest
+ HWL ME_4CE3E5F3012B // TSelectRowAndDeleteTest
+ HWL ME_4BF4E6650245 // TSelectPtTest
+ HWL ME_4BFE38A8006A // TScrollAndSelectPtTest
+ HWL ME_4C3C771A002D // TCheckTopAnchorTest
+ HWL ME_4CED2FCF0081 // TCellMouseSelectionTest
+ HWL ME_4D19DD6A0378 // TTextMetricsAfterCopyPasteTest
+ HWL ME_4D1B16D302DD // TTextMericsAfterDeleteTest
+ HWL ME_4D3D429001F4 // TMouseMoveCellsSelectTest
+ HWL ME_4D413AD401BD // TSelectionCellTest
+ HWL ME_4D53D6AA0038 // TColumnResizeWithCtrl
+ HWL ME_4D5A63ED011A // TSplitCellTest
+ HWL ME_4D6B85E6037B // TScrollAndCheckCursorTest
+ HWL ME_4D7777390386 // TComplexScrollParams
+ HWL ME_4D80B9060123 // TScrollByArrowAndCheckShapesTest
+ HWL ME_4D9AE118015C // TScrollUpAndDownAndCheckShapes
+ HWL ME_4DCA1D3D034A // THorzMergeCells
+ HWL ME_4E44C60E0060 // TScrollByLineBackAndSelectPt
  )
  ; // Children
  : Depends

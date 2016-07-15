@@ -13,7 +13,7 @@ FORWARD ME_4BD1331201C8
  %SUMMARY '–азрешена ли онлайн проверка ревизий документов (дл€ супермобильной версии)' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4BD1331201C8 // InternetSupport
+ : Parent HWL ME_4BD1331201C8 // InternetSupport
  ;
  : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
  ;
@@ -45,7 +45,7 @@ ref; // ME_4BD137AB011C para_id
  %SUMMARY 'получить URL дл€ заданного документа' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4BD1331201C8 // InternetSupport
+ : Parent HWL ME_4BD1331201C8 // InternetSupport
  ;
  : Target WL 'ME_431841610361' '4423F94903C8.pas.ms.script' // String
  ;
@@ -65,7 +65,7 @@ ref; // ME_4BD133E40285 get_url_for_document
  %SUMMARY 'фабрика' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4BD1331201C8 // InternetSupport
+ : Parent HWL ME_4BD1331201C8 // InternetSupport
  ;
  CONST "const_type" 'read-write'
 
@@ -78,7 +78,7 @@ ref; // ME_4BD1393B0146 make
  %SUMMARY '–азрешен ли »нтернет-јгент.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4BD1331201C8 // InternetSupport
+ : Parent HWL ME_4BD1331201C8 // InternetSupport
  ;
  : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
  ;
@@ -92,7 +92,7 @@ ref; // ME_4BD1396400A3 is_internet_agent_enabled
  %SUMMARY 'получить URL дл€ интранет версии' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4BD1331201C8 // InternetSupport
+ : Parent HWL ME_4BD1331201C8 // InternetSupport
  ;
  : Target WL 'ME_431841610361' '4423F94903C8.pas.ms.script' // String
  ;
@@ -106,7 +106,7 @@ ref; // ME_4BD1456303BC get_url_for_internet_version
  %SUMMARY 'Ќужно ли показывать бл€мбу об отключении онлайн проверки' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4BD1331201C8 // InternetSupport
+ : Parent HWL ME_4BD1331201C8 // InternetSupport
  ;
  : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
  ;
@@ -123,15 +123,15 @@ ref; // ME_4D6648D000C3 show_warning
  %SUMMARY 'поддержка работы пользователей через internet' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4BD132D103B9 // InternetSupport
+ : Parent HWL ME_4BD132D103B9 // InternetSupport
  ;
  : Operations
-   Seq: ( ME_4BD133C102AD // revision_check_enabled
- ME_4BD133E40285 // get_url_for_document
- ME_4BD1393B0146 // make
- ME_4BD1396400A3 // is_internet_agent_enabled
- ME_4BD1456303BC // get_url_for_internet_version
- ME_4D6648D000C3 // show_warning
+   Seq: ( HWL ME_4BD133C102AD // revision_check_enabled
+ HWL ME_4BD133E40285 // get_url_for_document
+ HWL ME_4BD1393B0146 // make
+ HWL ME_4BD1396400A3 // is_internet_agent_enabled
+ HWL ME_4BD1456303BC // get_url_for_internet_version
+ HWL ME_4D6648D000C3 // show_warning
  )
  ; // Operations
  CONST "single impl" false
@@ -150,7 +150,7 @@ FORWARD ME_4F71CF610077
  : Stereotype st_factory::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4F71CF610077 // DecisionsArchiveSupport
+ : Parent HWL ME_4F71CF610077 // DecisionsArchiveSupport
  ;
  CONST "const_type" 'read-write'
 
@@ -163,7 +163,7 @@ ref; // ME_4F71D0930146 make
  %SUMMARY 'получить ссылку дл€ перехода на архив судебных решений' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4F71CF610077 // DecisionsArchiveSupport
+ : Parent HWL ME_4F71CF610077 // DecisionsArchiveSupport
  ;
  : Target WL 'ME_431841610361' '4423F94903C8.pas.ms.script' // String
  ;
@@ -177,7 +177,7 @@ ref; // ME_4F71D47D0086 get_archive_url
  %SUMMARY 'архив судебных решений доступен' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4F71CF610077 // DecisionsArchiveSupport
+ : Parent HWL ME_4F71CF610077 // DecisionsArchiveSupport
  ;
  : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
  ;
@@ -191,7 +191,7 @@ ref; // ME_4F71DD6B03AA archive_available
  %SUMMARY 'проверка доступности сервера поиска в архивах' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4F71CF610077 // DecisionsArchiveSupport
+ : Parent HWL ME_4F71CF610077 // DecisionsArchiveSupport
  ;
  : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
  ;
@@ -213,7 +213,7 @@ ref; // ME_56F26D7D0117 query
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4F71CF610077 // DecisionsArchiveSupport
+ : Parent HWL ME_4F71CF610077 // DecisionsArchiveSupport
  ;
  : Target WL 'ME_431841610361' '4423F94903C8.pas.ms.script' // String
  ;
@@ -234,14 +234,14 @@ ref; // ME_56F26D590288 get_search_server_url
  %SUMMARY '»нтерфейс доступа к архивам судебных решений' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4BD132D103B9 // InternetSupport
+ : Parent HWL ME_4BD132D103B9 // InternetSupport
  ;
  : Operations
-   Seq: ( ME_4F71D0930146 // make
- ME_4F71D47D0086 // get_archive_url
- ME_4F71DD6B03AA // archive_available
- ME_56F26D0E026E // search_server_available
- ME_56F26D590288 // get_search_server_url
+   Seq: ( HWL ME_4F71D0930146 // make
+ HWL ME_4F71D47D0086 // get_archive_url
+ HWL ME_4F71DD6B03AA // archive_available
+ HWL ME_56F26D0E026E // search_server_available
+ HWL ME_56F26D590288 // get_search_server_url
  )
  ; // Operations
  CONST "single impl" false
@@ -262,8 +262,8 @@ ref; // ME_4F71CF610077 DecisionsArchiveSupport
  : Parent WL 'ME_456EA3D2031C' '456EA3D2031C.pas.ms.script' // GblAdapterLib
  ;
  : Children
-   Seq: ( ME_4BD1331201C8 // InternetSupport
- ME_4F71CF610077 // DecisionsArchiveSupport
+   Seq: ( HWL ME_4BD1331201C8 // InternetSupport
+ HWL ME_4F71CF610077 // DecisionsArchiveSupport
  )
  ; // Children
  : Depends

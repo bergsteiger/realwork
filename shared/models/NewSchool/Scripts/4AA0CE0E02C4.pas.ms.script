@@ -1,0 +1,64 @@
+// ListAnalizer 4AA0CE0E02C4 VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AA0CE0E02C4
+
+: ME_BBDBB6B3AB03
+ CONST UID 'BBDBB6B3AB03'
+ CONST GUID '534B1ADF-ACC6-4DD9-AF54-C92914E3CBA4'
+ CONST Name 'ListAnalizer'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_VCMFormDefinition ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Идентификатор формы ListAnalizer' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4AA0CE0E02C4 // ListAnalizer
+ ;
+ : Implementors
+   Seq: ( HWL ME_4AA0CE0E02C4 // ListAnalizer
+ )
+ ; // Implementors
+ CONST extprop:pas:TypeName 'ListAnalizerFormDef'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_BBDBB6B3AB03 ListAnalizer$Def
+
+: ME_4AA0CE0E02C4
+ CONST UID '4AA0CE0E02C4'
+ CONST Name 'ListAnalizer'
+ CONST Class class_Class
+ : Stereotype st_VCMFinalForm ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Анализ списка' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent WL 'ME_4A9BF42601A9' '4A9BF42601A9.pas.ms.script' // List$FP
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4AA0CE2B0073' '4AA0CE2B0073.pas.ms.script' // PrimListAnalizer
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( HWL ME_BBDBB6B3AB03 // ListAnalizer$Def
+ )
+ ; // Implements
+ : Children
+   Seq: ( HWL ME_BBDBB6B3AB03 // ListAnalizer$Def
+ )
+ ; // Children
+ CONST "NeedsHackRef" true
+ CONST "ZoneType" 'Modal'
+ CONST "finished dfm" true
+ CONST "resizeable" false
+ CONST "restrict form def" 'undefined'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\List\Forms\ListAnalizer_Form.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\List\Forms'
+ CONST extprop:pas:TypeName 'TListAnalizerForm'
+ CONST extprop:rc:SelfName 'ListAnalizerForm'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'ListAnalizer_Form'
+
+ref; // ME_4AA0CE0E02C4 ListAnalizer

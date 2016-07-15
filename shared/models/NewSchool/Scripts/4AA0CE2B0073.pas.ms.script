@@ -1,0 +1,446 @@
+// PrimListAnalizer 4AA0CE2B0073 VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AA0CE2B0073
+
+: ME_4BD71C5800C2
+ CONST UID '4BD71C5800C2'
+ CONST Name 'listAnalize'
+ CONST Class class_Class
+ : Stereotype st_UserType ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Анализ списка' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AA0CE2B0073 // PrimListAnalizer
+ ;
+ CONST "CanClose" false
+ CONST "ImageIndex" '-1'
+ CONST "Weight" 0
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\List\Forms\PrimListAnalizer_listAnalize_UserType.pas'
+ CONST extprop:pas:UnitName 'PrimListAnalizer_listAnalize_UserType'
+
+ref; // ME_4BD71C5800C2 listAnalize
+
+FORWARD ME_51C062B8030D
+
+: ME_4AA0D02303C3
+ CONST UID '4AA0D02303C3'
+ CONST Name 'ListTree'
+ CONST Class class_Class
+ : Stereotype st_Control ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_51C062B8030D // BackgroundPanel
+ ;
+ CONST "ControlClass" 'TeeTreeView'
+ CONST "pm" true
+ CONST "put to dfm" false
+
+ref; // ME_4AA0D02303C3 ListTree
+
+: ME_51C062B8030D
+ CONST UID '51C062B8030D'
+ CONST Name 'BackgroundPanel'
+ CONST Class class_Class
+ : Stereotype st_Control ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AA0CE2B0073 // PrimListAnalizer
+ ;
+ : Attributes
+   Seq: ( HWL ME_4AA0D02303C3 // ListTree
+ )
+ ; // Attributes
+ CONST "ControlClass" 'TvtPanel'
+ CONST "pm" true
+ CONST "put to dfm" false
+
+ref; // ME_51C062B8030D BackgroundPanel
+
+: ME_51C06313011B
+ CONST UID '51C06313011B'
+ CONST Name 'ListTreeActionElement'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AA0CE2B0073 // PrimListAnalizer
+ ;
+ : Inherits
+   Seq: ( WL 'ME_51432026033F' '4CFFE3470249.pas.ms.script' // TActionElement
+ )
+ ; // Inherits
+
+ref; // ME_51C06313011B ListTreeActionElement
+
+: ME_51C063260008
+ CONST UID '51C063260008'
+ CONST Name 'ListTreeCanBeginDrag'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AA0CE2B0073 // PrimListAnalizer
+ ;
+ : Inherits
+   Seq: ( WL 'ME_51BB14E6006F' '4B97E8130272.pas.ms.script' // Tl3CanBeginDrag
+ )
+ ; // Inherits
+
+ref; // ME_51C063260008 ListTreeCanBeginDrag
+
+: ME_51C0635E00EF
+ CONST UID '51C0635E00EF'
+ CONST Name 'ListTreeGetItemImage'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AA0CE2B0073 // PrimListAnalizer
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47D63B6D0157' '47D036150077.pas.ms.script' // Tl3GetItemImage
+ )
+ ; // Inherits
+
+ref; // ME_51C0635E00EF ListTreeGetItemImage
+
+: ME_4AA0CE7102C1
+ CONST Name 'aNode'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
+ ;
+
+ref; // ME_4AA0CE7102C1 aNode
+
+: ME_4AA0CE5D036E
+ CONST UID '4AA0CE5D036E'
+ CONST Name 'CanOpen'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AA0CE2B0073 // PrimListAnalizer
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   Seq: ( ME_4AA0CE7102C1 // aNode
+ )
+ ; // Parameters
+
+ref; // ME_4AA0CE5D036E CanOpen
+
+: ME_4AA1091A0005
+ CONST Name 'aNode'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
+ ;
+
+ref; // ME_4AA1091A0005 aNode
+
+: ME_4AA0CE940142
+ CONST UID '4AA0CE940142'
+ CONST Name 'TryOpen'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AA0CE2B0073 // PrimListAnalizer
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   Seq: ( ME_4AA1091A0005 // aNode
+ )
+ ; // Parameters
+
+ref; // ME_4AA0CE940142 TryOpen
+
+: ME_4AC4FB30036E
+ CONST Name 'aData'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46825CC00249' '4682595B0268.pas.ms.script' // Il3SimpleTree
+ ;
+
+ref; // ME_4AC4FB30036E aData
+
+: ME_4AC4FB28001B
+ CONST UID '4AC4FB28001B'
+ CONST Name 'Make'
+ CONST Class class_Operation
+ : Stereotype st_factory::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AA0CE2B0073 // PrimListAnalizer
+ ;
+ : Parameters
+   Seq: ( ME_4AC4FB30036E // aData
+ )
+ ; // Parameters
+
+ref; // ME_4AC4FB28001B Make
+
+: ME_4AA0D2A801AE
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AA0CE2B0073 // PrimListAnalizer
+ ;
+ : Target WL 'ME_4A9F6C04024D' '45700BFD0251.pas.ms.script' // DynListFlags
+ ;
+
+ref; // ME_4AA0D2A801AE 
+
+: ME_4AA0D2C50160
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AA0CE2B0073 // PrimListAnalizer
+ ;
+ : Target WL 'ME_45EEDB730265' '45700BFD0251.pas.ms.script' // DynList
+ ;
+
+ref; // ME_4AA0D2C50160 
+
+: ME_4AA0D2DC0216
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AA0CE2B0073 // PrimListAnalizer
+ ;
+ : Target WL 'ME_456EB3E10177' '456EA56002BF.pas.ms.script' // EntityBase
+ ;
+
+ref; // ME_4AA0D2DC0216 
+
+: ME_4AA0D34C00A7
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AA0CE2B0073 // PrimListAnalizer
+ ;
+ : Target WL 'ME_490C47C70210' '48F747EC0073.pas.ms.script' // nsUtils
+ ;
+
+ref; // ME_4AA0D34C00A7 
+
+: ME_4AA0DDDE0292
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AA0CE2B0073 // PrimListAnalizer
+ ;
+ : Target WL 'ME_45EEB95901C5' '457450470167.pas.ms.script' // NodeBase
+ ;
+
+ref; // ME_4AA0DDDE0292 
+
+: ME_4AA0DDFC034C
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AA0CE2B0073 // PrimListAnalizer
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_4AA0DDFC034C 
+
+: ME_4AA0DE4001E6
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AA0CE2B0073 // PrimListAnalizer
+ ;
+ : Target WL 'ME_4A980B37006B' '4799D29F033F.pas.ms.script' // ModalResults
+ ;
+
+ref; // ME_4AA0DE4001E6 
+
+: ME_51C06D58024C
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AA0CE2B0073 // PrimListAnalizer
+ ;
+ : Target WL 'ME_46A5AFF103CA' '46A0E6C5023A.pas.ms.script' // IStream
+ ;
+
+ref; // ME_51C06D58024C 
+
+: ME_51C06DDF0396
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AA0CE2B0073 // PrimListAnalizer
+ ;
+ : Target WL 'ME_4EC391C00307' '4EEA0958023A.pas.ms.script' // SearchRes
+ ;
+
+ref; // ME_51C06DDF0396 
+
+: ME_51C06F3D0105
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AA0CE2B0073 // PrimListAnalizer
+ ;
+ : Target WL 'ME_47E13C6B0341' '4799D29F033F.pas.ms.script' // Forms
+ ;
+
+ref; // ME_51C06F3D0105 
+
+: ME_4A8AD46D0226_ME_4AA0CE2B0073
+ : Original WL 'ME_4A8AD46D0226' '4A8AD3C70195.pas.ms.script' // Cancel
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" false
+ CONST "ShowInToolbar" true
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_4A8AD46D0226_ME_4AA0CE2B0073 Cancel
+
+: ME_4A97EBE702F8_ME_4AA0CE2B0073
+ : Original WL 'ME_4A97EBE702F8' '4A8AD3C70195.pas.ms.script' // Ok
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" false
+ CONST "ShowInToolbar" true
+ CONST "has states" true
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_4A97EBE702F8_ME_4AA0CE2B0073 Ok
+
+: ME_4C762A1501FC_ME_4AA0CE2B0073
+ : Original WL 'ME_4C762A1501FC' '4A8AD3C70195.pas.ms.script' // Ok
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" false
+ CONST "ShowInToolbar" true
+ CONST "has states" true
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_4C762A1501FC_ME_4AA0CE2B0073 Ok
+
+: ME_4C762AB601E1_ME_4AA0CE2B0073
+ : Original WL 'ME_4C762AB601E1' '4A8AD3C70195.pas.ms.script' // Cancel
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" false
+ CONST "ShowInToolbar" true
+ CONST "has states" true
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_4C762AB601E1_ME_4AA0CE2B0073 Cancel
+
+: ME_47EA4E9002C6_ME_4AA0CE2B0073
+ : Original WL 'ME_47EA4E9002C6' '47EA4BB502F9.pas.ms.script' // FinishDataUpdate
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_47EA4E9002C6_ME_4AA0CE2B0073 FinishDataUpdate
+
+: ME_49803F5503AA_ME_4AA0CE2B0073
+ : Original WL 'ME_49803F5503AA' '4AADF9450143.pas.ms.script' // DoInit
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_49803F5503AA_ME_4AA0CE2B0073 DoInit
+
+: ME_4A8E8F2E0195_ME_4AA0CE2B0073
+ : Original WL 'ME_4A8E8F2E0195' '5000041101C8.pas.ms.script' // InitControls
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4A8E8F2E0195_ME_4AA0CE2B0073 InitControls
+
+: ME_4AA0CE2B0073
+ CONST UID '4AA0CE2B0073'
+ CONST Name 'PrimListAnalizer'
+ CONST Class class_Class
+ : Stereotype st_VCMForm ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Анализ списка' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_497DDB0A0168' '497DDB0A0168.pas.ms.script' // List
+ ;
+ : Inherits
+   Seq: ( WL 'ME_49525B34022A' '4AADF9450143.pas.ms.script' // TvcmEntityForm
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4A8AD409003A' '4A8AD3C70195.pas.ms.script' // Result$Cancel
+ WL 'ME_4A97EBC80201' '4A8AD3C70195.pas.ms.script' // Result$Ok
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( HWL ME_51C062B8030D // BackgroundPanel
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( HWL ME_51C06313011B // ListTreeActionElement
+ HWL ME_51C063260008 // ListTreeCanBeginDrag
+ HWL ME_51C0635E00EF // ListTreeGetItemImage
+ HWL ME_4AA0CE5D036E // CanOpen
+ HWL ME_4AA0CE940142 // TryOpen
+ HWL ME_4AC4FB28001B // Make
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4A8AD46D0226_ME_4AA0CE2B0073 // Cancel
+ ME_4A97EBE702F8_ME_4AA0CE2B0073 // Ok
+ ME_4C762A1501FC_ME_4AA0CE2B0073 // Ok
+ ME_4C762AB601E1_ME_4AA0CE2B0073 // Cancel
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_47EA4E9002C6_ME_4AA0CE2B0073 // FinishDataUpdate
+ ME_49803F5503AA_ME_4AA0CE2B0073 // DoInit
+ ME_4A8E8F2E0195_ME_4AA0CE2B0073 // InitControls
+ )
+ ; // Overridden
+ : Children
+   Seq: ( HWL ME_4BD71C5800C2 // listAnalize
+ )
+ ; // Children
+ : Dependencies
+   Seq: ( ME_4AA0D2A801AE // DynListFlags
+ ME_4AA0D2C50160 // DynList
+ ME_4AA0D2DC0216 // EntityBase
+ ME_4AA0D34C00A7 // nsUtils
+ ME_4AA0DDDE0292 // NodeBase
+ ME_4AA0DDFC034C // SysUtils
+ ME_4AA0DE4001E6 // ModalResults
+ ME_51C06D58024C // IStream
+ ME_51C06DDF0396 // SearchRes
+ ME_51C06F3D0105 // Forms
+ )
+ ; // Dependencies
+ CONST "NeedsHackRef" true
+ CONST "ZoneType" 'Modal'
+ CONST "finished dfm" true
+ CONST "resizeable" false
+ CONST "restrict form def" 'undefined'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\List\Forms\PrimListAnalizer_Form.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\List\Forms'
+ CONST extprop:pas:TypeName 'TPrimListAnalizerForm'
+ CONST extprop:rc:SelfName 'PrimListAnalizerForm'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'PrimListAnalizer_Form'
+ CONST extprop:NeedsInitEntities true
+
+ref; // ME_4AA0CE2B0073 PrimListAnalizer

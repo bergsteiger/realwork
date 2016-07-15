@@ -15,7 +15,7 @@ FORWARD ME_484F7A5501AB
  %SUMMARY 'Перемещение к произвольному объекту, загружавшемуся в активное окно.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_48563BA400A9 // Навигация
+ : Parent HWL ME_48563BA400A9 // Навигация
  ;
 
 ref; // ME_484F7A5501AB История навигации
@@ -29,7 +29,7 @@ ref; // ME_484F7A5501AB История навигации
  %SUMMARY 'Пользователь выбирает один из поисково-навигационных инструментов СПС.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_48563BA400A9 // Навигация
+ : Parent HWL ME_48563BA400A9 // Навигация
  ;
 
 ref; // ME_484F77120164 Основное меню (устарел)
@@ -43,7 +43,7 @@ ref; // ME_484F77120164 Основное меню (устарел)
  %SUMMARY 'Новая вкладка «Панель задач». Данная вкладка состоит из разделов, в которых в виде гиперссылок перечислены наиболее важные и востребованные «продвинутые» операции для основных участков системы.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_48563BA400A9 // Навигация
+ : Parent HWL ME_48563BA400A9 // Навигация
  ;
 
 ref; // ME_48563D4D00D5 Панель задач
@@ -57,10 +57,10 @@ ref; // ME_48563D4D00D5 Панель задач
  %SUMMARY 'Видоизмененный вариант Основного меню' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_48563BA400A9 // Навигация
+ : Parent HWL ME_48563BA400A9 // Навигация
  ;
  : Inherits
-   Seq: ( ME_484F77120164 // Основное меню (устарел)
+   Seq: ( HWL ME_484F77120164 // Основное меню (устарел)
  )
  ; // Inherits
 
@@ -75,7 +75,7 @@ ref; // ME_48563E65020C Упрощенное Основное Меню (устарел)
  %SUMMARY 'Лог открытых пользователем документов и запросов' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_48563BA400A9 // Навигация
+ : Parent HWL ME_48563BA400A9 // Навигация
  ;
 
 ref; // ME_4AC1BC3E03E2 Журнал Работы
@@ -94,7 +94,7 @@ FORWARD ME_4E7344D40331
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4E7344D40331 // Тип изменяемой части основного меню
+ : Parent HWL ME_4E7344D40331 // Тип изменяемой части основного меню
  ;
  CONST "CodeName" 'ST_FINANCE'
 
@@ -108,7 +108,7 @@ ref; // ME_4E7344FA037B Налоги и финансы
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4E7344D40331 // Тип изменяемой части основного меню
+ : Parent HWL ME_4E7344D40331 // Тип изменяемой части основного меню
  ;
  CONST "CodeName" 'ST_HR'
 
@@ -122,7 +122,7 @@ ref; // ME_4E73451001A2 Раздел для кадровиков
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4E7344D40331 // Тип изменяемой части основного меню
+ : Parent HWL ME_4E7344D40331 // Тип изменяемой части основного меню
  ;
  CONST "CodeName" 'ST_LEGAL'
 
@@ -136,7 +136,7 @@ ref; // ME_4E7345240159 Раздел для юристов
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4E7344D40331 // Тип изменяемой части основного меню
+ : Parent HWL ME_4E7344D40331 // Тип изменяемой части основного меню
  ;
  CONST "CodeName" 'ST_BUDGET_ORGS'
 
@@ -150,13 +150,13 @@ ref; // ME_4E73453900E0 Бюджетные организаций
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4E70D70C0055 // Основное меню должно уметь зависеть от должности пользователя
+ : Parent HWL ME_4E70D70C0055 // Основное меню должно уметь зависеть от должности пользователя
  ;
  : Children
-   Seq: ( ME_4E7344FA037B // Налоги и финансы
- ME_4E73451001A2 // Раздел для кадровиков
- ME_4E7345240159 // Раздел для юристов
- ME_4E73453900E0 // Бюджетные организаций
+   Seq: ( HWL ME_4E7344FA037B // Налоги и финансы
+ HWL ME_4E73451001A2 // Раздел для кадровиков
+ HWL ME_4E7345240159 // Раздел для юристов
+ HWL ME_4E73453900E0 // Бюджетные организаций
  )
  ; // Children
  CONST "CodeName" 'ChangeableMainMenuType'
@@ -172,7 +172,7 @@ ref; // ME_4E7344D40331 Тип изменяемой части основного меню
  %SUMMARY '{RequestLink:294594373}' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4E70D70C0055 // Основное меню должно уметь зависеть от должности пользователя
+ : Parent HWL ME_4E70D70C0055 // Основное меню должно уметь зависеть от должности пользователя
  ;
 
 ref; // ME_4EBD224E0314 Требования к иконке изменяемой части ОМ
@@ -186,11 +186,11 @@ ref; // ME_4EBD224E0314 Требования к иконке изменяемой части ОМ
  %SUMMARY '{RequestLink:233015250}' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4AC1D84F0398 // Основное меню (2009)
+ : Parent HWL ME_4AC1D84F0398 // Основное меню (2009)
  ;
  : Children
-   Seq: ( ME_4E7344D40331 // Тип изменяемой части основного меню
- ME_4EBD224E0314 // Требования к иконке изменяемой части ОМ
+   Seq: ( HWL ME_4E7344D40331 // Тип изменяемой части основного меню
+ HWL ME_4EBD224E0314 // Требования к иконке изменяемой части ОМ
  )
  ; // Children
 
@@ -205,7 +205,7 @@ ref; // ME_4E70D70C0055 Основное меню должно уметь зависеть от должности пользов
  %SUMMARY '{RequestLink:294590319}' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4AC1D84F0398 // Основное меню (2009)
+ : Parent HWL ME_4AC1D84F0398 // Основное меню (2009)
  ;
 
 ref; // ME_4EA0087A0078 Названия основных разделов Основного меню должны браться с адаптера
@@ -219,7 +219,7 @@ ref; // ME_4EA0087A0078 Названия основных разделов Основного меню должны браться
  %SUMMARY '{RequestLink:351209011}' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4AC1D84F0398 // Основное меню (2009)
+ : Parent HWL ME_4AC1D84F0398 // Основное меню (2009)
  ;
 
 ref; // ME_4F7442D6021F Должна быть кнопка Онлайн-архив
@@ -233,16 +233,16 @@ ref; // ME_4F7442D6021F Должна быть кнопка Онлайн-архив
  %SUMMARY 'Актуальное основное меню F1 (дизайн 2009-гогода)' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_48563BA400A9 // Навигация
+ : Parent HWL ME_48563BA400A9 // Навигация
  ;
  : Inherits
-   Seq: ( ME_48563E65020C // Упрощенное Основное Меню (устарел)
+   Seq: ( HWL ME_48563E65020C // Упрощенное Основное Меню (устарел)
  )
  ; // Inherits
  : Children
-   Seq: ( ME_4E70D70C0055 // Основное меню должно уметь зависеть от должности пользователя
- ME_4EA0087A0078 // Названия основных разделов Основного меню должны браться с адаптера
- ME_4F7442D6021F // Должна быть кнопка Онлайн-архив
+   Seq: ( HWL ME_4E70D70C0055 // Основное меню должно уметь зависеть от должности пользователя
+ HWL ME_4EA0087A0078 // Названия основных разделов Основного меню должны браться с адаптера
+ HWL ME_4F7442D6021F // Должна быть кнопка Онлайн-архив
  )
  ; // Children
 
@@ -257,7 +257,7 @@ ref; // ME_4AC1D84F0398 Основное меню (2009)
  %SUMMARY 'Показ предустановленных в базе рекламных картинок' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_48563BA400A9 // Навигация
+ : Parent HWL ME_48563BA400A9 // Навигация
  ;
 
 ref; // ME_4AC1DA040038 Показ баннеров
@@ -273,13 +273,13 @@ ref; // ME_4AC1DA040038 Показ баннеров
  : Parent WL 'ME_481EF5C4020D' '481EF5C4020D.pas.ms.script' // Оболочка
  ;
  : Children
-   Seq: ( ME_484F7A5501AB // История навигации
- ME_484F77120164 // Основное меню (устарел)
- ME_48563D4D00D5 // Панель задач
- ME_48563E65020C // Упрощенное Основное Меню (устарел)
- ME_4AC1BC3E03E2 // Журнал Работы
- ME_4AC1D84F0398 // Основное меню (2009)
- ME_4AC1DA040038 // Показ баннеров
+   Seq: ( HWL ME_484F7A5501AB // История навигации
+ HWL ME_484F77120164 // Основное меню (устарел)
+ HWL ME_48563D4D00D5 // Панель задач
+ HWL ME_48563E65020C // Упрощенное Основное Меню (устарел)
+ HWL ME_4AC1BC3E03E2 // Журнал Работы
+ HWL ME_4AC1D84F0398 // Основное меню (2009)
+ HWL ME_4AC1DA040038 // Показ баннеров
  )
  ; // Children
 

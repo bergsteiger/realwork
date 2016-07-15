@@ -1,0 +1,85 @@
+// OldSituationSearch 4AB8D885020F VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AB8D885020F
+
+: ME_DA935FDF40EA
+ CONST UID 'DA935FDF40EA'
+ CONST GUID 'C98510C7-15ED-408C-B356-69BB7B6D9CA4'
+ CONST Name 'OldSituationSearch'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_VCMFormDefinition ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Идентификатор формы OldSituationSearch' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4AB8D885020F // OldSituationSearch
+ ;
+ : Implementors
+   Seq: ( HWL ME_4AB8D885020F // OldSituationSearch
+ )
+ ; // Implementors
+ CONST extprop:pas:TypeName 'OldSituationSearchFormDef'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_DA935FDF40EA OldSituationSearch$Def
+
+: ME_4901E1AE4F7C
+ CONST UID '4901E1AE4F7C'
+ CONST Name 'Ini_FormFactory_OldSituationSearch'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы OldSituationSearch' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AB8D885020F // OldSituationSearch
+ ;
+ : SpelledFor HWL ME_4AB8D885020F // OldSituationSearch
+ ;
+
+ref; // ME_4901E1AE4F7C Ini_FormFactory_OldSituationSearch$Def
+
+: ME_4AB8D885020F
+ CONST UID '4AB8D885020F'
+ CONST Name 'OldSituationSearch'
+ CONST Class class_Class
+ : Stereotype st_VCMFinalForm ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Поиск по ситуации' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent WL 'ME_4AA641A3036C' '4AA641A3036C.pas.ms.script' // Search
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4C44149E023F' '4C44149E023F.pas.ms.script' // PrimOldSituationSearchOptions
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( HWL ME_DA935FDF40EA // OldSituationSearch$Def
+ )
+ ; // Implements
+ : Operations
+   Seq: ( HWL ME_4901E1AE4F7C // Ini_FormFactory_OldSituationSearch$Def
+ )
+ ; // Operations
+ : Children
+   Seq: ( HWL ME_DA935FDF40EA // OldSituationSearch$Def
+ )
+ ; // Children
+ CONST "NeedsHackRef" true
+ CONST "ZoneType" 'Any'
+ CONST "finished dfm" true
+ CONST "form name prefix" 'cf'
+ CONST "resizeable" false
+ CONST "restrict form def" 'undefined'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\OldSituationSearch_Form.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms'
+ CONST extprop:pas:TypeName 'TcfOldSituationSearch'
+ CONST extprop:rc:SelfName 'cfOldSituationSearch'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'OldSituationSearch_Form'
+
+ref; // ME_4AB8D885020F OldSituationSearch

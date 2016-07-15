@@ -1,3 +1,6 @@
+//#UC START# *4DA44B2C01BBimpl_uses*
+ , StdRes
+//#UC END# *4DA44B2C01BBimpl_uses*
 //#UC START# *4DA44BDB01D9_4DA44B2C01BBexec_impl*
  l_D := TnsOpenDialog.Create(Self);
  try
@@ -23,7 +26,7 @@
    if IsEmptyList(l_deL) then
     vcmSay(inf_ListMissing, [str_ImportDocuments.AsStr])
    else
-    TdmStdRes.OpenList(l_deL, nil);
+    TvcmModulesFactories.OpenList(l_deL, nil);
   end;//l_D.Execute
  finally
   FreeAndNil(l_D);

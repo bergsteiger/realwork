@@ -1,0 +1,120 @@
+// MainWindow 4AA7EA010274 VCMFinalMainForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AA7EA010274
+
+: ME_65A08EE64C38
+ CONST UID '65A08EE64C38'
+ CONST GUID 'A88F9772-00AF-401E-BACE-E6A02B415485'
+ CONST Name 'MainWindow'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_VCMFormDefinition ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Идентификатор формы MainWindow' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4AA7EA010274 // MainWindow
+ ;
+ : Implementors
+   Seq: ( HWL ME_4AA7EA010274 // MainWindow
+ )
+ ; // Implementors
+ CONST extprop:pas:TypeName 'MainWindowFormDef'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_65A08EE64C38 MainWindow$Def
+
+: ME_6A1545565ACA
+ CONST UID '6A1545565ACA'
+ CONST Name 'Ini_FormFactory_MainWindow'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы MainWindow' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AA7EA010274 // MainWindow
+ ;
+ : SpelledFor HWL ME_4AA7EA010274 // MainWindow
+ ;
+
+ref; // ME_6A1545565ACA Ini_FormFactory_MainWindow$Def
+
+: ME_4AC226EE03B7
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AA7EA010274 // MainWindow
+ ;
+ : Target WL 'ME_4AC226030181' '4AC225E70273.pas.ms.script' // TnsBaseSearcher
+ ;
+
+ref; // ME_4AC226EE03B7 
+
+: ME_4AD5B8000298
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AA7EA010274 // MainWindow
+ ;
+ : Target WL 'ME_4991945C0196' '499192F203B4.pas.ms.script' // InsStringsSource
+ ;
+
+ref; // ME_4AD5B8000298 
+
+: ME_4ADC51AB0001
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AA7EA010274 // MainWindow
+ ;
+ : Target WL 'ME_4ADC5175035B' '4F6B421102FB.pas.ms.script' // TnsWindowsList
+ ;
+
+ref; // ME_4ADC51AB0001 
+
+: ME_4AA7EA010274
+ CONST UID '4AA7EA010274'
+ CONST Name 'MainWindow'
+ CONST Class class_Class
+ : Stereotype st_VCMFinalMainForm ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Гарант' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent WL 'ME_4A925AFF01BA' '4A925AFF01BA.pas.ms.script' // PrimNemesis
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4F7DAC14027A' '4F7DAC14027A.pas.ms.script' // MainWithReminders
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( HWL ME_65A08EE64C38 // MainWindow$Def
+ )
+ ; // Implements
+ : Operations
+   Seq: ( HWL ME_6A1545565ACA // Ini_FormFactory_MainWindow$Def
+ )
+ ; // Operations
+ : Children
+   Seq: ( HWL ME_65A08EE64C38 // MainWindow$Def
+ )
+ ; // Children
+ : Dependencies
+   Seq: ( ME_4AC226EE03B7 // TnsBaseSearcher
+ ME_4AD5B8000298 // InsStringsSource
+ ME_4ADC51AB0001 // TnsWindowsList
+ )
+ ; // Dependencies
+ CONST "NeedsHackRef" true
+ CONST "ZoneType" 'Any'
+ CONST "finished dfm" true
+ CONST "form name prefix" 'ns'
+ CONST "resizeable" false
+ CONST "restrict form def" 'undefined'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\MainWindow_Form.pas'
+ CONST extprop:pas:TypeName 'TnsMainWindow'
+ CONST extprop:rc:SelfName 'MainWindow'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'MainWindow_Form'
+
+ref; // ME_4AA7EA010274 MainWindow

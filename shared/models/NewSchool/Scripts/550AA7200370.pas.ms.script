@@ -2,111 +2,6 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-FORWARD ME_550AA7200370
-
-FORWARD ME_550AAEE001B7
-
-FORWARD ME_550C0DA5022E
-
-: ME_550C0DC2012C
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_550AAEE001B7 // TsdsInpharmMainMenu
- ;
- : Target ME_550C0DA5022E // TdsInpharmMainMenu
- ;
-
-ref; // ME_550C0DC2012C 
-
-: ME_550C0D1A00CC_ME_550AAEE001B7
- : Original WL 'ME_550C0D1A00CC' '4AC241AC01FC.pas.ms.script' // dsInpharmMainMenuData
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" true
-ref; // ME_550C0D1A00CC_ME_550AAEE001B7 dsInpharmMainMenuData
-
-: ME_550AAEE001B7
- CONST UID '550AAEE001B7'
- CONST Name 'TsdsInpharmMainMenu'
- CONST Class class_Class
- : Stereotype st_UseCaseControllerImp ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_550AA7200370 // InpharmMainMenuControllerRealization
- ;
- : Inherits
-   Seq: ( WL 'ME_494778CD004F' '47D0E1500033.pas.ms.script' // vcmTinyUseCaseController
- )
- ; // Inherits
- : Implements
-   Seq: ( WL 'ME_550AA65C0212' '4AC241AC01FC.pas.ms.script' // IsdsInpharmMainMenu
- )
- ; // Implements
- : Implemented
-   Seq: ( ME_550C0D1A00CC_ME_550AAEE001B7 // dsInpharmMainMenuData
- )
- ; // Implemented
- : Dependencies
-   Seq: ( ME_550C0DC2012C // TdsInpharmMainMenu
- )
- ; // Dependencies
- CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\InpharmControllers\sdsInpharmMainMenu.pas'
- CONST extprop:rc:SelfName 'sdsInpharmMainMenu'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'sdsInpharmMainMenu'
-
-ref; // ME_550AAEE001B7 TsdsInpharmMainMenu
-
-: ME_55113FC40368
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_550C0DA5022E // TdsInpharmMainMenu
- ;
- : Target WL 'ME_48FF556602BA' '48F747EC0073.pas.ms.script' // DataAdapter
- ;
-
-ref; // ME_55113FC40368 
-
-: ME_55097FF5008E_ME_550C0DA5022E
- : Original WL 'ME_55097FF5008E' '47D0E1500033.pas.ms.script' // GetIsDataAvailable
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_55097FF5008E_ME_550C0DA5022E GetIsDataAvailable
-
-: ME_550C0DA5022E
- CONST UID '550C0DA5022E'
- CONST Name 'TdsInpharmMainMenu'
- CONST Class class_Class
- : Stereotype st_ViewAreaControllerImp ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_550AA7200370 // InpharmMainMenuControllerRealization
- ;
- : Inherits
-   Seq: ( WL 'ME_47ECE94D03D4' '47D0E1500033.pas.ms.script' // vcmFormDataSourcePrim
- )
- ; // Inherits
- : Implements
-   Seq: ( WL 'ME_550C0CF90324' '4AC241AC01FC.pas.ms.script' // IdsInpharmMainMenu
- )
- ; // Implements
- : Overridden
-   Seq: ( ME_55097FF5008E_ME_550C0DA5022E // GetIsDataAvailable
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_55113FC40368 // DataAdapter
- )
- ; // Dependencies
- CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\InpharmControllers\dsInpharmMainMenu.pas'
- CONST extprop:rc:SelfName 'dsInpharmMainMenu'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'dsInpharmMainMenu'
-
-ref; // ME_550C0DA5022E TdsInpharmMainMenu
-
 : ME_550AA7200370
  CONST UID '550AA7200370'
  CONST Name 'InpharmMainMenuControllerRealization'
@@ -117,8 +12,8 @@ ref; // ME_550C0DA5022E TdsInpharmMainMenu
  : Parent WL 'ME_550AA6E1017D' '550AA6E1017D.pas.ms.script' // InpharmControllers
  ;
  : Children
-   Seq: ( ME_550AAEE001B7 // TsdsInpharmMainMenu
- ME_550C0DA5022E // TdsInpharmMainMenu
+   Seq: ( WL 'ME_550AAEE001B7' '550AAEE001B7.pas.ms.script' // TsdsInpharmMainMenu
+ WL 'ME_550C0DA5022E' '550C0DA5022E.pas.ms.script' // TdsInpharmMainMenu
  )
  ; // Children
  : Depends

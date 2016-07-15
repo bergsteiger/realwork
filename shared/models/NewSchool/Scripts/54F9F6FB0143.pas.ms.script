@@ -21,7 +21,7 @@ ref; // ME_496B53BA032F aNewHistory
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_496B539D02D5 // InsContextSearchHistoryNotifier
+ : Parent HWL ME_496B539D02D5 // InsContextSearchHistoryNotifier
  ;
  : Parameters
    Seq: ( ME_496B53BA032F // aNewHistory
@@ -36,7 +36,7 @@ ref; // ME_496B53B70380 HistoryChanged
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_496B539D02D5 // InsContextSearchHistoryNotifier
+ : Parent HWL ME_496B539D02D5 // InsContextSearchHistoryNotifier
  ;
 
 ref; // ME_496B53C30337 ContextSearched
@@ -50,11 +50,11 @@ ref; // ME_496B53C30337 ContextSearched
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_54F9F6FB0143 // ContextHistoryInterfaces
+ : Parent HWL ME_54F9F6FB0143 // ContextHistoryInterfaces
  ;
  : Operations
-   Seq: ( ME_496B53B70380 // HistoryChanged
- ME_496B53C30337 // ContextSearched
+   Seq: ( HWL ME_496B53B70380 // HistoryChanged
+ HWL ME_496B53C30337 // ContextSearched
  )
  ; // Operations
  CONST extprop:rc:SelfName 'ContextSearchHistoryNotifier'
@@ -68,7 +68,7 @@ FORWARD ME_4AD849940213
  CONST Name 'aNotifier'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_496B539D02D5 // InsContextSearchHistoryNotifier
+ : Target HWL ME_496B539D02D5 // InsContextSearchHistoryNotifier
  ;
 
 ref; // ME_4AD849C4012B aNotifier
@@ -79,7 +79,7 @@ ref; // ME_4AD849C4012B aNotifier
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4AD849940213 // MnsContextSearchHistory
+ : Parent HWL ME_4AD849940213 // MnsContextSearchHistory
  ;
  : Parameters
    Seq: ( ME_4AD849C4012B // aNotifier
@@ -94,7 +94,7 @@ ref; // ME_4AD849C4011B AddNotifier
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4AD849940213 // MnsContextSearchHistory
+ : Parent HWL ME_4AD849940213 // MnsContextSearchHistory
  ;
  : Target WL 'ME_4683CF0601DB' '467BAB7F021E.pas.ms.script' // IvcmStrings
  ;
@@ -105,7 +105,7 @@ ref; // ME_4AD849CA03CF History
  CONST Name 'aNotifier'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_496B539D02D5 // InsContextSearchHistoryNotifier
+ : Target HWL ME_496B539D02D5 // InsContextSearchHistoryNotifier
  ;
 
 ref; // ME_4AD849CF0167 aNotifier
@@ -116,7 +116,7 @@ ref; // ME_4AD849CF0167 aNotifier
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4AD849940213 // MnsContextSearchHistory
+ : Parent HWL ME_4AD849940213 // MnsContextSearchHistory
  ;
  : Parameters
    Seq: ( ME_4AD849CF0167 // aNotifier
@@ -140,7 +140,7 @@ ref; // ME_4AD849D203A3 aContext
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4AD849940213 // MnsContextSearchHistory
+ : Parent HWL ME_4AD849940213 // MnsContextSearchHistory
  ;
  : Parameters
    Seq: ( ME_4AD849D203A3 // aContext
@@ -155,7 +155,7 @@ ref; // ME_4AD849D20384 Searched
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4AD849940213 // MnsContextSearchHistory
+ : Parent HWL ME_4AD849940213 // MnsContextSearchHistory
  ;
 
 ref; // ME_53B12CA900B8 Clear
@@ -168,14 +168,14 @@ ref; // ME_53B12CA900B8 Clear
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_54F9F6FB0143 // ContextHistoryInterfaces
+ : Parent HWL ME_54F9F6FB0143 // ContextHistoryInterfaces
  ;
  : Operations
-   Seq: ( ME_4AD849C4011B // AddNotifier
- ME_4AD849CA03CF // History
- ME_4AD849CF0148 // RemoveNotifier
- ME_4AD849D20384 // Searched
- ME_53B12CA900B8 // Clear
+   Seq: ( HWL ME_4AD849C4011B // AddNotifier
+ HWL ME_4AD849CA03CF // History
+ HWL ME_4AD849CF0148 // RemoveNotifier
+ HWL ME_4AD849D20384 // Searched
+ HWL ME_53B12CA900B8 // Clear
  )
  ; // Operations
 
@@ -184,31 +184,31 @@ ref; // ME_4AD849940213 MnsContextSearchHistory
 FORWARD ME_496B53D10104
 
 : ME_4AD849C4011B_ME_496B53D10104
- : Original ME_4AD849C4011B // AddNotifier
+ : Original HWL ME_4AD849C4011B // AddNotifier
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4AD849C4011B_ME_496B53D10104 AddNotifier
 
 : ME_4AD849CA03CF_ME_496B53D10104
- : Original ME_4AD849CA03CF // History
+ : Original HWL ME_4AD849CA03CF // History
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4AD849CA03CF_ME_496B53D10104 History
 
 : ME_4AD849CF0148_ME_496B53D10104
- : Original ME_4AD849CF0148 // RemoveNotifier
+ : Original HWL ME_4AD849CF0148 // RemoveNotifier
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4AD849CF0148_ME_496B53D10104 RemoveNotifier
 
 : ME_4AD849D20384_ME_496B53D10104
- : Original ME_4AD849D20384 // Searched
+ : Original HWL ME_4AD849D20384 // Searched
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4AD849D20384_ME_496B53D10104 Searched
 
 : ME_53B12CA900B8_ME_496B53D10104
- : Original ME_53B12CA900B8 // Clear
+ : Original HWL ME_53B12CA900B8 // Clear
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_53B12CA900B8_ME_496B53D10104 Clear
@@ -222,10 +222,10 @@ ref; // ME_53B12CA900B8_ME_496B53D10104 Clear
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_54F9F6FB0143 // ContextHistoryInterfaces
+ : Parent HWL ME_54F9F6FB0143 // ContextHistoryInterfaces
  ;
  : Implements
-   Seq: ( ME_4AD849940213 // MnsContextSearchHistory
+   Seq: ( HWL ME_4AD849940213 // MnsContextSearchHistory
  )
  ; // Implements
  : Implemented
@@ -251,7 +251,7 @@ FORWARD ME_4AD825C703D8
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4AD825C703D8 // TnsContextHistoryKind
+ : Parent HWL ME_4AD825C703D8 // TnsContextHistoryKind
  ;
 
 ref; // ME_4AD825E402FE Document
@@ -264,7 +264,7 @@ ref; // ME_4AD825E402FE Document
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4AD825C703D8 // TnsContextHistoryKind
+ : Parent HWL ME_4AD825C703D8 // TnsContextHistoryKind
  ;
 
 ref; // ME_4AD825F30057 Inpharm
@@ -277,11 +277,11 @@ ref; // ME_4AD825F30057 Inpharm
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_54F9F6FB0143 // ContextHistoryInterfaces
+ : Parent HWL ME_54F9F6FB0143 // ContextHistoryInterfaces
  ;
  : Attributes
-   Seq: ( ME_4AD825E402FE // Document
- ME_4AD825F30057 // Inpharm
+   Seq: ( HWL ME_4AD825E402FE // Document
+ HWL ME_4AD825F30057 // Inpharm
  )
  ; // Attributes
  CONST "children prefix" 'chk'
@@ -302,10 +302,10 @@ ref; // ME_4AD825C703D8 TnsContextHistoryKind
  : Parent WL 'ME_54F9EC3900D6' '54F9EC3900D6.pas.ms.script' // ContextHistory
  ;
  : Children
-   Seq: ( ME_496B539D02D5 // InsContextSearchHistoryNotifier
- ME_4AD849940213 // MnsContextSearchHistory
- ME_496B53D10104 // InsContextSearchHistory
- ME_4AD825C703D8 // TnsContextHistoryKind
+   Seq: ( HWL ME_496B539D02D5 // InsContextSearchHistoryNotifier
+ HWL ME_4AD849940213 // MnsContextSearchHistory
+ HWL ME_496B53D10104 // InsContextSearchHistory
+ HWL ME_4AD825C703D8 // TnsContextHistoryKind
  )
  ; // Children
  : Depends

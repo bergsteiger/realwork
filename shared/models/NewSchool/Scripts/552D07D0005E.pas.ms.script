@@ -14,7 +14,7 @@ FORWARD ME_5538E9AE0163
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_5538E9AE0163 // TdaFieldDescriptionListPrim
+ : Parent HWL ME_5538E9AE0163 // TdaFieldDescriptionListPrim
  ;
  CONST extprop:rc:SelfName 'Items_NeedsBeforeFreeItem'
 
@@ -28,7 +28,7 @@ ref; // ME_5538ED590245 l3Items_NeedsBeforeFreeItem
  CONST Visibility PrivateAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_5538E9AE0163 // TdaFieldDescriptionListPrim
+ : Parent HWL ME_5538E9AE0163 // TdaFieldDescriptionListPrim
  ;
  : Target WL 'ME_55377C5F0162' '5432518A0316.pas.ms.script' // IdaFieldDescription
  ;
@@ -38,7 +38,7 @@ ref; // ME_5538E9C702E1 ItemType
 : ME_553903EC0054
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_5538E9AE0163 // TdaFieldDescriptionListPrim
+ : Parent HWL ME_5538E9AE0163 // TdaFieldDescriptionListPrim
  ;
  : Target WL 'ME_4BCED67800F1' '4AB0C3C60310.pas.ms.script' // ANSISameText
  ;
@@ -81,7 +81,7 @@ ref; // ME_4B87FCF8038B_ME_5538E9AE0163 BeforeFreeItem
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_552D07D0005E // DataScheme
+ : Parent HWL ME_552D07D0005E // DataScheme
  ;
  : Inherits
    Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
@@ -92,7 +92,7 @@ ref; // ME_4B87FCF8038B_ME_5538E9AE0163 BeforeFreeItem
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_5538E9C702E1 // ItemType
+   Seq: ( HWL ME_5538E9C702E1 // ItemType
  )
  ; // Attributes
  : Implemented
@@ -106,7 +106,7 @@ ref; // ME_4B87FCF8038B_ME_5538E9AE0163 BeforeFreeItem
  )
  ; // Overridden
  : Children
-   Seq: ( ME_5538ED590245 // l3Items_NeedsBeforeFreeItem
+   Seq: ( HWL ME_5538ED590245 // l3Items_NeedsBeforeFreeItem
  )
  ; // Children
  : Dependencies
@@ -129,7 +129,7 @@ FORWARD ME_5538D0A902AF
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_5538D0A902AF // TdaFieldDescription
+ : Parent HWL ME_5538D0A902AF // TdaFieldDescription
  ;
  : Target WL 'ME_46A608F00301' '4AB0C3C60310.pas.ms.script' // Pointer
  ;
@@ -143,7 +143,7 @@ ref; // ME_5538D0DF03DF f_Table
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_5538D0A902AF // TdaFieldDescription
+ : Parent HWL ME_5538D0A902AF // TdaFieldDescription
  ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
@@ -157,7 +157,7 @@ ref; // ME_5538D0FA00F6 f_SQLName
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_5538D0A902AF // TdaFieldDescription
+ : Parent HWL ME_5538D0A902AF // TdaFieldDescription
  ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
@@ -171,7 +171,7 @@ ref; // ME_5538D10200F8 f_Description
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_5538D0A902AF // TdaFieldDescription
+ : Parent HWL ME_5538D0A902AF // TdaFieldDescription
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -185,7 +185,7 @@ ref; // ME_5538D1150231 f_Required
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_5538D0A902AF // TdaFieldDescription
+ : Parent HWL ME_5538D0A902AF // TdaFieldDescription
  ;
  : Target WL 'ME_5535180A0366' '5432448401BC.pas.ms.script' // TdaDataType
  ;
@@ -199,7 +199,7 @@ ref; // ME_5538D12E014E f_DataType
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_5538D0A902AF // TdaFieldDescription
+ : Parent HWL ME_5538D0A902AF // TdaFieldDescription
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -213,12 +213,26 @@ ref; // ME_5538D148028C f_Index
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_5538D0A902AF // TdaFieldDescription
+ : Parent HWL ME_5538D0A902AF // TdaFieldDescription
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
 
 ref; // ME_553A06870105 f_Size
+
+: ME_5763DAF8008E
+ CONST UID '5763DAF8008E'
+ CONST Name 'f_IsPrimaryKey'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_5538D0A902AF // TdaFieldDescription
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_5763DAF8008E f_IsPrimaryKey
 
 FORWARD ME_5538D15A03E5
 
@@ -271,13 +285,26 @@ ref; // ME_569CD08F0195 aType
 
 ref; // ME_569CD08F01B4 aSize
 
+: ME_5763DAF000C9
+ CONST Name 'anIsPrimaryKey'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST Value false
+ : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST extprop:pas:Value false
+
+ref; // ME_5763DAF000C9 anIsPrimaryKey
+
 : ME_5538D162032D
  CONST UID '5538D162032D'
  CONST Name 'DoIt'
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_5538D15A03E5 // Create
+ : Parent HWL ME_5538D15A03E5 // Create
  ;
  : Parameters
    Seq: ( ME_569CD08F0147 // aSQLName
@@ -285,6 +312,7 @@ ref; // ME_569CD08F01B4 aSize
  ME_569CD08F0185 // aRequired
  ME_569CD08F0195 // aType
  ME_569CD08F01B4 // aSize
+ ME_5763DAF000C9 // anIsPrimaryKey
  )
  ; // Parameters
 
@@ -298,10 +326,10 @@ ref; // ME_5538D162032D DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_5538D0A902AF // TdaFieldDescription
+ : Parent HWL ME_5538D0A902AF // TdaFieldDescription
  ;
  : Operations
-   Seq: ( ME_5538D162032D // DoIt
+   Seq: ( HWL ME_5538D162032D // DoIt
  )
  ; // Operations
 
@@ -315,10 +343,10 @@ ref; // ME_5538D15A03E5 Create
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_5538D0A902AF // TdaFieldDescription
+ : Parent HWL ME_5538D0A902AF // TdaFieldDescription
  ;
  : Inherits
-   Seq: ( ME_5538D15A03E5 // Create
+   Seq: ( HWL ME_5538D15A03E5 // Create
  )
  ; // Inherits
  : Implements
@@ -383,6 +411,13 @@ ref; // ME_5538AB95021E_ME_5538D0A902AF BindToTable
  CONST "pm" false
 ref; // ME_553A064A03B1_ME_5538D0A902AF Size
 
+: ME_5763DAB80335_ME_5538D0A902AF
+ : Original WL 'ME_5763DAB80335' '5432518A0316.pas.ms.script' // IsPrimaryKey
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_5763DAB80335_ME_5538D0A902AF IsPrimaryKey
+
 : ME_5538D0A902AF
  CONST UID '5538D0A902AF'
  CONST Name 'TdaFieldDescription'
@@ -391,7 +426,7 @@ ref; // ME_553A064A03B1_ME_5538D0A902AF Size
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_552D07D0005E // DataScheme
+ : Parent HWL ME_552D07D0005E // DataScheme
  ;
  : Inherits
    Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
@@ -402,18 +437,19 @@ ref; // ME_553A064A03B1_ME_5538D0A902AF Size
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_5538D0DF03DF // f_Table
- ME_5538D0FA00F6 // f_SQLName
- ME_5538D10200F8 // f_Description
- ME_5538D1150231 // f_Required
- ME_5538D12E014E // f_DataType
- ME_5538D148028C // f_Index
- ME_553A06870105 // f_Size
+   Seq: ( HWL ME_5538D0DF03DF // f_Table
+ HWL ME_5538D0FA00F6 // f_SQLName
+ HWL ME_5538D10200F8 // f_Description
+ HWL ME_5538D1150231 // f_Required
+ HWL ME_5538D12E014E // f_DataType
+ HWL ME_5538D148028C // f_Index
+ HWL ME_553A06870105 // f_Size
+ HWL ME_5763DAF8008E // f_IsPrimaryKey
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_5538D15A03E5 // Create
- ME_5538D1AF03DB // Make
+   Seq: ( HWL ME_5538D15A03E5 // Create
+ HWL ME_5538D1AF03DB // Make
  )
  ; // Operations
  : Implemented
@@ -425,6 +461,7 @@ ref; // ME_553A064A03B1_ME_5538D0A902AF Size
  ME_5538AADD0314_ME_5538D0A902AF // Index
  ME_5538AB95021E_ME_5538D0A902AF // BindToTable
  ME_553A064A03B1_ME_5538D0A902AF // Size
+ ME_5763DAB80335_ME_5538D0A902AF // IsPrimaryKey
  )
  ; // Implemented
  CONST intf.pas:Path 'common\components\rtl\Garant\DA\daFieldDescription.pas'
@@ -444,7 +481,7 @@ FORWARD ME_5538E9E500EE
  CONST Visibility PrivateAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_5538E9E500EE // TdaFieldDescriptionList
+ : Parent HWL ME_5538E9E500EE // TdaFieldDescriptionList
  ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
@@ -454,7 +491,7 @@ ref; // ME_5538FEBC0075 FindDataType
 : ME_5539041800C2
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_5538E9E500EE // TdaFieldDescriptionList
+ : Parent HWL ME_5538E9E500EE // TdaFieldDescriptionList
  ;
  : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
  ;
@@ -475,10 +512,10 @@ ref; // ME_47B9BAFD01F4_ME_5538E9E500EE CompareItemWithData
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_552D07D0005E // DataScheme
+ : Parent HWL ME_552D07D0005E // DataScheme
  ;
  : Inherits
-   Seq: ( ME_5538E9AE0163 // TdaFieldDescriptionListPrim
+   Seq: ( HWL ME_5538E9AE0163 // TdaFieldDescriptionListPrim
  )
  ; // Inherits
  : Implements
@@ -486,7 +523,7 @@ ref; // ME_47B9BAFD01F4_ME_5538E9E500EE CompareItemWithData
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_5538FEBC0075 // FindDataType
+   Seq: ( HWL ME_5538FEBC0075 // FindDataType
  )
  ; // Attributes
  : Overridden
@@ -514,7 +551,7 @@ FORWARD ME_55360F700127
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_ref
- : Parent ME_55360F700127 // TFamilyDescriptions
+ : Parent HWL ME_55360F700127 // TFamilyDescriptions
  ;
  : Target WL 'ME_552FADE50173' '5432518A0316.pas.ms.script' // IdaTableDescription
  ;
@@ -529,14 +566,14 @@ ref; // ME_553610230040
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_552D07EB03CB // TdaScheme
+ : Parent HWL ME_552D07EB03CB // TdaScheme
  ;
  : Inherits
    Seq: ( WL 'ME_55377C9C0289' '5432448401BC.pas.ms.script' // TdaTables
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_553610230040 // 
+   Seq: ( HWL ME_553610230040 // 
  )
  ; // Attributes
  CONST "array type" 'dynamic'
@@ -551,7 +588,7 @@ FORWARD ME_55360B420250
  CONST Name 'aTable'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_55360B420250 // TdaTableDescription
+ : Target HWL ME_55360B420250 // TdaTableDescription
  ;
 
 ref; // ME_5539EF0E01B7 aTable
@@ -562,7 +599,7 @@ ref; // ME_5539EF0E01B7 aTable
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_5539EED10071 // TdaFillTableDescriptionProc
+ : Parent HWL ME_5539EED10071 // TdaFillTableDescriptionProc
  ;
  : Parameters
    Seq: ( ME_5539EF0E01B7 // aTable
@@ -579,10 +616,10 @@ ref; // ME_5539EEF9037D DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_552D07EB03CB // TdaScheme
+ : Parent HWL ME_552D07EB03CB // TdaScheme
  ;
  : Operations
-   Seq: ( ME_5539EEF9037D // DoIt
+   Seq: ( HWL ME_5539EEF9037D // DoIt
  )
  ; // Operations
  CONST "of object" true
@@ -598,7 +635,7 @@ FORWARD ME_56A0D599008C
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_56A0D599008C // cTreeTables
+ : Parent HWL ME_56A0D599008C // cTreeTables
  ;
  CONST Value '[da_ftSources, da_ftTypes, da_ftClasses, da_ftKeywords, da_ftBelongs, da_ftWarnings, da_ftCoSources, da_ftPrefixes, da_ftTerritories, da_ftNorms, da_ftAccessGroups, da_ftAnnoClasses, da_ftServiceInfo]'
  CONST "AutoInc" false
@@ -616,10 +653,10 @@ ref; // ME_56A0D5A602C8 da_TreeTableKinds
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_552D07EB03CB // TdaScheme
+ : Parent HWL ME_552D07EB03CB // TdaScheme
  ;
  : Attributes
-   Seq: ( ME_56A0D5A602C8 // da_TreeTableKinds
+   Seq: ( HWL ME_56A0D5A602C8 // da_TreeTableKinds
  )
  ; // Attributes
  CONST "spell names" false
@@ -635,13 +672,13 @@ FORWARD ME_56A60AD80107
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_56A60AD80107 // cStoredProcs
+ : Parent HWL ME_56A60AD80107 // cStoredProcs
  ;
- CONST Value 4
+ CONST Value 8
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
- CONST extprop:pas:Value 4
+ CONST extprop:pas:Value 8
 
 ref; // ME_56A60AEB034B cStoredProcCount
 
@@ -653,15 +690,52 @@ ref; // ME_56A60AEB034B cStoredProcCount
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_552D07EB03CB // TdaScheme
+ : Parent HWL ME_552D07EB03CB // TdaScheme
  ;
  : Attributes
-   Seq: ( ME_56A60AEB034B // cStoredProcCount
+   Seq: ( HWL ME_56A60AEB034B // cStoredProcCount
  )
  ; // Attributes
  CONST "spell names" false
 
 ref; // ME_56A60AD80107 cStoredProcs
+
+FORWARD ME_57691E25023F
+
+: ME_57691E420195
+ CONST UID '57691E420195'
+ CONST Name 'cDefaultSchemeName'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_57691E25023F // CDefaultSchemeNameConsts
+ ;
+ CONST Value '''archi'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '''archi'''
+
+ref; // ME_57691E420195 cDefaultSchemeName
+
+: ME_57691E25023F
+ CONST UID '57691E25023F'
+ CONST Name 'CDefaultSchemeNameConsts'
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_552D07EB03CB // TdaScheme
+ ;
+ : Attributes
+   Seq: ( HWL ME_57691E420195 // cDefaultSchemeName
+ )
+ ; // Attributes
+ CONST "spell names" false
+
+ref; // ME_57691E25023F CDefaultSchemeNameConsts
 
 : ME_55360FB901F6
  CONST UID '55360FB901F6'
@@ -670,9 +744,9 @@ ref; // ME_56A60AD80107 cStoredProcs
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_552D07EB03CB // TdaScheme
+ : Parent HWL ME_552D07EB03CB // TdaScheme
  ;
- : Target ME_55360F700127 // TFamilyDescriptions
+ : Target HWL ME_55360F700127 // TFamilyDescriptions
  ;
 
 ref; // ME_55360FB901F6 f_Tables
@@ -684,9 +758,9 @@ FORWARD ME_55364525020F
 : ME_55360DF50244
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_552D0A31006D // BuildScheme
+ : Parent HWL ME_552D0A31006D // BuildScheme
  ;
- : Target ME_55364525020F // BuildMain
+ : Target HWL ME_55364525020F // BuildMain
  ;
 
 ref; // ME_55360DF50244 
@@ -696,9 +770,9 @@ FORWARD ME_5536453001FD
 : ME_55363AFE0335
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_552D0A31006D // BuildScheme
+ : Parent HWL ME_552D0A31006D // BuildScheme
  ;
- : Target ME_5536453001FD // BuildFamily
+ : Target HWL ME_5536453001FD // BuildFamily
  ;
 
 ref; // ME_55363AFE0335 
@@ -711,7 +785,7 @@ ref; // ME_55363AFE0335
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_552D07EB03CB // TdaScheme
+ : Parent HWL ME_552D07EB03CB // TdaScheme
  ;
  : Dependencies
    Seq: ( ME_55360DF50244 // BuildMain
@@ -724,9 +798,9 @@ ref; // ME_552D0A31006D BuildScheme
 : ME_553645730138
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_55364525020F // BuildMain
+ : Parent HWL ME_55364525020F // BuildMain
  ;
- : Target ME_55360B420250 // TdaTableDescription
+ : Target HWL ME_55360B420250 // TdaTableDescription
  ;
 
 ref; // ME_553645730138 
@@ -734,7 +808,7 @@ ref; // ME_553645730138
 : ME_553645780084
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_55364525020F // BuildMain
+ : Parent HWL ME_55364525020F // BuildMain
  ;
  : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
  ;
@@ -744,9 +818,9 @@ ref; // ME_553645780084
 : ME_5538D50C0074
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_55364525020F // BuildMain
+ : Parent HWL ME_55364525020F // BuildMain
  ;
- : Target ME_5538D0A902AF // TdaFieldDescription
+ : Target HWL ME_5538D0A902AF // TdaFieldDescription
  ;
 
 ref; // ME_5538D50C0074 
@@ -759,7 +833,7 @@ ref; // ME_5538D50C0074
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_552D07EB03CB // TdaScheme
+ : Parent HWL ME_552D07EB03CB // TdaScheme
  ;
  : Dependencies
    Seq: ( ME_553645730138 // TdaTableDescription
@@ -773,7 +847,7 @@ ref; // ME_55364525020F BuildMain
 : ME_5536457C03C8
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_5536453001FD // BuildFamily
+ : Parent HWL ME_5536453001FD // BuildFamily
  ;
  : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
  ;
@@ -783,9 +857,9 @@ ref; // ME_5536457C03C8
 : ME_5536458100F3
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_5536453001FD // BuildFamily
+ : Parent HWL ME_5536453001FD // BuildFamily
  ;
- : Target ME_55360B420250 // TdaTableDescription
+ : Target HWL ME_55360B420250 // TdaTableDescription
  ;
 
 ref; // ME_5536458100F3 
@@ -793,9 +867,9 @@ ref; // ME_5536458100F3
 : ME_5538D511003D
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_5536453001FD // BuildFamily
+ : Parent HWL ME_5536453001FD // BuildFamily
  ;
- : Target ME_5538D0A902AF // TdaFieldDescription
+ : Target HWL ME_5538D0A902AF // TdaFieldDescription
  ;
 
 ref; // ME_5538D511003D 
@@ -808,7 +882,7 @@ ref; // ME_5538D511003D
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_552D07EB03CB // TdaScheme
+ : Parent HWL ME_552D07EB03CB // TdaScheme
  ;
  : Dependencies
    Seq: ( ME_5536457C03C8 // FreeAndNil
@@ -821,43 +895,43 @@ ref; // ME_5536453001FD BuildFamily
 
 FORWARD ME_5539EF2000FF
 
-: ME_569CDA490169
+: ME_576D078400B3
  CONST Name 'aKind'
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_55377C9C0289' '5432448401BC.pas.ms.script' // TdaTables
  ;
 
-ref; // ME_569CDA490169 aKind
+ref; // ME_576D078400B3 aKind
 
-: ME_569CDA490179
+: ME_576D078400C2
  CONST Name 'aSQLName'
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
 
-ref; // ME_569CDA490179 aSQLName
+ref; // ME_576D078400C2 aSQLName
 
-: ME_569CDA490188
+: ME_576D078400D2
  CONST Name 'aDescription'
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
 
-ref; // ME_569CDA490188 aDescription
+ref; // ME_576D078400D2 aDescription
 
-: ME_569CDA490189
+: ME_576D078400D3
  CONST Name 'aProc'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_5539EED10071 // TdaFillTableDescriptionProc
+ : Target HWL ME_5539EED10071 // TdaFillTableDescriptionProc
  ;
 
-ref; // ME_569CDA490189 aProc
+ref; // ME_576D078400D3 aProc
 
-: ME_569CDA490198
+: ME_576D078400E2
  CONST Name 'aScheme'
  CONST Class class_Parameter
  : Stereotype st_in ;
@@ -868,9 +942,9 @@ ref; // ME_569CDA490189 aProc
  ;
  CONST extprop:pas:Value ''''''
 
-ref; // ME_569CDA490198 aScheme
+ref; // ME_576D078400E2 aScheme
 
-: ME_569CDA4901A8
+: ME_576D078400F1
  CONST Name 'aDublicate'
  CONST Class class_Parameter
  : Stereotype st_in ;
@@ -881,9 +955,9 @@ ref; // ME_569CDA490198 aScheme
  ;
  CONST extprop:pas:Value false
 
-ref; // ME_569CDA4901A8 aDublicate
+ref; // ME_576D078400F1 aDublicate
 
-: ME_569CDA4901A9
+: ME_576D07840101
  CONST Name 'aFake'
  CONST Class class_Parameter
  : Stereotype st_in ;
@@ -894,7 +968,7 @@ ref; // ME_569CDA4901A8 aDublicate
  ;
  CONST extprop:pas:Value false
 
-ref; // ME_569CDA4901A9 aFake
+ref; // ME_576D07840101 aFake
 
 : ME_5539EF3E02D4
  CONST UID '5539EF3E02D4'
@@ -902,18 +976,18 @@ ref; // ME_569CDA4901A9 aFake
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_5539EF2000FF // MakeTableDescription
+ : Parent HWL ME_5539EF2000FF // MakeTableDescription
  ;
  : Target WL 'ME_552FADE50173' '5432518A0316.pas.ms.script' // IdaTableDescription
  ;
  : Parameters
-   Seq: ( ME_569CDA490169 // aKind
- ME_569CDA490179 // aSQLName
- ME_569CDA490188 // aDescription
- ME_569CDA490189 // aProc
- ME_569CDA490198 // aScheme
- ME_569CDA4901A8 // aDublicate
- ME_569CDA4901A9 // aFake
+   Seq: ( ME_576D078400B3 // aKind
+ ME_576D078400C2 // aSQLName
+ ME_576D078400D2 // aDescription
+ ME_576D078400D3 // aProc
+ ME_576D078400E2 // aScheme
+ ME_576D078400F1 // aDublicate
+ ME_576D07840101 // aFake
  )
  ; // Parameters
 
@@ -927,10 +1001,10 @@ ref; // ME_5539EF3E02D4 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_552D07EB03CB // TdaScheme
+ : Parent HWL ME_552D07EB03CB // TdaScheme
  ;
  : Operations
-   Seq: ( ME_5539EF3E02D4 // DoIt
+   Seq: ( HWL ME_5539EF3E02D4 // DoIt
  )
  ; // Operations
 
@@ -944,10 +1018,10 @@ ref; // ME_5539EF2000FF MakeTableDescription
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_552D07EB03CB // TdaScheme
+ : Parent HWL ME_552D07EB03CB // TdaScheme
  ;
  : Inherits
-   Seq: ( ME_5539EED10071 // TdaFillTableDescriptionProc
+   Seq: ( HWL ME_5539EED10071 // TdaFillTableDescriptionProc
  )
  ; // Inherits
 
@@ -961,10 +1035,10 @@ ref; // ME_5539EFC3037B FillMainAccess
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_552D07EB03CB // TdaScheme
+ : Parent HWL ME_552D07EB03CB // TdaScheme
  ;
  : Inherits
-   Seq: ( ME_5539EED10071 // TdaFillTableDescriptionProc
+   Seq: ( HWL ME_5539EED10071 // TdaFillTableDescriptionProc
  )
  ; // Inherits
 
@@ -978,10 +1052,10 @@ ref; // ME_5539FF9001C0 FillMainPassword
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_552D07EB03CB // TdaScheme
+ : Parent HWL ME_552D07EB03CB // TdaScheme
  ;
  : Inherits
-   Seq: ( ME_5539EED10071 // TdaFillTableDescriptionProc
+   Seq: ( HWL ME_5539EED10071 // TdaFillTableDescriptionProc
  )
  ; // Inherits
 
@@ -995,10 +1069,10 @@ ref; // ME_5539FFA400F0 FillMainUsers
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_552D07EB03CB // TdaScheme
+ : Parent HWL ME_552D07EB03CB // TdaScheme
  ;
  : Inherits
-   Seq: ( ME_5539EED10071 // TdaFillTableDescriptionProc
+   Seq: ( HWL ME_5539EED10071 // TdaFillTableDescriptionProc
  )
  ; // Inherits
 
@@ -1012,10 +1086,10 @@ ref; // ME_5539FFBC0157 FillMainGroups
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_552D07EB03CB // TdaScheme
+ : Parent HWL ME_552D07EB03CB // TdaScheme
  ;
  : Inherits
-   Seq: ( ME_5539EED10071 // TdaFillTableDescriptionProc
+   Seq: ( HWL ME_5539EED10071 // TdaFillTableDescriptionProc
  )
  ; // Inherits
 
@@ -1029,10 +1103,10 @@ ref; // ME_5539FFDC022E FillMainGroupMembers
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_552D07EB03CB // TdaScheme
+ : Parent HWL ME_552D07EB03CB // TdaScheme
  ;
  : Inherits
-   Seq: ( ME_5539EED10071 // TdaFillTableDescriptionProc
+   Seq: ( HWL ME_5539EED10071 // TdaFillTableDescriptionProc
  )
  ; // Inherits
 
@@ -1046,10 +1120,10 @@ ref; // ME_5539FFFB0143 FillMainFamily
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_552D07EB03CB // TdaScheme
+ : Parent HWL ME_552D07EB03CB // TdaScheme
  ;
  : Inherits
-   Seq: ( ME_5539EED10071 // TdaFillTableDescriptionProc
+   Seq: ( HWL ME_5539EED10071 // TdaFillTableDescriptionProc
  )
  ; // Inherits
 
@@ -1063,10 +1137,10 @@ ref; // ME_553A000C0379 FillMainFree
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_552D07EB03CB // TdaScheme
+ : Parent HWL ME_552D07EB03CB // TdaScheme
  ;
  : Inherits
-   Seq: ( ME_5539EED10071 // TdaFillTableDescriptionProc
+   Seq: ( HWL ME_5539EED10071 // TdaFillTableDescriptionProc
  )
  ; // Inherits
 
@@ -1080,10 +1154,10 @@ ref; // ME_553A0020004E FillMainJournal
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_552D07EB03CB // TdaScheme
+ : Parent HWL ME_552D07EB03CB // TdaScheme
  ;
  : Inherits
-   Seq: ( ME_5539EED10071 // TdaFillTableDescriptionProc
+   Seq: ( HWL ME_5539EED10071 // TdaFillTableDescriptionProc
  )
  ; // Inherits
 
@@ -1097,10 +1171,10 @@ ref; // ME_553A003200BF FillControl
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_552D07EB03CB // TdaScheme
+ : Parent HWL ME_552D07EB03CB // TdaScheme
  ;
  : Inherits
-   Seq: ( ME_5539EED10071 // TdaFillTableDescriptionProc
+   Seq: ( HWL ME_5539EED10071 // TdaFillTableDescriptionProc
  )
  ; // Inherits
 
@@ -1114,10 +1188,10 @@ ref; // ME_553A00440110 FillMainRegions
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_552D07EB03CB // TdaScheme
+ : Parent HWL ME_552D07EB03CB // TdaScheme
  ;
  : Inherits
-   Seq: ( ME_5539EED10071 // TdaFillTableDescriptionProc
+   Seq: ( HWL ME_5539EED10071 // TdaFillTableDescriptionProc
  )
  ; // Inherits
 
@@ -1131,10 +1205,10 @@ ref; // ME_553DE6E1033B FillFamilyDocuments
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_552D07EB03CB // TdaScheme
+ : Parent HWL ME_552D07EB03CB // TdaScheme
  ;
  : Inherits
-   Seq: ( ME_5539EED10071 // TdaFillTableDescriptionProc
+   Seq: ( HWL ME_5539EED10071 // TdaFillTableDescriptionProc
  )
  ; // Inherits
 
@@ -1148,10 +1222,10 @@ ref; // ME_553DE7080233 FillFamilyHyperlinks
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_552D07EB03CB // TdaScheme
+ : Parent HWL ME_552D07EB03CB // TdaScheme
  ;
  : Inherits
-   Seq: ( ME_5539EED10071 // TdaFillTableDescriptionProc
+   Seq: ( HWL ME_5539EED10071 // TdaFillTableDescriptionProc
  )
  ; // Inherits
 
@@ -1165,10 +1239,10 @@ ref; // ME_553DE72B011F FillFamilySubs
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_552D07EB03CB // TdaScheme
+ : Parent HWL ME_552D07EB03CB // TdaScheme
  ;
  : Inherits
-   Seq: ( ME_5539EED10071 // TdaFillTableDescriptionProc
+   Seq: ( HWL ME_5539EED10071 // TdaFillTableDescriptionProc
  )
  ; // Inherits
 
@@ -1182,10 +1256,10 @@ ref; // ME_553DE749014E FillFamilyFree
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_552D07EB03CB // TdaScheme
+ : Parent HWL ME_552D07EB03CB // TdaScheme
  ;
  : Inherits
-   Seq: ( ME_5539EED10071 // TdaFillTableDescriptionProc
+   Seq: ( HWL ME_5539EED10071 // TdaFillTableDescriptionProc
  )
  ; // Inherits
 
@@ -1199,10 +1273,10 @@ ref; // ME_553DE77003DF FillFamilySources
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_552D07EB03CB // TdaScheme
+ : Parent HWL ME_552D07EB03CB // TdaScheme
  ;
  : Inherits
-   Seq: ( ME_5539EED10071 // TdaFillTableDescriptionProc
+   Seq: ( HWL ME_5539EED10071 // TdaFillTableDescriptionProc
  )
  ; // Inherits
 
@@ -1216,10 +1290,10 @@ ref; // ME_553DE7850036 FillFamilyTypes
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_552D07EB03CB // TdaScheme
+ : Parent HWL ME_552D07EB03CB // TdaScheme
  ;
  : Inherits
-   Seq: ( ME_5539EED10071 // TdaFillTableDescriptionProc
+   Seq: ( HWL ME_5539EED10071 // TdaFillTableDescriptionProc
  )
  ; // Inherits
 
@@ -1233,10 +1307,10 @@ ref; // ME_553DE79F0210 FillFamilyClasses
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_552D07EB03CB // TdaScheme
+ : Parent HWL ME_552D07EB03CB // TdaScheme
  ;
  : Inherits
-   Seq: ( ME_5539EED10071 // TdaFillTableDescriptionProc
+   Seq: ( HWL ME_5539EED10071 // TdaFillTableDescriptionProc
  )
  ; // Inherits
 
@@ -1250,10 +1324,10 @@ ref; // ME_553DE7B101D5 FillFamilyKeywords
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_552D07EB03CB // TdaScheme
+ : Parent HWL ME_552D07EB03CB // TdaScheme
  ;
  : Inherits
-   Seq: ( ME_5539EED10071 // TdaFillTableDescriptionProc
+   Seq: ( HWL ME_5539EED10071 // TdaFillTableDescriptionProc
  )
  ; // Inherits
 
@@ -1267,10 +1341,10 @@ ref; // ME_553DE7C8025D FillFamilyBelongs
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_552D07EB03CB // TdaScheme
+ : Parent HWL ME_552D07EB03CB // TdaScheme
  ;
  : Inherits
-   Seq: ( ME_5539EED10071 // TdaFillTableDescriptionProc
+   Seq: ( HWL ME_5539EED10071 // TdaFillTableDescriptionProc
  )
  ; // Inherits
 
@@ -1284,10 +1358,10 @@ ref; // ME_553DE7E401C4 FillFamilyDateCodes
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_552D07EB03CB // TdaScheme
+ : Parent HWL ME_552D07EB03CB // TdaScheme
  ;
  : Inherits
-   Seq: ( ME_5539EED10071 // TdaFillTableDescriptionProc
+   Seq: ( HWL ME_5539EED10071 // TdaFillTableDescriptionProc
  )
  ; // Inherits
 
@@ -1301,10 +1375,10 @@ ref; // ME_553DE8070027 FillFamilyWarnings
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_552D07EB03CB // TdaScheme
+ : Parent HWL ME_552D07EB03CB // TdaScheme
  ;
  : Inherits
-   Seq: ( ME_5539EED10071 // TdaFillTableDescriptionProc
+   Seq: ( HWL ME_5539EED10071 // TdaFillTableDescriptionProc
  )
  ; // Inherits
 
@@ -1318,10 +1392,10 @@ ref; // ME_553DE8170107 FillFamilyCorrections
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_552D07EB03CB // TdaScheme
+ : Parent HWL ME_552D07EB03CB // TdaScheme
  ;
  : Inherits
-   Seq: ( ME_5539EED10071 // TdaFillTableDescriptionProc
+   Seq: ( HWL ME_5539EED10071 // TdaFillTableDescriptionProc
  )
  ; // Inherits
 
@@ -1335,10 +1409,10 @@ ref; // ME_553DE82E0028 FillFamilyCoSources
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_552D07EB03CB // TdaScheme
+ : Parent HWL ME_552D07EB03CB // TdaScheme
  ;
  : Inherits
-   Seq: ( ME_5539EED10071 // TdaFillTableDescriptionProc
+   Seq: ( HWL ME_5539EED10071 // TdaFillTableDescriptionProc
  )
  ; // Inherits
 
@@ -1352,10 +1426,10 @@ ref; // ME_553DE83D011A FillFamilyPublishedIn
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_552D07EB03CB // TdaScheme
+ : Parent HWL ME_552D07EB03CB // TdaScheme
  ;
  : Inherits
-   Seq: ( ME_5539EED10071 // TdaFillTableDescriptionProc
+   Seq: ( HWL ME_5539EED10071 // TdaFillTableDescriptionProc
  )
  ; // Inherits
 
@@ -1369,10 +1443,10 @@ ref; // ME_553DE862036A FillFamilyPrefixes
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_552D07EB03CB // TdaScheme
+ : Parent HWL ME_552D07EB03CB // TdaScheme
  ;
  : Inherits
-   Seq: ( ME_5539EED10071 // TdaFillTableDescriptionProc
+   Seq: ( HWL ME_5539EED10071 // TdaFillTableDescriptionProc
  )
  ; // Inherits
 
@@ -1386,10 +1460,10 @@ ref; // ME_553DE875037C FillFamilyTerritories
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_552D07EB03CB // TdaScheme
+ : Parent HWL ME_552D07EB03CB // TdaScheme
  ;
  : Inherits
-   Seq: ( ME_5539EED10071 // TdaFillTableDescriptionProc
+   Seq: ( HWL ME_5539EED10071 // TdaFillTableDescriptionProc
  )
  ; // Inherits
 
@@ -1403,10 +1477,10 @@ ref; // ME_553DE88902FF FillFamilyNorms
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_552D07EB03CB // TdaScheme
+ : Parent HWL ME_552D07EB03CB // TdaScheme
  ;
  : Inherits
-   Seq: ( ME_5539EED10071 // TdaFillTableDescriptionProc
+   Seq: ( HWL ME_5539EED10071 // TdaFillTableDescriptionProc
  )
  ; // Inherits
 
@@ -1420,10 +1494,10 @@ ref; // ME_553DE89701FF FillFamilyExtClasses
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_552D07EB03CB // TdaScheme
+ : Parent HWL ME_552D07EB03CB // TdaScheme
  ;
  : Inherits
-   Seq: ( ME_5539EED10071 // TdaFillTableDescriptionProc
+   Seq: ( HWL ME_5539EED10071 // TdaFillTableDescriptionProc
  )
  ; // Inherits
 
@@ -1437,10 +1511,10 @@ ref; // ME_553DE8C3038F FillFamilyAccessGroups
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_552D07EB03CB // TdaScheme
+ : Parent HWL ME_552D07EB03CB // TdaScheme
  ;
  : Inherits
-   Seq: ( ME_5539EED10071 // TdaFillTableDescriptionProc
+   Seq: ( HWL ME_5539EED10071 // TdaFillTableDescriptionProc
  )
  ; // Inherits
 
@@ -1454,10 +1528,10 @@ ref; // ME_553DE8D60075 FillFamilyAnnoClasses
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_552D07EB03CB // TdaScheme
+ : Parent HWL ME_552D07EB03CB // TdaScheme
  ;
  : Inherits
-   Seq: ( ME_5539EED10071 // TdaFillTableDescriptionProc
+   Seq: ( HWL ME_5539EED10071 // TdaFillTableDescriptionProc
  )
  ; // Inherits
 
@@ -1471,10 +1545,10 @@ ref; // ME_553DE8FE01AD FillFamilyServiceInfo
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_552D07EB03CB // TdaScheme
+ : Parent HWL ME_552D07EB03CB // TdaScheme
  ;
  : Inherits
-   Seq: ( ME_5539EED10071 // TdaFillTableDescriptionProc
+   Seq: ( HWL ME_5539EED10071 // TdaFillTableDescriptionProc
  )
  ; // Inherits
 
@@ -1488,10 +1562,10 @@ ref; // ME_553F2E94021D FillFamilyDocSources
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_552D07EB03CB // TdaScheme
+ : Parent HWL ME_552D07EB03CB // TdaScheme
  ;
  : Inherits
-   Seq: ( ME_5539EED10071 // TdaFillTableDescriptionProc
+   Seq: ( HWL ME_5539EED10071 // TdaFillTableDescriptionProc
  )
  ; // Inherits
 
@@ -1505,10 +1579,10 @@ ref; // ME_553F2EE802EF FillFamilyDocTypes
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_552D07EB03CB // TdaScheme
+ : Parent HWL ME_552D07EB03CB // TdaScheme
  ;
  : Inherits
-   Seq: ( ME_5539EED10071 // TdaFillTableDescriptionProc
+   Seq: ( HWL ME_5539EED10071 // TdaFillTableDescriptionProc
  )
  ; // Inherits
 
@@ -1522,10 +1596,10 @@ ref; // ME_553F2F0D0100 FillFamilyDocClasses
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_552D07EB03CB // TdaScheme
+ : Parent HWL ME_552D07EB03CB // TdaScheme
  ;
  : Inherits
-   Seq: ( ME_5539EED10071 // TdaFillTableDescriptionProc
+   Seq: ( HWL ME_5539EED10071 // TdaFillTableDescriptionProc
  )
  ; // Inherits
 
@@ -1539,10 +1613,10 @@ ref; // ME_553F2F34011F FillFamilyDocKeywords
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_552D07EB03CB // TdaScheme
+ : Parent HWL ME_552D07EB03CB // TdaScheme
  ;
  : Inherits
-   Seq: ( ME_5539EED10071 // TdaFillTableDescriptionProc
+   Seq: ( HWL ME_5539EED10071 // TdaFillTableDescriptionProc
  )
  ; // Inherits
 
@@ -1556,10 +1630,10 @@ ref; // ME_553F2F5E0169 FillFamilyDocBelongs
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_552D07EB03CB // TdaScheme
+ : Parent HWL ME_552D07EB03CB // TdaScheme
  ;
  : Inherits
-   Seq: ( ME_5539EED10071 // TdaFillTableDescriptionProc
+   Seq: ( HWL ME_5539EED10071 // TdaFillTableDescriptionProc
  )
  ; // Inherits
 
@@ -1573,10 +1647,10 @@ ref; // ME_553F2F8300A1 FillFamilyDocDateCodes
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_552D07EB03CB // TdaScheme
+ : Parent HWL ME_552D07EB03CB // TdaScheme
  ;
  : Inherits
-   Seq: ( ME_5539EED10071 // TdaFillTableDescriptionProc
+   Seq: ( HWL ME_5539EED10071 // TdaFillTableDescriptionProc
  )
  ; // Inherits
 
@@ -1590,10 +1664,10 @@ ref; // ME_553F2FA00207 FillFamilyDocWarnings
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_552D07EB03CB // TdaScheme
+ : Parent HWL ME_552D07EB03CB // TdaScheme
  ;
  : Inherits
-   Seq: ( ME_5539EED10071 // TdaFillTableDescriptionProc
+   Seq: ( HWL ME_5539EED10071 // TdaFillTableDescriptionProc
  )
  ; // Inherits
 
@@ -1607,10 +1681,10 @@ ref; // ME_553F2FC40156 FillFamilyDocCorrections
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_552D07EB03CB // TdaScheme
+ : Parent HWL ME_552D07EB03CB // TdaScheme
  ;
  : Inherits
-   Seq: ( ME_5539EED10071 // TdaFillTableDescriptionProc
+   Seq: ( HWL ME_5539EED10071 // TdaFillTableDescriptionProc
  )
  ; // Inherits
 
@@ -1624,10 +1698,10 @@ ref; // ME_553F2FE300DC FillFamilyDocPublishedIn
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_552D07EB03CB // TdaScheme
+ : Parent HWL ME_552D07EB03CB // TdaScheme
  ;
  : Inherits
-   Seq: ( ME_5539EED10071 // TdaFillTableDescriptionProc
+   Seq: ( HWL ME_5539EED10071 // TdaFillTableDescriptionProc
  )
  ; // Inherits
 
@@ -1641,10 +1715,10 @@ ref; // ME_553F300C00A1 FillFamilyDocPrefixes
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_552D07EB03CB // TdaScheme
+ : Parent HWL ME_552D07EB03CB // TdaScheme
  ;
  : Inherits
-   Seq: ( ME_5539EED10071 // TdaFillTableDescriptionProc
+   Seq: ( HWL ME_5539EED10071 // TdaFillTableDescriptionProc
  )
  ; // Inherits
 
@@ -1658,10 +1732,10 @@ ref; // ME_553F302E0091 FillFamilyDocTerritories
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_552D07EB03CB // TdaScheme
+ : Parent HWL ME_552D07EB03CB // TdaScheme
  ;
  : Inherits
-   Seq: ( ME_5539EED10071 // TdaFillTableDescriptionProc
+   Seq: ( HWL ME_5539EED10071 // TdaFillTableDescriptionProc
  )
  ; // Inherits
 
@@ -1675,10 +1749,10 @@ ref; // ME_553F304E00E0 FillFamilyDocNorms
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_552D07EB03CB // TdaScheme
+ : Parent HWL ME_552D07EB03CB // TdaScheme
  ;
  : Inherits
-   Seq: ( ME_5539EED10071 // TdaFillTableDescriptionProc
+   Seq: ( HWL ME_5539EED10071 // TdaFillTableDescriptionProc
  )
  ; // Inherits
 
@@ -1692,10 +1766,10 @@ ref; // ME_553F306E01DA FillFamilyDocAccessGroups
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_552D07EB03CB // TdaScheme
+ : Parent HWL ME_552D07EB03CB // TdaScheme
  ;
  : Inherits
-   Seq: ( ME_5539EED10071 // TdaFillTableDescriptionProc
+   Seq: ( HWL ME_5539EED10071 // TdaFillTableDescriptionProc
  )
  ; // Inherits
 
@@ -1709,10 +1783,10 @@ ref; // ME_553F308901D3 FillFamilyDocAnnoClasses
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_552D07EB03CB // TdaScheme
+ : Parent HWL ME_552D07EB03CB // TdaScheme
  ;
  : Inherits
-   Seq: ( ME_5539EED10071 // TdaFillTableDescriptionProc
+   Seq: ( HWL ME_5539EED10071 // TdaFillTableDescriptionProc
  )
  ; // Inherits
 
@@ -1726,10 +1800,10 @@ ref; // ME_553F30A901C5 FillFamilyDocServiceInfo
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_552D07EB03CB // TdaScheme
+ : Parent HWL ME_552D07EB03CB // TdaScheme
  ;
  : Inherits
-   Seq: ( ME_5539EED10071 // TdaFillTableDescriptionProc
+   Seq: ( HWL ME_5539EED10071 // TdaFillTableDescriptionProc
  )
  ; // Inherits
 
@@ -1743,10 +1817,10 @@ ref; // ME_553F30C7024A FillFamilyDoc2DocLink
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_552D07EB03CB // TdaScheme
+ : Parent HWL ME_552D07EB03CB // TdaScheme
  ;
  : Inherits
-   Seq: ( ME_5539EED10071 // TdaFillTableDescriptionProc
+   Seq: ( HWL ME_5539EED10071 // TdaFillTableDescriptionProc
  )
  ; // Inherits
 
@@ -1760,10 +1834,10 @@ ref; // ME_553F30E70209 FillFamilyPriority
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_552D07EB03CB // TdaScheme
+ : Parent HWL ME_552D07EB03CB // TdaScheme
  ;
  : Inherits
-   Seq: ( ME_5539EED10071 // TdaFillTableDescriptionProc
+   Seq: ( HWL ME_5539EED10071 // TdaFillTableDescriptionProc
  )
  ; // Inherits
 
@@ -1777,10 +1851,10 @@ ref; // ME_553F310900AC FillFamilyRenum
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_552D07EB03CB // TdaScheme
+ : Parent HWL ME_552D07EB03CB // TdaScheme
  ;
  : Inherits
-   Seq: ( ME_5539EED10071 // TdaFillTableDescriptionProc
+   Seq: ( HWL ME_5539EED10071 // TdaFillTableDescriptionProc
  )
  ; // Inherits
 
@@ -1794,10 +1868,10 @@ ref; // ME_553F312A001C FillFamilyDocStages
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_552D07EB03CB // TdaScheme
+ : Parent HWL ME_552D07EB03CB // TdaScheme
  ;
  : Inherits
-   Seq: ( ME_5539EED10071 // TdaFillTableDescriptionProc
+   Seq: ( HWL ME_5539EED10071 // TdaFillTableDescriptionProc
  )
  ; // Inherits
 
@@ -1811,10 +1885,10 @@ ref; // ME_553F315000CD FillFamilyDocLog
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_552D07EB03CB // TdaScheme
+ : Parent HWL ME_552D07EB03CB // TdaScheme
  ;
  : Inherits
-   Seq: ( ME_5539EED10071 // TdaFillTableDescriptionProc
+   Seq: ( HWL ME_5539EED10071 // TdaFillTableDescriptionProc
  )
  ; // Inherits
 
@@ -1828,10 +1902,10 @@ ref; // ME_553F316B01AC FillFamilyDocActivity
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_552D07EB03CB // TdaScheme
+ : Parent HWL ME_552D07EB03CB // TdaScheme
  ;
  : Inherits
-   Seq: ( ME_5539EED10071 // TdaFillTableDescriptionProc
+   Seq: ( HWL ME_5539EED10071 // TdaFillTableDescriptionProc
  )
  ; // Inherits
 
@@ -1854,7 +1928,7 @@ ref; // ME_56654FF402BF aSchemeName
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_56654FC70181 // CheckScheme
+ : Parent HWL ME_56654FC70181 // CheckScheme
  ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
@@ -1873,10 +1947,10 @@ ref; // ME_56654FE3029C DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_552D07EB03CB // TdaScheme
+ : Parent HWL ME_552D07EB03CB // TdaScheme
  ;
  : Operations
-   Seq: ( ME_56654FE3029C // DoIt
+   Seq: ( HWL ME_56654FE3029C // DoIt
  )
  ; // Operations
 
@@ -1890,10 +1964,10 @@ ref; // ME_56654FC70181 CheckScheme
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_552D07EB03CB // TdaScheme
+ : Parent HWL ME_552D07EB03CB // TdaScheme
  ;
  : Inherits
-   Seq: ( ME_5539EED10071 // TdaFillTableDescriptionProc
+   Seq: ( HWL ME_5539EED10071 // TdaFillTableDescriptionProc
  )
  ; // Inherits
 
@@ -1907,10 +1981,10 @@ ref; // ME_569F44020026 FillFamilyAutolinkDoc
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_552D07EB03CB // TdaScheme
+ : Parent HWL ME_552D07EB03CB // TdaScheme
  ;
  : Inherits
-   Seq: ( ME_5539EED10071 // TdaFillTableDescriptionProc
+   Seq: ( HWL ME_5539EED10071 // TdaFillTableDescriptionProc
  )
  ; // Inherits
 
@@ -1931,7 +2005,7 @@ ref; // ME_554CA5BE033E aTableKind
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_552D07EB03CB // TdaScheme
+ : Parent HWL ME_552D07EB03CB // TdaScheme
  ;
  : Target WL 'ME_552FADE50173' '5432518A0316.pas.ms.script' // IdaTableDescription
  ;
@@ -1957,7 +2031,7 @@ ref; // ME_56A60A8E0367 anIndex
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_552D07EB03CB // TdaScheme
+ : Parent HWL ME_552D07EB03CB // TdaScheme
  ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
@@ -1974,12 +2048,24 @@ ref; // ME_56A60A740072 StoredProcName
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_552D07EB03CB // TdaScheme
+ : Parent HWL ME_552D07EB03CB // TdaScheme
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
 
 ref; // ME_56A60AA70045 StoredProcsCount
+
+FORWARD ME_565593D90132
+
+: ME_57722B300164
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_552D07EB03CB // TdaScheme
+ ;
+ : Target HWL ME_565593D90132 // cFamilies
+ ;
+
+ref; // ME_57722B300164 
 
 : ME_479731C50290_ME_552D07EB03CB
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
@@ -1995,80 +2081,80 @@ ref; // ME_479731C50290_ME_552D07EB03CB Cleanup
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_552D07D0005E // DataScheme
+ : Parent HWL ME_552D07D0005E // DataScheme
  ;
  : Inherits
    Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_55360FB901F6 // f_Tables
+   Seq: ( HWL ME_55360FB901F6 // f_Tables
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_552D0A31006D // BuildScheme
- ME_55364525020F // BuildMain
- ME_5536453001FD // BuildFamily
- ME_5539EF2000FF // MakeTableDescription
- ME_5539EFC3037B // FillMainAccess
- ME_5539FF9001C0 // FillMainPassword
- ME_5539FFA400F0 // FillMainUsers
- ME_5539FFBC0157 // FillMainGroups
- ME_5539FFDC022E // FillMainGroupMembers
- ME_5539FFFB0143 // FillMainFamily
- ME_553A000C0379 // FillMainFree
- ME_553A0020004E // FillMainJournal
- ME_553A003200BF // FillControl
- ME_553A00440110 // FillMainRegions
- ME_553DE6E1033B // FillFamilyDocuments
- ME_553DE7080233 // FillFamilyHyperlinks
- ME_553DE72B011F // FillFamilySubs
- ME_553DE749014E // FillFamilyFree
- ME_553DE77003DF // FillFamilySources
- ME_553DE7850036 // FillFamilyTypes
- ME_553DE79F0210 // FillFamilyClasses
- ME_553DE7B101D5 // FillFamilyKeywords
- ME_553DE7C8025D // FillFamilyBelongs
- ME_553DE7E401C4 // FillFamilyDateCodes
- ME_553DE8070027 // FillFamilyWarnings
- ME_553DE8170107 // FillFamilyCorrections
- ME_553DE82E0028 // FillFamilyCoSources
- ME_553DE83D011A // FillFamilyPublishedIn
- ME_553DE862036A // FillFamilyPrefixes
- ME_553DE875037C // FillFamilyTerritories
- ME_553DE88902FF // FillFamilyNorms
- ME_553DE89701FF // FillFamilyExtClasses
- ME_553DE8C3038F // FillFamilyAccessGroups
- ME_553DE8D60075 // FillFamilyAnnoClasses
- ME_553DE8FE01AD // FillFamilyServiceInfo
- ME_553F2E94021D // FillFamilyDocSources
- ME_553F2EE802EF // FillFamilyDocTypes
- ME_553F2F0D0100 // FillFamilyDocClasses
- ME_553F2F34011F // FillFamilyDocKeywords
- ME_553F2F5E0169 // FillFamilyDocBelongs
- ME_553F2F8300A1 // FillFamilyDocDateCodes
- ME_553F2FA00207 // FillFamilyDocWarnings
- ME_553F2FC40156 // FillFamilyDocCorrections
- ME_553F2FE300DC // FillFamilyDocPublishedIn
- ME_553F300C00A1 // FillFamilyDocPrefixes
- ME_553F302E0091 // FillFamilyDocTerritories
- ME_553F304E00E0 // FillFamilyDocNorms
- ME_553F306E01DA // FillFamilyDocAccessGroups
- ME_553F308901D3 // FillFamilyDocAnnoClasses
- ME_553F30A901C5 // FillFamilyDocServiceInfo
- ME_553F30C7024A // FillFamilyDoc2DocLink
- ME_553F30E70209 // FillFamilyPriority
- ME_553F310900AC // FillFamilyRenum
- ME_553F312A001C // FillFamilyDocStages
- ME_553F315000CD // FillFamilyDocLog
- ME_553F316B01AC // FillFamilyDocActivity
- ME_553F318A0380 // FillFamilyDocAlarm
- ME_56654FC70181 // CheckScheme
- ME_569F44020026 // FillFamilyAutolinkDoc
- ME_569F444D0185 // FillFamilyAutolinkEdition
- ME_552FBDF700C9 // Table
- ME_56A60A740072 // StoredProcName
- ME_56A60AA70045 // StoredProcsCount
+   Seq: ( HWL ME_552D0A31006D // BuildScheme
+ HWL ME_55364525020F // BuildMain
+ HWL ME_5536453001FD // BuildFamily
+ HWL ME_5539EF2000FF // MakeTableDescription
+ HWL ME_5539EFC3037B // FillMainAccess
+ HWL ME_5539FF9001C0 // FillMainPassword
+ HWL ME_5539FFA400F0 // FillMainUsers
+ HWL ME_5539FFBC0157 // FillMainGroups
+ HWL ME_5539FFDC022E // FillMainGroupMembers
+ HWL ME_5539FFFB0143 // FillMainFamily
+ HWL ME_553A000C0379 // FillMainFree
+ HWL ME_553A0020004E // FillMainJournal
+ HWL ME_553A003200BF // FillControl
+ HWL ME_553A00440110 // FillMainRegions
+ HWL ME_553DE6E1033B // FillFamilyDocuments
+ HWL ME_553DE7080233 // FillFamilyHyperlinks
+ HWL ME_553DE72B011F // FillFamilySubs
+ HWL ME_553DE749014E // FillFamilyFree
+ HWL ME_553DE77003DF // FillFamilySources
+ HWL ME_553DE7850036 // FillFamilyTypes
+ HWL ME_553DE79F0210 // FillFamilyClasses
+ HWL ME_553DE7B101D5 // FillFamilyKeywords
+ HWL ME_553DE7C8025D // FillFamilyBelongs
+ HWL ME_553DE7E401C4 // FillFamilyDateCodes
+ HWL ME_553DE8070027 // FillFamilyWarnings
+ HWL ME_553DE8170107 // FillFamilyCorrections
+ HWL ME_553DE82E0028 // FillFamilyCoSources
+ HWL ME_553DE83D011A // FillFamilyPublishedIn
+ HWL ME_553DE862036A // FillFamilyPrefixes
+ HWL ME_553DE875037C // FillFamilyTerritories
+ HWL ME_553DE88902FF // FillFamilyNorms
+ HWL ME_553DE89701FF // FillFamilyExtClasses
+ HWL ME_553DE8C3038F // FillFamilyAccessGroups
+ HWL ME_553DE8D60075 // FillFamilyAnnoClasses
+ HWL ME_553DE8FE01AD // FillFamilyServiceInfo
+ HWL ME_553F2E94021D // FillFamilyDocSources
+ HWL ME_553F2EE802EF // FillFamilyDocTypes
+ HWL ME_553F2F0D0100 // FillFamilyDocClasses
+ HWL ME_553F2F34011F // FillFamilyDocKeywords
+ HWL ME_553F2F5E0169 // FillFamilyDocBelongs
+ HWL ME_553F2F8300A1 // FillFamilyDocDateCodes
+ HWL ME_553F2FA00207 // FillFamilyDocWarnings
+ HWL ME_553F2FC40156 // FillFamilyDocCorrections
+ HWL ME_553F2FE300DC // FillFamilyDocPublishedIn
+ HWL ME_553F300C00A1 // FillFamilyDocPrefixes
+ HWL ME_553F302E0091 // FillFamilyDocTerritories
+ HWL ME_553F304E00E0 // FillFamilyDocNorms
+ HWL ME_553F306E01DA // FillFamilyDocAccessGroups
+ HWL ME_553F308901D3 // FillFamilyDocAnnoClasses
+ HWL ME_553F30A901C5 // FillFamilyDocServiceInfo
+ HWL ME_553F30C7024A // FillFamilyDoc2DocLink
+ HWL ME_553F30E70209 // FillFamilyPriority
+ HWL ME_553F310900AC // FillFamilyRenum
+ HWL ME_553F312A001C // FillFamilyDocStages
+ HWL ME_553F315000CD // FillFamilyDocLog
+ HWL ME_553F316B01AC // FillFamilyDocActivity
+ HWL ME_553F318A0380 // FillFamilyDocAlarm
+ HWL ME_56654FC70181 // CheckScheme
+ HWL ME_569F44020026 // FillFamilyAutolinkDoc
+ HWL ME_569F444D0185 // FillFamilyAutolinkEdition
+ HWL ME_552FBDF700C9 // Table
+ HWL ME_56A60A740072 // StoredProcName
+ HWL ME_56A60AA70045 // StoredProcsCount
  )
  ; // Operations
  : Overridden
@@ -2076,15 +2162,20 @@ ref; // ME_479731C50290_ME_552D07EB03CB Cleanup
  )
  ; // Overridden
  : Children
-   Seq: ( ME_55360F700127 // TFamilyDescriptions
- ME_5539EED10071 // TdaFillTableDescriptionProc
+   Seq: ( HWL ME_55360F700127 // TFamilyDescriptions
+ HWL ME_5539EED10071 // TdaFillTableDescriptionProc
  )
  ; // Children
  : Constants
-   Seq: ( ME_56A0D599008C // cTreeTables
- ME_56A60AD80107 // cStoredProcs
+   Seq: ( HWL ME_56A0D599008C // cTreeTables
+ HWL ME_56A60AD80107 // cStoredProcs
+ HWL ME_57691E25023F // CDefaultSchemeNameConsts
  )
  ; // Constants
+ : Dependencies
+   Seq: ( ME_57722B300164 // cFamilies
+ )
+ ; // Dependencies
  CONST "singleton" true
  CONST intf.pas:Path 'common\components\rtl\Garant\DA\daScheme.pas'
  CONST extprop:rc:SelfName 'daScheme'
@@ -2102,7 +2193,7 @@ FORWARD ME_55CB200E0058
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_55360B420250 // TdaTableDescription
+ : Parent HWL ME_55360B420250 // TdaTableDescription
  ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
@@ -2116,7 +2207,7 @@ ref; // ME_55360B83010F f_Description
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_55360B420250 // TdaTableDescription
+ : Parent HWL ME_55360B420250 // TdaTableDescription
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -2130,7 +2221,7 @@ ref; // ME_55360B90038B f_IsDublicate
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_55360B420250 // TdaTableDescription
+ : Parent HWL ME_55360B420250 // TdaTableDescription
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -2145,7 +2236,7 @@ ref; // ME_55360B9B0394 f_IsFake
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_55360B420250 // TdaTableDescription
+ : Parent HWL ME_55360B420250 // TdaTableDescription
  ;
  : Target WL 'ME_55377C9C0289' '5432448401BC.pas.ms.script' // TdaTables
  ;
@@ -2161,9 +2252,9 @@ ref; // ME_553791AA013F Kind
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_55360B420250 // TdaTableDescription
+ : Parent HWL ME_55360B420250 // TdaTableDescription
  ;
- : Target ME_5538E9E500EE // TdaFieldDescriptionList
+ : Target HWL ME_5538E9E500EE // TdaFieldDescriptionList
  ;
 
 ref; // ME_5538E9FD007A f_FieldList
@@ -2175,7 +2266,7 @@ ref; // ME_5538E9FD007A f_FieldList
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_55360B420250 // TdaTableDescription
+ : Parent HWL ME_55360B420250 // TdaTableDescription
  ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
@@ -2189,7 +2280,7 @@ ref; // ME_5608EE410143 f_SQLName
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_55360B420250 // TdaTableDescription
+ : Parent HWL ME_55360B420250 // TdaTableDescription
  ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
@@ -2203,12 +2294,40 @@ ref; // ME_566572880385 f_Scheme
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_55360B420250 // TdaTableDescription
+ : Parent HWL ME_55360B420250 // TdaTableDescription
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
 
 ref; // ME_56A1E8F2016A f_IsTree
+
+: ME_576D072A01FD
+ CONST UID '576D072A01FD'
+ CONST Name 'f_Code'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_55360B420250 // TdaTableDescription
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_576D072A01FD f_Code
+
+: ME_577224490250
+ CONST UID '577224490250'
+ CONST Name 'f_FamilyID'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_55360B420250 // TdaTableDescription
+ ;
+ : Target WL 'ME_551E7DD302E0' '5432448401BC.pas.ms.script' // TdaFamilyID
+ ;
+
+ref; // ME_577224490250 f_FamilyID
 
 FORWARD ME_55360BAB0116
 
@@ -2238,6 +2357,24 @@ ref; // ME_569CD06E00CF aSQLName
  ;
 
 ref; // ME_569CD06E00DE aDescription
+
+: ME_576D074D0108
+ CONST Name 'aCode'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_576D074D0108 aCode
+
+: ME_5772246B00B5
+ CONST Name 'aFamilyID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_551E7DD302E0' '5432448401BC.pas.ms.script' // TdaFamilyID
+ ;
+
+ref; // ME_5772246B00B5 aFamilyID
 
 : ME_569CD06E011D
  CONST Name 'aScheme'
@@ -2297,12 +2434,14 @@ ref; // ME_56A1E91901F3 aIsTree
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_55360BAB0116 // Create
+ : Parent HWL ME_55360BAB0116 // Create
  ;
  : Parameters
    Seq: ( ME_569CD06E00B0 // aKind
  ME_569CD06E00CF // aSQLName
  ME_569CD06E00DE // aDescription
+ ME_576D074D0108 // aCode
+ ME_5772246B00B5 // aFamilyID
  ME_569CD06E011D // aScheme
  ME_569CD06E015B // aDublicate
  ME_569CD06E019A // aFake
@@ -2320,10 +2459,10 @@ ref; // ME_55360BC10056 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_55360B420250 // TdaTableDescription
+ : Parent HWL ME_55360B420250 // TdaTableDescription
  ;
  : Operations
-   Seq: ( ME_55360BC10056 // DoIt
+   Seq: ( HWL ME_55360BC10056 // DoIt
  )
  ; // Operations
 
@@ -2344,7 +2483,7 @@ ref; // ME_5538EA57023C aField
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_55360B420250 // TdaTableDescription
+ : Parent HWL ME_55360B420250 // TdaTableDescription
  ;
  : Parameters
    Seq: ( ME_5538EA57023C // aField
@@ -2356,7 +2495,7 @@ ref; // ME_5538EA4402F6 AddField
 : ME_5538F94E039B
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_55360B420250 // TdaTableDescription
+ : Parent HWL ME_55360B420250 // TdaTableDescription
  ;
  : Target WL 'ME_47614B2901AE' '4678193C009C.pas.ms.script' // Tl3Duplicates
  ;
@@ -2366,7 +2505,7 @@ ref; // ME_5538F94E039B
 : ME_5538F9680122
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_55360B420250 // TdaTableDescription
+ : Parent HWL ME_55360B420250 // TdaTableDescription
  ;
  : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
  ;
@@ -2376,7 +2515,7 @@ ref; // ME_5538F9680122
 : ME_55CB0C5F0162
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_55360B420250 // TdaTableDescription
+ : Parent HWL ME_55360B420250 // TdaTableDescription
  ;
  : Target WL 'ME_480768DD00F0' '4AB0997B00A2.pas.ms.script' // TList
  ;
@@ -2388,9 +2527,9 @@ FORWARD ME_55CB2045030F
 : ME_55CB20B3018F
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_55360B420250 // TdaTableDescription
+ : Parent HWL ME_55360B420250 // TdaTableDescription
  ;
- : Target ME_55CB2045030F // CompareFields
+ : Target HWL ME_55CB2045030F // CompareFields
  ;
 
 ref; // ME_55CB20B3018F 
@@ -2480,6 +2619,20 @@ ref; // ME_56A1E93B0132_ME_55360B420250 FieldsCountWithoutTree
  CONST "pm" false
 ref; // ME_56A1FDB80282_ME_55360B420250 IsTree
 
+: ME_576D062600B3_ME_55360B420250
+ : Original WL 'ME_576D062600B3' '5432518A0316.pas.ms.script' // Code
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_576D062600B3_ME_55360B420250 Code
+
+: ME_577223F80158_ME_55360B420250
+ : Original WL 'ME_577223F80158' '5432518A0316.pas.ms.script' // FamilyID
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_577223F80158_ME_55360B420250 FamilyID
+
 : ME_479731C50290_ME_55360B420250
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
  ;
@@ -2500,7 +2653,7 @@ ref; // ME_47A042E100E2_ME_55360B420250 InitFields
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_55CB200E0058 // daTableDescription
+ : Parent HWL ME_55CB200E0058 // daTableDescription
  ;
  : Inherits
    Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
@@ -2511,19 +2664,21 @@ ref; // ME_47A042E100E2_ME_55360B420250 InitFields
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_55360B83010F // f_Description
- ME_55360B90038B // f_IsDublicate
- ME_55360B9B0394 // f_IsFake
- ME_553791AA013F // Kind
- ME_5538E9FD007A // f_FieldList
- ME_5608EE410143 // f_SQLName
- ME_566572880385 // f_Scheme
- ME_56A1E8F2016A // f_IsTree
+   Seq: ( HWL ME_55360B83010F // f_Description
+ HWL ME_55360B90038B // f_IsDublicate
+ HWL ME_55360B9B0394 // f_IsFake
+ HWL ME_553791AA013F // Kind
+ HWL ME_5538E9FD007A // f_FieldList
+ HWL ME_5608EE410143 // f_SQLName
+ HWL ME_566572880385 // f_Scheme
+ HWL ME_56A1E8F2016A // f_IsTree
+ HWL ME_576D072A01FD // f_Code
+ HWL ME_577224490250 // f_FamilyID
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_55360BAB0116 // Create
- ME_5538EA4402F6 // AddField
+   Seq: ( HWL ME_55360BAB0116 // Create
+ HWL ME_5538EA4402F6 // AddField
  )
  ; // Operations
  : Implemented
@@ -2539,6 +2694,8 @@ ref; // ME_47A042E100E2_ME_55360B420250 InitFields
  ME_56A0C27502A5_ME_55360B420250 // FieldsCount
  ME_56A1E93B0132_ME_55360B420250 // FieldsCountWithoutTree
  ME_56A1FDB80282_ME_55360B420250 // IsTree
+ ME_576D062600B3_ME_55360B420250 // Code
+ ME_577223F80158_ME_55360B420250 // FamilyID
  )
  ; // Implemented
  : Overridden
@@ -2582,7 +2739,7 @@ ref; // ME_55CB207A0284 Item2
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_55CB2045030F // CompareFields
+ : Parent HWL ME_55CB2045030F // CompareFields
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -2602,10 +2759,10 @@ ref; // ME_55CB20700310 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_55CB200E0058 // daTableDescription
+ : Parent HWL ME_55CB200E0058 // daTableDescription
  ;
  : Operations
-   Seq: ( ME_55CB20700310 // DoIt
+   Seq: ( HWL ME_55CB20700310 // DoIt
  )
  ; // Operations
 
@@ -2619,14 +2776,14 @@ ref; // ME_55CB2045030F CompareFields
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_552D07D0005E // DataScheme
+ : Parent HWL ME_552D07D0005E // DataScheme
  ;
  : Operations
-   Seq: ( ME_55CB2045030F // CompareFields
+   Seq: ( HWL ME_55CB2045030F // CompareFields
  )
  ; // Operations
  : Children
-   Seq: ( ME_55360B420250 // TdaTableDescription
+   Seq: ( HWL ME_55360B420250 // TdaTableDescription
  )
  ; // Children
  CONST intf.pas:Path 'common\components\rtl\Garant\DA\daTableDescription.pas'
@@ -2644,7 +2801,7 @@ FORWARD ME_565462610194
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_565462610194 // cFreeTableKeys
+ : Parent HWL ME_565462610194 // cFreeTableKeys
  ;
  CONST Value '''DOCIDEXT'''
  CONST "AutoInc" false
@@ -2662,7 +2819,7 @@ ref; // ME_5654628101DF ftnDocIDExternal
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_565462610194 // cFreeTableKeys
+ : Parent HWL ME_565462610194 // cFreeTableKeys
  ;
  CONST Value '''DOCIDLST'''
  CONST "AutoInc" false
@@ -2680,7 +2837,7 @@ ref; // ME_565462C701EE ftnDocIDForLists
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_565462610194 // cFreeTableKeys
+ : Parent HWL ME_565462610194 // cFreeTableKeys
  ;
  CONST Value '''LAWCASE'''
  CONST "AutoInc" false
@@ -2698,7 +2855,7 @@ ref; // ME_565462FE0226 ftnDocIDLawCase
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_565462610194 // cFreeTableKeys
+ : Parent HWL ME_565462610194 // cFreeTableKeys
  ;
  CONST Value '''VASCASE'''
  CONST "AutoInc" false
@@ -2716,7 +2873,7 @@ ref; // ME_565463AC03B8 ftnDocIDVAS
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_565462610194 // cFreeTableKeys
+ : Parent HWL ME_565462610194 // cFreeTableKeys
  ;
  CONST Value '''SPBDOC'''
  CONST "AutoInc" false
@@ -2734,7 +2891,7 @@ ref; // ME_565463D501D3 ftnDocID1st
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_565462610194 // cFreeTableKeys
+ : Parent HWL ME_565462610194 // cFreeTableKeys
  ;
  CONST Value '''FAS1'''
  CONST "AutoInc" false
@@ -2752,7 +2909,7 @@ ref; // ME_565463FC0000 ftnDocIDFAS1
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_565462610194 // cFreeTableKeys
+ : Parent HWL ME_565462610194 // cFreeTableKeys
  ;
  CONST Value '''FAS2'''
  CONST "AutoInc" false
@@ -2770,7 +2927,7 @@ ref; // ME_565464300328 ftnDocIDFAS2
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_565462610194 // cFreeTableKeys
+ : Parent HWL ME_565462610194 // cFreeTableKeys
  ;
  CONST Value '''FAS3'''
  CONST "AutoInc" false
@@ -2788,7 +2945,7 @@ ref; // ME_5654643C0057 ftnDocIDFAS3
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_565462610194 // cFreeTableKeys
+ : Parent HWL ME_565462610194 // cFreeTableKeys
  ;
  CONST Value '''FAS4'''
  CONST "AutoInc" false
@@ -2806,7 +2963,7 @@ ref; // ME_5654644602B8 ftnDocIDFAS4
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_565462610194 // cFreeTableKeys
+ : Parent HWL ME_565462610194 // cFreeTableKeys
  ;
  CONST Value '''FAS5'''
  CONST "AutoInc" false
@@ -2824,7 +2981,7 @@ ref; // ME_56546450019F ftnDocIDFAS5
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_565462610194 // cFreeTableKeys
+ : Parent HWL ME_565462610194 // cFreeTableKeys
  ;
  CONST Value '''FAS6'''
  CONST "AutoInc" false
@@ -2842,7 +2999,7 @@ ref; // ME_5654645B0249 ftnDocIDFAS6
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_565462610194 // cFreeTableKeys
+ : Parent HWL ME_565462610194 // cFreeTableKeys
  ;
  CONST Value '''FAS7'''
  CONST "AutoInc" false
@@ -2860,7 +3017,7 @@ ref; // ME_56546468015B ftnDocIDFAS7
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_565462610194 // cFreeTableKeys
+ : Parent HWL ME_565462610194 // cFreeTableKeys
  ;
  CONST Value '''FAS8'''
  CONST "AutoInc" false
@@ -2878,7 +3035,7 @@ ref; // ME_565464750137 ftnDocIDFAS8
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_565462610194 // cFreeTableKeys
+ : Parent HWL ME_565462610194 // cFreeTableKeys
  ;
  CONST Value '''FAS9'''
  CONST "AutoInc" false
@@ -2896,7 +3053,7 @@ ref; // ME_5654648000A9 ftnDocIDFAS9
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_565462610194 // cFreeTableKeys
+ : Parent HWL ME_565462610194 // cFreeTableKeys
  ;
  CONST Value '''FAS10'''
  CONST "AutoInc" false
@@ -2914,7 +3071,7 @@ ref; // ME_5654648A002C ftnDocIDFAS10
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_565462610194 // cFreeTableKeys
+ : Parent HWL ME_565462610194 // cFreeTableKeys
  ;
  CONST Value '''HIMAGE'''
  CONST "AutoInc" false
@@ -2931,7 +3088,7 @@ ref; // ME_5654652201DF ftnImgHandle
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_565462610194 // cFreeTableKeys
+ : Parent HWL ME_565462610194 // cFreeTableKeys
  ;
  CONST Value '''DictExtN'''
  CONST "AutoInc" false
@@ -2950,33 +3107,31 @@ ref; // ME_5658081000A3 NameDictExternalNumber
  %SUMMARY 'Free Table Names' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_5654635F0268 // daSchemeConsts
+ : Parent HWL ME_5654635F0268 // daSchemeConsts
  ;
  : Attributes
-   Seq: ( ME_5654628101DF // ftnDocIDExternal
- ME_565462C701EE // ftnDocIDForLists
- ME_565462FE0226 // ftnDocIDLawCase
- ME_565463AC03B8 // ftnDocIDVAS
- ME_565463D501D3 // ftnDocID1st
- ME_565463FC0000 // ftnDocIDFAS1
- ME_565464300328 // ftnDocIDFAS2
- ME_5654643C0057 // ftnDocIDFAS3
- ME_5654644602B8 // ftnDocIDFAS4
- ME_56546450019F // ftnDocIDFAS5
- ME_5654645B0249 // ftnDocIDFAS6
- ME_56546468015B // ftnDocIDFAS7
- ME_565464750137 // ftnDocIDFAS8
- ME_5654648000A9 // ftnDocIDFAS9
- ME_5654648A002C // ftnDocIDFAS10
- ME_5654652201DF // ftnImgHandle
- ME_5658081000A3 // NameDictExternalNumber
+   Seq: ( HWL ME_5654628101DF // ftnDocIDExternal
+ HWL ME_565462C701EE // ftnDocIDForLists
+ HWL ME_565462FE0226 // ftnDocIDLawCase
+ HWL ME_565463AC03B8 // ftnDocIDVAS
+ HWL ME_565463D501D3 // ftnDocID1st
+ HWL ME_565463FC0000 // ftnDocIDFAS1
+ HWL ME_565464300328 // ftnDocIDFAS2
+ HWL ME_5654643C0057 // ftnDocIDFAS3
+ HWL ME_5654644602B8 // ftnDocIDFAS4
+ HWL ME_56546450019F // ftnDocIDFAS5
+ HWL ME_5654645B0249 // ftnDocIDFAS6
+ HWL ME_56546468015B // ftnDocIDFAS7
+ HWL ME_565464750137 // ftnDocIDFAS8
+ HWL ME_5654648000A9 // ftnDocIDFAS9
+ HWL ME_5654648A002C // ftnDocIDFAS10
+ HWL ME_5654652201DF // ftnImgHandle
+ HWL ME_5658081000A3 // NameDictExternalNumber
  )
  ; // Attributes
  CONST "spell names" false
 
 ref; // ME_565462610194 cFreeTableKeys
-
-FORWARD ME_565593D90132
 
 : ME_565593E60285
  CONST UID '565593E60285'
@@ -2985,7 +3140,7 @@ FORWARD ME_565593D90132
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_565593D90132 // cFamilies
+ : Parent HWL ME_565593D90132 // cFamilies
  ;
  CONST Value 0
  CONST "AutoInc" false
@@ -3002,7 +3157,7 @@ ref; // ME_565593E60285 MainTblsFamily
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_565593D90132 // cFamilies
+ : Parent HWL ME_565593D90132 // cFamilies
  ;
  CONST Value 1
  CONST "AutoInc" false
@@ -3020,16 +3175,108 @@ ref; // ME_565593FD002F CurrentFamily
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_5654635F0268 // daSchemeConsts
+ : Parent HWL ME_5654635F0268 // daSchemeConsts
  ;
  : Attributes
-   Seq: ( ME_565593E60285 // MainTblsFamily
- ME_565593FD002F // CurrentFamily
+   Seq: ( HWL ME_565593E60285 // MainTblsFamily
+ HWL ME_565593FD002F // CurrentFamily
  )
  ; // Attributes
  CONST "spell names" false
 
 ref; // ME_565593D90132 cFamilies
+
+FORWARD ME_576297740252
+
+: ME_5762978301DF
+ CONST UID '5762978301DF'
+ CONST Name 'cGroupIDSize'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_576297740252 // cFieldSizes
+ ;
+ CONST Value 2
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value 2
+
+ref; // ME_5762978301DF cGroupIDSize
+
+: ME_576297950108
+ CONST UID '576297950108'
+ CONST Name 'cUserIDSize'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_576297740252 // cFieldSizes
+ ;
+ CONST Value 4
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value 4
+
+ref; // ME_576297950108 cUserIDSize
+
+: ME_576297740252
+ CONST UID '576297740252'
+ CONST Name 'cFieldSizes'
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_5654635F0268 // daSchemeConsts
+ ;
+ : Attributes
+   Seq: ( HWL ME_5762978301DF // cGroupIDSize
+ HWL ME_576297950108 // cUserIDSize
+ )
+ ; // Attributes
+ CONST "spell names" false
+
+ref; // ME_576297740252 cFieldSizes
+
+FORWARD ME_5771282A0017
+
+: ME_57712835015D
+ CONST UID '57712835015D'
+ CONST Name 'cInvalidDictID'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_5771282A0017 // cDictConsts
+ ;
+ CONST Value '-1'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '-1'
+
+ref; // ME_57712835015D cInvalidDictID
+
+: ME_5771282A0017
+ CONST UID '5771282A0017'
+ CONST Name 'cDictConsts'
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_5654635F0268 // daSchemeConsts
+ ;
+ : Attributes
+   Seq: ( HWL ME_57712835015D // cInvalidDictID
+ )
+ ; // Attributes
+ CONST "spell names" false
+
+ref; // ME_5771282A0017 cDictConsts
 
 : ME_5654635F0268
  CONST UID '5654635F0268'
@@ -3039,11 +3286,13 @@ ref; // ME_565593D90132 cFamilies
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_552D07D0005E // DataScheme
+ : Parent HWL ME_552D07D0005E // DataScheme
  ;
  : Constants
-   Seq: ( ME_565462610194 // cFreeTableKeys
- ME_565593D90132 // cFamilies
+   Seq: ( HWL ME_565462610194 // cFreeTableKeys
+ HWL ME_565593D90132 // cFamilies
+ HWL ME_576297740252 // cFieldSizes
+ HWL ME_5771282A0017 // cDictConsts
  )
  ; // Constants
  CONST intf.pas:Path 'common\components\rtl\Garant\DA\daSchemeConsts.pas'
@@ -3060,12 +3309,12 @@ ref; // ME_5654635F0268 daSchemeConsts
  : Parent WL 'ME_543244050044' '543244050044.pas.ms.script' // DA
  ;
  : Children
-   Seq: ( ME_5538E9AE0163 // TdaFieldDescriptionListPrim
- ME_5538D0A902AF // TdaFieldDescription
- ME_5538E9E500EE // TdaFieldDescriptionList
- ME_552D07EB03CB // TdaScheme
- ME_55CB200E0058 // daTableDescription
- ME_5654635F0268 // daSchemeConsts
+   Seq: ( HWL ME_5538E9AE0163 // TdaFieldDescriptionListPrim
+ HWL ME_5538D0A902AF // TdaFieldDescription
+ HWL ME_5538E9E500EE // TdaFieldDescriptionList
+ HWL ME_552D07EB03CB // TdaScheme
+ HWL ME_55CB200E0058 // daTableDescription
+ HWL ME_5654635F0268 // daSchemeConsts
  )
  ; // Children
  : Depends

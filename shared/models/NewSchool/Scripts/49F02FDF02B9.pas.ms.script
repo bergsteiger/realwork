@@ -4,82 +4,7 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 FORWARD ME_49F02FDF02B9
 
-FORWARD ME_49F0314802E7
-
-: ME_514327310362
- CONST UID '514327310362'
- CONST Name 'OnChange'
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_49F0314802E7 // TnscContextFilter
- ;
- : Target WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
- ;
- CONST "pm" true
- CONST "reads field" true
- CONST "writes field" true
-
-ref; // ME_514327310362 OnChange
-
-: ME_5143277901BD
- CONST UID '5143277901BD'
- CONST Name 'OnWrongContext'
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_49F0314802E7 // TnscContextFilter
- ;
- : Target WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
- ;
- CONST "pm" true
- CONST "reads field" true
- CONST "writes field" true
-
-ref; // ME_5143277901BD OnWrongContext
-
 FORWARD ME_4B97E1EA011F
-
-: ME_4B97E20602F6
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_49F0314802E7 // TnscContextFilter
- ;
- : Target ME_4B97E1EA011F // nscContextFilterRes
- ;
-
-ref; // ME_4B97E20602F6 
-
-: ME_49F0314802E7
- CONST UID '49F0314802E7'
- CONST Name 'TnscContextFilter'
- CONST Class class_Class
- : Stereotype st_GuiControl ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_49F02FDF02B9 // ContextFilter
- ;
- : Attributes
-   Seq: ( ME_514327310362 // OnChange
- ME_5143277901BD // OnWrongContext
- )
- ; // Attributes
- : Dependencies
-   Seq: ( ME_4B97E20602F6 // nscContextFilterRes
- )
- ; // Dependencies
- CONST "finished" false
- CONST intf.pas:Path 'common\components\gui\Garant\Nemesis\NOT_FINISHED_nscContextFilter.pas'
- CONST extprop:rc:SelfName 'ContextFilter'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'nscContextFilter'
-
-ref; // ME_49F0314802E7 TnscContextFilter
 
 FORWARD ME_4B97E2240035
 
@@ -90,7 +15,7 @@ FORWARD ME_4B97E2240035
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4B97E2240035 // ContextFilterMessages
+ : Parent HWL ME_4B97E2240035 // ContextFilterMessages
  ;
  CONST Value '''Контекстный фильтр'''
  CONST "AutoInc" false
@@ -107,7 +32,7 @@ ref; // ME_4B97E27B01A5 LabelCaption
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4B97E2240035 // ContextFilterMessages
+ : Parent HWL ME_4B97E2240035 // ContextFilterMessages
  ;
  CONST Value '''Введите слова для поиска и фильтрации'''
  CONST "AutoInc" false
@@ -124,7 +49,7 @@ ref; // ME_4B97E2840076 ContextEmptyMessage
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4B97E2240035 // ContextFilterMessages
+ : Parent HWL ME_4B97E2240035 // ContextFilterMessages
  ;
  CONST Value '''Выключить контекстный фильтр'''
  CONST "AutoInc" false
@@ -141,7 +66,7 @@ ref; // ME_4B97E28C0134 ButtonActiveHint
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4B97E2240035 // ContextFilterMessages
+ : Parent HWL ME_4B97E2240035 // ContextFilterMessages
  ;
  CONST Value '''Включить контекстный фильтр'''
  CONST "AutoInc" false
@@ -159,13 +84,13 @@ ref; // ME_4B97E2950337 ButtonInActiveHint
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4B97E1EA011F // nscContextFilterRes
+ : Parent HWL ME_4B97E1EA011F // nscContextFilterRes
  ;
  : Attributes
-   Seq: ( ME_4B97E27B01A5 // LabelCaption
- ME_4B97E2840076 // ContextEmptyMessage
- ME_4B97E28C0134 // ButtonActiveHint
- ME_4B97E2950337 // ButtonInActiveHint
+   Seq: ( HWL ME_4B97E27B01A5 // LabelCaption
+ HWL ME_4B97E2840076 // ContextEmptyMessage
+ HWL ME_4B97E28C0134 // ButtonActiveHint
+ HWL ME_4B97E2950337 // ButtonInActiveHint
  )
  ; // Attributes
  CONST "Need map interface" false
@@ -185,10 +110,10 @@ ref; // ME_4B97E2240035 ContextFilterMessages
  %SUMMARY 'Ресурсы для TnscContextFilter' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_49F02FDF02B9 // ContextFilter
+ : Parent HWL ME_49F02FDF02B9 // ContextFilter
  ;
  : Constants
-   Seq: ( ME_4B97E2240035 // ContextFilterMessages
+   Seq: ( HWL ME_4B97E2240035 // ContextFilterMessages
  )
  ; // Constants
  CONST "author" 'Люлин А.В.'
@@ -210,8 +135,8 @@ ref; // ME_4B97E1EA011F nscContextFilterRes
  : Parent WL 'ME_490838AA02D0' '490838AA02D0.pas.ms.script' // Nemesis
  ;
  : Children
-   Seq: ( ME_49F0314802E7 // TnscContextFilter
- ME_4B97E1EA011F // nscContextFilterRes
+   Seq: ( WL 'ME_49F0314802E7' '49F0314802E7.pas.ms.script' // TnscContextFilter
+ HWL ME_4B97E1EA011F // nscContextFilterRes
  )
  ; // Children
  : Depends

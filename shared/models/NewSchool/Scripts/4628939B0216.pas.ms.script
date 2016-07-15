@@ -30,7 +30,7 @@ ref; // ME_4628965401C2 to_find
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_462895DD0240 // RedactionInfoListHelper
+ : Parent HWL ME_462895DD0240 // RedactionInfoListHelper
  ;
  : Target WL 'ME_450A61050251' '3DBFDB23006E.pas.ms.script' // integer
  ;
@@ -66,7 +66,7 @@ ref; // ME_462896930135 to_find
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_462895DD0240 // RedactionInfoListHelper
+ : Parent HWL ME_462895DD0240 // RedactionInfoListHelper
  ;
  : Target WL 'ME_450A61050251' '3DBFDB23006E.pas.ms.script' // integer
  ;
@@ -93,7 +93,7 @@ ref; // ME_462896CB0377 redaction_info_list
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_462895DD0240 // RedactionInfoListHelper
+ : Parent HWL ME_462895DD0240 // RedactionInfoListHelper
  ;
  : Target WL 'ME_450A61050251' '3DBFDB23006E.pas.ms.script' // integer
  ;
@@ -137,7 +137,7 @@ ref; // ME_4A8145B90062 prev_list
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_462895DD0240 // RedactionInfoListHelper
+ : Parent HWL ME_462895DD0240 // RedactionInfoListHelper
  ;
  : Parameters
    Seq: ( ME_4A8145B9001D // redaction_info_list
@@ -181,7 +181,7 @@ ref; // ME_4B55733E030F next_list
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_462895DD0240 // RedactionInfoListHelper
+ : Parent HWL ME_462895DD0240 // RedactionInfoListHelper
  ;
  : Parameters
    Seq: ( ME_4B556E6F025C // redaction_info_list
@@ -200,14 +200,14 @@ ref; // ME_4B556E69014E cur_and_next_redactions
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4628939B0216 // DocumentHelper
+ : Parent HWL ME_4628939B0216 // DocumentHelper
  ;
  : Operations
-   Seq: ( ME_462896090184 // find_redaction
- ME_46289660023F // find_redaction
- ME_4628969F03E4 // find_actual_redaction
- ME_4A8145520247 // prev_redactions
- ME_4B556E69014E // cur_and_next_redactions
+   Seq: ( HWL ME_462896090184 // find_redaction
+ HWL ME_46289660023F // find_redaction
+ HWL ME_4628969F03E4 // find_actual_redaction
+ HWL ME_4A8145520247 // prev_redactions
+ HWL ME_4B556E69014E // cur_and_next_redactions
  )
  ; // Operations
  CONST "is namespace" true
@@ -233,7 +233,7 @@ ref; // ME_47ED125A02CE document
  %SUMMARY 'По серверному документу' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_47ED11E002A7 // DocumentFactoryKeyHelper
+ : Parent HWL ME_47ED11E002A7 // DocumentFactoryKeyHelper
  ;
  : Target WL 'ME_47ED1AC7036F' '4570511E038A.pas.ms.script' // FactoryKey
  ;
@@ -258,7 +258,7 @@ ref; // ME_47ED128801B9 pid
  %SUMMARY 'По PID''у' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_47ED11E002A7 // DocumentFactoryKeyHelper
+ : Parent HWL ME_47ED11E002A7 // DocumentFactoryKeyHelper
  ;
  : Target WL 'ME_47ED1AC7036F' '4570511E038A.pas.ms.script' // FactoryKey
  ;
@@ -272,7 +272,7 @@ ref; // ME_47ED1269019D PID_to_key
 : ME_47ED1D0E00EB
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_47ED11E002A7 // DocumentFactoryKeyHelper
+ : Parent HWL ME_47ED11E002A7 // DocumentFactoryKeyHelper
  ;
  : Target WL 'ME_47ED1AC7036F' '4570511E038A.pas.ms.script' // FactoryKey
  ;
@@ -282,7 +282,7 @@ ref; // ME_47ED1D0E00EB
 : ME_4859191D0249
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_47ED11E002A7 // DocumentFactoryKeyHelper
+ : Parent HWL ME_47ED11E002A7 // DocumentFactoryKeyHelper
  ;
  : Target WL 'ME_460A6EF8024B' '460BAAA30119.pas.ms.script' // ApplicationHelper
  ;
@@ -294,9 +294,9 @@ FORWARD ME_4FE870160102
 : ME_4FE874B803C9
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_47ED11E002A7 // DocumentFactoryKeyHelper
+ : Parent HWL ME_47ED11E002A7 // DocumentFactoryKeyHelper
  ;
- : Target ME_4FE870160102 // DocumentTypeToFactoryKey
+ : Target HWL ME_4FE870160102 // DocumentTypeToFactoryKey
  ;
 
 ref; // ME_4FE874B803C9 
@@ -310,11 +310,11 @@ ref; // ME_4FE874B803C9
  %SUMMARY 'Получение ключа мультифабрики по серверному документу или PID' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4628939B0216 // DocumentHelper
+ : Parent HWL ME_4628939B0216 // DocumentHelper
  ;
  : Operations
-   Seq: ( ME_47ED12200202 // server_document_to_key
- ME_47ED1269019D // PID_to_key
+   Seq: ( HWL ME_47ED12200202 // server_document_to_key
+ HWL ME_47ED1269019D // PID_to_key
  )
  ; // Operations
  : Dependencies
@@ -338,7 +338,7 @@ ref; // ME_47ED11E002A7 DocumentFactoryKeyHelper
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4628939B0216 // DocumentHelper
+ : Parent HWL ME_4628939B0216 // DocumentHelper
  ;
  CONST "is sorted" false
  CONST h:Path 'garant6x\implementation\Garant\GblAdapterLib\DocumentHelper\DocumentTypeToFactoryKey.h'
@@ -355,9 +355,9 @@ ref; // ME_4FE870160102 DocumentTypeToFactoryKey
  : Parent WL 'ME_456EA3D2031C' '456EA3D2031C.pas.ms.script' // GblAdapterLib
  ;
  : Children
-   Seq: ( ME_462895DD0240 // RedactionInfoListHelper
- ME_47ED11E002A7 // DocumentFactoryKeyHelper
- ME_4FE870160102 // DocumentTypeToFactoryKey
+   Seq: ( HWL ME_462895DD0240 // RedactionInfoListHelper
+ HWL ME_47ED11E002A7 // DocumentFactoryKeyHelper
+ HWL ME_4FE870160102 // DocumentTypeToFactoryKey
  )
  ; // Children
  : Depends

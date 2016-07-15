@@ -4,176 +4,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 FORWARD ME_4DDCD7B600D5
 
-FORWARD ME_4DDCD7D0002E
-
-: ME_4DDCD91E0064
- CONST UID '4DDCD91E0064'
- CONST Name 'InitDataType'
- CONST Class class_Attribute
- : Stereotype st_impurity_value::Attribute ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_abstract
- CONST LinkType lt_agr
- : Parent ME_4DDCD7D0002E // TsdsChangesBetweenEditions
- ;
- : Target WL 'ME_4DDCD8CD008D' '4DDCD71E027C.pas.ms.script' // InsChangesBetweenEditionsInfo
- ;
-
-ref; // ME_4DDCD91E0064 InitDataType
-
-: ME_4DDCF0730387
- CONST UID '4DDCF0730387'
- CONST Name 'SetDataType'
- CONST Class class_Attribute
- : Stereotype st_impurity_value::Attribute ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_abstract
- CONST LinkType lt_agr
- : Parent ME_4DDCD7D0002E // TsdsChangesBetweenEditions
- ;
- : Target WL 'ME_4DDCF62C01DF' '4DDCD71E027C.pas.ms.script' // IsdsChangesBetweenEditionsData
- ;
-
-ref; // ME_4DDCF0730387 SetDataType
-
-FORWARD ME_4DDCDD68019E
-
-: ME_4DDCDD850187
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4DDCD7D0002E // TsdsChangesBetweenEditions
- ;
- : Target ME_4DDCDD68019E // TdsChangesBetweenEditions
- ;
-
-ref; // ME_4DDCDD850187 
-
-FORWARD ME_4DDCF660018A
-
-: ME_4DDCF6E7007A
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4DDCD7D0002E // TsdsChangesBetweenEditions
- ;
- : Target ME_4DDCF660018A // TsdsChangesBetweenEditionsData
- ;
-
-ref; // ME_4DDCF6E7007A 
-
-: ME_4ED8F86F0374
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4DDCD7D0002E // TsdsChangesBetweenEditions
- ;
- : Target WL 'ME_491C0BE302FF' '4C6ABB3201AC.pas.ms.script' // TdeDocInfo
- ;
-
-ref; // ME_4ED8F86F0374 
-
-: ME_4ED903FC018B
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4DDCD7D0002E // TsdsChangesBetweenEditions
- ;
- : Target WL 'ME_4921809902CF' '47F22C7501F6.pas.ms.script' // TdsEditions
- ;
-
-ref; // ME_4ED903FC018B 
-
-: ME_53BA774300FC
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4DDCD7D0002E // TsdsChangesBetweenEditions
- ;
- : Target WL 'ME_53BA488F00D8' '53A402C7010D.pas.ms.script' // nsTabbedInterfaceTypes
- ;
-
-ref; // ME_53BA774300FC 
-
-: ME_47F3778403D9_ME_4DDCD7D0002E
- : Original WL 'ME_47F3778403D9' '47D0E1500033.pas.ms.script' // MakeData
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_47F3778403D9_ME_4DDCD7D0002E MakeData
-
-: ME_4DDCD7520351_ME_4DDCD7D0002E
- : Original WL 'ME_4DDCD7520351' '4DDCD71E027C.pas.ms.script' // Changes
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" true
-ref; // ME_4DDCD7520351_ME_4DDCD7D0002E Changes
-
-: ME_4DF9D63B0360_ME_4DDCD7D0002E
- : Original WL 'ME_4DF9D63B0360' '4B1FC2FF03CD.pas.ms.script' // DocInfo
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" true
- CONST "reflectable" true
-ref; // ME_4DF9D63B0360_ME_4DDCD7D0002E DocInfo
-
-: ME_4ED906420134_ME_4DDCD7D0002E
- : Original WL 'ME_4ED906420134' '491B305A0096.pas.ms.script' // EditionsList
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" true
-ref; // ME_4ED906420134_ME_4DDCD7D0002E EditionsList
-
-: ME_53B3BF9C00EF_ME_4DDCD7D0002E
- : Original WL 'ME_53B3BF9C00EF' '47D0E1500033.pas.ms.script' // DoGetFormSetImageIndex
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_53B3BF9C00EF_ME_4DDCD7D0002E DoGetFormSetImageIndex
-
-: ME_4DDCD7D0002E
- CONST UID '4DDCD7D0002E'
- CONST Name 'TsdsChangesBetweenEditions'
- CONST Class class_Class
- : Stereotype st_UseCaseControllerImp ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Прецедент ОИД' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4DDCD7B600D5 // ChangesBetweenEditionsImplementation
- ;
- : Inherits
-   Seq: ( WL 'ME_47F37723017A' '47D0E1500033.pas.ms.script' // vcmFormSetDataSource
- )
- ; // Inherits
- : Implements
-   Seq: ( WL 'ME_4DDCD72C006B' '4DDCD71E027C.pas.ms.script' // IsdsChangesBetweenEditions
- )
- ; // Implements
- : Attributes
-   Seq: ( ME_4DDCD91E0064 // InitDataType
- ME_4DDCF0730387 // SetDataType
- )
- ; // Attributes
- : Implemented
-   Seq: ( ME_47F3778403D9_ME_4DDCD7D0002E // MakeData
- ME_4DDCD7520351_ME_4DDCD7D0002E // Changes
- ME_4DF9D63B0360_ME_4DDCD7D0002E // DocInfo
- ME_4ED906420134_ME_4DDCD7D0002E // EditionsList
- )
- ; // Implemented
- : Overridden
-   Seq: ( ME_53B3BF9C00EF_ME_4DDCD7D0002E // DoGetFormSetImageIndex
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_4DDCDD850187 // TdsChangesBetweenEditions
- ME_4DDCF6E7007A // TsdsChangesBetweenEditionsData
- ME_4ED8F86F0374 // TdeDocInfo
- ME_4ED903FC018B // TdsEditions
- ME_53BA774300FC // nsTabbedInterfaceTypes
- )
- ; // Dependencies
- CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\ChangesBetweenEditions\sdsChangesBetweenEditions.pas'
- CONST extprop:rc:SelfName 'sdsChangesBetweenEditions'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'sdsChangesBetweenEditions'
-
-ref; // ME_4DDCD7D0002E TsdsChangesBetweenEditions
-
 FORWARD ME_4DDCD9670300
 
 : ME_4DDCD9CD0158
@@ -183,7 +13,7 @@ FORWARD ME_4DDCD9670300
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_ref
- : Parent ME_4DDCD9670300 // TnsChangesBetweenEditionsInfo
+ : Parent HWL ME_4DDCD9670300 // TnsChangesBetweenEditionsInfo
  ;
  : Target WL 'ME_4D78D8200190' '4570511E038A.pas.ms.script' // DiffDocDataProvider
  ;
@@ -197,7 +27,7 @@ ref; // ME_4DDCD9CD0158 f_DiffProvider
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_ref
- : Parent ME_4DDCD9670300 // TnsChangesBetweenEditionsInfo
+ : Parent HWL ME_4DDCD9670300 // TnsChangesBetweenEditionsInfo
  ;
  : Target WL 'ME_45EEB6520191' '4570511E038A.pas.ms.script' // Document
  ;
@@ -211,7 +41,7 @@ ref; // ME_4DDCD9DB012C f_Right
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_ref
- : Parent ME_4DDCD9670300 // TnsChangesBetweenEditionsInfo
+ : Parent HWL ME_4DDCD9670300 // TnsChangesBetweenEditionsInfo
  ;
  : Target WL 'ME_45EEB6520191' '4570511E038A.pas.ms.script' // Document
  ;
@@ -253,7 +83,7 @@ ref; // ME_4DDCDA230215 aDiffProvider
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4DDCDA030188 // Create
+ : Parent HWL ME_4DDCDA030188 // Create
  ;
  : Parameters
    Seq: ( ME_4EA6C4560036 // aLeft
@@ -272,10 +102,10 @@ ref; // ME_4DDCDA0C0323 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4DDCD9670300 // TnsChangesBetweenEditionsInfo
+ : Parent HWL ME_4DDCD9670300 // TnsChangesBetweenEditionsInfo
  ;
  : Operations
-   Seq: ( ME_4DDCDA0C0323 // DoIt
+   Seq: ( HWL ME_4DDCDA0C0323 // DoIt
  )
  ; // Operations
 
@@ -289,10 +119,10 @@ ref; // ME_4DDCDA030188 Create
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4DDCD9670300 // TnsChangesBetweenEditionsInfo
+ : Parent HWL ME_4DDCD9670300 // TnsChangesBetweenEditionsInfo
  ;
  : Inherits
-   Seq: ( ME_4DDCDA030188 // Create
+   Seq: ( HWL ME_4DDCDA030188 // Create
  )
  ; // Inherits
  : Implements
@@ -305,7 +135,7 @@ ref; // ME_4DDCD9F40274 Make
 : ME_4EA6C25E03AD
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4DDCD9670300 // TnsChangesBetweenEditionsInfo
+ : Parent HWL ME_4DDCD9670300 // TnsChangesBetweenEditionsInfo
  ;
  : Target WL 'ME_4B1E8FAE0380' '48F747EC0073.pas.ms.script' // DefDataAdapter
  ;
@@ -347,7 +177,7 @@ ref; // ME_47EA4E9002C6_ME_4DDCD9670300 FinishDataUpdate
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4DDCD7B600D5 // ChangesBetweenEditionsImplementation
+ : Parent HWL ME_4DDCD7B600D5 // ChangesBetweenEditionsImplementation
  ;
  : Inherits
    Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
@@ -360,14 +190,14 @@ ref; // ME_47EA4E9002C6_ME_4DDCD9670300 FinishDataUpdate
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_4DDCD9CD0158 // f_DiffProvider
- ME_4DDCD9DB012C // f_Right
- ME_4EA6C419027C // f_Left
+   Seq: ( HWL ME_4DDCD9CD0158 // f_DiffProvider
+ HWL ME_4DDCD9DB012C // f_Right
+ HWL ME_4EA6C419027C // f_Left
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_4DDCDA030188 // Create
- ME_4DDCD9F40274 // Make
+   Seq: ( HWL ME_4DDCDA030188 // Create
+ HWL ME_4DDCD9F40274 // Make
  )
  ; // Operations
  : Implemented
@@ -394,360 +224,7 @@ ref; // ME_47EA4E9002C6_ME_4DDCD9670300 FinishDataUpdate
 
 ref; // ME_4DDCD9670300 TnsChangesBetweenEditionsInfo
 
-FORWARD ME_4F62E92B005E
-
-: ME_4F62EB3000FC
- CONST UID '4F62EB3000FC'
- CONST Name 'cnevChangesBetweenEditions'
- CONST Class class_Attribute
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_4F62E92B005E // Обзор изменений документа
- ;
- CONST "AutoInc" false
- CONST "Value" '''Обзор изменений документа: '''
- CONST "forced type" 'none'
- CONST "is define" false
-
-ref; // ME_4F62EB3000FC cnevChangesBetweenEditions
-
-: ME_4F62E92B005E
- CONST UID '4F62E92B005E'
- CONST Name 'Обзор изменений документа'
- CONST Class class_Class
- : Stereotype st_LocalConst ;
- CONST Kind kind_NormalClass
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4DDCDD68019E // TdsChangesBetweenEditions
- ;
- : Attributes
-   Seq: ( ME_4F62EB3000FC // cnevChangesBetweenEditions
- )
- ; // Attributes
- CONST "Need map interface" false
- CONST "Need mapping support" false
- CONST "spell names" false
-
-ref; // ME_4F62E92B005E Обзор изменений документа
-
-FORWARD ME_33046F3FAE6E
-
-: ME_FCCFBCABCE9A
- CONST UID 'FCCFBCABCE9A'
- CONST Name 'cnevChangesBetweenEditions'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Обзор изменений документа: ''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_33046F3FAE6E // LCImplОбзор изменений документа
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''cnevChangesBetweenEditions''; rValue : ''Обзор изменений документа: '')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''cnevChangesBetweenEditions''; rValue : ''Обзор изменений документа: '')'
- : Speller ME_4F62EB3000FC // cnevChangesBetweenEditions
- ;
-
-ref; // ME_FCCFBCABCE9A cnevChangesBetweenEditions
-
-: ME_33046F3FAE6E
- CONST UID '33046F3FAE6E'
- CONST Name 'LCImplОбзор изменений документа'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые строки Обзор изменений документа' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- : Parent ME_4DDCDD68019E // TdsChangesBetweenEditions
- ;
- : Attributes
-   Seq: ( ME_FCCFBCABCE9A // cnevChangesBetweenEditions
- )
- ; // Attributes
- CONST "elements prefix" 'str'
- CONST "spell names" false
- CONST extprop:pas:ElementPrefixBase 'str'
- CONST extprop:pas:ElementPrefix 'str_'
- : Speller ME_4F62E92B005E // Обзор изменений документа
- ;
-
-ref; // ME_33046F3FAE6E LCImplОбзор изменений документа
-
-: ME_4DDCDDC50088
- CONST UID '4DDCDDC50088'
- CONST Name 'InitDataType'
- CONST Class class_Attribute
- : Stereotype st_impurity_value::Attribute ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_abstract
- CONST LinkType lt_agr
- : Parent ME_4DDCDD68019E // TdsChangesBetweenEditions
- ;
- : Target WL 'ME_4DDCD8CD008D' '4DDCD71E027C.pas.ms.script' // InsChangesBetweenEditionsInfo
- ;
-
-ref; // ME_4DDCDDC50088 InitDataType
-
-: ME_4DDD0C6B01FB
- CONST UID '4DDD0C6B01FB'
- CONST Name 'f_Cont'
- CONST Class class_Attribute
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4DDCDD68019E // TdsChangesBetweenEditions
- ;
- : Target WL 'ME_47C6A603009D' '47C5207602D1.pas.ms.script' // InevDocumentContainer
- ;
-
-ref; // ME_4DDD0C6B01FB f_Cont
-
-: ME_4F6307F40063
- CONST UID '4F6307F40063'
- CONST Name 'FormDataSourceType'
- CONST Class class_Attribute
- : Stereotype st_impurity_value::Attribute ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_abstract
- CONST LinkType lt_agr
- : Parent ME_4DDCDD68019E // TdsChangesBetweenEditions
- ;
- : Target WL 'ME_4DDCD7420084' '4DDCD71E027C.pas.ms.script' // IdsChangesBetweenEditions
- ;
-
-ref; // ME_4F6307F40063 FormDataSourceType
-
-: ME_4122EC54018D
- CONST UID '4122EC54018D'
- CONST Name 'Init_Str_cnevChangesBetweenEditions'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_cnevChangesBetweenEditions' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4DDCDD68019E // TdsChangesBetweenEditions
- ;
- : Speller ME_4F62EB3000FC // cnevChangesBetweenEditions
- ;
- : SpelledFor ME_FCCFBCABCE9A // cnevChangesBetweenEditions
- ;
-
-ref; // ME_4122EC54018D Init_Str_cnevChangesBetweenEditions
-
-FORWARD ME_4DDD0D92039C
-
-: ME_4DDD0DAA01D8
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4DDCDD68019E // TdsChangesBetweenEditions
- ;
- : Target ME_4DDD0D92039C // TnsChangesBetweenEditionsDocumentContainer
- ;
-
-ref; // ME_4DDD0DAA01D8 
-
-: ME_4F62F823034F
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4DDCDD68019E // TdsChangesBetweenEditions
- ;
- : Target WL 'ME_4954878B03CF' '47EA968D0155.pas.ms.script' // TevFormatHAFMacroReplacer
- ;
-
-ref; // ME_4F62F823034F 
-
-: ME_4F62FB5A03B2
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4DDCDD68019E // TdsChangesBetweenEditions
- ;
- : Target WL 'ME_4958968201A7' '47EA50050263.pas.ms.script' // TnsDocInfoHAFMacroReplacer
- ;
-
-ref; // ME_4F62FB5A03B2 
-
-: ME_4F632228016A
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4DDCDD68019E // TdsChangesBetweenEditions
- ;
- : Target WL 'ME_431841610361' '4423F94903C8.pas.ms.script' // String
- ;
-
-ref; // ME_4F632228016A 
-
-: ME_4F6322710181
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4DDCDD68019E // TdsChangesBetweenEditions
- ;
- : Target WL 'ME_46780D0003AF' '4677FBA70343.pas.ms.script' // Tl3WString
- ;
-
-ref; // ME_4F6322710181 
-
-: ME_4F6322AA017C
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4DDCDD68019E // TdsChangesBetweenEditions
- ;
- : Target WL 'ME_4ADEE542029C' '47F2170002B2.pas.ms.script' // nsWStr
- ;
-
-ref; // ME_4F6322AA017C 
-
-: ME_4F6336BB00F3
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4DDCDD68019E // TdsChangesBetweenEditions
- ;
- : Target WL 'ME_4C80CE9A0164' '54B90AC6014B.pas.ms.script' // l3Cat
- ;
-
-ref; // ME_4F6336BB00F3 
-
-: ME_AC3C8EA8557E
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4DDCDD68019E // TdsChangesBetweenEditions
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
-
-ref; // ME_AC3C8EA8557E 
-
-: ME_112B16B2D501
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4DDCDD68019E // TdsChangesBetweenEditions
- ;
- : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
- ;
-
-ref; // ME_112B16B2D501 
-
-: ME_4AE56DE80093_ME_4DDCDD68019E
- : Original WL 'ME_4AE56DE80093' '491B305A0096.pas.ms.script' // MakeHAFMacroReplacer
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4AE56DE80093_ME_4DDCDD68019E MakeHAFMacroReplacer
-
-: ME_4DDCE9110130_ME_4DDCDD68019E
- : Original WL 'ME_4DDCE9110130' '4DDCD71E027C.pas.ms.script' // RightEdition
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" false
-ref; // ME_4DDCE9110130_ME_4DDCDD68019E RightEdition
-
-: ME_4DDD0C170344_ME_4DDCDD68019E
- : Original WL 'ME_4DDD0C170344' '4DDCD71E027C.pas.ms.script' // DocumentContainer
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" false
-ref; // ME_4DDD0C170344_ME_4DDCDD68019E DocumentContainer
-
-: ME_4F2BF187026F_ME_4DDCDD68019E
- : Original WL 'ME_4F2BF187026F' '4DDCD71E027C.pas.ms.script' // LeftEdition
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" false
-ref; // ME_4F2BF187026F_ME_4DDCDD68019E LeftEdition
-
-: ME_4F548A0D0096_ME_4DDCDD68019E
- : Original WL 'ME_4F548A0D0096' '4F546F810266.pas.ms.script' // DocumentForDocInfoProvider
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4F548A0D0096_ME_4DDCDD68019E DocumentForDocInfoProvider
-
-: ME_5000565C019C_ME_4DDCDD68019E
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_4DDCDD68019E ClearFields
-
-: ME_4DDCDD68019E
- CONST UID '4DDCDD68019E'
- CONST Name 'TdsChangesBetweenEditions'
- CONST Class class_Class
- : Stereotype st_ViewAreaControllerImp ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4DDCD7B600D5 // ChangesBetweenEditionsImplementation
- ;
- : Inherits
-   Seq: ( WL 'ME_492ACB4100B2' '47D0E1500033.pas.ms.script' // vcmFormDataSource
- WL 'ME_4F54899502EA' '4F546F810266.pas.ms.script' // deDocInfoProvider
- )
- ; // Inherits
- : Implements
-   Seq: ( WL 'ME_4AE56DB003D5' '491B305A0096.pas.ms.script' // IucpHAFMacroReplacerFactory
- WL 'ME_4DDCD7420084' '4DDCD71E027C.pas.ms.script' // IdsChangesBetweenEditions
- WL 'ME_4F633C0803B4' '48200CF8039E.pas.ms.script' // В колонтитулах перед именем документа должна быть фраза "Обзор изменений документа"
- )
- ; // Implements
- : Attributes
-   Seq: ( ME_4DDCDDC50088 // InitDataType
- ME_4DDD0C6B01FB // f_Cont
- ME_4F6307F40063 // FormDataSourceType
- )
- ; // Attributes
- : Operations
-   Seq: ( ME_4122EC54018D // Init_Str_cnevChangesBetweenEditions
- )
- ; // Operations
- : Implemented
-   Seq: ( ME_4AE56DE80093_ME_4DDCDD68019E // MakeHAFMacroReplacer
- ME_4DDCE9110130_ME_4DDCDD68019E // RightEdition
- ME_4DDD0C170344_ME_4DDCDD68019E // DocumentContainer
- ME_4F2BF187026F_ME_4DDCDD68019E // LeftEdition
- ME_4F548A0D0096_ME_4DDCDD68019E // DocumentForDocInfoProvider
- )
- ; // Implemented
- : Overridden
-   Seq: ( ME_5000565C019C_ME_4DDCDD68019E // ClearFields
- )
- ; // Overridden
- : Constants
-   Seq: ( ME_4F62E92B005E // Обзор изменений документа
- ME_33046F3FAE6E // LCImplОбзор изменений документа
- )
- ; // Constants
- : Dependencies
-   Seq: ( ME_4DDD0DAA01D8 // TnsChangesBetweenEditionsDocumentContainer
- ME_4F62F823034F // TevFormatHAFMacroReplacer
- ME_4F62FB5A03B2 // TnsDocInfoHAFMacroReplacer
- ME_4F632228016A // String
- ME_4F6322710181 // Tl3WString
- ME_4F6322AA017C // nsWStr
- ME_4F6336BB00F3 // l3Cat
- ME_AC3C8EA8557E // Tl3StringIDEx
- ME_112B16B2D501 // Tl3MessageID
- )
- ; // Dependencies
- CONST "author" 'Люлин А.В.'
- CONST "no hands" true
- CONST "started" '25.05.2011 14:14'
- CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\ChangesBetweenEditions\dsChangesBetweenEditions.pas'
- CONST extprop:rc:SelfName 'dsChangesBetweenEditions'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'dsChangesBetweenEditions'
-
-ref; // ME_4DDCDD68019E TdsChangesBetweenEditions
+FORWARD ME_4DDCF660018A
 
 : ME_4DDCF68C03E7
  CONST UID '4DDCF68C03E7'
@@ -756,7 +233,7 @@ ref; // ME_4DDCDD68019E TdsChangesBetweenEditions
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_ref
- : Parent ME_4DDCF660018A // TsdsChangesBetweenEditionsData
+ : Parent HWL ME_4DDCF660018A // TsdsChangesBetweenEditionsData
  ;
  : Target WL 'ME_4DDCD8CD008D' '4DDCD71E027C.pas.ms.script' // InsChangesBetweenEditionsInfo
  ;
@@ -771,7 +248,7 @@ ref; // ME_4DDCF68C03E7 f_Info
  CONST Visibility PrivateAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_4DDCF660018A // TsdsChangesBetweenEditionsData
+ : Parent HWL ME_4DDCF660018A // TsdsChangesBetweenEditionsData
  ;
  : Target WL 'ME_4DDCF62C01DF' '4DDCD71E027C.pas.ms.script' // IsdsChangesBetweenEditionsData
  ;
@@ -795,7 +272,7 @@ ref; // ME_4DDCF6C802B2 anInfo
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4DDCF6AB0206 // Create
+ : Parent HWL ME_4DDCF6AB0206 // Create
  ;
  : Parameters
    Seq: ( ME_4DDCF6C802B2 // anInfo
@@ -812,10 +289,10 @@ ref; // ME_4DDCF6B20333 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4DDCF660018A // TsdsChangesBetweenEditionsData
+ : Parent HWL ME_4DDCF660018A // TsdsChangesBetweenEditionsData
  ;
  : Operations
-   Seq: ( ME_4DDCF6B20333 // DoIt
+   Seq: ( HWL ME_4DDCF6B20333 // DoIt
  )
  ; // Operations
 
@@ -829,10 +306,10 @@ ref; // ME_4DDCF6AB0206 Create
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4DDCF660018A // TsdsChangesBetweenEditionsData
+ : Parent HWL ME_4DDCF660018A // TsdsChangesBetweenEditionsData
  ;
  : Inherits
-   Seq: ( ME_4DDCF6AB0206 // Create
+   Seq: ( HWL ME_4DDCF6AB0206 // Create
  )
  ; // Inherits
  : Implements
@@ -863,7 +340,7 @@ ref; // ME_4B16B8CF0307_ME_4DDCF660018A AssignData
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4DDCD7B600D5 // ChangesBetweenEditionsImplementation
+ : Parent HWL ME_4DDCD7B600D5 // ChangesBetweenEditionsImplementation
  ;
  : Inherits
    Seq: ( WL 'ME_4B16B85D03A1' '47D0E1500033.pas.ms.script' // vcmData
@@ -874,13 +351,13 @@ ref; // ME_4B16B8CF0307_ME_4DDCF660018A AssignData
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_4DDCF68C03E7 // f_Info
- ME_4DDCFDE103B8 // IvcmRealData
+   Seq: ( HWL ME_4DDCF68C03E7 // f_Info
+ HWL ME_4DDCFDE103B8 // IvcmRealData
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_4DDCF6AB0206 // Create
- ME_4DDCF6A20276 // Make
+   Seq: ( HWL ME_4DDCF6AB0206 // Create
+ HWL ME_4DDCF6A20276 // Make
  )
  ; // Operations
  : Implemented
@@ -901,6 +378,8 @@ ref; // ME_4B16B8CF0307_ME_4DDCF660018A AssignData
 
 ref; // ME_4DDCF660018A TsdsChangesBetweenEditionsData
 
+FORWARD ME_4DDD0D92039C
+
 : ME_4DDD0DCE00D6
  CONST UID '4DDD0DCE00D6'
  CONST Name 'f_DiffProvider'
@@ -908,7 +387,7 @@ ref; // ME_4DDCF660018A TsdsChangesBetweenEditionsData
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_ref
- : Parent ME_4DDD0D92039C // TnsChangesBetweenEditionsDocumentContainer
+ : Parent HWL ME_4DDD0D92039C // TnsChangesBetweenEditionsDocumentContainer
  ;
  : Target WL 'ME_4D78D8200190' '4570511E038A.pas.ms.script' // DiffDocDataProvider
  ;
@@ -922,7 +401,7 @@ ref; // ME_4DDD0DCE00D6 f_DiffProvider
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_ref
- : Parent ME_4DDD0D92039C // TnsChangesBetweenEditionsDocumentContainer
+ : Parent HWL ME_4DDD0D92039C // TnsChangesBetweenEditionsDocumentContainer
  ;
  : Target WL 'ME_4DDCD8CD008D' '4DDCD71E027C.pas.ms.script' // InsChangesBetweenEditionsInfo
  ;
@@ -936,7 +415,7 @@ ref; // ME_4EA6BE01026D f_Data
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4DDD0D92039C // TnsChangesBetweenEditionsDocumentContainer
+ : Parent HWL ME_4DDD0D92039C // TnsChangesBetweenEditionsDocumentContainer
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -960,7 +439,7 @@ ref; // ME_4DDD0E2903E1 aData
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4DDD0E080101 // Create
+ : Parent HWL ME_4DDD0E080101 // Create
  ;
  : Parameters
    Seq: ( ME_4DDD0E2903E1 // aData
@@ -977,10 +456,10 @@ ref; // ME_4DDD0E230220 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4DDD0D92039C // TnsChangesBetweenEditionsDocumentContainer
+ : Parent HWL ME_4DDD0D92039C // TnsChangesBetweenEditionsDocumentContainer
  ;
  : Operations
-   Seq: ( ME_4DDD0E230220 // DoIt
+   Seq: ( HWL ME_4DDD0E230220 // DoIt
  )
  ; // Operations
 
@@ -994,10 +473,10 @@ ref; // ME_4DDD0E080101 Create
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4DDD0D92039C // TnsChangesBetweenEditionsDocumentContainer
+ : Parent HWL ME_4DDD0D92039C // TnsChangesBetweenEditionsDocumentContainer
  ;
  : Inherits
-   Seq: ( ME_4DDD0E080101 // Create
+   Seq: ( HWL ME_4DDD0E080101 // Create
  )
  ; // Inherits
  : Implements
@@ -1015,7 +494,7 @@ FORWARD ME_4EA6BBFA01DF
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4EA6BBFA01DF // MakeDocument
+ : Parent HWL ME_4EA6BBFA01DF // MakeDocument
  ;
  : Target WL 'ME_5346BD53015A' '47913B47006E.pas.ms.script' // Il3TagRef
  ;
@@ -1025,7 +504,7 @@ ref; // ME_4EA6BC1C01B8 DoIt
 : ME_4F327896028A
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4EA6BBFA01DF // MakeDocument
+ : Parent HWL ME_4EA6BBFA01DF // MakeDocument
  ;
  : Target WL 'ME_4AC1F98A0155' '47913B47006E.pas.ms.script' // l3FillChar
  ;
@@ -1035,7 +514,7 @@ ref; // ME_4F327896028A
 : ME_530B58BF01D5
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4EA6BBFA01DF // MakeDocument
+ : Parent HWL ME_4EA6BBFA01DF // MakeDocument
  ;
  : Target WL 'ME_53076BA10113' '4849284D0067.pas.ms.script' // Tk2SizedMemoryPool
  ;
@@ -1045,7 +524,7 @@ ref; // ME_530B58BF01D5
 : ME_530B58D70085
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4EA6BBFA01DF // MakeDocument
+ : Parent HWL ME_4EA6BBFA01DF // MakeDocument
  ;
  : Target WL 'ME_48F4745E0023' '47913B47006E.pas.ms.script' // l3BaseStream
  ;
@@ -1055,7 +534,7 @@ ref; // ME_530B58D70085
 : ME_530B591B00FC
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4EA6BBFA01DF // MakeDocument
+ : Parent HWL ME_4EA6BBFA01DF // MakeDocument
  ;
  : Target WL 'ME_48492B0701D8' '4849284D0067.pas.ms.script' // RawData
  ;
@@ -1065,7 +544,7 @@ ref; // ME_530B591B00FC
 : ME_530B626D0345
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4EA6BBFA01DF // MakeDocument
+ : Parent HWL ME_4EA6BBFA01DF // MakeDocument
  ;
  : Target WL 'ME_4981AC0701C1' '4AB0997B00A2.pas.ms.script' // ComObj
  ;
@@ -1075,7 +554,7 @@ ref; // ME_530B626D0345
 : ME_530B629603CD
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4EA6BBFA01DF // MakeDocument
+ : Parent HWL ME_4EA6BBFA01DF // MakeDocument
  ;
  : Target WL 'ME_48EA3BDD0023' '4678193C009C.pas.ms.script' // ActiveXConsts
  ;
@@ -1091,7 +570,7 @@ ref; // ME_530B629603CD
  %SUMMARY 'Создаёт документ из данных, которые приехали с адаптера' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4DDD0D92039C // TnsChangesBetweenEditionsDocumentContainer
+ : Parent HWL ME_4DDD0D92039C // TnsChangesBetweenEditionsDocumentContainer
  ;
  : Implements
    Seq: ( WL 'ME_4EA6BFCA0041' '484900780017.pas.ms.script' // После переключения баз ОИД должен перестраиваться
@@ -1099,7 +578,7 @@ ref; // ME_530B629603CD
  )
  ; // Implements
  : Operations
-   Seq: ( ME_4EA6BC1C01B8 // DoIt
+   Seq: ( HWL ME_4EA6BC1C01B8 // DoIt
  )
  ; // Operations
  : Dependencies
@@ -1117,7 +596,7 @@ ref; // ME_4EA6BBFA01DF MakeDocument
 : ME_4DDD0E7500E9
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4DDD0D92039C // TnsChangesBetweenEditionsDocumentContainer
+ : Parent HWL ME_4DDD0D92039C // TnsChangesBetweenEditionsDocumentContainer
  ;
  : Target WL 'ME_491C0BE302FF' '4C6ABB3201AC.pas.ms.script' // TdeDocInfo
  ;
@@ -1127,7 +606,7 @@ ref; // ME_4DDD0E7500E9
 : ME_4DDD0EAF015E
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4DDD0D92039C // TnsChangesBetweenEditionsDocumentContainer
+ : Parent HWL ME_4DDD0D92039C // TnsChangesBetweenEditionsDocumentContainer
  ;
  : Target WL 'ME_4857B5260267' '48492FC0029D.pas.ms.script' // Document
  ;
@@ -1137,7 +616,7 @@ ref; // ME_4DDD0EAF015E
 : ME_4DDD0EBB000C
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4DDD0D92039C // TnsChangesBetweenEditionsDocumentContainer
+ : Parent HWL ME_4DDD0D92039C // TnsChangesBetweenEditionsDocumentContainer
  ;
  : Target WL 'ME_485683750360' '48492FC0029D.pas.ms.script' // TextPara
  ;
@@ -1147,7 +626,7 @@ ref; // ME_4DDD0EBB000C
 : ME_4DDD0EF80141
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4DDD0D92039C // TnsChangesBetweenEditionsDocumentContainer
+ : Parent HWL ME_4DDD0D92039C // TnsChangesBetweenEditionsDocumentContainer
  ;
  : Target WL 'ME_480DBA760390' '480DBA6900E6.pas.ms.script' // k2Facade
  ;
@@ -1157,7 +636,7 @@ ref; // ME_4DDD0EF80141
 : ME_4DDD0F38016A
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4DDD0D92039C // TnsChangesBetweenEditionsDocumentContainer
+ : Parent HWL ME_4DDD0D92039C // TnsChangesBetweenEditionsDocumentContainer
  ;
  : Target WL 'ME_47C69EBC00A8' '47AC75550330.pas.ms.script' // Tk2TagID
  ;
@@ -1167,7 +646,7 @@ ref; // ME_4DDD0F38016A
 : ME_4DDD23C80244
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4DDD0D92039C // TnsChangesBetweenEditionsDocumentContainer
+ : Parent HWL ME_4DDD0D92039C // TnsChangesBetweenEditionsDocumentContainer
  ;
  : Target WL 'ME_467FCA0F01C6' '4C726B20031E.pas.ms.script' // TnsTagString
  ;
@@ -1177,7 +656,7 @@ ref; // ME_4DDD23C80244
 : ME_4DDD26220092
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4DDD0D92039C // TnsChangesBetweenEditionsDocumentContainer
+ : Parent HWL ME_4DDD0D92039C // TnsChangesBetweenEditionsDocumentContainer
  ;
  : Target WL 'ME_4857D48E00F4' '48492FC0029D.pas.ms.script' // Table
  ;
@@ -1187,7 +666,7 @@ ref; // ME_4DDD26220092
 : ME_4DDD262F0231
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4DDD0D92039C // TnsChangesBetweenEditionsDocumentContainer
+ : Parent HWL ME_4DDD0D92039C // TnsChangesBetweenEditionsDocumentContainer
  ;
  : Target WL 'ME_4857D2F8006D' '48492FC0029D.pas.ms.script' // TableRow
  ;
@@ -1197,7 +676,7 @@ ref; // ME_4DDD262F0231
 : ME_4DDD263D02C0
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4DDD0D92039C // TnsChangesBetweenEditionsDocumentContainer
+ : Parent HWL ME_4DDD0D92039C // TnsChangesBetweenEditionsDocumentContainer
  ;
  : Target WL 'ME_4857CD8D0093' '48492FC0029D.pas.ms.script' // TableCell
  ;
@@ -1207,7 +686,7 @@ ref; // ME_4DDD263D02C0
 : ME_4DDD28080093
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4DDD0D92039C // TnsChangesBetweenEditionsDocumentContainer
+ : Parent HWL ME_4DDD0D92039C // TnsChangesBetweenEditionsDocumentContainer
  ;
  : Target WL 'ME_47A066980016' '537B83AD01F0.pas.ms.script' // l3MinMax
  ;
@@ -1217,7 +696,7 @@ ref; // ME_4DDD28080093
 : ME_4DDD2ACC027C
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4DDD0D92039C // TnsChangesBetweenEditionsDocumentContainer
+ : Parent HWL ME_4DDD0D92039C // TnsChangesBetweenEditionsDocumentContainer
  ;
  : Target WL 'ME_4799ED060093' '4799EC9300AF.pas.ms.script' // l3Defaults
  ;
@@ -1227,7 +706,7 @@ ref; // ME_4DDD2ACC027C
 : ME_4DDD41D00169
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4DDD0D92039C // TnsChangesBetweenEditionsDocumentContainer
+ : Parent HWL ME_4DDD0D92039C // TnsChangesBetweenEditionsDocumentContainer
  ;
  : Target WL 'ME_4DDD3D520070' '4C726B20031E.pas.ms.script' // TnsStyleParser
  ;
@@ -1237,7 +716,7 @@ ref; // ME_4DDD41D00169
 : ME_4DDE646901AB
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4DDD0D92039C // TnsChangesBetweenEditionsDocumentContainer
+ : Parent HWL ME_4DDD0D92039C // TnsChangesBetweenEditionsDocumentContainer
  ;
  : Target WL 'ME_476BE0660328' '476BE0350329.pas.ms.script' // Standard
  ;
@@ -1247,7 +726,7 @@ ref; // ME_4DDE646901AB
 : ME_4DDE692D01B8
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4DDD0D92039C // TnsChangesBetweenEditionsDocumentContainer
+ : Parent HWL ME_4DDD0D92039C // TnsChangesBetweenEditionsDocumentContainer
  ;
  : Target WL 'ME_4DDE66FE0008' '4AB112DF005B.pas.ms.script' // Changes1
  ;
@@ -1257,7 +736,7 @@ ref; // ME_4DDE692D01B8
 : ME_4DDE693002EB
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4DDD0D92039C // TnsChangesBetweenEditionsDocumentContainer
+ : Parent HWL ME_4DDD0D92039C // TnsChangesBetweenEditionsDocumentContainer
  ;
  : Target WL 'ME_4DDE6716010D' '4AB112DF005B.pas.ms.script' // Changes2
  ;
@@ -1267,7 +746,7 @@ ref; // ME_4DDE693002EB
 : ME_4EDE51120247
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4DDD0D92039C // TnsChangesBetweenEditionsDocumentContainer
+ : Parent HWL ME_4DDD0D92039C // TnsChangesBetweenEditionsDocumentContainer
  ;
  : Target WL 'ME_4858116B0355' '48492FC0029D.pas.ms.script' // BitmapPara
  ;
@@ -1277,7 +756,7 @@ ref; // ME_4EDE51120247
 : ME_4EDE52680323
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4DDD0D92039C // TnsChangesBetweenEditionsDocumentContainer
+ : Parent HWL ME_4DDD0D92039C // TnsChangesBetweenEditionsDocumentContainer
  ;
  : Target WL 'ME_48F473650362' '47913B47006E.pas.ms.script' // Tl3MemoryStream
  ;
@@ -1287,7 +766,7 @@ ref; // ME_4EDE52680323
 : ME_4EDE52710043
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4DDD0D92039C // TnsChangesBetweenEditionsDocumentContainer
+ : Parent HWL ME_4DDD0D92039C // TnsChangesBetweenEditionsDocumentContainer
  ;
  : Target WL 'ME_47A080670100' '47913B47006E.pas.ms.script' // l3Stream
  ;
@@ -1297,7 +776,7 @@ ref; // ME_4EDE52710043
 : ME_535E66D800F1
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4DDD0D92039C // TnsChangesBetweenEditionsDocumentContainer
+ : Parent HWL ME_4DDD0D92039C // TnsChangesBetweenEditionsDocumentContainer
  ;
  : Target WL 'ME_47E150FF028A' '4AB0997B00A2.pas.ms.script' // TStream
  ;
@@ -1343,7 +822,7 @@ ref; // ME_4B1FBF87020C_ME_4DDD0D92039C AfterCreate
  %SUMMARY 'Контейнер документа для ОИД' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4DDCD7B600D5 // ChangesBetweenEditionsImplementation
+ : Parent HWL ME_4DDCD7B600D5 // ChangesBetweenEditionsImplementation
  ;
  : Inherits
    Seq: ( WL 'ME_4680E83D00C8' '4680E826036D.pas.ms.script' // TeeDocumentContainer
@@ -1357,15 +836,15 @@ ref; // ME_4B1FBF87020C_ME_4DDD0D92039C AfterCreate
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_4DDD0DCE00D6 // f_DiffProvider
- ME_4EA6BE01026D // f_Data
- ME_4EA6CFDC01C8 // f_GettingDocumentCount
+   Seq: ( HWL ME_4DDD0DCE00D6 // f_DiffProvider
+ HWL ME_4EA6BE01026D // f_Data
+ HWL ME_4EA6CFDC01C8 // f_GettingDocumentCount
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_4DDD0E080101 // Create
- ME_4DDD0DF103B5 // Make
- ME_4EA6BBFA01DF // MakeDocument
+   Seq: ( HWL ME_4DDD0E080101 // Create
+ HWL ME_4DDD0DF103B5 // Make
+ HWL ME_4EA6BBFA01DF // MakeDocument
  )
  ; // Operations
  : Overridden
@@ -1415,11 +894,11 @@ ref; // ME_4DDD0D92039C TnsChangesBetweenEditionsDocumentContainer
  : Parent WL 'ME_4DDCD6FF0208' '4DDCD6FF0208.pas.ms.script' // ChangesBetweenEditions$Domain
  ;
  : Children
-   Seq: ( ME_4DDCD7D0002E // TsdsChangesBetweenEditions
- ME_4DDCD9670300 // TnsChangesBetweenEditionsInfo
- ME_4DDCDD68019E // TdsChangesBetweenEditions
- ME_4DDCF660018A // TsdsChangesBetweenEditionsData
- ME_4DDD0D92039C // TnsChangesBetweenEditionsDocumentContainer
+   Seq: ( WL 'ME_4DDCD7D0002E' '4DDCD7D0002E.pas.ms.script' // TsdsChangesBetweenEditions
+ HWL ME_4DDCD9670300 // TnsChangesBetweenEditionsInfo
+ WL 'ME_4DDCDD68019E' '4DDCDD68019E.pas.ms.script' // TdsChangesBetweenEditions
+ HWL ME_4DDCF660018A // TsdsChangesBetweenEditionsData
+ HWL ME_4DDD0D92039C // TnsChangesBetweenEditionsDocumentContainer
  )
  ; // Children
  : Depends

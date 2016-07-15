@@ -14,7 +14,7 @@ FORWARD ME_491D982203CD
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_491D982203CD // EdsMaxLengthExceed
+ : Parent HWL ME_491D982203CD // EdsMaxLengthExceed
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -40,7 +40,7 @@ ref; // ME_491D988200C1 aMaxLength
  : Stereotype st_ctor::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_491D982203CD // EdsMaxLengthExceed
+ : Parent HWL ME_491D982203CD // EdsMaxLengthExceed
  ;
  : Parameters
    Seq: ( ME_491D988200C1 // aMaxLength
@@ -58,18 +58,18 @@ ref; // ME_491D987C0028 Create
  %SUMMARY 'Превышена допустимая длинна строки' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_49903C95009E // AdminDomainInterfaces
+ : Parent HWL ME_49903C95009E // AdminDomainInterfaces
  ;
  : Inherits
    Seq: ( WL 'ME_4787A405013D' '4AB0C3C60310.pas.ms.script' // Exception
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_491D98470107 // MaxLength
+   Seq: ( HWL ME_491D98470107 // MaxLength
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_491D987C0028 // Create
+   Seq: ( HWL ME_491D987C0028 // Create
  )
  ; // Operations
 
@@ -85,7 +85,7 @@ FORWARD ME_49903D1702E2
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_49903D1702E2 // InsAdminInfo
+ : Parent HWL ME_49903D1702E2 // InsAdminInfo
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -101,7 +101,7 @@ ref; // ME_49903D950099 HasEmail
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_49903D1702E2 // InsAdminInfo
+ : Parent HWL ME_49903D1702E2 // InsAdminInfo
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -117,12 +117,12 @@ ref; // ME_49903DA70271 HasPhone
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_49903D1702E2 // InsAdminInfo
+ : Parent HWL ME_49903D1702E2 // InsAdminInfo
  ;
  : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
  ;
  : CanRaiseInSet
-   Seq: ( ME_491D982203CD // EdsMaxLengthExceed
+   Seq: ( HWL ME_491D982203CD // EdsMaxLengthExceed
  )
  ; // CanRaiseInSet
  CONST "pm" true
@@ -137,12 +137,12 @@ ref; // ME_49903D5500C5 Phone
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_49903D1702E2 // InsAdminInfo
+ : Parent HWL ME_49903D1702E2 // InsAdminInfo
  ;
  : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
  ;
  : CanRaiseInSet
-   Seq: ( ME_491D982203CD // EdsMaxLengthExceed
+   Seq: ( HWL ME_491D982203CD // EdsMaxLengthExceed
  )
  ; // CanRaiseInSet
  CONST "pm" true
@@ -159,13 +159,13 @@ ref; // ME_49903D6F0242 Email
  %SUMMARY 'Информация об администраторе' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_49903C95009E // AdminDomainInterfaces
+ : Parent HWL ME_49903C95009E // AdminDomainInterfaces
  ;
  : Attributes
-   Seq: ( ME_49903D950099 // HasEmail
- ME_49903DA70271 // HasPhone
- ME_49903D5500C5 // Phone
- ME_49903D6F0242 // Email
+   Seq: ( HWL ME_49903D950099 // HasEmail
+ HWL ME_49903DA70271 // HasPhone
+ HWL ME_49903D5500C5 // Phone
+ HWL ME_49903D6F0242 // Email
  )
  ; // Attributes
  CONST extprop:rc:SelfName 'AdminInfo'
@@ -183,7 +183,7 @@ FORWARD ME_4B5024CA0129
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4B5024CA0129 // nsUserProperty
+ : Parent HWL ME_4B5024CA0129 // nsUserProperty
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -199,7 +199,7 @@ ref; // ME_4B5026E201E6 UID
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4B5024CA0129 // nsUserProperty
+ : Parent HWL ME_4B5024CA0129 // nsUserProperty
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -215,7 +215,7 @@ ref; // ME_4B5026F60253 GroupUID
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4B5024CA0129 // nsUserProperty
+ : Parent HWL ME_4B5024CA0129 // nsUserProperty
  ;
  : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
  ;
@@ -231,7 +231,7 @@ ref; // ME_4B5026FD015E Login
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4B5024CA0129 // nsUserProperty
+ : Parent HWL ME_4B5024CA0129 // nsUserProperty
  ;
  : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
  ;
@@ -247,7 +247,7 @@ ref; // ME_4B502705014F Name
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4B5024CA0129 // nsUserProperty
+ : Parent HWL ME_4B5024CA0129 // nsUserProperty
  ;
  : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
  ;
@@ -263,7 +263,7 @@ ref; // ME_4B50270B0138 Mail
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4B5024CA0129 // nsUserProperty
+ : Parent HWL ME_4B5024CA0129 // nsUserProperty
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -279,7 +279,7 @@ ref; // ME_4B5027120274 IsChanged
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4B5024CA0129 // nsUserProperty
+ : Parent HWL ME_4B5024CA0129 // nsUserProperty
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -295,7 +295,7 @@ ref; // ME_4B50271C00EE IsNewUser
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4B5024CA0129 // nsUserProperty
+ : Parent HWL ME_4B5024CA0129 // nsUserProperty
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -311,7 +311,7 @@ ref; // ME_4B502720021F CanBuyConsulting
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4B5024CA0129 // nsUserProperty
+ : Parent HWL ME_4B5024CA0129 // nsUserProperty
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -327,7 +327,7 @@ ref; // ME_4B5027240286 IsSystem
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4B5024CA0129 // nsUserProperty
+ : Parent HWL ME_4B5024CA0129 // nsUserProperty
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -343,7 +343,7 @@ ref; // ME_4B50272901C3 IsPrivileged
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4B5024CA0129 // nsUserProperty
+ : Parent HWL ME_4B5024CA0129 // nsUserProperty
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -357,7 +357,7 @@ ref; // ME_4F3C01AD01FB DontDeleteIdle
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4B5024CA0129 // nsUserProperty
+ : Parent HWL ME_4B5024CA0129 // nsUserProperty
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -370,7 +370,7 @@ ref; // ME_4B5025A002EE HasUserProfile
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4B5024CA0129 // nsUserProperty
+ : Parent HWL ME_4B5024CA0129 // nsUserProperty
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -459,7 +459,7 @@ ref; // ME_4F3CCCD50120 IsPasswordChanged
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4B5024CA0129 // nsUserProperty
+ : Parent HWL ME_4B5024CA0129 // nsUserProperty
  ;
  : Parameters
    Seq: ( ME_4F3CCCD401EF // aName
@@ -521,7 +521,7 @@ ref; // ME_4B54607501AE IsPasswordChanged
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4B5024CA0129 // nsUserProperty
+ : Parent HWL ME_4B5024CA0129 // nsUserProperty
  ;
  : Parameters
    Seq: ( ME_4B54607500E3 // aName
@@ -541,27 +541,27 @@ ref; // ME_4B5460600098 SaveUserInfo
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_49903C95009E // AdminDomainInterfaces
+ : Parent HWL ME_49903C95009E // AdminDomainInterfaces
  ;
  : Attributes
-   Seq: ( ME_4B5026E201E6 // UID
- ME_4B5026F60253 // GroupUID
- ME_4B5026FD015E // Login
- ME_4B502705014F // Name
- ME_4B50270B0138 // Mail
- ME_4B5027120274 // IsChanged
- ME_4B50271C00EE // IsNewUser
- ME_4B502720021F // CanBuyConsulting
- ME_4B5027240286 // IsSystem
- ME_4B50272901C3 // IsPrivileged
- ME_4F3C01AD01FB // DontDeleteIdle
+   Seq: ( HWL ME_4B5026E201E6 // UID
+ HWL ME_4B5026F60253 // GroupUID
+ HWL ME_4B5026FD015E // Login
+ HWL ME_4B502705014F // Name
+ HWL ME_4B50270B0138 // Mail
+ HWL ME_4B5027120274 // IsChanged
+ HWL ME_4B50271C00EE // IsNewUser
+ HWL ME_4B502720021F // CanBuyConsulting
+ HWL ME_4B5027240286 // IsSystem
+ HWL ME_4B50272901C3 // IsPrivileged
+ HWL ME_4F3C01AD01FB // DontDeleteIdle
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_4B5025A002EE // HasUserProfile
- ME_4B5025A700F0 // HasPassword
- ME_4B5026560312 // SaveUserProfile
- ME_4B5460600098 // SaveUserInfo
+   Seq: ( HWL ME_4B5025A002EE // HasUserProfile
+ HWL ME_4B5025A700F0 // HasPassword
+ HWL ME_4B5026560312 // SaveUserProfile
+ HWL ME_4B5460600098 // SaveUserInfo
  )
  ; // Operations
  CONST extprop:rc:SelfName 'UserProperty'
@@ -571,101 +571,101 @@ ref; // ME_4B5024CA0129 nsUserProperty
 FORWARD ME_4B50250E0139
 
 : ME_4B5025A002EE_ME_4B50250E0139
- : Original ME_4B5025A002EE // HasUserProfile
+ : Original HWL ME_4B5025A002EE // HasUserProfile
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4B5025A002EE_ME_4B50250E0139 HasUserProfile
 
 : ME_4B5025A700F0_ME_4B50250E0139
- : Original ME_4B5025A700F0 // HasPassword
+ : Original HWL ME_4B5025A700F0 // HasPassword
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4B5025A700F0_ME_4B50250E0139 HasPassword
 
 : ME_4B5026560312_ME_4B50250E0139
- : Original ME_4B5026560312 // SaveUserProfile
+ : Original HWL ME_4B5026560312 // SaveUserProfile
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4B5026560312_ME_4B50250E0139 SaveUserProfile
 
 : ME_4B5026E201E6_ME_4B50250E0139
- : Original ME_4B5026E201E6 // UID
+ : Original HWL ME_4B5026E201E6 // UID
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4B5026E201E6_ME_4B50250E0139 UID
 
 : ME_4B5026F60253_ME_4B50250E0139
- : Original ME_4B5026F60253 // GroupUID
+ : Original HWL ME_4B5026F60253 // GroupUID
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4B5026F60253_ME_4B50250E0139 GroupUID
 
 : ME_4B5026FD015E_ME_4B50250E0139
- : Original ME_4B5026FD015E // Login
+ : Original HWL ME_4B5026FD015E // Login
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4B5026FD015E_ME_4B50250E0139 Login
 
 : ME_4B502705014F_ME_4B50250E0139
- : Original ME_4B502705014F // Name
+ : Original HWL ME_4B502705014F // Name
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4B502705014F_ME_4B50250E0139 Name
 
 : ME_4B50270B0138_ME_4B50250E0139
- : Original ME_4B50270B0138 // Mail
+ : Original HWL ME_4B50270B0138 // Mail
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4B50270B0138_ME_4B50250E0139 Mail
 
 : ME_4B5027120274_ME_4B50250E0139
- : Original ME_4B5027120274 // IsChanged
+ : Original HWL ME_4B5027120274 // IsChanged
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4B5027120274_ME_4B50250E0139 IsChanged
 
 : ME_4B50271C00EE_ME_4B50250E0139
- : Original ME_4B50271C00EE // IsNewUser
+ : Original HWL ME_4B50271C00EE // IsNewUser
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4B50271C00EE_ME_4B50250E0139 IsNewUser
 
 : ME_4B502720021F_ME_4B50250E0139
- : Original ME_4B502720021F // CanBuyConsulting
+ : Original HWL ME_4B502720021F // CanBuyConsulting
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4B502720021F_ME_4B50250E0139 CanBuyConsulting
 
 : ME_4B5027240286_ME_4B50250E0139
- : Original ME_4B5027240286 // IsSystem
+ : Original HWL ME_4B5027240286 // IsSystem
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4B5027240286_ME_4B50250E0139 IsSystem
 
 : ME_4B50272901C3_ME_4B50250E0139
- : Original ME_4B50272901C3 // IsPrivileged
+ : Original HWL ME_4B50272901C3 // IsPrivileged
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4B50272901C3_ME_4B50250E0139 IsPrivileged
 
 : ME_4B5460600098_ME_4B50250E0139
- : Original ME_4B5460600098 // SaveUserInfo
+ : Original HWL ME_4B5460600098 // SaveUserInfo
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4B5460600098_ME_4B50250E0139 SaveUserInfo
 
 : ME_4F3C01AD01FB_ME_4B50250E0139
- : Original ME_4F3C01AD01FB // DontDeleteIdle
+ : Original HWL ME_4F3C01AD01FB // DontDeleteIdle
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
@@ -680,10 +680,10 @@ ref; // ME_4F3C01AD01FB_ME_4B50250E0139 DontDeleteIdle
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_49903C95009E // AdminDomainInterfaces
+ : Parent HWL ME_49903C95009E // AdminDomainInterfaces
  ;
  : Implements
-   Seq: ( ME_4B5024CA0129 // nsUserProperty
+   Seq: ( HWL ME_4B5024CA0129 // nsUserProperty
  )
  ; // Implements
  : Implemented
@@ -720,10 +720,10 @@ ref; // ME_4B50250E0139 InsUserProperty
  : Parent WL 'ME_47E9EEC60260' '47E9EEC60260.pas.ms.script' // Model
  ;
  : Children
-   Seq: ( ME_491D982203CD // EdsMaxLengthExceed
- ME_49903D1702E2 // InsAdminInfo
- ME_4B5024CA0129 // nsUserProperty
- ME_4B50250E0139 // InsUserProperty
+   Seq: ( HWL ME_491D982203CD // EdsMaxLengthExceed
+ HWL ME_49903D1702E2 // InsAdminInfo
+ HWL ME_4B5024CA0129 // nsUserProperty
+ HWL ME_4B50250E0139 // InsUserProperty
  )
  ; // Children
  : Depends

@@ -23,7 +23,7 @@ ref; // ME_537F6332037F aPipe
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_537F63170355 // TCsReplyProc
+ : Parent HWL ME_537F63170355 // TCsReplyProc
  ;
  : Parameters
    Seq: ( ME_537F6332037F // aPipe
@@ -40,10 +40,10 @@ ref; // ME_537F632E0101 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_537F6306025B // TCsProcWithId
+ : Parent HWL ME_537F6306025B // TCsProcWithId
  ;
  : Operations
-   Seq: ( ME_537F632E0101 // DoIt
+   Seq: ( HWL ME_537F632E0101 // DoIt
  )
  ; // Operations
  CONST "of object" true
@@ -57,7 +57,7 @@ ref; // ME_537F63170355 TCsReplyProc
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_537F6306025B // TCsProcWithId
+ : Parent HWL ME_537F6306025B // TCsProcWithId
  ;
  : Target WL 'ME_537F63760334' '52FBB2FC0386.pas.ms.script' // TCsQueryId
  ;
@@ -71,9 +71,9 @@ ref; // ME_537F639102DF QueryId
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_537F6306025B // TCsProcWithId
+ : Parent HWL ME_537F6306025B // TCsProcWithId
  ;
- : Target ME_537F63170355 // TCsReplyProc
+ : Target HWL ME_537F63170355 // TCsReplyProc
  ;
 
 ref; // ME_537F63A1001E Proc
@@ -93,7 +93,7 @@ ref; // ME_537F63C5009E aQueryId
  CONST Name 'aProc'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_537F63170355 // TCsReplyProc
+ : Target HWL ME_537F63170355 // TCsReplyProc
  ;
 
 ref; // ME_537F63C500C5 aProc
@@ -104,7 +104,7 @@ ref; // ME_537F63C500C5 aProc
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_537F63B40386 // Create
+ : Parent HWL ME_537F63B40386 // Create
  ;
  : Parameters
    Seq: ( ME_537F63C5009E // aQueryId
@@ -122,10 +122,10 @@ ref; // ME_537F63C10100 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_537F6306025B // TCsProcWithId
+ : Parent HWL ME_537F6306025B // TCsProcWithId
  ;
  : Operations
-   Seq: ( ME_537F63C10100 // DoIt
+   Seq: ( HWL ME_537F63C10100 // DoIt
  )
  ; // Operations
 
@@ -139,23 +139,23 @@ ref; // ME_537F63B40386 Create
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_538DA26C020A // ServerSide
+ : Parent HWL ME_538DA26C020A // ServerSide
  ;
  : Inherits
    Seq: ( WL 'ME_52FBB30A01C6' '52FBB2FC0386.pas.ms.script' // TCsObject
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_537F639102DF // QueryId
- ME_537F63A1001E // Proc
+   Seq: ( HWL ME_537F639102DF // QueryId
+ HWL ME_537F63A1001E // Proc
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_537F63B40386 // Create
+   Seq: ( HWL ME_537F63B40386 // Create
  )
  ; // Operations
  : Children
-   Seq: ( ME_537F63170355 // TCsReplyProc
+   Seq: ( HWL ME_537F63170355 // TCsReplyProc
  )
  ; // Children
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\CsProcWithId.pas'
@@ -175,9 +175,9 @@ FORWARD ME_537F63D60108
  CONST Visibility PrivateAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_537F63D60108 // TCsProcWithIdList
+ : Parent HWL ME_537F63D60108 // TCsProcWithIdList
  ;
- : Target ME_537F6306025B // TCsProcWithId
+ : Target HWL ME_537F6306025B // TCsProcWithId
  ;
 
 ref; // ME_537F63EC035D ItemType
@@ -204,7 +204,7 @@ ref; // ME_47B99D4503A2_ME_537F63D60108 CompareExistingItems
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_538DA26C020A // ServerSide
+ : Parent HWL ME_538DA26C020A // ServerSide
  ;
  : Inherits
    Seq: ( WL 'ME_47B99E920196' '47913B47006E.pas.ms.script' // l3UncomparabeObjectRefList
@@ -212,7 +212,7 @@ ref; // ME_47B99D4503A2_ME_537F63D60108 CompareExistingItems
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_537F63EC035D // ItemType
+   Seq: ( HWL ME_537F63EC035D // ItemType
  )
  ; // Attributes
  : Implemented
@@ -236,9 +236,9 @@ FORWARD ME_537F645C01D1
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_537F645C01D1 // TCsReplyProceduresPrim
+ : Parent HWL ME_537F645C01D1 // TCsReplyProceduresPrim
  ;
- : Target ME_537F63D60108 // TCsProcWithIdList
+ : Target HWL ME_537F63D60108 // TCsProcWithIdList
  ;
 
 ref; // ME_537F64680304 f_List
@@ -250,7 +250,7 @@ ref; // ME_537F64680304 f_List
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_537F645C01D1 // TCsReplyProceduresPrim
+ : Parent HWL ME_537F645C01D1 // TCsReplyProceduresPrim
  ;
  : Target WL 'ME_4807861D0118' '4AB0C3C60310.pas.ms.script' // TMultiReadExclusiveWriteSynchronizer
  ;
@@ -265,7 +265,7 @@ FORWARD ME_53959A720000
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_53959A720000 // Create
+ : Parent HWL ME_53959A720000 // Create
  ;
 
 ref; // ME_53959A7B028D DoIt
@@ -278,10 +278,10 @@ ref; // ME_53959A7B028D DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_537F645C01D1 // TCsReplyProceduresPrim
+ : Parent HWL ME_537F645C01D1 // TCsReplyProceduresPrim
  ;
  : Operations
-   Seq: ( ME_53959A7B028D // DoIt
+   Seq: ( HWL ME_53959A7B028D // DoIt
  )
  ; // Operations
 
@@ -304,9 +304,9 @@ ref; // ME_53959AD20374 aQueryId
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_53959ABC03D4 // ListItemBy
+ : Parent HWL ME_53959ABC03D4 // ListItemBy
  ;
- : Target ME_537F6306025B // TCsProcWithId
+ : Target HWL ME_537F6306025B // TCsProcWithId
  ;
  : Parameters
    Seq: ( ME_53959AD20374 // aQueryId
@@ -323,10 +323,10 @@ ref; // ME_53959ACF011C DoIt
  CONST Kind kind_NormalClass
  CONST Visibility ProtectedAccess
  CONST Abstraction at_final
- : Parent ME_537F645C01D1 // TCsReplyProceduresPrim
+ : Parent HWL ME_537F645C01D1 // TCsReplyProceduresPrim
  ;
  : Operations
-   Seq: ( ME_53959ACF011C // DoIt
+   Seq: ( HWL ME_53959ACF011C // DoIt
  )
  ; // Operations
 
@@ -349,9 +349,9 @@ ref; // ME_53959B3000BB aQueryId
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_53959B1400E0 // ProcBy
+ : Parent HWL ME_53959B1400E0 // ProcBy
  ;
- : Target ME_537F63170355 // TCsReplyProc
+ : Target HWL ME_537F63170355 // TCsReplyProc
  ;
  : Parameters
    Seq: ( ME_53959B3000BB // aQueryId
@@ -368,10 +368,10 @@ ref; // ME_53959B2C0049 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_537F645C01D1 // TCsReplyProceduresPrim
+ : Parent HWL ME_537F645C01D1 // TCsReplyProceduresPrim
  ;
  : Operations
-   Seq: ( ME_53959B2C0049 // DoIt
+   Seq: ( HWL ME_53959B2C0049 // DoIt
  )
  ; // Operations
 
@@ -380,7 +380,7 @@ ref; // ME_53959B1400E0 ProcBy
 : ME_53959AA3034F
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_537F645C01D1 // TCsReplyProceduresPrim
+ : Parent HWL ME_537F645C01D1 // TCsReplyProceduresPrim
  ;
  : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
  ;
@@ -390,7 +390,7 @@ ref; // ME_53959AA3034F
 : ME_53959B4D0242
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_537F645C01D1 // TCsReplyProceduresPrim
+ : Parent HWL ME_537F645C01D1 // TCsReplyProceduresPrim
  ;
  : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
  ;
@@ -400,7 +400,7 @@ ref; // ME_53959B4D0242
 : ME_53959B740196
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_537F645C01D1 // TCsReplyProceduresPrim
+ : Parent HWL ME_537F645C01D1 // TCsReplyProceduresPrim
  ;
  : Target WL 'ME_4773D64E036C' '47913B47006E.pas.ms.script' // l3Base
  ;
@@ -422,21 +422,21 @@ ref; // ME_479731C50290_ME_537F645C01D1 Cleanup
  %SUMMARY 'Класс для регистрации "ответных процедур" сервера для запросов от клиента' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_538DA26C020A // ServerSide
+ : Parent HWL ME_538DA26C020A // ServerSide
  ;
  : Inherits
    Seq: ( WL 'ME_52FBB30A01C6' '52FBB2FC0386.pas.ms.script' // TCsObject
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_537F64680304 // f_List
- ME_53959A4900AA // f_Synchronizer
+   Seq: ( HWL ME_537F64680304 // f_List
+ HWL ME_53959A4900AA // f_Synchronizer
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_53959A720000 // Create
- ME_53959ABC03D4 // ListItemBy
- ME_53959B1400E0 // ProcBy
+   Seq: ( HWL ME_53959A720000 // Create
+ HWL ME_53959ABC03D4 // ListItemBy
+ HWL ME_53959B1400E0 // ProcBy
  )
  ; // Operations
  : Overridden
@@ -463,9 +463,9 @@ FORWARD ME_538DEBEA032D
 : ME_538DEC060357
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_538DEBDF0374 // TCsReply
+ : Parent HWL ME_538DEBDF0374 // TCsReply
  ;
- : Target ME_538DEBEA032D // TCsReplyTool
+ : Target HWL ME_538DEBEA032D // TCsReplyTool
  ;
 
 ref; // ME_538DEC060357 
@@ -478,7 +478,7 @@ ref; // ME_538DEC060357
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_538DA26C020A // ServerSide
+ : Parent HWL ME_538DA26C020A // ServerSide
  ;
  : Dependencies
    Seq: ( ME_538DEC060357 // TCsReplyTool
@@ -509,7 +509,7 @@ ref; // ME_538DEC740276 aQueryId
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_538DEC3F03C7 // TcsProcessQueryProc
+ : Parent HWL ME_538DEC3F03C7 // TcsProcessQueryProc
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -528,10 +528,10 @@ ref; // ME_538DEC6C027B DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_538DEBEA032D // TCsReplyTool
+ : Parent HWL ME_538DEBEA032D // TCsReplyTool
  ;
  : Operations
-   Seq: ( ME_538DEC6C027B // DoIt
+   Seq: ( HWL ME_538DEC6C027B // DoIt
  )
  ; // Operations
  CONST "of object" true
@@ -553,7 +553,7 @@ ref; // ME_538DECF001F6 aPipe
  CONST Name 'aProcessQueryProc'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_538DEC3F03C7 // TcsProcessQueryProc
+ : Target HWL ME_538DEC3F03C7 // TcsProcessQueryProc
  ;
 
 ref; // ME_538DECF0020D aProcessQueryProc
@@ -562,7 +562,7 @@ ref; // ME_538DECF0020D aProcessQueryProc
  CONST Name 'aReplyProcedures'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_537F645C01D1 // TCsReplyProceduresPrim
+ : Target HWL ME_537F645C01D1 // TCsReplyProceduresPrim
  ;
 
 ref; // ME_538DEDA503BD aReplyProcedures
@@ -591,7 +591,7 @@ ref; // ME_538DF003015A theClientId
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_538DEC9601CC // ProcessQuery
+ : Parent HWL ME_538DEC9601CC // ProcessQuery
  ;
  : Parameters
    Seq: ( ME_538DECF001F6 // aPipe
@@ -607,7 +607,7 @@ ref; // ME_538DECB70355 DoIt
 : ME_538DED02009C
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_538DEC9601CC // ProcessQuery
+ : Parent HWL ME_538DEC9601CC // ProcessQuery
  ;
  : Target WL 'ME_4773D64E036C' '47913B47006E.pas.ms.script' // l3Base
  ;
@@ -617,7 +617,7 @@ ref; // ME_538DED02009C
 : ME_538DED250185
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_538DEC9601CC // ProcessQuery
+ : Parent HWL ME_538DEC9601CC // ProcessQuery
  ;
  : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
  ;
@@ -627,7 +627,7 @@ ref; // ME_538DED250185
 : ME_538DED7400B8
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_538DEC9601CC // ProcessQuery
+ : Parent HWL ME_538DEC9601CC // ProcessQuery
  ;
  : Target WL 'ME_538DED5F0011' '52FBB2FC0386.pas.ms.script' // CsErrors
  ;
@@ -637,7 +637,7 @@ ref; // ME_538DED7400B8
 : ME_538DED88026C
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_538DEC9601CC // ProcessQuery
+ : Parent HWL ME_538DEC9601CC // ProcessQuery
  ;
  : Target WL 'ME_538DA49902A4' '52FBB2FC0386.pas.ms.script' // CsConst
  ;
@@ -647,7 +647,7 @@ ref; // ME_538DED88026C
 : ME_538DEDFE017A
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_538DEC9601CC // ProcessQuery
+ : Parent HWL ME_538DEC9601CC // ProcessQuery
  ;
  : Target WL 'ME_4787A405013D' '4AB0C3C60310.pas.ms.script' // Exception
  ;
@@ -657,9 +657,9 @@ ref; // ME_538DEDFE017A
 : ME_538DF02701F6
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_538DEC9601CC // ProcessQuery
+ : Parent HWL ME_538DEC9601CC // ProcessQuery
  ;
- : Target ME_537F63170355 // TCsReplyProc
+ : Target HWL ME_537F63170355 // TCsReplyProc
  ;
 
 ref; // ME_538DF02701F6 
@@ -672,10 +672,10 @@ ref; // ME_538DF02701F6
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_538DEBEA032D // TCsReplyTool
+ : Parent HWL ME_538DEBEA032D // TCsReplyTool
  ;
  : Operations
-   Seq: ( ME_538DECB70355 // DoIt
+   Seq: ( HWL ME_538DECB70355 // DoIt
  )
  ; // Operations
  : Dependencies
@@ -699,14 +699,14 @@ ref; // ME_538DEC9601CC ProcessQuery
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_538DA26C020A // ServerSide
+ : Parent HWL ME_538DA26C020A // ServerSide
  ;
  : Operations
-   Seq: ( ME_538DEC9601CC // ProcessQuery
+   Seq: ( HWL ME_538DEC9601CC // ProcessQuery
  )
  ; // Operations
  : Children
-   Seq: ( ME_538DEC3F03C7 // TcsProcessQueryProc
+   Seq: ( HWL ME_538DEC3F03C7 // TcsProcessQueryProc
  )
  ; // Children
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\CsReplyTool.pas'
@@ -733,7 +733,7 @@ ref; // ME_53959AFD012B aQueryId
  CONST Name 'aProc'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_537F63170355 // TCsReplyProc
+ : Target HWL ME_537F63170355 // TCsReplyProc
  ;
 
 ref; // ME_53959AFD0142 aProc
@@ -744,7 +744,7 @@ ref; // ME_53959AFD0142 aProc
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_53959AE3018D // Register
+ : Parent HWL ME_53959AE3018D // Register
  ;
  : Parameters
    Seq: ( ME_53959AFD012B // aQueryId
@@ -757,9 +757,9 @@ ref; // ME_53959AF80329 DoIt
 : ME_5395C9EC02D5
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_53959AE3018D // Register
+ : Parent HWL ME_53959AE3018D // Register
  ;
- : Target ME_537F6306025B // TCsProcWithId
+ : Target HWL ME_537F6306025B // TCsProcWithId
  ;
 
 ref; // ME_5395C9EC02D5 
@@ -767,7 +767,7 @@ ref; // ME_5395C9EC02D5
 : ME_5395CA1F025B
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_53959AE3018D // Register
+ : Parent HWL ME_53959AE3018D // Register
  ;
  : Target WL 'ME_4773D64E036C' '47913B47006E.pas.ms.script' // l3Base
  ;
@@ -777,7 +777,7 @@ ref; // ME_5395CA1F025B
 : ME_5395CA2400BF
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_53959AE3018D // Register
+ : Parent HWL ME_53959AE3018D // Register
  ;
  : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
  ;
@@ -787,7 +787,7 @@ ref; // ME_5395CA2400BF
 : ME_5395CCF9011D
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_53959AE3018D // Register
+ : Parent HWL ME_53959AE3018D // Register
  ;
  : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
  ;
@@ -802,10 +802,10 @@ ref; // ME_5395CCF9011D
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_5395C8DC03A7 // TCsReplyProceduresWithRegistering
+ : Parent HWL ME_5395C8DC03A7 // TCsReplyProceduresWithRegistering
  ;
  : Operations
-   Seq: ( ME_53959AF80329 // DoIt
+   Seq: ( HWL ME_53959AF80329 // DoIt
  )
  ; // Operations
  : Dependencies
@@ -826,7 +826,7 @@ FORWARD ME_53BFBB81029F
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_53BFBB81029F // UnregisterAll
+ : Parent HWL ME_53BFBB81029F // UnregisterAll
  ;
 
 ref; // ME_53BFBB88021E DoIt
@@ -839,10 +839,10 @@ ref; // ME_53BFBB88021E DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_5395C8DC03A7 // TCsReplyProceduresWithRegistering
+ : Parent HWL ME_5395C8DC03A7 // TCsReplyProceduresWithRegistering
  ;
  : Operations
-   Seq: ( ME_53BFBB88021E // DoIt
+   Seq: ( HWL ME_53BFBB88021E // DoIt
  )
  ; // Operations
 
@@ -856,15 +856,15 @@ ref; // ME_53BFBB81029F UnregisterAll
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_538DA26C020A // ServerSide
+ : Parent HWL ME_538DA26C020A // ServerSide
  ;
  : Inherits
-   Seq: ( ME_537F645C01D1 // TCsReplyProceduresPrim
+   Seq: ( HWL ME_537F645C01D1 // TCsReplyProceduresPrim
  )
  ; // Inherits
  : Operations
-   Seq: ( ME_53959AE3018D // Register
- ME_53BFBB81029F // UnregisterAll
+   Seq: ( HWL ME_53959AE3018D // Register
+ HWL ME_53BFBB81029F // UnregisterAll
  )
  ; // Operations
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\CsReplyProceduresWithRegistering.pas'
@@ -881,9 +881,9 @@ FORWARD ME_5395B29D0177
 : ME_5395BFA90075
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_5395BF930007 // TCsQueryExecutor
+ : Parent HWL ME_5395BF930007 // TCsQueryExecutor
  ;
- : Target ME_5395B29D0177 // TCsReplyProcedures
+ : Target HWL ME_5395B29D0177 // TCsReplyProcedures
  ;
 
 ref; // ME_5395BFA90075 
@@ -896,7 +896,7 @@ ref; // ME_5395BFA90075
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_538DA26C020A // ServerSide
+ : Parent HWL ME_538DA26C020A // ServerSide
  ;
  : Inherits
    Seq: ( WL 'ME_52FBB30A01C6' '52FBB2FC0386.pas.ms.script' // TCsObject
@@ -919,9 +919,9 @@ FORWARD ME_5395BFCE0389
 : ME_5395BFDE00E3
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_5395BFCE0389 // TCsServer
+ : Parent HWL ME_5395BFCE0389 // TCsServer
  ;
- : Target ME_5395BF930007 // TCsQueryExecutor
+ : Target HWL ME_5395BF930007 // TCsQueryExecutor
  ;
 
 ref; // ME_5395BFDE00E3 
@@ -934,7 +934,7 @@ ref; // ME_5395BFDE00E3
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_538DA26C020A // ServerSide
+ : Parent HWL ME_538DA26C020A // ServerSide
  ;
  : Inherits
    Seq: ( WL 'ME_52FBB30A01C6' '52FBB2FC0386.pas.ms.script' // TCsObject
@@ -961,10 +961,10 @@ ref; // ME_5395BFCE0389 TCsServer
  %SUMMARY 'Класс для регистрации "ответных процедур" сервера для запросов от клиента. Синглетон. Используется для "логики по-умолчанию". Т.е. когда сервер у нас в приложении ОДИН' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_538DA26C020A // ServerSide
+ : Parent HWL ME_538DA26C020A // ServerSide
  ;
  : Inherits
-   Seq: ( ME_5395C8DC03A7 // TCsReplyProceduresWithRegistering
+   Seq: ( HWL ME_5395C8DC03A7 // TCsReplyProceduresWithRegistering
  )
  ; // Inherits
  CONST "singleton" true
@@ -985,7 +985,7 @@ FORWARD ME_5507E70200AF
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_5507E70200AF // TncsServerParamsStorage
+ : Parent HWL ME_5507E70200AF // TncsServerParamsStorage
  ;
  : Inherits
    Seq: ( WL 'ME_516D582B011F' '4AB0C3C60310.pas.ms.script' // Create
@@ -1001,7 +1001,7 @@ ref; // ME_550806D90113 Make
 : ME_55093AF703A8
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_5507E70200AF // TncsServerParamsStorage
+ : Parent HWL ME_5507E70200AF // TncsServerParamsStorage
  ;
  : Target WL 'ME_4B990EF000AA' '4B990EDE031A.pas.ms.script' // ddAppConfig
  ;
@@ -1011,7 +1011,7 @@ ref; // ME_55093AF703A8
 : ME_550979E70256
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_5507E70200AF // TncsServerParamsStorage
+ : Parent HWL ME_5507E70200AF // TncsServerParamsStorage
  ;
  : Target WL 'ME_4F191FDD0358' '47D0290B016D.pas.ms.script' // ConcatDirName
  ;
@@ -1021,7 +1021,7 @@ ref; // ME_550979E70256
 : ME_55097F35022D
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_5507E70200AF // TncsServerParamsStorage
+ : Parent HWL ME_5507E70200AF // TncsServerParamsStorage
  ;
  : Target WL 'ME_55097F16032A' '4AB0997B00A2.pas.ms.script' // IfThen
  ;
@@ -1031,7 +1031,7 @@ ref; // ME_55097F35022D
 : ME_55099066031E
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_5507E70200AF // TncsServerParamsStorage
+ : Parent HWL ME_5507E70200AF // TncsServerParamsStorage
  ;
  : Target WL 'ME_5214B1470139' '4F6843C101D1.pas.ms.script' // ddUtils
  ;
@@ -1041,7 +1041,7 @@ ref; // ME_55099066031E
 : ME_55099079038B
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_5507E70200AF // TncsServerParamsStorage
+ : Parent HWL ME_5507E70200AF // TncsServerParamsStorage
  ;
  : Target WL 'ME_4B2A12BA0288' '4AB0C3C60310.pas.ms.script' // IntToStr
  ;
@@ -1051,7 +1051,7 @@ ref; // ME_55099079038B
 : ME_550A7FDF0301
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_5507E70200AF // TncsServerParamsStorage
+ : Parent HWL ME_5507E70200AF // TncsServerParamsStorage
  ;
  : Target WL 'ME_550A7FA50320' '484A470100DD.pas.ms.script' // TcsPredefinedUserIDs
  ;
@@ -1061,7 +1061,7 @@ ref; // ME_550A7FDF0301
 : ME_55151B02028E
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_5507E70200AF // TncsServerParamsStorage
+ : Parent HWL ME_5507E70200AF // TncsServerParamsStorage
  ;
  : Target WL 'ME_4E304DE50368' '4B990EDE031A.pas.ms.script' // TddConfigValue
  ;
@@ -1071,7 +1071,7 @@ ref; // ME_55151B02028E
 : ME_55151B2000A9
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_5507E70200AF // TncsServerParamsStorage
+ : Parent HWL ME_5507E70200AF // TncsServerParamsStorage
  ;
  : Target WL 'ME_523038DB01A5' '4B990EDE031A.pas.ms.script' // TddFolderNameConfigItem
  ;
@@ -1081,7 +1081,7 @@ ref; // ME_55151B2000A9
 : ME_55151B2C019F
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_5507E70200AF // TncsServerParamsStorage
+ : Parent HWL ME_5507E70200AF // TncsServerParamsStorage
  ;
  : Target WL 'ME_5225E4F80224' '4B990EDE031A.pas.ms.script' // TddBooleanConfigItem
  ;
@@ -1091,7 +1091,7 @@ ref; // ME_55151B2C019F
 : ME_55151E410236
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_5507E70200AF // TncsServerParamsStorage
+ : Parent HWL ME_5507E70200AF // TncsServerParamsStorage
  ;
  : Target WL 'ME_4AC1F98A0155' '47913B47006E.pas.ms.script' // l3FillChar
  ;
@@ -1101,7 +1101,7 @@ ref; // ME_55151E410236
 : ME_55229A1B02CE
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_5507E70200AF // TncsServerParamsStorage
+ : Parent HWL ME_5507E70200AF // TncsServerParamsStorage
  ;
  : Target WL 'ME_55229480008E' '5432518A0316.pas.ms.script' // UserConsts
  ;
@@ -1111,7 +1111,7 @@ ref; // ME_55229A1B02CE
 : ME_55DF03AA02AD
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_5507E70200AF // TncsServerParamsStorage
+ : Parent HWL ME_5507E70200AF // TncsServerParamsStorage
  ;
  : Target WL 'ME_55D6E2FB025D' '55D6CF3B014B.pas.ms.script' // TpgDataProviderFactory
  ;
@@ -1121,7 +1121,7 @@ ref; // ME_55DF03AA02AD
 : ME_55DF03AF0015
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_5507E70200AF // TncsServerParamsStorage
+ : Parent HWL ME_5507E70200AF // TncsServerParamsStorage
  ;
  : Target WL 'ME_54FEAD4402AB' '54F9AF550087.pas.ms.script' // ThtDataProviderFactory
  ;
@@ -1250,7 +1250,7 @@ ref; // ME_5756BD40014A_ME_5507E70200AF DocImageCachePath
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_538DA26C020A // ServerSide
+ : Parent HWL ME_538DA26C020A // ServerSide
  ;
  : Inherits
    Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
@@ -1262,7 +1262,7 @@ ref; // ME_5756BD40014A_ME_5507E70200AF DocImageCachePath
  )
  ; // Implements
  : Operations
-   Seq: ( ME_550806D90113 // Make
+   Seq: ( HWL ME_550806D90113 // Make
  )
  ; // Operations
  : Implemented
@@ -1318,16 +1318,16 @@ ref; // ME_5507E70200AF TncsServerParamsStorage
  : Parent WL 'ME_52F8C27F01AB' '52F8C27F01AB.pas.ms.script' // cs
  ;
  : Children
-   Seq: ( ME_537F6306025B // TCsProcWithId
- ME_537F63D60108 // TCsProcWithIdList
- ME_537F645C01D1 // TCsReplyProceduresPrim
- ME_538DEBDF0374 // TCsReply
- ME_538DEBEA032D // TCsReplyTool
- ME_5395C8DC03A7 // TCsReplyProceduresWithRegistering
- ME_5395BF930007 // TCsQueryExecutor
- ME_5395BFCE0389 // TCsServer
- ME_5395B29D0177 // TCsReplyProcedures
- ME_5507E70200AF // TncsServerParamsStorage
+   Seq: ( HWL ME_537F6306025B // TCsProcWithId
+ HWL ME_537F63D60108 // TCsProcWithIdList
+ HWL ME_537F645C01D1 // TCsReplyProceduresPrim
+ HWL ME_538DEBDF0374 // TCsReply
+ HWL ME_538DEBEA032D // TCsReplyTool
+ HWL ME_5395C8DC03A7 // TCsReplyProceduresWithRegistering
+ HWL ME_5395BF930007 // TCsQueryExecutor
+ HWL ME_5395BFCE0389 // TCsServer
+ HWL ME_5395B29D0177 // TCsReplyProcedures
+ HWL ME_5507E70200AF // TncsServerParamsStorage
  )
  ; // Children
  : Depends

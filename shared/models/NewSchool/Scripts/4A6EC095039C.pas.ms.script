@@ -1,0 +1,61 @@
+// EditionsContainer 4A6EC095039C VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A6EC095039C
+
+: ME_4CDF29F3816A
+ CONST UID '4CDF29F3816A'
+ CONST Name 'Ini_FormFactory_EditionsContainer'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы EditionsContainer' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4A6EC095039C // EditionsContainer
+ ;
+ : SpelledFor HWL ME_4A6EC095039C // EditionsContainer
+ ;
+
+ref; // ME_4CDF29F3816A Ini_FormFactory_EditionsContainer
+
+: ME_4A6EC095039C
+ CONST UID '4A6EC095039C'
+ CONST Name 'EditionsContainer'
+ CONST Class class_Class
+ : Stereotype st_VCMFinalForm ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Сравнение редакций документа' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent WL 'ME_4A6D5F3D03A9' '4A6D5F3D03A9.pas.ms.script' // BaseEditions
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4A6EC0D0020C' '4A6EC0D0020C.pas.ms.script' // PrimEditionsContainer
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4FFC675B03C3' '4FFC670F012B.pas.ms.script' // EditionsContainer
+ )
+ ; // Implements
+ : Operations
+   Seq: ( HWL ME_4CDF29F3816A // Ini_FormFactory_EditionsContainer
+ )
+ ; // Operations
+ CONST "NeedsHackRef" true
+ CONST "ZoneType" 'Any'
+ CONST "author" 'Люлин А.В.'
+ CONST "finished dfm" true
+ CONST "no hands" true
+ CONST "resizeable" false
+ CONST "restrict form def" 'undefined'
+ CONST "started" '28.07.2009 13:11'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Editions\Forms\EditionsContainer_Form.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Editions\Forms'
+ CONST extprop:pas:TypeName 'TEditionsContainerForm'
+ CONST extprop:rc:SelfName 'EditionsContainerForm'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'EditionsContainer_Form'
+
+ref; // ME_4A6EC095039C EditionsContainer

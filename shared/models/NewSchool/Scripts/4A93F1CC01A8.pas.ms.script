@@ -1,0 +1,64 @@
+// ProgressIndicator 4A93F1CC01A8 VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A93F1CC01A8
+
+: ME_60BD30ED24A4
+ CONST UID '60BD30ED24A4'
+ CONST GUID '83193317-8438-475F-9F0C-1C44F08B2DA4'
+ CONST Name 'ProgressIndicator'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_VCMFormDefinition ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Идентификатор формы ProgressIndicator' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4A93F1CC01A8 // ProgressIndicator
+ ;
+ : Implementors
+   Seq: ( HWL ME_4A93F1CC01A8 // ProgressIndicator
+ )
+ ; // Implementors
+ CONST extprop:pas:TypeName 'ProgressIndicatorFormDef'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_60BD30ED24A4 ProgressIndicator$Def
+
+: ME_4A93F1CC01A8
+ CONST UID '4A93F1CC01A8'
+ CONST Name 'ProgressIndicator'
+ CONST Class class_Class
+ : Stereotype st_VCMFinalForm ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent WL 'ME_4A92C1380380' '4A92C1380380.pas.ms.script' // PrimF1Common
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4A93F1980324' '4A93F1980324.pas.ms.script' // PrimProgressIndicator
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( HWL ME_60BD30ED24A4 // ProgressIndicator$Def
+ )
+ ; // Implements
+ : Children
+   Seq: ( HWL ME_60BD30ED24A4 // ProgressIndicator$Def
+ )
+ ; // Children
+ CONST "NeedsHackRef" true
+ CONST "ZoneType" 'ManualModal'
+ CONST "finished dfm" true
+ CONST "form name prefix" 'ef'
+ CONST "resizeable" false
+ CONST "restrict form def" 'undefined'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\ProgressIndicator_Form.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms'
+ CONST extprop:pas:TypeName 'TefProgressIndicator'
+ CONST extprop:rc:SelfName 'efProgressIndicator'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'ProgressIndicator_Form'
+
+ref; // ME_4A93F1CC01A8 ProgressIndicator

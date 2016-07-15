@@ -1,0 +1,72 @@
+// TafwCustomCommonControl 48BBE37E00A2 GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_48BBE37E00A2
+
+: ME_48BBE3AD0304
+ CONST UID '48BBE3AD0304'
+ CONST Name 'Canvas'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_48BBE37E00A2 // TafwCustomCommonControl
+ ;
+ : Target WL 'ME_46A46A030333' '556F09AA036E.pas.ms.script' // TCanvas
+ ;
+ CONST "needs field" false
+ CONST "pm" true
+
+ref; // ME_48BBE3AD0304 Canvas
+
+: ME_48BBE3C40283
+ CONST UID '48BBE3C40283'
+ CONST Name 'Paint'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_48BBE37E00A2 // TafwCustomCommonControl
+ ;
+
+ref; // ME_48BBE3C40283 Paint
+
+: ME_48BBE38D0061_ME_48BBE37E00A2
+ : Original WL 'ME_48BBE38D0061' '48BBE35E039F.pas.ms.script' // DoPaint
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_48BBE38D0061_ME_48BBE37E00A2 DoPaint
+
+: ME_48BBE37E00A2
+ CONST UID '48BBE37E00A2'
+ CONST Name 'TafwCustomCommonControl'
+ CONST Class class_Class
+ : Stereotype st_GuiControl ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_467BA8C8017E' '467BA8C8017E.pas.ms.script' // afwControl
+ ;
+ : Inherits
+   Seq: ( WL 'ME_48BBE35E039F' '48BBE35E039F.pas.ms.script' // TafwCustomCommonControlPrim
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( HWL ME_48BBE3AD0304 // Canvas
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( HWL ME_48BBE3C40283 // Paint
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_48BBE38D0061_ME_48BBE37E00A2 // DoPaint
+ )
+ ; // Implemented
+ CONST intf.pas:Path 'common\components\gui\Garant\AFW\implementation\Visual\afwCustomCommonControl.pas'
+ CONST extprop:rc:SelfName 'afwCustomCommonControl'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'afwCustomCommonControl'
+
+ref; // ME_48BBE37E00A2 TafwCustomCommonControl

@@ -1,0 +1,283 @@
+// PrimForbidAutoregistration 497ED39B034F VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_497ED39B034F
+
+: ME_51C3139D029E
+ CONST UID '51C3139D029E'
+ CONST Name 'lblReference'
+ CONST Class class_Class
+ : Stereotype st_Control ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Введите координаты, по которым пользователи могут связаться с вами для регистрации в системе ГАРАНТ.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_497ED39B034F // PrimForbidAutoregistration
+ ;
+ CONST "ControlClass" 'TvtLabel'
+ CONST "pm" true
+ CONST "put to dfm" false
+
+ref; // ME_51C3139D029E lblReference
+
+FORWARD ME_51C313FD00BF
+
+: ME_51C3144301DA
+ CONST UID '51C3144301DA'
+ CONST Name 'lblPhone'
+ CONST Class class_Class
+ : Stereotype st_Control ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Телефон' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_51C313FD00BF // gbInfo
+ ;
+ CONST "ControlClass" 'TvtLabel'
+ CONST "pm" true
+ CONST "put to dfm" false
+
+ref; // ME_51C3144301DA lblPhone
+
+: ME_51C3147900E2
+ CONST UID '51C3147900E2'
+ CONST Name 'lblEmail'
+ CONST Class class_Class
+ : Stereotype st_Control ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'E-mail' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_51C313FD00BF // gbInfo
+ ;
+ CONST "ControlClass" 'TvtLabel'
+ CONST "pm" true
+ CONST "put to dfm" false
+
+ref; // ME_51C3147900E2 lblEmail
+
+: ME_51C314A90356
+ CONST UID '51C314A90356'
+ CONST Name 'lblHint'
+ CONST Class class_Class
+ : Stereotype st_Control ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '(Заполнение одного из полей обязательно)' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_51C313FD00BF // gbInfo
+ ;
+ CONST "ControlClass" 'TvtLabel'
+ CONST "pm" true
+ CONST "put to dfm" false
+
+ref; // ME_51C314A90356 lblHint
+
+: ME_51C314CD03B6
+ CONST UID '51C314CD03B6'
+ CONST Name 'cbPhone'
+ CONST Class class_Class
+ : Stereotype st_Control ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_51C313FD00BF // gbInfo
+ ;
+ CONST "ControlClass" 'TnscEdit'
+ CONST "pm" true
+ CONST "put to dfm" false
+
+ref; // ME_51C314CD03B6 cbPhone
+
+: ME_51C314E50165
+ CONST UID '51C314E50165'
+ CONST Name 'cbEmail'
+ CONST Class class_Class
+ : Stereotype st_Control ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_51C313FD00BF // gbInfo
+ ;
+ CONST "ControlClass" 'TnscEdit'
+ CONST "pm" true
+ CONST "put to dfm" false
+
+ref; // ME_51C314E50165 cbEmail
+
+: ME_51C313FD00BF
+ CONST UID '51C313FD00BF'
+ CONST Name 'gbInfo'
+ CONST Class class_Class
+ : Stereotype st_Control ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Администратор системы' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_497ED39B034F // PrimForbidAutoregistration
+ ;
+ : Attributes
+   Seq: ( HWL ME_51C3144301DA // lblPhone
+ HWL ME_51C3147900E2 // lblEmail
+ HWL ME_51C314A90356 // lblHint
+ HWL ME_51C314CD03B6 // cbPhone
+ HWL ME_51C314E50165 // cbEmail
+ )
+ ; // Attributes
+ CONST "ControlClass" 'TvtGroupBox'
+ CONST "pm" true
+ CONST "put to dfm" false
+
+ref; // ME_51C313FD00BF gbInfo
+
+: ME_497ED3E60038
+ CONST UID '497ED3E60038'
+ CONST Name 'dsForbidAutoregistration'
+ CONST Class class_Attribute
+ : Stereotype st_ViewArea::Attribute ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent HWL ME_497ED39B034F // PrimForbidAutoregistration
+ ;
+ : Target WL 'ME_491D962D01DA' '491D961C0122.pas.ms.script' // IdsForbidAutoregistration
+ ;
+
+ref; // ME_497ED3E60038 dsForbidAutoregistration
+
+: ME_51C3165101B7
+ CONST UID '51C3165101B7'
+ CONST Name 'cbEmailChange'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_497ED39B034F // PrimForbidAutoregistration
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
+ )
+ ; // Inherits
+
+ref; // ME_51C3165101B7 cbEmailChange
+
+: ME_4AC4EB630347
+ CONST UID '4AC4EB630347'
+ CONST Name 'Make'
+ CONST Class class_Operation
+ : Stereotype st_factory::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_497ED39B034F // PrimForbidAutoregistration
+ ;
+
+ref; // ME_4AC4EB630347 Make
+
+: ME_51C32C1102F2
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_497ED39B034F // PrimForbidAutoregistration
+ ;
+ : Target WL 'ME_47D15712022D' '55C4AEC801CA.pas.ms.script' // Graphics
+ ;
+
+ref; // ME_51C32C1102F2 
+
+: ME_51C32CD10196
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_497ED39B034F // PrimForbidAutoregistration
+ ;
+ : Target WL 'ME_4C88F33402E6' '48F747EC0073.pas.ms.script' // nsEmailVerify
+ ;
+
+ref; // ME_51C32CD10196 
+
+: ME_51C32D00033F
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_497ED39B034F // PrimForbidAutoregistration
+ ;
+ : Target WL 'ME_47E11FC3021E' '4799D29F033F.pas.ms.script' // Controls
+ ;
+
+ref; // ME_51C32D00033F 
+
+: ME_51C32D030288
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_497ED39B034F // PrimForbidAutoregistration
+ ;
+ : Target WL 'ME_47E13C6B0341' '4799D29F033F.pas.ms.script' // Forms
+ ;
+
+ref; // ME_51C32D030288 
+
+: ME_497469C90140_ME_497ED39B034F
+ : Original WL 'ME_497469C90140' '5000041101C8.pas.ms.script' // NotifyDataSourceChanged
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_497469C90140_ME_497ED39B034F NotifyDataSourceChanged
+
+: ME_4A8E8F2E0195_ME_497ED39B034F
+ : Original WL 'ME_4A8E8F2E0195' '5000041101C8.pas.ms.script' // InitControls
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4A8E8F2E0195_ME_497ED39B034F InitControls
+
+: ME_497ED39B034F
+ CONST UID '497ED39B034F'
+ CONST Name 'PrimForbidAutoregistration'
+ CONST Class class_Class
+ : Stereotype st_VCMForm ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Используется при запрете авторегистрации' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_49480CD20303' '49480CD20303.pas.ms.script' // Admin
+ ;
+ : Inherits
+   Seq: ( WL 'ME_49525B34022A' '4AADF9450143.pas.ms.script' // TvcmEntityForm
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( HWL ME_51C3139D029E // lblReference
+ HWL ME_51C313FD00BF // gbInfo
+ HWL ME_497ED3E60038 // dsForbidAutoregistration
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( HWL ME_51C3165101B7 // cbEmailChange
+ HWL ME_4AC4EB630347 // Make
+ )
+ ; // Operations
+ : Overridden
+   Seq: ( ME_497469C90140_ME_497ED39B034F // NotifyDataSourceChanged
+ ME_4A8E8F2E0195_ME_497ED39B034F // InitControls
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_51C32C1102F2 // Graphics
+ ME_51C32CD10196 // nsEmailVerify
+ ME_51C32D00033F // Controls
+ ME_51C32D030288 // Forms
+ )
+ ; // Dependencies
+ CONST "NeedsHackRef" false
+ CONST "ZoneType" 'Modal'
+ CONST "author" 'Люлин А.В.'
+ CONST "finished dfm" true
+ CONST "no hands" true
+ CONST "resizeable" false
+ CONST "restrict form def" 'undefined'
+ CONST "started" '27.01.2009 12:28'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Admin\Forms\PrimForbidAutoregistration_Form.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Admin\Forms'
+ CONST extprop:pas:TypeName 'TPrimForbidAutoregistrationForm'
+ CONST extprop:rc:SelfName 'PrimForbidAutoregistrationForm'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'PrimForbidAutoregistration_Form'
+
+ref; // ME_497ED39B034F PrimForbidAutoregistration

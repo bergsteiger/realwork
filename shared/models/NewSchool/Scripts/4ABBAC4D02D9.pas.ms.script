@@ -1,0 +1,60 @@
+// TasksPanel 4ABBAC4D02D9 VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4ABBAC4D02D9
+
+: ME_11E82CED6840
+ CONST UID '11E82CED6840'
+ CONST Name 'Ini_FormFactory_TasksPanel'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы TasksPanel' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4ABBAC4D02D9 // TasksPanel
+ ;
+ : SpelledFor HWL ME_4ABBAC4D02D9 // TasksPanel
+ ;
+
+ref; // ME_11E82CED6840 Ini_FormFactory_TasksPanel
+
+: ME_4ABBAC4D02D9
+ CONST UID '4ABBAC4D02D9'
+ CONST Name 'TasksPanel'
+ CONST Class class_Class
+ : Stereotype st_VCMFinalForm ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Панель задач' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent WL 'ME_4A92C1380380' '4A92C1380380.pas.ms.script' // PrimF1Common
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4B13C72F0167' '4B13C72F0167.pas.ms.script' // PrimTasksPanel
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4BD8723302F5' '4BD856E802F9.pas.ms.script' // TasksPanel
+ )
+ ; // Implements
+ : Operations
+   Seq: ( HWL ME_11E82CED6840 // Ini_FormFactory_TasksPanel
+ )
+ ; // Operations
+ CONST "NeedsHackRef" true
+ CONST "ZoneType" 'Any'
+ CONST "finished dfm" true
+ CONST "form name prefix" 'en_'
+ CONST "no hands" true
+ CONST "resizeable" false
+ CONST "restrict form def" 'undefined'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\TasksPanel_Form.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms'
+ CONST extprop:pas:TypeName 'Ten_TasksPanel'
+ CONST extprop:rc:SelfName 'en_TasksPanel'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'TasksPanel_Form'
+
+ref; // ME_4ABBAC4D02D9 TasksPanel

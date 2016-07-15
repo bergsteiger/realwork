@@ -15,7 +15,7 @@ FORWARD ME_54539D94024C
  CONST Visibility PublicAccess
  CONST Abstraction at_final
  CONST LinkType lt_agr
- : Parent ME_54539D94024C // Tm3ArcHandleData
+ : Parent HWL ME_54539D94024C // Tm3ArcHandleData
  ;
  : Target WL 'ME_47208C70028B' '4AB0C3C60310.pas.ms.script' // Int64
  ;
@@ -29,7 +29,7 @@ ref; // ME_54539DC9032F Position
  CONST Visibility PublicAccess
  CONST Abstraction at_final
  CONST LinkType lt_agr
- : Parent ME_54539D94024C // Tm3ArcHandleData
+ : Parent HWL ME_54539D94024C // Tm3ArcHandleData
  ;
  : Target WL 'ME_47208C70028B' '4AB0C3C60310.pas.ms.script' // Int64
  ;
@@ -43,7 +43,7 @@ ref; // ME_54539DD101CF PositionInStream
  CONST Visibility PublicAccess
  CONST Abstraction at_final
  CONST LinkType lt_agr
- : Parent ME_54539D94024C // Tm3ArcHandleData
+ : Parent HWL ME_54539D94024C // Tm3ArcHandleData
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -58,12 +58,12 @@ ref; // ME_54539DE40378 DataSize
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_54539D300254 // Tm3ArcHandle
+ : Parent HWL ME_54539D300254 // Tm3ArcHandle
  ;
  : Attributes
-   Seq: ( ME_54539DC9032F // Position
- ME_54539DD101CF // PositionInStream
- ME_54539DE40378 // DataSize
+   Seq: ( HWL ME_54539DC9032F // Position
+ HWL ME_54539DD101CF // PositionInStream
+ HWL ME_54539DE40378 // DataSize
  )
  ; // Attributes
 
@@ -76,9 +76,9 @@ ref; // ME_54539D94024C Tm3ArcHandleData
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_54539D300254 // Tm3ArcHandle
+ : Parent HWL ME_54539D300254 // Tm3ArcHandle
  ;
- : Target ME_54539D94024C // Tm3ArcHandleData
+ : Target HWL ME_54539D94024C // Tm3ArcHandleData
  ;
 
 ref; // ME_54539DA603E0 Data
@@ -86,7 +86,7 @@ ref; // ME_54539DA603E0 Data
 : ME_54539D810393
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_54539D300254 // Tm3ArcHandle
+ : Parent HWL ME_54539D300254 // Tm3ArcHandle
  ;
  : Target WL 'ME_4773D64E036C' '47913B47006E.pas.ms.script' // l3Base
  ;
@@ -126,14 +126,14 @@ ref; // ME_47A6FEE600FC_ME_54539D300254 IsCacheable
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_54870DB502F5 // ArchiveStreams
+ : Parent HWL ME_54870DB502F5 // ArchiveStreams
  ;
  : Inherits
    Seq: ( WL 'ME_5421799C0066' '48294AA903A6.pas.ms.script' // Tm3Persistent
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_54539DA603E0 // Data
+   Seq: ( HWL ME_54539DA603E0 // Data
  )
  ; // Attributes
  : Implemented
@@ -147,7 +147,7 @@ ref; // ME_47A6FEE600FC_ME_54539D300254 IsCacheable
  )
  ; // Overridden
  : Children
-   Seq: ( ME_54539D94024C // Tm3ArcHandleData
+   Seq: ( HWL ME_54539D94024C // Tm3ArcHandleData
  )
  ; // Children
  : Dependencies
@@ -171,7 +171,7 @@ FORWARD ME_53FF2D7500EB
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_53FF2D7500EB // Tm3BaseArcStream
+ : Parent HWL ME_53FF2D7500EB // Tm3BaseArcStream
  ;
  CONST "need UC" true
  CONST "packed" true
@@ -186,9 +186,9 @@ ref; // ME_53FF2DA80270 Tm3BaseArcStreamHeader
  CONST Visibility PrivateAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_53FF2D7500EB // Tm3BaseArcStream
+ : Parent HWL ME_53FF2D7500EB // Tm3BaseArcStream
  ;
- : Target ME_53FF2DA80270 // Tm3BaseArcStreamHeader
+ : Target HWL ME_53FF2DA80270 // Tm3BaseArcStreamHeader
  ;
 
 ref; // ME_53FF590600E8 HeaderType
@@ -215,14 +215,14 @@ ref; // ME_53FF37DC003A_ME_53FF2D7500EB DefaultHeaderValue
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_54870DB502F5 // ArchiveStreams
+ : Parent HWL ME_54870DB502F5 // ArchiveStreams
  ;
  : Inherits
    Seq: ( WL 'ME_53FDCEC40006' '5485C15F0072.pas.ms.script' // m3CustomHeaderStream
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_53FF590600E8 // HeaderType
+   Seq: ( HWL ME_53FF590600E8 // HeaderType
  )
  ; // Attributes
  : Implemented
@@ -231,7 +231,7 @@ ref; // ME_53FF37DC003A_ME_53FF2D7500EB DefaultHeaderValue
  )
  ; // Implemented
  : Children
-   Seq: ( ME_53FF2DA80270 // Tm3BaseArcStreamHeader
+   Seq: ( HWL ME_53FF2DA80270 // Tm3BaseArcStreamHeader
  )
  ; // Children
  CONST intf.pas:Path 'common\components\rtl\Garant\m3\m3BaseArcStream.pas'
@@ -251,9 +251,9 @@ FORWARD ME_54539E0A00DA
  CONST Visibility PrivateAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_54539E0A00DA // Tm3ArcHandleList
+ : Parent HWL ME_54539E0A00DA // Tm3ArcHandleList
  ;
- : Target ME_54539D300254 // Tm3ArcHandle
+ : Target HWL ME_54539D300254 // Tm3ArcHandle
  ;
 
 ref; // ME_545B66050163 ItemType
@@ -266,7 +266,7 @@ ref; // ME_545B66050163 ItemType
  CONST Visibility PrivateAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_54539E0A00DA // Tm3ArcHandleList
+ : Parent HWL ME_54539E0A00DA // Tm3ArcHandleList
  ;
  : Target WL 'ME_47208C70028B' '4AB0C3C60310.pas.ms.script' // Int64
  ;
@@ -276,9 +276,9 @@ ref; // ME_545B849E01B2 KeyType
 : ME_54539E260298
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_54539E0A00DA // Tm3ArcHandleList
+ : Parent HWL ME_54539E0A00DA // Tm3ArcHandleList
  ;
- : Target ME_54539D300254 // Tm3ArcHandle
+ : Target HWL ME_54539D300254 // Tm3ArcHandle
  ;
 
 ref; // ME_54539E260298 
@@ -286,7 +286,7 @@ ref; // ME_54539E260298
 : ME_545B8F9B0006
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_54539E0A00DA // Tm3ArcHandleList
+ : Parent HWL ME_54539E0A00DA // Tm3ArcHandleList
  ;
  : Target WL 'ME_5448EB690307' '47BF042D029B.pas.ms.script' // m2S64Lib
  ;
@@ -314,15 +314,15 @@ ref; // ME_47A6FEE600FC_ME_54539E0A00DA IsCacheable
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_54870DB502F5 // ArchiveStreams
+ : Parent HWL ME_54870DB502F5 // ArchiveStreams
  ;
  : Inherits
    Seq: ( WL 'ME_542179BD00BB' '48294AA903A6.pas.ms.script' // m3PersistentList
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_545B66050163 // ItemType
- ME_545B849E01B2 // KeyType
+   Seq: ( HWL ME_545B66050163 // ItemType
+ HWL ME_545B849E01B2 // KeyType
  )
  ; // Attributes
  : Implemented
@@ -371,10 +371,10 @@ ref; // ME_5408826C0072_ME_542AA47B0241 NeedHeaderAlignment
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_54870DB502F5 // ArchiveStreams
+ : Parent HWL ME_54870DB502F5 // ArchiveStreams
  ;
  : Inherits
-   Seq: ( ME_542AA040007A // Tm3LZODeflateStream
+   Seq: ( HWL ME_542AA040007A // Tm3LZODeflateStream
  )
  ; // Inherits
  : Overridden
@@ -396,9 +396,9 @@ FORWARD ME_542AA48C0354
 : ME_542AA49B00D5
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_542AA48C0354 // Tm3LZOInflateStreamNew
+ : Parent HWL ME_542AA48C0354 // Tm3LZOInflateStreamNew
  ;
- : Target ME_542AA47B0241 // Tm3LZODeflateStreamNew
+ : Target HWL ME_542AA47B0241 // Tm3LZODeflateStreamNew
  ;
 
 ref; // ME_542AA49B00D5 
@@ -425,10 +425,10 @@ ref; // ME_5408826C0072_ME_542AA48C0354 NeedHeaderAlignment
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_54870DB502F5 // ArchiveStreams
+ : Parent HWL ME_54870DB502F5 // ArchiveStreams
  ;
  : Inherits
-   Seq: ( ME_542AA02E0128 // Tm3LZOInflateStream
+   Seq: ( HWL ME_542AA02E0128 // Tm3LZOInflateStream
  )
  ; // Inherits
  : Overridden
@@ -457,10 +457,10 @@ FORWARD ME_542A9FC5028B
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_542A9FC5028B // m3ArcCla
+ : Parent HWL ME_542A9FC5028B // m3ArcCla
  ;
  : Inherits
-   Seq: ( ME_53FF2D7500EB // Tm3BaseArcStream
+   Seq: ( HWL ME_53FF2D7500EB // Tm3BaseArcStream
  )
  ; // Inherits
  CONST extprop:rc:SelfName 'm3ArcInflateStream'
@@ -476,10 +476,10 @@ ref; // ME_542A9FF7001B Tm3ArcInflateStream
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_542A9FC5028B // m3ArcCla
+ : Parent HWL ME_542A9FC5028B // m3ArcCla
  ;
  : Inherits
-   Seq: ( ME_53FF2D7500EB // Tm3BaseArcStream
+   Seq: ( HWL ME_53FF2D7500EB // Tm3BaseArcStream
  )
  ; // Inherits
  CONST extprop:rc:SelfName 'm3ArcDeflateStream'
@@ -495,10 +495,10 @@ ref; // ME_542AA00C0250 Tm3ArcDeflateStream
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_542A9FC5028B // m3ArcCla
+ : Parent HWL ME_542A9FC5028B // m3ArcCla
  ;
  : Inherits
-   Seq: ( ME_542A9FF7001B // Tm3ArcInflateStream
+   Seq: ( HWL ME_542A9FF7001B // Tm3ArcInflateStream
  )
  ; // Inherits
  CONST extprop:rc:SelfName 'm3LZOInflateStream'
@@ -514,10 +514,10 @@ ref; // ME_542AA02E0128 Tm3LZOInflateStream
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_542A9FC5028B // m3ArcCla
+ : Parent HWL ME_542A9FC5028B // m3ArcCla
  ;
  : Inherits
-   Seq: ( ME_542AA00C0250 // Tm3ArcDeflateStream
+   Seq: ( HWL ME_542AA00C0250 // Tm3ArcDeflateStream
  )
  ; // Inherits
  CONST extprop:rc:SelfName 'm3LZODeflateStream'
@@ -528,9 +528,9 @@ ref; // ME_542AA040007A Tm3LZODeflateStream
 : ME_54539D3F01C1
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_542A9FC5028B // m3ArcCla
+ : Parent HWL ME_542A9FC5028B // m3ArcCla
  ;
- : Target ME_54539D300254 // Tm3ArcHandle
+ : Target HWL ME_54539D300254 // Tm3ArcHandle
  ;
 
 ref; // ME_54539D3F01C1 
@@ -538,9 +538,9 @@ ref; // ME_54539D3F01C1
 : ME_54539E310108
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_542A9FC5028B // m3ArcCla
+ : Parent HWL ME_542A9FC5028B // m3ArcCla
  ;
- : Target ME_54539E0A00DA // Tm3ArcHandleList
+ : Target HWL ME_54539E0A00DA // Tm3ArcHandleList
  ;
 
 ref; // ME_54539E310108 
@@ -553,13 +553,13 @@ ref; // ME_54539E310108
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_54870DB502F5 // ArchiveStreams
+ : Parent HWL ME_54870DB502F5 // ArchiveStreams
  ;
  : Children
-   Seq: ( ME_542A9FF7001B // Tm3ArcInflateStream
- ME_542AA00C0250 // Tm3ArcDeflateStream
- ME_542AA02E0128 // Tm3LZOInflateStream
- ME_542AA040007A // Tm3LZODeflateStream
+   Seq: ( HWL ME_542A9FF7001B // Tm3ArcInflateStream
+ HWL ME_542AA00C0250 // Tm3ArcDeflateStream
+ HWL ME_542AA02E0128 // Tm3LZOInflateStream
+ HWL ME_542AA040007A // Tm3LZODeflateStream
  )
  ; // Children
  : Dependencies
@@ -582,12 +582,12 @@ ref; // ME_542A9FC5028B m3ArcCla
  : Parent WL 'ME_472082480337' '472082480337.pas.ms.script' // m3
  ;
  : Children
-   Seq: ( ME_54539D300254 // Tm3ArcHandle
- ME_53FF2D7500EB // Tm3BaseArcStream
- ME_54539E0A00DA // Tm3ArcHandleList
- ME_542AA47B0241 // Tm3LZODeflateStreamNew
- ME_542AA48C0354 // Tm3LZOInflateStreamNew
- ME_542A9FC5028B // m3ArcCla
+   Seq: ( HWL ME_54539D300254 // Tm3ArcHandle
+ HWL ME_53FF2D7500EB // Tm3BaseArcStream
+ HWL ME_54539E0A00DA // Tm3ArcHandleList
+ HWL ME_542AA47B0241 // Tm3LZODeflateStreamNew
+ HWL ME_542AA48C0354 // Tm3LZOInflateStreamNew
+ HWL ME_542A9FC5028B // m3ArcCla
  )
  ; // Children
  : Depends

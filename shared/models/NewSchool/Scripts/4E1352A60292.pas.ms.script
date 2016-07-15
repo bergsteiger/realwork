@@ -4,333 +4,16 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 FORWARD ME_4E1352A60292
 
-FORWARD ME_4CFF6CF60266
-
-FORWARD ME_5018F93C01CC
-
-: ME_5018F9990331
- CONST Name 'aSender'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_5018F9990331 aSender
-
-: ME_5018F9990397
- CONST Name 'aHandled'
- CONST Class class_Parameter
- : Stereotype st_out ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_5018F9990397 aHandled
-
-: ME_5018F96E0159
- CONST UID '5018F96E0159'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_5018F93C01CC // TBreakingParaEvent
- ;
- : Parameters
-   Seq: ( ME_5018F9990331 // aSender
- ME_5018F9990397 // aHandled
- )
- ; // Parameters
-
-ref; // ME_5018F96E0159 DoIt
-
-: ME_5018F93C01CC
- CONST UID '5018F93C01CC'
- CONST Name 'TBreakingParaEvent'
- CONST Class class_Class
- : Stereotype st_Function ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4CFF6CF60266 // TnscSimpleEditor
- ;
- : Operations
-   Seq: ( ME_5018F96E0159 // DoIt
- )
- ; // Operations
- CONST "of object" true
-
-ref; // ME_5018F93C01CC TBreakingParaEvent
-
-: ME_5018FA4600BB
- CONST UID '5018FA4600BB'
- CONST Name 'f_OnBreakingPara'
- CONST Class class_Attribute
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_4CFF6CF60266 // TnscSimpleEditor
- ;
- : Target ME_5018F93C01CC // TBreakingParaEvent
- ;
-
-ref; // ME_5018FA4600BB f_OnBreakingPara
-
-: ME_530B25360303
- CONST UID '530B25360303'
- CONST Name 'DisableMouseWheelProcessing'
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_4CFF6CF60266 // TnscSimpleEditor
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST "needs field" true
- CONST "pm" true
-
-ref; // ME_530B25360303 DisableMouseWheelProcessing
-
-: ME_50191EF60191
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4CFF6CF60266 // TnscSimpleEditor
- ;
- : Target WL 'ME_48C78D6601CC' '4799D29F033F.pas.ms.script' // TScrollStyle
- ;
-
-ref; // ME_50191EF60191 
-
-: ME_530B113D0022
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4CFF6CF60266 // TnscSimpleEditor
- ;
- : Target WL 'ME_4AC9A47200C3' '476F78840219.pas.ms.script' // TWMMouseWheel
- ;
-
-ref; // ME_530B113D0022 
-
-: ME_530B21C60022
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4CFF6CF60266 // TnscSimpleEditor
- ;
- : Target WL 'ME_47E13C6B0341' '4799D29F033F.pas.ms.script' // Forms
- ;
-
-ref; // ME_530B21C60022 
-
-: ME_530B250F029A
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4CFF6CF60266 // TnscSimpleEditor
- ;
- : Target WL 'ME_47E11FC3021E' '4799D29F033F.pas.ms.script' // Controls
- ;
-
-ref; // ME_530B250F029A 
-
-: ME_47D1602000C6_ME_4CFF6CF60266
- : Original WL 'ME_47D1602000C6' '4AB0997B00A2.pas.ms.script' // Create
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_47D1602000C6_ME_4CFF6CF60266 Create
-
-: ME_47E136A80191_ME_4CFF6CF60266
- : Original WL 'ME_47E136A80191' '4799D29F033F.pas.ms.script' // WndProc
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_47E136A80191_ME_4CFF6CF60266 WndProc
-
-: ME_482BFBEE00D5_ME_4CFF6CF60266
- : Original WL 'ME_482BFBEE00D5' '4829D7D50156.pas.ms.script' // AllowDrawDocumentEdge
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_482BFBEE00D5_ME_4CFF6CF60266 AllowDrawDocumentEdge
-
-: ME_482BFCBF01F0_ME_4CFF6CF60266
- : Original WL 'ME_482BFCBF01F0' '4829D7D50156.pas.ms.script' // DoBreakPara
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_482BFCBF01F0_ME_4CFF6CF60266 DoBreakPara
-
-: ME_48735C4A03C3_ME_4CFF6CF60266
- : Original WL 'ME_48735C4A03C3' '4829D7D50156.pas.ms.script' // DefineProvideOperations
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_48735C4A03C3_ME_4CFF6CF60266 DefineProvideOperations
-
-: ME_48E22AD302CE_ME_4CFF6CF60266
- : Original WL 'ME_48E22AD302CE' '4829D7D50156.pas.ms.script' // SelectWhenUnfocused
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_48E22AD302CE_ME_4CFF6CF60266 SelectWhenUnfocused
-
-: ME_4CFF6CF60266
- CONST UID '4CFF6CF60266'
- CONST Name 'TnscSimpleEditor'
- CONST Class class_Class
- : Stereotype st_GuiControl ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4E1352A60292 // Editors
- ;
- : Inherits
-   Seq: ( WL 'ME_4829D81D02E5' '4829D7D50156.pas.ms.script' // TevCustomMemo
- )
- ; // Inherits
- : Attributes
-   Seq: ( ME_5018FA4600BB // f_OnBreakingPara
- ME_530B25360303 // DisableMouseWheelProcessing
- )
- ; // Attributes
- : Overridden
-   Seq: ( ME_47D1602000C6_ME_4CFF6CF60266 // Create
- ME_47E136A80191_ME_4CFF6CF60266 // WndProc
- ME_482BFBEE00D5_ME_4CFF6CF60266 // AllowDrawDocumentEdge
- ME_482BFCBF01F0_ME_4CFF6CF60266 // DoBreakPara
- ME_48735C4A03C3_ME_4CFF6CF60266 // DefineProvideOperations
- ME_48E22AD302CE_ME_4CFF6CF60266 // SelectWhenUnfocused
- )
- ; // Overridden
- : Children
-   Seq: ( ME_5018F93C01CC // TBreakingParaEvent
- )
- ; // Children
- : Dependencies
-   Seq: ( ME_50191EF60191 // TScrollStyle
- ME_530B113D0022 // TWMMouseWheel
- ME_530B21C60022 // Forms
- ME_530B250F029A // Controls
- )
- ; // Dependencies
- CONST "need UC" true
- CONST intf.pas:Path 'common\components\gui\Garant\Nemesis\nscSimpleEditor.pas'
- CONST extprop:rc:SelfName 'SimpleEditor'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'nscSimpleEditor'
-
-ref; // ME_4CFF6CF60266 TnscSimpleEditor
-
-FORWARD ME_4D6B981E0319
-
 FORWARD ME_4D6BAF110364
-
-: ME_4D6BAF21020E
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4D6B981E0319 // TnscSimpleEditorForDialogs
- ;
- : Target ME_4D6BAF110364 // TnscSimpleEditorForDialogsTextSource
- ;
-
-ref; // ME_4D6BAF21020E 
-
-: ME_4D6BD00F0286
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4D6B981E0319 // TnscSimpleEditorForDialogs
- ;
- : Target WL 'ME_47C69EBC00A8' '47AC75550330.pas.ms.script' // Tk2TagID
- ;
-
-ref; // ME_4D6BD00F0286 
-
-: ME_4E1352CE03B1
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4D6B981E0319 // TnscSimpleEditorForDialogs
- ;
- : Target ME_4D6BAF110364 // TnscSimpleEditorForDialogsTextSource
- ;
-
-ref; // ME_4E1352CE03B1 
-
-: ME_47D1602000C6_ME_4D6B981E0319
- : Original WL 'ME_47D1602000C6' '4AB0997B00A2.pas.ms.script' // Create
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_47D1602000C6_ME_4D6B981E0319 Create
-
-: ME_482D9D1701E0_ME_4D6B981E0319
- : Original WL 'ME_482D9D1701E0' '4829D7D50156.pas.ms.script' // TextSourceClass
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_482D9D1701E0_ME_4D6B981E0319 TextSourceClass
-
-: ME_48735C4A03C3_ME_4D6B981E0319
- : Original WL 'ME_48735C4A03C3' '4829D7D50156.pas.ms.script' // DefineProvideOperations
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_48735C4A03C3_ME_4D6B981E0319 DefineProvideOperations
-
-: ME_4A8A6D4701CC_ME_4D6B981E0319
- : Original WL 'ME_4A8A6D4701CC' '4829D7D50156.pas.ms.script' // KeepParaFormattingTag
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4A8A6D4701CC_ME_4D6B981E0319 KeepParaFormattingTag
-
-: ME_4D6B97CB00AA_ME_4D6B981E0319
- : Original WL 'ME_4D6B97CB00AA' '4829D7D50156.pas.ms.script' // UseMemoFontForParagraphs
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4D6B97CB00AA_ME_4D6B981E0319 UseMemoFontForParagraphs
-
-: ME_4E1350DE0094_ME_4D6B981E0319
- : Original WL 'ME_4E1350DE0094' '4799D29F033F.pas.ms.script' // CanFocus
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4E1350DE0094_ME_4D6B981E0319 CanFocus
-
-: ME_4D6B981E0319
- CONST UID '4D6B981E0319'
- CONST Name 'TnscSimpleEditorForDialogs'
- CONST Class class_Class
- : Stereotype st_GuiControl ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4E1352A60292 // Editors
- ;
- : Inherits
-   Seq: ( ME_4CFF6CF60266 // TnscSimpleEditor
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_47D1602000C6_ME_4D6B981E0319 // Create
- ME_482D9D1701E0_ME_4D6B981E0319 // TextSourceClass
- ME_48735C4A03C3_ME_4D6B981E0319 // DefineProvideOperations
- ME_4A8A6D4701CC_ME_4D6B981E0319 // KeepParaFormattingTag
- ME_4D6B97CB00AA_ME_4D6B981E0319 // UseMemoFontForParagraphs
- ME_4E1350DE0094_ME_4D6B981E0319 // CanFocus
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_4D6BAF21020E // TnscSimpleEditorForDialogsTextSource
- ME_4D6BD00F0286 // Tk2TagID
- ME_4E1352CE03B1 // TnscSimpleEditorForDialogsTextSource
- )
- ; // Dependencies
- CONST "author" 'Ëþëèí À.Â.'
- CONST "no hands" true
- CONST "started" '28.02.2011 15:42'
- CONST intf.pas:Path 'common\components\gui\Garant\Nemesis\nscSimpleEditorForDialogs.pas'
- CONST extprop:rc:SelfName 'SimpleEditorForDialogs'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'nscSimpleEditorForDialogs'
-
-ref; // ME_4D6B981E0319 TnscSimpleEditorForDialogs
 
 FORWARD ME_4D6BAF99010E
 
 : ME_4D6BAFBB00A5
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4D6BAF110364 // TnscSimpleEditorForDialogsTextSource
+ : Parent HWL ME_4D6BAF110364 // TnscSimpleEditorForDialogsTextSource
  ;
- : Target ME_4D6BAF99010E // TnscSimpleEditorForDialogsContainer
+ : Target HWL ME_4D6BAF99010E // TnscSimpleEditorForDialogsContainer
  ;
 
 ref; // ME_4D6BAFBB00A5 
@@ -338,9 +21,9 @@ ref; // ME_4D6BAFBB00A5
 : ME_4E1352D80230
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4D6BAF110364 // TnscSimpleEditorForDialogsTextSource
+ : Parent HWL ME_4D6BAF110364 // TnscSimpleEditorForDialogsTextSource
  ;
- : Target ME_4D6BAF99010E // TnscSimpleEditorForDialogsContainer
+ : Target HWL ME_4D6BAF99010E // TnscSimpleEditorForDialogsContainer
  ;
 
 ref; // ME_4E1352D80230 
@@ -359,7 +42,7 @@ ref; // ME_482D9A030221_ME_4D6BAF110364 DoMakeDocumentContainer
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4E1352A60292 // Editors
+ : Parent HWL ME_4E1352A60292 // Editors
  ;
  : Inherits
    Seq: ( WL 'ME_482D98A20190' '4829D7D50156.pas.ms.script' // TevCustomMemoTextSource
@@ -398,7 +81,7 @@ ref; // ME_4D6BAFE8013D_ME_4D6BAF99010E UseWikiMarkup
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4E1352A60292 // Editors
+ : Parent HWL ME_4E1352A60292 // Editors
  ;
  : Inherits
    Seq: ( WL 'ME_482D888D039E' '4829D7D50156.pas.ms.script' // TevCustomMemoContainer
@@ -428,10 +111,10 @@ ref; // ME_4D6BAF99010E TnscSimpleEditorForDialogsContainer
  : Parent WL 'ME_4E1352670215' '4E1352670215.pas.ms.script' // Nemesis$Tails
  ;
  : Children
-   Seq: ( ME_4CFF6CF60266 // TnscSimpleEditor
- ME_4D6B981E0319 // TnscSimpleEditorForDialogs
- ME_4D6BAF110364 // TnscSimpleEditorForDialogsTextSource
- ME_4D6BAF99010E // TnscSimpleEditorForDialogsContainer
+   Seq: ( WL 'ME_4CFF6CF60266' '4CFF6CF60266.pas.ms.script' // TnscSimpleEditor
+ WL 'ME_4D6B981E0319' '4D6B981E0319.pas.ms.script' // TnscSimpleEditorForDialogs
+ HWL ME_4D6BAF110364 // TnscSimpleEditorForDialogsTextSource
+ HWL ME_4D6BAF99010E // TnscSimpleEditorForDialogsContainer
  )
  ; // Children
  : Depends

@@ -1,0 +1,536 @@
+// TChromeLikeBaseWindowCaptionButton 533D01CB01B1 GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_533D01CB01B1
+
+FORWARD ME_533D01FF01FB
+
+: ME_533D02110359
+ CONST UID '533D02110359'
+ CONST Name 'cbsDisabled'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_533D01FF01FB // TChromeLikeWindowCaptionButtonState
+ ;
+
+ref; // ME_533D02110359 cbsDisabled
+
+: ME_533D021A0311
+ CONST UID '533D021A0311'
+ CONST Name 'cbsHot'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_533D01FF01FB // TChromeLikeWindowCaptionButtonState
+ ;
+
+ref; // ME_533D021A0311 cbsHot
+
+: ME_533D022102B8
+ CONST UID '533D022102B8'
+ CONST Name 'cbsNormal'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_533D01FF01FB // TChromeLikeWindowCaptionButtonState
+ ;
+
+ref; // ME_533D022102B8 cbsNormal
+
+: ME_533D02290299
+ CONST UID '533D02290299'
+ CONST Name 'cbsPushed'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_533D01FF01FB // TChromeLikeWindowCaptionButtonState
+ ;
+
+ref; // ME_533D02290299 cbsPushed
+
+: ME_533D01FF01FB
+ CONST UID '533D01FF01FB'
+ CONST Name 'TChromeLikeWindowCaptionButtonState'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_533D01CB01B1 // TChromeLikeBaseWindowCaptionButton
+ ;
+ : Attributes
+   Seq: ( HWL ME_533D02110359 // cbsDisabled
+ HWL ME_533D021A0311 // cbsHot
+ HWL ME_533D022102B8 // cbsNormal
+ HWL ME_533D02290299 // cbsPushed
+ )
+ ; // Attributes
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_533D01FF01FB TChromeLikeWindowCaptionButtonState
+
+: ME_533D023A005A
+ CONST UID '533D023A005A'
+ CONST Name 'RChromeLikeWindowCaptionbuttonClass'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_533D01CB01B1 // TChromeLikeBaseWindowCaptionButton
+ ;
+ : Inherits
+   Seq: ( HWL ME_533D01CB01B1 // TChromeLikeBaseWindowCaptionButton
+ )
+ ; // Inherits
+ CONST "isClassRef" true
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_533D023A005A RChromeLikeWindowCaptionbuttonClass
+
+: ME_533D0269002B
+ CONST UID '533D0269002B'
+ CONST Name 'State'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_533D01CB01B1 // TChromeLikeBaseWindowCaptionButton
+ ;
+ : Target HWL ME_533D01FF01FB // TChromeLikeWindowCaptionButtonState
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+
+ref; // ME_533D0269002B State
+
+: ME_533D02A3034C
+ CONST UID '533D02A3034C'
+ CONST Name 'Active'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_533D01CB01B1 // TChromeLikeBaseWindowCaptionButton
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+
+ref; // ME_533D02A3034C Active
+
+: ME_533D035E03BC
+ CONST UID '533D035E03BC'
+ CONST Name 'ParentForm'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_533D01CB01B1 // TChromeLikeBaseWindowCaptionButton
+ ;
+ : Target WL 'ME_4952591E0263' '4799D29F033F.pas.ms.script' // TForm
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+
+ref; // ME_533D035E03BC ParentForm
+
+: ME_533EA4A70020
+ CONST UID '533EA4A70020'
+ CONST Name 'OnClick'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_533D01CB01B1 // TChromeLikeBaseWindowCaptionButton
+ ;
+ : Target WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_533EA4A70020 OnClick
+
+FORWARD ME_54744FB502AB
+
+: ME_54744FDA0046
+ CONST UID '54744FDA0046'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_54744FB502AB // NotifyFormResized
+ ;
+
+ref; // ME_54744FDA0046 DoIt
+
+: ME_54744FB502AB
+ CONST UID '54744FB502AB'
+ CONST Name 'NotifyFormResized'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_533D01CB01B1 // TChromeLikeBaseWindowCaptionButton
+ ;
+ : Operations
+   Seq: ( HWL ME_54744FDA0046 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_54744FB502AB NotifyFormResized
+
+FORWARD ME_54744FED0113
+
+: ME_54744FF900EF
+ CONST UID '54744FF900EF'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_54744FED0113 // NeedUpdateHint
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_54744FF900EF DoIt
+
+: ME_54744FED0113
+ CONST UID '54744FED0113'
+ CONST Name 'NeedUpdateHint'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_533D01CB01B1 // TChromeLikeBaseWindowCaptionButton
+ ;
+ : Operations
+   Seq: ( HWL ME_54744FF900EF // DoIt
+ )
+ ; // Operations
+
+ref; // ME_54744FED0113 NeedUpdateHint
+
+FORWARD ME_5474500600DA
+
+: ME_5474510601D2
+ CONST UID '5474510601D2'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_5474500600DA // GetHintText
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_5474510601D2 DoIt
+
+: ME_5474500600DA
+ CONST UID '5474500600DA'
+ CONST Name 'GetHintText'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_533D01CB01B1 // TChromeLikeBaseWindowCaptionButton
+ ;
+ : Operations
+   Seq: ( HWL ME_5474510601D2 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_5474500600DA GetHintText
+
+: ME_533D039F0373
+ CONST Name 'aMessage'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_476F78A602B2' '476F78840219.pas.ms.script' // TMessage
+ ;
+
+ref; // ME_533D039F0373 aMessage
+
+: ME_533D037C00E9
+ CONST UID '533D037C00E9'
+ CONST Name 'CMMouseEnter'
+ CONST Class class_Operation
+ : Stereotype st_message::Operation ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_533D01CB01B1 // TChromeLikeBaseWindowCaptionButton
+ ;
+ : Parameters
+   Seq: ( ME_533D039F0373 // aMessage
+ )
+ ; // Parameters
+ CONST "Message ID" 'CM_MOUSEENTER'
+
+ref; // ME_533D037C00E9 CMMouseEnter
+
+: ME_533D03B900F3
+ CONST Name 'aMessage'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_476F78A602B2' '476F78840219.pas.ms.script' // TMessage
+ ;
+
+ref; // ME_533D03B900F3 aMessage
+
+: ME_533D03A40389
+ CONST UID '533D03A40389'
+ CONST Name 'CMMouseLeave'
+ CONST Class class_Operation
+ : Stereotype st_message::Operation ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_533D01CB01B1 // TChromeLikeBaseWindowCaptionButton
+ ;
+ : Parameters
+   Seq: ( ME_533D03B900F3 // aMessage
+ )
+ ; // Parameters
+ CONST "Message ID" 'CM_MOUSELEAVE'
+
+ref; // ME_533D03A40389 CMMouseLeave
+
+: ME_533D03D80303
+ CONST Name 'aMessage'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_4F86F32B0299' '476F78840219.pas.ms.script' // TWMEraseBkgnd
+ ;
+
+ref; // ME_533D03D80303 aMessage
+
+: ME_533D03BE0299
+ CONST UID '533D03BE0299'
+ CONST Name 'WMEraseBkgnd'
+ CONST Class class_Operation
+ : Stereotype st_message::Operation ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_533D01CB01B1 // TChromeLikeBaseWindowCaptionButton
+ ;
+ : Parameters
+   Seq: ( ME_533D03D80303 // aMessage
+ )
+ ; // Parameters
+ CONST "Message ID" 'WM_ERASEBKGND'
+
+ref; // ME_533D03BE0299 WMEraseBkgnd
+
+: ME_533D04B403AC
+ CONST Name 'aMessage'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_476F78A602B2' '476F78840219.pas.ms.script' // TMessage
+ ;
+
+ref; // ME_533D04B403AC aMessage
+
+: ME_533D04A00242
+ CONST UID '533D04A00242'
+ CONST Name 'CMEnabledChanged'
+ CONST Class class_Operation
+ : Stereotype st_message::Operation ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_533D01CB01B1 // TChromeLikeBaseWindowCaptionButton
+ ;
+ : Parameters
+   Seq: ( ME_533D04B403AC // aMessage
+ )
+ ; // Parameters
+ CONST "Message ID" 'CM_ENABLEDCHANGED'
+
+ref; // ME_533D04A00242 CMEnabledChanged
+
+: ME_533D053901F4
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_533D01CB01B1 // TChromeLikeBaseWindowCaptionButton
+ ;
+ : Target WL 'ME_46A104F4028B' '4AB0C3F60375.pas.ms.script' // TPoint
+ ;
+
+ref; // ME_533D053901F4 
+
+: ME_533D056F02EB
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_533D01CB01B1 // TChromeLikeBaseWindowCaptionButton
+ ;
+ : Target WL 'ME_4952591E0263' '4799D29F033F.pas.ms.script' // TForm
+ ;
+
+ref; // ME_533D056F02EB 
+
+: ME_533D064301AD
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_533D01CB01B1 // TChromeLikeBaseWindowCaptionButton
+ ;
+ : Target WL 'ME_47E13C6B0341' '4799D29F033F.pas.ms.script' // Forms
+ ;
+
+ref; // ME_533D064301AD 
+
+: ME_533D064700EC
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_533D01CB01B1 // TChromeLikeBaseWindowCaptionButton
+ ;
+ : Target WL 'ME_47E11FC3021E' '4799D29F033F.pas.ms.script' // Controls
+ ;
+
+ref; // ME_533D064700EC 
+
+: ME_533D064E009D
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_533D01CB01B1 // TChromeLikeBaseWindowCaptionButton
+ ;
+ : Target WL 'ME_533BC8E40286' '4AB0C3F60375.pas.ms.script' // UxTheme
+ ;
+
+ref; // ME_533D064E009D 
+
+: ME_533D0656021C
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_533D01CB01B1 // TChromeLikeBaseWindowCaptionButton
+ ;
+ : Target WL 'ME_48A41FF10094' '4AB0C3F60375.pas.ms.script' // Windows
+ ;
+
+ref; // ME_533D0656021C 
+
+: ME_5474505C0023
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_533D01CB01B1 // TChromeLikeBaseWindowCaptionButton
+ ;
+ : Target WL 'ME_47878E0E0191' '54B90AC6014B.pas.ms.script' // l3String
+ ;
+
+ref; // ME_5474505C0023 
+
+: ME_547450AB01FC
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_533D01CB01B1 // TChromeLikeBaseWindowCaptionButton
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_547450AB01FC 
+
+: ME_47D1602000C6_ME_533D01CB01B1
+ : Original WL 'ME_47D1602000C6' '4AB0997B00A2.pas.ms.script' // Create
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_47D1602000C6_ME_533D01CB01B1 Create
+
+: ME_4A97E78202FC_ME_533D01CB01B1
+ : Original WL 'ME_4A97E78202FC' '4799D29F033F.pas.ms.script' // SetParent
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4A97E78202FC_ME_533D01CB01B1 SetParent
+
+: ME_4E7896270076_ME_533D01CB01B1
+ : Original WL 'ME_4E7896270076' '4799D29F033F.pas.ms.script' // MouseUp
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4E7896270076_ME_533D01CB01B1 MouseUp
+
+: ME_4F88469E0021_ME_533D01CB01B1
+ : Original WL 'ME_4F88469E0021' '4799D29F033F.pas.ms.script' // Click
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4F88469E0021_ME_533D01CB01B1 Click
+
+: ME_4F88473B03CD_ME_533D01CB01B1
+ : Original WL 'ME_4F88473B03CD' '4799D29F033F.pas.ms.script' // MouseDown
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4F88473B03CD_ME_533D01CB01B1 MouseDown
+
+: ME_533D01CB01B1
+ CONST UID '533D01CB01B1'
+ CONST Name 'TChromeLikeBaseWindowCaptionButton'
+ CONST Class class_Class
+ : Stereotype st_GuiControl ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_533D01A201A9' '533D01A201A9.pas.ms.script' // ChromeLikeWindowCaptionButtons
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47E1388A03A7' '4799D29F033F.pas.ms.script' // TCustomControl
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( HWL ME_533D0269002B // State
+ HWL ME_533D02A3034C // Active
+ HWL ME_533D035E03BC // ParentForm
+ HWL ME_533EA4A70020 // OnClick
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( HWL ME_54744FB502AB // NotifyFormResized
+ HWL ME_54744FED0113 // NeedUpdateHint
+ HWL ME_5474500600DA // GetHintText
+ HWL ME_533D037C00E9 // CMMouseEnter
+ HWL ME_533D03A40389 // CMMouseLeave
+ HWL ME_533D03BE0299 // WMEraseBkgnd
+ HWL ME_533D04A00242 // CMEnabledChanged
+ )
+ ; // Operations
+ : Overridden
+   Seq: ( ME_47D1602000C6_ME_533D01CB01B1 // Create
+ ME_4A97E78202FC_ME_533D01CB01B1 // SetParent
+ ME_4E7896270076_ME_533D01CB01B1 // MouseUp
+ ME_4F88469E0021_ME_533D01CB01B1 // Click
+ ME_4F88473B03CD_ME_533D01CB01B1 // MouseDown
+ )
+ ; // Overridden
+ : Children
+   Seq: ( HWL ME_533D01FF01FB // TChromeLikeWindowCaptionButtonState
+ HWL ME_533D023A005A // RChromeLikeWindowCaptionbuttonClass
+ )
+ ; // Children
+ : Dependencies
+   Seq: ( ME_533D053901F4 // TPoint
+ ME_533D056F02EB // TForm
+ ME_533D064301AD // Forms
+ ME_533D064700EC // Controls
+ ME_533D064E009D // UxTheme
+ ME_533D0656021C // Windows
+ ME_5474505C0023 // l3String
+ ME_547450AB01FC // Il3CString
+ )
+ ; // Dependencies
+ CONST "ifndef" 'NoVGScene, NoVCM'
+ CONST intf.pas:Path 'common\components\gui\Garant\ChromeLikeControls\ChromeLikeBaseWindowCaptionButton.pas'
+ CONST extprop:rc:SelfName 'ChromeLikeBaseWindowCaptionButton'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'ChromeLikeBaseWindowCaptionButton'
+
+ref; // ME_533D01CB01B1 TChromeLikeBaseWindowCaptionButton

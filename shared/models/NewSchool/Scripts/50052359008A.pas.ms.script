@@ -22,9 +22,9 @@ ref; // ME_50055A7D015C aLeft
  : Stereotype st_InternalOperation::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_500523660003 // AACTextContainer
+ : Parent HWL ME_500523660003 // AACTextContainer
  ;
- : Target WL 'ME_50220B0E0061' '50220AA101CA.pas.ms.script' // TvtScrollBar
+ : Target WL 'ME_50220B0E0061' '50220B0E0061.pas.ms.script' // TvtScrollBar
  ;
  : Parameters
    Seq: ( ME_50055A7D015C // aLeft
@@ -45,7 +45,7 @@ ref; // ME_5005237D0210 GetVScrollBar
  CONST Name 'aJumpTo'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target WL 'ME_50041C7C0270' '4829D7D50156.pas.ms.script' // TevJumpToEvent
+ : Target WL 'ME_50041C7C0270' '4829D92A037B.pas.ms.script' // TevJumpToEvent
  ;
 
 ref; // ME_5006ED3302C8 aJumpTo
@@ -57,7 +57,7 @@ ref; // ME_5006ED3302C8 aJumpTo
  : Stereotype st_InternalOperation::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_500523660003 // AACTextContainer
+ : Parent HWL ME_500523660003 // AACTextContainer
  ;
  : Parameters
    Seq: ( ME_5006ED3302C8 // aJumpTo
@@ -82,15 +82,15 @@ ref; // ME_5006ED2300F9 SetJumpTo
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_50052359008A // AAC
+ : Parent HWL ME_50052359008A // AAC
  ;
  : Implements
    Seq: ( WL 'ME_50054E63007F' '484FA67302D7.pas.ms.script' // Scrollbar в правой части должен располагаться на всю высоту, вместе с плашкой "напишите нам".
  )
  ; // Implements
  : Operations
-   Seq: ( ME_5005237D0210 // GetVScrollBar
- ME_5006ED2300F9 // SetJumpTo
+   Seq: ( HWL ME_5005237D0210 // GetVScrollBar
+ HWL ME_5006ED2300F9 // SetJumpTo
  )
  ; // Operations
 
@@ -106,7 +106,7 @@ ref; // ME_500523660003 AACTextContainer
  : Parent WL 'ME_4A7C099B004F' '4A7C099B004F.pas.ms.script' // View
  ;
  : Children
-   Seq: ( ME_500523660003 // AACTextContainer
+   Seq: ( HWL ME_500523660003 // AACTextContainer
  )
  ; // Children
  : Depends

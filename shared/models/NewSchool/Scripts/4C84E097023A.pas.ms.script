@@ -1,0 +1,136 @@
+// PrimConsultationMarkOptions 4C84E097023A VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4C84E097023A
+
+: ME_4C84E22801A2
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C84E097023A // PrimConsultationMarkOptions
+ ;
+ : Target WL 'ME_4A980B37006B' '4799D29F033F.pas.ms.script' // ModalResults
+ ;
+
+ref; // ME_4C84E22801A2 
+
+: ME_4C84E4E803BF
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C84E097023A // PrimConsultationMarkOptions
+ ;
+ : Target WL 'ME_4570098B0159' '457007DB002E.pas.ms.script' // NoConnection
+ ;
+
+ref; // ME_4C84E4E803BF 
+
+: ME_4C84E4FF039A
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C84E097023A // PrimConsultationMarkOptions
+ ;
+ : Target WL 'ME_4570098B015B' '457007DB002E.pas.ms.script' // NoSubscription
+ ;
+
+ref; // ME_4C84E4FF039A 
+
+: ME_4C84E52002B7
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C84E097023A // PrimConsultationMarkOptions
+ ;
+ : Target WL 'ME_4B1E8FAE0380' '48F747EC0073.pas.ms.script' // DefDataAdapter
+ ;
+
+ref; // ME_4C84E52002B7 
+
+: ME_5177CFB00365
+ CONST Class class_Dependency
+ : Stereotype st_ToolbarAtBottom::Dependency ;
+ : Parent HWL ME_4C84E097023A // PrimConsultationMarkOptions
+ ;
+ : Target WL 'ME_4A97EBC80201' '4A8AD3C70195.pas.ms.script' // Result$Ok
+ ;
+
+ref; // ME_5177CFB00365 
+
+: ME_4C762A1501FC_ME_4C84E097023A
+ : Original WL 'ME_4C762A1501FC' '4A8AD3C70195.pas.ms.script' // Ok
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" false
+ CONST "ShowInToolbar" true
+ CONST "has states" true
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_4C762A1501FC_ME_4C84E097023A Ok
+
+: ME_4C762AB601E1_ME_4C84E097023A
+ : Original WL 'ME_4C762AB601E1' '4A8AD3C70195.pas.ms.script' // Cancel
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" false
+ CONST "ShowInToolbar" true
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_4C762AB601E1_ME_4C84E097023A Cancel
+
+: ME_4C84E097023A
+ CONST UID '4C84E097023A'
+ CONST Name 'PrimConsultationMarkOptions'
+ CONST Class class_Class
+ : Stereotype st_VCMForm ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Оценка ответа' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4ABCFB650008' '4ABCFB650008.pas.ms.script' // Consultation
+ ;
+ : Inherits
+   Seq: ( WL 'ME_497EDC5003D1' '497EDC5003D1.pas.ms.script' // PrimConsultationMark
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4A8AD409003A' '4A8AD3C70195.pas.ms.script' // Result$Cancel
+ WL 'ME_4A97EBC80201' '4A8AD3C70195.pas.ms.script' // Result$Ok
+ )
+ ; // Implements
+ : Implemented
+   Seq: ( ME_4C762A1501FC_ME_4C84E097023A // Ok
+ ME_4C762AB601E1_ME_4C84E097023A // Cancel
+ )
+ ; // Implemented
+ : Dependencies
+   Seq: ( ME_4C84E22801A2 // ModalResults
+ ME_4C84E4E803BF // NoConnection
+ ME_4C84E4FF039A // NoSubscription
+ ME_4C84E52002B7 // DefDataAdapter
+ ME_5177CFB00365 // Result$Ok
+ )
+ ; // Dependencies
+ CONST "NeedsHackRef" true
+ CONST "ZoneType" 'Any'
+ CONST "author" 'Люлин А.В.'
+ CONST "finished dfm" true
+ CONST "no hands" true
+ CONST "resizeable" false
+ CONST "restrict form def" 'undefined'
+ CONST "started" '06.09.2010 16:38'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Consultation\Forms\PrimConsultationMarkOptions_Form.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Consultation\Forms'
+ CONST extprop:pas:TypeName 'TPrimConsultationMarkOptionsForm'
+ CONST extprop:rc:SelfName 'PrimConsultationMarkOptionsForm'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'PrimConsultationMarkOptions_Form'
+ CONST extprop:NeedsInitEntities true
+
+ref; // ME_4C84E097023A PrimConsultationMarkOptions

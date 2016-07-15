@@ -1,0 +1,57 @@
+// Parent 4F6B66CB0200 VCMFinalContainer Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F6B66CB0200
+
+: ME_40853F4CF892
+ CONST UID '40853F4CF892'
+ CONST Name 'Ini_FormFactory_Parent'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы Parent' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4F6B66CB0200 // Parent
+ ;
+ : SpelledFor HWL ME_4F6B66CB0200 // Parent
+ ;
+
+ref; // ME_40853F4CF892 Ini_FormFactory_Parent
+
+: ME_4F6B66CB0200
+ CONST UID '4F6B66CB0200'
+ CONST Name 'Parent'
+ CONST Class class_Class
+ : Stereotype st_VCMFinalContainer ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent WL 'ME_4F6B66260326' '4F6B66260326.pas.ms.script' // ParentAndChildPrim
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4F6B665B0143' '4F6B665B0143.pas.ms.script' // PrimParent
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4F6B6714032D' '4F6B66F8001B.pas.ms.script' // Parent
+ )
+ ; // Implements
+ : Operations
+   Seq: ( HWL ME_40853F4CF892 // Ini_FormFactory_Parent
+ )
+ ; // Operations
+ CONST "NeedsHackRef" true
+ CONST "ZoneType" 'Parent'
+ CONST "finished dfm" true
+ CONST "resizeable" false
+ CONST "restrict form def" 'undefined'
+ CONST intf.pas:Path 'common\components\gui\Garant\VCM\View\ParentAndChild\Forms\Parent_Form.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\View\ParentAndChild\Forms'
+ CONST extprop:pas:TypeName 'TParentForm'
+ CONST extprop:rc:SelfName 'ParentForm'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'Parent_Form'
+
+ref; // ME_4F6B66CB0200 Parent

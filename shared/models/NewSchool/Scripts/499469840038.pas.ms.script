@@ -13,7 +13,7 @@ FORWARD ME_49525BDD02FE
  %SUMMARY 'вызывается перед созданием главной формы' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_49525BDD02FE // IvcmFormDispatcherListener
+ : Parent HWL ME_49525BDD02FE // IvcmFormDispatcherListener
  ;
 
 ref; // ME_4992FBD101B2 StartNewMainForm
@@ -27,14 +27,14 @@ ref; // ME_4992FBD101B2 StartNewMainForm
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_499469840038 // vcmFormDispatcherInterfaces
+ : Parent HWL ME_499469840038 // vcmFormDispatcherInterfaces
  ;
  : Inherits
    Seq: ( WL 'ME_4683CEAD00CF' '467BAB7F021E.pas.ms.script' // IvcmBase
  )
  ; // Inherits
  : Operations
-   Seq: ( ME_4992FBD101B2 // StartNewMainForm
+   Seq: ( HWL ME_4992FBD101B2 // StartNewMainForm
  )
  ; // Operations
  CONST extprop:rc:SelfName 'FormDispatcherListener'
@@ -48,7 +48,7 @@ FORWARD ME_4992FBE702BE
  CONST Name 'aListener'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_49525BDD02FE // IvcmFormDispatcherListener
+ : Target HWL ME_49525BDD02FE // IvcmFormDispatcherListener
  ;
 
 ref; // ME_4992FC390349 aListener
@@ -59,7 +59,7 @@ ref; // ME_4992FC390349 aListener
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4992FBE702BE // IvcmFormDispatcherNotify
+ : Parent HWL ME_4992FBE702BE // IvcmFormDispatcherNotify
  ;
  : Parameters
    Seq: ( ME_4992FC390349 // aListener
@@ -72,7 +72,7 @@ ref; // ME_4992FC34014C AddListener
  CONST Name 'aListener'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_49525BDD02FE // IvcmFormDispatcherListener
+ : Target HWL ME_49525BDD02FE // IvcmFormDispatcherListener
  ;
 
 ref; // ME_4992FC4402F2 aListener
@@ -83,7 +83,7 @@ ref; // ME_4992FC4402F2 aListener
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4992FBE702BE // IvcmFormDispatcherNotify
+ : Parent HWL ME_4992FBE702BE // IvcmFormDispatcherNotify
  ;
  : Parameters
    Seq: ( ME_4992FC4402F2 // aListener
@@ -102,15 +102,15 @@ ref; // ME_4992FC420063 RemoveListener
  %SUMMARY 'Уведомляет о событиях диспетчера форм' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_499469840038 // vcmFormDispatcherInterfaces
+ : Parent HWL ME_499469840038 // vcmFormDispatcherInterfaces
  ;
  : Inherits
    Seq: ( WL 'ME_4683CEAD00CF' '467BAB7F021E.pas.ms.script' // IvcmBase
  )
  ; // Inherits
  : Operations
-   Seq: ( ME_4992FC34014C // AddListener
- ME_4992FC420063 // RemoveListener
+   Seq: ( HWL ME_4992FC34014C // AddListener
+ HWL ME_4992FC420063 // RemoveListener
  )
  ; // Operations
  CONST extprop:rc:SelfName 'FormDispatcherNotify'
@@ -129,8 +129,8 @@ ref; // ME_4992FBE702BE IvcmFormDispatcherNotify
  : Parent WL 'ME_4790C3B8021E' '4790C3B8021E.pas.ms.script' // VCM
  ;
  : Children
-   Seq: ( ME_49525BDD02FE // IvcmFormDispatcherListener
- ME_4992FBE702BE // IvcmFormDispatcherNotify
+   Seq: ( HWL ME_49525BDD02FE // IvcmFormDispatcherListener
+ HWL ME_4992FBE702BE // IvcmFormDispatcherNotify
  )
  ; // Children
  : Depends

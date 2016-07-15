@@ -1,0 +1,126 @@
+// BaseChatWindowOptions 4C84CB6F0007 VCMContainer Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4C84CB6F0007
+
+: ME_50228E0D0355
+ CONST Class class_Dependency
+ : Stereotype st_ToolbarAtBottom::Dependency ;
+ : Parent HWL ME_4C84CB6F0007 // BaseChatWindowOptions
+ ;
+ : Target WL 'ME_4C2B24490026' '4A8AE21B0210.pas.ms.script' // Chat$Contacts
+ ;
+
+ref; // ME_50228E0D0355 
+
+: ME_4C7D0CC90052_ME_4C84CB6F0007
+ : Original WL 'ME_4C7D0CC90052' '494F898C013E.pas.ms.script' // Delete
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" true
+ CONST "ShowInToolbar" false
+ CONST "has states" false
+ CONST "is FormActivate" true
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_4C7D0CC90052_ME_4C84CB6F0007 Delete
+
+: ME_4C84CC2E0253_ME_4C84CB6F0007
+ : Original WL 'ME_4C84CC2E0253' '4A8AE21B0210.pas.ms.script' // History
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" false
+ CONST "ShowInToolbar" true
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_4C84CC2E0253_ME_4C84CB6F0007 History
+
+: ME_4C762C910358_ME_4C84CB6F0007
+ : Original WL 'ME_4C762C910358' '4A8AD3C70195.pas.ms.script' // Cancel
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" false
+ CONST "ShowInToolbar" true
+ CONST "has states" false
+ CONST "is FormActivate" true
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_4C762C910358_ME_4C84CB6F0007 Cancel
+
+: ME_4C762D9B0224_ME_4C84CB6F0007
+ : Original WL 'ME_4C762D9B0224' '4A8AD3DE0008.pas.ms.script' // OkExt
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" false
+ CONST "ShowInToolbar" true
+ CONST "has states" false
+ CONST "is FormActivate" true
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_4C762D9B0224_ME_4C84CB6F0007 OkExt
+
+: ME_4C84CB6F0007
+ CONST UID '4C84CB6F0007'
+ CONST Name 'BaseChatWindowOptions'
+ CONST Class class_Class
+ : Stereotype st_VCMContainer ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4A66D6BF0190' '4A66D6BF0190.pas.ms.script' // Chat
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4A6EA44C0038' '4A6EA44C0038.pas.ms.script' // BaseChatWindow
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_494F89AA0017' '494F898C013E.pas.ms.script' // Edit
+ WL 'ME_4C2B24490026' '4A8AE21B0210.pas.ms.script' // Chat$Contacts
+ )
+ ; // Implements
+ : Implemented
+   Seq: ( ME_4C7D0CC90052_ME_4C84CB6F0007 // Delete
+ ME_4C84CC2E0253_ME_4C84CB6F0007 // History
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_4C762C910358_ME_4C84CB6F0007 // Cancel
+ ME_4C762D9B0224_ME_4C84CB6F0007 // OkExt
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_50228E0D0355 // Chat$Contacts
+ )
+ ; // Dependencies
+ CONST "NeedsHackRef" true
+ CONST "ZoneType" 'Any'
+ CONST "author" 'Ëþëèí À.Â.'
+ CONST "finished dfm" true
+ CONST "no hands" true
+ CONST "resizeable" false
+ CONST "restrict form def" 'undefined'
+ CONST "started" '06.09.2010 15:07'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Chat\Forms\BaseChatWindowOptions_Form.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Chat\Forms'
+ CONST extprop:pas:TypeName 'TBaseChatWindowOptionsForm'
+ CONST extprop:rc:SelfName 'BaseChatWindowOptionsForm'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'BaseChatWindowOptions_Form'
+ CONST extprop:NeedsInitEntities true
+
+ref; // ME_4C84CB6F0007 BaseChatWindowOptions

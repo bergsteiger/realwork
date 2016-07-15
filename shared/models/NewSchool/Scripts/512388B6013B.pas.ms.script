@@ -2,26 +2,6 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-FORWARD ME_512388B6013B
-
-: ME_512388D403AF
- CONST UID '512388D403AF'
- CONST Name 'TnscLister'
- CONST Class class_Class
- : Stereotype st_GuiControl ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_512388B6013B // Outliner
- ;
- CONST "finished" false
- CONST intf.pas:Path 'common\components\gui\Garant\Nemesis\NOT_FINISHED_nscLister.pas'
- CONST extprop:rc:SelfName 'Lister'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'nscLister'
-
-ref; // ME_512388D403AF TnscLister
-
 : ME_512388B6013B
  CONST UID '512388B6013B'
  CONST Name 'Outliner'
@@ -32,7 +12,7 @@ ref; // ME_512388D403AF TnscLister
  : Parent WL 'ME_490838AA02D0' '490838AA02D0.pas.ms.script' // Nemesis
  ;
  : Children
-   Seq: ( ME_512388D403AF // TnscLister
+   Seq: ( WL 'ME_512388D403AF' '512388D403AF.pas.ms.script' // TnscLister
  )
  ; // Children
  CONST "UseNewGen" true

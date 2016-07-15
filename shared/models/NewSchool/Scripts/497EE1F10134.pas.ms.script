@@ -1,0 +1,390 @@
+// PrimMedicListSynchroView 497EE1F10134 VCMContainer Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_497EE1F10134
+
+: ME_4BD6C82400DF
+ CONST UID '4BD6C82400DF'
+ CONST Name 'mlsfDrugList'
+ CONST Class class_Class
+ : Stereotype st_UserType ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Синхронный просмотр' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_497EE1F10134 // PrimMedicListSynchroView
+ ;
+ CONST "ImageIndex" 84
+ CONST "NeedOnQueryClose" true
+ CONST "VisibleToUser" false
+ CONST "Weight" '-1'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Inpharm\Forms\PrimMedicListSynchroView_mlsfDrugList_UserType.pas'
+ CONST extprop:pas:UnitName 'PrimMedicListSynchroView_mlsfDrugList_UserType'
+
+ref; // ME_4BD6C82400DF mlsfDrugList
+
+: ME_4BD6C85300DB
+ CONST UID '4BD6C85300DB'
+ CONST Name 'mlsfMedicFirm'
+ CONST Class class_Class
+ : Stereotype st_UserType ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Описание' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_497EE1F10134 // PrimMedicListSynchroView
+ ;
+ : Inherits
+   Seq: ( HWL ME_4BD6C82400DF // mlsfDrugList
+ )
+ ; // Inherits
+ CONST "ImageIndex" 84
+ CONST "NeedOnQueryClose" true
+ CONST "VisibleToUser" false
+ CONST "Weight" '-1'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Inpharm\Forms\PrimMedicListSynchroView_mlsfMedicFirm_UserType.pas'
+ CONST extprop:pas:UnitName 'PrimMedicListSynchroView_mlsfMedicFirm_UserType'
+
+ref; // ME_4BD6C85300DB mlsfMedicFirm
+
+FORWARD ME_4C52EC3F027D
+
+: ME_4C52ECB90313
+ CONST UID '4C52ECB90313'
+ CONST Name 'ChildZone'
+ CONST Class class_Class
+ : Stereotype st_VCMFormZone ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_497EE1F10134 // PrimMedicListSynchroView
+ ;
+ : Inherits
+   Seq: ( HWL ME_4C52EC3F027D // ztChild
+ )
+ ; // Inherits
+ CONST "MergeBottomTollbarWithContainer" false
+ CONST "MergeTopTollbarWithContainer" true
+ CONST "ZoneType" 'Child'
+
+ref; // ME_4C52ECB90313 ChildZone
+
+: ME_4C52EC3F027D
+ CONST UID '4C52EC3F027D'
+ CONST Name 'ztChild'
+ CONST Class class_Class
+ : Stereotype st_Control ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_497EE1F10134 // PrimMedicListSynchroView
+ ;
+ : Zones
+   Seq: ( HWL ME_4C52ECB90313 // ChildZone
+ )
+ ; // Zones
+ CONST "ControlClass" 'TvtPanel'
+ CONST "pm" true
+ CONST "put to dfm" false
+
+ref; // ME_4C52EC3F027D ztChild
+
+: ME_497EE25C0268
+ CONST UID '497EE25C0268'
+ CONST Name 'dsSimpleListSynchroView'
+ CONST Class class_Attribute
+ : Stereotype st_ViewArea::Attribute ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent HWL ME_497EE1F10134 // PrimMedicListSynchroView
+ ;
+ : Target WL 'ME_494690E5004E' '4922BFA000DD.pas.ms.script' // IdsSimpleListSynchroView
+ ;
+
+ref; // ME_497EE25C0268 dsSimpleListSynchroView
+
+: ME_B0B84967D8F8
+ CONST Name 'aSender'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_B0B84967D8F8 aSender
+
+: ME_65F272629DB8
+ CONST UID '65F272629DB8'
+ CONST Name 'mlsfDrugListQueryClose'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Обработчик события mlsfDrugList.OnQueryClose' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_497EE1F10134 // PrimMedicListSynchroView
+ ;
+ : Parameters
+   Seq: ( ME_B0B84967D8F8 // aSender
+ )
+ ; // Parameters
+
+ref; // ME_65F272629DB8 mlsfDrugListQueryClose
+
+: ME_4587846F006A
+ CONST Name 'aSender'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_4587846F006A aSender
+
+: ME_C155D2625A02
+ CONST UID 'C155D2625A02'
+ CONST Name 'mlsfMedicFirmQueryClose'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Обработчик события mlsfMedicFirm.OnQueryClose' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_497EE1F10134 // PrimMedicListSynchroView
+ ;
+ : Parameters
+   Seq: ( ME_4587846F006A // aSender
+ )
+ ; // Parameters
+
+ref; // ME_C155D2625A02 mlsfMedicFirmQueryClose
+
+: ME_4BD6C8CE02DE
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_497EE1F10134 // PrimMedicListSynchroView
+ ;
+ : Target WL 'ME_4AE836C303BC' '4F71AD0E01FE.pas.ms.script' // Switcher$SetCaption
+ ;
+
+ref; // ME_4BD6C8CE02DE 
+
+: ME_4C52E87F0310
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_497EE1F10134 // PrimMedicListSynchroView
+ ;
+ : Target WL 'ME_4AEF281F0394' '4A9807DB01A5.pas.ms.script' // List
+ ;
+
+ref; // ME_4C52E87F0310 
+
+: ME_4C52F356010E
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_497EE1F10134 // PrimMedicListSynchroView
+ ;
+ : Target WL 'ME_47752AF90375' '47750CE700D0.pas.ms.script' // afwFacade
+ ;
+
+ref; // ME_4C52F356010E 
+
+: ME_523FF50F0136
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_497EE1F10134 // PrimMedicListSynchroView
+ ;
+ : Target WL 'ME_47E11FC3021E' '4799D29F033F.pas.ms.script' // Controls
+ ;
+
+ref; // ME_523FF50F0136 
+
+: ME_4AE9E3CC03C7_ME_497EE1F10134
+ : Original WL 'ME_4AE9E3CC03C7' '4A9807DB01A5.pas.ms.script' // BecomeActive
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "Needs Broadcast" false
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_4AE9E3CC03C7_ME_497EE1F10134 BecomeActive
+
+: ME_4C52E5D702B0_ME_497EE1F10134
+ : Original WL 'ME_4C52E5D702B0' '4C52E591003F.pas.ms.script' // OpenDocument
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" false
+ CONST "ShowInToolbar" true
+ CONST "has states" true
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_4C52E5D702B0_ME_497EE1F10134 OpenDocument
+
+: ME_4C52E5F203CC_ME_497EE1F10134
+ : Original WL 'ME_4C52E5F203CC' '4C52E591003F.pas.ms.script' // OpenAttributesForm
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" false
+ CONST "ShowInToolbar" true
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_4C52E5F203CC_ME_497EE1F10134 OpenAttributesForm
+
+: ME_4C52E61002B5_ME_497EE1F10134
+ : Original WL 'ME_4C52E61002B5' '4C52E591003F.pas.ms.script' // OpenList
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" false
+ CONST "ShowInToolbar" true
+ CONST "has states" true
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_4C52E61002B5_ME_497EE1F10134 OpenList
+
+: ME_4C7D373900D0_ME_497EE1F10134
+ : Original WL 'ME_4C7D373900D0' '4C52E591003F.pas.ms.script' // OpenDocument
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "has states" true
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_4C7D373900D0_ME_497EE1F10134 OpenDocument
+
+: ME_4C7D37C20388_ME_497EE1F10134
+ : Original WL 'ME_4C7D37C20388' '4C52E591003F.pas.ms.script' // OpenList
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "has states" true
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_4C7D37C20388_ME_497EE1F10134 OpenList
+
+: ME_4A8E8F2E0195_ME_497EE1F10134
+ : Original WL 'ME_4A8E8F2E0195' '5000041101C8.pas.ms.script' // InitControls
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4A8E8F2E0195_ME_497EE1F10134 InitControls
+
+: ME_4AC497FD00A2_ME_497EE1F10134
+ : Original WL 'ME_4AC497FD00A2' '4AADF9450143.pas.ms.script' // DoGetTabInfo
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4AC497FD00A2_ME_497EE1F10134 DoGetTabInfo
+
+: ME_4C52E8030278_ME_497EE1F10134
+ : Original WL 'ME_4C52E8030278' '4AADF9450143.pas.ms.script' // PageActive
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4C52E8030278_ME_497EE1F10134 PageActive
+
+: ME_4C52E81603A9_ME_497EE1F10134
+ : Original WL 'ME_4C52E81603A9' '4AADF9450143.pas.ms.script' // PageInactive
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4C52E81603A9_ME_497EE1F10134 PageInactive
+
+: ME_497EE1F10134
+ CONST UID '497EE1F10134'
+ CONST Name 'PrimMedicListSynchroView'
+ CONST Class class_Class
+ : Stereotype st_VCMContainer ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Синхронный просмотр' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4958E49A023A' '4958E49A023A.pas.ms.script' // Inpharm
+ ;
+ : Inherits
+   Seq: ( WL 'ME_49525C240170' '4AADF9450143.pas.ms.script' // TvcmContainerForm
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4AE9E3C2031C' '4A9807DB01A5.pas.ms.script' // SynchroView
+ WL 'ME_4C52E5C9005D' '4C52E591003F.pas.ms.script' // MedicListSynchroView
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( HWL ME_4C52EC3F027D // ztChild
+ HWL ME_497EE25C0268 // dsSimpleListSynchroView
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( HWL ME_65F272629DB8 // mlsfDrugListQueryClose
+ HWL ME_C155D2625A02 // mlsfMedicFirmQueryClose
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4AE9E3CC03C7_ME_497EE1F10134 // BecomeActive
+ ME_4C52E5D702B0_ME_497EE1F10134 // OpenDocument
+ ME_4C52E5F203CC_ME_497EE1F10134 // OpenAttributesForm
+ ME_4C52E61002B5_ME_497EE1F10134 // OpenList
+ ME_4C7D373900D0_ME_497EE1F10134 // OpenDocument
+ ME_4C7D37C20388_ME_497EE1F10134 // OpenList
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_4A8E8F2E0195_ME_497EE1F10134 // InitControls
+ ME_4AC497FD00A2_ME_497EE1F10134 // DoGetTabInfo
+ ME_4C52E8030278_ME_497EE1F10134 // PageActive
+ ME_4C52E81603A9_ME_497EE1F10134 // PageInactive
+ )
+ ; // Overridden
+ : Children
+   Seq: ( HWL ME_4BD6C82400DF // mlsfDrugList
+ HWL ME_4BD6C85300DB // mlsfMedicFirm
+ HWL ME_4C52ECB90313 // ChildZone
+ )
+ ; // Children
+ : Dependencies
+   Seq: ( ME_4BD6C8CE02DE // Switcher$SetCaption
+ ME_4C52E87F0310 // List
+ ME_4C52F356010E // afwFacade
+ ME_523FF50F0136 // Controls
+ )
+ ; // Dependencies
+ CONST "NeedsHackRef" true
+ CONST "ZoneType" 'Any'
+ CONST "author" 'Люлин А.В.'
+ CONST "finished dfm" true
+ CONST "no hands" true
+ CONST "resizeable" false
+ CONST "restrict form def" 'undefined'
+ CONST "started" '27.01.2009 13:29'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Inpharm\Forms\PrimMedicListSynchroView_Form.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Inpharm\Forms'
+ CONST extprop:pas:TypeName 'TPrimMedicListSynchroViewForm'
+ CONST extprop:rc:SelfName 'PrimMedicListSynchroViewForm'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'PrimMedicListSynchroView_Form'
+ CONST extprop:NeedsInitEntities true
+
+ref; // ME_497EE1F10134 PrimMedicListSynchroView

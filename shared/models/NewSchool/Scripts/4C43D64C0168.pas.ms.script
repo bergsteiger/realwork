@@ -4,67 +4,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 FORWARD ME_4C43D64C0168
 
-: ME_4C43D65C0204
- CONST UID '4C43D65C0204'
- CONST Name 'TvtSpeedButton'
- CONST Class class_Class
- : Stereotype st_GuiControl ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4C43D64C0168 // Buttons
- ;
- : Inherits
-   Seq: ( WL 'ME_4C43E8A60084' '4C43E8750153.pas.ms.script' // TToolbarButton97
- )
- ; // Inherits
- CONST intf.pas:Path 'common\components\gui\Garant\VT\vtSpeedButton.pas'
- CONST extprop:rc:SelfName 'SpeedButton'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'vtSpeedButton'
-
-ref; // ME_4C43D65C0204 TvtSpeedButton
-
-FORWARD ME_4DD0F321010A
-
-: ME_4C52BE8601C9
- CONST UID '4C52BE8601C9'
- CONST Name 'TeeRadioButton'
- CONST Class class_Class
- : Stereotype st_GuiControl ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4DD0F321010A // TeeButton
- ;
- CONST "finished" false
- CONST extprop:rc:SelfName 'eeRadioButton'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_4C52BE8601C9 TeeRadioButton
-
-: ME_4DD0F321010A
- CONST UID '4DD0F321010A'
- CONST Name 'TeeButton'
- CONST Class class_Class
- : Stereotype st_GuiControl ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4C43D64C0168 // Buttons
- ;
- : Children
-   Seq: ( ME_4C52BE8601C9 // TeeRadioButton
- )
- ; // Children
- CONST "finished" false
- CONST intf.pas:Path 'common\components\gui\Garant\VT\NOT_FINISHED_eeButton.pas'
- CONST extprop:rc:SelfName 'eeButton'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'eeButton'
-
-ref; // ME_4DD0F321010A TeeButton
-
 : ME_5179415C0005
  CONST UID '5179415C0005'
  CONST Name 'vtUnicodeButtonControl'
@@ -73,7 +12,7 @@ ref; // ME_4DD0F321010A TeeButton
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4C43D64C0168 // Buttons
+ : Parent HWL ME_4C43D64C0168 // Buttons
  ;
  CONST "finished" false
  CONST intf.pas:Path 'common\components\gui\Garant\VT\NOT_FINISHED_vtUnicodeButtonControl.imp.pas'
@@ -81,169 +20,6 @@ ref; // ME_4DD0F321010A TeeButton
  CONST extprop:pas:UnitName 'vtUnicodeButtonControl.imp'
 
 ref; // ME_5179415C0005 vtUnicodeButtonControl
-
-: ME_517941310082
- CONST UID '517941310082'
- CONST Name 'TvtButton'
- CONST Class class_Class
- : Stereotype st_GuiControl ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4C43D64C0168 // Buttons
- ;
- : Inherits
-   Seq: ( ME_4DD0F321010A // TeeButton
- ME_5179415C0005 // vtUnicodeButtonControl
- )
- ; // Inherits
- CONST "finished" false
- CONST intf.pas:Path 'common\components\gui\Garant\VT\NOT_FINISHED_vtButton.pas'
- CONST extprop:rc:SelfName 'Button'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'vtButton'
-
-ref; // ME_517941310082 TvtButton
-
-: ME_4AC5E484002C
- CONST UID '4AC5E484002C'
- CONST Name 'TeeCheckBox'
- CONST Class class_Class
- : Stereotype st_GuiControl ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4C43D64C0168 // Buttons
- ;
- CONST "finished" false
- CONST intf.pas:Path 'common\components\gui\Garant\VT\NOT_FINISHED_eeCheckBox.pas'
- CONST extprop:rc:SelfName 'eeCheckBox'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'eeCheckBox'
-
-ref; // ME_4AC5E484002C TeeCheckBox
-
-: ME_5179419B01DA
- CONST UID '5179419B01DA'
- CONST Name 'TvtCheckBox'
- CONST Class class_Class
- : Stereotype st_GuiControl ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4C43D64C0168 // Buttons
- ;
- : Inherits
-   Seq: ( ME_4AC5E484002C // TeeCheckBox
- ME_5179415C0005 // vtUnicodeButtonControl
- )
- ; // Inherits
- CONST "finished" false
- CONST intf.pas:Path 'common\components\gui\Garant\VT\NOT_FINISHED_vtCheckBox.pas'
- CONST extprop:rc:SelfName 'CheckBox'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'vtCheckBox'
-
-ref; // ME_5179419B01DA TvtCheckBox
-
-: ME_517941E500BF
- CONST UID '517941E500BF'
- CONST Name 'TvtRadioButton'
- CONST Class class_Class
- : Stereotype st_GuiControl ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4C43D64C0168 // Buttons
- ;
- : Inherits
-   Seq: ( WL 'ME_4F69BC9C014A' '4799D29F033F.pas.ms.script' // TRadioButton
- ME_5179415C0005 // vtUnicodeButtonControl
- )
- ; // Inherits
- CONST "finished" false
- CONST intf.pas:Path 'common\components\gui\Garant\VT\NOT_FINISHED_vtRadioButton.pas'
- CONST extprop:rc:SelfName 'RadioButton'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'vtRadioButton'
-
-ref; // ME_517941E500BF TvtRadioButton
-
-FORWARD ME_55250990030E
-
-: ME_552511AE0342
- CONST UID '552511AE0342'
- CONST Name 'ActivateWindowOnClick'
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_55250990030E // TvtSpeedButtonForVGScene
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST "pm" true
- CONST "reads field" true
- CONST "writes field" true
-
-ref; // ME_552511AE0342 ActivateWindowOnClick
-
-: ME_5525119B0196
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_55250990030E // TvtSpeedButtonForVGScene
- ;
- : Target WL 'ME_48A41FF10094' '4AB0C3F60375.pas.ms.script' // Windows
- ;
-
-ref; // ME_5525119B0196 
-
-: ME_47D1602000C6_ME_55250990030E
- : Original WL 'ME_47D1602000C6' '4AB0997B00A2.pas.ms.script' // Create
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_47D1602000C6_ME_55250990030E Create
-
-: ME_4F88473B03CD_ME_55250990030E
- : Original WL 'ME_4F88473B03CD' '4799D29F033F.pas.ms.script' // MouseDown
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4F88473B03CD_ME_55250990030E MouseDown
-
-: ME_55250990030E
- CONST UID '55250990030E'
- CONST Name 'TvtSpeedButtonForVGScene'
- CONST Class class_Class
- : Stereotype st_GuiControl ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4C43D64C0168 // Buttons
- ;
- : Inherits
-   Seq: ( ME_4C43D65C0204 // TvtSpeedButton
- )
- ; // Inherits
- : Attributes
-   Seq: ( ME_552511AE0342 // ActivateWindowOnClick
- )
- ; // Attributes
- : Overridden
-   Seq: ( ME_47D1602000C6_ME_55250990030E // Create
- ME_4F88473B03CD_ME_55250990030E // MouseDown
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_5525119B0196 // Windows
- )
- ; // Dependencies
- CONST intf.pas:Path 'common\components\gui\Garant\VT\vtSpeedButtonForVGScene.pas'
- CONST extprop:rc:SelfName 'SpeedButtonForVGScene'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'vtSpeedButtonForVGScene'
-
-ref; // ME_55250990030E TvtSpeedButtonForVGScene
 
 : ME_4C43D64C0168
  CONST UID '4C43D64C0168'
@@ -255,14 +31,14 @@ ref; // ME_55250990030E TvtSpeedButtonForVGScene
  : Parent WL 'ME_467A75D90346' '467A75D90346.pas.ms.script' // VT
  ;
  : Children
-   Seq: ( ME_4C43D65C0204 // TvtSpeedButton
- ME_4DD0F321010A // TeeButton
- ME_5179415C0005 // vtUnicodeButtonControl
- ME_517941310082 // TvtButton
- ME_4AC5E484002C // TeeCheckBox
- ME_5179419B01DA // TvtCheckBox
- ME_517941E500BF // TvtRadioButton
- ME_55250990030E // TvtSpeedButtonForVGScene
+   Seq: ( WL 'ME_4C43D65C0204' '4C43D65C0204.pas.ms.script' // TvtSpeedButton
+ WL 'ME_4DD0F321010A' '4DD0F321010A.pas.ms.script' // TeeButton
+ HWL ME_5179415C0005 // vtUnicodeButtonControl
+ WL 'ME_517941310082' '517941310082.pas.ms.script' // TvtButton
+ WL 'ME_4AC5E484002C' '4AC5E484002C.pas.ms.script' // TeeCheckBox
+ WL 'ME_5179419B01DA' '5179419B01DA.pas.ms.script' // TvtCheckBox
+ WL 'ME_517941E500BF' '517941E500BF.pas.ms.script' // TvtRadioButton
+ WL 'ME_55250990030E' '55250990030E.pas.ms.script' // TvtSpeedButtonForVGScene
  )
  ; // Children
  : Depends

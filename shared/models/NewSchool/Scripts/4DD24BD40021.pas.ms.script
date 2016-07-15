@@ -14,7 +14,7 @@ FORWARD ME_4E3011A101F7
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4E3011A101F7 // SectionType
+ : Parent HWL ME_4E3011A101F7 // SectionType
  ;
 
 ref; // ME_4E30121D0200 ST_FINANCE
@@ -27,7 +27,7 @@ ref; // ME_4E30121D0200 ST_FINANCE
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4E3011A101F7 // SectionType
+ : Parent HWL ME_4E3011A101F7 // SectionType
  ;
 
 ref; // ME_4E30124C009C ST_HR
@@ -40,7 +40,7 @@ ref; // ME_4E30124C009C ST_HR
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4E3011A101F7 // SectionType
+ : Parent HWL ME_4E3011A101F7 // SectionType
  ;
 
 ref; // ME_4E30125C0071 ST_LEGAL
@@ -53,7 +53,7 @@ ref; // ME_4E30125C0071 ST_LEGAL
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4E3011A101F7 // SectionType
+ : Parent HWL ME_4E3011A101F7 // SectionType
  ;
 
 ref; // ME_4E30126703E5 ST_BUDGET_ORGS
@@ -66,7 +66,7 @@ ref; // ME_4E30126703E5 ST_BUDGET_ORGS
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4E3011A101F7 // SectionType
+ : Parent HWL ME_4E3011A101F7 // SectionType
  ;
 
 ref; // ME_56E16FEA03BD ST_GOS_ZAKUPKI
@@ -79,7 +79,7 @@ ref; // ME_56E16FEA03BD ST_GOS_ZAKUPKI
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4E3011A101F7 // SectionType
+ : Parent HWL ME_4E3011A101F7 // SectionType
  ;
 
 ref; // ME_5226C7D90286 ST_LAW_FOR_ALL
@@ -92,7 +92,7 @@ ref; // ME_5226C7D90286 ST_LAW_FOR_ALL
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4E3011A101F7 // SectionType
+ : Parent HWL ME_4E3011A101F7 // SectionType
  ;
 
 ref; // ME_4E3012760260 ST_BUSINESS_REFERENCES
@@ -105,7 +105,7 @@ ref; // ME_4E3012760260 ST_BUSINESS_REFERENCES
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4E3011A101F7 // SectionType
+ : Parent HWL ME_4E3011A101F7 // SectionType
  ;
 
 ref; // ME_4E3012830246 ST_CHANGES_IN_LEGISLATION
@@ -119,17 +119,17 @@ ref; // ME_4E3012830246 ST_CHANGES_IN_LEGISLATION
  %SUMMARY 'Тип секции ОМ' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4DD24BD40021 // MainMenu
+ : Parent HWL ME_4DD24BD40021 // MainMenu
  ;
  : Attributes
-   Seq: ( ME_4E30121D0200 // ST_FINANCE
- ME_4E30124C009C // ST_HR
- ME_4E30125C0071 // ST_LEGAL
- ME_4E30126703E5 // ST_BUDGET_ORGS
- ME_56E16FEA03BD // ST_GOS_ZAKUPKI
- ME_5226C7D90286 // ST_LAW_FOR_ALL
- ME_4E3012760260 // ST_BUSINESS_REFERENCES
- ME_4E3012830246 // ST_CHANGES_IN_LEGISLATION
+   Seq: ( HWL ME_4E30121D0200 // ST_FINANCE
+ HWL ME_4E30124C009C // ST_HR
+ HWL ME_4E30125C0071 // ST_LEGAL
+ HWL ME_4E30126703E5 // ST_BUDGET_ORGS
+ HWL ME_56E16FEA03BD // ST_GOS_ZAKUPKI
+ HWL ME_5226C7D90286 // ST_LAW_FOR_ALL
+ HWL ME_4E3012760260 // ST_BUSINESS_REFERENCES
+ HWL ME_4E3012830246 // ST_CHANGES_IN_LEGISLATION
  )
  ; // Attributes
  CONST extprop:pas:TypeName 'TSectionType'
@@ -148,7 +148,7 @@ FORWARD ME_4E36C7D80396
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4E36C7D80396 // SectionItem
+ : Parent HWL ME_4E36C7D80396 // SectionItem
  ;
  : Target WL 'ME_431841610361' '4423F94903C8.pas.ms.script' // String
  ;
@@ -163,7 +163,7 @@ ref; // ME_4E36C7EB007C caption
  %SUMMARY 'Получить сущность элемента (может быть IQuery, IDocument, INodeBase, IString, IBookmark)' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4E36C7D80396 // SectionItem
+ : Parent HWL ME_4E36C7D80396 // SectionItem
  ;
  : Target WL 'ME_4242EBBB03B9' '3DBFDB23006E.pas.ms.script' // object
  ;
@@ -184,7 +184,7 @@ ref; // ME_4E37ADDB03C0 section_item
  : Stereotype st_factory::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4E36C7D80396 // SectionItem
+ : Parent HWL ME_4E36C7D80396 // SectionItem
  ;
  : Parameters
    Seq: ( ME_4E37ADDB03C0 // section_item
@@ -205,15 +205,15 @@ ref; // ME_4E36CAA4003F make
  %SUMMARY 'Элемент раздела ОМ' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4DD24BD40021 // MainMenu
+ : Parent HWL ME_4DD24BD40021 // MainMenu
  ;
  : Attributes
-   Seq: ( ME_4E36C7EB007C // caption
+   Seq: ( HWL ME_4E36C7EB007C // caption
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_4E36C80302E6 // open
- ME_4E36CAA4003F // make
+   Seq: ( HWL ME_4E36C80302E6 // open
+ HWL ME_4E36CAA4003F // make
  )
  ; // Operations
  CONST "single impl" false
@@ -231,9 +231,9 @@ FORWARD ME_4E36C8550143
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_ref
- : Parent ME_4E36C8550143 // SectionItemList
+ : Parent HWL ME_4E36C8550143 // SectionItemList
  ;
- : Target ME_4E36C7D80396 // SectionItem
+ : Target HWL ME_4E36C7D80396 // SectionItem
  ;
 
 ref; // ME_4E36CD5603B6 
@@ -246,10 +246,10 @@ ref; // ME_4E36CD5603B6
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4DD24BD40021 // MainMenu
+ : Parent HWL ME_4DD24BD40021 // MainMenu
  ;
  : Attributes
-   Seq: ( ME_4E36CD5603B6 // 
+   Seq: ( HWL ME_4E36CD5603B6 // 
  )
  ; // Attributes
  CONST "array type" 'dynamic'
@@ -268,7 +268,7 @@ FORWARD ME_4E36C7590390
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4E36C7590390 // Section
+ : Parent HWL ME_4E36C7590390 // Section
  ;
  : Target WL 'ME_431841610361' '4423F94903C8.pas.ms.script' // String
  ;
@@ -283,9 +283,9 @@ ref; // ME_4E37CA2A034B caption
  %SUMMARY 'Получить элементы раздела ОМ' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4E36C7590390 // Section
+ : Parent HWL ME_4E36C7590390 // Section
  ;
- : Target ME_4E36C8550143 // SectionItemList
+ : Target HWL ME_4E36C8550143 // SectionItemList
  ;
 
 ref; // ME_4E37CA4300B7 get_items
@@ -294,7 +294,7 @@ ref; // ME_4E37CA4300B7 get_items
  CONST Name 'type'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_4E3011A101F7 // SectionType
+ : Target HWL ME_4E3011A101F7 // SectionType
  ;
 
 ref; // ME_56FD3A680217 type
@@ -306,7 +306,7 @@ ref; // ME_56FD3A680217 type
  : Stereotype st_factory::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4E36C7590390 // Section
+ : Parent HWL ME_4E36C7590390 // Section
  ;
  : Parameters
    Seq: ( ME_56FD3A680217 // type
@@ -326,15 +326,15 @@ ref; // ME_56FD3A5700CD make
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4DD24BD40021 // MainMenu
+ : Parent HWL ME_4DD24BD40021 // MainMenu
  ;
  : Attributes
-   Seq: ( ME_4E37CA2A034B // caption
+   Seq: ( HWL ME_4E37CA2A034B // caption
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_4E37CA4300B7 // get_items
- ME_56FD3A5700CD // make
+   Seq: ( HWL ME_4E37CA4300B7 // get_items
+ HWL ME_56FD3A5700CD // make
  )
  ; // Operations
  CONST "single impl" false
@@ -355,7 +355,7 @@ FORWARD ME_56FE518A027D
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_56FE518A027D // MainMenuSection
+ : Parent HWL ME_56FE518A027D // MainMenuSection
  ;
  : Target WL 'ME_431841610361' '4423F94903C8.pas.ms.script' // String
  ;
@@ -377,7 +377,7 @@ ref; // ME_5702430502D9 server_section
  : Stereotype st_factory::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_56FE518A027D // MainMenuSection
+ : Parent HWL ME_56FE518A027D // MainMenuSection
  ;
  : Parameters
    Seq: ( ME_5702430502D9 // server_section
@@ -395,9 +395,9 @@ ref; // ME_56FE51B601CF make
  %SUMMARY 'Получить элементы раздела ОМ' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_56FE518A027D // MainMenuSection
+ : Parent HWL ME_56FE518A027D // MainMenuSection
  ;
- : Target ME_4E36C8550143 // SectionItemList
+ : Target HWL ME_4E36C8550143 // SectionItemList
  ;
 
 ref; // ME_56FE579901A9 get_items
@@ -409,7 +409,7 @@ ref; // ME_56FE579901A9 get_items
  %SUMMARY 'получить для проф. секции индекс в новостной секции' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_56FE518A027D // MainMenuSection
+ : Parent HWL ME_56FE518A027D // MainMenuSection
  ;
  : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
  ;
@@ -422,7 +422,7 @@ ref; // ME_570D16D600A2 get_news_section_index
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_56FE518A027D // MainMenuSection
+ : Parent HWL ME_56FE518A027D // MainMenuSection
  ;
  : Target WL 'ME_4ACC6DD00230' '4ACC6D940387.pas.ms.script' // Banner
  ;
@@ -438,17 +438,17 @@ ref; // ME_571F72D303BC get_banner
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4DD24BD40021 // MainMenu
+ : Parent HWL ME_4DD24BD40021 // MainMenu
  ;
  : Attributes
-   Seq: ( ME_56FE579C031F // caption
+   Seq: ( HWL ME_56FE579C031F // caption
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_56FE51B601CF // make
- ME_56FE579901A9 // get_items
- ME_570D16D600A2 // get_news_section_index
- ME_571F72D303BC // get_banner
+   Seq: ( HWL ME_56FE51B601CF // make
+ HWL ME_56FE579901A9 // get_items
+ HWL ME_570D16D600A2 // get_news_section_index
+ HWL ME_571F72D303BC // get_banner
  )
  ; // Operations
  CONST "single impl" false
@@ -466,9 +466,9 @@ FORWARD ME_56FE606A033E
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_ref
- : Parent ME_56FE606A033E // MainMenuSectionList
+ : Parent HWL ME_56FE606A033E // MainMenuSectionList
  ;
- : Target ME_56FE518A027D // MainMenuSection
+ : Target HWL ME_56FE518A027D // MainMenuSection
  ;
 
 ref; // ME_57025964005D 
@@ -481,10 +481,10 @@ ref; // ME_57025964005D
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4DD24BD40021 // MainMenu
+ : Parent HWL ME_4DD24BD40021 // MainMenu
  ;
  : Attributes
-   Seq: ( ME_57025964005D // 
+   Seq: ( HWL ME_57025964005D // 
  )
  ; // Attributes
  CONST "array type" 'dynamic'
@@ -501,7 +501,7 @@ FORWARD ME_4DD24C180204
  %SUMMARY 'Получить дерево вкладок Бзового поиска' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4DD24C180204 // MainMenu
+ : Parent HWL ME_4DD24C180204 // MainMenu
  ;
  : Target WL 'ME_45EEB95901C5' '457450470167.pas.ms.script' // NodeBase
  ;
@@ -515,7 +515,7 @@ ref; // ME_4DD24C3000F5 get_base_search_panes
  : Stereotype st_factory::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4DD24C180204 // MainMenu
+ : Parent HWL ME_4DD24C180204 // MainMenu
  ;
  CONST TargetStereotype 'cached'
  CONST "const_type" 'read-write'
@@ -526,7 +526,7 @@ ref; // ME_4DD251830230 make
  CONST Name 'type'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_4E3011A101F7 // SectionType
+ : Target HWL ME_4E3011A101F7 // SectionType
  ;
 
 ref; // ME_4E3012AE02D8 type
@@ -538,9 +538,9 @@ ref; // ME_4E3012AE02D8 type
  %SUMMARY 'Получить дерево секции ОМ по типу' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4DD24C180204 // MainMenu
+ : Parent HWL ME_4DD24C180204 // MainMenu
  ;
- : Target ME_4E36C7590390 // Section
+ : Target HWL ME_4E36C7590390 // Section
  ;
  : Parameters
    Seq: ( ME_4E3012AE02D8 // type
@@ -556,9 +556,9 @@ ref; // ME_4E3012910002 get_section
  %SUMMARY 'список секций проф. меню' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4DD24C180204 // MainMenu
+ : Parent HWL ME_4DD24C180204 // MainMenu
  ;
- : Target ME_56FE606A033E // MainMenuSectionList
+ : Target HWL ME_56FE606A033E // MainMenuSectionList
  ;
 
 ref; // ME_56FE602B0126 get_profession_section_list
@@ -570,9 +570,9 @@ ref; // ME_56FE602B0126 get_profession_section_list
  %SUMMARY 'список новостных секций ОМ' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4DD24C180204 // MainMenu
+ : Parent HWL ME_4DD24C180204 // MainMenu
  ;
- : Target ME_56FE606A033E // MainMenuSectionList
+ : Target HWL ME_56FE606A033E // MainMenuSectionList
  ;
 
 ref; // ME_56FE609903B2 get_news_section_list
@@ -584,9 +584,9 @@ ref; // ME_56FE609903B2 get_news_section_list
  %SUMMARY 'раздел бизнес-справки' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4DD24C180204 // MainMenu
+ : Parent HWL ME_4DD24C180204 // MainMenu
  ;
- : Target ME_56FE518A027D // MainMenuSection
+ : Target HWL ME_56FE518A027D // MainMenuSection
  ;
 
 ref; // ME_570273C401EB get_business_reference_section
@@ -598,9 +598,9 @@ ref; // ME_570273C401EB get_business_reference_section
  %SUMMARY 'раздел изменения в  законодательстве' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4DD24C180204 // MainMenu
+ : Parent HWL ME_4DD24C180204 // MainMenu
  ;
- : Target ME_56FE518A027D // MainMenuSection
+ : Target HWL ME_56FE518A027D // MainMenuSection
  ;
 
 ref; // ME_5702741B0317 get_changes_in_legislation_section
@@ -615,16 +615,16 @@ ref; // ME_5702741B0317 get_changes_in_legislation_section
  %SUMMARY 'Основное меню' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4DD24BD40021 // MainMenu
+ : Parent HWL ME_4DD24BD40021 // MainMenu
  ;
  : Operations
-   Seq: ( ME_4DD24C3000F5 // get_base_search_panes
- ME_4DD251830230 // make
- ME_4E3012910002 // get_section
- ME_56FE602B0126 // get_profession_section_list
- ME_56FE609903B2 // get_news_section_list
- ME_570273C401EB // get_business_reference_section
- ME_5702741B0317 // get_changes_in_legislation_section
+   Seq: ( HWL ME_4DD24C3000F5 // get_base_search_panes
+ HWL ME_4DD251830230 // make
+ HWL ME_4E3012910002 // get_section
+ HWL ME_56FE602B0126 // get_profession_section_list
+ HWL ME_56FE609903B2 // get_news_section_list
+ HWL ME_570273C401EB // get_business_reference_section
+ HWL ME_5702741B0317 // get_changes_in_legislation_section
  )
  ; // Operations
  CONST "single impl" false
@@ -645,13 +645,13 @@ ref; // ME_4DD24C180204 MainMenu
  : Parent WL 'ME_456EA3D2031C' '456EA3D2031C.pas.ms.script' // GblAdapterLib
  ;
  : Children
-   Seq: ( ME_4E3011A101F7 // SectionType
- ME_4E36C7D80396 // SectionItem
- ME_4E36C8550143 // SectionItemList
- ME_4E36C7590390 // Section
- ME_56FE518A027D // MainMenuSection
- ME_56FE606A033E // MainMenuSectionList
- ME_4DD24C180204 // MainMenu
+   Seq: ( HWL ME_4E3011A101F7 // SectionType
+ HWL ME_4E36C7D80396 // SectionItem
+ HWL ME_4E36C8550143 // SectionItemList
+ HWL ME_4E36C7590390 // Section
+ HWL ME_56FE518A027D // MainMenuSection
+ HWL ME_56FE606A033E // MainMenuSectionList
+ HWL ME_4DD24C180204 // MainMenu
  )
  ; // Children
  : Depends

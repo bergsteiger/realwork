@@ -1,0 +1,71 @@
+// TdsAACDocumentRight 500E747B0047 ViewAreaControllerImp Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_500E747B0047
+
+: ME_500E76A600B2
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_500E747B0047 // TdsAACDocumentRight
+ ;
+ : Target WL 'ME_500E75C90024' '4FF2E66802B4.pas.ms.script' // TnsAACRightDocumentContainer
+ ;
+
+ref; // ME_500E76A600B2 
+
+: ME_500E74C30088_ME_500E747B0047
+ : Original WL 'ME_500E74C30088' '500E749D0046.pas.ms.script' // BlockViewKind
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_500E74C30088_ME_500E747B0047 BlockViewKind
+
+: ME_491C263E03AF_ME_500E747B0047
+ : Original WL 'ME_491C263E03AF' '47EA20430108.pas.ms.script' // GetIsReadOnly
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_491C263E03AF_ME_500E747B0047 GetIsReadOnly
+
+: ME_4C6AB38800F3_ME_500E747B0047
+ : Original WL 'ME_4C6AB38800F3' '47EA20430108.pas.ms.script' // MakeContainer
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4C6AB38800F3_ME_500E747B0047 MakeContainer
+
+: ME_500E747B0047
+ CONST UID '500E747B0047'
+ CONST Name 'TdsAACDocumentRight'
+ CONST Class class_Class
+ : Stereotype st_ViewAreaControllerImp ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4FF2E66802B4' '4FF2E66802B4.pas.ms.script' // AACImplementation
+ ;
+ : Inherits
+   Seq: ( WL 'ME_500E749D0046' '500E749D0046.pas.ms.script' // TdsAACDocumentPrim
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_500FF3E20023' '484FA67302D7.pas.ms.script' // `Правые` блоки должны показываться в правой половине окна, а `левые` в левой
+ )
+ ; // Implements
+ : Implemented
+   Seq: ( ME_500E74C30088_ME_500E747B0047 // BlockViewKind
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_491C263E03AF_ME_500E747B0047 // GetIsReadOnly
+ ME_4C6AB38800F3_ME_500E747B0047 // MakeContainer
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_500E76A600B2 // TnsAACRightDocumentContainer
+ )
+ ; // Dependencies
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\AAC\dsAACDocumentRight.pas'
+ CONST extprop:rc:SelfName 'dsAACDocumentRight'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'dsAACDocumentRight'
+
+ref; // ME_500E747B0047 TdsAACDocumentRight

@@ -14,7 +14,7 @@ FORWARD ME_4A92A8F2022D
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_lnk
- : Parent ME_4A92A8F2022D // JournalTree
+ : Parent HWL ME_4A92A8F2022D // JournalTree
  ;
 
 ref; // ME_4A92A92A00A8 NodeDelegateType_
@@ -27,7 +27,7 @@ ref; // ME_4A92A92A00A8 NodeDelegateType_
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_lnk
- : Parent ME_4A92A8F2022D // JournalTree
+ : Parent HWL ME_4A92A8F2022D // JournalTree
  ;
 
 ref; // ME_4A92AF4D024B NodeType_
@@ -46,7 +46,7 @@ ref; // ME_4A92A95201EE tree
  : Stereotype st_ctor::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4A92A8F2022D // JournalTree
+ : Parent HWL ME_4A92A8F2022D // JournalTree
  ;
  : Parameters
    Seq: ( ME_4A92A95201EE // tree
@@ -63,7 +63,7 @@ ref; // ME_4A92A941032E make
  %SUMMARY 'Очистить дерево' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4A92A8F2022D // JournalTree
+ : Parent HWL ME_4A92A8F2022D // JournalTree
  ;
 
 ref; // ME_4AF42B76023D clear
@@ -82,7 +82,7 @@ ref; // ME_4A92AEE900C8 :
 : ME_4A92B6C4037A
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4A92A8F2022D // JournalTree
+ : Parent HWL ME_4A92A8F2022D // JournalTree
  ;
 
 ref; // ME_4A92B6C4037A 
@@ -90,7 +90,7 @@ ref; // ME_4A92B6C4037A
 : ME_4AF42CEF02C9
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4A92A8F2022D // JournalTree
+ : Parent HWL ME_4A92A8F2022D // JournalTree
  ;
  : Target WL 'ME_460A6EF8024B' '460BAAA30119.pas.ms.script' // ApplicationHelper
  ;
@@ -105,20 +105,20 @@ ref; // ME_4AF42CEF02C9
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4A92A27E01FD // UserJournal_i
+ : Parent HWL ME_4A92A27E01FD // UserJournal_i
  ;
  : Implements
    Seq: ( WL 'ME_45F585F802AF' '45EEA4490239.pas.ms.script' // Tree
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_4A92A92A00A8 // NodeDelegateType_
- ME_4A92AF4D024B // NodeType_
+   Seq: ( HWL ME_4A92A92A00A8 // NodeDelegateType_
+ HWL ME_4A92AF4D024B // NodeType_
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_4A92A941032E // make
- ME_4AF42B76023D // clear
+   Seq: ( HWL ME_4A92A941032E // make
+ HWL ME_4AF42B76023D // clear
  )
  ; // Operations
  : Parameters
@@ -154,7 +154,7 @@ ref; // ME_4A9434790292 adapter_type
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4A94342100B3 // JournalObjectTypeTranslator
+ : Parent HWL ME_4A94342100B3 // JournalObjectTypeTranslator
  ;
  : Parameters
    Seq: ( ME_4A9434790292 // adapter_type
@@ -176,7 +176,7 @@ ref; // ME_4A9434A30323 server_type
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4A94342100B3 // JournalObjectTypeTranslator
+ : Parent HWL ME_4A94342100B3 // JournalObjectTypeTranslator
  ;
  : Target WL 'ME_4A7FFAFA023A' '4A7FF5F301B2.pas.ms.script' // JournalObjectType
  ;
@@ -195,11 +195,11 @@ ref; // ME_4A94348F01E6 translate
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4A92A27E01FD // UserJournal_i
+ : Parent HWL ME_4A92A27E01FD // UserJournal_i
  ;
  : Operations
-   Seq: ( ME_4A9434510206 // translate
- ME_4A94348F01E6 // translate
+   Seq: ( HWL ME_4A9434510206 // translate
+ HWL ME_4A94348F01E6 // translate
  )
  ; // Operations
  CONST cpp:Path 'garant6x\implementation\Garant\GblAdapterLib\impl\UserJournal_i\JournalObjectTypeTranslator.cpp'
@@ -218,8 +218,8 @@ ref; // ME_4A94342100B3 JournalObjectTypeTranslator
  : Parent WL 'ME_456EA3D2031C' '456EA3D2031C.pas.ms.script' // GblAdapterLib
  ;
  : Children
-   Seq: ( ME_4A92A8F2022D // JournalTree
- ME_4A94342100B3 // JournalObjectTypeTranslator
+   Seq: ( HWL ME_4A92A8F2022D // JournalTree
+ HWL ME_4A94342100B3 // JournalObjectTypeTranslator
  )
  ; // Children
  : Depends

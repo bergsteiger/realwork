@@ -13,7 +13,7 @@ FORWARD ME_484F80CF0274
  %SUMMARY 'Функциональность толкового словаря' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_484F80CF0274 // Встроенные продукты
+ : Parent HWL ME_484F80CF0274 // Встроенные продукты
  ;
 
 ref; // ME_484F849D017B Толковый словарь
@@ -29,7 +29,7 @@ FORWARD ME_4856410E0295
  %SUMMARY 'Упрощенный доступ к функциям Инфарм' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4856410E0295 // Инфарм
+ : Parent HWL ME_4856410E0295 // Инфарм
  ;
 
 ref; // ME_4AC1CE96036C Основное меню для Инфарм
@@ -45,7 +45,7 @@ FORWARD ME_4F68A075031B
  %SUMMARY '{RequestLink:346756113}' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4F68A075031B // Работа со списком препаратов
+ : Parent HWL ME_4F68A075031B // Работа со списком препаратов
  ;
 
 ref; // ME_4F68A11502E2 По Alt+I должна открываться информация о документе (препарате)
@@ -59,10 +59,10 @@ ref; // ME_4F68A11502E2 По Alt+I должна открываться информация о документе (преп
  %SUMMARY '[$13746#DrugList]' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4856410E0295 // Инфарм
+ : Parent HWL ME_4856410E0295 // Инфарм
  ;
  : Children
-   Seq: ( ME_4F68A11502E2 // По Alt+I должна открываться информация о документе (препарате)
+   Seq: ( HWL ME_4F68A11502E2 // По Alt+I должна открываться информация о документе (препарате)
  )
  ; // Children
 
@@ -77,11 +77,11 @@ ref; // ME_4F68A075031B Работа со списком препаратов
  %SUMMARY 'Функциональность Инфарм' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_484F80CF0274 // Встроенные продукты
+ : Parent HWL ME_484F80CF0274 // Встроенные продукты
  ;
  : Children
-   Seq: ( ME_4AC1CE96036C // Основное меню для Инфарм
- ME_4F68A075031B // Работа со списком препаратов
+   Seq: ( HWL ME_4AC1CE96036C // Основное меню для Инфарм
+ HWL ME_4F68A075031B // Работа со списком препаратов
  )
  ; // Children
 
@@ -96,7 +96,7 @@ ref; // ME_4856410E0295 Инфарм
  %SUMMARY 'Интеграция с продуктом Электронная налоговая отчетность' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_484F80CF0274 // Встроенные продукты
+ : Parent HWL ME_484F80CF0274 // Встроенные продукты
  ;
 
 ref; // ME_4860875601A8 Интеграция с ЭНО
@@ -110,7 +110,7 @@ ref; // ME_4860875601A8 Интеграция с ЭНО
  %SUMMARY 'Обмен сообщениями для пользователей КС версии' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_484F80CF0274 // Встроенные продукты
+ : Parent HWL ME_484F80CF0274 // Встроенные продукты
  ;
 
 ref; // ME_49EC560D03E0 Совещание онлайн
@@ -124,7 +124,7 @@ ref; // ME_49EC560D03E0 Совещание онлайн
  %SUMMARY 'Возможность загрузки и просмотра онлайн-контента, фактически встроенная в систему браузерная компонента.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_484F80CF0274 // Встроенные продукты
+ : Parent HWL ME_484F80CF0274 // Встроенные продукты
  ;
 
 ref; // ME_49FE7E780022 Новости онлайн
@@ -140,11 +140,11 @@ ref; // ME_49FE7E780022 Новости онлайн
  : Parent WL 'ME_481EF5C4020D' '481EF5C4020D.pas.ms.script' // Оболочка
  ;
  : Children
-   Seq: ( ME_484F849D017B // Толковый словарь
- ME_4856410E0295 // Инфарм
- ME_4860875601A8 // Интеграция с ЭНО
- ME_49EC560D03E0 // Совещание онлайн
- ME_49FE7E780022 // Новости онлайн
+   Seq: ( HWL ME_484F849D017B // Толковый словарь
+ HWL ME_4856410E0295 // Инфарм
+ HWL ME_4860875601A8 // Интеграция с ЭНО
+ HWL ME_49EC560D03E0 // Совещание онлайн
+ HWL ME_49FE7E780022 // Новости онлайн
  )
  ; // Children
 

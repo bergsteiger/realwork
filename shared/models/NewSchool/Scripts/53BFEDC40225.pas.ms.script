@@ -1,0 +1,135 @@
+// TdsChronology 53BFEDC40225 ViewAreaControllerImp Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53BFEDC40225
+
+FORWARD ME_53DA03540293
+
+: ME_53DA036E01A9
+ CONST UID '53DA036E01A9'
+ CONST Name 'OldDocumentNamePrefix'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_53DA03540293 // Chronology Local Const
+ ;
+ CONST "AutoInc" false
+ CONST "Value" '''Справка к'''
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_53DA036E01A9 OldDocumentNamePrefix
+
+: ME_53DA038A0046
+ CONST UID '53DA038A0046'
+ CONST Name 'NewDocumentNamePrefix'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_53DA03540293 // Chronology Local Const
+ ;
+ CONST "AutoInc" false
+ CONST "Value" '''Хронология судебного дела'''
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_53DA038A0046 NewDocumentNamePrefix
+
+: ME_53DA03540293
+ CONST UID '53DA03540293'
+ CONST Name 'Chronology Local Const'
+ CONST Class class_Class
+ : Stereotype st_LocalConst ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_53BFEDC40225 // TdsChronology
+ ;
+ : Attributes
+   Seq: ( HWL ME_53DA036E01A9 // OldDocumentNamePrefix
+ HWL ME_53DA038A0046 // NewDocumentNamePrefix
+ )
+ ; // Attributes
+ CONST "Need map interface" false
+ CONST "Need mapping support" false
+ CONST "spell names" false
+
+ref; // ME_53DA03540293 Chronology Local Const
+
+: ME_53C65ED1028E
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_53BFEDC40225 // TdsChronology
+ ;
+ : Target WL 'ME_53C65E01039B' '4C6A7BA001A5.pas.ms.script' // TnsChronologyDocumentContainer
+ ;
+
+ref; // ME_53C65ED1028E 
+
+: ME_53D8FF630067
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_53BFEDC40225 // TdsChronology
+ ;
+ : Target WL 'ME_47878E0E0191' '54B90AC6014B.pas.ms.script' // l3String
+ ;
+
+ref; // ME_53D8FF630067 
+
+: ME_49589999029F_ME_53BFEDC40225
+ : Original WL 'ME_49589999029F' '47EA20430108.pas.ms.script' // DoGet_PreviewCaleeArea
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_49589999029F_ME_53BFEDC40225 DoGet_PreviewCaleeArea
+
+: ME_4C6AB38800F3_ME_53BFEDC40225
+ : Original WL 'ME_4C6AB38800F3' '47EA20430108.pas.ms.script' // MakeContainer
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4C6AB38800F3_ME_53BFEDC40225 MakeContainer
+
+: ME_53D8E620037C_ME_53BFEDC40225
+ : Original WL 'ME_53D8E620037C' '47EA20430108.pas.ms.script' // DoGetDocumentShortName
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_53D8E620037C_ME_53BFEDC40225 DoGetDocumentShortName
+
+: ME_53BFEDC40225
+ CONST UID '53BFEDC40225'
+ CONST Name 'TdsChronology'
+ CONST Class class_Class
+ : Stereotype st_ViewAreaControllerImp ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Хронология судебного дела' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_493D465902FA' '493D465902FA.pas.ms.script' // DocumentAndList
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4958980300D5' '4958980300D5.pas.ms.script' // TdsChildDocument
+ )
+ ; // Inherits
+ : Overridden
+   Seq: ( ME_49589999029F_ME_53BFEDC40225 // DoGet_PreviewCaleeArea
+ ME_4C6AB38800F3_ME_53BFEDC40225 // MakeContainer
+ ME_53D8E620037C_ME_53BFEDC40225 // DoGetDocumentShortName
+ )
+ ; // Overridden
+ : Constants
+   Seq: ( HWL ME_53DA03540293 // Chronology Local Const
+ )
+ ; // Constants
+ : Dependencies
+   Seq: ( ME_53C65ED1028E // TnsChronologyDocumentContainer
+ ME_53D8FF630067 // l3String
+ )
+ ; // Dependencies
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Business\Document\dsChronology.pas'
+ CONST extprop:rc:SelfName 'dsChronology'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'dsChronology'
+
+ref; // ME_53BFEDC40225 TdsChronology

@@ -1,0 +1,145 @@
+// ParentAndChildPrim 4F6B66260326 VCMFormsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F6B66260326
+
+FORWARD ME_4F6B67820382
+
+: ME_4F6B682E03C3
+ CONST Name 'aMainForm'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525C7A0114' '4AADF9450143.pas.ms.script' // TvcmMainForm
+ ;
+
+ref; // ME_4F6B682E03C3 aMainForm
+
+: ME_4F6B682F002C
+ CONST Name 'anOwner'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525B34022A' '4AADF9450143.pas.ms.script' // TvcmEntityForm
+ ;
+
+ref; // ME_4F6B682F002C anOwner
+
+: ME_4F6B6815037A
+ CONST UID '4F6B6815037A'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4F6B67820382 // MakeChild
+ ;
+ : Parameters
+   Seq: ( ME_4F6B682E03C3 // aMainForm
+ ME_4F6B682F002C // anOwner
+ )
+ ; // Parameters
+
+ref; // ME_4F6B6815037A DoIt
+
+: ME_4F6B67820382
+ CONST UID '4F6B67820382'
+ CONST Name 'MakeChild'
+ CONST Class class_Class
+ : Stereotype st_FormFactory ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4F6B66260326 // ParentAndChildPrim
+ ;
+ : Operations
+   Seq: ( HWL ME_4F6B6815037A // DoIt
+ )
+ ; // Operations
+ CONST "NO_FACTORY_BRACKECTS" false
+
+ref; // ME_4F6B67820382 MakeChild
+
+FORWARD ME_4F6B678D03B8
+
+: ME_4F6B67ED0116
+ CONST Name 'aMainForm'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525C7A0114' '4AADF9450143.pas.ms.script' // TvcmMainForm
+ ;
+
+ref; // ME_4F6B67ED0116 aMainForm
+
+: ME_4F6B67E20007
+ CONST UID '4F6B67E20007'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4F6B678D03B8 // MakeParent
+ ;
+ : Parameters
+   Seq: ( ME_4F6B67ED0116 // aMainForm
+ )
+ ; // Parameters
+
+ref; // ME_4F6B67E20007 DoIt
+
+: ME_4F6B678D03B8
+ CONST UID '4F6B678D03B8'
+ CONST Name 'MakeParent'
+ CONST Class class_Class
+ : Stereotype st_FormFactory ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4F6B66260326 // ParentAndChildPrim
+ ;
+ : Operations
+   Seq: ( HWL ME_4F6B67E20007 // DoIt
+ )
+ ; // Operations
+ CONST "NO_FACTORY_BRACKECTS" false
+
+ref; // ME_4F6B678D03B8 MakeParent
+
+: ME_4F6B684401E9
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4F6B66260326 // ParentAndChildPrim
+ ;
+ : Target WL 'ME_4AD89C420296' '47D0E1500033.pas.ms.script' // vcmMakeParams
+ ;
+
+ref; // ME_4F6B684401E9 
+
+: ME_4F6B66260326
+ CONST UID '4F6B66260326'
+ CONST Name 'ParentAndChildPrim'
+ CONST Class class_Class
+ : Stereotype st_VCMFormsPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent WL 'ME_4F6B66140294' '4F6B66140294.pas.ms.script' // ParentAndChild
+ ;
+ : Operations
+   Seq: ( HWL ME_4F6B67820382 // MakeChild
+ HWL ME_4F6B678D03B8 // MakeParent
+ )
+ ; // Operations
+ : Children
+   Seq: ( WL 'ME_4F6B66CB0200' '4F6B66CB0200.pas.ms.script' // Parent
+ WL 'ME_4F6B66DB0384' '4F6B66DB0384.pas.ms.script' // Child
+ )
+ ; // Children
+ : Dependencies
+   Seq: ( ME_4F6B684401E9 // vcmMakeParams
+ )
+ ; // Dependencies
+ CONST intf.pas:Path 'common\components\gui\Garant\VCM\View\ParentAndChild\ParentAndChildPrim_Module.pas'
+ CONST extprop:pas:TypeName 'TParentAndChildPrimModule'
+ CONST extprop:rc:SelfName 'ParentAndChildPrimModule'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'ParentAndChildPrim_Module'
+
+ref; // ME_4F6B66260326 ParentAndChildPrim

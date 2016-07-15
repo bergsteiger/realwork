@@ -1,0 +1,1209 @@
+// Document 498B135601B6 VCMFormsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_498B135601B6
+
+FORWARD ME_4B150A890212
+
+: ME_4B150AB80169
+ CONST Name 'aDocID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4B150AB80169 aDocID
+
+: ME_4B150AAA0334
+ CONST UID '4B150AAA0334'
+ CONST Name 'Log'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4B150A890212 // TnsOpenDocumentByNumber
+ ;
+ : Parameters
+   Seq: ( ME_4B150AB80169 // aDocID
+ )
+ ; // Parameters
+
+ref; // ME_4B150AAA0334 Log
+
+: ME_4B150AE0035A
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4B150A890212 // TnsOpenDocumentByNumber
+ ;
+ : Target WL 'ME_45ED58FF0201' '45ED58CF03E6.pas.ms.script' // LogEvent
+ ;
+
+ref; // ME_4B150AE0035A 
+
+: ME_4B150A890212
+ CONST UID '4B150A890212'
+ CONST Name 'TnsOpenDocumentByNumber'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_498B135601B6 // Document
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4B0A6109010C' '4B0A60DF01F2.pas.ms.script' // TnsLogEvent
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( HWL ME_4B150AAA0334 // Log
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_4B150AE0035A // LogEvent
+ )
+ ; // Dependencies
+ CONST extprop:rc:SelfName 'OpenDocumentByNumber'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4B150A890212 TnsOpenDocumentByNumber
+
+FORWARD ME_4AA11788033F
+
+FORWARD ME_4AA118F20394
+
+: ME_4AA118FD0117
+ CONST UID '4AA118FD0117'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AA118F20394 // CheckAlive
+ ;
+
+ref; // ME_4AA118FD0117 DoIt
+
+: ME_4AA11E7E02E4
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AA118F20394 // CheckAlive
+ ;
+ : Target WL 'ME_4AA11E600367' '47F2170002B2.pas.ms.script' // ETryOpenMissingDocument
+ ;
+
+ref; // ME_4AA11E7E02E4 
+
+: ME_4AA118F20394
+ CONST UID '4AA118F20394'
+ CONST Name 'CheckAlive'
+ CONST Class class_Class
+ : Stereotype st_localmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AA11788033F // OpenDocument
+ ;
+ : Operations
+   Seq: ( HWL ME_4AA118FD0117 // DoIt
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_4AA11E7E02E4 // ETryOpenMissingDocument
+ )
+ ; // Dependencies
+
+ref; // ME_4AA118F20394 CheckAlive
+
+: ME_4AA117FE0251
+ CONST Name 'aDocInfo'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47EA0784000D' '4B1FC2FF03CD.pas.ms.script' // IdeDocInfo
+ ;
+
+ref; // ME_4AA117FE0251 aDocInfo
+
+: ME_4AA117FE0273
+ CONST Name 'aContainer'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
+ ;
+
+ref; // ME_4AA117FE0273 aContainer
+
+: ME_4AA117FA02B2
+ CONST UID '4AA117FA02B2'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AA11788033F // OpenDocument
+ ;
+ : Parameters
+   Seq: ( ME_4AA117FE0251 // aDocInfo
+ ME_4AA117FE0273 // aContainer
+ )
+ ; // Parameters
+
+ref; // ME_4AA117FA02B2 DoIt
+
+: ME_4AA1184102F0
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AA11788033F // OpenDocument
+ ;
+ : Target WL 'ME_4AA1182503AD' '48F747EC0073.pas.ms.script' // ProfilersManager
+ ;
+
+ref; // ME_4AA1184102F0 
+
+: ME_4AA118660097
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AA11788033F // OpenDocument
+ ;
+ : Target WL 'ME_45EEB6520208' '4570511E038A.pas.ms.script' // DocumentType
+ ;
+
+ref; // ME_4AA118660097 
+
+: ME_4AA119A503AE
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AA11788033F // OpenDocument
+ ;
+ : Target WL 'ME_5010180C0356' '5010180C0356.pas.ms.script' // TsdsDocument
+ ;
+
+ref; // ME_4AA119A503AE 
+
+: ME_4AA119B6016B
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AA11788033F // OpenDocument
+ ;
+ : Target WL 'ME_493E754301C8' '493E754301C8.pas.ms.script' // TsdsDocumentWithFlash
+ ;
+
+ref; // ME_4AA119B6016B 
+
+: ME_4AA11788033F
+ CONST UID '4AA11788033F'
+ CONST Name 'OpenDocument'
+ CONST Class class_Class
+ : Stereotype st_FormSetFactory ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Открывает документ' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_498B135601B6 // Document
+ ;
+ : Operations
+   Seq: ( HWL ME_4AA118F20394 // CheckAlive
+ HWL ME_4AA117FA02B2 // DoIt
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_4AA1184102F0 // ProfilersManager
+ ME_4AA118660097 // DocumentType
+ ME_4AA119A503AE // TsdsDocument
+ ME_4AA119B6016B // TsdsDocumentWithFlash
+ )
+ ; // Dependencies
+ CONST "NO_FACTORY_BRACKECTS" false
+
+ref; // ME_4AA11788033F OpenDocument
+
+FORWARD ME_4AA1327E0334
+
+: ME_4AA1332F019A
+ CONST UID '4AA1332F019A'
+ CONST Name 'Bookmark'
+ CONST Class class_Attribute
+ : Stereotype st_var::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_4AA1327E0334 // OpenEntityAsDocument
+ ;
+ : Target WL 'ME_45EEB65202A0' '4570511E038A.pas.ms.script' // Bookmark
+ ;
+ CONST "IsResult" false
+
+ref; // ME_4AA1332F019A Bookmark
+
+: ME_4AA13342014F
+ CONST UID '4AA13342014F'
+ CONST Name 'JBookmark'
+ CONST Class class_Attribute
+ : Stereotype st_var::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_4AA1327E0334 // OpenEntityAsDocument
+ ;
+ : Target WL 'ME_4A8A8F640192' '4570511E038A.pas.ms.script' // JournalBookmark
+ ;
+ CONST "IsResult" false
+
+ref; // ME_4AA13342014F JBookmark
+
+: ME_4AA1338D02D3
+ CONST UID '4AA1338D02D3'
+ CONST Name 'DocInfo'
+ CONST Class class_Attribute
+ : Stereotype st_var::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_4AA1327E0334 // OpenEntityAsDocument
+ ;
+ : Target WL 'ME_47EA0784000D' '4B1FC2FF03CD.pas.ms.script' // IdeDocInfo
+ ;
+ CONST "IsResult" false
+
+ref; // ME_4AA1338D02D3 DocInfo
+
+: ME_4AA132AD0384
+ CONST Name 'anEntity'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A451250363' '4AB0C3C60310.pas.ms.script' // IUnknown
+ ;
+
+ref; // ME_4AA132AD0384 anEntity
+
+: ME_4AA132AD03AA
+ CONST Name 'aContainer'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
+ ;
+
+ref; // ME_4AA132AD03AA aContainer
+
+: ME_4AA132A00034
+ CONST UID '4AA132A00034'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AA1327E0334 // OpenEntityAsDocument
+ ;
+ : Target WL 'ME_45EEB6520191' '4570511E038A.pas.ms.script' // Document
+ ;
+ : Parameters
+   Seq: ( ME_4AA132AD0384 // anEntity
+ ME_4AA132AD03AA // aContainer
+ )
+ ; // Parameters
+
+ref; // ME_4AA132A00034 DoIt
+
+: ME_4AA133DC022E
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AA1327E0334 // OpenEntityAsDocument
+ ;
+ : Target WL 'ME_456EB454018E' '456EA56002BF.pas.ms.script' // CanNotFindData
+ ;
+
+ref; // ME_4AA133DC022E 
+
+: ME_4AA1400500C5
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AA1327E0334 // OpenEntityAsDocument
+ ;
+ : Target WL 'ME_491C0BE302FF' '4C6ABB3201AC.pas.ms.script' // TdeDocInfo
+ ;
+
+ref; // ME_4AA1400500C5 
+
+: ME_4AA14027000E
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AA1327E0334 // OpenEntityAsDocument
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_4AA14027000E 
+
+: ME_4AA140E50070
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AA1327E0334 // OpenEntityAsDocument
+ ;
+ : Target WL 'ME_491B32C1015D' '47F2170002B2.pas.ms.script' // TDocumentPositionType
+ ;
+
+ref; // ME_4AA140E50070 
+
+: ME_4AD444380271
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AA1327E0334 // OpenEntityAsDocument
+ ;
+ : Target WL 'ME_456EB4540190' '456EA56002BF.pas.ms.script' // NotSaved
+ ;
+
+ref; // ME_4AD444380271 
+
+: ME_4AA1327E0334
+ CONST UID '4AA1327E0334'
+ CONST Name 'OpenEntityAsDocument'
+ CONST Class class_Class
+ : Stereotype st_FactoryMethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_498B135601B6 // Document
+ ;
+ : Attributes
+   Seq: ( HWL ME_4AA1332F019A // Bookmark
+ HWL ME_4AA13342014F // JBookmark
+ HWL ME_4AA1338D02D3 // DocInfo
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( HWL ME_4AA132A00034 // DoIt
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_4AA133DC022E // CanNotFindData
+ ME_4AA1400500C5 // TdeDocInfo
+ ME_4AA14027000E // SysUtils
+ ME_4AA140E50070 // TDocumentPositionType
+ ME_4AD444380271 // NotSaved
+ )
+ ; // Dependencies
+ CONST "NO_FACTORY_BRACKECTS" false
+
+ref; // ME_4AA1327E0334 OpenEntityAsDocument
+
+FORWARD ME_4AA13F010182
+
+: ME_4AA13F190301
+ CONST Name 'aBaseEntity'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A451250363' '4AB0C3C60310.pas.ms.script' // IUnknown
+ ;
+
+ref; // ME_4AA13F190301 aBaseEntity
+
+: ME_4AA13F10001F
+ CONST UID '4AA13F10001F'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AA13F010182 // SafeOpenDocument
+ ;
+ : Target WL 'ME_45EEB6520191' '4570511E038A.pas.ms.script' // Document
+ ;
+ : Parameters
+   Seq: ( ME_4AA13F190301 // aBaseEntity
+ )
+ ; // Parameters
+
+ref; // ME_4AA13F10001F DoIt
+
+: ME_4AA13F2E0352
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AA13F010182 // SafeOpenDocument
+ ;
+ : Target WL 'ME_4AA13EB80322' '4AADF9450143.pas.ms.script' // Ask
+ ;
+
+ref; // ME_4AA13F2E0352 
+
+: ME_4AA13F010182
+ CONST UID '4AA13F010182'
+ CONST Name 'SafeOpenDocument'
+ CONST Class class_Class
+ : Stereotype st_FactoryMethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_498B135601B6 // Document
+ ;
+ : Operations
+   Seq: ( HWL ME_4AA13F10001F // DoIt
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_4AA13F2E0352 // Ask
+ )
+ ; // Dependencies
+ CONST "NO_FACTORY_BRACKECTS" false
+
+ref; // ME_4AA13F010182 SafeOpenDocument
+
+FORWARD ME_4AA4C6090157
+
+: ME_4AA4C69403AA
+ CONST Name 'aDocInfo'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47EA0784000D' '4B1FC2FF03CD.pas.ms.script' // IdeDocInfo
+ ;
+
+ref; // ME_4AA4C69403AA aDocInfo
+
+: ME_4AA4C69403CE
+ CONST Name 'aContainer'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
+ ;
+
+ref; // ME_4AA4C69403CE aContainer
+
+: ME_4AA4C6920311
+ CONST UID '4AA4C6920311'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AA4C6090157 // OpenDocumentWithCheck
+ ;
+ : Parameters
+   Seq: ( ME_4AA4C69403AA // aDocInfo
+ ME_4AA4C69403CE // aContainer
+ )
+ ; // Parameters
+
+ref; // ME_4AA4C6920311 DoIt
+
+: ME_4AA4C6090157
+ CONST UID '4AA4C6090157'
+ CONST Name 'OpenDocumentWithCheck'
+ CONST Class class_Class
+ : Stereotype st_FormSetFactory ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_498B135601B6 // Document
+ ;
+ : Operations
+   Seq: ( HWL ME_4AA4C6920311 // DoIt
+ )
+ ; // Operations
+ CONST "NO_FACTORY_BRACKECTS" false
+
+ref; // ME_4AA4C6090157 OpenDocumentWithCheck
+
+FORWARD ME_4AAFCF8001A8
+
+: ME_4AAFD0380136
+ CONST Name 'aContainer'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
+ ;
+
+ref; // ME_4AAFD0380136 aContainer
+
+: ME_4AAFD038015C
+ CONST Name 'aData'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4991BD9B031F' '4991BD69025E.pas.ms.script' // InsLinkedObjectData
+ ;
+
+ref; // ME_4AAFD038015C aData
+
+: ME_4AAFD0250384
+ CONST UID '4AAFD0250384'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AAFCF8001A8 // OpenExternalObject
+ ;
+ : Parameters
+   Seq: ( ME_4AAFD0380136 // aContainer
+ ME_4AAFD038015C // aData
+ )
+ ; // Parameters
+
+ref; // ME_4AAFD0250384 DoIt
+
+: ME_4AAFD4FD0076
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AAFCF8001A8 // OpenExternalObject
+ ;
+ : Target WL 'ME_47F9C7C9010E' '4F4B8FA60272.pas.ms.script' // nsExternalObjectPrim
+ ;
+
+ref; // ME_4AAFD4FD0076 
+
+: ME_4AAFD5180062
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AAFCF8001A8 // OpenExternalObject
+ ;
+ : Target WL 'ME_45ED932A0044' '45ED922F00A4.pas.ms.script' // ExternalObject
+ ;
+
+ref; // ME_4AAFD5180062 
+
+: ME_4AAFCF8001A8
+ CONST UID '4AAFCF8001A8'
+ CONST Name 'OpenExternalObject'
+ CONST Class class_Class
+ : Stereotype st_FormFactory ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_498B135601B6 // Document
+ ;
+ : Operations
+   Seq: ( HWL ME_4AAFD0250384 // DoIt
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_4AAFD4FD0076 // nsExternalObjectPrim
+ ME_4AAFD5180062 // ExternalObject
+ )
+ ; // Dependencies
+ CONST "NO_FACTORY_BRACKECTS" false
+
+ref; // ME_4AAFCF8001A8 OpenExternalObject
+
+FORWARD ME_4AB12B14001A
+
+: ME_4AB12B3202E3
+ CONST Name 'aContainer'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
+ ;
+
+ref; // ME_4AB12B3202E3 aContainer
+
+: ME_4AB12B320305
+ CONST Name 'aData'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4991BD9B031F' '4991BD69025E.pas.ms.script' // InsLinkedObjectData
+ ;
+
+ref; // ME_4AB12B320305 aData
+
+: ME_4AB12B310035
+ CONST UID '4AB12B310035'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AB12B14001A // OpenPicture
+ ;
+ : Parameters
+   Seq: ( ME_4AB12B3202E3 // aContainer
+ ME_4AB12B320305 // aData
+ )
+ ; // Parameters
+
+ref; // ME_4AB12B310035 DoIt
+
+: ME_4AB12B14001A
+ CONST UID '4AB12B14001A'
+ CONST Name 'OpenPicture'
+ CONST Class class_Class
+ : Stereotype st_FormFactory ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_498B135601B6 // Document
+ ;
+ : Operations
+   Seq: ( HWL ME_4AB12B310035 // DoIt
+ )
+ ; // Operations
+ CONST "NO_FACTORY_BRACKECTS" false
+
+ref; // ME_4AB12B14001A OpenPicture
+
+FORWARD ME_4AB12F3700CB
+
+: ME_4AB12F590260
+ CONST Name 'aContainer'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
+ ;
+
+ref; // ME_4AB12F590260 aContainer
+
+: ME_4AB12F590286
+ CONST Name 'aData'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4991BE7D0056' '4991BD69025E.pas.ms.script' // InsLinkedObjectDescription
+ ;
+
+ref; // ME_4AB12F590286 aData
+
+: ME_4AB12F4803A2
+ CONST UID '4AB12F4803A2'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AB12F3700CB // OpenPictureInfo
+ ;
+ : Parameters
+   Seq: ( ME_4AB12F590260 // aContainer
+ ME_4AB12F590286 // aData
+ )
+ ; // Parameters
+
+ref; // ME_4AB12F4803A2 DoIt
+
+: ME_4AB12F3700CB
+ CONST UID '4AB12F3700CB'
+ CONST Name 'OpenPictureInfo'
+ CONST Class class_Class
+ : Stereotype st_FormFactory ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_498B135601B6 // Document
+ ;
+ : Operations
+   Seq: ( HWL ME_4AB12F4803A2 // DoIt
+ )
+ ; // Operations
+ CONST "NO_FACTORY_BRACKECTS" false
+
+ref; // ME_4AB12F3700CB OpenPictureInfo
+
+FORWARD ME_4AB133720122
+
+: ME_4AE76277032E
+ CONST UID '4AE76277032E'
+ CONST Name 'Data'
+ CONST Class class_Attribute
+ : Stereotype st_var::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_4AB133720122 // OpenDocOnNumber
+ ;
+ : Target WL 'ME_4AE760410074' '4ACF514E0337.pas.ms.script' // InsOpenDocOnNumberData
+ ;
+ CONST "IsResult" false
+
+ref; // ME_4AE76277032E Data
+
+: ME_4AB137CB0170
+ CONST UID '4AB137CB0170'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AB133720122 // OpenDocOnNumber
+ ;
+
+ref; // ME_4AB137CB0170 DoIt
+
+: ME_4AB133FF037C
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AB133720122 // OpenDocOnNumber
+ ;
+ : Target WL 'ME_4A93BA1802CE' '47D0E1500033.pas.ms.script' // vcmParams
+ ;
+
+ref; // ME_4AB133FF037C 
+
+: ME_4AB1346B006D
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AB133720122 // OpenDocOnNumber
+ ;
+ : Target WL 'ME_47FB50E4008E' '48F747EC0073.pas.ms.script' // nsConst
+ ;
+
+ref; // ME_4AB1346B006D 
+
+: ME_4AB134FB00F6
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AB133720122 // OpenDocOnNumber
+ ;
+ : Target WL 'ME_490C47C70210' '48F747EC0073.pas.ms.script' // nsUtils
+ ;
+
+ref; // ME_4AB134FB00F6 
+
+: ME_4AD6E87C03C1
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AB133720122 // OpenDocOnNumber
+ ;
+ : Target WL 'ME_47752AF90375' '47750CE700D0.pas.ms.script' // afwFacade
+ ;
+
+ref; // ME_4AD6E87C03C1 
+
+: ME_4AE821E4018D
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AB133720122 // OpenDocOnNumber
+ ;
+ : Target WL 'ME_4AE760FD0182' '4A815BFF0168.pas.ms.script' // TnsOpenDocOnNumberData
+ ;
+
+ref; // ME_4AE821E4018D 
+
+: ME_4AB133720122
+ CONST UID '4AB133720122'
+ CONST Name 'OpenDocOnNumber'
+ CONST Class class_Class
+ : Stereotype st_ModuleMethod ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Открыть документ по номеру' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_498B135601B6 // Document
+ ;
+ : Attributes
+   Seq: ( HWL ME_4AE76277032E // Data
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( HWL ME_4AB137CB0170 // DoIt
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_4AB133FF037C // vcmParams
+ ME_4AB1346B006D // nsConst
+ ME_4AB134FB00F6 // nsUtils
+ ME_4AD6E87C03C1 // afwFacade
+ ME_4AE821E4018D // TnsOpenDocOnNumberData
+ )
+ ; // Dependencies
+ CONST "ShowInToolbar" 'undefined'
+ CONST "no prefix" false
+ CONST "no test" false
+
+ref; // ME_4AB133720122 OpenDocOnNumber
+
+FORWARD ME_4B26253C0205
+
+: ME_4B2625680299
+ CONST Name 'anIntf'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49804EA70373' '49804E310263.pas.ms.script' // InsTurnOnTimeMachine
+ ;
+
+ref; // ME_4B2625680299 anIntf
+
+: ME_4B2625580052
+ CONST UID '4B2625580052'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4B26253C0205 // OpenTurnOnTimeMachine
+ ;
+ : Parameters
+   Seq: ( ME_4B2625680299 // anIntf
+ )
+ ; // Parameters
+
+ref; // ME_4B2625580052 DoIt
+
+: ME_4B26253C0205
+ CONST UID '4B26253C0205'
+ CONST Name 'OpenTurnOnTimeMachine'
+ CONST Class class_Class
+ : Stereotype st_FormFactory ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_498B135601B6 // Document
+ ;
+ : Operations
+   Seq: ( HWL ME_4B2625580052 // DoIt
+ )
+ ; // Operations
+ CONST "NO_FACTORY_BRACKECTS" false
+
+ref; // ME_4B26253C0205 OpenTurnOnTimeMachine
+
+FORWARD ME_4ED90DDC00A5
+
+: ME_4ED90E1D03E2
+ CONST Name 'anEditionsHolder'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4ED905EA0339' '491B305A0096.pas.ms.script' // IsdsEditionsHolder
+ ;
+
+ref; // ME_4ED90E1D03E2 anEditionsHolder
+
+: ME_4ED90E4A0386
+ CONST Name 'anAggregate'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49930CC501C9' '4683F37902CF.pas.ms.script' // IvcmAggregate
+ ;
+
+ref; // ME_4ED90E4A0386 anAggregate
+
+: ME_4ED90DF60380
+ CONST UID '4ED90DF60380'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4ED90DDC00A5 // OpenEditionsListModal
+ ;
+ : Parameters
+   Seq: ( ME_4ED90E1D03E2 // anEditionsHolder
+ ME_4ED90E4A0386 // anAggregate
+ )
+ ; // Parameters
+
+ref; // ME_4ED90DF60380 DoIt
+
+: ME_4ED90DDC00A5
+ CONST UID '4ED90DDC00A5'
+ CONST Name 'OpenEditionsListModal'
+ CONST Class class_Class
+ : Stereotype st_FormFactory ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_498B135601B6 // Document
+ ;
+ : Implements
+   Seq: ( WL 'ME_4ED8FE60030D' '484900780017.pas.ms.script' // Должна быть возможность сравнения ЛЮБЫХ редакций
+ )
+ ; // Implements
+ : Operations
+   Seq: ( HWL ME_4ED90DF60380 // DoIt
+ )
+ ; // Operations
+ CONST "NO_FACTORY_BRACKECTS" false
+
+ref; // ME_4ED90DDC00A5 OpenEditionsListModal
+
+FORWARD ME_4F7D90530076
+
+: ME_4F7D912903DB
+ CONST Name 'aCaller'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525C240170' '4AADF9450143.pas.ms.script' // TvcmContainerForm
+ ;
+
+ref; // ME_4F7D912903DB aCaller
+
+: ME_4F7D912A0054
+ CONST Name 'aUserType'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4992F9230369' '4683F37902CF.pas.ms.script' // TvcmEffectiveUserType
+ ;
+
+ref; // ME_4F7D912A0054 aUserType
+
+: ME_4F7D912A00A1
+ CONST Name 'aWarning'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4921869901CF' '491B305A0096.pas.ms.script' // IdsWarning
+ ;
+
+ref; // ME_4F7D912A00A1 aWarning
+
+: ME_4F7D906D0045
+ CONST UID '4F7D906D0045'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4F7D90530076 // MakeBaloonForm
+ ;
+ : Parameters
+   Seq: ( ME_4F7D912903DB // aCaller
+ ME_4F7D912A0054 // aUserType
+ ME_4F7D912A00A1 // aWarning
+ )
+ ; // Parameters
+
+ref; // ME_4F7D906D0045 DoIt
+
+: ME_4F7D90530076
+ CONST UID '4F7D90530076'
+ CONST Name 'MakeBaloonForm'
+ CONST Class class_Class
+ : Stereotype st_FormFactory ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_498B135601B6 // Document
+ ;
+ : Operations
+   Seq: ( HWL ME_4F7D906D0045 // DoIt
+ )
+ ; // Operations
+ CONST "NO_FACTORY_BRACKECTS" false
+
+ref; // ME_4F7D90530076 MakeBaloonForm
+
+FORWARD ME_F439A1EC5B50
+
+: ME_5A5DC923B416
+ CONST UID '5A5DC923B416'
+ CONST Name 'DoIt'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Метод для получения значения настройки "Показывать историю изменений в документе"' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_F439A1EC5B50 // DocumentShowChangesInfoSetting
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_5A5DC923B416 DoIt
+
+: ME_4BB0118BDFCD
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_F439A1EC5B50 // DocumentShowChangesInfoSetting
+ ;
+ : Target WL 'ME_477515240332' '47750CE700D0.pas.ms.script' // Tafw
+ ;
+
+ref; // ME_4BB0118BDFCD 
+
+: ME_F439A1EC5B50
+ CONST UID 'F439A1EC5B50'
+ CONST Name 'DocumentShowChangesInfoSetting'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_FactoryMethod ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Метод для получения значения настройки "Показывать историю изменений в документе"' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_498B135601B6 // Document
+ ;
+ : Implements
+   Seq: ( WL 'ME_4E3024310248' '484FA67302D7.pas.ms.script' // Показывать историю изменений в документе
+ )
+ ; // Implements
+ : Operations
+   Seq: ( HWL ME_5A5DC923B416 // DoIt
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_4BB0118BDFCD // Tafw
+ )
+ ; // Dependencies
+ CONST "NO_FACTORY_BRACKECTS" true
+ CONST "is static" true
+
+ref; // ME_F439A1EC5B50 DocumentShowChangesInfoSetting
+
+FORWARD ME_81ECFA778427
+
+: ME_5DA84D35CAFF
+ CONST Name 'aValue'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_5DA84D35CAFF aValue
+
+: ME_5B54DD2F7424
+ CONST UID '5B54DD2F7424'
+ CONST Name 'DoIt'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Метод для записи значения настройки "Показывать историю изменений в документе"' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_81ECFA778427 // WriteDocumentShowChangesInfoSetting
+ ;
+ : Parameters
+   Seq: ( ME_5DA84D35CAFF // aValue
+ )
+ ; // Parameters
+
+ref; // ME_5B54DD2F7424 DoIt
+
+: ME_E9B6570FA7DD
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_81ECFA778427 // WriteDocumentShowChangesInfoSetting
+ ;
+ : Target WL 'ME_477515240332' '47750CE700D0.pas.ms.script' // Tafw
+ ;
+
+ref; // ME_E9B6570FA7DD 
+
+: ME_81ECFA778427
+ CONST UID '81ECFA778427'
+ CONST Name 'WriteDocumentShowChangesInfoSetting'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_FactoryMethod ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Метод для записи значения настройки "Показывать историю изменений в документе"' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_498B135601B6 // Document
+ ;
+ : Implements
+   Seq: ( WL 'ME_4E3024310248' '484FA67302D7.pas.ms.script' // Показывать историю изменений в документе
+ )
+ ; // Implements
+ : Operations
+   Seq: ( HWL ME_5B54DD2F7424 // DoIt
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_E9B6570FA7DD // Tafw
+ )
+ ; // Dependencies
+ CONST "NO_FACTORY_BRACKECTS" true
+ CONST "is static" true
+
+ref; // ME_81ECFA778427 WriteDocumentShowChangesInfoSetting
+
+: ME_4AF3E0560016
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_498B135601B6 // Document
+ ;
+ : Target WL 'ME_4AF32F290177' '498874B90391.pas.ms.script' // Picture
+ ;
+
+ref; // ME_4AF3E0560016 
+
+: ME_4B150ACD0270
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_498B135601B6 // Document
+ ;
+ : Target HWL ME_4B150A890212 // TnsOpenDocumentByNumber
+ ;
+
+ref; // ME_4B150ACD0270 
+
+: ME_4E03378802DD
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_498B135601B6 // Document
+ ;
+ : Target WL 'ME_4E01D696020C' '4AADF9450143.pas.ms.script' // vcmMessagesSupport
+ ;
+
+ref; // ME_4E03378802DD 
+
+: ME_81155E3EB4FA
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_498B135601B6 // Document
+ ;
+ : Target WL 'ME_9847AD90023A' '4951181B02B6.pas.ms.script' // DocumentShowChangesInfoSettingRes
+ ;
+
+ref; // ME_81155E3EB4FA 
+
+: ME_4E1F95FEAC4F
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_498B135601B6 // Document
+ ;
+ : Target WL 'ME_A8C41C353B7D' '4951181B02B6.pas.ms.script' // TstDocumentShowChangesInfoItem
+ ;
+
+ref; // ME_4E1F95FEAC4F 
+
+: ME_498B135601B6
+ CONST UID '498B135601B6'
+ CONST Name 'Document'
+ CONST Class class_Class
+ : Stereotype st_VCMFormsPack ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Работа с документом' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4951181B02B6' '4951181B02B6.pas.ms.script' // Document
+ ;
+ : Operations
+   Seq: ( HWL ME_4AA11788033F // OpenDocument
+ HWL ME_4AA1327E0334 // OpenEntityAsDocument
+ HWL ME_4AA13F010182 // SafeOpenDocument
+ HWL ME_4AA4C6090157 // OpenDocumentWithCheck
+ HWL ME_4AAFCF8001A8 // OpenExternalObject
+ HWL ME_4AB12B14001A // OpenPicture
+ HWL ME_4AB12F3700CB // OpenPictureInfo
+ HWL ME_4AB133720122 // OpenDocOnNumber
+ HWL ME_4B26253C0205 // OpenTurnOnTimeMachine
+ HWL ME_4ED90DDC00A5 // OpenEditionsListModal
+ HWL ME_4F7D90530076 // MakeBaloonForm
+ HWL ME_F439A1EC5B50 // DocumentShowChangesInfoSetting
+ HWL ME_81ECFA778427 // WriteDocumentShowChangesInfoSetting
+ )
+ ; // Operations
+ : Children
+   Seq: ( WL 'ME_4989E67D00C0' '4989E67D00C0.pas.ms.script' // DocumentWithFlash
+ WL 'ME_4A7709C70002' '4A7709C70002.pas.ms.script' // Text
+ WL 'ME_4A8EE2890012' '4A8EE2890012.pas.ms.script' // Redactions
+ WL 'ME_4A9D51C4026F' '4A9D51C4026F.pas.ms.script' // Contents
+ WL 'ME_4AA126C401AD' '4AA126C401AD.pas.ms.script' // Document
+ WL 'ME_4AA126F9032A' '4AA126F9032A.pas.ms.script' // DocumentWithFlash$FSF
+ WL 'ME_4AAFCF930362' '4AAFCF930362.pas.ms.script' // Picture
+ WL 'ME_4AB12FA70146' '4AB12FA70146.pas.ms.script' // PictureInfo
+ WL 'ME_4AB13348028C' '4AB13348028C.pas.ms.script' // DocNumberQuery
+ WL 'ME_4AB1355B01EA' '4AB1355B01EA.pas.ms.script' // Warning
+ WL 'ME_4AB1357D0253' '4AB1357D0253.pas.ms.script' // Attributes
+ WL 'ME_4AB1359700D9' '4AB1359700D9.pas.ms.script' // SynchroView
+ WL 'ME_4AB135BD01C2' '4AB135BD01C2.pas.ms.script' // TurnOnTimeMachine
+ HWL ME_4B150A890212 // TnsOpenDocumentByNumber
+ WL 'ME_4EA58A3903B4' '4EA58A3903B4.pas.ms.script' // WarningBaloon
+ WL 'ME_4EE223D80391' '4EE223D80391.pas.ms.script' // SynchroView_WarningBaloon
+ WL 'ME_4EE22F340060' '4EE22F340060.pas.ms.script' // Translation_WarningBaloon
+ WL 'ME_4EF47F2E0348' '4EF47F2E0348.pas.ms.script' // UserCR1_WarningBaloon
+ WL 'ME_4EF47F5A02F7' '4EF47F5A02F7.pas.ms.script' // UserCR2_WarningBaloon
+ )
+ ; // Children
+ : Dependencies
+   Seq: ( ME_4AF3E0560016 // Picture
+ ME_4B150ACD0270 // TnsOpenDocumentByNumber
+ ME_4E03378802DD // vcmMessagesSupport
+ ME_81155E3EB4FA // DocumentShowChangesInfoSettingRes
+ ME_4E1F95FEAC4F // TstDocumentShowChangesInfoItem
+ )
+ ; // Dependencies
+ CONST "author" 'Люлин А.В.'
+ CONST "no hands" true
+ CONST "started" '05.02.2009 19:28'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Document\Document_Module.pas'
+ CONST extprop:pas:TypeName 'TDocumentModule'
+ CONST extprop:rc:SelfName 'DocumentModule'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'Document_Module'
+
+ref; // ME_498B135601B6 Document

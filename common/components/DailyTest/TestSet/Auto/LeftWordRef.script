@@ -1,0 +1,68 @@
+: TestLeftWordRef
+
+ VOID operator X 
+   ^@ IN aLeft
+   ^ IN aRight
+  aLeft DO .
+  aRight DO .
+ ;
+ 
+ VOID operator X2
+  ^@ IN aLeft1
+  ^@ IN aLeft2
+  
+  aLeft1 DO .
+  aLeft2 DO .
+ ;
+ 
+ VOID operator +:= 
+   ^@ IN aLeft
+   ^ IN aRight
+  aLeft DO 
+  aRight DO 
+  +
+  >>>^ aLeft
+ ;
+ 
+ VOID operator -:= 
+   ^@ IN aLeft
+   ^ IN aRight
+  aLeft DO 
+  aRight DO 
+  -
+  >>>^ aLeft
+ ;
+ 
+ VOID operator ^<<<
+   IN aLeft
+   ^ IN aRight
+  aRight DO >>>^ aLeft
+ ;
+ 
+ VOID operator <<<
+   ^@ IN aLeft
+   ^ IN aRight
+  aRight DO >>>^ aLeft
+ ;
+ 
+ VAR Y
+ Y := 1
+ 
+ Y X 2
+ 
+ 'A' 'B' X2
+ 
+ Y +:= 5
+ Y .
+ 
+ Y -:= 10
+ Y .
+ 
+ @ Y ^<<< 100
+ Y .
+ 
+ Y <<< 200
+ Y .
+;
+
+TestLeftWordRef

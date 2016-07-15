@@ -1,0 +1,163 @@
+// TevCustomEditorModelPart 4B877C5101C1 GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B877C5101C1
+
+FORWARD ME_4B877F3C0242
+
+: ME_4B877F7B0359
+ CONST UID '4B877F7B0359'
+ CONST Name 'Table'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4B877F3C0242 // TevAllowParaType
+ ;
+
+ref; // ME_4B877F7B0359 Table
+
+: ME_4B877F8201B7
+ CONST UID '4B877F8201B7'
+ CONST Name 'SBS'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4B877F3C0242 // TevAllowParaType
+ ;
+
+ref; // ME_4B877F8201B7 SBS
+
+: ME_4B877F8700D0
+ CONST UID '4B877F8700D0'
+ CONST Name 'Picture'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4B877F3C0242 // TevAllowParaType
+ ;
+
+ref; // ME_4B877F8700D0 Picture
+
+: ME_4B877F8C0386
+ CONST UID '4B877F8C0386'
+ CONST Name 'Formula'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4B877F3C0242 // TevAllowParaType
+ ;
+
+ref; // ME_4B877F8C0386 Formula
+
+: ME_4B877F9A02DC
+ CONST UID '4B877F9A02DC'
+ CONST Name 'PageBreak'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4B877F3C0242 // TevAllowParaType
+ ;
+
+ref; // ME_4B877F9A02DC PageBreak
+
+: ME_4B877F3C0242
+ CONST UID '4B877F3C0242'
+ CONST Name 'TevAllowParaType'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Разрешённые типы параграфов' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4B877C5101C1 // TevCustomEditorModelPart
+ ;
+ : Attributes
+   Seq: ( HWL ME_4B877F7B0359 // Table
+ HWL ME_4B877F8201B7 // SBS
+ HWL ME_4B877F8700D0 // Picture
+ HWL ME_4B877F8C0386 // Formula
+ HWL ME_4B877F9A02DC // PageBreak
+ )
+ ; // Attributes
+ CONST "children prefix" 'apt'
+ CONST "elements prefix" 'ev'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:ElementPrefixBase 'ev'
+ CONST extprop:pas:ElementPrefix 'ev_apt'
+
+ref; // ME_4B877F3C0242 TevAllowParaType
+
+: ME_4B8787B400F8
+ CONST UID '4B8787B400F8'
+ CONST Name 'TevAllowParaTypes'
+ CONST Class class_Class
+ : Stereotype st_SetOf ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Множество типов разрешённых параграфов' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4B877C5101C1 // TevCustomEditorModelPart
+ ;
+ : Inherits
+   Seq: ( HWL ME_4B877F3C0242 // TevAllowParaType
+ )
+ ; // Inherits
+
+ref; // ME_4B8787B400F8 TevAllowParaTypes
+
+: ME_4B877E7B0330
+ CONST UID '4B877E7B0330'
+ CONST Name 'AllowParaType'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4B877C5101C1 // TevCustomEditorModelPart
+ ;
+ : Target HWL ME_4B8787B400F8 // TevAllowParaTypes
+ ;
+ CONST "needs field" false
+ CONST "pm" true
+
+ref; // ME_4B877E7B0330 AllowParaType
+
+: ME_4B877C5101C1
+ CONST UID '4B877C5101C1'
+ CONST Name 'TevCustomEditorModelPart'
+ CONST Class class_Class
+ : Stereotype st_GuiControl ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Часть TevCustomEditor перенесённая на модель' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4829D7D50156' '4829D7D50156.pas.ms.script' // Editors
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4829D8C50010' '4829D8C50010.pas.ms.script' // TevMultiSelectEditorWindow
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( HWL ME_4B877E7B0330 // AllowParaType
+ )
+ ; // Attributes
+ : Children
+   Seq: ( HWL ME_4B877F3C0242 // TevAllowParaType
+ HWL ME_4B8787B400F8 // TevAllowParaTypes
+ )
+ ; // Children
+ CONST "author" 'Люлин А.В.'
+ CONST "no hands" true
+ CONST "started" '26.02.2010 10:54'
+ CONST intf.pas:Path 'common\components\gui\Garant\Everest\evCustomEditorModelPart.pas'
+ CONST extprop:rc:SelfName 'EditorModelPart'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evCustomEditorModelPart'
+
+ref; // ME_4B877C5101C1 TevCustomEditorModelPart

@@ -20,7 +20,7 @@ ref; // ME_461CD6D30280 content
  %SUMMARY 'ѕроверка контента на существование' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_461CD65E0280 // ContentChecker
+ : Parent HWL ME_461CD65E0280 // ContentChecker
  ;
  : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
  ;
@@ -45,7 +45,7 @@ ref; // ME_461CD6D70196 content
  %SUMMARY 'ѕроверка существует ли контент (лезем на сервер)' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_461CD65E0280 // ContentChecker
+ : Parent HWL ME_461CD65E0280 // ContentChecker
  ;
  : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
  ;
@@ -59,7 +59,7 @@ ref; // ME_45F804B50161 check_server_content
 : ME_461CD8A80119
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_461CD65E0280 // ContentChecker
+ : Parent HWL ME_461CD65E0280 // ContentChecker
  ;
  : Target WL 'ME_460A6EF8024B' '460BAAA30119.pas.ms.script' // ApplicationHelper
  ;
@@ -74,11 +74,11 @@ ref; // ME_461CD8A80119
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_461CD5BA030D // FoldersHelper
+ : Parent HWL ME_461CD5BA030D // FoldersHelper
  ;
  : Operations
-   Seq: ( ME_45F8045C03D2 // check_content
- ME_45F804B50161 // check_server_content
+   Seq: ( HWL ME_45F8045C03D2 // check_content
+ HWL ME_45F804B50161 // check_server_content
  )
  ; // Operations
  : Dependencies
@@ -102,7 +102,7 @@ ref; // ME_461CD65E0280 ContentChecker
  : Parent WL 'ME_456EA3D2031C' '456EA3D2031C.pas.ms.script' // GblAdapterLib
  ;
  : Children
-   Seq: ( ME_461CD65E0280 // ContentChecker
+   Seq: ( HWL ME_461CD65E0280 // ContentChecker
  )
  ; // Children
  : Depends

@@ -2,40 +2,6 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-FORWARD ME_495497AC0169
-
-: ME_4AA0D69601AB
- CONST UID '4AA0D69601AB'
- CONST Name 'Inpharm'
- CONST Class class_Class
- : Stereotype st_VCMUseCaseRealization ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Инфарм' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_495497AC0169 // Inpharm
- ;
- : Inherits
-   Seq: ( WL 'ME_4AA0D66F0159' '4958E49A023A.pas.ms.script' // Inpharm
- )
- ; // Inherits
- : Implements
-   Seq: ( WL 'ME_4856410E0295' '484F80CF0274.pas.ms.script' // Инфарм
- WL 'ME_4F68A075031B' '484F80CF0274.pas.ms.script' // Работа со списком препаратов
- )
- ; // Implements
- CONST "author" 'Лукьянец Р.В.'
- CONST "no hands" true
- CONST "started" '2008/03/12 11:01:35'
- CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\moInpharm.pas'
- CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
- CONST extprop:pas:TypeName 'Tmo_Inpharm'
- CONST extprop:rc:SelfName 'mo_Inpharm'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'moInpharm'
-
-ref; // ME_4AA0D69601AB Inpharm
-
 : ME_495497AC0169
  CONST UID '495497AC0169'
  CONST Name 'Inpharm'
@@ -47,7 +13,7 @@ ref; // ME_4AA0D69601AB Inpharm
  : Parent WL 'ME_4AC2470103B2' '4AC2470103B2.pas.ms.script' // F1 Встроенные продукты
  ;
  : Children
-   Seq: ( ME_4AA0D69601AB // Inpharm
+   Seq: ( WL 'ME_4AA0D69601AB' '4AA0D69601AB.pas.ms.script' // Inpharm
  WL 'ME_494106E500F3' '494106E500F3.pas.ms.script' // Medic
  WL 'ME_49410AA9008B' '49410AA9008B.pas.ms.script' // Drug
  WL 'ME_4958E46E007B' '4958E46E007B.pas.ms.script' // View
@@ -82,7 +48,6 @@ ref; // ME_4AA0D69601AB Inpharm
  WL 'ME_4C6A65ED0374' '4C6A65ED0374.pas.ms.script' // F1DocumentProcessing
  WL 'ME_4D358B9A01E5' '4D358B9A01E5.pas.ms.script' // DictionLike
  WL 'ME_4E13416D0227' '4E13416D0227.pas.ms.script' // VCM$Visual
- WL 'ME_4E200FC9003B' '4E200FC9003B.pas.ms.script' // VCM$Scripting
  WL 'ME_4E2F0E1B03BB' '4E2F0E1B03BB.pas.ms.script' // L3$Domain
  WL 'ME_4F6B65EA0392' '4F6B65EA0392.pas.ms.script' // F1Like
  WL 'ME_4F7D7B7F0216' '4F7D7B7F0216.pas.ms.script' // F1 Without Usecases

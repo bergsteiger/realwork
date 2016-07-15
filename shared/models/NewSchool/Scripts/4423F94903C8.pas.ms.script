@@ -13,7 +13,7 @@ FORWARD ME_4423F94903C8
  %SUMMARY 'Во время выполнения операции copy_to один из потоков, участвовавших в операции перешёл в некорректное состояние.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4423F94903C8 // IO
+ : Parent HWL ME_4423F94903C8 // IO
  ;
 
 ref; // ME_443E3D76031C OperationError
@@ -27,7 +27,7 @@ ref; // ME_443E3D76031C OperationError
  %SUMMARY 'функция не реализована' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4423F94903C8 // IO
+ : Parent HWL ME_4423F94903C8 // IO
  ;
 
 ref; // ME_476645080087 NotImplemented
@@ -43,7 +43,7 @@ FORWARD ME_431841610361
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_431841610361 // String
+ : Parent HWL ME_431841610361 // String
  ;
  : Target WL 'ME_3DBFFDE101CA' '3DBFDB23006E.pas.ms.script' // unsigned long
  ;
@@ -60,7 +60,7 @@ ref; // ME_43184161036F length
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_431841610361 // String
+ : Parent HWL ME_431841610361 // String
  ;
  : Target WL 'ME_3DBFFDE101CA' '3DBFDB23006E.pas.ms.script' // unsigned long
  ;
@@ -77,7 +77,7 @@ ref; // ME_431841610370 maximum
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_431841610361 // String
+ : Parent HWL ME_431841610361 // String
  ;
  : Target WL 'ME_3DBFFE240068' '3DBFDB23006E.pas.ms.script' // string
  ;
@@ -94,7 +94,7 @@ ref; // ME_431841610371 data
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_431841610361 // String
+ : Parent HWL ME_431841610361 // String
  ;
  : Target WL 'ME_3DBFFD5402AE' '3DBFDB23006E.pas.ms.script' // short
  ;
@@ -119,7 +119,7 @@ ref; // ME_46138E0E02EE str
  %SUMMARY 'фабрика, копирует строку' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_431841610361 // String
+ : Parent HWL ME_431841610361 // String
  ;
  : Parameters
    Seq: ( ME_46138E0E02EE // str
@@ -155,7 +155,7 @@ ref; // ME_46138825031C code_page
  %SUMMARY 'фабрика, копирует строку' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_431841610361 // String
+ : Parent HWL ME_431841610361 // String
  ;
  : Parameters
    Seq: ( ME_461388250203 // str
@@ -193,7 +193,7 @@ ref; // ME_46138E12038A code_page
  %SUMMARY 'Захватывает переданную строку. Память под передаваемый аргумент str ДОЛЖНА БЫТЬ ВЫДЕЛЕНА оператором new[], так как в деструкторе вызывается оператор delete[].' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_431841610361 // String
+ : Parent HWL ME_431841610361 // String
  ;
  : Parameters
    Seq: ( ME_46138E12030D // str
@@ -222,7 +222,7 @@ ref; // ME_43184161036B maximum
  %SUMMARY 'создает пустую строку, с преалоцированным буфером указанного размера' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_431841610361 // String
+ : Parent HWL ME_431841610361 // String
  ;
  : Parameters
    Seq: ( ME_43184161036B // maximum
@@ -258,7 +258,7 @@ ref; // ME_431841610365 maximum
  %SUMMARY 'Захватывает переданную строку. Если аргумент, задающий длину, меньше чем strlen(str) + 1, то длина строки принимается равной длине строки + 1. Память под передаваемый аргумент str ДОЛЖНА БЫТЬ ВЫДЕЛЕНА оператором new[], так как в деструкторе вызывается оператор delete[].' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_431841610361 // String
+ : Parent HWL ME_431841610361 // String
  ;
  : Parameters
    Seq: ( ME_431841610364 // str
@@ -286,7 +286,7 @@ ref; // ME_431841610367 str
  %SUMMARY 'устанавливает значение строки равное переданному (переданная строка копируеться)' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_431841610361 // String
+ : Parent HWL ME_431841610361 // String
  ;
  : Parameters
    Seq: ( ME_431841610367 // str
@@ -302,9 +302,9 @@ ref; // ME_431841610366 reset
  %SUMMARY 'возвращает бинарную копию строки' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_431841610361 // String
+ : Parent HWL ME_431841610361 // String
  ;
- : Target ME_431841610361 // String
+ : Target HWL ME_431841610361 // String
  ;
 
 ref; // ME_431841610362 strdup
@@ -326,7 +326,7 @@ ref; // ME_452A4C430090 str
  %SUMMARY 'добавляет к строке переданную подстроку, возвращает указатель на свой буфер' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_431841610361 // String
+ : Parent HWL ME_431841610361 // String
  ;
  : Target WL 'ME_3DBFFE240068' '3DBFDB23006E.pas.ms.script' // string
  ;
@@ -342,7 +342,7 @@ ref; // ME_43185CB60312 add
  CONST Name 'str'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_431841610361 // String
+ : Target HWL ME_431841610361 // String
  ;
 
 ref; // ME_452A4C460294 str
@@ -355,7 +355,7 @@ ref; // ME_452A4C460294 str
  %SUMMARY 'добавляет к строке переданную подстроку, возвращает указатель на свой буфер' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_431841610361 // String
+ : Parent HWL ME_431841610361 // String
  ;
  : Target WL 'ME_3DBFFE240068' '3DBFDB23006E.pas.ms.script' // string
  ;
@@ -383,7 +383,7 @@ ref; // ME_43185E9F0170 str
  %SUMMARY 'возвращает новую строку равную объединению текущей и переданной' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_431841610361 // String
+ : Parent HWL ME_431841610361 // String
  ;
  : Target WL 'ME_3DBFFE240068' '3DBFDB23006E.pas.ms.script' // string
  ;
@@ -399,7 +399,7 @@ ref; // ME_43185E8E0375 join
  CONST Name 'str'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_431841610361 // String
+ : Target HWL ME_431841610361 // String
  ;
 
 ref; // ME_43185EC8033C str
@@ -411,7 +411,7 @@ ref; // ME_43185EC8033C str
  %SUMMARY 'возвращает новую строку равную объединению текущей и переданной' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_431841610361 // String
+ : Parent HWL ME_431841610361 // String
  ;
  : Target WL 'ME_3DBFFE240068' '3DBFDB23006E.pas.ms.script' // string
  ;
@@ -433,27 +433,27 @@ ref; // ME_43185EB40008 join
  %SUMMARY 'Интерфейс для работы со строками. Предпочтительно использовать именно этот тип для работы со всеми строковыми данными.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4423F94903C8 // IO
+ : Parent HWL ME_4423F94903C8 // IO
  ;
  : Attributes
-   Seq: ( ME_43184161036F // length
- ME_431841610370 // maximum
- ME_431841610371 // data
- ME_431860270052 // code_page
+   Seq: ( HWL ME_43184161036F // length
+ HWL ME_431841610370 // maximum
+ HWL ME_431841610371 // data
+ HWL ME_431860270052 // code_page
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_461384D70213 // make
- ME_433105CC02D0 // create
- ME_4613871A00EA // take
- ME_43184161036A // alloc
- ME_431841610363 // reset
- ME_431841610366 // reset
- ME_431841610362 // strdup
- ME_43185CB60312 // add
- ME_43185CF2021E // add
- ME_43185E8E0375 // join
- ME_43185EB40008 // join
+   Seq: ( HWL ME_461384D70213 // make
+ HWL ME_433105CC02D0 // create
+ HWL ME_4613871A00EA // take
+ HWL ME_43184161036A // alloc
+ HWL ME_431841610363 // reset
+ HWL ME_431841610366 // reset
+ HWL ME_431841610362 // strdup
+ HWL ME_43185CB60312 // add
+ HWL ME_43185CF2021E // add
+ HWL ME_43185E8E0375 // join
+ HWL ME_43185EB40008 // join
  )
  ; // Operations
  CONST "single impl" false
@@ -473,7 +473,7 @@ FORWARD ME_47626A9C017A
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_47626A9C017A // StreamSeekDirection
+ : Parent HWL ME_47626A9C017A // StreamSeekDirection
  ;
 
 ref; // ME_4762721801C2 SSD_BEGIN
@@ -486,7 +486,7 @@ ref; // ME_4762721801C2 SSD_BEGIN
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_47626A9C017A // StreamSeekDirection
+ : Parent HWL ME_47626A9C017A // StreamSeekDirection
  ;
 
 ref; // ME_476272450399 SSD_CURRENT
@@ -499,7 +499,7 @@ ref; // ME_476272450399 SSD_CURRENT
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_47626A9C017A // StreamSeekDirection
+ : Parent HWL ME_47626A9C017A // StreamSeekDirection
  ;
 
 ref; // ME_476272640187 SSD_END
@@ -513,12 +513,12 @@ ref; // ME_476272640187 SSD_END
  %SUMMARY 'точка от которой считается смещение. Константы должны совпадать по значению с MSDN-овскими' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4423F94903C8 // IO
+ : Parent HWL ME_4423F94903C8 // IO
  ;
  : Attributes
-   Seq: ( ME_4762721801C2 // SSD_BEGIN
- ME_476272450399 // SSD_CURRENT
- ME_476272640187 // SSD_END
+   Seq: ( HWL ME_4762721801C2 // SSD_BEGIN
+ HWL ME_476272450399 // SSD_CURRENT
+ HWL ME_476272640187 // SSD_END
  )
  ; // Attributes
  CONST "force usage" true
@@ -537,7 +537,7 @@ FORWARD ME_4423FB5903D8
  %SUMMARY 'Создает пустой поток' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4423FB5903D8 // Stream
+ : Parent HWL ME_4423FB5903D8 // Stream
  ;
  CONST "const_type" 'read-write'
 
@@ -560,7 +560,7 @@ ref; // ME_44312A7F030D path
  %SUMMARY 'Создает поток связанный с файлом' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4423FB5903D8 // Stream
+ : Parent HWL ME_4423FB5903D8 // Stream
  ;
  : Parameters
    Seq: ( ME_44312A7F030D // path
@@ -596,12 +596,12 @@ ref; // ME_4630810E01A5 size
  %SUMMARY 'Прочесть данные из потока, возвращает количество прочитанных байтов.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4423FB5903D8 // Stream
+ : Parent HWL ME_4423FB5903D8 // Stream
  ;
  : Target WL 'ME_3DBFFDE101CA' '3DBFDB23006E.pas.ms.script' // unsigned long
  ;
  : CanRaise
-   Seq: ( ME_443E3D76031C // OperationError
+   Seq: ( HWL ME_443E3D76031C // OperationError
  )
  ; // CanRaise
  : Parameters
@@ -638,7 +638,7 @@ ref; // ME_4424019B02BF size
  %SUMMARY 'Записать данные в поток. Возвращает количество записанных байтов.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4423FB5903D8 // Stream
+ : Parent HWL ME_4423FB5903D8 // Stream
  ;
  : Target WL 'ME_3DBFFDE101CA' '3DBFDB23006E.pas.ms.script' // unsigned long
  ;
@@ -676,13 +676,13 @@ ref; // ME_463081080399 whence
  %SUMMARY 'Переместить маркер потока. Возвращает число байт от начала потока.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4423FB5903D8 // Stream
+ : Parent HWL ME_4423FB5903D8 // Stream
  ;
  : Target WL 'ME_3DBFFDE101CA' '3DBFDB23006E.pas.ms.script' // unsigned long
  ;
  : CanRaise
-   Seq: ( ME_443E3D76031C // OperationError
- ME_476645080087 // NotImplemented
+   Seq: ( HWL ME_443E3D76031C // OperationError
+ HWL ME_476645080087 // NotImplemented
  )
  ; // CanRaise
  : Parameters
@@ -697,7 +697,7 @@ ref; // ME_4423FCA9030D seek
  CONST Name 'dst'
  CONST Class class_Parameter
  : Stereotype st_inout ;
- : Target ME_4423FB5903D8 // Stream
+ : Target HWL ME_4423FB5903D8 // Stream
  ;
 
 ref; // ME_443E3A7D0148 dst
@@ -737,10 +737,10 @@ ref; // ME_452A0C6502C2 actually_written
  %SUMMARY 'Копирует данные из одного потока в другой.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4423FB5903D8 // Stream
+ : Parent HWL ME_4423FB5903D8 // Stream
  ;
  : CanRaise
-   Seq: ( ME_443E3D76031C // OperationError
+   Seq: ( HWL ME_443E3D76031C // OperationError
  )
  ; // CanRaise
  : Parameters
@@ -760,7 +760,7 @@ ref; // ME_4423FCB4029F copy_to
  %SUMMARY 'Функция возвращает true если достигнут конец потока.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4423FB5903D8 // Stream
+ : Parent HWL ME_4423FB5903D8 // Stream
  ;
  : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
  ;
@@ -774,7 +774,7 @@ ref; // ME_4433789401B5 eof
  %SUMMARY 'Если возвращается true, дальнейшая работа с потоком невозможна' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4423FB5903D8 // Stream
+ : Parent HWL ME_4423FB5903D8 // Stream
  ;
  : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
  ;
@@ -789,7 +789,7 @@ ref; // ME_443E262F007D bad
  %SUMMARY 'Чистит флаги потока' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4423FB5903D8 // Stream
+ : Parent HWL ME_4423FB5903D8 // Stream
  ;
  CONST "dll export" false
 
@@ -805,18 +805,18 @@ ref; // ME_48BFB53E00B5 clear
  %SUMMARY 'Интерфейс для работы с потоком' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4423F94903C8 // IO
+ : Parent HWL ME_4423F94903C8 // IO
  ;
  : Operations
-   Seq: ( ME_442807A00138 // make
- ME_44312A6F0128 // make
- ME_4423FC9C0290 // read
- ME_4423FCA20232 // write
- ME_4423FCA9030D // seek
- ME_4423FCB4029F // copy_to
- ME_4433789401B5 // eof
- ME_443E262F007D // bad
- ME_48BFB53E00B5 // clear
+   Seq: ( HWL ME_442807A00138 // make
+ HWL ME_44312A6F0128 // make
+ HWL ME_4423FC9C0290 // read
+ HWL ME_4423FCA20232 // write
+ HWL ME_4423FCA9030D // seek
+ HWL ME_4423FCB4029F // copy_to
+ HWL ME_4433789401B5 // eof
+ HWL ME_443E262F007D // bad
+ HWL ME_48BFB53E00B5 // clear
  )
  ; // Operations
  CONST "native definition" 'DLL outside'
@@ -837,7 +837,7 @@ FORWARD ME_4E182EED0047
  CONST Visibility PublicAccess
  CONST Abstraction at_final
  CONST LinkType lt_agr
- : Parent ME_4E182EED0047 // DateTimeBox
+ : Parent HWL ME_4E182EED0047 // DateTimeBox
  ;
  : Target WL 'ME_3DBFFD5402AE' '3DBFDB23006E.pas.ms.script' // short
  ;
@@ -852,7 +852,7 @@ ref; // ME_4E182F330350 day
  CONST Visibility PublicAccess
  CONST Abstraction at_final
  CONST LinkType lt_agr
- : Parent ME_4E182EED0047 // DateTimeBox
+ : Parent HWL ME_4E182EED0047 // DateTimeBox
  ;
  : Target WL 'ME_3DBFFD5402AE' '3DBFDB23006E.pas.ms.script' // short
  ;
@@ -867,7 +867,7 @@ ref; // ME_4E182FA3015F mounth
  CONST Visibility PublicAccess
  CONST Abstraction at_final
  CONST LinkType lt_agr
- : Parent ME_4E182EED0047 // DateTimeBox
+ : Parent HWL ME_4E182EED0047 // DateTimeBox
  ;
  : Target WL 'ME_3DBFFD5402AE' '3DBFDB23006E.pas.ms.script' // short
  ;
@@ -882,7 +882,7 @@ ref; // ME_4E182FCB0343 year
  CONST Visibility PublicAccess
  CONST Abstraction at_final
  CONST LinkType lt_agr
- : Parent ME_4E182EED0047 // DateTimeBox
+ : Parent HWL ME_4E182EED0047 // DateTimeBox
  ;
  : Target WL 'ME_3DBFFD5402AE' '3DBFDB23006E.pas.ms.script' // short
  ;
@@ -897,7 +897,7 @@ ref; // ME_4E182FE8015F hour
  CONST Visibility PublicAccess
  CONST Abstraction at_final
  CONST LinkType lt_agr
- : Parent ME_4E182EED0047 // DateTimeBox
+ : Parent HWL ME_4E182EED0047 // DateTimeBox
  ;
  : Target WL 'ME_3DBFFD5402AE' '3DBFDB23006E.pas.ms.script' // short
  ;
@@ -912,7 +912,7 @@ ref; // ME_4E18301200B7 minute
  CONST Visibility PublicAccess
  CONST Abstraction at_final
  CONST LinkType lt_agr
- : Parent ME_4E182EED0047 // DateTimeBox
+ : Parent HWL ME_4E182EED0047 // DateTimeBox
  ;
  : Target WL 'ME_3DBFFD5402AE' '3DBFDB23006E.pas.ms.script' // short
  ;
@@ -927,7 +927,7 @@ ref; // ME_4E18304202F7 second
  CONST Visibility PublicAccess
  CONST Abstraction at_final
  CONST LinkType lt_agr
- : Parent ME_4E182EED0047 // DateTimeBox
+ : Parent HWL ME_4E182EED0047 // DateTimeBox
  ;
  : Target WL 'ME_3DBFFD5402AE' '3DBFDB23006E.pas.ms.script' // short
  ;
@@ -943,16 +943,16 @@ ref; // ME_4E1830700040 millisecond
  %SUMMARY 'для универсальной передачи времени между разными языками, платформами.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4423F94903C8 // IO
+ : Parent HWL ME_4423F94903C8 // IO
  ;
  : Attributes
-   Seq: ( ME_4E182F330350 // day
- ME_4E182FA3015F // mounth
- ME_4E182FCB0343 // year
- ME_4E182FE8015F // hour
- ME_4E18301200B7 // minute
- ME_4E18304202F7 // second
- ME_4E1830700040 // millisecond
+   Seq: ( HWL ME_4E182F330350 // day
+ HWL ME_4E182FA3015F // mounth
+ HWL ME_4E182FCB0343 // year
+ HWL ME_4E182FE8015F // hour
+ HWL ME_4E18301200B7 // minute
+ HWL ME_4E18304202F7 // second
+ HWL ME_4E1830700040 // millisecond
  )
  ; // Attributes
  CONST extprop:pas:TypeName 'TDateTimeBox'
@@ -970,12 +970,12 @@ ref; // ME_4E182EED0047 DateTimeBox
  : Parent WL 'ME_447878770121' '447878770121.pas.ms.script' // GCI
  ;
  : Children
-   Seq: ( ME_443E3D76031C // OperationError
- ME_476645080087 // NotImplemented
- ME_431841610361 // String
- ME_47626A9C017A // StreamSeekDirection
- ME_4423FB5903D8 // Stream
- ME_4E182EED0047 // DateTimeBox
+   Seq: ( HWL ME_443E3D76031C // OperationError
+ HWL ME_476645080087 // NotImplemented
+ HWL ME_431841610361 // String
+ HWL ME_47626A9C017A // StreamSeekDirection
+ HWL ME_4423FB5903D8 // Stream
+ HWL ME_4E182EED0047 // DateTimeBox
  )
  ; // Children
  : Depends

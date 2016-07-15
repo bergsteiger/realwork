@@ -4,1117 +4,7 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 FORWARD ME_491C3E40007B
 
-FORWARD ME_491C3E97009F
-
-: ME_491C3F400031
- CONST UID '491C3F400031'
- CONST Name 'f_ShowingStatus'
- CONST Class class_Attribute
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_491C3E97009F // TdsConsultation
- ;
- : Target WL 'ME_491C3F2F000F' '47EA07FA02CE.pas.ms.script' // TbsConsultationStatuses
- ;
-
-ref; // ME_491C3F400031 f_ShowingStatus
-
-: ME_491C439C0297
- CONST UID '491C439C0297'
- CONST Name 'Consultation'
- CONST Class class_Attribute
- : Stereotype st_UseCase::Attribute ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- CONST LinkType lt_lnk
- : Parent ME_491C3E97009F // TdsConsultation
- ;
- : Target WL 'ME_4921732002D9' '4ABCF04F00DF.pas.ms.script' // IsdsConsultation
- ;
-
-ref; // ME_491C439C0297 Consultation
-
-: ME_4926CDDA00C5
- CONST UID '4926CDDA00C5'
- CONST Name 'FormDataSourceType'
- CONST Class class_Attribute
- : Stereotype st_impurity_value::Attribute ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_abstract
- CONST LinkType lt_agr
- : Parent ME_491C3E97009F // TdsConsultation
- ;
- : Target WL 'ME_491C3F68021E' '4ABCF04F00DF.pas.ms.script' // IdsConsultation
- ;
-
-ref; // ME_4926CDDA00C5 FormDataSourceType
-
-: ME_491C403B0011
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_491C3E97009F // TdsConsultation
- ;
- : Target WL 'ME_4773D64E036C' '47913B47006E.pas.ms.script' // l3Base
- ;
-
-ref; // ME_491C403B0011 
-
-: ME_491C44CD0277
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_491C3E97009F // TdsConsultation
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_491C44CD0277 
-
-: ME_491D47F6023F
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_491C3E97009F // TdsConsultation
- ;
- : Target WL 'ME_457008050157' '457007DB002E.pas.ms.script' // Consultation
- ;
-
-ref; // ME_491D47F6023F 
-
 FORWARD ME_4CF37A0400FB
-
-: ME_4CF37AF1004E
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_491C3E97009F // TdsConsultation
- ;
- : Target ME_4CF37A0400FB // TnsConsultationDocumentContainerNew
- ;
-
-ref; // ME_4CF37AF1004E 
-
-: ME_491C3FAA009D_ME_491C3E97009F
- : Original WL 'ME_491C3FAA009D' '4ABCF04F00DF.pas.ms.script' // ShowingStatus
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" true
-ref; // ME_491C3FAA009D_ME_491C3E97009F ShowingStatus
-
-: ME_47A042E100E2_ME_491C3E97009F
- : Original WL 'ME_47A042E100E2' '47913B47006E.pas.ms.script' // InitFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_47A042E100E2_ME_491C3E97009F InitFields
-
-: ME_4A60B23E00C3_ME_491C3E97009F
- : Original WL 'ME_4A60B23E00C3' '47BB24D30205.pas.ms.script' // COMQueryInterface
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4A60B23E00C3_ME_491C3E97009F COMQueryInterface
-
-: ME_4C6AB38800F3_ME_491C3E97009F
- : Original WL 'ME_4C6AB38800F3' '47EA50050263.pas.ms.script' // MakeContainer
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4C6AB38800F3_ME_491C3E97009F MakeContainer
-
-: ME_491C3E97009F
- CONST UID '491C3E97009F'
- CONST Name 'TdsConsultation'
- CONST Class class_Class
- : Stereotype st_ViewAreaControllerImp ;
- CONST Kind kind_NormalClass
- %SUMMARY 'БОС запроса на консультацию' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_491C3E40007B // Consultation
- ;
- : Inherits
-   Seq: ( WL 'ME_47EA20430108' '47EA50050263.pas.ms.script' // dsBaseDocumentPrim
- )
- ; // Inherits
- : Implements
-   Seq: ( WL 'ME_491C3F68021E' '4ABCF04F00DF.pas.ms.script' // IdsConsultation
- )
- ; // Implements
- : Attributes
-   Seq: ( ME_491C3F400031 // f_ShowingStatus
- ME_491C439C0297 // Consultation
- ME_4926CDDA00C5 // FormDataSourceType
- )
- ; // Attributes
- : Implemented
-   Seq: ( ME_491C3FAA009D_ME_491C3E97009F // ShowingStatus
- )
- ; // Implemented
- : Overridden
-   Seq: ( ME_47A042E100E2_ME_491C3E97009F // InitFields
- ME_4A60B23E00C3_ME_491C3E97009F // COMQueryInterface
- ME_4C6AB38800F3_ME_491C3E97009F // MakeContainer
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_491C403B0011 // l3Base
- ME_491C44CD0277 // SysUtils
- ME_491D47F6023F // Consultation
- ME_4CF37AF1004E // TnsConsultationDocumentContainerNew
- )
- ; // Dependencies
- CONST "author" 'Морозов М.А'
- CONST "no hands" true
- CONST "started" '06.04.2006 17.27'
- CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Consultation\dsConsultation.pas'
- CONST extprop:rc:SelfName 'dsConsultation'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'dsConsultation'
- CONST extprop:HasAnyVCMController true
-
-ref; // ME_491C3E97009F TdsConsultation
-
-FORWARD ME_491DCCE101F3
-
-: ME_491DCD6000CA
- CONST UID '491DCD6000CA'
- CONST Name 'InitDataType'
- CONST Class class_Attribute
- : Stereotype st_impurity_value::Attribute ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_abstract
- CONST LinkType lt_agr
- : Parent ME_491DCCE101F3 // TdsQuery
- ;
- : Target WL 'ME_491DAE5C011F' '4AA5503000D7.pas.ms.script' // IdeQuery
- ;
-
-ref; // ME_491DCD6000CA InitDataType
-
-: ME_491DCDA302BF
- CONST UID '491DCDA302BF'
- CONST Name 'f_IsQuerySaved'
- CONST Class class_Attribute
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_491DCCE101F3 // TdsQuery
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_491DCDA302BF f_IsQuerySaved
-
-: ME_491DC9970093_ME_491DCCE101F3
- : Original WL 'ME_491DC9970093' '4AA5503000D7.pas.ms.script' // Query
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" true
-ref; // ME_491DC9970093_ME_491DCCE101F3 Query
-
-: ME_491DC9AE0355_ME_491DCCE101F3
- : Original WL 'ME_491DC9AE0355' '4AA5503000D7.pas.ms.script' // IsQuerySaved
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" true
-ref; // ME_491DC9AE0355_ME_491DCCE101F3 IsQuerySaved
-
-: ME_479731C50290_ME_491DCCE101F3
- : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_479731C50290_ME_491DCCE101F3 Cleanup
-
-: ME_491DCCE101F3
- CONST UID '491DCCE101F3'
- CONST Name 'TdsQuery'
- CONST Class class_Class
- : Stereotype st_ViewAreaControllerImp ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_491C3E40007B // Consultation
- ;
- : Inherits
-   Seq: ( WL 'ME_492ACB4100B2' '47D0E1500033.pas.ms.script' // vcmFormDataSource
- )
- ; // Inherits
- : Implements
-   Seq: ( WL 'ME_491DC972029C' '4AA5503000D7.pas.ms.script' // IdsQuery
- )
- ; // Implements
- : Attributes
-   Seq: ( ME_491DCD6000CA // InitDataType
- ME_491DCDA302BF // f_IsQuerySaved
- )
- ; // Attributes
- : Implemented
-   Seq: ( ME_491DC9970093_ME_491DCCE101F3 // Query
- ME_491DC9AE0355_ME_491DCCE101F3 // IsQuerySaved
- )
- ; // Implemented
- : Overridden
-   Seq: ( ME_479731C50290_ME_491DCCE101F3 // Cleanup
- )
- ; // Overridden
- CONST "author" 'Морозов М.А'
- CONST "no hands" true
- CONST "started" '06.04.2006 17.27'
- CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Consultation\dsQuery.pas'
- CONST extprop:rc:SelfName 'dsQuery'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'dsQuery'
-
-ref; // ME_491DCCE101F3 TdsQuery
-
-FORWARD ME_49216B3C02E8
-
-: ME_49216C45028E
- CONST UID '49216C45028E'
- CONST Name 'f_Comment'
- CONST Class class_Attribute
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_49216B3C02E8 // TdsConsultationMark
- ;
- : Target WL 'ME_4773DED9004C' '47913B47006E.pas.ms.script' // Tl3_String
- ;
-
-ref; // ME_49216C45028E f_Comment
-
-: ME_49216C6300F7
- CONST UID '49216C6300F7'
- CONST Name 'f_Mark'
- CONST Class class_Attribute
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_49216B3C02E8 // TdsConsultationMark
- ;
- : Target WL 'ME_4921639C00DB' '47EA07FA02CE.pas.ms.script' // TbsConsultationMark
- ;
-
-ref; // ME_49216C6300F7 f_Mark
-
-: ME_4978A6B0036D
- CONST UID '4978A6B0036D'
- CONST Name 'Consultation'
- CONST Class class_Attribute
- : Stereotype st_UseCase::Attribute ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- CONST LinkType lt_lnk
- : Parent ME_49216B3C02E8 // TdsConsultationMark
- ;
- : Target WL 'ME_4921732002D9' '4ABCF04F00DF.pas.ms.script' // IsdsConsultation
- ;
-
-ref; // ME_4978A6B0036D Consultation
-
-: ME_49216C840250
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_49216B3C02E8 // TdsConsultationMark
- ;
- : Target WL 'ME_4773D64E036C' '47913B47006E.pas.ms.script' // l3Base
- ;
-
-ref; // ME_49216C840250 
-
-: ME_492173100088
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_49216B3C02E8 // TdsConsultationMark
- ;
- : Target WL 'ME_4570081E002E' '457007DB002E.pas.ms.script' // Estimation
- ;
-
-ref; // ME_492173100088 
-
-: ME_4921746F0201
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_49216B3C02E8 // TdsConsultationMark
- ;
- : Target WL 'ME_47F9CF5500D1' '48F747EC0073.pas.ms.script' // bsConvert
- ;
-
-ref; // ME_4921746F0201 
-
-: ME_4921747D0235
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_49216B3C02E8 // TdsConsultationMark
- ;
- : Target WL 'ME_48FF556602BA' '48F747EC0073.pas.ms.script' // DataAdapter
- ;
-
-ref; // ME_4921747D0235 
-
-: ME_492175C60048
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_49216B3C02E8 // TdsConsultationMark
- ;
- : Target WL 'ME_48FF569700F6' '47F2170002B2.pas.ms.script' // StringRoutines
- ;
-
-ref; // ME_492175C60048 
-
-: ME_49216508016D_ME_49216B3C02E8
- : Original WL 'ME_49216508016D' '4ABCF04F00DF.pas.ms.script' // Send
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_49216508016D_ME_49216B3C02E8 Send
-
-: ME_49216542034E_ME_49216B3C02E8
- : Original WL 'ME_49216542034E' '4ABCF04F00DF.pas.ms.script' // Mark
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" true
-ref; // ME_49216542034E_ME_49216B3C02E8 Mark
-
-: ME_49216552037B_ME_49216B3C02E8
- : Original WL 'ME_49216552037B' '4ABCF04F00DF.pas.ms.script' // Comment
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" true
-ref; // ME_49216552037B_ME_49216B3C02E8 Comment
-
-: ME_49216566017F_ME_49216B3C02E8
- : Original WL 'ME_49216566017F' '4ABCF04F00DF.pas.ms.script' // CanSend
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" true
-ref; // ME_49216566017F_ME_49216B3C02E8 CanSend
-
-: ME_479731C50290_ME_49216B3C02E8
- : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_479731C50290_ME_49216B3C02E8 Cleanup
-
-: ME_47A042E100E2_ME_49216B3C02E8
- : Original WL 'ME_47A042E100E2' '47913B47006E.pas.ms.script' // InitFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_47A042E100E2_ME_49216B3C02E8 InitFields
-
-: ME_49216B3C02E8
- CONST UID '49216B3C02E8'
- CONST Name 'TdsConsultationMark'
- CONST Class class_Class
- : Stereotype st_ViewAreaControllerImp ;
- CONST Kind kind_NormalClass
- %SUMMARY 'БОС оценки консультации' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_491C3E40007B // Consultation
- ;
- : Inherits
-   Seq: ( WL 'ME_47ECE94D03D4' '47D0E1500033.pas.ms.script' // vcmFormDataSourcePrim
- )
- ; // Inherits
- : Implements
-   Seq: ( WL 'ME_492164C302A6' '4ABCF04F00DF.pas.ms.script' // IdsConsultationMark
- )
- ; // Implements
- : Attributes
-   Seq: ( ME_49216C45028E // f_Comment
- ME_49216C6300F7 // f_Mark
- ME_4978A6B0036D // Consultation
- )
- ; // Attributes
- : Implemented
-   Seq: ( ME_49216508016D_ME_49216B3C02E8 // Send
- ME_49216542034E_ME_49216B3C02E8 // Mark
- ME_49216552037B_ME_49216B3C02E8 // Comment
- ME_49216566017F_ME_49216B3C02E8 // CanSend
- )
- ; // Implemented
- : Overridden
-   Seq: ( ME_479731C50290_ME_49216B3C02E8 // Cleanup
- ME_47A042E100E2_ME_49216B3C02E8 // InitFields
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_49216C840250 // l3Base
- ME_492173100088 // Estimation
- ME_4921746F0201 // bsConvert
- ME_4921747D0235 // DataAdapter
- ME_492175C60048 // StringRoutines
- )
- ; // Dependencies
- CONST "author" 'Морозов М.А.'
- CONST "no hands" true
- CONST "started" '2006/04/07 08:16:08'
- CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Consultation\dsConsultationMark.pas'
- CONST extprop:rc:SelfName 'dsConsultationMark'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'dsConsultationMark'
- CONST extprop:HasAnyVCMController true
-
-ref; // ME_49216B3C02E8 TdsConsultationMark
-
-FORWARD ME_49228CA903BA
-
-: ME_492FF7C2015E
- CONST UID '492FF7C2015E'
- CONST Name 'f_IsListChanged'
- CONST Class class_Attribute
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_49228CA903BA // TsdsConsultation
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_492FF7C2015E f_IsListChanged
-
-: ME_492FF7D203E7
- CONST UID '492FF7D203E7'
- CONST Name 'f_NeedMark'
- CONST Class class_Attribute
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_49228CA903BA // TsdsConsultation
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_492FF7D203E7 f_NeedMark
-
-: ME_492FF824019B
- CONST UID '492FF824019B'
- CONST Name 'Consultation'
- CONST Class class_Attribute
- : Stereotype st_readonly::Attribute ;
- CONST Visibility ProtectedAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_49228CA903BA // TsdsConsultation
- ;
- : Target WL 'ME_491C422A0003' '4ABCF04F00DF.pas.ms.script' // IbsConsultation
- ;
- CONST "needs field" true
- CONST "pm" true
- CONST "reads field" true
- CONST "writes field" true
-
-ref; // ME_492FF824019B Consultation
-
-: ME_4947A2AA0040
- CONST UID '4947A2AA0040'
- CONST Name 'InitDataType'
- CONST Class class_Attribute
- : Stereotype st_impurity_value::Attribute ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_abstract
- CONST LinkType lt_agr
- : Parent ME_49228CA903BA // TsdsConsultation
- ;
- : Target WL 'ME_491C422A0003' '4ABCF04F00DF.pas.ms.script' // IbsConsultation
- ;
-
-ref; // ME_4947A2AA0040 InitDataType
-
-: ME_492FF6870268
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_49228CA903BA // TsdsConsultation
- ;
- : Target ME_491C3E97009F // TdsConsultation
- ;
-
-ref; // ME_492FF6870268 
-
-: ME_492FF6F50037
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_49228CA903BA // TsdsConsultation
- ;
- : Target WL 'ME_491C0BE302FF' '4C6ABB3201AC.pas.ms.script' // TdeDocInfo
- ;
-
-ref; // ME_492FF6F50037 
-
-: ME_492FF71A0183
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_49228CA903BA // TsdsConsultation
- ;
- : Target ME_49216B3C02E8 // TdsConsultationMark
- ;
-
-ref; // ME_492FF71A0183 
-
-FORWARD ME_4926BD6800C8
-
-: ME_492FF73F02A3
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_49228CA903BA // TsdsConsultation
- ;
- : Target ME_4926BD6800C8 // TdsConsultationList
- ;
-
-ref; // ME_492FF73F02A3 
-
-: ME_492FF76D0016
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_49228CA903BA // TsdsConsultation
- ;
- : Target WL 'ME_492FF76202CA' '47EA50050263.pas.ms.script' // TdeDocumentList
- ;
-
-ref; // ME_492FF76D0016 
-
-: ME_492FFBCC029A
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_49228CA903BA // TsdsConsultation
- ;
- : Target WL 'ME_45EEDB730265' '45700BFD0251.pas.ms.script' // DynList
- ;
-
-ref; // ME_492FFBCC029A 
-
-: ME_492FFC260204
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_49228CA903BA // TsdsConsultation
- ;
- : Target WL 'ME_492FFC0701C7' '47EA07FA02CE.pas.ms.script' // Consultation
- ;
-
-ref; // ME_492FFC260204 
-
-: ME_492FFC460224
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_49228CA903BA // TsdsConsultation
- ;
- : Target WL 'ME_4570098B0157' '457007DB002E.pas.ms.script' // NoDocumentList
- ;
-
-ref; // ME_492FFC460224 
-
-FORWARD ME_492FFDF7011A
-
-: ME_492FFDFE016E
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_49228CA903BA // TsdsConsultation
- ;
- : Target ME_492FFDF7011A // TbsConsultationManager
- ;
-
-ref; // ME_492FFDFE016E 
-
-: ME_492FFE4B00A8
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_49228CA903BA // TsdsConsultation
- ;
- : Target WL 'ME_4773D64E036C' '47913B47006E.pas.ms.script' // l3Base
- ;
-
-ref; // ME_492FFE4B00A8 
-
-: ME_492FFE5D03C9
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_49228CA903BA // TsdsConsultation
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_492FFE5D03C9 
-
-: ME_492FFEEE016D
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_49228CA903BA // TsdsConsultation
- ;
- : Target WL 'ME_47F21FE90379' '48F747EC0073.pas.ms.script' // bsUtils
- ;
-
-ref; // ME_492FFEEE016D 
-
-: ME_492FFFB20345
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_49228CA903BA // TsdsConsultation
- ;
- : Target WL 'ME_4926B55401A2' '48F747EC0073.pas.ms.script' // DebugStr
- ;
-
-ref; // ME_492FFFB20345 
-
-: ME_492FFFDB033E
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_49228CA903BA // TsdsConsultation
- ;
- : Target WL 'ME_45EEB6520191' '4570511E038A.pas.ms.script' // Document
- ;
-
-ref; // ME_492FFFDB033E 
-
-: ME_4BA77EAF03DB
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_49228CA903BA // TsdsConsultation
- ;
- : Target WL 'ME_491B32C1015D' '47F2170002B2.pas.ms.script' // TDocumentPositionType
- ;
-
-ref; // ME_4BA77EAF03DB 
-
-: ME_492597A602F6_ME_49228CA903BA
- : Original WL 'ME_492597A602F6' '491B305A0096.pas.ms.script' // MakeGotoPointData
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_492597A602F6_ME_49228CA903BA MakeGotoPointData
-
-: ME_492EB71000D6_ME_49228CA903BA
- : Original WL 'ME_492EB71000D6' '4ABCF04F00DF.pas.ms.script' // dsConsultation
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" true
-ref; // ME_492EB71000D6_ME_49228CA903BA dsConsultation
-
-: ME_492EB77C0125_ME_49228CA903BA
- : Original WL 'ME_492EB77C0125' '4ABCF04F00DF.pas.ms.script' // dsList
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" true
-ref; // ME_492EB77C0125_ME_49228CA903BA dsList
-
-: ME_492EB793009E_ME_49228CA903BA
- : Original WL 'ME_492EB793009E' '4ABCF04F00DF.pas.ms.script' // DSConsultationMark
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" true
-ref; // ME_492EB793009E_ME_49228CA903BA DSConsultationMark
-
-: ME_492EB7BA035E_ME_49228CA903BA
- : Original WL 'ME_492EB7BA035E' '4ABCF04F00DF.pas.ms.script' // GiveMark
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_492EB7BA035E_ME_49228CA903BA GiveMark
-
-: ME_492EB82F0391_ME_49228CA903BA
- : Original WL 'ME_492EB82F0391' '4ABCF04F00DF.pas.ms.script' // NeedGiveMark
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_492EB82F0391_ME_49228CA903BA NeedGiveMark
-
-: ME_492EB8620306_ME_49228CA903BA
- : Original WL 'ME_492EB8620306' '4ABCF04F00DF.pas.ms.script' // ConfirmPayment
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_492EB8620306_ME_49228CA903BA ConfirmPayment
-
-: ME_492EB8820218_ME_49228CA903BA
- : Original WL 'ME_492EB8820218' '4ABCF04F00DF.pas.ms.script' // UpdateAnswer
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_492EB8820218_ME_49228CA903BA UpdateAnswer
-
-: ME_492EB91F0391_ME_49228CA903BA
- : Original WL 'ME_492EB91F0391' '4ABCF04F00DF.pas.ms.script' // ListChanged
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_492EB91F0391_ME_49228CA903BA ListChanged
-
-: ME_492EB93700FF_ME_49228CA903BA
- : Original WL 'ME_492EB93700FF' '4ABCF04F00DF.pas.ms.script' // ConsultationWasMarked
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_492EB93700FF_ME_49228CA903BA ConsultationWasMarked
-
-: ME_492EBCE002E0_ME_49228CA903BA
- : Original WL 'ME_492EBCE002E0' '4ABCF04F00DF.pas.ms.script' // MarkSended
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_492EBCE002E0_ME_49228CA903BA MarkSended
-
-: ME_4F4E1E06038E_ME_49228CA903BA
- : Original WL 'ME_4F4E1E06038E' '4ABCF04F00DF.pas.ms.script' // bsConsultation
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" false
-ref; // ME_4F4E1E06038E_ME_49228CA903BA bsConsultation
-
-: ME_479731C50290_ME_49228CA903BA
- : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_479731C50290_ME_49228CA903BA Cleanup
-
-: ME_47A042E100E2_ME_49228CA903BA
- : Original WL 'ME_47A042E100E2' '47913B47006E.pas.ms.script' // InitFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_47A042E100E2_ME_49228CA903BA InitFields
-
-: ME_47F37DF001FE_ME_49228CA903BA
- : Original WL 'ME_47F37DF001FE' '47D0E1500033.pas.ms.script' // DataExchange
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_47F37DF001FE_ME_49228CA903BA DataExchange
-
-: ME_491B02D80112_ME_49228CA903BA
- : Original WL 'ME_491B02D80112' '47D0E1500033.pas.ms.script' // GetIsNeedChangePosition
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_491B02D80112_ME_49228CA903BA GetIsNeedChangePosition
-
-: ME_4A60B23E00C3_ME_49228CA903BA
- : Original WL 'ME_4A60B23E00C3' '47BB24D30205.pas.ms.script' // COMQueryInterface
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4A60B23E00C3_ME_49228CA903BA COMQueryInterface
-
-: ME_49228CA903BA
- CONST UID '49228CA903BA'
- CONST Name 'TsdsConsultation'
- CONST Class class_Class
- : Stereotype st_UseCaseControllerImp ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Бизнес объект прецедента "Консультация"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_491C3E40007B // Consultation
- ;
- : Inherits
-   Seq: ( WL 'ME_49415C640079' '47D0E1500033.pas.ms.script' // vcmFormSetDataSourceWithoutData
- )
- ; // Inherits
- : Implements
-   Seq: ( WL 'ME_4921732002D9' '4ABCF04F00DF.pas.ms.script' // IsdsConsultation
- )
- ; // Implements
- : Attributes
-   Seq: ( ME_492FF7C2015E // f_IsListChanged
- ME_492FF7D203E7 // f_NeedMark
- ME_492FF824019B // Consultation
- ME_4947A2AA0040 // InitDataType
- )
- ; // Attributes
- : Implemented
-   Seq: ( ME_492597A602F6_ME_49228CA903BA // MakeGotoPointData
- ME_492EB71000D6_ME_49228CA903BA // dsConsultation
- ME_492EB77C0125_ME_49228CA903BA // dsList
- ME_492EB793009E_ME_49228CA903BA // DSConsultationMark
- ME_492EB7BA035E_ME_49228CA903BA // GiveMark
- ME_492EB82F0391_ME_49228CA903BA // NeedGiveMark
- ME_492EB8620306_ME_49228CA903BA // ConfirmPayment
- ME_492EB8820218_ME_49228CA903BA // UpdateAnswer
- ME_492EB91F0391_ME_49228CA903BA // ListChanged
- ME_492EB93700FF_ME_49228CA903BA // ConsultationWasMarked
- ME_492EBCE002E0_ME_49228CA903BA // MarkSended
- ME_4F4E1E06038E_ME_49228CA903BA // bsConsultation
- )
- ; // Implemented
- : Overridden
-   Seq: ( ME_479731C50290_ME_49228CA903BA // Cleanup
- ME_47A042E100E2_ME_49228CA903BA // InitFields
- ME_47F37DF001FE_ME_49228CA903BA // DataExchange
- ME_491B02D80112_ME_49228CA903BA // GetIsNeedChangePosition
- ME_4A60B23E00C3_ME_49228CA903BA // COMQueryInterface
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_492FF6870268 // TdsConsultation
- ME_492FF6F50037 // TdeDocInfo
- ME_492FF71A0183 // TdsConsultationMark
- ME_492FF73F02A3 // TdsConsultationList
- ME_492FF76D0016 // TdeDocumentList
- ME_492FFBCC029A // DynList
- ME_492FFC260204 // Consultation
- ME_492FFC460224 // NoDocumentList
- ME_492FFDFE016E // TbsConsultationManager
- ME_492FFE4B00A8 // l3Base
- ME_492FFE5D03C9 // SysUtils
- ME_492FFEEE016D // bsUtils
- ME_492FFFB20345 // DebugStr
- ME_492FFFDB033E // Document
- ME_4BA77EAF03DB // TDocumentPositionType
- )
- ; // Dependencies
- CONST "author" 'Морозов М.А'
- CONST "debug log" true
- CONST "no hands" true
- CONST "started" '2006/04/07 08:16:08'
- CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Consultation\sdsConsultation.pas'
- CONST extprop:rc:SelfName 'sdsConsultation'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'sdsConsultation'
-
-ref; // ME_49228CA903BA TsdsConsultation
-
-: ME_4978A5D602AC
- CONST UID '4978A5D602AC'
- CONST Name 'Consultation'
- CONST Class class_Attribute
- : Stereotype st_UseCase::Attribute ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- CONST LinkType lt_lnk
- : Parent ME_4926BD6800C8 // TdsConsultationList
- ;
- : Target WL 'ME_4921732002D9' '4ABCF04F00DF.pas.ms.script' // IsdsConsultation
- ;
-
-ref; // ME_4978A5D602AC Consultation
-
-: ME_47F61AD5022A_ME_4926BD6800C8
- : Original WL 'ME_47F61AD5022A' '47F22C7501F6.pas.ms.script' // DoDeleteNodes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_47F61AD5022A_ME_4926BD6800C8 DoDeleteNodes
-
-: ME_4926BD6800C8
- CONST UID '4926BD6800C8'
- CONST Name 'TdsConsultationList'
- CONST Class class_Class
- : Stereotype st_ViewAreaControllerImp ;
- CONST Kind kind_NormalClass
- %SUMMARY 'список консультации' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_491C3E40007B // Consultation
- ;
- : Inherits
-   Seq: ( WL 'ME_492D73D80122' '47EA5024034B.pas.ms.script' // TdsDocumentList
- )
- ; // Inherits
- : Attributes
-   Seq: ( ME_4978A5D602AC // Consultation
- )
- ; // Attributes
- : Overridden
-   Seq: ( ME_47F61AD5022A_ME_4926BD6800C8 // DoDeleteNodes
- )
- ; // Overridden
- CONST "author" 'Морозов М.А.'
- CONST "no hands" true
- CONST "started" '2006/10/06 13:46:49'
- CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Consultation\dsConsultationList.pas'
- CONST extprop:rc:SelfName 'dsConsultationList'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'dsConsultationList'
- CONST extprop:HasAnyVCMController true
-
-ref; // ME_4926BD6800C8 TdsConsultationList
-
-FORWARD ME_492FECE300EA
-
-: ME_492FEDE7010F
- CONST UID '492FEDE7010F'
- CONST Name 'TdsQueryClass'
- CONST Class class_Class
- : Stereotype st_Typedef ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_492FECE300EA // TsdsQuery
- ;
- : Inherits
-   Seq: ( ME_491DCCE101F3 // TdsQuery
- )
- ; // Inherits
- CONST "isClassRef" true
- CONST extprop:rc:SelfName 'dsQueryClass'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_492FEDE7010F TdsQueryClass
-
-: ME_4947A14802F9
- CONST UID '4947A14802F9'
- CONST Name 'InitDataType'
- CONST Class class_Attribute
- : Stereotype st_impurity_value::Attribute ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_abstract
- CONST LinkType lt_agr
- : Parent ME_492FECE300EA // TsdsQuery
- ;
- : Target WL 'ME_491DAE5C011F' '4AA5503000D7.pas.ms.script' // IdeQuery
- ;
-
-ref; // ME_4947A14802F9 InitDataType
-
-: ME_492FEE0000FD
- CONST UID '492FEE0000FD'
- CONST Name 'GetQueryClass'
- CONST Class class_Operation
- CONST Visibility ProtectedAccess
- CONST Abstraction at_regular
- : Parent ME_492FECE300EA // TsdsQuery
- ;
- : Target ME_492FEDE7010F // TdsQueryClass
- ;
-
-ref; // ME_492FEE0000FD GetQueryClass
-
-: ME_492FEE2D01C5
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_492FECE300EA // TsdsQuery
- ;
- : Target WL 'ME_4923F66E0262' '491DCA2C00A9.pas.ms.script' // TdsSaveLoad
- ;
-
-ref; // ME_492FEE2D01C5 
-
-: ME_492F006F00BE_ME_492FECE300EA
- : Original WL 'ME_492F006F00BE' '491C3E540050.pas.ms.script' // dsQuery
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" true
-ref; // ME_492F006F00BE_ME_492FECE300EA dsQuery
-
-: ME_492F00890059_ME_492FECE300EA
- : Original WL 'ME_492F00890059' '491C3E540050.pas.ms.script' // dsSaveLoad
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" true
-ref; // ME_492F00890059_ME_492FECE300EA dsSaveLoad
-
-: ME_492FECE300EA
- CONST UID '492FECE300EA'
- CONST Name 'TsdsQuery'
- CONST Class class_Class
- : Stereotype st_UseCaseControllerImp ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Бизнес объект прецедента "Поисковый запрос"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_491C3E40007B // Consultation
- ;
- : Inherits
-   Seq: ( WL 'ME_49415C640079' '47D0E1500033.pas.ms.script' // vcmFormSetDataSourceWithoutData
- )
- ; // Inherits
- : Implements
-   Seq: ( WL 'ME_492F005A02C7' '491C3E540050.pas.ms.script' // IsdsQuery
- )
- ; // Implements
- : Attributes
-   Seq: ( ME_4947A14802F9 // InitDataType
- )
- ; // Attributes
- : Operations
-   Seq: ( ME_492FEE0000FD // GetQueryClass
- )
- ; // Operations
- : Implemented
-   Seq: ( ME_492F006F00BE_ME_492FECE300EA // dsQuery
- ME_492F00890059_ME_492FECE300EA // dsSaveLoad
- )
- ; // Implemented
- : Children
-   Seq: ( ME_492FEDE7010F // TdsQueryClass
- )
- ; // Children
- : Dependencies
-   Seq: ( ME_492FEE2D01C5 // TdsSaveLoad
- )
- ; // Dependencies
- CONST "author" 'Морозов М.А'
- CONST "no hands" true
- CONST "started" '2006/04/07 08:36:15'
- CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Consultation\sdsQuery.pas'
- CONST extprop:rc:SelfName 'sdsQuery'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'sdsQuery'
-
-ref; // ME_492FECE300EA TsdsQuery
-
-FORWARD ME_492FF1C500B5
-
-FORWARD ME_491DD030014A
-
-: ME_492FF1F80082
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_492FF1C500B5 // TsdsSendConsultation
- ;
- : Target ME_491DD030014A // TdsSendConsultation
- ;
-
-ref; // ME_492FF1F80082 
-
-: ME_492FEE0000FD_ME_492FF1C500B5
- : Original ME_492FEE0000FD // GetQueryClass
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_492FEE0000FD_ME_492FF1C500B5 GetQueryClass
-
-: ME_492FF1C500B5
- CONST UID '492FF1C500B5'
- CONST Name 'TsdsSendConsultation'
- CONST Class class_Class
- : Stereotype st_UseCaseControllerImp ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Бизнес объект прецедента "Запрос на консультацию"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_491C3E40007B // Consultation
- ;
- : Inherits
-   Seq: ( ME_492FECE300EA // TsdsQuery
- )
- ; // Inherits
- : Implements
-   Seq: ( WL 'ME_492F01200192' '491C3E540050.pas.ms.script' // IsdsSendConsultation
- )
- ; // Implements
- : Overridden
-   Seq: ( ME_492FEE0000FD_ME_492FF1C500B5 // GetQueryClass
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_492FF1F80082 // TdsSendConsultation
- )
- ; // Dependencies
- CONST "author" 'Морозов М.А'
- CONST "no hands" true
- CONST "started" '2006/04/07 08:15:44'
- CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Consultation\sdsSendConsultation.pas'
- CONST extprop:rc:SelfName 'sdsSendConsultation'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'sdsSendConsultation'
-
-ref; // ME_492FF1C500B5 TsdsSendConsultation
-
-: ME_491DD030014A
- CONST UID '491DD030014A'
- CONST Name 'TdsSendConsultation'
- CONST Class class_Class
- : Stereotype st_ViewAreaControllerImp ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Бизнес объект "Запрос на консультацию"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_491C3E40007B // Consultation
- ;
- : Inherits
-   Seq: ( ME_491DCCE101F3 // TdsQuery
- )
- ; // Inherits
- CONST "author" 'Морозов М.А'
- CONST "no hands" true
- CONST "started" '06.04.2006 17.27'
- CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Consultation\dsSendConsultation.pas'
- CONST extprop:rc:SelfName 'dsSendConsultation'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'dsSendConsultation'
-
-ref; // ME_491DD030014A TdsSendConsultation
 
 FORWARD ME_4CF3A33103AF
 
@@ -1125,7 +15,7 @@ FORWARD ME_4CF3A33103AF
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4CF3A33103AF // TnsTemplateFieldType
+ : Parent HWL ME_4CF3A33103AF // TnsTemplateFieldType
  ;
 
 ref; // ME_4CF3A34802A4 Query
@@ -1137,7 +27,7 @@ ref; // ME_4CF3A34802A4 Query
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4CF3A33103AF // TnsTemplateFieldType
+ : Parent HWL ME_4CF3A33103AF // TnsTemplateFieldType
  ;
 
 ref; // ME_4CF3A35402F1 User
@@ -1149,7 +39,7 @@ ref; // ME_4CF3A35402F1 User
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4CF3A33103AF // TnsTemplateFieldType
+ : Parent HWL ME_4CF3A33103AF // TnsTemplateFieldType
  ;
 
 ref; // ME_4CF3A35E0156 Date
@@ -1161,7 +51,7 @@ ref; // ME_4CF3A35E0156 Date
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4CF3A33103AF // TnsTemplateFieldType
+ : Parent HWL ME_4CF3A33103AF // TnsTemplateFieldType
  ;
 
 ref; // ME_4CF3A3690369 Cost
@@ -1173,7 +63,7 @@ ref; // ME_4CF3A3690369 Cost
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4CF3A33103AF // TnsTemplateFieldType
+ : Parent HWL ME_4CF3A33103AF // TnsTemplateFieldType
  ;
 
 ref; // ME_4CF3A372009A Answer
@@ -1185,7 +75,7 @@ ref; // ME_4CF3A372009A Answer
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4CF3A33103AF // TnsTemplateFieldType
+ : Parent HWL ME_4CF3A33103AF // TnsTemplateFieldType
  ;
 
 ref; // ME_4CF3A37A03E6 Auther
@@ -1197,7 +87,7 @@ ref; // ME_4CF3A37A03E6 Auther
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4CF3A33103AF // TnsTemplateFieldType
+ : Parent HWL ME_4CF3A33103AF // TnsTemplateFieldType
  ;
 
 ref; // ME_4CF3A3880247 DealerInf
@@ -1209,7 +99,7 @@ ref; // ME_4CF3A3880247 DealerInf
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4CF3A33103AF // TnsTemplateFieldType
+ : Parent HWL ME_4CF3A33103AF // TnsTemplateFieldType
  ;
 
 ref; // ME_4D08A8520174 QueryByParas
@@ -1222,17 +112,17 @@ ref; // ME_4D08A8520174 QueryByParas
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4CF37A0400FB // TnsConsultationDocumentContainerNew
+ : Parent HWL ME_4CF37A0400FB // TnsConsultationDocumentContainerNew
  ;
  : Attributes
-   Seq: ( ME_4CF3A34802A4 // Query
- ME_4CF3A35402F1 // User
- ME_4CF3A35E0156 // Date
- ME_4CF3A3690369 // Cost
- ME_4CF3A372009A // Answer
- ME_4CF3A37A03E6 // Auther
- ME_4CF3A3880247 // DealerInf
- ME_4D08A8520174 // QueryByParas
+   Seq: ( HWL ME_4CF3A34802A4 // Query
+ HWL ME_4CF3A35402F1 // User
+ HWL ME_4CF3A35E0156 // Date
+ HWL ME_4CF3A3690369 // Cost
+ HWL ME_4CF3A372009A // Answer
+ HWL ME_4CF3A37A03E6 // Auther
+ HWL ME_4CF3A3880247 // DealerInf
+ HWL ME_4D08A8520174 // QueryByParas
  )
  ; // Attributes
  CONST "children prefix" 'ft'
@@ -1250,7 +140,7 @@ ref; // ME_4CF3A33103AF TnsTemplateFieldType
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_ref
- : Parent ME_4CF37A0400FB // TnsConsultationDocumentContainerNew
+ : Parent HWL ME_4CF37A0400FB // TnsConsultationDocumentContainerNew
  ;
  : Target WL 'ME_457008050157' '457007DB002E.pas.ms.script' // Consultation
  ;
@@ -1264,7 +154,7 @@ ref; // ME_4CF3963000CA f_Cons
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_ref
- : Parent ME_4CF37A0400FB // TnsConsultationDocumentContainerNew
+ : Parent HWL ME_4CF37A0400FB // TnsConsultationDocumentContainerNew
  ;
  : Target WL 'ME_47EA0784000D' '4B1FC2FF03CD.pas.ms.script' // IdeDocInfo
  ;
@@ -1297,7 +187,7 @@ ref; // ME_4CF3966903CC aCons
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4CF3965400E5 // Create
+ : Parent HWL ME_4CF3965400E5 // Create
  ;
  : Parameters
    Seq: ( ME_4CF396690392 // aDocInfo
@@ -1315,10 +205,10 @@ ref; // ME_4CF3965D00E0 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4CF37A0400FB // TnsConsultationDocumentContainerNew
+ : Parent HWL ME_4CF37A0400FB // TnsConsultationDocumentContainerNew
  ;
  : Operations
-   Seq: ( ME_4CF3965D00E0 // DoIt
+   Seq: ( HWL ME_4CF3965D00E0 // DoIt
  )
  ; // Operations
 
@@ -1332,10 +222,10 @@ ref; // ME_4CF3965400E5 Create
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4CF37A0400FB // TnsConsultationDocumentContainerNew
+ : Parent HWL ME_4CF37A0400FB // TnsConsultationDocumentContainerNew
  ;
  : Inherits
-   Seq: ( ME_4CF3965400E5 // Create
+   Seq: ( HWL ME_4CF3965400E5 // Create
  )
  ; // Inherits
  : Implements
@@ -1355,7 +245,7 @@ FORWARD ME_4CF39F58031E
  CONST Visibility ProtectedAccess
  CONST Abstraction at_final
  CONST LinkType lt_agr
- : Parent ME_4CF39F58031E // FillTemplateFields
+ : Parent HWL ME_4CF39F58031E // FillTemplateFields
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -1382,7 +272,7 @@ ref; // ME_4CF3B0C30200 aText
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4CF3B096018E // FillText
+ : Parent HWL ME_4CF3B096018E // FillText
  ;
  : Parameters
    Seq: ( ME_4CF3B0C30200 // aText
@@ -1399,10 +289,10 @@ ref; // ME_4CF3B0BE03E4 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4CF3B26A011E // DoIt
+ : Parent HWL ME_4CF3B26A011E // DoIt
  ;
  : Operations
-   Seq: ( ME_4CF3B0BE03E4 // DoIt
+   Seq: ( HWL ME_4CF3B0BE03E4 // DoIt
  )
  ; // Operations
 
@@ -1425,7 +315,7 @@ ref; // ME_4CF3B6590287 aText
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4CF3B62D02CE // FillTextS
+ : Parent HWL ME_4CF3B62D02CE // FillTextS
  ;
  : Parameters
    Seq: ( ME_4CF3B6590287 // aText
@@ -1437,7 +327,7 @@ ref; // ME_4CF3B6540200 DoIt
 : ME_4CF3B68C02E7
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4CF3B62D02CE // FillTextS
+ : Parent HWL ME_4CF3B62D02CE // FillTextS
  ;
  : Target WL 'ME_4AA7888B0076' '47913B47006E.pas.ms.script' // l3CStr
  ;
@@ -1452,10 +342,10 @@ ref; // ME_4CF3B68C02E7
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4CF3B26A011E // DoIt
+ : Parent HWL ME_4CF3B26A011E // DoIt
  ;
  : Operations
-   Seq: ( ME_4CF3B6540200 // DoIt
+   Seq: ( HWL ME_4CF3B6540200 // DoIt
  )
  ; // Operations
  : Dependencies
@@ -1482,7 +372,7 @@ ref; // ME_4CF3B86F0306 aText
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4CF3B85B002B // FillTextL
+ : Parent HWL ME_4CF3B85B002B // FillTextL
  ;
  : Parameters
    Seq: ( ME_4CF3B86F0306 // aText
@@ -1499,10 +389,10 @@ ref; // ME_4CF3B8620201 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4CF3B26A011E // DoIt
+ : Parent HWL ME_4CF3B26A011E // DoIt
  ;
  : Operations
-   Seq: ( ME_4CF3B8620201 // DoIt
+   Seq: ( HWL ME_4CF3B8620201 // DoIt
  )
  ; // Operations
 
@@ -1518,7 +408,7 @@ FORWARD ME_4DECEBC00327
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  CONST LinkType lt_agr
- : Parent ME_4DECEBC00327 // FillTextEVD
+ : Parent HWL ME_4DECEBC00327 // FillTextEVD
  ;
  : Target WL 'ME_499D47A502DE' '47913B47006E.pas.ms.script' // Tl3ConstMemoryStream
  ;
@@ -1534,7 +424,7 @@ ref; // ME_4DECEBF602FE S
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  CONST LinkType lt_agr
- : Parent ME_4DECEBC00327 // FillTextEVD
+ : Parent HWL ME_4DECEBC00327 // FillTextEVD
  ;
  : Target WL 'ME_483E80FA0312' '483E80C9025F.pas.ms.script' // TevdNativeReader
  ;
@@ -1550,7 +440,7 @@ ref; // ME_4DECEC1E0294 R
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  CONST LinkType lt_agr
- : Parent ME_4DECEBC00327 // FillTextEVD
+ : Parent HWL ME_4DECEBC00327 // FillTextEVD
  ;
  : Target WL 'ME_47ECA82403AC' '47ECA80B000D.pas.ms.script' // Tk2DocumentBuffer
  ;
@@ -1573,7 +463,7 @@ ref; // ME_4DECEBD600D9 aText
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4DECEBC00327 // FillTextEVD
+ : Parent HWL ME_4DECEBC00327 // FillTextEVD
  ;
  : Parameters
    Seq: ( ME_4DECEBD600D9 // aText
@@ -1585,7 +475,7 @@ ref; // ME_4DECEBD4018C DoIt
 : ME_4DECEC360163
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4DECEBC00327 // FillTextEVD
+ : Parent HWL ME_4DECEBC00327 // FillTextEVD
  ;
  : Target WL 'ME_4C1B918900FD' '4C1B915E0261.pas.ms.script' // Ver
  ;
@@ -1600,16 +490,16 @@ ref; // ME_4DECEC360163
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4CF3B26A011E // DoIt
+ : Parent HWL ME_4CF3B26A011E // DoIt
  ;
  : Attributes
-   Seq: ( ME_4DECEBF602FE // S
- ME_4DECEC1E0294 // R
- ME_4DECEC5901A0 // B
+   Seq: ( HWL ME_4DECEBF602FE // S
+ HWL ME_4DECEC1E0294 // R
+ HWL ME_4DECEC5901A0 // B
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_4DECEBD4018C // DoIt
+   Seq: ( HWL ME_4DECEBD4018C // DoIt
  )
  ; // Operations
  : Dependencies
@@ -1646,7 +536,7 @@ ref; // ME_0E0A5FC7C409 anIndex
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4CF3B26A011E // DoIt
+ : Parent HWL ME_4CF3B26A011E // DoIt
  ;
  : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
  ;
@@ -1661,7 +551,7 @@ ref; // ME_AC74D90FB574 DoIt
 : ME_4CF3B28C0117
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4CF3B26A011E // DoIt
+ : Parent HWL ME_4CF3B26A011E // DoIt
  ;
  : Target WL 'ME_431841610361' '4423F94903C8.pas.ms.script' // String
  ;
@@ -1671,7 +561,7 @@ ref; // ME_4CF3B28C0117
 : ME_4CF3B2CA0302
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4CF3B26A011E // DoIt
+ : Parent HWL ME_4CF3B26A011E // DoIt
  ;
  : Target WL 'ME_4AB882990057' '47F2170002B2.pas.ms.script' // nsCStr
  ;
@@ -1681,7 +571,7 @@ ref; // ME_4CF3B2CA0302
 : ME_4CF3B89B02EE
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4CF3B26A011E // DoIt
+ : Parent HWL ME_4CF3B26A011E // DoIt
  ;
  : Target WL 'ME_4AC203A500FD' '4AC207650135.pas.ms.script' // AdapterDate
  ;
@@ -1691,7 +581,7 @@ ref; // ME_4CF3B89B02EE
 : ME_4CF3BA8E0286
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4CF3B26A011E // DoIt
+ : Parent HWL ME_4CF3B26A011E // DoIt
  ;
  : Target WL 'ME_4CF3BA7902C0' '4A85282C0252.pas.ms.script' // GblAdapterDateToDateTime
  ;
@@ -1707,14 +597,14 @@ ref; // ME_4CF3BA8E0286
  %SUMMARY 'Подитеративная функция для вызова IterateChildrenF из FillTemplateFields' ;
  CONST Visibility ProtectedAccess
  CONST Abstraction at_final
- : Parent ME_4CF39F58031E // FillTemplateFields
+ : Parent HWL ME_4CF39F58031E // FillTemplateFields
  ;
  : Operations
-   Seq: ( ME_4CF3B096018E // FillText
- ME_4CF3B62D02CE // FillTextS
- ME_4CF3B85B002B // FillTextL
- ME_4DECEBC00327 // FillTextEVD
- ME_AC74D90FB574 // DoIt
+   Seq: ( HWL ME_4CF3B096018E // FillText
+ HWL ME_4CF3B62D02CE // FillTextS
+ HWL ME_4CF3B85B002B // FillTextL
+ HWL ME_4DECEBC00327 // FillTextEVD
+ HWL ME_AC74D90FB574 // DoIt
  )
  ; // Operations
  : Dependencies
@@ -1752,7 +642,7 @@ ref; // ME_4CF39F9103BE anInfo
  %SUMMARY 'Заполняет поля шаблона реальными значениями' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4CF39F58031E // FillTemplateFields
+ : Parent HWL ME_4CF39F58031E // FillTemplateFields
  ;
  : Parameters
    Seq: ( ME_4CF39F91038E // aTag
@@ -1765,7 +655,7 @@ ref; // ME_4CF39F6700D3 DoIt
 : ME_4CF39FD40042
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4CF39F58031E // FillTemplateFields
+ : Parent HWL ME_4CF39F58031E // FillTemplateFields
  ;
  : Target WL 'ME_48579E4A003C' '48492FC0029D.pas.ms.script' // ParaList
  ;
@@ -1775,7 +665,7 @@ ref; // ME_4CF39FD40042
 : ME_4CF39FF702C3
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4CF39F58031E // FillTemplateFields
+ : Parent HWL ME_4CF39F58031E // FillTemplateFields
  ;
  : Target WL 'ME_485669C9009D' '484A470100DD.pas.ms.script' // LeafPara
  ;
@@ -1785,7 +675,7 @@ ref; // ME_4CF39FF702C3
 : ME_4CF3A0360313
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4CF39F58031E // FillTemplateFields
+ : Parent HWL ME_4CF39F58031E // FillTemplateFields
  ;
  : Target WL 'ME_4857923F0186' '48492FC0029D.pas.ms.script' // ControlPara
  ;
@@ -1795,7 +685,7 @@ ref; // ME_4CF3A0360313
 : ME_4CF3A04E0251
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4CF39F58031E // FillTemplateFields
+ : Parent HWL ME_4CF39F58031E // FillTemplateFields
  ;
  : Target WL 'ME_469245FB0354' '469D0AC7005E.pas.ms.script' // ControlType
  ;
@@ -1805,7 +695,7 @@ ref; // ME_4CF3A04E0251
 : ME_4CF3A0790148
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4CF39F58031E // FillTemplateFields
+ : Parent HWL ME_4CF39F58031E // FillTemplateFields
  ;
  : Target WL 'ME_47C69EBC00A8' '47AC75550330.pas.ms.script' // Tk2TagID
  ;
@@ -1815,7 +705,7 @@ ref; // ME_4CF3A0790148
 : ME_4CF3A09A00FF
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4CF39F58031E // FillTemplateFields
+ : Parent HWL ME_4CF39F58031E // FillTemplateFields
  ;
  : Target WL 'ME_47878E0E0191' '54B90AC6014B.pas.ms.script' // l3String
  ;
@@ -1825,7 +715,7 @@ ref; // ME_4CF3A09A00FF
 : ME_4CF3A0C2005B
  CONST Class class_Dependency
  : Stereotype st_call::Dependency ;
- : Parent ME_4CF39F58031E // FillTemplateFields
+ : Parent HWL ME_4CF39F58031E // FillTemplateFields
  ;
  : Target WL 'ME_4BB21F9D022F' '47913B47006E.pas.ms.script' // IterateChildrenF
  ;
@@ -1838,9 +728,9 @@ ref; // ME_4CF3A0C2005B
 : ME_4CF3A344039F
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4CF39F58031E // FillTemplateFields
+ : Parent HWL ME_4CF39F58031E // FillTemplateFields
  ;
- : Target ME_4CF3A33103AF // TnsTemplateFieldType
+ : Target HWL ME_4CF3A33103AF // TnsTemplateFieldType
  ;
 
 ref; // ME_4CF3A344039F 
@@ -1848,7 +738,7 @@ ref; // ME_4CF3A344039F
 : ME_4D9C8A9A02C5
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4CF39F58031E // FillTemplateFields
+ : Parent HWL ME_4CF39F58031E // FillTemplateFields
  ;
  : Target WL 'ME_4857E9EE024A' '48492FC0029D.pas.ms.script' // ReqCell
  ;
@@ -1859,7 +749,7 @@ ref; // ME_4D9C8A9A02C5
  CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4CF39F58031E // FillTemplateFields
+ : Parent HWL ME_4CF39F58031E // FillTemplateFields
  ;
  : Target WL 'ME_4A422BA20187' '47913B47006E.pas.ms.script' // Mk2Children
  ;
@@ -1875,15 +765,15 @@ ref; // ME_8BE4F09F42B4
  %SUMMARY 'Заполняет поля шаблона реальными значениями' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4CF37A0400FB // TnsConsultationDocumentContainerNew
+ : Parent HWL ME_4CF37A0400FB // TnsConsultationDocumentContainerNew
  ;
  : Attributes
-   Seq: ( ME_4D9C898F02DB // WasSomeHyperlinkHidden
+   Seq: ( HWL ME_4D9C898F02DB // WasSomeHyperlinkHidden
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_4CF3B26A011E // DoIt
- ME_4CF39F6700D3 // DoIt
+   Seq: ( HWL ME_4CF3B26A011E // DoIt
+ HWL ME_4CF39F6700D3 // DoIt
  )
  ; // Operations
  : Dependencies
@@ -1919,7 +809,7 @@ ref; // ME_4CF3C74A0322 aPara
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4CF3C730039D // HideHyperlinks
+ : Parent HWL ME_4CF3C730039D // HideHyperlinks
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -1933,7 +823,7 @@ ref; // ME_4CF3C741019B DoIt
 : ME_4CF3C98C02EB
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4CF3C730039D // HideHyperlinks
+ : Parent HWL ME_4CF3C730039D // HideHyperlinks
  ;
  : Target WL 'ME_47F24AFB0308' '469D0AC7005E.pas.ms.script' // Layers
  ;
@@ -1943,7 +833,7 @@ ref; // ME_4CF3C98C02EB
 : ME_4CF3CA2500B6
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4CF3C730039D // HideHyperlinks
+ : Parent HWL ME_4CF3C730039D // HideHyperlinks
  ;
  : Target WL 'ME_45EEB65202FC' '4570511E038A.pas.ms.script' // LinkedObjectType
  ;
@@ -1953,7 +843,7 @@ ref; // ME_4CF3CA2500B6
 : ME_4CF3CA360135
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4CF3C730039D // HideHyperlinks
+ : Parent HWL ME_4CF3C730039D // HideHyperlinks
  ;
  : Target WL 'ME_45EEAEC40311' '45EEA4890342.pas.ms.script' // ExternalOperationId
  ;
@@ -1968,10 +858,10 @@ ref; // ME_4CF3CA360135
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4CF37A0400FB // TnsConsultationDocumentContainerNew
+ : Parent HWL ME_4CF37A0400FB // TnsConsultationDocumentContainerNew
  ;
  : Operations
-   Seq: ( ME_4CF3C741019B // DoIt
+   Seq: ( HWL ME_4CF3C741019B // DoIt
  )
  ; // Operations
  : Dependencies
@@ -2009,7 +899,7 @@ ref; // ME_4EAA71F2010B Atom
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4EAA71CA009F // DoFinishAtom
+ : Parent HWL ME_4EAA71CA009F // DoFinishAtom
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -2029,10 +919,10 @@ ref; // ME_4EAA71E10182 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4CF37A0400FB // TnsConsultationDocumentContainerNew
+ : Parent HWL ME_4CF37A0400FB // TnsConsultationDocumentContainerNew
  ;
  : Operations
-   Seq: ( ME_4EAA71E10182 // DoIt
+   Seq: ( HWL ME_4EAA71E10182 // DoIt
  )
  ; // Operations
 
@@ -2046,7 +936,7 @@ FORWARD ME_51E676440200
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_51E676440200 // DoGetDocument
+ : Parent HWL ME_51E676440200 // DoGetDocument
  ;
  : Target WL 'ME_534572370056' '47913B47006E.pas.ms.script' // Tl3Tag
  ;
@@ -2061,10 +951,10 @@ ref; // ME_51E6768D02BC DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4CF37A0400FB // TnsConsultationDocumentContainerNew
+ : Parent HWL ME_4CF37A0400FB // TnsConsultationDocumentContainerNew
  ;
  : Operations
-   Seq: ( ME_51E6768D02BC // DoIt
+   Seq: ( HWL ME_51E6768D02BC // DoIt
  )
  ; // Operations
 
@@ -2073,9 +963,9 @@ ref; // ME_51E676440200 DoGetDocument
 : ME_4CF37B7200D4
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4CF37A0400FB // TnsConsultationDocumentContainerNew
+ : Parent HWL ME_4CF37A0400FB // TnsConsultationDocumentContainerNew
  ;
- : Target WL 'ME_4CF37B3401D9' '4CF3810D0038.pas.ms.script' // TnsConsultationHAFPainter
+ : Target WL 'ME_4CF37B3401D9' '4CF37C170269.pas.ms.script' // TnsConsultationHAFPainter
  ;
 
 ref; // ME_4CF37B7200D4 
@@ -2083,7 +973,7 @@ ref; // ME_4CF37B7200D4
 : ME_4CF388780383
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4CF37A0400FB // TnsConsultationDocumentContainerNew
+ : Parent HWL ME_4CF37A0400FB // TnsConsultationDocumentContainerNew
  ;
  : Target WL 'ME_46A5B0060013' '4677FBA70343.pas.ms.script' // IStream
  ;
@@ -2093,7 +983,7 @@ ref; // ME_4CF388780383
 : ME_4CF388890202
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4CF37A0400FB // TnsConsultationDocumentContainerNew
+ : Parent HWL ME_4CF37A0400FB // TnsConsultationDocumentContainerNew
  ;
  : Target WL 'ME_483E708900B4' '47C695A10172.pas.ms.script' // Clipboard Formats
  ;
@@ -2103,7 +993,7 @@ ref; // ME_4CF388890202
 : ME_4CF38999015A
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4CF37A0400FB // TnsConsultationDocumentContainerNew
+ : Parent HWL ME_4CF37A0400FB // TnsConsultationDocumentContainerNew
  ;
  : Target WL 'ME_4CEBC75B00B0' '457007DB002E.pas.ms.script' // ConsultingTemplateInfo
  ;
@@ -2113,7 +1003,7 @@ ref; // ME_4CF38999015A
 : ME_4CF38A92002E
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4CF37A0400FB // TnsConsultationDocumentContainerNew
+ : Parent HWL ME_4CF37A0400FB // TnsConsultationDocumentContainerNew
  ;
  : Target WL 'ME_4B1E8FAE0380' '48F747EC0073.pas.ms.script' // DefDataAdapter
  ;
@@ -2123,7 +1013,7 @@ ref; // ME_4CF38A92002E
 : ME_4CF3901D002C
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4CF37A0400FB // TnsConsultationDocumentContainerNew
+ : Parent HWL ME_4CF37A0400FB // TnsConsultationDocumentContainerNew
  ;
  : Target WL 'ME_47C69EBC00A8' '47AC75550330.pas.ms.script' // Tk2TagID
  ;
@@ -2133,7 +1023,7 @@ ref; // ME_4CF3901D002C
 : ME_4CF3905B03A8
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4CF37A0400FB // TnsConsultationDocumentContainerNew
+ : Parent HWL ME_4CF37A0400FB // TnsConsultationDocumentContainerNew
  ;
  : Target WL 'ME_47FB50E4008E' '48F747EC0073.pas.ms.script' // nsConst
  ;
@@ -2143,7 +1033,7 @@ ref; // ME_4CF3905B03A8
 : ME_4CF3A9110181
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4CF37A0400FB // TnsConsultationDocumentContainerNew
+ : Parent HWL ME_4CF37A0400FB // TnsConsultationDocumentContainerNew
  ;
  : Target WL 'ME_48EA3BDD0023' '4678193C009C.pas.ms.script' // ActiveXConsts
  ;
@@ -2153,7 +1043,7 @@ ref; // ME_4CF3A9110181
 : ME_4CF3AB3503E1
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4CF37A0400FB // TnsConsultationDocumentContainerNew
+ : Parent HWL ME_4CF37A0400FB // TnsConsultationDocumentContainerNew
  ;
  : Target WL 'ME_48C6811302CB' '47913B47006E.pas.ms.script' // l3SysUtils
  ;
@@ -2163,7 +1053,7 @@ ref; // ME_4CF3AB3503E1
 : ME_4E92CC5001FF
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4CF37A0400FB // TnsConsultationDocumentContainerNew
+ : Parent HWL ME_4CF37A0400FB // TnsConsultationDocumentContainerNew
  ;
  : Target WL 'ME_4857B5260267' '48492FC0029D.pas.ms.script' // Document
  ;
@@ -2173,7 +1063,7 @@ ref; // ME_4E92CC5001FF
 : ME_4EAA722B033E
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4CF37A0400FB // TnsConsultationDocumentContainerNew
+ : Parent HWL ME_4CF37A0400FB // TnsConsultationDocumentContainerNew
  ;
  : Target WL 'ME_484FC278000E' '484A470100DD.pas.ms.script' // Para
  ;
@@ -2207,7 +1097,7 @@ ref; // ME_4B1FBF87020C_ME_4CF37A0400FB AfterCreate
  %SUMMARY 'Контейнер документа-консультации' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_491C3E40007B // Consultation
+ : Parent HWL ME_491C3E40007B // Consultation
  ;
  : Inherits
    Seq: ( WL 'ME_4680E83D00C8' '4680E826036D.pas.ms.script' // TeeDocumentContainer
@@ -2219,17 +1109,17 @@ ref; // ME_4B1FBF87020C_ME_4CF37A0400FB AfterCreate
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_4CF3963000CA // f_Cons
- ME_51E6777700DF // f_DocInfo
+   Seq: ( HWL ME_4CF3963000CA // f_Cons
+ HWL ME_51E6777700DF // f_DocInfo
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_4CF3965400E5 // Create
- ME_4CF3967101C3 // Make
- ME_4CF39F58031E // FillTemplateFields
- ME_4CF3C730039D // HideHyperlinks
- ME_4EAA71CA009F // DoFinishAtom
- ME_51E676440200 // DoGetDocument
+   Seq: ( HWL ME_4CF3965400E5 // Create
+ HWL ME_4CF3967101C3 // Make
+ HWL ME_4CF39F58031E // FillTemplateFields
+ HWL ME_4CF3C730039D // HideHyperlinks
+ HWL ME_4EAA71CA009F // DoFinishAtom
+ HWL ME_51E676440200 // DoGetDocument
  )
  ; // Operations
  : Overridden
@@ -2239,7 +1129,7 @@ ref; // ME_4B1FBF87020C_ME_4CF37A0400FB AfterCreate
  )
  ; // Overridden
  : Children
-   Seq: ( ME_4CF3A33103AF // TnsTemplateFieldType
+   Seq: ( HWL ME_4CF3A33103AF // TnsTemplateFieldType
  )
  ; // Children
  : Dependencies
@@ -2268,6 +1158,8 @@ ref; // ME_4CF37A0400FB TnsConsultationDocumentContainerNew
 
 FORWARD ME_55FAEA9B0079
 
+FORWARD ME_492FFDF7011A
+
 : ME_55FACBF603B5
  CONST UID '55FACBF603B5'
  CONST Name 'f_Unread'
@@ -2275,7 +1167,7 @@ FORWARD ME_55FAEA9B0079
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_492FFDF7011A // TbsConsultationManager
+ : Parent HWL ME_492FFDF7011A // TbsConsultationManager
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -2289,7 +1181,7 @@ ref; // ME_55FACBF603B5 f_Unread
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_492FFDF7011A // TbsConsultationManager
+ : Parent HWL ME_492FFDF7011A // TbsConsultationManager
  ;
  : Target WL 'ME_550136350165' '47EA07FA02CE.pas.ms.script' // TbsConsultationOperations
  ;
@@ -2304,7 +1196,7 @@ ref; // ME_55FACCE20172 f_CurrentStatus
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_492FFDF7011A // TbsConsultationManager
+ : Parent HWL ME_492FFDF7011A // TbsConsultationManager
  ;
 
 ref; // ME_55FACCF500B4 UpdateUnread
@@ -2317,7 +1209,7 @@ ref; // ME_55FACCF500B4 UpdateUnread
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_492FFDF7011A // TbsConsultationManager
+ : Parent HWL ME_492FFDF7011A // TbsConsultationManager
  ;
 
 ref; // ME_55FACD130143 Create
@@ -2330,10 +1222,10 @@ ref; // ME_55FACD130143 Create
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_492FFDF7011A // TbsConsultationManager
+ : Parent HWL ME_492FFDF7011A // TbsConsultationManager
  ;
  : Inherits
-   Seq: ( ME_55FACD130143 // Create
+   Seq: ( HWL ME_55FACD130143 // Create
  )
  ; // Inherits
  : Implements
@@ -2346,7 +1238,7 @@ ref; // ME_55FACD4C0399 Make
 : ME_55FAF45A03B1
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_492FFDF7011A // TbsConsultationManager
+ : Parent HWL ME_492FFDF7011A // TbsConsultationManager
  ;
  : Target WL 'ME_48FF556602BA' '48F747EC0073.pas.ms.script' // DataAdapter
  ;
@@ -2405,7 +1297,7 @@ ref; // ME_5501366003A9_ME_492FFDF7011A CurrentStatus
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_55FAEA9B0079 // bsConsultationManager
+ : Parent HWL ME_55FAEA9B0079 // bsConsultationManager
  ;
  : Inherits
    Seq: ( WL 'ME_47F25BEE0389' '47D0E1500033.pas.ms.script' // TvcmBase
@@ -2417,14 +1309,14 @@ ref; // ME_5501366003A9_ME_492FFDF7011A CurrentStatus
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_55FACBF603B5 // f_Unread
- ME_55FACCE20172 // f_CurrentStatus
+   Seq: ( HWL ME_55FACBF603B5 // f_Unread
+ HWL ME_55FACCE20172 // f_CurrentStatus
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_55FACCF500B4 // UpdateUnread
- ME_55FACD130143 // Create
- ME_55FACD4C0399 // Make
+   Seq: ( HWL ME_55FACCF500B4 // UpdateUnread
+ HWL ME_55FACD130143 // Create
+ HWL ME_55FACD4C0399 // Make
  )
  ; // Operations
  : Implemented
@@ -2453,7 +1345,7 @@ ref; // ME_492FFDF7011A TbsConsultationManager
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_55FAEA9B0079 // bsConsultationManager
+ : Parent HWL ME_55FAEA9B0079 // bsConsultationManager
  ;
  : Target WL 'ME_49527999013D' '47ECAAF901F8.pas.ms.script' // IbsConsultationManager
  ;
@@ -2472,7 +1364,7 @@ FORWARD ME_55FAEB22015B
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_55FAEB22015B // g__ConsultationManager
+ : Parent HWL ME_55FAEB22015B // g__ConsultationManager
  ;
  : Target WL 'ME_49527999013D' '47ECAAF901F8.pas.ms.script' // IbsConsultationManager
  ;
@@ -2487,10 +1379,10 @@ ref; // ME_55FAEB3702D1 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_55FAEA9B0079 // bsConsultationManager
+ : Parent HWL ME_55FAEA9B0079 // bsConsultationManager
  ;
  : Operations
-   Seq: ( ME_55FAEB3702D1 // DoIt
+   Seq: ( HWL ME_55FAEB3702D1 // DoIt
  )
  ; // Operations
 
@@ -2504,7 +1396,7 @@ FORWARD ME_55FBE42C03DF
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_55FBE42C03DF // IsConsultationManagerAssigned
+ : Parent HWL ME_55FBE42C03DF // IsConsultationManagerAssigned
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -2519,10 +1411,10 @@ ref; // ME_55FBE4390193 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_55FAEA9B0079 // bsConsultationManager
+ : Parent HWL ME_55FAEA9B0079 // bsConsultationManager
  ;
  : Operations
-   Seq: ( ME_55FBE4390193 // DoIt
+   Seq: ( HWL ME_55FBE4390193 // DoIt
  )
  ; // Operations
 
@@ -2535,7 +1427,7 @@ ref; // ME_55FBE42C03DF IsConsultationManagerAssigned
  : Stereotype st_fini::Operation ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_55FAEA9B0079 // bsConsultationManager
+ : Parent HWL ME_55FAEA9B0079 // bsConsultationManager
  ;
 
 ref; // ME_55FAEB6B0372 new_fini_op
@@ -2547,7 +1439,7 @@ ref; // ME_55FAEB6B0372 new_fini_op
  : Stereotype st_ini::Operation ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_55FAEA9B0079 // bsConsultationManager
+ : Parent HWL ME_55FAEA9B0079 // bsConsultationManager
  ;
 
 ref; // ME_55FAFF0C0027 new_ini_op
@@ -2560,21 +1452,21 @@ ref; // ME_55FAFF0C0027 new_ini_op
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_491C3E40007B // Consultation
+ : Parent HWL ME_491C3E40007B // Consultation
  ;
  : Attributes
-   Seq: ( ME_55FAEB7E0176 // gv_ConsultationManager
+   Seq: ( HWL ME_55FAEB7E0176 // gv_ConsultationManager
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_55FAEB22015B // g__ConsultationManager
- ME_55FBE42C03DF // IsConsultationManagerAssigned
- ME_55FAEB6B0372 // new_fini_op
- ME_55FAFF0C0027 // new_ini_op
+   Seq: ( HWL ME_55FAEB22015B // g__ConsultationManager
+ HWL ME_55FBE42C03DF // IsConsultationManagerAssigned
+ HWL ME_55FAEB6B0372 // new_fini_op
+ HWL ME_55FAFF0C0027 // new_ini_op
  )
  ; // Operations
  : Children
-   Seq: ( ME_492FFDF7011A // TbsConsultationManager
+   Seq: ( HWL ME_492FFDF7011A // TbsConsultationManager
  )
  ; // Children
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Consultation\bsConsultationManager.pas'
@@ -2592,16 +1484,16 @@ ref; // ME_55FAEA9B0079 bsConsultationManager
  : Parent WL 'ME_493FCF1E03DC' '493FCF1E03DC.pas.ms.script' // Consultation
  ;
  : Children
-   Seq: ( ME_491C3E97009F // TdsConsultation
- ME_491DCCE101F3 // TdsQuery
- ME_49216B3C02E8 // TdsConsultationMark
- ME_49228CA903BA // TsdsConsultation
- ME_4926BD6800C8 // TdsConsultationList
- ME_492FECE300EA // TsdsQuery
- ME_492FF1C500B5 // TsdsSendConsultation
- ME_491DD030014A // TdsSendConsultation
- ME_4CF37A0400FB // TnsConsultationDocumentContainerNew
- ME_55FAEA9B0079 // bsConsultationManager
+   Seq: ( WL 'ME_491C3E97009F' '491C3E97009F.pas.ms.script' // TdsConsultation
+ WL 'ME_491DCCE101F3' '491DCCE101F3.pas.ms.script' // TdsQuery
+ WL 'ME_49216B3C02E8' '49216B3C02E8.pas.ms.script' // TdsConsultationMark
+ WL 'ME_49228CA903BA' '49228CA903BA.pas.ms.script' // TsdsConsultation
+ WL 'ME_4926BD6800C8' '4926BD6800C8.pas.ms.script' // TdsConsultationList
+ WL 'ME_492FECE300EA' '492FECE300EA.pas.ms.script' // TsdsQuery
+ WL 'ME_492FF1C500B5' '492FF1C500B5.pas.ms.script' // TsdsSendConsultation
+ WL 'ME_491DD030014A' '491DD030014A.pas.ms.script' // TdsSendConsultation
+ HWL ME_4CF37A0400FB // TnsConsultationDocumentContainerNew
+ HWL ME_55FAEA9B0079 // bsConsultationManager
  )
  ; // Children
  : Depends

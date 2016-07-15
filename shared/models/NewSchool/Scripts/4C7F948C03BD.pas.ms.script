@@ -1,0 +1,72 @@
+// TeeSubPanel 4C7F948C03BD GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4C7F948C03BD
+
+FORWARD ME_5481CCAE029D
+
+: ME_5481CD0A031C
+ CONST UID '5481CD0A031C'
+ CONST Name 'SubPanel'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_5481CCAE029D // TeeCustomSubPanel
+ ;
+ : Target WL 'ME_5481A06803E5' '4912DD020283.pas.ms.script' // IeeSubPanel
+ ;
+ CONST "pm" true
+
+ref; // ME_5481CD0A031C SubPanel
+
+: ME_5481CCAE029D
+ CONST UID '5481CCAE029D'
+ CONST Name 'TeeCustomSubPanel'
+ CONST Class class_Class
+ : Stereotype st_GuiControl ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4C7F948C03BD // TeeSubPanel
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4C7F94A9028D' '4C7F94A9028D.pas.ms.script' // TeeSubPanelExport
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( HWL ME_5481CD0A031C // SubPanel
+ )
+ ; // Attributes
+ CONST extprop:rc:SelfName 'eeCustomSubPanel'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_5481CCAE029D TeeCustomSubPanel
+
+: ME_4C7F948C03BD
+ CONST UID '4C7F948C03BD'
+ CONST Name 'TeeSubPanel'
+ CONST Class class_Class
+ : Stereotype st_GuiControl ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_54817B05034F' '54817B05034F.pas.ms.script' // eeSubPanel
+ ;
+ : Inherits
+   Seq: ( HWL ME_5481CCAE029D // TeeCustomSubPanel
+ )
+ ; // Inherits
+ : Children
+   Seq: ( HWL ME_5481CCAE029D // TeeCustomSubPanel
+ )
+ ; // Children
+ CONST "need UC" true
+ CONST intf.pas:Path 'common\components\gui\Garant\Everest_Engine\eeSubPanel.pas'
+ CONST extprop:rc:SelfName 'eeSubPanel'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'eeSubPanel'
+
+ref; // ME_4C7F948C03BD TeeSubPanel

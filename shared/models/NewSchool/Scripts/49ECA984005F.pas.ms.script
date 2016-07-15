@@ -1,0 +1,75 @@
+// TsdsInternetAgent 49ECA984005F UseCaseControllerImp Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49ECA984005F
+
+: ME_49EDE4C30059
+ CONST UID '49EDE4C30059'
+ CONST Name 'InitDataType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent HWL ME_49ECA984005F // TsdsInternetAgent
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_49EDE4C30059 InitDataType
+
+: ME_49ECA9CC01EF
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_49ECA984005F // TsdsInternetAgent
+ ;
+ : Target WL 'ME_49ECA9AA0000' '49ECA9AA0000.pas.ms.script' // TdsInternetAgent
+ ;
+
+ref; // ME_49ECA9CC01EF 
+
+: ME_4A37A70E01DE_ME_49ECA984005F
+ : Original WL 'ME_4A37A70E01DE' '49EC6D9000EE.pas.ms.script' // MainViewArea
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_4A37A70E01DE_ME_49ECA984005F MainViewArea
+
+: ME_49ECA984005F
+ CONST UID '49ECA984005F'
+ CONST Name 'TsdsInternetAgent'
+ CONST Class class_Class
+ : Stereotype st_UseCaseControllerImp ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Реализация прецедента Интернет-агента' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_49EC6DB703E5' '49EC6DB703E5.pas.ms.script' // InternetAgent
+ ;
+ : Inherits
+   Seq: ( WL 'ME_49415C640079' '47D0E1500033.pas.ms.script' // vcmFormSetDataSourceWithoutData
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_49EC6E2B0118' '49EC6D9000EE.pas.ms.script' // IsdsInternetAgent
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( HWL ME_49EDE4C30059 // InitDataType
+ )
+ ; // Attributes
+ : Implemented
+   Seq: ( ME_4A37A70E01DE_ME_49ECA984005F // MainViewArea
+ )
+ ; // Implemented
+ : Dependencies
+   Seq: ( ME_49ECA9CC01EF // TdsInternetAgent
+ )
+ ; // Dependencies
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\InternetAgent\sdsInternetAgent.pas'
+ CONST extprop:rc:SelfName 'sdsInternetAgent'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'sdsInternetAgent'
+
+ref; // ME_49ECA984005F TsdsInternetAgent

@@ -1,0 +1,58 @@
+// TreeAttributeFirstLevel 4AB8D5F8025F VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AB8D5F8025F
+
+: ME_DC2BA1E03464
+ CONST UID 'DC2BA1E03464'
+ CONST Name 'Ini_FormFactory_TreeAttributeFirstLevel'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы TreeAttributeFirstLevel' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AB8D5F8025F // TreeAttributeFirstLevel
+ ;
+ : SpelledFor HWL ME_4AB8D5F8025F // TreeAttributeFirstLevel
+ ;
+
+ref; // ME_DC2BA1E03464 Ini_FormFactory_TreeAttributeFirstLevel
+
+: ME_4AB8D5F8025F
+ CONST UID '4AB8D5F8025F'
+ CONST Name 'TreeAttributeFirstLevel'
+ CONST Class class_Class
+ : Stereotype st_VCMFinalForm ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent WL 'ME_4AA641A3036C' '4AA641A3036C.pas.ms.script' // Search
+ ;
+ : Inherits
+   Seq: ( WL 'ME_497EC6A4022F' '497EC6A4022F.pas.ms.script' // PrimTreeAttributeFirstLevel
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4D80D39C002F' '4BD856E802F9.pas.ms.script' // TreeAttributeFirstLevel
+ )
+ ; // Implements
+ : Operations
+   Seq: ( HWL ME_DC2BA1E03464 // Ini_FormFactory_TreeAttributeFirstLevel
+ )
+ ; // Operations
+ CONST "NeedsHackRef" true
+ CONST "ZoneType" 'Navigator'
+ CONST "finished dfm" true
+ CONST "form name prefix" 'ef'
+ CONST "resizeable" false
+ CONST "restrict form def" 'undefined'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\TreeAttributeFirstLevel_Form.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms'
+ CONST extprop:pas:TypeName 'TefTreeAttributeFirstLevel'
+ CONST extprop:rc:SelfName 'efTreeAttributeFirstLevel'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'TreeAttributeFirstLevel_Form'
+
+ref; // ME_4AB8D5F8025F TreeAttributeFirstLevel

@@ -1,0 +1,84 @@
+// ShutDown 4A8EC8950152 VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A8EC8950152
+
+: ME_1A411FFFF792
+ CONST UID '1A411FFFF792'
+ CONST GUID '30C1FF00-6CA8-4565-BDC9-191E8237EFAD'
+ CONST Name 'ShutDown'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_VCMFormDefinition ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Идентификатор формы ShutDown' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4A8EC8950152 // ShutDown
+ ;
+ : Implementors
+   Seq: ( HWL ME_4A8EC8950152 // ShutDown
+ )
+ ; // Implementors
+ CONST extprop:pas:TypeName 'ShutDownFormDef'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_1A411FFFF792 ShutDown$Def
+
+: ME_1EB5D6700624
+ CONST UID '1EB5D6700624'
+ CONST Name 'Ini_FormFactory_ShutDown'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы ShutDown' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4A8EC8950152 // ShutDown
+ ;
+ : SpelledFor HWL ME_4A8EC8950152 // ShutDown
+ ;
+
+ref; // ME_1EB5D6700624 Ini_FormFactory_ShutDown$Def
+
+: ME_4A8EC8950152
+ CONST UID '4A8EC8950152'
+ CONST Name 'ShutDown'
+ CONST Class class_Class
+ : Stereotype st_VCMFinalForm ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Предупреждение' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent WL 'ME_4A8EC78503BB' '4A8EC78503BB.pas.ms.script' // PrimCommon
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4A8EC8AC02EE' '4A8EC8AC02EE.pas.ms.script' // PrimShutDown
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( HWL ME_1A411FFFF792 // ShutDown$Def
+ )
+ ; // Implements
+ : Operations
+   Seq: ( HWL ME_1EB5D6700624 // Ini_FormFactory_ShutDown$Def
+ )
+ ; // Operations
+ : Children
+   Seq: ( HWL ME_1A411FFFF792 // ShutDown$Def
+ )
+ ; // Children
+ CONST "NeedsHackRef" true
+ CONST "ZoneType" 'Floating'
+ CONST "finished dfm" true
+ CONST "resizeable" false
+ CONST "restrict form def" 'undefined'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\Forms\ShutDown_Form.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\Forms'
+ CONST extprop:pas:TypeName 'TShutDownForm'
+ CONST extprop:rc:SelfName 'ShutDownForm'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'ShutDown_Form'
+
+ref; // ME_4A8EC8950152 ShutDown

@@ -1,0 +1,1145 @@
+// HyperlinkProcessor 4A815C200111 VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A815C200111
+
+: ME_4A82BC390036
+ CONST UID '4A82BC390036'
+ CONST Name 'HyperlinkText'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Текст, содержащий гиперссылку' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent HWL ME_4A815C200111 // HyperlinkProcessor
+ ;
+ : Target WL 'ME_4829D92A037B' '4829D92A037B.pas.ms.script' // TevCustomEditorWindow
+ ;
+ CONST "needs field" false
+ CONST "pm" true
+
+ref; // ME_4A82BC390036 HyperlinkText
+
+FORWARD ME_4A8199EE00F2
+
+: ME_4A819C730093
+ CONST UID '4A819C730093'
+ CONST Name 'Hyperlink'
+ CONST Class class_Attribute
+ : Stereotype st_var::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_4A8199EE00F2 // JumpTo
+ ;
+ : Target WL 'ME_49E5FCDB02E9' '4A251D6E00BD.pas.ms.script' // IevHyperlink
+ ;
+ CONST "IsResult" false
+
+ref; // ME_4A819C730093 Hyperlink
+
+: ME_4A819A2D0146
+ CONST Name 'Sender'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_4A819A2D0146 Sender
+
+: ME_4A819A2D0169
+ CONST Name 'anEffects'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49DC7BDE0398' '467823B7002C.pas.ms.script' // TafwJumpToEffects
+ ;
+
+ref; // ME_4A819A2D0169 anEffects
+
+: ME_4A819A2D018A
+ CONST Name 'aMoniker'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47C5BD35000A' '4A23935A0282.pas.ms.script' // IevMoniker
+ ;
+
+ref; // ME_4A819A2D018A aMoniker
+
+: ME_4A819A0C00C1
+ CONST UID '4A819A0C00C1'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4A8199EE00F2 // JumpTo
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   Seq: ( ME_4A819A2D0146 // Sender
+ ME_4A819A2D0169 // anEffects
+ ME_4A819A2D018A // aMoniker
+ )
+ ; // Parameters
+
+ref; // ME_4A819A0C00C1 DoIt
+
+: ME_4A819A6A010D
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A8199EE00F2 // JumpTo
+ ;
+ : Target WL 'ME_47FB50E4008E' '48F747EC0073.pas.ms.script' // nsConst
+ ;
+
+ref; // ME_4A819A6A010D 
+
+: ME_4A819A7603A3
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A8199EE00F2 // JumpTo
+ ;
+ : Target WL 'ME_47752AF90375' '47750CE700D0.pas.ms.script' // afwFacade
+ ;
+
+ref; // ME_4A819A7603A3 
+
+: ME_4A819BC303B0
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A8199EE00F2 // JumpTo
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_4A819BC303B0 
+
+: ME_4A8199EE00F2
+ CONST UID '4A8199EE00F2'
+ CONST Name 'JumpTo'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Обработчик гиперссылки' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4A815C200111 // HyperlinkProcessor
+ ;
+ : Attributes
+   Seq: ( HWL ME_4A819C730093 // Hyperlink
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( HWL ME_4A819A0C00C1 // DoIt
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_4A819A6A010D // nsConst
+ ME_4A819A7603A3 // afwFacade
+ ME_4A819BC303B0 // SysUtils
+ )
+ ; // Dependencies
+
+ref; // ME_4A8199EE00F2 JumpTo
+
+FORWARD ME_4A82C02701E4
+
+: ME_4A82C06F02E6
+ CONST UID '4A82C06F02E6'
+ CONST Name 'Hyperlink'
+ CONST Class class_Attribute
+ : Stereotype st_var::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_4A82C02701E4 // GetHotSpotInfo
+ ;
+ : Target WL 'ME_49E5FCDB02E9' '4A251D6E00BD.pas.ms.script' // IevHyperlink
+ ;
+ CONST "IsResult" false
+
+ref; // ME_4A82C06F02E6 Hyperlink
+
+: ME_4A82C057015F
+ CONST Name 'Sender'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_4A82C057015F Sender
+
+: ME_4A82C0570186
+ CONST Name 'aHotSpot'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_48E2665A0259' '4A1FCBA0014C.pas.ms.script' // IevHotSpot
+ ;
+
+ref; // ME_4A82C0570186 aHotSpot
+
+: ME_4A82C05701AB
+ CONST Name 'aKeys'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_473DA6C302E6' '467823B7002C.pas.ms.script' // TafwCursorState
+ ;
+
+ref; // ME_4A82C05701AB aKeys
+
+: ME_4A82C05701CF
+ CONST Name 'theInfo'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_473DA9BF0280' '467823B7002C.pas.ms.script' // TafwCursorInfo
+ ;
+
+ref; // ME_4A82C05701CF theInfo
+
+: ME_4A82C0420392
+ CONST UID '4A82C0420392'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4A82C02701E4 // GetHotSpotInfo
+ ;
+ : Parameters
+   Seq: ( ME_4A82C057015F // Sender
+ ME_4A82C0570186 // aHotSpot
+ ME_4A82C05701AB // aKeys
+ ME_4A82C05701CF // theInfo
+ )
+ ; // Parameters
+
+ref; // ME_4A82C0420392 DoIt
+
+: ME_4A82C084010A
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A82C02701E4 // GetHotSpotInfo
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_4A82C084010A 
+
+: ME_4A82C02701E4
+ CONST UID '4A82C02701E4'
+ CONST Name 'GetHotSpotInfo'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Обработчик события OnGetHotSpotInfo' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4A815C200111 // HyperlinkProcessor
+ ;
+ : Attributes
+   Seq: ( HWL ME_4A82C06F02E6 // Hyperlink
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( HWL ME_4A82C0420392 // DoIt
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_4A82C084010A // SysUtils
+ )
+ ; // Dependencies
+
+ref; // ME_4A82C02701E4 GetHotSpotInfo
+
+FORWARD ME_4F382E2D01C1
+
+: ME_4F382E6500DB
+ CONST Name 'aValue'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4F382E6500DB aValue
+
+: ME_4F382E3C025F
+ CONST UID '4F382E3C025F'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4F382E2D01C1 // DoSetHyperlinkCallStatus
+ ;
+ : Parameters
+   Seq: ( ME_4F382E6500DB // aValue
+ )
+ ; // Parameters
+
+ref; // ME_4F382E3C025F DoIt
+
+: ME_4F382E2D01C1
+ CONST UID '4F382E2D01C1'
+ CONST Name 'DoSetHyperlinkCallStatus'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Выставляет флаг, определяющий произведенный переход по ссылке' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4A815C200111 // HyperlinkProcessor
+ ;
+ : Operations
+   Seq: ( HWL ME_4F382E3C025F // DoIt
+ )
+ ; // Operations
+
+ref; // ME_4F382E2D01C1 DoSetHyperlinkCallStatus
+
+FORWARD ME_520234BD015B
+
+: ME_52023520039A
+ CONST Name 'aHyperlink'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49E5FCDB02E9' '4A251D6E00BD.pas.ms.script' // IevHyperlink
+ ;
+
+ref; // ME_52023520039A aHyperlink
+
+: ME_52023510001B
+ CONST UID '52023510001B'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_520234BD015B // NeedJumpTo
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   Seq: ( ME_52023520039A // aHyperlink
+ )
+ ; // Parameters
+
+ref; // ME_52023510001B DoIt
+
+: ME_520234BD015B
+ CONST UID '520234BD015B'
+ CONST Name 'NeedJumpTo'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4A815C200111 // HyperlinkProcessor
+ ;
+ : Operations
+   Seq: ( HWL ME_52023510001B // DoIt
+ )
+ ; // Operations
+
+ref; // ME_520234BD015B NeedJumpTo
+
+FORWARD ME_53A95A1A0073
+
+: ME_53A95D5D0132
+ CONST Name 'anEffects'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49DC7BDE0398' '467823B7002C.pas.ms.script' // TafwJumpToEffects
+ ;
+
+ref; // ME_53A95D5D0132 anEffects
+
+: ME_53A95A33016E
+ CONST UID '53A95A33016E'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_53A95A1A0073 // GetBehaviourFromEffects
+ ;
+ : Target WL 'ME_53A91FD901F3' '4ACF514E0337.pas.ms.script' // TbsProcessHyperLinkBehaviour
+ ;
+ : Parameters
+   Seq: ( ME_53A95D5D0132 // anEffects
+ )
+ ; // Parameters
+
+ref; // ME_53A95A33016E DoIt
+
+: ME_53A95A1A0073
+ CONST UID '53A95A1A0073'
+ CONST Name 'GetBehaviourFromEffects'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4A815C200111 // HyperlinkProcessor
+ ;
+ : Operations
+   Seq: ( HWL ME_53A95A33016E // DoIt
+ )
+ ; // Operations
+
+ref; // ME_53A95A1A0073 GetBehaviourFromEffects
+
+FORWARD ME_54D3144F0227
+
+: ME_54D314870100
+ CONST Name 'aBehaviour'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_53A91FD901F3' '4ACF514E0337.pas.ms.script' // TbsProcessHyperLinkBehaviour
+ ;
+
+ref; // ME_54D314870100 aBehaviour
+
+: ME_54D314780368
+ CONST UID '54D314780368'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_54D3144F0227 // MakeContainerForBehaviour
+ ;
+ : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
+ ;
+ : Parameters
+   Seq: ( ME_54D314870100 // aBehaviour
+ )
+ ; // Parameters
+
+ref; // ME_54D314780368 DoIt
+
+: ME_54D3144F0227
+ CONST UID '54D3144F0227'
+ CONST Name 'MakeContainerForBehaviour'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4A815C200111 // HyperlinkProcessor
+ ;
+ : Operations
+   Seq: ( HWL ME_54D314780368 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_54D3144F0227 MakeContainerForBehaviour
+
+FORWARD ME_5767DF4D033E
+
+: ME_5767E14D010C
+ CONST Name 'aHyperlink'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49E5FCDB02E9' '4A251D6E00BD.pas.ms.script' // IevHyperlink
+ ;
+
+ref; // ME_5767E14D010C aHyperlink
+
+: ME_5767E14B0108
+ CONST UID '5767E14B0108'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_5767DF4D033E // BeforeJumpTo
+ ;
+ : Parameters
+   Seq: ( ME_5767E14D010C // aHyperlink
+ )
+ ; // Parameters
+
+ref; // ME_5767E14B0108 DoIt
+
+: ME_5767DF4D033E
+ CONST UID '5767DF4D033E'
+ CONST Name 'BeforeJumpTo'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4A815C200111 // HyperlinkProcessor
+ ;
+ : Operations
+   Seq: ( HWL ME_5767E14B0108 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_5767DF4D033E BeforeJumpTo
+
+: ME_4A815E9F0134
+ CONST Name 'anOperation'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_45EEAEA10295' '45EEA4890342.pas.ms.script' // ExternalOperation
+ ;
+
+ref; // ME_4A815E9F0134 anOperation
+
+: ME_4A815E860391
+ CONST UID '4A815E860391'
+ CONST Name 'DoProcessExternalOperation'
+ CONST Class class_Operation
+ %SUMMARY 'Обработчик внешней операции' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_4A815C200111 // HyperlinkProcessor
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   Seq: ( ME_4A815E9F0134 // anOperation
+ )
+ ; // Parameters
+
+ref; // ME_4A815E860391 DoProcessExternalOperation
+
+: ME_4A815FC801DC
+ CONST Name 'aDocument'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_45EEB6520191' '4570511E038A.pas.ms.script' // Document
+ ;
+
+ref; // ME_4A815FC801DC aDocument
+
+: ME_4A815FC8022B
+ CONST Name 'aPointType'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_491B32C1015D' '47F2170002B2.pas.ms.script' // TDocumentPositionType
+ ;
+
+ref; // ME_4A815FC8022B aPointType
+
+: ME_4A815FC80270
+ CONST Name 'aSub'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A618AF0053' '4AB0C3C60310.pas.ms.script' // Cardinal
+ ;
+
+ref; // ME_4A815FC80270 aSub
+
+: ME_4A815FB3005D
+ CONST UID '4A815FB3005D'
+ CONST Name 'DoMakeLinkDocInfo'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4A815C200111 // HyperlinkProcessor
+ ;
+ : Target WL 'ME_47EA0784000D' '4B1FC2FF03CD.pas.ms.script' // IdeDocInfo
+ ;
+ : Parameters
+   Seq: ( ME_4A815FC801DC // aDocument
+ ME_4A815FC8022B // aPointType
+ ME_4A815FC80270 // aSub
+ )
+ ; // Parameters
+
+ref; // ME_4A815FB3005D DoMakeLinkDocInfo
+
+: ME_5444A18C01CF
+ CONST Name 'aDocument'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_45EEB6520191' '4570511E038A.pas.ms.script' // Document
+ ;
+
+ref; // ME_5444A18C01CF aDocument
+
+: ME_5444A18C0214
+ CONST Name 'aPointType'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_491B32C1015D' '47F2170002B2.pas.ms.script' // TDocumentPositionType
+ ;
+
+ref; // ME_5444A18C0214 aPointType
+
+: ME_5444A18C025A
+ CONST Name 'aSub'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A618AF0053' '4AB0C3C60310.pas.ms.script' // Cardinal
+ ;
+
+ref; // ME_5444A18C025A aSub
+
+: ME_5444A18C02A0
+ CONST Name 'aBehaviour'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_53A91FD901F3' '4ACF514E0337.pas.ms.script' // TbsProcessHyperLinkBehaviour
+ ;
+
+ref; // ME_5444A18C02A0 aBehaviour
+
+: ME_4A8160720125
+ CONST UID '4A8160720125'
+ CONST Name 'DoProcessLocalLink'
+ CONST Class class_Operation
+ %SUMMARY 'Обработка локальных ссылок' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4A815C200111 // HyperlinkProcessor
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   Seq: ( ME_5444A18C01CF // aDocument
+ ME_5444A18C0214 // aPointType
+ ME_5444A18C025A // aSub
+ ME_5444A18C02A0 // aBehaviour
+ )
+ ; // Parameters
+
+ref; // ME_4A8160720125 DoProcessLocalLink
+
+: ME_5444A183021A
+ CONST Name 'aDocument'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_45EEB6520191' '4570511E038A.pas.ms.script' // Document
+ ;
+
+ref; // ME_5444A183021A aDocument
+
+: ME_5444A183025E
+ CONST Name 'aPointType'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_491B32C1015D' '47F2170002B2.pas.ms.script' // TDocumentPositionType
+ ;
+
+ref; // ME_5444A183025E aPointType
+
+: ME_5444A18302A3
+ CONST Name 'aSub'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A618AF0053' '4AB0C3C60310.pas.ms.script' // Cardinal
+ ;
+
+ref; // ME_5444A18302A3 aSub
+
+: ME_5444A18302E9
+ CONST Name 'aBehaviour'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_53A91FD901F3' '4ACF514E0337.pas.ms.script' // TbsProcessHyperLinkBehaviour
+ ;
+
+ref; // ME_5444A18302E9 aBehaviour
+
+: ME_53A2F4B30119
+ CONST UID '53A2F4B30119'
+ CONST Name 'DoProcessGlobalLink'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4A815C200111 // HyperlinkProcessor
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   Seq: ( ME_5444A183021A // aDocument
+ ME_5444A183025E // aPointType
+ ME_5444A18302A3 // aSub
+ ME_5444A18302E9 // aBehaviour
+ )
+ ; // Parameters
+
+ref; // ME_53A2F4B30119 DoProcessGlobalLink
+
+: ME_4A81650300B1
+ CONST Name 'aPointID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A618AF0053' '4AB0C3C60310.pas.ms.script' // Cardinal
+ ;
+
+ref; // ME_4A81650300B1 aPointID
+
+: ME_4A816503010B
+ CONST Name 'aPointType'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_491B32C1015D' '47F2170002B2.pas.ms.script' // TDocumentPositionType
+ ;
+ CONST Value 'Sub'
+ : ValueType WL 'ME_491B32C1015D' '47F2170002B2.pas.ms.script' // TDocumentPositionType
+ ;
+ CONST extprop:pas:Value 'bsTypesNew.dptSub'
+
+ref; // ME_4A816503010B aPointType
+
+: ME_4A8164E801AE
+ CONST UID '4A8164E801AE'
+ CONST Name 'GotoPoint'
+ CONST Class class_Operation
+ %SUMMARY 'Переход на точку в документе' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_4A815C200111 // HyperlinkProcessor
+ ;
+ : Parameters
+   Seq: ( ME_4A81650300B1 // aPointID
+ ME_4A816503010B // aPointType
+ )
+ ; // Parameters
+
+ref; // ME_4A8164E801AE GotoPoint
+
+: ME_5444B1E60262
+ CONST Name 'aDocument'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_45EEB6520191' '4570511E038A.pas.ms.script' // Document
+ ;
+
+ref; // ME_5444B1E60262 aDocument
+
+: ME_5444B1E602B0
+ CONST Name 'aSub'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A618AF0053' '4AB0C3C60310.pas.ms.script' // Cardinal
+ ;
+
+ref; // ME_5444B1E602B0 aSub
+
+: ME_5444B1E6030D
+ CONST Name 'aBehaviour'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_53A91FD901F3' '4ACF514E0337.pas.ms.script' // TbsProcessHyperLinkBehaviour
+ ;
+
+ref; // ME_5444B1E6030D aBehaviour
+
+: ME_4A81650B014A
+ CONST UID '4A81650B014A'
+ CONST Name 'OpenRedactionLocalLink'
+ CONST Class class_Operation
+ %SUMMARY 'Открывает локальную ссылку на другую редакцию' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_4A815C200111 // HyperlinkProcessor
+ ;
+ : Parameters
+   Seq: ( ME_5444B1E60262 // aDocument
+ ME_5444B1E602B0 // aSub
+ ME_5444B1E6030D // aBehaviour
+ )
+ ; // Parameters
+
+ref; // ME_4A81650B014A OpenRedactionLocalLink
+
+: ME_5444B1DF0338
+ CONST Name 'aDocument'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_45EEB6520191' '4570511E038A.pas.ms.script' // Document
+ ;
+
+ref; // ME_5444B1DF0338 aDocument
+
+: ME_5444B1DF0386
+ CONST Name 'aSub'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A618AF0053' '4AB0C3C60310.pas.ms.script' // Cardinal
+ ;
+
+ref; // ME_5444B1DF0386 aSub
+
+: ME_5444B1DF03E3
+ CONST Name 'aBehaviour'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_53A91FD901F3' '4ACF514E0337.pas.ms.script' // TbsProcessHyperLinkBehaviour
+ ;
+
+ref; // ME_5444B1DF03E3 aBehaviour
+
+: ME_53A303BE03A8
+ CONST UID '53A303BE03A8'
+ CONST Name 'OpenRedactionGlobalLink'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_4A815C200111 // HyperlinkProcessor
+ ;
+ : Parameters
+   Seq: ( ME_5444B1DF0338 // aDocument
+ ME_5444B1DF0386 // aSub
+ ME_5444B1DF03E3 // aBehaviour
+ )
+ ; // Parameters
+
+ref; // ME_53A303BE03A8 OpenRedactionGlobalLink
+
+: ME_4A8168BB0217
+ CONST UID '4A8168BB0217'
+ CONST Name 'HyperlinkDocument'
+ CONST Class class_Operation
+ %SUMMARY 'Документ ИЗ которого ведёт ссылка' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_4A815C200111 // HyperlinkProcessor
+ ;
+ : Target WL 'ME_45EEB6520191' '4570511E038A.pas.ms.script' // Document
+ ;
+
+ref; // ME_4A8168BB0217 HyperlinkDocument
+
+: ME_4A890EC10371
+ CONST Name 'Sender'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_4A890EC10371 Sender
+
+: ME_4A890EC103C9
+ CONST Name 'aHotSpot'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_48E2665A0259' '4A1FCBA0014C.pas.ms.script' // IevHotSpot
+ ;
+
+ref; // ME_4A890EC103C9 aHotSpot
+
+: ME_4A890EC2003B
+ CONST Name 'aKeys'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_473DA6C302E6' '467823B7002C.pas.ms.script' // TafwCursorState
+ ;
+
+ref; // ME_4A890EC2003B aKeys
+
+: ME_4A890EC2009A
+ CONST Name 'theInfo'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_473DA9BF0280' '467823B7002C.pas.ms.script' // TafwCursorInfo
+ ;
+
+ref; // ME_4A890EC2009A theInfo
+
+: ME_4A890E81030B
+ CONST UID '4A890E81030B'
+ CONST Name 'GetNonHyperlinkInfo'
+ CONST Class class_Operation
+ %SUMMARY 'Возвращает информацию о курсоре НЕ НАД ССЫЛКОЙ' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4A815C200111 // HyperlinkProcessor
+ ;
+ : Parameters
+   Seq: ( ME_4A890EC10371 // Sender
+ ME_4A890EC103C9 // aHotSpot
+ ME_4A890EC2003B // aKeys
+ ME_4A890EC2009A // theInfo
+ )
+ ; // Parameters
+
+ref; // ME_4A890E81030B GetNonHyperlinkInfo
+
+: ME_4A8A9DB0001A
+ CONST UID '4A8A9DB0001A'
+ CONST Name 'IsFloating'
+ CONST Class class_Operation
+ %SUMMARY 'Форма плавающая' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_4A815C200111 // HyperlinkProcessor
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4A8A9DB0001A IsFloating
+
+: ME_4A8A9E32019D
+ CONST Name 'aLink'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49E5FCDB02E9' '4A251D6E00BD.pas.ms.script' // IevHyperlink
+ ;
+
+ref; // ME_4A8A9E32019D aLink
+
+: ME_4A8A9E2A004F
+ CONST UID '4A8A9E2A004F'
+ CONST Name 'DoCheckLinkInfo'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4A815C200111 // HyperlinkProcessor
+ ;
+ : Parameters
+   Seq: ( ME_4A8A9E32019D // aLink
+ )
+ ; // Parameters
+
+ref; // ME_4A8A9E2A004F DoCheckLinkInfo
+
+: ME_4A815DF101E3
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A815C200111 // HyperlinkProcessor
+ ;
+ : Target WL 'ME_47F25BC801DB' '47D0E1500033.pas.ms.script' // vcmBase
+ ;
+
+ref; // ME_4A815DF101E3 
+
+: ME_4A815E2E03D0
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A815C200111 // HyperlinkProcessor
+ ;
+ : Target WL 'ME_47F260EC02C7' '521C9DA50125.pas.ms.script' // StdRes
+ ;
+
+ref; // ME_4A815E2E03D0 
+
+: ME_4A81996302EF
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A815C200111 // HyperlinkProcessor
+ ;
+ : Target WL 'ME_4A8199550084' '4A815BFF0168.pas.ms.script' // nsHyperLinkProcessor
+ ;
+
+ref; // ME_4A81996302EF 
+
+: ME_4A8A9DA50250
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A815C200111 // HyperlinkProcessor
+ ;
+ : Target WL 'ME_491C0BE302FF' '4C6ABB3201AC.pas.ms.script' // TdeDocInfo
+ ;
+
+ref; // ME_4A8A9DA50250 
+
+: ME_4A92449F0339
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A815C200111 // HyperlinkProcessor
+ ;
+ : Target WL 'ME_49895C3C02D6' '48F747EC0073.pas.ms.script' // nsOpenUtils
+ ;
+
+ref; // ME_4A92449F0339 
+
+: ME_53AA61160169
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A815C200111 // HyperlinkProcessor
+ ;
+ : Target WL 'ME_47FB50E4008E' '48F747EC0073.pas.ms.script' // nsConst
+ ;
+
+ref; // ME_53AA61160169 
+
+: ME_53AA61990319
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A815C200111 // HyperlinkProcessor
+ ;
+ : Target WL 'ME_47752AF90375' '47750CE700D0.pas.ms.script' // afwFacade
+ ;
+
+ref; // ME_53AA61990319 
+
+: ME_53AA67B20241
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A815C200111 // HyperlinkProcessor
+ ;
+ : Target WL 'ME_53A410AA031B' '4683F37902CF.pas.ms.script' // TvcmMainFormOpenKind
+ ;
+
+ref; // ME_53AA67B20241 
+
+: ME_53AA68770231
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A815C200111 // HyperlinkProcessor
+ ;
+ : Target WL 'ME_53A403330029' '53A402C7010D.pas.ms.script' // nsTabbedContainerUtils
+ ;
+
+ref; // ME_53AA68770231 
+
+: ME_53AA8CCC0021
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A815C200111 // HyperlinkProcessor
+ ;
+ : Target WL 'ME_537AEB96006C' '533D53FF00C2.pas.ms.script' // vcmTabbedContainerFormDispatcher
+ ;
+
+ref; // ME_53AA8CCC0021 
+
+: ME_5418031B00C4
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A815C200111 // HyperlinkProcessor
+ ;
+ : Target WL 'ME_5418021C0216' '4A815BFF0168.pas.ms.script' // nsHyperlinkProcessorTypes
+ ;
+
+ref; // ME_5418031B00C4 
+
+: ME_4A7687C702C8_ME_4A815C200111
+ : Original WL 'ME_4A7687C702C8' '4ACF514E0337.pas.ms.script' // MakeContainer
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4A7687C702C8_ME_4A815C200111 MakeContainer
+
+: ME_4A7687F0016D_ME_4A815C200111
+ : Original WL 'ME_4A7687F0016D' '4ACF514E0337.pas.ms.script' // MakeNewMainWindow
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4A7687F0016D_ME_4A815C200111 MakeNewMainWindow
+
+: ME_4A76CDFA014B_ME_4A815C200111
+ : Original WL 'ME_4A76CDFA014B' '4ACF514E0337.pas.ms.script' // ProcessExternalOperation
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4A76CDFA014B_ME_4A815C200111 ProcessExternalOperation
+
+: ME_4A780EBF00CD_ME_4A815C200111
+ : Original WL 'ME_4A780EBF00CD' '4ACF514E0337.pas.ms.script' // CheckLinkInfo
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4A780EBF00CD_ME_4A815C200111 CheckLinkInfo
+
+: ME_4A79216102C6_ME_4A815C200111
+ : Original WL 'ME_4A79216102C6' '4ACF514E0337.pas.ms.script' // MakeLinkDocInfo
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4A79216102C6_ME_4A815C200111 MakeLinkDocInfo
+
+: ME_4A7928E80375_ME_4A815C200111
+ : Original WL 'ME_4A7928E80375' '4ACF514E0337.pas.ms.script' // ProcessLocalLink
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4A7928E80375_ME_4A815C200111 ProcessLocalLink
+
+: ME_53A2EF1B036C_ME_4A815C200111
+ : Original WL 'ME_53A2EF1B036C' '4ACF514E0337.pas.ms.script' // ProcessGlobalLink
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_53A2EF1B036C_ME_4A815C200111 ProcessGlobalLink
+
+: ME_53A812BE013E_ME_4A815C200111
+ : Original WL 'ME_53A812BE013E' '4ACF514E0337.pas.ms.script' // MakeTabbedContainer
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_53A812BE013E_ME_4A815C200111 MakeTabbedContainer
+
+: ME_4A8E8F2E0195_ME_4A815C200111
+ : Original WL 'ME_4A8E8F2E0195' '5000041101C8.pas.ms.script' // InitControls
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4A8E8F2E0195_ME_4A815C200111 InitControls
+
+: ME_4A815C200111
+ CONST UID '4A815C200111'
+ CONST Name 'HyperlinkProcessor'
+ CONST Class class_Class
+ : Stereotype st_VCMForm ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Обработчик гиперссылок' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent WL 'ME_4A815BFF0168' '4A815BFF0168.pas.ms.script' // Navigation
+ ;
+ : Implements
+   Seq: ( WL 'ME_4A76879B032D' '4ACF514E0337.pas.ms.script' // IbsHyperLinkProcessorHelper
+ WL 'ME_4A82BCFA02EF' '4AADF9450143.pas.ms.script' // MvcmEntityForm
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( HWL ME_4A82BC390036 // HyperlinkText
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( HWL ME_4A8199EE00F2 // JumpTo
+ HWL ME_4A82C02701E4 // GetHotSpotInfo
+ HWL ME_4F382E2D01C1 // DoSetHyperlinkCallStatus
+ HWL ME_520234BD015B // NeedJumpTo
+ HWL ME_53A95A1A0073 // GetBehaviourFromEffects
+ HWL ME_54D3144F0227 // MakeContainerForBehaviour
+ HWL ME_5767DF4D033E // BeforeJumpTo
+ HWL ME_4A815E860391 // DoProcessExternalOperation
+ HWL ME_4A815FB3005D // DoMakeLinkDocInfo
+ HWL ME_4A8160720125 // DoProcessLocalLink
+ HWL ME_53A2F4B30119 // DoProcessGlobalLink
+ HWL ME_4A8164E801AE // GotoPoint
+ HWL ME_4A81650B014A // OpenRedactionLocalLink
+ HWL ME_53A303BE03A8 // OpenRedactionGlobalLink
+ HWL ME_4A8168BB0217 // HyperlinkDocument
+ HWL ME_4A890E81030B // GetNonHyperlinkInfo
+ HWL ME_4A8A9DB0001A // IsFloating
+ HWL ME_4A8A9E2A004F // DoCheckLinkInfo
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4A7687C702C8_ME_4A815C200111 // MakeContainer
+ ME_4A7687F0016D_ME_4A815C200111 // MakeNewMainWindow
+ ME_4A76CDFA014B_ME_4A815C200111 // ProcessExternalOperation
+ ME_4A780EBF00CD_ME_4A815C200111 // CheckLinkInfo
+ ME_4A79216102C6_ME_4A815C200111 // MakeLinkDocInfo
+ ME_4A7928E80375_ME_4A815C200111 // ProcessLocalLink
+ ME_53A2EF1B036C_ME_4A815C200111 // ProcessGlobalLink
+ ME_53A812BE013E_ME_4A815C200111 // MakeTabbedContainer
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_4A8E8F2E0195_ME_4A815C200111 // InitControls
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_4A815DF101E3 // vcmBase
+ ME_4A815E2E03D0 // StdRes
+ ME_4A81996302EF // nsHyperLinkProcessor
+ ME_4A8A9DA50250 // TdeDocInfo
+ ME_4A92449F0339 // nsOpenUtils
+ ME_53AA61160169 // nsConst
+ ME_53AA61990319 // afwFacade
+ ME_53AA67B20241 // TvcmMainFormOpenKind
+ ME_53AA68770231 // nsTabbedContainerUtils
+ ME_53AA8CCC0021 // vcmTabbedContainerFormDispatcher
+ ME_5418031B00C4 // nsHyperlinkProcessorTypes
+ )
+ ; // Dependencies
+ CONST "NeedsHackRef" true
+ CONST "ZoneType" 'Any'
+ CONST "author" 'Люлин А.В.'
+ CONST "finished dfm" true
+ CONST "no hands" true
+ CONST "resizeable" false
+ CONST "restrict form def" 'undefined'
+ CONST "started" '11.08.2009 15:56'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\HyperlinkProcessor.imp.pas'
+ CONST extprop:pas:TypeName '_HyperlinkProcessor_'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'HyperlinkProcessor.imp'
+
+ref; // ME_4A815C200111 HyperlinkProcessor

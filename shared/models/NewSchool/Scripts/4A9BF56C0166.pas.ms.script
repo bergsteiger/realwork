@@ -1,0 +1,59 @@
+// ListInfo 4A9BF56C0166 VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A9BF56C0166
+
+: ME_1CFBC460C895
+ CONST UID '1CFBC460C895'
+ CONST Name 'Ini_FormFactory_ListInfo'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы ListInfo' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4A9BF56C0166 // ListInfo
+ ;
+ : SpelledFor HWL ME_4A9BF56C0166 // ListInfo
+ ;
+
+ref; // ME_1CFBC460C895 Ini_FormFactory_ListInfo
+
+: ME_4A9BF56C0166
+ CONST UID '4A9BF56C0166'
+ CONST Name 'ListInfo'
+ CONST Class class_Class
+ : Stereotype st_VCMFinalForm ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Справка к списку' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent WL 'ME_4A9BF42601A9' '4A9BF42601A9.pas.ms.script' // List$FP
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4C88CB3E009C' '4C88CB3E009C.pas.ms.script' // PrimListInfoOptions
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4BD95B5B0037' '4BD856E802F9.pas.ms.script' // ListInfo
+ )
+ ; // Implements
+ : Operations
+   Seq: ( HWL ME_1CFBC460C895 // Ini_FormFactory_ListInfo
+ )
+ ; // Operations
+ CONST "NeedsHackRef" true
+ CONST "ZoneType" 'Child'
+ CONST "finished dfm" true
+ CONST "form name prefix" 'ef'
+ CONST "resizeable" false
+ CONST "restrict form def" 'undefined'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\List\Forms\ListInfo_Form.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\List\Forms'
+ CONST extprop:pas:TypeName 'TefListInfo'
+ CONST extprop:rc:SelfName 'efListInfo'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'ListInfo_Form'
+
+ref; // ME_4A9BF56C0166 ListInfo

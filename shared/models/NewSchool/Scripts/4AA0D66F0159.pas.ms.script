@@ -1,0 +1,1081 @@
+// Inpharm 4AA0D66F0159 VCMFormsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AA0D66F0159
+
+FORWARD ME_4B14D8AE00D4
+
+: ME_4B14D8DC01A3
+ CONST Name 'aDoc'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_45EEB6520191' '4570511E038A.pas.ms.script' // Document
+ ;
+
+ref; // ME_4B14D8DC01A3 aDoc
+
+: ME_4B14D8D10222
+ CONST UID '4B14D8D10222'
+ CONST Name 'Log'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4B14D8AE00D4 // TnsOpenPharmFirmDocumentEvent
+ ;
+ : Parameters
+   Seq: ( ME_4B14D8DC01A3 // aDoc
+ )
+ ; // Parameters
+
+ref; // ME_4B14D8D10222 Log
+
+: ME_4B14D91103BE
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4B14D8AE00D4 // TnsOpenPharmFirmDocumentEvent
+ ;
+ : Target WL 'ME_45ED58FF0201' '45ED58CF03E6.pas.ms.script' // LogEvent
+ ;
+
+ref; // ME_4B14D91103BE 
+
+: ME_4B14D8AE00D4
+ CONST UID '4B14D8AE00D4'
+ CONST Name 'TnsOpenPharmFirmDocumentEvent'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4AA0D66F0159 // Inpharm
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4B0A6109010C' '4B0A60DF01F2.pas.ms.script' // TnsLogEvent
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( HWL ME_4B14D8D10222 // Log
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_4B14D91103BE // LogEvent
+ )
+ ; // Dependencies
+ CONST extprop:rc:SelfName 'OpenPharmFirmDocumentEvent'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4B14D8AE00D4 TnsOpenPharmFirmDocumentEvent
+
+FORWARD ME_4B14D96C038A
+
+: ME_4B14D99301D6
+ CONST Name 'aDoc'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_45EEB6520191' '4570511E038A.pas.ms.script' // Document
+ ;
+
+ref; // ME_4B14D99301D6 aDoc
+
+: ME_4B14D98900BD
+ CONST UID '4B14D98900BD'
+ CONST Name 'Log'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4B14D96C038A // TnsOpenPharmDocumentEvent
+ ;
+ : Parameters
+   Seq: ( ME_4B14D99301D6 // aDoc
+ )
+ ; // Parameters
+
+ref; // ME_4B14D98900BD Log
+
+: ME_4B14D99A00B2
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4B14D96C038A // TnsOpenPharmDocumentEvent
+ ;
+ : Target WL 'ME_45ED58FF0201' '45ED58CF03E6.pas.ms.script' // LogEvent
+ ;
+
+ref; // ME_4B14D99A00B2 
+
+: ME_4B14D96C038A
+ CONST UID '4B14D96C038A'
+ CONST Name 'TnsOpenPharmDocumentEvent'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4AA0D66F0159 // Inpharm
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4B0A6109010C' '4B0A60DF01F2.pas.ms.script' // TnsLogEvent
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( HWL ME_4B14D98900BD // Log
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_4B14D99A00B2 // LogEvent
+ )
+ ; // Dependencies
+ CONST extprop:rc:SelfName 'OpenPharmDocumentEvent'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4B14D96C038A TnsOpenPharmDocumentEvent
+
+FORWARD ME_4B14DA170298
+
+: ME_4B14DA27026F
+ CONST UID '4B14DA27026F'
+ CONST Name 'Log'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4B14DA170298 // TnsOpenMedicDictionaryEvent
+ ;
+
+ref; // ME_4B14DA27026F Log
+
+: ME_4B14DA32020F
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4B14DA170298 // TnsOpenMedicDictionaryEvent
+ ;
+ : Target WL 'ME_45ED58FF0201' '45ED58CF03E6.pas.ms.script' // LogEvent
+ ;
+
+ref; // ME_4B14DA32020F 
+
+: ME_4B14DA170298
+ CONST UID '4B14DA170298'
+ CONST Name 'TnsOpenMedicDictionaryEvent'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4AA0D66F0159 // Inpharm
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4B0A6109010C' '4B0A60DF01F2.pas.ms.script' // TnsLogEvent
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( HWL ME_4B14DA27026F // Log
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_4B14DA32020F // LogEvent
+ )
+ ; // Dependencies
+ CONST extprop:rc:SelfName 'OpenMedicDictionaryEvent'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4B14DA170298 TnsOpenMedicDictionaryEvent
+
+FORWARD ME_4B14DA6101E3
+
+: ME_4B14DA6B00F9
+ CONST UID '4B14DA6B00F9'
+ CONST Name 'Log'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4B14DA6101E3 // TnsOpenMedicFirmsEvent
+ ;
+
+ref; // ME_4B14DA6B00F9 Log
+
+: ME_4B14DA790314
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4B14DA6101E3 // TnsOpenMedicFirmsEvent
+ ;
+ : Target WL 'ME_45ED58FF0201' '45ED58CF03E6.pas.ms.script' // LogEvent
+ ;
+
+ref; // ME_4B14DA790314 
+
+: ME_4B14DA6101E3
+ CONST UID '4B14DA6101E3'
+ CONST Name 'TnsOpenMedicFirmsEvent'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4AA0D66F0159 // Inpharm
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4B0A6109010C' '4B0A60DF01F2.pas.ms.script' // TnsLogEvent
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( HWL ME_4B14DA6B00F9 // Log
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_4B14DA790314 // LogEvent
+ )
+ ; // Dependencies
+ CONST extprop:rc:SelfName 'OpenMedicFirmsEvent'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4B14DA6101E3 TnsOpenMedicFirmsEvent
+
+FORWARD ME_4AA11B7A0009
+
+: ME_4AA11B9B014C
+ CONST Name 'aDocInfo'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47EA0784000D' '4B1FC2FF03CD.pas.ms.script' // IdeDocInfo
+ ;
+
+ref; // ME_4AA11B9B014C aDocInfo
+
+: ME_4AA11B9B016E
+ CONST Name 'aContainer'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
+ ;
+
+ref; // ME_4AA11B9B016E aContainer
+
+: ME_4AA11B98014D
+ CONST UID '4AA11B98014D'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AA11B7A0009 // OpenMedicDiction
+ ;
+ : Parameters
+   Seq: ( ME_4AA11B9B014C // aDocInfo
+ ME_4AA11B9B016E // aContainer
+ )
+ ; // Parameters
+
+ref; // ME_4AA11B98014D DoIt
+
+: ME_4AA11BCA0197
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AA11B7A0009 // OpenMedicDiction
+ ;
+ : Target WL 'ME_493D11EA0286' '493D11EA0286.pas.ms.script' // TsdsMedicDiction
+ ;
+
+ref; // ME_4AA11BCA0197 
+
+: ME_4AA11B7A0009
+ CONST UID '4AA11B7A0009'
+ CONST Name 'OpenMedicDiction'
+ CONST Class class_Class
+ : Stereotype st_FormSetFactory ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AA0D66F0159 // Inpharm
+ ;
+ : Operations
+   Seq: ( HWL ME_4AA11B98014D // DoIt
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_4AA11BCA0197 // TsdsMedicDiction
+ )
+ ; // Dependencies
+ CONST "NO_FACTORY_BRACKECTS" false
+
+ref; // ME_4AA11B7A0009 OpenMedicDiction
+
+FORWARD ME_4AA11BE70139
+
+: ME_4AA11BFE01F2
+ CONST Name 'aDocInfo'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47EA0784000D' '4B1FC2FF03CD.pas.ms.script' // IdeDocInfo
+ ;
+
+ref; // ME_4AA11BFE01F2 aDocInfo
+
+: ME_4AA11BFE0214
+ CONST Name 'aContainer'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
+ ;
+
+ref; // ME_4AA11BFE0214 aContainer
+
+: ME_4AA11BFD027B
+ CONST UID '4AA11BFD027B'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AA11BE70139 // OpenMedicFirmDocument
+ ;
+ : Parameters
+   Seq: ( ME_4AA11BFE01F2 // aDocInfo
+ ME_4AA11BFE0214 // aContainer
+ )
+ ; // Parameters
+
+ref; // ME_4AA11BFD027B DoIt
+
+: ME_4AA11C2403A6
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AA11BE70139 // OpenMedicFirmDocument
+ ;
+ : Target WL 'ME_49414F880240' '49414F880240.pas.ms.script' // TsdsMedicFirmDocument
+ ;
+
+ref; // ME_4AA11C2403A6 
+
+: ME_4AA11BE70139
+ CONST UID '4AA11BE70139'
+ CONST Name 'OpenMedicFirmDocument'
+ CONST Class class_Class
+ : Stereotype st_FormSetFactory ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AA0D66F0159 // Inpharm
+ ;
+ : Operations
+   Seq: ( HWL ME_4AA11BFD027B // DoIt
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_4AA11C2403A6 // TsdsMedicFirmDocument
+ )
+ ; // Dependencies
+ CONST "NO_FACTORY_BRACKECTS" false
+
+ref; // ME_4AA11BE70139 OpenMedicFirmDocument
+
+FORWARD ME_4AA11CE70112
+
+: ME_4AA11DF90215
+ CONST Name 'aDocInfo'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47EA0784000D' '4B1FC2FF03CD.pas.ms.script' // IdeDocInfo
+ ;
+
+ref; // ME_4AA11DF90215 aDocInfo
+
+: ME_4AA11DF9024E
+ CONST Name 'aContainer'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
+ ;
+
+ref; // ME_4AA11DF9024E aContainer
+
+: ME_4AA11DF70166
+ CONST UID '4AA11DF70166'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AA11CE70112 // OpenDrugDocument
+ ;
+ : Parameters
+   Seq: ( ME_4AA11DF90215 // aDocInfo
+ ME_4AA11DF9024E // aContainer
+ )
+ ; // Parameters
+
+ref; // ME_4AA11DF70166 DoIt
+
+: ME_4AA11CFC0385
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AA11CE70112 // OpenDrugDocument
+ ;
+ : Target WL 'ME_47F4A2F801D8' '47F4A2F801D8.pas.ms.script' // TsdsDrugDocument
+ ;
+
+ref; // ME_4AA11CFC0385 
+
+: ME_4AA11CE70112
+ CONST UID '4AA11CE70112'
+ CONST Name 'OpenDrugDocument'
+ CONST Class class_Class
+ : Stereotype st_FormSetFactory ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AA0D66F0159 // Inpharm
+ ;
+ : Operations
+   Seq: ( HWL ME_4AA11DF70166 // DoIt
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_4AA11CFC0385 // TsdsDrugDocument
+ )
+ ; // Dependencies
+ CONST "NO_FACTORY_BRACKECTS" false
+
+ref; // ME_4AA11CE70112 OpenDrugDocument
+
+FORWARD ME_4AA4D413008C
+
+: ME_4AA4D4390263
+ CONST Name 'aList'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47F20DEA0340' '4B1D3D250382.pas.ms.script' // IdeList
+ ;
+
+ref; // ME_4AA4D4390263 aList
+
+: ME_4AA4D4390284
+ CONST Name 'aContainer'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
+ ;
+
+ref; // ME_4AA4D4390284 aContainer
+
+: ME_4AA4D41E0262
+ CONST UID '4AA4D41E0262'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AA4D413008C // OpenDrugList
+ ;
+ : Parameters
+   Seq: ( ME_4AA4D4390263 // aList
+ ME_4AA4D4390284 // aContainer
+ )
+ ; // Parameters
+
+ref; // ME_4AA4D41E0262 DoIt
+
+: ME_4AA4D4570338
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AA4D413008C // OpenDrugList
+ ;
+ : Target WL 'ME_47EA0F2B031C' '47EA0F2B031C.pas.ms.script' // TsdsDrugList
+ ;
+
+ref; // ME_4AA4D4570338 
+
+: ME_4AA4D413008C
+ CONST UID '4AA4D413008C'
+ CONST Name 'OpenDrugList'
+ CONST Class class_Class
+ : Stereotype st_FormSetFactory ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AA0D66F0159 // Inpharm
+ ;
+ : Operations
+   Seq: ( HWL ME_4AA4D41E0262 // DoIt
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_4AA4D4570338 // TsdsDrugList
+ )
+ ; // Dependencies
+ CONST "NO_FACTORY_BRACKECTS" false
+
+ref; // ME_4AA4D413008C OpenDrugList
+
+FORWARD ME_4AA52C670101
+
+: ME_4AA52C9B01D2
+ CONST Name 'aSDS'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4936823400AE' '492540AF02CD.pas.ms.script' // IsdsCommonDiction
+ ;
+
+ref; // ME_4AA52C9B01D2 aSDS
+
+: ME_4AA52C9B01F4
+ CONST Name 'aContainer'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
+ ;
+
+ref; // ME_4AA52C9B01F4 aContainer
+
+: ME_4AA52C860249
+ CONST UID '4AA52C860249'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AA52C670101 // OpenMedicDictionPrim
+ ;
+ : Parameters
+   Seq: ( ME_4AA52C9B01D2 // aSDS
+ ME_4AA52C9B01F4 // aContainer
+ )
+ ; // Parameters
+
+ref; // ME_4AA52C860249 DoIt
+
+: ME_4AA52C670101
+ CONST UID '4AA52C670101'
+ CONST Name 'OpenMedicDictionPrim'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AA0D66F0159 // Inpharm
+ ;
+ : Operations
+   Seq: ( HWL ME_4AA52C860249 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_4AA52C670101 OpenMedicDictionPrim
+
+FORWARD ME_4AB9FC8F027A
+
+: ME_4AB9FC9D011B
+ CONST UID '4AB9FC9D011B'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AB9FC8F027A // MedicDiction$Op
+ ;
+
+ref; // ME_4AB9FC9D011B DoIt
+
+: ME_4AB9FDE5005F
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AB9FC8F027A // MedicDiction$Op
+ ;
+ : Target WL 'ME_48FF556602BA' '48F747EC0073.pas.ms.script' // DataAdapter
+ ;
+
+ref; // ME_4AB9FDE5005F 
+
+: ME_4AB9FC8F027A
+ CONST UID '4AB9FC8F027A'
+ CONST Name 'MedicDiction'
+ CONST Class class_Class
+ : Stereotype st_ModuleMethod ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Словарь медицинских терминов' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AA0D66F0159 // Inpharm
+ ;
+ : Operations
+   Seq: ( HWL ME_4AB9FC9D011B // DoIt
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_4AB9FDE5005F // DataAdapter
+ )
+ ; // Dependencies
+ CONST "ShowInToolbar" 'undefined'
+ CONST "is static" false
+ CONST "no prefix" false
+ CONST "no test" false
+
+ref; // ME_4AB9FC8F027A MedicDiction$Op
+
+FORWARD ME_4AB9FCE902EC
+
+: ME_4AB9FCEF0013
+ CONST UID '4AB9FCEF0013'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AB9FCE902EC // MedicFirms
+ ;
+
+ref; // ME_4AB9FCEF0013 DoIt
+
+: ME_4AB9FCE902EC
+ CONST UID '4AB9FCE902EC'
+ CONST Name 'MedicFirms'
+ CONST Class class_Class
+ : Stereotype st_ModuleMethod ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Фармацевтические фирмы' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AA0D66F0159 // Inpharm
+ ;
+ : Operations
+   Seq: ( HWL ME_4AB9FCEF0013 // DoIt
+ )
+ ; // Operations
+ CONST "ShowInToolbar" 'undefined'
+ CONST "is static" false
+ CONST "no prefix" false
+ CONST "no test" false
+
+ref; // ME_4AB9FCE902EC MedicFirms
+
+FORWARD ME_4AB9FD0601CF
+
+: ME_4AB9FD57001A
+ CONST UID '4AB9FD57001A'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AB9FD0601CF // DrugList$Op
+ ;
+
+ref; // ME_4AB9FD57001A DoIt
+
+: ME_4AB9FDBB03DA
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AB9FD0601CF // DrugList$Op
+ ;
+ : Target WL 'ME_48FF556602BA' '48F747EC0073.pas.ms.script' // DataAdapter
+ ;
+
+ref; // ME_4AB9FDBB03DA 
+
+: ME_4ABA027202AB
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AB9FD0601CF // DrugList$Op
+ ;
+ : Target WL 'ME_4926AE3900B9' '47EA50050263.pas.ms.script' // TdeListSet
+ ;
+
+ref; // ME_4ABA027202AB 
+
+: ME_4ABA02BC015B
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AB9FD0601CF // DrugList$Op
+ ;
+ : Target WL 'ME_47FDDCBA00E9' '45700BFD0251.pas.ms.script' // SpecialListKey
+ ;
+
+ref; // ME_4ABA02BC015B 
+
+: ME_4AB9FD0601CF
+ CONST UID '4AB9FD0601CF'
+ CONST Name 'DrugList'
+ CONST Class class_Class
+ : Stereotype st_ModuleMethod ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Список выпускаемых препаратов' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AA0D66F0159 // Inpharm
+ ;
+ : Operations
+   Seq: ( HWL ME_4AB9FD57001A // DoIt
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_4AB9FDBB03DA // DataAdapter
+ ME_4ABA027202AB // TdeListSet
+ ME_4ABA02BC015B // SpecialListKey
+ )
+ ; // Dependencies
+ CONST "ShowInToolbar" 'undefined'
+ CONST "is static" false
+ CONST "no prefix" false
+ CONST "no test" false
+
+ref; // ME_4AB9FD0601CF DrugList$Op
+
+FORWARD ME_4AB9FD6F017A
+
+: ME_4AB9FD91021D
+ CONST UID '4AB9FD91021D'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AB9FD6F017A // MedicMainMenu$Op
+ ;
+
+ref; // ME_4AB9FD91021D DoIt
+
+: ME_4AB9FD6F017A
+ CONST UID '4AB9FD6F017A'
+ CONST Name 'MedicMainMenu'
+ CONST Class class_Class
+ : Stereotype st_ModuleMethod ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Основное меню ИнФарм' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AA0D66F0159 // Inpharm
+ ;
+ : Operations
+   Seq: ( HWL ME_4AB9FD91021D // DoIt
+ )
+ ; // Operations
+ CONST "ShowInToolbar" 'undefined'
+ CONST "is static" false
+ CONST "no prefix" false
+ CONST "no test" true
+
+ref; // ME_4AB9FD6F017A MedicMainMenu$Op
+
+FORWARD ME_4AC0F93D01AB
+
+: ME_4AC0F9740007
+ CONST Name 'aContainer'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
+ ;
+
+ref; // ME_4AC0F9740007 aContainer
+
+: ME_4AC0F9680164
+ CONST UID '4AC0F9680164'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AC0F93D01AB // MedicFirms$FM
+ ;
+ : Parameters
+   Seq: ( ME_4AC0F9740007 // aContainer
+ )
+ ; // Parameters
+
+ref; // ME_4AC0F9680164 DoIt
+
+: ME_4AC0F99002A3
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AC0F93D01AB // MedicFirms$FM
+ ;
+ : Target WL 'ME_48FF556602BA' '48F747EC0073.pas.ms.script' // DataAdapter
+ ;
+
+ref; // ME_4AC0F99002A3 
+
+: ME_4AC0F99401FE
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AC0F93D01AB // MedicFirms$FM
+ ;
+ : Target WL 'ME_493A658D0181' '493A658D0181.pas.ms.script' // TsdsMedicFirmList
+ ;
+
+ref; // ME_4AC0F99401FE 
+
+: ME_4AC0F93D01AB
+ CONST UID '4AC0F93D01AB'
+ CONST Name 'MedicFirms'
+ CONST Class class_Class
+ : Stereotype st_FormSetFactory ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AA0D66F0159 // Inpharm
+ ;
+ : Operations
+   Seq: ( HWL ME_4AC0F9680164 // DoIt
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_4AC0F99002A3 // DataAdapter
+ ME_4AC0F99401FE // TsdsMedicFirmList
+ )
+ ; // Dependencies
+ CONST "NO_FACTORY_BRACKECTS" false
+
+ref; // ME_4AC0F93D01AB MedicFirms$FM
+
+FORWARD ME_530340E702A3
+
+: ME_5303416F0192
+ CONST UID '5303416F0192'
+ CONST Name 'FormId'
+ CONST Class class_Attribute
+ : Stereotype st_var::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_530340E702A3 // OpenInpharmMainMenu
+ ;
+ : Target WL 'ME_476A84380187' '4683F37902CF.pas.ms.script' // TvcmFormID
+ ;
+ CONST "IsResult" false
+
+ref; // ME_5303416F0192 FormId
+
+: ME_5303410F03D1
+ CONST Name 'aContainer'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
+ ;
+
+ref; // ME_5303410F03D1 aContainer
+
+: ME_53034106021C
+ CONST UID '53034106021C'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_530340E702A3 // OpenInpharmMainMenu
+ ;
+ : Parameters
+   Seq: ( ME_5303410F03D1 // aContainer
+ )
+ ; // Parameters
+
+ref; // ME_53034106021C DoIt
+
+: ME_530340E702A3
+ CONST UID '530340E702A3'
+ CONST Name 'OpenInpharmMainMenu'
+ CONST Class class_Class
+ : Stereotype st_FactoryMethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AA0D66F0159 // Inpharm
+ ;
+ : Attributes
+   Seq: ( HWL ME_5303416F0192 // FormId
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( HWL ME_53034106021C // DoIt
+ )
+ ; // Operations
+ CONST "NO_FACTORY_BRACKECTS" false
+
+ref; // ME_530340E702A3 OpenInpharmMainMenu
+
+FORWARD ME_530513060354
+
+: ME_5305132F00D2
+ CONST Name 'aContainer'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
+ ;
+
+ref; // ME_5305132F00D2 aContainer
+
+: ME_5305132E0010
+ CONST UID '5305132E0010'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_530513060354 // OpenDrugListIfNeeded
+ ;
+ : Parameters
+   Seq: ( ME_5305132F00D2 // aContainer
+ )
+ ; // Parameters
+
+ref; // ME_5305132E0010 DoIt
+
+: ME_530513060354
+ CONST UID '530513060354'
+ CONST Name 'OpenDrugListIfNeeded'
+ CONST Class class_Class
+ : Stereotype st_FactoryMethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AA0D66F0159 // Inpharm
+ ;
+ : Operations
+   Seq: ( HWL ME_5305132E0010 // DoIt
+ )
+ ; // Operations
+ CONST "NO_FACTORY_BRACKECTS" false
+
+ref; // ME_530513060354 OpenDrugListIfNeeded
+
+: ME_4B14D8E10312
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AA0D66F0159 // Inpharm
+ ;
+ : Target HWL ME_4B14D8AE00D4 // TnsOpenPharmFirmDocumentEvent
+ ;
+
+ref; // ME_4B14D8E10312 
+
+: ME_4B14D99F0107
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AA0D66F0159 // Inpharm
+ ;
+ : Target HWL ME_4B14D96C038A // TnsOpenPharmDocumentEvent
+ ;
+
+ref; // ME_4B14D99F0107 
+
+: ME_4B14DA370226
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AA0D66F0159 // Inpharm
+ ;
+ : Target HWL ME_4B14DA170298 // TnsOpenMedicDictionaryEvent
+ ;
+
+ref; // ME_4B14DA370226 
+
+: ME_4B14DA7E007D
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AA0D66F0159 // Inpharm
+ ;
+ : Target HWL ME_4B14DA6101E3 // TnsOpenMedicFirmsEvent
+ ;
+
+ref; // ME_4B14DA7E007D 
+
+: ME_4BD6DC890352
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AA0D66F0159 // Inpharm
+ ;
+ : Target WL 'ME_4BD6DC630189' '4958E868009C.pas.ms.script' // ut_mmmMain
+ ;
+
+ref; // ME_4BD6DC890352 
+
+: ME_4BD6DE230054
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AA0D66F0159 // Inpharm
+ ;
+ : Target WL 'ME_4BD6DE050133' '497EE4EB00CB.pas.ms.script' // mflMain
+ ;
+
+ref; // ME_4BD6DE230054 
+
+: ME_4BD6F6BD0200
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AA0D66F0159 // Inpharm
+ ;
+ : Target WL 'ME_4BD6F18301FD' '497ED770029D.pas.ms.script' // utMedicDiction
+ ;
+
+ref; // ME_4BD6F6BD0200 
+
+: ME_4BD964C40096
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AA0D66F0159 // Inpharm
+ ;
+ : Target WL 'ME_4BD964270238' '4BD856E802F9.pas.ms.script' // CommonDiction
+ ;
+
+ref; // ME_4BD964C40096 
+
+: ME_550ADF280218
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AA0D66F0159 // Inpharm
+ ;
+ : Target WL 'ME_550AAEE001B7' '550AAEE001B7.pas.ms.script' // TsdsInpharmMainMenu
+ ;
+
+ref; // ME_550ADF280218 
+
+: ME_4AA0D66F0159
+ CONST UID '4AA0D66F0159'
+ CONST Name 'Inpharm'
+ CONST Class class_Class
+ : Stereotype st_VCMFormsPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4958E49A023A' '4958E49A023A.pas.ms.script' // Inpharm
+ ;
+ : Operations
+   Seq: ( HWL ME_4AA11B7A0009 // OpenMedicDiction
+ HWL ME_4AA11BE70139 // OpenMedicFirmDocument
+ HWL ME_4AA11CE70112 // OpenDrugDocument
+ HWL ME_4AA4D413008C // OpenDrugList
+ HWL ME_4AA52C670101 // OpenMedicDictionPrim
+ HWL ME_4AB9FC8F027A // MedicDiction$Op
+ HWL ME_4AB9FCE902EC // MedicFirms
+ HWL ME_4AB9FD0601CF // DrugList$Op
+ HWL ME_4AB9FD6F017A // MedicMainMenu$Op
+ HWL ME_4AC0F93D01AB // MedicFirms$FM
+ HWL ME_530340E702A3 // OpenInpharmMainMenu
+ HWL ME_530513060354 // OpenDrugListIfNeeded
+ )
+ ; // Operations
+ : Children
+   Seq: ( WL 'ME_4AA12BA501E4' '4AA12BA501E4.pas.ms.script' // MedicDiction
+ WL 'ME_4AA12BC400A6' '4AA12BC400A6.pas.ms.script' // MedicFirmDocument
+ WL 'ME_4AA12BE1014F' '4AA12BE1014F.pas.ms.script' // DrugDocument
+ WL 'ME_4AA4D3F40235' '4AA4D3F40235.pas.ms.script' // DrugList
+ WL 'ME_4AA7A19E01D0' '4AA7A19E01D0.pas.ms.script' // MedicFirmList
+ WL 'ME_4AB9E67A00A7' '4AB9E67A00A7.pas.ms.script' // MedicMainMenu
+ WL 'ME_4AB9E69C0243' '4AB9E69C0243.pas.ms.script' // MedicFirmList$Form
+ WL 'ME_4AB9E6D40211' '4AB9E6D40211.pas.ms.script' // MedicListSynchroView
+ HWL ME_4B14D8AE00D4 // TnsOpenPharmFirmDocumentEvent
+ HWL ME_4B14D96C038A // TnsOpenPharmDocumentEvent
+ HWL ME_4B14DA170298 // TnsOpenMedicDictionaryEvent
+ HWL ME_4B14DA6101E3 // TnsOpenMedicFirmsEvent
+ WL 'ME_550C0EE00301' '550C0EE00301.pas.ms.script' // InpharmMainMenu
+ )
+ ; // Children
+ : Dependencies
+   Seq: ( ME_4B14D8E10312 // TnsOpenPharmFirmDocumentEvent
+ ME_4B14D99F0107 // TnsOpenPharmDocumentEvent
+ ME_4B14DA370226 // TnsOpenMedicDictionaryEvent
+ ME_4B14DA7E007D // TnsOpenMedicFirmsEvent
+ ME_4BD6DC890352 // ut_mmmMain
+ ME_4BD6DE230054 // mflMain
+ ME_4BD6F6BD0200 // utMedicDiction
+ ME_4BD964C40096 // CommonDiction
+ ME_550ADF280218 // TsdsInpharmMainMenu
+ )
+ ; // Dependencies
+ CONST "author" 'Люлин А.В.'
+ CONST "no hands" true
+ CONST "started" '04.09.2009 12:57'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Inpharm\Inpharm_Module.pas'
+ CONST extprop:pas:TypeName 'TInpharmModule'
+ CONST extprop:rc:SelfName 'InpharmModule'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'Inpharm_Module'
+
+ref; // ME_4AA0D66F0159 Inpharm

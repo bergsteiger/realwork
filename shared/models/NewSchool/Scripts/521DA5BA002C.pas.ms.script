@@ -1,0 +1,31 @@
+// List$UC 521DA5BA002C VCMUseCaseRealization Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+: ME_521DA5BA002C
+ CONST UID '521DA5BA002C'
+ CONST Name 'List'
+ CONST Class class_Class
+ : Stereotype st_VCMUseCaseRealization ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Список' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent WL 'ME_521DA5750380' '521DA5750380.pas.ms.script' // List
+ ;
+ : Inherits
+   Seq: ( WL 'ME_521DA6370197' '521DA6370197.pas.ms.script' // List
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_5214960C034B' '4E3160C802DA.pas.ms.script' // Печать и экспорт
+ )
+ ; // Implements
+ CONST intf.pas:Path 'common\components\SandBox\VCM\View\moList.pas'
+ CONST intf.pas:PathOnly '\common\components\SandBox\VCM\View'
+ CONST extprop:pas:TypeName 'Tmo_List'
+ CONST extprop:rc:SelfName 'mo_List'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'moList'
+
+ref; // ME_521DA5BA002C List$UC

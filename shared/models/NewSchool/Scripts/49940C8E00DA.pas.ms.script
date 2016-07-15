@@ -12,7 +12,7 @@ FORWARD ME_49940C8E00DA
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_49940C8E00DA // vcmTaskPanelInterfaces
+ : Parent HWL ME_49940C8E00DA // vcmTaskPanelInterfaces
  ;
  : Inherits
    Seq: ( WL 'ME_4992FC0C02CA' '4683F37902CF.pas.ms.script' // IvcmBase
@@ -34,7 +34,7 @@ FORWARD ME_4992FCF401BC
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4992FCF401BC // IvcmCustOpsItem
+ : Parent HWL ME_4992FCF401BC // IvcmCustOpsItem
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -52,10 +52,10 @@ ref; // ME_4992FD01012E Position
  %SUMMARY 'Элемент панели задач' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_49940C8E00DA // vcmTaskPanelInterfaces
+ : Parent HWL ME_49940C8E00DA // vcmTaskPanelInterfaces
  ;
  : Attributes
-   Seq: ( ME_4992FD01012E // Position
+   Seq: ( HWL ME_4992FD01012E // Position
  )
  ; // Attributes
  CONST extprop:rc:SelfName 'CustOpsItem'
@@ -73,7 +73,7 @@ FORWARD ME_4992FA6A03C1
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4992FA6A03C1 // IvcmCustOpsOperation
+ : Parent HWL ME_4992FA6A03C1 // IvcmCustOpsOperation
  ;
  : Target WL 'ME_47E7626B0083' '4799D29F033F.pas.ms.script' // TCustomAction
  ;
@@ -91,10 +91,10 @@ ref; // ME_4992FAFE027C Action
  %SUMMARY 'Операция панели задач' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_49940C8E00DA // vcmTaskPanelInterfaces
+ : Parent HWL ME_49940C8E00DA // vcmTaskPanelInterfaces
  ;
  : Attributes
-   Seq: ( ME_4992FAFE027C // Action
+   Seq: ( HWL ME_4992FAFE027C // Action
  )
  ; // Attributes
  CONST extprop:rc:SelfName 'CustOpsOperation'
@@ -113,7 +113,7 @@ FORWARD ME_4992FD760178
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4992FD760178 // IvcmCustOpsRepGroup
+ : Parent HWL ME_4992FD760178 // IvcmCustOpsRepGroup
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -130,7 +130,7 @@ ref; // ME_4992FF64034E Id
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4992FD760178 // IvcmCustOpsRepGroup
+ : Parent HWL ME_4992FD760178 // IvcmCustOpsRepGroup
  ;
  : Target WL 'ME_4683C9AC03AC' '467BAB7F021E.pas.ms.script' // IvcmCString
  ;
@@ -159,15 +159,15 @@ ref; // ME_46A44FFE0143_ME_4992FD760178 Unsubscribe
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_49940C8E00DA // vcmTaskPanelInterfaces
+ : Parent HWL ME_49940C8E00DA // vcmTaskPanelInterfaces
  ;
  : Implements
    Seq: ( WL 'ME_46782E7F0307' '4677FBA70343.pas.ms.script' // Il3ChangeNotifier
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_4992FF64034E // Id
- ME_4992FF4F02E2 // Caption
+   Seq: ( HWL ME_4992FF64034E // Id
+ HWL ME_4992FF4F02E2 // Caption
  )
  ; // Attributes
  : Implemented
@@ -193,9 +193,9 @@ FORWARD ME_4992FB1F0246
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4992FB1F0246 // IvcmCustOpsRepOperation
+ : Parent HWL ME_4992FB1F0246 // IvcmCustOpsRepOperation
  ;
- : Target ME_4992FB48004C // IvcmCustOpsRepGroupOperations
+ : Target HWL ME_4992FB48004C // IvcmCustOpsRepGroupOperations
  ;
  CONST "pm" true
 
@@ -210,7 +210,7 @@ ref; // ME_4992FB5B038D Group
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4992FB1F0246 // IvcmCustOpsRepOperation
+ : Parent HWL ME_4992FB1F0246 // IvcmCustOpsRepOperation
  ;
  : Target WL 'ME_4683C9AC03AC' '467BAB7F021E.pas.ms.script' // IvcmCString
  ;
@@ -227,7 +227,7 @@ ref; // ME_4992FB8001C7 Caption
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4992FB1F0246 // IvcmCustOpsRepOperation
+ : Parent HWL ME_4992FB1F0246 // IvcmCustOpsRepOperation
  ;
  : Target WL 'ME_4683C9AC03AC' '467BAB7F021E.pas.ms.script' // IvcmCString
  ;
@@ -248,7 +248,7 @@ ref; // ME_46A44F6B035E_ME_4992FB1F0246 Subscribe
 ref; // ME_46A44FFE0143_ME_4992FB1F0246 Unsubscribe
 
 : ME_4992FAFE027C_ME_4992FB1F0246
- : Original ME_4992FAFE027C // Action
+ : Original HWL ME_4992FAFE027C // Action
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
@@ -264,10 +264,10 @@ ref; // ME_4992FAFE027C_ME_4992FB1F0246 Action
  %SUMMARY 'Операция репозитария панели задач' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_49940C8E00DA // vcmTaskPanelInterfaces
+ : Parent HWL ME_49940C8E00DA // vcmTaskPanelInterfaces
  ;
  : Inherits
-   Seq: ( ME_4992FA6A03C1 // IvcmCustOpsOperation
+   Seq: ( HWL ME_4992FA6A03C1 // IvcmCustOpsOperation
  )
  ; // Inherits
  : Implements
@@ -275,9 +275,9 @@ ref; // ME_4992FAFE027C_ME_4992FB1F0246 Action
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_4992FB5B038D // Group
- ME_4992FB8001C7 // Caption
- ME_4992FB9502EA // UserCaption
+   Seq: ( HWL ME_4992FB5B038D // Group
+ HWL ME_4992FB8001C7 // Caption
+ HWL ME_4992FB9502EA // UserCaption
  )
  ; // Attributes
  : Implemented
@@ -287,7 +287,7 @@ ref; // ME_4992FAFE027C_ME_4992FB1F0246 Action
  )
  ; // Implemented
  : Forwarded
-   Seq: ( ME_4992FB48004C // IvcmCustOpsRepGroupOperations
+   Seq: ( HWL ME_4992FB48004C // IvcmCustOpsRepGroupOperations
  )
  ; // Forwarded
  CONST extprop:rc:SelfName 'CustOpsRepOperation'
@@ -305,9 +305,9 @@ FORWARD ME_4992FEA1018B
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4992FB48004C // IvcmCustOpsRepGroupOperations
+ : Parent HWL ME_4992FB48004C // IvcmCustOpsRepGroupOperations
  ;
- : Target ME_4992FEA1018B // IvcmCustOpsRepOperationsIterator
+ : Target HWL ME_4992FEA1018B // IvcmCustOpsRepOperationsIterator
  ;
  CONST "pm" true
 
@@ -321,7 +321,7 @@ ref; // ME_4992FEDB0052 Operations
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4992FB48004C // IvcmCustOpsRepGroupOperations
+ : Parent HWL ME_4992FB48004C // IvcmCustOpsRepGroupOperations
  ;
  : Target WL 'ME_4683C9AC03AC' '467BAB7F021E.pas.ms.script' // IvcmCString
  ;
@@ -339,15 +339,15 @@ ref; // ME_4992FEFB00E2 Caption
  %SUMMARY 'Доступная для выбора группа операций' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_49940C8E00DA // vcmTaskPanelInterfaces
+ : Parent HWL ME_49940C8E00DA // vcmTaskPanelInterfaces
  ;
  : Attributes
-   Seq: ( ME_4992FEDB0052 // Operations
- ME_4992FEFB00E2 // Caption
+   Seq: ( HWL ME_4992FEDB0052 // Operations
+ HWL ME_4992FEFB00E2 // Caption
  )
  ; // Attributes
  : Forwarded
-   Seq: ( ME_4992FEA1018B // IvcmCustOpsRepOperationsIterator
+   Seq: ( HWL ME_4992FEA1018B // IvcmCustOpsRepOperationsIterator
  )
  ; // Forwarded
  CONST extprop:rc:SelfName 'CustOpsRepGroupOperations'
@@ -361,9 +361,9 @@ ref; // ME_4992FB48004C IvcmCustOpsRepGroupOperations
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4992FEA1018B // IvcmCustOpsRepOperationsIterator
+ : Parent HWL ME_4992FEA1018B // IvcmCustOpsRepOperationsIterator
  ;
- : Target ME_4992FB1F0246 // IvcmCustOpsRepOperation
+ : Target HWL ME_4992FB1F0246 // IvcmCustOpsRepOperation
  ;
 
 ref; // ME_4992FEAC01DC Next
@@ -377,10 +377,10 @@ ref; // ME_4992FEAC01DC Next
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_49940C8E00DA // vcmTaskPanelInterfaces
+ : Parent HWL ME_49940C8E00DA // vcmTaskPanelInterfaces
  ;
  : Operations
-   Seq: ( ME_4992FEAC01DC // Next
+   Seq: ( HWL ME_4992FEAC01DC // Next
  )
  ; // Operations
  CONST extprop:rc:SelfName 'CustOpsRepOperationsIterator'
@@ -398,9 +398,9 @@ FORWARD ME_4992FCD700DB
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4992FCD700DB // IvcmCustOpsGroupOperationsIterator
+ : Parent HWL ME_4992FCD700DB // IvcmCustOpsGroupOperationsIterator
  ;
- : Target ME_4992FDB10225 // IvcmCustOpsGroupOperation
+ : Target HWL ME_4992FDB10225 // IvcmCustOpsGroupOperation
  ;
 
 ref; // ME_4992FCE3035B Next
@@ -414,14 +414,14 @@ ref; // ME_4992FCE3035B Next
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_49940C8E00DA // vcmTaskPanelInterfaces
+ : Parent HWL ME_49940C8E00DA // vcmTaskPanelInterfaces
  ;
  : Operations
-   Seq: ( ME_4992FCE3035B // Next
+   Seq: ( HWL ME_4992FCE3035B // Next
  )
  ; // Operations
  : Forwarded
-   Seq: ( ME_4992FDB10225 // IvcmCustOpsGroupOperation
+   Seq: ( HWL ME_4992FDB10225 // IvcmCustOpsGroupOperation
  )
  ; // Forwarded
  CONST extprop:rc:SelfName 'CustOpsGroupOperationsIterator'
@@ -439,9 +439,9 @@ FORWARD ME_4992FD1902A5
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4992FD1902A5 // IvcmCustOpsGroup
+ : Parent HWL ME_4992FD1902A5 // IvcmCustOpsGroup
  ;
- : Target ME_4992FCD700DB // IvcmCustOpsGroupOperationsIterator
+ : Target HWL ME_4992FCD700DB // IvcmCustOpsGroupOperationsIterator
  ;
  CONST "pm" true
 
@@ -455,9 +455,9 @@ ref; // ME_4992FD530270 Operations
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4992FD1902A5 // IvcmCustOpsGroup
+ : Parent HWL ME_4992FD1902A5 // IvcmCustOpsGroup
  ;
- : Target ME_4992FD760178 // IvcmCustOpsRepGroup
+ : Target HWL ME_4992FD760178 // IvcmCustOpsRepGroup
  ;
  CONST "pm" true
 
@@ -472,7 +472,7 @@ ref; // ME_4992FD8302D9 RepGroup
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4992FD1902A5 // IvcmCustOpsGroup
+ : Parent HWL ME_4992FD1902A5 // IvcmCustOpsGroup
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -488,7 +488,7 @@ ref; // ME_4D346D3403BD IsLinkToExistingControl
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4992FD1902A5 // IvcmCustOpsGroup
+ : Parent HWL ME_4992FD1902A5 // IvcmCustOpsGroup
  ;
  : Target WL 'ME_47E124E90272' '4799D29F033F.pas.ms.script' // TWinControl
  ;
@@ -500,7 +500,7 @@ ref; // ME_4D346D830170 Control
  CONST Name 'aRepOp'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_4992FB1F0246 // IvcmCustOpsRepOperation
+ : Target HWL ME_4992FB1F0246 // IvcmCustOpsRepOperation
  ;
 
 ref; // ME_4992FD4903DA aRepOp
@@ -539,9 +539,9 @@ ref; // ME_4992FD4A008F aCaption
  %SUMMARY 'добавить операцию в панель задач' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4992FD1902A5 // IvcmCustOpsGroup
+ : Parent HWL ME_4992FD1902A5 // IvcmCustOpsGroup
  ;
- : Target ME_4992FDB10225 // IvcmCustOpsGroupOperation
+ : Target HWL ME_4992FDB10225 // IvcmCustOpsGroupOperation
  ;
  : Parameters
    Seq: ( ME_4992FD4903DA // aRepOp
@@ -566,7 +566,7 @@ ref; // ME_46A44F6B035E_ME_4992FD1902A5 Subscribe
 ref; // ME_46A44FFE0143_ME_4992FD1902A5 Unsubscribe
 
 : ME_4992FD01012E_ME_4992FD1902A5
- : Original ME_4992FD01012E // Position
+ : Original HWL ME_4992FD01012E // Position
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
@@ -582,10 +582,10 @@ ref; // ME_4992FD01012E_ME_4992FD1902A5 Position
  %SUMMARY 'Группа панели задач' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_49940C8E00DA // vcmTaskPanelInterfaces
+ : Parent HWL ME_49940C8E00DA // vcmTaskPanelInterfaces
  ;
  : Inherits
-   Seq: ( ME_4992FCF401BC // IvcmCustOpsItem
+   Seq: ( HWL ME_4992FCF401BC // IvcmCustOpsItem
  )
  ; // Inherits
  : Implements
@@ -593,14 +593,14 @@ ref; // ME_4992FD01012E_ME_4992FD1902A5 Position
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_4992FD530270 // Operations
- ME_4992FD8302D9 // RepGroup
- ME_4D346D3403BD // IsLinkToExistingControl
- ME_4D346D830170 // Control
+   Seq: ( HWL ME_4992FD530270 // Operations
+ HWL ME_4992FD8302D9 // RepGroup
+ HWL ME_4D346D3403BD // IsLinkToExistingControl
+ HWL ME_4D346D830170 // Control
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_4992FD32031B // AddOperation
+   Seq: ( HWL ME_4992FD32031B // AddOperation
  )
  ; // Operations
  : Implemented
@@ -622,9 +622,9 @@ FORWARD ME_4992FF770054
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4992FF770054 // IvcmCustOpsRepGroupsIterator
+ : Parent HWL ME_4992FF770054 // IvcmCustOpsRepGroupsIterator
  ;
- : Target ME_4992FD760178 // IvcmCustOpsRepGroup
+ : Target HWL ME_4992FD760178 // IvcmCustOpsRepGroup
  ;
 
 ref; // ME_4992FF88003B Next
@@ -639,10 +639,10 @@ ref; // ME_4992FF88003B Next
  %SUMMARY 'Итератор доступных для выбора групп' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_49940C8E00DA // vcmTaskPanelInterfaces
+ : Parent HWL ME_49940C8E00DA // vcmTaskPanelInterfaces
  ;
  : Operations
-   Seq: ( ME_4992FF88003B // Next
+   Seq: ( HWL ME_4992FF88003B // Next
  )
  ; // Operations
  CONST extprop:rc:SelfName 'CustOpsRepGroupsIterator'
@@ -659,7 +659,7 @@ ref; // ME_4992FF770054 IvcmCustOpsRepGroupsIterator
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4992FDB10225 // IvcmCustOpsGroupOperation
+ : Parent HWL ME_4992FDB10225 // IvcmCustOpsGroupOperation
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -675,7 +675,7 @@ ref; // ME_4992FE050327 ForAllUseCases
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4992FDB10225 // IvcmCustOpsGroupOperation
+ : Parent HWL ME_4992FDB10225 // IvcmCustOpsGroupOperation
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -692,7 +692,7 @@ ref; // ME_4992FE5E0203 GroupId
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4992FDB10225 // IvcmCustOpsGroupOperation
+ : Parent HWL ME_4992FDB10225 // IvcmCustOpsGroupOperation
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -708,7 +708,7 @@ ref; // ME_4992FE700358 IsDefaultCaption
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4992FDB10225 // IvcmCustOpsGroupOperation
+ : Parent HWL ME_4992FDB10225 // IvcmCustOpsGroupOperation
  ;
  : Target WL 'ME_4683C9AC03AC' '467BAB7F021E.pas.ms.script' // IvcmCString
  ;
@@ -724,9 +724,9 @@ ref; // ME_4992FE1500E3 Caption
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4992FDB10225 // IvcmCustOpsGroupOperation
+ : Parent HWL ME_4992FDB10225 // IvcmCustOpsGroupOperation
  ;
- : Target ME_4992FB1F0246 // IvcmCustOpsRepOperation
+ : Target HWL ME_4992FB1F0246 // IvcmCustOpsRepOperation
  ;
  CONST "pm" true
 
@@ -740,9 +740,9 @@ ref; // ME_4992FDF00191 RepOp
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4992FDB10225 // IvcmCustOpsGroupOperation
+ : Parent HWL ME_4992FDB10225 // IvcmCustOpsGroupOperation
  ;
- : Target ME_4992FD1902A5 // IvcmCustOpsGroup
+ : Target HWL ME_4992FD1902A5 // IvcmCustOpsGroup
  ;
  CONST "pm" true
 
@@ -755,7 +755,7 @@ ref; // ME_4992FE4F0173 Group
  %SUMMARY 'удалить операцию из панели задач' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4992FDB10225 // IvcmCustOpsGroupOperation
+ : Parent HWL ME_4992FDB10225 // IvcmCustOpsGroupOperation
  ;
 
 ref; // ME_4992FDE1028F Delete
@@ -773,7 +773,7 @@ ref; // ME_46A44F6B035E_ME_4992FDB10225 Subscribe
 ref; // ME_46A44FFE0143_ME_4992FDB10225 Unsubscribe
 
 : ME_4992FD01012E_ME_4992FDB10225
- : Original ME_4992FD01012E // Position
+ : Original HWL ME_4992FD01012E // Position
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
@@ -789,10 +789,10 @@ ref; // ME_4992FD01012E_ME_4992FDB10225 Position
  %SUMMARY 'Операции панели задач' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_49940C8E00DA // vcmTaskPanelInterfaces
+ : Parent HWL ME_49940C8E00DA // vcmTaskPanelInterfaces
  ;
  : Inherits
-   Seq: ( ME_4992FCF401BC // IvcmCustOpsItem
+   Seq: ( HWL ME_4992FCF401BC // IvcmCustOpsItem
  )
  ; // Inherits
  : Implements
@@ -800,16 +800,16 @@ ref; // ME_4992FD01012E_ME_4992FDB10225 Position
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_4992FE050327 // ForAllUseCases
- ME_4992FE5E0203 // GroupId
- ME_4992FE700358 // IsDefaultCaption
- ME_4992FE1500E3 // Caption
- ME_4992FDF00191 // RepOp
- ME_4992FE4F0173 // Group
+   Seq: ( HWL ME_4992FE050327 // ForAllUseCases
+ HWL ME_4992FE5E0203 // GroupId
+ HWL ME_4992FE700358 // IsDefaultCaption
+ HWL ME_4992FE1500E3 // Caption
+ HWL ME_4992FDF00191 // RepOp
+ HWL ME_4992FE4F0173 // Group
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_4992FDE1028F // Delete
+   Seq: ( HWL ME_4992FDE1028F // Delete
  )
  ; // Operations
  : Implemented
@@ -831,9 +831,9 @@ FORWARD ME_4992FE7D0230
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4992FE7D0230 // IvcmCustOpsGroupsIterator
+ : Parent HWL ME_4992FE7D0230 // IvcmCustOpsGroupsIterator
  ;
- : Target ME_4992FD1902A5 // IvcmCustOpsGroup
+ : Target HWL ME_4992FD1902A5 // IvcmCustOpsGroup
  ;
 
 ref; // ME_4992FE89024F Next
@@ -847,10 +847,10 @@ ref; // ME_4992FE89024F Next
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_49940C8E00DA // vcmTaskPanelInterfaces
+ : Parent HWL ME_49940C8E00DA // vcmTaskPanelInterfaces
  ;
  : Operations
-   Seq: ( ME_4992FE89024F // Next
+   Seq: ( HWL ME_4992FE89024F // Next
  )
  ; // Operations
  CONST extprop:rc:SelfName 'CustOpsGroupsIterator'
@@ -866,9 +866,9 @@ FORWARD ME_4992FF0B03D4
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4992FF0B03D4 // IvcmCustOpsRepGroupsOperationsIterator
+ : Parent HWL ME_4992FF0B03D4 // IvcmCustOpsRepGroupsOperationsIterator
  ;
- : Target ME_4992FB48004C // IvcmCustOpsRepGroupOperations
+ : Target HWL ME_4992FB48004C // IvcmCustOpsRepGroupOperations
  ;
 
 ref; // ME_4992FF1F02ED Next
@@ -883,10 +883,10 @@ ref; // ME_4992FF1F02ED Next
  %SUMMARY 'Итератор групп доступных операций' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_49940C8E00DA // vcmTaskPanelInterfaces
+ : Parent HWL ME_49940C8E00DA // vcmTaskPanelInterfaces
  ;
  : Operations
-   Seq: ( ME_4992FF1F02ED // Next
+   Seq: ( HWL ME_4992FF1F02ED // Next
  )
  ; // Operations
  CONST extprop:rc:SelfName 'CustOpsRepGroupsOperationsIterator'
@@ -905,7 +905,7 @@ FORWARD ME_4992FF9A0273
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4992FF9A0273 // IvcmCustOps
+ : Parent HWL ME_4992FF9A0273 // IvcmCustOps
  ;
  : Target WL 'ME_473D9E950032' '467823B7002C.pas.ms.script' // TafwSettingId
  ;
@@ -922,9 +922,9 @@ ref; // ME_49930056007C BaseSettingId
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4992FF9A0273 // IvcmCustOps
+ : Parent HWL ME_4992FF9A0273 // IvcmCustOps
  ;
- : Target ME_4992FF0B03D4 // IvcmCustOpsRepGroupsOperationsIterator
+ : Target HWL ME_4992FF0B03D4 // IvcmCustOpsRepGroupsOperationsIterator
  ;
  CONST "pm" true
 
@@ -939,9 +939,9 @@ ref; // ME_4993000E000A RepGroupsOperations
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4992FF9A0273 // IvcmCustOps
+ : Parent HWL ME_4992FF9A0273 // IvcmCustOps
  ;
- : Target ME_4992FF770054 // IvcmCustOpsRepGroupsIterator
+ : Target HWL ME_4992FF770054 // IvcmCustOpsRepGroupsIterator
  ;
  CONST "pm" true
 
@@ -956,9 +956,9 @@ ref; // ME_4993002B01F4 RepGroups
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4992FF9A0273 // IvcmCustOps
+ : Parent HWL ME_4992FF9A0273 // IvcmCustOps
  ;
- : Target ME_4992FE7D0230 // IvcmCustOpsGroupsIterator
+ : Target HWL ME_4992FE7D0230 // IvcmCustOpsGroupsIterator
  ;
  CONST "pm" true
 
@@ -973,7 +973,7 @@ ref; // ME_4993004300B5 Groups
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4992FF9A0273 // IvcmCustOps
+ : Parent HWL ME_4992FF9A0273 // IvcmCustOps
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -997,9 +997,9 @@ ref; // ME_4992FFC001E0 aGroup
  %SUMMARY 'добавить группу репозитория' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4992FF9A0273 // IvcmCustOps
+ : Parent HWL ME_4992FF9A0273 // IvcmCustOps
  ;
- : Target ME_4992FD760178 // IvcmCustOpsRepGroup
+ : Target HWL ME_4992FD760178 // IvcmCustOpsRepGroup
  ;
  : Parameters
    Seq: ( ME_4992FFC001E0 // aGroup
@@ -1012,7 +1012,7 @@ ref; // ME_4992FFB7015F AddRepGroup
  CONST Name 'aGroup'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_4992FD760178 // IvcmCustOpsRepGroup
+ : Target HWL ME_4992FD760178 // IvcmCustOpsRepGroup
  ;
 
 ref; // ME_4992FFD002F7 aGroup
@@ -1024,7 +1024,7 @@ ref; // ME_4992FFD002F7 aGroup
  %SUMMARY 'удалить группу репозитория' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4992FF9A0273 // IvcmCustOps
+ : Parent HWL ME_4992FF9A0273 // IvcmCustOps
  ;
  : Parameters
    Seq: ( ME_4992FFD002F7 // aGroup
@@ -1037,7 +1037,7 @@ ref; // ME_4992FFC802A3 DeleteRepGroup
  CONST Name 'aRepGroup'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_4992FD760178 // IvcmCustOpsRepGroup
+ : Target HWL ME_4992FD760178 // IvcmCustOpsRepGroup
  ;
 
 ref; // ME_4992FFE3035E aRepGroup
@@ -1057,9 +1057,9 @@ ref; // ME_4992FFE3039F aPosition
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4992FF9A0273 // IvcmCustOps
+ : Parent HWL ME_4992FF9A0273 // IvcmCustOps
  ;
- : Target ME_4992FD1902A5 // IvcmCustOpsGroup
+ : Target HWL ME_4992FD1902A5 // IvcmCustOpsGroup
  ;
  : Parameters
    Seq: ( ME_4992FFE3035E // aRepGroup
@@ -1076,7 +1076,7 @@ ref; // ME_4992FFD700FC AddGroup
  %SUMMARY 'полностью перечитать операции панели задач. Используется при'#13#10'              переключении конфигурации' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4992FF9A0273 // IvcmCustOps
+ : Parent HWL ME_4992FF9A0273 // IvcmCustOps
  ;
 
 ref; // ME_4992FFEF01FB Refresh
@@ -1103,25 +1103,25 @@ ref; // ME_46A44FFE0143_ME_4992FF9A0273 Unsubscribe
  %SUMMARY 'Панель задач для работы с одной сущностью' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_49940C8E00DA // vcmTaskPanelInterfaces
+ : Parent HWL ME_49940C8E00DA // vcmTaskPanelInterfaces
  ;
  : Implements
    Seq: ( WL 'ME_46782E7F0307' '4677FBA70343.pas.ms.script' // Il3ChangeNotifier
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_49930056007C // BaseSettingId
- ME_4993000E000A // RepGroupsOperations
- ME_4993002B01F4 // RepGroups
- ME_4993004300B5 // Groups
- ME_4F619F340358 // EnableSaveToSettings
+   Seq: ( HWL ME_49930056007C // BaseSettingId
+ HWL ME_4993000E000A // RepGroupsOperations
+ HWL ME_4993002B01F4 // RepGroups
+ HWL ME_4993004300B5 // Groups
+ HWL ME_4F619F340358 // EnableSaveToSettings
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_4992FFB7015F // AddRepGroup
- ME_4992FFC802A3 // DeleteRepGroup
- ME_4992FFD700FC // AddGroup
- ME_4992FFEF01FB // Refresh
+   Seq: ( HWL ME_4992FFB7015F // AddRepGroup
+ HWL ME_4992FFC802A3 // DeleteRepGroup
+ HWL ME_4992FFD700FC // AddGroup
+ HWL ME_4992FFEF01FB // Refresh
  )
  ; // Operations
  : Implemented
@@ -1145,7 +1145,7 @@ FORWARD ME_4993008E00DA
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4993008E00DA // IvcmCustAvailableToolbarOps
+ : Parent HWL ME_4993008E00DA // IvcmCustAvailableToolbarOps
  ;
  : Target WL 'ME_4914746C019E' '4683F37902CF.pas.ms.script' // IvcmEntityForm
  ;
@@ -1166,59 +1166,59 @@ ref; // ME_46A44F6B035E_ME_4993008E00DA Subscribe
 ref; // ME_46A44FFE0143_ME_4993008E00DA Unsubscribe
 
 : ME_4992FFB7015F_ME_4993008E00DA
- : Original ME_4992FFB7015F // AddRepGroup
+ : Original HWL ME_4992FFB7015F // AddRepGroup
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4992FFB7015F_ME_4993008E00DA AddRepGroup
 
 : ME_4992FFC802A3_ME_4993008E00DA
- : Original ME_4992FFC802A3 // DeleteRepGroup
+ : Original HWL ME_4992FFC802A3 // DeleteRepGroup
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4992FFC802A3_ME_4993008E00DA DeleteRepGroup
 
 : ME_4992FFD700FC_ME_4993008E00DA
- : Original ME_4992FFD700FC // AddGroup
+ : Original HWL ME_4992FFD700FC // AddGroup
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4992FFD700FC_ME_4993008E00DA AddGroup
 
 : ME_4992FFEF01FB_ME_4993008E00DA
- : Original ME_4992FFEF01FB // Refresh
+ : Original HWL ME_4992FFEF01FB // Refresh
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4992FFEF01FB_ME_4993008E00DA Refresh
 
 : ME_4993000E000A_ME_4993008E00DA
- : Original ME_4993000E000A // RepGroupsOperations
+ : Original HWL ME_4993000E000A // RepGroupsOperations
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_4993000E000A_ME_4993008E00DA RepGroupsOperations
 
 : ME_4993002B01F4_ME_4993008E00DA
- : Original ME_4993002B01F4 // RepGroups
+ : Original HWL ME_4993002B01F4 // RepGroups
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_4993002B01F4_ME_4993008E00DA RepGroups
 
 : ME_4993004300B5_ME_4993008E00DA
- : Original ME_4993004300B5 // Groups
+ : Original HWL ME_4993004300B5 // Groups
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_4993004300B5_ME_4993008E00DA Groups
 
 : ME_49930056007C_ME_4993008E00DA
- : Original ME_49930056007C // BaseSettingId
+ : Original HWL ME_49930056007C // BaseSettingId
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_49930056007C_ME_4993008E00DA BaseSettingId
 
 : ME_4F619F340358_ME_4993008E00DA
- : Original ME_4F619F340358 // EnableSaveToSettings
+ : Original HWL ME_4F619F340358 // EnableSaveToSettings
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
@@ -1234,14 +1234,14 @@ ref; // ME_4F619F340358_ME_4993008E00DA EnableSaveToSettings
  %SUMMARY 'Настроить доступные для выбора операции' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_49940C8E00DA // vcmTaskPanelInterfaces
+ : Parent HWL ME_49940C8E00DA // vcmTaskPanelInterfaces
  ;
  : Inherits
-   Seq: ( ME_4992FF9A0273 // IvcmCustOps
+   Seq: ( HWL ME_4992FF9A0273 // IvcmCustOps
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_499300AB0231 // Form
+   Seq: ( HWL ME_499300AB0231 // Form
  )
  ; // Attributes
  : Implemented
@@ -1273,7 +1273,7 @@ FORWARD ME_49940B180124
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_49940B180124 // IvcmMainForm
+ : Parent HWL ME_49940B180124 // IvcmMainForm
  ;
  : Target WL 'ME_49940B4A02FC' '4683F37902CF.pas.ms.script' // IvcmHistory
  ;
@@ -1289,9 +1289,9 @@ ref; // ME_49940B79009F History
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_49940B180124 // IvcmMainForm
+ : Parent HWL ME_49940B180124 // IvcmMainForm
  ;
- : Target ME_4992FF9A0273 // IvcmCustOps
+ : Target HWL ME_4992FF9A0273 // IvcmCustOps
  ;
  CONST "pm" true
 
@@ -1312,7 +1312,7 @@ ref; // ME_49940B6400D0 aEntityForm
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_49940B180124 // IvcmMainForm
+ : Parent HWL ME_49940B180124 // IvcmMainForm
  ;
  : Parameters
    Seq: ( ME_49940B6400D0 // aEntityForm
@@ -1336,7 +1336,7 @@ ref; // ME_49940B720221 aEntityForm
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_49940B180124 // IvcmMainForm
+ : Parent HWL ME_49940B180124 // IvcmMainForm
  ;
  : Parameters
    Seq: ( ME_49940B720221 // aEntityForm
@@ -1355,16 +1355,16 @@ ref; // ME_49940B6C01A2 RemoveFormFromTasksPanel
  %SUMMARY 'Основная форма' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_49940C8E00DA // vcmTaskPanelInterfaces
+ : Parent HWL ME_49940C8E00DA // vcmTaskPanelInterfaces
  ;
  : Attributes
-   Seq: ( ME_49940B79009F // History
- ME_49940B9401BF // TasksPanel
+   Seq: ( HWL ME_49940B79009F // History
+ HWL ME_49940B9401BF // TasksPanel
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_49940B5C0118 // AddFormToTasksPanel
- ME_49940B6C01A2 // RemoveFormFromTasksPanel
+   Seq: ( HWL ME_49940B5C0118 // AddFormToTasksPanel
+ HWL ME_49940B6C01A2 // RemoveFormFromTasksPanel
  )
  ; // Operations
  CONST extprop:rc:SelfName 'MainForm'
@@ -1390,7 +1390,7 @@ ref; // ME_4993011501BE aModule
  %SUMMARY 'зарегистрировать операции модуля' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_499300FB015F // IvcmCustOpsRepository
+ : Parent HWL ME_499300FB015F // IvcmCustOpsRepository
  ;
  : Parameters
    Seq: ( ME_4993011501BE // aModule
@@ -1415,7 +1415,7 @@ ref; // ME_4993012303A6 aForm
  %SUMMARY 'зарегистрировать форму' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_499300FB015F // IvcmCustOpsRepository
+ : Parent HWL ME_499300FB015F // IvcmCustOpsRepository
  ;
  : Parameters
    Seq: ( ME_4993012303A6 // aForm
@@ -1440,7 +1440,7 @@ ref; // ME_4993013101CD aForm
  %SUMMARY 'удалить форму' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_499300FB015F // IvcmCustOpsRepository
+ : Parent HWL ME_499300FB015F // IvcmCustOpsRepository
  ;
  : Parameters
    Seq: ( ME_4993013101CD // aForm
@@ -1459,12 +1459,12 @@ ref; // ME_4993012A00C2 RemoveForm
  %SUMMARY 'Панель задач для публикации операций нескольких сущностей' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_49940C8E00DA // vcmTaskPanelInterfaces
+ : Parent HWL ME_49940C8E00DA // vcmTaskPanelInterfaces
  ;
  : Operations
-   Seq: ( ME_4993010D009D // AddModule
- ME_4993011D0121 // AddForm
- ME_4993012A00C2 // RemoveForm
+   Seq: ( HWL ME_4993010D009D // AddModule
+ HWL ME_4993011D0121 // AddForm
+ HWL ME_4993012A00C2 // RemoveForm
  )
  ; // Operations
  CONST extprop:rc:SelfName 'CustOpsRepository'
@@ -1481,7 +1481,7 @@ FORWARD ME_50ADEDD600C6
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_50ADEDD600C6 // TvcmTaskPanelOperation
+ : Parent HWL ME_50ADEDD600C6 // TvcmTaskPanelOperation
  ;
 
 ref; // ME_50ADEDEF0127 cvcm_tpOperationRemove
@@ -1493,7 +1493,7 @@ ref; // ME_50ADEDEF0127 cvcm_tpOperationRemove
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_50ADEDD600C6 // TvcmTaskPanelOperation
+ : Parent HWL ME_50ADEDD600C6 // TvcmTaskPanelOperation
  ;
 
 ref; // ME_50ADEDFA0143 cvcm_tpOpPosChanged
@@ -1505,7 +1505,7 @@ ref; // ME_50ADEDFA0143 cvcm_tpOpPosChanged
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_50ADEDD600C6 // TvcmTaskPanelOperation
+ : Parent HWL ME_50ADEDD600C6 // TvcmTaskPanelOperation
  ;
 
 ref; // ME_50ADEE0202A8 cvcm_tpOpCaptionChanged
@@ -1517,7 +1517,7 @@ ref; // ME_50ADEE0202A8 cvcm_tpOpCaptionChanged
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_50ADEDD600C6 // TvcmTaskPanelOperation
+ : Parent HWL ME_50ADEDD600C6 // TvcmTaskPanelOperation
  ;
 
 ref; // ME_50ADEE0B0093 cvcm_tpGroupRemove
@@ -1529,7 +1529,7 @@ ref; // ME_50ADEE0B0093 cvcm_tpGroupRemove
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_50ADEDD600C6 // TvcmTaskPanelOperation
+ : Parent HWL ME_50ADEDD600C6 // TvcmTaskPanelOperation
  ;
 
 ref; // ME_50ADEE120121 cvcm_tpOperationAdded
@@ -1541,7 +1541,7 @@ ref; // ME_50ADEE120121 cvcm_tpOperationAdded
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_50ADEDD600C6 // TvcmTaskPanelOperation
+ : Parent HWL ME_50ADEDD600C6 // TvcmTaskPanelOperation
  ;
 
 ref; // ME_50ADEE1903B7 cvcm_tpGroupAdded
@@ -1553,7 +1553,7 @@ ref; // ME_50ADEE1903B7 cvcm_tpGroupAdded
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_50ADEDD600C6 // TvcmTaskPanelOperation
+ : Parent HWL ME_50ADEDD600C6 // TvcmTaskPanelOperation
  ;
 
 ref; // ME_50ADEE2101B4 cvcm_tpGroupCaptionChanged
@@ -1565,7 +1565,7 @@ ref; // ME_50ADEE2101B4 cvcm_tpGroupCaptionChanged
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_50ADEDD600C6 // TvcmTaskPanelOperation
+ : Parent HWL ME_50ADEDD600C6 // TvcmTaskPanelOperation
  ;
 
 ref; // ME_50ADEE2801B2 cvcm_tpGroupPosChanged
@@ -1577,7 +1577,7 @@ ref; // ME_50ADEE2801B2 cvcm_tpGroupPosChanged
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_50ADEDD600C6 // TvcmTaskPanelOperation
+ : Parent HWL ME_50ADEDD600C6 // TvcmTaskPanelOperation
  ;
 
 ref; // ME_50ADEE2F025F cvcm_tpBeforeUpdate
@@ -1589,7 +1589,7 @@ ref; // ME_50ADEE2F025F cvcm_tpBeforeUpdate
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_50ADEDD600C6 // TvcmTaskPanelOperation
+ : Parent HWL ME_50ADEDD600C6 // TvcmTaskPanelOperation
  ;
 
 ref; // ME_50ADEE360325 cvcm_tpAfterUpdate
@@ -1602,19 +1602,19 @@ ref; // ME_50ADEE360325 cvcm_tpAfterUpdate
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_49940C8E00DA // vcmTaskPanelInterfaces
+ : Parent HWL ME_49940C8E00DA // vcmTaskPanelInterfaces
  ;
  : Attributes
-   Seq: ( ME_50ADEDEF0127 // cvcm_tpOperationRemove
- ME_50ADEDFA0143 // cvcm_tpOpPosChanged
- ME_50ADEE0202A8 // cvcm_tpOpCaptionChanged
- ME_50ADEE0B0093 // cvcm_tpGroupRemove
- ME_50ADEE120121 // cvcm_tpOperationAdded
- ME_50ADEE1903B7 // cvcm_tpGroupAdded
- ME_50ADEE2101B4 // cvcm_tpGroupCaptionChanged
- ME_50ADEE2801B2 // cvcm_tpGroupPosChanged
- ME_50ADEE2F025F // cvcm_tpBeforeUpdate
- ME_50ADEE360325 // cvcm_tpAfterUpdate
+   Seq: ( HWL ME_50ADEDEF0127 // cvcm_tpOperationRemove
+ HWL ME_50ADEDFA0143 // cvcm_tpOpPosChanged
+ HWL ME_50ADEE0202A8 // cvcm_tpOpCaptionChanged
+ HWL ME_50ADEE0B0093 // cvcm_tpGroupRemove
+ HWL ME_50ADEE120121 // cvcm_tpOperationAdded
+ HWL ME_50ADEE1903B7 // cvcm_tpGroupAdded
+ HWL ME_50ADEE2101B4 // cvcm_tpGroupCaptionChanged
+ HWL ME_50ADEE2801B2 // cvcm_tpGroupPosChanged
+ HWL ME_50ADEE2F025F // cvcm_tpBeforeUpdate
+ HWL ME_50ADEE360325 // cvcm_tpAfterUpdate
  )
  ; // Attributes
  CONST extprop:rc:isAcceptableForScripts true
@@ -1636,7 +1636,7 @@ ref; // ME_46A450FA02B7 aNotifier
  CONST Name 'aOperation'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_50ADEDD600C6 // TvcmTaskPanelOperation
+ : Target HWL ME_50ADEDD600C6 // TvcmTaskPanelOperation
  ;
 
 ref; // ME_46A450FA02E9 aOperation
@@ -1645,7 +1645,7 @@ ref; // ME_46A450FA02E9 aOperation
  CONST Name 'aInterface'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_4992FCF401BC // IvcmCustOpsItem
+ : Target HWL ME_4992FCF401BC // IvcmCustOpsItem
  ;
 
 ref; // ME_46A450FA031C aInterface
@@ -1657,7 +1657,7 @@ ref; // ME_46A450FA031C aInterface
  %SUMMARY 'прошла операция.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_46A450A102C3 // IvcmTaskPanelNotifyRecipient
+ : Parent HWL ME_46A450A102C3 // IvcmTaskPanelNotifyRecipient
  ;
  : Parameters
    Seq: ( ME_46A450FA02B7 // aNotifier
@@ -1678,14 +1678,14 @@ ref; // ME_46A450C703AE TaskPanelNotify
  %SUMMARY 'Подписчик для получения нотификации об операции.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_49940C8E00DA // vcmTaskPanelInterfaces
+ : Parent HWL ME_49940C8E00DA // vcmTaskPanelInterfaces
  ;
  : Inherits
    Seq: ( WL 'ME_4680CF330338' '4677FBA70343.pas.ms.script' // Il3Notify
  )
  ; // Inherits
  : Operations
-   Seq: ( ME_46A450C703AE // TaskPanelNotify
+   Seq: ( HWL ME_46A450C703AE // TaskPanelNotify
  )
  ; // Operations
  CONST extprop:rc:SelfName 'TaskPanelNotifyRecipient'
@@ -1704,25 +1704,25 @@ ref; // ME_46A450A102C3 IvcmTaskPanelNotifyRecipient
  : Parent WL 'ME_4790C3B8021E' '4790C3B8021E.pas.ms.script' // VCM
  ;
  : Children
-   Seq: ( ME_49940DAA0114 // IvcmBase
- ME_4992FCF401BC // IvcmCustOpsItem
- ME_4992FA6A03C1 // IvcmCustOpsOperation
- ME_4992FD760178 // IvcmCustOpsRepGroup
- ME_4992FB1F0246 // IvcmCustOpsRepOperation
- ME_4992FB48004C // IvcmCustOpsRepGroupOperations
- ME_4992FEA1018B // IvcmCustOpsRepOperationsIterator
- ME_4992FCD700DB // IvcmCustOpsGroupOperationsIterator
- ME_4992FD1902A5 // IvcmCustOpsGroup
- ME_4992FF770054 // IvcmCustOpsRepGroupsIterator
- ME_4992FDB10225 // IvcmCustOpsGroupOperation
- ME_4992FE7D0230 // IvcmCustOpsGroupsIterator
- ME_4992FF0B03D4 // IvcmCustOpsRepGroupsOperationsIterator
- ME_4992FF9A0273 // IvcmCustOps
- ME_4993008E00DA // IvcmCustAvailableToolbarOps
- ME_49940B180124 // IvcmMainForm
- ME_499300FB015F // IvcmCustOpsRepository
- ME_50ADEDD600C6 // TvcmTaskPanelOperation
- ME_46A450A102C3 // IvcmTaskPanelNotifyRecipient
+   Seq: ( HWL ME_49940DAA0114 // IvcmBase
+ HWL ME_4992FCF401BC // IvcmCustOpsItem
+ HWL ME_4992FA6A03C1 // IvcmCustOpsOperation
+ HWL ME_4992FD760178 // IvcmCustOpsRepGroup
+ HWL ME_4992FB1F0246 // IvcmCustOpsRepOperation
+ HWL ME_4992FB48004C // IvcmCustOpsRepGroupOperations
+ HWL ME_4992FEA1018B // IvcmCustOpsRepOperationsIterator
+ HWL ME_4992FCD700DB // IvcmCustOpsGroupOperationsIterator
+ HWL ME_4992FD1902A5 // IvcmCustOpsGroup
+ HWL ME_4992FF770054 // IvcmCustOpsRepGroupsIterator
+ HWL ME_4992FDB10225 // IvcmCustOpsGroupOperation
+ HWL ME_4992FE7D0230 // IvcmCustOpsGroupsIterator
+ HWL ME_4992FF0B03D4 // IvcmCustOpsRepGroupsOperationsIterator
+ HWL ME_4992FF9A0273 // IvcmCustOps
+ HWL ME_4993008E00DA // IvcmCustAvailableToolbarOps
+ HWL ME_49940B180124 // IvcmMainForm
+ HWL ME_499300FB015F // IvcmCustOpsRepository
+ HWL ME_50ADEDD600C6 // TvcmTaskPanelOperation
+ HWL ME_46A450A102C3 // IvcmTaskPanelNotifyRecipient
  )
  ; // Children
  : Depends

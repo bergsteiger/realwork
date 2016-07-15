@@ -1,0 +1,117 @@
+// List 4A8921960298 VCMFinalContainer Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A8921960298
+
+: ME_CD29B19EB4E4
+ CONST UID 'CD29B19EB4E4'
+ CONST Name 'Ini_FormFactory_List'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы List' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4A8921960298 // List
+ ;
+ : SpelledFor HWL ME_4A8921960298 // List
+ ;
+
+ref; // ME_CD29B19EB4E4 Ini_FormFactory_List
+
+: ME_4A8921B10132
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A8921960298 // List
+ ;
+ : Target WL 'ME_4990374602FC' '49804E310263.pas.ms.script' // TnsSaveDialogListTarget
+ ;
+
+ref; // ME_4A8921B10132 
+
+: ME_4AAA22920251
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A8921960298 // List
+ ;
+ : Target WL 'ME_4AAA21AA02D0' '4AAA216F032C.pas.ms.script' // TnsWarnImages
+ ;
+
+ref; // ME_4AAA22920251 
+
+: ME_4C810AC302FA
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A8921960298 // List
+ ;
+ : Target WL 'ME_4C810A2702D9' '4A9807DB01A5.pas.ms.script' // SearchInList
+ ;
+
+ref; // ME_4C810AC302FA 
+
+: ME_4C8119F302A3
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A8921960298 // List
+ ;
+ : Target WL 'ME_4C81191003E5' '4AE89F8A004B.pas.ms.script' // FiltersListOpen
+ ;
+
+ref; // ME_4C8119F302A3 
+
+: ME_4D185AB60072
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A8921960298 // List
+ ;
+ : Target WL 'ME_4D185A3B0195' '4C371629008F.pas.ms.script' // Sort
+ ;
+
+ref; // ME_4D185AB60072 
+
+: ME_4A8921960298
+ CONST UID '4A8921960298'
+ CONST Name 'List'
+ CONST Class class_Class
+ : Stereotype st_VCMFinalContainer ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Список' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent WL 'ME_4A9BF42601A9' '4A9BF42601A9.pas.ms.script' // List$FP
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4C46AA3401DB' '4C46AA3401DB.pas.ms.script' // PrimListOptions
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4BD96F4C0025' '4BD856E802F9.pas.ms.script' // List
+ )
+ ; // Implements
+ : Operations
+   Seq: ( HWL ME_CD29B19EB4E4 // Ini_FormFactory_List
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_4A8921B10132 // TnsSaveDialogListTarget
+ ME_4AAA22920251 // TnsWarnImages
+ ME_4C810AC302FA // SearchInList
+ ME_4C8119F302A3 // FiltersListOpen
+ ME_4D185AB60072 // Sort
+ )
+ ; // Dependencies
+ CONST "NeedsHackRef" true
+ CONST "ZoneType" 'Parent'
+ CONST "finished dfm" true
+ CONST "form name prefix" 'ef'
+ CONST "resizeable" false
+ CONST "restrict form def" 'undefined'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\List\Forms\List_Form.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\List\Forms'
+ CONST extprop:pas:TypeName 'TefList'
+ CONST extprop:rc:SelfName 'efList'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'List_Form'
+
+ref; // ME_4A8921960298 List

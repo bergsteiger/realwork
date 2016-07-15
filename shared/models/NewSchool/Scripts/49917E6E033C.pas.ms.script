@@ -13,7 +13,7 @@ FORWARD ME_49917E8F0165
  %SUMMARY 'начать замер, вызывается перед созданием сборки' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_49917E8F0165 // InsProfiler
+ : Parent HWL ME_49917E8F0165 // InsProfiler
  ;
 
 ref; // ME_49917E9A0046 Start
@@ -25,7 +25,7 @@ ref; // ME_49917E9A0046 Start
  %SUMMARY 'закончить измерения' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_49917E8F0165 // InsProfiler
+ : Parent HWL ME_49917E8F0165 // InsProfiler
  ;
 
 ref; // ME_49917EA502E3 Finish
@@ -40,11 +40,11 @@ ref; // ME_49917EA502E3 Finish
  %SUMMARY 'Базовый интерфейс' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_49917E6E033C // ProfilersInterfaces
+ : Parent HWL ME_49917E6E033C // ProfilersInterfaces
  ;
  : Operations
-   Seq: ( ME_49917E9A0046 // Start
- ME_49917EA502E3 // Finish
+   Seq: ( HWL ME_49917E9A0046 // Start
+ HWL ME_49917EA502E3 // Finish
  )
  ; // Operations
  CONST extprop:rc:SelfName 'Profiler'
@@ -61,7 +61,7 @@ FORWARD ME_49917ECE006F
  %SUMMARY 'сборка создана' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_49917ECE006F // IprDocument
+ : Parent HWL ME_49917ECE006F // IprDocument
  ;
 
 ref; // ME_49917F3802A3 FormSetCreated
@@ -73,7 +73,7 @@ ref; // ME_49917F3802A3 FormSetCreated
  %SUMMARY 'документ получен с адаптера' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_49917ECE006F // IprDocument
+ : Parent HWL ME_49917ECE006F // IprDocument
  ;
 
 ref; // ME_49917F430212 DocumentReceived
@@ -85,7 +85,7 @@ ref; // ME_49917F430212 DocumentReceived
  %SUMMARY 'документ отрисован' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_49917ECE006F // IprDocument
+ : Parent HWL ME_49917ECE006F // IprDocument
  ;
 
 ref; // ME_49917F4D0329 DocumentPainted
@@ -97,19 +97,19 @@ ref; // ME_49917F4D0329 DocumentPainted
  %SUMMARY 'открыта структура документа' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_49917ECE006F // IprDocument
+ : Parent HWL ME_49917ECE006F // IprDocument
  ;
 
 ref; // ME_49917F5702FB ContentsTreeOpened
 
 : ME_49917E9A0046_ME_49917ECE006F
- : Original ME_49917E9A0046 // Start
+ : Original HWL ME_49917E9A0046 // Start
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_49917E9A0046_ME_49917ECE006F Start
 
 : ME_49917EA502E3_ME_49917ECE006F
- : Original ME_49917EA502E3 // Finish
+ : Original HWL ME_49917EA502E3 // Finish
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_49917EA502E3_ME_49917ECE006F Finish
@@ -124,17 +124,17 @@ ref; // ME_49917EA502E3_ME_49917ECE006F Finish
  %SUMMARY 'Используется оболочкой для замеров времени открытия документа' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_49917E6E033C // ProfilersInterfaces
+ : Parent HWL ME_49917E6E033C // ProfilersInterfaces
  ;
  : Inherits
-   Seq: ( ME_49917E8F0165 // InsProfiler
+   Seq: ( HWL ME_49917E8F0165 // InsProfiler
  )
  ; // Inherits
  : Operations
-   Seq: ( ME_49917F3802A3 // FormSetCreated
- ME_49917F430212 // DocumentReceived
- ME_49917F4D0329 // DocumentPainted
- ME_49917F5702FB // ContentsTreeOpened
+   Seq: ( HWL ME_49917F3802A3 // FormSetCreated
+ HWL ME_49917F430212 // DocumentReceived
+ HWL ME_49917F4D0329 // DocumentPainted
+ HWL ME_49917F5702FB // ContentsTreeOpened
  )
  ; // Operations
  : Implemented
@@ -150,13 +150,13 @@ ref; // ME_49917ECE006F IprDocument
 FORWARD ME_49917F690172
 
 : ME_49917E9A0046_ME_49917F690172
- : Original ME_49917E9A0046 // Start
+ : Original HWL ME_49917E9A0046 // Start
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_49917E9A0046_ME_49917F690172 Start
 
 : ME_49917EA502E3_ME_49917F690172
- : Original ME_49917EA502E3 // Finish
+ : Original HWL ME_49917EA502E3 // Finish
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_49917EA502E3_ME_49917F690172 Finish
@@ -171,10 +171,10 @@ ref; // ME_49917EA502E3_ME_49917F690172 Finish
  %SUMMARY 'Используется для замеров открытия карточки запросов' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_49917E6E033C // ProfilersInterfaces
+ : Parent HWL ME_49917E6E033C // ProfilersInterfaces
  ;
  : Inherits
-   Seq: ( ME_49917E8F0165 // InsProfiler
+   Seq: ( HWL ME_49917E8F0165 // InsProfiler
  )
  ; // Inherits
  : Implemented
@@ -190,13 +190,13 @@ ref; // ME_49917F690172 IprQueryCard
 FORWARD ME_49917F810208
 
 : ME_49917E9A0046_ME_49917F810208
- : Original ME_49917E9A0046 // Start
+ : Original HWL ME_49917E9A0046 // Start
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_49917E9A0046_ME_49917F810208 Start
 
 : ME_49917EA502E3_ME_49917F810208
- : Original ME_49917EA502E3 // Finish
+ : Original HWL ME_49917EA502E3 // Finish
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_49917EA502E3_ME_49917F810208 Finish
@@ -211,10 +211,10 @@ ref; // ME_49917EA502E3_ME_49917F810208 Finish
  %SUMMARY 'Открытие списка после поиска' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_49917E6E033C // ProfilersInterfaces
+ : Parent HWL ME_49917E6E033C // ProfilersInterfaces
  ;
  : Inherits
-   Seq: ( ME_49917E8F0165 // InsProfiler
+   Seq: ( HWL ME_49917E8F0165 // InsProfiler
  )
  ; // Inherits
  : Implemented
@@ -230,13 +230,13 @@ ref; // ME_49917F810208 IprListAfterSearch
 FORWARD ME_49917F960107
 
 : ME_49917E9A0046_ME_49917F960107
- : Original ME_49917E9A0046 // Start
+ : Original HWL ME_49917E9A0046 // Start
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_49917E9A0046_ME_49917F960107 Start
 
 : ME_49917EA502E3_ME_49917F960107
- : Original ME_49917EA502E3 // Finish
+ : Original HWL ME_49917EA502E3 // Finish
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_49917EA502E3_ME_49917F960107 Finish
@@ -251,10 +251,10 @@ ref; // ME_49917EA502E3_ME_49917F960107 Finish
  %SUMMARY 'Открытие основного меню' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_49917E6E033C // ProfilersInterfaces
+ : Parent HWL ME_49917E6E033C // ProfilersInterfaces
  ;
  : Inherits
-   Seq: ( ME_49917E8F0165 // InsProfiler
+   Seq: ( HWL ME_49917E8F0165 // InsProfiler
  )
  ; // Inherits
  : Implemented
@@ -278,9 +278,9 @@ FORWARD ME_49917FC60368
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_49917FC60368 // InsProfilersManager
+ : Parent HWL ME_49917FC60368 // InsProfilersManager
  ;
- : Target ME_49917ECE006F // IprDocument
+ : Target HWL ME_49917ECE006F // IprDocument
  ;
  CONST "pm" true
 
@@ -295,9 +295,9 @@ ref; // ME_49917FD000BC Document
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_49917FC60368 // InsProfilersManager
+ : Parent HWL ME_49917FC60368 // InsProfilersManager
  ;
- : Target ME_49917F690172 // IprQueryCard
+ : Target HWL ME_49917F690172 // IprQueryCard
  ;
  CONST "pm" true
 
@@ -312,9 +312,9 @@ ref; // ME_49917FE10014 QueryCard
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_49917FC60368 // InsProfilersManager
+ : Parent HWL ME_49917FC60368 // InsProfilersManager
  ;
- : Target ME_49917F810208 // IprListAfterSearch
+ : Target HWL ME_49917F810208 // IprListAfterSearch
  ;
  CONST "pm" true
 
@@ -329,9 +329,9 @@ ref; // ME_49917FF100D3 ListAfterSearch
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_49917FC60368 // InsProfilersManager
+ : Parent HWL ME_49917FC60368 // InsProfilersManager
  ;
- : Target ME_49917F960107 // IprMainMenu
+ : Target HWL ME_49917F960107 // IprMainMenu
  ;
  CONST "pm" true
 
@@ -347,13 +347,13 @@ ref; // ME_49918002008F MainMenu
  %SUMMARY 'Менеджер профайлеров' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_49917E6E033C // ProfilersInterfaces
+ : Parent HWL ME_49917E6E033C // ProfilersInterfaces
  ;
  : Attributes
-   Seq: ( ME_49917FD000BC // Document
- ME_49917FE10014 // QueryCard
- ME_49917FF100D3 // ListAfterSearch
- ME_49918002008F // MainMenu
+   Seq: ( HWL ME_49917FD000BC // Document
+ HWL ME_49917FE10014 // QueryCard
+ HWL ME_49917FF100D3 // ListAfterSearch
+ HWL ME_49918002008F // MainMenu
  )
  ; // Attributes
  CONST extprop:rc:SelfName 'ProfilersManager'
@@ -372,12 +372,12 @@ ref; // ME_49917FC60368 InsProfilersManager
  : Parent WL 'ME_47E9EEC60260' '47E9EEC60260.pas.ms.script' // Model
  ;
  : Children
-   Seq: ( ME_49917E8F0165 // InsProfiler
- ME_49917ECE006F // IprDocument
- ME_49917F690172 // IprQueryCard
- ME_49917F810208 // IprListAfterSearch
- ME_49917F960107 // IprMainMenu
- ME_49917FC60368 // InsProfilersManager
+   Seq: ( HWL ME_49917E8F0165 // InsProfiler
+ HWL ME_49917ECE006F // IprDocument
+ HWL ME_49917F690172 // IprQueryCard
+ HWL ME_49917F810208 // IprListAfterSearch
+ HWL ME_49917F960107 // IprMainMenu
+ HWL ME_49917FC60368 // InsProfilersManager
  )
  ; // Children
  : Depends

@@ -15,7 +15,7 @@ FORWARD ME_4F2BF13800A5
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4F2BF13800A5 // MnsEditionsHolder
+ : Parent HWL ME_4F2BF13800A5 // MnsEditionsHolder
  ;
  : Target WL 'ME_45EEB6520191' '4570511E038A.pas.ms.script' // Document
  ;
@@ -32,7 +32,7 @@ ref; // ME_4DDCE9110130 RightEdition
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4F2BF13800A5 // MnsEditionsHolder
+ : Parent HWL ME_4F2BF13800A5 // MnsEditionsHolder
  ;
  : Target WL 'ME_45EEB6520191' '4570511E038A.pas.ms.script' // Document
  ;
@@ -48,11 +48,11 @@ ref; // ME_4F2BF187026F LeftEdition
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4DDCD71E027C // ChangesBetweenEditionsInterfaces
+ : Parent HWL ME_4DDCD71E027C // ChangesBetweenEditionsInterfaces
  ;
  : Attributes
-   Seq: ( ME_4DDCE9110130 // RightEdition
- ME_4F2BF187026F // LeftEdition
+   Seq: ( HWL ME_4DDCE9110130 // RightEdition
+ HWL ME_4F2BF187026F // LeftEdition
  )
  ; // Attributes
 
@@ -68,7 +68,7 @@ FORWARD ME_4DDCD7420084
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4DDCD7420084 // IdsChangesBetweenEditions
+ : Parent HWL ME_4DDCD7420084 // IdsChangesBetweenEditions
  ;
  : Target WL 'ME_47C6A603009D' '47C5207602D1.pas.ms.script' // InevDocumentContainer
  ;
@@ -77,7 +77,7 @@ FORWARD ME_4DDCD7420084
 ref; // ME_4DDD0C170344 DocumentContainer
 
 : ME_4DDCE9110130_ME_4DDCD7420084
- : Original ME_4DDCE9110130 // RightEdition
+ : Original HWL ME_4DDCE9110130 // RightEdition
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
@@ -92,7 +92,7 @@ ref; // ME_4DDCE9110130_ME_4DDCD7420084 RightEdition
 ref; // ME_4DF9D63B0360_ME_4DDCD7420084 DocInfo
 
 : ME_4F2BF187026F_ME_4DDCD7420084
- : Original ME_4F2BF187026F // LeftEdition
+ : Original HWL ME_4F2BF187026F // LeftEdition
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
@@ -107,15 +107,15 @@ ref; // ME_4F2BF187026F_ME_4DDCD7420084 LeftEdition
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4DDCD71E027C // ChangesBetweenEditionsInterfaces
+ : Parent HWL ME_4DDCD71E027C // ChangesBetweenEditionsInterfaces
  ;
  : Implements
    Seq: ( WL 'ME_4ED8F1860003' '4B1FC2FF03CD.pas.ms.script' // MdeDocInfoProvider
- ME_4F2BF13800A5 // MnsEditionsHolder
+ HWL ME_4F2BF13800A5 // MnsEditionsHolder
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_4DDD0C170344 // DocumentContainer
+   Seq: ( HWL ME_4DDD0C170344 // DocumentContainer
  )
  ; // Attributes
  : Implemented
@@ -139,7 +139,7 @@ FORWARD ME_4DDCD8CD008D
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4DDCD8CD008D // InsChangesBetweenEditionsInfo
+ : Parent HWL ME_4DDCD8CD008D // InsChangesBetweenEditionsInfo
  ;
  : Target WL 'ME_4D78D8200190' '4570511E038A.pas.ms.script' // DiffDocDataProvider
  ;
@@ -148,14 +148,14 @@ FORWARD ME_4DDCD8CD008D
 ref; // ME_4DDCD8ED00A5 DiffProvider
 
 : ME_4DDCE9110130_ME_4DDCD8CD008D
- : Original ME_4DDCE9110130 // RightEdition
+ : Original HWL ME_4DDCE9110130 // RightEdition
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4DDCE9110130_ME_4DDCD8CD008D RightEdition
 
 : ME_4F2BF187026F_ME_4DDCD8CD008D
- : Original ME_4F2BF187026F // LeftEdition
+ : Original HWL ME_4F2BF187026F // LeftEdition
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
@@ -170,14 +170,14 @@ ref; // ME_4F2BF187026F_ME_4DDCD8CD008D LeftEdition
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4DDCD71E027C // ChangesBetweenEditionsInterfaces
+ : Parent HWL ME_4DDCD71E027C // ChangesBetweenEditionsInterfaces
  ;
  : Implements
-   Seq: ( ME_4F2BF13800A5 // MnsEditionsHolder
+   Seq: ( HWL ME_4F2BF13800A5 // MnsEditionsHolder
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_4DDCD8ED00A5 // DiffProvider
+   Seq: ( HWL ME_4DDCD8ED00A5 // DiffProvider
  )
  ; // Attributes
  : Implemented
@@ -200,9 +200,9 @@ FORWARD ME_4DDCF62C01DF
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4DDCF62C01DF // IsdsChangesBetweenEditionsData
+ : Parent HWL ME_4DDCF62C01DF // IsdsChangesBetweenEditionsData
  ;
- : Target ME_4DDCD8CD008D // InsChangesBetweenEditionsInfo
+ : Target HWL ME_4DDCD8CD008D // InsChangesBetweenEditionsInfo
  ;
  CONST "pm" false
 
@@ -223,14 +223,14 @@ ref; // ME_4995768F007A_ME_4DDCF62C01DF Clone
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4DDCD71E027C // ChangesBetweenEditionsInterfaces
+ : Parent HWL ME_4DDCD71E027C // ChangesBetweenEditionsInterfaces
  ;
  : Inherits
    Seq: ( WL 'ME_47F378D3029B' '4683F37902CF.pas.ms.script' // IvcmData
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_4DDCF63C0353 // Info
+   Seq: ( HWL ME_4DDCF63C0353 // Info
  )
  ; // Attributes
  : Implemented
@@ -247,14 +247,14 @@ FORWARD ME_4DDCD72C006B
 FORWARD ME_4DDCD7520351
 
 : ME_4DDCE9110130_ME_4DDCD7520351
- : Original ME_4DDCE9110130 // RightEdition
+ : Original HWL ME_4DDCE9110130 // RightEdition
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4DDCE9110130_ME_4DDCD7520351 RightEdition
 
 : ME_4DDD0C170344_ME_4DDCD7520351
- : Original ME_4DDD0C170344 // DocumentContainer
+ : Original HWL ME_4DDD0C170344 // DocumentContainer
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
@@ -269,7 +269,7 @@ ref; // ME_4DDD0C170344_ME_4DDCD7520351 DocumentContainer
 ref; // ME_4DF9D63B0360_ME_4DDCD7520351 DocInfo
 
 : ME_4F2BF187026F_ME_4DDCD7520351
- : Original ME_4F2BF187026F // LeftEdition
+ : Original HWL ME_4F2BF187026F // LeftEdition
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
@@ -283,10 +283,10 @@ ref; // ME_4F2BF187026F_ME_4DDCD7520351 LeftEdition
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4DDCD72C006B // IsdsChangesBetweenEditions
+ : Parent HWL ME_4DDCD72C006B // IsdsChangesBetweenEditions
  ;
  : Inherits
-   Seq: ( ME_4DDCD7420084 // IdsChangesBetweenEditions
+   Seq: ( HWL ME_4DDCD7420084 // IdsChangesBetweenEditions
  )
  ; // Inherits
  : Implemented
@@ -325,7 +325,7 @@ ref; // ME_4ED906420134_ME_4DDCD72C006B EditionsList
  %SUMMARY 'Прецедент ОИД' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4DDCD71E027C // ChangesBetweenEditionsInterfaces
+ : Parent HWL ME_4DDCD71E027C // ChangesBetweenEditionsInterfaces
  ;
  : Implements
    Seq: ( WL 'ME_4ED8ECEE00EE' '491B305A0096.pas.ms.script' // IsdsPrimDocument
@@ -333,7 +333,7 @@ ref; // ME_4ED906420134_ME_4DDCD72C006B EditionsList
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_4DDCD7520351 // Changes
+   Seq: ( HWL ME_4DDCD7520351 // Changes
  )
  ; // Attributes
  : Implemented
@@ -356,11 +356,11 @@ ref; // ME_4DDCD72C006B IsdsChangesBetweenEditions
  : Parent WL 'ME_4DDCD6FF0208' '4DDCD6FF0208.pas.ms.script' // ChangesBetweenEditions$Domain
  ;
  : Children
-   Seq: ( ME_4F2BF13800A5 // MnsEditionsHolder
- ME_4DDCD7420084 // IdsChangesBetweenEditions
- ME_4DDCD8CD008D // InsChangesBetweenEditionsInfo
- ME_4DDCF62C01DF // IsdsChangesBetweenEditionsData
- ME_4DDCD72C006B // IsdsChangesBetweenEditions
+   Seq: ( HWL ME_4F2BF13800A5 // MnsEditionsHolder
+ HWL ME_4DDCD7420084 // IdsChangesBetweenEditions
+ HWL ME_4DDCD8CD008D // InsChangesBetweenEditionsInfo
+ HWL ME_4DDCF62C01DF // IsdsChangesBetweenEditionsData
+ HWL ME_4DDCD72C006B // IsdsChangesBetweenEditions
  )
  ; // Children
  : Depends

@@ -14,7 +14,7 @@ FORWARD ME_500004A60200
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_500004A60200 // MakeControls
+ : Parent HWL ME_500004A60200 // MakeControls
  ;
 
 ref; // ME_500004AD033A DoIt
@@ -27,10 +27,10 @@ ref; // ME_500004AD033A DoIt
  CONST Kind kind_NormalClass
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_500004240202 // vcmLayout
+ : Parent HWL ME_500004240202 // vcmLayout
  ;
  : Operations
-   Seq: ( ME_500004AD033A // DoIt
+   Seq: ( HWL ME_500004AD033A // DoIt
  )
  ; // Operations
 
@@ -44,7 +44,7 @@ FORWARD ME_5000105E028C
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_5000105E028C // InitEntities
+ : Parent HWL ME_5000105E028C // InitEntities
  ;
 
 ref; // ME_5000106F02B3 DoIt
@@ -58,10 +58,10 @@ ref; // ME_5000106F02B3 DoIt
  %SUMMARY 'инициализирует сущности не из dfm.'#13#10'             Нужно для перекрытия потомками при переносе VCM на модель' ;
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_500004240202 // vcmLayout
+ : Parent HWL ME_500004240202 // vcmLayout
  ;
  : Operations
-   Seq: ( ME_5000106F02B3 // DoIt
+   Seq: ( HWL ME_5000106F02B3 // DoIt
  )
  ; // Operations
 
@@ -93,7 +93,7 @@ ref; // ME_500010B503CA aNew
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_5000109C01F9 // SignalDataSourceChanged
+ : Parent HWL ME_5000109C01F9 // SignalDataSourceChanged
  ;
  : Parameters
    Seq: ( ME_500010B50393 // anOld
@@ -111,10 +111,10 @@ ref; // ME_500010A903B1 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_500004240202 // vcmLayout
+ : Parent HWL ME_500004240202 // vcmLayout
  ;
  : Operations
-   Seq: ( ME_500010A903B1 // DoIt
+   Seq: ( HWL ME_500010A903B1 // DoIt
  )
  ; // Operations
 
@@ -128,7 +128,7 @@ FORWARD ME_501174B10018
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_501174B10018 // GetIsMainObjectForm
+ : Parent HWL ME_501174B10018 // GetIsMainObjectForm
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -143,10 +143,10 @@ ref; // ME_501174C30385 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_500004240202 // vcmLayout
+ : Parent HWL ME_500004240202 // vcmLayout
  ;
  : Operations
-   Seq: ( ME_501174C30385 // DoIt
+   Seq: ( HWL ME_501174C30385 // DoIt
  )
  ; // Operations
 
@@ -159,7 +159,7 @@ ref; // ME_501174B10018 GetIsMainObjectForm
  %SUMMARY 'Установить контролам ресурсы для интернационализации' ;
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_500004240202 // vcmLayout
+ : Parent HWL ME_500004240202 // vcmLayout
  ;
 
 ref; // ME_4B62D10B031B SetControlsResources
@@ -171,7 +171,7 @@ ref; // ME_4B62D10B031B SetControlsResources
  %SUMMARY 'Вызывается после того как все операции зарегистрированы' ;
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_500004240202 // vcmLayout
+ : Parent HWL ME_500004240202 // vcmLayout
  ;
 
 ref; // ME_4AE1948900DE EntitiesInited
@@ -183,7 +183,7 @@ ref; // ME_4AE1948900DE EntitiesInited
  %SUMMARY 'Процедура инициализации контролов. Для перекрытия в потомках' ;
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_500004240202 // vcmLayout
+ : Parent HWL ME_500004240202 // vcmLayout
  ;
 
 ref; // ME_4A8E8F2E0195 InitControls
@@ -213,7 +213,7 @@ ref; // ME_497469EF0354 aNew
  %SUMMARY 'Изменился источник данных. Для перекрытия в потомках' ;
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_500004240202 // vcmLayout
+ : Parent HWL ME_500004240202 // vcmLayout
  ;
  : Parameters
    Seq: ( ME_497469EF0306 // anOld
@@ -231,17 +231,17 @@ ref; // ME_497469C90140 NotifyDataSourceChanged
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_5000041101C8 // Layouts
+ : Parent HWL ME_5000041101C8 // Layouts
  ;
  : Operations
-   Seq: ( ME_500004A60200 // MakeControls
- ME_5000105E028C // InitEntities
- ME_5000109C01F9 // SignalDataSourceChanged
- ME_501174B10018 // GetIsMainObjectForm
- ME_4B62D10B031B // SetControlsResources
- ME_4AE1948900DE // EntitiesInited
- ME_4A8E8F2E0195 // InitControls
- ME_497469C90140 // NotifyDataSourceChanged
+   Seq: ( HWL ME_500004A60200 // MakeControls
+ HWL ME_5000105E028C // InitEntities
+ HWL ME_5000109C01F9 // SignalDataSourceChanged
+ HWL ME_501174B10018 // GetIsMainObjectForm
+ HWL ME_4B62D10B031B // SetControlsResources
+ HWL ME_4AE1948900DE // EntitiesInited
+ HWL ME_4A8E8F2E0195 // InitControls
+ HWL ME_497469C90140 // NotifyDataSourceChanged
  )
  ; // Operations
  CONST "needs InstanceR" true
@@ -261,7 +261,7 @@ ref; // ME_500004240202 vcmLayout
  : Parent WL 'ME_4E13416D0227' '4E13416D0227.pas.ms.script' // VCM$Visual
  ;
  : Children
-   Seq: ( ME_500004240202 // vcmLayout
+   Seq: ( HWL ME_500004240202 // vcmLayout
  )
  ; // Children
  : Depends

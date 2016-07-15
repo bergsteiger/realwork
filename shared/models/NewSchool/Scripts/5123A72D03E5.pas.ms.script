@@ -4,85 +4,7 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 FORWARD ME_5123A72D03E5
 
-FORWARD ME_5123A74700E2
-
-: ME_7368BD68B67A
- CONST UID '7368BD68B67A'
- CONST Name 'TvcmApplicationRef'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Typedef ;
- CONST Kind kind_NormalClass
- %SUMMARY '—сылка на приложение дл€ DesignTime редакторов' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_5123A74700E2 // AdminTest
- ;
- : Inherits
-   Seq: ( ME_5123A74700E2 // AdminTest
- )
- ; // Inherits
- CONST extprop:rc:SelfName 'ApplicationRef'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_7368BD68B67A TvcmApplicationRef
-
 FORWARD ME_5123A75E00D5
-
-: ME_5123A769004F
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_5123A74700E2 // AdminTest
- ;
- : Target ME_5123A75E00D5 // toKAdmin
- ;
-
-ref; // ME_5123A769004F 
-
-: ME_4F79BCC902C5_ME_5123A74700E2
- : Original WL 'ME_4F79BCC902C5' '51309A4A02FB.pas.ms.script' // CalcBatchMode
- ;
- CONST OpKind opkind_Implemented
- CONST "is static" true
-ref; // ME_4F79BCC902C5_ME_5123A74700E2 CalcBatchMode
-
-: ME_5123A74700E2
- CONST UID '5123A74700E2'
- CONST Name 'AdminTest'
- CONST Class class_Class
- : Stereotype st_VCMTestApplication ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_5123A72D03E5 // Admin
- ;
- : Inherits
-   Seq: ( WL 'ME_4AA517B5037A' '4AA5181600DC.pas.ms.script' // AdminApp
- )
- ; // Inherits
- : Implements
-   Seq: ( WL 'ME_4F79CD9F015F' '4F79CD2603DF.pas.ms.script' // VCMAppTester
- )
- ; // Implements
- : Implemented
-   Seq: ( ME_4F79BCC902C5_ME_5123A74700E2 // CalcBatchMode
- )
- ; // Implemented
- : Children
-   Seq: ( ME_7368BD68B67A // TvcmApplicationRef
- )
- ; // Children
- : Dependencies
-   Seq: ( ME_5123A769004F // toKAdmin
- )
- ; // Dependencies
- CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\AdminTestRes.pas'
- CONST extprop:pas:TypeName 'TAdminTestRes'
- CONST extprop:rc:SelfName 'AdminTestRes'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'AdminTestRes'
-
-ref; // ME_5123A74700E2 AdminTest
 
 : ME_4B7AB0B6016E_ME_5123A75E00D5
  : Original WL 'ME_4B7AB0B6016E' '4B2A112B011A.pas.ms.script' // CommandLineKey
@@ -110,7 +32,7 @@ ref; // ME_4B7C0B670215_ME_5123A75E00D5 ResultsPage
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_5123A72D03E5 // Admin
+ : Parent HWL ME_5123A72D03E5 // Admin
  ;
  : Inherits
    Seq: ( WL 'ME_4B7AAC7A031D' '4B2A112B011A.pas.ms.script' // TTestResultsPlace
@@ -139,8 +61,8 @@ ref; // ME_5123A75E00D5 toKAdmin
  : Parent WL 'ME_5123A6AF023B' '5123A6AF023B.pas.ms.script' // F1 ≈жедневные тесты јдминистратора
  ;
  : Children
-   Seq: ( ME_5123A74700E2 // AdminTest
- ME_5123A75E00D5 // toKAdmin
+   Seq: ( WL 'ME_5123A74700E2' '5123A74700E2.pas.ms.script' // AdminTest
+ HWL ME_5123A75E00D5 // toKAdmin
  )
  ; // Children
  : Depends

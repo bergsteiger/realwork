@@ -17,7 +17,7 @@ FORWARD ME_49E5FEA40276
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_49E5FEA40276 // IevAddressList
+ : Parent HWL ME_49E5FEA40276 // IevAddressList
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -34,7 +34,7 @@ FORWARD ME_49E5FF140260
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_49E5FF140260 // Item
+ : Parent HWL ME_49E5FF140260 // Item
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -50,12 +50,12 @@ ref; // ME_49E5FF330015 anIndex
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_49E5FEA40276 // IevAddressList
+ : Parent HWL ME_49E5FEA40276 // IevAddressList
  ;
  : Target WL 'ME_48F4940C01C0' '4A23935A0282.pas.ms.script' // TevAddress
  ;
  : Attributes
-   Seq: ( ME_49E5FF330015 // anIndex
+   Seq: ( HWL ME_49E5FF330015 // anIndex
  )
  ; // Attributes
  CONST "is default" true
@@ -72,7 +72,7 @@ FORWARD ME_49E5FF4B0102
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_49E5FF4B0102 // Name
+ : Parent HWL ME_49E5FF4B0102 // Name
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -88,12 +88,12 @@ ref; // ME_49E5FF62008B anIndex
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_49E5FEA40276 // IevAddressList
+ : Parent HWL ME_49E5FEA40276 // IevAddressList
  ;
  : Target WL 'ME_47209E670266' '4678193C009C.pas.ms.script' // Tl3PCharLen
  ;
  : Attributes
-   Seq: ( ME_49E5FF62008B // anIndex
+   Seq: ( HWL ME_49E5FF62008B // anIndex
  )
  ; // Attributes
  CONST "pm" true
@@ -116,7 +116,7 @@ ref; // ME_49E5FEBB02E3 anAddress
  %SUMMARY 'Добавляет еще один адрес' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_49E5FEA40276 // IevAddressList
+ : Parent HWL ME_49E5FEA40276 // IevAddressList
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -143,7 +143,7 @@ ref; // ME_49E5FECB0389 anAddress
  %SUMMARY 'Удаляет адрес' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_49E5FEA40276 // IevAddressList
+ : Parent HWL ME_49E5FEA40276 // IevAddressList
  ;
  : Parameters
    Seq: ( ME_49E5FECB0389 // anAddress
@@ -177,7 +177,7 @@ ref; // ME_49E5FEDF0379 aNewAddress
  %SUMMARY 'Модифицирует адрес' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_49E5FEA40276 // IevAddressList
+ : Parent HWL ME_49E5FEA40276 // IevAddressList
  ;
  : Parameters
    Seq: ( ME_49E5FEDF0350 // anOldAddress
@@ -194,7 +194,7 @@ ref; // ME_49E5FED201A4 Modify
  %SUMMARY 'Очищает список адресов' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_49E5FEA40276 // IevAddressList
+ : Parent HWL ME_49E5FEA40276 // IevAddressList
  ;
 
 ref; // ME_49E5FEE50350 Clear
@@ -209,19 +209,19 @@ ref; // ME_49E5FEE50350 Clear
  %SUMMARY 'Список адресов' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_49E5FCDB02E9 // IevHyperlink
+ : Parent HWL ME_49E5FCDB02E9 // IevHyperlink
  ;
  : Attributes
-   Seq: ( ME_49E5FEF30268 // Count
- ME_49E5FF140260 // Item
- ME_49E5FF4B0102 // Name
+   Seq: ( HWL ME_49E5FEF30268 // Count
+ HWL ME_49E5FF140260 // Item
+ HWL ME_49E5FF4B0102 // Name
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_49E5FEB103C3 // Add
- ME_49E5FEC301F8 // Delete
- ME_49E5FED201A4 // Modify
- ME_49E5FEE50350 // Clear
+   Seq: ( HWL ME_49E5FEB103C3 // Add
+ HWL ME_49E5FEC301F8 // Delete
+ HWL ME_49E5FED201A4 // Modify
+ HWL ME_49E5FEE50350 // Clear
  )
  ; // Operations
  CONST extprop:rc:SelfName 'AddressList'
@@ -239,7 +239,7 @@ FORWARD ME_49E5FF8800A0
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_49E5FF8800A0 // IevAddressHolder
+ : Parent HWL ME_49E5FF8800A0 // IevAddressHolder
  ;
  : Target WL 'ME_534572370056' '47913B47006E.pas.ms.script' // Tl3Tag
  ;
@@ -256,10 +256,10 @@ ref; // ME_49E604AD0303 Address
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_49E5FCDB02E9 // IevHyperlink
+ : Parent HWL ME_49E5FCDB02E9 // IevHyperlink
  ;
  : Attributes
-   Seq: ( ME_49E604AD0303 // Address
+   Seq: ( HWL ME_49E604AD0303 // Address
  )
  ; // Attributes
  CONST extprop:rc:SelfName 'AddressHolder'
@@ -276,7 +276,7 @@ ref; // ME_49E5FF8800A0 IevAddressHolder
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_49E5FCDB02E9 // IevHyperlink
+ : Parent HWL ME_49E5FCDB02E9 // IevHyperlink
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -292,7 +292,7 @@ ref; // ME_49E5FD3C021B ID
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_49E5FCDB02E9 // IevHyperlink
+ : Parent HWL ME_49E5FCDB02E9 // IevHyperlink
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -308,7 +308,7 @@ ref; // ME_4A72AAF50077 FromDocumentExternalHandle
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_49E5FCDB02E9 // IevHyperlink
+ : Parent HWL ME_49E5FCDB02E9 // IevHyperlink
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -324,7 +324,7 @@ ref; // ME_4A72ABEF02AE TargetDocumentID
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_49E5FCDB02E9 // IevHyperlink
+ : Parent HWL ME_49E5FCDB02E9 // IevHyperlink
  ;
  : Target WL 'ME_47209E670266' '4678193C009C.pas.ms.script' // Tl3PCharLen
  ;
@@ -341,7 +341,7 @@ ref; // ME_4A72B4140281 Name
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_49E5FCDB02E9 // IevHyperlink
+ : Parent HWL ME_49E5FCDB02E9 // IevHyperlink
  ;
  : Target WL 'ME_47C520D80305' '47C5207602D1.pas.ms.script' // InevPara
  ;
@@ -357,9 +357,9 @@ ref; // ME_49E6095100C3 Para
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_49E5FCDB02E9 // IevHyperlink
+ : Parent HWL ME_49E5FCDB02E9 // IevHyperlink
  ;
- : Target ME_49E5FEA40276 // IevAddressList
+ : Target HWL ME_49E5FEA40276 // IevAddressList
  ;
  CONST "pm" true
 
@@ -374,7 +374,7 @@ ref; // ME_49E609B701E8 AddressList
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_49E5FCDB02E9 // IevHyperlink
+ : Parent HWL ME_49E5FCDB02E9 // IevHyperlink
  ;
  : Target WL 'ME_48F4940C01C0' '4A23935A0282.pas.ms.script' // TevAddress
  ;
@@ -391,7 +391,7 @@ ref; // ME_49E609D303A4 Address
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_49E5FCDB02E9 // IevHyperlink
+ : Parent HWL ME_49E5FCDB02E9 // IevHyperlink
  ;
  : Target WL 'ME_47209E670266' '4678193C009C.pas.ms.script' // Tl3PCharLen
  ;
@@ -408,7 +408,7 @@ ref; // ME_49E609FD0318 URL
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_49E5FCDB02E9 // IevHyperlink
+ : Parent HWL ME_49E5FCDB02E9 // IevHyperlink
  ;
  : Target WL 'ME_47209E670266' '4678193C009C.pas.ms.script' // Tl3PCharLen
  ;
@@ -425,7 +425,7 @@ ref; // ME_49E60A1B02C4 Hint
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_49E5FCDB02E9 // IevHyperlink
+ : Parent HWL ME_49E5FCDB02E9 // IevHyperlink
  ;
  : Target WL 'ME_47C7F2A703C6' '469D0AC7005E.pas.ms.script' // LinkViewKind
  ;
@@ -440,7 +440,7 @@ ref; // ME_49E60A650155 Kind
  %SUMMARY 'Проверяет существует ли данная ссылка' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_49E5FCDB02E9 // IevHyperlink
+ : Parent HWL ME_49E5FCDB02E9 // IevHyperlink
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -454,7 +454,7 @@ ref; // ME_49E5FCF403BB Exists
  %SUMMARY 'Вставляет новую ссылку' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_49E5FCDB02E9 // IevHyperlink
+ : Parent HWL ME_49E5FCDB02E9 // IevHyperlink
  ;
 
 ref; // ME_49E5FD13001E Insert
@@ -466,7 +466,7 @@ ref; // ME_49E5FD13001E Insert
  %SUMMARY 'Удаляет гипертекстовую ссылку' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_49E5FCDB02E9 // IevHyperlink
+ : Parent HWL ME_49E5FCDB02E9 // IevHyperlink
  ;
 
 ref; // ME_49E5FD1D0339 Delete
@@ -477,7 +477,7 @@ ref; // ME_49E5FD1D0339 Delete
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_49E5FCDB02E9 // IevHyperlink
+ : Parent HWL ME_49E5FCDB02E9 // IevHyperlink
  ;
  : Target WL 'ME_534572370056' '47913B47006E.pas.ms.script' // Tl3Tag
  ;
@@ -494,31 +494,31 @@ ref; // ME_5063FF170259 GetHyperlink
  %SUMMARY 'Гипертекстовая ссылка' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4A251D6E00BD // nevNavigation
+ : Parent HWL ME_4A251D6E00BD // nevNavigation
  ;
  : Attributes
-   Seq: ( ME_49E5FD3C021B // ID
- ME_4A72AAF50077 // FromDocumentExternalHandle
- ME_4A72ABEF02AE // TargetDocumentID
- ME_4A72B4140281 // Name
- ME_49E6095100C3 // Para
- ME_49E609B701E8 // AddressList
- ME_49E609D303A4 // Address
- ME_49E609FD0318 // URL
- ME_49E60A1B02C4 // Hint
- ME_49E60A650155 // Kind
+   Seq: ( HWL ME_49E5FD3C021B // ID
+ HWL ME_4A72AAF50077 // FromDocumentExternalHandle
+ HWL ME_4A72ABEF02AE // TargetDocumentID
+ HWL ME_4A72B4140281 // Name
+ HWL ME_49E6095100C3 // Para
+ HWL ME_49E609B701E8 // AddressList
+ HWL ME_49E609D303A4 // Address
+ HWL ME_49E609FD0318 // URL
+ HWL ME_49E60A1B02C4 // Hint
+ HWL ME_49E60A650155 // Kind
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_49E5FCF403BB // Exists
- ME_49E5FD13001E // Insert
- ME_49E5FD1D0339 // Delete
- ME_5063FF170259 // GetHyperlink
+   Seq: ( HWL ME_49E5FCF403BB // Exists
+ HWL ME_49E5FD13001E // Insert
+ HWL ME_49E5FD1D0339 // Delete
+ HWL ME_5063FF170259 // GetHyperlink
  )
  ; // Operations
  : Children
-   Seq: ( ME_49E5FEA40276 // IevAddressList
- ME_49E5FF8800A0 // IevAddressHolder
+   Seq: ( HWL ME_49E5FEA40276 // IevAddressList
+ HWL ME_49E5FF8800A0 // IevAddressHolder
  )
  ; // Children
  CONST extprop:rc:SelfName 'Hyperlink'
@@ -537,7 +537,7 @@ ref; // ME_49E5FCDB02E9 IevHyperlink
  : Parent WL 'ME_4797632D0273' '4797632D0273.pas.ms.script' // Everest
  ;
  : Children
-   Seq: ( ME_49E5FCDB02E9 // IevHyperlink
+   Seq: ( HWL ME_49E5FCDB02E9 // IevHyperlink
  )
  ; // Children
  : Depends

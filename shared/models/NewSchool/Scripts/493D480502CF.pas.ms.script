@@ -1,0 +1,92 @@
+// TdsDocumentWithFlash 493D480502CF ViewAreaControllerImp Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_493D480502CF
+
+: ME_493D64A6031D
+ CONST UID '493D64A6031D'
+ CONST Name 'FormDataSourceType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent HWL ME_493D480502CF // TdsDocumentWithFlash
+ ;
+ : Target WL 'ME_4937D1550372' '491B305A0096.pas.ms.script' // IdsDocumentWithFlash
+ ;
+
+ref; // ME_493D64A6031D FormDataSourceType
+
+: ME_49788A7102A0
+ CONST UID '49788A7102A0'
+ CONST Class class_Attribute
+ : Stereotype st_UseCase::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent HWL ME_493D480502CF // TdsDocumentWithFlash
+ ;
+ : Target WL 'ME_45EEB6520191' '4570511E038A.pas.ms.script' // Document
+ ;
+
+ref; // ME_49788A7102A0 
+
+: ME_493D48C10397
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_493D480502CF // TdsDocumentWithFlash
+ ;
+ : Target WL 'ME_47F61C4C0040' '47F260DC003F.pas.ms.script' // nsDocumentTools
+ ;
+
+ref; // ME_493D48C10397 
+
+: ME_491476B001D3_ME_493D480502CF
+ : Original WL 'ME_491476B001D3' '47D0E1500033.pas.ms.script' // MakeDisplayName
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_491476B001D3_ME_493D480502CF MakeDisplayName
+
+: ME_493D480502CF
+ CONST UID '493D480502CF'
+ CONST Name 'TdsDocumentWithFlash'
+ CONST Class class_Class
+ : Stereotype st_ViewAreaControllerImp ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'БОФ документа-схемы' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_493D465902FA' '493D465902FA.pas.ms.script' // DocumentAndList
+ ;
+ : Inherits
+   Seq: ( WL 'ME_491D64430036' '491D64430036.pas.ms.script' // dsDocument
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4937D1550372' '491B305A0096.pas.ms.script' // IdsDocumentWithFlash
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( HWL ME_493D64A6031D // FormDataSourceType
+ HWL ME_49788A7102A0 // 
+ )
+ ; // Attributes
+ : Overridden
+   Seq: ( ME_491476B001D3_ME_493D480502CF // MakeDisplayName
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_493D48C10397 // nsDocumentTools
+ )
+ ; // Dependencies
+ CONST "author" 'Морозов М.А.'
+ CONST "no hands" true
+ CONST "started" '2008/06/19 11:30:02'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Business\Document\dsDocumentWithFlash.pas'
+ CONST extprop:rc:SelfName 'dsDocumentWithFlash'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'dsDocumentWithFlash'
+
+ref; // ME_493D480502CF TdsDocumentWithFlash

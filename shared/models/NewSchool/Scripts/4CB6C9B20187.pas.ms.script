@@ -1,0 +1,137 @@
+// TdsCreateFilter 4CB6C9B20187 ViewAreaControllerImp Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4CB6C9B20187
+
+: ME_4CB6C9D601AB
+ CONST UID '4CB6C9D601AB'
+ CONST Name 'FormDataSourceType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent HWL ME_4CB6C9B20187 // TdsCreateFilter
+ ;
+ : Target WL 'ME_4CB6C915011C' '4CCAACC703B8.pas.ms.script' // IdsCreateFilter
+ ;
+
+ref; // ME_4CB6C9D601AB FormDataSourceType
+
+: ME_4CB6CB65021A
+ CONST UID '4CB6CB65021A'
+ CONST Name 'InitDataType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent HWL ME_4CB6C9B20187 // TdsCreateFilter
+ ;
+ : Target WL 'ME_4922D91D0027' '4922BFA000DD.pas.ms.script' // IdeFilter
+ ;
+
+ref; // ME_4CB6CB65021A InitDataType
+
+: ME_4CB6D6D600FB
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4CB6C9B20187 // TdsCreateFilter
+ ;
+ : Target WL 'ME_4AE864B801C5' '4EEA07CA0360.pas.ms.script' // nsQueryUtils
+ ;
+
+ref; // ME_4CB6D6D600FB 
+
+: ME_4CB6D6F20206
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4CB6C9B20187 // TdsCreateFilter
+ ;
+ : Target WL 'ME_4CAC5BD701BF' '4CAC5A7402DE.pas.ms.script' // TnsFiltersContainer
+ ;
+
+ref; // ME_4CB6D6F20206 
+
+: ME_50B366000231
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4CB6C9B20187 // TdsCreateFilter
+ ;
+ : Target WL 'ME_4A6854C70390' '47F2170002B2.pas.ms.script' // nsTypes
+ ;
+
+ref; // ME_50B366000231 
+
+: ME_50B3665603B0
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4CB6C9B20187 // TdsCreateFilter
+ ;
+ : Target WL 'ME_48FF556602BA' '48F747EC0073.pas.ms.script' // DataAdapter
+ ;
+
+ref; // ME_50B3665603B0 
+
+: ME_4CB6C9330040_ME_4CB6C9B20187
+ : Original WL 'ME_4CB6C9330040' '4CCAACC703B8.pas.ms.script' // Name
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_4CB6C9330040_ME_4CB6C9B20187 Name
+
+: ME_4CB6C9490358_ME_4CB6C9B20187
+ : Original WL 'ME_4CB6C9490358' '4CCAACC703B8.pas.ms.script' // CreateFilter
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4CB6C9490358_ME_4CB6C9B20187 CreateFilter
+
+: ME_4CB6C966029D_ME_4CB6C9B20187
+ : Original WL 'ME_4CB6C966029D' '4CCAACC703B8.pas.ms.script' // RenameFilter
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4CB6C966029D_ME_4CB6C9B20187 RenameFilter
+
+: ME_4CB6C9B20187
+ CONST UID '4CB6C9B20187'
+ CONST Name 'TdsCreateFilter'
+ CONST Class class_Class
+ : Stereotype st_ViewAreaControllerImp ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4CCAACFB0312' '4CCAACFB0312.pas.ms.script' // Filters
+ ;
+ : Inherits
+   Seq: ( WL 'ME_492ACB4100B2' '47D0E1500033.pas.ms.script' // vcmFormDataSource
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4CB6C915011C' '4CCAACC703B8.pas.ms.script' // IdsCreateFilter
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( HWL ME_4CB6C9D601AB // FormDataSourceType
+ HWL ME_4CB6CB65021A // InitDataType
+ )
+ ; // Attributes
+ : Implemented
+   Seq: ( ME_4CB6C9330040_ME_4CB6C9B20187 // Name
+ ME_4CB6C9490358_ME_4CB6C9B20187 // CreateFilter
+ ME_4CB6C966029D_ME_4CB6C9B20187 // RenameFilter
+ )
+ ; // Implemented
+ : Dependencies
+   Seq: ( ME_4CB6D6D600FB // nsQueryUtils
+ ME_4CB6D6F20206 // TnsFiltersContainer
+ ME_50B366000231 // nsTypes
+ ME_50B3665603B0 // DataAdapter
+ )
+ ; // Dependencies
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Filters\dsCreateFilter.pas'
+ CONST extprop:rc:SelfName 'dsCreateFilter'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'dsCreateFilter'
+
+ref; // ME_4CB6C9B20187 TdsCreateFilter

@@ -1,0 +1,873 @@
+// TvtLabel 4AE8541A01AE GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AE8541A01AE
+
+FORWARD ME_4F2923CF0065
+
+: ME_4F2923E3022B
+ CONST UID '4F2923E3022B'
+ CONST Name 'ddHorizontal'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4F2923CF0065 // TvtDrawDirection
+ ;
+
+ref; // ME_4F2923E3022B ddHorizontal
+
+: ME_4F2923FE001F
+ CONST UID '4F2923FE001F'
+ CONST Name 'ddVertical'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4F2923CF0065 // TvtDrawDirection
+ ;
+
+ref; // ME_4F2923FE001F ddVertical
+
+: ME_4F2923CF0065
+ CONST UID '4F2923CF0065'
+ CONST Name 'TvtDrawDirection'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4AE8541A01AE // TvtLabel
+ ;
+ : Attributes
+   Seq: ( HWL ME_4F2923E3022B // ddHorizontal
+ HWL ME_4F2923FE001F // ddVertical
+ )
+ ; // Attributes
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4F2923CF0065 TvtDrawDirection
+
+FORWARD ME_50253C0401F1
+
+: ME_4F292A6A030D
+ CONST UID '4F292A6A030D'
+ CONST Name '_UnknownIsComponent'
+ CONST Class class_Class
+ : Stereotype st_Define ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_50253C0401F1 // TvtCustomLabelPrim
+ ;
+
+ref; // ME_4F292A6A030D _UnknownIsComponent
+
+: ME_50253C0401F1
+ CONST UID '50253C0401F1'
+ CONST Name 'TvtCustomLabelPrim'
+ CONST Class class_Class
+ : Stereotype st_GuiControl ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4AE8541A01AE // TvtLabel
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47913F970159' '47913B47006E.pas.ms.script' // l3Unknown
+ WL 'ME_4F29268F035C' '4799D29F033F.pas.ms.script' // TCustomLabel
+ )
+ ; // Inherits
+ : Children
+   Seq: ( HWL ME_4F292A6A030D // _UnknownIsComponent
+ )
+ ; // Children
+ CONST "need UC" true
+ CONST extprop:rc:SelfName 'LabelPrim'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_50253C0401F1 TvtCustomLabelPrim
+
+: ME_4F3001650077
+ CONST UID '4F3001650077'
+ CONST Name 'THackLink'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4AE8541A01AE // TvtLabel
+ ;
+ : Inherits
+   Seq: ( WL 'ME_48BBF59C024E' '4799D29F033F.pas.ms.script' // TControlActionLink
+ )
+ ; // Inherits
+ CONST extprop:rc:SelfName 'HackLink'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4F3001650077 THackLink
+
+FORWARD ME_4F29240F0204
+
+: ME_4F2A579F0395
+ CONST UID '4F2A579F0395'
+ CONST Name 'EndEllipsis'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_4F29240F0204 // TvtCustomLabel
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST Value false
+ : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+ CONST "reads field" true
+ CONST extprop:pas:Value false
+
+ref; // ME_4F2A579F0395 EndEllipsis
+
+: ME_4F292C0E0226
+ CONST UID '4F292C0E0226'
+ CONST Name 'CCaption'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_4F29240F0204 // TvtCustomLabel
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+ CONST "inherits setter from some ancestor" true
+ CONST "needs field" true
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_4F292C0E0226 CCaption
+
+: ME_4F292C9602CF
+ CONST UID '4F292C9602CF'
+ CONST Name 'VerticalAligment'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_4F29240F0204 // TvtCustomLabel
+ ;
+ : Target WL 'ME_467BC89800B9' '469D0AC7005E.pas.ms.script' // VerticalAligment
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_4F292C9602CF VerticalAligment
+
+: ME_4F29378D03C8
+ CONST UID '4F29378D03C8'
+ CONST Name 'f_Canvas'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4F29240F0204 // TvtCustomLabel
+ ;
+ : Target WL 'ME_4F29376B00C7' '473C3BEE0334.pas.ms.script' // Tl3GraphicControlCanvas
+ ;
+
+ref; // ME_4F29378D03C8 f_Canvas
+
+: ME_4F2938060364
+ CONST UID '4F2938060364'
+ CONST Name 'f_InAdjustBounds'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent HWL ME_4F29240F0204 // TvtCustomLabel
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4F2938060364 f_InAdjustBounds
+
+: ME_4F29387A0298
+ CONST UID '4F29387A0298'
+ CONST Name 'DrawDirection'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_4F29240F0204 // TvtCustomLabel
+ ;
+ : Target HWL ME_4F2923CF0065 // TvtDrawDirection
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_4F29387A0298 DrawDirection
+
+: ME_4F2A554F01F4
+ CONST UID '4F2A554F01F4'
+ CONST Name 'Caption'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4F29240F0204 // TvtCustomLabel
+ ;
+ : Target WL 'ME_46A616080197' '4677FBA70343.pas.ms.script' // Tl3DString
+ ;
+ CONST "needs field" true
+ CONST "needs stored directive" true
+ CONST "pm" true
+
+ref; // ME_4F2A554F01F4 Caption
+
+: ME_4F29330D01C2
+ CONST Name 'Msg'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_476F78A602B2' '476F78840219.pas.ms.script' // TMessage
+ ;
+
+ref; // ME_4F29330D01C2 Msg
+
+: ME_4F2932F103B5
+ CONST UID '4F2932F103B5'
+ CONST Name 'WMGetText'
+ CONST Class class_Operation
+ : Stereotype st_message::Operation ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4F29240F0204 // TvtCustomLabel
+ ;
+ : Parameters
+   Seq: ( ME_4F29330D01C2 // Msg
+ )
+ ; // Parameters
+ CONST "Message ID" 'WM_GetText'
+
+ref; // ME_4F2932F103B5 WMGetText
+
+: ME_4F29332D0041
+ CONST Name 'Msg'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_476F78A602B2' '476F78840219.pas.ms.script' // TMessage
+ ;
+
+ref; // ME_4F29332D0041 Msg
+
+: ME_4F2933200190
+ CONST UID '4F2933200190'
+ CONST Name 'WMGetTextLength'
+ CONST Class class_Operation
+ : Stereotype st_message::Operation ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4F29240F0204 // TvtCustomLabel
+ ;
+ : Parameters
+   Seq: ( ME_4F29332D0041 // Msg
+ )
+ ; // Parameters
+ CONST "Message ID" 'WM_GetTextLength'
+
+ref; // ME_4F2933200190 WMGetTextLength
+
+: ME_4F293E510080
+ CONST Name 'Msg'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_476F78A602B2' '476F78840219.pas.ms.script' // TMessage
+ ;
+
+ref; // ME_4F293E510080 Msg
+
+: ME_4F293E2A012A
+ CONST UID '4F293E2A012A'
+ CONST Name 'WMSetText'
+ CONST Class class_Operation
+ : Stereotype st_message::Operation ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4F29240F0204 // TvtCustomLabel
+ ;
+ : Parameters
+   Seq: ( ME_4F293E510080 // Msg
+ )
+ ; // Parameters
+ CONST "Message ID" 'WM_SetText'
+
+ref; // ME_4F293E2A012A WMSetText
+
+: ME_4F2A51A101EE
+ CONST Name 'aGUID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_469F3EEF0024' '4AB0C3C60310.pas.ms.script' // TGUID
+ ;
+
+ref; // ME_4F2A51A101EE aGUID
+
+: ME_4F293EBE00D9
+ CONST UID '4F293EBE00D9'
+ CONST Name 'CheckStamp'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4F29240F0204 // TvtCustomLabel
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   Seq: ( ME_4F2A51A101EE // aGUID
+ )
+ ; // Parameters
+ CONST "ifdef" 'DesignTimeLibrary'
+
+ref; // ME_4F293EBE00D9 CheckStamp
+
+: ME_4F2FF7FC03C8
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4F29240F0204 // TvtCustomLabel
+ ;
+ : Target WL 'ME_4CF4D5F9022D' '54B90AC6014B.pas.ms.script' // l3DStr
+ ;
+
+ref; // ME_4F2FF7FC03C8 
+
+: ME_4F300668000C
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4F29240F0204 // TvtCustomLabel
+ ;
+ : Target WL 'ME_47E1227902E1' '47877A6F000A.pas.ms.script' // afwVCL
+ ;
+
+ref; // ME_4F300668000C 
+
+: ME_4F300C5600DA
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4F29240F0204 // TvtCustomLabel
+ ;
+ : Target WL 'ME_46A61216025F' '55C4AEC801CA.pas.ms.script' // TFontStyles
+ ;
+
+ref; // ME_4F300C5600DA 
+
+: ME_4F300CB30148
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4F29240F0204 // TvtCustomLabel
+ ;
+ : Target WL 'ME_47209E670266' '4678193C009C.pas.ms.script' // Tl3PCharLen
+ ;
+
+ref; // ME_4F300CB30148 
+
+: ME_4F30F698003A
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4F29240F0204 // TvtCustomLabel
+ ;
+ : Target WL 'ME_47A066980016' '537B83AD01F0.pas.ms.script' // l3MinMax
+ ;
+
+ref; // ME_4F30F698003A 
+
+: ME_473DAC05025F_ME_4F29240F0204
+ : Original WL 'ME_473DAC05025F' '467823B7002C.pas.ms.script' // CCaption
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_473DAC05025F_ME_4F29240F0204 CCaption
+
+: ME_479731C50290_ME_4F29240F0204
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_479731C50290_ME_4F29240F0204 Cleanup
+
+: ME_47D1602000C6_ME_4F29240F0204
+ : Original WL 'ME_47D1602000C6' '4AB0997B00A2.pas.ms.script' // Create
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_47D1602000C6_ME_4F29240F0204 Create
+
+: ME_4F2A44BC0297_ME_4F29240F0204
+ : Original WL 'ME_4F2A44BC0297' '4799D29F033F.pas.ms.script' // AdjustBounds
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4F2A44BC0297_ME_4F29240F0204 AdjustBounds
+
+: ME_4F2A45C40091_ME_4F29240F0204
+ : Original WL 'ME_4F2A45C40091' '4799D29F033F.pas.ms.script' // GetLabelText
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "ifdef" 'l3HackedVCL'
+ref; // ME_4F2A45C40091_ME_4F29240F0204 GetLabelText
+
+: ME_4F2A461702D8_ME_4F29240F0204
+ : Original WL 'ME_4F2A461702D8' '4799D29F033F.pas.ms.script' // DoDrawText
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4F2A461702D8_ME_4F29240F0204 DoDrawText
+
+: ME_4F2A599E0283_ME_4F29240F0204
+ : Original WL 'ME_4F2A599E0283' '4799D29F033F.pas.ms.script' // SetBounds
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4F2A599E0283_ME_4F29240F0204 SetBounds
+
+: ME_4F29240F0204
+ CONST UID '4F29240F0204'
+ CONST Name 'TvtCustomLabel'
+ CONST Class class_Class
+ : Stereotype st_GuiControl ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4AE8541A01AE // TvtLabel
+ ;
+ : Inherits
+   Seq: ( HWL ME_50253C0401F1 // TvtCustomLabelPrim
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_473DABFA029F' '467823B7002C.pas.ms.script' // IafwTextControl
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( HWL ME_4F2A579F0395 // EndEllipsis
+ HWL ME_4F292C0E0226 // CCaption
+ HWL ME_4F292C9602CF // VerticalAligment
+ HWL ME_4F29378D03C8 // f_Canvas
+ HWL ME_4F2938060364 // f_InAdjustBounds
+ HWL ME_4F29387A0298 // DrawDirection
+ HWL ME_4F2A554F01F4 // Caption
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( HWL ME_4F2932F103B5 // WMGetText
+ HWL ME_4F2933200190 // WMGetTextLength
+ HWL ME_4F293E2A012A // WMSetText
+ HWL ME_4F293EBE00D9 // CheckStamp
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_473DAC05025F_ME_4F29240F0204 // CCaption
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_479731C50290_ME_4F29240F0204 // Cleanup
+ ME_47D1602000C6_ME_4F29240F0204 // Create
+ ME_4F2A44BC0297_ME_4F29240F0204 // AdjustBounds
+ ME_4F2A45C40091_ME_4F29240F0204 // GetLabelText
+ ME_4F2A461702D8_ME_4F29240F0204 // DoDrawText
+ ME_4F2A599E0283_ME_4F29240F0204 // SetBounds
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_4F2FF7FC03C8 // l3DStr
+ ME_4F300668000C // afwVCL
+ ME_4F300C5600DA // TFontStyles
+ ME_4F300CB30148 // Tl3PCharLen
+ ME_4F30F698003A // l3MinMax
+ )
+ ; // Dependencies
+ CONST "need UC" true
+ CONST "no hands" true
+ CONST "started" '03.02.2012'
+ CONST extprop:rc:SelfName 'Label'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4F29240F0204 TvtCustomLabel
+
+FORWARD ME_5703BF610068
+
+: ME_5703BFB901D4
+ CONST UID '5703BFB901D4'
+ CONST Name 'StyleId'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_5703BF610068 // TvtStyledLabel
+ ;
+ : Target WL 'ME_46A107D600F2' '4677FBA70343.pas.ms.script' // Tl3StyleId
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_5703BFB901D4 StyleId
+
+: ME_5703C05700F1
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_5703BF610068 // TvtStyledLabel
+ ;
+ : Target WL 'ME_480DB927035A' '47ECB2870309.pas.ms.script' // TevStyleInterface
+ ;
+
+ref; // ME_5703C05700F1 
+
+: ME_5703C11F028E
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_5703BF610068 // TvtStyledLabel
+ ;
+ : Target WL 'ME_485683750360' '48492FC0029D.pas.ms.script' // TextPara
+ ;
+
+ref; // ME_5703C11F028E 
+
+: ME_5703C1B30268
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_5703BF610068 // TvtStyledLabel
+ ;
+ : Target WL 'ME_47ECB297037D' '47ECB2870309.pas.ms.script' // evStyleTableSpy
+ ;
+
+ref; // ME_5703C1B30268 
+
+: ME_5703C26B01A6
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_5703BF610068 // TvtStyledLabel
+ ;
+ : Target WL 'ME_484D2CBA0213' '484A470100DD.pas.ms.script' // TextStyle
+ ;
+
+ref; // ME_5703C26B01A6 
+
+: ME_467D2CB10135_ME_5703BF610068
+ : Original WL 'ME_467D2CB10135' '467823B7002C.pas.ms.script' // StyleTableChanged
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_467D2CB10135_ME_5703BF610068 StyleTableChanged
+
+: ME_479731C50290_ME_5703BF610068
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_479731C50290_ME_5703BF610068 Cleanup
+
+: ME_47D1602000C6_ME_5703BF610068
+ : Original WL 'ME_47D1602000C6' '4AB0997B00A2.pas.ms.script' // Create
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_47D1602000C6_ME_5703BF610068 Create
+
+: ME_5703BF610068
+ CONST UID '5703BF610068'
+ CONST Name 'TvtStyledLabel'
+ CONST Class class_Class
+ : Stereotype st_GuiControl ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Метка, которая следит за таблицей стилей' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4AE8541A01AE // TvtLabel
+ ;
+ : Inherits
+   Seq: ( HWL ME_4F29240F0204 // TvtCustomLabel
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_467D2C8F0172' '467823B7002C.pas.ms.script' // IafwStyleTableSpy
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( HWL ME_5703BFB901D4 // StyleId
+ )
+ ; // Attributes
+ : Implemented
+   Seq: ( ME_467D2CB10135_ME_5703BF610068 // StyleTableChanged
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_479731C50290_ME_5703BF610068 // Cleanup
+ ME_47D1602000C6_ME_5703BF610068 // Create
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_5703C05700F1 // TevStyleInterface
+ ME_5703C11F028E // TextPara
+ ME_5703C1B30268 // evStyleTableSpy
+ ME_5703C26B01A6 // TextStyle
+ )
+ ; // Dependencies
+ CONST "author" 'Костицын'
+ CONST "need UC" true
+ CONST "no hands" true
+ CONST "started" '05.04.2016'
+ CONST extprop:rc:SelfName 'StyledLabel'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_5703BF610068 TvtStyledLabel
+
+FORWARD ME_57039747002E
+
+FORWARD ME_570397920075
+
+: ME_570397A5009A
+ CONST UID '570397A5009A'
+ CONST Name 'ipLeft'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_570397920075 // TvtImagePosition
+ ;
+
+ref; // ME_570397A5009A ipLeft
+
+: ME_570397AB038D
+ CONST UID '570397AB038D'
+ CONST Name 'ipRight'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_570397920075 // TvtImagePosition
+ ;
+
+ref; // ME_570397AB038D ipRight
+
+: ME_570397920075
+ CONST UID '570397920075'
+ CONST Name 'TvtImagePosition'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_57039747002E // TvtImageLabel
+ ;
+ : Attributes
+   Seq: ( HWL ME_570397A5009A // ipLeft
+ HWL ME_570397AB038D // ipRight
+ )
+ ; // Attributes
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_570397920075 TvtImagePosition
+
+: ME_570397B90044
+ CONST UID '570397B90044'
+ CONST Name 'ImagePosition'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_57039747002E // TvtImageLabel
+ ;
+ : Target HWL ME_570397920075 // TvtImagePosition
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_570397B90044 ImagePosition
+
+: ME_570397F60218
+ CONST UID '570397F60218'
+ CONST Name 'ImageIndex'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_57039747002E // TvtImageLabel
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_570397F60218 ImageIndex
+
+: ME_5703987900FF
+ CONST UID '5703987900FF'
+ CONST Name 'ImageList'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_57039747002E // TvtImageLabel
+ ;
+ : Target WL 'ME_473DA2AF0168' '4799D29F033F.pas.ms.script' // TCustomImageList
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_5703987900FF ImageList
+
+: ME_5703992E00B1
+ CONST UID '5703992E00B1'
+ CONST Name 'f_ImageChangeLink'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_57039747002E // TvtImageLabel
+ ;
+ : Target WL 'ME_47881A17009F' '4799D29F033F.pas.ms.script' // TChangeLink
+ ;
+
+ref; // ME_5703992E00B1 f_ImageChangeLink
+
+: ME_5703994301BB
+ CONST UID '5703994301BB'
+ CONST Name 'ImageIndent'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_57039747002E // TvtImageLabel
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_5703994301BB ImageIndent
+
+: ME_570398B70100
+ CONST UID '570398B70100'
+ CONST Name 'OnImageListChange'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_57039747002E // TvtImageLabel
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
+ )
+ ; // Inherits
+
+ref; // ME_570398B70100 OnImageListChange
+
+: ME_479731C50290_ME_57039747002E
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_479731C50290_ME_57039747002E Cleanup
+
+: ME_47D1602000C6_ME_57039747002E
+ : Original WL 'ME_47D1602000C6' '4AB0997B00A2.pas.ms.script' // Create
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_47D1602000C6_ME_57039747002E Create
+
+: ME_4F2A44BC0297_ME_57039747002E
+ : Original WL 'ME_4F2A44BC0297' '4799D29F033F.pas.ms.script' // AdjustBounds
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4F2A44BC0297_ME_57039747002E AdjustBounds
+
+: ME_4F2A461702D8_ME_57039747002E
+ : Original WL 'ME_4F2A461702D8' '4799D29F033F.pas.ms.script' // DoDrawText
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4F2A461702D8_ME_57039747002E DoDrawText
+
+: ME_57039747002E
+ CONST UID '57039747002E'
+ CONST Name 'TvtImageLabel'
+ CONST Class class_Class
+ : Stereotype st_GuiControl ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Метка с иконкой' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4AE8541A01AE // TvtLabel
+ ;
+ : Inherits
+   Seq: ( HWL ME_5703BF610068 // TvtStyledLabel
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( HWL ME_570397B90044 // ImagePosition
+ HWL ME_570397F60218 // ImageIndex
+ HWL ME_5703987900FF // ImageList
+ HWL ME_5703992E00B1 // f_ImageChangeLink
+ HWL ME_5703994301BB // ImageIndent
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( HWL ME_570398B70100 // OnImageListChange
+ )
+ ; // Operations
+ : Overridden
+   Seq: ( ME_479731C50290_ME_57039747002E // Cleanup
+ ME_47D1602000C6_ME_57039747002E // Create
+ ME_4F2A44BC0297_ME_57039747002E // AdjustBounds
+ ME_4F2A461702D8_ME_57039747002E // DoDrawText
+ )
+ ; // Overridden
+ : Children
+   Seq: ( HWL ME_570397920075 // TvtImagePosition
+ )
+ ; // Children
+ CONST "author" 'Костицын'
+ CONST "need UC" true
+ CONST "no hands" true
+ CONST "started" '05.04.2016'
+ CONST extprop:rc:SelfName 'ImageLabel'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_57039747002E TvtImageLabel
+
+: ME_4AE8541A01AE
+ CONST UID '4AE8541A01AE'
+ CONST Name 'TvtLabel'
+ CONST Class class_Class
+ : Stereotype st_GuiControl ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4A9B9BAA0207' '4A9B9BAA0207.pas.ms.script' // Labels
+ ;
+ : Inherits
+   Seq: ( HWL ME_4F29240F0204 // TvtCustomLabel
+ )
+ ; // Inherits
+ : Children
+   Seq: ( HWL ME_4F2923CF0065 // TvtDrawDirection
+ HWL ME_50253C0401F1 // TvtCustomLabelPrim
+ HWL ME_4F3001650077 // THackLink
+ HWL ME_4F29240F0204 // TvtCustomLabel
+ HWL ME_5703BF610068 // TvtStyledLabel
+ HWL ME_57039747002E // TvtImageLabel
+ )
+ ; // Children
+ CONST "need UC" true
+ CONST "no hands" true
+ CONST "started" '03.02.2012'
+ CONST intf.pas:Path 'common\components\gui\Garant\VT\vtLabel.pas'
+ CONST extprop:rc:SelfName 'Label'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vtLabel'
+
+ref; // ME_4AE8541A01AE TvtLabel

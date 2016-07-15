@@ -14,7 +14,7 @@ FORWARD ME_45EEC0FD01B1
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_45EEC0FD01B1 // MonitoringList
+ : Parent HWL ME_45EEC0FD01B1 // MonitoringList
  ;
  : Target WL 'ME_45EEB6520191' '4570511E038A.pas.ms.script' // Document
  ;
@@ -45,7 +45,7 @@ ref; // ME_460117DC02AF document_count
  : Stereotype st_factory::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_45EEC0FD01B1 // MonitoringList
+ : Parent HWL ME_45EEC0FD01B1 // MonitoringList
  ;
  : Parameters
    Seq: ( ME_460117DC0251 // server_list
@@ -326,7 +326,7 @@ ref; // ME_4B55CF4102BF_ME_45EEC0FD01B1 get_full_list_size
  %SUMMARY 'Интерфейс-врапер, для того что бы отдать Документ с мониторингом ввиде Списка из опроеации поиска. Сразу после получения MonitoringList необхождимо преобразовать его к документу, через метод summary' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_45EEA87E0209 // Monitoring
+ : Parent HWL ME_45EEA87E0209 // Monitoring
  ;
  : Inherits
    Seq: ( WL 'ME_456ECA9603A9' '456EA56002BF.pas.ms.script' // SearchEntity
@@ -337,11 +337,11 @@ ref; // ME_4B55CF4102BF_ME_45EEC0FD01B1 get_full_list_size
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_45EEC0FD01B4 // summary
+   Seq: ( HWL ME_45EEC0FD01B4 // summary
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_460117B20232 // make
+   Seq: ( HWL ME_460117B20232 // make
  )
  ; // Operations
  : Implemented
@@ -404,7 +404,7 @@ FORWARD ME_45EEC103021E
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_45EEC103021E // Monitoring
+ : Parent HWL ME_45EEC103021E // Monitoring
  ;
  : Target WL 'ME_45EEB95901C5' '457450470167.pas.ms.script' // NodeBase
  ;
@@ -418,7 +418,7 @@ ref; // ME_46023FE30057 news_line_root
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_45EEC103021E // Monitoring
+ : Parent HWL ME_45EEC103021E // Monitoring
  ;
  : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
  ;
@@ -431,7 +431,7 @@ ref; // ME_45EEC103021F is_news_line_defined
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_45EEC103021E // Monitoring
+ : Parent HWL ME_45EEC103021E // Monitoring
  ;
  : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
  ;
@@ -445,7 +445,7 @@ ref; // ME_45EEC1030220 is_exist
  : Stereotype st_factory::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_45EEC103021E // Monitoring
+ : Parent HWL ME_45EEC103021E // Monitoring
  ;
  CONST "const_type" 'read-write'
 
@@ -460,16 +460,16 @@ ref; // ME_45EEC16B01A1 make
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_45EEA87E0209 // Monitoring
+ : Parent HWL ME_45EEA87E0209 // Monitoring
  ;
  : Attributes
-   Seq: ( ME_46023FE30057 // news_line_root
+   Seq: ( HWL ME_46023FE30057 // news_line_root
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_45EEC103021F // is_news_line_defined
- ME_45EEC1030220 // is_exist
- ME_45EEC16B01A1 // make
+   Seq: ( HWL ME_45EEC103021F // is_news_line_defined
+ HWL ME_45EEC1030220 // is_exist
+ HWL ME_45EEC16B01A1 // make
  )
  ; // Operations
  CONST "single impl" false
@@ -489,8 +489,8 @@ ref; // ME_45EEC103021E Monitoring
  : Parent WL 'ME_456EA3D2031C' '456EA3D2031C.pas.ms.script' // GblAdapterLib
  ;
  : Children
-   Seq: ( ME_45EEC0FD01B1 // MonitoringList
- ME_45EEC103021E // Monitoring
+   Seq: ( HWL ME_45EEC0FD01B1 // MonitoringList
+ HWL ME_45EEC103021E // Monitoring
  )
  ; // Children
  : Depends

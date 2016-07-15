@@ -1,0 +1,43 @@
+// TafwControlPrim 48BC1AC0027C GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_48BC1AC0027C
+
+: ME_48BC1DD8013E
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_48BC1AC0027C // TafwControlPrim
+ ;
+ : Target WL 'ME_478CF30500C1' '4AB0997B00A2.pas.ms.script' // Classes
+ ;
+
+ref; // ME_48BC1DD8013E 
+
+: ME_48BC1AC0027C
+ CONST UID '48BC1AC0027C'
+ CONST Name 'TafwControlPrim'
+ CONST Class class_Class
+ : Stereotype st_GuiControl ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_467BA8C8017E' '467BA8C8017E.pas.ms.script' // afwControl
+ ;
+ : Inherits
+   Seq: ( WL 'ME_475410380119' '475410380119.pas.ms.script' // TOvcBase
+ WL 'ME_47913F970159' '47913B47006E.pas.ms.script' // l3Unknown
+ )
+ ; // Inherits
+ : Dependencies
+   Seq: ( ME_48BC1DD8013E // Classes
+ )
+ ; // Dependencies
+ CONST "need UC" true
+ CONST "no hands" true
+ CONST intf.pas:Path 'common\components\gui\Garant\AFW\implementation\Visual\afwControlPrim.pas'
+ CONST extprop:rc:SelfName 'afwControlPrim'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'afwControlPrim'
+
+ref; // ME_48BC1AC0027C TafwControlPrim

@@ -1,0 +1,490 @@
+// TnsWebBrowser 49ECB8E002B0 GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49ECB8E002B0
+
+: ME_4BB32FCD0157
+ CONST UID '4BB32FCD0157'
+ CONST Name 'Scale'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ %SUMMARY 'Масштаб' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_49ECB8E002B0 // TnsWebBrowser
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_4BB32FCD0157 Scale
+
+: ME_51F8BDBC03C0
+ CONST UID '51F8BDBC03C0'
+ CONST Name 'f_FPUCtrlWord'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_49ECB8E002B0 // TnsWebBrowser
+ ;
+ : Target WL 'ME_476F71A701AB' '4AB0C3C60310.pas.ms.script' // Word
+ ;
+
+ref; // ME_51F8BDBC03C0 f_FPUCtrlWord
+
+: ME_548A9074019B
+ CONST UID '548A9074019B'
+ CONST Name 'f_RememberedWndHandle'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_49ECB8E002B0 // TnsWebBrowser
+ ;
+ : Target WL 'ME_46A5DA1F0255' '4AB0C3F60375.pas.ms.script' // hWnd
+ ;
+
+ref; // ME_548A9074019B f_RememberedWndHandle
+
+: ME_5742C14900F5
+ CONST UID '5742C14900F5'
+ CONST Name 'ScrollPos'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_49ECB8E002B0 // TnsWebBrowser
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+
+ref; // ME_5742C14900F5 ScrollPos
+
+FORWARD ME_49F0457A016C
+
+: ME_49F045A60281
+ CONST Name 'Sender'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_49F045A60281 Sender
+
+: ME_49F045A602A1
+ CONST Name 'pDisp'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49ED9D5A015F' '4AB0C3C60310.pas.ms.script' // IDispatch
+ ;
+
+ref; // ME_49F045A602A1 pDisp
+
+: ME_49F045A602C1
+ CONST Name 'URL'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_49ED892F022E' '4AB0C3C60310.pas.ms.script' // OleVariant
+ ;
+
+ref; // ME_49F045A602C1 URL
+
+: ME_49F0459601D5
+ CONST UID '49F0459601D5'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_49F0457A016C // DocumentComplete
+ ;
+ : Parameters
+   Seq: ( ME_49F045A60281 // Sender
+ ME_49F045A602A1 // pDisp
+ ME_49F045A602C1 // URL
+ )
+ ; // Parameters
+
+ref; // ME_49F0459601D5 DoIt
+
+: ME_49F0487B00F6
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_49F0457A016C // DocumentComplete
+ ;
+ : Target WL 'ME_49F048510365' '47ECB2870309.pas.ms.script' // evStyleTableTools
+ ;
+
+ref; // ME_49F0487B00F6 
+
+: ME_49F0457A016C
+ CONST UID '49F0457A016C'
+ CONST Name 'DocumentComplete'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Документ готов к работе' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_49ECB8E002B0 // TnsWebBrowser
+ ;
+ : Operations
+   Seq: ( HWL ME_49F0459601D5 // DoIt
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_49F0487B00F6 // evStyleTableTools
+ )
+ ; // Dependencies
+ CONST "ifndef" 'XE'
+
+ref; // ME_49F0457A016C DocumentComplete
+
+FORWARD ME_49F062A50141
+
+: ME_49F062D202A1
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_49F062A50141 // ApplyZoom
+ ;
+ : Target WL 'ME_49F048510365' '47ECB2870309.pas.ms.script' // evStyleTableTools
+ ;
+
+ref; // ME_49F062D202A1 
+
+: ME_49F05D6C0165
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_49F062A50141 // ApplyZoom
+ ;
+ : Target WL 'ME_48088D6800F9' '4AB0C3C60310.pas.ms.script' // Variants
+ ;
+
+ref; // ME_49F05D6C0165 
+
+: ME_4BB360B501B9
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_49F062A50141 // ApplyZoom
+ ;
+ : Target WL 'ME_4BB3609E0331' '4AB0997B00A2.pas.ms.script' // AnsiStartsText
+ ;
+
+ref; // ME_4BB360B501B9 
+
+: ME_49F062A50141
+ CONST UID '49F062A50141'
+ CONST Name 'ApplyZoom'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Выставляет Zoom из таблицы стилей' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_49ECB8E002B0 // TnsWebBrowser
+ ;
+ : Dependencies
+   Seq: ( ME_49F062D202A1 // evStyleTableTools
+ ME_49F05D6C0165 // Variants
+ ME_4BB360B501B9 // AnsiStartsText
+ )
+ ; // Dependencies
+
+ref; // ME_49F062A50141 ApplyZoom
+
+FORWARD ME_4BB3665300BC
+
+: ME_4BB36679023B
+ CONST UID '4BB36679023B'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4BB3665300BC // ScaleDisabled
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4BB36679023B DoIt
+
+: ME_4BB3669002C6
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4BB3665300BC // ScaleDisabled
+ ;
+ : Target WL 'ME_4BB3609E0331' '4AB0997B00A2.pas.ms.script' // AnsiStartsText
+ ;
+
+ref; // ME_4BB3669002C6 
+
+: ME_4BB3665300BC
+ CONST UID '4BB3665300BC'
+ CONST Name 'ScaleDisabled'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Масштабирование запрещено' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_49ECB8E002B0 // TnsWebBrowser
+ ;
+ : Operations
+   Seq: ( HWL ME_4BB36679023B // DoIt
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_4BB3669002C6 // AnsiStartsText
+ )
+ ; // Dependencies
+
+ref; // ME_4BB3665300BC ScaleDisabled
+
+FORWARD ME_5175412302EE
+
+: ME_517541400321
+ CONST Name 'Sender'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_517541400321 Sender
+
+: ME_517541400349
+ CONST Name 'pDisp'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49ED9D5A015F' '4AB0C3C60310.pas.ms.script' // IDispatch
+ ;
+
+ref; // ME_517541400349 pDisp
+
+: ME_517541400374
+ CONST Name 'URL'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target WL 'ME_49ED892F022E' '4AB0C3C60310.pas.ms.script' // OleVariant
+ ;
+
+ref; // ME_517541400374 URL
+
+: ME_51754135016D
+ CONST UID '51754135016D'
+ CONST Name '<<>> DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_5175412302EE // DocumentCompleteXE
+ ;
+ : Parameters
+   Seq: ( ME_517541400321 // Sender
+ ME_517541400349 // pDisp
+ ME_517541400374 // URL
+ )
+ ; // Parameters
+
+ref; // ME_51754135016D <<>> DoIt
+
+: ME_5175412302EE
+ CONST UID '5175412302EE'
+ CONST Name 'DocumentCompleteXE'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_49ECB8E002B0 // TnsWebBrowser
+ ;
+ : Operations
+   Seq: ( HWL ME_51754135016D // <<>> DoIt
+ )
+ ; // Operations
+
+ref; // ME_5175412302EE DocumentCompleteXE
+
+: ME_5742C17A0340
+ CONST UID '5742C17A0340'
+ CONST Name 'ApplyScroll'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_49ECB8E002B0 // TnsWebBrowser
+ ;
+
+ref; // ME_5742C17A0340 ApplyScroll
+
+: ME_4E9579F202C6
+ CONST Name 'aMsg'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_4E9574A2008E' '476F78840219.pas.ms.script' // TWMSize
+ ;
+
+ref; // ME_4E9579F202C6 aMsg
+
+: ME_4E9574530051
+ CONST UID '4E9574530051'
+ CONST Name 'WMSize'
+ CONST Class class_Operation
+ : Stereotype st_message::Operation ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_49ECB8E002B0 // TnsWebBrowser
+ ;
+ : Parameters
+   Seq: ( ME_4E9579F202C6 // aMsg
+ )
+ ; // Parameters
+ CONST "Message ID" 'WM_Size'
+
+ref; // ME_4E9574530051 WMSize
+
+: ME_4E95750C01FF
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_49ECB8E002B0 // TnsWebBrowser
+ ;
+ : Target WL 'ME_4E9574DB0120' '49EC7167004C.pas.ms.script' // nsWebBrowserHelper
+ ;
+
+ref; // ME_4E95750C01FF 
+
+: ME_4E95791101FD
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_49ECB8E002B0 // TnsWebBrowser
+ ;
+ : Target WL 'ME_48C6811302CB' '47913B47006E.pas.ms.script' // l3SysUtils
+ ;
+
+ref; // ME_4E95791101FD 
+
+: ME_501BDE4F003E
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_49ECB8E002B0 // TnsWebBrowser
+ ;
+ : Target WL 'ME_4CDD241C0184' '47913B47006E.pas.ms.script' // l3System
+ ;
+
+ref; // ME_501BDE4F003E 
+
+: ME_501BDEBC028B
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_49ECB8E002B0 // TnsWebBrowser
+ ;
+ : Target WL 'ME_4787A405013D' '4AB0C3C60310.pas.ms.script' // Exception
+ ;
+
+ref; // ME_501BDEBC028B 
+
+: ME_4A485B710126_ME_49ECB8E002B0
+ : Original WL 'ME_4A485B710126' '47ECB2870309.pas.ms.script' // DoStyleTableChanged
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4A485B710126_ME_49ECB8E002B0 DoStyleTableChanged
+
+: ME_47D1602000C6_ME_49ECB8E002B0
+ : Original WL 'ME_47D1602000C6' '4AB0997B00A2.pas.ms.script' // Create
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_47D1602000C6_ME_49ECB8E002B0 Create
+
+: ME_48077504027E_ME_49ECB8E002B0
+ : Original WL 'ME_48077504027E' '4AB0C3C60310.pas.ms.script' // Destroy
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_48077504027E_ME_49ECB8E002B0 Destroy
+
+: ME_49F0577C02ED_ME_49ECB8E002B0
+ : Original WL 'ME_49F0577C02ED' '49EC7167004C.pas.ms.script' // InitFields
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_49F0577C02ED_ME_49ECB8E002B0 InitFields
+
+: ME_4CC8414403B8_ME_49ECB8E002B0
+ : Original WL 'ME_4CC8414403B8' '4799D29F033F.pas.ms.script' // CreateWnd
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4CC8414403B8_ME_49ECB8E002B0 CreateWnd
+
+: ME_4CC841540158_ME_49ECB8E002B0
+ : Original WL 'ME_4CC841540158' '4799D29F033F.pas.ms.script' // DestroyWnd
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4CC841540158_ME_49ECB8E002B0 DestroyWnd
+
+: ME_49ECB8E002B0
+ CONST UID '49ECB8E002B0'
+ CONST Name 'TnsWebBrowser'
+ CONST Class class_Class
+ : Stereotype st_GuiControl ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Наследник от стандартного компонента, для заточек в F1' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_49EC7167004C' '49EC7167004C.pas.ms.script' // InternetAgent
+ ;
+ : Inherits
+   Seq: ( WL 'ME_49EF346400A4' '49EF33F700C2.pas.ms.script' // afwShortcutsHandler
+ WL 'ME_49F0573B0332' '49EC7167004C.pas.ms.script' // TnsWebBrowserPrim
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_480DA68701CE' '47ECB2870309.pas.ms.script' // evStyleTableListener
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( HWL ME_4BB32FCD0157 // Scale
+ HWL ME_51F8BDBC03C0 // f_FPUCtrlWord
+ HWL ME_548A9074019B // f_RememberedWndHandle
+ HWL ME_5742C14900F5 // ScrollPos
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( HWL ME_49F0457A016C // DocumentComplete
+ HWL ME_49F062A50141 // ApplyZoom
+ HWL ME_4BB3665300BC // ScaleDisabled
+ HWL ME_5175412302EE // DocumentCompleteXE
+ HWL ME_5742C17A0340 // ApplyScroll
+ HWL ME_4E9574530051 // WMSize
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4A485B710126_ME_49ECB8E002B0 // DoStyleTableChanged
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_47D1602000C6_ME_49ECB8E002B0 // Create
+ ME_48077504027E_ME_49ECB8E002B0 // Destroy
+ ME_49F0577C02ED_ME_49ECB8E002B0 // InitFields
+ ME_4CC8414403B8_ME_49ECB8E002B0 // CreateWnd
+ ME_4CC841540158_ME_49ECB8E002B0 // DestroyWnd
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_4E95750C01FF // nsWebBrowserHelper
+ ME_4E95791101FD // l3SysUtils
+ ME_501BDE4F003E // l3System
+ ME_501BDEBC028B // Exception
+ )
+ ; // Dependencies
+ CONST "author" 'Люлин А.В.'
+ CONST "no hands" true
+ CONST "started" '20.04.2009 22:04'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\InternetAgent\nsWebBrowser.pas'
+ CONST extprop:rc:SelfName 'WebBrowser'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nsWebBrowser'
+
+ref; // ME_49ECB8E002B0 TnsWebBrowser

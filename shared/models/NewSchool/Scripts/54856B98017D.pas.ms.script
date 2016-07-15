@@ -14,7 +14,7 @@ FORWARD ME_54748D2A0111
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_54748D2A0111 // TalcuExecutorWithTaskList
+ : Parent HWL ME_54748D2A0111 // TalcuExecutorWithTaskList
  ;
  : Target WL 'ME_52FA3DB401BE' '53A05123034C.pas.ms.script' // TalcuTaskList
  ;
@@ -40,7 +40,7 @@ ref; // ME_5465DA2A021A aTaskList
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_5465DA0F0245 // Create
+ : Parent HWL ME_5465DA0F0245 // Create
  ;
  : Parameters
    Seq: ( ME_5465DA2A021A // aTaskList
@@ -57,10 +57,10 @@ ref; // ME_5465DA180311 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_54748D2A0111 // TalcuExecutorWithTaskList
+ : Parent HWL ME_54748D2A0111 // TalcuExecutorWithTaskList
  ;
  : Operations
-   Seq: ( ME_5465DA180311 // DoIt
+   Seq: ( HWL ME_5465DA180311 // DoIt
  )
  ; // Operations
 
@@ -69,7 +69,7 @@ ref; // ME_5465DA0F0245 Create
 : ME_54748E4A0129
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_54748D2A0111 // TalcuExecutorWithTaskList
+ : Parent HWL ME_54748D2A0111 // TalcuExecutorWithTaskList
  ;
  : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
  ;
@@ -90,18 +90,18 @@ ref; // ME_479731C50290_ME_54748D2A0111 Cleanup
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_54856B98017D // CoreExecutors
+ : Parent HWL ME_54856B98017D // CoreExecutors
  ;
  : Inherits
    Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_54748DC603B2 // TaskList
+   Seq: ( HWL ME_54748DC603B2 // TaskList
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_5465DA0F0245 // Create
+   Seq: ( HWL ME_5465DA0F0245 // Create
  )
  ; // Operations
  : Overridden
@@ -129,7 +129,7 @@ FORWARD ME_54856E500154
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_54856E500154 // TalcuExecutorWithIncomingTaskList
+ : Parent HWL ME_54856E500154 // TalcuExecutorWithIncomingTaskList
  ;
  : Target WL 'ME_52FA5F460142' '52F8C298005C.pas.ms.script' // TddServerTaskList
  ;
@@ -155,7 +155,7 @@ ref; // ME_54856F2802E8 aList
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_54856F0B019F // Create
+ : Parent HWL ME_54856F0B019F // Create
  ;
  : Parameters
    Seq: ( ME_54856F2802E8 // aList
@@ -172,10 +172,10 @@ ref; // ME_54856F160027 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_54856E500154 // TalcuExecutorWithIncomingTaskList
+ : Parent HWL ME_54856E500154 // TalcuExecutorWithIncomingTaskList
  ;
  : Operations
-   Seq: ( ME_54856F160027 // DoIt
+   Seq: ( HWL ME_54856F160027 // DoIt
  )
  ; // Operations
 
@@ -184,7 +184,7 @@ ref; // ME_54856F0B019F Create
 : ME_54856EA002F9
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_54856E500154 // TalcuExecutorWithIncomingTaskList
+ : Parent HWL ME_54856E500154 // TalcuExecutorWithIncomingTaskList
  ;
  : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
  ;
@@ -205,18 +205,18 @@ ref; // ME_479731C50290_ME_54856E500154 Cleanup
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_54856B98017D // CoreExecutors
+ : Parent HWL ME_54856B98017D // CoreExecutors
  ;
  : Inherits
    Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_54856EEA01E2 // IncomingList
+   Seq: ( HWL ME_54856EEA01E2 // IncomingList
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_54856F0B019F // Create
+   Seq: ( HWL ME_54856F0B019F // Create
  )
  ; // Operations
  : Overridden
@@ -244,8 +244,8 @@ ref; // ME_54856E500154 TalcuExecutorWithIncomingTaskList
  : Parent WL 'ME_52FA3D9502BD' '52FA3D9502BD.pas.ms.script' // Tasks
  ;
  : Children
-   Seq: ( ME_54748D2A0111 // TalcuExecutorWithTaskList
- ME_54856E500154 // TalcuExecutorWithIncomingTaskList
+   Seq: ( HWL ME_54748D2A0111 // TalcuExecutorWithTaskList
+ HWL ME_54856E500154 // TalcuExecutorWithIncomingTaskList
  )
  ; // Children
  : Depends

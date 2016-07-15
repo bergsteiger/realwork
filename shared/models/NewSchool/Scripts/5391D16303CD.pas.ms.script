@@ -15,7 +15,7 @@ FORWARD ME_5391D17C0073
  %SUMMARY 'Очистить кэш документов' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_5391D17C0073 // DocumentsCache
+ : Parent HWL ME_5391D17C0073 // DocumentsCache
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -40,7 +40,7 @@ FORWARD ME_5391D193004A
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_5391D193004A // Disable
+ : Parent HWL ME_5391D193004A // Disable
  ;
  CONST "Checked" 'undefined'
  CONST "Enabled" 'undefined'
@@ -56,7 +56,7 @@ ref; // ME_5395AD850337 Disable
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_5391D193004A // Disable
+ : Parent HWL ME_5391D193004A // Disable
  ;
  CONST "Checked" true
  CONST "Enabled" 'undefined'
@@ -73,11 +73,11 @@ ref; // ME_5395AD8D03A2 Enable
  %SUMMARY 'Запретить кэш документов' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_5391D17C0073 // DocumentsCache
+ : Parent HWL ME_5391D17C0073 // DocumentsCache
  ;
  : Children
-   Seq: ( ME_5395AD850337 // Disable
- ME_5395AD8D03A2 // Enable
+   Seq: ( HWL ME_5395AD850337 // Disable
+ HWL ME_5395AD8D03A2 // Enable
  )
  ; // Children
  CONST "AutoFocus" false
@@ -101,11 +101,11 @@ ref; // ME_5391D193004A Disable
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_5391D16303CD // DocumentsCacheOperations
+ : Parent HWL ME_5391D16303CD // DocumentsCacheOperations
  ;
  : Operations
-   Seq: ( ME_5391D18801D6 // Clear
- ME_5391D193004A // Disable
+   Seq: ( HWL ME_5391D18801D6 // Clear
+ HWL ME_5391D193004A // Disable
  )
  ; // Operations
 
@@ -121,7 +121,7 @@ ref; // ME_5391D17C0073 DocumentsCache
  : Parent WL 'ME_4F7D7B980383' '4F7D7B980383.pas.ms.script' // View
  ;
  : Children
-   Seq: ( ME_5391D17C0073 // DocumentsCache
+   Seq: ( HWL ME_5391D17C0073 // DocumentsCache
  )
  ; // Children
  CONST "is namespace" true

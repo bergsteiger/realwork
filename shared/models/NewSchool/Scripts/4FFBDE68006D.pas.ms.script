@@ -1,0 +1,51 @@
+// ListAnalizeUserTypes 4FFBDE68006D VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4FFBDE68006D
+
+: ME_4E3695CA0106
+ CONST UID '4E3695CA0106'
+ CONST Name 'Analize'
+ CONST Class class_Class
+ : Stereotype st_UserType ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Анализ списка' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4FFBDE68006D // ListAnalizeUserTypes
+ ;
+ CONST "CanClose" false
+ CONST "ImageIndex" 202
+ CONST "VisibleToUser" false
+ CONST "Weight" '-1'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\ListAnalizeUserTypes_Analize_UserType.pas'
+ CONST extprop:pas:UnitName 'ListAnalizeUserTypes_Analize_UserType'
+
+ref; // ME_4E3695CA0106 Analize
+
+: ME_4FFBDE68006D
+ CONST UID '4FFBDE68006D'
+ CONST Name 'ListAnalizeUserTypes'
+ CONST Class class_Class
+ : Stereotype st_VCMForm ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent WL 'ME_4A7C0BB70162' '4A7C0BB70162.pas.ms.script' // Base Forms
+ ;
+ : Children
+   Seq: ( HWL ME_4E3695CA0106 // Analize
+ )
+ ; // Children
+ CONST "NeedsHackRef" true
+ CONST "ZoneType" 'Any'
+ CONST "finished dfm" true
+ CONST "resizeable" false
+ CONST "restrict form def" 'undefined'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\ListAnalizeUserTypes.imp.pas'
+ CONST extprop:pas:TypeName '_ListAnalizeUserTypes_'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'ListAnalizeUserTypes.imp'
+
+ref; // ME_4FFBDE68006D ListAnalizeUserTypes

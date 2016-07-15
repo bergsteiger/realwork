@@ -4,98 +4,7 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 FORWARD ME_51237FE1009D
 
-FORWARD ME_5123800A0080
-
-: ME_D6D853A9B048
- CONST UID 'D6D853A9B048'
- CONST Name 'TvcmApplicationRef'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Typedef ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Ссылка на приложение для DesignTime редакторов' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_5123800A0080 // PrimeTest
- ;
- : Inherits
-   Seq: ( ME_5123800A0080 // PrimeTest
- )
- ; // Inherits
- CONST extprop:rc:SelfName 'ApplicationRef'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_D6D853A9B048 TvcmApplicationRef
-
 FORWARD ME_5123804E003E
-
-: ME_51238055022E
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_5123800A0080 // PrimeTest
- ;
- : Target ME_5123804E003E // toKPrime
- ;
-
-ref; // ME_51238055022E 
-
-FORWARD ME_512388060314
-
-: ME_512388110096
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_5123800A0080 // PrimeTest
- ;
- : Target ME_512388060314 // toKTPrime
- ;
-
-ref; // ME_512388110096 
-
-: ME_4F79BCC902C5_ME_5123800A0080
- : Original WL 'ME_4F79BCC902C5' '51309A4A02FB.pas.ms.script' // CalcBatchMode
- ;
- CONST OpKind opkind_Implemented
- CONST "is static" true
-ref; // ME_4F79BCC902C5_ME_5123800A0080 CalcBatchMode
-
-: ME_5123800A0080
- CONST UID '5123800A0080'
- CONST Name 'PrimeTest'
- CONST Class class_Class
- : Stereotype st_VCMTestApplication ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_51237FE1009D // Prime
- ;
- : Inherits
-   Seq: ( WL 'ME_4AA9038C0387' '4AA9032A002B.pas.ms.script' // Monitorings
- )
- ; // Inherits
- : Implements
-   Seq: ( WL 'ME_4F79CD9F015F' '4F79CD2603DF.pas.ms.script' // VCMAppTester
- )
- ; // Implements
- : Implemented
-   Seq: ( ME_4F79BCC902C5_ME_5123800A0080 // CalcBatchMode
- )
- ; // Implemented
- : Children
-   Seq: ( ME_D6D853A9B048 // TvcmApplicationRef
- )
- ; // Children
- : Dependencies
-   Seq: ( ME_51238055022E // toKPrime
- ME_512388110096 // toKTPrime
- )
- ; // Dependencies
- CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\PrimeTestRes.pas'
- CONST extprop:pas:TypeName 'TPrimeTestRes'
- CONST extprop:rc:SelfName 'PrimeTestRes'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'PrimeTestRes'
-
-ref; // ME_5123800A0080 PrimeTest
 
 : ME_4B7AB0B6016E_ME_5123804E003E
  : Original WL 'ME_4B7AB0B6016E' '4B2A112B011A.pas.ms.script' // CommandLineKey
@@ -123,7 +32,7 @@ ref; // ME_4B7C0B670215_ME_5123804E003E ResultsPage
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_51237FE1009D // Prime
+ : Parent HWL ME_51237FE1009D // Prime
  ;
  : Inherits
    Seq: ( WL 'ME_4B7AAC7A031D' '4B2A112B011A.pas.ms.script' // TTestResultsPlace
@@ -141,6 +50,8 @@ ref; // ME_4B7C0B670215_ME_5123804E003E ResultsPage
  CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_5123804E003E toKPrime
+
+FORWARD ME_512388060314
 
 : ME_4B7AB0B6016E_ME_512388060314
  : Original WL 'ME_4B7AB0B6016E' '4B2A112B011A.pas.ms.script' // CommandLineKey
@@ -168,7 +79,7 @@ ref; // ME_4B7C0B670215_ME_512388060314 ResultsPage
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_51237FE1009D // Prime
+ : Parent HWL ME_51237FE1009D // Prime
  ;
  : Inherits
    Seq: ( WL 'ME_4B7AAC7A031D' '4B2A112B011A.pas.ms.script' // TTestResultsPlace
@@ -197,9 +108,9 @@ ref; // ME_512388060314 toKTPrime
  : Parent WL 'ME_51237F2A0144' '51237F2A0144.pas.ms.script' // F1 Ежедневные тесты ПРАЙМ
  ;
  : Children
-   Seq: ( ME_5123800A0080 // PrimeTest
- ME_5123804E003E // toKPrime
- ME_512388060314 // toKTPrime
+   Seq: ( WL 'ME_5123800A0080' '5123800A0080.pas.ms.script' // PrimeTest
+ HWL ME_5123804E003E // toKPrime
+ HWL ME_512388060314 // toKTPrime
  )
  ; // Children
  : Depends

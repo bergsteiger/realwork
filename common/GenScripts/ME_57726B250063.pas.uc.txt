@@ -1,0 +1,45 @@
+//#UC START# *6CBC23B5834F_57726B250063_impl*
+ if (f_Alien <> nil) then
+  Result := MakeCompiledCodeName(aFileName, anExt)
+ else
+ begin
+  if (f_CoFileDir = '') then
+  begin
+   l_IniName := ChangeFileExt(ParamStr(0), '.ini');
+   if FileExists(l_IniName) then
+   begin
+    with TIniFile.Create(l_IniName) do
+     try
+      f_CoFileDir := ReadString('SCRIPT', 'CoFileDir', cDefaultDir);
+     finally
+      Free;
+     end;
+   end;//FileExists(l_IniName)
+   if (f_CoFileDir = '') then
+    f_CoFileDir := cDefaultDir;
+  end;//f_CoFileDir = ''
+  if (f_CoFileDir = '.') then
+   Result := aFileName + anExt
+  else
+  begin
+   l_Path := ExtractFilePath(aFileName);
+   if (l_Path = '') OR (l_Path = '.\') then
+    l_Path := GetCurrentDir;
+   l_Path := AnsiReplaceStr(l_Path, ':', '');
+   l_Path := AnsiReplaceStr(l_Path, '\\', '\');
+   Result := ConcatDirName(f_CoFileDir, ConcatDirName(l_Path, ExtractFileName(aFileName) + anExt));
+   l_Path := ExtractFilePath(Result);
+//   if (l_Path = 'C:\Temp\') then
+//    l_Path := ExtractFilePath(Result);
+   ForceDirectories(l_Path);
+  end;//f_CoFileDir = '.'
+ end;//f_Alien <> nil
+//#UC END# *6CBC23B5834F_57726B250063_impl*
+//#UC START# *6CBC23B5834F_57726B250063_var*
+const
+ cDefaultDir = 'C:\Temp';
+ //cDefaultDir = '.';
+var
+ l_Path : String;
+ l_IniName : String;
+//#UC END# *6CBC23B5834F_57726B250063_var*

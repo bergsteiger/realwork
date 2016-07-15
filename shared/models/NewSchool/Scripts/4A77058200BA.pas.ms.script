@@ -17,7 +17,7 @@ FORWARD ME_4C7BAEB4010E
  %SUMMARY 'Показать изменения' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4C7BAEB4010E // CompareEditions
+ : Parent HWL ME_4C7BAEB4010E // CompareEditions
  ;
  CONST "Checked" 'undefined'
  CONST "Enabled" 'undefined'
@@ -34,10 +34,10 @@ ref; // ME_4C7BAED10308 ShowChanges
  %SUMMARY 'Сравнение редакций' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4A7705AD01AB // Document
+ : Parent HWL ME_4A7705AD01AB // Document
  ;
  : Children
-   Seq: ( ME_4C7BAED10308 // ShowChanges
+   Seq: ( HWL ME_4C7BAED10308 // ShowChanges
  )
  ; // Children
  CONST "AutoFocus" false
@@ -61,10 +61,10 @@ ref; // ME_4C7BAEB4010E CompareEditions
  %SUMMARY 'Документ' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4A77058200BA // Editions
+ : Parent HWL ME_4A77058200BA // Editions
  ;
  : Operations
-   Seq: ( ME_4C7BAEB4010E // CompareEditions
+   Seq: ( HWL ME_4C7BAEB4010E // CompareEditions
  )
  ; // Operations
 
@@ -81,7 +81,7 @@ FORWARD ME_4DD125D3009F
  %SUMMARY 'Показать изменения' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4DD125D3009F // Document$ShowChanges
+ : Parent HWL ME_4DD125D3009F // Document$ShowChanges
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -104,10 +104,10 @@ ref; // ME_4DD1260D02D1 ShowChanges
  %SUMMARY 'Документ' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4A77058200BA // Editions
+ : Parent HWL ME_4A77058200BA // Editions
  ;
  : Operations
-   Seq: ( ME_4DD1260D02D1 // ShowChanges
+   Seq: ( HWL ME_4DD1260D02D1 // ShowChanges
  )
  ; // Operations
 
@@ -124,7 +124,7 @@ FORWARD ME_4DDCBA9A0016
  %SUMMARY 'Обзор изменений документа' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4DDCBA9A0016 // Document$ViewChangedFragments
+ : Parent HWL ME_4DDCBA9A0016 // Document$ViewChangedFragments
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -147,10 +147,10 @@ ref; // ME_4DDCBABC03B7 ViewChangedFragments
  %SUMMARY 'Документ' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4A77058200BA // Editions
+ : Parent HWL ME_4A77058200BA // Editions
  ;
  : Operations
-   Seq: ( ME_4DDCBABC03B7 // ViewChangedFragments
+   Seq: ( HWL ME_4DDCBABC03B7 // ViewChangedFragments
  )
  ; // Operations
 
@@ -200,7 +200,7 @@ ref; // ME_4AE9D4440226 aUserType
  : Stereotype st_InternalOperation::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4E8B360E006C // Document$SetPosition
+ : Parent HWL ME_4E8B360E006C // Document$SetPosition
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -229,7 +229,7 @@ ref; // ME_4AE9D38A02DA SetPosition
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4A77058200BA // Editions
+ : Parent HWL ME_4A77058200BA // Editions
  ;
  : Implements
    Seq: ( WL 'ME_4E8B2A6701A5' '484900780017.pas.ms.script' // Из просмотра изменений документа должна быть возможность переключится в сравнение редакций
@@ -237,7 +237,7 @@ ref; // ME_4AE9D38A02DA SetPosition
  )
  ; // Implements
  : Operations
-   Seq: ( ME_4AE9D38A02DA // SetPosition
+   Seq: ( HWL ME_4AE9D38A02DA // SetPosition
  )
  ; // Operations
 
@@ -252,7 +252,7 @@ FORWARD ME_4E8C3C6C0244
  %SUMMARY 'Вернуться в текст документа' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4E8C3C6C0244 // Edition
+ : Parent HWL ME_4E8C3C6C0244 // Edition
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -275,10 +275,10 @@ ref; // ME_4B1E37CE00C1 ReturnToDocument
  %SUMMARY 'Редакция' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4A77058200BA // Editions
+ : Parent HWL ME_4A77058200BA // Editions
  ;
  : Operations
-   Seq: ( ME_4B1E37CE00C1 // ReturnToDocument
+   Seq: ( HWL ME_4B1E37CE00C1 // ReturnToDocument
  )
  ; // Operations
 
@@ -293,7 +293,7 @@ FORWARD ME_4F991E420079
  : Stereotype st_InternalOperation::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4F991E420079 // Document$GetParaForPositioning
+ : Parent HWL ME_4F991E420079 // Document$GetParaForPositioning
  ;
  : Target WL 'ME_4A7FC9C9008F' '4912DD020283.pas.ms.script' // IeeLeafPara
  ;
@@ -309,7 +309,7 @@ FORWARD ME_4F991E420079
 ref; // ME_4B506F4D0196 GetParaForPositionning
 
 : ME_4AE9D38A02DA_ME_4F991E420079
- : Original ME_4AE9D38A02DA // SetPosition
+ : Original HWL ME_4AE9D38A02DA // SetPosition
  ;
  CONST OpKind opkind_Implemented
  CONST "AutoFocus" false
@@ -330,10 +330,10 @@ ref; // ME_4AE9D38A02DA_ME_4F991E420079 SetPosition
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4A77058200BA // Editions
+ : Parent HWL ME_4A77058200BA // Editions
  ;
  : Inherits
-   Seq: ( ME_4E8B360E006C // Document$SetPosition
+   Seq: ( HWL ME_4E8B360E006C // Document$SetPosition
  )
  ; // Inherits
  : Implements
@@ -341,7 +341,7 @@ ref; // ME_4AE9D38A02DA_ME_4F991E420079 SetPosition
  )
  ; // Implements
  : Operations
-   Seq: ( ME_4B506F4D0196 // GetParaForPositionning
+   Seq: ( HWL ME_4B506F4D0196 // GetParaForPositionning
  )
  ; // Operations
  : Implemented
@@ -362,12 +362,12 @@ ref; // ME_4F991E420079 Document$GetParaForPositioning
  : Parent WL 'ME_4A7C099B004F' '4A7C099B004F.pas.ms.script' // View
  ;
  : Children
-   Seq: ( ME_4A7705AD01AB // Document
- ME_4DD125D3009F // Document$ShowChanges
- ME_4DDCBA9A0016 // Document$ViewChangedFragments
- ME_4E8B360E006C // Document$SetPosition
- ME_4E8C3C6C0244 // Edition
- ME_4F991E420079 // Document$GetParaForPositioning
+   Seq: ( HWL ME_4A7705AD01AB // Document
+ HWL ME_4DD125D3009F // Document$ShowChanges
+ HWL ME_4DDCBA9A0016 // Document$ViewChangedFragments
+ HWL ME_4E8B360E006C // Document$SetPosition
+ HWL ME_4E8C3C6C0244 // Edition
+ HWL ME_4F991E420079 // Document$GetParaForPositioning
  )
  ; // Children
  : Depends

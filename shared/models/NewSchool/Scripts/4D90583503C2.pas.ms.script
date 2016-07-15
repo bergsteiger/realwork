@@ -1,0 +1,792 @@
+// TvtPopupForm 4D90583503C2 GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4D90583503C2
+
+FORWARD ME_4F86D90400CD
+
+: ME_4F86D9100103
+ CONST UID '4F86D9100103'
+ CONST Name 'vtTailTop'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4F86D90400CD // TvtTailPosition
+ ;
+
+ref; // ME_4F86D9100103 vtTailTop
+
+: ME_4F86D91D00A4
+ CONST UID '4F86D91D00A4'
+ CONST Name 'vtTailLeft'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4F86D90400CD // TvtTailPosition
+ ;
+
+ref; // ME_4F86D91D00A4 vtTailLeft
+
+: ME_4F86D92800EE
+ CONST UID '4F86D92800EE'
+ CONST Name 'vtTailBottom'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4F86D90400CD // TvtTailPosition
+ ;
+
+ref; // ME_4F86D92800EE vtTailBottom
+
+: ME_4F86D92E026D
+ CONST UID '4F86D92E026D'
+ CONST Name 'vtTailRight'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4F86D90400CD // TvtTailPosition
+ ;
+
+ref; // ME_4F86D92E026D vtTailRight
+
+: ME_4F86D90400CD
+ CONST UID '4F86D90400CD'
+ CONST Name 'TvtTailPosition'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4D90583503C2 // TvtPopupForm
+ ;
+ : Attributes
+   Seq: ( HWL ME_4F86D9100103 // vtTailTop
+ HWL ME_4F86D91D00A4 // vtTailLeft
+ HWL ME_4F86D92800EE // vtTailBottom
+ HWL ME_4F86D92E026D // vtTailRight
+ )
+ ; // Attributes
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4F86D90400CD TvtTailPosition
+
+FORWARD ME_4FC76B5B0371
+
+: ME_4FC76E1C0380
+ CONST UID '4FC76E1C0380'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent HWL ME_4FC76B5B0371 // TvtCurrentBounds
+ ;
+ : Target WL 'ME_4728A7190065' '4728A7020026.pas.ms.script' // TRect
+ ;
+
+ref; // ME_4FC76E1C0380 
+
+: ME_4FC76B5B0371
+ CONST UID '4FC76B5B0371'
+ CONST Name 'TvtCurrentBounds'
+ CONST Class class_Class
+ : Stereotype st_Vector ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4D90583503C2 // TvtPopupForm
+ ;
+ : Inherits
+   Seq: ( HWL ME_4F86D90400CD // TvtTailPosition
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( HWL ME_4FC76E1C0380 // 
+ )
+ ; // Attributes
+ CONST "array type" 'dynamic'
+
+ref; // ME_4FC76B5B0371 TvtCurrentBounds
+
+: ME_4FC772F5013E
+ CONST UID '4FC772F5013E'
+ CONST Name 'THackWinControl'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4D90583503C2 // TvtPopupForm
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47E124E90272' '4799D29F033F.pas.ms.script' // TWinControl
+ )
+ ; // Inherits
+ CONST extprop:rc:SelfName 'HackWinControl'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4FC772F5013E THackWinControl
+
+FORWARD ME_4FC7733B0224
+
+: ME_4FC773620315
+ CONST UID '4FC773620315'
+ CONST Name 'cIndentHMul'
+ CONST Class class_Attribute
+ %SUMMARY 'отступы от краев по горизонтали' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4FC7733B0224 // TvtPopupForm_Constants
+ ;
+ CONST Value '0.2'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '0.2'
+
+ref; // ME_4FC773620315 cIndentHMul
+
+: ME_4FC7739E01CB
+ CONST UID '4FC7739E01CB'
+ CONST Name 'cIndentTopMul'
+ CONST Class class_Attribute
+ %SUMMARY 'отступ от верхнего края' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4FC7733B0224 // TvtPopupForm_Constants
+ ;
+ CONST Value '1.0'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '1.0'
+
+ref; // ME_4FC7739E01CB cIndentTopMul
+
+: ME_4FC773B8016F
+ CONST UID '4FC773B8016F'
+ CONST Name 'cIndentBottomMul'
+ CONST Class class_Attribute
+ %SUMMARY 'отступ от нижнего края' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4FC7733B0224 // TvtPopupForm_Constants
+ ;
+ CONST Value '1.0'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '1.0'
+
+ref; // ME_4FC773B8016F cIndentBottomMul
+
+: ME_4FC773D301AE
+ CONST UID '4FC773D301AE'
+ CONST Name 'cTailMul'
+ CONST Class class_Attribute
+ %SUMMARY 'длина хвостика' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4FC7733B0224 // TvtPopupForm_Constants
+ ;
+ CONST Value '1.5'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '1.5'
+
+ref; // ME_4FC773D301AE cTailMul
+
+: ME_4FC773FF0266
+ CONST UID '4FC773FF0266'
+ CONST Name 'cBtnWidthMul'
+ CONST Class class_Attribute
+ %SUMMARY 'ширина-высота кнопки' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4FC7733B0224 // TvtPopupForm_Constants
+ ;
+ CONST Value '1.4'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '1.4'
+
+ref; // ME_4FC773FF0266 cBtnWidthMul
+
+: ME_4FC7741D02D0
+ CONST UID '4FC7741D02D0'
+ CONST Name 'cBtnIndentMul'
+ CONST Class class_Attribute
+ %SUMMARY 'отступ кнопки от края' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4FC7733B0224 // TvtPopupForm_Constants
+ ;
+ CONST Value '0.5'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '0.5'
+
+ref; // ME_4FC7741D02D0 cBtnIndentMul
+
+: ME_4FC7733B0224
+ CONST UID '4FC7733B0224'
+ CONST Name 'TvtPopupForm_Constants'
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4D90583503C2 // TvtPopupForm
+ ;
+ : Attributes
+   Seq: ( HWL ME_4FC773620315 // cIndentHMul
+ HWL ME_4FC7739E01CB // cIndentTopMul
+ HWL ME_4FC773B8016F // cIndentBottomMul
+ HWL ME_4FC773D301AE // cTailMul
+ HWL ME_4FC773FF0266 // cBtnWidthMul
+ HWL ME_4FC7741D02D0 // cBtnIndentMul
+ )
+ ; // Attributes
+ CONST "spell names" false
+
+ref; // ME_4FC7733B0224 TvtPopupForm_Constants
+
+: ME_4FC761C303D5
+ CONST UID '4FC761C303D5'
+ CONST Name 'f_Scene'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4D90583503C2 // TvtPopupForm
+ ;
+ : Target WL 'ME_4CFFB562010C' '4CFCE51A00B0.pas.ms.script' // TvgScene
+ ;
+
+ref; // ME_4FC761C303D5 f_Scene
+
+: ME_4FC763F500F9
+ CONST UID '4FC763F500F9'
+ CONST Name 'f_Background'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4D90583503C2 // TvtPopupForm
+ ;
+ : Target WL 'ME_4FC762770058' '4CFCE51A00B0.pas.ms.script' // TvgBackground
+ ;
+
+ref; // ME_4FC763F500F9 f_Background
+
+: ME_4FC764F300FC
+ CONST UID '4FC764F300FC'
+ CONST Name 'f_CalloutPanel'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4D90583503C2 // TvtPopupForm
+ ;
+ : Target WL 'ME_4FC7649B002C' '4CFCE51A00B0.pas.ms.script' // TvgCalloutPanel
+ ;
+
+ref; // ME_4FC764F300FC f_CalloutPanel
+
+: ME_4FC7650D00D4
+ CONST UID '4FC7650D00D4'
+ CONST Name 'f_CloseButton'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4D90583503C2 // TvtPopupForm
+ ;
+ : Target WL 'ME_4CFCE5A10367' '4CFCE51A00B0.pas.ms.script' // TvgCloseButton
+ ;
+
+ref; // ME_4FC7650D00D4 f_CloseButton
+
+: ME_4FC7653F00DA
+ CONST UID '4FC7653F00DA'
+ CONST Name 'f_NonVGLayout'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4D90583503C2 // TvtPopupForm
+ ;
+ : Target WL 'ME_4CFFAE9802DF' '4CFCE51A00B0.pas.ms.script' // TvgNonVGLayout
+ ;
+
+ref; // ME_4FC7653F00DA f_NonVGLayout
+
+: ME_4FC765E1032A
+ CONST UID '4FC765E1032A'
+ CONST Name 'AfterBaloonHidden'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_4D90583503C2 // TvtPopupForm
+ ;
+ : Target WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_4FC765E1032A AfterBaloonHidden
+
+: ME_4FC768990140
+ CONST UID '4FC768990140'
+ CONST Name 'TailPosition'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_4D90583503C2 // TvtPopupForm
+ ;
+ : Target HWL ME_4F86D90400CD // TvtTailPosition
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_4FC768990140 TailPosition
+
+: ME_4FC76A86012B
+ CONST UID '4FC76A86012B'
+ CONST Name 'Panel'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_4D90583503C2 // TvtPopupForm
+ ;
+ : Target WL 'ME_4A7961A701CF' '4A7961A701CF.pas.ms.script' // TvtPanel
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_4FC76A86012B Panel
+
+: ME_4FC76E2700B2
+ CONST UID '4FC76E2700B2'
+ CONST Name 'f_CurrentBounds'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4D90583503C2 // TvtPopupForm
+ ;
+ : Target HWL ME_4FC76B5B0371 // TvtCurrentBounds
+ ;
+
+ref; // ME_4FC76E2700B2 f_CurrentBounds
+
+FORWARD ME_4FC7711F014B
+
+: ME_4FC7719B009E
+ CONST Name 'a_TailPosition'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target HWL ME_4F86D90400CD // TvtTailPosition
+ ;
+
+ref; // ME_4FC7719B009E a_TailPosition
+
+: ME_4FC7719B00FA
+ CONST Name 'a_FontSize'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4FC7719B00FA a_FontSize
+
+: ME_4FC7719B0168
+ CONST Name 'a_WidthIn'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4FC7719B0168 a_WidthIn
+
+: ME_4FC7719B01D0
+ CONST Name 'a_HeightIn'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4FC7719B01D0 a_HeightIn
+
+: ME_4FC7719B0247
+ CONST Name 'a_WidthOut'
+ CONST Class class_Parameter
+ : Stereotype st_out ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4FC7719B0247 a_WidthOut
+
+: ME_4FC87A2B001B
+ CONST Name 'a_HeightOut'
+ CONST Class class_Parameter
+ : Stereotype st_out ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4FC87A2B001B a_HeightOut
+
+: ME_4FC7716A0107
+ CONST UID '4FC7716A0107'
+ CONST Name 'Do'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4FC7711F014B // AdjustBalloonSize
+ ;
+ : Parameters
+   Seq: ( ME_4FC7719B009E // a_TailPosition
+ ME_4FC7719B00FA // a_FontSize
+ ME_4FC7719B0168 // a_WidthIn
+ ME_4FC7719B01D0 // a_HeightIn
+ ME_4FC7719B0247 // a_WidthOut
+ ME_4FC87A2B001B // a_HeightOut
+ )
+ ; // Parameters
+
+ref; // ME_4FC7716A0107 Do
+
+: ME_4FC7711F014B
+ CONST UID '4FC7711F014B'
+ CONST Name 'AdjustBalloonSize'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'По ширине и высоте вдоченного редактора высчитываем ширину и высоту всего баллона.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4D90583503C2 // TvtPopupForm
+ ;
+ : Operations
+   Seq: ( HWL ME_4FC7716A0107 // Do
+ )
+ ; // Operations
+ CONST "is static" true
+
+ref; // ME_4FC7711F014B AdjustBalloonSize
+
+FORWARD ME_4FC87D8002D6
+
+: ME_4FC87DAC020A
+ CONST Name 'Sender'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_4FC87DAC020A Sender
+
+: ME_4FC87DAC0266
+ CONST Name 'DockClient'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47E1201703C3' '4799D29F033F.pas.ms.script' // TControl
+ ;
+
+ref; // ME_4FC87DAC0266 DockClient
+
+: ME_4FC87DAC02D4
+ CONST Name 'InfluenceRect'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_4728A7190065' '4728A7020026.pas.ms.script' // TRect
+ ;
+
+ref; // ME_4FC87DAC02D4 InfluenceRect
+
+: ME_4FC87DAC0339
+ CONST Name 'MousePos'
+ CONST Class class_Parameter
+ : Stereotype st_noconst ;
+ : Target WL 'ME_4739AD110072' '4728A7020026.pas.ms.script' // TPoint
+ ;
+
+ref; // ME_4FC87DAC0339 MousePos
+
+: ME_4FC87DAC039E
+ CONST Name 'CanDock'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4FC87DAC039E CanDock
+
+: ME_4FC87DA5011D
+ CONST UID '4FC87DA5011D'
+ CONST Name 'Do'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4FC87D8002D6 // PanelGetSiteInfo
+ ;
+ : Parameters
+   Seq: ( ME_4FC87DAC020A // Sender
+ ME_4FC87DAC0266 // DockClient
+ ME_4FC87DAC02D4 // InfluenceRect
+ ME_4FC87DAC0339 // MousePos
+ ME_4FC87DAC039E // CanDock
+ )
+ ; // Parameters
+
+ref; // ME_4FC87DA5011D Do
+
+: ME_4FC87D8002D6
+ CONST UID '4FC87D8002D6'
+ CONST Name 'PanelGetSiteInfo'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4D90583503C2 // TvtPopupForm
+ ;
+ : Operations
+   Seq: ( HWL ME_4FC87DA5011D // Do
+ )
+ ; // Operations
+
+ref; // ME_4FC87D8002D6 PanelGetSiteInfo
+
+: ME_4FC7697603E6
+ CONST Name 'Message'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_476F78A602B2' '476F78840219.pas.ms.script' // TMessage
+ ;
+
+ref; // ME_4FC7697603E6 Message
+
+: ME_4FC7694303B7
+ CONST UID '4FC7694303B7'
+ CONST Name 'CMVisibleChanged'
+ CONST Class class_Operation
+ : Stereotype st_message::Operation ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4D90583503C2 // TvtPopupForm
+ ;
+ : Parameters
+   Seq: ( ME_4FC7697603E6 // Message
+ )
+ ; // Parameters
+ CONST "Message ID" 'CM_VISIBLECHANGED'
+
+ref; // ME_4FC7694303B7 CMVisibleChanged
+
+: ME_4FC767AE01D9
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4D90583503C2 // TvtPopupForm
+ ;
+ : Target WL 'ME_4CFE3E000371' '4CFCE51A00B0.pas.ms.script' // vg_scene
+ ;
+
+ref; // ME_4FC767AE01D9 
+
+: ME_4FC767B20157
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4D90583503C2 // TvtPopupForm
+ ;
+ : Target WL 'ME_4CFFAE8902BD' '4CFCE51A00B0.pas.ms.script' // vg_layouts
+ ;
+
+ref; // ME_4FC767B20157 
+
+: ME_4FC767B5030B
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4D90583503C2 // TvtPopupForm
+ ;
+ : Target WL 'ME_4CFCE531013A' '4CFCE51A00B0.pas.ms.script' // vg_controls
+ ;
+
+ref; // ME_4FC767B5030B 
+
+: ME_4FC772A10353
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4D90583503C2 // TvtPopupForm
+ ;
+ : Target WL 'ME_4799ECBF00D6' '4799EC9300AF.pas.ms.script' // Defaults
+ ;
+
+ref; // ME_4FC772A10353 
+
+: ME_4FC77F240294
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4D90583503C2 // TvtPopupForm
+ ;
+ : Target WL 'ME_4CFE2C72021C' '4CFCE51A00B0.pas.ms.script' // vg_objects
+ ;
+
+ref; // ME_4FC77F240294 
+
+: ME_4FC77F280173
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4D90583503C2 // TvtPopupForm
+ ;
+ : Target WL 'ME_48A41FF10094' '4AB0C3F60375.pas.ms.script' // Windows
+ ;
+
+ref; // ME_4FC77F280173 
+
+: ME_4FC77F2B020E
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4D90583503C2 // TvtPopupForm
+ ;
+ : Target WL 'ME_47752AF90375' '47750CE700D0.pas.ms.script' // afwFacade
+ ;
+
+ref; // ME_4FC77F2B020E 
+
+: ME_4FC77F2F001C
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4D90583503C2 // TvtPopupForm
+ ;
+ : Target WL 'ME_4D5EB41C02CB' '4D5420EC039D.pas.ms.script' // TvgAlign
+ ;
+
+ref; // ME_4FC77F2F001C 
+
+: ME_4FC77F3102DD
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4D90583503C2 // TvtPopupForm
+ ;
+ : Target WL 'ME_4D557516038D' '4B8E675402AB.pas.ms.script' // TvtVGSceneResources
+ ;
+
+ref; // ME_4FC77F3102DD 
+
+: ME_4FC7850403D5
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4D90583503C2 // TvtPopupForm
+ ;
+ : Target WL 'ME_4FC784BC014D' '4AADF9450143.pas.ms.script' // TvcmDockTree
+ ;
+
+ref; // ME_4FC7850403D5 
+
+: ME_48C7925A02E5_ME_4D90583503C2
+ : Original WL 'ME_48C7925A02E5' '4799D29F033F.pas.ms.script' // CreateParams
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_48C7925A02E5_ME_4D90583503C2 CreateParams
+
+: ME_4F2A599E0283_ME_4D90583503C2
+ : Original WL 'ME_4F2A599E0283' '4799D29F033F.pas.ms.script' // SetBounds
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4F2A599E0283_ME_4D90583503C2 SetBounds
+
+: ME_4F9007B20376_ME_4D90583503C2
+ : Original WL 'ME_4F9007B20376' '4799D29F033F.pas.ms.script' // CreateNew
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4F9007B20376_ME_4D90583503C2 CreateNew
+
+: ME_4D90583503C2
+ CONST UID '4D90583503C2'
+ CONST Name 'TvtPopupForm'
+ CONST Class class_Class
+ : Stereotype st_GuiControl ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4D90513F009C' '4D90513F009C.pas.ms.script' // Reminders
+ ;
+ : Inherits
+   Seq: ( WL 'ME_484529DC0276' '4799D29F033F.pas.ms.script' // TCustomForm
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( HWL ME_4FC761C303D5 // f_Scene
+ HWL ME_4FC763F500F9 // f_Background
+ HWL ME_4FC764F300FC // f_CalloutPanel
+ HWL ME_4FC7650D00D4 // f_CloseButton
+ HWL ME_4FC7653F00DA // f_NonVGLayout
+ HWL ME_4FC765E1032A // AfterBaloonHidden
+ HWL ME_4FC768990140 // TailPosition
+ HWL ME_4FC76A86012B // Panel
+ HWL ME_4FC76E2700B2 // f_CurrentBounds
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( HWL ME_4FC7711F014B // AdjustBalloonSize
+ HWL ME_4FC87D8002D6 // PanelGetSiteInfo
+ HWL ME_4FC7694303B7 // CMVisibleChanged
+ )
+ ; // Operations
+ : Overridden
+   Seq: ( ME_48C7925A02E5_ME_4D90583503C2 // CreateParams
+ ME_4F2A599E0283_ME_4D90583503C2 // SetBounds
+ ME_4F9007B20376_ME_4D90583503C2 // CreateNew
+ )
+ ; // Overridden
+ : Children
+   Seq: ( HWL ME_4F86D90400CD // TvtTailPosition
+ HWL ME_4FC76B5B0371 // TvtCurrentBounds
+ HWL ME_4FC772F5013E // THackWinControl
+ )
+ ; // Children
+ : Constants
+   Seq: ( HWL ME_4FC7733B0224 // TvtPopupForm_Constants
+ )
+ ; // Constants
+ : Dependencies
+   Seq: ( ME_4FC767AE01D9 // vg_scene
+ ME_4FC767B20157 // vg_layouts
+ ME_4FC767B5030B // vg_controls
+ ME_4FC772A10353 // Defaults
+ ME_4FC77F240294 // vg_objects
+ ME_4FC77F280173 // Windows
+ ME_4FC77F2B020E // afwFacade
+ ME_4FC77F2F001C // TvgAlign
+ ME_4FC77F3102DD // TvtVGSceneResources
+ ME_4FC7850403D5 // TvcmDockTree
+ )
+ ; // Dependencies
+ CONST "ifndef" 'NoVGScene'
+ CONST intf.pas:Path 'common\components\gui\Garant\VT\vtPopupForm.pas'
+ CONST extprop:rc:SelfName 'PopupForm'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vtPopupForm'
+
+ref; // ME_4D90583503C2 TvtPopupForm

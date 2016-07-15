@@ -1,0 +1,306 @@
+// PrimGroupProperty 4AC4ED6801F3 VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AC4ED6801F3
+
+: ME_4BD6FFA702F6
+ CONST UID '4BD6FFA702F6'
+ CONST Name 'admCreateGroup'
+ CONST Class class_Class
+ : Stereotype st_UserType ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Новая группа' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AC4ED6801F3 // PrimGroupProperty
+ ;
+ CONST "ImageIndex" '-1'
+ CONST "VisibleToUser" false
+ CONST "Weight" '-1'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Admin\Forms\PrimGroupProperty_admCreateGroup_UserType.pas'
+ CONST extprop:pas:UnitName 'PrimGroupProperty_admCreateGroup_UserType'
+
+ref; // ME_4BD6FFA702F6 admCreateGroup
+
+: ME_4BD6FFBA008E
+ CONST UID '4BD6FFBA008E'
+ CONST Name 'admRenameGroup'
+ CONST Class class_Class
+ : Stereotype st_UserType ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Переименовать группу' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AC4ED6801F3 // PrimGroupProperty
+ ;
+ : Inherits
+   Seq: ( HWL ME_4BD6FFA702F6 // admCreateGroup
+ )
+ ; // Inherits
+ CONST "ImageIndex" '-1'
+ CONST "VisibleToUser" false
+ CONST "Weight" '-1'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Admin\Forms\PrimGroupProperty_admRenameGroup_UserType.pas'
+ CONST extprop:pas:UnitName 'PrimGroupProperty_admRenameGroup_UserType'
+
+ref; // ME_4BD6FFBA008E admRenameGroup
+
+: ME_4AC5F4D601EA
+ CONST UID '4AC5F4D601EA'
+ CONST Name 'edName'
+ CONST Class class_Class
+ : Stereotype st_Control ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AC4ED6801F3 // PrimGroupProperty
+ ;
+ CONST "ControlClass" 'TnscEdit'
+ CONST "pm" true
+ CONST "put to dfm" false
+ CONST extprop:rc:SelfName 'Name'
+
+ref; // ME_4AC5F4D601EA edName
+
+: ME_52397ECC0100
+ CONST UID '52397ECC0100'
+ CONST Name 'Label1'
+ CONST Class class_Class
+ : Stereotype st_Control ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Имя группы' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AC4ED6801F3 // PrimGroupProperty
+ ;
+ CONST "ControlClass" 'TvtLabel'
+ CONST "pm" true
+ CONST "put to dfm" false
+
+ref; // ME_52397ECC0100 Label1
+
+: ME_4AC5F419038D
+ CONST UID '4AC5F419038D'
+ CONST Name 'f_Data'
+ CONST Class class_Attribute
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_lnk
+ : Parent HWL ME_4AC4ED6801F3 // PrimGroupProperty
+ ;
+ : Target WL 'ME_49EEFA5701BB' '491D961C0122.pas.ms.script' // IbsEditGroupName
+ ;
+
+ref; // ME_4AC5F419038D f_Data
+
+: ME_4AC4EDA1031A
+ CONST Name 'aData'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49EEFA5701BB' '491D961C0122.pas.ms.script' // IbsEditGroupName
+ ;
+
+ref; // ME_4AC4EDA1031A aData
+
+: ME_4AC4EDA102E4
+ CONST UID '4AC4EDA102E4'
+ CONST Name 'Make'
+ CONST Class class_Operation
+ : Stereotype st_factory::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AC4ED6801F3 // PrimGroupProperty
+ ;
+ : Parameters
+   Seq: ( ME_4AC4EDA1031A // aData
+ )
+ ; // Parameters
+
+ref; // ME_4AC4EDA102E4 Make
+
+: ME_4AC5F6AA034C
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AC4ED6801F3 // PrimGroupProperty
+ ;
+ : Target WL 'ME_4A980B37006B' '4799D29F033F.pas.ms.script' // ModalResults
+ ;
+
+ref; // ME_4AC5F6AA034C 
+
+: ME_4AC5F816011B
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AC4ED6801F3 // PrimGroupProperty
+ ;
+ : Target WL 'ME_47878E0E0191' '54B90AC6014B.pas.ms.script' // l3String
+ ;
+
+ref; // ME_4AC5F816011B 
+
+: ME_523990B002BA
+ CONST Class class_Dependency
+ : Stereotype st_ToolbarAtBottom::Dependency ;
+ : Parent HWL ME_4AC4ED6801F3 // PrimGroupProperty
+ ;
+ : Target WL 'ME_4A97EBC80201' '4A8AD3C70195.pas.ms.script' // Result$Ok
+ ;
+
+ref; // ME_523990B002BA 
+
+: ME_523990DF013F
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AC4ED6801F3 // PrimGroupProperty
+ ;
+ : Target WL 'ME_47E13C6B0341' '4799D29F033F.pas.ms.script' // Forms
+ ;
+
+ref; // ME_523990DF013F 
+
+: ME_4A8AD46D0226_ME_4AC4ED6801F3
+ : Original WL 'ME_4A8AD46D0226' '4A8AD3C70195.pas.ms.script' // Cancel
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "ContextMenuWeight" 10
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_4A8AD46D0226_ME_4AC4ED6801F3 Cancel
+
+: ME_4A97EBE702F8_ME_4AC4ED6801F3
+ : Original WL 'ME_4A97EBE702F8' '4A8AD3C70195.pas.ms.script' // Ok
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "has states" true
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_4A97EBE702F8_ME_4AC4ED6801F3 Ok
+
+: ME_4C762A1501FC_ME_4AC4ED6801F3
+ : Original WL 'ME_4C762A1501FC' '4A8AD3C70195.pas.ms.script' // Ok
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "has states" true
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_4C762A1501FC_ME_4AC4ED6801F3 Ok
+
+: ME_4C762AB601E1_ME_4AC4ED6801F3
+ : Original WL 'ME_4C762AB601E1' '4A8AD3C70195.pas.ms.script' // Cancel
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "ContextMenuWeight" 10
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "has states" true
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_4C762AB601E1_ME_4AC4ED6801F3 Cancel
+
+: ME_479731C50290_ME_4AC4ED6801F3
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_479731C50290_ME_4AC4ED6801F3 Cleanup
+
+: ME_4A8E8F2E0195_ME_4AC4ED6801F3
+ : Original WL 'ME_4A8E8F2E0195' '5000041101C8.pas.ms.script' // InitControls
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4A8E8F2E0195_ME_4AC4ED6801F3 InitControls
+
+: ME_4AC4ED6801F3
+ CONST UID '4AC4ED6801F3'
+ CONST Name 'PrimGroupProperty'
+ CONST Class class_Class
+ : Stereotype st_VCMForm ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Свойства группы' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_49480CD20303' '49480CD20303.pas.ms.script' // Admin
+ ;
+ : Inherits
+   Seq: ( WL 'ME_49525B34022A' '4AADF9450143.pas.ms.script' // TvcmEntityForm
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4A8AD409003A' '4A8AD3C70195.pas.ms.script' // Result$Cancel
+ WL 'ME_4A97EBC80201' '4A8AD3C70195.pas.ms.script' // Result$Ok
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( HWL ME_4AC5F4D601EA // edName
+ HWL ME_52397ECC0100 // Label1
+ HWL ME_4AC5F419038D // f_Data
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( HWL ME_4AC4EDA102E4 // Make
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4A8AD46D0226_ME_4AC4ED6801F3 // Cancel
+ ME_4A97EBE702F8_ME_4AC4ED6801F3 // Ok
+ ME_4C762A1501FC_ME_4AC4ED6801F3 // Ok
+ ME_4C762AB601E1_ME_4AC4ED6801F3 // Cancel
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_479731C50290_ME_4AC4ED6801F3 // Cleanup
+ ME_4A8E8F2E0195_ME_4AC4ED6801F3 // InitControls
+ )
+ ; // Overridden
+ : Children
+   Seq: ( HWL ME_4BD6FFA702F6 // admCreateGroup
+ HWL ME_4BD6FFBA008E // admRenameGroup
+ )
+ ; // Children
+ : Dependencies
+   Seq: ( ME_4AC5F6AA034C // ModalResults
+ ME_4AC5F816011B // l3String
+ ME_523990B002BA // Result$Ok
+ ME_523990DF013F // Forms
+ )
+ ; // Dependencies
+ CONST "NeedsHackRef" false
+ CONST "ZoneType" 'Modal'
+ CONST "author" 'Люлин А.В.'
+ CONST "finished dfm" true
+ CONST "no hands" true
+ CONST "resizeable" false
+ CONST "restrict form def" 'undefined'
+ CONST "started" '01.10.2009 21:57'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Admin\Forms\PrimGroupProperty_Form.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Admin\Forms'
+ CONST extprop:pas:TypeName 'TPrimGroupPropertyForm'
+ CONST extprop:rc:SelfName 'PrimGroupPropertyForm'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'PrimGroupProperty_Form'
+ CONST extprop:NeedsInitEntities true
+
+ref; // ME_4AC4ED6801F3 PrimGroupProperty

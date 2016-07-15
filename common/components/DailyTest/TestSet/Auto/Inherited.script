@@ -1,0 +1,43 @@
+USES
+ 'W:\shared\models\NewSchool\Templates\TemplatesCore.tpl.script'
+;
+
+: TestInherited
+ <<MDAClass>> ClassBase
+ 
+  : m1 IN %S
+   %SN .
+   %SS .
+   '::' .
+   @SELF pop:Word:Name .
+   @SELF pop:Word:Parent pop:Word:Name .
+   '----' .
+  ; // m1
+  
+ ; // ClassBase
+ 
+ <<MDAClass>> SimpleClass
+ 
+  %INHERITS
+   @ <<ClassBase>>
+  ;
+  
+  : m1 IN %S
+   %SN .
+   %SS .
+   '::' .
+   @SELF pop:Word:Name .
+   @SELF pop:Word:Parent pop:Word:Name .
+   '----' .
+   %S @^ <<ClassBase>> :: m1
+  ; // m1
+  
+ ; // SimpleClass
+ 
+ <<SimpleClass>> Tl3Base
+ ; // Tl3Base
+ 
+ @ Tl3Base @^ <<SimpleClass>> :: m1
+; // TestInherited
+
+TestInherited

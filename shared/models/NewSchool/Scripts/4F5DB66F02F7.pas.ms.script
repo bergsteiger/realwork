@@ -2,77 +2,6 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-FORWARD ME_4F5DB66F02F7
-
-FORWARD ME_4F5DB67E02FA
-
-: ME_4D77A52C0374
- CONST UID '4D77A52C0374'
- CONST Name 'slqtDiction'
- CONST Class class_Class
- : Stereotype st_UserType ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Толковый словарь' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4F5DB67E02FA // DictionContainerUserTypes
- ;
- CONST "ImageIndex" 60
- CONST "Weight" '-1'
- CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\DictionContainerUserTypes_slqtDiction_UserType.pas'
- CONST extprop:pas:UnitName 'DictionContainerUserTypes_slqtDiction_UserType'
-
-ref; // ME_4D77A52C0374 slqtDiction
-
-: ME_4D81EE030156
- CONST UID '4D81EE030156'
- CONST Name 'slqtMedicDiction'
- CONST Class class_Class
- : Stereotype st_UserType ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Словарь медицинских терминов' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4F5DB67E02FA // DictionContainerUserTypes
- ;
- : Inherits
-   Seq: ( ME_4D77A52C0374 // slqtDiction
- )
- ; // Inherits
- CONST "ImageIndex" 182
- CONST "Weight" '-1'
- CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\DictionContainerUserTypes_slqtMedicDiction_UserType.pas'
- CONST extprop:pas:UnitName 'DictionContainerUserTypes_slqtMedicDiction_UserType'
-
-ref; // ME_4D81EE030156 slqtMedicDiction
-
-: ME_4F5DB67E02FA
- CONST UID '4F5DB67E02FA'
- CONST Name 'DictionContainerUserTypes'
- CONST Class class_Class
- : Stereotype st_VCMForm ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_abstract
- : Parent ME_4F5DB66F02F7 // DictionLikeForms
- ;
- : Children
-   Seq: ( ME_4D77A52C0374 // slqtDiction
- ME_4D81EE030156 // slqtMedicDiction
- )
- ; // Children
- CONST "NeedsHackRef" true
- CONST "ZoneType" 'Any'
- CONST "finished dfm" true
- CONST "resizeable" false
- CONST "restrict form def" 'undefined'
- CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\DictionContainerUserTypes.imp.pas'
- CONST extprop:pas:TypeName '_DictionContainerUserTypes_'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'DictionContainerUserTypes.imp'
-
-ref; // ME_4F5DB67E02FA DictionContainerUserTypes
-
 : ME_4F5DB66F02F7
  CONST UID '4F5DB66F02F7'
  CONST Name 'DictionLikeForms'
@@ -83,7 +12,7 @@ ref; // ME_4F5DB67E02FA DictionContainerUserTypes
  : Parent WL 'ME_4F5DB66602DC' '4F5DB66602DC.pas.ms.script' // View
  ;
  : Children
-   Seq: ( ME_4F5DB67E02FA // DictionContainerUserTypes
+   Seq: ( WL 'ME_4F5DB67E02FA' '4F5DB67E02FA.pas.ms.script' // DictionContainerUserTypes
  )
  ; // Children
 

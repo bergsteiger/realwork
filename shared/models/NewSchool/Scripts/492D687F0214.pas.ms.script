@@ -1,0 +1,59 @@
+// TdsDocumentListCR 492D687F0214 ViewAreaControllerImp Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_492D687F0214
+
+: ME_492D74ED009A
+ CONST UID '492D74ED009A'
+ CONST Name 'InitDataType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent HWL ME_492D687F0214 // TdsDocumentListCR
+ ;
+ : Target WL 'ME_492D74C60183' '4B1D394B00E5.pas.ms.script' // IdeDocumentListCR
+ ;
+
+ref; // ME_492D74ED009A InitDataType
+
+: ME_492ACF630072_ME_492D687F0214
+ : Original WL 'ME_492ACF630072' '47D0E1500033.pas.ms.script' // GotData
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_492ACF630072_ME_492D687F0214 GotData
+
+: ME_492D687F0214
+ CONST UID '492D687F0214'
+ CONST Name 'TdsDocumentListCR'
+ CONST Class class_Class
+ : Stereotype st_ViewAreaControllerImp ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Список корреспондентов/респондентов' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_493D465902FA' '493D465902FA.pas.ms.script' // DocumentAndList
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47E9EDC602B2' '47E9EDC602B2.pas.ms.script' // dsDocumentList
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( HWL ME_492D74ED009A // InitDataType
+ )
+ ; // Attributes
+ : Overridden
+   Seq: ( ME_492ACF630072_ME_492D687F0214 // GotData
+ )
+ ; // Overridden
+ CONST "author" 'Люлин А.В.'
+ CONST "no hands" true
+ CONST "started" '26.11.2008 18:18'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Business\Document\dsDocumentListCR.pas'
+ CONST extprop:rc:SelfName 'dsDocumentListCR'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'dsDocumentListCR'
+
+ref; // ME_492D687F0214 TdsDocumentListCR

@@ -13,7 +13,7 @@ FORWARD ME_4909EF3B02B1
  %SUMMARY 'Создаёт корень дерева' ;
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_4909EF3B02B1 // TnsBaseMainMenuTree
+ : Parent HWL ME_4909EF3B02B1 // TnsBaseMainMenuTree
  ;
  : Target WL 'ME_4771111001F9' '476BF10A0280.pas.ms.script' // Il3RootNode
  ;
@@ -50,7 +50,7 @@ ref; // ME_490B086702CA aParent
  %SUMMARY 'найти элемент в дереве навигатора. Если родитель не указан, то используется корень дерева.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4909EF3B02B1 // TnsBaseMainMenuTree
+ : Parent HWL ME_4909EF3B02B1 // TnsBaseMainMenuTree
  ;
  : Target WL 'ME_45EEB95901C5' '457450470167.pas.ms.script' // NodeBase
  ;
@@ -109,7 +109,7 @@ ref; // ME_490B12E4021A aParent
  : Stereotype st_static::Operation ;
  CONST Visibility ProtectedAccess
  CONST Abstraction at_final
- : Parent ME_4909EF3B02B1 // TnsBaseMainMenuTree
+ : Parent HWL ME_4909EF3B02B1 // TnsBaseMainMenuTree
  ;
  : Parameters
    Seq: ( ME_490B12E4016E // aRoot
@@ -155,7 +155,7 @@ ref; // ME_53A9894E024F aCaption
  : Stereotype st_static::Operation ;
  CONST Visibility ProtectedAccess
  CONST Abstraction at_final
- : Parent ME_4909EF3B02B1 // TnsBaseMainMenuTree
+ : Parent HWL ME_4909EF3B02B1 // TnsBaseMainMenuTree
  ;
  : Parameters
    Seq: ( ME_53A9894E01FC // aRoot
@@ -169,7 +169,7 @@ ref; // ME_53A988E703D5 nsAddMainMenuItem$2
 : ME_4909F0F20388
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4909EF3B02B1 // TnsBaseMainMenuTree
+ : Parent HWL ME_4909EF3B02B1 // TnsBaseMainMenuTree
  ;
  : Target WL 'ME_47F60E8E019C' '4908A8A20107.pas.ms.script' // nsNodes
  ;
@@ -179,7 +179,7 @@ ref; // ME_4909F0F20388
 : ME_4909F1020221
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4909EF3B02B1 // TnsBaseMainMenuTree
+ : Parent HWL ME_4909EF3B02B1 // TnsBaseMainMenuTree
  ;
  : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
  ;
@@ -189,7 +189,7 @@ ref; // ME_4909F1020221
 : ME_4909F31E0020
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4909EF3B02B1 // TnsBaseMainMenuTree
+ : Parent HWL ME_4909EF3B02B1 // TnsBaseMainMenuTree
  ;
  : Target WL 'ME_48FF63BC0129' '47F2170002B2.pas.ms.script' // TnsResetTreeStatus
  ;
@@ -199,7 +199,7 @@ ref; // ME_4909F31E0020
 : ME_490B02B40021
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4909EF3B02B1 // TnsBaseMainMenuTree
+ : Parent HWL ME_4909EF3B02B1 // TnsBaseMainMenuTree
  ;
  : Target WL 'ME_490724F202F5' '4907236C0171.pas.ms.script' // TnsRubricatorCache
  ;
@@ -209,7 +209,7 @@ ref; // ME_490B02B40021
 : ME_490B066C00C5
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4909EF3B02B1 // TnsBaseMainMenuTree
+ : Parent HWL ME_4909EF3B02B1 // TnsBaseMainMenuTree
  ;
  : Target WL 'ME_456EC91500FA' '456EA56002BF.pas.ms.script' // NavigatorMenuItemType
  ;
@@ -219,7 +219,7 @@ ref; // ME_490B066C00C5
 : ME_4ADF0E2D0124
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4909EF3B02B1 // TnsBaseMainMenuTree
+ : Parent HWL ME_4909EF3B02B1 // TnsBaseMainMenuTree
  ;
  : Target WL 'ME_490AF9B0039B' '4908A8A20107.pas.ms.script' // TnsNewCachableNode
  ;
@@ -231,9 +231,9 @@ FORWARD ME_490B0F4F021C
 : ME_4ADF104C037C
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4909EF3B02B1 // TnsBaseMainMenuTree
+ : Parent HWL ME_4909EF3B02B1 // TnsBaseMainMenuTree
  ;
- : Target ME_490B0F4F021C // TnsMainMenuNode
+ : Target HWL ME_490B0F4F021C // TnsMainMenuNode
  ;
 
 ref; // ME_4ADF104C037C 
@@ -265,17 +265,17 @@ ref; // ME_4908AB070319_ME_4909EF3B02B1 RegetRootNode
  %SUMMARY 'Базовое дерево меню' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4909EECE01D5 // MainMenu
+ : Parent HWL ME_4909EECE01D5 // MainMenu
  ;
  : Inherits
    Seq: ( WL 'ME_4908A9240071' '4908A8A20107.pas.ms.script' // TnsDataResetTree
  )
  ; // Inherits
  : Operations
-   Seq: ( ME_4909EF6E0361 // MakeRoot
- ME_490B08670285 // nsFindNavigatorItem
- ME_490B12C6035E // nsAddMainMenuItem$1
- ME_53A988E703D5 // nsAddMainMenuItem$2
+   Seq: ( HWL ME_4909EF6E0361 // MakeRoot
+ HWL ME_490B08670285 // nsFindNavigatorItem
+ HWL ME_490B12C6035E // nsAddMainMenuItem$1
+ HWL ME_53A988E703D5 // nsAddMainMenuItem$2
  )
  ; // Operations
  : Overridden
@@ -315,7 +315,7 @@ FORWARD ME_490AE2C7034B
  CONST Visibility PublicAccess
  CONST Abstraction at_final
  CONST LinkType lt_agr
- : Parent ME_490AE2C7034B // TnsHistoryTree
+ : Parent HWL ME_490AE2C7034B // TnsHistoryTree
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -341,7 +341,7 @@ ref; // ME_490AE30101A2 aMaxCount
  : Stereotype st_ctor::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_490AE2C7034B // TnsHistoryTree
+ : Parent HWL ME_490AE2C7034B // TnsHistoryTree
  ;
  : Parameters
    Seq: ( ME_490AE30101A2 // aMaxCount
@@ -359,18 +359,18 @@ ref; // ME_490AE2F50049 Create
  %SUMMARY 'Содержит поля и методы общие для деревьев содержащих последние открытые документы и запросы' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4909EECE01D5 // MainMenu
+ : Parent HWL ME_4909EECE01D5 // MainMenu
  ;
  : Inherits
-   Seq: ( ME_4909EF3B02B1 // TnsBaseMainMenuTree
+   Seq: ( HWL ME_4909EF3B02B1 // TnsBaseMainMenuTree
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_490AE326000B // MaxCount
+   Seq: ( HWL ME_490AE326000B // MaxCount
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_490AE2F50049 // Create
+   Seq: ( HWL ME_490AE2F50049 // Create
  )
  ; // Operations
  CONST "author" 'Морозов М.А.'
@@ -392,7 +392,7 @@ FORWARD ME_490AE59703A6
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_490AE59703A6 // TnsLastOpenDocTree
+ : Parent HWL ME_490AE59703A6 // TnsLastOpenDocTree
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -406,7 +406,7 @@ ref; // ME_490AE5D70316 f_FullDocName
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_490AE59703A6 // TnsLastOpenDocTree
+ : Parent HWL ME_490AE59703A6 // TnsLastOpenDocTree
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -429,7 +429,7 @@ ref; // ME_490AE60B02C6 aBookmark
  %SUMMARY 'создаёт узел который умеет работать с IBookmark' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_490AE59703A6 // TnsLastOpenDocTree
+ : Parent HWL ME_490AE59703A6 // TnsLastOpenDocTree
  ;
  : Target WL 'ME_476BF22B03E1' '476BF10A0280.pas.ms.script' // Il3Node
  ;
@@ -474,7 +474,7 @@ ref; // ME_490AE8290047 aFullDocName
  : Stereotype st_ctor::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_490AE59703A6 // TnsLastOpenDocTree
+ : Parent HWL ME_490AE59703A6 // TnsLastOpenDocTree
  ;
  : Parameters
    Seq: ( ME_490AE8290007 // aMaxCount
@@ -523,7 +523,7 @@ ref; // ME_490AE83E0206 aFullDocName
  : Stereotype st_factory::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_490AE59703A6 // TnsLastOpenDocTree
+ : Parent HWL ME_490AE59703A6 // TnsLastOpenDocTree
  ;
  : Target WL 'ME_46825CC00249' '4682595B0268.pas.ms.script' // Il3SimpleTree
  ;
@@ -539,7 +539,7 @@ ref; // ME_490AE82D01F7 Make
 : ME_490AEAEE013B
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_490AE59703A6 // TnsLastOpenDocTree
+ : Parent HWL ME_490AE59703A6 // TnsLastOpenDocTree
  ;
  : Target WL 'ME_47F60E8E019C' '4908A8A20107.pas.ms.script' // nsNodes
  ;
@@ -549,7 +549,7 @@ ref; // ME_490AEAEE013B
 : ME_490AEE6B01BB
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_490AE59703A6 // TnsLastOpenDocTree
+ : Parent HWL ME_490AE59703A6 // TnsLastOpenDocTree
  ;
  : Target WL 'ME_47F25BC801DB' '47D0E1500033.pas.ms.script' // vcmBase
  ;
@@ -559,7 +559,7 @@ ref; // ME_490AEE6B01BB
 : ME_490AEEA7037E
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_490AE59703A6 // TnsLastOpenDocTree
+ : Parent HWL ME_490AE59703A6 // TnsLastOpenDocTree
  ;
  : Target WL 'ME_490885C402F8' '521C9DA50125.pas.ms.script' // Messages
  ;
@@ -569,7 +569,7 @@ ref; // ME_490AEEA7037E
 : ME_490AEEEA001B
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_490AE59703A6 // TnsLastOpenDocTree
+ : Parent HWL ME_490AE59703A6 // TnsLastOpenDocTree
  ;
  : Target WL 'ME_48FF556602BA' '48F747EC0073.pas.ms.script' // DataAdapter
  ;
@@ -579,7 +579,7 @@ ref; // ME_490AEEEA001B
 : ME_490AEF320329
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_490AE59703A6 // TnsLastOpenDocTree
+ : Parent HWL ME_490AE59703A6 // TnsLastOpenDocTree
  ;
  : Target WL 'ME_456EB454018E' '456EA56002BF.pas.ms.script' // CanNotFindData
  ;
@@ -591,15 +591,15 @@ FORWARD ME_4ADDF4D901D1
 : ME_4ADF249D01DD
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_490AE59703A6 // TnsLastOpenDocTree
+ : Parent HWL ME_490AE59703A6 // TnsLastOpenDocTree
  ;
- : Target ME_4ADDF4D901D1 // TnsJournalBookmarkNode
+ : Target HWL ME_4ADDF4D901D1 // TnsJournalBookmarkNode
  ;
 
 ref; // ME_4ADF249D01DD 
 
 : ME_4909EF6E0361_ME_490AE59703A6
- : Original ME_4909EF6E0361 // MakeRoot
+ : Original HWL ME_4909EF6E0361 // MakeRoot
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_4909EF6E0361_ME_490AE59703A6 MakeRoot
@@ -613,21 +613,21 @@ ref; // ME_4909EF6E0361_ME_490AE59703A6 MakeRoot
  %SUMMARY 'Дерево последних открытых документов' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4909EECE01D5 // MainMenu
+ : Parent HWL ME_4909EECE01D5 // MainMenu
  ;
  : Inherits
-   Seq: ( ME_490AE2C7034B // TnsHistoryTree
+   Seq: ( HWL ME_490AE2C7034B // TnsHistoryTree
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_490AE5D70316 // f_FullDocName
- ME_490AE5E00025 // f_ForInpharm
+   Seq: ( HWL ME_490AE5D70316 // f_FullDocName
+ HWL ME_490AE5E00025 // f_ForInpharm
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_490AE5F60009 // CreateNode
- ME_490AE8170294 // Create
- ME_490AE82D01F7 // Make
+   Seq: ( HWL ME_490AE5F60009 // CreateNode
+ HWL ME_490AE8170294 // Create
+ HWL ME_490AE82D01F7 // Make
  )
  ; // Operations
  : Overridden
@@ -659,7 +659,7 @@ ref; // ME_490AE59703A6 TnsLastOpenDocTree
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_490B0F4F021C // TnsMainMenuNode
+ : Parent HWL ME_490B0F4F021C // TnsMainMenuNode
  ;
  : Target WL 'ME_4773DED9004C' '47913B47006E.pas.ms.script' // Tl3_String
  ;
@@ -673,7 +673,7 @@ ref; // ME_4ADF054A028C f_Caption
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_490B0F4F021C // TnsMainMenuNode
+ : Parent HWL ME_490B0F4F021C // TnsMainMenuNode
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -714,7 +714,7 @@ ref; // ME_4ADF05D60078 aNode
  : Stereotype st_ctor::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_490B0F4F021C // TnsMainMenuNode
+ : Parent HWL ME_490B0F4F021C // TnsMainMenuNode
  ;
  : Parameters
    Seq: ( ME_4ADF05D60004 // aType
@@ -763,7 +763,7 @@ ref; // ME_4ADF05EF00D6 aNode
  : Stereotype st_factory::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_490B0F4F021C // TnsMainMenuNode
+ : Parent HWL ME_490B0F4F021C // TnsMainMenuNode
  ;
  : Target WL 'ME_476BF22B03E1' '476BF10A0280.pas.ms.script' // Il3Node
  ;
@@ -779,7 +779,7 @@ ref; // ME_4ADF05E2020B Make
 : ME_4ADF08B20195
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_490B0F4F021C // TnsMainMenuNode
+ : Parent HWL ME_490B0F4F021C // TnsMainMenuNode
  ;
  : Target WL 'ME_4ADF0823017C' '54B90AC6014B.pas.ms.script' // l3IsNil
  ;
@@ -789,7 +789,7 @@ ref; // ME_4ADF08B20195
 : ME_4ADF08BE00A3
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_490B0F4F021C // TnsMainMenuNode
+ : Parent HWL ME_490B0F4F021C // TnsMainMenuNode
  ;
  : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
  ;
@@ -799,7 +799,7 @@ ref; // ME_4ADF08BE00A3
 : ME_4ADF093E0256
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_490B0F4F021C // TnsMainMenuNode
+ : Parent HWL ME_490B0F4F021C // TnsMainMenuNode
  ;
  : Target WL 'ME_4ADF092A0066' '47913B47006E.pas.ms.script' // l3Set
  ;
@@ -833,7 +833,7 @@ ref; // ME_47A869BB02DE_ME_490B0F4F021C GetAsPCharLen
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4909EECE01D5 // MainMenu
+ : Parent HWL ME_4909EECE01D5 // MainMenu
  ;
  : Inherits
    Seq: ( WL 'ME_490AF9B0039B' '4908A8A20107.pas.ms.script' // TnsNewCachableNode
@@ -844,13 +844,13 @@ ref; // ME_47A869BB02DE_ME_490B0F4F021C GetAsPCharLen
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_4ADF054A028C // f_Caption
- ME_4ADF05790253 // f_NodeType
+   Seq: ( HWL ME_4ADF054A028C // f_Caption
+ HWL ME_4ADF05790253 // f_NodeType
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_4ADF05C401AD // Create
- ME_4ADF05E2020B // Make
+   Seq: ( HWL ME_4ADF05C401AD // Create
+ HWL ME_4ADF05E2020B // Make
  )
  ; // Operations
  : Implemented
@@ -888,7 +888,7 @@ FORWARD ME_4ADDF4FA01C8
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4ADDF4FA01C8 // TnsDocumentMainMenuNode
+ : Parent HWL ME_4ADDF4FA01C8 // TnsDocumentMainMenuNode
  ;
  : Target WL 'ME_45EEB6520191' '4570511E038A.pas.ms.script' // Document
  ;
@@ -920,7 +920,7 @@ ref; // ME_4ADF119D0160 aDocument
  : Stereotype st_ctor::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4ADDF4FA01C8 // TnsDocumentMainMenuNode
+ : Parent HWL ME_4ADDF4FA01C8 // TnsDocumentMainMenuNode
  ;
  : Parameters
    Seq: ( ME_4ADF119D0116 // aType
@@ -955,7 +955,7 @@ ref; // ME_4ADF11D002B9 aDocument
  : Stereotype st_factory::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4ADDF4FA01C8 // TnsDocumentMainMenuNode
+ : Parent HWL ME_4ADDF4FA01C8 // TnsDocumentMainMenuNode
  ;
  : Target WL 'ME_476BF22B03E1' '476BF10A0280.pas.ms.script' // Il3Node
  ;
@@ -970,7 +970,7 @@ ref; // ME_4ADF11A40191 Make
 : ME_4ADF1484033C
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4ADDF4FA01C8 // TnsDocumentMainMenuNode
+ : Parent HWL ME_4ADDF4FA01C8 // TnsDocumentMainMenuNode
  ;
  : Target WL 'ME_4ADF1473035D' '47F260DC003F.pas.ms.script' // nsGetDocumentShortName
  ;
@@ -998,10 +998,10 @@ ref; // ME_479731C50290_ME_4ADDF4FA01C8 Cleanup
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4909EECE01D5 // MainMenu
+ : Parent HWL ME_4909EECE01D5 // MainMenu
  ;
  : Inherits
-   Seq: ( ME_490B0F4F021C // TnsMainMenuNode
+   Seq: ( HWL ME_490B0F4F021C // TnsMainMenuNode
  )
  ; // Inherits
  : Implements
@@ -1009,12 +1009,12 @@ ref; // ME_479731C50290_ME_4ADDF4FA01C8 Cleanup
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_4ADF116700C7 // f_Document
+   Seq: ( HWL ME_4ADF116700C7 // f_Document
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_4ADF118F03DB // Create
- ME_4ADF11A40191 // Make
+   Seq: ( HWL ME_4ADF118F03DB // Create
+ HWL ME_4ADF11A40191 // Make
  )
  ; // Operations
  : Implemented
@@ -1047,7 +1047,7 @@ ref; // ME_4ADDF4FA01C8 TnsDocumentMainMenuNode
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4ADDF4D901D1 // TnsJournalBookmarkNode
+ : Parent HWL ME_4ADDF4D901D1 // TnsJournalBookmarkNode
  ;
  : Target WL 'ME_4A8A8F640192' '4570511E038A.pas.ms.script' // JournalBookmark
  ;
@@ -1061,7 +1061,7 @@ ref; // ME_4ADF239701F3 f_Bookmark
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4ADDF4D901D1 // TnsJournalBookmarkNode
+ : Parent HWL ME_4ADDF4D901D1 // TnsJournalBookmarkNode
  ;
  : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
  ;
@@ -1093,7 +1093,7 @@ ref; // ME_4ADF23D6020F aFullDocName
  : Stereotype st_ctor::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4ADDF4D901D1 // TnsJournalBookmarkNode
+ : Parent HWL ME_4ADDF4D901D1 // TnsJournalBookmarkNode
  ;
  : Parameters
    Seq: ( ME_4ADF23D601A1 // aBookmark
@@ -1132,7 +1132,7 @@ ref; // ME_4ADF23EA02AB aFullDocName
  : Stereotype st_factory::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4ADDF4D901D1 // TnsJournalBookmarkNode
+ : Parent HWL ME_4ADDF4D901D1 // TnsJournalBookmarkNode
  ;
  : Target WL 'ME_476BF22B03E1' '476BF10A0280.pas.ms.script' // Il3Node
  ;
@@ -1147,7 +1147,7 @@ ref; // ME_4ADF23DC02B4 Make
 : ME_4ADF2566020A
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4ADDF4D901D1 // TnsJournalBookmarkNode
+ : Parent HWL ME_4ADDF4D901D1 // TnsJournalBookmarkNode
  ;
  : Target WL 'ME_47878E0E0191' '54B90AC6014B.pas.ms.script' // l3String
  ;
@@ -1157,7 +1157,7 @@ ref; // ME_4ADF2566020A
 : ME_4ADF25710268
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4ADDF4D901D1 // TnsJournalBookmarkNode
+ : Parent HWL ME_4ADDF4D901D1 // TnsJournalBookmarkNode
  ;
  : Target WL 'ME_431841610361' '4423F94903C8.pas.ms.script' // String
  ;
@@ -1167,7 +1167,7 @@ ref; // ME_4ADF25710268
 : ME_4ADF25810245
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4ADDF4D901D1 // TnsJournalBookmarkNode
+ : Parent HWL ME_4ADDF4D901D1 // TnsJournalBookmarkNode
  ;
  : Target WL 'ME_4AB882990057' '47F2170002B2.pas.ms.script' // nsCStr
  ;
@@ -1177,7 +1177,7 @@ ref; // ME_4ADF25810245
 : ME_4ADF25A10330
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4ADDF4D901D1 // TnsJournalBookmarkNode
+ : Parent HWL ME_4ADDF4D901D1 // TnsJournalBookmarkNode
  ;
  : Target WL 'ME_456EB454018E' '456EA56002BF.pas.ms.script' // CanNotFindData
  ;
@@ -1218,7 +1218,7 @@ ref; // ME_4A60B23E00C3_ME_4ADDF4D901D1 COMQueryInterface
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4909EECE01D5 // MainMenu
+ : Parent HWL ME_4909EECE01D5 // MainMenu
  ;
  : Inherits
    Seq: ( WL 'ME_4AC230590004' '4908A8A20107.pas.ms.script' // TnsWrapperNode
@@ -1229,13 +1229,13 @@ ref; // ME_4A60B23E00C3_ME_4ADDF4D901D1 COMQueryInterface
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_4ADF239701F3 // f_Bookmark
- ME_4ADF23AB02CB // f_DocName
+   Seq: ( HWL ME_4ADF239701F3 // f_Bookmark
+ HWL ME_4ADF23AB02CB // f_DocName
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_4ADF23C202CF // Create
- ME_4ADF23DC02B4 // Make
+   Seq: ( HWL ME_4ADF23C202CF // Create
+ HWL ME_4ADF23DC02B4 // Make
  )
  ; // Operations
  : Implemented
@@ -1275,7 +1275,7 @@ FORWARD ME_4ADDF50A00E2
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4ADDF50A00E2 // TnsQueryNode
+ : Parent HWL ME_4ADDF50A00E2 // TnsQueryNode
  ;
  : Target WL 'ME_45EEE145027B' '45EEAA8E034E.pas.ms.script' // Query
  ;
@@ -1289,7 +1289,7 @@ ref; // ME_4ADF271B0191 f_Query
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4ADDF50A00E2 // TnsQueryNode
+ : Parent HWL ME_4ADDF50A00E2 // TnsQueryNode
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -1312,7 +1312,7 @@ ref; // ME_4ADF275C01D0 aQuery
  : Stereotype st_ctor::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4ADDF50A00E2 // TnsQueryNode
+ : Parent HWL ME_4ADDF50A00E2 // TnsQueryNode
  ;
  : Parameters
    Seq: ( ME_4ADF275C01D0 // aQuery
@@ -1337,7 +1337,7 @@ ref; // ME_4ADF276F0194 aQuery
  : Stereotype st_factory::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4ADDF50A00E2 // TnsQueryNode
+ : Parent HWL ME_4ADDF50A00E2 // TnsQueryNode
  ;
  : Target WL 'ME_476BF22B03E1' '476BF10A0280.pas.ms.script' // Il3Node
  ;
@@ -1351,7 +1351,7 @@ ref; // ME_4ADF27620398 Make
 : ME_4ADF29F801F0
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4ADDF50A00E2 // TnsQueryNode
+ : Parent HWL ME_4ADDF50A00E2 // TnsQueryNode
  ;
  : Target WL 'ME_461CF26C02FA' '45EEAA8E034E.pas.ms.script' // QueryNotExecuted
  ;
@@ -1361,7 +1361,7 @@ ref; // ME_4ADF29F801F0
 : ME_4ADF2A02015E
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4ADDF50A00E2 // TnsQueryNode
+ : Parent HWL ME_4ADDF50A00E2 // TnsQueryNode
  ;
  : Target WL 'ME_431841610361' '4423F94903C8.pas.ms.script' // String
  ;
@@ -1371,7 +1371,7 @@ ref; // ME_4ADF2A02015E
 : ME_4ADF2A1703BB
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4ADDF50A00E2 // TnsQueryNode
+ : Parent HWL ME_4ADDF50A00E2 // TnsQueryNode
  ;
  : Target WL 'ME_4ADEE542029C' '47F2170002B2.pas.ms.script' // nsWStr
  ;
@@ -1412,7 +1412,7 @@ ref; // ME_4A60B23E00C3_ME_4ADDF50A00E2 COMQueryInterface
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4909EECE01D5 // MainMenu
+ : Parent HWL ME_4909EECE01D5 // MainMenu
  ;
  : Inherits
    Seq: ( WL 'ME_4AC230590004' '4908A8A20107.pas.ms.script' // TnsWrapperNode
@@ -1423,13 +1423,13 @@ ref; // ME_4A60B23E00C3_ME_4ADDF50A00E2 COMQueryInterface
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_4ADF271B0191 // f_Query
- ME_4ADF272B0112 // f_DocCount
+   Seq: ( HWL ME_4ADF271B0191 // f_Query
+ HWL ME_4ADF272B0112 // f_DocCount
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_4ADF274E0033 // Create
- ME_4ADF27620398 // Make
+   Seq: ( HWL ME_4ADF274E0033 // Create
+ HWL ME_4ADF27620398 // Make
  )
  ; // Operations
  : Implemented
@@ -1468,7 +1468,7 @@ FORWARD ME_4E730AE6014C
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_ref
- : Parent ME_4E730AE6014C // TnsMainMenu2011Node
+ : Parent HWL ME_4E730AE6014C // TnsMainMenu2011Node
  ;
  : Target WL 'ME_4E36C7D80396' '4DD24BD40021.pas.ms.script' // SectionItem
  ;
@@ -1482,7 +1482,7 @@ ref; // ME_4E730CA003AB f_SectionItem
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_ref
- : Parent ME_4E730AE6014C // TnsMainMenu2011Node
+ : Parent HWL ME_4E730AE6014C // TnsMainMenu2011Node
  ;
  : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
  ;
@@ -1506,7 +1506,7 @@ ref; // ME_4E730CE8010D aSectionItem
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4E730CD20352 // Create
+ : Parent HWL ME_4E730CD20352 // Create
  ;
  : Parameters
    Seq: ( ME_4E730CE8010D // aSectionItem
@@ -1523,10 +1523,10 @@ ref; // ME_4E730CD803BA DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4E730AE6014C // TnsMainMenu2011Node
+ : Parent HWL ME_4E730AE6014C // TnsMainMenu2011Node
  ;
  : Operations
-   Seq: ( ME_4E730CD803BA // DoIt
+   Seq: ( HWL ME_4E730CD803BA // DoIt
  )
  ; // Operations
 
@@ -1540,10 +1540,10 @@ ref; // ME_4E730CD20352 Create
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4E730AE6014C // TnsMainMenu2011Node
+ : Parent HWL ME_4E730AE6014C // TnsMainMenu2011Node
  ;
  : Inherits
-   Seq: ( ME_4E730CD20352 // Create
+   Seq: ( HWL ME_4E730CD20352 // Create
  )
  ; // Inherits
  : Implements
@@ -1556,7 +1556,7 @@ ref; // ME_4E730D0F00CA Make
 : ME_4E730DBD00B1
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4E730AE6014C // TnsMainMenu2011Node
+ : Parent HWL ME_4E730AE6014C // TnsMainMenu2011Node
  ;
  : Target WL 'ME_4ADF092A0066' '47913B47006E.pas.ms.script' // l3Set
  ;
@@ -1566,7 +1566,7 @@ ref; // ME_4E730DBD00B1
 : ME_4E730DC00319
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4E730AE6014C // TnsMainMenu2011Node
+ : Parent HWL ME_4E730AE6014C // TnsMainMenu2011Node
  ;
  : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
  ;
@@ -1576,7 +1576,7 @@ ref; // ME_4E730DC00319
 : ME_4E730DC303C8
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4E730AE6014C // TnsMainMenu2011Node
+ : Parent HWL ME_4E730AE6014C // TnsMainMenu2011Node
  ;
  : Target WL 'ME_4ADF0823017C' '54B90AC6014B.pas.ms.script' // l3IsNil
  ;
@@ -1586,7 +1586,7 @@ ref; // ME_4E730DC303C8
 : ME_4E730E330344
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4E730AE6014C // TnsMainMenu2011Node
+ : Parent HWL ME_4E730AE6014C // TnsMainMenu2011Node
  ;
  : Target WL 'ME_4AB882990057' '47F2170002B2.pas.ms.script' // nsCStr
  ;
@@ -1596,7 +1596,7 @@ ref; // ME_4E730E330344
 : ME_4E730E4C01AA
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4E730AE6014C // TnsMainMenu2011Node
+ : Parent HWL ME_4E730AE6014C // TnsMainMenu2011Node
  ;
  : Target WL 'ME_4AA7888B0076' '47913B47006E.pas.ms.script' // l3CStr
  ;
@@ -1606,7 +1606,7 @@ ref; // ME_4E730E4C01AA
 : ME_4E7310970186
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4E730AE6014C // TnsMainMenu2011Node
+ : Parent HWL ME_4E730AE6014C // TnsMainMenu2011Node
  ;
  : Target WL 'ME_431841610361' '4423F94903C8.pas.ms.script' // String
  ;
@@ -1633,7 +1633,7 @@ ref; // ME_4A60B23E00C3_ME_4E730AE6014C COMQueryInterface
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4909EECE01D5 // MainMenu
+ : Parent HWL ME_4909EECE01D5 // MainMenu
  ;
  : Inherits
    Seq: ( WL 'ME_490AF9B0039B' '4908A8A20107.pas.ms.script' // TnsNewCachableNode
@@ -1644,13 +1644,13 @@ ref; // ME_4A60B23E00C3_ME_4E730AE6014C COMQueryInterface
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_4E730CA003AB // f_SectionItem
- ME_4E730DFB0287 // f_Caption
+   Seq: ( HWL ME_4E730CA003AB // f_SectionItem
+ HWL ME_4E730DFB0287 // f_Caption
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_4E730CD20352 // Create
- ME_4E730D0F00CA // Make
+   Seq: ( HWL ME_4E730CD20352 // Create
+ HWL ME_4E730D0F00CA // Make
  )
  ; // Operations
  : Overridden
@@ -1686,7 +1686,7 @@ FORWARD ME_5707EE3A0158
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_5707EE3A0158 // TnsMainMenuSectionNode
+ : Parent HWL ME_5707EE3A0158 // TnsMainMenuSectionNode
  ;
  : Target WL 'ME_56FE518A027D' '4DD24BD40021.pas.ms.script' // MainMenuSection
  ;
@@ -1700,7 +1700,7 @@ ref; // ME_5707EEE4013B f_MainMenuSection
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_5707EE3A0158 // TnsMainMenuSectionNode
+ : Parent HWL ME_5707EE3A0158 // TnsMainMenuSectionNode
  ;
  : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
  ;
@@ -1724,7 +1724,7 @@ ref; // ME_5707EF080003 aSection
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_5707EEF50342 // Create
+ : Parent HWL ME_5707EEF50342 // Create
  ;
  : Parameters
    Seq: ( ME_5707EF080003 // aSection
@@ -1741,10 +1741,10 @@ ref; // ME_5707EEFE02B8 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_5707EE3A0158 // TnsMainMenuSectionNode
+ : Parent HWL ME_5707EE3A0158 // TnsMainMenuSectionNode
  ;
  : Operations
-   Seq: ( ME_5707EEFE02B8 // DoIt
+   Seq: ( HWL ME_5707EEFE02B8 // DoIt
  )
  ; // Operations
 
@@ -1758,10 +1758,10 @@ ref; // ME_5707EEF50342 Create
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_5707EE3A0158 // TnsMainMenuSectionNode
+ : Parent HWL ME_5707EE3A0158 // TnsMainMenuSectionNode
  ;
  : Inherits
-   Seq: ( ME_5707EEF50342 // Create
+   Seq: ( HWL ME_5707EEF50342 // Create
  )
  ; // Inherits
  : Implements
@@ -1774,7 +1774,7 @@ ref; // ME_5707EF280355 Make
 : ME_5707EFD6006D
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_5707EE3A0158 // TnsMainMenuSectionNode
+ : Parent HWL ME_5707EE3A0158 // TnsMainMenuSectionNode
  ;
  : Target WL 'ME_4AA7888B0076' '47913B47006E.pas.ms.script' // l3CStr
  ;
@@ -1784,7 +1784,7 @@ ref; // ME_5707EFD6006D
 : ME_5707F04C035C
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_5707EE3A0158 // TnsMainMenuSectionNode
+ : Parent HWL ME_5707EE3A0158 // TnsMainMenuSectionNode
  ;
  : Target WL 'ME_4AB882990057' '47F2170002B2.pas.ms.script' // nsCStr
  ;
@@ -1794,7 +1794,7 @@ ref; // ME_5707F04C035C
 : ME_570B9121023A
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_5707EE3A0158 // TnsMainMenuSectionNode
+ : Parent HWL ME_5707EE3A0158 // TnsMainMenuSectionNode
  ;
  : Target WL 'ME_431841610361' '4423F94903C8.pas.ms.script' // String
  ;
@@ -1804,7 +1804,7 @@ ref; // ME_570B9121023A
 : ME_570B912401A7
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_5707EE3A0158 // TnsMainMenuSectionNode
+ : Parent HWL ME_5707EE3A0158 // TnsMainMenuSectionNode
  ;
  : Target WL 'ME_4ADF0823017C' '54B90AC6014B.pas.ms.script' // l3IsNil
  ;
@@ -1837,20 +1837,20 @@ ref; // ME_4A60B23E00C3_ME_5707EE3A0158 COMQueryInterface
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4909EECE01D5 // MainMenu
+ : Parent HWL ME_4909EECE01D5 // MainMenu
  ;
  : Inherits
    Seq: ( WL 'ME_490AF9B0039B' '4908A8A20107.pas.ms.script' // TnsNewCachableNode
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_5707EEE4013B // f_MainMenuSection
- ME_5707EFBC036F // f_Caption
+   Seq: ( HWL ME_5707EEE4013B // f_MainMenuSection
+ HWL ME_5707EFBC036F // f_Caption
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_5707EEF50342 // Create
- ME_5707EF280355 // Make
+   Seq: ( HWL ME_5707EEF50342 // Create
+ HWL ME_5707EF280355 // Make
  )
  ; // Operations
  : Overridden
@@ -1884,15 +1884,15 @@ ref; // ME_5707EE3A0158 TnsMainMenuSectionNode
  : Parent WL 'ME_4ABB680E0218' '4ABB680E0218.pas.ms.script' // Common$Lib
  ;
  : Children
-   Seq: ( ME_4909EF3B02B1 // TnsBaseMainMenuTree
- ME_490AE2C7034B // TnsHistoryTree
- ME_490AE59703A6 // TnsLastOpenDocTree
- ME_490B0F4F021C // TnsMainMenuNode
- ME_4ADDF4FA01C8 // TnsDocumentMainMenuNode
- ME_4ADDF4D901D1 // TnsJournalBookmarkNode
- ME_4ADDF50A00E2 // TnsQueryNode
- ME_4E730AE6014C // TnsMainMenu2011Node
- ME_5707EE3A0158 // TnsMainMenuSectionNode
+   Seq: ( HWL ME_4909EF3B02B1 // TnsBaseMainMenuTree
+ HWL ME_490AE2C7034B // TnsHistoryTree
+ HWL ME_490AE59703A6 // TnsLastOpenDocTree
+ HWL ME_490B0F4F021C // TnsMainMenuNode
+ HWL ME_4ADDF4FA01C8 // TnsDocumentMainMenuNode
+ HWL ME_4ADDF4D901D1 // TnsJournalBookmarkNode
+ HWL ME_4ADDF50A00E2 // TnsQueryNode
+ HWL ME_4E730AE6014C // TnsMainMenu2011Node
+ HWL ME_5707EE3A0158 // TnsMainMenuSectionNode
  )
  ; // Children
  : Depends

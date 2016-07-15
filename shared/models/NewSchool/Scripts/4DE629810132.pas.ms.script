@@ -11,9 +11,9 @@ FORWARD ME_4DE608AF027D
 : ME_4DE62B2702A6
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4DE6299E021A // TkwArchiOpenDocument
+ : Parent HWL ME_4DE6299E021A // TkwArchiOpenDocument
  ;
- : Target ME_4DE608AF027D // arOpenDocumentByNumber
+ : Target HWL ME_4DE608AF027D // arOpenDocumentByNumber
  ;
 
 ref; // ME_4DE62B2702A6 
@@ -27,7 +27,7 @@ ref; // ME_4DE62B2702A6
  %SUMMARY '*Формат:*  Номер_документа Внутренний_номер Открыть'#13#10'*Описание:* Открывает документ по номеру. Позволяет установить флаг внутренний/внешний при задании номера документа.'#13#10' *Пример:*'#13#10' {code}'#13#10' 10003000 true Открыть'#13#10' {code}'#13#10' *Результат:* Открывает Конституцию РФ'#13#10' *Примечания:*'#13#10' Константы номеров документов в тестах, залитых в тестовую базу, находятся в файле:'#13#10' {code}'#13#10' w:\archi\source\projects\Archi\TestSet\Dictionary\DocumentConst.script"'#13#10' {code}'#13#10' В скриптах напрямую практически не используется, так как есть более удобные функции в файле:'#13#10' {code}'#13#10'  w:\archi\source\projects\Archi\TestSet\Dictionary\MainFormUtils.script"'#13#10' {code}' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4DE629810132 // Scripting
+ : Parent HWL ME_4DE629810132 // Scripting
  ;
  : Dependencies
    Seq: ( ME_4DE62B2702A6 // arOpenDocumentByNumber
@@ -55,7 +55,7 @@ FORWARD ME_5425550E01AA
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_5425550E01AA // TarSkipDialog
+ : Parent HWL ME_5425550E01AA // TarSkipDialog
  ;
 
 ref; // ME_5425552800D5 ar_AsUsual
@@ -68,7 +68,7 @@ ref; // ME_5425552800D5 ar_AsUsual
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_5425550E01AA // TarSkipDialog
+ : Parent HWL ME_5425550E01AA // TarSkipDialog
  ;
 
 ref; // ME_5425571403DA ar_OpenDocument
@@ -81,7 +81,7 @@ ref; // ME_5425571403DA ar_OpenDocument
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_5425550E01AA // TarSkipDialog
+ : Parent HWL ME_5425550E01AA // TarSkipDialog
  ;
 
 ref; // ME_5425573B0063 ar_NotOpen
@@ -94,12 +94,12 @@ ref; // ME_5425573B0063 ar_NotOpen
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_5425548D01DD // TarTestConfig
+ : Parent HWL ME_5425548D01DD // TarTestConfig
  ;
  : Attributes
-   Seq: ( ME_5425552800D5 // ar_AsUsual
- ME_5425571403DA // ar_OpenDocument
- ME_5425573B0063 // ar_NotOpen
+   Seq: ( HWL ME_5425552800D5 // ar_AsUsual
+ HWL ME_5425571403DA // ar_OpenDocument
+ HWL ME_5425573B0063 // ar_NotOpen
  )
  ; // Attributes
  CONST extprop:rc:isAcceptableForScripts true
@@ -114,9 +114,9 @@ ref; // ME_5425550E01AA TarSkipDialog
  CONST Visibility PublicAccess
  CONST Abstraction at_final
  CONST LinkType lt_agr
- : Parent ME_5425548D01DD // TarTestConfig
+ : Parent HWL ME_5425548D01DD // TarTestConfig
  ;
- : Target ME_5425550E01AA // TarSkipDialog
+ : Target HWL ME_5425550E01AA // TarSkipDialog
  ;
  CONST "needs field" true
  CONST "pm" true
@@ -145,14 +145,14 @@ ref; // ME_5000565C019C_ME_5425548D01DD ClearFields
  %SUMMARY 'Хранилище всяких флагов, настроек и т.п. чтобы в одном месте было.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4DE60853015A // arArchiTestsAdapter
+ : Parent HWL ME_4DE60853015A // arArchiTestsAdapter
  ;
  : Inherits
    Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_5425578502BE // SkipLockDialog
+   Seq: ( HWL ME_5425578502BE // SkipLockDialog
  )
  ; // Attributes
  : Overridden
@@ -161,7 +161,7 @@ ref; // ME_5000565C019C_ME_5425548D01DD ClearFields
  )
  ; // Overridden
  : Children
-   Seq: ( ME_5425550E01AA // TarSkipDialog
+   Seq: ( HWL ME_5425550E01AA // TarSkipDialog
  )
  ; // Children
  CONST "singleton" true
@@ -203,7 +203,7 @@ ref; // ME_4DE609B5021B aRenum
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4DE608AF027D // arOpenDocumentByNumber
+ : Parent HWL ME_4DE608AF027D // arOpenDocumentByNumber
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -225,10 +225,10 @@ ref; // ME_4DE609950227 DoIt
  %SUMMARY 'Открыть документ по номеру.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4DE60853015A // arArchiTestsAdapter
+ : Parent HWL ME_4DE60853015A // arArchiTestsAdapter
  ;
  : Operations
-   Seq: ( ME_4DE609950227 // DoIt
+   Seq: ( HWL ME_4DE609950227 // DoIt
  )
  ; // Operations
 
@@ -242,9 +242,9 @@ FORWARD ME_4DE608E101E0
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4DE608E101E0 // arGetDocumentEditor
+ : Parent HWL ME_4DE608E101E0 // arGetDocumentEditor
  ;
- : Target WL 'ME_4829D92A037B' '4829D7D50156.pas.ms.script' // TevCustomEditorWindow
+ : Target WL 'ME_4829D92A037B' '4829D92A037B.pas.ms.script' // TevCustomEditorWindow
  ;
 
 ref; // ME_4DE609C2007A DoIt
@@ -252,7 +252,7 @@ ref; // ME_4DE609C2007A DoIt
 : ME_4E0AE0970029
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4DE608E101E0 // arGetDocumentEditor
+ : Parent HWL ME_4DE608E101E0 // arGetDocumentEditor
  ;
  : Target WL 'ME_4DFB4B01001D' '4DFB49C40350.pas.ms.script' // TDocEditorWindow
  ;
@@ -268,10 +268,10 @@ ref; // ME_4E0AE0970029
  %SUMMARY 'Получить редактор для текста документа.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4DE60853015A // arArchiTestsAdapter
+ : Parent HWL ME_4DE60853015A // arArchiTestsAdapter
  ;
  : Operations
-   Seq: ( ME_4DE609C2007A // DoIt
+   Seq: ( HWL ME_4DE609C2007A // DoIt
  )
  ; // Operations
  : Dependencies
@@ -307,7 +307,7 @@ ref; // ME_4DE62D3001F4 aRenum
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4DE62CD4032D // arOpenByNumberAsString
+ : Parent HWL ME_4DE62CD4032D // arOpenByNumberAsString
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -322,7 +322,7 @@ ref; // ME_4DE62CFD0267 DoIt
 : ME_4E0AE1220391
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4DE62CD4032D // arOpenByNumberAsString
+ : Parent HWL ME_4DE62CD4032D // arOpenByNumberAsString
  ;
  : Target WL 'ME_4D6BC8D102C0' '4AB0C3C60310.pas.ms.script' // StrToInt
  ;
@@ -338,10 +338,10 @@ ref; // ME_4E0AE1220391
  %SUMMARY 'Открыть документ по номеру' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4DE60853015A // arArchiTestsAdapter
+ : Parent HWL ME_4DE60853015A // arArchiTestsAdapter
  ;
  : Operations
-   Seq: ( ME_4DE62CFD0267 // DoIt
+   Seq: ( HWL ME_4DE62CFD0267 // DoIt
  )
  ; // Operations
  : Dependencies
@@ -359,7 +359,7 @@ FORWARD ME_4DE6331E00DA
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4DE6331E00DA // arCloseActiveDocument
+ : Parent HWL ME_4DE6331E00DA // arCloseActiveDocument
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -374,10 +374,10 @@ ref; // ME_4DE633340002 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4DE60853015A // arArchiTestsAdapter
+ : Parent HWL ME_4DE60853015A // arArchiTestsAdapter
  ;
  : Operations
-   Seq: ( ME_4DE633340002 // DoIt
+   Seq: ( HWL ME_4DE633340002 // DoIt
  )
  ; // Operations
 
@@ -400,7 +400,7 @@ ref; // ME_4DFB4F5403D1 aSubID
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4DFB4F0401D6 // arSubNameEdit
+ : Parent HWL ME_4DFB4F0401D6 // arSubNameEdit
  ;
  : Parameters
    Seq: ( ME_4DFB4F5403D1 // aSubID
@@ -418,10 +418,10 @@ ref; // ME_4DFB4F490039 DoIt
  %SUMMARY 'Редакторование саба.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4DE60853015A // arArchiTestsAdapter
+ : Parent HWL ME_4DE60853015A // arArchiTestsAdapter
  ;
  : Operations
-   Seq: ( ME_4DFB4F490039 // DoIt
+   Seq: ( HWL ME_4DFB4F490039 // DoIt
  )
  ; // Operations
 
@@ -445,7 +445,7 @@ ref; // ME_4E01ADDE03B3 aSubID
  %SUMMARY 'Удалить саб.' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4E01AD6F0280 // arDeleteSub
+ : Parent HWL ME_4E01AD6F0280 // arDeleteSub
  ;
  : Parameters
    Seq: ( ME_4E01ADDE03B3 // aSubID
@@ -462,10 +462,10 @@ ref; // ME_4E01AD8B003B DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4DE60853015A // arArchiTestsAdapter
+ : Parent HWL ME_4DE60853015A // arArchiTestsAdapter
  ;
  : Operations
-   Seq: ( ME_4E01AD8B003B // DoIt
+   Seq: ( HWL ME_4E01AD8B003B // DoIt
  )
  ; // Operations
 
@@ -488,7 +488,7 @@ ref; // ME_4E0AD0DD0267 aParams
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4E0AD0AD00CD // arCreateNewDocument
+ : Parent HWL ME_4E0AD0AD00CD // arCreateNewDocument
  ;
  : Parameters
    Seq: ( ME_4E0AD0DD0267 // aParams
@@ -505,10 +505,10 @@ ref; // ME_4E0AD0D402C7 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4DE60853015A // arArchiTestsAdapter
+ : Parent HWL ME_4DE60853015A // arArchiTestsAdapter
  ;
  : Operations
-   Seq: ( ME_4E0AD0D402C7 // DoIt
+   Seq: ( HWL ME_4E0AD0D402C7 // DoIt
  )
  ; // Operations
 
@@ -540,7 +540,7 @@ ref; // ME_4EFB183103C4 aDocType
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4E0AE1A90285 // arCreateNewDocumentByFileName
+ : Parent HWL ME_4E0AE1A90285 // arCreateNewDocumentByFileName
  ;
  : Parameters
    Seq: ( ME_4EFB18310383 // aFileName
@@ -558,10 +558,10 @@ ref; // ME_4E0AE1C602DE DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4DE60853015A // arArchiTestsAdapter
+ : Parent HWL ME_4DE60853015A // arArchiTestsAdapter
  ;
  : Operations
-   Seq: ( ME_4E0AE1C602DE // DoIt
+   Seq: ( HWL ME_4E0AE1C602DE // DoIt
  )
  ; // Operations
 
@@ -575,7 +575,7 @@ FORWARD ME_4E2447BF0259
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4E2447BF0259 // acOpenInsDWin
+ : Parent HWL ME_4E2447BF0259 // acOpenInsDWin
  ;
 
 ref; // ME_4E24488102BE DoIt
@@ -583,7 +583,7 @@ ref; // ME_4E24488102BE DoIt
 : ME_4E25324F0301
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4E2447BF0259 // acOpenInsDWin
+ : Parent HWL ME_4E2447BF0259 // acOpenInsDWin
  ;
  : Target WL 'ME_47E7ABCB0296' '4799D29F033F.pas.ms.script' // TMenuItem
  ;
@@ -593,7 +593,7 @@ ref; // ME_4E25324F0301
 : ME_4E2532530113
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4E2447BF0259 // acOpenInsDWin
+ : Parent HWL ME_4E2447BF0259 // acOpenInsDWin
  ;
  : Target WL 'ME_55409CB903D4' '5432448401BC.pas.ms.script' // TdaDictionaryType
  ;
@@ -603,7 +603,7 @@ ref; // ME_4E2532530113
 : ME_4E25325603CB
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4E2447BF0259 // acOpenInsDWin
+ : Parent HWL ME_4E2447BF0259 // acOpenInsDWin
  ;
  : Target WL 'ME_4E253095034C' '47BC50280350.pas.ms.script' // GetDictName
  ;
@@ -618,10 +618,10 @@ ref; // ME_4E25325603CB
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4DE60853015A // arArchiTestsAdapter
+ : Parent HWL ME_4DE60853015A // arArchiTestsAdapter
  ;
  : Operations
-   Seq: ( ME_4E24488102BE // DoIt
+   Seq: ( HWL ME_4E24488102BE // DoIt
  )
  ; // Operations
  : Dependencies
@@ -641,7 +641,7 @@ FORWARD ME_4E4B5CDC03DF
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4E4B5CDC03DF // acDeInitDB
+ : Parent HWL ME_4E4B5CDC03DF // acDeInitDB
  ;
 
 ref; // ME_4E4B5D29024C DoIt
@@ -649,7 +649,7 @@ ref; // ME_4E4B5D29024C DoIt
 : ME_527201920262
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4E4B5CDC03DF // acDeInitDB
+ : Parent HWL ME_4E4B5CDC03DF // acDeInitDB
  ;
  : Target WL 'ME_54352FD00015' '538DA20300A7.pas.ms.script' // DoneClientBaseEngine
  ;
@@ -659,7 +659,7 @@ ref; // ME_527201920262
 : ME_5445024D0058
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4E4B5CDC03DF // acDeInitDB
+ : Parent HWL ME_4E4B5CDC03DF // acDeInitDB
  ;
  : Target WL 'ME_542E7AD00050' '5486E32B0191.pas.ms.script' // Tm3StorageHolderList
  ;
@@ -674,10 +674,10 @@ ref; // ME_5445024D0058
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4DE60853015A // arArchiTestsAdapter
+ : Parent HWL ME_4DE60853015A // arArchiTestsAdapter
  ;
  : Operations
-   Seq: ( ME_4E4B5D29024C // DoIt
+   Seq: ( HWL ME_4E4B5D29024C // DoIt
  )
  ; // Operations
  : Dependencies
@@ -696,7 +696,7 @@ FORWARD ME_4E4B5D350252
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4E4B5D350252 // acInitDB
+ : Parent HWL ME_4E4B5D350252 // acInitDB
  ;
 
 ref; // ME_4E4B5D400384 DoIt
@@ -704,7 +704,7 @@ ref; // ME_4E4B5D400384 DoIt
 : ME_4E4B5D61034E
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4E4B5D350252 // acInitDB
+ : Parent HWL ME_4E4B5D350252 // acInitDB
  ;
  : Target WL 'ME_5272013F001A' '4E4B607802DB.pas.ms.script' // InitArchiBaseEngine
  ;
@@ -714,7 +714,7 @@ ref; // ME_4E4B5D61034E
 : ME_5450D0A902E6
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4E4B5D350252 // acInitDB
+ : Parent HWL ME_4E4B5D350252 // acInitDB
  ;
  : Target WL 'ME_5450D05B00F7' '5450CFDA02FF.pas.ms.script' // TMailServer
  ;
@@ -729,10 +729,10 @@ ref; // ME_5450D0A902E6
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4DE60853015A // arArchiTestsAdapter
+ : Parent HWL ME_4DE60853015A // arArchiTestsAdapter
  ;
  : Operations
-   Seq: ( ME_4E4B5D400384 // DoIt
+   Seq: ( HWL ME_4E4B5D400384 // DoIt
  )
  ; // Operations
  : Dependencies
@@ -751,7 +751,7 @@ FORWARD ME_4EA94FCA02CD
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4EA94FCA02CD // arAddBlock
+ : Parent HWL ME_4EA94FCA02CD // arAddBlock
  ;
 
 ref; // ME_4EA94FDE01A3 DoIt
@@ -764,10 +764,10 @@ ref; // ME_4EA94FDE01A3 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4DE60853015A // arArchiTestsAdapter
+ : Parent HWL ME_4DE60853015A // arArchiTestsAdapter
  ;
  : Operations
-   Seq: ( ME_4EA94FDE01A3 // DoIt
+   Seq: ( HWL ME_4EA94FDE01A3 // DoIt
  )
  ; // Operations
 
@@ -790,7 +790,7 @@ ref; // ME_4EAFC7E900B6 anIndex
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4EAFC7CC0065 // acSetActivePage
+ : Parent HWL ME_4EAFC7CC0065 // acSetActivePage
  ;
  : Parameters
    Seq: ( ME_4EAFC7E900B6 // anIndex
@@ -807,10 +807,10 @@ ref; // ME_4EAFC7DD0182 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4DE60853015A // arArchiTestsAdapter
+ : Parent HWL ME_4DE60853015A // arArchiTestsAdapter
  ;
  : Operations
-   Seq: ( ME_4EAFC7DD0182 // DoIt
+   Seq: ( HWL ME_4EAFC7DD0182 // DoIt
  )
  ; // Operations
 
@@ -824,7 +824,7 @@ FORWARD ME_4ECB5AFB0277
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4ECB5AFB0277 // acCreateStructure
+ : Parent HWL ME_4ECB5AFB0277 // acCreateStructure
  ;
 
 ref; // ME_4ECB5B18029A DoIt
@@ -832,7 +832,7 @@ ref; // ME_4ECB5B18029A DoIt
 : ME_4ECB5B3A020B
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4ECB5AFB0277 // acCreateStructure
+ : Parent HWL ME_4ECB5AFB0277 // acCreateStructure
  ;
  : Target WL 'ME_4DFB4B01001D' '4DFB49C40350.pas.ms.script' // TDocEditorWindow
  ;
@@ -847,10 +847,10 @@ ref; // ME_4ECB5B3A020B
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4DE60853015A // arArchiTestsAdapter
+ : Parent HWL ME_4DE60853015A // arArchiTestsAdapter
  ;
  : Operations
-   Seq: ( ME_4ECB5B18029A // DoIt
+   Seq: ( HWL ME_4ECB5B18029A // DoIt
  )
  ; // Operations
  : Dependencies
@@ -877,7 +877,7 @@ ref; // ME_4ECB5F830184 aBlockID
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4ECB5F560065 // arSetContentsSub
+ : Parent HWL ME_4ECB5F560065 // arSetContentsSub
  ;
  : Parameters
    Seq: ( ME_4ECB5F830184 // aBlockID
@@ -889,7 +889,7 @@ ref; // ME_4ECB5F6C029A DoIt
 : ME_4ECB5F8A0016
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4ECB5F560065 // arSetContentsSub
+ : Parent HWL ME_4ECB5F560065 // arSetContentsSub
  ;
  : Target WL 'ME_4DFB4B01001D' '4DFB49C40350.pas.ms.script' // TDocEditorWindow
  ;
@@ -904,10 +904,10 @@ ref; // ME_4ECB5F8A0016
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4DE60853015A // arArchiTestsAdapter
+ : Parent HWL ME_4DE60853015A // arArchiTestsAdapter
  ;
  : Operations
-   Seq: ( ME_4ECB5F6C029A // DoIt
+   Seq: ( HWL ME_4ECB5F6C029A // DoIt
  )
  ; // Operations
  : Dependencies
@@ -934,7 +934,7 @@ ref; // ME_4EEF088C032B aIndex
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4EEF085B0345 // arGotoSub
+ : Parent HWL ME_4EEF085B0345 // arGotoSub
  ;
  : Parameters
    Seq: ( ME_4EEF088C032B // aIndex
@@ -951,10 +951,10 @@ ref; // ME_4EEF087100F9 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4DE60853015A // arArchiTestsAdapter
+ : Parent HWL ME_4DE60853015A // arArchiTestsAdapter
  ;
  : Operations
-   Seq: ( ME_4EEF087100F9 // DoIt
+   Seq: ( HWL ME_4EEF087100F9 // DoIt
  )
  ; // Operations
 
@@ -969,29 +969,29 @@ ref; // ME_4EEF085B0345 arGotoSub
  %SUMMARY 'Обертки для вызова функциональности из Арчи' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4DE629810132 // Scripting
+ : Parent HWL ME_4DE629810132 // Scripting
  ;
  : Operations
-   Seq: ( ME_4DE608AF027D // arOpenDocumentByNumber
- ME_4DE608E101E0 // arGetDocumentEditor
- ME_4DE62CD4032D // arOpenByNumberAsString
- ME_4DE6331E00DA // arCloseActiveDocument
- ME_4DFB4F0401D6 // arSubNameEdit
- ME_4E01AD6F0280 // arDeleteSub
- ME_4E0AD0AD00CD // arCreateNewDocument
- ME_4E0AE1A90285 // arCreateNewDocumentByFileName
- ME_4E2447BF0259 // acOpenInsDWin
- ME_4E4B5CDC03DF // acDeInitDB
- ME_4E4B5D350252 // acInitDB
- ME_4EA94FCA02CD // arAddBlock
- ME_4EAFC7CC0065 // acSetActivePage
- ME_4ECB5AFB0277 // acCreateStructure
- ME_4ECB5F560065 // arSetContentsSub
- ME_4EEF085B0345 // arGotoSub
+   Seq: ( HWL ME_4DE608AF027D // arOpenDocumentByNumber
+ HWL ME_4DE608E101E0 // arGetDocumentEditor
+ HWL ME_4DE62CD4032D // arOpenByNumberAsString
+ HWL ME_4DE6331E00DA // arCloseActiveDocument
+ HWL ME_4DFB4F0401D6 // arSubNameEdit
+ HWL ME_4E01AD6F0280 // arDeleteSub
+ HWL ME_4E0AD0AD00CD // arCreateNewDocument
+ HWL ME_4E0AE1A90285 // arCreateNewDocumentByFileName
+ HWL ME_4E2447BF0259 // acOpenInsDWin
+ HWL ME_4E4B5CDC03DF // acDeInitDB
+ HWL ME_4E4B5D350252 // acInitDB
+ HWL ME_4EA94FCA02CD // arAddBlock
+ HWL ME_4EAFC7CC0065 // acSetActivePage
+ HWL ME_4ECB5AFB0277 // acCreateStructure
+ HWL ME_4ECB5F560065 // arSetContentsSub
+ HWL ME_4EEF085B0345 // arGotoSub
  )
  ; // Operations
  : Children
-   Seq: ( ME_5425548D01DD // TarTestConfig
+   Seq: ( HWL ME_5425548D01DD // TarTestConfig
  )
  ; // Children
  CONST intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\arArchiTestsAdapter.pas'
@@ -1003,9 +1003,9 @@ FORWARD ME_4DE632EF020B
 : ME_4DE6335103A5
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4DE632EF020B // TkwArchiCloseDocument
+ : Parent HWL ME_4DE632EF020B // TkwArchiCloseDocument
  ;
- : Target ME_4DE6331E00DA // arCloseActiveDocument
+ : Target HWL ME_4DE6331E00DA // arCloseActiveDocument
  ;
 
 ref; // ME_4DE6335103A5 
@@ -1019,7 +1019,7 @@ ref; // ME_4DE6335103A5
  %SUMMARY '*Формат:* Закрыть'#13#10'*Описание:* Закрывает текущее дочернее окно в Арчи. В качестве окна может выступать окно документа, окно почтового сообщения, окно словарей и т.п.'#13#10' *Пример:*'#13#10'{code}'#13#10' ''76.bmp'' Создать_Объектный_топик_из'#13#10' TRY'#13#10'   carPictureViewer TryFocus ASSERT'#13#10'   acCut arMainActionList carMainForm Action:Execute'#13#10'   ProcessMessages'#13#10'   acPaste arMainActionList carMainForm Action:Execute'#13#10'   ProcessMessages'#13#10' FINALLY'#13#10'  wait:No'#13#10'  Закрыть'#13#10'  waited:? ASSERT'#13#10' END'#13#10'{code}'#13#10' *Результат:*'#13#10' Создает объектный топик из графического файла, выполняет с ними набор тестовых операций (в данном случае, копирование/вставка картинкуи в/из буфера обмена) и закрывает документ без вопроса о необходимости сохранения.'#13#10'*Примечания:*'#13#10' В скриптах напрямую практически не используется, так как есть более удобные функции в файле:'#13#10'{code}'#13#10' w:\archi\source\projects\Archi\TestSet\Dictionary\MainFormUtils.script"'#13#10'{code}' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4DE629810132 // Scripting
+ : Parent HWL ME_4DE629810132 // Scripting
  ;
  : Dependencies
    Seq: ( ME_4DE6335103A5 // arCloseActiveDocument
@@ -1048,7 +1048,7 @@ ref; // ME_4DE7427102C5 aCtx
  CONST Name 'anEditor'
  CONST Class class_Parameter
  : Stereotype st_const ;
- : Target WL 'ME_4829D92A037B' '4829D7D50156.pas.ms.script' // TevCustomEditorWindow
+ : Target WL 'ME_4829D92A037B' '4829D92A037B.pas.ms.script' // TevCustomEditorWindow
  ;
 
 ref; // ME_4DE7427102F2 anEditor
@@ -1059,7 +1059,7 @@ ref; // ME_4DE7427102F2 anEditor
  CONST Class class_Operation
  CONST Visibility ProtectedAccess
  CONST Abstraction at_abstract
- : Parent ME_4DE643F100CB // TarEditorControl
+ : Parent HWL ME_4DE643F100CB // TarEditorControl
  ;
  : Parameters
    Seq: ( ME_4DE7427102C5 // aCtx
@@ -1072,9 +1072,9 @@ ref; // ME_4DE7421F03DF DoWithEditor
 : ME_4DE644A5007E
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4DE643F100CB // TarEditorControl
+ : Parent HWL ME_4DE643F100CB // TarEditorControl
  ;
- : Target ME_4DE608E101E0 // arGetDocumentEditor
+ : Target HWL ME_4DE608E101E0 // arGetDocumentEditor
  ;
 
 ref; // ME_4DE644A5007E 
@@ -1093,14 +1093,14 @@ ref; // ME_4DAEEDE10285_ME_4DE643F100CB DoDoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4DE629810132 // Scripting
+ : Parent HWL ME_4DE629810132 // Scripting
  ;
  : Inherits
    Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
  )
  ; // Inherits
  : Operations
-   Seq: ( ME_4DE7421F03DF // DoWithEditor
+   Seq: ( HWL ME_4DE7421F03DF // DoWithEditor
  )
  ; // Operations
  : Implemented
@@ -1127,7 +1127,7 @@ FORWARD ME_4DE740FA0192
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4DE740FA0192 // TkwClickOnCommentHeader
+ : Parent HWL ME_4DE740FA0192 // TkwClickOnCommentHeader
  ;
  : Target WL 'ME_4DB008DD01BD' '4DAF19F600C5.pas.ms.script' // ItfwScriptEngine
  ;
@@ -1135,7 +1135,7 @@ FORWARD ME_4DE740FA0192
 ref; // ME_4DE75634036A f_Engine
 
 : ME_4DE7421F03DF_ME_4DE740FA0192
- : Original ME_4DE7421F03DF // DoWithEditor
+ : Original HWL ME_4DE7421F03DF // DoWithEditor
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DE7421F03DF_ME_4DE740FA0192 DoWithEditor
@@ -1166,10 +1166,10 @@ ref; // ME_4DB0614603C8_ME_4DE740FA0192 GetWordNameForRegister
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4DE629810132 // Scripting
+ : Parent HWL ME_4DE629810132 // Scripting
  ;
  : Inherits
-   Seq: ( ME_4DE643F100CB // TarEditorControl
+   Seq: ( HWL ME_4DE643F100CB // TarEditorControl
  )
  ; // Inherits
  : Implements
@@ -1177,7 +1177,7 @@ ref; // ME_4DB0614603C8_ME_4DE740FA0192 GetWordNameForRegister
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_4DE75634036A // f_Engine
+   Seq: ( HWL ME_4DE75634036A // f_Engine
  )
  ; // Attributes
  : Implemented
@@ -1203,15 +1203,15 @@ FORWARD ME_4DFB3B88027A
 : ME_4DFB4F7903B0
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4DFB3B88027A // TkwEditorDblClickOnSub
+ : Parent HWL ME_4DFB3B88027A // TkwEditorDblClickOnSub
  ;
- : Target ME_4DFB4F0401D6 // arSubNameEdit
+ : Target HWL ME_4DFB4F0401D6 // arSubNameEdit
  ;
 
 ref; // ME_4DFB4F7903B0 
 
 : ME_4DE7421F03DF_ME_4DFB3B88027A
- : Original ME_4DE7421F03DF // DoWithEditor
+ : Original HWL ME_4DE7421F03DF // DoWithEditor
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DE7421F03DF_ME_4DFB3B88027A DoWithEditor
@@ -1231,10 +1231,10 @@ ref; // ME_4DB0614603C8_ME_4DFB3B88027A GetWordNameForRegister
  %SUMMARY 'Двойной щелчок на сабе.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4DE629810132 // Scripting
+ : Parent HWL ME_4DE629810132 // Scripting
  ;
  : Inherits
-   Seq: ( ME_4DE643F100CB // TarEditorControl
+   Seq: ( HWL ME_4DE643F100CB // TarEditorControl
  )
  ; // Inherits
  : Implemented
@@ -1262,9 +1262,9 @@ FORWARD ME_4DFB406602B7
 : ME_4DFB4077035A
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4DFB406602B7 // arEditorUtils
+ : Parent HWL ME_4DFB406602B7 // arEditorUtils
  ;
- : Target ME_4DE740FA0192 // TkwClickOnCommentHeader
+ : Target HWL ME_4DE740FA0192 // TkwClickOnCommentHeader
  ;
 
 ref; // ME_4DFB4077035A 
@@ -1272,9 +1272,9 @@ ref; // ME_4DFB4077035A
 : ME_4DFB40850101
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4DFB406602B7 // arEditorUtils
+ : Parent HWL ME_4DFB406602B7 // arEditorUtils
  ;
- : Target ME_4DFB3B88027A // TkwEditorDblClickOnSub
+ : Target HWL ME_4DFB3B88027A // TkwEditorDblClickOnSub
  ;
 
 ref; // ME_4DFB40850101 
@@ -1284,9 +1284,9 @@ FORWARD ME_4E01AD1F02CA
 : ME_4E01B044022D
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4DFB406602B7 // arEditorUtils
+ : Parent HWL ME_4DFB406602B7 // arEditorUtils
  ;
- : Target ME_4E01AD1F02CA // TkwDeleteSub
+ : Target HWL ME_4E01AD1F02CA // TkwDeleteSub
  ;
 
 ref; // ME_4E01B044022D 
@@ -1296,9 +1296,9 @@ FORWARD ME_4E01E88B029B
 : ME_4E01E8C502EA
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4DFB406602B7 // arEditorUtils
+ : Parent HWL ME_4DFB406602B7 // arEditorUtils
  ;
- : Target ME_4E01E88B029B // TkwDocEditorSetModified
+ : Target HWL ME_4E01E88B029B // TkwDocEditorSetModified
  ;
 
 ref; // ME_4E01E8C502EA 
@@ -1308,9 +1308,9 @@ FORWARD ME_4EA94ED30365
 : ME_4EA94F570130
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4DFB406602B7 // arEditorUtils
+ : Parent HWL ME_4DFB406602B7 // arEditorUtils
  ;
- : Target ME_4EA94ED30365 // TkwAddBlock
+ : Target HWL ME_4EA94ED30365 // TkwAddBlock
  ;
 
 ref; // ME_4EA94F570130 
@@ -1320,9 +1320,9 @@ FORWARD ME_4ECB504D000B
 : ME_4ECB50C60195
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4DFB406602B7 // arEditorUtils
+ : Parent HWL ME_4DFB406602B7 // arEditorUtils
  ;
- : Target ME_4ECB504D000B // TkwEditorSetTOC
+ : Target HWL ME_4ECB504D000B // TkwEditorSetTOC
  ;
 
 ref; // ME_4ECB50C60195 
@@ -1332,9 +1332,9 @@ FORWARD ME_4EEF07E80201
 : ME_4EEF083103B9
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4DFB406602B7 // arEditorUtils
+ : Parent HWL ME_4DFB406602B7 // arEditorUtils
  ;
- : Target ME_4EEF07E80201 // TkwGotoSub
+ : Target HWL ME_4EEF07E80201 // TkwGotoSub
  ;
 
 ref; // ME_4EEF083103B9 
@@ -1344,9 +1344,9 @@ FORWARD ME_4F0C009200D7
 : ME_4F0C01E00111
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4DFB406602B7 // arEditorUtils
+ : Parent HWL ME_4DFB406602B7 // arEditorUtils
  ;
- : Target ME_4F0C009200D7 // TkwEndAddSubByMouse
+ : Target HWL ME_4F0C009200D7 // TkwEndAddSubByMouse
  ;
 
 ref; // ME_4F0C01E00111 
@@ -1356,9 +1356,9 @@ FORWARD ME_4F22AFC0008A
 : ME_4F22AFEE03D1
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4DFB406602B7 // arEditorUtils
+ : Parent HWL ME_4DFB406602B7 // arEditorUtils
  ;
- : Target ME_4F22AFC0008A // TkwSetExpiredStyle
+ : Target HWL ME_4F22AFC0008A // TkwSetExpiredStyle
  ;
 
 ref; // ME_4F22AFEE03D1 
@@ -1371,7 +1371,7 @@ ref; // ME_4F22AFEE03D1
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4DE629810132 // Scripting
+ : Parent HWL ME_4DE629810132 // Scripting
  ;
  : Dependencies
    Seq: ( ME_4DFB4077035A // TkwClickOnCommentHeader
@@ -1392,9 +1392,9 @@ ref; // ME_4DFB406602B7 arEditorUtils
 : ME_4E01ADFF021C
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4E01AD1F02CA // TkwDeleteSub
+ : Parent HWL ME_4E01AD1F02CA // TkwDeleteSub
  ;
- : Target ME_4E01AD6F0280 // arDeleteSub
+ : Target HWL ME_4E01AD6F0280 // arDeleteSub
  ;
 
 ref; // ME_4E01ADFF021C 
@@ -1408,7 +1408,7 @@ ref; // ME_4E01ADFF021C
  %SUMMARY 'окно_редактора:удалить_саб' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4DE629810132 // Scripting
+ : Parent HWL ME_4DE629810132 // Scripting
  ;
  : Dependencies
    Seq: ( ME_4E01ADFF021C // arDeleteSub
@@ -1423,7 +1423,7 @@ ref; // ME_4E01ADFF021C
 ref; // ME_4E01AD1F02CA TkwDeleteSub
 
 : ME_4DE7421F03DF_ME_4E01E88B029B
- : Original ME_4DE7421F03DF // DoWithEditor
+ : Original HWL ME_4DE7421F03DF // DoWithEditor
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DE7421F03DF_ME_4E01E88B029B DoWithEditor
@@ -1442,10 +1442,10 @@ ref; // ME_4DB0614603C8_ME_4E01E88B029B GetWordNameForRegister
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4DE629810132 // Scripting
+ : Parent HWL ME_4DE629810132 // Scripting
  ;
  : Inherits
-   Seq: ( ME_4DE643F100CB // TarEditorControl
+   Seq: ( HWL ME_4DE643F100CB // TarEditorControl
  )
  ; // Inherits
  : Implemented
@@ -1483,7 +1483,7 @@ ref; // ME_52BD7A01003C aCtx
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_52BD79600196 // DoWithFileName
+ : Parent HWL ME_52BD79600196 // DoWithFileName
  ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
@@ -1497,9 +1497,9 @@ ref; // ME_52BD79FE00FD DoIt
 : ME_52BD7ACE007B
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_52BD79600196 // DoWithFileName
+ : Parent HWL ME_52BD79600196 // DoWithFileName
  ;
- : Target ME_4E0AE1A90285 // arCreateNewDocumentByFileName
+ : Target HWL ME_4E0AE1A90285 // arCreateNewDocumentByFileName
  ;
 
 ref; // ME_52BD7ACE007B 
@@ -1507,7 +1507,7 @@ ref; // ME_52BD7ACE007B
 : ME_52BD7AF500ED
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_52BD79600196 // DoWithFileName
+ : Parent HWL ME_52BD79600196 // DoWithFileName
  ;
  : Target WL 'ME_4E0ACD7D020D' '47BC51FE018B.pas.ms.script' // TDocType
  ;
@@ -1517,7 +1517,7 @@ ref; // ME_52BD7AF500ED
 : ME_52BD7B04013D
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_52BD79600196 // DoWithFileName
+ : Parent HWL ME_52BD79600196 // DoWithFileName
  ;
  : Target WL 'ME_477113FB020B' '4AB0C3C60310.pas.ms.script' // TFileName
  ;
@@ -1532,10 +1532,10 @@ ref; // ME_52BD7B04013D
  CONST Kind kind_NormalClass
  CONST Visibility ProtectedAccess
  CONST Abstraction at_abstract
- : Parent ME_52BD79050326 // TkwCreateNewFile
+ : Parent HWL ME_52BD79050326 // TkwCreateNewFile
  ;
  : Operations
-   Seq: ( ME_52BD79FE00FD // DoIt
+   Seq: ( HWL ME_52BD79FE00FD // DoIt
  )
  ; // Operations
  : Dependencies
@@ -1561,14 +1561,14 @@ ref; // ME_4DAEEDE10285_ME_52BD79050326 DoDoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4DE629810132 // Scripting
+ : Parent HWL ME_4DE629810132 // Scripting
  ;
  : Inherits
    Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
  )
  ; // Inherits
  : Operations
-   Seq: ( ME_52BD79600196 // DoWithFileName
+   Seq: ( HWL ME_52BD79600196 // DoWithFileName
  )
  ; // Operations
  : Implemented
@@ -1587,7 +1587,7 @@ FORWARD ME_4E1D42EC0296
 : ME_56ECAE9E02CA
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4E1D42EC0296 // TkwArchiNewDocumentPrim
+ : Parent HWL ME_4E1D42EC0296 // TkwArchiNewDocumentPrim
  ;
  : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
  ;
@@ -1595,7 +1595,7 @@ FORWARD ME_4E1D42EC0296
 ref; // ME_56ECAE9E02CA 
 
 : ME_52BD79600196_ME_4E1D42EC0296
- : Original ME_52BD79600196 // DoWithFileName
+ : Original HWL ME_52BD79600196 // DoWithFileName
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_52BD79600196_ME_4E1D42EC0296 DoWithFileName
@@ -1615,10 +1615,10 @@ ref; // ME_4DB0614603C8_ME_4E1D42EC0296 GetWordNameForRegister
  %SUMMARY '*Формат:* Создать_из'#13#10'*Описание:* Создание документа из файла. Имя файла совпадает с названием теста, но используется расширение evd.'#13#10'*Пример:*'#13#10'{code}'#13#10'имя_файла  Создать_из'#13#10'{code}'#13#10'*Результат:*'#13#10' Создает документ из файла имя_файла. При этом анализируется расширение файла. Путь исправляется на путь к тестовым доукментам.'#13#10'*Примечания:*'#13#10' В скриптах напрямую практически не используется, так как есть более удобные функции в файле:'#13#10'{code}'#13#10'  w:\archi\source\projects\Archi\TestSet\Dictionary\MainFormUtils.script"'#13#10'{code}' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4DE629810132 // Scripting
+ : Parent HWL ME_4DE629810132 // Scripting
  ;
  : Inherits
-   Seq: ( ME_52BD79050326 // TkwCreateNewFile
+   Seq: ( HWL ME_52BD79050326 // TkwCreateNewFile
  )
  ; // Inherits
  : Implemented
@@ -1646,9 +1646,9 @@ FORWARD ME_4E2448BD014D
 : ME_4E2449FE014E
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4E2448BD014D // TkwOpenInsDWin
+ : Parent HWL ME_4E2448BD014D // TkwOpenInsDWin
  ;
- : Target ME_4E2447BF0259 // acOpenInsDWin
+ : Target HWL ME_4E2447BF0259 // acOpenInsDWin
  ;
 
 ref; // ME_4E2449FE014E 
@@ -1661,7 +1661,7 @@ ref; // ME_4E2449FE014E
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4DE629810132 // Scripting
+ : Parent HWL ME_4DE629810132 // Scripting
  ;
  : Dependencies
    Seq: ( ME_4E2449FE014E // acOpenInsDWin
@@ -1680,9 +1680,9 @@ FORWARD ME_4E244C8400D2
 : ME_4E244CA401AF
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4E244C8400D2 // arDialogsPack
+ : Parent HWL ME_4E244C8400D2 // arDialogsPack
  ;
- : Target ME_4E2448BD014D // TkwOpenInsDWin
+ : Target HWL ME_4E2448BD014D // TkwOpenInsDWin
  ;
 
 ref; // ME_4E244CA401AF 
@@ -1692,9 +1692,9 @@ FORWARD ME_4E4BBADC02A0
 : ME_4E4BBB0903D7
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4E244C8400D2 // arDialogsPack
+ : Parent HWL ME_4E244C8400D2 // arDialogsPack
  ;
- : Target ME_4E4BBADC02A0 // TkwMakeChangeDoc
+ : Target HWL ME_4E4BBADC02A0 // TkwMakeChangeDoc
  ;
 
 ref; // ME_4E4BBB0903D7 
@@ -1704,9 +1704,9 @@ FORWARD ME_4E4BC07D0328
 : ME_4E4BC0B102AD
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4E244C8400D2 // arDialogsPack
+ : Parent HWL ME_4E244C8400D2 // arDialogsPack
  ;
- : Target ME_4E4BC07D0328 // TkwInsertDocChanges
+ : Target HWL ME_4E4BC07D0328 // TkwInsertDocChanges
  ;
 
 ref; // ME_4E4BC0B102AD 
@@ -1716,9 +1716,9 @@ FORWARD ME_4E83072D01FF
 : ME_4E8307CA0122
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4E244C8400D2 // arDialogsPack
+ : Parent HWL ME_4E244C8400D2 // arDialogsPack
  ;
- : Target ME_4E83072D01FF // TkwIniRecSetZoom
+ : Target HWL ME_4E83072D01FF // TkwIniRecSetZoom
  ;
 
 ref; // ME_4E8307CA0122 
@@ -1728,9 +1728,9 @@ FORWARD ME_4E8307CE0359
 : ME_4E8307E40345
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4E244C8400D2 // arDialogsPack
+ : Parent HWL ME_4E244C8400D2 // arDialogsPack
  ;
- : Target ME_4E8307CE0359 // TkwIniRecGetZoom
+ : Target HWL ME_4E8307CE0359 // TkwIniRecGetZoom
  ;
 
 ref; // ME_4E8307E40345 
@@ -1743,7 +1743,7 @@ ref; // ME_4E8307E40345
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4DE629810132 // Scripting
+ : Parent HWL ME_4DE629810132 // Scripting
  ;
  : Dependencies
    Seq: ( ME_4E244CA401AF // TkwOpenInsDWin
@@ -1762,7 +1762,7 @@ FORWARD ME_4E4A181002B0
 : ME_4E4A4140033A
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4E4A181002B0 // TkwClearDataBase
+ : Parent HWL ME_4E4A181002B0 // TkwClearDataBase
  ;
  : Target WL 'ME_4E4A366801E7' '4E4A36100340.pas.ms.script' // arUnackBaseFromArchive
  ;
@@ -1772,9 +1772,9 @@ ref; // ME_4E4A4140033A
 : ME_4E4B5D9A03A8
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4E4A181002B0 // TkwClearDataBase
+ : Parent HWL ME_4E4A181002B0 // TkwClearDataBase
  ;
- : Target ME_4E4B5D350252 // acInitDB
+ : Target HWL ME_4E4B5D350252 // acInitDB
  ;
 
 ref; // ME_4E4B5D9A03A8 
@@ -1782,7 +1782,7 @@ ref; // ME_4E4B5D9A03A8
 : ME_5281F7EC0234
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4E4A181002B0 // TkwClearDataBase
+ : Parent HWL ME_4E4A181002B0 // TkwClearDataBase
  ;
  : Target WL 'ME_5281F3A90273' '519B797A0048.pas.ms.script' // EdtBrokenFileLock
  ;
@@ -1798,7 +1798,7 @@ ref; // ME_5281F7EC0234
  %SUMMARY '*Формат:*  ''File_Name.zip'' ''Path2Base'' ClearDataBase'#13#10'*Описание:* Рапаковывает базу из архива ''File_Name.zip'' в заданный каталог ''Path2Base''. Каталог, в который рапаковывается база, предварительно очищается.. '#13#10'*Пример:*'#13#10'{code}'#13#10'  ''testBase.zip'' ''C:\Base\TestBase'' ClearDataBase'#13#10'{code}' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4DE629810132 // Scripting
+ : Parent HWL ME_4DE629810132 // Scripting
  ;
  : Dependencies
    Seq: ( ME_4E4A4140033A // arUnackBaseFromArchive
@@ -1821,9 +1821,9 @@ FORWARD ME_4E0A095C0324
 : ME_4E4A19A402A1
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4E4A1982012A // CommonArchiWords
+ : Parent HWL ME_4E4A1982012A // CommonArchiWords
  ;
- : Target ME_4E0A095C0324 // TkwArchiNewDocument
+ : Target HWL ME_4E0A095C0324 // TkwArchiNewDocument
  ;
 
 ref; // ME_4E4A19A402A1 
@@ -1831,9 +1831,9 @@ ref; // ME_4E4A19A402A1
 : ME_4E4A19B60146
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4E4A1982012A // CommonArchiWords
+ : Parent HWL ME_4E4A1982012A // CommonArchiWords
  ;
- : Target ME_4E4A181002B0 // TkwClearDataBase
+ : Target HWL ME_4E4A181002B0 // TkwClearDataBase
  ;
 
 ref; // ME_4E4A19B60146 
@@ -1841,9 +1841,9 @@ ref; // ME_4E4A19B60146
 : ME_4E4A19BA0091
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4E4A1982012A // CommonArchiWords
+ : Parent HWL ME_4E4A1982012A // CommonArchiWords
  ;
- : Target ME_4DE632EF020B // TkwArchiCloseDocument
+ : Target HWL ME_4DE632EF020B // TkwArchiCloseDocument
  ;
 
 ref; // ME_4E4A19BA0091 
@@ -1851,9 +1851,9 @@ ref; // ME_4E4A19BA0091
 : ME_4E4A19BE02EF
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4E4A1982012A // CommonArchiWords
+ : Parent HWL ME_4E4A1982012A // CommonArchiWords
  ;
- : Target ME_4DE6299E021A // TkwArchiOpenDocument
+ : Target HWL ME_4DE6299E021A // TkwArchiOpenDocument
  ;
 
 ref; // ME_4E4A19BE02EF 
@@ -1861,9 +1861,9 @@ ref; // ME_4E4A19BE02EF
 : ME_4E4A19F4029B
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4E4A1982012A // CommonArchiWords
+ : Parent HWL ME_4E4A1982012A // CommonArchiWords
  ;
- : Target ME_4E1D42EC0296 // TkwArchiNewDocumentPrim
+ : Target HWL ME_4E1D42EC0296 // TkwArchiNewDocumentPrim
  ;
 
 ref; // ME_4E4A19F4029B 
@@ -1873,9 +1873,9 @@ FORWARD ME_4E60CB00004F
 : ME_4E60CB34035E
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4E4A1982012A // CommonArchiWords
+ : Parent HWL ME_4E4A1982012A // CommonArchiWords
  ;
- : Target ME_4E60CB00004F // TkwGetActiveEditorPageName
+ : Target HWL ME_4E60CB00004F // TkwGetActiveEditorPageName
  ;
 
 ref; // ME_4E60CB34035E 
@@ -1885,9 +1885,9 @@ FORWARD ME_4E8EE51103C2
 : ME_4E8EE5760016
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4E4A1982012A // CommonArchiWords
+ : Parent HWL ME_4E4A1982012A // CommonArchiWords
  ;
- : Target ME_4E8EE51103C2 // TkwArchiNewEmptyDocument
+ : Target HWL ME_4E8EE51103C2 // TkwArchiNewEmptyDocument
  ;
 
 ref; // ME_4E8EE5760016 
@@ -1897,9 +1897,9 @@ FORWARD ME_4EAFC7190370
 : ME_4EAFC7330065
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4E4A1982012A // CommonArchiWords
+ : Parent HWL ME_4E4A1982012A // CommonArchiWords
  ;
- : Target ME_4EAFC7190370 // TkwSetActivePage
+ : Target HWL ME_4EAFC7190370 // TkwSetActivePage
  ;
 
 ref; // ME_4EAFC7330065 
@@ -1909,9 +1909,9 @@ FORWARD ME_4F0C26900161
 : ME_4F0C274E022E
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4E4A1982012A // CommonArchiWords
+ : Parent HWL ME_4E4A1982012A // CommonArchiWords
  ;
- : Target ME_4F0C26900161 // TkwShowMailMessage
+ : Target HWL ME_4F0C26900161 // TkwShowMailMessage
  ;
 
 ref; // ME_4F0C274E022E 
@@ -1921,9 +1921,9 @@ FORWARD ME_55B664E00149
 : ME_55B664F30312
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4E4A1982012A // CommonArchiWords
+ : Parent HWL ME_4E4A1982012A // CommonArchiWords
  ;
- : Target ME_55B664E00149 // archiDocEditorWindowWordsPack
+ : Target HWL ME_55B664E00149 // archiDocEditorWindowWordsPack
  ;
 
 ref; // ME_55B664F30312 
@@ -1936,7 +1936,7 @@ ref; // ME_55B664F30312
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4DE629810132 // Scripting
+ : Parent HWL ME_4DE629810132 // Scripting
  ;
  : Dependencies
    Seq: ( ME_4E4A19A402A1 // TkwArchiNewDocument
@@ -1965,7 +1965,7 @@ FORWARD ME_4E4B6340031F
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4E4B6340031F // arMakeChangeDoc
+ : Parent HWL ME_4E4B6340031F // arMakeChangeDoc
  ;
 
 ref; // ME_4E4B63590338 DoIt
@@ -1978,10 +1978,10 @@ ref; // ME_4E4B63590338 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4E4B5F29031C // arArchiTestAdapter2
+ : Parent HWL ME_4E4B5F29031C // arArchiTestAdapter2
  ;
  : Operations
-   Seq: ( ME_4E4B63590338 // DoIt
+   Seq: ( HWL ME_4E4B63590338 // DoIt
  )
  ; // Operations
 
@@ -1995,7 +1995,7 @@ FORWARD ME_4E4B637A01C7
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4E4B637A01C7 // arInsertDocChanges
+ : Parent HWL ME_4E4B637A01C7 // arInsertDocChanges
  ;
 
 ref; // ME_4E4B63990140 DoIt
@@ -2008,10 +2008,10 @@ ref; // ME_4E4B63990140 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4E4B5F29031C // arArchiTestAdapter2
+ : Parent HWL ME_4E4B5F29031C // arArchiTestAdapter2
  ;
  : Operations
-   Seq: ( ME_4E4B63990140 // DoIt
+   Seq: ( HWL ME_4E4B63990140 // DoIt
  )
  ; // Operations
 
@@ -2034,7 +2034,7 @@ ref; // ME_4E83095200E7 aZoom
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4E83092C0076 // arIniRecSetZoom
+ : Parent HWL ME_4E83092C0076 // arIniRecSetZoom
  ;
  : Parameters
    Seq: ( ME_4E83095200E7 // aZoom
@@ -2051,10 +2051,10 @@ ref; // ME_4E83094C003E DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4E4B5F29031C // arArchiTestAdapter2
+ : Parent HWL ME_4E4B5F29031C // arArchiTestAdapter2
  ;
  : Operations
-   Seq: ( ME_4E83094C003E // DoIt
+   Seq: ( HWL ME_4E83094C003E // DoIt
  )
  ; // Operations
 
@@ -2068,7 +2068,7 @@ FORWARD ME_4E83095902EB
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4E83095902EB // arIniRecGetZoom
+ : Parent HWL ME_4E83095902EB // arIniRecGetZoom
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -2083,10 +2083,10 @@ ref; // ME_4E8309660349 DIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4E4B5F29031C // arArchiTestAdapter2
+ : Parent HWL ME_4E4B5F29031C // arArchiTestAdapter2
  ;
  : Operations
-   Seq: ( ME_4E8309660349 // DIt
+   Seq: ( HWL ME_4E8309660349 // DIt
  )
  ; // Operations
 
@@ -2109,7 +2109,7 @@ ref; // ME_4F0C2794038E aIndex
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4F0C276F03DC // arShowMailWindow
+ : Parent HWL ME_4F0C276F03DC // arShowMailWindow
  ;
  : Parameters
    Seq: ( ME_4F0C2794038E // aIndex
@@ -2126,10 +2126,10 @@ ref; // ME_4F0C2786014E DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4E4B5F29031C // arArchiTestAdapter2
+ : Parent HWL ME_4E4B5F29031C // arArchiTestAdapter2
  ;
  : Operations
-   Seq: ( ME_4F0C2786014E // DoIt
+   Seq: ( HWL ME_4F0C2786014E // DoIt
  )
  ; // Operations
 
@@ -2143,7 +2143,7 @@ FORWARD ME_4F0C37850322
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4F0C37850322 // acEndDragAndDrop
+ : Parent HWL ME_4F0C37850322 // acEndDragAndDrop
  ;
 
 ref; // ME_4F0C37970291 DoIt
@@ -2156,10 +2156,10 @@ ref; // ME_4F0C37970291 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4E4B5F29031C // arArchiTestAdapter2
+ : Parent HWL ME_4E4B5F29031C // arArchiTestAdapter2
  ;
  : Operations
-   Seq: ( ME_4F0C37970291 // DoIt
+   Seq: ( HWL ME_4F0C37970291 // DoIt
  )
  ; // Operations
 
@@ -2182,7 +2182,7 @@ ref; // ME_4F22AE8900D1 anID
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4F22AE6C0165 // acSetExpiredStyle
+ : Parent HWL ME_4F22AE6C0165 // acSetExpiredStyle
  ;
  : Parameters
    Seq: ( ME_4F22AE8900D1 // anID
@@ -2199,10 +2199,10 @@ ref; // ME_4F22AE8003D5 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4E4B5F29031C // arArchiTestAdapter2
+ : Parent HWL ME_4E4B5F29031C // arArchiTestAdapter2
  ;
  : Operations
-   Seq: ( ME_4F22AE8003D5 // DoIt
+   Seq: ( HWL ME_4F22AE8003D5 // DoIt
  )
  ; // Operations
 
@@ -2225,7 +2225,7 @@ ref; // ME_526E5BD70189 aFileName
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_526E5BAA00E9 // acCorrectRelatedText
+ : Parent HWL ME_526E5BAA00E9 // acCorrectRelatedText
  ;
  : Parameters
    Seq: ( ME_526E5BD70189 // aFileName
@@ -2242,10 +2242,10 @@ ref; // ME_526E5BC80057 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4E4B5F29031C // arArchiTestAdapter2
+ : Parent HWL ME_4E4B5F29031C // arArchiTestAdapter2
  ;
  : Operations
-   Seq: ( ME_526E5BC80057 // DoIt
+   Seq: ( HWL ME_526E5BC80057 // DoIt
  )
  ; // Operations
 
@@ -2259,7 +2259,7 @@ FORWARD ME_530B2FD003B4
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_530B2FD003B4 // acMakePreview
+ : Parent HWL ME_530B2FD003B4 // acMakePreview
  ;
 
 ref; // ME_530B2FEA0079 DoIt
@@ -2272,10 +2272,10 @@ ref; // ME_530B2FEA0079 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4E4B5F29031C // arArchiTestAdapter2
+ : Parent HWL ME_4E4B5F29031C // arArchiTestAdapter2
  ;
  : Operations
-   Seq: ( ME_530B2FEA0079 // DoIt
+   Seq: ( HWL ME_530B2FEA0079 // DoIt
  )
  ; // Operations
 
@@ -2298,7 +2298,7 @@ ref; // ME_537075C80100 aFileName
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_537075A70219 // acSaveDocAs
+ : Parent HWL ME_537075A70219 // acSaveDocAs
  ;
  : Parameters
    Seq: ( ME_537075C80100 // aFileName
@@ -2315,10 +2315,10 @@ ref; // ME_537075B903DB DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4E4B5F29031C // arArchiTestAdapter2
+ : Parent HWL ME_4E4B5F29031C // arArchiTestAdapter2
  ;
  : Operations
-   Seq: ( ME_537075B903DB // DoIt
+   Seq: ( HWL ME_537075B903DB // DoIt
  )
  ; // Operations
 
@@ -2341,7 +2341,7 @@ ref; // ME_537D966F037D aFileName
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_537D965101BA // acSaveTextAs
+ : Parent HWL ME_537D965101BA // acSaveTextAs
  ;
  : Parameters
    Seq: ( ME_537D966F037D // aFileName
@@ -2358,10 +2358,10 @@ ref; // ME_537D966400E0 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4E4B5F29031C // arArchiTestAdapter2
+ : Parent HWL ME_4E4B5F29031C // arArchiTestAdapter2
  ;
  : Operations
-   Seq: ( ME_537D966400E0 // DoIt
+   Seq: ( HWL ME_537D966400E0 // DoIt
  )
  ; // Operations
 
@@ -2375,7 +2375,7 @@ FORWARD ME_53B648700029
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_53B648700029 // arClearTemplateStorage
+ : Parent HWL ME_53B648700029 // arClearTemplateStorage
  ;
 
 ref; // ME_53B6488F00D9 DoIt
@@ -2388,10 +2388,10 @@ ref; // ME_53B6488F00D9 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4E4B5F29031C // arArchiTestAdapter2
+ : Parent HWL ME_4E4B5F29031C // arArchiTestAdapter2
  ;
  : Operations
-   Seq: ( ME_53B6488F00D9 // DoIt
+   Seq: ( HWL ME_53B6488F00D9 // DoIt
  )
  ; // Operations
 
@@ -2405,7 +2405,7 @@ FORWARD ME_53EB4DC6007B
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_53EB4DC6007B // acMainFormFormClose
+ : Parent HWL ME_53EB4DC6007B // acMainFormFormClose
  ;
 
 ref; // ME_53EB4DD603A0 DoIt
@@ -2418,10 +2418,10 @@ ref; // ME_53EB4DD603A0 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4E4B5F29031C // arArchiTestAdapter2
+ : Parent HWL ME_4E4B5F29031C // arArchiTestAdapter2
  ;
  : Operations
-   Seq: ( ME_53EB4DD603A0 // DoIt
+   Seq: ( HWL ME_53EB4DD603A0 // DoIt
  )
  ; // Operations
 
@@ -2435,7 +2435,7 @@ FORWARD ME_56A09EF601E1
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_56A09EF601E1 // acClearConfig
+ : Parent HWL ME_56A09EF601E1 // acClearConfig
  ;
 
 ref; // ME_56A09F230196 DoIt
@@ -2448,10 +2448,10 @@ ref; // ME_56A09F230196 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4E4B5F29031C // arArchiTestAdapter2
+ : Parent HWL ME_4E4B5F29031C // arArchiTestAdapter2
  ;
  : Operations
-   Seq: ( ME_56A09F230196 // DoIt
+   Seq: ( HWL ME_56A09F230196 // DoIt
  )
  ; // Operations
 
@@ -2466,23 +2466,23 @@ ref; // ME_56A09EF601E1 acClearConfig
  %SUMMARY 'Времянка для подключения модулей не на модели, т.к. даже при частичном переносе требуется их перемещение. А это мешает.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4DE629810132 // Scripting
+ : Parent HWL ME_4DE629810132 // Scripting
  ;
  : Operations
-   Seq: ( ME_4E4B6340031F // arMakeChangeDoc
- ME_4E4B637A01C7 // arInsertDocChanges
- ME_4E83092C0076 // arIniRecSetZoom
- ME_4E83095902EB // arIniRecGetZoom
- ME_4F0C276F03DC // arShowMailWindow
- ME_4F0C37850322 // acEndDragAndDrop
- ME_4F22AE6C0165 // acSetExpiredStyle
- ME_526E5BAA00E9 // acCorrectRelatedText
- ME_530B2FD003B4 // acMakePreview
- ME_537075A70219 // acSaveDocAs
- ME_537D965101BA // acSaveTextAs
- ME_53B648700029 // arClearTemplateStorage
- ME_53EB4DC6007B // acMainFormFormClose
- ME_56A09EF601E1 // acClearConfig
+   Seq: ( HWL ME_4E4B6340031F // arMakeChangeDoc
+ HWL ME_4E4B637A01C7 // arInsertDocChanges
+ HWL ME_4E83092C0076 // arIniRecSetZoom
+ HWL ME_4E83095902EB // arIniRecGetZoom
+ HWL ME_4F0C276F03DC // arShowMailWindow
+ HWL ME_4F0C37850322 // acEndDragAndDrop
+ HWL ME_4F22AE6C0165 // acSetExpiredStyle
+ HWL ME_526E5BAA00E9 // acCorrectRelatedText
+ HWL ME_530B2FD003B4 // acMakePreview
+ HWL ME_537075A70219 // acSaveDocAs
+ HWL ME_537D965101BA // acSaveTextAs
+ HWL ME_53B648700029 // arClearTemplateStorage
+ HWL ME_53EB4DC6007B // acMainFormFormClose
+ HWL ME_56A09EF601E1 // acClearConfig
  )
  ; // Operations
  CONST "finished" false
@@ -2493,9 +2493,9 @@ ref; // ME_4E4B5F29031C arArchiTestAdapter2
 : ME_4E4BBB6500A7
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4E4BBADC02A0 // TkwMakeChangeDoc
+ : Parent HWL ME_4E4BBADC02A0 // TkwMakeChangeDoc
  ;
- : Target ME_4E4B6340031F // arMakeChangeDoc
+ : Target HWL ME_4E4B6340031F // arMakeChangeDoc
  ;
 
 ref; // ME_4E4BBB6500A7 
@@ -2509,7 +2509,7 @@ ref; // ME_4E4BBB6500A7
  %SUMMARY 'macros:MakeChangeDoc' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4DE629810132 // Scripting
+ : Parent HWL ME_4DE629810132 // Scripting
  ;
  : Dependencies
    Seq: ( ME_4E4BBB6500A7 // arMakeChangeDoc
@@ -2526,9 +2526,9 @@ ref; // ME_4E4BBADC02A0 TkwMakeChangeDoc
 : ME_4E4BC0DF00D1
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4E4BC07D0328 // TkwInsertDocChanges
+ : Parent HWL ME_4E4BC07D0328 // TkwInsertDocChanges
  ;
- : Target ME_4E4B637A01C7 // arInsertDocChanges
+ : Target HWL ME_4E4B637A01C7 // arInsertDocChanges
  ;
 
 ref; // ME_4E4BC0DF00D1 
@@ -2542,7 +2542,7 @@ ref; // ME_4E4BC0DF00D1
  %SUMMARY 'macros:InsertDocChanges' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4DE629810132 // Scripting
+ : Parent HWL ME_4DE629810132 // Scripting
  ;
  : Dependencies
    Seq: ( ME_4E4BC0DF00D1 // arInsertDocChanges
@@ -2559,7 +2559,7 @@ ref; // ME_4E4BC07D0328 TkwInsertDocChanges
 : ME_4E60CB98027D
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4E60CB00004F // TkwGetActiveEditorPageName
+ : Parent HWL ME_4E60CB00004F // TkwGetActiveEditorPageName
  ;
  : Target WL 'ME_4DFB4B01001D' '4DFB49C40350.pas.ms.script' // TDocEditorWindow
  ;
@@ -2569,7 +2569,7 @@ ref; // ME_4E60CB98027D
 : ME_4E60CB9C026C
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4E60CB00004F // TkwGetActiveEditorPageName
+ : Parent HWL ME_4E60CB00004F // TkwGetActiveEditorPageName
  ;
  : Target WL 'ME_4DFB4D5E0084' '4DFB49C40350.pas.ms.script' // TMainForm
  ;
@@ -2585,7 +2585,7 @@ ref; // ME_4E60CB9C026C
  %SUMMARY '*Формат:* main_form:GetActivePageName'#13#10'*Описание:* Помещает в стек номер активной вкладки в окне редактирования документа.'#13#10'*Примечания:*'#13#10' Константы с номерами вкладок находятся в файле:'#13#10'{code}'#13#10'  w:\archi\source\projects\Archi\TestSet\Dictionary\ArchiControls.script"'#13#10'{code}' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4DE629810132 // Scripting
+ : Parent HWL ME_4DE629810132 // Scripting
  ;
  : Dependencies
    Seq: ( ME_4E60CB98027D // TDocEditorWindow
@@ -2603,9 +2603,9 @@ ref; // ME_4E60CB00004F TkwGetActiveEditorPageName
 : ME_4E830AB0011D
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4E83072D01FF // TkwIniRecSetZoom
+ : Parent HWL ME_4E83072D01FF // TkwIniRecSetZoom
  ;
- : Target ME_4E83092C0076 // arIniRecSetZoom
+ : Target HWL ME_4E83092C0076 // arIniRecSetZoom
  ;
 
 ref; // ME_4E830AB0011D 
@@ -2619,7 +2619,7 @@ ref; // ME_4E830AB0011D
  %SUMMARY 'IniRec:SetZoom' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4DE629810132 // Scripting
+ : Parent HWL ME_4DE629810132 // Scripting
  ;
  : Dependencies
    Seq: ( ME_4E830AB0011D // arIniRecSetZoom
@@ -2636,9 +2636,9 @@ ref; // ME_4E83072D01FF TkwIniRecSetZoom
 : ME_4E830A950199
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4E8307CE0359 // TkwIniRecGetZoom
+ : Parent HWL ME_4E8307CE0359 // TkwIniRecGetZoom
  ;
- : Target ME_4E83095902EB // arIniRecGetZoom
+ : Target HWL ME_4E83095902EB // arIniRecGetZoom
  ;
 
 ref; // ME_4E830A950199 
@@ -2652,7 +2652,7 @@ ref; // ME_4E830A950199
  %SUMMARY 'IniRec:GetZoom' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4DE629810132 // Scripting
+ : Parent HWL ME_4DE629810132 // Scripting
  ;
  : Dependencies
    Seq: ( ME_4E830A950199 // arIniRecGetZoom
@@ -2667,7 +2667,7 @@ ref; // ME_4E830A950199
 ref; // ME_4E8307CE0359 TkwIniRecGetZoom
 
 : ME_52BD79600196_ME_4E8EE51103C2
- : Original ME_52BD79600196 // DoWithFileName
+ : Original HWL ME_52BD79600196 // DoWithFileName
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_52BD79600196_ME_4E8EE51103C2 DoWithFileName
@@ -2687,10 +2687,10 @@ ref; // ME_4DB0614603C8_ME_4E8EE51103C2 GetWordNameForRegister
  %SUMMARY '*Формат:* Создать_пустой'#13#10'*Описание:* Создание пустого документа. '#13#10'*Пример:*'#13#10'{code}'#13#10' Создать_пустой'#13#10'{code}'#13#10'*Результат:*'#13#10' Создает пустой документ'#13#10'*Примечания:*'#13#10' В скриптах напрямую практически не используется, так как есть более удобные функции в файле:'#13#10'{code}'#13#10'  w:\archi\source\projects\Archi\TestSet\Dictionary\MainFormUtils.script"'#13#10'{code}' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4DE629810132 // Scripting
+ : Parent HWL ME_4DE629810132 // Scripting
  ;
  : Inherits
-   Seq: ( ME_52BD79050326 // TkwCreateNewFile
+   Seq: ( HWL ME_52BD79050326 // TkwCreateNewFile
  )
  ; // Inherits
  : Implemented
@@ -2712,9 +2712,9 @@ ref; // ME_4E8EE51103C2 TkwArchiNewEmptyDocument
 : ME_4EA9501F020F
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4EA94ED30365 // TkwAddBlock
+ : Parent HWL ME_4EA94ED30365 // TkwAddBlock
  ;
- : Target ME_4EA94FCA02CD // arAddBlock
+ : Target HWL ME_4EA94FCA02CD // arAddBlock
  ;
 
 ref; // ME_4EA9501F020F 
@@ -2728,7 +2728,7 @@ ref; // ME_4EA9501F020F
  %SUMMARY 'окно_редактора:установить_блок' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4DE629810132 // Scripting
+ : Parent HWL ME_4DE629810132 // Scripting
  ;
  : Dependencies
    Seq: ( ME_4EA9501F020F // arAddBlock
@@ -2745,9 +2745,9 @@ ref; // ME_4EA94ED30365 TkwAddBlock
 : ME_4EAFCCCF012E
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4EAFC7190370 // TkwSetActivePage
+ : Parent HWL ME_4EAFC7190370 // TkwSetActivePage
  ;
- : Target ME_4EAFC7CC0065 // acSetActivePage
+ : Target HWL ME_4EAFC7CC0065 // acSetActivePage
  ;
 
 ref; // ME_4EAFCCCF012E 
@@ -2761,7 +2761,7 @@ ref; // ME_4EAFCCCF012E
  %SUMMARY '*Формат:* ID_вкладки окно_редактора:перейти_на_вкладку'#13#10'*Описание:* Делает активной вкладку с номером ID_вкладки.'#13#10'*Примечания:*'#13#10' Константы с номерами вкладок находятся в файле:'#13#10'{code}'#13#10'  w:\archi\source\projects\Archi\TestSet\Dictionary\ArchiControls.script"'#13#10'{code}' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4DE629810132 // Scripting
+ : Parent HWL ME_4DE629810132 // Scripting
  ;
  : Dependencies
    Seq: ( ME_4EAFCCCF012E // acSetActivePage
@@ -2778,9 +2778,9 @@ ref; // ME_4EAFC7190370 TkwSetActivePage
 : ME_4ECB5FCB0285
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4ECB504D000B // TkwEditorSetTOC
+ : Parent HWL ME_4ECB504D000B // TkwEditorSetTOC
  ;
- : Target ME_4ECB5F560065 // arSetContentsSub
+ : Target HWL ME_4ECB5F560065 // arSetContentsSub
  ;
 
 ref; // ME_4ECB5FCB0285 
@@ -2794,7 +2794,7 @@ ref; // ME_4ECB5FCB0285
  %SUMMARY 'редактор:установить_оглавление' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4DE629810132 // Scripting
+ : Parent HWL ME_4DE629810132 // Scripting
  ;
  : Dependencies
    Seq: ( ME_4ECB5FCB0285 // arSetContentsSub
@@ -2811,9 +2811,9 @@ ref; // ME_4ECB504D000B TkwEditorSetTOC
 : ME_4EEF08D50168
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4EEF07E80201 // TkwGotoSub
+ : Parent HWL ME_4EEF07E80201 // TkwGotoSub
  ;
- : Target ME_4EEF085B0345 // arGotoSub
+ : Target HWL ME_4EEF085B0345 // arGotoSub
  ;
 
 ref; // ME_4EEF08D50168 
@@ -2827,7 +2827,7 @@ ref; // ME_4EEF08D50168
  %SUMMARY 'окно_редактора:перейти_к_метке' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4DE629810132 // Scripting
+ : Parent HWL ME_4DE629810132 // Scripting
  ;
  : Dependencies
    Seq: ( ME_4EEF08D50168 // arGotoSub
@@ -2844,7 +2844,7 @@ ref; // ME_4EEF07E80201 TkwGotoSub
 : ME_4F0C090E01A1
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4F0C009200D7 // TkwEndAddSubByMouse
+ : Parent HWL ME_4F0C009200D7 // TkwEndAddSubByMouse
  ;
  : Target WL 'ME_476F78A602B2' '476F78840219.pas.ms.script' // TMessage
  ;
@@ -2854,7 +2854,7 @@ ref; // ME_4F0C090E01A1
 : ME_4F0C0BFE0194
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4F0C009200D7 // TkwEndAddSubByMouse
+ : Parent HWL ME_4F0C009200D7 // TkwEndAddSubByMouse
  ;
  : Target WL 'ME_4F0C0B870141' '47F485150151.pas.ms.script' // TDragDataSupport
  ;
@@ -2864,9 +2864,9 @@ ref; // ME_4F0C0BFE0194
 : ME_4F0C37BC03D2
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4F0C009200D7 // TkwEndAddSubByMouse
+ : Parent HWL ME_4F0C009200D7 // TkwEndAddSubByMouse
  ;
- : Target ME_4F0C37850322 // acEndDragAndDrop
+ : Target HWL ME_4F0C37850322 // acEndDragAndDrop
  ;
 
 ref; // ME_4F0C37BC03D2 
@@ -2892,7 +2892,7 @@ ref; // ME_4DB0614603C8_ME_4F0C009200D7 GetWordNameForRegister
  %SUMMARY 'Закончить простановку ссылки на саб с помощью мыши (Drag&Drop):'#13#10'окно_редактора:постановить_ссылку_мышью' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4DE629810132 // Scripting
+ : Parent HWL ME_4DE629810132 // Scripting
  ;
  : Inherits
    Seq: ( WL 'ME_4DB98B4B0382' '54DB92D203C9.pas.ms.script' // TkwControlWord
@@ -2923,9 +2923,9 @@ ref; // ME_4F0C009200D7 TkwEndAddSubByMouse
 : ME_4F0C27B300B2
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4F0C26900161 // TkwShowMailMessage
+ : Parent HWL ME_4F0C26900161 // TkwShowMailMessage
  ;
- : Target ME_4F0C276F03DC // arShowMailWindow
+ : Target HWL ME_4F0C276F03DC // arShowMailWindow
  ;
 
 ref; // ME_4F0C27B300B2 
@@ -2939,7 +2939,7 @@ ref; // ME_4F0C27B300B2
  %SUMMARY 'ShowMailWindow' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4DE629810132 // Scripting
+ : Parent HWL ME_4DE629810132 // Scripting
  ;
  : Dependencies
    Seq: ( ME_4F0C27B300B2 // arShowMailWindow
@@ -2956,9 +2956,9 @@ ref; // ME_4F0C26900161 TkwShowMailMessage
 : ME_4F22B00703E7
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4F22AFC0008A // TkwSetExpiredStyle
+ : Parent HWL ME_4F22AFC0008A // TkwSetExpiredStyle
  ;
- : Target ME_4F22AE6C0165 // acSetExpiredStyle
+ : Target HWL ME_4F22AE6C0165 // acSetExpiredStyle
  ;
 
 ref; // ME_4F22B00703E7 
@@ -2971,7 +2971,7 @@ ref; // ME_4F22B00703E7
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4DE629810132 // Scripting
+ : Parent HWL ME_4DE629810132 // Scripting
  ;
  : Dependencies
    Seq: ( ME_4F22B00703E7 // acSetExpiredStyle
@@ -2988,7 +2988,7 @@ ref; // ME_4F22AFC0008A TkwSetExpiredStyle
 : ME_56ECAE6200CF
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4E0A095C0324 // TkwArchiNewDocument
+ : Parent HWL ME_4E0A095C0324 // TkwArchiNewDocument
  ;
  : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
  ;
@@ -2996,7 +2996,7 @@ ref; // ME_4F22AFC0008A TkwSetExpiredStyle
 ref; // ME_56ECAE6200CF 
 
 : ME_52BD79600196_ME_4E0A095C0324
- : Original ME_52BD79600196 // DoWithFileName
+ : Original HWL ME_52BD79600196 // DoWithFileName
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_52BD79600196_ME_4E0A095C0324 DoWithFileName
@@ -3016,10 +3016,10 @@ ref; // ME_4DB0614603C8_ME_4E0A095C0324 GetWordNameForRegister
  %SUMMARY '*Формат:* Создать'#13#10'*Описание:* Создание документа из файла. Имя файла совпадает с названием теста, но используется расширение evd.'#13#10'*Пример:*'#13#10'{code}'#13#10' Создать'#13#10'{code}'#13#10'*Результат:*'#13#10' Создает документ из файла Название_теста.evd'#13#10'*Примечания:*'#13#10' В скриптах напрямую практически не используется, так как есть более удобные функции в файле:'#13#10'{code}'#13#10' w:\archi\source\projects\Archi\TestSet\Dictionary\MainFormUtils.script"'#13#10'{code}' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4DE629810132 // Scripting
+ : Parent HWL ME_4DE629810132 // Scripting
  ;
  : Inherits
-   Seq: ( ME_52BD79050326 // TkwCreateNewFile
+   Seq: ( HWL ME_52BD79050326 // TkwCreateNewFile
  )
  ; // Inherits
  : Implemented
@@ -3049,7 +3049,7 @@ ref; // ME_4E0A095C0324 TkwArchiNewDocument
  : Stereotype st_keyword::Operation ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_55B664E00149 // archiDocEditorWindowWordsPack
+ : Parent HWL ME_55B664E00149 // archiDocEditorWindowWordsPack
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -3064,14 +3064,14 @@ ref; // ME_55B6651703CB IsNeedSaveDocument
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4DE629810132 // Scripting
+ : Parent HWL ME_4DE629810132 // Scripting
  ;
  : Inherits
    Seq: ( WL 'ME_4DFB4B01001D' '4DFB49C40350.pas.ms.script' // TDocEditorWindow
  )
  ; // Inherits
  : Operations
-   Seq: ( ME_55B6651703CB // IsNeedSaveDocument
+   Seq: ( HWL ME_55B6651703CB // IsNeedSaveDocument
  )
  ; // Operations
  CONST "ifndef" 'NoScripts'
@@ -3093,37 +3093,37 @@ ref; // ME_55B664E00149 archiDocEditorWindowWordsPack
  : Parent WL 'ME_4DE7653F03E5' '4DE7653F03E5.pas.ms.script' // Archi Insider Test Support
  ;
  : Children
-   Seq: ( ME_4DE6299E021A // TkwArchiOpenDocument
- ME_4DE60853015A // arArchiTestsAdapter
- ME_4DE632EF020B // TkwArchiCloseDocument
- ME_4DE643F100CB // TarEditorControl
- ME_4DE740FA0192 // TkwClickOnCommentHeader
- ME_4DFB3B88027A // TkwEditorDblClickOnSub
- ME_4DFB406602B7 // arEditorUtils
- ME_4E01AD1F02CA // TkwDeleteSub
- ME_4E01E88B029B // TkwDocEditorSetModified
- ME_52BD79050326 // TkwCreateNewFile
- ME_4E1D42EC0296 // TkwArchiNewDocumentPrim
- ME_4E2448BD014D // TkwOpenInsDWin
- ME_4E244C8400D2 // arDialogsPack
- ME_4E4A181002B0 // TkwClearDataBase
- ME_4E4A1982012A // CommonArchiWords
- ME_4E4B5F29031C // arArchiTestAdapter2
- ME_4E4BBADC02A0 // TkwMakeChangeDoc
- ME_4E4BC07D0328 // TkwInsertDocChanges
- ME_4E60CB00004F // TkwGetActiveEditorPageName
- ME_4E83072D01FF // TkwIniRecSetZoom
- ME_4E8307CE0359 // TkwIniRecGetZoom
- ME_4E8EE51103C2 // TkwArchiNewEmptyDocument
- ME_4EA94ED30365 // TkwAddBlock
- ME_4EAFC7190370 // TkwSetActivePage
- ME_4ECB504D000B // TkwEditorSetTOC
- ME_4EEF07E80201 // TkwGotoSub
- ME_4F0C009200D7 // TkwEndAddSubByMouse
- ME_4F0C26900161 // TkwShowMailMessage
- ME_4F22AFC0008A // TkwSetExpiredStyle
- ME_4E0A095C0324 // TkwArchiNewDocument
- ME_55B664E00149 // archiDocEditorWindowWordsPack
+   Seq: ( HWL ME_4DE6299E021A // TkwArchiOpenDocument
+ HWL ME_4DE60853015A // arArchiTestsAdapter
+ HWL ME_4DE632EF020B // TkwArchiCloseDocument
+ HWL ME_4DE643F100CB // TarEditorControl
+ HWL ME_4DE740FA0192 // TkwClickOnCommentHeader
+ HWL ME_4DFB3B88027A // TkwEditorDblClickOnSub
+ HWL ME_4DFB406602B7 // arEditorUtils
+ HWL ME_4E01AD1F02CA // TkwDeleteSub
+ HWL ME_4E01E88B029B // TkwDocEditorSetModified
+ HWL ME_52BD79050326 // TkwCreateNewFile
+ HWL ME_4E1D42EC0296 // TkwArchiNewDocumentPrim
+ HWL ME_4E2448BD014D // TkwOpenInsDWin
+ HWL ME_4E244C8400D2 // arDialogsPack
+ HWL ME_4E4A181002B0 // TkwClearDataBase
+ HWL ME_4E4A1982012A // CommonArchiWords
+ HWL ME_4E4B5F29031C // arArchiTestAdapter2
+ HWL ME_4E4BBADC02A0 // TkwMakeChangeDoc
+ HWL ME_4E4BC07D0328 // TkwInsertDocChanges
+ HWL ME_4E60CB00004F // TkwGetActiveEditorPageName
+ HWL ME_4E83072D01FF // TkwIniRecSetZoom
+ HWL ME_4E8307CE0359 // TkwIniRecGetZoom
+ HWL ME_4E8EE51103C2 // TkwArchiNewEmptyDocument
+ HWL ME_4EA94ED30365 // TkwAddBlock
+ HWL ME_4EAFC7190370 // TkwSetActivePage
+ HWL ME_4ECB504D000B // TkwEditorSetTOC
+ HWL ME_4EEF07E80201 // TkwGotoSub
+ HWL ME_4F0C009200D7 // TkwEndAddSubByMouse
+ HWL ME_4F0C26900161 // TkwShowMailMessage
+ HWL ME_4F22AFC0008A // TkwSetExpiredStyle
+ HWL ME_4E0A095C0324 // TkwArchiNewDocument
+ HWL ME_55B664E00149 // archiDocEditorWindowWordsPack
  )
  ; // Children
  : Depends

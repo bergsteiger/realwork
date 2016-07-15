@@ -16,7 +16,7 @@ FORWARD ME_56163BDB00E3
  CONST Visibility PrivateAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_56163BDB00E3 // TnsSearchWindowList
+ : Parent HWL ME_56163BDB00E3 // TnsSearchWindowList
  ;
  : Target WL 'ME_496B51A10197' '4A9F98B901A5.pas.ms.script' // InsSearchWindow
  ;
@@ -31,7 +31,7 @@ ref; // ME_56163BF202A4 ItemType
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_56163B0902D7 // TnsSearchWindowManager
+ : Parent HWL ME_56163B0902D7 // TnsSearchWindowManager
  ;
  : Inherits
    Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
@@ -42,7 +42,7 @@ ref; // ME_56163BF202A4 ItemType
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_56163BF202A4 // ItemType
+   Seq: ( HWL ME_56163BF202A4 // ItemType
  )
  ; // Attributes
  CONST extprop:rc:SelfName 'SearchWindowList'
@@ -57,9 +57,9 @@ ref; // ME_56163BDB00E3 TnsSearchWindowList
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_56163B0902D7 // TnsSearchWindowManager
+ : Parent HWL ME_56163B0902D7 // TnsSearchWindowManager
  ;
- : Target ME_56163BDB00E3 // TnsSearchWindowList
+ : Target HWL ME_56163BDB00E3 // TnsSearchWindowList
  ;
 
 ref; // ME_56163C03002F f_List
@@ -81,7 +81,7 @@ ref; // ME_56163C510368 aListener
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_56163C39024C // Subscribe
+ : Parent HWL ME_56163C39024C // Subscribe
  ;
  : Parameters
    Seq: ( ME_56163C510368 // aListener
@@ -98,10 +98,10 @@ ref; // ME_56163C480195 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_56163B0902D7 // TnsSearchWindowManager
+ : Parent HWL ME_56163B0902D7 // TnsSearchWindowManager
  ;
  : Operations
-   Seq: ( ME_56163C480195 // DoIt
+   Seq: ( HWL ME_56163C480195 // DoIt
  )
  ; // Operations
 
@@ -115,10 +115,10 @@ ref; // ME_56163C39024C Subscribe
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_56163B0902D7 // TnsSearchWindowManager
+ : Parent HWL ME_56163B0902D7 // TnsSearchWindowManager
  ;
  : Inherits
-   Seq: ( ME_56163C39024C // Subscribe
+   Seq: ( HWL ME_56163C39024C // Subscribe
  )
  ; // Inherits
 
@@ -132,7 +132,7 @@ ref; // ME_56163C5903DB Unsubscribe
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_56163B0902D7 // TnsSearchWindowManager
+ : Parent HWL ME_56163B0902D7 // TnsSearchWindowManager
  ;
 
 ref; // ME_56163C8A0267 CheckFindEnabled
@@ -151,20 +151,20 @@ ref; // ME_479731C50290_ME_56163B0902D7 Cleanup
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_56163ADC014A // BaseSearchUtils
+ : Parent HWL ME_56163ADC014A // BaseSearchUtils
  ;
  : Inherits
    Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_56163C03002F // f_List
+   Seq: ( HWL ME_56163C03002F // f_List
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_56163C39024C // Subscribe
- ME_56163C5903DB // Unsubscribe
- ME_56163C8A0267 // CheckFindEnabled
+   Seq: ( HWL ME_56163C39024C // Subscribe
+ HWL ME_56163C5903DB // Unsubscribe
+ HWL ME_56163C8A0267 // CheckFindEnabled
  )
  ; // Operations
  : Overridden
@@ -172,7 +172,7 @@ ref; // ME_479731C50290_ME_56163B0902D7 Cleanup
  )
  ; // Overridden
  : Children
-   Seq: ( ME_56163BDB00E3 // TnsSearchWindowList
+   Seq: ( HWL ME_56163BDB00E3 // TnsSearchWindowList
  )
  ; // Children
  CONST "singleton" true
@@ -193,7 +193,7 @@ ref; // ME_56163B0902D7 TnsSearchWindowManager
  : Parent WL 'ME_4A9FFD3F01AD' '4A9FFD3F01AD.pas.ms.script' // Search
  ;
  : Children
-   Seq: ( ME_56163B0902D7 // TnsSearchWindowManager
+   Seq: ( HWL ME_56163B0902D7 // TnsSearchWindowManager
  )
  ; // Children
  : Depends

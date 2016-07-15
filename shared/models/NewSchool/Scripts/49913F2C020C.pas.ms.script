@@ -12,7 +12,7 @@ FORWARD ME_4B0FA5B8011B
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4B0FA5B8011B // InsDefferedEvent
+ : Parent HWL ME_4B0FA5B8011B // InsDefferedEvent
  ;
 
 ref; // ME_4B0FA5CB0254 FireLog
@@ -26,10 +26,10 @@ ref; // ME_4B0FA5CB0254 FireLog
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_49913F2C020C // LoggingInterfaces
+ : Parent HWL ME_49913F2C020C // LoggingInterfaces
  ;
  : Operations
-   Seq: ( ME_4B0FA5CB0254 // FireLog
+   Seq: ( HWL ME_4B0FA5CB0254 // FireLog
  )
  ; // Operations
  CONST extprop:rc:SelfName 'DefferedEvent'
@@ -43,7 +43,7 @@ FORWARD ME_499140AB00DE
  CONST Name 'anEvent'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_4B0FA5B8011B // InsDefferedEvent
+ : Target HWL ME_4B0FA5B8011B // InsDefferedEvent
  ;
 
 ref; // ME_499140B60282 anEvent
@@ -54,7 +54,7 @@ ref; // ME_499140B60282 anEvent
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_499140AB00DE // InsEventHolder
+ : Parent HWL ME_499140AB00DE // InsEventHolder
  ;
  : Parameters
    Seq: ( ME_499140B60282 // anEvent
@@ -72,10 +72,10 @@ ref; // ME_499140B20354 SetEvent
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_49913F2C020C // LoggingInterfaces
+ : Parent HWL ME_49913F2C020C // LoggingInterfaces
  ;
  : Operations
-   Seq: ( ME_499140B20354 // SetEvent
+   Seq: ( HWL ME_499140B20354 // SetEvent
  )
  ; // Operations
  CONST extprop:rc:SelfName 'EventHolder'
@@ -89,7 +89,7 @@ FORWARD ME_4B139E41024C
  CONST Name 'aEvent'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_4B0FA5B8011B // InsDefferedEvent
+ : Target HWL ME_4B0FA5B8011B // InsDefferedEvent
  ;
 
 ref; // ME_4B139E7D0066 aEvent
@@ -100,7 +100,7 @@ ref; // ME_4B139E7D0066 aEvent
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4B139E41024C // InsCachedEventsProcessor
+ : Parent HWL ME_4B139E41024C // InsCachedEventsProcessor
  ;
  : Parameters
    Seq: ( ME_4B139E7D0066 // aEvent
@@ -115,7 +115,7 @@ ref; // ME_4B139E6B00C1 RegisterEvent
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4B139E41024C // InsCachedEventsProcessor
+ : Parent HWL ME_4B139E41024C // InsCachedEventsProcessor
  ;
 
 ref; // ME_4B139E860009 RequestWriteCache
@@ -126,7 +126,7 @@ ref; // ME_4B139E860009 RequestWriteCache
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4B139E41024C // InsCachedEventsProcessor
+ : Parent HWL ME_4B139E41024C // InsCachedEventsProcessor
  ;
 
 ref; // ME_56D435B2018B ForceWriteCache
@@ -140,12 +140,12 @@ ref; // ME_56D435B2018B ForceWriteCache
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_49913F2C020C // LoggingInterfaces
+ : Parent HWL ME_49913F2C020C // LoggingInterfaces
  ;
  : Operations
-   Seq: ( ME_4B139E6B00C1 // RegisterEvent
- ME_4B139E860009 // RequestWriteCache
- ME_56D435B2018B // ForceWriteCache
+   Seq: ( HWL ME_4B139E6B00C1 // RegisterEvent
+ HWL ME_4B139E860009 // RequestWriteCache
+ HWL ME_56D435B2018B // ForceWriteCache
  )
  ; // Operations
  CONST extprop:rc:SelfName 'CachedEventsProcessor'
@@ -164,9 +164,9 @@ ref; // ME_4B139E41024C InsCachedEventsProcessor
  : Parent WL 'ME_47E9EEC60260' '47E9EEC60260.pas.ms.script' // Model
  ;
  : Children
-   Seq: ( ME_4B0FA5B8011B // InsDefferedEvent
- ME_499140AB00DE // InsEventHolder
- ME_4B139E41024C // InsCachedEventsProcessor
+   Seq: ( HWL ME_4B0FA5B8011B // InsDefferedEvent
+ HWL ME_499140AB00DE // InsEventHolder
+ HWL ME_4B139E41024C // InsCachedEventsProcessor
  )
  ; // Children
  : Depends

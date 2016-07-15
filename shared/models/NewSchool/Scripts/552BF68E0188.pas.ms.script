@@ -15,7 +15,7 @@ FORWARD ME_EBF65282559B
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_EBF65282559B // Ml3AutolinkService
+ : Parent HWL ME_EBF65282559B // Ml3AutolinkService
  ;
  : Target WL 'ME_4678160E01BE' '47913B47006E.pas.ms.script' // Ik2TagGenerator
  ;
@@ -29,7 +29,7 @@ ref; // ME_27BE83734EFD GetAutolinkFilter
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_EBF65282559B // Ml3AutolinkService
+ : Parent HWL ME_EBF65282559B // Ml3AutolinkService
  ;
 
 ref; // ME_A18BB0B1A222 CleanAutolinkFilter
@@ -44,56 +44,15 @@ ref; // ME_A18BB0B1A222 CleanAutolinkFilter
  %SUMMARY 'Контракт сервиса Tl3AutolinkService' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_552BF69B039B // Tl3AutolinkService
+ : Parent HWL ME_552BF69B039B // Tl3AutolinkService
  ;
  : Operations
-   Seq: ( ME_27BE83734EFD // GetAutolinkFilter
- ME_A18BB0B1A222 // CleanAutolinkFilter
+   Seq: ( HWL ME_27BE83734EFD // GetAutolinkFilter
+ HWL ME_A18BB0B1A222 // CleanAutolinkFilter
  )
  ; // Operations
 
 ref; // ME_EBF65282559B Ml3AutolinkService
-
-FORWARD ME_DA0E680BD126
-
-: ME_27BE83734EFD_ME_DA0E680BD126
- : Original ME_27BE83734EFD // GetAutolinkFilter
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_27BE83734EFD_ME_DA0E680BD126 GetAutolinkFilter
-
-: ME_A18BB0B1A222_ME_DA0E680BD126
- : Original ME_A18BB0B1A222 // CleanAutolinkFilter
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_A18BB0B1A222_ME_DA0E680BD126 CleanAutolinkFilter
-
-: ME_DA0E680BD126
- CONST UID 'DA0E680BD126'
- CONST GUID '6E9C4C64-C96E-4FC1-958E-50CF81CED3E9'
- CONST Name 'Il3AutolinkService'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Facet ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Интерфейс сервиса Tl3AutolinkService' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_552BF69B039B // Tl3AutolinkService
- ;
- : Implements
-   Seq: ( ME_EBF65282559B // Ml3AutolinkService
- )
- ; // Implements
- : Implemented
-   Seq: ( ME_27BE83734EFD_ME_DA0E680BD126 // GetAutolinkFilter
- ME_A18BB0B1A222_ME_DA0E680BD126 // CleanAutolinkFilter
- )
- ; // Implemented
- CONST extprop:rc:SelfName 'AutolinkService'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_DA0E680BD126 Il3AutolinkService
 
 : ME_552BF6BD0156
  CONST UID '552BF6BD0156'
@@ -102,7 +61,7 @@ ref; // ME_DA0E680BD126 Il3AutolinkService
  : Stereotype st_responsibility::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_552BF69B039B // Tl3AutolinkService
+ : Parent HWL ME_552BF69B039B // Tl3AutolinkService
  ;
  : Target WL 'ME_4678160E01BE' '47913B47006E.pas.ms.script' // Ik2TagGenerator
  ;
@@ -116,22 +75,10 @@ ref; // ME_552BF6BD0156 GetAutolinkFilter
  : Stereotype st_responsibility::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_552BF69B039B // Tl3AutolinkService
+ : Parent HWL ME_552BF69B039B // Tl3AutolinkService
  ;
 
 ref; // ME_552BF6FF02A9 CleanAutolinkFilter
-
-: ME_27BE83734EFD_ME_552BF69B039B
- : Original ME_27BE83734EFD // GetAutolinkFilter
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_27BE83734EFD_ME_552BF69B039B GetAutolinkFilter
-
-: ME_A18BB0B1A222_ME_552BF69B039B
- : Original ME_A18BB0B1A222 // CleanAutolinkFilter
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_A18BB0B1A222_ME_552BF69B039B CleanAutolinkFilter
 
 : ME_552BF69B039B
  CONST UID '552BF69B039B'
@@ -141,44 +88,29 @@ ref; // ME_A18BB0B1A222_ME_552BF69B039B CleanAutolinkFilter
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_552BF68E0188 // AutoLink
+ : Parent HWL ME_552BF68E0188 // AutoLink
  ;
  : Inherits
    Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
  )
  ; // Inherits
- : Implements
-   Seq: ( ME_EBF65282559B // Ml3AutolinkService
- )
- ; // Implements
  : Operations
-   Seq: ( ME_552BF6BD0156 // GetAutolinkFilter
- ME_552BF6FF02A9 // CleanAutolinkFilter
+   Seq: ( HWL ME_552BF6BD0156 // GetAutolinkFilter
+ HWL ME_552BF6FF02A9 // CleanAutolinkFilter
  )
  ; // Operations
- : Implemented
-   Seq: ( ME_27BE83734EFD_ME_552BF69B039B // GetAutolinkFilter
- ME_A18BB0B1A222_ME_552BF69B039B // CleanAutolinkFilter
- )
- ; // Implemented
  : Children
-   Seq: ( ME_EBF65282559B // Ml3AutolinkService
- ME_DA0E680BD126 // Il3AutolinkService
+   Seq: ( HWL ME_EBF65282559B // Ml3AutolinkService
  )
  ; // Children
  : Injected
    Seq: ( WL 'ME_552CFA080079' '552D07E00278.pas.ms.script' // AutolinkFilterWordsPack
  )
  ; // Injected
- CONST "singleton" true
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3AutolinkService.pas'
  CONST extprop:rc:SelfName 'AutolinkService'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'l3AutolinkService'
- : Facet ME_DA0E680BD126 // Il3AutolinkService
- ;
- : Mixin ME_EBF65282559B // Ml3AutolinkService
- ;
 
 ref; // ME_552BF69B039B Tl3AutolinkService
 
@@ -192,7 +124,7 @@ ref; // ME_552BF69B039B Tl3AutolinkService
  : Parent WL 'ME_550012C403C4' '550012C403C4.pas.ms.script' // L3$AFW
  ;
  : Children
-   Seq: ( ME_552BF69B039B // Tl3AutolinkService
+   Seq: ( HWL ME_552BF69B039B // Tl3AutolinkService
  )
  ; // Children
  : Depends

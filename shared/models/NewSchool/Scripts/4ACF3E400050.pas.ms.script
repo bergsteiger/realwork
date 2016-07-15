@@ -13,7 +13,7 @@ FORWARD ME_4901FC9F0096
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4901FC9F0096 // TnsBaseSearchPromptFilters
+ : Parent HWL ME_4901FC9F0096 // TnsBaseSearchPromptFilters
  ;
  : Target WL 'ME_4AA4D4EB0005' '4A9F98B901A5.pas.ms.script' // InsPromptForDocFilter
  ;
@@ -27,7 +27,7 @@ ref; // ME_4AA4D6A4010A f_PromptForDoc
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4901FC9F0096 // TnsBaseSearchPromptFilters
+ : Parent HWL ME_4901FC9F0096 // TnsBaseSearchPromptFilters
  ;
  : Target WL 'ME_4901F73E01D0' '4A9F98B901A5.pas.ms.script' // InsCutToLeafFilter
  ;
@@ -39,9 +39,9 @@ FORWARD ME_4901FD0A034A
 : ME_4901FD690289
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4901FC9F0096 // TnsBaseSearchPromptFilters
+ : Parent HWL ME_4901FC9F0096 // TnsBaseSearchPromptFilters
  ;
- : Target ME_4901FD0A034A // TnsCutToLeafFilter
+ : Target HWL ME_4901FD0A034A // TnsCutToLeafFilter
  ;
 
 ref; // ME_4901FD690289 
@@ -49,7 +49,7 @@ ref; // ME_4901FD690289
 : ME_4901FD860235
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4901FC9F0096 // TnsBaseSearchPromptFilters
+ : Parent HWL ME_4901FC9F0096 // TnsBaseSearchPromptFilters
  ;
  : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
  ;
@@ -61,9 +61,9 @@ FORWARD ME_4AA4D6CF02A9
 : ME_4AA4D70F010B
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4901FC9F0096 // TnsBaseSearchPromptFilters
+ : Parent HWL ME_4901FC9F0096 // TnsBaseSearchPromptFilters
  ;
- : Target ME_4AA4D6CF02A9 // TnsPromptForDocFilter
+ : Target HWL ME_4AA4D6CF02A9 // TnsPromptForDocFilter
  ;
 
 ref; // ME_4AA4D70F010B 
@@ -115,7 +115,7 @@ ref; // ME_48FF4F47010F_ME_4901FC9F0096 Create
  %SUMMARY 'Коллеги, это что?' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4ACF3E400050 // BaseSearch
+ : Parent HWL ME_4ACF3E400050 // BaseSearch
  ;
  : Inherits
    Seq: ( WL 'ME_48FF4EC501F6' '47E246C90144.pas.ms.script' // Tl3TreeFilters
@@ -126,8 +126,8 @@ ref; // ME_48FF4F47010F_ME_4901FC9F0096 Create
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_4AA4D6A4010A // f_PromptForDoc
- ME_4901FCE301AE // f_Leaf
+   Seq: ( HWL ME_4AA4D6A4010A // f_PromptForDoc
+ HWL ME_4901FCE301AE // f_Leaf
  )
  ; // Attributes
  : Implemented
@@ -164,7 +164,7 @@ ref; // ME_4901FC9F0096 TnsBaseSearchPromptFilters
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4AA4D6CF02A9 // TnsPromptForDocFilter
+ : Parent HWL ME_4AA4D6CF02A9 // TnsPromptForDocFilter
  ;
  : Target WL 'ME_47BC524C0245' '4AB0C3C60310.pas.ms.script' // LongWord
  ;
@@ -187,7 +187,7 @@ ref; // ME_4AA4D7310335 aDocNum
  : Stereotype st_ctor::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4AA4D6CF02A9 // TnsPromptForDocFilter
+ : Parent HWL ME_4AA4D6CF02A9 // TnsPromptForDocFilter
  ;
  : Parameters
    Seq: ( ME_4AA4D7310335 // aDocNum
@@ -212,7 +212,7 @@ ref; // ME_4AA4D7490215 aDocNum
  : Stereotype st_factory::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4AA4D6CF02A9 // TnsPromptForDocFilter
+ : Parent HWL ME_4AA4D6CF02A9 // TnsPromptForDocFilter
  ;
  : Parameters
    Seq: ( ME_4AA4D7490215 // aDocNum
@@ -236,7 +236,7 @@ ref; // ME_4AA4D5150176_ME_4AA4D6CF02A9 InternalDocNumber
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4ACF3E400050 // BaseSearch
+ : Parent HWL ME_4ACF3E400050 // BaseSearch
  ;
  : Inherits
    Seq: ( WL 'ME_46780E690001' '47913B47006E.pas.ms.script' // Tl3CacheableBase
@@ -247,12 +247,12 @@ ref; // ME_4AA4D5150176_ME_4AA4D6CF02A9 InternalDocNumber
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_4AA4D6F900C1 // f_DocNum
+   Seq: ( HWL ME_4AA4D6F900C1 // f_DocNum
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_4AA4D72303A9 // Create
- ME_4AA4D73C0111 // Make
+   Seq: ( HWL ME_4AA4D72303A9 // Create
+ HWL ME_4AA4D73C0111 // Make
  )
  ; // Operations
  : Implemented
@@ -273,7 +273,7 @@ ref; // ME_4AA4D6CF02A9 TnsPromptForDocFilter
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4901FD0A034A // TnsCutToLeafFilter
+ : Parent HWL ME_4901FD0A034A // TnsCutToLeafFilter
  ;
  : Target WL 'ME_47BC524C0245' '4AB0C3C60310.pas.ms.script' // LongWord
  ;
@@ -296,7 +296,7 @@ ref; // ME_4901FD430385 aCount
  : Stereotype st_ctor::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4901FD0A034A // TnsCutToLeafFilter
+ : Parent HWL ME_4901FD0A034A // TnsCutToLeafFilter
  ;
  : Parameters
    Seq: ( ME_4901FD430385 // aCount
@@ -322,7 +322,7 @@ ref; // ME_4901FD540170 aCount
  %SUMMARY 'Создаёт фильтр' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4901FD0A034A // TnsCutToLeafFilter
+ : Parent HWL ME_4901FD0A034A // TnsCutToLeafFilter
  ;
  : Parameters
    Seq: ( ME_4901FD540170 // aCount
@@ -347,7 +347,7 @@ ref; // ME_4901F74E0224_ME_4901FD0A034A LeafCount
  %SUMMARY 'Коллеги, это что?' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4ACF3E400050 // BaseSearch
+ : Parent HWL ME_4ACF3E400050 // BaseSearch
  ;
  : Inherits
    Seq: ( WL 'ME_46780E690001' '47913B47006E.pas.ms.script' // Tl3CacheableBase
@@ -358,12 +358,12 @@ ref; // ME_4901F74E0224_ME_4901FD0A034A LeafCount
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_4901FDA10273 // f_LeafCount
+   Seq: ( HWL ME_4901FDA10273 // f_LeafCount
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_4901FD3E03AD // Create
- ME_4901FD4B00E8 // Make
+   Seq: ( HWL ME_4901FD3E03AD // Create
+ HWL ME_4901FD4B00E8 // Make
  )
  ; // Operations
  : Implemented
@@ -391,7 +391,7 @@ FORWARD ME_4906D1790319
  %SUMMARY 'Подсказки не найдены' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4906D1790319 // TnsBaseSearchPromptTreeBase
+ : Parent HWL ME_4906D1790319 // TnsBaseSearchPromptTreeBase
  ;
  : Inherits
    Seq: ( WL 'ME_4787A405013D' '4AB0C3C60310.pas.ms.script' // Exception
@@ -410,7 +410,7 @@ FORWARD ME_4906D35400AD
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4906D35400AD // Constants
+ : Parent HWL ME_4906D35400AD // Constants
  ;
  CONST Value 7
  CONST "AutoInc" false
@@ -429,10 +429,10 @@ ref; // ME_4906D361037F c_CutCount
  %SUMMARY 'Внутрение константы' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
- : Parent ME_4906D1790319 // TnsBaseSearchPromptTreeBase
+ : Parent HWL ME_4906D1790319 // TnsBaseSearchPromptTreeBase
  ;
  : Attributes
-   Seq: ( ME_4906D361037F // c_CutCount
+   Seq: ( HWL ME_4906D361037F // c_CutCount
  )
  ; // Attributes
  CONST "spell names" false
@@ -468,7 +468,7 @@ ref; // ME_555DC79901F1 aDoc
  : Stereotype st_static::Operation ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_555DAC3101FD // TnsOpenDocumentFromBaseSearchPromptEvent
+ : Parent HWL ME_555DAC3101FD // TnsOpenDocumentFromBaseSearchPromptEvent
  ;
  : Parameters
    Seq: ( ME_555DC79901D3 // aText
@@ -481,7 +481,7 @@ ref; // ME_555DC78401EF Log
 : ME_555DAF070298
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_555DAC3101FD // TnsOpenDocumentFromBaseSearchPromptEvent
+ : Parent HWL ME_555DAC3101FD // TnsOpenDocumentFromBaseSearchPromptEvent
  ;
  : Target WL 'ME_45ED58FF0201' '45ED58CF03E6.pas.ms.script' // LogEvent
  ;
@@ -496,14 +496,14 @@ ref; // ME_555DAF070298
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_52B1DD5901CE // TnsBaseSearchPromptRoot
+ : Parent HWL ME_52B1DD5901CE // TnsBaseSearchPromptRoot
  ;
  : Inherits
    Seq: ( WL 'ME_4B0A6109010C' '4B0A60DF01F2.pas.ms.script' // TnsLogEvent
  )
  ; // Inherits
  : Operations
-   Seq: ( ME_555DC78401EF // Log
+   Seq: ( HWL ME_555DC78401EF // Log
  )
  ; // Operations
  : Dependencies
@@ -523,7 +523,7 @@ ref; // ME_555DAC3101FD TnsOpenDocumentFromBaseSearchPromptEvent
  CONST Visibility ProtectedAccess
  CONST Abstraction at_final
  CONST LinkType lt_agr
- : Parent ME_52B1DD5901CE // TnsBaseSearchPromptRoot
+ : Parent HWL ME_52B1DD5901CE // TnsBaseSearchPromptRoot
  ;
  : Target WL 'ME_534572370056' '47913B47006E.pas.ms.script' // Tl3Tag
  ;
@@ -539,7 +539,7 @@ ref; // ME_52B1DDA402C8 Para
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_52B1DD5901CE // TnsBaseSearchPromptRoot
+ : Parent HWL ME_52B1DD5901CE // TnsBaseSearchPromptRoot
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -553,7 +553,7 @@ ref; // ME_52B9848003C4 f_Doc
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_52B1DD5901CE // TnsBaseSearchPromptRoot
+ : Parent HWL ME_52B1DD5901CE // TnsBaseSearchPromptRoot
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -567,7 +567,7 @@ ref; // ME_52B984890049 f_Sub
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_52B1DD5901CE // TnsBaseSearchPromptRoot
+ : Parent HWL ME_52B1DD5901CE // TnsBaseSearchPromptRoot
  ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
@@ -577,7 +577,7 @@ ref; // ME_555DD76D0011 f_Text
 : ME_52B1DFA200B4
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_52B1DD5901CE // TnsBaseSearchPromptRoot
+ : Parent HWL ME_52B1DD5901CE // TnsBaseSearchPromptRoot
  ;
  : Target WL 'ME_4E2412DF02EA' '4E24128E002C.pas.ms.script' // TevNodePainter
  ;
@@ -587,7 +587,7 @@ ref; // ME_52B1DFA200B4
 : ME_52B1DFA402A7
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_52B1DD5901CE // TnsBaseSearchPromptRoot
+ : Parent HWL ME_52B1DD5901CE // TnsBaseSearchPromptRoot
  ;
  : Target WL 'ME_47AB1FDE03E4' '47913B47006E.pas.ms.script' // l3Memory
  ;
@@ -597,7 +597,7 @@ ref; // ME_52B1DFA402A7
 : ME_52B1DFA60339
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_52B1DD5901CE // TnsBaseSearchPromptRoot
+ : Parent HWL ME_52B1DD5901CE // TnsBaseSearchPromptRoot
  ;
  : Target WL 'ME_47A080670100' '47913B47006E.pas.ms.script' // l3Stream
  ;
@@ -607,7 +607,7 @@ ref; // ME_52B1DFA60339
 : ME_52B1DFA90072
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_52B1DD5901CE // TnsBaseSearchPromptRoot
+ : Parent HWL ME_52B1DD5901CE // TnsBaseSearchPromptRoot
  ;
  : Target WL 'ME_4D6BB1E0012D' '482D6E13011F.pas.ms.script' // TevCustomWikiReader
  ;
@@ -617,7 +617,7 @@ ref; // ME_52B1DFA90072
 : ME_52B1DFAB006A
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_52B1DD5901CE // TnsBaseSearchPromptRoot
+ : Parent HWL ME_52B1DD5901CE // TnsBaseSearchPromptRoot
  ;
  : Target WL 'ME_476BFDB0033D' '467C0CAA02AB.pas.ms.script' // Il3NodePainter
  ;
@@ -627,7 +627,7 @@ ref; // ME_52B1DFAB006A
 : ME_52B1DFAD01DC
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_52B1DD5901CE // TnsBaseSearchPromptRoot
+ : Parent HWL ME_52B1DD5901CE // TnsBaseSearchPromptRoot
  ;
  : Target WL 'ME_47ECA82403AC' '47ECA80B000D.pas.ms.script' // Tk2DocumentBuffer
  ;
@@ -637,7 +637,7 @@ ref; // ME_52B1DFAD01DC
 : ME_52B33BAD0002
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_52B1DD5901CE // TnsBaseSearchPromptRoot
+ : Parent HWL ME_52B1DD5901CE // TnsBaseSearchPromptRoot
  ;
  : Target WL 'ME_46780D0003AF' '4677FBA70343.pas.ms.script' // Tl3WString
  ;
@@ -647,7 +647,7 @@ ref; // ME_52B33BAD0002
 : ME_52B46BD201BF
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_52B1DD5901CE // TnsBaseSearchPromptRoot
+ : Parent HWL ME_52B1DD5901CE // TnsBaseSearchPromptRoot
  ;
  : Target WL 'ME_47C69EBC00A8' '47AC75550330.pas.ms.script' // Tk2TagID
  ;
@@ -657,7 +657,7 @@ ref; // ME_52B46BD201BF
 : ME_52B46BFE030B
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_52B1DD5901CE // TnsBaseSearchPromptRoot
+ : Parent HWL ME_52B1DD5901CE // TnsBaseSearchPromptRoot
  ;
  : Target WL 'ME_4860FD880077' '48492FC0029D.pas.ms.script' // TextStyle
  ;
@@ -667,7 +667,7 @@ ref; // ME_52B46BFE030B
 : ME_52B46C6B0133
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_52B1DD5901CE // TnsBaseSearchPromptRoot
+ : Parent HWL ME_52B1DD5901CE // TnsBaseSearchPromptRoot
  ;
  : Target WL 'ME_484CDAC302F7' '469D0AC7005E.pas.ms.script' // Sub Layers
  ;
@@ -677,7 +677,7 @@ ref; // ME_52B46C6B0133
 : ME_52B46C9A0336
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_52B1DD5901CE // TnsBaseSearchPromptRoot
+ : Parent HWL ME_52B1DD5901CE // TnsBaseSearchPromptRoot
  ;
  : Target WL 'ME_47AC7BD90281' '47AC7B760263.pas.ms.script' // Tag Consts
  ;
@@ -687,7 +687,7 @@ ref; // ME_52B46C9A0336
 : ME_52B9771F0004
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_52B1DD5901CE // TnsBaseSearchPromptRoot
+ : Parent HWL ME_52B1DD5901CE // TnsBaseSearchPromptRoot
  ;
  : Target WL 'ME_4BA763B0004B' '47F2170002B2.pas.ms.script' // bsTypesNew
  ;
@@ -697,7 +697,7 @@ ref; // ME_52B9771F0004
 : ME_52B977210390
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_52B1DD5901CE // TnsBaseSearchPromptRoot
+ : Parent HWL ME_52B1DD5901CE // TnsBaseSearchPromptRoot
  ;
  : Target WL 'ME_490C47C70210' '48F747EC0073.pas.ms.script' // nsUtils
  ;
@@ -707,7 +707,7 @@ ref; // ME_52B977210390
 : ME_53C8016102E2
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_52B1DD5901CE // TnsBaseSearchPromptRoot
+ : Parent HWL ME_52B1DD5901CE // TnsBaseSearchPromptRoot
  ;
  : Target WL 'ME_47F25BC801DB' '47D0E1500033.pas.ms.script' // vcmBase
  ;
@@ -746,7 +746,7 @@ ref; // ME_4A60B23E00C3_ME_52B1DD5901CE COMQueryInterface
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4906D1790319 // TnsBaseSearchPromptTreeBase
+ : Parent HWL ME_4906D1790319 // TnsBaseSearchPromptTreeBase
  ;
  : Inherits
    Seq: ( WL 'ME_468275200341' '48FD8B2702F6.pas.ms.script' // TnsINodeRootWrap
@@ -757,10 +757,10 @@ ref; // ME_4A60B23E00C3_ME_52B1DD5901CE COMQueryInterface
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_52B1DDA402C8 // Para
- ME_52B9848003C4 // f_Doc
- ME_52B984890049 // f_Sub
- ME_555DD76D0011 // f_Text
+   Seq: ( HWL ME_52B1DDA402C8 // Para
+ HWL ME_52B9848003C4 // f_Doc
+ HWL ME_52B984890049 // f_Sub
+ HWL ME_555DD76D0011 // f_Text
  )
  ; // Attributes
  : Implemented
@@ -774,7 +774,7 @@ ref; // ME_4A60B23E00C3_ME_52B1DD5901CE COMQueryInterface
  )
  ; // Overridden
  : Children
-   Seq: ( ME_555DAC3101FD // TnsOpenDocumentFromBaseSearchPromptEvent
+   Seq: ( HWL ME_555DAC3101FD // TnsOpenDocumentFromBaseSearchPromptEvent
  )
  ; // Children
  : Dependencies
@@ -806,10 +806,10 @@ ref; // ME_52B1DD5901CE TnsBaseSearchPromptRoot
  : Stereotype st_ctor::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4906D1790319 // TnsBaseSearchPromptTreeBase
+ : Parent HWL ME_4906D1790319 // TnsBaseSearchPromptTreeBase
  ;
  : CanRaise
-   Seq: ( ME_4906D3210181 // EPromptTreeNotFound
+   Seq: ( HWL ME_4906D3210181 // EPromptTreeNotFound
  )
  ; // CanRaise
 
@@ -823,7 +823,7 @@ ref; // ME_4906D20B0185 Create
  %SUMMARY 'Создаёт дерево подсказок' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4906D1790319 // TnsBaseSearchPromptTreeBase
+ : Parent HWL ME_4906D1790319 // TnsBaseSearchPromptTreeBase
  ;
  : Target WL 'ME_46825CC00249' '4682595B0268.pas.ms.script' // Il3SimpleTree
  ;
@@ -833,7 +833,7 @@ ref; // ME_4906D21E035B Make
 : ME_4906D3AC02FA
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4906D1790319 // TnsBaseSearchPromptTreeBase
+ : Parent HWL ME_4906D1790319 // TnsBaseSearchPromptTreeBase
  ;
  : Target WL 'ME_48FF556602BA' '48F747EC0073.pas.ms.script' // DataAdapter
  ;
@@ -845,9 +845,9 @@ FORWARD ME_4906D40F0363
 : ME_4906D4340317
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4906D1790319 // TnsBaseSearchPromptTreeBase
+ : Parent HWL ME_4906D1790319 // TnsBaseSearchPromptTreeBase
  ;
- : Target ME_4906D40F0363 // TnsPromptContextFilterParams
+ : Target HWL ME_4906D40F0363 // TnsPromptContextFilterParams
  ;
 
 ref; // ME_4906D4340317 
@@ -855,9 +855,9 @@ ref; // ME_4906D4340317
 : ME_4906D4990233
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4906D1790319 // TnsBaseSearchPromptTreeBase
+ : Parent HWL ME_4906D1790319 // TnsBaseSearchPromptTreeBase
  ;
- : Target ME_4901FC9F0096 // TnsBaseSearchPromptFilters
+ : Target HWL ME_4901FC9F0096 // TnsBaseSearchPromptFilters
  ;
 
 ref; // ME_4906D4990233 
@@ -865,7 +865,7 @@ ref; // ME_4906D4990233
 : ME_4906D4C4037B
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4906D1790319 // TnsBaseSearchPromptTreeBase
+ : Parent HWL ME_4906D1790319 // TnsBaseSearchPromptTreeBase
  ;
  : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
  ;
@@ -875,9 +875,9 @@ ref; // ME_4906D4C4037B
 : ME_4906D5CB01B8
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4906D1790319 // TnsBaseSearchPromptTreeBase
+ : Parent HWL ME_4906D1790319 // TnsBaseSearchPromptTreeBase
  ;
- : Target ME_4901FD0A034A // TnsCutToLeafFilter
+ : Target HWL ME_4901FD0A034A // TnsCutToLeafFilter
  ;
 
 ref; // ME_4906D5CB01B8 
@@ -885,7 +885,7 @@ ref; // ME_4906D5CB01B8
 : ME_4906D64602E0
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4906D1790319 // TnsBaseSearchPromptTreeBase
+ : Parent HWL ME_4906D1790319 // TnsBaseSearchPromptTreeBase
  ;
  : Target WL 'ME_48FF569700F6' '47F2170002B2.pas.ms.script' // StringRoutines
  ;
@@ -895,7 +895,7 @@ ref; // ME_4906D64602E0
 : ME_4906D67D0277
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4906D1790319 // TnsBaseSearchPromptTreeBase
+ : Parent HWL ME_4906D1790319 // TnsBaseSearchPromptTreeBase
  ;
  : Target WL 'ME_47FB50E4008E' '48F747EC0073.pas.ms.script' // nsConst
  ;
@@ -905,7 +905,7 @@ ref; // ME_4906D67D0277
 : ME_4906D6B60389
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4906D1790319 // TnsBaseSearchPromptTreeBase
+ : Parent HWL ME_4906D1790319 // TnsBaseSearchPromptTreeBase
  ;
  : Target WL 'ME_456EB454018E' '456EA56002BF.pas.ms.script' // CanNotFindData
  ;
@@ -915,9 +915,9 @@ ref; // ME_4906D6B60389
 : ME_4AA4D7550387
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4906D1790319 // TnsBaseSearchPromptTreeBase
+ : Parent HWL ME_4906D1790319 // TnsBaseSearchPromptTreeBase
  ;
- : Target ME_4AA4D6CF02A9 // TnsPromptForDocFilter
+ : Target HWL ME_4AA4D6CF02A9 // TnsPromptForDocFilter
  ;
 
 ref; // ME_4AA4D7550387 
@@ -925,7 +925,7 @@ ref; // ME_4AA4D7550387
 : ME_4ACF459E00AF
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4906D1790319 // TnsBaseSearchPromptTreeBase
+ : Parent HWL ME_4906D1790319 // TnsBaseSearchPromptTreeBase
  ;
  : Target WL 'ME_4901F75A0378' '4A9F98B901A5.pas.ms.script' // InsBaseSearchPromptFilters
  ;
@@ -971,15 +971,15 @@ ref; // ME_48FF52670038_ME_4906D1790319 MakeContextFilterParams
  %SUMMARY 'Дерево подсказок для БП' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4ACF3E400050 // BaseSearch
+ : Parent HWL ME_4ACF3E400050 // BaseSearch
  ;
  : Inherits
    Seq: ( WL 'ME_468361010204' '48FD8B2702F6.pas.ms.script' // TnsDataResetTreeStruct
  )
  ; // Inherits
  : Operations
-   Seq: ( ME_4906D20B0185 // Create
- ME_4906D21E035B // Make
+   Seq: ( HWL ME_4906D20B0185 // Create
+ HWL ME_4906D21E035B // Make
  )
  ; // Operations
  : Implemented
@@ -994,12 +994,12 @@ ref; // ME_48FF52670038_ME_4906D1790319 MakeContextFilterParams
  )
  ; // Overridden
  : Children
-   Seq: ( ME_4906D3210181 // EPromptTreeNotFound
- ME_52B1DD5901CE // TnsBaseSearchPromptRoot
+   Seq: ( HWL ME_4906D3210181 // EPromptTreeNotFound
+ HWL ME_52B1DD5901CE // TnsBaseSearchPromptRoot
  )
  ; // Children
  : Constants
-   Seq: ( ME_4906D35400AD // Constants
+   Seq: ( HWL ME_4906D35400AD // Constants
  )
  ; // Constants
  : Dependencies
@@ -1036,7 +1036,7 @@ FORWARD ME_4906D9DE02FA
  %SUMMARY 'Создаёт дерево подсказок' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4906D9DE02FA // TnsBaseSearchPromptTree
+ : Parent HWL ME_4906D9DE02FA // TnsBaseSearchPromptTree
  ;
  : Target WL 'ME_46825CC00249' '4682595B0268.pas.ms.script' // Il3SimpleTree
  ;
@@ -1052,14 +1052,14 @@ ref; // ME_4906DA290069 Make
  %SUMMARY 'Дерево подсказок. Синглетон' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4ACF3E400050 // BaseSearch
+ : Parent HWL ME_4ACF3E400050 // BaseSearch
  ;
  : Inherits
-   Seq: ( ME_4906D1790319 // TnsBaseSearchPromptTreeBase
+   Seq: ( HWL ME_4906D1790319 // TnsBaseSearchPromptTreeBase
  )
  ; // Inherits
  : Operations
-   Seq: ( ME_4906DA290069 // Make
+   Seq: ( HWL ME_4906DA290069 // Make
  )
  ; // Operations
  CONST "author" 'Лукьянец Р.В.'
@@ -1081,7 +1081,7 @@ ref; // ME_4906D9DE02FA TnsBaseSearchPromptTree
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4906D40F0363 // TnsPromptContextFilterParams
+ : Parent HWL ME_4906D40F0363 // TnsPromptContextFilterParams
  ;
  : Target WL 'ME_49089895038A' '48FD8B2702F6.pas.ms.script' // TIl3ContextFilterParamsNotifierPtrList
  ;
@@ -1096,7 +1096,7 @@ ref; // ME_49089F94017B f_Subscribers
  %SUMMARY 'Создаёт дерево' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4906D40F0363 // TnsPromptContextFilterParams
+ : Parent HWL ME_4906D40F0363 // TnsPromptContextFilterParams
  ;
  : Target WL 'ME_47724E7F0261' '4682595B0268.pas.ms.script' // Il3ContextFilterParams
  ;
@@ -1110,7 +1110,7 @@ ref; // ME_49089FE50092 Make
  %SUMMARY 'Уведомляет подписчиков, о чём?' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4906D40F0363 // TnsPromptContextFilterParams
+ : Parent HWL ME_4906D40F0363 // TnsPromptContextFilterParams
  ;
 
 ref; // ME_49089FF80356 NotifySubscribers
@@ -1118,7 +1118,7 @@ ref; // ME_49089FF80356 NotifySubscribers
 : ME_4908A015007F
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4906D40F0363 // TnsPromptContextFilterParams
+ : Parent HWL ME_4906D40F0363 // TnsPromptContextFilterParams
  ;
  : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
  ;
@@ -1170,7 +1170,7 @@ ref; // ME_479731C50290_ME_4906D40F0363 Cleanup
  %SUMMARY 'Коллеги, это что?' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4ACF3E400050 // BaseSearch
+ : Parent HWL ME_4ACF3E400050 // BaseSearch
  ;
  : Inherits
    Seq: ( WL 'ME_46780E690001' '47913B47006E.pas.ms.script' // Tl3CacheableBase
@@ -1182,12 +1182,12 @@ ref; // ME_479731C50290_ME_4906D40F0363 Cleanup
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_49089F94017B // f_Subscribers
+   Seq: ( HWL ME_49089F94017B // f_Subscribers
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_49089FE50092 // Make
- ME_49089FF80356 // NotifySubscribers
+   Seq: ( HWL ME_49089FE50092 // Make
+ HWL ME_49089FF80356 // NotifySubscribers
  )
  ; // Operations
  : Implemented
@@ -1226,12 +1226,12 @@ ref; // ME_4906D40F0363 TnsPromptContextFilterParams
  : Parent WL 'ME_4A78013D01CD' '4A78013D01CD.pas.ms.script' // View$For F1 and Monitorings
  ;
  : Children
-   Seq: ( ME_4901FC9F0096 // TnsBaseSearchPromptFilters
- ME_4AA4D6CF02A9 // TnsPromptForDocFilter
- ME_4901FD0A034A // TnsCutToLeafFilter
- ME_4906D1790319 // TnsBaseSearchPromptTreeBase
- ME_4906D9DE02FA // TnsBaseSearchPromptTree
- ME_4906D40F0363 // TnsPromptContextFilterParams
+   Seq: ( HWL ME_4901FC9F0096 // TnsBaseSearchPromptFilters
+ HWL ME_4AA4D6CF02A9 // TnsPromptForDocFilter
+ HWL ME_4901FD0A034A // TnsCutToLeafFilter
+ HWL ME_4906D1790319 // TnsBaseSearchPromptTreeBase
+ HWL ME_4906D9DE02FA // TnsBaseSearchPromptTree
+ HWL ME_4906D40F0363 // TnsPromptContextFilterParams
  )
  ; // Children
  : Depends

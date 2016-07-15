@@ -4,3860 +4,7 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 FORWARD ME_4A92D644009B
 
-FORWARD ME_497EBEC4031D
-
-: ME_4BD71E1103CD
- CONST UID '4BD71E1103CD'
- CONST Name 'nltMain'
- CONST Class class_Class
- : Stereotype st_UserType ;
- CONST Kind kind_NormalClass
- %SUMMARY 'ПРАЙМ. Моя новостная лента' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_497EBEC4031D // PrimNewsLine
- ;
- CONST "CanClose" false
- CONST "ImageIndex" 145
- CONST "SettingsCaption" 'ПРАЙМ. Моя новостная лента (вкладка)'
- CONST "Weight" '-1'
- CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimNewsLine_nltMain_UserType.pas'
- CONST extprop:pas:UnitName 'PrimNewsLine_nltMain_UserType'
-
-ref; // ME_4BD71E1103CD nltMain
-
-FORWARD ME_541AFB5E0323
-
-FORWARD ME_541AFBC7020F
-
-FORWARD ME_541AFC7C011A
-
-: ME_541AFCDC0307
- CONST UID '541AFCDC0307'
- CONST Name 'FillForm'
- CONST Class class_Class
- : Stereotype st_Choice ;
- CONST Kind kind_NormalClass
- %SUMMARY '''Заполнить анкету''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_541AFC7C011A // Choices
- ;
- CONST "AutoInc" false
- CONST "Value" 0
- CONST "forced type" 'none'
- CONST "is define" false
-
-ref; // ME_541AFCDC0307 FillForm
-
-: ME_541AFD260322
- CONST UID '541AFD260322'
- CONST Name 'ViewFullNewsLine'
- CONST Class class_Class
- : Stereotype st_Choice ;
- CONST Kind kind_NormalClass
- %SUMMARY '''Посмотреть все поступления в продукт ПРАЙМ''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_541AFC7C011A // Choices
- ;
- CONST "AutoInc" false
- CONST "Value" 1
- CONST "forced type" 'none'
- CONST "is define" false
-
-ref; // ME_541AFD260322 ViewFullNewsLine
-
-: ME_541AFC7C011A
- CONST UID '541AFC7C011A'
- CONST Name 'Choices'
- CONST Class class_Class
- : Stereotype st_Choices ;
- CONST Kind kind_NormalClass
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_541AFBC7020F // NewsLineIsNotSetup
- ;
- : Children
-   Seq: ( ME_541AFCDC0307 // FillForm
- ME_541AFD260322 // ViewFullNewsLine
- )
- ; // Children
- CONST "Need map interface" false
- CONST "Need mapping support" false
- CONST "spell names" false
-
-ref; // ME_541AFC7C011A Choices
-
-: ME_541AFDC50301
- CONST UID '541AFDC50301'
- CONST Class class_Attribute
- : Stereotype st_DefaultChoice::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_541AFBC7020F // NewsLineIsNotSetup
- ;
- : Target ME_541AFCDC0307 // FillForm
- ;
-
-ref; // ME_541AFDC50301 
-
-: ME_541AFBC7020F
- CONST UID '541AFBC7020F'
- CONST Name 'NewsLineIsNotSetup'
- CONST Class class_Class
- : Stereotype st_Message ;
- CONST Kind kind_NormalClass
- %SUMMARY '''Индивидуальные параметры новостной ленты ПРАЙМ не заданы. Вы можете настроить новостную ленту ПРАЙМ в соответствии с вашими профессиональными интересами, заполнив анкету.''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_541AFB5E0323 // Local
- ;
- : Attributes
-   Seq: ( ME_541AFDC50301 // 
- )
- ; // Attributes
- : Children
-   Seq: ( ME_541AFC7C011A // Choices
- )
- ; // Children
- CONST "AutoInc" false
- CONST "DlgType" 'Confirmation'
- CONST "NeedCheck" false
- CONST "forced type" 'none'
- CONST "is define" false
-
-ref; // ME_541AFBC7020F NewsLineIsNotSetup
-
-FORWARD ME_54292411034B
-
-FORWARD ME_5429245E00B9
-
-: ME_5429247103D6
- CONST UID '5429247103D6'
- CONST Name 'Continue'
- CONST Class class_Class
- : Stereotype st_Choice ;
- CONST Kind kind_NormalClass
- %SUMMARY '''Продолжить настройку''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_5429245E00B9 // Choices
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
-
-ref; // ME_5429247103D6 Continue
-
-: ME_5429249001BE
- CONST UID '5429249001BE'
- CONST Name 'Exit'
- CONST Class class_Class
- : Stereotype st_Choice ;
- CONST Kind kind_NormalClass
- %SUMMARY '''Покинуть анкету''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_5429245E00B9 // Choices
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
-
-ref; // ME_5429249001BE Exit
-
-: ME_5429245E00B9
- CONST UID '5429245E00B9'
- CONST Name 'Choices'
- CONST Class class_Class
- : Stereotype st_Choices ;
- CONST Kind kind_NormalClass
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_54292411034B // FormFillIsNotFinished
- ;
- : Children
-   Seq: ( ME_5429247103D6 // Continue
- ME_5429249001BE // Exit
- )
- ; // Children
- CONST "Need map interface" false
- CONST "Need mapping support" false
- CONST "spell names" false
-
-ref; // ME_5429245E00B9 Choices
-
-: ME_5429249E0190
- CONST UID '5429249E0190'
- CONST Class class_Attribute
- : Stereotype st_DefaultChoice::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_54292411034B // FormFillIsNotFinished
- ;
- : Target ME_5429247103D6 // Continue
- ;
-
-ref; // ME_5429249E0190 
-
-: ME_54292411034B
- CONST UID '54292411034B'
- CONST Name 'FormFillIsNotFinished'
- CONST Class class_Class
- : Stereotype st_Message ;
- CONST Kind kind_NormalClass
- %SUMMARY '''Внимание!''#13#10 +'#13#10'''Настройка анкеты ПРАЙМ не окончена. Для того, чтобы изменения вступили в силу, необходимо заполнить анкету и нажать кнопку "Сохранить и отправить".''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_541AFB5E0323 // Local
- ;
- : Attributes
-   Seq: ( ME_5429249E0190 // 
- )
- ; // Attributes
- : Children
-   Seq: ( ME_5429245E00B9 // Choices
- )
- ; // Children
- CONST "AutoInc" false
- CONST "DlgType" 'Warning'
- CONST "NeedCheck" false
- CONST "forced type" 'none'
- CONST "is define" false
-
-ref; // ME_54292411034B FormFillIsNotFinished
-
-FORWARD ME_5424133901B6
-
-FORWARD ME_542413CA020F
-
-: ME_542413E803CB
- CONST UID '542413E803CB'
- CONST Name 'Ok'
- CONST Class class_Class
- : Stereotype st_Choice ;
- CONST Kind kind_NormalClass
- %SUMMARY '''ОК''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_542413CA020F // Choices
- ;
- CONST "AutoInc" false
- CONST "Value" 0
- CONST "forced type" 'none'
- CONST "is define" false
-
-ref; // ME_542413E803CB Ok
-
-: ME_5424148601D5
- CONST UID '5424148601D5'
- CONST Name 'Details'
- CONST Class class_Class
- : Stereotype st_Choice ;
- CONST Kind kind_NormalClass
- %SUMMARY '''Подробнее''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_542413CA020F // Choices
- ;
- CONST "AutoInc" false
- CONST "Value" 1
- CONST "forced type" 'none'
- CONST "is define" false
-
-ref; // ME_5424148601D5 Details
-
-: ME_542413CA020F
- CONST UID '542413CA020F'
- CONST Name 'Choices'
- CONST Class class_Class
- : Stereotype st_Choices ;
- CONST Kind kind_NormalClass
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5424133901B6 // PrimeIsOffline
- ;
- : Children
-   Seq: ( ME_542413E803CB // Ok
- ME_5424148601D5 // Details
- )
- ; // Children
- CONST "Need map interface" false
- CONST "Need mapping support" false
- CONST "spell names" false
-
-ref; // ME_542413CA020F Choices
-
-: ME_542414C10121
- CONST UID '542414C10121'
- CONST Class class_Attribute
- : Stereotype st_DefaultChoice::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5424133901B6 // PrimeIsOffline
- ;
- : Target ME_542413E803CB // Ok
- ;
-
-ref; // ME_542414C10121 
-
-: ME_5424133901B6
- CONST UID '5424133901B6'
- CONST Name 'PrimeIsOffline'
- CONST Class class_Class
- : Stereotype st_Message ;
- CONST Kind kind_NormalClass
- %SUMMARY '''Внимание!''#13#10''Для заполнения или изменения анкеты ПРАЙМ требуется активное Интернет-соединение. Для установки соединения обратитесь, пожалуйста, к вашему системному администратору либо в обслуживающую организацию.''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_541AFB5E0323 // Local
- ;
- : Attributes
-   Seq: ( ME_542414C10121 // 
- )
- ; // Attributes
- : Children
-   Seq: ( ME_542413CA020F // Choices
- )
- ; // Children
- CONST "AutoInc" false
- CONST "DlgType" 'Error'
- CONST "NeedCheck" false
- CONST "forced type" 'none'
- CONST "is define" false
-
-ref; // ME_5424133901B6 PrimeIsOffline
-
-: ME_541AFB5E0323
- CONST UID '541AFB5E0323'
- CONST Name 'Local'
- CONST Class class_Class
- : Stereotype st_LocalConst ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_497EBEC4031D // PrimNewsLine
- ;
- : Children
-   Seq: ( ME_541AFBC7020F // NewsLineIsNotSetup
- ME_54292411034B // FormFillIsNotFinished
- ME_5424133901B6 // PrimeIsOffline
- )
- ; // Children
- CONST "Need map interface" false
- CONST "Need mapping support" false
- CONST "spell names" false
-
-ref; // ME_541AFB5E0323 Local
-
-FORWARD ME_5671155B00AC
-
-: ME_5671156B01AD
- CONST UID '5671156B01AD'
- CONST Name 'CurrentNewsLineIndex'
- CONST Class class_Attribute
- : Stereotype st_readonly::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_abstract
- CONST LinkType lt_lnk
- : Parent ME_5671155B00AC // IPrimNewsLineFormState
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- CONST "pm" true
-
-ref; // ME_5671156B01AD CurrentNewsLineIndex
-
-: ME_56713E9A012D
- CONST UID '56713E9A012D'
- CONST Name 'InnerState'
- CONST Class class_Attribute
- : Stereotype st_readonly::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_abstract
- CONST LinkType lt_lnk
- : Parent ME_5671155B00AC // IPrimNewsLineFormState
- ;
- : Target WL 'ME_4683CEAD00CF' '467BAB7F021E.pas.ms.script' // IvcmBase
- ;
- CONST "pm" true
-
-ref; // ME_56713E9A012D InnerState
-
-: ME_5671155B00AC
- CONST UID '5671155B00AC'
- CONST GUID 'D9676E96-C512-47E1-8218-6622AED4E675'
- CONST Name 'IPrimNewsLineFormState'
- CONST Class class_Class
- : Stereotype st_Facet ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_497EBEC4031D // PrimNewsLine
- ;
- : Inherits
-   Seq: ( WL 'ME_4683CEAD00CF' '467BAB7F021E.pas.ms.script' // IvcmBase
- )
- ; // Inherits
- : Attributes
-   Seq: ( ME_5671156B01AD // CurrentNewsLineIndex
- ME_56713E9A012D // InnerState
- )
- ; // Attributes
- CONST extprop:rc:SelfName 'PrimNewsLineFormState'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_5671155B00AC IPrimNewsLineFormState
-
-FORWARD ME_567115A7039D
-
-: ME_5671169F01B6
- CONST UID '5671169F01B6'
- CONST Name 'f_CurrentNewsLineIndex'
- CONST Class class_Attribute
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_567115A7039D // TPrimNewsLineFormState
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_5671169F01B6 f_CurrentNewsLineIndex
-
-: ME_56713EB201D0
- CONST UID '56713EB201D0'
- CONST Name 'f_InnerState'
- CONST Class class_Attribute
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_567115A7039D // TPrimNewsLineFormState
- ;
- : Target WL 'ME_4683CEAD00CF' '467BAB7F021E.pas.ms.script' // IvcmBase
- ;
-
-ref; // ME_56713EB201D0 f_InnerState
-
-FORWARD ME_567116EC034D
-
-: ME_56713EC50013
- CONST Name 'aCurrentNewsLineIndex'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_56713EC50013 aCurrentNewsLineIndex
-
-: ME_56713EC50032
- CONST Name 'aInnerState'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4683CEAD00CF' '467BAB7F021E.pas.ms.script' // IvcmBase
- ;
-
-ref; // ME_56713EC50032 aInnerState
-
-: ME_567116F600C6
- CONST UID '567116F600C6'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_567116EC034D // Create
- ;
- : Parameters
-   Seq: ( ME_56713EC50013 // aCurrentNewsLineIndex
- ME_56713EC50032 // aInnerState
- )
- ; // Parameters
-
-ref; // ME_567116F600C6 DoIt
-
-: ME_567116EC034D
- CONST UID '567116EC034D'
- CONST Name 'Create'
- CONST Class class_Class
- : Stereotype st_Constructor ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_567115A7039D // TPrimNewsLineFormState
- ;
- : Operations
-   Seq: ( ME_567116F600C6 // DoIt
- )
- ; // Operations
-
-ref; // ME_567116EC034D Create
-
-: ME_567117090387
- CONST UID '567117090387'
- CONST Name 'Make'
- CONST Class class_Class
- : Stereotype st_Factory ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_567115A7039D // TPrimNewsLineFormState
- ;
- : Inherits
-   Seq: ( ME_567116EC034D // Create
- )
- ; // Inherits
- : Implements
-   Seq: ( ME_5671155B00AC // IPrimNewsLineFormState
- )
- ; // Implements
-
-ref; // ME_567117090387 Make
-
-: ME_5671156B01AD_ME_567115A7039D
- : Original ME_5671156B01AD // CurrentNewsLineIndex
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" true
-ref; // ME_5671156B01AD_ME_567115A7039D CurrentNewsLineIndex
-
-: ME_56713E9A012D_ME_567115A7039D
- : Original ME_56713E9A012D // InnerState
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" true
-ref; // ME_56713E9A012D_ME_567115A7039D InnerState
-
-: ME_567115A7039D
- CONST UID '567115A7039D'
- CONST Name 'TPrimNewsLineFormState'
- CONST Class class_Class
- : Stereotype st_SimpleClass ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_497EBEC4031D // PrimNewsLine
- ;
- : Inherits
-   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- )
- ; // Inherits
- : Implements
-   Seq: ( ME_5671155B00AC // IPrimNewsLineFormState
- )
- ; // Implements
- : Attributes
-   Seq: ( ME_5671169F01B6 // f_CurrentNewsLineIndex
- ME_56713EB201D0 // f_InnerState
- )
- ; // Attributes
- : Operations
-   Seq: ( ME_567116EC034D // Create
- ME_567117090387 // Make
- )
- ; // Operations
- : Implemented
-   Seq: ( ME_5671156B01AD_ME_567115A7039D // CurrentNewsLineIndex
- ME_56713E9A012D_ME_567115A7039D // InnerState
- )
- ; // Implemented
- CONST extprop:rc:SelfName 'PrimNewsLineFormState'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_567115A7039D TPrimNewsLineFormState
-
-FORWARD ME_3D18BA401352
-
-: ME_E29767C3BFA3
- CONST UID 'E29767C3BFA3'
- CONST Name 'NewsLineIsNotSetup_Choice_FillForm'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Заполнить анкету''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_3D18BA401352 // LCImpl_NewsLineIsNotSetup_Choices
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''NewsLineIsNotSetup_Choice_FillForm''; rValue : ''Заполнить анкету'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''NewsLineIsNotSetup_Choice_FillForm''; rValue : ''Заполнить анкету'')'
- : Speller ME_541AFCDC0307 // FillForm
- ;
-
-ref; // ME_E29767C3BFA3 NewsLineIsNotSetup_Choice_FillForm
-
-: ME_D1E45F067EF7
- CONST UID 'D1E45F067EF7'
- CONST Name 'NewsLineIsNotSetup_Choice_ViewFullNewsLine'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Посмотреть все поступления в продукт ПРАЙМ''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_3D18BA401352 // LCImpl_NewsLineIsNotSetup_Choices
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''NewsLineIsNotSetup_Choice_ViewFullNewsLine''; rValue : ''Посмотреть все поступления в продукт ПРАЙМ'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''NewsLineIsNotSetup_Choice_ViewFullNewsLine''; rValue : ''Посмотреть все поступления в продукт ПРАЙМ'')'
- : Speller ME_541AFD260322 // ViewFullNewsLine
- ;
-
-ref; // ME_D1E45F067EF7 NewsLineIsNotSetup_Choice_ViewFullNewsLine
-
-: ME_3D18BA401352
- CONST UID '3D18BA401352'
- CONST Name 'LCImpl_NewsLineIsNotSetup_Choices'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Варианты выбора для диалога NewsLineIsNotSetup' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- : Parent ME_497EBEC4031D // PrimNewsLine
- ;
- : Attributes
-   Seq: ( ME_E29767C3BFA3 // NewsLineIsNotSetup_Choice_FillForm
- ME_D1E45F067EF7 // NewsLineIsNotSetup_Choice_ViewFullNewsLine
- )
- ; // Attributes
- CONST "elements prefix" 'str'
- CONST "spell names" false
- CONST extprop:pas:ElementPrefixBase 'str'
- CONST extprop:pas:ElementPrefix 'str_'
- : Speller ME_541AFC7C011A // Choices
- ;
-
-ref; // ME_3D18BA401352 LCImpl_NewsLineIsNotSetup_Choices
-
-FORWARD ME_913C9148BB27
-
-: ME_EE0C728C9A65
- CONST UID 'EE0C728C9A65'
- CONST Name 'FormFillIsNotFinished_Choice_Continue'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Продолжить настройку''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_913C9148BB27 // LCImpl_FormFillIsNotFinished_Choices
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''FormFillIsNotFinished_Choice_Continue''; rValue : ''Продолжить настройку'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''FormFillIsNotFinished_Choice_Continue''; rValue : ''Продолжить настройку'')'
- : Speller ME_5429247103D6 // Continue
- ;
-
-ref; // ME_EE0C728C9A65 FormFillIsNotFinished_Choice_Continue
-
-: ME_DD2C6EE53C20
- CONST UID 'DD2C6EE53C20'
- CONST Name 'FormFillIsNotFinished_Choice_Exit'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Покинуть анкету''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_913C9148BB27 // LCImpl_FormFillIsNotFinished_Choices
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''FormFillIsNotFinished_Choice_Exit''; rValue : ''Покинуть анкету'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''FormFillIsNotFinished_Choice_Exit''; rValue : ''Покинуть анкету'')'
- : Speller ME_5429249001BE // Exit
- ;
-
-ref; // ME_DD2C6EE53C20 FormFillIsNotFinished_Choice_Exit
-
-: ME_913C9148BB27
- CONST UID '913C9148BB27'
- CONST Name 'LCImpl_FormFillIsNotFinished_Choices'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Варианты выбора для диалога FormFillIsNotFinished' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- : Parent ME_497EBEC4031D // PrimNewsLine
- ;
- : Attributes
-   Seq: ( ME_EE0C728C9A65 // FormFillIsNotFinished_Choice_Continue
- ME_DD2C6EE53C20 // FormFillIsNotFinished_Choice_Exit
- )
- ; // Attributes
- CONST "elements prefix" 'str'
- CONST "spell names" false
- CONST extprop:pas:ElementPrefixBase 'str'
- CONST extprop:pas:ElementPrefix 'str_'
- : Speller ME_5429245E00B9 // Choices
- ;
-
-ref; // ME_913C9148BB27 LCImpl_FormFillIsNotFinished_Choices
-
-FORWARD ME_299CFE85D965
-
-: ME_AE5F6B440848
- CONST UID 'AE5F6B440848'
- CONST Name 'PrimeIsOffline_Choice_Ok'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''ОК''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_299CFE85D965 // LCImpl_PrimeIsOffline_Choices
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''PrimeIsOffline_Choice_Ok''; rValue : ''ОК'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''PrimeIsOffline_Choice_Ok''; rValue : ''ОК'')'
- : Speller ME_542413E803CB // Ok
- ;
-
-ref; // ME_AE5F6B440848 PrimeIsOffline_Choice_Ok
-
-: ME_C9617FA10EA8
- CONST UID 'C9617FA10EA8'
- CONST Name 'PrimeIsOffline_Choice_Details'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Подробнее''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_299CFE85D965 // LCImpl_PrimeIsOffline_Choices
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''PrimeIsOffline_Choice_Details''; rValue : ''Подробнее'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''PrimeIsOffline_Choice_Details''; rValue : ''Подробнее'')'
- : Speller ME_5424148601D5 // Details
- ;
-
-ref; // ME_C9617FA10EA8 PrimeIsOffline_Choice_Details
-
-: ME_299CFE85D965
- CONST UID '299CFE85D965'
- CONST Name 'LCImpl_PrimeIsOffline_Choices'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Варианты выбора для диалога PrimeIsOffline' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- : Parent ME_497EBEC4031D // PrimNewsLine
- ;
- : Attributes
-   Seq: ( ME_AE5F6B440848 // PrimeIsOffline_Choice_Ok
- ME_C9617FA10EA8 // PrimeIsOffline_Choice_Details
- )
- ; // Attributes
- CONST "elements prefix" 'str'
- CONST "spell names" false
- CONST extprop:pas:ElementPrefixBase 'str'
- CONST extprop:pas:ElementPrefix 'str_'
- : Speller ME_542413CA020F // Choices
- ;
-
-ref; // ME_299CFE85D965 LCImpl_PrimeIsOffline_Choices
-
-FORWARD ME_4AF82291027F
-
-: ME_46A5AA4B003C_ME_4AF82291027F
- : Original WL 'ME_46A5AA4B003C' '4677FBA70343.pas.ms.script' // Invalidate
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_46A5AA4B003C_ME_4AF82291027F Invalidate
-
-: ME_477243870072_ME_4AF82291027F
- : Original WL 'ME_477243870072' '4682595B0268.pas.ms.script' // RootChanged
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_477243870072_ME_4AF82291027F RootChanged
-
-: ME_4951285702E1_ME_4AF82291027F
- : Original WL 'ME_4951285702E1' '495127DD017C.pas.ms.script' // Cut
- ;
- CONST OpKind opkind_Implemented
- CONST "AutoFocus" false
- CONST "AutoLock" false
- CONST "LongProcess" false
- CONST "ShowInContextMenu" 'undefined'
- CONST "ShowInToolbar" 'undefined'
- CONST "has states" false
- CONST "is FormActivate" false
- CONST "is query" false
- CONST "no prefix" false
-ref; // ME_4951285702E1_ME_4AF82291027F Cut
-
-: ME_49512B5D0009_ME_4AF82291027F
- : Original WL 'ME_49512B5D0009' '495127DD017C.pas.ms.script' // FindContext
- ;
- CONST OpKind opkind_Implemented
- CONST "AutoFocus" false
- CONST "AutoLock" false
- CONST "LongProcess" false
- CONST "ShowInContextMenu" 'undefined'
- CONST "ShowInToolbar" 'undefined'
- CONST "has states" false
- CONST "is FormActivate" false
- CONST "is query" false
- CONST "no prefix" false
-ref; // ME_49512B5D0009_ME_4AF82291027F FindContext
-
-: ME_495130C40123_ME_4AF82291027F
- : Original WL 'ME_495130C40123' '495127DD017C.pas.ms.script' // FindNext
- ;
- CONST OpKind opkind_Implemented
- CONST "AutoFocus" false
- CONST "AutoLock" false
- CONST "LongProcess" false
- CONST "ShowInContextMenu" 'undefined'
- CONST "ShowInToolbar" 'undefined'
- CONST "has states" false
- CONST "is FormActivate" false
- CONST "is query" false
- CONST "no prefix" false
-ref; // ME_495130C40123_ME_4AF82291027F FindNext
-
-: ME_49EDFCA2006D_ME_4AF82291027F
- : Original WL 'ME_49EDFCA2006D' '495127DD017C.pas.ms.script' // Undo
- ;
- CONST OpKind opkind_Implemented
- CONST "AutoFocus" false
- CONST "AutoLock" false
- CONST "LongProcess" false
- CONST "ShowInContextMenu" 'undefined'
- CONST "ShowInToolbar" 'undefined'
- CONST "has states" false
- CONST "is FormActivate" false
- CONST "is query" false
- CONST "no prefix" false
-ref; // ME_49EDFCA2006D_ME_4AF82291027F Undo
-
-: ME_49EDFCB100BC_ME_4AF82291027F
- : Original WL 'ME_49EDFCB100BC' '495127DD017C.pas.ms.script' // Redo
- ;
- CONST OpKind opkind_Implemented
- CONST "AutoFocus" false
- CONST "AutoLock" false
- CONST "LongProcess" false
- CONST "ShowInContextMenu" 'undefined'
- CONST "ShowInToolbar" 'undefined'
- CONST "has states" false
- CONST "is FormActivate" false
- CONST "is query" false
- CONST "no prefix" false
-ref; // ME_49EDFCB100BC_ME_4AF82291027F Redo
-
-: ME_49FEDE4703B8_ME_4AF82291027F
- : Original WL 'ME_49FEDE4703B8' '495127DD017C.pas.ms.script' // FindPrev
- ;
- CONST OpKind opkind_Implemented
- CONST "AutoFocus" false
- CONST "AutoLock" false
- CONST "LongProcess" false
- CONST "ShowInContextMenu" 'undefined'
- CONST "ShowInToolbar" 'undefined'
- CONST "has states" false
- CONST "is FormActivate" false
- CONST "is query" false
- CONST "no prefix" false
-ref; // ME_49FEDE4703B8_ME_4AF82291027F FindPrev
-
-: ME_4C7D0C7B0185_ME_4AF82291027F
- : Original WL 'ME_4C7D0C7B0185' '495127DD017C.pas.ms.script' // Copy
- ;
- CONST OpKind opkind_Implemented
- CONST "AutoFocus" false
- CONST "AutoLock" false
- CONST "LongProcess" false
- CONST "ShowInContextMenu" 'undefined'
- CONST "ShowInToolbar" 'undefined'
- CONST "has states" true
- CONST "is FormActivate" false
- CONST "is query" false
- CONST "no prefix" false
-ref; // ME_4C7D0C7B0185_ME_4AF82291027F Copy
-
-: ME_4AF82291027F
- CONST UID '4AF82291027F'
- CONST Name 'DateList'
- CONST Class class_Class
- : Stereotype st_Control ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_497EBEC4031D // PrimNewsLine
- ;
- : Inherits
-   Seq: ( WL 'ME_54522FE602ED' '54522F8A01A8.pas.ms.script' // TnscTreeViewForNewsLine
- )
- ; // Inherits
- : Implemented
-   Seq: ( ME_46A5AA4B003C_ME_4AF82291027F // Invalidate
- ME_477243870072_ME_4AF82291027F // RootChanged
- ME_4951285702E1_ME_4AF82291027F // Cut
- ME_49512B5D0009_ME_4AF82291027F // FindContext
- ME_495130C40123_ME_4AF82291027F // FindNext
- ME_49EDFCA2006D_ME_4AF82291027F // Undo
- ME_49EDFCB100BC_ME_4AF82291027F // Redo
- ME_49FEDE4703B8_ME_4AF82291027F // FindPrev
- ME_4C7D0C7B0185_ME_4AF82291027F // Copy
- )
- ; // Implemented
- CONST "ControlClass" 'none'
- CONST "pm" true
- CONST "put to dfm" false
-
-ref; // ME_4AF82291027F DateList
-
-: ME_497EBF5202A3
- CONST UID '497EBF5202A3'
- CONST Name 'sdsAutoreferat'
- CONST Class class_Attribute
- : Stereotype st_UseCase::Attribute ;
- CONST Visibility ProtectedAccess
- CONST Abstraction at_final
- CONST LinkType lt_lnk
- : Parent ME_497EBEC4031D // PrimNewsLine
- ;
- : Target WL 'ME_492F071B02AC' '492F0586030C.pas.ms.script' // IsdsAutoreferat
- ;
-
-ref; // ME_497EBF5202A3 sdsAutoreferat
-
-: ME_4C87BCC90218
- CONST UID '4C87BCC90218'
- CONST Name 'f_UpdateFlag'
- CONST Class class_Attribute
- CONST Visibility ProtectedAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_497EBEC4031D // PrimNewsLine
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_4C87BCC90218 f_UpdateFlag
-
-: ME_54413B91017D
- CONST UID '54413B91017D'
- CONST Name 'f_InDataChanging'
- CONST Class class_Attribute
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_497EBEC4031D // PrimNewsLine
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_54413B91017D f_InDataChanging
-
-: ME_569E2B5B0168
- CONST UID '569E2B5B0168'
- CONST Name 'f_CurrentNewsLineIndex'
- CONST Class class_Attribute
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_497EBEC4031D // PrimNewsLine
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_569E2B5B0168 f_CurrentNewsLineIndex
-
-: ME_4C8DC50203CB
- CONST UID '4C8DC50203CB'
- CONST Name 'ResetThemeList'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility ProtectedAccess
- CONST Abstraction at_final
- : Parent ME_497EBEC4031D // PrimNewsLine
- ;
-
-ref; // ME_4C8DC50203CB ResetThemeList
-
-: ME_5242A36D006B
- CONST UID '5242A36D006B'
- CONST Name 'vcmEntityFormCloseQuery'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_497EBEC4031D // PrimNewsLine
- ;
- : Inherits
-   Seq: ( WL 'ME_523AD9CB02EC' '4799D29F033F.pas.ms.script' // TCloseQueryEvent
- )
- ; // Inherits
- CONST extprop:rc:SelfName 'EntityFormCloseQuery'
-
-ref; // ME_5242A36D006B vcmEntityFormCloseQuery
-
-: ME_5242A3770043
- CONST UID '5242A3770043'
- CONST Name 'DateListGetItemImage'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_497EBEC4031D // PrimNewsLine
- ;
- : Inherits
-   Seq: ( WL 'ME_47D63B6D0157' '47D036150077.pas.ms.script' // Tl3GetItemImage
- )
- ; // Inherits
-
-ref; // ME_5242A3770043 DateListGetItemImage
-
-: ME_5242A37E01D3
- CONST UID '5242A37E01D3'
- CONST Name 'DateListCurrentChanged'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_497EBEC4031D // PrimNewsLine
- ;
- : Inherits
-   Seq: ( WL 'ME_5143220D002B' '4B97E7FD006C.pas.ms.script' // TCurrentChanged
- )
- ; // Inherits
-
-ref; // ME_5242A37E01D3 DateListCurrentChanged
-
-: ME_4C87BD85008A
- CONST UID '4C87BD85008A'
- CONST Name 'UpdateNewsLineTree'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility ProtectedAccess
- CONST Abstraction at_final
- : Parent ME_497EBEC4031D // PrimNewsLine
- ;
-
-ref; // ME_4C87BD85008A UpdateNewsLineTree
-
-FORWARD ME_5242A678004A
-
-: ME_5242A68400DA
- CONST Name 'aNode'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
- ;
-
-ref; // ME_5242A68400DA aNode
-
-: ME_5242A68400F7
- CONST Name 'AllowOpen'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST Value true
- : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value true
-
-ref; // ME_5242A68400F7 AllowOpen
-
-: ME_5242A680017A
- CONST UID '5242A680017A'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5242A678004A // OpenAutoreferat
- ;
- : Parameters
-   Seq: ( ME_5242A68400DA // aNode
- ME_5242A68400F7 // AllowOpen
- )
- ; // Parameters
-
-ref; // ME_5242A680017A DoIt
-
-: ME_5242A678004A
- CONST UID '5242A678004A'
- CONST Name 'OpenAutoreferat'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility ProtectedAccess
- CONST Abstraction at_final
- : Parent ME_497EBEC4031D // PrimNewsLine
- ;
- : Operations
-   Seq: ( ME_5242A680017A // DoIt
- )
- ; // Operations
-
-ref; // ME_5242A678004A OpenAutoreferat
-
 FORWARD ME_4C87BD1A0218
-
-: ME_5242B541016C
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_497EBEC4031D // PrimNewsLine
- ;
- : Target ME_4C87BD1A0218 // TnsNewsLine
- ;
-
-ref; // ME_5242B541016C 
-
-: ME_5242B61F01FE
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_497EBEC4031D // PrimNewsLine
- ;
- : Target WL 'ME_4EC391C00307' '4EEA0958023A.pas.ms.script' // SearchRes
- ;
-
-ref; // ME_5242B61F01FE 
-
-: ME_5242B6500208
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_497EBEC4031D // PrimNewsLine
- ;
- : Target WL 'ME_45EEB6520191' '4570511E038A.pas.ms.script' // Document
- ;
-
-ref; // ME_5242B6500208 
-
-: ME_5242B87B0342
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_497EBEC4031D // PrimNewsLine
- ;
- : Target WL 'ME_4BD8574A03A5' '4BD856E802F9.pas.ms.script' // Text
- ;
-
-ref; // ME_5242B87B0342 
-
-: ME_5242B8AE006D
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_497EBEC4031D // PrimNewsLine
- ;
- : Target WL 'ME_47E11FC3021E' '4799D29F033F.pas.ms.script' // Controls
- ;
-
-ref; // ME_5242B8AE006D 
-
-: ME_5242B953012A
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_497EBEC4031D // PrimNewsLine
- ;
- : Target WL 'ME_4B04102D00B6' '4A7C0BB70162.pas.ms.script' // dftAutoreferat
- ;
-
-ref; // ME_5242B953012A 
-
-: ME_5253D10D02D9
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_497EBEC4031D // PrimNewsLine
- ;
- : Target WL 'ME_47F25BC801DB' '47D0E1500033.pas.ms.script' // vcmBase
- ;
-
-ref; // ME_5253D10D02D9 
-
-: ME_552FBB9103B3
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_497EBEC4031D // PrimNewsLine
- ;
- : Target WL 'ME_48FF556602BA' '48F747EC0073.pas.ms.script' // DataAdapter
- ;
-
-ref; // ME_552FBB9103B3 
-
-: ME_9225F058897B
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_497EBEC4031D // PrimNewsLine
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
-
-ref; // ME_9225F058897B 
-
-: ME_B8DDB853009A
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_497EBEC4031D // PrimNewsLine
- ;
- : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
- ;
-
-ref; // ME_B8DDB853009A 
-
-: ME_49918CC5036B_ME_497EBEC4031D
- : Original WL 'ME_49918CC5036B' '499032720106.pas.ms.script' // DataChanged
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_49918CC5036B_ME_497EBEC4031D DataChanged
-
-: ME_4A9807F801F9_ME_497EBEC4031D
- : Original WL 'ME_4A9807F801F9' '4A9807DB01A5.pas.ms.script' // BecomeActive
- ;
- CONST OpKind opkind_Implemented
- CONST "AutoFocus" false
- CONST "AutoLock" false
- CONST "LongProcess" false
- CONST "Needs Broadcast" false
- CONST "has states" false
- CONST "is FormActivate" false
- CONST "is query" true
- CONST "no prefix" false
-ref; // ME_4A9807F801F9_ME_497EBEC4031D BecomeActive
-
-: ME_4AF822B302C4_ME_497EBEC4031D
- : Original WL 'ME_4AF822B302C4' '4A8ECFED02D8.pas.ms.script' // OpenInt
- ;
- CONST OpKind opkind_Implemented
- CONST "AutoFocus" false
- CONST "AutoLock" false
- CONST "LongProcess" false
- CONST "Needs Broadcast" false
- CONST "has states" false
- CONST "is FormActivate" false
- CONST "is query" true
- CONST "no prefix" false
-ref; // ME_4AF822B302C4_ME_497EBEC4031D OpenInt
-
-: ME_4AF82EFD0025_ME_497EBEC4031D
- : Original WL 'ME_4AF82EFD0025' '4A9807DB01A5.pas.ms.script' // RequestClose
- ;
- CONST OpKind opkind_Implemented
- CONST "AutoFocus" false
- CONST "AutoLock" false
- CONST "LongProcess" false
- CONST "Needs Broadcast" false
- CONST "has states" false
- CONST "is FormActivate" false
- CONST "is query" true
- CONST "no prefix" false
-ref; // ME_4AF82EFD0025_ME_497EBEC4031D RequestClose
-
-: ME_479731C50290_ME_497EBEC4031D
- : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_479731C50290_ME_497EBEC4031D Cleanup
-
-: ME_47A042E100E2_ME_497EBEC4031D
- : Original WL 'ME_47A042E100E2' '47913B47006E.pas.ms.script' // InitFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_47A042E100E2_ME_497EBEC4031D InitFields
-
-: ME_47EA4E9002C6_ME_497EBEC4031D
- : Original WL 'ME_47EA4E9002C6' '47EA4BB502F9.pas.ms.script' // FinishDataUpdate
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_47EA4E9002C6_ME_497EBEC4031D FinishDataUpdate
-
-: ME_497469C90140_ME_497EBEC4031D
- : Original WL 'ME_497469C90140' '5000041101C8.pas.ms.script' // NotifyDataSourceChanged
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_497469C90140_ME_497EBEC4031D NotifyDataSourceChanged
-
-: ME_49806ED503D5_ME_497EBEC4031D
- : Original WL 'ME_49806ED503D5' '4AADF9450143.pas.ms.script' // DoSaveState
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_49806ED503D5_ME_497EBEC4031D DoSaveState
-
-: ME_49807428008C_ME_497EBEC4031D
- : Original WL 'ME_49807428008C' '4AADF9450143.pas.ms.script' // DoLoadState
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_49807428008C_ME_497EBEC4031D DoLoadState
-
-: ME_4A8E8F2E0195_ME_497EBEC4031D
- : Original WL 'ME_4A8E8F2E0195' '5000041101C8.pas.ms.script' // InitControls
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4A8E8F2E0195_ME_497EBEC4031D InitControls
-
-: ME_4E7C2AA3037E_ME_497EBEC4031D
- : Original WL 'ME_4E7C2AA3037E' '4AADF9450143.pas.ms.script' // DoLoadFromSettings
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4E7C2AA3037E_ME_497EBEC4031D DoLoadFromSettings
-
-: ME_4F7B072201AA_ME_497EBEC4031D
- : Original WL 'ME_4F7B072201AA' '4AADF9450143.pas.ms.script' // DoSaveInSettings
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4F7B072201AA_ME_497EBEC4031D DoSaveInSettings
-
-: ME_4FC38C4C0119_ME_497EBEC4031D
- : Original WL 'ME_4FC38C4C0119' '4AADF9450143.pas.ms.script' // NeedSaveInSettings
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4FC38C4C0119_ME_497EBEC4031D NeedSaveInSettings
-
-FORWARD ME_571A26FD011E
-
-: ME_497EBEC4031D
- CONST UID '497EBEC4031D'
- CONST Name 'PrimNewsLine'
- CONST Class class_Class
- : Stereotype st_VCMForm ;
- CONST Kind kind_NormalClass
- %SUMMARY 'ПРАЙМ. Моя новостная лента' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4A92D644009B // Search
- ;
- : Inherits
-   Seq: ( WL 'ME_49525B34022A' '4AADF9450143.pas.ms.script' // TvcmEntityForm
- WL 'ME_53D89F52011D' '533D53FF00C2.pas.ms.script' // vcmChromeLikeTabCaptionProvider
- )
- ; // Inherits
- : Implements
-   Seq: ( WL 'ME_49918CBB000C' '499032720106.pas.ms.script' // InsNewsLineNotifier
- WL 'ME_4A9807E301A6' '4A9807DB01A5.pas.ms.script' // Switcher$SetActive
- WL 'ME_4AF822A80071' '4A8ECFED02D8.pas.ms.script' // DateInterval
- WL 'ME_4AF82EEC0069' '4A9807DB01A5.pas.ms.script' // Form
- )
- ; // Implements
- : Attributes
-   Seq: ( ME_4AF82291027F // DateList
- ME_497EBF5202A3 // sdsAutoreferat
- ME_4C87BCC90218 // f_UpdateFlag
- ME_54413B91017D // f_InDataChanging
- ME_569E2B5B0168 // f_CurrentNewsLineIndex
- )
- ; // Attributes
- : Operations
-   Seq: ( ME_4C8DC50203CB // ResetThemeList
- ME_5242A36D006B // vcmEntityFormCloseQuery
- ME_5242A3770043 // DateListGetItemImage
- ME_5242A37E01D3 // DateListCurrentChanged
- ME_4C87BD85008A // UpdateNewsLineTree
- ME_5242A678004A // OpenAutoreferat
- )
- ; // Operations
- : Implemented
-   Seq: ( ME_49918CC5036B_ME_497EBEC4031D // DataChanged
- ME_4A9807F801F9_ME_497EBEC4031D // BecomeActive
- ME_4AF822B302C4_ME_497EBEC4031D // OpenInt
- ME_4AF82EFD0025_ME_497EBEC4031D // RequestClose
- )
- ; // Implemented
- : Overridden
-   Seq: ( ME_479731C50290_ME_497EBEC4031D // Cleanup
- ME_47A042E100E2_ME_497EBEC4031D // InitFields
- ME_47EA4E9002C6_ME_497EBEC4031D // FinishDataUpdate
- ME_497469C90140_ME_497EBEC4031D // NotifyDataSourceChanged
- ME_49806ED503D5_ME_497EBEC4031D // DoSaveState
- ME_49807428008C_ME_497EBEC4031D // DoLoadState
- ME_4A8E8F2E0195_ME_497EBEC4031D // InitControls
- ME_4E7C2AA3037E_ME_497EBEC4031D // DoLoadFromSettings
- ME_4F7B072201AA_ME_497EBEC4031D // DoSaveInSettings
- ME_4FC38C4C0119_ME_497EBEC4031D // NeedSaveInSettings
- )
- ; // Overridden
- : Children
-   Seq: ( ME_4BD71E1103CD // nltMain
- ME_5671155B00AC // IPrimNewsLineFormState
- ME_567115A7039D // TPrimNewsLineFormState
- )
- ; // Children
- : Constants
-   Seq: ( ME_541AFB5E0323 // Local
- ME_3D18BA401352 // LCImpl_NewsLineIsNotSetup_Choices
- ME_913C9148BB27 // LCImpl_FormFillIsNotFinished_Choices
- ME_299CFE85D965 // LCImpl_PrimeIsOffline_Choices
- )
- ; // Constants
- : Dependencies
-   Seq: ( ME_5242B541016C // TnsNewsLine
- ME_5242B61F01FE // SearchRes
- ME_5242B6500208 // Document
- ME_5242B87B0342 // Text
- ME_5242B8AE006D // Controls
- ME_5242B953012A // dftAutoreferat
- ME_5253D10D02D9 // vcmBase
- ME_552FBB9103B3 // DataAdapter
- ME_9225F058897B // Tl3StringIDEx
- ME_B8DDB853009A // Tl3MessageID
- )
- ; // Dependencies
- : Injected
-   Seq: ( ME_571A26FD011E // PrimMonitoringsWordsPack
- )
- ; // Injected
- CONST "NeedsHackRef" false
- CONST "ZoneType" 'Any'
- CONST "author" 'Люлин А.В.'
- CONST "finished dfm" true
- CONST "no hands" true
- CONST "resizeable" false
- CONST "restrict form def" 'undefined'
- CONST "started" '27.01.2009 11:00'
- CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimNewsLine_Form.pas'
- CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms'
- CONST extprop:pas:TypeName 'TPrimNewsLineForm'
- CONST extprop:rc:SelfName 'PrimNewsLineForm'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'PrimNewsLine_Form'
- CONST extprop:NeedsInitEntities true
- CONST extprop:HasAnyVCMController true
-
-ref; // ME_497EBEC4031D PrimNewsLine
-
-FORWARD ME_4C87BB9C0143
-
-FORWARD ME_4DF7921E028D
-
-: ME_4BDAF7880236_ME_4DF7921E028D
- : Original WL 'ME_4BDAF7880236' '4BDAF7510113.pas.ms.script' // ExpandAll
- ;
- CONST OpKind opkind_Implemented
- CONST "AutoFocus" false
- CONST "AutoLock" false
- CONST "LongProcess" false
- CONST "ShowInContextMenu" 'undefined'
- CONST "ShowInToolbar" 'undefined'
- CONST "has states" false
- CONST "is FormActivate" false
- CONST "is query" false
- CONST "no prefix" false
-ref; // ME_4BDAF7880236_ME_4DF7921E028D ExpandAll
-
-: ME_4BDAF7A2005C_ME_4DF7921E028D
- : Original WL 'ME_4BDAF7A2005C' '4BDAF7510113.pas.ms.script' // CollapseAll
- ;
- CONST OpKind opkind_Implemented
- CONST "AutoFocus" false
- CONST "AutoLock" false
- CONST "LongProcess" false
- CONST "ShowInContextMenu" 'undefined'
- CONST "ShowInToolbar" 'undefined'
- CONST "has states" false
- CONST "is FormActivate" false
- CONST "is query" false
- CONST "no prefix" false
-ref; // ME_4BDAF7A2005C_ME_4DF7921E028D CollapseAll
-
-: ME_4DF7921E028D
- CONST UID '4DF7921E028D'
- CONST Name 'ExcludeTree'
- CONST Class class_Class
- : Stereotype st_ExcludeUserTypes ;
- CONST Kind kind_NormalClass
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4C87BB9C0143 // PrimNewsLineOptions
- ;
- : Inherits
-   Seq: ( ME_4BD71E1103CD // nltMain
- )
- ; // Inherits
- : Implements
-   Seq: ( WL 'ME_4BDAF7790158' '4BDAF7510113.pas.ms.script' // Tree
- )
- ; // Implements
- : Implemented
-   Seq: ( ME_4BDAF7880236_ME_4DF7921E028D // ExpandAll
- ME_4BDAF7A2005C_ME_4DF7921E028D // CollapseAll
- )
- ; // Implemented
-
-ref; // ME_4DF7921E028D ExcludeTree
-
-: ME_4C87BD68019D
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4C87BB9C0143 // PrimNewsLineOptions
- ;
- : Target WL 'ME_4683CF0601DB' '467BAB7F021E.pas.ms.script' // IvcmStrings
- ;
-
-ref; // ME_4C87BD68019D 
-
-: ME_4C87BF2001AC
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4C87BB9C0143 // PrimNewsLineOptions
- ;
- : Target WL 'ME_4ADF0823017C' '54B90AC6014B.pas.ms.script' // l3IsNil
- ;
-
-ref; // ME_4C87BF2001AC 
-
-: ME_5242BF4B0061
- CONST Class class_Dependency
- : Stereotype st_ContextMenuWeight::Dependency ;
- : Parent ME_4C87BB9C0143 // PrimNewsLineOptions
- ;
- : Target WL 'ME_4C87BC4C0388' '4A8ECFED02D8.pas.ms.script' // DateInterval$UI
- ;
- CONST "Value" 1
-
-ref; // ME_5242BF4B0061 
-
-: ME_5242C5CF03C7
- CONST Class class_Dependency
- : Stereotype st_ContextMenuWeight::Dependency ;
- : Parent ME_4C87BB9C0143 // PrimNewsLineOptions
- ;
- : Target WL 'ME_4BDAF7790158' '4BDAF7510113.pas.ms.script' // Tree
- ;
- CONST "Value" 10
-
-ref; // ME_5242C5CF03C7 
-
-: ME_524EC569020B
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4C87BB9C0143 // PrimNewsLineOptions
- ;
- : Target ME_4C87BD1A0218 // TnsNewsLine
- ;
-
-ref; // ME_524EC569020B 
-
-: ME_5540B58202F4
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4C87BB9C0143 // PrimNewsLineOptions
- ;
- : Target WL 'ME_48A41FF10094' '4AB0C3F60375.pas.ms.script' // Windows
- ;
-
-ref; // ME_5540B58202F4 
-
-: ME_5540B687033D
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4C87BB9C0143 // PrimNewsLineOptions
- ;
- : Target WL 'ME_47E11FC3021E' '4799D29F033F.pas.ms.script' // Controls
- ;
-
-ref; // ME_5540B687033D 
-
-: ME_4BDAF7880236_ME_4C87BB9C0143
- : Original WL 'ME_4BDAF7880236' '4BDAF7510113.pas.ms.script' // ExpandAll
- ;
- CONST OpKind opkind_Implemented
- CONST "AutoFocus" false
- CONST "AutoLock" false
- CONST "LongProcess" false
- CONST "ShowInContextMenu" 'undefined'
- CONST "ShowInToolbar" 'undefined'
- CONST "has states" false
- CONST "is FormActivate" true
- CONST "is query" true
- CONST "no prefix" false
-ref; // ME_4BDAF7880236_ME_4C87BB9C0143 ExpandAll
-
-: ME_4BDAF7A2005C_ME_4C87BB9C0143
- : Original WL 'ME_4BDAF7A2005C' '4BDAF7510113.pas.ms.script' // CollapseAll
- ;
- CONST OpKind opkind_Implemented
- CONST "AutoFocus" false
- CONST "AutoLock" false
- CONST "LongProcess" false
- CONST "ShowInContextMenu" 'undefined'
- CONST "ShowInToolbar" 'undefined'
- CONST "has states" false
- CONST "is FormActivate" true
- CONST "is query" true
- CONST "no prefix" false
-ref; // ME_4BDAF7A2005C_ME_4C87BB9C0143 CollapseAll
-
-: ME_4C87BBFF0313_ME_4C87BB9C0143
- : Original WL 'ME_4C87BBFF0313' '4A8ECFED02D8.pas.ms.script' // SelectCurrent
- ;
- CONST OpKind opkind_Implemented
- CONST "AutoFocus" false
- CONST "AutoLock" false
- CONST "LongProcess" false
- CONST "ShowInContextMenu" false
- CONST "ShowInToolbar" true
- CONST "has states" false
- CONST "is FormActivate" false
- CONST "is query" false
- CONST "no prefix" false
-ref; // ME_4C87BBFF0313_ME_4C87BB9C0143 SelectCurrent
-
-: ME_4C87BC6502B9_ME_4C87BB9C0143
- : Original WL 'ME_4C87BC6502B9' '4A8ECFED02D8.pas.ms.script' // Open
- ;
- CONST OpKind opkind_Implemented
- CONST "AutoFocus" false
- CONST "AutoLock" false
- CONST "ContextMenuWeight" 1
- CONST "LongProcess" false
- CONST "ShowInContextMenu" true
- CONST "ShowInToolbar" false
- CONST "has states" false
- CONST "is FormActivate" false
- CONST "is query" false
- CONST "no prefix" false
-ref; // ME_4C87BC6502B9_ME_4C87BB9C0143 Open
-
-: ME_4C87BB9C0143
- CONST UID '4C87BB9C0143'
- CONST Name 'PrimNewsLineOptions'
- CONST Class class_Class
- : Stereotype st_VCMForm ;
- CONST Kind kind_NormalClass
- %SUMMARY 'ПРАЙМ. Моя новостная лента' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4A92D644009B // Search
- ;
- : Inherits
-   Seq: ( ME_497EBEC4031D // PrimNewsLine
- )
- ; // Inherits
- : Implements
-   Seq: ( WL 'ME_4BDAF7790158' '4BDAF7510113.pas.ms.script' // Tree
- WL 'ME_4C87BBE70334' '4A8ECFED02D8.pas.ms.script' // NewsThemes
- WL 'ME_4C87BC4C0388' '4A8ECFED02D8.pas.ms.script' // DateInterval$UI
- )
- ; // Implements
- : Implemented
-   Seq: ( ME_4BDAF7880236_ME_4C87BB9C0143 // ExpandAll
- ME_4BDAF7A2005C_ME_4C87BB9C0143 // CollapseAll
- ME_4C87BBFF0313_ME_4C87BB9C0143 // SelectCurrent
- ME_4C87BC6502B9_ME_4C87BB9C0143 // Open
- )
- ; // Implemented
- : Children
-   Seq: ( ME_4DF7921E028D // ExcludeTree
- )
- ; // Children
- : Dependencies
-   Seq: ( ME_4C87BD68019D // IvcmStrings
- ME_4C87BF2001AC // l3IsNil
- ME_5242BF4B0061 // DateInterval$UI
- ME_5242C5CF03C7 // Tree
- ME_524EC569020B // TnsNewsLine
- ME_5540B58202F4 // Windows
- ME_5540B687033D // Controls
- )
- ; // Dependencies
- CONST "NeedsHackRef" true
- CONST "ZoneType" 'Any'
- CONST "author" 'Люлин А.В.'
- CONST "finished dfm" true
- CONST "no hands" true
- CONST "resizeable" false
- CONST "restrict form def" 'undefined'
- CONST "started" '08.09.2010 20:37'
- CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimNewsLineOptions_Form.pas'
- CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms'
- CONST extprop:pas:TypeName 'TPrimNewsLineOptionsForm'
- CONST extprop:rc:SelfName 'PrimNewsLineOptionsForm'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'PrimNewsLineOptions_Form'
- CONST extprop:NeedsInitEntities true
-
-ref; // ME_4C87BB9C0143 PrimNewsLineOptions
-
-FORWARD ME_4A8ECF3001D2
-
-FORWARD ME_4A8ECFCD0174
-
-: ME_4CAA38D5E807
- CONST UID '4CAA38D5E807'
- CONST Name 'Ini_FormFactory_NewsLine'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация фабрики формы NewsLine' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4A8ECFCD0174 // NewsLine
- ;
- : SpelledFor ME_4A8ECFCD0174 // NewsLine
- ;
-
-ref; // ME_4CAA38D5E807 Ini_FormFactory_NewsLine
-
-: ME_4A8ECFCD0174
- CONST UID '4A8ECFCD0174'
- CONST Name 'NewsLine'
- CONST Class class_Class
- : Stereotype st_VCMFinalForm ;
- CONST Kind kind_NormalClass
- %SUMMARY 'ПРАЙМ. Моя новостная лента' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4A8ECF3001D2 // PrimMonitorings
- ;
- : Inherits
-   Seq: ( ME_4C87BB9C0143 // PrimNewsLineOptions
- )
- ; // Inherits
- : Implements
-   Seq: ( WL 'ME_4EC3A4A80189' '4BD856E802F9.pas.ms.script' // NewsLine
- )
- ; // Implements
- : Operations
-   Seq: ( ME_4CAA38D5E807 // Ini_FormFactory_NewsLine
- )
- ; // Operations
- CONST "NeedsHackRef" true
- CONST "ZoneType" 'Any'
- CONST "finished dfm" true
- CONST "form name prefix" 'en'
- CONST "resizeable" false
- CONST "restrict form def" 'undefined'
- CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\NewsLine_Form.pas'
- CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms'
- CONST extprop:pas:TypeName 'TenNewsLine'
- CONST extprop:rc:SelfName 'enNewsLine'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'NewsLine_Form'
-
-ref; // ME_4A8ECFCD0174 NewsLine
-
-FORWARD ME_4AA4B279031D
-
-FORWARD ME_4FFA8808003E
-
-: ME_4925978F00FA_ME_4FFA8808003E
- : Original WL 'ME_4925978F00FA' '491B305A0096.pas.ms.script' // ChangeDocument
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4925978F00FA_ME_4FFA8808003E ChangeDocument
-
-: ME_492597A602F6_ME_4FFA8808003E
- : Original WL 'ME_492597A602F6' '491B305A0096.pas.ms.script' // MakeGotoPointData
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_492597A602F6_ME_4FFA8808003E MakeGotoPointData
-
-: ME_492F060800A2_ME_4FFA8808003E
- : Original WL 'ME_492F060800A2' '492F0586030C.pas.ms.script' // MakeNewsLineFakeDS
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" true
-ref; // ME_492F060800A2_ME_4FFA8808003E MakeNewsLineFakeDS
-
-: ME_4DF9D63B0360_ME_4FFA8808003E
- : Original WL 'ME_4DF9D63B0360' '4B1FC2FF03CD.pas.ms.script' // DocInfo
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" true
- CONST "reflectable" true
-ref; // ME_4DF9D63B0360_ME_4FFA8808003E DocInfo
-
-: ME_50002EC80001_ME_4FFA8808003E
- : Original WL 'ME_50002EC80001' '491B305A0096.pas.ms.script' // dsDocument
- ;
- CONST OpKind opkind_Implemented
- CONST "is reference" true
- CONST "pm" true
-ref; // ME_50002EC80001_ME_4FFA8808003E dsDocument
-
-: ME_5111C2BAF24F_ME_4FFA8808003E
- : Original WL 'ME_5111C2BAF24F' '491B305A0096.pas.ms.script' // HasDocument
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" true
-ref; // ME_5111C2BAF24F_ME_4FFA8808003E HasDocument
-
-: ME_4FFA8808003E
- CONST UID '4FFA8808003E'
- CONST Name 'TextForm'
- CONST Class class_Class
- : Stereotype st_VCMZone ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4AA4B279031D // Autoreferat
- ;
- : Inherits
-   Seq: ( WL 'ME_4B04102D00B6' '4A7C0BB70162.pas.ms.script' // dftAutoreferat
- WL 'ME_4BD8574A03A5' '4BD856E802F9.pas.ms.script' // Text
- )
- ; // Inherits
- : Implements
-   Seq: ( WL 'ME_492F071B02AC' '492F0586030C.pas.ms.script' // IsdsAutoreferat
- )
- ; // Implements
- : Implemented
-   Seq: ( ME_4925978F00FA_ME_4FFA8808003E // ChangeDocument
- ME_492597A602F6_ME_4FFA8808003E // MakeGotoPointData
- ME_492F060800A2_ME_4FFA8808003E // MakeNewsLineFakeDS
- ME_4DF9D63B0360_ME_4FFA8808003E // DocInfo
- ME_50002EC80001_ME_4FFA8808003E // dsDocument
- ME_5111C2BAF24F_ME_4FFA8808003E // HasDocument
- )
- ; // Implemented
- CONST "ActivateIfUpdate" 'None'
- CONST "Need GetFormCount" false
- CONST "Need OnFormWeight" 'undefined'
- CONST "ZoneType" 'Parent'
-
-ref; // ME_4FFA8808003E TextForm
-
-FORWARD ME_4FFA88E3034E
-
-: ME_4925978F00FA_ME_4FFA88E3034E
- : Original WL 'ME_4925978F00FA' '491B305A0096.pas.ms.script' // ChangeDocument
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4925978F00FA_ME_4FFA88E3034E ChangeDocument
-
-: ME_492597A602F6_ME_4FFA88E3034E
- : Original WL 'ME_492597A602F6' '491B305A0096.pas.ms.script' // MakeGotoPointData
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_492597A602F6_ME_4FFA88E3034E MakeGotoPointData
-
-: ME_492F060800A2_ME_4FFA88E3034E
- : Original WL 'ME_492F060800A2' '492F0586030C.pas.ms.script' // MakeNewsLineFakeDS
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" true
-ref; // ME_492F060800A2_ME_4FFA88E3034E MakeNewsLineFakeDS
-
-: ME_4DF9D63B0360_ME_4FFA88E3034E
- : Original WL 'ME_4DF9D63B0360' '4B1FC2FF03CD.pas.ms.script' // DocInfo
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" true
- CONST "reflectable" true
-ref; // ME_4DF9D63B0360_ME_4FFA88E3034E DocInfo
-
-: ME_50002EC80001_ME_4FFA88E3034E
- : Original WL 'ME_50002EC80001' '491B305A0096.pas.ms.script' // dsDocument
- ;
- CONST OpKind opkind_Implemented
- CONST "is reference" true
- CONST "pm" true
-ref; // ME_50002EC80001_ME_4FFA88E3034E dsDocument
-
-: ME_5111C2BAF24F_ME_4FFA88E3034E
- : Original WL 'ME_5111C2BAF24F' '491B305A0096.pas.ms.script' // HasDocument
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" true
-ref; // ME_5111C2BAF24F_ME_4FFA88E3034E HasDocument
-
-: ME_4FFA88E3034E
- CONST UID '4FFA88E3034E'
- CONST Name 'NewsLine'
- CONST Class class_Class
- : Stereotype st_VCMZone ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4AA4B279031D // Autoreferat
- ;
- : Inherits
-   Seq: ( ME_4BD71E1103CD // nltMain
- WL 'ME_4EC3A4A80189' '4BD856E802F9.pas.ms.script' // NewsLine
- )
- ; // Inherits
- : Implements
-   Seq: ( WL 'ME_492F071B02AC' '492F0586030C.pas.ms.script' // IsdsAutoreferat
- )
- ; // Implements
- : Implemented
-   Seq: ( ME_4925978F00FA_ME_4FFA88E3034E // ChangeDocument
- ME_492597A602F6_ME_4FFA88E3034E // MakeGotoPointData
- ME_492F060800A2_ME_4FFA88E3034E // MakeNewsLineFakeDS
- ME_4DF9D63B0360_ME_4FFA88E3034E // DocInfo
- ME_50002EC80001_ME_4FFA88E3034E // dsDocument
- ME_5111C2BAF24F_ME_4FFA88E3034E // HasDocument
- )
- ; // Implemented
- CONST "ActivateIfUpdate" 'IfNotActivated'
- CONST "Need GetFormCount" false
- CONST "Need OnFormWeight" 'undefined'
- CONST "ZoneType" 'Navigator'
-
-ref; // ME_4FFA88E3034E NewsLine
-
-FORWARD ME_90A3AB6A3D85
-
-: ME_C5A0B8C88D9F
- CONST UID 'C5A0B8C88D9F'
- CONST Name 'fsAutoreferatCaption'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Заголовок фабрики сборки форм "Autoreferat"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_90A3AB6A3D85 // AutoreferatCaptionLocalConstants
- ;
- CONST Value '''#1044#1086#1082#1091#1084#1077#1085#1090'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''#1044#1086#1082#1091#1084#1077#1085#1090'''
-
-ref; // ME_C5A0B8C88D9F fsAutoreferatCaption
-
-: ME_90A3AB6A3D85
- CONST UID '90A3AB6A3D85'
- CONST Name 'AutoreferatCaptionLocalConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_LocalConst ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые константы для фабрики сборки форм Autoreferat' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AA4B279031D // Autoreferat
- ;
- : Attributes
-   Seq: ( ME_C5A0B8C88D9F // fsAutoreferatCaption
- )
- ; // Attributes
- CONST "Need map interface" false
- CONST "Need mapping support" false
- CONST "spell names" false
-
-ref; // ME_90A3AB6A3D85 AutoreferatCaptionLocalConstants
-
-FORWARD ME_E0C0BF73050A
-
-: ME_0CCB9A47488E
- CONST UID '0CCB9A47488E'
- CONST Name 'fsAutoreferatCaption'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Заголовок фабрики сборки форм "Autoreferat"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_E0C0BF73050A // LCImplAutoreferatCaptionLocalConstants
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''fsAutoreferatCaption''; rValue : ''#1044#1086#1082#1091#1084#1077#1085#1090'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''fsAutoreferatCaption''; rValue : ''#1044#1086#1082#1091#1084#1077#1085#1090'')'
- : Speller ME_C5A0B8C88D9F // fsAutoreferatCaption
- ;
-
-ref; // ME_0CCB9A47488E fsAutoreferatCaption
-
-: ME_E0C0BF73050A
- CONST UID 'E0C0BF73050A'
- CONST Name 'LCImplAutoreferatCaptionLocalConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые строки AutoreferatCaptionLocalConstants' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- : Parent ME_4AA4B279031D // Autoreferat
- ;
- : Attributes
-   Seq: ( ME_0CCB9A47488E // fsAutoreferatCaption
- )
- ; // Attributes
- CONST "elements prefix" 'str'
- CONST "spell names" false
- CONST extprop:pas:ElementPrefixBase 'str'
- CONST extprop:pas:ElementPrefix 'str_'
- : Speller ME_90A3AB6A3D85 // AutoreferatCaptionLocalConstants
- ;
-
-ref; // ME_E0C0BF73050A LCImplAutoreferatCaptionLocalConstants
-
-FORWARD ME_FDD93F11843B
-
-: ME_4C0F6DED94F7
- CONST Name 'aDataSource'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_47F252870299' '4683F37902CF.pas.ms.script' // IvcmFormSetDataSource
- ;
-
-ref; // ME_4C0F6DED94F7 aDataSource
-
-: ME_83FBE147E003
- CONST Name 'aNew'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_out ;
- : Target WL 'ME_47EB900B0216' '4683F37902CF.pas.ms.script' // IvcmFormDataSource
- ;
-
-ref; // ME_83FBE147E003 aNew
-
-: ME_4D95B4B903DB
- CONST Name 'aSubUserType'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
-
-ref; // ME_4D95B4B903DB aSubUserType
-
-: ME_B7A0C274095A
- CONST UID 'B7A0C274095A'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'данные необходимые для создания формы' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_FDD93F11843B // TextForm_Parent_dftAutoreferat_NeedMakeForm
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- : Parameters
-   Seq: ( ME_4C0F6DED94F7 // aDataSource
- ME_83FBE147E003 // aNew
- ME_4D95B4B903DB // aSubUserType
- )
- ; // Parameters
-
-ref; // ME_B7A0C274095A DoIt
-
-: ME_FDD93F11843B
- CONST UID 'FDD93F11843B'
- CONST Name 'TextForm_Parent_dftAutoreferat_NeedMakeForm'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Обработчик OnNeedMakeForm для TextForm' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4AA4B279031D // Autoreferat
- ;
- : Inherits
-   Seq: ( WL 'ME_50096E800075' '47B9727603BE.pas.ms.script' // TvcmNeedMakeFormEvent
- )
- ; // Inherits
- : Operations
-   Seq: ( ME_B7A0C274095A // DoIt
- )
- ; // Operations
-
-ref; // ME_FDD93F11843B TextForm_Parent_dftAutoreferat_NeedMakeForm
-
-FORWARD ME_28B4B9654C1B
-
-: ME_E320F9B6D60C
- CONST Name 'aDataSource'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_47F252870299' '4683F37902CF.pas.ms.script' // IvcmFormSetDataSource
- ;
-
-ref; // ME_E320F9B6D60C aDataSource
-
-: ME_45443AFBBFB8
- CONST Name 'aNew'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_out ;
- : Target WL 'ME_47EB900B0216' '4683F37902CF.pas.ms.script' // IvcmFormDataSource
- ;
-
-ref; // ME_45443AFBBFB8 aNew
-
-: ME_4B41FE659DF7
- CONST Name 'aSubUserType'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
-
-ref; // ME_4B41FE659DF7 aSubUserType
-
-: ME_50BF08190C57
- CONST UID '50BF08190C57'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'данные необходимые для создания формы' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_28B4B9654C1B // NewsLine_Navigator_nltMain_NeedMakeForm
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- : Parameters
-   Seq: ( ME_E320F9B6D60C // aDataSource
- ME_45443AFBBFB8 // aNew
- ME_4B41FE659DF7 // aSubUserType
- )
- ; // Parameters
-
-ref; // ME_50BF08190C57 DoIt
-
-: ME_28B4B9654C1B
- CONST UID '28B4B9654C1B'
- CONST Name 'NewsLine_Navigator_nltMain_NeedMakeForm'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Обработчик OnNeedMakeForm для NewsLine' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4AA4B279031D // Autoreferat
- ;
- : Inherits
-   Seq: ( WL 'ME_50096E800075' '47B9727603BE.pas.ms.script' // TvcmNeedMakeFormEvent
- )
- ; // Inherits
- : Operations
-   Seq: ( ME_50BF08190C57 // DoIt
- )
- ; // Operations
-
-ref; // ME_28B4B9654C1B NewsLine_Navigator_nltMain_NeedMakeForm
-
-: ME_75488308430E
- CONST UID '75488308430E'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4AA4B279031D // Autoreferat
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_75488308430E Exists
-
-: ME_301A10560DF6
- CONST UID '301A10560DF6'
- CONST Name 'Init_Str_fsAutoreferatCaption'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_fsAutoreferatCaption' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AA4B279031D // Autoreferat
- ;
- : Speller ME_C5A0B8C88D9F // fsAutoreferatCaption
- ;
- : SpelledFor ME_0CCB9A47488E // fsAutoreferatCaption
- ;
-
-ref; // ME_301A10560DF6 Init_Str_fsAutoreferatCaption
-
-: ME_4FFA880F032B
- CONST Class class_Dependency
- : Stereotype st_OwnerForm::Dependency ;
- : Parent ME_4AA4B279031D // Autoreferat
- ;
- : Target ME_4FFA8808003E // TextForm
- ;
-
-ref; // ME_4FFA880F032B 
-
-: ME_DF167783A3DB
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AA4B279031D // Autoreferat
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
-
-ref; // ME_DF167783A3DB 
-
-: ME_63EC20D8BC57
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AA4B279031D // Autoreferat
- ;
- : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
- ;
-
-ref; // ME_63EC20D8BC57 
-
-: ME_47A042E100E2_ME_4AA4B279031D
- : Original WL 'ME_47A042E100E2' '47913B47006E.pas.ms.script' // InitFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_47A042E100E2_ME_4AA4B279031D InitFields
-
-: ME_4FFE854A009B_ME_4AA4B279031D
- : Original WL 'ME_4FFE854A009B' '47B9727603BE.pas.ms.script' // GetInstance
- ;
- CONST OpKind opkind_Overridden
- CONST "is static" true
-ref; // ME_4FFE854A009B_ME_4AA4B279031D GetInstance
-
-: ME_4AA4B279031D
- CONST UID '4AA4B279031D'
- CONST Name 'Autoreferat'
- CONST Class class_Class
- : Stereotype st_VCMFormSetFactory ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4A8ECF3001D2 // PrimMonitorings
- ;
- : Inherits
-   Seq: ( WL 'ME_47B97312006D' '47B9727603BE.pas.ms.script' // TvcmFormSetFactory
- )
- ; // Inherits
- : Operations
-   Seq: ( ME_FDD93F11843B // TextForm_Parent_dftAutoreferat_NeedMakeForm
- ME_28B4B9654C1B // NewsLine_Navigator_nltMain_NeedMakeForm
- ME_75488308430E // Exists
- ME_301A10560DF6 // Init_Str_fsAutoreferatCaption
- )
- ; // Operations
- : Overridden
-   Seq: ( ME_47A042E100E2_ME_4AA4B279031D // InitFields
- ME_4FFE854A009B_ME_4AA4B279031D // GetInstance
- )
- ; // Overridden
- : Children
-   Seq: ( ME_4FFA8808003E // TextForm
- ME_4FFA88E3034E // NewsLine
- )
- ; // Children
- : Constants
-   Seq: ( ME_90A3AB6A3D85 // AutoreferatCaptionLocalConstants
- ME_E0C0BF73050A // LCImplAutoreferatCaptionLocalConstants
- )
- ; // Constants
- : Dependencies
-   Seq: ( ME_4FFA880F032B // TextForm
- ME_DF167783A3DB // Tl3StringIDEx
- ME_63EC20D8BC57 // Tl3MessageID
- )
- ; // Dependencies
- CONST "Caption" '#1044#1086#1082#1091#1084#1077#1085#1090'
- CONST "DefaultStatusForm" '-1'
- CONST "Need GetMainCaption" false
- CONST "Need GetMainImageIndex" false
- CONST "finished dfm" true
- CONST "singleton" true
- CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Search\fsAutoreferat.pas'
- CONST extprop:pas:TypeName 'Tfs_Autoreferat'
- CONST extprop:rc:SelfName 'fs_Autoreferat'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'fsAutoreferat'
-
-ref; // ME_4AA4B279031D Autoreferat
-
-FORWARD ME_4AA4B28D02A1
-
-FORWARD ME_4FFA92850358
-
-: ME_4925978F00FA_ME_4FFA92850358
- : Original WL 'ME_4925978F00FA' '491B305A0096.pas.ms.script' // ChangeDocument
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4925978F00FA_ME_4FFA92850358 ChangeDocument
-
-: ME_492597A602F6_ME_4FFA92850358
- : Original WL 'ME_492597A602F6' '491B305A0096.pas.ms.script' // MakeGotoPointData
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_492597A602F6_ME_4FFA92850358 MakeGotoPointData
-
-: ME_492F060800A2_ME_4FFA92850358
- : Original WL 'ME_492F060800A2' '492F0586030C.pas.ms.script' // MakeNewsLineFakeDS
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" true
-ref; // ME_492F060800A2_ME_4FFA92850358 MakeNewsLineFakeDS
-
-: ME_4DF9D63B0360_ME_4FFA92850358
- : Original WL 'ME_4DF9D63B0360' '4B1FC2FF03CD.pas.ms.script' // DocInfo
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" true
- CONST "reflectable" true
-ref; // ME_4DF9D63B0360_ME_4FFA92850358 DocInfo
-
-: ME_50002EC80001_ME_4FFA92850358
- : Original WL 'ME_50002EC80001' '491B305A0096.pas.ms.script' // dsDocument
- ;
- CONST OpKind opkind_Implemented
- CONST "is reference" true
- CONST "pm" true
-ref; // ME_50002EC80001_ME_4FFA92850358 dsDocument
-
-: ME_5111C2BAF24F_ME_4FFA92850358
- : Original WL 'ME_5111C2BAF24F' '491B305A0096.pas.ms.script' // HasDocument
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" true
-ref; // ME_5111C2BAF24F_ME_4FFA92850358 HasDocument
-
-: ME_4FFA92850358
- CONST UID '4FFA92850358'
- CONST Name 'TextForm'
- CONST Class class_Class
- : Stereotype st_VCMZone ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4AA4B28D02A1 // AutoreferatAfterSearch
- ;
- : Inherits
-   Seq: ( WL 'ME_4B040F34030A' '4A7C0BB70162.pas.ms.script' // dftAutoreferatAfterSearch
- WL 'ME_4BD8574A03A5' '4BD856E802F9.pas.ms.script' // Text
- )
- ; // Inherits
- : Implements
-   Seq: ( WL 'ME_492F071B02AC' '492F0586030C.pas.ms.script' // IsdsAutoreferat
- )
- ; // Implements
- : Implemented
-   Seq: ( ME_4925978F00FA_ME_4FFA92850358 // ChangeDocument
- ME_492597A602F6_ME_4FFA92850358 // MakeGotoPointData
- ME_492F060800A2_ME_4FFA92850358 // MakeNewsLineFakeDS
- ME_4DF9D63B0360_ME_4FFA92850358 // DocInfo
- ME_50002EC80001_ME_4FFA92850358 // dsDocument
- ME_5111C2BAF24F_ME_4FFA92850358 // HasDocument
- )
- ; // Implemented
- CONST "ActivateIfUpdate" 'None'
- CONST "Need GetFormCount" false
- CONST "Need OnFormWeight" 'undefined'
- CONST "ZoneType" 'Parent'
-
-ref; // ME_4FFA92850358 TextForm
-
-FORWARD ME_165DAAD62350
-
-: ME_BD00F3B92A1B
- CONST UID 'BD00F3B92A1B'
- CONST Name 'fsAutoreferatAfterSearchCaption'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Заголовок фабрики сборки форм "AutoreferatAfterSearch"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_165DAAD62350 // AutoreferatAfterSearchCaptionLocalConstants
- ;
- CONST Value '''#1040#1074#1090#1086#1088#1077#1092#1077#1088#1072#1090 #1087#1086#1089#1083#1077 #1087#1086#1080#1089#1082#1072'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''#1040#1074#1090#1086#1088#1077#1092#1077#1088#1072#1090 #1087#1086#1089#1083#1077 #1087#1086#1080#1089#1082#1072'''
-
-ref; // ME_BD00F3B92A1B fsAutoreferatAfterSearchCaption
-
-: ME_165DAAD62350
- CONST UID '165DAAD62350'
- CONST Name 'AutoreferatAfterSearchCaptionLocalConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_LocalConst ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые константы для фабрики сборки форм AutoreferatAfterSearch' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AA4B28D02A1 // AutoreferatAfterSearch
- ;
- : Attributes
-   Seq: ( ME_BD00F3B92A1B // fsAutoreferatAfterSearchCaption
- )
- ; // Attributes
- CONST "Need map interface" false
- CONST "Need mapping support" false
- CONST "spell names" false
-
-ref; // ME_165DAAD62350 AutoreferatAfterSearchCaptionLocalConstants
-
-FORWARD ME_3378C7AD118F
-
-: ME_0582957E8E45
- CONST UID '0582957E8E45'
- CONST Name 'fsAutoreferatAfterSearchCaption'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Заголовок фабрики сборки форм "AutoreferatAfterSearch"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_3378C7AD118F // LCImplAutoreferatAfterSearchCaptionLocalConstants
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''fsAutoreferatAfterSearchCaption''; rValue : ''#1040#1074#1090#1086#1088#1077#1092#1077#1088#1072#1090 #1087#1086#1089#1083#1077 #1087#1086#1080#1089#1082#1072'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''fsAutoreferatAfterSearchCaption''; rValue : ''#1040#1074#1090#1086#1088#1077#1092#1077#1088#1072#1090 #1087#1086#1089#1083#1077 #1087#1086#1080#1089#1082#1072'')'
- : Speller ME_BD00F3B92A1B // fsAutoreferatAfterSearchCaption
- ;
-
-ref; // ME_0582957E8E45 fsAutoreferatAfterSearchCaption
-
-: ME_3378C7AD118F
- CONST UID '3378C7AD118F'
- CONST Name 'LCImplAutoreferatAfterSearchCaptionLocalConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые строки AutoreferatAfterSearchCaptionLocalConstants' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- : Parent ME_4AA4B28D02A1 // AutoreferatAfterSearch
- ;
- : Attributes
-   Seq: ( ME_0582957E8E45 // fsAutoreferatAfterSearchCaption
- )
- ; // Attributes
- CONST "elements prefix" 'str'
- CONST "spell names" false
- CONST extprop:pas:ElementPrefixBase 'str'
- CONST extprop:pas:ElementPrefix 'str_'
- : Speller ME_165DAAD62350 // AutoreferatAfterSearchCaptionLocalConstants
- ;
-
-ref; // ME_3378C7AD118F LCImplAutoreferatAfterSearchCaptionLocalConstants
-
-FORWARD ME_CAF00B32945C
-
-: ME_D6A68724B7D0
- CONST Name 'aDataSource'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_47F252870299' '4683F37902CF.pas.ms.script' // IvcmFormSetDataSource
- ;
-
-ref; // ME_D6A68724B7D0 aDataSource
-
-: ME_C98F39EBD922
- CONST Name 'aNew'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_out ;
- : Target WL 'ME_47EB900B0216' '4683F37902CF.pas.ms.script' // IvcmFormDataSource
- ;
-
-ref; // ME_C98F39EBD922 aNew
-
-: ME_2121FAFB6D20
- CONST Name 'aSubUserType'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
-
-ref; // ME_2121FAFB6D20 aSubUserType
-
-: ME_EE13CAA02FB0
- CONST UID 'EE13CAA02FB0'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'данные необходимые для создания формы' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_CAF00B32945C // TextForm_Parent_dftAutoreferatAfterSearch_NeedMakeForm
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- : Parameters
-   Seq: ( ME_D6A68724B7D0 // aDataSource
- ME_C98F39EBD922 // aNew
- ME_2121FAFB6D20 // aSubUserType
- )
- ; // Parameters
-
-ref; // ME_EE13CAA02FB0 DoIt
-
-: ME_CAF00B32945C
- CONST UID 'CAF00B32945C'
- CONST Name 'TextForm_Parent_dftAutoreferatAfterSearch_NeedMakeForm'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Обработчик OnNeedMakeForm для TextForm' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4AA4B28D02A1 // AutoreferatAfterSearch
- ;
- : Inherits
-   Seq: ( WL 'ME_50096E800075' '47B9727603BE.pas.ms.script' // TvcmNeedMakeFormEvent
- )
- ; // Inherits
- : Operations
-   Seq: ( ME_EE13CAA02FB0 // DoIt
- )
- ; // Operations
-
-ref; // ME_CAF00B32945C TextForm_Parent_dftAutoreferatAfterSearch_NeedMakeForm
-
-: ME_79EF91D4B56C
- CONST UID '79EF91D4B56C'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4AA4B28D02A1 // AutoreferatAfterSearch
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_79EF91D4B56C Exists
-
-: ME_554E1144991F
- CONST UID '554E1144991F'
- CONST Name 'Init_Str_fsAutoreferatAfterSearchCaption'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_fsAutoreferatAfterSearchCaption' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AA4B28D02A1 // AutoreferatAfterSearch
- ;
- : Speller ME_BD00F3B92A1B // fsAutoreferatAfterSearchCaption
- ;
- : SpelledFor ME_0582957E8E45 // fsAutoreferatAfterSearchCaption
- ;
-
-ref; // ME_554E1144991F Init_Str_fsAutoreferatAfterSearchCaption
-
-: ME_4FFA928F0159
- CONST Class class_Dependency
- : Stereotype st_OwnerForm::Dependency ;
- : Parent ME_4AA4B28D02A1 // AutoreferatAfterSearch
- ;
- : Target ME_4FFA92850358 // TextForm
- ;
-
-ref; // ME_4FFA928F0159 
-
-: ME_D004077C5BDB
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AA4B28D02A1 // AutoreferatAfterSearch
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
-
-ref; // ME_D004077C5BDB 
-
-: ME_287B2ACDF9F3
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AA4B28D02A1 // AutoreferatAfterSearch
- ;
- : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
- ;
-
-ref; // ME_287B2ACDF9F3 
-
-: ME_47A042E100E2_ME_4AA4B28D02A1
- : Original WL 'ME_47A042E100E2' '47913B47006E.pas.ms.script' // InitFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_47A042E100E2_ME_4AA4B28D02A1 InitFields
-
-: ME_4FFE854A009B_ME_4AA4B28D02A1
- : Original WL 'ME_4FFE854A009B' '47B9727603BE.pas.ms.script' // GetInstance
- ;
- CONST OpKind opkind_Overridden
- CONST "is static" true
-ref; // ME_4FFE854A009B_ME_4AA4B28D02A1 GetInstance
-
-: ME_4AA4B28D02A1
- CONST UID '4AA4B28D02A1'
- CONST Name 'AutoreferatAfterSearch'
- CONST Class class_Class
- : Stereotype st_VCMFormSetFactory ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4A8ECF3001D2 // PrimMonitorings
- ;
- : Inherits
-   Seq: ( WL 'ME_47B97312006D' '47B9727603BE.pas.ms.script' // TvcmFormSetFactory
- )
- ; // Inherits
- : Operations
-   Seq: ( ME_CAF00B32945C // TextForm_Parent_dftAutoreferatAfterSearch_NeedMakeForm
- ME_79EF91D4B56C // Exists
- ME_554E1144991F // Init_Str_fsAutoreferatAfterSearchCaption
- )
- ; // Operations
- : Overridden
-   Seq: ( ME_47A042E100E2_ME_4AA4B28D02A1 // InitFields
- ME_4FFE854A009B_ME_4AA4B28D02A1 // GetInstance
- )
- ; // Overridden
- : Children
-   Seq: ( ME_4FFA92850358 // TextForm
- )
- ; // Children
- : Constants
-   Seq: ( ME_165DAAD62350 // AutoreferatAfterSearchCaptionLocalConstants
- ME_3378C7AD118F // LCImplAutoreferatAfterSearchCaptionLocalConstants
- )
- ; // Constants
- : Dependencies
-   Seq: ( ME_4FFA928F0159 // TextForm
- ME_D004077C5BDB // Tl3StringIDEx
- ME_287B2ACDF9F3 // Tl3MessageID
- )
- ; // Dependencies
- CONST "Caption" '#1040#1074#1090#1086#1088#1077#1092#1077#1088#1072#1090 #1087#1086#1089#1083#1077 #1087#1086#1080#1089#1082#1072'
- CONST "DefaultStatusForm" '-1'
- CONST "Need GetMainCaption" false
- CONST "Need GetMainImageIndex" false
- CONST "finished dfm" true
- CONST "singleton" true
- CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Search\fsAutoreferatAfterSearch.pas'
- CONST extprop:pas:TypeName 'Tfs_AutoreferatAfterSearch'
- CONST extprop:rc:SelfName 'fs_AutoreferatAfterSearch'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'fsAutoreferatAfterSearch'
-
-ref; // ME_4AA4B28D02A1 AutoreferatAfterSearch
-
-FORWARD ME_4B14ED130233
-
-: ME_4B14ED2F033E
- CONST UID '4B14ED2F033E'
- CONST Name 'Log'
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4B14ED130233 // TnsOpenNewsLineEvent
- ;
-
-ref; // ME_4B14ED2F033E Log
-
-: ME_4B14ED5D0324
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4B14ED130233 // TnsOpenNewsLineEvent
- ;
- : Target WL 'ME_45ED58FF0201' '45ED58CF03E6.pas.ms.script' // LogEvent
- ;
-
-ref; // ME_4B14ED5D0324 
-
-: ME_4B14ED130233
- CONST UID '4B14ED130233'
- CONST Name 'TnsOpenNewsLineEvent'
- CONST Class class_Class
- : Stereotype st_SimpleClass ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4A8ECF3001D2 // PrimMonitorings
- ;
- : Inherits
-   Seq: ( WL 'ME_4B0A6109010C' '4B0A60DF01F2.pas.ms.script' // TnsLogEvent
- )
- ; // Inherits
- : Operations
-   Seq: ( ME_4B14ED2F033E // Log
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_4B14ED5D0324 // LogEvent
- )
- ; // Dependencies
- CONST extprop:rc:SelfName 'OpenNewsLineEvent'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_4B14ED130233 TnsOpenNewsLineEvent
-
-FORWARD ME_55AF6A40006E
-
-FORWARD ME_55AF6A53023F
-
-FORWARD ME_55AF6B13030B
-
-: ME_55AF6B290060
- CONST UID '55AF6B290060'
- CONST Name 'Init'
- CONST Class class_Class
- : Stereotype st_Choice ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_55AF6B13030B // Choices
- ;
- CONST "AutoInc" false
- CONST "Value" '''Настроить ленту ПРАЙМ'''
- CONST "forced type" 'none'
- CONST "is define" false
-
-ref; // ME_55AF6B290060 Init
-
-: ME_55AF6B4A03CF
- CONST UID '55AF6B4A03CF'
- CONST Name 'NoThanks'
- CONST Class class_Class
- : Stereotype st_Choice ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_55AF6B13030B // Choices
- ;
- CONST "AutoInc" false
- CONST "Value" '''Начать работу с системой'''
- CONST "forced type" 'none'
- CONST "is define" false
-
-ref; // ME_55AF6B4A03CF NoThanks
-
-: ME_55AF6B13030B
- CONST UID '55AF6B13030B'
- CONST Name 'Choices'
- CONST Class class_Class
- : Stereotype st_Choices ;
- CONST Kind kind_NormalClass
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_55AF6A53023F // StartupInitPrime
- ;
- : Children
-   Seq: ( ME_55AF6B290060 // Init
- ME_55AF6B4A03CF // NoThanks
- )
- ; // Children
- CONST "Need map interface" false
- CONST "Need mapping support" false
- CONST "spell names" false
-
-ref; // ME_55AF6B13030B Choices
-
-: ME_55AF754F0052
- CONST UID '55AF754F0052'
- CONST Class class_Attribute
- : Stereotype st_DefaultChoice::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_55AF6A53023F // StartupInitPrime
- ;
- : Target ME_55AF6B290060 // Init
- ;
-
-ref; // ME_55AF754F0052 
-
-: ME_55AF6A53023F
- CONST UID '55AF6A53023F'
- CONST Name 'StartupInitPrime'
- CONST Class class_Class
- : Stereotype st_Message ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_55AF6A40006E // Messages For User
- ;
- : Attributes
-   Seq: ( ME_55AF754F0052 // 
- )
- ; // Attributes
- : Children
-   Seq: ( ME_55AF6B13030B // Choices
- )
- ; // Children
- CONST "AutoInc" false
- CONST "DlgType" 'Information'
- CONST "NeedCheck" false
- CONST "Value" '''Уважаемый пользователь!''#13#10 + '#13#10'''В новой версии системы ГАРАНТ вы можете самостоятельно настраивать и редактировать индивидуальную новостную ленту ПРАЙМ.'' + '#13#10''' Потратив несколько минут на настройку, вы всегда будете в курсе последних новостей законодательства, касающихся ваших профессиональных интересов.'''
- CONST "forced type" 'none'
- CONST "is define" false
-
-ref; // ME_55AF6A53023F StartupInitPrime
-
-: ME_55ED77E70177
- CONST UID '55ED77E70177'
- CONST Name 'DefaultSetttingsWereChanged'
- CONST Class class_Class
- : Stereotype st_Message ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_55AF6A40006E // Messages For User
- ;
- CONST "AutoInc" false
- CONST "DlgType" 'Information'
- CONST "NeedCheck" false
- CONST "Value" '''В новой версии изменена используемая по умолчанию конфигурация пользовательского интерфейса. Новые настройки упрощают работу с системой, организуя ее более удобным образом.''#13#10 + '#13#10'''Конфигурация, с которой Вы работали раньше, сохранена. Для обращения к ней выберите в разделе командного меню «Файл» пункт «Выбор конфигурации».'''
- CONST "forced type" 'none'
- CONST "is define" false
-
-ref; // ME_55ED77E70177 DefaultSetttingsWereChanged
-
-: ME_55AF6A40006E
- CONST UID '55AF6A40006E'
- CONST Name 'Messages For User'
- CONST Class class_Class
- : Stereotype st_LocalConst ;
- CONST Kind kind_NormalClass
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4A8ECF3001D2 // PrimMonitorings
- ;
- : Children
-   Seq: ( ME_55AF6A53023F // StartupInitPrime
- ME_55ED77E70177 // DefaultSetttingsWereChanged
- )
- ; // Children
- CONST "Need map interface" false
- CONST "Need mapping support" false
- CONST "spell names" false
-
-ref; // ME_55AF6A40006E Messages For User
-
-FORWARD ME_55B0CF2803D7
-
-: ME_E5CAAA50C508
- CONST UID 'E5CAAA50C508'
- CONST Name 'bind'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация Tf1StartupCompletedServiceImpl' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_55B0CF2803D7 // Tf1StartupCompletedServiceImpl
- ;
-
-ref; // ME_E5CAAA50C508 bind
-
-: ME_7808E54DAE45
- CONST UID '7808E54DAE45'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_55B0CF2803D7 // Tf1StartupCompletedServiceImpl
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_7808E54DAE45 Exists
-
-: ME_55B0CFE50150
- CONST Class class_Dependency
- : Stereotype st_implements::Dependency ;
- : Parent ME_55B0CF2803D7 // Tf1StartupCompletedServiceImpl
- ;
- : Target WL 'ME_55B0CFA90241' '4A924BCA0092.pas.ms.script' // Tf1StartupCompletedService
- ;
-
-ref; // ME_55B0CFE50150 
-
-: ME_2627E933260B_ME_55B0CF2803D7
- : Original WL 'ME_2627E933260B' '4A924BCA0092.pas.ms.script' // StartupComplete
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_2627E933260B_ME_55B0CF2803D7 StartupComplete
-
-: ME_55B0CF2803D7
- CONST UID '55B0CF2803D7'
- CONST Name 'Tf1StartupCompletedServiceImpl'
- CONST Class class_Class
- : Stereotype st_ServiceImplementation ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4A8ECF3001D2 // PrimMonitorings
- ;
- : Inherits
-   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- )
- ; // Inherits
- : Implements
-   Seq: ( WL 'ME_1E74B0CF4425' '4A924BCA0092.pas.ms.script' // If1StartupCompletedService
- )
- ; // Implements
- : Operations
-   Seq: ( ME_E5CAAA50C508 // bind
- ME_7808E54DAE45 // Exists
- )
- ; // Operations
- : Implemented
-   Seq: ( ME_2627E933260B_ME_55B0CF2803D7 // StartupComplete
- )
- ; // Implemented
- : Dependencies
-   Seq: ( ME_55B0CFE50150 // Tf1StartupCompletedService
- )
- ; // Dependencies
- CONST "singleton" true
- CONST extprop:rc:SelfName 'f1StartupCompletedServiceImpl'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_55B0CF2803D7 Tf1StartupCompletedServiceImpl
-
-FORWARD ME_AB0B3776F9E6
-
-: ME_6BB08F8AB266
- CONST UID '6BB08F8AB266'
- CONST Name 'StartupInitPrime_Choice_Init'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Настроить ленту ПРАЙМ''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_AB0B3776F9E6 // LCImpl_StartupInitPrime_Choices
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''StartupInitPrime_Choice_Init''; rValue : ''Настроить ленту ПРАЙМ'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''StartupInitPrime_Choice_Init''; rValue : ''Настроить ленту ПРАЙМ'')'
- : Speller ME_55AF6B290060 // Init
- ;
-
-ref; // ME_6BB08F8AB266 StartupInitPrime_Choice_Init
-
-: ME_76103FD015A3
- CONST UID '76103FD015A3'
- CONST Name 'StartupInitPrime_Choice_NoThanks'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Начать работу с системой''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_AB0B3776F9E6 // LCImpl_StartupInitPrime_Choices
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''StartupInitPrime_Choice_NoThanks''; rValue : ''Начать работу с системой'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''StartupInitPrime_Choice_NoThanks''; rValue : ''Начать работу с системой'')'
- : Speller ME_55AF6B4A03CF // NoThanks
- ;
-
-ref; // ME_76103FD015A3 StartupInitPrime_Choice_NoThanks
-
-: ME_AB0B3776F9E6
- CONST UID 'AB0B3776F9E6'
- CONST Name 'LCImpl_StartupInitPrime_Choices'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Варианты выбора для диалога StartupInitPrime' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- : Parent ME_4A8ECF3001D2 // PrimMonitorings
- ;
- : Attributes
-   Seq: ( ME_6BB08F8AB266 // StartupInitPrime_Choice_Init
- ME_76103FD015A3 // StartupInitPrime_Choice_NoThanks
- )
- ; // Attributes
- CONST "elements prefix" 'str'
- CONST "spell names" false
- CONST extprop:pas:ElementPrefixBase 'str'
- CONST extprop:pas:ElementPrefix 'str_'
- : Speller ME_55AF6B13030B // Choices
- ;
-
-ref; // ME_AB0B3776F9E6 LCImpl_StartupInitPrime_Choices
-
-FORWARD ME_0C742F9C46EA
-
-: ME_8743E60DFA39
- CONST UID '8743E60DFA39'
- CONST Name 'StartupInitPrime'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Уважаемый пользователь!''#13#10 + '#13#10'''В новой версии системы ГАРАНТ вы можете самостоятельно настраивать и редактировать индивидуальную новостную ленту ПРАЙМ.'' + '#13#10''' Потратив несколько минут на настройку, вы всегда будете в курсе последних новостей законодательства, касающихся ваших профессиональных интересов.''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_0C742F9C46EA // LCImplMessages For User
- ;
- : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''StartupInitPrime''; rValue : ''Уважаемый пользователь!''#13#10 + '#13#10'''В новой версии системы ГАРАНТ вы можете самостоятельно настраивать и редактировать индивидуальную новостную ленту ПРАЙМ.'' + '#13#10''' Потратив несколько минут на настройку, вы всегда будете в курсе последних новостей законодательства, касающихся ваших профессиональных интересов.'')'
- : ValueType WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''StartupInitPrime''; rValue : ''Уважаемый пользователь!''#13#10 + '#13#10'''В новой версии системы ГАРАНТ вы можете самостоятельно настраивать и редактировать индивидуальную новостную ленту ПРАЙМ.'' + '#13#10''' Потратив несколько минут на настройку, вы всегда будете в курсе последних новостей законодательства, касающихся ваших профессиональных интересов.'')'
- : Speller ME_55AF6A53023F // StartupInitPrime
- ;
-
-ref; // ME_8743E60DFA39 StartupInitPrime
-
-: ME_FA9F1633BC07
- CONST UID 'FA9F1633BC07'
- CONST Name 'DefaultSetttingsWereChanged'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''В новой версии изменена используемая по умолчанию конфигурация пользовательского интерфейса. Новые настройки упрощают работу с системой, организуя ее более удобным образом.''#13#10 + '#13#10'''Конфигурация, с которой Вы работали раньше, сохранена. Для обращения к ней выберите в разделе командного меню «Файл» пункт «Выбор конфигурации».''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_0C742F9C46EA // LCImplMessages For User
- ;
- : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''DefaultSetttingsWereChanged''; rValue : ''В новой версии изменена используемая по умолчанию конфигурация пользовательского интерфейса. Новые настройки упрощают работу с системой, организуя ее более удобным образом.''#13#10 + '#13#10'''Конфигурация, с которой Вы работали раньше, сохранена. Для обращения к ней выберите в разделе командного меню «Файл» пункт «Выбор конфигурации».'')'
- : ValueType WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''DefaultSetttingsWereChanged''; rValue : ''В новой версии изменена используемая по умолчанию конфигурация пользовательского интерфейса. Новые настройки упрощают работу с системой, организуя ее более удобным образом.''#13#10 + '#13#10'''Конфигурация, с которой Вы работали раньше, сохранена. Для обращения к ней выберите в разделе командного меню «Файл» пункт «Выбор конфигурации».'')'
- : Speller ME_55ED77E70177 // DefaultSetttingsWereChanged
- ;
-
-ref; // ME_FA9F1633BC07 DefaultSetttingsWereChanged
-
-: ME_0C742F9C46EA
- CONST UID '0C742F9C46EA'
- CONST Name 'LCImplMessages For User'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые строки Messages For User' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- : Parent ME_4A8ECF3001D2 // PrimMonitorings
- ;
- : Attributes
-   Seq: ( ME_8743E60DFA39 // StartupInitPrime
- ME_FA9F1633BC07 // DefaultSetttingsWereChanged
- )
- ; // Attributes
- CONST "elements prefix" 'str'
- CONST "spell names" false
- CONST extprop:pas:ElementPrefixBase 'str'
- CONST extprop:pas:ElementPrefix 'str_'
- : Speller ME_55AF6A40006E // Messages For User
- ;
-
-ref; // ME_0C742F9C46EA LCImplMessages For User
-
-FORWARD ME_4AA4B45E0101
-
-: ME_4AA4B4A10081
- CONST Name 'aDoc'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_45EEB6520191' '4570511E038A.pas.ms.script' // Document
- ;
-
-ref; // ME_4AA4B4A10081 aDoc
-
-: ME_4AA4B4A100A2
- CONST Name 'aContainer'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
- ;
-
-ref; // ME_4AA4B4A100A2 aContainer
-
-: ME_4AA4B46C030A
- CONST UID '4AA4B46C030A'
- CONST Name 'DoIt'
- CONST Class class_Operation
- %SUMMARY 'Открывает автореферат' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AA4B45E0101 // OpenAutoreferat
- ;
- : Parameters
-   Seq: ( ME_4AA4B4A10081 // aDoc
- ME_4AA4B4A100A2 // aContainer
- )
- ; // Parameters
-
-ref; // ME_4AA4B46C030A DoIt
-
-: ME_4AA4B6C800E5
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AA4B45E0101 // OpenAutoreferat
- ;
- : Target WL 'ME_492FDB1603A9' '491C3ADB03A5.pas.ms.script' // TsdsAutoreferat
- ;
-
-ref; // ME_4AA4B6C800E5 
-
-: ME_4AA4B6E0011A
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AA4B45E0101 // OpenAutoreferat
- ;
- : Target WL 'ME_491C0BE302FF' '4C6ABB3201AC.pas.ms.script' // TdeDocInfo
- ;
-
-ref; // ME_4AA4B6E0011A 
-
-: ME_4AA4B45E0101
- CONST UID '4AA4B45E0101'
- CONST Name 'OpenAutoreferat'
- CONST Class class_Class
- : Stereotype st_FormSetFactory ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4A8ECF3001D2 // PrimMonitorings
- ;
- : Operations
-   Seq: ( ME_4AA4B46C030A // DoIt
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_4AA4B6C800E5 // TsdsAutoreferat
- ME_4AA4B6E0011A // TdeDocInfo
- )
- ; // Dependencies
-
-ref; // ME_4AA4B45E0101 OpenAutoreferat
-
-FORWARD ME_4AA4C0C500AA
-
-: ME_4AA4C12B037C
- CONST UID '4AA4C12B037C'
- CONST Name 'Document'
- CONST Class class_Attribute
- : Stereotype st_var::Attribute ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_4AA4C0C500AA // OpenAutoreferatAfterSearch
- ;
- : Target WL 'ME_45EEB6520191' '4570511E038A.pas.ms.script' // Document
- ;
- CONST "IsResult" false
-
-ref; // ME_4AA4C12B037C Document
-
-: ME_4AA4C0F00172
- CONST Name 'aList'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_45EEC0FD01B1' '45EEA87E0209.pas.ms.script' // MonitoringList
- ;
-
-ref; // ME_4AA4C0F00172 aList
-
-: ME_4AA4C0F00195
- CONST Name 'aContainer'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
- ;
-
-ref; // ME_4AA4C0F00195 aContainer
-
-: ME_4AA4C0D50392
- CONST UID '4AA4C0D50392'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AA4C0C500AA // OpenAutoreferatAfterSearch
- ;
- : Parameters
-   Seq: ( ME_4AA4C0F00172 // aList
- ME_4AA4C0F00195 // aContainer
- )
- ; // Parameters
-
-ref; // ME_4AA4C0D50392 DoIt
-
-: ME_4AA4C10A0019
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AA4C0C500AA // OpenAutoreferatAfterSearch
- ;
- : Target WL 'ME_492FDB1603A9' '491C3ADB03A5.pas.ms.script' // TsdsAutoreferat
- ;
-
-ref; // ME_4AA4C10A0019 
-
-: ME_4AA4C10E0082
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AA4C0C500AA // OpenAutoreferatAfterSearch
- ;
- : Target WL 'ME_491C0BE302FF' '4C6ABB3201AC.pas.ms.script' // TdeDocInfo
- ;
-
-ref; // ME_4AA4C10E0082 
-
-: ME_4AA4C0C500AA
- CONST UID '4AA4C0C500AA'
- CONST Name 'OpenAutoreferatAfterSearch'
- CONST Class class_Class
- : Stereotype st_FormSetFactory ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4A8ECF3001D2 // PrimMonitorings
- ;
- : Attributes
-   Seq: ( ME_4AA4C12B037C // Document
- )
- ; // Attributes
- : Operations
-   Seq: ( ME_4AA4C0D50392 // DoIt
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_4AA4C10A0019 // TsdsAutoreferat
- ME_4AA4C10E0082 // TdeDocInfo
- )
- ; // Dependencies
-
-ref; // ME_4AA4C0C500AA OpenAutoreferatAfterSearch
-
-FORWARD ME_4AB76AD20100
-
-: ME_56E96A250043
- CONST Name 'aDenyNewTab'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_56E96A250043 aDenyNewTab
-
-: ME_4AB76B1F0085
- CONST UID '4AB76B1F0085'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AB76AD20100 // OpenNewsLine$Int
- ;
- : Parameters
-   Seq: ( ME_56E96A250043 // aDenyNewTab
- )
- ; // Parameters
-
-ref; // ME_4AB76B1F0085 DoIt
-
-: ME_4AB76C7A01EF
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AB76AD20100 // OpenNewsLine$Int
- ;
- : Target WL 'ME_4A93BA1802CE' '47D0E1500033.pas.ms.script' // vcmParams
- ;
-
-ref; // ME_4AB76C7A01EF 
-
-: ME_4AB76AD20100
- CONST UID '4AB76AD20100'
- CONST Name 'OpenNewsLine'
- CONST Class class_Class
- : Stereotype st_FormFactory ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4A8ECF3001D2 // PrimMonitorings
- ;
- : Operations
-   Seq: ( ME_4AB76B1F0085 // DoIt
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_4AB76C7A01EF // vcmParams
- )
- ; // Dependencies
-
-ref; // ME_4AB76AD20100 OpenNewsLine$Int
-
-FORWARD ME_4AB775AA0314
-
-: ME_4AB775B2031B
- CONST UID '4AB775B2031B'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AB775AA0314 // OpenNewsLine
- ;
-
-ref; // ME_4AB775B2031B DoIt
-
-: ME_4AB7766900F5
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AB775AA0314 // OpenNewsLine
- ;
- : Target WL 'ME_48FF556602BA' '48F747EC0073.pas.ms.script' // DataAdapter
- ;
-
-ref; // ME_4AB7766900F5 
-
-: ME_4ED63F750087
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AB775AA0314 // OpenNewsLine
- ;
- : Target WL 'ME_4E01D696020C' '4AADF9450143.pas.ms.script' // vcmMessagesSupport
- ;
-
-ref; // ME_4ED63F750087 
-
-: ME_541B101100B7
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AB775AA0314 // OpenNewsLine
- ;
- : Target ME_497EBEC4031D // PrimNewsLine
- ;
-
-ref; // ME_541B101100B7 
-
-: ME_54242E52012D
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AB775AA0314 // OpenNewsLine
- ;
- : Target WL 'ME_4AAFA52603B7' '4AA9196700EB.pas.ms.script' // StartOpen
- ;
-
-ref; // ME_54242E52012D 
-
-: ME_542572CF0375
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AB775AA0314 // OpenNewsLine
- ;
- : Target WL 'ME_4C8A2ADD01B1' '4799D29F033F.pas.ms.script' // Application
- ;
-
-ref; // ME_542572CF0375 
-
-: ME_5523F26001F8
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AB775AA0314 // OpenNewsLine
- ;
- : Target WL 'ME_47E11FC3021E' '4799D29F033F.pas.ms.script' // Controls
- ;
-
-ref; // ME_5523F26001F8 
-
-: ME_5704E7AF008E
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AB775AA0314 // OpenNewsLine
- ;
- : Target WL 'ME_48A41FF10094' '4AB0C3F60375.pas.ms.script' // Windows
- ;
-
-ref; // ME_5704E7AF008E 
-
-: ME_4AB775AA0314
- CONST UID '4AB775AA0314'
- CONST Name 'OpenNewsLine'
- CONST Class class_Class
- : Stereotype st_ModuleMethod ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Новостная лента' ;
- CONST Visibility ProtectedAccess
- CONST Abstraction at_final
- : Parent ME_4A8ECF3001D2 // PrimMonitorings
- ;
- : Operations
-   Seq: ( ME_4AB775B2031B // DoIt
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_4AB7766900F5 // DataAdapter
- ME_4ED63F750087 // vcmMessagesSupport
- ME_541B101100B7 // PrimNewsLine
- ME_54242E52012D // StartOpen
- ME_542572CF0375 // Application
- ME_5523F26001F8 // Controls
- ME_5704E7AF008E // Windows
- )
- ; // Dependencies
- CONST "ShowInToolbar" 'undefined'
- CONST "no prefix" false
- CONST "no test" false
-
-ref; // ME_4AB775AA0314 OpenNewsLine
-
-FORWARD ME_4AB77A0E0276
-
-: ME_4AB77A170294
- CONST UID '4AB77A170294'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AB77A0E0276 // OpenLegislationReview
- ;
-
-ref; // ME_4AB77A170294 DoIt
-
-: ME_4AB77A2F0298
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AB77A0E0276 // OpenLegislationReview
- ;
- : Target WL 'ME_48FF556602BA' '48F747EC0073.pas.ms.script' // DataAdapter
- ;
-
-ref; // ME_4AB77A2F0298 
-
-: ME_4AB77A0E0276
- CONST UID '4AB77A0E0276'
- CONST Name 'OpenLegislationReview'
- CONST Class class_Class
- : Stereotype st_ModuleMethod ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Обзор изменений законодательства' ;
- CONST Visibility ProtectedAccess
- CONST Abstraction at_final
- : Parent ME_4A8ECF3001D2 // PrimMonitorings
- ;
- : Operations
-   Seq: ( ME_4AB77A170294 // DoIt
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_4AB77A2F0298 // DataAdapter
- )
- ; // Dependencies
- CONST "ShowInToolbar" 'undefined'
- CONST "no prefix" false
- CONST "no test" false
-
-ref; // ME_4AB77A0E0276 OpenLegislationReview
-
-FORWARD ME_542950E801C0
-
-: ME_D7F72E508295
- CONST UID 'D7F72E508295'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода OpenNewsLinePrim' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_542950E801C0 // OpenNewsLinePrim
- ;
-
-ref; // ME_D7F72E508295 DoIt
-
-: ME_542950E801C0
- CONST UID '542950E801C0'
- CONST Name 'OpenNewsLinePrim'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4A8ECF3001D2 // PrimMonitorings
- ;
- : Operations
-   Seq: ( ME_D7F72E508295 // DoIt
- )
- ; // Operations
-
-ref; // ME_542950E801C0 OpenNewsLinePrim
-
-: ME_7504E6401874
- CONST UID '7504E6401874'
- CONST Name 'Init_Str_StartupInitPrime_Choice_Init'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_StartupInitPrime_Choice_Init' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4A8ECF3001D2 // PrimMonitorings
- ;
- : Speller ME_55AF6B290060 // Init
- ;
- : SpelledFor ME_6BB08F8AB266 // StartupInitPrime_Choice_Init
- ;
-
-ref; // ME_7504E6401874 Init_Str_StartupInitPrime_Choice_Init
-
-: ME_4051587F3C41
- CONST UID '4051587F3C41'
- CONST Name 'Init_Str_StartupInitPrime_Choice_NoThanks'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_StartupInitPrime_Choice_NoThanks' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4A8ECF3001D2 // PrimMonitorings
- ;
- : Speller ME_55AF6B4A03CF // NoThanks
- ;
- : SpelledFor ME_76103FD015A3 // StartupInitPrime_Choice_NoThanks
- ;
-
-ref; // ME_4051587F3C41 Init_Str_StartupInitPrime_Choice_NoThanks
-
-: ME_7B1EB373FA63
- CONST UID '7B1EB373FA63'
- CONST Name 'Init_Str_StartupInitPrime'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_StartupInitPrime' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4A8ECF3001D2 // PrimMonitorings
- ;
- : Speller ME_55AF6A53023F // StartupInitPrime
- ;
- : SpelledFor ME_8743E60DFA39 // StartupInitPrime
- ;
-
-ref; // ME_7B1EB373FA63 Init_Str_StartupInitPrime
-
-: ME_70BD4D4F7CCC
- CONST UID '70BD4D4F7CCC'
- CONST Name 'Init_Str_DefaultSetttingsWereChanged'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_DefaultSetttingsWereChanged' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4A8ECF3001D2 // PrimMonitorings
- ;
- : Speller ME_55ED77E70177 // DefaultSetttingsWereChanged
- ;
- : SpelledFor ME_FA9F1633BC07 // DefaultSetttingsWereChanged
- ;
-
-ref; // ME_70BD4D4F7CCC Init_Str_DefaultSetttingsWereChanged
-
-: ME_4AF823FF0231
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4A8ECF3001D2 // PrimMonitorings
- ;
- : Target WL 'ME_4AF822A80071' '4A8ECFED02D8.pas.ms.script' // DateInterval
- ;
-
-ref; // ME_4AF823FF0231 
-
-: ME_4B14ED38037E
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4A8ECF3001D2 // PrimMonitorings
- ;
- : Target ME_4B14ED130233 // TnsOpenNewsLineEvent
- ;
-
-ref; // ME_4B14ED38037E 
-
-: ME_53BE6B9601AB
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4A8ECF3001D2 // PrimMonitorings
- ;
- : Target WL 'ME_49895C3C02D6' '48F747EC0073.pas.ms.script' // nsOpenUtils
- ;
-
-ref; // ME_53BE6B9601AB 
-
-: ME_53BE6BA203CA
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4A8ECF3001D2 // PrimMonitorings
- ;
- : Target WL 'ME_47FB50E4008E' '48F747EC0073.pas.ms.script' // nsConst
- ;
-
-ref; // ME_53BE6BA203CA 
-
-: ME_53BE6BB40192
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4A8ECF3001D2 // PrimMonitorings
- ;
- : Target WL 'ME_47752AF90375' '47750CE700D0.pas.ms.script' // afwFacade
- ;
-
-ref; // ME_53BE6BB40192 
-
-: ME_53BF91F0008F
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4A8ECF3001D2 // PrimMonitorings
- ;
- : Target WL 'ME_537AEB96006C' '533D53FF00C2.pas.ms.script' // vcmTabbedContainerFormDispatcher
- ;
-
-ref; // ME_53BF91F0008F 
-
-: ME_5540A0D90211
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4A8ECF3001D2 // PrimMonitorings
- ;
- : Target WL 'ME_4AAF9400011C' '5267C3880201.pas.ms.script' // TnsPostingsTreeSingle
- ;
-
-ref; // ME_5540A0D90211 
-
-: ME_5571D62301FD
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4A8ECF3001D2 // PrimMonitorings
- ;
- : Target WL 'ME_553FAEB0033D' '4C84EDB403D2.pas.ms.script' // SearchSupport
- ;
-
-ref; // ME_5571D62301FD 
-
-: ME_30191079EF24
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4A8ECF3001D2 // PrimMonitorings
- ;
- : Target WL 'ME_47F25BC801DB' '47D0E1500033.pas.ms.script' // vcmBase
- ;
-
-ref; // ME_30191079EF24 
-
-FORWARD ME_9EC9D4649A50
-
-: ME_6A93839E6D3E
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4A8ECF3001D2 // PrimMonitorings
- ;
- : Target ME_9EC9D4649A50 // Tkw_Monitorings_opOpenNewsLine
- ;
-
-ref; // ME_6A93839E6D3E 
-
-FORWARD ME_787EB19E7B3F
-
-: ME_08492F2D99C9
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4A8ECF3001D2 // PrimMonitorings
- ;
- : Target ME_787EB19E7B3F // Tkw_Monitorings_opOpenLegislationReview
- ;
-
-ref; // ME_08492F2D99C9 
-
-: ME_264136892C7F
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4A8ECF3001D2 // PrimMonitorings
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
-
-ref; // ME_264136892C7F 
-
-: ME_F60D19225C69
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4A8ECF3001D2 // PrimMonitorings
- ;
- : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
- ;
-
-ref; // ME_F60D19225C69 
-
-: ME_39687B9E117B
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4A8ECF3001D2 // PrimMonitorings
- ;
- : Target WL 'ME_4AB0EE02004E' '4799D29F033F.pas.ms.script' // Dialogs
- ;
-
-ref; // ME_39687B9E117B 
-
-: ME_4A8ECF3001D2
- CONST UID '4A8ECF3001D2'
- CONST Name 'PrimMonitorings'
- CONST Class class_Class
- : Stereotype st_VCMFormsPack ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_abstract
- : Parent ME_4A92D644009B // Search
- ;
- : Operations
-   Seq: ( ME_4AA4B45E0101 // OpenAutoreferat
- ME_4AA4C0C500AA // OpenAutoreferatAfterSearch
- ME_4AB76AD20100 // OpenNewsLine$Int
- ME_4AB775AA0314 // OpenNewsLine
- ME_4AB77A0E0276 // OpenLegislationReview
- ME_542950E801C0 // OpenNewsLinePrim
- ME_7504E6401874 // Init_Str_StartupInitPrime_Choice_Init
- ME_4051587F3C41 // Init_Str_StartupInitPrime_Choice_NoThanks
- ME_7B1EB373FA63 // Init_Str_StartupInitPrime
- ME_70BD4D4F7CCC // Init_Str_DefaultSetttingsWereChanged
- )
- ; // Operations
- : Children
-   Seq: ( ME_4A8ECFCD0174 // NewsLine
- ME_4AA4B279031D // Autoreferat
- ME_4AA4B28D02A1 // AutoreferatAfterSearch
- ME_4B14ED130233 // TnsOpenNewsLineEvent
- ME_55B0CF2803D7 // Tf1StartupCompletedServiceImpl
- )
- ; // Children
- : Constants
-   Seq: ( ME_55AF6A40006E // Messages For User
- ME_AB0B3776F9E6 // LCImpl_StartupInitPrime_Choices
- ME_0C742F9C46EA // LCImplMessages For User
- )
- ; // Constants
- : Dependencies
-   Seq: ( ME_4AF823FF0231 // DateInterval
- ME_4B14ED38037E // TnsOpenNewsLineEvent
- ME_53BE6B9601AB // nsOpenUtils
- ME_53BE6BA203CA // nsConst
- ME_53BE6BB40192 // afwFacade
- ME_53BF91F0008F // vcmTabbedContainerFormDispatcher
- ME_5540A0D90211 // TnsPostingsTreeSingle
- ME_5571D62301FD // SearchSupport
- ME_30191079EF24 // vcmBase
- ME_6A93839E6D3E // Tkw_Monitorings_opOpenNewsLine
- ME_08492F2D99C9 // Tkw_Monitorings_opOpenLegislationReview
- ME_264136892C7F // Tl3StringIDEx
- ME_F60D19225C69 // Tl3MessageID
- ME_39687B9E117B // Dialogs
- )
- ; // Dependencies
- CONST "author" 'Люлин А.В.'
- CONST "no hands" true
- CONST "started" '21.08.2009 20:46'
- CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Search\PrimMonitorings_Module.pas'
- CONST extprop:pas:TypeName 'TPrimMonitoringsModule'
- CONST extprop:rc:SelfName 'PrimMonitoringsModule'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'PrimMonitorings_Module'
-
-ref; // ME_4A8ECF3001D2 PrimMonitorings
 
 FORWARD ME_524D45100324
 
@@ -3869,7 +16,7 @@ FORWARD ME_524D45100324
  CONST Visibility PrivateAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_524D45100324 // TnsNewsLineSubscribersList
+ : Parent HWL ME_524D45100324 // TnsNewsLineSubscribersList
  ;
  : Target WL 'ME_49918CBB000C' '499032720106.pas.ms.script' // InsNewsLineNotifier
  ;
@@ -3884,7 +31,7 @@ ref; // ME_524D455C00F0 ItemType
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4C87BD1A0218 // TnsNewsLine
+ : Parent HWL ME_4C87BD1A0218 // TnsNewsLine
  ;
  : Inherits
    Seq: ( WL 'ME_47BC3A07027F' '47913B47006E.pas.ms.script' // Tl3SimpleDataContainer
@@ -3895,7 +42,7 @@ ref; // ME_524D455C00F0 ItemType
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_524D455C00F0 // ItemType
+   Seq: ( HWL ME_524D455C00F0 // ItemType
  )
  ; // Attributes
  CONST extprop:rc:SelfName 'NewsLineSubscribersList'
@@ -3913,7 +60,7 @@ FORWARD ME_524D3E260036
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  CONST LinkType lt_agr
- : Parent ME_524D3E260036 // TnsNewsLinePrim
+ : Parent HWL ME_524D3E260036 // TnsNewsLinePrim
  ;
  : Target WL 'ME_45EEB95901C5' '457450470167.pas.ms.script' // NodeBase
  ;
@@ -3929,7 +76,7 @@ ref; // ME_524D3F740063 CurrentThemeNode
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_524D3E260036 // TnsNewsLinePrim
+ : Parent HWL ME_524D3E260036 // TnsNewsLinePrim
  ;
  : Target WL 'ME_45EEB95901C5' '457450470167.pas.ms.script' // NodeBase
  ;
@@ -3943,7 +90,7 @@ ref; // ME_524D3FF9018A f_Root
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_524D3E260036 // TnsNewsLinePrim
+ : Parent HWL ME_524D3E260036 // TnsNewsLinePrim
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -3957,7 +104,7 @@ ref; // ME_524D40A602AE f_CurrentThemeIndex
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_524D3E260036 // TnsNewsLinePrim
+ : Parent HWL ME_524D3E260036 // TnsNewsLinePrim
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -3971,7 +118,7 @@ ref; // ME_524D40AF00C2 f_ThemeCount
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_524D3E260036 // TnsNewsLinePrim
+ : Parent HWL ME_524D3E260036 // TnsNewsLinePrim
  ;
  : Target WL 'ME_4683CF0601DB' '467BAB7F021E.pas.ms.script' // IvcmStrings
  ;
@@ -3985,9 +132,9 @@ ref; // ME_524D410A03CF f_ThemeList
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_524D3E260036 // TnsNewsLinePrim
+ : Parent HWL ME_524D3E260036 // TnsNewsLinePrim
  ;
- : Target ME_524D45100324 // TnsNewsLineSubscribersList
+ : Target HWL ME_524D45100324 // TnsNewsLineSubscribersList
  ;
 
 ref; // ME_524D45AD006D f_Subscribers
@@ -4000,7 +147,7 @@ ref; // ME_524D45AD006D f_Subscribers
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_524D3E260036 // TnsNewsLinePrim
+ : Parent HWL ME_524D3E260036 // TnsNewsLinePrim
  ;
 
 ref; // ME_524D3EAE02E1 Create
@@ -4013,7 +160,7 @@ ref; // ME_524D3EAE02E1 Create
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_524D3E260036 // TnsNewsLinePrim
+ : Parent HWL ME_524D3E260036 // TnsNewsLinePrim
  ;
 
 ref; // ME_524D3FAC00F2 LoadThemeList
@@ -4035,7 +182,7 @@ ref; // ME_524D3FC802F3 anIndex
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_524D3FC101AA // SetCurrentThemeIndex
+ : Parent HWL ME_524D3FC101AA // SetCurrentThemeIndex
  ;
  : Parameters
    Seq: ( ME_524D3FC802F3 // anIndex
@@ -4052,10 +199,10 @@ ref; // ME_524D3FC602D3 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_524D3E260036 // TnsNewsLinePrim
+ : Parent HWL ME_524D3E260036 // TnsNewsLinePrim
  ;
  : Operations
-   Seq: ( ME_524D3FC602D3 // DoIt
+   Seq: ( HWL ME_524D3FC602D3 // DoIt
  )
  ; // Operations
 
@@ -4069,7 +216,7 @@ ref; // ME_524D3FC101AA SetCurrentThemeIndex
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_524D3E260036 // TnsNewsLinePrim
+ : Parent HWL ME_524D3E260036 // TnsNewsLinePrim
  ;
 
 ref; // ME_524D590B0136 NotifySubscribers
@@ -4082,10 +229,10 @@ ref; // ME_524D590B0136 NotifySubscribers
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_524D3E260036 // TnsNewsLinePrim
+ : Parent HWL ME_524D3E260036 // TnsNewsLinePrim
  ;
  : Inherits
-   Seq: ( ME_524D3EAE02E1 // Create
+   Seq: ( HWL ME_524D3EAE02E1 // Create
  )
  ; // Inherits
  : Implements
@@ -4112,7 +259,7 @@ ref; // ME_54366C920212 aSaveCurrentTheme
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_54366C58003B // DoDataUpdate
+ : Parent HWL ME_54366C58003B // DoDataUpdate
  ;
  : Parameters
    Seq: ( ME_54366C920212 // aSaveCurrentTheme
@@ -4129,10 +276,10 @@ ref; // ME_54366C8702D3 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_524D3E260036 // TnsNewsLinePrim
+ : Parent HWL ME_524D3E260036 // TnsNewsLinePrim
  ;
  : Operations
-   Seq: ( ME_54366C8702D3 // DoIt
+   Seq: ( HWL ME_54366C8702D3 // DoIt
  )
  ; // Operations
 
@@ -4220,7 +367,7 @@ ref; // ME_47EA4E9002C6_ME_524D3E260036 FinishDataUpdate
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4C87BD1A0218 // TnsNewsLine
+ : Parent HWL ME_4C87BD1A0218 // TnsNewsLine
  ;
  : Inherits
    Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
@@ -4233,21 +380,21 @@ ref; // ME_47EA4E9002C6_ME_524D3E260036 FinishDataUpdate
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_524D3F740063 // CurrentThemeNode
- ME_524D3FF9018A // f_Root
- ME_524D40A602AE // f_CurrentThemeIndex
- ME_524D40AF00C2 // f_ThemeCount
- ME_524D410A03CF // f_ThemeList
- ME_524D45AD006D // f_Subscribers
+   Seq: ( HWL ME_524D3F740063 // CurrentThemeNode
+ HWL ME_524D3FF9018A // f_Root
+ HWL ME_524D40A602AE // f_CurrentThemeIndex
+ HWL ME_524D40AF00C2 // f_ThemeCount
+ HWL ME_524D410A03CF // f_ThemeList
+ HWL ME_524D45AD006D // f_Subscribers
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_524D3EAE02E1 // Create
- ME_524D3FAC00F2 // LoadThemeList
- ME_524D3FC101AA // SetCurrentThemeIndex
- ME_524D590B0136 // NotifySubscribers
- ME_524EA091009B // Make
- ME_54366C58003B // DoDataUpdate
+   Seq: ( HWL ME_524D3EAE02E1 // Create
+ HWL ME_524D3FAC00F2 // LoadThemeList
+ HWL ME_524D3FC101AA // SetCurrentThemeIndex
+ HWL ME_524D590B0136 // NotifySubscribers
+ HWL ME_524EA091009B // Make
+ HWL ME_54366C58003B // DoDataUpdate
  )
  ; // Operations
  : Implemented
@@ -4280,7 +427,7 @@ ref; // ME_524D3E260036 TnsNewsLinePrim
  : Stereotype st_factory::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4C87BD1A0218 // TnsNewsLine
+ : Parent HWL ME_4C87BD1A0218 // TnsNewsLine
  ;
  : Target WL 'ME_49918CD601C8' '499032720106.pas.ms.script' // InsNewsLine
  ;
@@ -4290,7 +437,7 @@ ref; // ME_524EC01C0008 Make
 : ME_524D5A040337
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4C87BD1A0218 // TnsNewsLine
+ : Parent HWL ME_4C87BD1A0218 // TnsNewsLine
  ;
  : Target WL 'ME_431841610361' '4423F94903C8.pas.ms.script' // String
  ;
@@ -4300,7 +447,7 @@ ref; // ME_524D5A040337
 : ME_524D5AC0005A
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4C87BD1A0218 // TnsNewsLine
+ : Parent HWL ME_4C87BD1A0218 // TnsNewsLine
  ;
  : Target WL 'ME_456EB4540186' '456EA56002BF.pas.ms.script' // StorageLocked
  ;
@@ -4310,7 +457,7 @@ ref; // ME_524D5AC0005A
 : ME_524D5ADD0274
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4C87BD1A0218 // TnsNewsLine
+ : Parent HWL ME_4C87BD1A0218 // TnsNewsLine
  ;
  : Target WL 'ME_4A6854C70390' '47F2170002B2.pas.ms.script' // nsTypes
  ;
@@ -4320,7 +467,7 @@ ref; // ME_524D5ADD0274
 : ME_524D5B0102CA
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4C87BD1A0218 // TnsNewsLine
+ : Parent HWL ME_4C87BD1A0218 // TnsNewsLine
  ;
  : Target WL 'ME_48FF556602BA' '48F747EC0073.pas.ms.script' // DataAdapter
  ;
@@ -4330,7 +477,7 @@ ref; // ME_524D5B0102CA
 : ME_524D5B17009F
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4C87BD1A0218 // TnsNewsLine
+ : Parent HWL ME_4C87BD1A0218 // TnsNewsLine
  ;
  : Target WL 'ME_4AB8CB630173' '47D0E1500033.pas.ms.script' // TvcmStringList
  ;
@@ -4340,7 +487,7 @@ ref; // ME_524D5B17009F
 : ME_524D5B2D0214
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4C87BD1A0218 // TnsNewsLine
+ : Parent HWL ME_4C87BD1A0218 // TnsNewsLine
  ;
  : Target WL 'ME_46835B4001A4' '48FD8B2702F6.pas.ms.script' // TnsTreeStruct
  ;
@@ -4350,7 +497,7 @@ ref; // ME_524D5B2D0214
 : ME_524D5B4003C7
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4C87BD1A0218 // TnsNewsLine
+ : Parent HWL ME_4C87BD1A0218 // TnsNewsLine
  ;
  : Target WL 'ME_47FB50E4008E' '48F747EC0073.pas.ms.script' // nsConst
  ;
@@ -4365,19 +512,19 @@ ref; // ME_524D5B4003C7
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4A92D644009B // Search
+ : Parent HWL ME_4A92D644009B // Search
  ;
  : Inherits
-   Seq: ( ME_524D3E260036 // TnsNewsLinePrim
+   Seq: ( HWL ME_524D3E260036 // TnsNewsLinePrim
  )
  ; // Inherits
  : Operations
-   Seq: ( ME_524EC01C0008 // Make
+   Seq: ( HWL ME_524EC01C0008 // Make
  )
  ; // Operations
  : Children
-   Seq: ( ME_524D45100324 // TnsNewsLineSubscribersList
- ME_524D3E260036 // TnsNewsLinePrim
+   Seq: ( HWL ME_524D45100324 // TnsNewsLineSubscribersList
+ HWL ME_524D3E260036 // TnsNewsLinePrim
  )
  ; // Children
  : Dependencies
@@ -4406,9 +553,9 @@ FORWARD ME_54294F2701D0
 : ME_542A83A700D7
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_54294F2701D0 // OpenPrimeForm
+ : Parent HWL ME_54294F2701D0 // OpenPrimeForm
  ;
- : Target ME_542950E801C0 // OpenNewsLinePrim
+ : Target WL 'ME_542950E801C0' '4A8ECF3001D2.pas.ms.script' // OpenNewsLinePrim
  ;
 
 ref; // ME_542A83A700D7 
@@ -4422,7 +569,7 @@ ref; // ME_542A83A700D7
  %SUMMARY 'http://mdp.garant.ru/pages/viewpage.action?pageId=235046973' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_571A26F2006C // PrimMonitoringsWordsPack
+ : Parent HWL ME_571A26F2006C // PrimMonitoringsWordsPack
  ;
  : Dependencies
    Seq: ( ME_542A83A700D7 // OpenNewsLinePrim
@@ -4437,9 +584,9 @@ ref; // ME_54294F2701D0 OpenPrimeForm
 : ME_571A26FD011E
  CONST Class class_Dependency
  : Stereotype st_injects::Dependency ;
- : Parent ME_571A26F2006C // PrimMonitoringsWordsPack
+ : Parent HWL ME_571A26F2006C // PrimMonitoringsWordsPack
  ;
- : Target ME_497EBEC4031D // PrimNewsLine
+ : Target WL 'ME_497EBEC4031D' '497EBEC4031D.pas.ms.script' // PrimNewsLine
  ;
 
 ref; // ME_571A26FD011E 
@@ -4452,10 +599,10 @@ ref; // ME_571A26FD011E
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4A92D644009B // Search
+ : Parent HWL ME_4A92D644009B // Search
  ;
  : Children
-   Seq: ( ME_54294F2701D0 // OpenPrimeForm
+   Seq: ( HWL ME_54294F2701D0 // OpenPrimeForm
  )
  ; // Children
  : Dependencies
@@ -4468,59 +615,354 @@ ref; // ME_571A26FD011E
 
 ref; // ME_571A26F2006C PrimMonitoringsWordsPack
 
-: ME_9EC9D4649A50
- CONST UID '9EC9D4649A50'
- CONST Name 'Tkw_Monitorings_opOpenNewsLine'
- CONST IsSummoned true
+FORWARD ME_55B0CF2803D7
+
+FORWARD ME_55AF6A40006E
+
+FORWARD ME_55AF6A53023F
+
+FORWARD ME_55AF6B13030B
+
+: ME_55AF6B290060
+ CONST UID '55AF6B290060'
+ CONST Name 'Init'
  CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
+ : Stereotype st_Choice ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для вызова операции модуля Monitorings.OpenNewsLine (Мониторинги Новостная лента)' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_55AF6B13030B // Choices
+ ;
+ CONST "AutoInc" false
+ CONST "Value" '''Настроить ленту ПРАЙМ'''
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_55AF6B290060 Init
+
+: ME_55AF6B4A03CF
+ CONST UID '55AF6B4A03CF'
+ CONST Name 'NoThanks'
+ CONST Class class_Class
+ : Stereotype st_Choice ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_55AF6B13030B // Choices
+ ;
+ CONST "AutoInc" false
+ CONST "Value" '''Начать работу с системой'''
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_55AF6B4A03CF NoThanks
+
+: ME_55AF6B13030B
+ CONST UID '55AF6B13030B'
+ CONST Name 'Choices'
+ CONST Class class_Class
+ : Stereotype st_Choices ;
+ CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4A92D644009B // Search
+ : Parent HWL ME_55AF6A53023F // StartupInitPrime
  ;
- : Inherits
-   Seq: ( WL 'ME_4DB060930263' '4E200FED0213.pas.ms.script' // TtfwModuleOperationWord
+ : Children
+   Seq: ( HWL ME_55AF6B290060 // Init
+ HWL ME_55AF6B4A03CF // NoThanks
  )
- ; // Inherits
- CONST "NameForScript" 'моп::Мониторинги_Новостная_лента'
- CONST "ifndef" 'NoScripts'
- CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Search\kw_Monitorings_opOpenNewsLine.pas'
- CONST extprop:rc:SelfName '_Monitorings_opOpenNewsLine'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'kw_Monitorings_opOpenNewsLine'
- : Speller ME_4AB775AA0314 // OpenNewsLine
+ ; // Children
+ CONST "Need map interface" false
+ CONST "Need mapping support" false
+ CONST "spell names" false
+
+ref; // ME_55AF6B13030B Choices
+
+: ME_55AF754F0052
+ CONST UID '55AF754F0052'
+ CONST Class class_Attribute
+ : Stereotype st_DefaultChoice::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent HWL ME_55AF6A53023F // StartupInitPrime
+ ;
+ : Target HWL ME_55AF6B290060 // Init
  ;
 
-ref; // ME_9EC9D4649A50 Tkw_Monitorings_opOpenNewsLine
+ref; // ME_55AF754F0052 
 
-: ME_787EB19E7B3F
- CONST UID '787EB19E7B3F'
- CONST Name 'Tkw_Monitorings_opOpenLegislationReview'
- CONST IsSummoned true
+: ME_55AF6A53023F
+ CONST UID '55AF6A53023F'
+ CONST Name 'StartupInitPrime'
  CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
+ : Stereotype st_Message ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для вызова операции модуля Monitorings.OpenLegislationReview (Мониторинги Обзор изменений законодательства)' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_55AF6A40006E // Messages For User
+ ;
+ : Attributes
+   Seq: ( HWL ME_55AF754F0052 // 
+ )
+ ; // Attributes
+ : Children
+   Seq: ( HWL ME_55AF6B13030B // Choices
+ )
+ ; // Children
+ CONST "AutoInc" false
+ CONST "DlgType" 'Information'
+ CONST "NeedCheck" false
+ CONST "Value" '''Уважаемый пользователь!''#13#10 + '#13#10'''В новой версии системы ГАРАНТ вы можете самостоятельно настраивать и редактировать индивидуальную новостную ленту ПРАЙМ.'' + '#13#10''' Потратив несколько минут на настройку, вы всегда будете в курсе последних новостей законодательства, касающихся ваших профессиональных интересов.'''
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_55AF6A53023F StartupInitPrime
+
+: ME_55ED77E70177
+ CONST UID '55ED77E70177'
+ CONST Name 'DefaultSetttingsWereChanged'
+ CONST Class class_Class
+ : Stereotype st_Message ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_55AF6A40006E // Messages For User
+ ;
+ CONST "AutoInc" false
+ CONST "DlgType" 'Information'
+ CONST "NeedCheck" false
+ CONST "Value" '''В новой версии изменена используемая по умолчанию конфигурация пользовательского интерфейса. Новые настройки упрощают работу с системой, организуя ее более удобным образом.''#13#10 + '#13#10'''Конфигурация, с которой Вы работали раньше, сохранена. Для обращения к ней выберите в разделе командного меню «Файл» пункт «Выбор конфигурации».'''
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_55ED77E70177 DefaultSetttingsWereChanged
+
+: ME_55AF6A40006E
+ CONST UID '55AF6A40006E'
+ CONST Name 'Messages For User'
+ CONST Class class_Class
+ : Stereotype st_LocalConst ;
+ CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4A92D644009B // Search
+ : Parent HWL ME_55B0CF2803D7 // Tf1StartupCompletedServiceImpl
  ;
- : Inherits
-   Seq: ( WL 'ME_4DB060930263' '4E200FED0213.pas.ms.script' // TtfwModuleOperationWord
+ : Children
+   Seq: ( HWL ME_55AF6A53023F // StartupInitPrime
+ HWL ME_55ED77E70177 // DefaultSetttingsWereChanged
  )
- ; // Inherits
- CONST "NameForScript" 'моп::Мониторинги_Обзор_изменений_законодательства'
- CONST "ifndef" 'NoScripts'
- CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Search\kw_Monitorings_opOpenLegislationReview.pas'
- CONST extprop:rc:SelfName '_Monitorings_opOpenLegislationReview'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'kw_Monitorings_opOpenLegislationReview'
- : Speller ME_4AB77A0E0276 // OpenLegislationReview
+ ; // Children
+ CONST "Need map interface" false
+ CONST "Need mapping support" false
+ CONST "spell names" false
+
+ref; // ME_55AF6A40006E Messages For User
+
+FORWARD ME_075D4B222848
+
+: ME_10187773B7E4
+ CONST UID '10187773B7E4'
+ CONST Name 'StartupInitPrime_Choice_Init'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY '''Настроить ленту ПРАЙМ''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_075D4B222848 // LCImpl_StartupInitPrime_Choices
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''StartupInitPrime_Choice_Init''; rValue : ''Настроить ленту ПРАЙМ'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''StartupInitPrime_Choice_Init''; rValue : ''Настроить ленту ПРАЙМ'')'
+ : Speller HWL ME_55AF6B290060 // Init
  ;
 
-ref; // ME_787EB19E7B3F Tkw_Monitorings_opOpenLegislationReview
+ref; // ME_10187773B7E4 StartupInitPrime_Choice_Init
+
+: ME_3A7DC6A3E9EA
+ CONST UID '3A7DC6A3E9EA'
+ CONST Name 'StartupInitPrime_Choice_NoThanks'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY '''Начать работу с системой''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_075D4B222848 // LCImpl_StartupInitPrime_Choices
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''StartupInitPrime_Choice_NoThanks''; rValue : ''Начать работу с системой'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''StartupInitPrime_Choice_NoThanks''; rValue : ''Начать работу с системой'')'
+ : Speller HWL ME_55AF6B4A03CF // NoThanks
+ ;
+
+ref; // ME_3A7DC6A3E9EA StartupInitPrime_Choice_NoThanks
+
+: ME_075D4B222848
+ CONST UID '075D4B222848'
+ CONST Name 'LCImpl_StartupInitPrime_Choices'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Варианты выбора для диалога StartupInitPrime' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_55B0CF2803D7 // Tf1StartupCompletedServiceImpl
+ ;
+ : Attributes
+   Seq: ( HWL ME_10187773B7E4 // StartupInitPrime_Choice_Init
+ HWL ME_3A7DC6A3E9EA // StartupInitPrime_Choice_NoThanks
+ )
+ ; // Attributes
+ CONST "elements prefix" 'str'
+ CONST "spell names" false
+ CONST extprop:pas:ElementPrefixBase 'str'
+ CONST extprop:pas:ElementPrefix 'str_'
+ : Speller HWL ME_55AF6B13030B // Choices
+ ;
+
+ref; // ME_075D4B222848 LCImpl_StartupInitPrime_Choices
+
+: ME_577A345500C5
+ CONST UID '577A345500C5'
+ CONST Name 'NeedAskToFillPrimeAtStartup'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_55B0CF2803D7 // Tf1StartupCompletedServiceImpl
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_577A345500C5 NeedAskToFillPrimeAtStartup
+
+: ME_577A36ED031C
+ CONST UID '577A36ED031C'
+ CONST Name 'NeedShowSettingsDialog'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_55B0CF2803D7 // Tf1StartupCompletedServiceImpl
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_577A36ED031C NeedShowSettingsDialog
+
+: ME_55B0CFE50150
+ CONST Class class_Dependency
+ : Stereotype st_implements::Dependency ;
+ : Parent HWL ME_55B0CF2803D7 // Tf1StartupCompletedServiceImpl
+ ;
+ : Target WL 'ME_55B0CFA90241' '4A924BCA0092.pas.ms.script' // Tf1StartupCompletedService
+ ;
+
+ref; // ME_55B0CFE50150 
+
+: ME_577648650110
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_55B0CF2803D7 // Tf1StartupCompletedServiceImpl
+ ;
+ : Target WL 'ME_4A8ECF3001D2' '4A8ECF3001D2.pas.ms.script' // PrimMonitorings
+ ;
+
+ref; // ME_577648650110 
+
+: ME_8D623F4BE775
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_55B0CF2803D7 // Tf1StartupCompletedServiceImpl
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+
+ref; // ME_8D623F4BE775 
+
+: ME_093C3964EE62
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_55B0CF2803D7 // Tf1StartupCompletedServiceImpl
+ ;
+ : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
+ ;
+
+ref; // ME_093C3964EE62 
+
+: ME_47A042E100E2_ME_55B0CF2803D7
+ : Original WL 'ME_47A042E100E2' '47913B47006E.pas.ms.script' // InitFields
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_47A042E100E2_ME_55B0CF2803D7 InitFields
+
+: ME_55B0CF2803D7
+ CONST UID '55B0CF2803D7'
+ CONST Name 'Tf1StartupCompletedServiceImpl'
+ CONST Class class_Class
+ : Stereotype st_ServiceImplementation ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4A92D644009B // Search
+ ;
+ : Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( HWL ME_577A345500C5 // NeedAskToFillPrimeAtStartup
+ HWL ME_577A36ED031C // NeedShowSettingsDialog
+ )
+ ; // Attributes
+ : Overridden
+   Seq: ( ME_47A042E100E2_ME_55B0CF2803D7 // InitFields
+ )
+ ; // Overridden
+ : Constants
+   Seq: ( HWL ME_55AF6A40006E // Messages For User
+ HWL ME_075D4B222848 // LCImpl_StartupInitPrime_Choices
+ )
+ ; // Constants
+ : Dependencies
+   Seq: ( ME_55B0CFE50150 // Tf1StartupCompletedService
+ ME_577648650110 // PrimMonitorings
+ ME_8D623F4BE775 // Tl3StringIDEx
+ ME_093C3964EE62 // Tl3MessageID
+ )
+ ; // Dependencies
+ CONST "need UC" true
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Search\f1StartupCompletedServiceImpl.pas'
+ CONST extprop:rc:SelfName 'f1StartupCompletedServiceImpl'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'f1StartupCompletedServiceImpl'
+
+ref; // ME_55B0CF2803D7 Tf1StartupCompletedServiceImpl
 
 : ME_4A92D644009B
  CONST UID '4A92D644009B'
@@ -4532,13 +974,12 @@ ref; // ME_787EB19E7B3F Tkw_Monitorings_opOpenLegislationReview
  : Parent WL 'ME_4A92D5D30100' '4A92D5D30100.pas.ms.script' // View
  ;
  : Children
-   Seq: ( ME_497EBEC4031D // PrimNewsLine
- ME_4C87BB9C0143 // PrimNewsLineOptions
- ME_4A8ECF3001D2 // PrimMonitorings
- ME_4C87BD1A0218 // TnsNewsLine
- ME_571A26F2006C // PrimMonitoringsWordsPack
- ME_9EC9D4649A50 // Tkw_Monitorings_opOpenNewsLine
- ME_787EB19E7B3F // Tkw_Monitorings_opOpenLegislationReview
+   Seq: ( WL 'ME_497EBEC4031D' '497EBEC4031D.pas.ms.script' // PrimNewsLine
+ WL 'ME_4C87BB9C0143' '4C87BB9C0143.pas.ms.script' // PrimNewsLineOptions
+ WL 'ME_4A8ECF3001D2' '4A8ECF3001D2.pas.ms.script' // PrimMonitorings
+ HWL ME_4C87BD1A0218 // TnsNewsLine
+ HWL ME_571A26F2006C // PrimMonitoringsWordsPack
+ HWL ME_55B0CF2803D7 // Tf1StartupCompletedServiceImpl
  )
  ; // Children
  : Depends
@@ -4570,7 +1011,6 @@ ref; // ME_787EB19E7B3F Tkw_Monitorings_opOpenLegislationReview
  WL 'ME_492F0586030C' '492F0586030C.pas.ms.script' // AutoreferatInterfaces
  WL 'ME_499032720106' '499032720106.pas.ms.script' // PrimeInterfaces
  WL 'ME_499C2614028C' '499C2614028C.pas.ms.script' // Tree
- WL 'ME_499EAAE502A8' '499EAAE502A8.pas.ms.script' // vcmUserControls
  WL 'ME_4A7C0BB70162' '4A7C0BB70162.pas.ms.script' // Base Forms
  WL 'ME_4A8ECFED02D8' '4A8ECFED02D8.pas.ms.script' // InternalOperations
  WL 'ME_4A924BCA0092' '4A924BCA0092.pas.ms.script' // PrimCommon
@@ -4586,9 +1026,7 @@ ref; // ME_787EB19E7B3F Tkw_Monitorings_opOpenLegislationReview
  WL 'ME_4BDAF7510113' '4BDAF7510113.pas.ms.script' // Tree
  WL 'ME_4C6ABB3201AC' '4C6ABB3201AC.pas.ms.script' // DocInfo
  WL 'ME_4C84EDB403D2' '4C84EDB403D2.pas.ms.script' // Strange
- WL 'ME_4E200FED0213' '4E200FED0213.pas.ms.script' // Operations
  WL 'ME_4EEA0958023A' '4EEA0958023A.pas.ms.script' // SearchRes
- WL 'ME_521C9DA50125' '521C9DA50125.pas.ms.script' // Application Resources
  WL 'ME_5267C3880201' '5267C3880201.pas.ms.script' // Search
  WL 'ME_533D53FF00C2' '533D53FF00C2.pas.ms.script' // Visual$ChromeLike
  WL 'ME_54522F8A01A8' '54522F8A01A8.pas.ms.script' // Tree

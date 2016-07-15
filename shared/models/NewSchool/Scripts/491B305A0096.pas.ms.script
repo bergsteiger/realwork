@@ -12,7 +12,7 @@ FORWARD ME_4AE56DB003D5
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4AE56DB003D5 // IucpHAFMacroReplacerFactory
+ : Parent HWL ME_4AE56DB003D5 // IucpHAFMacroReplacerFactory
  ;
  : Target WL 'ME_4954A76E0274' '467823B7002C.pas.ms.script' // IafwHAFMacroReplacer
  ;
@@ -28,10 +28,10 @@ ref; // ME_4AE56DE80093 MakeHAFMacroReplacer
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_491B305A0096 // DocumentAndListInterfaces
+ : Parent HWL ME_491B305A0096 // DocumentAndListInterfaces
  ;
  : Operations
-   Seq: ( ME_4AE56DE80093 // MakeHAFMacroReplacer
+   Seq: ( HWL ME_4AE56DE80093 // MakeHAFMacroReplacer
  )
  ; // Operations
  CONST extprop:rc:SelfName 'ucpHAFMacroReplacerFactory'
@@ -50,7 +50,7 @@ FORWARD ME_4D403BC20320
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4D403BC20320 // TnsContentsListType
+ : Parent HWL ME_4D403BC20320 // TnsContentsListType
  ;
 
 ref; // ME_4D403BE80293 Bookmarks
@@ -62,7 +62,7 @@ ref; // ME_4D403BE80293 Bookmarks
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4D403BC20320 // TnsContentsListType
+ : Parent HWL ME_4D403BC20320 // TnsContentsListType
  ;
 
 ref; // ME_4D403BF10117 Comments
@@ -74,7 +74,7 @@ ref; // ME_4D403BF10117 Comments
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4D403BC20320 // TnsContentsListType
+ : Parent HWL ME_4D403BC20320 // TnsContentsListType
  ;
 
 ref; // ME_4D403BF8017C ExternalObjects
@@ -87,12 +87,12 @@ ref; // ME_4D403BF8017C ExternalObjects
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4925661502AE // IdsBaseContents
+ : Parent HWL ME_4925661502AE // IdsBaseContents
  ;
  : Attributes
-   Seq: ( ME_4D403BE80293 // Bookmarks
- ME_4D403BF10117 // Comments
- ME_4D403BF8017C // ExternalObjects
+   Seq: ( HWL ME_4D403BE80293 // Bookmarks
+ HWL ME_4D403BF10117 // Comments
+ HWL ME_4D403BF8017C // ExternalObjects
  )
  ; // Attributes
  CONST "children prefix" 'clt'
@@ -112,9 +112,9 @@ FORWARD ME_4D4188BD030B
  CONST Visibility PublicAccess
  CONST Abstraction at_final
  CONST LinkType lt_ref
- : Parent ME_4D4188BD030B // TnsContentsListIndex
+ : Parent HWL ME_4D4188BD030B // TnsContentsListIndex
  ;
- : Target ME_4D403BC20320 // TnsContentsListType
+ : Target HWL ME_4D403BC20320 // TnsContentsListType
  ;
 
 ref; // ME_4D4188D40168 rListType
@@ -126,7 +126,7 @@ ref; // ME_4D4188D40168 rListType
  CONST Visibility PublicAccess
  CONST Abstraction at_final
  CONST LinkType lt_ref
- : Parent ME_4D4188BD030B // TnsContentsListIndex
+ : Parent HWL ME_4D4188BD030B // TnsContentsListIndex
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -139,7 +139,7 @@ FORWARD ME_4D41890002DF
  CONST Name 'aListType'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_4D403BC20320 // TnsContentsListType
+ : Target HWL ME_4D403BC20320 // TnsContentsListType
  ;
 
 ref; // ME_4D41891B0129 aListType
@@ -159,7 +159,7 @@ ref; // ME_4D41891B016D anIndex
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4D41890002DF // C
+ : Parent HWL ME_4D41890002DF // C
  ;
  : Parameters
    Seq: ( ME_4D41891B0129 // aListType
@@ -177,10 +177,10 @@ ref; // ME_4D41890803CB DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4D4188BD030B // TnsContentsListIndex
+ : Parent HWL ME_4D4188BD030B // TnsContentsListIndex
  ;
  : Operations
-   Seq: ( ME_4D41890803CB // DoIt
+   Seq: ( HWL ME_4D41890803CB // DoIt
  )
  ; // Operations
 
@@ -194,15 +194,15 @@ ref; // ME_4D41890002DF C
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4925661502AE // IdsBaseContents
+ : Parent HWL ME_4925661502AE // IdsBaseContents
  ;
  : Attributes
-   Seq: ( ME_4D4188D40168 // rListType
- ME_4D4188EE025E // rIndex
+   Seq: ( HWL ME_4D4188D40168 // rListType
+ HWL ME_4D4188EE025E // rIndex
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_4D41890002DF // C
+   Seq: ( HWL ME_4D41890002DF // C
  )
  ; // Operations
  CONST extprop:rc:SelfName 'ContentsListIndex'
@@ -217,7 +217,7 @@ ref; // ME_4D4188BD030B TnsContentsListIndex
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4925661502AE // IdsBaseContents
+ : Parent HWL ME_4925661502AE // IdsBaseContents
  ;
  : Target WL 'ME_47EA0784000D' '4B1FC2FF03CD.pas.ms.script' // IdeDocInfo
  ;
@@ -234,7 +234,7 @@ ref; // ME_492566F7019F DocInfo
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4925661502AE // IdsBaseContents
+ : Parent HWL ME_4925661502AE // IdsBaseContents
  ;
  : Target WL 'ME_4C5ABD7603D1' '4570511E038A.pas.ms.script' // BookmarkList
  ;
@@ -251,7 +251,7 @@ ref; // ME_4D2DEA3B0176 Bookmarks
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4925661502AE // IdsBaseContents
+ : Parent HWL ME_4925661502AE // IdsBaseContents
  ;
  : Target WL 'ME_4D147CA200AE' '4570511E038A.pas.ms.script' // CommentsParaList
  ;
@@ -268,7 +268,7 @@ ref; // ME_4D2DEA3F012E Comments
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4925661502AE // IdsBaseContents
+ : Parent HWL ME_4925661502AE // IdsBaseContents
  ;
  : Target WL 'ME_4D14813D02BB' '4570511E038A.pas.ms.script' // ExternalObjectDataList
  ;
@@ -284,7 +284,7 @@ ref; // ME_4D2DEA430044 ExternalObjects
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4925661502AE // IdsBaseContents
+ : Parent HWL ME_4925661502AE // IdsBaseContents
  ;
  : Target WL 'ME_4D2F119D004F' '4C6E92E9016E.pas.ms.script' // InsDocumentAdornments
  ;
@@ -301,9 +301,9 @@ FORWARD ME_4D404C490215
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4D404C490215 // ContentsListCount
+ : Parent HWL ME_4D404C490215 // ContentsListCount
  ;
- : Target ME_4D403BC20320 // TnsContentsListType
+ : Target HWL ME_4D403BC20320 // TnsContentsListType
  ;
 
 ref; // ME_4D404C6C02AD aListType
@@ -316,12 +316,12 @@ ref; // ME_4D404C6C02AD aListType
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4925661502AE // IdsBaseContents
+ : Parent HWL ME_4925661502AE // IdsBaseContents
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Attributes
-   Seq: ( ME_4D404C6C02AD // aListType
+   Seq: ( HWL ME_4D404C6C02AD // aListType
  )
  ; // Attributes
  CONST "pm" false
@@ -337,9 +337,9 @@ FORWARD ME_4D416629016B
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4D416629016B // ContentsListItem
+ : Parent HWL ME_4D416629016B // ContentsListItem
  ;
- : Target ME_4D4188BD030B // TnsContentsListIndex
+ : Target HWL ME_4D4188BD030B // TnsContentsListIndex
  ;
 
 ref; // ME_4D418E4E00AE anIndex
@@ -352,12 +352,12 @@ ref; // ME_4D418E4E00AE anIndex
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4925661502AE // IdsBaseContents
+ : Parent HWL ME_4925661502AE // IdsBaseContents
  ;
  : Target WL 'ME_4D41621B01DE' '47F2170002B2.pas.ms.script' // TnsStringPair
  ;
  : Attributes
-   Seq: ( ME_4D418E4E00AE // anIndex
+   Seq: ( HWL ME_4D418E4E00AE // anIndex
  )
  ; // Attributes
  CONST "pm" false
@@ -373,9 +373,9 @@ FORWARD ME_4D4173FE02CC
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4D4173FE02CC // ContentsListParaID
+ : Parent HWL ME_4D4173FE02CC // ContentsListParaID
  ;
- : Target ME_4D4188BD030B // TnsContentsListIndex
+ : Target HWL ME_4D4188BD030B // TnsContentsListIndex
  ;
 
 ref; // ME_4D418E6C0085 anIndex
@@ -388,12 +388,12 @@ ref; // ME_4D418E6C0085 anIndex
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4925661502AE // IdsBaseContents
+ : Parent HWL ME_4925661502AE // IdsBaseContents
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Attributes
-   Seq: ( ME_4D418E6C0085 // anIndex
+   Seq: ( HWL ME_4D418E6C0085 // anIndex
  )
  ; // Attributes
  CONST "pm" false
@@ -408,7 +408,7 @@ ref; // ME_4D4173FE02CC ContentsListParaID
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4925661502AE // IdsBaseContents
+ : Parent HWL ME_4925661502AE // IdsBaseContents
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -459,7 +459,7 @@ ref; // ME_492D90AA0118_ME_4925661502AE FiltrateByContext
  %SUMMARY 'Простое оглавление' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_491B305A0096 // DocumentAndListInterfaces
+ : Parent HWL ME_491B305A0096 // DocumentAndListInterfaces
  ;
  : Inherits
    Seq: ( WL 'ME_47E9F96B035A' '491DD2830110.pas.ms.script' // IdsSimpleTree
@@ -470,15 +470,15 @@ ref; // ME_492D90AA0118_ME_4925661502AE FiltrateByContext
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_492566F7019F // DocInfo
- ME_4D2DEA3B0176 // Bookmarks
- ME_4D2DEA3F012E // Comments
- ME_4D2DEA430044 // ExternalObjects
- ME_4D3089A80114 // Adornments
- ME_4D404C490215 // ContentsListCount
- ME_4D416629016B // ContentsListItem
- ME_4D4173FE02CC // ContentsListParaID
- ME_4E7B5DED03A2 // Empty
+   Seq: ( HWL ME_492566F7019F // DocInfo
+ HWL ME_4D2DEA3B0176 // Bookmarks
+ HWL ME_4D2DEA3F012E // Comments
+ HWL ME_4D2DEA430044 // ExternalObjects
+ HWL ME_4D3089A80114 // Adornments
+ HWL ME_4D404C490215 // ContentsListCount
+ HWL ME_4D416629016B // ContentsListItem
+ HWL ME_4D4173FE02CC // ContentsListParaID
+ HWL ME_4E7B5DED03A2 // Empty
  )
  ; // Attributes
  : Implemented
@@ -490,8 +490,8 @@ ref; // ME_492D90AA0118_ME_4925661502AE FiltrateByContext
  )
  ; // Implemented
  : Children
-   Seq: ( ME_4D403BC20320 // TnsContentsListType
- ME_4D4188BD030B // TnsContentsListIndex
+   Seq: ( HWL ME_4D403BC20320 // TnsContentsListType
+ HWL ME_4D4188BD030B // TnsContentsListIndex
  )
  ; // Children
  CONST extprop:rc:SelfName 'dsBaseContents'
@@ -529,7 +529,7 @@ ref; // ME_4BA337490399 aShowFolders
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4AE575E00174 // IucpFilterInfoFactory
+ : Parent HWL ME_4AE575E00174 // IucpFilterInfoFactory
  ;
  : Target WL 'ME_496A107D033B' '4990135D02F1.pas.ms.script' // InsFolderFilterInfo
  ;
@@ -550,10 +550,10 @@ ref; // ME_4AE575FA030B MakeFilterInfo
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_491B305A0096 // DocumentAndListInterfaces
+ : Parent HWL ME_491B305A0096 // DocumentAndListInterfaces
  ;
  : Operations
-   Seq: ( ME_4AE575FA030B // MakeFilterInfo
+   Seq: ( HWL ME_4AE575FA030B // MakeFilterInfo
  )
  ; // Operations
  CONST extprop:rc:SelfName 'ucpFilterInfoFactory'
@@ -571,7 +571,7 @@ FORWARD ME_49255D040142
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_49255D040142 // IdsAttributes
+ : Parent HWL ME_49255D040142 // IdsAttributes
  ;
  : Target WL 'ME_47EA0784000D' '4B1FC2FF03CD.pas.ms.script' // IdeDocInfo
  ;
@@ -609,14 +609,14 @@ ref; // ME_491DD5C90095_ME_49255D040142 CurrentChanged
  %SUMMARY 'Интерфейс бизнес объекта формы "AttributesForm"' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_491B305A0096 // DocumentAndListInterfaces
+ : Parent HWL ME_491B305A0096 // DocumentAndListInterfaces
  ;
  : Inherits
    Seq: ( WL 'ME_47E9F96B035A' '491DD2830110.pas.ms.script' // IdsSimpleTree
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_49255D4A0215 // DocInfo
+   Seq: ( HWL ME_49255D4A0215 // DocInfo
  )
  ; // Attributes
  : Implemented
@@ -641,7 +641,7 @@ FORWARD ME_49145BA70313
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_49145BA70313 // IdeSimpleTree
+ : Parent HWL ME_49145BA70313 // IdeSimpleTree
  ;
  : Target WL 'ME_46825CC00249' '4682595B0268.pas.ms.script' // Il3SimpleTree
  ;
@@ -657,7 +657,7 @@ ref; // ME_4D2DC8190360 Contents
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_49145BA70313 // IdeSimpleTree
+ : Parent HWL ME_49145BA70313 // IdeSimpleTree
  ;
  : Target WL 'ME_4C5ABD7603D1' '4570511E038A.pas.ms.script' // BookmarkList
  ;
@@ -673,7 +673,7 @@ ref; // ME_4D2DDF6D0139 Bookmarks
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_49145BA70313 // IdeSimpleTree
+ : Parent HWL ME_49145BA70313 // IdeSimpleTree
  ;
  : Target WL 'ME_4D147CA200AE' '4570511E038A.pas.ms.script' // CommentsParaList
  ;
@@ -689,7 +689,7 @@ ref; // ME_4D2DDF7A0260 Comments
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_49145BA70313 // IdeSimpleTree
+ : Parent HWL ME_49145BA70313 // IdeSimpleTree
  ;
  : Target WL 'ME_4D14813D02BB' '4570511E038A.pas.ms.script' // ExternalObjectDataList
  ;
@@ -705,7 +705,7 @@ ref; // ME_4D2DDF8301DF ExternalObjects
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_49145BA70313 // IdeSimpleTree
+ : Parent HWL ME_49145BA70313 // IdeSimpleTree
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -721,7 +721,7 @@ ref; // ME_4D2DDF9B034E Empty
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_49145BA70313 // IdeSimpleTree
+ : Parent HWL ME_49145BA70313 // IdeSimpleTree
  ;
  : Target WL 'ME_4D2F119D004F' '4C6E92E9016E.pas.ms.script' // InsDocumentAdornments
  ;
@@ -738,15 +738,15 @@ ref; // ME_4D3048370128 Adornments
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_491B305A0096 // DocumentAndListInterfaces
+ : Parent HWL ME_491B305A0096 // DocumentAndListInterfaces
  ;
  : Attributes
-   Seq: ( ME_4D2DC8190360 // Contents
- ME_4D2DDF6D0139 // Bookmarks
- ME_4D2DDF7A0260 // Comments
- ME_4D2DDF8301DF // ExternalObjects
- ME_4D2DDF9B034E // Empty
- ME_4D3048370128 // Adornments
+   Seq: ( HWL ME_4D2DC8190360 // Contents
+ HWL ME_4D2DDF6D0139 // Bookmarks
+ HWL ME_4D2DDF7A0260 // Comments
+ HWL ME_4D2DDF8301DF // ExternalObjects
+ HWL ME_4D2DDF9B034E // Empty
+ HWL ME_4D3048370128 // Adornments
  )
  ; // Attributes
  CONST extprop:rc:SelfName 'deSimpleTree'
@@ -764,7 +764,7 @@ FORWARD ME_496F33D900C1
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_496F33D900C1 // BaseSearchSupportQuery
+ : Parent HWL ME_496F33D900C1 // BaseSearchSupportQuery
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -780,10 +780,10 @@ ref; // ME_496F344101D0 CanRunBaseSearch
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_491B305A0096 // DocumentAndListInterfaces
+ : Parent HWL ME_491B305A0096 // DocumentAndListInterfaces
  ;
  : Attributes
-   Seq: ( ME_496F344101D0 // CanRunBaseSearch
+   Seq: ( HWL ME_496F344101D0 // CanRunBaseSearch
  )
  ; // Attributes
 
@@ -798,7 +798,7 @@ FORWARD ME_49217D9D00BD
  %SUMMARY 'получение списка редакций документа' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_49217D9D00BD // IdsEditions
+ : Parent HWL ME_49217D9D00BD // IdsEditions
  ;
  : Target WL 'ME_468274930190' '4682595B0268.pas.ms.script' // Il3SimpleRootNode
  ;
@@ -815,10 +815,10 @@ ref; // ME_49217DB001A7 GetEditionsRoot
  %SUMMARY 'Бизнес объект формы "EditionForm"' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_491B305A0096 // DocumentAndListInterfaces
+ : Parent HWL ME_491B305A0096 // DocumentAndListInterfaces
  ;
  : Operations
-   Seq: ( ME_49217DB001A7 // GetEditionsRoot
+   Seq: ( HWL ME_49217DB001A7 // GetEditionsRoot
  )
  ; // Operations
  CONST extprop:rc:SelfName 'dsEditions'
@@ -836,7 +836,7 @@ FORWARD ME_4921869901CF
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4921869901CF // IdsWarning
+ : Parent HWL ME_4921869901CF // IdsWarning
  ;
  : Target WL 'ME_4921866C01A1' '47F2170002B2.pas.ms.script' // TWarningTypeSet
  ;
@@ -852,7 +852,7 @@ ref; // ME_492186D101E0 WarningContent
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4921869901CF // IdsWarning
+ : Parent HWL ME_4921869901CF // IdsWarning
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -885,7 +885,7 @@ ref; // ME_4DA8735901CF aUserType
  %SUMMARY 'генерация текста предупреждения' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4921869901CF // IdsWarning
+ : Parent HWL ME_4921869901CF // IdsWarning
  ;
  : Parameters
    Seq: ( ME_492186BE0279 // aGenerator
@@ -913,19 +913,19 @@ ref; // ME_4DF9D63B0360_ME_4921869901CF DocInfo
  %SUMMARY 'Бизнес объект формы "WarningForm"' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_491B305A0096 // DocumentAndListInterfaces
+ : Parent HWL ME_491B305A0096 // DocumentAndListInterfaces
  ;
  : Implements
    Seq: ( WL 'ME_4ED8F1860003' '4B1FC2FF03CD.pas.ms.script' // MdeDocInfoProvider
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_492186D101E0 // WarningContent
- ME_4EFC5A31016E // ForSynchroView
+   Seq: ( HWL ME_492186D101E0 // WarningContent
+ HWL ME_4EFC5A31016E // ForSynchroView
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_492186B0008F // GenerateWarning
+   Seq: ( HWL ME_492186B0008F // GenerateWarning
  )
  ; // Operations
  : Implemented
@@ -947,7 +947,7 @@ FORWARD ME_492571A202F1
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_492571A202F1 // IdsContents
+ : Parent HWL ME_492571A202F1 // IdsContents
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -963,7 +963,7 @@ ref; // ME_492571BE02C8 HasRespondents
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_492571A202F1 // IdsContents
+ : Parent HWL ME_492571A202F1 // IdsContents
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -986,7 +986,7 @@ ref; // ME_55880E71037A anId
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_492571A202F1 // IdsContents
+ : Parent HWL ME_492571A202F1 // IdsContents
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -1003,7 +1003,7 @@ ref; // ME_55880E2802C5 HasSimilarToFragment
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_492571A202F1 // IdsContents
+ : Parent HWL ME_492571A202F1 // IdsContents
  ;
 
 ref; // ME_55925FB9019A OpenSimilarDocuments
@@ -1023,7 +1023,7 @@ ref; // ME_5594F4E4031D aBlockId
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_492571A202F1 // IdsContents
+ : Parent HWL ME_492571A202F1 // IdsContents
  ;
  : Parameters
    Seq: ( ME_5594F4E4031D // aBlockId
@@ -1053,7 +1053,7 @@ ref; // ME_491DD5A10199_ME_492571A202F1 SimpleTree
 ref; // ME_491DD5C90095_ME_492571A202F1 CurrentChanged
 
 : ME_492566F7019F_ME_492571A202F1
- : Original ME_492566F7019F // DocInfo
+ : Original HWL ME_492566F7019F // DocInfo
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
@@ -1073,56 +1073,56 @@ ref; // ME_492D9071038D_ME_492571A202F1 CurrentContextFilter
 ref; // ME_492D90AA0118_ME_492571A202F1 FiltrateByContext
 
 : ME_4D2DEA3B0176_ME_492571A202F1
- : Original ME_4D2DEA3B0176 // Bookmarks
+ : Original HWL ME_4D2DEA3B0176 // Bookmarks
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4D2DEA3B0176_ME_492571A202F1 Bookmarks
 
 : ME_4D2DEA3F012E_ME_492571A202F1
- : Original ME_4D2DEA3F012E // Comments
+ : Original HWL ME_4D2DEA3F012E // Comments
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4D2DEA3F012E_ME_492571A202F1 Comments
 
 : ME_4D2DEA430044_ME_492571A202F1
- : Original ME_4D2DEA430044 // ExternalObjects
+ : Original HWL ME_4D2DEA430044 // ExternalObjects
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4D2DEA430044_ME_492571A202F1 ExternalObjects
 
 : ME_4D3089A80114_ME_492571A202F1
- : Original ME_4D3089A80114 // Adornments
+ : Original HWL ME_4D3089A80114 // Adornments
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4D3089A80114_ME_492571A202F1 Adornments
 
 : ME_4D404C490215_ME_492571A202F1
- : Original ME_4D404C490215 // ContentsListCount
+ : Original HWL ME_4D404C490215 // ContentsListCount
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4D404C490215_ME_492571A202F1 ContentsListCount
 
 : ME_4D416629016B_ME_492571A202F1
- : Original ME_4D416629016B // ContentsListItem
+ : Original HWL ME_4D416629016B // ContentsListItem
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4D416629016B_ME_492571A202F1 ContentsListItem
 
 : ME_4D4173FE02CC_ME_492571A202F1
- : Original ME_4D4173FE02CC // ContentsListParaID
+ : Original HWL ME_4D4173FE02CC // ContentsListParaID
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4D4173FE02CC_ME_492571A202F1 ContentsListParaID
 
 : ME_4E7B5DED03A2_ME_492571A202F1
- : Original ME_4E7B5DED03A2 // Empty
+ : Original HWL ME_4E7B5DED03A2 // Empty
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
@@ -1138,21 +1138,21 @@ ref; // ME_4E7B5DED03A2_ME_492571A202F1 Empty
  %SUMMARY 'Бизнес объект формы "ContentsForm"' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_491B305A0096 // DocumentAndListInterfaces
+ : Parent HWL ME_491B305A0096 // DocumentAndListInterfaces
  ;
  : Inherits
-   Seq: ( ME_4925661502AE // IdsBaseContents
+   Seq: ( HWL ME_4925661502AE // IdsBaseContents
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_492571BE02C8 // HasRespondents
- ME_492571CF017C // HasCorrespondents
+   Seq: ( HWL ME_492571BE02C8 // HasRespondents
+ HWL ME_492571CF017C // HasCorrespondents
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_55880E2802C5 // HasSimilarToFragment
- ME_55925FB9019A // OpenSimilarDocuments
- ME_5594F4DB0203 // OpenSimilarDocumentsToFragment
+   Seq: ( HWL ME_55880E2802C5 // HasSimilarToFragment
+ HWL ME_55925FB9019A // OpenSimilarDocuments
+ HWL ME_5594F4DB0203 // OpenSimilarDocumentsToFragment
  )
  ; // Operations
  : Implemented
@@ -1180,7 +1180,7 @@ ref; // ME_492571A202F1 IdsContents
 FORWARD ME_496F346C0072
 
 : ME_496F344101D0_ME_496F346C0072
- : Original ME_496F344101D0 // CanRunBaseSearch
+ : Original HWL ME_496F344101D0 // CanRunBaseSearch
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
@@ -1195,10 +1195,10 @@ ref; // ME_496F344101D0_ME_496F346C0072 CanRunBaseSearch
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_491B305A0096 // DocumentAndListInterfaces
+ : Parent HWL ME_491B305A0096 // DocumentAndListInterfaces
  ;
  : Implements
-   Seq: ( ME_496F33D900C1 // BaseSearchSupportQuery
+   Seq: ( HWL ME_496F33D900C1 // BaseSearchSupportQuery
  )
  ; // Implements
  : Implemented
@@ -1221,7 +1221,7 @@ FORWARD ME_4DF9DD9400BD
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4DF9DD9400BD // TnsContentsOpenMode
+ : Parent HWL ME_4DF9DD9400BD // TnsContentsOpenMode
  ;
 
 ref; // ME_4DF9DDB403DF Force
@@ -1233,7 +1233,7 @@ ref; // ME_4DF9DDB403DF Force
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4DF9DD9400BD // TnsContentsOpenMode
+ : Parent HWL ME_4DF9DD9400BD // TnsContentsOpenMode
  ;
 
 ref; // ME_4DF9DDC10247 NotForce
@@ -1246,11 +1246,11 @@ ref; // ME_4DF9DDC10247 NotForce
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4953D2FA030F // Contents
+ : Parent HWL ME_4953D2FA030F // Contents
  ;
  : Attributes
-   Seq: ( ME_4DF9DDB403DF // Force
- ME_4DF9DDC10247 // NotForce
+   Seq: ( HWL ME_4DF9DDB403DF // Force
+ HWL ME_4DF9DDC10247 // NotForce
  )
  ; // Attributes
  CONST "children prefix" 'com'
@@ -1269,9 +1269,9 @@ FORWARD ME_4DF9E57F024B
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_ref
- : Parent ME_4DF9E57F024B // TnsBooleanToContentsOpenModeConverter
+ : Parent HWL ME_4DF9E57F024B // TnsBooleanToContentsOpenModeConverter
  ;
- : Target ME_4DF9DD9400BD // TnsContentsOpenMode
+ : Target HWL ME_4DF9DD9400BD // TnsContentsOpenMode
  ;
 
 ref; // ME_4DF9E5A60200 
@@ -1284,14 +1284,14 @@ ref; // ME_4DF9E5A60200
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4953D2FA030F // Contents
+ : Parent HWL ME_4953D2FA030F // Contents
  ;
  : Inherits
    Seq: ( WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_4DF9E5A60200 // 
+   Seq: ( HWL ME_4DF9E5A60200 // 
  )
  ; // Attributes
  CONST "array type" 'dynamic'
@@ -1307,12 +1307,12 @@ FORWARD ME_4DF9E5C301BA
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4DF9E5C301BA // ContentsConstants
+ : Parent HWL ME_4DF9E5C301BA // ContentsConstants
  ;
- : Target ME_4DF9E57F024B // TnsBooleanToContentsOpenModeConverter
+ : Target HWL ME_4DF9E57F024B // TnsBooleanToContentsOpenModeConverter
  ;
  CONST Value '(ns_comNotForce, ns_comForce)'
- : ValueType ME_4DF9E57F024B // TnsBooleanToContentsOpenModeConverter
+ : ValueType HWL ME_4DF9E57F024B // TnsBooleanToContentsOpenModeConverter
  ;
  CONST "AutoInc" false
  CONST "forced type" 'none'
@@ -1329,10 +1329,10 @@ ref; // ME_4DF9E5D30341 cBooleanToContentsOpenMode
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4953D2FA030F // Contents
+ : Parent HWL ME_4953D2FA030F // Contents
  ;
  : Attributes
-   Seq: ( ME_4DF9E5D30341 // cBooleanToContentsOpenMode
+   Seq: ( HWL ME_4DF9E5D30341 // cBooleanToContentsOpenMode
  )
  ; // Attributes
  CONST "spell names" false
@@ -1343,7 +1343,7 @@ ref; // ME_4DF9E5C301BA ContentsConstants
  CONST Name 'aTree'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_49145BA70313 // IdeSimpleTree
+ : Target HWL ME_49145BA70313 // IdeSimpleTree
  ;
 
 ref; // ME_4953D3B202AA aTree
@@ -1352,7 +1352,7 @@ ref; // ME_4953D3B202AA aTree
  CONST Name 'anForceOpen'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_4DF9DD9400BD // TnsContentsOpenMode
+ : Target HWL ME_4DF9DD9400BD // TnsContentsOpenMode
  ;
 
 ref; // ME_4953D3B20320 anForceOpen
@@ -1372,7 +1372,7 @@ ref; // ME_4DF9DA10001A aContainerOfDocument
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4953D2FA030F // Contents
+ : Parent HWL ME_4953D2FA030F // Contents
  ;
  : Parameters
    Seq: ( ME_4953D3B202AA // aTree
@@ -1392,19 +1392,19 @@ ref; // ME_4953D3B20211 OpenContents
  %SUMMARY 'Оглавление' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_491B305A0096 // DocumentAndListInterfaces
+ : Parent HWL ME_491B305A0096 // DocumentAndListInterfaces
  ;
  : Operations
-   Seq: ( ME_4953D3B20211 // OpenContents
+   Seq: ( HWL ME_4953D3B20211 // OpenContents
  )
  ; // Operations
  : Children
-   Seq: ( ME_4DF9DD9400BD // TnsContentsOpenMode
- ME_4DF9E57F024B // TnsBooleanToContentsOpenModeConverter
+   Seq: ( HWL ME_4DF9DD9400BD // TnsContentsOpenMode
+ HWL ME_4DF9E57F024B // TnsBooleanToContentsOpenModeConverter
  )
  ; // Children
  : Constants
-   Seq: ( ME_4DF9E5C301BA // ContentsConstants
+   Seq: ( HWL ME_4DF9E5C301BA // ContentsConstants
  )
  ; // Constants
 
@@ -1418,7 +1418,7 @@ FORWARD ME_493E4E520011
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_493E4E520011 // InsWarningLocker
+ : Parent HWL ME_493E4E520011 // InsWarningLocker
  ;
 
 ref; // ME_493E4E670017 LockWarning
@@ -1429,7 +1429,7 @@ ref; // ME_493E4E670017 LockWarning
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_493E4E520011 // InsWarningLocker
+ : Parent HWL ME_493E4E520011 // InsWarningLocker
  ;
 
 ref; // ME_493E4E6E0115 UnLockWarning
@@ -1443,11 +1443,11 @@ ref; // ME_493E4E6E0115 UnLockWarning
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_491B305A0096 // DocumentAndListInterfaces
+ : Parent HWL ME_491B305A0096 // DocumentAndListInterfaces
  ;
  : Operations
-   Seq: ( ME_493E4E670017 // LockWarning
- ME_493E4E6E0115 // UnLockWarning
+   Seq: ( HWL ME_493E4E670017 // LockWarning
+ HWL ME_493E4E6E0115 // UnLockWarning
  )
  ; // Operations
  CONST extprop:rc:SelfName 'WarningLocker'
@@ -1466,7 +1466,7 @@ FORWARD ME_4DB9936C03DD
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4DB9936C03DD // TnsWarningLinkHandle
+ : Parent HWL ME_4DB9936C03DD // TnsWarningLinkHandle
  ;
 
 ref; // ME_493E502102F5 None_LinkHandle
@@ -1478,7 +1478,7 @@ ref; // ME_493E502102F5 None_LinkHandle
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4DB9936C03DD // TnsWarningLinkHandle
+ : Parent HWL ME_4DB9936C03DD // TnsWarningLinkHandle
  ;
 
 ref; // ME_493E50320049 NotSure_LinkHandle
@@ -1490,7 +1490,7 @@ ref; // ME_493E50320049 NotSure_LinkHandle
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4DB9936C03DD // TnsWarningLinkHandle
+ : Parent HWL ME_4DB9936C03DD // TnsWarningLinkHandle
  ;
 
 ref; // ME_493E502A02B6 TimeMachineOff_LinkHandle
@@ -1502,7 +1502,7 @@ ref; // ME_493E502A02B6 TimeMachineOff_LinkHandle
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4DB9936C03DD // TnsWarningLinkHandle
+ : Parent HWL ME_4DB9936C03DD // TnsWarningLinkHandle
  ;
 
 ref; // ME_4DB993D3037A SwitchFiltersOff_LinkHandle
@@ -1514,7 +1514,7 @@ ref; // ME_4DB993D3037A SwitchFiltersOff_LinkHandle
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4DB9936C03DD // TnsWarningLinkHandle
+ : Parent HWL ME_4DB9936C03DD // TnsWarningLinkHandle
  ;
 
 ref; // ME_4DB9A376035E nsFlashActiveXInstallLinkId
@@ -1526,7 +1526,7 @@ ref; // ME_4DB9A376035E nsFlashActiveXInstallLinkId
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4DB9936C03DD // TnsWarningLinkHandle
+ : Parent HWL ME_4DB9936C03DD // TnsWarningLinkHandle
  ;
 
 ref; // ME_4DC022910331 UnreadConsultations_LinkHandle
@@ -1538,7 +1538,7 @@ ref; // ME_4DC022910331 UnreadConsultations_LinkHandle
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4DB9936C03DD // TnsWarningLinkHandle
+ : Parent HWL ME_4DB9936C03DD // TnsWarningLinkHandle
  ;
 
 ref; // ME_4DC280060116 TimeMachineChangeDateOrOff_LinkHandle
@@ -1551,16 +1551,16 @@ ref; // ME_4DC280060116 TimeMachineChangeDateOrOff_LinkHandle
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4DC14229028D // WarningGenerator
+ : Parent HWL ME_4DC14229028D // WarningGenerator
  ;
  : Attributes
-   Seq: ( ME_493E502102F5 // None_LinkHandle
- ME_493E50320049 // NotSure_LinkHandle
- ME_493E502A02B6 // TimeMachineOff_LinkHandle
- ME_4DB993D3037A // SwitchFiltersOff_LinkHandle
- ME_4DB9A376035E // nsFlashActiveXInstallLinkId
- ME_4DC022910331 // UnreadConsultations_LinkHandle
- ME_4DC280060116 // TimeMachineChangeDateOrOff_LinkHandle
+   Seq: ( HWL ME_493E502102F5 // None_LinkHandle
+ HWL ME_493E50320049 // NotSure_LinkHandle
+ HWL ME_493E502A02B6 // TimeMachineOff_LinkHandle
+ HWL ME_4DB993D3037A // SwitchFiltersOff_LinkHandle
+ HWL ME_4DB9A376035E // nsFlashActiveXInstallLinkId
+ HWL ME_4DC022910331 // UnreadConsultations_LinkHandle
+ HWL ME_4DC280060116 // TimeMachineChangeDateOrOff_LinkHandle
  )
  ; // Attributes
  CONST "children prefix" 'c'
@@ -1578,7 +1578,7 @@ FORWARD ME_4DB993ED02C1
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4DB993ED02C1 // TnsWarningSub
+ : Parent HWL ME_4DB993ED02C1 // TnsWarningSub
  ;
 
 ref; // ME_493E5005029A NoneWarningSub
@@ -1590,7 +1590,7 @@ ref; // ME_493E5005029A NoneWarningSub
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4DB993ED02C1 // TnsWarningSub
+ : Parent HWL ME_4DB993ED02C1 // TnsWarningSub
  ;
 
 ref; // ME_4DB99558030D EditionWarningSub
@@ -1602,7 +1602,7 @@ ref; // ME_4DB99558030D EditionWarningSub
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4DB993ED02C1 // TnsWarningSub
+ : Parent HWL ME_4DB993ED02C1 // TnsWarningSub
  ;
 
 ref; // ME_493E500E00EC NotSureWarningSub
@@ -1614,7 +1614,7 @@ ref; // ME_493E500E00EC NotSureWarningSub
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4DB993ED02C1 // TnsWarningSub
+ : Parent HWL ME_4DB993ED02C1 // TnsWarningSub
  ;
 
 ref; // ME_493E4FF8021B SimpleWarningSub
@@ -1626,7 +1626,7 @@ ref; // ME_493E4FF8021B SimpleWarningSub
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4DB993ED02C1 // TnsWarningSub
+ : Parent HWL ME_4DB993ED02C1 // TnsWarningSub
  ;
 
 ref; // ME_493E5014020A TimeMachineWarningSub
@@ -1639,14 +1639,14 @@ ref; // ME_493E5014020A TimeMachineWarningSub
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4DC14229028D // WarningGenerator
+ : Parent HWL ME_4DC14229028D // WarningGenerator
  ;
  : Attributes
-   Seq: ( ME_493E5005029A // NoneWarningSub
- ME_4DB99558030D // EditionWarningSub
- ME_493E500E00EC // NotSureWarningSub
- ME_493E4FF8021B // SimpleWarningSub
- ME_493E5014020A // TimeMachineWarningSub
+   Seq: ( HWL ME_493E5005029A // NoneWarningSub
+ HWL ME_4DB99558030D // EditionWarningSub
+ HWL ME_493E500E00EC // NotSureWarningSub
+ HWL ME_493E4FF8021B // SimpleWarningSub
+ HWL ME_493E5014020A // TimeMachineWarningSub
  )
  ; // Attributes
  CONST "children prefix" 'c'
@@ -1664,7 +1664,7 @@ FORWARD ME_493E4FE20195
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_493E4FE20195 // WarningConstants
+ : Parent HWL ME_493E4FE20195 // WarningConstants
  ;
  CONST Value '[]'
  CONST "AutoInc" false
@@ -1682,10 +1682,10 @@ ref; // ME_493E503B02C4 cEmptyWarning
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4DC14229028D // WarningGenerator
+ : Parent HWL ME_4DC14229028D // WarningGenerator
  ;
  : Attributes
-   Seq: ( ME_493E503B02C4 // cEmptyWarning
+   Seq: ( HWL ME_493E503B02C4 // cEmptyWarning
  )
  ; // Attributes
  CONST "spell names" false
@@ -1696,7 +1696,7 @@ ref; // ME_493E4FE20195 WarningConstants
  CONST Name 'aWarning'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_4921869901CF // IdsWarning
+ : Target HWL ME_4921869901CF // IdsWarning
  ;
 
 ref; // ME_4EDE032401DA aWarning
@@ -1726,7 +1726,7 @@ ref; // ME_4DA87309006C aUserType
  %SUMMARY 'Результат сообщает о том, какие предупреждения есть у документа. Если нет ни одного предупреждения, то вернется cEmptyWarning' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4DC14229028D // WarningGenerator
+ : Parent HWL ME_4DC14229028D // WarningGenerator
  ;
  : Target WL 'ME_4921866C01A1' '47F2170002B2.pas.ms.script' // TWarningTypeSet
  ;
@@ -1747,19 +1747,19 @@ ref; // ME_493E4F7E039B Generate
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_491B305A0096 // DocumentAndListInterfaces
+ : Parent HWL ME_491B305A0096 // DocumentAndListInterfaces
  ;
  : Operations
-   Seq: ( ME_493E4F7E039B // Generate
+   Seq: ( HWL ME_493E4F7E039B // Generate
  )
  ; // Operations
  : Children
-   Seq: ( ME_4DB9936C03DD // TnsWarningLinkHandle
- ME_4DB993ED02C1 // TnsWarningSub
+   Seq: ( HWL ME_4DB9936C03DD // TnsWarningLinkHandle
+ HWL ME_4DB993ED02C1 // TnsWarningSub
  )
  ; // Children
  : Constants
-   Seq: ( ME_493E4FE20195 // WarningConstants
+   Seq: ( HWL ME_493E4FE20195 // WarningConstants
  )
  ; // Constants
 
@@ -1775,7 +1775,7 @@ FORWARD ME_49145C530239
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_49145C530239 // DocumentFromList
+ : Parent HWL ME_49145C530239 // DocumentFromList
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -1791,7 +1791,7 @@ ref; // ME_49145C7C0021 CanOpenPrevDoc
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_49145C530239 // DocumentFromList
+ : Parent HWL ME_49145C530239 // DocumentFromList
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -1807,7 +1807,7 @@ ref; // ME_49145C86028D CanOpenNextDoc
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_49145C530239 // DocumentFromList
+ : Parent HWL ME_49145C530239 // DocumentFromList
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -1830,7 +1830,7 @@ ref; // ME_49145C630206 aPrev
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_49145C530239 // DocumentFromList
+ : Parent HWL ME_49145C530239 // DocumentFromList
  ;
  : Target WL 'ME_47EA0784000D' '4B1FC2FF03CD.pas.ms.script' // IdeDocInfo
  ;
@@ -1847,7 +1847,7 @@ ref; // ME_49145C5D0015 SwitchToDocumentFromList
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_49145C530239 // DocumentFromList
+ : Parent HWL ME_49145C530239 // DocumentFromList
  ;
 
 ref; // ME_49145C6E00F8 ReturnToList
@@ -1860,17 +1860,17 @@ ref; // ME_49145C6E00F8 ReturnToList
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_491B305A0096 // DocumentAndListInterfaces
+ : Parent HWL ME_491B305A0096 // DocumentAndListInterfaces
  ;
  : Attributes
-   Seq: ( ME_49145C7C0021 // CanOpenPrevDoc
- ME_49145C86028D // CanOpenNextDoc
- ME_49145C940250 // CanReturnToList
+   Seq: ( HWL ME_49145C7C0021 // CanOpenPrevDoc
+ HWL ME_49145C86028D // CanOpenNextDoc
+ HWL ME_49145C940250 // CanReturnToList
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_49145C5D0015 // SwitchToDocumentFromList
- ME_49145C6E00F8 // ReturnToList
+   Seq: ( HWL ME_49145C5D0015 // SwitchToDocumentFromList
+ HWL ME_49145C6E00F8 // ReturnToList
  )
  ; // Operations
 
@@ -1879,33 +1879,33 @@ ref; // ME_49145C530239 DocumentFromList
 FORWARD ME_496A0972003A
 
 : ME_49145C5D0015_ME_496A0972003A
- : Original ME_49145C5D0015 // SwitchToDocumentFromList
+ : Original HWL ME_49145C5D0015 // SwitchToDocumentFromList
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_49145C5D0015_ME_496A0972003A SwitchToDocumentFromList
 
 : ME_49145C6E00F8_ME_496A0972003A
- : Original ME_49145C6E00F8 // ReturnToList
+ : Original HWL ME_49145C6E00F8 // ReturnToList
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_49145C6E00F8_ME_496A0972003A ReturnToList
 
 : ME_49145C7C0021_ME_496A0972003A
- : Original ME_49145C7C0021 // CanOpenPrevDoc
+ : Original HWL ME_49145C7C0021 // CanOpenPrevDoc
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_49145C7C0021_ME_496A0972003A CanOpenPrevDoc
 
 : ME_49145C86028D_ME_496A0972003A
- : Original ME_49145C86028D // CanOpenNextDoc
+ : Original HWL ME_49145C86028D // CanOpenNextDoc
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_49145C86028D_ME_496A0972003A CanOpenNextDoc
 
 : ME_49145C940250_ME_496A0972003A
- : Original ME_49145C940250 // CanReturnToList
+ : Original HWL ME_49145C940250 // CanReturnToList
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
@@ -1920,10 +1920,10 @@ ref; // ME_49145C940250_ME_496A0972003A CanReturnToList
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_491B305A0096 // DocumentAndListInterfaces
+ : Parent HWL ME_491B305A0096 // DocumentAndListInterfaces
  ;
  : Implements
-   Seq: ( ME_49145C530239 // DocumentFromList
+   Seq: ( HWL ME_49145C530239 // DocumentFromList
  )
  ; // Implements
  : Implemented
@@ -1950,7 +1950,7 @@ FORWARD ME_500E5CDD00C5
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_500E5CDD00C5 // TdocLikeState
+ : Parent HWL ME_500E5CDD00C5 // TdocLikeState
  ;
 
 ref; // ME_500E5CEF01BB dlsDefault
@@ -1962,7 +1962,7 @@ ref; // ME_500E5CEF01BB dlsDefault
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_500E5CDD00C5 // TdocLikeState
+ : Parent HWL ME_500E5CDD00C5 // TdocLikeState
  ;
 
 ref; // ME_500E5D0E0034 dlsUseful
@@ -1974,7 +1974,7 @@ ref; // ME_500E5D0E0034 dlsUseful
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_500E5CDD00C5 // TdocLikeState
+ : Parent HWL ME_500E5CDD00C5 // TdocLikeState
  ;
 
 ref; // ME_500E5D1903CD dlsUseless
@@ -1987,12 +1987,12 @@ ref; // ME_500E5D1903CD dlsUseless
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47EA0356011B // IdsBaseDocument
+ : Parent HWL ME_47EA0356011B // IdsBaseDocument
  ;
  : Attributes
-   Seq: ( ME_500E5CEF01BB // dlsDefault
- ME_500E5D0E0034 // dlsUseful
- ME_500E5D1903CD // dlsUseless
+   Seq: ( HWL ME_500E5CEF01BB // dlsDefault
+ HWL ME_500E5D0E0034 // dlsUseful
+ HWL ME_500E5D1903CD // dlsUseless
  )
  ; // Attributes
  CONST extprop:rc:isAcceptableForScripts true
@@ -2008,7 +2008,7 @@ ref; // ME_500E5CDD00C5 TdocLikeState
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_47EA0356011B // IdsBaseDocument
+ : Parent HWL ME_47EA0356011B // IdsBaseDocument
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -2025,7 +2025,7 @@ ref; // ME_47EA04080292 HasDoc
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_47EA0356011B // IdsBaseDocument
+ : Parent HWL ME_47EA0356011B // IdsBaseDocument
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -2042,7 +2042,7 @@ ref; // ME_47EA042601D9 CanWorkWithRedactions
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_47EA0356011B // IdsBaseDocument
+ : Parent HWL ME_47EA0356011B // IdsBaseDocument
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -2059,7 +2059,7 @@ ref; // ME_47EA04970339 HasPrevRedaction
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_47EA0356011B // IdsBaseDocument
+ : Parent HWL ME_47EA0356011B // IdsBaseDocument
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -2076,7 +2076,7 @@ ref; // ME_47EA04B400A1 HasNextRedaction
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_47EA0356011B // IdsBaseDocument
+ : Parent HWL ME_47EA0356011B // IdsBaseDocument
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -2093,7 +2093,7 @@ ref; // ME_47EA08690258 IsReadOnly
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_47EA0356011B // IdsBaseDocument
+ : Parent HWL ME_47EA0356011B // IdsBaseDocument
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -2110,7 +2110,7 @@ ref; // ME_47EA087C02BC TimeMachineOff
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_47EA0356011B // IdsBaseDocument
+ : Parent HWL ME_47EA0356011B // IdsBaseDocument
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -2127,7 +2127,7 @@ ref; // ME_491B2E87000D IsDateCurrentRedationEmpty
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_47EA0356011B // IdsBaseDocument
+ : Parent HWL ME_47EA0356011B // IdsBaseDocument
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -2143,7 +2143,7 @@ ref; // ME_491B2F1601B0 IsActualRedation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_47EA0356011B // IdsBaseDocument
+ : Parent HWL ME_47EA0356011B // IdsBaseDocument
  ;
  : Target WL 'ME_494F741D008B' '467823B7002C.pas.ms.script' // TafwPreviewCaleeArea
  ;
@@ -2159,7 +2159,7 @@ ref; // ME_495894020347 PreviewCaleeArea
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_47EA0356011B // IdsBaseDocument
+ : Parent HWL ME_47EA0356011B // IdsBaseDocument
  ;
  : Target WL 'ME_47C6A603009D' '47C5207602D1.pas.ms.script' // InevDocumentContainer
  ;
@@ -2175,7 +2175,7 @@ ref; // ME_491B2D5A0200 Container
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_47EA0356011B // IdsBaseDocument
+ : Parent HWL ME_47EA0356011B // IdsBaseDocument
  ;
  : Target WL 'ME_47EA0784000D' '4B1FC2FF03CD.pas.ms.script' // IdeDocInfo
  ;
@@ -2191,7 +2191,7 @@ ref; // ME_491B2DB200CE DocInfo
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_47EA0356011B // IdsBaseDocument
+ : Parent HWL ME_47EA0356011B // IdsBaseDocument
  ;
  : Target WL 'ME_47EA082B021A' '47EA07FA02CE.pas.ms.script' // TbsLanguage
  ;
@@ -2207,9 +2207,9 @@ ref; // ME_491B2E63002B Language
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_47EA0356011B // IdsBaseDocument
+ : Parent HWL ME_47EA0356011B // IdsBaseDocument
  ;
- : Target ME_500E5CDD00C5 // TdocLikeState
+ : Target HWL ME_500E5CDD00C5 // TdocLikeState
  ;
  CONST "pm" false
 
@@ -2223,7 +2223,7 @@ FORWARD ME_500E5D5D0268
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_500E5D5D0268 // AsLikeable
+ : Parent HWL ME_500E5D5D0268 // AsLikeable
  ;
  : Target WL 'ME_4FEAFCB6035C' '4570511E038A.pas.ms.script' // Likeable
  ;
@@ -2233,7 +2233,7 @@ ref; // ME_500E5DDD02B9 DoIt
 : ME_500E5DCC0004
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_500E5D5D0268 // AsLikeable
+ : Parent HWL ME_500E5D5D0268 // AsLikeable
  ;
  : Target WL 'ME_4FEAFCB6035C' '4570511E038A.pas.ms.script' // Likeable
  ;
@@ -2248,10 +2248,10 @@ ref; // ME_500E5DCC0004
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_47EA0356011B // IdsBaseDocument
+ : Parent HWL ME_47EA0356011B // IdsBaseDocument
  ;
  : Operations
-   Seq: ( ME_500E5DDD02B9 // DoIt
+   Seq: ( HWL ME_500E5DDD02B9 // DoIt
  )
  ; // Operations
  : Dependencies
@@ -2269,7 +2269,7 @@ FORWARD ME_53D8C6EA038C
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_53D8C6EA038C // GetDocumentShortName
+ : Parent HWL ME_53D8C6EA038C // GetDocumentShortName
  ;
  : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
  ;
@@ -2284,10 +2284,10 @@ ref; // ME_53D8C7080360 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_47EA0356011B // IdsBaseDocument
+ : Parent HWL ME_47EA0356011B // IdsBaseDocument
  ;
  : Operations
-   Seq: ( ME_53D8C7080360 // DoIt
+   Seq: ( HWL ME_53D8C7080360 // DoIt
  )
  ; // Operations
 
@@ -2301,7 +2301,7 @@ FORWARD ME_54B3A7C7038F
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_54B3A7C7038F // GetDocumentName
+ : Parent HWL ME_54B3A7C7038F // GetDocumentName
  ;
  : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
  ;
@@ -2316,10 +2316,10 @@ ref; // ME_54B3A7D603C7 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_47EA0356011B // IdsBaseDocument
+ : Parent HWL ME_47EA0356011B // IdsBaseDocument
  ;
  : Operations
-   Seq: ( ME_54B3A7D603C7 // DoIt
+   Seq: ( HWL ME_54B3A7D603C7 // DoIt
  )
  ; // Operations
 
@@ -2359,7 +2359,7 @@ ref; // ME_491B2F8B0234 aPos
  %SUMMARY 'открыть ссылку. Если ссылка требует пересоздания сборки, то данные для'#13#10'             новой сборки вернуться как результат для вызова операции модуля' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_47EA0356011B // IdsBaseDocument
+ : Parent HWL ME_47EA0356011B // IdsBaseDocument
  ;
  : Target WL 'ME_47EA0784000D' '4B1FC2FF03CD.pas.ms.script' // IdeDocInfo
  ;
@@ -2388,7 +2388,7 @@ ref; // ME_491B2FF003D5 aPos
  %SUMMARY 'открыть документ в окне' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_47EA0356011B // IdsBaseDocument
+ : Parent HWL ME_47EA0356011B // IdsBaseDocument
  ;
  : Target WL 'ME_47EA0784000D' '4B1FC2FF03CD.pas.ms.script' // IdeDocInfo
  ;
@@ -2400,13 +2400,13 @@ ref; // ME_491B2FF003D5 aPos
 ref; // ME_491B2FE20181 NewDocInfo
 
 : ME_4AE56DE80093_ME_47EA0356011B
- : Original ME_4AE56DE80093 // MakeHAFMacroReplacer
+ : Original HWL ME_4AE56DE80093 // MakeHAFMacroReplacer
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4AE56DE80093_ME_47EA0356011B MakeHAFMacroReplacer
 
 : ME_4AE575FA030B_ME_47EA0356011B
- : Original ME_4AE575FA030B // MakeFilterInfo
+ : Original HWL ME_4AE575FA030B // MakeFilterInfo
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4AE575FA030B_ME_47EA0356011B MakeFilterInfo
@@ -2421,35 +2421,35 @@ ref; // ME_4AE575FA030B_ME_47EA0356011B MakeFilterInfo
  %SUMMARY 'Базовый бизнес объект документа.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_491B305A0096 // DocumentAndListInterfaces
+ : Parent HWL ME_491B305A0096 // DocumentAndListInterfaces
  ;
  : Implements
-   Seq: ( ME_4AE56DB003D5 // IucpHAFMacroReplacerFactory
- ME_4AE575E00174 // IucpFilterInfoFactory
+   Seq: ( HWL ME_4AE56DB003D5 // IucpHAFMacroReplacerFactory
+ HWL ME_4AE575E00174 // IucpFilterInfoFactory
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_47EA04080292 // HasDoc
- ME_47EA042601D9 // CanWorkWithRedactions
- ME_47EA04970339 // HasPrevRedaction
- ME_47EA04B400A1 // HasNextRedaction
- ME_47EA08690258 // IsReadOnly
- ME_47EA087C02BC // TimeMachineOff
- ME_491B2E87000D // IsDateCurrentRedationEmpty
- ME_491B2F1601B0 // IsActualRedation
- ME_495894020347 // PreviewCaleeArea
- ME_491B2D5A0200 // Container
- ME_491B2DB200CE // DocInfo
- ME_491B2E63002B // Language
- ME_500E5D3B02AF // LikeState
+   Seq: ( HWL ME_47EA04080292 // HasDoc
+ HWL ME_47EA042601D9 // CanWorkWithRedactions
+ HWL ME_47EA04970339 // HasPrevRedaction
+ HWL ME_47EA04B400A1 // HasNextRedaction
+ HWL ME_47EA08690258 // IsReadOnly
+ HWL ME_47EA087C02BC // TimeMachineOff
+ HWL ME_491B2E87000D // IsDateCurrentRedationEmpty
+ HWL ME_491B2F1601B0 // IsActualRedation
+ HWL ME_495894020347 // PreviewCaleeArea
+ HWL ME_491B2D5A0200 // Container
+ HWL ME_491B2DB200CE // DocInfo
+ HWL ME_491B2E63002B // Language
+ HWL ME_500E5D3B02AF // LikeState
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_500E5D5D0268 // AsLikeable
- ME_53D8C6EA038C // GetDocumentShortName
- ME_54B3A7C7038F // GetDocumentName
- ME_491B2F63002D // MakeGotoPointData
- ME_491B2FE20181 // NewDocInfo
+   Seq: ( HWL ME_500E5D5D0268 // AsLikeable
+ HWL ME_53D8C6EA038C // GetDocumentShortName
+ HWL ME_54B3A7C7038F // GetDocumentName
+ HWL ME_491B2F63002D // MakeGotoPointData
+ HWL ME_491B2FE20181 // NewDocInfo
  )
  ; // Operations
  : Implemented
@@ -2458,7 +2458,7 @@ ref; // ME_4AE575FA030B_ME_47EA0356011B MakeFilterInfo
  )
  ; // Implemented
  : Children
-   Seq: ( ME_500E5CDD00C5 // TdocLikeState
+   Seq: ( HWL ME_500E5CDD00C5 // TdocLikeState
  )
  ; // Children
  CONST extprop:rc:SelfName 'dsBaseDocument'
@@ -2477,7 +2477,7 @@ FORWARD ME_47E9F00100A2
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_47E9F00100A2 // IdsList
+ : Parent HWL ME_47E9F00100A2 // IdsList
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -2494,7 +2494,7 @@ ref; // ME_47F1E425028C IsSaved
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_47E9F00100A2 // IdsList
+ : Parent HWL ME_47E9F00100A2 // IdsList
  ;
  : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
  ;
@@ -2511,7 +2511,7 @@ ref; // ME_47F1E48F03C7 ListName
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_47E9F00100A2 // IdsList
+ : Parent HWL ME_47E9F00100A2 // IdsList
  ;
  : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
  ;
@@ -2528,7 +2528,7 @@ ref; // ME_47F1E4A901C7 ShortListName
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_47E9F00100A2 // IdsList
+ : Parent HWL ME_47E9F00100A2 // IdsList
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -2545,7 +2545,7 @@ ref; // ME_47F1E7000276 IsChanged
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_47E9F00100A2 // IdsList
+ : Parent HWL ME_47E9F00100A2 // IdsList
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -2562,7 +2562,7 @@ ref; // ME_47F1E722039F IsFiltered
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_47E9F00100A2 // IdsList
+ : Parent HWL ME_47E9F00100A2 // IdsList
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -2579,7 +2579,7 @@ ref; // ME_47F272B40292 IsListEmpty
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_47E9F00100A2 // IdsList
+ : Parent HWL ME_47E9F00100A2 // IdsList
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -2596,7 +2596,7 @@ ref; // ME_47F48D7C028E IsTimeMachineEnable
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_47E9F00100A2 // IdsList
+ : Parent HWL ME_47E9F00100A2 // IdsList
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -2613,7 +2613,7 @@ ref; // ME_47F48DF603AF TimeMachineOff
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_47E9F00100A2 // IdsList
+ : Parent HWL ME_47E9F00100A2 // IdsList
  ;
  : Target WL 'ME_47F5C59F0135' '47EA07FA02CE.pas.ms.script' // TbsListType
  ;
@@ -2630,7 +2630,7 @@ ref; // ME_47F5C5050227 ListType
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_47E9F00100A2 // IdsList
+ : Parent HWL ME_47E9F00100A2 // IdsList
  ;
  : Target WL 'ME_45EEDB730265' '45700BFD0251.pas.ms.script' // DynList
  ;
@@ -2647,7 +2647,7 @@ ref; // ME_47FA168B01FB List
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_47E9F00100A2 // IdsList
+ : Parent HWL ME_47E9F00100A2 // IdsList
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -2664,7 +2664,7 @@ ref; // ME_47FB001703CE IsMain
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_47E9F00100A2 // IdsList
+ : Parent HWL ME_47E9F00100A2 // IdsList
  ;
  : Target WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
  ;
@@ -2681,7 +2681,7 @@ ref; // ME_47FF178F033D NodeForPositioning
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_47E9F00100A2 // IdsList
+ : Parent HWL ME_47E9F00100A2 // IdsList
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -2698,7 +2698,7 @@ ref; // ME_4827DF180028 AllDocumentFiltered
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_47E9F00100A2 // IdsList
+ : Parent HWL ME_47E9F00100A2 // IdsList
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -2714,7 +2714,7 @@ ref; // ME_4875E7B60332 HasAttributes
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_47E9F00100A2 // IdsList
+ : Parent HWL ME_47E9F00100A2 // IdsList
  ;
  : Target WL 'ME_45EEB14402F9' '45EEA48F011F.pas.ms.script' // FiltersFromQuery
  ;
@@ -2729,7 +2729,7 @@ ref; // ME_4AEEE80202AD ActiveFilters
  %SUMMARY '- обновить предварительный просмотр.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_47E9F00100A2 // IdsList
+ : Parent HWL ME_47E9F00100A2 // IdsList
  ;
 
 ref; // ME_47F1EDFC0318 UpdatePreview
@@ -2754,7 +2754,7 @@ ref; // ME_493920370252 aOnlyFirstLevel
  %SUMMARY '- формирует preview для списка.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_47E9F00100A2 // IdsList
+ : Parent HWL ME_47E9F00100A2 // IdsList
  ;
  : Target WL 'ME_473D8DF50230' '467823B7002C.pas.ms.script' // IafwComplexDocumentPreview
  ;
@@ -2781,7 +2781,7 @@ ref; // ME_47F1EEC202F1 theDataInfo
  %SUMMARY '- возвращает SDS для открытия сборки документ.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_47E9F00100A2 // IdsList
+ : Parent HWL ME_47E9F00100A2 // IdsList
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -2799,7 +2799,7 @@ ref; // ME_47F1EE960312 OpenDocument
  %SUMMARY '- создать новый список из выделенных.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_47E9F00100A2 // IdsList
+ : Parent HWL ME_47E9F00100A2 // IdsList
  ;
  : Target WL 'ME_45EEDB730265' '45700BFD0251.pas.ms.script' // DynList
  ;
@@ -2813,7 +2813,7 @@ ref; // ME_47F1EF0403E7 NewListFromSelected
  %SUMMARY '- открыть список в окне.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_47E9F00100A2 // IdsList
+ : Parent HWL ME_47E9F00100A2 // IdsList
  ;
  : Target WL 'ME_47F20DEA0340' '4B1D3D250382.pas.ms.script' // IdeList
  ;
@@ -2827,7 +2827,7 @@ ref; // ME_47F32E5D01B0 NewList
  %SUMMARY '- обновляет информацию о списке.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_47E9F00100A2 // IdsList
+ : Parent HWL ME_47E9F00100A2 // IdsList
  ;
 
 ref; // ME_47F4BC8000F0 UpdateListInfo
@@ -2848,7 +2848,7 @@ ref; // ME_493920430162 aTree
  %SUMMARY '- определяет содержит ли aControl список.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_47E9F00100A2 // IdsList
+ : Parent HWL ME_47E9F00100A2 // IdsList
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -2888,7 +2888,7 @@ ref; // ME_4939204D010C aAdd
  %SUMMARY '- применить\отменить фильтр.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_47E9F00100A2 // IdsList
+ : Parent HWL ME_47E9F00100A2 // IdsList
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -2907,7 +2907,7 @@ ref; // ME_47F60D510152 ApplyFilter
  %SUMMARY '- очистить фильтры.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_47E9F00100A2 // IdsList
+ : Parent HWL ME_47E9F00100A2 // IdsList
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -2921,7 +2921,7 @@ ref; // ME_47F6121700FE ClearFilters
  %SUMMARY '- удаляет выбранные узлы.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_47E9F00100A2 // IdsList
+ : Parent HWL ME_47E9F00100A2 // IdsList
  ;
 
 ref; // ME_47F6180E0359 DeleteNodes
@@ -2960,7 +2960,7 @@ ref; // ME_49392057037C aFormat
  %SUMMARY '- сохранить Указанный документ на диск в указанном формате.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_47E9F00100A2 // IdsList
+ : Parent HWL ME_47E9F00100A2 // IdsList
  ;
  : Parameters
    Seq: ( ME_4939205701E3 // aDocument
@@ -3014,7 +3014,7 @@ ref; // ME_4939206703AD aFormat
  %SUMMARY '- сохранить выделенные документы на диск в указанном формате.'#13#10'Возвращает признак того, что чего-то сохранили' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_47E9F00100A2 // IdsList
+ : Parent HWL ME_47E9F00100A2 // IdsList
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -3053,7 +3053,7 @@ ref; // ME_47F9CA3200CD SaveSelection
  %SUMMARY '- получение списка в виде текта.  aOnlyFirstLevel - с\без вхождений.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_47E9F00100A2 // IdsList
+ : Parent HWL ME_47E9F00100A2 // IdsList
  ;
  : Target WL 'ME_46A5B0060013' '4677FBA70343.pas.ms.script' // IStream
  ;
@@ -3098,7 +3098,7 @@ ref; // ME_512F75BB00B1 aFormat
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_47E9F00100A2 // IdsList
+ : Parent HWL ME_47E9F00100A2 // IdsList
  ;
  : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
  ;
@@ -3167,7 +3167,7 @@ ref; // ME_493920820113 NeedPrintTopic
  %SUMMARY '- сохранить выделенные документы в один файл в указанном формате. Разделяя, если указано, их фразой "Топик: <внутренний номер документа>".'#13#10'Возвращает признак того, что чего-то сохранили' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_47E9F00100A2 // IdsList
+ : Parent HWL ME_47E9F00100A2 // IdsList
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -3189,7 +3189,7 @@ ref; // ME_47F9D29C02D7 MergeDocuments
  %SUMMARY '- переприменить фильтры.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_47E9F00100A2 // IdsList
+ : Parent HWL ME_47E9F00100A2 // IdsList
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -3212,7 +3212,7 @@ ref; // ME_4939208B01D0 aFilter
  %SUMMARY '- является ли данный фильтр примененным.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_47E9F00100A2 // IdsList
+ : Parent HWL ME_47E9F00100A2 // IdsList
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -3239,7 +3239,7 @@ ref; // ME_493920930390 aNode
  %SUMMARY '- получить идентификатор узла.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_47E9F00100A2 // IdsList
+ : Parent HWL ME_47E9F00100A2 // IdsList
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -3257,7 +3257,7 @@ ref; // ME_47F9FADF033F NodeId
  %SUMMARY '- предварительный просмотр для текущего документа.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_47E9F00100A2 // IdsList
+ : Parent HWL ME_47E9F00100A2 // IdsList
  ;
  : Target WL 'ME_473D8DF50230' '467823B7002C.pas.ms.script' // IafwComplexDocumentPreview
  ;
@@ -3284,7 +3284,7 @@ ref; // ME_4939209B0206 aNode
  %SUMMARY '- тип узла списка.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_47E9F00100A2 // IdsList
+ : Parent HWL ME_47E9F00100A2 // IdsList
  ;
  : Target WL 'ME_47F213990332' '47EA07FA02CE.pas.ms.script' // TbsListNodeType
  ;
@@ -3302,7 +3302,7 @@ ref; // ME_47FAF80A0182 ListNodeType
  %SUMMARY '- открыть список из выделенных элементов.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_47E9F00100A2 // IdsList
+ : Parent HWL ME_47E9F00100A2 // IdsList
  ;
  : Target WL 'ME_47F20DEA0340' '4B1D3D250382.pas.ms.script' // IdeList
  ;
@@ -3334,7 +3334,7 @@ ref; // ME_493920A60259 aOperation
  %SUMMARY '- выполнить логическую операцию со списком.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_47E9F00100A2 // IdsList
+ : Parent HWL ME_47E9F00100A2 // IdsList
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -3362,7 +3362,7 @@ ref; // ME_493920AC03C1 aFilter
  %SUMMARY '- применить контекстный фильтр.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_47E9F00100A2 // IdsList
+ : Parent HWL ME_47E9F00100A2 // IdsList
  ;
  : Target WL 'ME_45EEB95901C5' '457450470167.pas.ms.script' // NodeBase
  ;
@@ -3398,7 +3398,7 @@ ref; // ME_493920B602AE aOnlySelected
  %SUMMARY '- при не успешном завершении возвращает ECannotSave.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_47E9F00100A2 // IdsList
+ : Parent HWL ME_47E9F00100A2 // IdsList
  ;
  : Parameters
    Seq: ( ME_493920B601D6 // aFileName
@@ -3415,7 +3415,7 @@ ref; // ME_47FC90B50037 SaveToFile
  %SUMMARY '-' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_47E9F00100A2 // IdsList
+ : Parent HWL ME_47E9F00100A2 // IdsList
  ;
 
 ref; // ME_47FF44F20247 ReleaseNodeForPositioning
@@ -3427,7 +3427,7 @@ ref; // ME_47FF44F20247 ReleaseNodeForPositioning
  %SUMMARY '- добавить закладку на текущий документ.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_47E9F00100A2 // IdsList
+ : Parent HWL ME_47E9F00100A2 // IdsList
  ;
  : Target WL 'ME_45EEB65202A0' '4570511E038A.pas.ms.script' // Bookmark
  ;
@@ -3467,7 +3467,7 @@ ref; // ME_4890293103A8 WithTexts
  %SUMMARY 'Создать суперкомплексное превью' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_47E9F00100A2 // IdsList
+ : Parent HWL ME_47E9F00100A2 // IdsList
  ;
  : Target WL 'ME_4890158A0251' '4991B06602DA.pas.ms.script' // InsSuperComplexDocumentPreview
  ;
@@ -3495,7 +3495,7 @@ ref; // ME_4B793EE7007F aOnlyFirstLevel
  %SUMMARY 'Создать превью с текстами документов' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_47E9F00100A2 // IdsList
+ : Parent HWL ME_47E9F00100A2 // IdsList
  ;
  : Target WL 'ME_473D8DF50230' '467823B7002C.pas.ms.script' // IafwComplexDocumentPreview
  ;
@@ -3527,7 +3527,7 @@ ref; // ME_491DD5A10199_ME_47E9F00100A2 SimpleTree
 ref; // ME_491DD5C90095_ME_47E9F00100A2 CurrentChanged
 
 : ME_496F344101D0_ME_47E9F00100A2
- : Original ME_496F344101D0 // CanRunBaseSearch
+ : Original HWL ME_496F344101D0 // CanRunBaseSearch
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
@@ -3543,63 +3543,63 @@ ref; // ME_496F344101D0_ME_47E9F00100A2 CanRunBaseSearch
  %SUMMARY 'Базовый список.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_491B305A0096 // DocumentAndListInterfaces
+ : Parent HWL ME_491B305A0096 // DocumentAndListInterfaces
  ;
  : Inherits
    Seq: ( WL 'ME_47E9F96B035A' '491DD2830110.pas.ms.script' // IdsSimpleTree
  )
  ; // Inherits
  : Implements
-   Seq: ( ME_496F346C0072 // IucbBaseSearchSupportQuery
+   Seq: ( HWL ME_496F346C0072 // IucbBaseSearchSupportQuery
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_47F1E425028C // IsSaved
- ME_47F1E48F03C7 // ListName
- ME_47F1E4A901C7 // ShortListName
- ME_47F1E7000276 // IsChanged
- ME_47F1E722039F // IsFiltered
- ME_47F272B40292 // IsListEmpty
- ME_47F48D7C028E // IsTimeMachineEnable
- ME_47F48DF603AF // TimeMachineOff
- ME_47F5C5050227 // ListType
- ME_47FA168B01FB // List
- ME_47FB001703CE // IsMain
- ME_47FF178F033D // NodeForPositioning
- ME_4827DF180028 // AllDocumentFiltered
- ME_4875E7B60332 // HasAttributes
- ME_4AEEE80202AD // ActiveFilters
+   Seq: ( HWL ME_47F1E425028C // IsSaved
+ HWL ME_47F1E48F03C7 // ListName
+ HWL ME_47F1E4A901C7 // ShortListName
+ HWL ME_47F1E7000276 // IsChanged
+ HWL ME_47F1E722039F // IsFiltered
+ HWL ME_47F272B40292 // IsListEmpty
+ HWL ME_47F48D7C028E // IsTimeMachineEnable
+ HWL ME_47F48DF603AF // TimeMachineOff
+ HWL ME_47F5C5050227 // ListType
+ HWL ME_47FA168B01FB // List
+ HWL ME_47FB001703CE // IsMain
+ HWL ME_47FF178F033D // NodeForPositioning
+ HWL ME_4827DF180028 // AllDocumentFiltered
+ HWL ME_4875E7B60332 // HasAttributes
+ HWL ME_4AEEE80202AD // ActiveFilters
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_47F1EDFC0318 // UpdatePreview
- ME_47F1EE480019 // MakePreview
- ME_47F1EE960312 // OpenDocument
- ME_47F1EF0403E7 // NewListFromSelected
- ME_47F32E5D01B0 // NewList
- ME_47F4BC8000F0 // UpdateListInfo
- ME_47F60913013E // CheckList
- ME_47F60D510152 // ApplyFilter
- ME_47F6121700FE // ClearFilters
- ME_47F6180E0359 // DeleteNodes
- ME_47F61C3D03DE // ExportDocument
- ME_47F61FC00314 // ExportDocuments
- ME_47F9CA3103AC // ListAsText
- ME_512B22E20169 // ListAsString
- ME_47F9D29C02D7 // MergeDocuments
- ME_47F9F86A0108 // RefreshFilters
- ME_47F9FABC001D // IsActiveFilter
- ME_47F9FADF033F // NodeId
- ME_47FA0191035A // MakeDocumentPreview
- ME_47FAF80A0182 // ListNodeType
- ME_47FAFE3B0226 // OpenListFromSelectedNodes
- ME_47FB059C02A3 // ApplyLogicOperation
- ME_47FC76D302A2 // ApplyContextFilter
- ME_47FC90B50037 // SaveToFile
- ME_47FF44F20247 // ReleaseNodeForPositioning
- ME_48034EC0013B // CreateBookmark
- ME_489015E10252 // MakeSuperPreview
- ME_48902C750320 // MakeMultiDocumentPreview
+   Seq: ( HWL ME_47F1EDFC0318 // UpdatePreview
+ HWL ME_47F1EE480019 // MakePreview
+ HWL ME_47F1EE960312 // OpenDocument
+ HWL ME_47F1EF0403E7 // NewListFromSelected
+ HWL ME_47F32E5D01B0 // NewList
+ HWL ME_47F4BC8000F0 // UpdateListInfo
+ HWL ME_47F60913013E // CheckList
+ HWL ME_47F60D510152 // ApplyFilter
+ HWL ME_47F6121700FE // ClearFilters
+ HWL ME_47F6180E0359 // DeleteNodes
+ HWL ME_47F61C3D03DE // ExportDocument
+ HWL ME_47F61FC00314 // ExportDocuments
+ HWL ME_47F9CA3103AC // ListAsText
+ HWL ME_512B22E20169 // ListAsString
+ HWL ME_47F9D29C02D7 // MergeDocuments
+ HWL ME_47F9F86A0108 // RefreshFilters
+ HWL ME_47F9FABC001D // IsActiveFilter
+ HWL ME_47F9FADF033F // NodeId
+ HWL ME_47FA0191035A // MakeDocumentPreview
+ HWL ME_47FAF80A0182 // ListNodeType
+ HWL ME_47FAFE3B0226 // OpenListFromSelectedNodes
+ HWL ME_47FB059C02A3 // ApplyLogicOperation
+ HWL ME_47FC76D302A2 // ApplyContextFilter
+ HWL ME_47FC90B50037 // SaveToFile
+ HWL ME_47FF44F20247 // ReleaseNodeForPositioning
+ HWL ME_48034EC0013B // CreateBookmark
+ HWL ME_489015E10252 // MakeSuperPreview
+ HWL ME_48902C750320 // MakeMultiDocumentPreview
  )
  ; // Operations
  : Implemented
@@ -3625,7 +3625,7 @@ FORWARD ME_47E9F032005A
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_47E9F032005A // IdsDocumentList
+ : Parent HWL ME_47E9F032005A // IdsDocumentList
  ;
  : Target WL 'ME_47F1CDD203D9' '47EA07FA02CE.pas.ms.script' // TlstCRType
  ;
@@ -3642,7 +3642,7 @@ ref; // ME_47F1CDF60078 DocumentListType
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_47E9F032005A // IdsDocumentList
+ : Parent HWL ME_47E9F032005A // IdsDocumentList
  ;
  : Target WL 'ME_47F1DB8301C5' '47EA07FA02CE.pas.ms.script' // TbsSortOrder
  ;
@@ -3659,7 +3659,7 @@ ref; // ME_47F1DBA00097 SortOrder
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_47E9F032005A // IdsDocumentList
+ : Parent HWL ME_47E9F032005A // IdsDocumentList
  ;
  : Target WL 'ME_47F1E27600D4' '47EA07FA02CE.pas.ms.script' // TbsSortType
  ;
@@ -3676,7 +3676,7 @@ ref; // ME_47F1E2DB03DA SortType
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_47E9F032005A // IdsDocumentList
+ : Parent HWL ME_47E9F032005A // IdsDocumentList
  ;
  : Target WL 'ME_47F1E2BA01E1' '47EA07FA02CE.pas.ms.script' // TbsValidSortTypes
  ;
@@ -3693,7 +3693,7 @@ ref; // ME_47F1E406013F ValidSortTypes
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_47E9F032005A // IdsDocumentList
+ : Parent HWL ME_47E9F032005A // IdsDocumentList
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -3710,7 +3710,7 @@ ref; // ME_47F1E7E70201 HasSimilarDocuments
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_47E9F032005A // IdsDocumentList
+ : Parent HWL ME_47E9F032005A // IdsDocumentList
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -3727,7 +3727,7 @@ ref; // ME_47F1E8060132 HasAnnotation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_47E9F032005A // IdsDocumentList
+ : Parent HWL ME_47E9F032005A // IdsDocumentList
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -3744,7 +3744,7 @@ ref; // ME_47F1E81E0324 HasCorrespondents
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_47E9F032005A // IdsDocumentList
+ : Parent HWL ME_47E9F032005A // IdsDocumentList
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -3761,7 +3761,7 @@ ref; // ME_47F1E832010D HasRelatedDoc
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_47E9F032005A // IdsDocumentList
+ : Parent HWL ME_47E9F032005A // IdsDocumentList
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -3778,7 +3778,7 @@ ref; // ME_47F1E8870093 HasRespondents
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_47E9F032005A // IdsDocumentList
+ : Parent HWL ME_47E9F032005A // IdsDocumentList
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -3795,7 +3795,7 @@ ref; // ME_47F1E89D01B5 IsUnderControl
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_47E9F032005A // IdsDocumentList
+ : Parent HWL ME_47E9F032005A // IdsDocumentList
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -3812,7 +3812,7 @@ ref; // ME_47F1E8EB00BA IsDocument
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_47E9F032005A // IdsDocumentList
+ : Parent HWL ME_47E9F032005A // IdsDocumentList
  ;
  : Target WL 'ME_476BF22B03E1' '476BF10A0280.pas.ms.script' // Il3Node
  ;
@@ -3829,7 +3829,7 @@ ref; // ME_47F1E96F02DC CRTypeNode
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_47E9F032005A // IdsDocumentList
+ : Parent HWL ME_47E9F032005A // IdsDocumentList
  ;
  : Target WL 'ME_476BF22B03E1' '476BF10A0280.pas.ms.script' // Il3Node
  ;
@@ -3846,7 +3846,7 @@ ref; // ME_47F1E988002E CRTypeRoot
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_47E9F032005A // IdsDocumentList
+ : Parent HWL ME_47E9F032005A // IdsDocumentList
  ;
  : Target WL 'ME_47F2134C0390' '47EA07FA02CE.pas.ms.script' // TbsListOpenFrom
  ;
@@ -3863,7 +3863,7 @@ ref; // ME_47F1EA050290 OpenFrom
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_47E9F032005A // IdsDocumentList
+ : Parent HWL ME_47E9F032005A // IdsDocumentList
  ;
  : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
  ;
@@ -3880,7 +3880,7 @@ ref; // ME_47F1EA1C002D CRTypeName
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_47E9F032005A // IdsDocumentList
+ : Parent HWL ME_47E9F032005A // IdsDocumentList
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -3897,7 +3897,7 @@ ref; // ME_47F1EA570068 IsListNotFull
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_47E9F032005A // IdsDocumentList
+ : Parent HWL ME_47E9F032005A // IdsDocumentList
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -3914,7 +3914,7 @@ ref; // ME_47F1EA8502EE CurrentRelevance
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_47E9F032005A // IdsDocumentList
+ : Parent HWL ME_47E9F032005A // IdsDocumentList
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -3930,7 +3930,7 @@ ref; // ME_4A2CD019038B IsShortList
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_47E9F032005A // IdsDocumentList
+ : Parent HWL ME_47E9F032005A // IdsDocumentList
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -3946,7 +3946,7 @@ ref; // ME_4A796E570319 IsSnippet
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_47E9F032005A // IdsDocumentList
+ : Parent HWL ME_47E9F032005A // IdsDocumentList
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -3970,7 +3970,7 @@ ref; // ME_49391CEB033D aNode
  %SUMMARY '- вызывается при изменении типа корреспондентов/респондентов.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_47E9F032005A // IdsDocumentList
+ : Parent HWL ME_47E9F032005A // IdsDocumentList
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -4006,7 +4006,7 @@ ref; // ME_49391CF50099 aCurrentNode
  %SUMMARY '- изменить порядок сортировки.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_47E9F032005A // IdsDocumentList
+ : Parent HWL ME_47E9F032005A // IdsDocumentList
  ;
  : Target WL 'ME_46825CC00249' '4682595B0268.pas.ms.script' // Il3SimpleTree
  ;
@@ -4052,7 +4052,7 @@ ref; // ME_49391D00031B aValue
  %SUMMARY '- изменить тип сортировки.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_47E9F032005A // IdsDocumentList
+ : Parent HWL ME_47E9F032005A // IdsDocumentList
  ;
  : Target WL 'ME_46825CC00249' '4682595B0268.pas.ms.script' // Il3SimpleTree
  ;
@@ -4090,7 +4090,7 @@ ref; // ME_49391D440118 aFrom
  %SUMMARY '- найти следующий узел начиная от поданного.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_47E9F032005A // IdsDocumentList
+ : Parent HWL ME_47E9F032005A // IdsDocumentList
  ;
  : Target WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
  ;
@@ -4109,7 +4109,7 @@ ref; // ME_47F1F3380317 Find
  %SUMMARY '- поставить документ на контроль.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_47E9F032005A // IdsDocumentList
+ : Parent HWL ME_47E9F032005A // IdsDocumentList
  ;
 
 ref; // ME_47F2053B0244 AddToControl
@@ -4121,7 +4121,7 @@ ref; // ME_47F2053B0244 AddToControl
  %SUMMARY '- снять с контроля.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_47E9F032005A // IdsDocumentList
+ : Parent HWL ME_47E9F032005A // IdsDocumentList
  ;
 
 ref; // ME_47F2054C001C DelFromControl
@@ -4133,7 +4133,7 @@ ref; // ME_47F2054C001C DelFromControl
  %SUMMARY '- Можно ли ставить на контроль.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_47E9F032005A // IdsDocumentList
+ : Parent HWL ME_47E9F032005A // IdsDocumentList
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -4147,7 +4147,7 @@ ref; // ME_47F2056400FD CanAddToControl
  %SUMMARY 'Переключится на полный список' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_47E9F032005A // IdsDocumentList
+ : Parent HWL ME_47E9F032005A // IdsDocumentList
  ;
  : Target WL 'ME_47F274F101E1' '4B1D394B00E5.pas.ms.script' // IdeDocumentList
  ;
@@ -4160,7 +4160,7 @@ ref; // ME_4A2CD04A013A MakeFullList
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_47E9F032005A // IdsDocumentList
+ : Parent HWL ME_47E9F032005A // IdsDocumentList
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -4173,7 +4173,7 @@ ref; // ME_4AA0E9F503B4 CanAnalize
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_47E9F032005A // IdsDocumentList
+ : Parent HWL ME_47E9F032005A // IdsDocumentList
  ;
  : Target WL 'ME_46825CC00249' '4682595B0268.pas.ms.script' // Il3SimpleTree
  ;
@@ -4181,261 +4181,261 @@ ref; // ME_4AA0E9F503B4 CanAnalize
 ref; // ME_4AA0EA29019C MakeAnalizeTree
 
 : ME_47F1E425028C_ME_47E9F032005A
- : Original ME_47F1E425028C // IsSaved
+ : Original HWL ME_47F1E425028C // IsSaved
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47F1E425028C_ME_47E9F032005A IsSaved
 
 : ME_47F1E48F03C7_ME_47E9F032005A
- : Original ME_47F1E48F03C7 // ListName
+ : Original HWL ME_47F1E48F03C7 // ListName
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47F1E48F03C7_ME_47E9F032005A ListName
 
 : ME_47F1E4A901C7_ME_47E9F032005A
- : Original ME_47F1E4A901C7 // ShortListName
+ : Original HWL ME_47F1E4A901C7 // ShortListName
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47F1E4A901C7_ME_47E9F032005A ShortListName
 
 : ME_47F1E7000276_ME_47E9F032005A
- : Original ME_47F1E7000276 // IsChanged
+ : Original HWL ME_47F1E7000276 // IsChanged
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47F1E7000276_ME_47E9F032005A IsChanged
 
 : ME_47F1E722039F_ME_47E9F032005A
- : Original ME_47F1E722039F // IsFiltered
+ : Original HWL ME_47F1E722039F // IsFiltered
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47F1E722039F_ME_47E9F032005A IsFiltered
 
 : ME_47F1EDFC0318_ME_47E9F032005A
- : Original ME_47F1EDFC0318 // UpdatePreview
+ : Original HWL ME_47F1EDFC0318 // UpdatePreview
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_47F1EDFC0318_ME_47E9F032005A UpdatePreview
 
 : ME_47F1EE480019_ME_47E9F032005A
- : Original ME_47F1EE480019 // MakePreview
+ : Original HWL ME_47F1EE480019 // MakePreview
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_47F1EE480019_ME_47E9F032005A MakePreview
 
 : ME_47F1EE960312_ME_47E9F032005A
- : Original ME_47F1EE960312 // OpenDocument
+ : Original HWL ME_47F1EE960312 // OpenDocument
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_47F1EE960312_ME_47E9F032005A OpenDocument
 
 : ME_47F1EF0403E7_ME_47E9F032005A
- : Original ME_47F1EF0403E7 // NewListFromSelected
+ : Original HWL ME_47F1EF0403E7 // NewListFromSelected
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_47F1EF0403E7_ME_47E9F032005A NewListFromSelected
 
 : ME_47F272B40292_ME_47E9F032005A
- : Original ME_47F272B40292 // IsListEmpty
+ : Original HWL ME_47F272B40292 // IsListEmpty
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47F272B40292_ME_47E9F032005A IsListEmpty
 
 : ME_47F32E5D01B0_ME_47E9F032005A
- : Original ME_47F32E5D01B0 // NewList
+ : Original HWL ME_47F32E5D01B0 // NewList
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_47F32E5D01B0_ME_47E9F032005A NewList
 
 : ME_47F48D7C028E_ME_47E9F032005A
- : Original ME_47F48D7C028E // IsTimeMachineEnable
+ : Original HWL ME_47F48D7C028E // IsTimeMachineEnable
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47F48D7C028E_ME_47E9F032005A IsTimeMachineEnable
 
 : ME_47F48DF603AF_ME_47E9F032005A
- : Original ME_47F48DF603AF // TimeMachineOff
+ : Original HWL ME_47F48DF603AF // TimeMachineOff
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47F48DF603AF_ME_47E9F032005A TimeMachineOff
 
 : ME_47F4BC8000F0_ME_47E9F032005A
- : Original ME_47F4BC8000F0 // UpdateListInfo
+ : Original HWL ME_47F4BC8000F0 // UpdateListInfo
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_47F4BC8000F0_ME_47E9F032005A UpdateListInfo
 
 : ME_47F5C5050227_ME_47E9F032005A
- : Original ME_47F5C5050227 // ListType
+ : Original HWL ME_47F5C5050227 // ListType
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47F5C5050227_ME_47E9F032005A ListType
 
 : ME_47F60913013E_ME_47E9F032005A
- : Original ME_47F60913013E // CheckList
+ : Original HWL ME_47F60913013E // CheckList
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_47F60913013E_ME_47E9F032005A CheckList
 
 : ME_47F60D510152_ME_47E9F032005A
- : Original ME_47F60D510152 // ApplyFilter
+ : Original HWL ME_47F60D510152 // ApplyFilter
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_47F60D510152_ME_47E9F032005A ApplyFilter
 
 : ME_47F6121700FE_ME_47E9F032005A
- : Original ME_47F6121700FE // ClearFilters
+ : Original HWL ME_47F6121700FE // ClearFilters
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_47F6121700FE_ME_47E9F032005A ClearFilters
 
 : ME_47F6180E0359_ME_47E9F032005A
- : Original ME_47F6180E0359 // DeleteNodes
+ : Original HWL ME_47F6180E0359 // DeleteNodes
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_47F6180E0359_ME_47E9F032005A DeleteNodes
 
 : ME_47F61C3D03DE_ME_47E9F032005A
- : Original ME_47F61C3D03DE // ExportDocument
+ : Original HWL ME_47F61C3D03DE // ExportDocument
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_47F61C3D03DE_ME_47E9F032005A ExportDocument
 
 : ME_47F61FC00314_ME_47E9F032005A
- : Original ME_47F61FC00314 // ExportDocuments
+ : Original HWL ME_47F61FC00314 // ExportDocuments
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_47F61FC00314_ME_47E9F032005A ExportDocuments
 
 : ME_47F9CA3103AC_ME_47E9F032005A
- : Original ME_47F9CA3103AC // ListAsText
+ : Original HWL ME_47F9CA3103AC // ListAsText
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_47F9CA3103AC_ME_47E9F032005A ListAsText
 
 : ME_47F9D29C02D7_ME_47E9F032005A
- : Original ME_47F9D29C02D7 // MergeDocuments
+ : Original HWL ME_47F9D29C02D7 // MergeDocuments
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_47F9D29C02D7_ME_47E9F032005A MergeDocuments
 
 : ME_47F9F86A0108_ME_47E9F032005A
- : Original ME_47F9F86A0108 // RefreshFilters
+ : Original HWL ME_47F9F86A0108 // RefreshFilters
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_47F9F86A0108_ME_47E9F032005A RefreshFilters
 
 : ME_47F9FABC001D_ME_47E9F032005A
- : Original ME_47F9FABC001D // IsActiveFilter
+ : Original HWL ME_47F9FABC001D // IsActiveFilter
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_47F9FABC001D_ME_47E9F032005A IsActiveFilter
 
 : ME_47F9FADF033F_ME_47E9F032005A
- : Original ME_47F9FADF033F // NodeId
+ : Original HWL ME_47F9FADF033F // NodeId
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_47F9FADF033F_ME_47E9F032005A NodeId
 
 : ME_47FA0191035A_ME_47E9F032005A
- : Original ME_47FA0191035A // MakeDocumentPreview
+ : Original HWL ME_47FA0191035A // MakeDocumentPreview
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_47FA0191035A_ME_47E9F032005A MakeDocumentPreview
 
 : ME_47FA168B01FB_ME_47E9F032005A
- : Original ME_47FA168B01FB // List
+ : Original HWL ME_47FA168B01FB // List
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47FA168B01FB_ME_47E9F032005A List
 
 : ME_47FAF80A0182_ME_47E9F032005A
- : Original ME_47FAF80A0182 // ListNodeType
+ : Original HWL ME_47FAF80A0182 // ListNodeType
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_47FAF80A0182_ME_47E9F032005A ListNodeType
 
 : ME_47FAFE3B0226_ME_47E9F032005A
- : Original ME_47FAFE3B0226 // OpenListFromSelectedNodes
+ : Original HWL ME_47FAFE3B0226 // OpenListFromSelectedNodes
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_47FAFE3B0226_ME_47E9F032005A OpenListFromSelectedNodes
 
 : ME_47FB001703CE_ME_47E9F032005A
- : Original ME_47FB001703CE // IsMain
+ : Original HWL ME_47FB001703CE // IsMain
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47FB001703CE_ME_47E9F032005A IsMain
 
 : ME_47FB059C02A3_ME_47E9F032005A
- : Original ME_47FB059C02A3 // ApplyLogicOperation
+ : Original HWL ME_47FB059C02A3 // ApplyLogicOperation
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_47FB059C02A3_ME_47E9F032005A ApplyLogicOperation
 
 : ME_47FC76D302A2_ME_47E9F032005A
- : Original ME_47FC76D302A2 // ApplyContextFilter
+ : Original HWL ME_47FC76D302A2 // ApplyContextFilter
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_47FC76D302A2_ME_47E9F032005A ApplyContextFilter
 
 : ME_47FC90B50037_ME_47E9F032005A
- : Original ME_47FC90B50037 // SaveToFile
+ : Original HWL ME_47FC90B50037 // SaveToFile
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_47FC90B50037_ME_47E9F032005A SaveToFile
 
 : ME_47FF178F033D_ME_47E9F032005A
- : Original ME_47FF178F033D // NodeForPositioning
+ : Original HWL ME_47FF178F033D // NodeForPositioning
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47FF178F033D_ME_47E9F032005A NodeForPositioning
 
 : ME_47FF44F20247_ME_47E9F032005A
- : Original ME_47FF44F20247 // ReleaseNodeForPositioning
+ : Original HWL ME_47FF44F20247 // ReleaseNodeForPositioning
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_47FF44F20247_ME_47E9F032005A ReleaseNodeForPositioning
 
 : ME_48034EC0013B_ME_47E9F032005A
- : Original ME_48034EC0013B // CreateBookmark
+ : Original HWL ME_48034EC0013B // CreateBookmark
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_48034EC0013B_ME_47E9F032005A CreateBookmark
 
 : ME_4827DF180028_ME_47E9F032005A
- : Original ME_4827DF180028 // AllDocumentFiltered
+ : Original HWL ME_4827DF180028 // AllDocumentFiltered
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_4827DF180028_ME_47E9F032005A AllDocumentFiltered
 
 : ME_4875E7B60332_ME_47E9F032005A
- : Original ME_4875E7B60332 // HasAttributes
+ : Original HWL ME_4875E7B60332 // HasAttributes
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_4875E7B60332_ME_47E9F032005A HasAttributes
 
 : ME_489015E10252_ME_47E9F032005A
- : Original ME_489015E10252 // MakeSuperPreview
+ : Original HWL ME_489015E10252 // MakeSuperPreview
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_489015E10252_ME_47E9F032005A MakeSuperPreview
 
 : ME_48902C750320_ME_47E9F032005A
- : Original ME_48902C750320 // MakeMultiDocumentPreview
+ : Original HWL ME_48902C750320 // MakeMultiDocumentPreview
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_48902C750320_ME_47E9F032005A MakeMultiDocumentPreview
@@ -4461,21 +4461,21 @@ ref; // ME_491DD5A10199_ME_47E9F032005A SimpleTree
 ref; // ME_491DD5C90095_ME_47E9F032005A CurrentChanged
 
 : ME_496F344101D0_ME_47E9F032005A
- : Original ME_496F344101D0 // CanRunBaseSearch
+ : Original HWL ME_496F344101D0 // CanRunBaseSearch
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_496F344101D0_ME_47E9F032005A CanRunBaseSearch
 
 : ME_4AEEE80202AD_ME_47E9F032005A
- : Original ME_4AEEE80202AD // ActiveFilters
+ : Original HWL ME_4AEEE80202AD // ActiveFilters
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4AEEE80202AD_ME_47E9F032005A ActiveFilters
 
 : ME_512B22E20169_ME_47E9F032005A
- : Original ME_512B22E20169 // ListAsString
+ : Original HWL ME_512B22E20169 // ListAsString
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_512B22E20169_ME_47E9F032005A ListAsString
@@ -4490,46 +4490,46 @@ ref; // ME_512B22E20169_ME_47E9F032005A ListAsString
  %SUMMARY 'Cписок документов' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_491B305A0096 // DocumentAndListInterfaces
+ : Parent HWL ME_491B305A0096 // DocumentAndListInterfaces
  ;
  : Inherits
-   Seq: ( ME_47E9F00100A2 // IdsList
+   Seq: ( HWL ME_47E9F00100A2 // IdsList
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_47F1CDF60078 // DocumentListType
- ME_47F1DBA00097 // SortOrder
- ME_47F1E2DB03DA // SortType
- ME_47F1E406013F // ValidSortTypes
- ME_47F1E7E70201 // HasSimilarDocuments
- ME_47F1E8060132 // HasAnnotation
- ME_47F1E81E0324 // HasCorrespondents
- ME_47F1E832010D // HasRelatedDoc
- ME_47F1E8870093 // HasRespondents
- ME_47F1E89D01B5 // IsUnderControl
- ME_47F1E8EB00BA // IsDocument
- ME_47F1E96F02DC // CRTypeNode
- ME_47F1E988002E // CRTypeRoot
- ME_47F1EA050290 // OpenFrom
- ME_47F1EA1C002D // CRTypeName
- ME_47F1EA570068 // IsListNotFull
- ME_47F1EA8502EE // CurrentRelevance
- ME_4A2CD019038B // IsShortList
- ME_4A796E570319 // IsSnippet
- ME_4B58450403DD // FullListCount
+   Seq: ( HWL ME_47F1CDF60078 // DocumentListType
+ HWL ME_47F1DBA00097 // SortOrder
+ HWL ME_47F1E2DB03DA // SortType
+ HWL ME_47F1E406013F // ValidSortTypes
+ HWL ME_47F1E7E70201 // HasSimilarDocuments
+ HWL ME_47F1E8060132 // HasAnnotation
+ HWL ME_47F1E81E0324 // HasCorrespondents
+ HWL ME_47F1E832010D // HasRelatedDoc
+ HWL ME_47F1E8870093 // HasRespondents
+ HWL ME_47F1E89D01B5 // IsUnderControl
+ HWL ME_47F1E8EB00BA // IsDocument
+ HWL ME_47F1E96F02DC // CRTypeNode
+ HWL ME_47F1E988002E // CRTypeRoot
+ HWL ME_47F1EA050290 // OpenFrom
+ HWL ME_47F1EA1C002D // CRTypeName
+ HWL ME_47F1EA570068 // IsListNotFull
+ HWL ME_47F1EA8502EE // CurrentRelevance
+ HWL ME_4A2CD019038B // IsShortList
+ HWL ME_4A796E570319 // IsSnippet
+ HWL ME_4B58450403DD // FullListCount
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_47F1EE7202A6 // ChangeCRType
- ME_47F1EF4C03B2 // ChangeSortOrder
- ME_47F1EF76022D // ChangeSortType
- ME_47F1F3380317 // Find
- ME_47F2053B0244 // AddToControl
- ME_47F2054C001C // DelFromControl
- ME_47F2056400FD // CanAddToControl
- ME_4A2CD04A013A // MakeFullList
- ME_4AA0E9F503B4 // CanAnalize
- ME_4AA0EA29019C // MakeAnalizeTree
+   Seq: ( HWL ME_47F1EE7202A6 // ChangeCRType
+ HWL ME_47F1EF4C03B2 // ChangeSortOrder
+ HWL ME_47F1EF76022D // ChangeSortType
+ HWL ME_47F1F3380317 // Find
+ HWL ME_47F2053B0244 // AddToControl
+ HWL ME_47F2054C001C // DelFromControl
+ HWL ME_47F2056400FD // CanAddToControl
+ HWL ME_4A2CD04A013A // MakeFullList
+ HWL ME_4AA0E9F503B4 // CanAnalize
+ HWL ME_4AA0EA29019C // MakeAnalizeTree
  )
  ; // Operations
  : Implemented
@@ -4597,16 +4597,16 @@ FORWARD ME_49145BFA0175
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_49145BFA0175 // IucbDocumentWithContents
+ : Parent HWL ME_49145BFA0175 // IucbDocumentWithContents
  ;
- : Target ME_4925661502AE // IdsBaseContents
+ : Target HWL ME_4925661502AE // IdsBaseContents
  ;
  CONST "pm" false
 
 ref; // ME_4E7B663D00A9 dsContents
 
 : ME_4953D3B20211_ME_49145BFA0175
- : Original ME_4953D3B20211 // OpenContents
+ : Original HWL ME_4953D3B20211 // OpenContents
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4953D3B20211_ME_49145BFA0175 OpenContents
@@ -4620,14 +4620,14 @@ ref; // ME_4953D3B20211_ME_49145BFA0175 OpenContents
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_491B305A0096 // DocumentAndListInterfaces
+ : Parent HWL ME_491B305A0096 // DocumentAndListInterfaces
  ;
  : Implements
-   Seq: ( ME_4953D2FA030F // Contents
+   Seq: ( HWL ME_4953D2FA030F // Contents
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_4E7B663D00A9 // dsContents
+   Seq: ( HWL ME_4E7B663D00A9 // dsContents
  )
  ; // Attributes
  : Implemented
@@ -4657,7 +4657,7 @@ ref; // ME_4937D8E101A4 aDocInfo
  %SUMMARY 'менеяет редакцию документа, в зависимости от исходных данных (переход'#13#10'             по ссылке, по дате, по идентификатору редакции и т.д.)' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4937D8C80242 // IbsChangeRedactionWorker
+ : Parent HWL ME_4937D8C80242 // IbsChangeRedactionWorker
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -4678,10 +4678,10 @@ ref; // ME_4937D8D60361 Change
  %SUMMARY 'Объект меняющий редакцию документа' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_491B305A0096 // DocumentAndListInterfaces
+ : Parent HWL ME_491B305A0096 // DocumentAndListInterfaces
  ;
  : Operations
-   Seq: ( ME_4937D8D60361 // Change
+   Seq: ( HWL ME_4937D8D60361 // Change
  )
  ; // Operations
  CONST extprop:rc:SelfName 'bsChangeRedactionWorker'
@@ -4725,7 +4725,7 @@ ref; // ME_492597BD014C aPos
  %SUMMARY 'открыть ссылку. Если ссылка требует пересоздания сборки, то данные для'#13#10'           новой сборки вернуться как результат для вызова операции модуля' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4E92C3A5037B // IsdsGotoPointDataMaker
+ : Parent HWL ME_4E92C3A5037B // IsdsGotoPointDataMaker
  ;
  : Target WL 'ME_47EA0784000D' '4B1FC2FF03CD.pas.ms.script' // IdeDocInfo
  ;
@@ -4747,7 +4747,7 @@ ref; // ME_492597A602F6 MakeGotoPointData
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_491B305A0096 // DocumentAndListInterfaces
+ : Parent HWL ME_491B305A0096 // DocumentAndListInterfaces
  ;
  : Inherits
    Seq: ( WL 'ME_46A451250363' '4AB0C3C60310.pas.ms.script' // IUnknown
@@ -4758,7 +4758,7 @@ ref; // ME_492597A602F6 MakeGotoPointData
  )
  ; // Implements
  : Operations
-   Seq: ( ME_492597A602F6 // MakeGotoPointData
+   Seq: ( HWL ME_492597A602F6 // MakeGotoPointData
  )
  ; // Operations
  CONST extprop:rc:SelfName 'sdsGotoPointDataMaker'
@@ -4777,7 +4777,7 @@ FORWARD ME_491D662901FD
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_491D662901FD // IdsDocument
+ : Parent HWL ME_491D662901FD // IdsDocument
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -4792,7 +4792,7 @@ ref; // ME_491D66910265 HasSimilarDocuments
  %SUMMARY 'открыть список похожих документов' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_491D662901FD // IdsDocument
+ : Parent HWL ME_491D662901FD // IdsDocument
  ;
 
 ref; // ME_491D664C0232 OpenSimilarDocuments
@@ -4812,7 +4812,7 @@ ref; // ME_5594F490039C aBlockId
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_491D662901FD // IdsDocument
+ : Parent HWL ME_491D662901FD // IdsDocument
  ;
  : Parameters
    Seq: ( ME_5594F490039C // aBlockId
@@ -4836,7 +4836,7 @@ ref; // ME_491D666A0189 aSubID
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_491D662901FD // IdsDocument
+ : Parent HWL ME_491D662901FD // IdsDocument
  ;
  : Target WL 'ME_4CDD38560217' '48F4E61C0060.pas.ms.script' // HyperlinkInfo
  ;
@@ -4848,187 +4848,187 @@ ref; // ME_491D666A0189 aSubID
 ref; // ME_491D66630373 GetSubPosition
 
 : ME_47EA04080292_ME_491D662901FD
- : Original ME_47EA04080292 // HasDoc
+ : Original HWL ME_47EA04080292 // HasDoc
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47EA04080292_ME_491D662901FD HasDoc
 
 : ME_47EA042601D9_ME_491D662901FD
- : Original ME_47EA042601D9 // CanWorkWithRedactions
+ : Original HWL ME_47EA042601D9 // CanWorkWithRedactions
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47EA042601D9_ME_491D662901FD CanWorkWithRedactions
 
 : ME_47EA04970339_ME_491D662901FD
- : Original ME_47EA04970339 // HasPrevRedaction
+ : Original HWL ME_47EA04970339 // HasPrevRedaction
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47EA04970339_ME_491D662901FD HasPrevRedaction
 
 : ME_47EA04B400A1_ME_491D662901FD
- : Original ME_47EA04B400A1 // HasNextRedaction
+ : Original HWL ME_47EA04B400A1 // HasNextRedaction
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47EA04B400A1_ME_491D662901FD HasNextRedaction
 
 : ME_47EA08690258_ME_491D662901FD
- : Original ME_47EA08690258 // IsReadOnly
+ : Original HWL ME_47EA08690258 // IsReadOnly
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47EA08690258_ME_491D662901FD IsReadOnly
 
 : ME_47EA087C02BC_ME_491D662901FD
- : Original ME_47EA087C02BC // TimeMachineOff
+ : Original HWL ME_47EA087C02BC // TimeMachineOff
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47EA087C02BC_ME_491D662901FD TimeMachineOff
 
 : ME_49145C5D0015_ME_491D662901FD
- : Original ME_49145C5D0015 // SwitchToDocumentFromList
+ : Original HWL ME_49145C5D0015 // SwitchToDocumentFromList
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_49145C5D0015_ME_491D662901FD SwitchToDocumentFromList
 
 : ME_49145C6E00F8_ME_491D662901FD
- : Original ME_49145C6E00F8 // ReturnToList
+ : Original HWL ME_49145C6E00F8 // ReturnToList
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_49145C6E00F8_ME_491D662901FD ReturnToList
 
 : ME_49145C7C0021_ME_491D662901FD
- : Original ME_49145C7C0021 // CanOpenPrevDoc
+ : Original HWL ME_49145C7C0021 // CanOpenPrevDoc
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_49145C7C0021_ME_491D662901FD CanOpenPrevDoc
 
 : ME_49145C86028D_ME_491D662901FD
- : Original ME_49145C86028D // CanOpenNextDoc
+ : Original HWL ME_49145C86028D // CanOpenNextDoc
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_49145C86028D_ME_491D662901FD CanOpenNextDoc
 
 : ME_49145C940250_ME_491D662901FD
- : Original ME_49145C940250 // CanReturnToList
+ : Original HWL ME_49145C940250 // CanReturnToList
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_49145C940250_ME_491D662901FD CanReturnToList
 
 : ME_491B2D5A0200_ME_491D662901FD
- : Original ME_491B2D5A0200 // Container
+ : Original HWL ME_491B2D5A0200 // Container
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_491B2D5A0200_ME_491D662901FD Container
 
 : ME_491B2DB200CE_ME_491D662901FD
- : Original ME_491B2DB200CE // DocInfo
+ : Original HWL ME_491B2DB200CE // DocInfo
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_491B2DB200CE_ME_491D662901FD DocInfo
 
 : ME_491B2E63002B_ME_491D662901FD
- : Original ME_491B2E63002B // Language
+ : Original HWL ME_491B2E63002B // Language
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_491B2E63002B_ME_491D662901FD Language
 
 : ME_491B2E87000D_ME_491D662901FD
- : Original ME_491B2E87000D // IsDateCurrentRedationEmpty
+ : Original HWL ME_491B2E87000D // IsDateCurrentRedationEmpty
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_491B2E87000D_ME_491D662901FD IsDateCurrentRedationEmpty
 
 : ME_491B2F1601B0_ME_491D662901FD
- : Original ME_491B2F1601B0 // IsActualRedation
+ : Original HWL ME_491B2F1601B0 // IsActualRedation
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_491B2F1601B0_ME_491D662901FD IsActualRedation
 
 : ME_491B2F63002D_ME_491D662901FD
- : Original ME_491B2F63002D // MakeGotoPointData
+ : Original HWL ME_491B2F63002D // MakeGotoPointData
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_491B2F63002D_ME_491D662901FD MakeGotoPointData
 
 : ME_491B2FE20181_ME_491D662901FD
- : Original ME_491B2FE20181 // NewDocInfo
+ : Original HWL ME_491B2FE20181 // NewDocInfo
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_491B2FE20181_ME_491D662901FD NewDocInfo
 
 : ME_4953D3B20211_ME_491D662901FD
- : Original ME_4953D3B20211 // OpenContents
+ : Original HWL ME_4953D3B20211 // OpenContents
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4953D3B20211_ME_491D662901FD OpenContents
 
 : ME_495894020347_ME_491D662901FD
- : Original ME_495894020347 // PreviewCaleeArea
+ : Original HWL ME_495894020347 // PreviewCaleeArea
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_495894020347_ME_491D662901FD PreviewCaleeArea
 
 : ME_496F344101D0_ME_491D662901FD
- : Original ME_496F344101D0 // CanRunBaseSearch
+ : Original HWL ME_496F344101D0 // CanRunBaseSearch
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_496F344101D0_ME_491D662901FD CanRunBaseSearch
 
 : ME_4AE56DE80093_ME_491D662901FD
- : Original ME_4AE56DE80093 // MakeHAFMacroReplacer
+ : Original HWL ME_4AE56DE80093 // MakeHAFMacroReplacer
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4AE56DE80093_ME_491D662901FD MakeHAFMacroReplacer
 
 : ME_4AE575FA030B_ME_491D662901FD
- : Original ME_4AE575FA030B // MakeFilterInfo
+ : Original HWL ME_4AE575FA030B // MakeFilterInfo
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4AE575FA030B_ME_491D662901FD MakeFilterInfo
 
 : ME_4E7B663D00A9_ME_491D662901FD
- : Original ME_4E7B663D00A9 // dsContents
+ : Original HWL ME_4E7B663D00A9 // dsContents
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4E7B663D00A9_ME_491D662901FD dsContents
 
 : ME_500E5D3B02AF_ME_491D662901FD
- : Original ME_500E5D3B02AF // LikeState
+ : Original HWL ME_500E5D3B02AF // LikeState
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_500E5D3B02AF_ME_491D662901FD LikeState
 
 : ME_500E5D5D0268_ME_491D662901FD
- : Original ME_500E5D5D0268 // AsLikeable
+ : Original HWL ME_500E5D5D0268 // AsLikeable
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_500E5D5D0268_ME_491D662901FD AsLikeable
 
 : ME_53D8C6EA038C_ME_491D662901FD
- : Original ME_53D8C6EA038C // GetDocumentShortName
+ : Original HWL ME_53D8C6EA038C // GetDocumentShortName
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_53D8C6EA038C_ME_491D662901FD GetDocumentShortName
 
 : ME_54B3A7C7038F_ME_491D662901FD
- : Original ME_54B3A7C7038F // GetDocumentName
+ : Original HWL ME_54B3A7C7038F // GetDocumentName
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_54B3A7C7038F_ME_491D662901FD GetDocumentName
@@ -5043,26 +5043,26 @@ ref; // ME_54B3A7C7038F_ME_491D662901FD GetDocumentName
  %SUMMARY 'Бизнес объект формы "TextForm"' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_491B305A0096 // DocumentAndListInterfaces
+ : Parent HWL ME_491B305A0096 // DocumentAndListInterfaces
  ;
  : Inherits
-   Seq: ( ME_47EA0356011B // IdsBaseDocument
+   Seq: ( HWL ME_47EA0356011B // IdsBaseDocument
  )
  ; // Inherits
  : Implements
-   Seq: ( ME_49145BFA0175 // IucbDocumentWithContents
- ME_496A0972003A // IucbDocumentFromList
- ME_496F346C0072 // IucbBaseSearchSupportQuery
+   Seq: ( HWL ME_49145BFA0175 // IucbDocumentWithContents
+ HWL ME_496A0972003A // IucbDocumentFromList
+ HWL ME_496F346C0072 // IucbBaseSearchSupportQuery
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_491D66910265 // HasSimilarDocuments
+   Seq: ( HWL ME_491D66910265 // HasSimilarDocuments
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_491D664C0232 // OpenSimilarDocuments
- ME_5594F4830261 // OpenSimilarDocumentsToFragment
- ME_491D66630373 // GetSubPosition
+   Seq: ( HWL ME_491D664C0232 // OpenSimilarDocuments
+ HWL ME_5594F4830261 // OpenSimilarDocumentsToFragment
+ HWL ME_491D66630373 // GetSubPosition
  )
  ; // Operations
  : Implemented
@@ -5112,7 +5112,7 @@ FORWARD ME_4922AD4B0136
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4922AD4B0136 // IbsUserCRListInfo
+ : Parent HWL ME_4922AD4B0136 // IbsUserCRListInfo
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -5129,7 +5129,7 @@ ref; // ME_4937CCD101B0 Has
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4922AD4B0136 // IbsUserCRListInfo
+ : Parent HWL ME_4922AD4B0136 // IbsUserCRListInfo
  ;
  : Target WL 'ME_4937D0D2023B' '47EA07FA02CE.pas.ms.script' // TbsUserCRList
  ;
@@ -5146,7 +5146,7 @@ ref; // ME_4937D0E9032C KindOfList
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4922AD4B0136 // IbsUserCRListInfo
+ : Parent HWL ME_4922AD4B0136 // IbsUserCRListInfo
  ;
  : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
  ;
@@ -5163,7 +5163,7 @@ ref; // ME_4937CFC80211 Caption
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4922AD4B0136 // IbsUserCRListInfo
+ : Parent HWL ME_4922AD4B0136 // IbsUserCRListInfo
  ;
  : Target WL 'ME_47F1CDD203D9' '47EA07FA02CE.pas.ms.script' // TlstCRType
  ;
@@ -5180,7 +5180,7 @@ ref; // ME_4937D00801D6 ListType
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4922AD4B0136 // IbsUserCRListInfo
+ : Parent HWL ME_4922AD4B0136 // IbsUserCRListInfo
  ;
  : Target WL 'ME_4937D05003A2' '47ECAAF901F8.pas.ms.script' // IbsFrozenNode
  ;
@@ -5192,7 +5192,7 @@ ref; // ME_4937D06103D0 Node
  CONST Name 'aValue'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_4922AD4B0136 // IbsUserCRListInfo
+ : Target HWL ME_4922AD4B0136 // IbsUserCRListInfo
  ;
 
 ref; // ME_4937CC8502EF aValue
@@ -5204,7 +5204,7 @@ ref; // ME_4937CC8502EF aValue
  %SUMMARY 'определяет равенство' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4922AD4B0136 // IbsUserCRListInfo
+ : Parent HWL ME_4922AD4B0136 // IbsUserCRListInfo
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -5225,18 +5225,18 @@ ref; // ME_4937CC7E0049 IsSame
  %SUMMARY 'Информация о пользовательском СКР' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_491B305A0096 // DocumentAndListInterfaces
+ : Parent HWL ME_491B305A0096 // DocumentAndListInterfaces
  ;
  : Attributes
-   Seq: ( ME_4937CCD101B0 // Has
- ME_4937D0E9032C // KindOfList
- ME_4937CFC80211 // Caption
- ME_4937D00801D6 // ListType
- ME_4937D06103D0 // Node
+   Seq: ( HWL ME_4937CCD101B0 // Has
+ HWL ME_4937D0E9032C // KindOfList
+ HWL ME_4937CFC80211 // Caption
+ HWL ME_4937D00801D6 // ListType
+ HWL ME_4937D06103D0 // Node
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_4937CC7E0049 // IsSame
+   Seq: ( HWL ME_4937CC7E0049 // IsSame
  )
  ; // Operations
  CONST extprop:rc:SelfName 'bsUserCRListInfo'
@@ -5254,7 +5254,7 @@ FORWARD ME_49391DE00244
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_49391DE00244 // IbsUserCRListInfoModify
+ : Parent HWL ME_49391DE00244 // IbsUserCRListInfoModify
  ;
  : Target WL 'ME_47F1CDD203D9' '47EA07FA02CE.pas.ms.script' // TlstCRType
  ;
@@ -5270,7 +5270,7 @@ ref; // ME_4B17EFED0394 wListType
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_49391DE00244 // IbsUserCRListInfoModify
+ : Parent HWL ME_49391DE00244 // IbsUserCRListInfoModify
  ;
  : Target WL 'ME_4937D0D2023B' '47EA07FA02CE.pas.ms.script' // TbsUserCRList
  ;
@@ -5286,7 +5286,7 @@ ref; // ME_4B17F0040151 wKindOfList
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_49391DE00244 // IbsUserCRListInfoModify
+ : Parent HWL ME_49391DE00244 // IbsUserCRListInfoModify
  ;
  : Target WL 'ME_4937D05003A2' '47ECAAF901F8.pas.ms.script' // IbsFrozenNode
  ;
@@ -5302,7 +5302,7 @@ ref; // ME_4B17F0150365 wNode
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_49391DE00244 // IbsUserCRListInfoModify
+ : Parent HWL ME_49391DE00244 // IbsUserCRListInfoModify
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -5314,7 +5314,7 @@ ref; // ME_4B17F03C0327 wHas
  CONST Name 'aValue'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_4922AD4B0136 // IbsUserCRListInfo
+ : Target HWL ME_4922AD4B0136 // IbsUserCRListInfo
  ;
 
 ref; // ME_4B17E77A03CD aValue
@@ -5326,7 +5326,7 @@ ref; // ME_4B17E77A03CD aValue
  %SUMMARY 'скопировать данные' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_49391DE00244 // IbsUserCRListInfoModify
+ : Parent HWL ME_49391DE00244 // IbsUserCRListInfoModify
  ;
  : Parameters
    Seq: ( ME_4B17E77A03CD // aValue
@@ -5336,41 +5336,41 @@ ref; // ME_4B17E77A03CD aValue
 ref; // ME_4B17E77A0383 Assign
 
 : ME_4937CC7E0049_ME_49391DE00244
- : Original ME_4937CC7E0049 // IsSame
+ : Original HWL ME_4937CC7E0049 // IsSame
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4937CC7E0049_ME_49391DE00244 IsSame
 
 : ME_4937CCD101B0_ME_49391DE00244
- : Original ME_4937CCD101B0 // Has
+ : Original HWL ME_4937CCD101B0 // Has
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_4937CCD101B0_ME_49391DE00244 Has
 
 : ME_4937CFC80211_ME_49391DE00244
- : Original ME_4937CFC80211 // Caption
+ : Original HWL ME_4937CFC80211 // Caption
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_4937CFC80211_ME_49391DE00244 Caption
 
 : ME_4937D00801D6_ME_49391DE00244
- : Original ME_4937D00801D6 // ListType
+ : Original HWL ME_4937D00801D6 // ListType
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_4937D00801D6_ME_49391DE00244 ListType
 
 : ME_4937D06103D0_ME_49391DE00244
- : Original ME_4937D06103D0 // Node
+ : Original HWL ME_4937D06103D0 // Node
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_4937D06103D0_ME_49391DE00244 Node
 
 : ME_4937D0E9032C_ME_49391DE00244
- : Original ME_4937D0E9032C // KindOfList
+ : Original HWL ME_4937D0E9032C // KindOfList
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
@@ -5386,21 +5386,21 @@ ref; // ME_4937D0E9032C_ME_49391DE00244 KindOfList
  %SUMMARY 'Информация о пользовательских СКР с возможностью изменения' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_491B305A0096 // DocumentAndListInterfaces
+ : Parent HWL ME_491B305A0096 // DocumentAndListInterfaces
  ;
  : Inherits
-   Seq: ( ME_4922AD4B0136 // IbsUserCRListInfo
+   Seq: ( HWL ME_4922AD4B0136 // IbsUserCRListInfo
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_4B17EFED0394 // wListType
- ME_4B17F0040151 // wKindOfList
- ME_4B17F0150365 // wNode
- ME_4B17F03C0327 // wHas
+   Seq: ( HWL ME_4B17EFED0394 // wListType
+ HWL ME_4B17F0040151 // wKindOfList
+ HWL ME_4B17F0150365 // wNode
+ HWL ME_4B17F03C0327 // wHas
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_4B17E77A0383 // Assign
+   Seq: ( HWL ME_4B17E77A0383 // Assign
  )
  ; // Operations
  : Implemented
@@ -5429,7 +5429,7 @@ FORWARD ME_47EB3BD9015F
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_47EB3BD9015F // IdBaseDocument
+ : Parent HWL ME_47EB3BD9015F // IdBaseDocument
  ;
  : Target WL 'ME_47EB514C0336' '4982BE090383.pas.ms.script' // IvcmFormDataSourceRef
  ;
@@ -5448,7 +5448,7 @@ ref; // ME_2C233EE5B42C dsDocumentRef
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_47EB3BD9015F // IdBaseDocument
+ : Parent HWL ME_47EB3BD9015F // IdBaseDocument
  ;
  : Target WL 'ME_491BF08F035F' '4678193C009C.pas.ms.script' // Tl3Bool
  ;
@@ -5467,7 +5467,7 @@ ref; // ME_77EA326510B8 HasDocument
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_47EB3BD9015F // IdBaseDocument
+ : Parent HWL ME_47EB3BD9015F // IdBaseDocument
  ;
  : Target WL 'ME_47EA0784000D' '4B1FC2FF03CD.pas.ms.script' // IdeDocInfo
  ;
@@ -5492,16 +5492,16 @@ ref; // ME_4995768F007A_ME_47EB3BD9015F Clone
  %SUMMARY 'Данные сборки документа.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_491B305A0096 // DocumentAndListInterfaces
+ : Parent HWL ME_491B305A0096 // DocumentAndListInterfaces
  ;
  : Inherits
    Seq: ( WL 'ME_47F378D3029B' '4683F37902CF.pas.ms.script' // IvcmData
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_2C233EE5B42C // dsDocumentRef
- ME_77EA326510B8 // HasDocument
- ME_CEA3A9CB4068 // DocInfo
+   Seq: ( HWL ME_2C233EE5B42C // dsDocumentRef
+ HWL ME_77EA326510B8 // HasDocument
+ HWL ME_CEA3A9CB4068 // DocInfo
  )
  ; // Attributes
  : Implemented
@@ -5516,212 +5516,212 @@ ref; // ME_47EB3BD9015F IdBaseDocument
 FORWARD ME_4937D1550372
 
 : ME_47EA04080292_ME_4937D1550372
- : Original ME_47EA04080292 // HasDoc
+ : Original HWL ME_47EA04080292 // HasDoc
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47EA04080292_ME_4937D1550372 HasDoc
 
 : ME_47EA042601D9_ME_4937D1550372
- : Original ME_47EA042601D9 // CanWorkWithRedactions
+ : Original HWL ME_47EA042601D9 // CanWorkWithRedactions
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47EA042601D9_ME_4937D1550372 CanWorkWithRedactions
 
 : ME_47EA04970339_ME_4937D1550372
- : Original ME_47EA04970339 // HasPrevRedaction
+ : Original HWL ME_47EA04970339 // HasPrevRedaction
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47EA04970339_ME_4937D1550372 HasPrevRedaction
 
 : ME_47EA04B400A1_ME_4937D1550372
- : Original ME_47EA04B400A1 // HasNextRedaction
+ : Original HWL ME_47EA04B400A1 // HasNextRedaction
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47EA04B400A1_ME_4937D1550372 HasNextRedaction
 
 : ME_47EA08690258_ME_4937D1550372
- : Original ME_47EA08690258 // IsReadOnly
+ : Original HWL ME_47EA08690258 // IsReadOnly
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47EA08690258_ME_4937D1550372 IsReadOnly
 
 : ME_47EA087C02BC_ME_4937D1550372
- : Original ME_47EA087C02BC // TimeMachineOff
+ : Original HWL ME_47EA087C02BC // TimeMachineOff
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47EA087C02BC_ME_4937D1550372 TimeMachineOff
 
 : ME_49145C5D0015_ME_4937D1550372
- : Original ME_49145C5D0015 // SwitchToDocumentFromList
+ : Original HWL ME_49145C5D0015 // SwitchToDocumentFromList
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_49145C5D0015_ME_4937D1550372 SwitchToDocumentFromList
 
 : ME_49145C6E00F8_ME_4937D1550372
- : Original ME_49145C6E00F8 // ReturnToList
+ : Original HWL ME_49145C6E00F8 // ReturnToList
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_49145C6E00F8_ME_4937D1550372 ReturnToList
 
 : ME_49145C7C0021_ME_4937D1550372
- : Original ME_49145C7C0021 // CanOpenPrevDoc
+ : Original HWL ME_49145C7C0021 // CanOpenPrevDoc
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_49145C7C0021_ME_4937D1550372 CanOpenPrevDoc
 
 : ME_49145C86028D_ME_4937D1550372
- : Original ME_49145C86028D // CanOpenNextDoc
+ : Original HWL ME_49145C86028D // CanOpenNextDoc
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_49145C86028D_ME_4937D1550372 CanOpenNextDoc
 
 : ME_49145C940250_ME_4937D1550372
- : Original ME_49145C940250 // CanReturnToList
+ : Original HWL ME_49145C940250 // CanReturnToList
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_49145C940250_ME_4937D1550372 CanReturnToList
 
 : ME_491B2D5A0200_ME_4937D1550372
- : Original ME_491B2D5A0200 // Container
+ : Original HWL ME_491B2D5A0200 // Container
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_491B2D5A0200_ME_4937D1550372 Container
 
 : ME_491B2DB200CE_ME_4937D1550372
- : Original ME_491B2DB200CE // DocInfo
+ : Original HWL ME_491B2DB200CE // DocInfo
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_491B2DB200CE_ME_4937D1550372 DocInfo
 
 : ME_491B2E63002B_ME_4937D1550372
- : Original ME_491B2E63002B // Language
+ : Original HWL ME_491B2E63002B // Language
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_491B2E63002B_ME_4937D1550372 Language
 
 : ME_491B2E87000D_ME_4937D1550372
- : Original ME_491B2E87000D // IsDateCurrentRedationEmpty
+ : Original HWL ME_491B2E87000D // IsDateCurrentRedationEmpty
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_491B2E87000D_ME_4937D1550372 IsDateCurrentRedationEmpty
 
 : ME_491B2F1601B0_ME_4937D1550372
- : Original ME_491B2F1601B0 // IsActualRedation
+ : Original HWL ME_491B2F1601B0 // IsActualRedation
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_491B2F1601B0_ME_4937D1550372 IsActualRedation
 
 : ME_491B2F63002D_ME_4937D1550372
- : Original ME_491B2F63002D // MakeGotoPointData
+ : Original HWL ME_491B2F63002D // MakeGotoPointData
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_491B2F63002D_ME_4937D1550372 MakeGotoPointData
 
 : ME_491B2FE20181_ME_4937D1550372
- : Original ME_491B2FE20181 // NewDocInfo
+ : Original HWL ME_491B2FE20181 // NewDocInfo
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_491B2FE20181_ME_4937D1550372 NewDocInfo
 
 : ME_491D664C0232_ME_4937D1550372
- : Original ME_491D664C0232 // OpenSimilarDocuments
+ : Original HWL ME_491D664C0232 // OpenSimilarDocuments
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_491D664C0232_ME_4937D1550372 OpenSimilarDocuments
 
 : ME_491D66630373_ME_4937D1550372
- : Original ME_491D66630373 // GetSubPosition
+ : Original HWL ME_491D66630373 // GetSubPosition
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_491D66630373_ME_4937D1550372 GetSubPosition
 
 : ME_491D66910265_ME_4937D1550372
- : Original ME_491D66910265 // HasSimilarDocuments
+ : Original HWL ME_491D66910265 // HasSimilarDocuments
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_491D66910265_ME_4937D1550372 HasSimilarDocuments
 
 : ME_4953D3B20211_ME_4937D1550372
- : Original ME_4953D3B20211 // OpenContents
+ : Original HWL ME_4953D3B20211 // OpenContents
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4953D3B20211_ME_4937D1550372 OpenContents
 
 : ME_495894020347_ME_4937D1550372
- : Original ME_495894020347 // PreviewCaleeArea
+ : Original HWL ME_495894020347 // PreviewCaleeArea
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_495894020347_ME_4937D1550372 PreviewCaleeArea
 
 : ME_496F344101D0_ME_4937D1550372
- : Original ME_496F344101D0 // CanRunBaseSearch
+ : Original HWL ME_496F344101D0 // CanRunBaseSearch
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_496F344101D0_ME_4937D1550372 CanRunBaseSearch
 
 : ME_4AE56DE80093_ME_4937D1550372
- : Original ME_4AE56DE80093 // MakeHAFMacroReplacer
+ : Original HWL ME_4AE56DE80093 // MakeHAFMacroReplacer
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4AE56DE80093_ME_4937D1550372 MakeHAFMacroReplacer
 
 : ME_4AE575FA030B_ME_4937D1550372
- : Original ME_4AE575FA030B // MakeFilterInfo
+ : Original HWL ME_4AE575FA030B // MakeFilterInfo
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4AE575FA030B_ME_4937D1550372 MakeFilterInfo
 
 : ME_4E7B663D00A9_ME_4937D1550372
- : Original ME_4E7B663D00A9 // dsContents
+ : Original HWL ME_4E7B663D00A9 // dsContents
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4E7B663D00A9_ME_4937D1550372 dsContents
 
 : ME_500E5D3B02AF_ME_4937D1550372
- : Original ME_500E5D3B02AF // LikeState
+ : Original HWL ME_500E5D3B02AF // LikeState
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_500E5D3B02AF_ME_4937D1550372 LikeState
 
 : ME_500E5D5D0268_ME_4937D1550372
- : Original ME_500E5D5D0268 // AsLikeable
+ : Original HWL ME_500E5D5D0268 // AsLikeable
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_500E5D5D0268_ME_4937D1550372 AsLikeable
 
 : ME_53D8C6EA038C_ME_4937D1550372
- : Original ME_53D8C6EA038C // GetDocumentShortName
+ : Original HWL ME_53D8C6EA038C // GetDocumentShortName
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_53D8C6EA038C_ME_4937D1550372 GetDocumentShortName
 
 : ME_54B3A7C7038F_ME_4937D1550372
- : Original ME_54B3A7C7038F // GetDocumentName
+ : Original HWL ME_54B3A7C7038F // GetDocumentName
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_54B3A7C7038F_ME_4937D1550372 GetDocumentName
 
 : ME_5594F4830261_ME_4937D1550372
- : Original ME_5594F4830261 // OpenSimilarDocumentsToFragment
+ : Original HWL ME_5594F4830261 // OpenSimilarDocumentsToFragment
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_5594F4830261_ME_4937D1550372 OpenSimilarDocumentsToFragment
@@ -5736,10 +5736,10 @@ ref; // ME_5594F4830261_ME_4937D1550372 OpenSimilarDocumentsToFragment
  %SUMMARY 'Flash-ролик' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_491B305A0096 // DocumentAndListInterfaces
+ : Parent HWL ME_491B305A0096 // DocumentAndListInterfaces
  ;
  : Inherits
-   Seq: ( ME_491D662901FD // IdsDocument
+   Seq: ( HWL ME_491D662901FD // IdsDocument
  )
  ; // Inherits
  : Implemented
@@ -5785,7 +5785,7 @@ ref; // ME_4937D1550372 IdsDocumentWithFlash
 FORWARD ME_49218BD80300
 
 : ME_493E4F7E039B_ME_49218BD80300
- : Original ME_493E4F7E039B // Generate
+ : Original HWL ME_493E4F7E039B // Generate
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_493E4F7E039B_ME_49218BD80300 Generate
@@ -5799,10 +5799,10 @@ ref; // ME_493E4F7E039B_ME_49218BD80300 Generate
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_491B305A0096 // DocumentAndListInterfaces
+ : Parent HWL ME_491B305A0096 // DocumentAndListInterfaces
  ;
  : Implements
-   Seq: ( ME_4DC14229028D // WarningGenerator
+   Seq: ( HWL ME_4DC14229028D // WarningGenerator
  WL 'ME_4E6DC5C80293' '484FA67302D7.pas.ms.script' // Медали в системе
  )
  ; // Implements
@@ -5834,7 +5834,7 @@ ref; // ME_4DF9D63B0360_ME_4ED8ECEE00EE DocInfo
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_491B305A0096 // DocumentAndListInterfaces
+ : Parent HWL ME_491B305A0096 // DocumentAndListInterfaces
  ;
  : Implements
    Seq: ( WL 'ME_4ED8F1860003' '4B1FC2FF03CD.pas.ms.script' // MdeDocInfoProvider
@@ -5854,134 +5854,134 @@ FORWARD ME_47EA0F8D010D
 FORWARD ME_50002EC80001
 
 : ME_47EA04080292_ME_50002EC80001
- : Original ME_47EA04080292 // HasDoc
+ : Original HWL ME_47EA04080292 // HasDoc
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47EA04080292_ME_50002EC80001 HasDoc
 
 : ME_47EA042601D9_ME_50002EC80001
- : Original ME_47EA042601D9 // CanWorkWithRedactions
+ : Original HWL ME_47EA042601D9 // CanWorkWithRedactions
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47EA042601D9_ME_50002EC80001 CanWorkWithRedactions
 
 : ME_47EA04970339_ME_50002EC80001
- : Original ME_47EA04970339 // HasPrevRedaction
+ : Original HWL ME_47EA04970339 // HasPrevRedaction
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47EA04970339_ME_50002EC80001 HasPrevRedaction
 
 : ME_47EA04B400A1_ME_50002EC80001
- : Original ME_47EA04B400A1 // HasNextRedaction
+ : Original HWL ME_47EA04B400A1 // HasNextRedaction
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47EA04B400A1_ME_50002EC80001 HasNextRedaction
 
 : ME_47EA08690258_ME_50002EC80001
- : Original ME_47EA08690258 // IsReadOnly
+ : Original HWL ME_47EA08690258 // IsReadOnly
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47EA08690258_ME_50002EC80001 IsReadOnly
 
 : ME_47EA087C02BC_ME_50002EC80001
- : Original ME_47EA087C02BC // TimeMachineOff
+ : Original HWL ME_47EA087C02BC // TimeMachineOff
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47EA087C02BC_ME_50002EC80001 TimeMachineOff
 
 : ME_491B2D5A0200_ME_50002EC80001
- : Original ME_491B2D5A0200 // Container
+ : Original HWL ME_491B2D5A0200 // Container
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_491B2D5A0200_ME_50002EC80001 Container
 
 : ME_491B2DB200CE_ME_50002EC80001
- : Original ME_491B2DB200CE // DocInfo
+ : Original HWL ME_491B2DB200CE // DocInfo
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_491B2DB200CE_ME_50002EC80001 DocInfo
 
 : ME_491B2E63002B_ME_50002EC80001
- : Original ME_491B2E63002B // Language
+ : Original HWL ME_491B2E63002B // Language
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_491B2E63002B_ME_50002EC80001 Language
 
 : ME_491B2E87000D_ME_50002EC80001
- : Original ME_491B2E87000D // IsDateCurrentRedationEmpty
+ : Original HWL ME_491B2E87000D // IsDateCurrentRedationEmpty
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_491B2E87000D_ME_50002EC80001 IsDateCurrentRedationEmpty
 
 : ME_491B2F1601B0_ME_50002EC80001
- : Original ME_491B2F1601B0 // IsActualRedation
+ : Original HWL ME_491B2F1601B0 // IsActualRedation
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_491B2F1601B0_ME_50002EC80001 IsActualRedation
 
 : ME_491B2F63002D_ME_50002EC80001
- : Original ME_491B2F63002D // MakeGotoPointData
+ : Original HWL ME_491B2F63002D // MakeGotoPointData
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_491B2F63002D_ME_50002EC80001 MakeGotoPointData
 
 : ME_491B2FE20181_ME_50002EC80001
- : Original ME_491B2FE20181 // NewDocInfo
+ : Original HWL ME_491B2FE20181 // NewDocInfo
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_491B2FE20181_ME_50002EC80001 NewDocInfo
 
 : ME_495894020347_ME_50002EC80001
- : Original ME_495894020347 // PreviewCaleeArea
+ : Original HWL ME_495894020347 // PreviewCaleeArea
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_495894020347_ME_50002EC80001 PreviewCaleeArea
 
 : ME_4AE56DE80093_ME_50002EC80001
- : Original ME_4AE56DE80093 // MakeHAFMacroReplacer
+ : Original HWL ME_4AE56DE80093 // MakeHAFMacroReplacer
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4AE56DE80093_ME_50002EC80001 MakeHAFMacroReplacer
 
 : ME_4AE575FA030B_ME_50002EC80001
- : Original ME_4AE575FA030B // MakeFilterInfo
+ : Original HWL ME_4AE575FA030B // MakeFilterInfo
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4AE575FA030B_ME_50002EC80001 MakeFilterInfo
 
 : ME_500E5D3B02AF_ME_50002EC80001
- : Original ME_500E5D3B02AF // LikeState
+ : Original HWL ME_500E5D3B02AF // LikeState
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_500E5D3B02AF_ME_50002EC80001 LikeState
 
 : ME_500E5D5D0268_ME_50002EC80001
- : Original ME_500E5D5D0268 // AsLikeable
+ : Original HWL ME_500E5D5D0268 // AsLikeable
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_500E5D5D0268_ME_50002EC80001 AsLikeable
 
 : ME_53D8C6EA038C_ME_50002EC80001
- : Original ME_53D8C6EA038C // GetDocumentShortName
+ : Original HWL ME_53D8C6EA038C // GetDocumentShortName
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_53D8C6EA038C_ME_50002EC80001 GetDocumentShortName
 
 : ME_54B3A7C7038F_ME_50002EC80001
- : Original ME_54B3A7C7038F // GetDocumentName
+ : Original HWL ME_54B3A7C7038F // GetDocumentName
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_54B3A7C7038F_ME_50002EC80001 GetDocumentName
@@ -5995,10 +5995,10 @@ ref; // ME_54B3A7C7038F_ME_50002EC80001 GetDocumentName
  %SUMMARY 'Собственно документ' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_47EA0F8D010D // IsdsBaseDocument
+ : Parent HWL ME_47EA0F8D010D // IsdsBaseDocument
  ;
  : Inherits
-   Seq: ( ME_47EA0356011B // IdsBaseDocument
+   Seq: ( HWL ME_47EA0356011B // IdsBaseDocument
  )
  ; // Inherits
  : Implemented
@@ -6039,7 +6039,7 @@ ref; // ME_50002EC80001 dsDocument
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_47EA0F8D010D // IsdsBaseDocument
+ : Parent HWL ME_47EA0F8D010D // IsdsBaseDocument
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -6063,7 +6063,7 @@ ref; // ME_4925979E0225 aDoc
  %SUMMARY 'изменился документ' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_47EA0F8D010D // IsdsBaseDocument
+ : Parent HWL ME_47EA0F8D010D // IsdsBaseDocument
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -6077,16 +6077,16 @@ ref; // ME_4925978F00FA ChangeDocument
 : ME_5011459D0190
  CONST Class class_Dependency
  : Stereotype st_reflected_by::Dependency ;
- : Parent ME_47EA0F8D010D // IsdsBaseDocument
+ : Parent HWL ME_47EA0F8D010D // IsdsBaseDocument
  ;
- : Target ME_47EB3BD9015F // IdBaseDocument
+ : Target HWL ME_47EB3BD9015F // IdBaseDocument
  ;
  CONST "needs default form" false
 
 ref; // ME_5011459D0190 
 
 : ME_492597A602F6_ME_47EA0F8D010D
- : Original ME_492597A602F6 // MakeGotoPointData
+ : Original HWL ME_492597A602F6 // MakeGotoPointData
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_492597A602F6_ME_47EA0F8D010D MakeGotoPointData
@@ -6109,21 +6109,21 @@ ref; // ME_4DF9D63B0360_ME_47EA0F8D010D DocInfo
  %SUMMARY 'БОС, базовый для прецедентов с документом' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_491B305A0096 // DocumentAndListInterfaces
+ : Parent HWL ME_491B305A0096 // DocumentAndListInterfaces
  ;
  : Implements
-   Seq: ( ME_4E92C3A5037B // IsdsGotoPointDataMaker
- ME_4ED8ECEE00EE // IsdsPrimDocument
+   Seq: ( HWL ME_4E92C3A5037B // IsdsGotoPointDataMaker
+ HWL ME_4ED8ECEE00EE // IsdsPrimDocument
  WL 'ME_4ED8F1860003' '4B1FC2FF03CD.pas.ms.script' // MdeDocInfoProvider
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_50002EC80001 // dsDocument
- ME_5111C2BAF24F // HasDocument
+   Seq: ( HWL ME_50002EC80001 // dsDocument
+ HWL ME_5111C2BAF24F // HasDocument
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_4925978F00FA // ChangeDocument
+   Seq: ( HWL ME_4925978F00FA // ChangeDocument
  )
  ; // Operations
  : Implemented
@@ -6145,7 +6145,7 @@ FORWARD ME_4ED905EA0339
 FORWARD ME_4ED906420134
 
 : ME_49217DB001A7_ME_4ED906420134
- : Original ME_49217DB001A7 // GetEditionsRoot
+ : Original HWL ME_49217DB001A7 // GetEditionsRoot
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_49217DB001A7_ME_4ED906420134 GetEditionsRoot
@@ -6159,10 +6159,10 @@ ref; // ME_49217DB001A7_ME_4ED906420134 GetEditionsRoot
  %SUMMARY 'Список редакций' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4ED905EA0339 // IsdsEditionsHolder
+ : Parent HWL ME_4ED905EA0339 // IsdsEditionsHolder
  ;
  : Inherits
-   Seq: ( ME_49217D9D00BD // IdsEditions
+   Seq: ( HWL ME_49217D9D00BD // IdsEditions
  )
  ; // Inherits
  : Implemented
@@ -6182,10 +6182,10 @@ ref; // ME_4ED906420134 EditionsList
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_491B305A0096 // DocumentAndListInterfaces
+ : Parent HWL ME_491B305A0096 // DocumentAndListInterfaces
  ;
  : Attributes
-   Seq: ( ME_4ED906420134 // EditionsList
+   Seq: ( HWL ME_4ED906420134 // EditionsList
  )
  ; // Attributes
  CONST extprop:rc:SelfName 'sdsEditionsHolder'
@@ -6203,7 +6203,7 @@ ref; // ME_4ED905EA0339 IsdsEditionsHolder
  %SUMMARY 'Контроллер формы-контейнера, в которую вставляются две половины документа ААК' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_491B305A0096 // DocumentAndListInterfaces
+ : Parent HWL ME_491B305A0096 // DocumentAndListInterfaces
  ;
  CONST extprop:rc:SelfName 'dsAACContainer'
  CONST extprop:rc:isAcceptableForScripts true
@@ -6221,37 +6221,37 @@ ref; // ME_4FF2E6F200CC IdsAACContainer
  : Parent WL 'ME_4D1B64E70031' '4D1B64E70031.pas.ms.script' // BusinessInterfaces
  ;
  : Children
-   Seq: ( ME_4AE56DB003D5 // IucpHAFMacroReplacerFactory
- ME_4925661502AE // IdsBaseContents
- ME_4AE575E00174 // IucpFilterInfoFactory
- ME_49255D040142 // IdsAttributes
- ME_49145BA70313 // IdeSimpleTree
- ME_496F33D900C1 // BaseSearchSupportQuery
- ME_49217D9D00BD // IdsEditions
- ME_4921869901CF // IdsWarning
- ME_492571A202F1 // IdsContents
- ME_496F346C0072 // IucbBaseSearchSupportQuery
- ME_4953D2FA030F // Contents
- ME_493E4E520011 // InsWarningLocker
- ME_4DC14229028D // WarningGenerator
- ME_49145C530239 // DocumentFromList
- ME_496A0972003A // IucbDocumentFromList
- ME_47EA0356011B // IdsBaseDocument
- ME_47E9F00100A2 // IdsList
- ME_47E9F032005A // IdsDocumentList
- ME_49145BFA0175 // IucbDocumentWithContents
- ME_4937D8C80242 // IbsChangeRedactionWorker
- ME_4E92C3A5037B // IsdsGotoPointDataMaker
- ME_491D662901FD // IdsDocument
- ME_4922AD4B0136 // IbsUserCRListInfo
- ME_49391DE00244 // IbsUserCRListInfoModify
- ME_47EB3BD9015F // IdBaseDocument
- ME_4937D1550372 // IdsDocumentWithFlash
- ME_49218BD80300 // InsWarningGenerator
- ME_4ED8ECEE00EE // IsdsPrimDocument
- ME_47EA0F8D010D // IsdsBaseDocument
- ME_4ED905EA0339 // IsdsEditionsHolder
- ME_4FF2E6F200CC // IdsAACContainer
+   Seq: ( HWL ME_4AE56DB003D5 // IucpHAFMacroReplacerFactory
+ HWL ME_4925661502AE // IdsBaseContents
+ HWL ME_4AE575E00174 // IucpFilterInfoFactory
+ HWL ME_49255D040142 // IdsAttributes
+ HWL ME_49145BA70313 // IdeSimpleTree
+ HWL ME_496F33D900C1 // BaseSearchSupportQuery
+ HWL ME_49217D9D00BD // IdsEditions
+ HWL ME_4921869901CF // IdsWarning
+ HWL ME_492571A202F1 // IdsContents
+ HWL ME_496F346C0072 // IucbBaseSearchSupportQuery
+ HWL ME_4953D2FA030F // Contents
+ HWL ME_493E4E520011 // InsWarningLocker
+ HWL ME_4DC14229028D // WarningGenerator
+ HWL ME_49145C530239 // DocumentFromList
+ HWL ME_496A0972003A // IucbDocumentFromList
+ HWL ME_47EA0356011B // IdsBaseDocument
+ HWL ME_47E9F00100A2 // IdsList
+ HWL ME_47E9F032005A // IdsDocumentList
+ HWL ME_49145BFA0175 // IucbDocumentWithContents
+ HWL ME_4937D8C80242 // IbsChangeRedactionWorker
+ HWL ME_4E92C3A5037B // IsdsGotoPointDataMaker
+ HWL ME_491D662901FD // IdsDocument
+ HWL ME_4922AD4B0136 // IbsUserCRListInfo
+ HWL ME_49391DE00244 // IbsUserCRListInfoModify
+ HWL ME_47EB3BD9015F // IdBaseDocument
+ HWL ME_4937D1550372 // IdsDocumentWithFlash
+ HWL ME_49218BD80300 // InsWarningGenerator
+ HWL ME_4ED8ECEE00EE // IsdsPrimDocument
+ HWL ME_47EA0F8D010D // IsdsBaseDocument
+ HWL ME_4ED905EA0339 // IsdsEditionsHolder
+ HWL ME_4FF2E6F200CC // IdsAACContainer
  )
  ; // Children
  : Depends

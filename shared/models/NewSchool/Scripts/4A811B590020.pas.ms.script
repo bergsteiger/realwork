@@ -2,37 +2,6 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-FORWARD ME_4A811B590020
-
-: ME_4A811E460199
- CONST UID '4A811E460199'
- CONST Name 'WorkJournal'
- CONST Class class_Class
- : Stereotype st_VCMUseCaseRealization ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Журнал работы' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4A811B590020 // WorkJournal
- ;
- : Inherits
-   Seq: ( WL 'ME_4A811C1A0293' '4A811BCC031F.pas.ms.script' // BaseWorkJournal
- )
- ; // Inherits
- : Implements
-   Seq: ( WL 'ME_484F7A5501AB' '48563BA400A9.pas.ms.script' // История навигации
- )
- ; // Implements
- CONST "ifndef" 'Admin,Monitorings'
- CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\moWorkJournal.pas'
- CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
- CONST extprop:pas:TypeName 'Tmo_WorkJournal'
- CONST extprop:rc:SelfName 'mo_WorkJournal'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'moWorkJournal'
-
-ref; // ME_4A811E460199 WorkJournal$UC
-
 : ME_4A811B590020
  CONST UID '4A811B590020'
  CONST Name 'WorkJournal'
@@ -44,7 +13,7 @@ ref; // ME_4A811E460199 WorkJournal$UC
  : Parent WL 'ME_4F7E92C400AF' '4F7E92C400AF.pas.ms.script' // F1 Основные прецеденты
  ;
  : Children
-   Seq: ( ME_4A811E460199 // WorkJournal$UC
+   Seq: ( WL 'ME_4A811E460199' '4A811E460199.pas.ms.script' // WorkJournal$UC
  WL 'ME_4A825D4902F1' '4A825D4902F1.pas.ms.script' // WorkJournal
  WL 'ME_4A811B89032D' '4A811B89032D.pas.ms.script' // View
  )
@@ -68,7 +37,6 @@ ref; // ME_4A811E460199 WorkJournal$UC
  WL 'ME_4A78010000B7' '4A78010000B7.pas.ms.script' // Search
  WL 'ME_4A7C095601DA' '4A7C095601DA.pas.ms.script' // Base Operations
  WL 'ME_4E13416D0227' '4E13416D0227.pas.ms.script' // VCM$Visual
- WL 'ME_4E200FC9003B' '4E200FC9003B.pas.ms.script' // VCM$Scripting
  WL 'ME_4E2F0E1B03BB' '4E2F0E1B03BB.pas.ms.script' // L3$Domain
  WL 'ME_547CC9D40158' '547CC9D40158.pas.ms.script' // VT$Panels
  WL 'ME_562E251101C2' '562E251101C2.pas.ms.script' // Shared Delphi Rtl

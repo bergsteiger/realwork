@@ -1,0 +1,82 @@
+// TeeMemo 4AC5D3DB0371 GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AC5D3DB0371
+
+FORWARD ME_54C26D790097
+
+: ME_47D1602000C6_ME_54C26D790097
+ : Original WL 'ME_47D1602000C6' '4AB0997B00A2.pas.ms.script' // Create
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_47D1602000C6_ME_54C26D790097 Create
+
+: ME_54C26D790097
+ CONST UID '54C26D790097'
+ CONST Name 'TeeCustomMemo'
+ CONST Class class_Class
+ : Stereotype st_GuiControl ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4AC5D3DB0371 // TeeMemo
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4829D81D02E5' '4829D81D02E5.pas.ms.script' // TevCustomMemo
+ )
+ ; // Inherits
+ : Overridden
+   Seq: ( ME_47D1602000C6_ME_54C26D790097 // Create
+ )
+ ; // Overridden
+ CONST "need UC" true
+ CONST extprop:rc:SelfName 'eeCustomMemo'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_54C26D790097 TeeCustomMemo
+
+: ME_54C27E9C0222
+ CONST UID '54C27E9C0222'
+ CONST Name 'TBevelKind'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4AC5D3DB0371 // TeeMemo
+ ;
+ : Inherits
+   Seq: ( WL 'ME_54C27E8C0136' '4799D29F033F.pas.ms.script' // TBevelKind
+ )
+ ; // Inherits
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_54C27E9C0222 TBevelKind
+
+: ME_4AC5D3DB0371
+ CONST UID '4AC5D3DB0371'
+ CONST Name 'TeeMemo'
+ CONST Class class_Class
+ : Stereotype st_GuiControl ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4952683C007B' '4952683C007B.pas.ms.script' // Editor
+ ;
+ : Inherits
+   Seq: ( HWL ME_54C26D790097 // TeeCustomMemo
+ )
+ ; // Inherits
+ : Children
+   Seq: ( HWL ME_54C26D790097 // TeeCustomMemo
+ HWL ME_54C27E9C0222 // TBevelKind
+ )
+ ; // Children
+ CONST "need UC" true
+ CONST intf.pas:Path 'common\components\gui\Garant\Everest_Engine\eeMemo.pas'
+ CONST extprop:rc:SelfName 'eeMemo'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'eeMemo'
+
+ref; // ME_4AC5D3DB0371 TeeMemo

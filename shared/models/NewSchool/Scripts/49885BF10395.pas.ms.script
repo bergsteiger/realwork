@@ -13,7 +13,7 @@ FORWARD ME_4AFD421E02F7
  %SUMMARY 'Подсвечивать найденный контекст' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4AFD421E02F7 // Edit
+ : Parent HWL ME_4AFD421E02F7 // Edit
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -36,10 +36,10 @@ ref; // ME_4AFD4230031F ToggleFoundWords
  %SUMMARY 'Правка' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_49885BF10395 // F1Lite
+ : Parent HWL ME_49885BF10395 // F1Lite
  ;
  : Operations
-   Seq: ( ME_4AFD4230031F // ToggleFoundWords
+   Seq: ( HWL ME_4AFD4230031F // ToggleFoundWords
  )
  ; // Operations
 
@@ -58,7 +58,7 @@ FORWARD ME_4C7D39A7029B
  %SUMMARY 'Снять с контроля' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4C7D39A7029B // AddToControl
+ : Parent HWL ME_4C7D39A7029B // AddToControl
  ;
  CONST "Checked" true
  CONST "Enabled" 'undefined'
@@ -75,10 +75,10 @@ ref; // ME_4C7D39BD001B RemoveFromControl
  %SUMMARY 'Поставить на контроль' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C3AFAA902D2 // Text$ForDocument
+ : Parent HWL ME_4C3AFAA902D2 // Text$ForDocument
  ;
  : Children
-   Seq: ( ME_4C7D39BD001B // RemoveFromControl
+   Seq: ( HWL ME_4C7D39BD001B // RemoveFromControl
  )
  ; // Children
  CONST "AutoFocus" false
@@ -99,7 +99,7 @@ ref; // ME_4C7D39A7029B AddToControl
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C3AFAA902D2 // Text$ForDocument
+ : Parent HWL ME_4C3AFAA902D2 // Text$ForDocument
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -121,11 +121,11 @@ ref; // ME_4C3AFAD90234 AddToControl
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_49885BF10395 // F1Lite
+ : Parent HWL ME_49885BF10395 // F1Lite
  ;
  : Operations
-   Seq: ( ME_4C7D39A7029B // AddToControl
- ME_4C3AFAD90234 // AddToControl
+   Seq: ( HWL ME_4C7D39A7029B // AddToControl
+ HWL ME_4C3AFAD90234 // AddToControl
  )
  ; // Operations
 
@@ -139,7 +139,7 @@ FORWARD ME_4C3AFB320320
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C3AFB320320 // Selection$ForDocument
+ : Parent HWL ME_4C3AFB320320 // Selection$ForDocument
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -159,7 +159,7 @@ ref; // ME_4C3AFB450234 ShowCorrespondentListToPart
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C3AFB320320 // Selection$ForDocument
+ : Parent HWL ME_4C3AFB320320 // Selection$ForDocument
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -181,11 +181,11 @@ ref; // ME_4C3AFB51020D ShowRespondentListToPart
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_49885BF10395 // F1Lite
+ : Parent HWL ME_49885BF10395 // F1Lite
  ;
  : Operations
-   Seq: ( ME_4C3AFB450234 // ShowCorrespondentListToPart
- ME_4C3AFB51020D // ShowRespondentListToPart
+   Seq: ( HWL ME_4C3AFB450234 // ShowCorrespondentListToPart
+ HWL ME_4C3AFB51020D // ShowRespondentListToPart
  )
  ; // Operations
 
@@ -202,9 +202,9 @@ ref; // ME_4C3AFB320320 Selection$ForDocument
  : Parent WL 'ME_4A9F76D70283' '4A9F76D70283.pas.ms.script' // View
  ;
  : Children
-   Seq: ( ME_4AFD421E02F7 // Edit
- ME_4C3AFAA902D2 // Text$ForDocument
- ME_4C3AFB320320 // Selection$ForDocument
+   Seq: ( HWL ME_4AFD421E02F7 // Edit
+ HWL ME_4C3AFAA902D2 // Text$ForDocument
+ HWL ME_4C3AFB320320 // Selection$ForDocument
  )
  ; // Children
  : Depends

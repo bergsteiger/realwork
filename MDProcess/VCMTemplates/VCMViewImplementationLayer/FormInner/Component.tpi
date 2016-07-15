@@ -43,31 +43,6 @@ p ComponentClass=none|TevTextSource|TImageEnIO|TImageEnProc|TnscTextSource|TTime
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// Унаследованная реализация
-
-// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
-%f _DoSpell
-//#UC START# *4B2A19E3038Bfor4A794D1700B2*
-	%S%f_CheckG()\
-
-	%S%[inherited]\
-
-	<%C#f_DoSpell()>
-
-%f _CheckG
-	[{%S%f_IsOverride()!=true}\
-	[{%Gx!=true}\
-	[{%S{ComponentClass}!=none&"%S{ComponentClass}"!=""}\
-	%f_FindElem(%S{ComponentClass})\
-//	%f_find_element(%S{ComponentClass},l_Elem)\
-	%S%f_make_accessable(%{l_Elem}U)\
-	%f_addG(%S,%{l_Elem})\
-	]\
-	]\
-	]
-//#UC END# *4B2A19E3038Bfor4A794D1700B2*
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Исключенные вложенные стереотипы
 ~ Component::Class::property::Attribute::Attribute
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

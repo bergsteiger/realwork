@@ -1,0 +1,286 @@
+// PrimInternetAgent$FP 49EC739C0100 VCMFormsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49EC739C0100
+
+FORWARD ME_4B14DF1F0101
+
+: ME_4B14DF4201A3
+ CONST UID '4B14DF4201A3'
+ CONST Name 'Log'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4B14DF1F0101 // TnsOpenInternetAgentEvent
+ ;
+
+ref; // ME_4B14DF4201A3 Log
+
+: ME_4B14DF7401B1
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4B14DF1F0101 // TnsOpenInternetAgentEvent
+ ;
+ : Target WL 'ME_45ED58FF0201' '45ED58CF03E6.pas.ms.script' // LogEvent
+ ;
+
+ref; // ME_4B14DF7401B1 
+
+: ME_4B14DF1F0101
+ CONST UID '4B14DF1F0101'
+ CONST Name 'TnsOpenInternetAgentEvent'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_49EC739C0100 // PrimInternetAgent$FP
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4B0A6109010C' '4B0A60DF01F2.pas.ms.script' // TnsLogEvent
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( HWL ME_4B14DF4201A3 // Log
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_4B14DF7401B1 // LogEvent
+ )
+ ; // Dependencies
+ CONST extprop:rc:SelfName 'OpenInternetAgentEvent'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4B14DF1F0101 TnsOpenInternetAgentEvent
+
+FORWARD ME_49ECAADA03C7
+
+: ME_49EDE7BB03BC
+ CONST Name 'anURL'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_49EDE7BB03BC anURL
+
+: ME_4B71825000FA
+ CONST Name 'aContainer'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
+ ;
+
+ref; // ME_4B71825000FA aContainer
+
+: ME_49ECAB2F03E4
+ CONST UID '49ECAB2F03E4'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_49ECAADA03C7 // MakeInternetAgent
+ ;
+ : Parameters
+   Seq: ( ME_49EDE7BB03BC // anURL
+ ME_4B71825000FA // aContainer
+ )
+ ; // Parameters
+
+ref; // ME_49ECAB2F03E4 DoIt
+
+: ME_49ECA9E301EF
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_49ECAADA03C7 // MakeInternetAgent
+ ;
+ : Target WL 'ME_49ECA984005F' '49ECA984005F.pas.ms.script' // TsdsInternetAgent
+ ;
+
+ref; // ME_49ECA9E301EF 
+
+: ME_49ECAA4400C8
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_49ECAADA03C7 // MakeInternetAgent
+ ;
+ : Target WL 'ME_47F260EC02C7' '521C9DA50125.pas.ms.script' // StdRes
+ ;
+
+ref; // ME_49ECAA4400C8 
+
+: ME_49ECAA2A0030
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_49ECAADA03C7 // MakeInternetAgent
+ ;
+ : Target WL 'ME_47B97312006D' '47B9727603BE.pas.ms.script' // TvcmFormSetFactory
+ ;
+
+ref; // ME_49ECAA2A0030 
+
+: ME_49ECAADA03C7
+ CONST UID '49ECAADA03C7'
+ CONST Name 'MakeInternetAgent'
+ CONST Class class_Class
+ : Stereotype st_FormSetFactory ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Создаёт область вывода Интернет-агента' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_49EC739C0100 // PrimInternetAgent$FP
+ ;
+ : Operations
+   Seq: ( HWL ME_49ECAB2F03E4 // DoIt
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_49ECA9E301EF // TsdsInternetAgent
+ ME_49ECAA4400C8 // StdRes
+ ME_49ECAA2A0030 // TvcmFormSetFactory
+ )
+ ; // Dependencies
+ CONST "NO_FACTORY_BRACKECTS" false
+
+ref; // ME_49ECAADA03C7 MakeInternetAgent
+
+: ME_4A979E9B0245
+ CONST UID '4A979E9B0245'
+ CONST Name 'InternetAgent'
+ CONST Class class_Operation
+ : Stereotype st_ModuleOperation::Operation ;
+ %SUMMARY 'Новости онлайн' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_49EC739C0100 // PrimInternetAgent$FP
+ ;
+ CONST "ShowInToolbar" 'undefined'
+ CONST "no prefix" false
+ CONST "no test" false
+
+ref; // ME_4A979E9B0245 InternetAgent
+
+: ME_4A979E4D015A
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_49EC739C0100 // PrimInternetAgent$FP
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_4A979E4D015A 
+
+: ME_4A979E4F037F
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_49EC739C0100 // PrimInternetAgent$FP
+ ;
+ : Target WL 'ME_4773D64E036C' '47913B47006E.pas.ms.script' // l3Base
+ ;
+
+ref; // ME_4A979E4F037F 
+
+: ME_4A979E51035B
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_49EC739C0100 // PrimInternetAgent$FP
+ ;
+ : Target WL 'ME_48FF556602BA' '48F747EC0073.pas.ms.script' // DataAdapter
+ ;
+
+ref; // ME_4A979E51035B 
+
+: ME_4AAA08430001
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_49EC739C0100 // PrimInternetAgent$FP
+ ;
+ : Target WL 'ME_4A6854C70390' '47F2170002B2.pas.ms.script' // nsTypes
+ ;
+
+ref; // ME_4AAA08430001 
+
+: ME_4B14DF4B0118
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_49EC739C0100 // PrimInternetAgent$FP
+ ;
+ : Target HWL ME_4B14DF1F0101 // TnsOpenInternetAgentEvent
+ ;
+
+ref; // ME_4B14DF4B0118 
+
+: ME_4B5EDA850332
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_49EC739C0100 // PrimInternetAgent$FP
+ ;
+ : Target WL 'ME_47752AF90375' '47750CE700D0.pas.ms.script' // afwFacade
+ ;
+
+ref; // ME_4B5EDA850332 
+
+: ME_4B5EDC76016E
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_49EC739C0100 // PrimInternetAgent$FP
+ ;
+ : Target WL 'ME_475EA8840080' '467823B7002C.pas.ms.script' // Locale
+ ;
+
+ref; // ME_4B5EDC76016E 
+
+: ME_4C0DDE9901BA
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_49EC739C0100 // PrimInternetAgent$FP
+ ;
+ : Target WL 'ME_47FB50E4008E' '48F747EC0073.pas.ms.script' // nsConst
+ ;
+
+ref; // ME_4C0DDE9901BA 
+
+: ME_49EC739C0100
+ CONST UID '49EC739C0100'
+ CONST Name 'PrimInternetAgent'
+ CONST Class class_Class
+ : Stereotype st_VCMFormsPack ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Модуль для [Интернет-агента|$144575249]' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent WL 'ME_49EC7167004C' '49EC7167004C.pas.ms.script' // InternetAgent
+ ;
+ : Operations
+   Seq: ( HWL ME_49ECAADA03C7 // MakeInternetAgent
+ HWL ME_4A979E9B0245 // InternetAgent
+ )
+ ; // Operations
+ : Children
+   Seq: ( WL 'ME_49EC74D002B8' '49EC74D002B8.pas.ms.script' // InternetAgent$F
+ WL 'ME_49F586610347' '49F586610347.pas.ms.script' // InternetAgent
+ HWL ME_4B14DF1F0101 // TnsOpenInternetAgentEvent
+ )
+ ; // Children
+ : Dependencies
+   Seq: ( ME_4A979E4D015A // Il3CString
+ ME_4A979E4F037F // l3Base
+ ME_4A979E51035B // DataAdapter
+ ME_4AAA08430001 // nsTypes
+ ME_4B14DF4B0118 // TnsOpenInternetAgentEvent
+ ME_4B5EDA850332 // afwFacade
+ ME_4B5EDC76016E // Locale
+ ME_4C0DDE9901BA // nsConst
+ )
+ ; // Dependencies
+ CONST "author" 'Люлин А.В.'
+ CONST "no hands" true
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\InternetAgent\PrimInternetAgent_Module.pas'
+ CONST extprop:pas:TypeName 'TPrimInternetAgentModule'
+ CONST extprop:rc:SelfName 'PrimInternetAgentModule'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'PrimInternetAgent_Module'
+
+ref; // ME_49EC739C0100 PrimInternetAgent$FP

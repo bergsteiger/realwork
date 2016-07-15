@@ -14,7 +14,7 @@ FORWARD ME_492F0586030C
  %SUMMARY 'Новостная лента' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_492F0586030C // AutoreferatInterfaces
+ : Parent HWL ME_492F0586030C // AutoreferatInterfaces
  ;
  CONST extprop:rc:SelfName 'dsNewsLine'
  CONST extprop:rc:isAcceptableForScripts true
@@ -32,9 +32,9 @@ FORWARD ME_492F071B02AC
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_492F071B02AC // IsdsAutoreferat
+ : Parent HWL ME_492F071B02AC // IsdsAutoreferat
  ;
- : Target ME_492FDE16013B // IdsNewsLine
+ : Target HWL ME_492FDE16013B // IdsNewsLine
  ;
  CONST "pm" true
 
@@ -84,14 +84,14 @@ ref; // ME_5111C2BAF24F_ME_492F071B02AC HasDocument
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_492F0586030C // AutoreferatInterfaces
+ : Parent HWL ME_492F0586030C // AutoreferatInterfaces
  ;
  : Inherits
    Seq: ( WL 'ME_47EA0F8D010D' '491B305A0096.pas.ms.script' // IsdsBaseDocument
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_492F060800A2 // MakeNewsLineFakeDS
+   Seq: ( HWL ME_492F060800A2 // MakeNewsLineFakeDS
  )
  ; // Attributes
  : Implemented
@@ -118,8 +118,8 @@ ref; // ME_492F071B02AC IsdsAutoreferat
  : Parent WL 'ME_49411E4001AB' '49411E4001AB.pas.ms.script' // Autoreferat
  ;
  : Children
-   Seq: ( ME_492FDE16013B // IdsNewsLine
- ME_492F071B02AC // IsdsAutoreferat
+   Seq: ( HWL ME_492FDE16013B // IdsNewsLine
+ HWL ME_492F071B02AC // IsdsAutoreferat
  )
  ; // Children
  : Depends

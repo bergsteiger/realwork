@@ -2,39 +2,6 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-FORWARD ME_4AA66AFA01B1
-
-: ME_4AA6778D0357
- CONST UID '4AA6778D0357'
- CONST Name 'Rubricator'
- CONST Class class_Class
- : Stereotype st_VCMUseCaseRealization ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Правовой навигатор' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4AA66AFA01B1 // Rubricator
- ;
- : Inherits
-   Seq: ( WL 'ME_4AA67768038F' '4AA66B460175.pas.ms.script' // Rubricator
- )
- ; // Inherits
- : Implements
-   Seq: ( WL 'ME_484CE59A0140' '484CE48E02E6.pas.ms.script' // Работа с древовидными структурами
- )
- ; // Implements
- CONST "author" 'Люлин А.В.'
- CONST "no hands" true
- CONST "started" '09.09.2009 14:55'
- CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\moRubricator.pas'
- CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
- CONST extprop:pas:TypeName 'Tmo_Rubricator'
- CONST extprop:rc:SelfName 'mo_Rubricator'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'moRubricator'
-
-ref; // ME_4AA6778D0357 Rubricator$UC
-
 : ME_4AA66AFA01B1
  CONST UID '4AA66AFA01B1'
  CONST Name 'Rubricator'
@@ -46,7 +13,7 @@ ref; // ME_4AA6778D0357 Rubricator$UC
  : Parent WL 'ME_4F7E92C400AF' '4F7E92C400AF.pas.ms.script' // F1 Основные прецеденты
  ;
  : Children
-   Seq: ( ME_4AA6778D0357 // Rubricator$UC
+   Seq: ( WL 'ME_4AA6778D0357' '4AA6778D0357.pas.ms.script' // Rubricator$UC
  WL 'ME_4AA7A7D903AE' '4AA7A7D903AE.pas.ms.script' // Rubricator
  WL 'ME_4AA66B2C02FC' '4AA66B2C02FC.pas.ms.script' // View
  )

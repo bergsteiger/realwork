@@ -21,6 +21,7 @@ USES
  AttributeUtils.script
  ArchiControls.script
  CommonWords.script
+ Mouse.script
 ;
 
 PROCEDURE "Убрать галочки со всех чекбоксов"
@@ -157,6 +158,21 @@ PROCEDURE "Экcпортировать в NSR и сравнить с эталоном"
 	"Сравнить с эталоном NSRC {("Имя документа")}"
 ;
 
+PROCEDURE "Экcпортировать в EVD и сравнить с эталоном"			
+	STRING VAR "Имя документа"
+	BOOLEAN VAR "Нет выборки"
+	"Сформировать имя документа EVD из полного имени скрипта" >>> "Имя документа"
+	НЕ "Открыто окно 'Выборка документов'" >>> "Нет выборки"
+	Если ( "Нет выборки" ) то
+	( 		
+		"Добавить документ в выборку" 
+	)
+	2000 SLEEP
+	"Экспортировать выборку в формате EVD {("Имя документа")}"		
+	2000 SLEEP
+	"Сравнить с эталоном EVD {("Имя документа")}"
+;
+
 PROCEDURE "Создать или открыть"	
     g_ActionWithDocument CASE	
       cnWithOutDocument (  )
@@ -234,7 +250,8 @@ PROCEDURE "Подготовка"
 
 PROCEDURE "Подготовка и WebStyle"
 	 "Подготовка"
-	 "Включить WebStyle" 
+	 "Включить WebStyle"
+	 "Обработать сообщения" 
 ;
 
 PROCEDURE "Подготовка к отрисовке" 
@@ -544,6 +561,23 @@ PROCEDURE "Сравнить выделенный текст редактора с эталоном в формате RTF с привяз
 	EtalonNeedsComputerName
 ;
 
+//clipboard:GetFormattedText
+PROCEDURE "Проверка содержимого буфера обмена"
+ 0 clipboard:GetFormattedText .
+;
+
+PROCEDURE "Проверка содержимого буфера обмена в RTF"
+	CF_RTF clipboard:GetFormattedText .
+;
+
+PROCEDURE "Проверка содержимого буфера обмена в формате EVD"
+	CF_EVERESTBIN clipboard:GetFormattedText EvdBin2EvdTxt .
+;
+
+PROCEDURE "Проверить курсор мыши и сравнить с эталоном"
+	"Узнать индекс курсора мыши" "Узнать имя индекса курсора мыши" .		
+;
+
 PROCEDURE "Проверочное действие"	
 	g_SetFuzzValue SetFuzzInPercent
 	g_CheckAction CASE
@@ -551,7 +585,6 @@ PROCEDURE "Проверочное действие"
 		cnCheckWithEVDEtalon ( "Сравнить текст с эталоном" ) 
 		cnCheckWithNSREtalon ( "Сохранить в NSR и сравнить с эталоном" )
 		cnCheckTable ( "Выполнить проверку таблицы" )
-		cnCheckDrawing ( "Перерисовать и сравнить с эталоном в текущем редакторе" )
 		cnCheckTableLineDrawing ( "Отрисовка и сохранение линий таблиц" ) 
 		cnCheckTopAnchor ( "Проверить верхний якорь" ) 
 		cnCheckBottomAnchor ( "Проверить нижний якорь" ) 
@@ -580,7 +613,11 @@ PROCEDURE "Проверочное действие"
 		cnExport2HTMLAndCheckWithEtalon ( "Экcпортировать в HTML и сравнить с эталоном" )
 		cnRTFWithPCName ( "Сравнить выделенный текст редактора с эталоном в формате RTF с привязкой к машине" )
 		cnExport2RTFAndCheckWithEtalon ( "Экcпортировать в RTF и сравнить с эталоном" )
-		cnCheckDrawingWithPC ( "Перерисовать и сравнить с эталоном с привязкой к ПК" )
+		cnCheckClipboard ( "Проверка содержимого буфера обмена" )
+		cnCheckClipboardRtf ( "Проверка содержимого буфера обмена в RTF" )
+		cnCheckClipboardEvd ( "Проверка содержимого буфера обмена в формате EVD" )
+		cnExport2EVDAndCheckWithEtalon ( "Экcпортировать в EVD и сравнить с эталоном" )
+		cnCheckCursorIndexNameEtalon ( "Проверить курсор мыши и сравнить с эталоном" )
         END
 	Если ( g_AntiTest ) то ( g_WasException 'Не появилось ожидаемое исключение!' ASSERTS )
 ;
@@ -654,12 +691,6 @@ PROCEDURE "Проверяющие слова"
 ;
 
 PROCEDURE "Проверка совместимости параметров"
-	Если ( g_CheckAction cnCheckDrawing == ) то
-	(
-	 g_How2Prepare "НЕ РАВНО" cnSpecSymbol ?ASSURE 'Несовместимые параметры!'
-	 g_How2Prepare "НЕ РАВНО" cnNotPrepare ?ASSURE 'Несовместимые параметры!'
-	 g_How2Prepare "НЕ РАВНО" cnOnlyMainForm ?ASSURE 'Несовместимые параметры!'
-	)
 ;
 
 VOID WORDWORKER Выполнить		

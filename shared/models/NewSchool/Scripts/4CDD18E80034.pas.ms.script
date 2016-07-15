@@ -1,0 +1,265 @@
+// HyperlinkToDocumentProducer 4CDD18E80034 VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4CDD18E80034
+
+: ME_4CDD19B503B1
+ CONST UID '4CDD19B503B1'
+ CONST Name 'HyperlinkDocID'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Идентификато документа на который надо ставить ссылку' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent HWL ME_4CDD18E80034 // HyperlinkToDocumentProducer
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "needs field" false
+ CONST "pm" true
+
+ref; // ME_4CDD19B503B1 HyperlinkDocID
+
+: ME_4CDD1A02013D
+ CONST UID '4CDD1A02013D'
+ CONST Name 'HyperlinkDocumentName'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Имя документа на который надо ставить ссылку' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent HWL ME_4CDD18E80034 // HyperlinkToDocumentProducer
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+ CONST "needs field" false
+ CONST "pm" true
+
+ref; // ME_4CDD1A02013D HyperlinkDocumentName
+
+: ME_4CE41B300315
+ CONST UID '4CE41B300315'
+ CONST Name 'HyperlinkSubID'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4CDD18E80034 // HyperlinkToDocumentProducer
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "needs field" false
+ CONST "pm" true
+
+ref; // ME_4CE41B300315 HyperlinkSubID
+
+FORWARD ME_53EB17EF0306
+
+: ME_53EB180603A6
+ CONST UID '53EB180603A6'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_53EB17EF0306 // NeedMakeHyperlinkToDocument
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_53EB180603A6 DoIt
+
+: ME_53EB17EF0306
+ CONST UID '53EB17EF0306'
+ CONST Name 'NeedMakeHyperlinkToDocument'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4CDD18E80034 // HyperlinkToDocumentProducer
+ ;
+ : Operations
+   Seq: ( HWL ME_53EB180603A6 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_53EB17EF0306 NeedMakeHyperlinkToDocument
+
+: ME_4CDD2088026B
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4CDD18E80034 // HyperlinkToDocumentProducer
+ ;
+ : Target WL 'ME_48F4CF9903D6' '469C688102A3.pas.ms.script' // TevConstStringData
+ ;
+
+ref; // ME_4CDD2088026B 
+
+: ME_4CDD21050084
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4CDD18E80034 // HyperlinkToDocumentProducer
+ ;
+ : Target WL 'ME_47878E0E0191' '54B90AC6014B.pas.ms.script' // l3String
+ ;
+
+ref; // ME_4CDD21050084 
+
+: ME_4CDD23EF01A9
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4CDD18E80034 // HyperlinkToDocumentProducer
+ ;
+ : Target WL 'ME_4CDD23D702B6' '47913B47006E.pas.ms.script' // SetClipboardData
+ ;
+
+ref; // ME_4CDD23EF01A9 
+
+: ME_4CDD4052026D
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4CDD18E80034 // HyperlinkToDocumentProducer
+ ;
+ : Target WL 'ME_4CDD3D930147' '4860B0120014.pas.ms.script' // TevdHyperlinkInfo
+ ;
+
+ref; // ME_4CDD4052026D 
+
+: ME_4CDD75FE03AF
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4CDD18E80034 // HyperlinkToDocumentProducer
+ ;
+ : Target WL 'ME_4AA7888B0076' '47913B47006E.pas.ms.script' // l3CStr
+ ;
+
+ref; // ME_4CDD75FE03AF 
+
+: ME_4CDD79620085
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4CDD18E80034 // HyperlinkToDocumentProducer
+ ;
+ : Target WL 'ME_4CDD77A700E6' '4CDD1854020C.pas.ms.script' // Local
+ ;
+
+ref; // ME_4CDD79620085 
+
+: ME_4CDE773B0083
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4CDD18E80034 // HyperlinkToDocumentProducer
+ ;
+ : Target WL 'ME_48F4940C01C0' '4A23935A0282.pas.ms.script' // TevAddress
+ ;
+
+ref; // ME_4CDE773B0083 
+
+: ME_4CDD18A20143_ME_4CDD18E80034
+ : Original WL 'ME_4CDD18A20143' '4CDD18640278.pas.ms.script' // MakeHyperlinkToDocument
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" false
+ CONST "ShowInToolbar" false
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_4CDD18A20143_ME_4CDD18E80034 MakeHyperlinkToDocument
+
+: ME_4CDD5C3901E0_ME_4CDD18E80034
+ : Original WL 'ME_4CDD5C3901E0' '4CDD18640278.pas.ms.script' // MakeHyperlinkToDocument
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" true
+ CONST "ShowInToolbar" false
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_4CDD5C3901E0_ME_4CDD18E80034 MakeHyperlinkToDocument
+
+: ME_4CDE7C2C0258_ME_4CDD18E80034
+ : Original WL 'ME_4CDE7C2C0258' '4CDD18640278.pas.ms.script' // MakeHyperlinkToDocument
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" true
+ CONST "ShowInToolbar" false
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_4CDE7C2C0258_ME_4CDD18E80034 MakeHyperlinkToDocument
+
+: ME_4CDD18E80034
+ CONST UID '4CDD18E80034'
+ CONST Name 'HyperlinkToDocumentProducer'
+ CONST Class class_Class
+ : Stereotype st_VCMForm ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Изготовитель ссылок на документы' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent WL 'ME_4CDD1854020C' '4CDD1854020C.pas.ms.script' // Forms
+ ;
+ : Implements
+   Seq: ( WL 'ME_4A82BCFA02EF' '4AADF9450143.pas.ms.script' // MvcmEntityForm
+ WL 'ME_4CDD188900C5' '4CDD18640278.pas.ms.script' // File
+ WL 'ME_4CDD5C020288' '4CDD18640278.pas.ms.script' // Text
+ WL 'ME_4CDE7C1E020F' '4CDD18640278.pas.ms.script' // Document
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( HWL ME_4CDD19B503B1 // HyperlinkDocID
+ HWL ME_4CDD1A02013D // HyperlinkDocumentName
+ HWL ME_4CE41B300315 // HyperlinkSubID
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( HWL ME_53EB17EF0306 // NeedMakeHyperlinkToDocument
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4CDD18A20143_ME_4CDD18E80034 // MakeHyperlinkToDocument
+ ME_4CDD5C3901E0_ME_4CDD18E80034 // MakeHyperlinkToDocument
+ ME_4CDE7C2C0258_ME_4CDD18E80034 // MakeHyperlinkToDocument
+ )
+ ; // Implemented
+ : Dependencies
+   Seq: ( ME_4CDD2088026B // TevConstStringData
+ ME_4CDD21050084 // l3String
+ ME_4CDD23EF01A9 // SetClipboardData
+ ME_4CDD4052026D // TevdHyperlinkInfo
+ ME_4CDD75FE03AF // l3CStr
+ ME_4CDD79620085 // Local
+ ME_4CDE773B0083 // TevAddress
+ )
+ ; // Dependencies
+ CONST "NeedsHackRef" true
+ CONST "ZoneType" 'Any'
+ CONST "author" 'Люлин А.В.'
+ CONST "finished dfm" true
+ CONST "no hands" true
+ CONST "resizeable" false
+ CONST "restrict form def" 'undefined'
+ CONST "started" '12.11.2010 13:38'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\LinksToGarant\HyperlinkToDocumentProducer.imp.pas'
+ CONST extprop:pas:TypeName '_HyperlinkToDocumentProducer_'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'HyperlinkToDocumentProducer.imp'
+ CONST extprop:NeedsInitEntities true
+
+ref; // ME_4CDD18E80034 HyperlinkToDocumentProducer

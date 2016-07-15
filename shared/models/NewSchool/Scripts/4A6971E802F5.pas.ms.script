@@ -1,0 +1,85 @@
+// ChatWindow 4A6971E802F5 VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A6971E802F5
+
+: ME_C8D06A43AD67
+ CONST UID 'C8D06A43AD67'
+ CONST GUID 'BD39AB6D-74A5-4A07-80BA-F529342D3B8A'
+ CONST Name 'ChatWindow'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_VCMFormDefinition ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Идентификатор формы ChatWindow' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4A6971E802F5 // ChatWindow
+ ;
+ : Implementors
+   Seq: ( HWL ME_4A6971E802F5 // ChatWindow
+ )
+ ; // Implementors
+ CONST extprop:pas:TypeName 'ChatWindowFormDef'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_C8D06A43AD67 ChatWindow$Def
+
+: ME_373EEC13BBF9
+ CONST UID '373EEC13BBF9'
+ CONST Name 'Ini_FormFactory_ChatWindow'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы ChatWindow' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4A6971E802F5 // ChatWindow
+ ;
+ : SpelledFor HWL ME_4A6971E802F5 // ChatWindow
+ ;
+
+ref; // ME_373EEC13BBF9 Ini_FormFactory_ChatWindow$Def
+
+: ME_4A6971E802F5
+ CONST UID '4A6971E802F5'
+ CONST Name 'ChatWindow'
+ CONST Class class_Class
+ : Stereotype st_VCMFinalForm ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Переписка' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent WL 'ME_4A6971B802A6' '4A6971B802A6.pas.ms.script' // BaseChat
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4C84CB6F0007' '4C84CB6F0007.pas.ms.script' // BaseChatWindowOptions
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( HWL ME_C8D06A43AD67 // ChatWindow$Def
+ )
+ ; // Implements
+ : Operations
+   Seq: ( HWL ME_373EEC13BBF9 // Ini_FormFactory_ChatWindow$Def
+ )
+ ; // Operations
+ : Children
+   Seq: ( HWL ME_C8D06A43AD67 // ChatWindow$Def
+ )
+ ; // Children
+ CONST "NeedsHackRef" true
+ CONST "ZoneType" 'SimpleFloat'
+ CONST "author" 'Лукьянец Р.В.'
+ CONST "finished dfm" true
+ CONST "resizeable" false
+ CONST "restrict form def" 'undefined'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Chat\Forms\ChatWindow_Form.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Chat\Forms'
+ CONST extprop:pas:TypeName 'TChatWindowForm'
+ CONST extprop:rc:SelfName 'ChatWindowForm'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'ChatWindow_Form'
+
+ref; // ME_4A6971E802F5 ChatWindow

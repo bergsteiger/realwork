@@ -1,0 +1,37 @@
+// MainMenu$UC 4AA7A24203B1 VCMUseCaseRealization Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+: ME_4AA7A24203B1
+ CONST UID '4AA7A24203B1'
+ CONST Name 'MainMenu'
+ CONST Class class_Class
+ : Stereotype st_VCMUseCaseRealization ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Основное меню' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent WL 'ME_4AA0F7430020' '4AA0F7430020.pas.ms.script' // MainMenu
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4AA7A1F80027' '4AA7A1F80027.pas.ms.script' // MainMenu$FP
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_484F77120164' '48563BA400A9.pas.ms.script' // Основное меню (устарел)
+ WL 'ME_48563E65020C' '48563BA400A9.pas.ms.script' // Упрощенное Основное Меню (устарел)
+ WL 'ME_4AC1D84F0398' '48563BA400A9.pas.ms.script' // Основное меню (2009)
+ WL 'ME_4E7344D40331' '48563BA400A9.pas.ms.script' // Тип изменяемой части основного меню
+ )
+ ; // Implements
+ CONST "author" 'Люлин А.В.'
+ CONST "no hands" true
+ CONST "started" '09.09.2009 16:34'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\moMainMenu.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST extprop:pas:TypeName 'Tmo_MainMenu'
+ CONST extprop:rc:SelfName 'mo_MainMenu'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'moMainMenu'
+
+ref; // ME_4AA7A24203B1 MainMenu$UC

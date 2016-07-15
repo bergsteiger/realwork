@@ -1,0 +1,1756 @@
+// Main 4A952BA3006D VCMMainForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A952BA3006D
+
+FORWARD ME_5729DEAB0191
+
+: ME_5729DEC300A8
+ CONST UID '5729DEC300A8'
+ CONST Name 'BaseSearcherState'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent HWL ME_5729DEAB0191 // IMainFormState
+ ;
+ : Target WL 'ME_5433905403C7' '4A9F98B901A5.pas.ms.script' // InsBaseSearcherInitialState
+ ;
+ CONST "pm" false
+
+ref; // ME_5729DEC300A8 BaseSearcherState
+
+: ME_5729DFB7006F
+ CONST UID '5729DFB7006F'
+ CONST Name 'InnerState'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent HWL ME_5729DEAB0191 // IMainFormState
+ ;
+ : Target WL 'ME_4683CEAD00CF' '467BAB7F021E.pas.ms.script' // IvcmBase
+ ;
+ CONST "pm" false
+
+ref; // ME_5729DFB7006F InnerState
+
+: ME_5729DEAB0191
+ CONST UID '5729DEAB0191'
+ CONST GUID '91AB783F-E890-4E0B-B4BF-7641733FCD57'
+ CONST Name 'IMainFormState'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4A952BA3006D // Main
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4683CEAD00CF' '467BAB7F021E.pas.ms.script' // IvcmBase
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( HWL ME_5729DEC300A8 // BaseSearcherState
+ HWL ME_5729DFB7006F // InnerState
+ )
+ ; // Attributes
+ CONST extprop:rc:SelfName 'MainFormState'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_5729DEAB0191 IMainFormState
+
+FORWARD ME_5729DF4D0159
+
+: ME_5729DF9202FD
+ CONST UID '5729DF9202FD'
+ CONST Name 'f_BaseSearcherState'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_5729DF4D0159 // TMainFormState
+ ;
+ : Target WL 'ME_5433905403C7' '4A9F98B901A5.pas.ms.script' // InsBaseSearcherInitialState
+ ;
+
+ref; // ME_5729DF9202FD f_BaseSearcherState
+
+: ME_5729DFA90231
+ CONST UID '5729DFA90231'
+ CONST Name 'f_InnerState'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_5729DF4D0159 // TMainFormState
+ ;
+ : Target WL 'ME_4683CEAD00CF' '467BAB7F021E.pas.ms.script' // IvcmBase
+ ;
+
+ref; // ME_5729DFA90231 f_InnerState
+
+: ME_5729DFDB0114
+ CONST Name 'aBaseSearcherState'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_5433905403C7' '4A9F98B901A5.pas.ms.script' // InsBaseSearcherInitialState
+ ;
+
+ref; // ME_5729DFDB0114 aBaseSearcherState
+
+: ME_5729DFDB013C
+ CONST Name 'aInnerState'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4683CEAD00CF' '467BAB7F021E.pas.ms.script' // IvcmBase
+ ;
+
+ref; // ME_5729DFDB013C aInnerState
+
+: ME_5729DFC3021F
+ CONST UID '5729DFC3021F'
+ CONST Name 'Create'
+ CONST Class class_Operation
+ : Stereotype st_ctor::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_5729DF4D0159 // TMainFormState
+ ;
+ : Parameters
+   Seq: ( ME_5729DFDB0114 // aBaseSearcherState
+ ME_5729DFDB013C // aInnerState
+ )
+ ; // Parameters
+
+ref; // ME_5729DFC3021F Create
+
+: ME_5729DFE800CD
+ CONST Name 'aBaseSearcherState'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_5433905403C7' '4A9F98B901A5.pas.ms.script' // InsBaseSearcherInitialState
+ ;
+
+ref; // ME_5729DFE800CD aBaseSearcherState
+
+: ME_5729DFE800F8
+ CONST Name 'aInnerState'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4683CEAD00CF' '467BAB7F021E.pas.ms.script' // IvcmBase
+ ;
+
+ref; // ME_5729DFE800F8 aInnerState
+
+: ME_5729DFE00278
+ CONST UID '5729DFE00278'
+ CONST Name 'Make'
+ CONST Class class_Operation
+ : Stereotype st_factory::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_5729DF4D0159 // TMainFormState
+ ;
+ : Target HWL ME_5729DEAB0191 // IMainFormState
+ ;
+ : Parameters
+   Seq: ( ME_5729DFE800CD // aBaseSearcherState
+ ME_5729DFE800F8 // aInnerState
+ )
+ ; // Parameters
+
+ref; // ME_5729DFE00278 Make
+
+: ME_5729DEC300A8_ME_5729DF4D0159
+ : Original HWL ME_5729DEC300A8 // BaseSearcherState
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_5729DEC300A8_ME_5729DF4D0159 BaseSearcherState
+
+: ME_5729DFB7006F_ME_5729DF4D0159
+ : Original HWL ME_5729DFB7006F // InnerState
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_5729DFB7006F_ME_5729DF4D0159 InnerState
+
+: ME_5729DF4D0159
+ CONST UID '5729DF4D0159'
+ CONST Name 'TMainFormState'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4A952BA3006D // Main
+ ;
+ : Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( HWL ME_5729DEAB0191 // IMainFormState
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( HWL ME_5729DF9202FD // f_BaseSearcherState
+ HWL ME_5729DFA90231 // f_InnerState
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( HWL ME_5729DFC3021F // Create
+ HWL ME_5729DFE00278 // Make
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_5729DEC300A8_ME_5729DF4D0159 // BaseSearcherState
+ ME_5729DFB7006F_ME_5729DF4D0159 // InnerState
+ )
+ ; // Implemented
+ CONST extprop:rc:SelfName 'MainFormState'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_5729DF4D0159 TMainFormState
+
+: ME_4F8818DB0029
+ CONST UID '4F8818DB0029'
+ CONST Name 'f_BaseSearcher'
+ CONST Class class_Attribute
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent HWL ME_4A952BA3006D // Main
+ ;
+ : Target WL 'ME_496B5FCE02FD' '4A9F98B901A5.pas.ms.script' // InsBaseSearcher
+ ;
+
+ref; // ME_4F8818DB0029 f_BaseSearcher
+
+: ME_4F882B0F0377
+ CONST UID '4F882B0F0377'
+ CONST Name 'f_LastWMActivateTickCount'
+ CONST Class class_Attribute
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4A952BA3006D // Main
+ ;
+ : Target WL 'ME_46A618AF0053' '4AB0C3C60310.pas.ms.script' // Cardinal
+ ;
+
+ref; // ME_4F882B0F0377 f_LastWMActivateTickCount
+
+: ME_4F882B1E03D6
+ CONST UID '4F882B1E03D6'
+ CONST Name 'f_ActivatesCount'
+ CONST Class class_Attribute
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4A952BA3006D // Main
+ ;
+ : Target WL 'ME_46A618AF0053' '4AB0C3C60310.pas.ms.script' // Cardinal
+ ;
+
+ref; // ME_4F882B1E03D6 f_ActivatesCount
+
+: ME_4F882E03027C
+ CONST UID '4F882E03027C'
+ CONST Name 'g_IntegrationMessage'
+ CONST Class class_Attribute
+ : Stereotype st_static::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4A952BA3006D // Main
+ ;
+ : Target WL 'ME_46A618AF0053' '4AB0C3C60310.pas.ms.script' // Cardinal
+ ;
+ CONST extprop:pas:Value 0
+
+ref; // ME_4F882E03027C g_IntegrationMessage
+
+: ME_4F882E0F037D
+ CONST UID '4F882E0F037D'
+ CONST Name 'g_LastMainWindowMessage'
+ CONST Class class_Attribute
+ : Stereotype st_static::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4A952BA3006D // Main
+ ;
+ : Target WL 'ME_46A618AF0053' '4AB0C3C60310.pas.ms.script' // Cardinal
+ ;
+ CONST extprop:pas:Value 0
+
+ref; // ME_4F882E0F037D g_LastMainWindowMessage
+
+: ME_54131CFE018F
+ CONST UID '54131CFE018F'
+ CONST Name 'f_StartupTipsForm'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4A952BA3006D // Main
+ ;
+ : Target WL 'ME_4914746C019E' '4683F37902CF.pas.ms.script' // IvcmEntityForm
+ ;
+
+ref; // ME_54131CFE018F f_StartupTipsForm
+
+: ME_54327C7901D6
+ CONST UID '54327C7901D6'
+ CONST Name 'f_InitialContext'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4A952BA3006D // Main
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_54327C7901D6 f_InitialContext
+
+FORWARD ME_4F88013F007B
+
+: ME_4F8801460390
+ CONST UID '4F8801460390'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4F88013F007B // UpdateUnreadConsultations
+ ;
+
+ref; // ME_4F8801460390 DoIt
+
+: ME_4F88013F007B
+ CONST UID '4F88013F007B'
+ CONST Name 'UpdateUnreadConsultations'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4A952BA3006D // Main
+ ;
+ : Operations
+   Seq: ( HWL ME_4F8801460390 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_4F88013F007B UpdateUnreadConsultations
+
+FORWARD ME_4F8813D6026A
+
+: ME_4F8813E403D6
+ CONST UID '4F8813E403D6'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4F8813D6026A // InitForm
+ ;
+
+ref; // ME_4F8813E403D6 DoIt
+
+: ME_4F8813D6026A
+ CONST UID '4F8813D6026A'
+ CONST Name 'InitForm'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4A952BA3006D // Main
+ ;
+ : Operations
+   Seq: ( HWL ME_4F8813E403D6 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_4F8813D6026A InitForm
+
+FORWARD ME_4F881735018D
+
+: ME_4F8817490398
+ CONST Name 'aNewHeight'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4F8817490398 aNewHeight
+
+: ME_4F88174203D4
+ CONST UID '4F88174203D4'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4F881735018D // PrepareChildZoneBeforeResize
+ ;
+ : Parameters
+   Seq: ( ME_4F8817490398 // aNewHeight
+ )
+ ; // Parameters
+
+ref; // ME_4F88174203D4 DoIt
+
+: ME_4F881735018D
+ CONST UID '4F881735018D'
+ CONST Name 'PrepareChildZoneBeforeResize'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4A952BA3006D // Main
+ ;
+ : Operations
+   Seq: ( HWL ME_4F88174203D4 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_4F881735018D PrepareChildZoneBeforeResize
+
+FORWARD ME_4F881C2E0175
+
+: ME_4F881C390256
+ CONST UID '4F881C390256'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4F881C2E0175 // BaseSearcher
+ ;
+ : Target WL 'ME_496B5FCE02FD' '4A9F98B901A5.pas.ms.script' // InsBaseSearcher
+ ;
+
+ref; // ME_4F881C390256 DoIt
+
+: ME_4F881C2E0175
+ CONST UID '4F881C2E0175'
+ CONST Name 'BaseSearcher'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4A952BA3006D // Main
+ ;
+ : Operations
+   Seq: ( HWL ME_4F881C390256 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_4F881C2E0175 BaseSearcher
+
+FORWARD ME_4F8BED97037A
+
+: ME_4F8BEDA60223
+ CONST UID '4F8BEDA60223'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4F8BED97037A // FillOldBaseWarning
+ ;
+
+ref; // ME_4F8BEDA60223 DoIt
+
+: ME_4F8BED97037A
+ CONST UID '4F8BED97037A'
+ CONST Name 'FillOldBaseWarning'
+ CONST Class class_Class
+ : Stereotype st_abstractmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_4A952BA3006D // Main
+ ;
+ : Operations
+   Seq: ( HWL ME_4F8BEDA60223 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_4F8BED97037A FillOldBaseWarning
+
+FORWARD ME_4F8BF3940103
+
+: ME_4F8BF39B021C
+ CONST UID '4F8BF39B021C'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4F8BF3940103 // ShowStartupAdvertising
+ ;
+
+ref; // ME_4F8BF39B021C DoIt
+
+: ME_4F8BF3940103
+ CONST UID '4F8BF3940103'
+ CONST Name 'ShowStartupAdvertising'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4A952BA3006D // Main
+ ;
+ : Operations
+   Seq: ( HWL ME_4F8BF39B021C // DoIt
+ )
+ ; // Operations
+
+ref; // ME_4F8BF3940103 ShowStartupAdvertising
+
+FORWARD ME_4F8BF3B5012A
+
+: ME_4F8BF3BC0397
+ CONST UID '4F8BF3BC0397'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4F8BF3B5012A // CheckStartupAdvertisingEnabled
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4F8BF3BC0397 DoIt
+
+: ME_4F8BF3B5012A
+ CONST UID '4F8BF3B5012A'
+ CONST Name 'CheckStartupAdvertisingEnabled'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4A952BA3006D // Main
+ ;
+ : Operations
+   Seq: ( HWL ME_4F8BF3BC0397 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_4F8BF3B5012A CheckStartupAdvertisingEnabled
+
+FORWARD ME_4F8BF3CC02A6
+
+: ME_4F8BF3D40148
+ CONST UID '4F8BF3D40148'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4F8BF3CC02A6 // CheckFirstLoginActivity
+ ;
+
+ref; // ME_4F8BF3D40148 DoIt
+
+: ME_4F8BF3CC02A6
+ CONST UID '4F8BF3CC02A6'
+ CONST Name 'CheckFirstLoginActivity'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4A952BA3006D // Main
+ ;
+ : Operations
+   Seq: ( HWL ME_4F8BF3D40148 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_4F8BF3CC02A6 CheckFirstLoginActivity
+
+FORWARD ME_4F8BF3ED02D0
+
+: ME_4F8BF3F402F2
+ CONST UID '4F8BF3F402F2'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4F8BF3ED02D0 // CanFirstLoginActivity
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4F8BF3F402F2 DoIt
+
+: ME_4F8BF3ED02D0
+ CONST UID '4F8BF3ED02D0'
+ CONST Name 'CanFirstLoginActivity'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4A952BA3006D // Main
+ ;
+ : Operations
+   Seq: ( HWL ME_4F8BF3F402F2 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_4F8BF3ED02D0 CanFirstLoginActivity
+
+FORWARD ME_4F8BF4060008
+
+: ME_4F8BF40D007C
+ CONST UID '4F8BF40D007C'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4F8BF4060008 // CheckInstallDefaultSettings
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4F8BF40D007C DoIt
+
+: ME_4F8BF4060008
+ CONST UID '4F8BF4060008'
+ CONST Name 'CheckInstallDefaultSettings'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4A952BA3006D // Main
+ ;
+ : Operations
+   Seq: ( HWL ME_4F8BF40D007C // DoIt
+ )
+ ; // Operations
+
+ref; // ME_4F8BF4060008 CheckInstallDefaultSettings
+
+FORWARD ME_4F8BF41E00D8
+
+: ME_4F8BF426024D
+ CONST UID '4F8BF426024D'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4F8BF41E00D8 // IntegrationInProcess
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4F8BF426024D DoIt
+
+: ME_4F8BF41E00D8
+ CONST UID '4F8BF41E00D8'
+ CONST Name 'IntegrationInProcess'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4A952BA3006D // Main
+ ;
+ : Operations
+   Seq: ( HWL ME_4F8BF426024D // DoIt
+ )
+ ; // Operations
+
+ref; // ME_4F8BF41E00D8 IntegrationInProcess
+
+FORWARD ME_4F8BF5C602C3
+
+: ME_4F8BF5DB021E
+ CONST Name 'Sender'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_4F8BF5DB021E Sender
+
+: ME_4F8BF5D6033D
+ CONST UID '4F8BF5D6033D'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4F8BF5C602C3 // vcmMainFormShow
+ ;
+ : Parameters
+   Seq: ( ME_4F8BF5DB021E // Sender
+ )
+ ; // Parameters
+
+ref; // ME_4F8BF5D6033D DoIt
+
+: ME_4F8BF5C602C3
+ CONST UID '4F8BF5C602C3'
+ CONST Name 'vcmMainFormShow'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4A952BA3006D // Main
+ ;
+ : Operations
+   Seq: ( HWL ME_4F8BF5D6033D // DoIt
+ )
+ ; // Operations
+ CONST extprop:rc:SelfName 'MainFormShow'
+
+ref; // ME_4F8BF5C602C3 vcmMainFormShow
+
+: ME_5411B2D10071
+ CONST UID '5411B2D10071'
+ CONST Name 'CorrectStartupTipsPosition'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4A952BA3006D // Main
+ ;
+
+ref; // ME_5411B2D10071 CorrectStartupTipsPosition
+
+FORWARD ME_550144FA0072
+
+: ME_5501451C03E2
+ CONST UID '5501451C03E2'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_550144FA0072 // CheckConsultationManagerStatus
+ ;
+
+ref; // ME_5501451C03E2 DoIt
+
+: ME_550144FA0072
+ CONST UID '550144FA0072'
+ CONST Name 'CheckConsultationManagerStatus'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4A952BA3006D // Main
+ ;
+ : Operations
+   Seq: ( HWL ME_5501451C03E2 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_550144FA0072 CheckConsultationManagerStatus
+
+: ME_55CC2C9101F8
+ CONST UID '55CC2C9101F8'
+ CONST Name 'NotifyBaseSearcherFormClosing'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4A952BA3006D // Main
+ ;
+
+ref; // ME_55CC2C9101F8 NotifyBaseSearcherFormClosing
+
+: ME_576A792F01D9
+ CONST UID '576A792F01D9'
+ CONST Name 'ActivateFormIfNeeded'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4A952BA3006D // Main
+ ;
+
+ref; // ME_576A792F01D9 ActivateFormIfNeeded
+
+: ME_4F882B43026C
+ CONST Name 'Message'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_4B34C15303B5' '476F78840219.pas.ms.script' // TWMActivate
+ ;
+
+ref; // ME_4F882B43026C Message
+
+: ME_4F882B3402EB
+ CONST UID '4F882B3402EB'
+ CONST Name 'WMActivate'
+ CONST Class class_Operation
+ : Stereotype st_message::Operation ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4A952BA3006D // Main
+ ;
+ : Parameters
+   Seq: ( ME_4F882B43026C // Message
+ )
+ ; // Parameters
+ CONST "Message ID" 'WM_ACTIVATE'
+
+ref; // ME_4F882B3402EB WMActivate
+
+: ME_4F882B6A0052
+ CONST Name 'Message'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_4F882B8102A8' '476F78840219.pas.ms.script' // TWMActivateApp
+ ;
+
+ref; // ME_4F882B6A0052 Message
+
+: ME_4F882B6101CA
+ CONST UID '4F882B6101CA'
+ CONST Name 'WMActivateApp'
+ CONST Class class_Operation
+ : Stereotype st_message::Operation ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4A952BA3006D // Main
+ ;
+ : Parameters
+   Seq: ( ME_4F882B6A0052 // Message
+ )
+ ; // Parameters
+ CONST "Message ID" 'WM_ACTIVATEAPP'
+
+ref; // ME_4F882B6101CA WMActivateApp
+
+: ME_4F882BAC0346
+ CONST Name 'aMessage'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_4F882B950344' '476F78840219.pas.ms.script' // TWMCopyData
+ ;
+
+ref; // ME_4F882BAC0346 aMessage
+
+: ME_4F882BA300FD
+ CONST UID '4F882BA300FD'
+ CONST Name 'WMCopyData'
+ CONST Class class_Operation
+ : Stereotype st_message::Operation ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4A952BA3006D // Main
+ ;
+ : Parameters
+   Seq: ( ME_4F882BAC0346 // aMessage
+ )
+ ; // Parameters
+ CONST "Message ID" 'WM_COPYDATA'
+
+ref; // ME_4F882BA300FD WMCopyData
+
+: ME_4F882BD502FC
+ CONST Name 'aMessage'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_4F882BB8019C' '476F78840219.pas.ms.script' // TWMDisplayChange
+ ;
+
+ref; // ME_4F882BD502FC aMessage
+
+: ME_4F882BCD02ED
+ CONST UID '4F882BCD02ED'
+ CONST Name 'WMDisplayChange'
+ CONST Class class_Operation
+ : Stereotype st_message::Operation ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4A952BA3006D // Main
+ ;
+ : Parameters
+   Seq: ( ME_4F882BD502FC // aMessage
+ )
+ ; // Parameters
+ CONST "Message ID" 'WM_DISPLAYCHANGE'
+
+ref; // ME_4F882BCD02ED WMDisplayChange
+
+: ME_4F882C080099
+ CONST Name 'aMessage'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_4F882BEF01F0' '476F78840219.pas.ms.script' // TWMWindowPosChanging
+ ;
+
+ref; // ME_4F882C080099 aMessage
+
+: ME_4F882C0000BA
+ CONST UID '4F882C0000BA'
+ CONST Name 'WMWindowPosChanging'
+ CONST Class class_Operation
+ : Stereotype st_message::Operation ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4A952BA3006D // Main
+ ;
+ : Parameters
+   Seq: ( ME_4F882C080099 // aMessage
+ )
+ ; // Parameters
+ CONST "Message ID" 'WM_WINDOWPOSCHANGING'
+
+ref; // ME_4F882C0000BA WMWindowPosChanging
+
+: ME_4F882E1B0358
+ CONST UID '4F882E1B0358'
+ CONST Name 'ini'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4A952BA3006D // Main
+ ;
+
+ref; // ME_4F882E1B0358 ini
+
+: ME_4F86CBC6039E
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A952BA3006D // Main
+ ;
+ : Target WL 'ME_48A41FF10094' '4AB0C3F60375.pas.ms.script' // Windows
+ ;
+
+ref; // ME_4F86CBC6039E 
+
+: ME_4F86CC0901DD
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A952BA3006D // Main
+ ;
+ : Target WL 'ME_47752AF90375' '47750CE700D0.pas.ms.script' // afwFacade
+ ;
+
+ref; // ME_4F86CC0901DD 
+
+: ME_4F86CC8201AB
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A952BA3006D // Main
+ ;
+ : Target WL 'ME_47FB50E4008E' '48F747EC0073.pas.ms.script' // nsConst
+ ;
+
+ref; // ME_4F86CC8201AB 
+
+: ME_4F86CCB70030
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A952BA3006D // Main
+ ;
+ : Target WL 'ME_4AB366EC0271' '46837A08002C.pas.ms.script' // TlgQueryType
+ ;
+
+ref; // ME_4F86CCB70030 
+
+: ME_4F86D1AC0258
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A952BA3006D // Main
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_4F86D1AC0258 
+
+: ME_4F86D1C4014E
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A952BA3006D // Main
+ ;
+ : Target WL 'ME_431841610361' '4423F94903C8.pas.ms.script' // String
+ ;
+
+ref; // ME_4F86D1C4014E 
+
+: ME_4F86D6D9005F
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A952BA3006D // Main
+ ;
+ : Target WL 'ME_47878E0E0191' '54B90AC6014B.pas.ms.script' // l3String
+ ;
+
+ref; // ME_4F86D6D9005F 
+
+: ME_4F86D7C501B7
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A952BA3006D // Main
+ ;
+ : Target WL 'ME_4B1E8FAE0380' '48F747EC0073.pas.ms.script' // DefDataAdapter
+ ;
+
+ref; // ME_4F86D7C501B7 
+
+: ME_4F86D85A03E6
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A952BA3006D // Main
+ ;
+ : Target WL 'ME_49895C3C02D6' '48F747EC0073.pas.ms.script' // nsOpenUtils
+ ;
+
+ref; // ME_4F86D85A03E6 
+
+: ME_4F86D906019E
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A952BA3006D // Main
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_4F86D906019E 
+
+: ME_4F86D9BC02A2
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A952BA3006D // Main
+ ;
+ : Target WL 'ME_47E13C6B0341' '4799D29F033F.pas.ms.script' // Forms
+ ;
+
+ref; // ME_4F86D9BC02A2 
+
+: ME_4F86D9D1018A
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A952BA3006D // Main
+ ;
+ : Target WL 'ME_456EB454018E' '456EA56002BF.pas.ms.script' // CanNotFindData
+ ;
+
+ref; // ME_4F86D9D1018A 
+
+: ME_4F88012003E4
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A952BA3006D // Main
+ ;
+ : Target WL 'ME_4C7E83BC01A8' '47EA07FA02CE.pas.ms.script' // TbsNotification
+ ;
+
+ref; // ME_4F88012003E4 
+
+: ME_4F8804A502C9
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A952BA3006D // Main
+ ;
+ : Target WL 'ME_49228EF60100' '48F747EC0073.pas.ms.script' // nsManagers
+ ;
+
+ref; // ME_4F8804A502C9 
+
+: ME_4F880C9B005C
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A952BA3006D // Main
+ ;
+ : Target WL 'ME_47ECBD5D03BB' '476F78840219.pas.ms.script' // Msg Codes
+ ;
+
+ref; // ME_4F880C9B005C 
+
+: ME_4F880CC901F2
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A952BA3006D // Main
+ ;
+ : Target WL 'ME_47E11FC3021E' '4799D29F033F.pas.ms.script' // Controls
+ ;
+
+ref; // ME_4F880CC901F2 
+
+: ME_4F880D7F002D
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A952BA3006D // Main
+ ;
+ : Target WL 'ME_4728CE680258' '4AB0997B00A2.pas.ms.script' // TShiftState
+ ;
+
+ref; // ME_4F880D7F002D 
+
+: ME_4F881C5C0370
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A952BA3006D // Main
+ ;
+ : Target WL 'ME_4AC226030181' '4AC225E70273.pas.ms.script' // TnsBaseSearcher
+ ;
+
+ref; // ME_4F881C5C0370 
+
+: ME_4F881CD20217
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A952BA3006D // Main
+ ;
+ : Target WL 'ME_4AE864B801C5' '4EEA07CA0360.pas.ms.script' // nsQueryUtils
+ ;
+
+ref; // ME_4F881CD20217 
+
+: ME_4F881FF20131
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A952BA3006D // Main
+ ;
+ : Target WL 'ME_4AD8570C01CC' '54F9EC5B0269.pas.ms.script' // nsContextHistory
+ ;
+
+ref; // ME_4F881FF20131 
+
+: ME_4F8820B501C0
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A952BA3006D // Main
+ ;
+ : Target WL 'ME_4F882096008A' '4F882096008A.pas.ms.script' // MemoryUsage
+ ;
+
+ref; // ME_4F8820B501C0 
+
+: ME_4F8826D80334
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A952BA3006D // Main
+ ;
+ : Target WL 'ME_4AC5D5FB0293' '4A8AD3C70195.pas.ms.script' // Result$CancelWithState
+ ;
+
+ref; // ME_4F8826D80334 
+
+: ME_4F883046037C
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A952BA3006D // Main
+ ;
+ : Target WL 'ME_4787FCE9024A' '47913B47006E.pas.ms.script' // l3AsincMessageWindow
+ ;
+
+ref; // ME_4F883046037C 
+
+: ME_4F8830630371
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A952BA3006D // Main
+ ;
+ : Target WL 'ME_4F7DCF5E0198' '467BAB7F021E.pas.ms.script' // IvcmFlashingWindow
+ ;
+
+ref; // ME_4F8830630371 
+
+: ME_4F88309A0306
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A952BA3006D // Main
+ ;
+ : Target WL 'ME_48C6811302CB' '47913B47006E.pas.ms.script' // l3SysUtils
+ ;
+
+ref; // ME_4F88309A0306 
+
+: ME_4F8830CB023B
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A952BA3006D // Main
+ ;
+ : Target WL 'ME_47F25BC801DB' '47D0E1500033.pas.ms.script' // vcmBase
+ ;
+
+ref; // ME_4F8830CB023B 
+
+: ME_4F88311D01CF
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A952BA3006D // Main
+ ;
+ : Target WL 'ME_463F5105003E' '463F4DE5003E.pas.ms.script' // CantCreateObject
+ ;
+
+ref; // ME_4F88311D01CF 
+
+: ME_4F8834A5000D
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A952BA3006D // Main
+ ;
+ : Target WL 'ME_4B30EC81021A' '4B30EC67025A.pas.ms.script' // TvcmCustomMenuManager
+ ;
+
+ref; // ME_4F8834A5000D 
+
+: ME_4F8BF0610288
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A952BA3006D // Main
+ ;
+ : Target WL 'ME_4F636139008F' '4F635E1901E5.pas.ms.script' // Tl3ListenersManager
+ ;
+
+ref; // ME_4F8BF0610288 
+
+: ME_4F8BF889031F
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A952BA3006D // Main
+ ;
+ : Target WL 'ME_4F8BF87D0235' '4AB0997B00A2.pas.ms.script' // HelpIntfs
+ ;
+
+ref; // ME_4F8BF889031F 
+
+: ME_4F8BF8E0004C
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A952BA3006D // Main
+ ;
+ : Target WL 'ME_4F8BF8D40367' '55DDB8900080.pas.ms.script' // vtVerInf
+ ;
+
+ref; // ME_4F8BF8E0004C 
+
+: ME_4F8BF943002C
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A952BA3006D // Main
+ ;
+ : Target WL 'ME_45EEDCDC02F2' '45EEAA69036E.pas.ms.script' // DefaultValuesChangesState
+ ;
+
+ref; // ME_4F8BF943002C 
+
+: ME_4F8BF97D033B
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A952BA3006D // Main
+ ;
+ : Target WL 'ME_4ADC5175035B' '4F6B421102FB.pas.ms.script' // TnsWindowsList
+ ;
+
+ref; // ME_4F8BF97D033B 
+
+: ME_4F8BF9C20165
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A952BA3006D // Main
+ ;
+ : Target WL 'ME_4F8BF9B20239' '4F7D8B3A03A0.pas.ms.script' // nsConfiguration
+ ;
+
+ref; // ME_4F8BF9C20165 
+
+: ME_4F8BFA2301B7
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A952BA3006D // Main
+ ;
+ : Target WL 'ME_492440D20009' '48F747EC0073.pas.ms.script' // nsValueMaps
+ ;
+
+ref; // ME_4F8BFA2301B7 
+
+: ME_4F8BFB2202F9
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A952BA3006D // Main
+ ;
+ : Target WL 'ME_4AAA21970352' '4AAA216F032C.pas.ms.script' // resWarnImages
+ ;
+
+ref; // ME_4F8BFB2202F9 
+
+: ME_4F8BFB660215
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A952BA3006D // Main
+ ;
+ : Target WL 'ME_4924422E0249' '48F747EC0073.pas.ms.script' // nsValueMapsIDs
+ ;
+
+ref; // ME_4F8BFB660215 
+
+: ME_4F8BFC4A01A0
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A952BA3006D // Main
+ ;
+ : Target WL 'ME_4AD5BB450335' '4F7D8B3A03A0.pas.ms.script' // nsSettingsUtils
+ ;
+
+ref; // ME_4F8BFC4A01A0 
+
+: ME_5411C9EC038C
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A952BA3006D // Main
+ ;
+ : Target WL 'ME_553213D902E0' '553213B80041.pas.ms.script' // Tl3TabbedContainersDispatcher
+ ;
+
+ref; // ME_5411C9EC038C 
+
+: ME_54FEB6150149
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A952BA3006D // Main
+ ;
+ : Target WL 'ME_4AD825C703D8' '54F9F6FB0143.pas.ms.script' // TnsContextHistoryKind
+ ;
+
+ref; // ME_54FEB6150149 
+
+: ME_5534E8B401F6
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A952BA3006D // Main
+ ;
+ : Target WL 'ME_537AEB96006C' '533D53FF00C2.pas.ms.script' // vcmTabbedContainerFormDispatcher
+ ;
+
+ref; // ME_5534E8B401F6 
+
+: ME_5631C05300C4
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A952BA3006D // Main
+ ;
+ : Target WL 'ME_563875050317' '563874EF0183.pas.ms.script' // TnsBaseSearchService
+ ;
+
+ref; // ME_5631C05300C4 
+
+: ME_5729E0330278
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A952BA3006D // Main
+ ;
+ : Target WL 'ME_5433905403C7' '4A9F98B901A5.pas.ms.script' // InsBaseSearcherInitialState
+ ;
+
+ref; // ME_5729E0330278 
+
+: ME_577A4A540128
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A952BA3006D // Main
+ ;
+ : Target WL 'ME_55B0CF2803D7' '4A92D644009B.pas.ms.script' // Tf1StartupCompletedServiceImpl
+ ;
+
+ref; // ME_577A4A540128 
+
+: ME_46A4504B03C4_ME_4A952BA3006D
+ : Original WL 'ME_46A4504B03C4' '4677FBA70343.pas.ms.script' // Notify
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_46A4504B03C4_ME_4A952BA3006D Notify
+
+: ME_496B4F6D02B5_ME_4A952BA3006D
+ : Original WL 'ME_496B4F6D02B5' '4A9F98B901A5.pas.ms.script' // CheckLocalDataReady
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_496B4F6D02B5_ME_4A952BA3006D CheckLocalDataReady
+
+: ME_496B4FAA02FA_ME_4A952BA3006D
+ : Original WL 'ME_496B4FAA02FA' '4D7A0528021A.pas.ms.script' // SearchResultEmpty
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_496B4FAA02FA_ME_4A952BA3006D SearchResultEmpty
+
+: ME_496B4FC70065_ME_4A952BA3006D
+ : Original WL 'ME_496B4FC70065' '4D7A0528021A.pas.ms.script' // SearchResultExists
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_496B4FC70065_ME_4A952BA3006D SearchResultExists
+
+: ME_496B4FD20320_ME_4A952BA3006D
+ : Original WL 'ME_496B4FD20320' '4D7A0528021A.pas.ms.script' // AnotherSearchSuccessed
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_496B4FD20320_ME_4A952BA3006D AnotherSearchSuccessed
+
+: ME_496B534B0098_ME_4A952BA3006D
+ : Original WL 'ME_496B534B0098' '4A9F98B901A5.pas.ms.script' // SetDataFromQuery
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_496B534B0098_ME_4A952BA3006D SetDataFromQuery
+
+: ME_496B5356008C_ME_4A952BA3006D
+ : Original WL 'ME_496B5356008C' '4A9F98B901A5.pas.ms.script' // RequestFind
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_496B5356008C_ME_4A952BA3006D RequestFind
+
+: ME_49FFFE5B033A_ME_4A952BA3006D
+ : Original WL 'ME_49FFFE5B033A' '4A9F98B901A5.pas.ms.script' // RequestCheckFragmentsCount
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_49FFFE5B033A_ME_4A952BA3006D RequestCheckFragmentsCount
+
+: ME_4A13A97F0211_ME_4A952BA3006D
+ : Original WL 'ME_4A13A97F0211' '4A9F98B901A5.pas.ms.script' // RequestCheckFindBack
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4A13A97F0211_ME_4A952BA3006D RequestCheckFindBack
+
+: ME_4AC5D61E0284_ME_4A952BA3006D
+ : Original WL 'ME_4AC5D61E0284' '4A8AD3C70195.pas.ms.script' // Cancel
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "has states" true
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_4AC5D61E0284_ME_4A952BA3006D Cancel
+
+: ME_4C04AFC8015D_ME_4A952BA3006D
+ : Original WL 'ME_4C04AFC8015D' '4D7A0528021A.pas.ms.script' // AnotherSearchCancelled
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4C04AFC8015D_ME_4A952BA3006D AnotherSearchCancelled
+
+: ME_4F79D08A02C7_ME_4A952BA3006D
+ : Original WL 'ME_4F79D08A02C7' '4677FBA70343.pas.ms.script' // MouseWheelListenerNotify
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4F79D08A02C7_ME_4A952BA3006D MouseWheelListenerNotify
+
+: ME_4F86BF5F0198_ME_4A952BA3006D
+ : Original WL 'ME_4F86BF5F0198' '4C8A29700261.pas.ms.script' // ProcessCommand
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4F86BF5F0198_ME_4A952BA3006D ProcessCommand
+
+: ME_4F86BF850173_ME_4A952BA3006D
+ : Original WL 'ME_4F86BF850173' '4C8A29700261.pas.ms.script' // ProcessLink
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4F86BF850173_ME_4A952BA3006D ProcessLink
+
+: ME_4F86BFA3034E_ME_4A952BA3006D
+ : Original WL 'ME_4F86BFA3034E' '4C8A29700261.pas.ms.script' // CheckKey
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4F86BFA3034E_ME_4A952BA3006D CheckKey
+
+: ME_4F86BFBF01AE_ME_4A952BA3006D
+ : Original WL 'ME_4F86BFBF01AE' '4C8A29700261.pas.ms.script' // CheckInconic
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4F86BFBF01AE_ME_4A952BA3006D CheckInconic
+
+: ME_4F88213001DE_ME_4A952BA3006D
+ : Original WL 'ME_4F88213001DE' '4A8E792A0108.pas.ms.script' // MemUsage
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_4F88213001DE_ME_4A952BA3006D MemUsage
+
+: ME_542BF11D00B6_ME_4A952BA3006D
+ : Original WL 'ME_542BF11D00B6' '48F747EC0073.pas.ms.script' // nsNotification
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_542BF11D00B6_ME_4A952BA3006D nsNotification
+
+: ME_54327CCD0178_ME_4A952BA3006D
+ : Original WL 'ME_54327CCD0178' '4A9F98B901A5.pas.ms.script' // InitialState
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_54327CCD0178_ME_4A952BA3006D InitialState
+
+: ME_55321ADE02E9_ME_4A952BA3006D
+ : Original WL 'ME_55321ADE02E9' '553213B80041.pas.ms.script' // NotifyContainersChanged
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_55321ADE02E9_ME_4A952BA3006D NotifyContainersChanged
+
+: ME_560B83DE0294_ME_4A952BA3006D
+ : Original WL 'ME_560B83DE0294' '4A9F98B901A5.pas.ms.script' // StateForClone
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_560B83DE0294_ME_4A952BA3006D StateForClone
+
+: ME_5631AC7700D9_ME_4A952BA3006D
+ : Original WL 'ME_5631AC7700D9' '4A9F98B901A5.pas.ms.script' // BaseSearcher
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_5631AC7700D9_ME_4A952BA3006D BaseSearcher
+
+: ME_479731C50290_ME_4A952BA3006D
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_479731C50290_ME_4A952BA3006D Cleanup
+
+: ME_47D1602000C6_ME_4A952BA3006D
+ : Original WL 'ME_47D1602000C6' '4AB0997B00A2.pas.ms.script' // Create
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_47D1602000C6_ME_4A952BA3006D Create
+
+: ME_47EA4E9002C6_ME_4A952BA3006D
+ : Original WL 'ME_47EA4E9002C6' '47EA4BB502F9.pas.ms.script' // FinishDataUpdate
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_47EA4E9002C6_ME_4A952BA3006D FinishDataUpdate
+
+: ME_47EA8B9601FE_ME_4A952BA3006D
+ : Original WL 'ME_47EA8B9601FE' '47EA4BB502F9.pas.ms.script' // SettingsReplaceFinish
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_47EA8B9601FE_ME_4A952BA3006D SettingsReplaceFinish
+
+: ME_4958BE910345_ME_4A952BA3006D
+ : Original WL 'ME_4958BE910345' '48F747EC0073.pas.ms.script' // UserSettingsChanged
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4958BE910345_ME_4A952BA3006D UserSettingsChanged
+
+: ME_4958F46C003B_ME_4A952BA3006D
+ : Original WL 'ME_4958F46C003B' '48F747EC0073.pas.ms.script' // StartSettingsEdit
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4958F46C003B_ME_4A952BA3006D StartSettingsEdit
+
+: ME_49803F5503AA_ME_4A952BA3006D
+ : Original WL 'ME_49803F5503AA' '4AADF9450143.pas.ms.script' // DoInit
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_49803F5503AA_ME_4A952BA3006D DoInit
+
+: ME_49806ED503D5_ME_4A952BA3006D
+ : Original WL 'ME_49806ED503D5' '4AADF9450143.pas.ms.script' // DoSaveState
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_49806ED503D5_ME_4A952BA3006D DoSaveState
+
+: ME_49807428008C_ME_4A952BA3006D
+ : Original WL 'ME_49807428008C' '4AADF9450143.pas.ms.script' // DoLoadState
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_49807428008C_ME_4A952BA3006D DoLoadState
+
+: ME_538C374A00B7_ME_4A952BA3006D
+ : Original WL 'ME_538C374A00B7' '4AADF9450143.pas.ms.script' // ReleaseResources
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_538C374A00B7_ME_4A952BA3006D ReleaseResources
+
+: ME_54327E120331_ME_4A952BA3006D
+ : Original WL 'ME_54327E120331' '4AADF9450143.pas.ms.script' // DoInitFromPrevContainer
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_54327E120331_ME_4A952BA3006D DoInitFromPrevContainer
+
+: ME_4A952BA3006D
+ CONST UID '4A952BA3006D'
+ CONST Name 'Main'
+ CONST Class class_Class
+ : Stereotype st_VCMMainForm ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Главная форма' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4A925AFF01BA' '4A925AFF01BA.pas.ms.script' // PrimNemesis
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4C8A29700261' '4C8A29700261.pas.ms.script' // MainOptions
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4680CF1A0364' '4677FBA70343.pas.ms.script' // Il3ItemNotifyRecipient
+ WL 'ME_495132860112' '4D7A0528021A.pas.ms.script' // InsBaseSearchResultProcessor
+ WL 'ME_496B4F6303E5' '4A9F98B901A5.pas.ms.script' // InsBaseSearchDataReadyChecker
+ WL 'ME_496B533F00AE' '4A9F98B901A5.pas.ms.script' // InsBaseSearchQueryDataProcessor
+ WL 'ME_4F79CE030257' '4677FBA70343.pas.ms.script' // Il3MouseWheelListener
+ WL 'ME_4F86BF4200B8' '4C8A29700261.pas.ms.script' // InsIntegrationProcessor
+ WL 'ME_4F882119031B' '4A8E792A0108.pas.ms.script' // Common$MemUsage
+ WL 'ME_542BEEB003E1' '48F747EC0073.pas.ms.script' // InsNotificationListener
+ WL 'ME_54327CB100C6' '4A9F98B901A5.pas.ms.script' // InsBaseSearchInitialStateProvider
+ WL 'ME_55321AC301F0' '553213B80041.pas.ms.script' // Il3TabbedContainersListener
+ WL 'ME_5631AC50016C' '4A9F98B901A5.pas.ms.script' // InsBaseSearcherProvider
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( HWL ME_4F8818DB0029 // f_BaseSearcher
+ HWL ME_4F882B0F0377 // f_LastWMActivateTickCount
+ HWL ME_4F882B1E03D6 // f_ActivatesCount
+ HWL ME_4F882E03027C // g_IntegrationMessage
+ HWL ME_4F882E0F037D // g_LastMainWindowMessage
+ HWL ME_54131CFE018F // f_StartupTipsForm
+ HWL ME_54327C7901D6 // f_InitialContext
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( HWL ME_4F88013F007B // UpdateUnreadConsultations
+ HWL ME_4F8813D6026A // InitForm
+ HWL ME_4F881735018D // PrepareChildZoneBeforeResize
+ HWL ME_4F881C2E0175 // BaseSearcher
+ HWL ME_4F8BED97037A // FillOldBaseWarning
+ HWL ME_4F8BF3940103 // ShowStartupAdvertising
+ HWL ME_4F8BF3B5012A // CheckStartupAdvertisingEnabled
+ HWL ME_4F8BF3CC02A6 // CheckFirstLoginActivity
+ HWL ME_4F8BF3ED02D0 // CanFirstLoginActivity
+ HWL ME_4F8BF4060008 // CheckInstallDefaultSettings
+ HWL ME_4F8BF41E00D8 // IntegrationInProcess
+ HWL ME_4F8BF5C602C3 // vcmMainFormShow
+ HWL ME_5411B2D10071 // CorrectStartupTipsPosition
+ HWL ME_550144FA0072 // CheckConsultationManagerStatus
+ HWL ME_55CC2C9101F8 // NotifyBaseSearcherFormClosing
+ HWL ME_576A792F01D9 // ActivateFormIfNeeded
+ HWL ME_4F882B3402EB // WMActivate
+ HWL ME_4F882B6101CA // WMActivateApp
+ HWL ME_4F882BA300FD // WMCopyData
+ HWL ME_4F882BCD02ED // WMDisplayChange
+ HWL ME_4F882C0000BA // WMWindowPosChanging
+ HWL ME_4F882E1B0358 // ini
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_46A4504B03C4_ME_4A952BA3006D // Notify
+ ME_496B4F6D02B5_ME_4A952BA3006D // CheckLocalDataReady
+ ME_496B4FAA02FA_ME_4A952BA3006D // SearchResultEmpty
+ ME_496B4FC70065_ME_4A952BA3006D // SearchResultExists
+ ME_496B4FD20320_ME_4A952BA3006D // AnotherSearchSuccessed
+ ME_496B534B0098_ME_4A952BA3006D // SetDataFromQuery
+ ME_496B5356008C_ME_4A952BA3006D // RequestFind
+ ME_49FFFE5B033A_ME_4A952BA3006D // RequestCheckFragmentsCount
+ ME_4A13A97F0211_ME_4A952BA3006D // RequestCheckFindBack
+ ME_4AC5D61E0284_ME_4A952BA3006D // Cancel
+ ME_4C04AFC8015D_ME_4A952BA3006D // AnotherSearchCancelled
+ ME_4F79D08A02C7_ME_4A952BA3006D // MouseWheelListenerNotify
+ ME_4F86BF5F0198_ME_4A952BA3006D // ProcessCommand
+ ME_4F86BF850173_ME_4A952BA3006D // ProcessLink
+ ME_4F86BFA3034E_ME_4A952BA3006D // CheckKey
+ ME_4F86BFBF01AE_ME_4A952BA3006D // CheckInconic
+ ME_4F88213001DE_ME_4A952BA3006D // MemUsage
+ ME_542BF11D00B6_ME_4A952BA3006D // nsNotification
+ ME_54327CCD0178_ME_4A952BA3006D // InitialState
+ ME_55321ADE02E9_ME_4A952BA3006D // NotifyContainersChanged
+ ME_560B83DE0294_ME_4A952BA3006D // StateForClone
+ ME_5631AC7700D9_ME_4A952BA3006D // BaseSearcher
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_479731C50290_ME_4A952BA3006D // Cleanup
+ ME_47D1602000C6_ME_4A952BA3006D // Create
+ ME_47EA4E9002C6_ME_4A952BA3006D // FinishDataUpdate
+ ME_47EA8B9601FE_ME_4A952BA3006D // SettingsReplaceFinish
+ ME_4958BE910345_ME_4A952BA3006D // UserSettingsChanged
+ ME_4958F46C003B_ME_4A952BA3006D // StartSettingsEdit
+ ME_49803F5503AA_ME_4A952BA3006D // DoInit
+ ME_49806ED503D5_ME_4A952BA3006D // DoSaveState
+ ME_49807428008C_ME_4A952BA3006D // DoLoadState
+ ME_538C374A00B7_ME_4A952BA3006D // ReleaseResources
+ ME_54327E120331_ME_4A952BA3006D // DoInitFromPrevContainer
+ )
+ ; // Overridden
+ : Children
+   Seq: ( HWL ME_5729DEAB0191 // IMainFormState
+ HWL ME_5729DF4D0159 // TMainFormState
+ )
+ ; // Children
+ : Dependencies
+   Seq: ( ME_4F86CBC6039E // Windows
+ ME_4F86CC0901DD // afwFacade
+ ME_4F86CC8201AB // nsConst
+ ME_4F86CCB70030 // TlgQueryType
+ ME_4F86D1AC0258 // Il3CString
+ ME_4F86D1C4014E // String
+ ME_4F86D6D9005F // l3String
+ ME_4F86D7C501B7 // DefDataAdapter
+ ME_4F86D85A03E6 // nsOpenUtils
+ ME_4F86D906019E // SysUtils
+ ME_4F86D9BC02A2 // Forms
+ ME_4F86D9D1018A // CanNotFindData
+ ME_4F88012003E4 // TbsNotification
+ ME_4F8804A502C9 // nsManagers
+ ME_4F880C9B005C // Msg Codes
+ ME_4F880CC901F2 // Controls
+ ME_4F880D7F002D // TShiftState
+ ME_4F881C5C0370 // TnsBaseSearcher
+ ME_4F881CD20217 // nsQueryUtils
+ ME_4F881FF20131 // nsContextHistory
+ ME_4F8820B501C0 // MemoryUsage
+ ME_4F8826D80334 // Result$CancelWithState
+ ME_4F883046037C // l3AsincMessageWindow
+ ME_4F8830630371 // IvcmFlashingWindow
+ ME_4F88309A0306 // l3SysUtils
+ ME_4F8830CB023B // vcmBase
+ ME_4F88311D01CF // CantCreateObject
+ ME_4F8834A5000D // TvcmCustomMenuManager
+ ME_4F8BF0610288 // Tl3ListenersManager
+ ME_4F8BF889031F // HelpIntfs
+ ME_4F8BF8E0004C // vtVerInf
+ ME_4F8BF943002C // DefaultValuesChangesState
+ ME_4F8BF97D033B // TnsWindowsList
+ ME_4F8BF9C20165 // nsConfiguration
+ ME_4F8BFA2301B7 // nsValueMaps
+ ME_4F8BFB2202F9 // resWarnImages
+ ME_4F8BFB660215 // nsValueMapsIDs
+ ME_4F8BFC4A01A0 // nsSettingsUtils
+ ME_5411C9EC038C // Tl3TabbedContainersDispatcher
+ ME_54FEB6150149 // TnsContextHistoryKind
+ ME_5534E8B401F6 // vcmTabbedContainerFormDispatcher
+ ME_5631C05300C4 // TnsBaseSearchService
+ ME_5729E0330278 // InsBaseSearcherInitialState
+ ME_577A4A540128 // Tf1StartupCompletedServiceImpl
+ )
+ ; // Dependencies
+ CONST "NeedsHackRef" false
+ CONST "ZoneType" 'Any'
+ CONST "finished dfm" true
+ CONST "resizeable" false
+ CONST "restrict form def" 'undefined'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Main_Form.pas'
+ CONST extprop:pas:TypeName 'TMainForm'
+ CONST extprop:rc:SelfName 'MainForm'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'Main_Form'
+ CONST extprop:NeedsInitEntities true
+
+ref; // ME_4A952BA3006D Main

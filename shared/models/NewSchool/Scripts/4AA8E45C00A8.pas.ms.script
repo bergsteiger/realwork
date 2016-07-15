@@ -1,0 +1,58 @@
+// UserList 4AA8E45C00A8 VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AA8E45C00A8
+
+: ME_A3B7ABF2FDF1
+ CONST UID 'A3B7ABF2FDF1'
+ CONST Name 'Ini_FormFactory_UserList'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы UserList' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AA8E45C00A8 // UserList
+ ;
+ : SpelledFor HWL ME_4AA8E45C00A8 // UserList
+ ;
+
+ref; // ME_A3B7ABF2FDF1 Ini_FormFactory_UserList
+
+: ME_4AA8E45C00A8
+ CONST UID '4AA8E45C00A8'
+ CONST Name 'UserList'
+ CONST Class class_Class
+ : Stereotype st_VCMFinalForm ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent WL 'ME_4AA5120303E5' '4AA5120303E5.pas.ms.script' // Admin
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4C7CE50101B3' '4C7CE50101B3.pas.ms.script' // PrimUserListOptions
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4FFBFFFD00A6' '4FFBFDCA01DE.pas.ms.script' // UserList
+ )
+ ; // Implements
+ : Operations
+   Seq: ( HWL ME_A3B7ABF2FDF1 // Ini_FormFactory_UserList
+ )
+ ; // Operations
+ CONST "NeedsHackRef" true
+ CONST "ZoneType" 'Any'
+ CONST "finished dfm" true
+ CONST "form name prefix" 'ef'
+ CONST "resizeable" false
+ CONST "restrict form def" 'undefined'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Admin\Forms\UserList_Form.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Admin\Forms'
+ CONST extprop:pas:TypeName 'TefUserList'
+ CONST extprop:rc:SelfName 'efUserList'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'UserList_Form'
+
+ref; // ME_4AA8E45C00A8 UserList

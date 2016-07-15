@@ -14,10 +14,10 @@ FORWARD ME_544E079E0253
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_544E0148010D // Messages
+ : Parent HWL ME_544E0148010D // Messages
  ;
  : Inherits
-   Seq: ( ME_544E079E0253 // TncsMessage
+   Seq: ( HWL ME_544E079E0253 // TncsMessage
  )
  ; // Inherits
  : Implements
@@ -41,9 +41,9 @@ FORWARD ME_544F977F036B
  CONST Visibility PrivateAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_544F977F036B // TncsPriorityMessageList
+ : Parent HWL ME_544F977F036B // TncsPriorityMessageList
  ;
- : Target ME_544E079E0253 // TncsMessage
+ : Target HWL ME_544E079E0253 // TncsMessage
  ;
 
 ref; // ME_544F98080257 ItemType
@@ -51,7 +51,7 @@ ref; // ME_544F98080257 ItemType
 : ME_5450AE6C031E
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_544F977F036B // TncsPriorityMessageList
+ : Parent HWL ME_544F977F036B // TncsPriorityMessageList
  ;
  : Target WL 'ME_4E8C103D01B1' '4AB0997B00A2.pas.ms.script' // Sign
  ;
@@ -81,7 +81,7 @@ ref; // ME_47B99D4503A2_ME_544F977F036B CompareExistingItems
  %SUMMARY 'Список сортированый по приоритету и дате сообщения' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_544E0148010D // Messages
+ : Parent HWL ME_544E0148010D // Messages
  ;
  : Inherits
    Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
@@ -92,7 +92,7 @@ ref; // ME_47B99D4503A2_ME_544F977F036B CompareExistingItems
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_544F98080257 // ItemType
+   Seq: ( HWL ME_544F98080257 // ItemType
  )
  ; // Attributes
  : Implemented
@@ -121,7 +121,7 @@ FORWARD ME_544E3C54031D
  CONST Visibility PublicAccess
  CONST Abstraction at_final
  CONST LinkType lt_agr
- : Parent ME_544E3C54031D // TncsMessageQueue
+ : Parent HWL ME_544E3C54031D // TncsMessageQueue
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -137,9 +137,9 @@ ref; // ME_545A157B02C2 Processing
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_544E3C54031D // TncsMessageQueue
+ : Parent HWL ME_544E3C54031D // TncsMessageQueue
  ;
- : Target ME_544F977F036B // TncsPriorityMessageList
+ : Target HWL ME_544F977F036B // TncsPriorityMessageList
  ;
 
 ref; // ME_544F981C03B5 f_Data
@@ -151,7 +151,7 @@ ref; // ME_544F981C03B5 f_Data
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_544E3C54031D // TncsMessageQueue
+ : Parent HWL ME_544E3C54031D // TncsMessageQueue
  ;
  : Target WL 'ME_491D9DB8010F' '4AB0997B00A2.pas.ms.script' // TEvent
  ;
@@ -166,7 +166,7 @@ ref; // ME_544F98B70016 f_DataReadyEvent
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_544E3C54031D // TncsMessageQueue
+ : Parent HWL ME_544E3C54031D // TncsMessageQueue
  ;
 
 ref; // ME_5451F97902B8 SignalMessageReady
@@ -175,7 +175,7 @@ ref; // ME_5451F97902B8 SignalMessageReady
  CONST Name 'aMessage'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_544E079E0253 // TncsMessage
+ : Target HWL ME_544E079E0253 // TncsMessage
  ;
 
 ref; // ME_544E3E0101A1 aMessage
@@ -186,7 +186,7 @@ ref; // ME_544E3E0101A1 aMessage
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_544E3C54031D // TncsMessageQueue
+ : Parent HWL ME_544E3C54031D // TncsMessageQueue
  ;
  : Parameters
    Seq: ( ME_544E3E0101A1 // aMessage
@@ -214,7 +214,7 @@ ref; // ME_545220540371 aTimeOut
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_544E3C54031D // TncsMessageQueue
+ : Parent HWL ME_544E3C54031D // TncsMessageQueue
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -229,7 +229,7 @@ ref; // ME_5452022F026A WaitForMessage
  CONST Name 'theMessage'
  CONST Class class_Parameter
  : Stereotype st_out ;
- : Target ME_544E079E0253 // TncsMessage
+ : Target HWL ME_544E079E0253 // TncsMessage
  ;
 
 ref; // ME_545202900301 theMessage
@@ -241,7 +241,7 @@ ref; // ME_545202900301 theMessage
  %SUMMARY 'Увеличивает счетчик theMessage! Требуется theMessage.Free' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_544E3C54031D // TncsMessageQueue
+ : Parent HWL ME_544E3C54031D // TncsMessageQueue
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -255,7 +255,7 @@ ref; // ME_545202810200 ExtractMessage
 : ME_5450B0EF02BD
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_544E3C54031D // TncsMessageQueue
+ : Parent HWL ME_544E3C54031D // TncsMessageQueue
  ;
  : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
  ;
@@ -265,7 +265,7 @@ ref; // ME_5450B0EF02BD
 : ME_5450D0510367
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_544E3C54031D // TncsMessageQueue
+ : Parent HWL ME_544E3C54031D // TncsMessageQueue
  ;
  : Target WL 'ME_47614B2901AE' '4678193C009C.pas.ms.script' // Tl3Duplicates
  ;
@@ -275,7 +275,7 @@ ref; // ME_5450D0510367
 : ME_5450D7950321
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_544E3C54031D // TncsMessageQueue
+ : Parent HWL ME_544E3C54031D // TncsMessageQueue
  ;
  : Target WL 'ME_54509FEC02EB' '47D0290B016D.pas.ms.script' // l3CreateStringGUID
  ;
@@ -302,7 +302,7 @@ ref; // ME_47A042E100E2_ME_544E3C54031D InitFields
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_544E0148010D // Messages
+ : Parent HWL ME_544E0148010D // Messages
  ;
  : Inherits
    Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
@@ -313,16 +313,16 @@ ref; // ME_47A042E100E2_ME_544E3C54031D InitFields
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_545A157B02C2 // Processing
- ME_544F981C03B5 // f_Data
- ME_544F98B70016 // f_DataReadyEvent
+   Seq: ( HWL ME_545A157B02C2 // Processing
+ HWL ME_544F981C03B5 // f_Data
+ HWL ME_544F98B70016 // f_DataReadyEvent
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_5451F97902B8 // SignalMessageReady
- ME_544E3DE3032D // Push
- ME_5452022F026A // WaitForMessage
- ME_545202810200 // ExtractMessage
+   Seq: ( HWL ME_5451F97902B8 // SignalMessageReady
+ HWL ME_544E3DE3032D // Push
+ HWL ME_5452022F026A // WaitForMessage
+ HWL ME_545202810200 // ExtractMessage
  )
  ; // Operations
  : Overridden
@@ -353,9 +353,9 @@ FORWARD ME_5452248C02B8
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_5452248C02B8 // TncsTransporterThread
+ : Parent HWL ME_5452248C02B8 // TncsTransporterThread
  ;
- : Target ME_544E3C54031D // TncsMessageQueue
+ : Target HWL ME_544E3C54031D // TncsMessageQueue
  ;
  CONST "pm" true
  CONST "reads field" true
@@ -368,7 +368,7 @@ FORWARD ME_5450EAAA0367
  CONST Name 'anQueue'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_544E3C54031D // TncsMessageQueue
+ : Target HWL ME_544E3C54031D // TncsMessageQueue
  ;
 
 ref; // ME_5450EAE301E1 anQueue
@@ -379,7 +379,7 @@ ref; // ME_5450EAE301E1 anQueue
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_5450EAAA0367 // Create
+ : Parent HWL ME_5450EAAA0367 // Create
  ;
  : Parameters
    Seq: ( ME_5450EAE301E1 // anQueue
@@ -396,10 +396,10 @@ ref; // ME_5450EAC70263 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_5452248C02B8 // TncsTransporterThread
+ : Parent HWL ME_5452248C02B8 // TncsTransporterThread
  ;
  : Operations
-   Seq: ( ME_5450EAC70263 // DoIt
+   Seq: ( HWL ME_5450EAC70263 // DoIt
  )
  ; // Operations
 
@@ -413,7 +413,7 @@ FORWARD ME_5459DB98029C
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_5459DB98029C // TerminatedConnection
+ : Parent HWL ME_5459DB98029C // TerminatedConnection
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -428,10 +428,10 @@ ref; // ME_5459DBA700DB DoIt
  CONST Kind kind_NormalClass
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_5452248C02B8 // TncsTransporterThread
+ : Parent HWL ME_5452248C02B8 // TncsTransporterThread
  ;
  : Operations
-   Seq: ( ME_5459DBA700DB // DoIt
+   Seq: ( HWL ME_5459DBA700DB // DoIt
  )
  ; // Operations
 
@@ -440,7 +440,7 @@ ref; // ME_5459DB98029C TerminatedConnection
 : ME_54523C2D01FF
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_5452248C02B8 // TncsTransporterThread
+ : Parent HWL ME_5452248C02B8 // TncsTransporterThread
  ;
  : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
  ;
@@ -467,19 +467,19 @@ ref; // ME_479731C50290_ME_5452248C02B8 Cleanup
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_544E0148010D // Messages
+ : Parent HWL ME_544E0148010D // Messages
  ;
  : Inherits
    Seq: ( WL 'ME_4911B24C01F6' '47913B47006E.pas.ms.script' // Tl3ThreadContainer
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_5450EA090093 // Queue
+   Seq: ( HWL ME_5450EA090093 // Queue
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_5450EAAA0367 // Create
- ME_5459DB98029C // TerminatedConnection
+   Seq: ( HWL ME_5450EAAA0367 // Create
+ HWL ME_5459DB98029C // TerminatedConnection
  )
  ; // Operations
  : Implemented
@@ -511,7 +511,7 @@ FORWARD ME_5460B6230039
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_5460B6230039 // TncsTransporterIOThread
+ : Parent HWL ME_5460B6230039 // TncsTransporterIOThread
  ;
  : Target WL 'ME_538DDC890328' '52FBB2FC0386.pas.ms.script' // TcsIdIOHandlerAbstractAdapter
  ;
@@ -528,7 +528,7 @@ ref; // ME_545224C80036 IOHandler
  CONST Kind kind_NormalClass
  CONST Visibility ProtectedAccess
  CONST Abstraction at_final
- : Parent ME_5460B6230039 // TncsTransporterIOThread
+ : Parent HWL ME_5460B6230039 // TncsTransporterIOThread
  ;
 
 ref; // ME_545B3DEA0268 ReleaseIOHandler
@@ -536,7 +536,7 @@ ref; // ME_545B3DEA0268 ReleaseIOHandler
 : ME_5460BE3D03E2
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_5460B6230039 // TncsTransporterIOThread
+ : Parent HWL ME_5460B6230039 // TncsTransporterIOThread
  ;
  : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
  ;
@@ -550,7 +550,7 @@ ref; // ME_5460BE3D03E2
 ref; // ME_479731C50290_ME_5460B6230039 Cleanup
 
 : ME_5459DB98029C_ME_5460B6230039
- : Original ME_5459DB98029C // TerminatedConnection
+ : Original HWL ME_5459DB98029C // TerminatedConnection
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_5459DB98029C_ME_5460B6230039 TerminatedConnection
@@ -563,18 +563,18 @@ ref; // ME_5459DB98029C_ME_5460B6230039 TerminatedConnection
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_544E0148010D // Messages
+ : Parent HWL ME_544E0148010D // Messages
  ;
  : Inherits
-   Seq: ( ME_5452248C02B8 // TncsTransporterThread
+   Seq: ( HWL ME_5452248C02B8 // TncsTransporterThread
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_545224C80036 // IOHandler
+   Seq: ( HWL ME_545224C80036 // IOHandler
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_545B3DEA0268 // ReleaseIOHandler
+   Seq: ( HWL ME_545B3DEA0268 // ReleaseIOHandler
  )
  ; // Operations
  : Overridden
@@ -604,7 +604,7 @@ FORWARD ME_5453828F0059
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_5453828F0059 // ThreadTimeouts
+ : Parent HWL ME_5453828F0059 // ThreadTimeouts
  ;
  CONST Value 300
  CONST "AutoInc" false
@@ -622,10 +622,10 @@ ref; // ME_545382B4034A c_ReadTimeout
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
- : Parent ME_54534F1A00BF // TncsReceiveThread
+ : Parent HWL ME_54534F1A00BF // TncsReceiveThread
  ;
  : Attributes
-   Seq: ( ME_545382B4034A // c_ReadTimeout
+   Seq: ( HWL ME_545382B4034A // c_ReadTimeout
  )
  ; // Attributes
  CONST "spell names" false
@@ -635,7 +635,7 @@ ref; // ME_5453828F0059 ThreadTimeouts
 : ME_5453795603AE
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_54534F1A00BF // TncsReceiveThread
+ : Parent HWL ME_54534F1A00BF // TncsReceiveThread
  ;
  : Target WL 'ME_47E150FF028A' '4AB0997B00A2.pas.ms.script' // TStream
  ;
@@ -645,7 +645,7 @@ ref; // ME_5453795603AE
 : ME_5453795B02A8
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_54534F1A00BF // TncsReceiveThread
+ : Parent HWL ME_54534F1A00BF // TncsReceiveThread
  ;
  : Target WL 'ME_538DE3F001DC' '47913B47006E.pas.ms.script' // Tl3TempMemoryStream
  ;
@@ -655,7 +655,7 @@ ref; // ME_5453795B02A8
 : ME_545388B80110
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_54534F1A00BF // TncsReceiveThread
+ : Parent HWL ME_54534F1A00BF // TncsReceiveThread
  ;
  : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
  ;
@@ -665,7 +665,7 @@ ref; // ME_545388B80110
 : ME_54538F000128
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_54534F1A00BF // TncsReceiveThread
+ : Parent HWL ME_54534F1A00BF // TncsReceiveThread
  ;
  : Target WL 'ME_4CDD241C0184' '47913B47006E.pas.ms.script' // l3System
  ;
@@ -675,9 +675,9 @@ ref; // ME_54538F000128
 : ME_54539217001B
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_54534F1A00BF // TncsReceiveThread
+ : Parent HWL ME_54534F1A00BF // TncsReceiveThread
  ;
- : Target ME_544E079E0253 // TncsMessage
+ : Target HWL ME_544E079E0253 // TncsMessage
  ;
 
 ref; // ME_54539217001B 
@@ -687,9 +687,9 @@ FORWARD ME_54539F4702B1
 : ME_545B8147003C
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_54534F1A00BF // TncsReceiveThread
+ : Parent HWL ME_54534F1A00BF // TncsReceiveThread
  ;
- : Target ME_54539F4702B1 // TncsMessageFactory
+ : Target HWL ME_54539F4702B1 // TncsMessageFactory
  ;
 
 ref; // ME_545B8147003C 
@@ -697,7 +697,7 @@ ref; // ME_545B8147003C
 : ME_546306C60283
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_54534F1A00BF // TncsReceiveThread
+ : Parent HWL ME_54534F1A00BF // TncsReceiveThread
  ;
  : Target WL 'ME_5461CFB8002C' '484A470100DD.pas.ms.script' // TncsMessageKind
  ;
@@ -709,9 +709,9 @@ FORWARD ME_548AC7FB0046
 : ME_548AC9510214
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_54534F1A00BF // TncsReceiveThread
+ : Parent HWL ME_54534F1A00BF // TncsReceiveThread
  ;
- : Target ME_548AC7FB0046 // ncsProfile
+ : Target HWL ME_548AC7FB0046 // ncsProfile
  ;
 
 ref; // ME_548AC9510214 
@@ -730,10 +730,10 @@ ref; // ME_4911B69E037D_ME_54534F1A00BF DoExecute
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_544E0148010D // Messages
+ : Parent HWL ME_544E0148010D // Messages
  ;
  : Inherits
-   Seq: ( ME_5460B6230039 // TncsTransporterIOThread
+   Seq: ( HWL ME_5460B6230039 // TncsTransporterIOThread
  )
  ; // Inherits
  : Overridden
@@ -741,7 +741,7 @@ ref; // ME_4911B69E037D_ME_54534F1A00BF DoExecute
  )
  ; // Overridden
  : Constants
-   Seq: ( ME_5453828F0059 // ThreadTimeouts
+   Seq: ( HWL ME_5453828F0059 // ThreadTimeouts
  )
  ; // Constants
  : Dependencies
@@ -772,9 +772,9 @@ FORWARD ME_5461D6C30025
  CONST Visibility PublicAccess
  CONST Abstraction at_final
  CONST LinkType lt_agr
- : Parent ME_5461D6C30025 // TncsReplyDescription
+ : Parent HWL ME_5461D6C30025 // TncsReplyDescription
  ;
- : Target ME_544E079E0253 // TncsMessage
+ : Target HWL ME_544E079E0253 // TncsMessage
  ;
  CONST "pm" true
  CONST "reads field" true
@@ -789,9 +789,9 @@ ref; // ME_5461D95F00E6 Message
  CONST Visibility PublicAccess
  CONST Abstraction at_final
  CONST LinkType lt_agr
- : Parent ME_5461D6C30025 // TncsReplyDescription
+ : Parent HWL ME_5461D6C30025 // TncsReplyDescription
  ;
- : Target ME_544E079E0253 // TncsMessage
+ : Target HWL ME_544E079E0253 // TncsMessage
  ;
  CONST "pm" true
  CONST "reads field" true
@@ -805,7 +805,7 @@ ref; // ME_5461D977016B Reply
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_5461D6C30025 // TncsReplyDescription
+ : Parent HWL ME_5461D6C30025 // TncsReplyDescription
  ;
  : Target WL 'ME_491D9DB8010F' '4AB0997B00A2.pas.ms.script' // TEvent
  ;
@@ -818,7 +818,7 @@ FORWARD ME_5461D8CE0020
  CONST Name 'aMessage'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_544E079E0253 // TncsMessage
+ : Target HWL ME_544E079E0253 // TncsMessage
  ;
 
 ref; // ME_5461D8E50366 aMessage
@@ -829,7 +829,7 @@ ref; // ME_5461D8E50366 aMessage
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_5461D8CE0020 // Create
+ : Parent HWL ME_5461D8CE0020 // Create
  ;
  : Parameters
    Seq: ( ME_5461D8E50366 // aMessage
@@ -846,10 +846,10 @@ ref; // ME_5461D8D70179 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_5461D6C30025 // TncsReplyDescription
+ : Parent HWL ME_5461D6C30025 // TncsReplyDescription
  ;
  : Operations
-   Seq: ( ME_5461D8D70179 // DoIt
+   Seq: ( HWL ME_5461D8D70179 // DoIt
  )
  ; // Operations
 
@@ -860,7 +860,7 @@ FORWARD ME_5463220800C9
 : ME_54633E840128
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_5463220800C9 // RequestEvent
+ : Parent HWL ME_5463220800C9 // RequestEvent
  ;
  : Target WL 'ME_54509FEC02EB' '47D0290B016D.pas.ms.script' // l3CreateStringGUID
  ;
@@ -875,7 +875,7 @@ ref; // ME_54633E840128
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_5461D6C30025 // TncsReplyDescription
+ : Parent HWL ME_5461D6C30025 // TncsReplyDescription
  ;
  : Dependencies
    Seq: ( ME_54633E840128 // l3CreateStringGUID
@@ -905,7 +905,7 @@ ref; // ME_54633B0002A6 aTimeOut
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_546335030341 // WaitForReply
+ : Parent HWL ME_546335030341 // WaitForReply
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -924,10 +924,10 @@ ref; // ME_546335100360 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_5461D6C30025 // TncsReplyDescription
+ : Parent HWL ME_5461D6C30025 // TncsReplyDescription
  ;
  : Operations
-   Seq: ( ME_546335100360 // DoIt
+   Seq: ( HWL ME_546335100360 // DoIt
  )
  ; // Operations
 
@@ -941,7 +941,7 @@ ref; // ME_546335030341 WaitForReply
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_5461D6C30025 // TncsReplyDescription
+ : Parent HWL ME_5461D6C30025 // TncsReplyDescription
  ;
 
 ref; // ME_5464AAB30031 AbortWait
@@ -949,7 +949,7 @@ ref; // ME_5464AAB30031 AbortWait
 : ME_5461FCBB01A1
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_5461D6C30025 // TncsReplyDescription
+ : Parent HWL ME_5461D6C30025 // TncsReplyDescription
  ;
  : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
  ;
@@ -959,7 +959,7 @@ ref; // ME_5461FCBB01A1
 : ME_5463354D01FF
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_5461D6C30025 // TncsReplyDescription
+ : Parent HWL ME_5461D6C30025 // TncsReplyDescription
  ;
  : Target WL 'ME_4CDD241C0184' '47913B47006E.pas.ms.script' // l3System
  ;
@@ -980,23 +980,23 @@ ref; // ME_479731C50290_ME_5461D6C30025 Cleanup
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_544E0148010D // Messages
+ : Parent HWL ME_544E0148010D // Messages
  ;
  : Inherits
    Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_5461D95F00E6 // Message
- ME_5461D977016B // Reply
- ME_5463228D00A9 // f_Event
+   Seq: ( HWL ME_5461D95F00E6 // Message
+ HWL ME_5461D977016B // Reply
+ HWL ME_5463228D00A9 // f_Event
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_5461D8CE0020 // Create
- ME_5463220800C9 // RequestEvent
- ME_546335030341 // WaitForReply
- ME_5464AAB30031 // AbortWait
+   Seq: ( HWL ME_5461D8CE0020 // Create
+ HWL ME_5463220800C9 // RequestEvent
+ HWL ME_546335030341 // WaitForReply
+ HWL ME_5464AAB30031 // AbortWait
  )
  ; // Operations
  : Overridden
@@ -1028,7 +1028,7 @@ FORWARD ME_5464B4730055
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_5464B4730055 // IncsTransporter
+ : Parent HWL ME_5464B4730055 // IncsTransporter
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -1044,7 +1044,7 @@ ref; // ME_5465AB2B00CA Connected
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_5464B4730055 // IncsTransporter
+ : Parent HWL ME_5464B4730055 // IncsTransporter
  ;
  : Target WL 'ME_537F4A04037C' '52FBB2FC0386.pas.ms.script' // TCsClientId
  ;
@@ -1061,7 +1061,7 @@ ref; // ME_546608F101DE ClientID
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_5464B4730055 // IncsTransporter
+ : Parent HWL ME_5464B4730055 // IncsTransporter
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -1077,7 +1077,7 @@ ref; // ME_5486B96A0025 Processing
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_5464B4730055 // IncsTransporter
+ : Parent HWL ME_5464B4730055 // IncsTransporter
  ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
@@ -1089,7 +1089,7 @@ ref; // ME_548FEF4F002E SessionID
  CONST Name 'aMessage'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_544E079E0253 // TncsMessage
+ : Target HWL ME_544E079E0253 // TncsMessage
  ;
 
 ref; // ME_5464B4F800B5 aMessage
@@ -1100,7 +1100,7 @@ ref; // ME_5464B4F800B5 aMessage
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_5464B4730055 // IncsTransporter
+ : Parent HWL ME_5464B4730055 // IncsTransporter
  ;
  : Parameters
    Seq: ( ME_5464B4F800B5 // aMessage
@@ -1113,7 +1113,7 @@ ref; // ME_5464B4E900DA Send
  CONST Name 'aMessage'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_544E079E0253 // TncsMessage
+ : Target HWL ME_544E079E0253 // TncsMessage
  ;
 
 ref; // ME_547C4DC000DF aMessage
@@ -1122,7 +1122,7 @@ ref; // ME_547C4DC000DF aMessage
  CONST Name 'theReply'
  CONST Class class_Parameter
  : Stereotype st_inout ;
- : Target ME_544E079E0253 // TncsMessage
+ : Target HWL ME_544E079E0253 // TncsMessage
  ;
 
 ref; // ME_547C4DC0010E theReply
@@ -1146,7 +1146,7 @@ ref; // ME_547C4DC0014D aTimeOut
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_5464B4730055 // IncsTransporter
+ : Parent HWL ME_5464B4730055 // IncsTransporter
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -1168,18 +1168,18 @@ ref; // ME_5464B52F02D5 WaitForReply
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_5460A4DB018A // ncsMessageInterfaces
+ : Parent HWL ME_5460A4DB018A // ncsMessageInterfaces
  ;
  : Attributes
-   Seq: ( ME_5465AB2B00CA // Connected
- ME_546608F101DE // ClientID
- ME_5486B96A0025 // Processing
- ME_548FEF4F002E // SessionID
+   Seq: ( HWL ME_5465AB2B00CA // Connected
+ HWL ME_546608F101DE // ClientID
+ HWL ME_5486B96A0025 // Processing
+ HWL ME_548FEF4F002E // SessionID
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_5464B4E900DA // Send
- ME_5464B52F02D5 // WaitForReply
+   Seq: ( HWL ME_5464B4E900DA // Send
+ HWL ME_5464B52F02D5 // WaitForReply
  )
  ; // Operations
  CONST extprop:rc:SelfName 'ncsTransporter'
@@ -1196,9 +1196,9 @@ FORWARD ME_5464B37E01ED
  CONST Visibility PublicAccess
  CONST Abstraction at_final
  CONST LinkType lt_ref
- : Parent ME_5464B37E01ED // TncsExecuteContext
+ : Parent HWL ME_5464B37E01ED // TncsExecuteContext
  ;
- : Target ME_544E079E0253 // TncsMessage
+ : Target HWL ME_544E079E0253 // TncsMessage
  ;
 
 ref; // ME_5464B4A20373 rMessage
@@ -1210,9 +1210,9 @@ ref; // ME_5464B4A20373 rMessage
  CONST Visibility PublicAccess
  CONST Abstraction at_final
  CONST LinkType lt_ref
- : Parent ME_5464B37E01ED // TncsExecuteContext
+ : Parent HWL ME_5464B37E01ED // TncsExecuteContext
  ;
- : Target ME_5464B4730055 // IncsTransporter
+ : Target HWL ME_5464B4730055 // IncsTransporter
  ;
 
 ref; // ME_5464B4B80072 rTransporter
@@ -1223,7 +1223,7 @@ FORWARD ME_5464B3AA0087
  CONST Name 'aMessage'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_544E079E0253 // TncsMessage
+ : Target HWL ME_544E079E0253 // TncsMessage
  ;
 
 ref; // ME_5464B3D00211 aMessage
@@ -1232,7 +1232,7 @@ ref; // ME_5464B3D00211 aMessage
  CONST Name 'aTransporter'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_5464B4730055 // IncsTransporter
+ : Target HWL ME_5464B4730055 // IncsTransporter
  ;
 
 ref; // ME_5464B78E0275 aTransporter
@@ -1243,7 +1243,7 @@ ref; // ME_5464B78E0275 aTransporter
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_5464B3AA0087 // C
+ : Parent HWL ME_5464B3AA0087 // C
  ;
  : Parameters
    Seq: ( ME_5464B3D00211 // aMessage
@@ -1261,10 +1261,10 @@ ref; // ME_5464B3B5000D DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_5464B37E01ED // TncsExecuteContext
+ : Parent HWL ME_5464B37E01ED // TncsExecuteContext
  ;
  : Operations
-   Seq: ( ME_5464B3B5000D // DoIt
+   Seq: ( HWL ME_5464B3B5000D // DoIt
  )
  ; // Operations
 
@@ -1278,15 +1278,15 @@ ref; // ME_5464B3AA0087 C
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_5460A4DB018A // ncsMessageInterfaces
+ : Parent HWL ME_5460A4DB018A // ncsMessageInterfaces
  ;
  : Attributes
-   Seq: ( ME_5464B4A20373 // rMessage
- ME_5464B4B80072 // rTransporter
+   Seq: ( HWL ME_5464B4A20373 // rMessage
+ HWL ME_5464B4B80072 // rTransporter
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_5464B3AA0087 // C
+   Seq: ( HWL ME_5464B3AA0087 // C
  )
  ; // Operations
  CONST extprop:rc:SelfName 'ncsExecuteContext'
@@ -1299,7 +1299,7 @@ FORWARD ME_5460731E025E
  CONST Name 'aContext'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_5464B37E01ED // TncsExecuteContext
+ : Target HWL ME_5464B37E01ED // TncsExecuteContext
  ;
 
 ref; // ME_5464B3F4039B aContext
@@ -1310,7 +1310,7 @@ ref; // ME_5464B3F4039B aContext
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_5460731E025E // IncsExecutor
+ : Parent HWL ME_5460731E025E // IncsExecutor
  ;
  : Parameters
    Seq: ( ME_5464B3F4039B // aContext
@@ -1328,10 +1328,10 @@ ref; // ME_54607DDC0159 Execute
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_5460A4DB018A // ncsMessageInterfaces
+ : Parent HWL ME_5460A4DB018A // ncsMessageInterfaces
  ;
  : Operations
-   Seq: ( ME_54607DDC0159 // Execute
+   Seq: ( HWL ME_54607DDC0159 // Execute
  )
  ; // Operations
  CONST extprop:rc:SelfName 'ncsExecutor'
@@ -1345,7 +1345,7 @@ FORWARD ME_5460829B0384
  CONST Name 'aMessage'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_544E079E0253 // TncsMessage
+ : Target HWL ME_544E079E0253 // TncsMessage
  ;
 
 ref; // ME_5460A53E01D7 aMessage
@@ -1356,9 +1356,9 @@ ref; // ME_5460A53E01D7 aMessage
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_5460829B0384 // IncsMessageExecutorFactory
+ : Parent HWL ME_5460829B0384 // IncsMessageExecutorFactory
  ;
- : Target ME_5460731E025E // IncsExecutor
+ : Target HWL ME_5460731E025E // IncsExecutor
  ;
  : Parameters
    Seq: ( ME_5460A53E01D7 // aMessage
@@ -1376,10 +1376,10 @@ ref; // ME_546082B801F3 MakeExecutor
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_5460A4DB018A // ncsMessageInterfaces
+ : Parent HWL ME_5460A4DB018A // ncsMessageInterfaces
  ;
  : Operations
-   Seq: ( ME_546082B801F3 // MakeExecutor
+   Seq: ( HWL ME_546082B801F3 // MakeExecutor
  )
  ; // Operations
  CONST extprop:rc:SelfName 'ncsMessageExecutorFactory'
@@ -1395,10 +1395,10 @@ ref; // ME_5460829B0384 IncsMessageExecutorFactory
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_5460A4DB018A // ncsMessageInterfaces
+ : Parent HWL ME_5460A4DB018A // ncsMessageInterfaces
  ;
  : Inherits
-   Seq: ( ME_5460829B0384 // IncsMessageExecutorFactory
+   Seq: ( HWL ME_5460829B0384 // IncsMessageExecutorFactory
  )
  ; // Inherits
  CONST "isPointer" true
@@ -1441,7 +1441,7 @@ ref; // ME_548FEFC000C2 aSessionID
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_5465A598039E // IncsClientTransporter
+ : Parent HWL ME_5465A598039E // IncsClientTransporter
  ;
  : Parameters
    Seq: ( ME_5451F5060233 // aServerHost
@@ -1472,7 +1472,7 @@ ref; // ME_547C1A5702EF Immidiate
  %SUMMARY 'Immidiate = True - отрубить сразу'#13#10'Immidiate = False - дождаться завершения обмена послав ncsDisconnect и дождавшись ответа' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_5465A598039E // IncsClientTransporter
+ : Parent HWL ME_5465A598039E // IncsClientTransporter
  ;
  : Parameters
    Seq: ( ME_547C1A5702EF // Immidiate
@@ -1482,40 +1482,40 @@ ref; // ME_547C1A5702EF Immidiate
 ref; // ME_544A1FF00062 Disconnect
 
 : ME_5464B4E900DA_ME_5465A598039E
- : Original ME_5464B4E900DA // Send
+ : Original HWL ME_5464B4E900DA // Send
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_5464B4E900DA_ME_5465A598039E Send
 
 : ME_5464B52F02D5_ME_5465A598039E
- : Original ME_5464B52F02D5 // WaitForReply
+ : Original HWL ME_5464B52F02D5 // WaitForReply
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_5464B52F02D5_ME_5465A598039E WaitForReply
 
 : ME_5465AB2B00CA_ME_5465A598039E
- : Original ME_5465AB2B00CA // Connected
+ : Original HWL ME_5465AB2B00CA // Connected
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_5465AB2B00CA_ME_5465A598039E Connected
 
 : ME_546608F101DE_ME_5465A598039E
- : Original ME_546608F101DE // ClientID
+ : Original HWL ME_546608F101DE // ClientID
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_546608F101DE_ME_5465A598039E ClientID
 
 : ME_5486B96A0025_ME_5465A598039E
- : Original ME_5486B96A0025 // Processing
+ : Original HWL ME_5486B96A0025 // Processing
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_5486B96A0025_ME_5465A598039E Processing
 
 : ME_548FEF4F002E_ME_5465A598039E
- : Original ME_548FEF4F002E // SessionID
+ : Original HWL ME_548FEF4F002E // SessionID
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
@@ -1530,15 +1530,15 @@ ref; // ME_548FEF4F002E_ME_5465A598039E SessionID
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_5460A4DB018A // ncsMessageInterfaces
+ : Parent HWL ME_5460A4DB018A // ncsMessageInterfaces
  ;
  : Inherits
-   Seq: ( ME_5464B4730055 // IncsTransporter
+   Seq: ( HWL ME_5464B4730055 // IncsTransporter
  )
  ; // Inherits
  : Operations
-   Seq: ( ME_544A1FD802E9 // Connect
- ME_544A1FF00062 // Disconnect
+   Seq: ( HWL ME_544A1FD802E9 // Connect
+ HWL ME_544A1FF00062 // Disconnect
  )
  ; // Operations
  : Implemented
@@ -1565,7 +1565,7 @@ FORWARD ME_5465A5AB0324
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_5465A5AB0324 // IncsServerTransporter
+ : Parent HWL ME_5465A5AB0324 // IncsServerTransporter
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -1588,7 +1588,7 @@ ref; // ME_5492AD2202E7 IsMainSocket
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_5465A5AB0324 // IncsServerTransporter
+ : Parent HWL ME_5465A5AB0324 // IncsServerTransporter
  ;
  : Parameters
    Seq: ( ME_5492AD2202E7 // IsMainSocket
@@ -1616,7 +1616,7 @@ ref; // ME_545CC00401A7 WaitForTermination
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_5465A5AB0324 // IncsServerTransporter
+ : Parent HWL ME_5465A5AB0324 // IncsServerTransporter
  ;
  : Parameters
    Seq: ( ME_545CC00401A7 // WaitForTermination
@@ -1640,7 +1640,7 @@ ref; // ME_54918100017A aHandler
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_5465A5AB0324 // IncsServerTransporter
+ : Parent HWL ME_5465A5AB0324 // IncsServerTransporter
  ;
  : Parameters
    Seq: ( ME_54918100017A // aHandler
@@ -1650,40 +1650,40 @@ ref; // ME_54918100017A aHandler
 ref; // ME_549180E701E0 RegisterSendBackHandler
 
 : ME_5464B4E900DA_ME_5465A5AB0324
- : Original ME_5464B4E900DA // Send
+ : Original HWL ME_5464B4E900DA // Send
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_5464B4E900DA_ME_5465A5AB0324 Send
 
 : ME_5464B52F02D5_ME_5465A5AB0324
- : Original ME_5464B52F02D5 // WaitForReply
+ : Original HWL ME_5464B52F02D5 // WaitForReply
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_5464B52F02D5_ME_5465A5AB0324 WaitForReply
 
 : ME_5465AB2B00CA_ME_5465A5AB0324
- : Original ME_5465AB2B00CA // Connected
+ : Original HWL ME_5465AB2B00CA // Connected
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_5465AB2B00CA_ME_5465A5AB0324 Connected
 
 : ME_546608F101DE_ME_5465A5AB0324
- : Original ME_546608F101DE // ClientID
+ : Original HWL ME_546608F101DE // ClientID
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_546608F101DE_ME_5465A5AB0324 ClientID
 
 : ME_5486B96A0025_ME_5465A5AB0324
- : Original ME_5486B96A0025 // Processing
+ : Original HWL ME_5486B96A0025 // Processing
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_5486B96A0025_ME_5465A5AB0324 Processing
 
 : ME_548FEF4F002E_ME_5465A5AB0324
- : Original ME_548FEF4F002E // SessionID
+ : Original HWL ME_548FEF4F002E // SessionID
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
@@ -1698,20 +1698,20 @@ ref; // ME_548FEF4F002E_ME_5465A5AB0324 SessionID
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_5460A4DB018A // ncsMessageInterfaces
+ : Parent HWL ME_5460A4DB018A // ncsMessageInterfaces
  ;
  : Inherits
-   Seq: ( ME_5464B4730055 // IncsTransporter
+   Seq: ( HWL ME_5464B4730055 // IncsTransporter
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_5459E3150030 // Terminated
+   Seq: ( HWL ME_5459E3150030 // Terminated
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_545335BF0283 // ProcessMessages
- ME_5459D46D01FE // Terminate
- ME_549180E701E0 // RegisterSendBackHandler
+   Seq: ( HWL ME_545335BF0283 // ProcessMessages
+ HWL ME_5459D46D01FE // Terminate
+ HWL ME_549180E701E0 // RegisterSendBackHandler
  )
  ; // Operations
  : Implemented
@@ -1737,7 +1737,7 @@ FORWARD ME_5490036B0204
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_5490036B0204 // TncsSocketKind
+ : Parent HWL ME_5490036B0204 // TncsSocketKind
  ;
 
 ref; // ME_5490037B017D ncs_skSend
@@ -1749,7 +1749,7 @@ ref; // ME_5490037B017D ncs_skSend
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_5490036B0204 // TncsSocketKind
+ : Parent HWL ME_5490036B0204 // TncsSocketKind
  ;
 
 ref; // ME_5490038D0132 ncs_skReceive
@@ -1762,11 +1762,11 @@ ref; // ME_5490038D0132 ncs_skReceive
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_5460A4DB018A // ncsMessageInterfaces
+ : Parent HWL ME_5460A4DB018A // ncsMessageInterfaces
  ;
  : Attributes
-   Seq: ( ME_5490037B017D // ncs_skSend
- ME_5490038D0132 // ncs_skReceive
+   Seq: ( HWL ME_5490037B017D // ncs_skSend
+ HWL ME_5490038D0132 // ncs_skReceive
  )
  ; // Attributes
  CONST extprop:rc:isAcceptableForScripts true
@@ -1781,17 +1781,17 @@ ref; // ME_5490036B0204 TncsSocketKind
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_544E0148010D // Messages
+ : Parent HWL ME_544E0148010D // Messages
  ;
  : Children
-   Seq: ( ME_5464B4730055 // IncsTransporter
- ME_5464B37E01ED // TncsExecuteContext
- ME_5460731E025E // IncsExecutor
- ME_5460829B0384 // IncsMessageExecutorFactory
- ME_5460C1A00144 // PIncsMessageExecutorFactory
- ME_5465A598039E // IncsClientTransporter
- ME_5465A5AB0324 // IncsServerTransporter
- ME_5490036B0204 // TncsSocketKind
+   Seq: ( HWL ME_5464B4730055 // IncsTransporter
+ HWL ME_5464B37E01ED // TncsExecuteContext
+ HWL ME_5460731E025E // IncsExecutor
+ HWL ME_5460829B0384 // IncsMessageExecutorFactory
+ HWL ME_5460C1A00144 // PIncsMessageExecutorFactory
+ HWL ME_5465A598039E // IncsClientTransporter
+ HWL ME_5465A5AB0324 // IncsServerTransporter
+ HWL ME_5490036B0204 // TncsSocketKind
  )
  ; // Children
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\ncsMessageInterfaces.pas'
@@ -1806,7 +1806,7 @@ FORWARD ME_545201B70046
  CONST Name 'aMessage'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_544E079E0253 // TncsMessage
+ : Target HWL ME_544E079E0253 // TncsMessage
  ;
 
 ref; // ME_545201E602F7 aMessage
@@ -1817,7 +1817,7 @@ ref; // ME_545201E602F7 aMessage
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_545201B70046 // Send
+ : Parent HWL ME_545201B70046 // Send
  ;
  : Parameters
    Seq: ( ME_545201E602F7 // aMessage
@@ -1829,7 +1829,7 @@ ref; // ME_545201DF0064 DoIt
 : ME_54523F9A03D0
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_545201B70046 // Send
+ : Parent HWL ME_545201B70046 // Send
  ;
  : Target WL 'ME_538DE3F001DC' '47913B47006E.pas.ms.script' // Tl3TempMemoryStream
  ;
@@ -1839,7 +1839,7 @@ ref; // ME_54523F9A03D0
 : ME_54523FC602CF
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_545201B70046 // Send
+ : Parent HWL ME_545201B70046 // Send
  ;
  : Target WL 'ME_47E150FF028A' '4AB0997B00A2.pas.ms.script' // TStream
  ;
@@ -1854,10 +1854,10 @@ ref; // ME_54523FC602CF
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_5450E9A0034A // TncsSendThread
+ : Parent HWL ME_5450E9A0034A // TncsSendThread
  ;
  : Operations
-   Seq: ( ME_545201DF0064 // DoIt
+   Seq: ( HWL ME_545201DF0064 // DoIt
  )
  ; // Operations
  : Dependencies
@@ -1871,7 +1871,7 @@ ref; // ME_545201B70046 Send
 : ME_5450F0BE03BA
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_5450E9A0034A // TncsSendThread
+ : Parent HWL ME_5450E9A0034A // TncsSendThread
  ;
  : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
  ;
@@ -1881,9 +1881,9 @@ ref; // ME_5450F0BE03BA
 : ME_548AC9640012
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_5450E9A0034A // TncsSendThread
+ : Parent HWL ME_5450E9A0034A // TncsSendThread
  ;
- : Target ME_548AC7FB0046 // ncsProfile
+ : Target HWL ME_548AC7FB0046 // ncsProfile
  ;
 
 ref; // ME_548AC9640012 
@@ -1902,14 +1902,14 @@ ref; // ME_4911B69E037D_ME_5450E9A0034A DoExecute
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_544E0148010D // Messages
+ : Parent HWL ME_544E0148010D // Messages
  ;
  : Inherits
-   Seq: ( ME_5460B6230039 // TncsTransporterIOThread
+   Seq: ( HWL ME_5460B6230039 // TncsTransporterIOThread
  )
  ; // Inherits
  : Operations
-   Seq: ( ME_545201B70046 // Send
+   Seq: ( HWL ME_545201B70046 // Send
  )
  ; // Operations
  : Overridden
@@ -1933,7 +1933,7 @@ FORWARD ME_5453986402AC
 : ME_5450A0370225
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_544E079E0253 // TncsMessage
+ : Parent HWL ME_544E079E0253 // TncsMessage
  ;
  : Target WL 'ME_54509FEC02EB' '47D0290B016D.pas.ms.script' // l3CreateStringGUID
  ;
@@ -1967,7 +1967,7 @@ ref; // ME_549413590379_ME_544E079E0253 NeedSendRawDataAsBinary
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_5453986402AC // ncsMessage
+ : Parent HWL ME_5453986402AC // ncsMessage
  ;
  : Inherits
    Seq: ( WL 'ME_534572370056' '47913B47006E.pas.ms.script' // Tl3Tag
@@ -2004,10 +2004,10 @@ ref; // ME_544E079E0253 TncsMessage
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_5453986402AC // ncsMessage
+ : Parent HWL ME_5453986402AC // ncsMessage
  ;
  : Inherits
-   Seq: ( ME_544E079E0253 // TncsMessage
+   Seq: ( HWL ME_544E079E0253 // TncsMessage
  )
  ; // Inherits
  CONST "isClassRef" true
@@ -2024,10 +2024,10 @@ ref; // ME_5453989A0161 TncsMessageClass
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_5453986402AC // ncsMessage
+ : Parent HWL ME_5453986402AC // ncsMessage
  ;
  : Inherits
-   Seq: ( ME_544E079E0253 // TncsMessage
+   Seq: ( HWL ME_544E079E0253 // TncsMessage
  )
  ; // Inherits
  CONST extprop:rc:SelfName 'ncsInvalidMessage'
@@ -2041,7 +2041,7 @@ FORWARD ME_547831BD02E5
  CONST Name 'aMessage'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_544E079E0253 // TncsMessage
+ : Target HWL ME_544E079E0253 // TncsMessage
  ;
 
 ref; // ME_547831E30313 aMessage
@@ -2053,7 +2053,7 @@ ref; // ME_547831E30313 aMessage
  : Stereotype st_ctor::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_547831BD02E5 // TncsReply
+ : Parent HWL ME_547831BD02E5 // TncsReply
  ;
  : Parameters
    Seq: ( ME_547831E30313 // aMessage
@@ -2070,14 +2070,14 @@ ref; // ME_547831D300BE Create
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_5453986402AC // ncsMessage
+ : Parent HWL ME_5453986402AC // ncsMessage
  ;
  : Inherits
-   Seq: ( ME_544E079E0253 // TncsMessage
+   Seq: ( HWL ME_544E079E0253 // TncsMessage
  )
  ; // Inherits
  : Operations
-   Seq: ( ME_547831D300BE // Create
+   Seq: ( HWL ME_547831D300BE // Create
  )
  ; // Operations
  CONST extprop:rc:SelfName 'ncsReply'
@@ -2093,10 +2093,10 @@ ref; // ME_547831BD02E5 TncsReply
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_5453986402AC // ncsMessage
+ : Parent HWL ME_5453986402AC // ncsMessage
  ;
  : Inherits
-   Seq: ( ME_544E079E0253 // TncsMessage
+   Seq: ( HWL ME_544E079E0253 // TncsMessage
  )
  ; // Inherits
  : Implements
@@ -2116,10 +2116,10 @@ ref; // ME_547C1F31030C TncsDIsconnect
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_5453986402AC // ncsMessage
+ : Parent HWL ME_5453986402AC // ncsMessage
  ;
  : Inherits
-   Seq: ( ME_547831BD02E5 // TncsReply
+   Seq: ( HWL ME_547831BD02E5 // TncsReply
  )
  ; // Inherits
  : Implements
@@ -2139,15 +2139,15 @@ ref; // ME_547C1F3F025A TncsDIsconnectReply
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_544E0148010D // Messages
+ : Parent HWL ME_544E0148010D // Messages
  ;
  : Children
-   Seq: ( ME_544E079E0253 // TncsMessage
- ME_5453989A0161 // TncsMessageClass
- ME_54649C7C00E7 // TncsInvalidMessage
- ME_547831BD02E5 // TncsReply
- ME_547C1F31030C // TncsDIsconnect
- ME_547C1F3F025A // TncsDIsconnectReply
+   Seq: ( HWL ME_544E079E0253 // TncsMessage
+ HWL ME_5453989A0161 // TncsMessageClass
+ HWL ME_54649C7C00E7 // TncsInvalidMessage
+ HWL ME_547831BD02E5 // TncsReply
+ HWL ME_547C1F31030C // TncsDIsconnect
+ HWL ME_547C1F3F025A // TncsDIsconnectReply
  )
  ; // Children
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\ncsMessage.pas'
@@ -2164,9 +2164,9 @@ FORWARD ME_54539F0C00AD
  CONST Visibility PrivateAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_54539F0C00AD // TncsMessageClassList
+ : Parent HWL ME_54539F0C00AD // TncsMessageClassList
  ;
- : Target ME_5453989A0161 // TncsMessageClass
+ : Target HWL ME_5453989A0161 // TncsMessageClass
  ;
 
 ref; // ME_54539F2201C3 ItemType
@@ -2200,7 +2200,7 @@ ref; // ME_47B99D4503A2_ME_54539F0C00AD CompareExistingItems
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_544E0148010D // Messages
+ : Parent HWL ME_544E0148010D // Messages
  ;
  : Inherits
    Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
@@ -2211,7 +2211,7 @@ ref; // ME_47B99D4503A2_ME_54539F0C00AD CompareExistingItems
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_54539F2201C3 // ItemType
+   Seq: ( HWL ME_54539F2201C3 // ItemType
  )
  ; // Attributes
  : Implemented
@@ -2234,9 +2234,9 @@ ref; // ME_54539F0C00AD TncsMessageClassList
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_54539F4702B1 // TncsMessageFactory
+ : Parent HWL ME_54539F4702B1 // TncsMessageFactory
  ;
- : Target ME_54539F0C00AD // TncsMessageClassList
+ : Target HWL ME_54539F0C00AD // TncsMessageClassList
  ;
 
 ref; // ME_54539F5D03D6 f_List
@@ -2245,7 +2245,7 @@ ref; // ME_54539F5D03D6 f_List
  CONST Name 'aClass'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_5453989A0161 // TncsMessageClass
+ : Target HWL ME_5453989A0161 // TncsMessageClass
  ;
 
 ref; // ME_545B868002AF aClass
@@ -2256,7 +2256,7 @@ ref; // ME_545B868002AF aClass
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_54539F4702B1 // TncsMessageFactory
+ : Parent HWL ME_54539F4702B1 // TncsMessageFactory
  ;
  : Parameters
    Seq: ( ME_545B868002AF // aClass
@@ -2269,7 +2269,7 @@ ref; // ME_545A23D30081 Register
  CONST Name 'aClass'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_5453989A0161 // TncsMessageClass
+ : Target HWL ME_5453989A0161 // TncsMessageClass
  ;
 
 ref; // ME_545B86850353 aClass
@@ -2280,7 +2280,7 @@ ref; // ME_545B86850353 aClass
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_54539F4702B1 // TncsMessageFactory
+ : Parent HWL ME_54539F4702B1 // TncsMessageFactory
  ;
  : Parameters
    Seq: ( ME_545B86850353 // aClass
@@ -2304,9 +2304,9 @@ ref; // ME_545A242C01AB aMessageTag
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_54539F4702B1 // TncsMessageFactory
+ : Parent HWL ME_54539F4702B1 // TncsMessageFactory
  ;
- : Target ME_5453989A0161 // TncsMessageClass
+ : Target HWL ME_5453989A0161 // TncsMessageClass
  ;
  : Parameters
    Seq: ( ME_545A242C01AB // aMessageTag
@@ -2331,9 +2331,9 @@ ref; // ME_545B86710018 aStream
  : Stereotype st_static::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_54539F4702B1 // TncsMessageFactory
+ : Parent HWL ME_54539F4702B1 // TncsMessageFactory
  ;
- : Target ME_544E079E0253 // TncsMessage
+ : Target HWL ME_544E079E0253 // TncsMessage
  ;
  : Parameters
    Seq: ( ME_545B86710018 // aStream
@@ -2358,9 +2358,9 @@ ref; // ME_545B8677028E aData
  : Stereotype st_static::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_54539F4702B1 // TncsMessageFactory
+ : Parent HWL ME_54539F4702B1 // TncsMessageFactory
  ;
- : Target ME_544E079E0253 // TncsMessage
+ : Target HWL ME_544E079E0253 // TncsMessage
  ;
  : Parameters
    Seq: ( ME_545B8677028E // aData
@@ -2372,7 +2372,7 @@ ref; // ME_54538F64032E MakeFromTaggedData
 : ME_545A292E0276
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_54539F4702B1 // TncsMessageFactory
+ : Parent HWL ME_54539F4702B1 // TncsMessageFactory
  ;
  : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
  ;
@@ -2382,7 +2382,7 @@ ref; // ME_545A292E0276
 : ME_545A2BAB00FD
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_54539F4702B1 // TncsMessageFactory
+ : Parent HWL ME_54539F4702B1 // TncsMessageFactory
  ;
  : Target WL 'ME_47614B2901AE' '4678193C009C.pas.ms.script' // Tl3Duplicates
  ;
@@ -2409,22 +2409,22 @@ ref; // ME_47A042E100E2_ME_54539F4702B1 InitFields
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_544E0148010D // Messages
+ : Parent HWL ME_544E0148010D // Messages
  ;
  : Inherits
    Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_54539F5D03D6 // f_List
+   Seq: ( HWL ME_54539F5D03D6 // f_List
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_545A23D30081 // Register
- ME_545A23FB02E0 // UnRegister
- ME_545A24130098 // Find
- ME_54538B990208 // MakeFromEVD
- ME_54538F64032E // MakeFromTaggedData
+   Seq: ( HWL ME_545A23D30081 // Register
+ HWL ME_545A23FB02E0 // UnRegister
+ HWL ME_545A24130098 // Find
+ HWL ME_54538B990208 // MakeFromEVD
+ HWL ME_54538F64032E // MakeFromTaggedData
  )
  ; // Operations
  : Overridden
@@ -2455,7 +2455,7 @@ FORWARD ME_545CBE61008B
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_545CBE61008B // TncsServerTransporterList
+ : Parent HWL ME_545CBE61008B // TncsServerTransporterList
  ;
  CONST extprop:rc:SelfName 'Items_NoSort'
 
@@ -2469,9 +2469,9 @@ ref; // ME_545CC4210322 l3Items_NoSort
  CONST Visibility PrivateAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_545CBE61008B // TncsServerTransporterList
+ : Parent HWL ME_545CBE61008B // TncsServerTransporterList
  ;
- : Target ME_5465A5AB0324 // IncsServerTransporter
+ : Target HWL ME_5465A5AB0324 // IncsServerTransporter
  ;
 
 ref; // ME_545CBE9103D8 ItemType
@@ -2484,7 +2484,7 @@ ref; // ME_545CBE9103D8 ItemType
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_544E0148010D // Messages
+ : Parent HWL ME_544E0148010D // Messages
  ;
  : Inherits
    Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
@@ -2495,11 +2495,11 @@ ref; // ME_545CBE9103D8 ItemType
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_545CBE9103D8 // ItemType
+   Seq: ( HWL ME_545CBE9103D8 // ItemType
  )
  ; // Attributes
  : Children
-   Seq: ( ME_545CC4210322 // l3Items_NoSort
+   Seq: ( HWL ME_545CC4210322 // l3Items_NoSort
  )
  ; // Children
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\ncsServerTransporterList.pas'
@@ -2518,9 +2518,9 @@ FORWARD ME_545CBED90193
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_545CBED90193 // TncsServerTransporterPool
+ : Parent HWL ME_545CBED90193 // TncsServerTransporterPool
  ;
- : Target ME_545CBE61008B // TncsServerTransporterList
+ : Target HWL ME_545CBE61008B // TncsServerTransporterList
  ;
 
 ref; // ME_545CBF0E0186 f_Data
@@ -2529,7 +2529,7 @@ ref; // ME_545CBF0E0186 f_Data
  CONST Name 'aTransporter'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_5465A5AB0324 // IncsServerTransporter
+ : Target HWL ME_5465A5AB0324 // IncsServerTransporter
  ;
 
 ref; // ME_545CBF9100D6 aTransporter
@@ -2540,7 +2540,7 @@ ref; // ME_545CBF9100D6 aTransporter
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_545CBED90193 // TncsServerTransporterPool
+ : Parent HWL ME_545CBED90193 // TncsServerTransporterPool
  ;
  : Parameters
    Seq: ( ME_545CBF9100D6 // aTransporter
@@ -2553,7 +2553,7 @@ ref; // ME_545CBF760027 Register
  CONST Name 'aTransporter'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_5465A5AB0324 // IncsServerTransporter
+ : Target HWL ME_5465A5AB0324 // IncsServerTransporter
  ;
 
 ref; // ME_545CBF9B00D6 aTransporter
@@ -2564,7 +2564,7 @@ ref; // ME_545CBF9B00D6 aTransporter
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_545CBED90193 // TncsServerTransporterPool
+ : Parent HWL ME_545CBED90193 // TncsServerTransporterPool
  ;
  : Parameters
    Seq: ( ME_545CBF9B00D6 // aTransporter
@@ -2579,7 +2579,7 @@ ref; // ME_545CBF9602E1 UnRegister
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_545CBED90193 // TncsServerTransporterPool
+ : Parent HWL ME_545CBED90193 // TncsServerTransporterPool
  ;
 
 ref; // ME_545CBFA2006D TerminateAll
@@ -2604,7 +2604,7 @@ ref; // ME_47A042E100E2_ME_545CBED90193 InitFields
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_544E0148010D // Messages
+ : Parent HWL ME_544E0148010D // Messages
  ;
  : Inherits
    Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
@@ -2615,13 +2615,13 @@ ref; // ME_47A042E100E2_ME_545CBED90193 InitFields
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_545CBF0E0186 // f_Data
+   Seq: ( HWL ME_545CBF0E0186 // f_Data
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_545CBF760027 // Register
- ME_545CBF9602E1 // UnRegister
- ME_545CBFA2006D // TerminateAll
+   Seq: ( HWL ME_545CBF760027 // Register
+ HWL ME_545CBF9602E1 // UnRegister
+ HWL ME_545CBFA2006D // TerminateAll
  )
  ; // Operations
  : Overridden
@@ -2646,9 +2646,9 @@ FORWARD ME_5461D6FC00F7
  CONST Visibility PrivateAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_5461D6FC00F7 // TncsReplyDecsriptionList
+ : Parent HWL ME_5461D6FC00F7 // TncsReplyDecsriptionList
  ;
- : Target ME_5461D6C30025 // TncsReplyDescription
+ : Target HWL ME_5461D6C30025 // TncsReplyDescription
  ;
 
 ref; // ME_5461D7260382 ItemType
@@ -2675,7 +2675,7 @@ ref; // ME_47B99D4503A2_ME_5461D6FC00F7 CompareExistingItems
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_544E0148010D // Messages
+ : Parent HWL ME_544E0148010D // Messages
  ;
  : Inherits
    Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
@@ -2686,7 +2686,7 @@ ref; // ME_47B99D4503A2_ME_5461D6FC00F7 CompareExistingItems
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_5461D7260382 // ItemType
+   Seq: ( HWL ME_5461D7260382 // ItemType
  )
  ; // Attributes
  : Implemented
@@ -2711,9 +2711,9 @@ FORWARD ME_54609BB100BB
  CONST Visibility PrivateAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_54609BB100BB // TncsExecutorFactoryList
+ : Parent HWL ME_54609BB100BB // TncsExecutorFactoryList
  ;
- : Target ME_5460829B0384 // IncsMessageExecutorFactory
+ : Target HWL ME_5460829B0384 // IncsMessageExecutorFactory
  ;
 
 ref; // ME_54609BE1031F ItemType
@@ -2726,7 +2726,7 @@ ref; // ME_54609BE1031F ItemType
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_544E0148010D // Messages
+ : Parent HWL ME_544E0148010D // Messages
  ;
  : Inherits
    Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
@@ -2737,7 +2737,7 @@ ref; // ME_54609BE1031F ItemType
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_54609BE1031F // ItemType
+   Seq: ( HWL ME_54609BE1031F // ItemType
  )
  ; // Attributes
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\ncsExecutorFactoryList.pas'
@@ -2759,7 +2759,7 @@ FORWARD ME_5464A0E40234
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_5464A0E40234 // TncsInvalidExecutor
+ : Parent HWL ME_5464A0E40234 // TncsInvalidExecutor
  ;
 
 ref; // ME_5464A4DE0181 Create
@@ -2772,21 +2772,21 @@ ref; // ME_5464A4DE0181 Create
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_5464A0E40234 // TncsInvalidExecutor
+ : Parent HWL ME_5464A0E40234 // TncsInvalidExecutor
  ;
  : Inherits
-   Seq: ( ME_5464A4DE0181 // Create
+   Seq: ( HWL ME_5464A4DE0181 // Create
  )
  ; // Inherits
  : Implements
-   Seq: ( ME_5460731E025E // IncsExecutor
+   Seq: ( HWL ME_5460731E025E // IncsExecutor
  )
  ; // Implements
 
 ref; // ME_5464A4E9009C Make
 
 : ME_54607DDC0159_ME_5464A0E40234
- : Original ME_54607DDC0159 // Execute
+ : Original HWL ME_54607DDC0159 // Execute
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_54607DDC0159_ME_5464A0E40234 Execute
@@ -2799,19 +2799,19 @@ ref; // ME_54607DDC0159_ME_5464A0E40234 Execute
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_54607384020A // TncsMessageExecutorFactory
+ : Parent HWL ME_54607384020A // TncsMessageExecutorFactory
  ;
  : Inherits
    Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
  )
  ; // Inherits
  : Implements
-   Seq: ( ME_5460731E025E // IncsExecutor
+   Seq: ( HWL ME_5460731E025E // IncsExecutor
  )
  ; // Implements
  : Operations
-   Seq: ( ME_5464A4DE0181 // Create
- ME_5464A4E9009C // Make
+   Seq: ( HWL ME_5464A4DE0181 // Create
+ HWL ME_5464A4E9009C // Make
  )
  ; // Operations
  : Implemented
@@ -2828,9 +2828,9 @@ FORWARD ME_547C1FB30097
 : ME_547C1FD9007B
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_547C1FB30097 // TncsDisconnectExecutor
+ : Parent HWL ME_547C1FB30097 // TncsDisconnectExecutor
  ;
- : Target ME_544E079E0253 // TncsMessage
+ : Target HWL ME_544E079E0253 // TncsMessage
  ;
 
 ref; // ME_547C1FD9007B 
@@ -2838,9 +2838,9 @@ ref; // ME_547C1FD9007B
 : ME_547C1FDD03A0
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_547C1FB30097 // TncsDisconnectExecutor
+ : Parent HWL ME_547C1FB30097 // TncsDisconnectExecutor
  ;
- : Target ME_547C1F31030C // TncsDIsconnect
+ : Target HWL ME_547C1F31030C // TncsDIsconnect
  ;
 
 ref; // ME_547C1FDD03A0 
@@ -2848,21 +2848,21 @@ ref; // ME_547C1FDD03A0
 : ME_547C1FE10204
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_547C1FB30097 // TncsDisconnectExecutor
+ : Parent HWL ME_547C1FB30097 // TncsDisconnectExecutor
  ;
- : Target ME_547C1F3F025A // TncsDIsconnectReply
+ : Target HWL ME_547C1F3F025A // TncsDIsconnectReply
  ;
 
 ref; // ME_547C1FE10204 
 
 : ME_54607DDC0159_ME_547C1FB30097
- : Original ME_54607DDC0159 // Execute
+ : Original HWL ME_54607DDC0159 // Execute
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_54607DDC0159_ME_547C1FB30097 Execute
 
 : ME_546082B801F3_ME_547C1FB30097
- : Original ME_546082B801F3 // MakeExecutor
+ : Original HWL ME_546082B801F3 // MakeExecutor
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_546082B801F3_ME_547C1FB30097 MakeExecutor
@@ -2875,15 +2875,15 @@ ref; // ME_546082B801F3_ME_547C1FB30097 MakeExecutor
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_54607384020A // TncsMessageExecutorFactory
+ : Parent HWL ME_54607384020A // TncsMessageExecutorFactory
  ;
  : Inherits
    Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
  )
  ; // Inherits
  : Implements
-   Seq: ( ME_5460731E025E // IncsExecutor
- ME_5460829B0384 // IncsMessageExecutorFactory
+   Seq: ( HWL ME_5460731E025E // IncsExecutor
+ HWL ME_5460829B0384 // IncsMessageExecutorFactory
  )
  ; // Implements
  : Implemented
@@ -2909,9 +2909,9 @@ ref; // ME_547C1FB30097 TncsDisconnectExecutor
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_54607384020A // TncsMessageExecutorFactory
+ : Parent HWL ME_54607384020A // TncsMessageExecutorFactory
  ;
- : Target ME_54609BB100BB // TncsExecutorFactoryList
+ : Target HWL ME_54609BB100BB // TncsExecutorFactoryList
  ;
 
 ref; // ME_54609BF500ED f_List
@@ -2923,9 +2923,9 @@ ref; // ME_54609BF500ED f_List
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_54607384020A // TncsMessageExecutorFactory
+ : Parent HWL ME_54607384020A // TncsMessageExecutorFactory
  ;
- : Target ME_547C1FB30097 // TncsDisconnectExecutor
+ : Target HWL ME_547C1FB30097 // TncsDisconnectExecutor
  ;
 
 ref; // ME_547C200B02EA f_DisconnectExecutor
@@ -2934,7 +2934,7 @@ ref; // ME_547C200B02EA f_DisconnectExecutor
  CONST Name 'aFactory'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_5460829B0384 // IncsMessageExecutorFactory
+ : Target HWL ME_5460829B0384 // IncsMessageExecutorFactory
  ;
 
 ref; // ME_546083260154 aFactory
@@ -2945,7 +2945,7 @@ ref; // ME_546083260154 aFactory
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_54607384020A // TncsMessageExecutorFactory
+ : Parent HWL ME_54607384020A // TncsMessageExecutorFactory
  ;
  : Parameters
    Seq: ( ME_546083260154 // aFactory
@@ -2958,7 +2958,7 @@ ref; // ME_5460830D0295 Register
  CONST Name 'aFactory'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_5460829B0384 // IncsMessageExecutorFactory
+ : Target HWL ME_5460829B0384 // IncsMessageExecutorFactory
  ;
 
 ref; // ME_5460832F028E aFactory
@@ -2969,7 +2969,7 @@ ref; // ME_5460832F028E aFactory
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_54607384020A // TncsMessageExecutorFactory
+ : Parent HWL ME_54607384020A // TncsMessageExecutorFactory
  ;
  : Parameters
    Seq: ( ME_5460832F028E // aFactory
@@ -2982,7 +2982,7 @@ ref; // ME_5460832C0080 UnRegister
  CONST Name 'aMessage'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_544E079E0253 // TncsMessage
+ : Target HWL ME_544E079E0253 // TncsMessage
  ;
 
 ref; // ME_5460B06B03DE aMessage
@@ -2993,9 +2993,9 @@ ref; // ME_5460B06B03DE aMessage
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_54607384020A // TncsMessageExecutorFactory
+ : Parent HWL ME_54607384020A // TncsMessageExecutorFactory
  ;
- : Target ME_5460731E025E // IncsExecutor
+ : Target HWL ME_5460731E025E // IncsExecutor
  ;
  : Parameters
    Seq: ( ME_5460B06B03DE // aMessage
@@ -3007,7 +3007,7 @@ ref; // ME_5460AEC800B8 MakeExecutor
 : ME_5460A810027B
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_54607384020A // TncsMessageExecutorFactory
+ : Parent HWL ME_54607384020A // TncsMessageExecutorFactory
  ;
  : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
  ;
@@ -3017,7 +3017,7 @@ ref; // ME_5460A810027B
 : ME_5460C4460031
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_54607384020A // TncsMessageExecutorFactory
+ : Parent HWL ME_54607384020A // TncsMessageExecutorFactory
  ;
  : Target WL 'ME_47289B590038' '4678193C009C.pas.ms.script' // PLong
  ;
@@ -3027,7 +3027,7 @@ ref; // ME_5460C4460031
 : ME_5464C855013F
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_54607384020A // TncsMessageExecutorFactory
+ : Parent HWL ME_54607384020A // TncsMessageExecutorFactory
  ;
  : Target WL 'ME_5461CFB8002C' '484A470100DD.pas.ms.script' // TncsMessageKind
  ;
@@ -3054,21 +3054,21 @@ ref; // ME_47A042E100E2_ME_54607384020A InitFields
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_544E0148010D // Messages
+ : Parent HWL ME_544E0148010D // Messages
  ;
  : Inherits
    Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_54609BF500ED // f_List
- ME_547C200B02EA // f_DisconnectExecutor
+   Seq: ( HWL ME_54609BF500ED // f_List
+ HWL ME_547C200B02EA // f_DisconnectExecutor
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_5460830D0295 // Register
- ME_5460832C0080 // UnRegister
- ME_5460AEC800B8 // MakeExecutor
+   Seq: ( HWL ME_5460830D0295 // Register
+ HWL ME_5460832C0080 // UnRegister
+ HWL ME_5460AEC800B8 // MakeExecutor
  )
  ; // Operations
  : Overridden
@@ -3077,8 +3077,8 @@ ref; // ME_47A042E100E2_ME_54607384020A InitFields
  )
  ; // Overridden
  : Children
-   Seq: ( ME_5464A0E40234 // TncsInvalidExecutor
- ME_547C1FB30097 // TncsDisconnectExecutor
+   Seq: ( HWL ME_5464A0E40234 // TncsInvalidExecutor
+ HWL ME_547C1FB30097 // TncsDisconnectExecutor
  )
  ; // Children
  : Dependencies
@@ -3104,9 +3104,9 @@ FORWARD ME_5461D9EE0244
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_5461D9EE0244 // TncsReplyWaiter
+ : Parent HWL ME_5461D9EE0244 // TncsReplyWaiter
  ;
- : Target ME_5461D6FC00F7 // TncsReplyDecsriptionList
+ : Target HWL ME_5461D6FC00F7 // TncsReplyDecsriptionList
  ;
 
 ref; // ME_5461DA210250 f_List
@@ -3117,7 +3117,7 @@ FORWARD ME_54633EAE039A
  CONST Name 'aMessage'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_544E079E0253 // TncsMessage
+ : Target HWL ME_544E079E0253 // TncsMessage
  ;
 
 ref; // ME_54633ECE02CA aMessage
@@ -3128,9 +3128,9 @@ ref; // ME_54633ECE02CA aMessage
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_54633EAE039A // FindDesc
+ : Parent HWL ME_54633EAE039A // FindDesc
  ;
- : Target ME_5461D6C30025 // TncsReplyDescription
+ : Target HWL ME_5461D6C30025 // TncsReplyDescription
  ;
  : Parameters
    Seq: ( ME_54633ECE02CA // aMessage
@@ -3147,10 +3147,10 @@ ref; // ME_54633EB6031C DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_5461D9EE0244 // TncsReplyWaiter
+ : Parent HWL ME_5461D9EE0244 // TncsReplyWaiter
  ;
  : Operations
-   Seq: ( ME_54633EB6031C // DoIt
+   Seq: ( HWL ME_54633EB6031C // DoIt
  )
  ; // Operations
 
@@ -3160,7 +3160,7 @@ ref; // ME_54633EAE039A FindDesc
  CONST Name 'aMessage'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_544E079E0253 // TncsMessage
+ : Target HWL ME_544E079E0253 // TncsMessage
  ;
 
 ref; // ME_54630A360321 aMessage
@@ -3171,7 +3171,7 @@ ref; // ME_54630A360321 aMessage
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_5461D9EE0244 // TncsReplyWaiter
+ : Parent HWL ME_5461D9EE0244 // TncsReplyWaiter
  ;
  : Parameters
    Seq: ( ME_54630A360321 // aMessage
@@ -3184,7 +3184,7 @@ ref; // ME_54630A1F0046 SubmitReply
  CONST Name 'aMessage'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_544E079E0253 // TncsMessage
+ : Target HWL ME_544E079E0253 // TncsMessage
  ;
 
 ref; // ME_54630A4F0322 aMessage
@@ -3195,7 +3195,7 @@ ref; // ME_54630A4F0322 aMessage
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_5461D9EE0244 // TncsReplyWaiter
+ : Parent HWL ME_5461D9EE0244 // TncsReplyWaiter
  ;
  : Parameters
    Seq: ( ME_54630A4F0322 // aMessage
@@ -3210,7 +3210,7 @@ ref; // ME_54630A3E001D SubmitMessage
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_5461D9EE0244 // TncsReplyWaiter
+ : Parent HWL ME_5461D9EE0244 // TncsReplyWaiter
  ;
 
 ref; // ME_54630A7102CD Clear
@@ -3219,7 +3219,7 @@ ref; // ME_54630A7102CD Clear
  CONST Name 'aMessage'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_544E079E0253 // TncsMessage
+ : Target HWL ME_544E079E0253 // TncsMessage
  ;
 
 ref; // ME_547C4DD20008 aMessage
@@ -3228,7 +3228,7 @@ ref; // ME_547C4DD20008 aMessage
  CONST Name 'theReply'
  CONST Class class_Parameter
  : Stereotype st_inout ;
- : Target ME_544E079E0253 // TncsMessage
+ : Target HWL ME_544E079E0253 // TncsMessage
  ;
 
 ref; // ME_547C4DD20037 theReply
@@ -3252,7 +3252,7 @@ ref; // ME_547C4DD20056 aTimeOut
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_5461D9EE0244 // TncsReplyWaiter
+ : Parent HWL ME_5461D9EE0244 // TncsReplyWaiter
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -3268,7 +3268,7 @@ ref; // ME_54630A80027D WaitForReply
 : ME_5461FC9C0368
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_5461D9EE0244 // TncsReplyWaiter
+ : Parent HWL ME_5461D9EE0244 // TncsReplyWaiter
  ;
  : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
  ;
@@ -3278,9 +3278,9 @@ ref; // ME_5461FC9C0368
 : ME_5463131A0008
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_5461D9EE0244 // TncsReplyWaiter
+ : Parent HWL ME_5461D9EE0244 // TncsReplyWaiter
  ;
- : Target ME_5461D6C30025 // TncsReplyDescription
+ : Target HWL ME_5461D6C30025 // TncsReplyDescription
  ;
 
 ref; // ME_5463131A0008 
@@ -3288,7 +3288,7 @@ ref; // ME_5463131A0008
 : ME_54634144025A
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_5461D9EE0244 // TncsReplyWaiter
+ : Parent HWL ME_5461D9EE0244 // TncsReplyWaiter
  ;
  : Target WL 'ME_4CDD241C0184' '47913B47006E.pas.ms.script' // l3System
  ;
@@ -3315,7 +3315,7 @@ ref; // ME_47A042E100E2_ME_5461D9EE0244 InitFields
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_544E0148010D // Messages
+ : Parent HWL ME_544E0148010D // Messages
  ;
  : Inherits
    Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
@@ -3326,15 +3326,15 @@ ref; // ME_47A042E100E2_ME_5461D9EE0244 InitFields
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_5461DA210250 // f_List
+   Seq: ( HWL ME_5461DA210250 // f_List
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_54633EAE039A // FindDesc
- ME_54630A1F0046 // SubmitReply
- ME_54630A3E001D // SubmitMessage
- ME_54630A7102CD // Clear
- ME_54630A80027D // WaitForReply
+   Seq: ( HWL ME_54633EAE039A // FindDesc
+ HWL ME_54630A1F0046 // SubmitReply
+ HWL ME_54630A3E001D // SubmitMessage
+ HWL ME_54630A7102CD // Clear
+ HWL ME_54630A80027D // WaitForReply
  )
  ; // Operations
  : Overridden
@@ -3365,9 +3365,9 @@ FORWARD ME_546061CE03DA
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_546061CE03DA // TncsProcessThread
+ : Parent HWL ME_546061CE03DA // TncsProcessThread
  ;
- : Target ME_5461D9EE0244 // TncsReplyWaiter
+ : Target HWL ME_5461D9EE0244 // TncsReplyWaiter
  ;
  CONST "pm" true
  CONST "reads field" true
@@ -3382,7 +3382,7 @@ ref; // ME_5461D7EA00E4 ReplyWaiter
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_546061CE03DA // TncsProcessThread
+ : Parent HWL ME_546061CE03DA // TncsProcessThread
  ;
  : Target WL 'ME_46A608F00301' '4AB0C3C60310.pas.ms.script' // Pointer
  ;
@@ -3397,9 +3397,9 @@ ref; // ME_5464BDA603BD f_Transporter
  CONST Visibility PublicAccess
  CONST Abstraction at_final
  CONST LinkType lt_agr
- : Parent ME_546061CE03DA // TncsProcessThread
+ : Parent HWL ME_546061CE03DA // TncsProcessThread
  ;
- : Target ME_5464B4730055 // IncsTransporter
+ : Target HWL ME_5464B4730055 // IncsTransporter
  ;
  CONST "pm" true
 
@@ -3411,7 +3411,7 @@ FORWARD ME_5460680D0277
  CONST Name 'aMessage'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_544E079E0253 // TncsMessage
+ : Target HWL ME_544E079E0253 // TncsMessage
  ;
 
 ref; // ME_5460681F01B0 aMessage
@@ -3422,7 +3422,7 @@ ref; // ME_5460681F01B0 aMessage
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_5460680D0277 // ProcessMessage
+ : Parent HWL ME_5460680D0277 // ProcessMessage
  ;
  : Parameters
    Seq: ( ME_5460681F01B0 // aMessage
@@ -3434,7 +3434,7 @@ ref; // ME_5460681B02B0 DoIt
 : ME_54606E1A0207
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_5460680D0277 // ProcessMessage
+ : Parent HWL ME_5460680D0277 // ProcessMessage
  ;
  : Target WL 'ME_4CDD241C0184' '47913B47006E.pas.ms.script' // l3System
  ;
@@ -3444,7 +3444,7 @@ ref; // ME_54606E1A0207
 : ME_5460734B00FE
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_5460680D0277 // ProcessMessage
+ : Parent HWL ME_5460680D0277 // ProcessMessage
  ;
  : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
  ;
@@ -3454,9 +3454,9 @@ ref; // ME_5460734B00FE
 : ME_546073DF01D8
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_5460680D0277 // ProcessMessage
+ : Parent HWL ME_5460680D0277 // ProcessMessage
  ;
- : Target ME_54607384020A // TncsMessageExecutorFactory
+ : Target HWL ME_54607384020A // TncsMessageExecutorFactory
  ;
 
 ref; // ME_546073DF01D8 
@@ -3464,9 +3464,9 @@ ref; // ME_546073DF01D8
 : ME_5460797F01C3
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_5460680D0277 // ProcessMessage
+ : Parent HWL ME_5460680D0277 // ProcessMessage
  ;
- : Target ME_5460731E025E // IncsExecutor
+ : Target HWL ME_5460731E025E // IncsExecutor
  ;
 
 ref; // ME_5460797F01C3 
@@ -3474,9 +3474,9 @@ ref; // ME_5460797F01C3
 : ME_54784861030C
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_5460680D0277 // ProcessMessage
+ : Parent HWL ME_5460680D0277 // ProcessMessage
  ;
- : Target ME_54649C7C00E7 // TncsInvalidMessage
+ : Target HWL ME_54649C7C00E7 // TncsInvalidMessage
  ;
 
 ref; // ME_54784861030C 
@@ -3484,7 +3484,7 @@ ref; // ME_54784861030C
 : ME_54784865026A
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_5460680D0277 // ProcessMessage
+ : Parent HWL ME_5460680D0277 // ProcessMessage
  ;
  : Target WL 'ME_5461CFB8002C' '484A470100DD.pas.ms.script' // TncsMessageKind
  ;
@@ -3494,7 +3494,7 @@ ref; // ME_54784865026A
 : ME_547848860360
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_5460680D0277 // ProcessMessage
+ : Parent HWL ME_5460680D0277 // ProcessMessage
  ;
  : Target WL 'ME_4787A405013D' '4AB0C3C60310.pas.ms.script' // Exception
  ;
@@ -3509,10 +3509,10 @@ ref; // ME_547848860360
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_546061CE03DA // TncsProcessThread
+ : Parent HWL ME_546061CE03DA // TncsProcessThread
  ;
  : Operations
-   Seq: ( ME_5460681B02B0 // DoIt
+   Seq: ( HWL ME_5460681B02B0 // DoIt
  )
  ; // Operations
  : Dependencies
@@ -3534,7 +3534,7 @@ FORWARD ME_5464BDC203B1
  CONST Name 'anQueue'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_544E3C54031D // TncsMessageQueue
+ : Target HWL ME_544E3C54031D // TncsMessageQueue
  ;
 
 ref; // ME_5464BDEF00E1 anQueue
@@ -3543,7 +3543,7 @@ ref; // ME_5464BDEF00E1 anQueue
  CONST Name 'aTransporter'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_5464B4730055 // IncsTransporter
+ : Target HWL ME_5464B4730055 // IncsTransporter
  ;
 
 ref; // ME_5464BDEF00F1 aTransporter
@@ -3552,7 +3552,7 @@ ref; // ME_5464BDEF00F1 aTransporter
  CONST Name 'aWaiter'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_5461D9EE0244 // TncsReplyWaiter
+ : Target HWL ME_5461D9EE0244 // TncsReplyWaiter
  ;
 
 ref; // ME_5493FA0C0300 aWaiter
@@ -3563,7 +3563,7 @@ ref; // ME_5493FA0C0300 aWaiter
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_5464BDC203B1 // Create
+ : Parent HWL ME_5464BDC203B1 // Create
  ;
  : Parameters
    Seq: ( ME_5464BDEF00E1 // anQueue
@@ -3582,10 +3582,10 @@ ref; // ME_5464BDCD0296 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_546061CE03DA // TncsProcessThread
+ : Parent HWL ME_546061CE03DA // TncsProcessThread
  ;
  : Operations
-   Seq: ( ME_5464BDCD0296 // DoIt
+   Seq: ( HWL ME_5464BDCD0296 // DoIt
  )
  ; // Operations
 
@@ -3594,7 +3594,7 @@ ref; // ME_5464BDC203B1 Create
 : ME_5462046F018C
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_546061CE03DA // TncsProcessThread
+ : Parent HWL ME_546061CE03DA // TncsProcessThread
  ;
  : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
  ;
@@ -3621,21 +3621,21 @@ ref; // ME_4911B69E037D_ME_546061CE03DA DoExecute
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_544E0148010D // Messages
+ : Parent HWL ME_544E0148010D // Messages
  ;
  : Inherits
-   Seq: ( ME_5452248C02B8 // TncsTransporterThread
+   Seq: ( HWL ME_5452248C02B8 // TncsTransporterThread
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_5461D7EA00E4 // ReplyWaiter
- ME_5464BDA603BD // f_Transporter
- ME_5464BE030256 // Transporter
+   Seq: ( HWL ME_5461D7EA00E4 // ReplyWaiter
+ HWL ME_5464BDA603BD // f_Transporter
+ HWL ME_5464BE030256 // Transporter
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_5460680D0277 // ProcessMessage
- ME_5464BDC203B1 // Create
+   Seq: ( HWL ME_5460680D0277 // ProcessMessage
+ HWL ME_5464BDC203B1 // Create
  )
  ; // Operations
  : Overridden
@@ -3664,7 +3664,7 @@ FORWARD ME_54917076009C
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_ref
- : Parent ME_54917076009C // TncsIOHandlerArray
+ : Parent HWL ME_54917076009C // TncsIOHandlerArray
  ;
  : Target WL 'ME_538DDC890328' '52FBB2FC0386.pas.ms.script' // TcsIdIOHandlerAbstractAdapter
  ;
@@ -3679,14 +3679,14 @@ ref; // ME_5491708B03B6
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_544A09EE005F // TncsTransporter
+ : Parent HWL ME_544A09EE005F // TncsTransporter
  ;
  : Inherits
-   Seq: ( ME_5490036B0204 // TncsSocketKind
+   Seq: ( HWL ME_5490036B0204 // TncsSocketKind
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_5491708B03B6 // 
+   Seq: ( HWL ME_5491708B03B6 // 
  )
  ; // Attributes
  CONST "array type" 'dynamic'
@@ -3701,9 +3701,9 @@ ref; // ME_54917076009C TncsIOHandlerArray
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_544A09EE005F // TncsTransporter
+ : Parent HWL ME_544A09EE005F // TncsTransporter
  ;
- : Target ME_544E3C54031D // TncsMessageQueue
+ : Target HWL ME_544E3C54031D // TncsMessageQueue
  ;
  CONST "pm" true
  CONST "reads field" true
@@ -3718,9 +3718,9 @@ ref; // ME_5450AB4D02E2 SendQueue
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_544A09EE005F // TncsTransporter
+ : Parent HWL ME_544A09EE005F // TncsTransporter
  ;
- : Target ME_544E3C54031D // TncsMessageQueue
+ : Target HWL ME_544E3C54031D // TncsMessageQueue
  ;
  CONST "pm" true
  CONST "reads field" true
@@ -3735,9 +3735,9 @@ ref; // ME_5450AB6A00A2 ReceiveQueue
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_544A09EE005F // TncsTransporter
+ : Parent HWL ME_544A09EE005F // TncsTransporter
  ;
- : Target ME_5450E9A0034A // TncsSendThread
+ : Target HWL ME_5450E9A0034A // TncsSendThread
  ;
  CONST "pm" true
  CONST "reads field" true
@@ -3753,9 +3753,9 @@ FORWARD ME_545225640060
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_545225640060 // IOHandlers
+ : Parent HWL ME_545225640060 // IOHandlers
  ;
- : Target ME_5490036B0204 // TncsSocketKind
+ : Target HWL ME_5490036B0204 // TncsSocketKind
  ;
 
 ref; // ME_5491703C03A8 SocketKind
@@ -3768,12 +3768,12 @@ ref; // ME_5491703C03A8 SocketKind
  CONST Visibility ProtectedAccess
  CONST Abstraction at_final
  CONST LinkType lt_agr
- : Parent ME_544A09EE005F // TncsTransporter
+ : Parent HWL ME_544A09EE005F // TncsTransporter
  ;
  : Target WL 'ME_538DDC890328' '52FBB2FC0386.pas.ms.script' // TcsIdIOHandlerAbstractAdapter
  ;
  : Attributes
-   Seq: ( ME_5491703C03A8 // SocketKind
+   Seq: ( HWL ME_5491703C03A8 // SocketKind
  )
  ; // Attributes
  CONST "pm" true
@@ -3788,9 +3788,9 @@ ref; // ME_545225640060 IOHandlers
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_544A09EE005F // TncsTransporter
+ : Parent HWL ME_544A09EE005F // TncsTransporter
  ;
- : Target ME_54534F1A00BF // TncsReceiveThread
+ : Target HWL ME_54534F1A00BF // TncsReceiveThread
  ;
  CONST "pm" true
  CONST "reads field" true
@@ -3805,9 +3805,9 @@ ref; // ME_54534F3D0029 ReceiveThread
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_544A09EE005F // TncsTransporter
+ : Parent HWL ME_544A09EE005F // TncsTransporter
  ;
- : Target ME_546061CE03DA // TncsProcessThread
+ : Target HWL ME_546061CE03DA // TncsProcessThread
  ;
  CONST "pm" true
  CONST "reads field" true
@@ -3822,9 +3822,9 @@ ref; // ME_546061ED0170 ProcessThread
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_544A09EE005F // TncsTransporter
+ : Parent HWL ME_544A09EE005F // TncsTransporter
  ;
- : Target ME_5461D9EE0244 // TncsReplyWaiter
+ : Target HWL ME_5461D9EE0244 // TncsReplyWaiter
  ;
  CONST "pm" true
  CONST "reads field" true
@@ -3838,7 +3838,7 @@ ref; // ME_5461D7C4021A ReplyWaiter
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_544A09EE005F // TncsTransporter
+ : Parent HWL ME_544A09EE005F // TncsTransporter
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -3852,7 +3852,7 @@ ref; // ME_5465AB860254 f_Connected
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_544A09EE005F // TncsTransporter
+ : Parent HWL ME_544A09EE005F // TncsTransporter
  ;
  : Target WL 'ME_537F4A04037C' '52FBB2FC0386.pas.ms.script' // TCsClientId
  ;
@@ -3867,7 +3867,7 @@ ref; // ME_5466092F01BB f_ClientID
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_544A09EE005F // TncsTransporter
+ : Parent HWL ME_544A09EE005F // TncsTransporter
  ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
@@ -3884,9 +3884,9 @@ ref; // ME_548FEF8F0026 IntSessionID
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_544A09EE005F // TncsTransporter
+ : Parent HWL ME_544A09EE005F // TncsTransporter
  ;
- : Target ME_54917076009C // TncsIOHandlerArray
+ : Target HWL ME_54917076009C // TncsIOHandlerArray
  ;
 
 ref; // ME_5491709C03AC f_IOHandlers
@@ -3908,7 +3908,7 @@ ref; // ME_54533B2900CE aValue
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_54533B010030 // SetConnected
+ : Parent HWL ME_54533B010030 // SetConnected
  ;
  : Parameters
    Seq: ( ME_54533B2900CE // aValue
@@ -3925,10 +3925,10 @@ ref; // ME_54533B1701F2 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility ProtectedAccess
  CONST Abstraction at_final
- : Parent ME_544A09EE005F // TncsTransporter
+ : Parent HWL ME_544A09EE005F // TncsTransporter
  ;
  : Operations
-   Seq: ( ME_54533B1701F2 // DoIt
+   Seq: ( HWL ME_54533B1701F2 // DoIt
  )
  ; // Operations
 
@@ -3942,7 +3942,7 @@ ref; // ME_54533B010030 SetConnected
  CONST Kind kind_NormalClass
  CONST Visibility ProtectedAccess
  CONST Abstraction at_final
- : Parent ME_544A09EE005F // TncsTransporter
+ : Parent HWL ME_544A09EE005F // TncsTransporter
  ;
 
 ref; // ME_5459C7E00125 StartProcessing
@@ -3964,7 +3964,7 @@ ref; // ME_545B3E250102 WaitForThreads
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_5459C803038D // StopProcessing
+ : Parent HWL ME_5459C803038D // StopProcessing
  ;
  : Parameters
    Seq: ( ME_545B3E250102 // WaitForThreads
@@ -3981,10 +3981,10 @@ ref; // ME_545B3E120323 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility ProtectedAccess
  CONST Abstraction at_final
- : Parent ME_544A09EE005F // TncsTransporter
+ : Parent HWL ME_544A09EE005F // TncsTransporter
  ;
  : Operations
-   Seq: ( ME_545B3E120323 // DoIt
+   Seq: ( HWL ME_545B3E120323 // DoIt
  )
  ; // Operations
 
@@ -4000,7 +4000,7 @@ FORWARD ME_5477033C03D0
  %SUMMARY 'Сигнатура метода HandShake' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_5477033C03D0 // HandShake
+ : Parent HWL ME_5477033C03D0 // HandShake
  ;
 
 ref; // ME_A6A7B60F1DF2 DoIt
@@ -4013,10 +4013,10 @@ ref; // ME_A6A7B60F1DF2 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility ProtectedAccess
  CONST Abstraction at_abstract
- : Parent ME_544A09EE005F // TncsTransporter
+ : Parent HWL ME_544A09EE005F // TncsTransporter
  ;
  : Operations
-   Seq: ( ME_A6A7B60F1DF2 // DoIt
+   Seq: ( HWL ME_A6A7B60F1DF2 // DoIt
  )
  ; // Operations
 
@@ -4030,9 +4030,9 @@ FORWARD ME_549175C4030A
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_549175C4030A // HandShakeKind
+ : Parent HWL ME_549175C4030A // HandShakeKind
  ;
- : Target ME_5490036B0204 // TncsSocketKind
+ : Target HWL ME_5490036B0204 // TncsSocketKind
  ;
 
 ref; // ME_549175D702CD DoIt
@@ -4045,10 +4045,10 @@ ref; // ME_549175D702CD DoIt
  CONST Kind kind_NormalClass
  CONST Visibility ProtectedAccess
  CONST Abstraction at_abstract
- : Parent ME_544A09EE005F // TncsTransporter
+ : Parent HWL ME_544A09EE005F // TncsTransporter
  ;
  : Operations
-   Seq: ( ME_549175D702CD // DoIt
+   Seq: ( HWL ME_549175D702CD // DoIt
  )
  ; // Operations
 
@@ -4064,7 +4064,7 @@ FORWARD ME_5492C5F703AA
  %SUMMARY 'Сигнатура метода TransportStarted' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_5492C5F703AA // TransportStarted
+ : Parent HWL ME_5492C5F703AA // TransportStarted
  ;
 
 ref; // ME_8A8BAA04A4CE DoIt
@@ -4077,10 +4077,10 @@ ref; // ME_8A8BAA04A4CE DoIt
  CONST Kind kind_NormalClass
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_544A09EE005F // TncsTransporter
+ : Parent HWL ME_544A09EE005F // TncsTransporter
  ;
  : Operations
-   Seq: ( ME_8A8BAA04A4CE // DoIt
+   Seq: ( HWL ME_8A8BAA04A4CE // DoIt
  )
  ; // Operations
 
@@ -4089,7 +4089,7 @@ ref; // ME_5492C5F703AA TransportStarted
 : ME_5450A0AC017E
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_544A09EE005F // TncsTransporter
+ : Parent HWL ME_544A09EE005F // TncsTransporter
  ;
  : Target WL 'ME_54509FEC02EB' '47D0290B016D.pas.ms.script' // l3CreateStringGUID
  ;
@@ -4099,7 +4099,7 @@ ref; // ME_5450A0AC017E
 : ME_5450DC780347
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_544A09EE005F // TncsTransporter
+ : Parent HWL ME_544A09EE005F // TncsTransporter
  ;
  : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
  ;
@@ -4109,7 +4109,7 @@ ref; // ME_5450DC780347
 : ME_5463161F0105
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_544A09EE005F // TncsTransporter
+ : Parent HWL ME_544A09EE005F // TncsTransporter
  ;
  : Target WL 'ME_5461CFB8002C' '484A470100DD.pas.ms.script' // TncsMessageKind
  ;
@@ -4117,40 +4117,40 @@ ref; // ME_5450DC780347
 ref; // ME_5463161F0105 
 
 : ME_5464B4E900DA_ME_544A09EE005F
- : Original ME_5464B4E900DA // Send
+ : Original HWL ME_5464B4E900DA // Send
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_5464B4E900DA_ME_544A09EE005F Send
 
 : ME_5464B52F02D5_ME_544A09EE005F
- : Original ME_5464B52F02D5 // WaitForReply
+ : Original HWL ME_5464B52F02D5 // WaitForReply
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_5464B52F02D5_ME_544A09EE005F WaitForReply
 
 : ME_5465AB2B00CA_ME_544A09EE005F
- : Original ME_5465AB2B00CA // Connected
+ : Original HWL ME_5465AB2B00CA // Connected
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_5465AB2B00CA_ME_544A09EE005F Connected
 
 : ME_546608F101DE_ME_544A09EE005F
- : Original ME_546608F101DE // ClientID
+ : Original HWL ME_546608F101DE // ClientID
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_546608F101DE_ME_544A09EE005F ClientID
 
 : ME_5486B96A0025_ME_544A09EE005F
- : Original ME_5486B96A0025 // Processing
+ : Original HWL ME_5486B96A0025 // Processing
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_5486B96A0025_ME_544A09EE005F Processing
 
 : ME_548FEF4F002E_ME_544A09EE005F
- : Original ME_548FEF4F002E // SessionID
+ : Original HWL ME_548FEF4F002E // SessionID
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
@@ -4176,7 +4176,7 @@ ref; // ME_47A042E100E2_ME_544A09EE005F InitFields
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_544E0148010D // Messages
+ : Parent HWL ME_544E0148010D // Messages
  ;
  : Inherits
    Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
@@ -4184,30 +4184,30 @@ ref; // ME_47A042E100E2_ME_544A09EE005F InitFields
  ; // Inherits
  : Implements
    Seq: ( WL 'ME_53A03846011C' '53A038340371.pas.ms.script' // l3CriticalSectionHolder
- ME_5464B4730055 // IncsTransporter
+ HWL ME_5464B4730055 // IncsTransporter
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_5450AB4D02E2 // SendQueue
- ME_5450AB6A00A2 // ReceiveQueue
- ME_5450EA6D02B3 // SendThread
- ME_545225640060 // IOHandlers
- ME_54534F3D0029 // ReceiveThread
- ME_546061ED0170 // ProcessThread
- ME_5461D7C4021A // ReplyWaiter
- ME_5465AB860254 // f_Connected
- ME_5466092F01BB // f_ClientID
- ME_548FEF8F0026 // IntSessionID
- ME_5491709C03AC // f_IOHandlers
+   Seq: ( HWL ME_5450AB4D02E2 // SendQueue
+ HWL ME_5450AB6A00A2 // ReceiveQueue
+ HWL ME_5450EA6D02B3 // SendThread
+ HWL ME_545225640060 // IOHandlers
+ HWL ME_54534F3D0029 // ReceiveThread
+ HWL ME_546061ED0170 // ProcessThread
+ HWL ME_5461D7C4021A // ReplyWaiter
+ HWL ME_5465AB860254 // f_Connected
+ HWL ME_5466092F01BB // f_ClientID
+ HWL ME_548FEF8F0026 // IntSessionID
+ HWL ME_5491709C03AC // f_IOHandlers
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_54533B010030 // SetConnected
- ME_5459C7E00125 // StartProcessing
- ME_5459C803038D // StopProcessing
- ME_5477033C03D0 // HandShake
- ME_549175C4030A // HandShakeKind
- ME_5492C5F703AA // TransportStarted
+   Seq: ( HWL ME_54533B010030 // SetConnected
+ HWL ME_5459C7E00125 // StartProcessing
+ HWL ME_5459C803038D // StopProcessing
+ HWL ME_5477033C03D0 // HandShake
+ HWL ME_549175C4030A // HandShakeKind
+ HWL ME_5492C5F703AA // TransportStarted
  )
  ; // Operations
  : Implemented
@@ -4225,7 +4225,7 @@ ref; // ME_47A042E100E2_ME_544A09EE005F InitFields
  )
  ; // Overridden
  : Children
-   Seq: ( ME_54917076009C // TncsIOHandlerArray
+   Seq: ( HWL ME_54917076009C // TncsIOHandlerArray
  )
  ; // Children
  : Dependencies
@@ -4252,7 +4252,7 @@ FORWARD ME_544DF67C0075
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_544DF67C0075 // TimeoutConsts
+ : Parent HWL ME_544DF67C0075 // TimeoutConsts
  ;
  CONST Value '10 * 1000'
  CONST "AutoInc" false
@@ -4269,7 +4269,7 @@ ref; // ME_544DF69502E9 c_ClientConnectTimeout
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_544DF67C0075 // TimeoutConsts
+ : Parent HWL ME_544DF67C0075 // TimeoutConsts
  ;
  CONST Value '{$IFDEF CsDebug} 1000 * 1000 {$ELSE} 10 * 1000 {$ENDIF}'
  CONST "AutoInc" false
@@ -4288,11 +4288,11 @@ ref; // ME_544DF6C40248 c_ClientReadTimeout
  %SUMMARY 'В миллисек' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
- : Parent ME_544A0A0D0239 // TncsClientTransporter
+ : Parent HWL ME_544A0A0D0239 // TncsClientTransporter
  ;
  : Attributes
-   Seq: ( ME_544DF69502E9 // c_ClientConnectTimeout
- ME_544DF6C40248 // c_ClientReadTimeout
+   Seq: ( HWL ME_544DF69502E9 // c_ClientConnectTimeout
+ HWL ME_544DF6C40248 // c_ClientReadTimeout
  )
  ; // Attributes
  CONST "spell names" false
@@ -4307,7 +4307,7 @@ FORWARD ME_549163F102D4
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_ref
- : Parent ME_549163F102D4 // TncsClientArray
+ : Parent HWL ME_549163F102D4 // TncsClientArray
  ;
  : Target WL 'ME_54522A0E031D' '52FBB2FC0386.pas.ms.script' // TncsTCPClient
  ;
@@ -4322,14 +4322,14 @@ ref; // ME_549164000118
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_544A0A0D0239 // TncsClientTransporter
+ : Parent HWL ME_544A0A0D0239 // TncsClientTransporter
  ;
  : Inherits
-   Seq: ( ME_5490036B0204 // TncsSocketKind
+   Seq: ( HWL ME_5490036B0204 // TncsSocketKind
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_549164000118 // 
+   Seq: ( HWL ME_549164000118 // 
  )
  ; // Attributes
  CONST "array type" 'dynamic'
@@ -4343,9 +4343,9 @@ ref; // ME_549163F102D4 TncsClientArray
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_ref
- : Parent ME_544A0A0D0239 // TncsClientTransporter
+ : Parent HWL ME_544A0A0D0239 // TncsClientTransporter
  ;
- : Target ME_549163F102D4 // TncsClientArray
+ : Target HWL ME_549163F102D4 // TncsClientArray
  ;
 
 ref; // ME_544A21B400E4 f_TCPClients
@@ -4358,7 +4358,7 @@ ref; // ME_544A21B400E4 f_TCPClients
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_544A0A0D0239 // TncsClientTransporter
+ : Parent HWL ME_544A0A0D0239 // TncsClientTransporter
  ;
 
 ref; // ME_54522FCE0023 TransportConnected
@@ -4371,7 +4371,7 @@ ref; // ME_54522FCE0023 TransportConnected
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_544A0A0D0239 // TncsClientTransporter
+ : Parent HWL ME_544A0A0D0239 // TncsClientTransporter
  ;
  : Inherits
    Seq: ( WL 'ME_545B3F72015E' '537F464A0198.pas.ms.script' // TIdStatusEvent
@@ -4388,7 +4388,7 @@ ref; // ME_545B400202AF SendTransportStatus
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_544A0A0D0239 // TncsClientTransporter
+ : Parent HWL ME_544A0A0D0239 // TncsClientTransporter
  ;
 
 ref; // ME_5465A71E02F2 Create
@@ -4401,14 +4401,14 @@ ref; // ME_5465A71E02F2 Create
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_544A0A0D0239 // TncsClientTransporter
+ : Parent HWL ME_544A0A0D0239 // TncsClientTransporter
  ;
  : Inherits
-   Seq: ( ME_5465A71E02F2 // Create
+   Seq: ( HWL ME_5465A71E02F2 // Create
  )
  ; // Inherits
  : Implements
-   Seq: ( ME_5465A598039E // IncsClientTransporter
+   Seq: ( HWL ME_5465A598039E // IncsClientTransporter
  )
  ; // Implements
 
@@ -4422,7 +4422,7 @@ ref; // ME_5465A72C00CA Make
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_544A0A0D0239 // TncsClientTransporter
+ : Parent HWL ME_544A0A0D0239 // TncsClientTransporter
  ;
  : Inherits
    Seq: ( WL 'ME_545B3F72015E' '537F464A0198.pas.ms.script' // TIdStatusEvent
@@ -4441,7 +4441,7 @@ FORWARD ME_549279980264
  %SUMMARY 'Сигнатура метода BeforeSendHandshake' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_549279980264 // BeforeSendHandshake
+ : Parent HWL ME_549279980264 // BeforeSendHandshake
  ;
 
 ref; // ME_2AABD500F271 DoIt
@@ -4454,10 +4454,10 @@ ref; // ME_2AABD500F271 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_544A0A0D0239 // TncsClientTransporter
+ : Parent HWL ME_544A0A0D0239 // TncsClientTransporter
  ;
  : Operations
-   Seq: ( ME_2AABD500F271 // DoIt
+   Seq: ( HWL ME_2AABD500F271 // DoIt
  )
  ; // Operations
 
@@ -4473,7 +4473,7 @@ FORWARD ME_549279B300D5
  %SUMMARY 'Сигнатура метода BeforeReceiveHandshake' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_549279B300D5 // BeforeReceiveHandshake
+ : Parent HWL ME_549279B300D5 // BeforeReceiveHandshake
  ;
 
 ref; // ME_8B5B641F41AF DoIt
@@ -4486,10 +4486,10 @@ ref; // ME_8B5B641F41AF DoIt
  CONST Kind kind_NormalClass
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_544A0A0D0239 // TncsClientTransporter
+ : Parent HWL ME_544A0A0D0239 // TncsClientTransporter
  ;
  : Operations
-   Seq: ( ME_8B5B641F41AF // DoIt
+   Seq: ( HWL ME_8B5B641F41AF // DoIt
  )
  ; // Operations
 
@@ -4498,7 +4498,7 @@ ref; // ME_549279B300D5 BeforeReceiveHandshake
 : ME_544DFC0D0116
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_544A0A0D0239 // TncsClientTransporter
+ : Parent HWL ME_544A0A0D0239 // TncsClientTransporter
  ;
  : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
  ;
@@ -4508,7 +4508,7 @@ ref; // ME_544DFC0D0116
 : ME_544E2CC40195
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_544A0A0D0239 // TncsClientTransporter
+ : Parent HWL ME_544A0A0D0239 // TncsClientTransporter
  ;
  : Target WL 'ME_4CDD241C0184' '47913B47006E.pas.ms.script' // l3System
  ;
@@ -4518,7 +4518,7 @@ ref; // ME_544E2CC40195
 : ME_544E37D9032B
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_544A0A0D0239 // TncsClientTransporter
+ : Parent HWL ME_544A0A0D0239 // TncsClientTransporter
  ;
  : Target WL 'ME_544E35D90359' '537F464A0198.pas.ms.script' // IdException
  ;
@@ -4528,7 +4528,7 @@ ref; // ME_544E37D9032B
 : ME_54522D8300D7
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_544A0A0D0239 // TncsClientTransporter
+ : Parent HWL ME_544A0A0D0239 // TncsClientTransporter
  ;
  : Target WL 'ME_538DB527006C' '52FBB2FC0386.pas.ms.script' // TcsIdIOHandlerAdapter
  ;
@@ -4538,7 +4538,7 @@ ref; // ME_54522D8300D7
 : ME_54534AD4014F
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_544A0A0D0239 // TncsClientTransporter
+ : Parent HWL ME_544A0A0D0239 // TncsClientTransporter
  ;
  : Target WL 'ME_538DDC890328' '52FBB2FC0386.pas.ms.script' // TcsIdIOHandlerAbstractAdapter
  ;
@@ -4548,9 +4548,9 @@ ref; // ME_54534AD4014F
 : ME_547C1F8E038F
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_544A0A0D0239 // TncsClientTransporter
+ : Parent HWL ME_544A0A0D0239 // TncsClientTransporter
  ;
- : Target ME_544E079E0253 // TncsMessage
+ : Target HWL ME_544E079E0253 // TncsMessage
  ;
 
 ref; // ME_547C1F8E038F 
@@ -4558,9 +4558,9 @@ ref; // ME_547C1F8E038F
 : ME_547C1F9501A1
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_544A0A0D0239 // TncsClientTransporter
+ : Parent HWL ME_544A0A0D0239 // TncsClientTransporter
  ;
- : Target ME_547C1F31030C // TncsDIsconnect
+ : Target HWL ME_547C1F31030C // TncsDIsconnect
  ;
 
 ref; // ME_547C1F9501A1 
@@ -4568,33 +4568,33 @@ ref; // ME_547C1F9501A1
 : ME_547C1F9900B0
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_544A0A0D0239 // TncsClientTransporter
+ : Parent HWL ME_544A0A0D0239 // TncsClientTransporter
  ;
- : Target ME_547C1F3F025A // TncsDIsconnectReply
+ : Target HWL ME_547C1F3F025A // TncsDIsconnectReply
  ;
 
 ref; // ME_547C1F9900B0 
 
 : ME_544A1FD802E9_ME_544A0A0D0239
- : Original ME_544A1FD802E9 // Connect
+ : Original HWL ME_544A1FD802E9 // Connect
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_544A1FD802E9_ME_544A0A0D0239 Connect
 
 : ME_544A1FF00062_ME_544A0A0D0239
- : Original ME_544A1FF00062 // Disconnect
+ : Original HWL ME_544A1FF00062 // Disconnect
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_544A1FF00062_ME_544A0A0D0239 Disconnect
 
 : ME_5477033C03D0_ME_544A0A0D0239
- : Original ME_5477033C03D0 // HandShake
+ : Original HWL ME_5477033C03D0 // HandShake
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_5477033C03D0_ME_544A0A0D0239 HandShake
 
 : ME_549175C4030A_ME_544A0A0D0239
- : Original ME_549175C4030A // HandShakeKind
+ : Original HWL ME_549175C4030A // HandShakeKind
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_549175C4030A_ME_544A0A0D0239 HandShakeKind
@@ -4619,28 +4619,28 @@ ref; // ME_47A042E100E2_ME_544A0A0D0239 InitFields
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_544E0148010D // Messages
+ : Parent HWL ME_544E0148010D // Messages
  ;
  : Inherits
-   Seq: ( ME_544A09EE005F // TncsTransporter
+   Seq: ( HWL ME_544A09EE005F // TncsTransporter
  )
  ; // Inherits
  : Implements
-   Seq: ( ME_5465A598039E // IncsClientTransporter
+   Seq: ( HWL ME_5465A598039E // IncsClientTransporter
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_544A21B400E4 // f_TCPClients
+   Seq: ( HWL ME_544A21B400E4 // f_TCPClients
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_54522FCE0023 // TransportConnected
- ME_545B400202AF // SendTransportStatus
- ME_5465A71E02F2 // Create
- ME_5465A72C00CA // Make
- ME_5491684203A6 // ReceiveTransportStatus
- ME_549279980264 // BeforeSendHandshake
- ME_549279B300D5 // BeforeReceiveHandshake
+   Seq: ( HWL ME_54522FCE0023 // TransportConnected
+ HWL ME_545B400202AF // SendTransportStatus
+ HWL ME_5465A71E02F2 // Create
+ HWL ME_5465A72C00CA // Make
+ HWL ME_5491684203A6 // ReceiveTransportStatus
+ HWL ME_549279980264 // BeforeSendHandshake
+ HWL ME_549279B300D5 // BeforeReceiveHandshake
  )
  ; // Operations
  : Implemented
@@ -4656,11 +4656,11 @@ ref; // ME_47A042E100E2_ME_544A0A0D0239 InitFields
  )
  ; // Overridden
  : Children
-   Seq: ( ME_549163F102D4 // TncsClientArray
+   Seq: ( HWL ME_549163F102D4 // TncsClientArray
  )
  ; // Children
  : Constants
-   Seq: ( ME_544DF67C0075 // TimeoutConsts
+   Seq: ( HWL ME_544DF67C0075 // TimeoutConsts
  )
  ; // Constants
  : Dependencies
@@ -4709,7 +4709,7 @@ ref; // ME_549279210267 aSessionID
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_5465A67802C1 // Create
+ : Parent HWL ME_5465A67802C1 // Create
  ;
  : Parameters
    Seq: ( ME_5465A68D0008 // anIOHandler
@@ -4727,10 +4727,10 @@ ref; // ME_5465A6860144 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_544A0A21036B // TncsServerTransporter
+ : Parent HWL ME_544A0A21036B // TncsServerTransporter
  ;
  : Operations
-   Seq: ( ME_5465A6860144 // DoIt
+   Seq: ( HWL ME_5465A6860144 // DoIt
  )
  ; // Operations
 
@@ -4744,14 +4744,14 @@ ref; // ME_5465A67802C1 Create
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_544A0A21036B // TncsServerTransporter
+ : Parent HWL ME_544A0A21036B // TncsServerTransporter
  ;
  : Inherits
-   Seq: ( ME_5465A67802C1 // Create
+   Seq: ( HWL ME_5465A67802C1 // Create
  )
  ; // Inherits
  : Implements
-   Seq: ( ME_5465A5AB0324 // IncsServerTransporter
+   Seq: ( HWL ME_5465A5AB0324 // IncsServerTransporter
  )
  ; // Implements
 
@@ -4783,9 +4783,9 @@ ref; // ME_5492AB220174 IsMainSocket
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_549195670058 // Make
+ : Parent HWL ME_549195670058 // Make
  ;
- : Target ME_5465A5AB0324 // IncsServerTransporter
+ : Target HWL ME_5465A5AB0324 // IncsServerTransporter
  ;
  : Parameters
    Seq: ( ME_54919595031C // anIOHandler
@@ -4803,10 +4803,10 @@ ref; // ME_549195830367 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_544A0A21036B // TncsServerTransporter
+ : Parent HWL ME_544A0A21036B // TncsServerTransporter
  ;
  : Operations
-   Seq: ( ME_549195830367 // DoIt
+   Seq: ( HWL ME_549195830367 // DoIt
  )
  ; // Operations
  CONST "is static" true
@@ -4816,7 +4816,7 @@ ref; // ME_549195670058 Make
 : ME_5453360B0132
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_544A0A21036B // TncsServerTransporter
+ : Parent HWL ME_544A0A21036B // TncsServerTransporter
  ;
  : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
  ;
@@ -4828,46 +4828,46 @@ FORWARD ME_54917FF702A4
 : ME_5491802100DD
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_544A0A21036B // TncsServerTransporter
+ : Parent HWL ME_544A0A21036B // TncsServerTransporter
  ;
- : Target ME_54917FF702A4 // TncsServerTransporterPtrPool
+ : Target HWL ME_54917FF702A4 // TncsServerTransporterPtrPool
  ;
 
 ref; // ME_5491802100DD 
 
 : ME_545335BF0283_ME_544A0A21036B
- : Original ME_545335BF0283 // ProcessMessages
+ : Original HWL ME_545335BF0283 // ProcessMessages
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_545335BF0283_ME_544A0A21036B ProcessMessages
 
 : ME_5459D46D01FE_ME_544A0A21036B
- : Original ME_5459D46D01FE // Terminate
+ : Original HWL ME_5459D46D01FE // Terminate
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_5459D46D01FE_ME_544A0A21036B Terminate
 
 : ME_5459E3150030_ME_544A0A21036B
- : Original ME_5459E3150030 // Terminated
+ : Original HWL ME_5459E3150030 // Terminated
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_5459E3150030_ME_544A0A21036B Terminated
 
 : ME_5477033C03D0_ME_544A0A21036B
- : Original ME_5477033C03D0 // HandShake
+ : Original HWL ME_5477033C03D0 // HandShake
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_5477033C03D0_ME_544A0A21036B HandShake
 
 : ME_549175C4030A_ME_544A0A21036B
- : Original ME_549175C4030A // HandShakeKind
+ : Original HWL ME_549175C4030A // HandShakeKind
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_549175C4030A_ME_544A0A21036B HandShakeKind
 
 : ME_549180E701E0_ME_544A0A21036B
- : Original ME_549180E701E0 // RegisterSendBackHandler
+ : Original HWL ME_549180E701E0 // RegisterSendBackHandler
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_549180E701E0_ME_544A0A21036B RegisterSendBackHandler
@@ -4879,7 +4879,7 @@ ref; // ME_549180E701E0_ME_544A0A21036B RegisterSendBackHandler
 ref; // ME_479731C50290_ME_544A0A21036B Cleanup
 
 : ME_5492C5F703AA_ME_544A0A21036B
- : Original ME_5492C5F703AA // TransportStarted
+ : Original HWL ME_5492C5F703AA // TransportStarted
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_5492C5F703AA_ME_544A0A21036B TransportStarted
@@ -4892,20 +4892,20 @@ ref; // ME_5492C5F703AA_ME_544A0A21036B TransportStarted
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_544E0148010D // Messages
+ : Parent HWL ME_544E0148010D // Messages
  ;
  : Inherits
-   Seq: ( ME_544A09EE005F // TncsTransporter
+   Seq: ( HWL ME_544A09EE005F // TncsTransporter
  )
  ; // Inherits
  : Implements
-   Seq: ( ME_5465A5AB0324 // IncsServerTransporter
+   Seq: ( HWL ME_5465A5AB0324 // IncsServerTransporter
  )
  ; // Implements
  : Operations
-   Seq: ( ME_5465A67802C1 // Create
- ME_5465A69A028C // IntMake
- ME_549195670058 // Make
+   Seq: ( HWL ME_5465A67802C1 // Create
+ HWL ME_5465A69A028C // IntMake
+ HWL ME_549195670058 // Make
  )
  ; // Operations
  : Implemented
@@ -4942,10 +4942,10 @@ ref; // ME_544A0A21036B TncsServerTransporter
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_544E0148010D // Messages
+ : Parent HWL ME_544E0148010D // Messages
  ;
  : Inherits
-   Seq: ( ME_547831BD02E5 // TncsReply
+   Seq: ( HWL ME_547831BD02E5 // TncsReply
  )
  ; // Inherits
  : Implements
@@ -4966,9 +4966,9 @@ FORWARD ME_547C34E902C1
 : ME_547C34F1018C
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_547C34E902C1 // ncsServerRegister
+ : Parent HWL ME_547C34E902C1 // ncsServerRegister
  ;
- : Target ME_54539F4702B1 // TncsMessageFactory
+ : Target HWL ME_54539F4702B1 // TncsMessageFactory
  ;
 
 ref; // ME_547C34F1018C 
@@ -4976,9 +4976,9 @@ ref; // ME_547C34F1018C
 : ME_547C34F5033B
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_547C34E902C1 // ncsServerRegister
+ : Parent HWL ME_547C34E902C1 // ncsServerRegister
  ;
- : Target ME_547C1F31030C // TncsDIsconnect
+ : Target HWL ME_547C1F31030C // TncsDIsconnect
  ;
 
 ref; // ME_547C34F5033B 
@@ -4991,7 +4991,7 @@ ref; // ME_547C34F5033B
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_547C34C500F7 // nscMessagesReg
+ : Parent HWL ME_547C34C500F7 // nscMessagesReg
  ;
  : Dependencies
    Seq: ( ME_547C34F1018C // TncsMessageFactory
@@ -5006,9 +5006,9 @@ FORWARD ME_547C350000AA
 : ME_547C3509029E
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_547C350000AA // ncsClientRegister
+ : Parent HWL ME_547C350000AA // ncsClientRegister
  ;
- : Target ME_54539F4702B1 // TncsMessageFactory
+ : Target HWL ME_54539F4702B1 // TncsMessageFactory
  ;
 
 ref; // ME_547C3509029E 
@@ -5016,9 +5016,9 @@ ref; // ME_547C3509029E
 : ME_547C350E00F1
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_547C350000AA // ncsClientRegister
+ : Parent HWL ME_547C350000AA // ncsClientRegister
  ;
- : Target ME_547C1F3F025A // TncsDIsconnectReply
+ : Target HWL ME_547C1F3F025A // TncsDIsconnectReply
  ;
 
 ref; // ME_547C350E00F1 
@@ -5031,7 +5031,7 @@ ref; // ME_547C350E00F1
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_547C34C500F7 // nscMessagesReg
+ : Parent HWL ME_547C34C500F7 // nscMessagesReg
  ;
  : Dependencies
    Seq: ( ME_547C3509029E // TncsMessageFactory
@@ -5049,11 +5049,11 @@ ref; // ME_547C350000AA ncsClientRegister
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_544E0148010D // Messages
+ : Parent HWL ME_544E0148010D // Messages
  ;
  : Operations
-   Seq: ( ME_547C34E902C1 // ncsServerRegister
- ME_547C350000AA // ncsClientRegister
+   Seq: ( HWL ME_547C34E902C1 // ncsServerRegister
+ HWL ME_547C350000AA // ncsClientRegister
  )
  ; // Operations
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\nscMessagesReg.pas'
@@ -5068,7 +5068,7 @@ ref; // ME_547C34C500F7 nscMessagesReg
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_548AC7FB0046 // ncsProfile
+ : Parent HWL ME_548AC7FB0046 // ncsProfile
  ;
  : Target WL 'ME_548007530030' '47D0290B016D.pas.ms.script' // Tl3StopWatch
  ;
@@ -5082,7 +5082,7 @@ ref; // ME_548AC830032D g_SaveMessage
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_548AC7FB0046 // ncsProfile
+ : Parent HWL ME_548AC7FB0046 // ncsProfile
  ;
  : Target WL 'ME_548007530030' '47D0290B016D.pas.ms.script' // Tl3StopWatch
  ;
@@ -5096,7 +5096,7 @@ ref; // ME_548AC85F004C g_LoadMessage
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_548AC7FB0046 // ncsProfile
+ : Parent HWL ME_548AC7FB0046 // ncsProfile
  ;
  : Target WL 'ME_548007530030' '47D0290B016D.pas.ms.script' // Tl3StopWatch
  ;
@@ -5110,7 +5110,7 @@ ref; // ME_548AC871032C g_SendMessage
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_548AC7FB0046 // ncsProfile
+ : Parent HWL ME_548AC7FB0046 // ncsProfile
  ;
  : Target WL 'ME_548007530030' '47D0290B016D.pas.ms.script' // Tl3StopWatch
  ;
@@ -5124,7 +5124,7 @@ ref; // ME_548AC87E031F g_ReveiveMessage
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_548AC7FB0046 // ncsProfile
+ : Parent HWL ME_548AC7FB0046 // ncsProfile
  ;
  : Target WL 'ME_548007530030' '47D0290B016D.pas.ms.script' // Tl3StopWatch
  ;
@@ -5138,7 +5138,7 @@ ref; // ME_548AC89000B2 g_WaitFile
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_548AC7FB0046 // ncsProfile
+ : Parent HWL ME_548AC7FB0046 // ncsProfile
  ;
  : Target WL 'ME_548007530030' '47D0290B016D.pas.ms.script' // Tl3StopWatch
  ;
@@ -5152,7 +5152,7 @@ ref; // ME_54C1F62E02A0 g_ReceivePartFile
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_548AC7FB0046 // ncsProfile
+ : Parent HWL ME_548AC7FB0046 // ncsProfile
  ;
  : Target WL 'ME_548007530030' '47D0290B016D.pas.ms.script' // Tl3StopWatch
  ;
@@ -5166,7 +5166,7 @@ ref; // ME_54C216A50244 g_SaveControl
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_548AC7FB0046 // ncsProfile
+ : Parent HWL ME_548AC7FB0046 // ncsProfile
  ;
  : Target WL 'ME_548007530030' '47D0290B016D.pas.ms.script' // Tl3StopWatch
  ;
@@ -5181,17 +5181,17 @@ ref; // ME_54C216BB03A8 g_WriteFile
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_544E0148010D // Messages
+ : Parent HWL ME_544E0148010D // Messages
  ;
  : Attributes
-   Seq: ( ME_548AC830032D // g_SaveMessage
- ME_548AC85F004C // g_LoadMessage
- ME_548AC871032C // g_SendMessage
- ME_548AC87E031F // g_ReveiveMessage
- ME_548AC89000B2 // g_WaitFile
- ME_54C1F62E02A0 // g_ReceivePartFile
- ME_54C216A50244 // g_SaveControl
- ME_54C216BB03A8 // g_WriteFile
+   Seq: ( HWL ME_548AC830032D // g_SaveMessage
+ HWL ME_548AC85F004C // g_LoadMessage
+ HWL ME_548AC871032C // g_SendMessage
+ HWL ME_548AC87E031F // g_ReveiveMessage
+ HWL ME_548AC89000B2 // g_WaitFile
+ HWL ME_54C1F62E02A0 // g_ReceivePartFile
+ HWL ME_54C216A50244 // g_SaveControl
+ HWL ME_54C216BB03A8 // g_WriteFile
  )
  ; // Attributes
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\ncsProfile.pas'
@@ -5208,9 +5208,9 @@ FORWARD ME_5492D7AC0214
  CONST Visibility PrivateAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_5492D7AC0214 // TncsServerTransporterPtrList
+ : Parent HWL ME_5492D7AC0214 // TncsServerTransporterPtrList
  ;
- : Target ME_5465A5AB0324 // IncsServerTransporter
+ : Target HWL ME_5465A5AB0324 // IncsServerTransporter
  ;
 
 ref; // ME_5492D7DE03B9 ItemType
@@ -5223,7 +5223,7 @@ ref; // ME_5492D7DE03B9 ItemType
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_544E0148010D // Messages
+ : Parent HWL ME_544E0148010D // Messages
  ;
  : Inherits
    Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
@@ -5234,7 +5234,7 @@ ref; // ME_5492D7DE03B9 ItemType
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_5492D7DE03B9 // ItemType
+   Seq: ( HWL ME_5492D7DE03B9 // ItemType
  )
  ; // Attributes
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\ncsServerTransporterPtrList.pas'
@@ -5251,9 +5251,9 @@ ref; // ME_5492D7AC0214 TncsServerTransporterPtrList
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_54917FF702A4 // TncsServerTransporterPtrPool
+ : Parent HWL ME_54917FF702A4 // TncsServerTransporterPtrPool
  ;
- : Target ME_5492D7AC0214 // TncsServerTransporterPtrList
+ : Target HWL ME_5492D7AC0214 // TncsServerTransporterPtrList
  ;
 
 ref; // ME_5492D81C00D8 f_Data
@@ -5262,7 +5262,7 @@ ref; // ME_5492D81C00D8 f_Data
  CONST Name 'aTransporter'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_5465A5AB0324 // IncsServerTransporter
+ : Target HWL ME_5465A5AB0324 // IncsServerTransporter
  ;
 
 ref; // ME_5492D83900EF aTransporter
@@ -5273,7 +5273,7 @@ ref; // ME_5492D83900EF aTransporter
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_54917FF702A4 // TncsServerTransporterPtrPool
+ : Parent HWL ME_54917FF702A4 // TncsServerTransporterPtrPool
  ;
  : Parameters
    Seq: ( ME_5492D83900EF // aTransporter
@@ -5286,7 +5286,7 @@ ref; // ME_5492D83203D7 Register
  CONST Name 'aTransporter'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_5465A5AB0324 // IncsServerTransporter
+ : Target HWL ME_5465A5AB0324 // IncsServerTransporter
  ;
 
 ref; // ME_5492D84C01FA aTransporter
@@ -5297,7 +5297,7 @@ ref; // ME_5492D84C01FA aTransporter
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_54917FF702A4 // TncsServerTransporterPtrPool
+ : Parent HWL ME_54917FF702A4 // TncsServerTransporterPtrPool
  ;
  : Parameters
    Seq: ( ME_5492D84C01FA // aTransporter
@@ -5321,9 +5321,9 @@ ref; // ME_5492D86002D4 aSessionID
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_54917FF702A4 // TncsServerTransporterPtrPool
+ : Parent HWL ME_54917FF702A4 // TncsServerTransporterPtrPool
  ;
- : Target ME_5465A5AB0324 // IncsServerTransporter
+ : Target HWL ME_5465A5AB0324 // IncsServerTransporter
  ;
  : Parameters
    Seq: ( ME_5492D86002D4 // aSessionID
@@ -5352,7 +5352,7 @@ ref; // ME_47A042E100E2_ME_54917FF702A4 InitFields
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_544E0148010D // Messages
+ : Parent HWL ME_544E0148010D // Messages
  ;
  : Inherits
    Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
@@ -5363,13 +5363,13 @@ ref; // ME_47A042E100E2_ME_54917FF702A4 InitFields
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_5492D81C00D8 // f_Data
+   Seq: ( HWL ME_5492D81C00D8 // f_Data
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_5492D83203D7 // Register
- ME_5492D8470118 // UnRegister
- ME_5492D85A0389 // FindTransporter
+   Seq: ( HWL ME_5492D83203D7 // Register
+ HWL ME_5492D8470118 // UnRegister
+ HWL ME_5492D85A0389 // FindTransporter
  )
  ; // Operations
  : Overridden
@@ -5394,7 +5394,7 @@ FORWARD ME_547708500384
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_547708500384 // TncsCompatibilityClientTransporter
+ : Parent HWL ME_547708500384 // TncsCompatibilityClientTransporter
  ;
  : Target WL 'ME_537F63760334' '52FBB2FC0386.pas.ms.script' // TCsQueryId
  ;
@@ -5418,7 +5418,7 @@ ref; // ME_5481A10903D0 aQueryID
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_5481A0E30063 // Create
+ : Parent HWL ME_5481A0E30063 // Create
  ;
  : Parameters
    Seq: ( ME_5481A10903D0 // aQueryID
@@ -5435,10 +5435,10 @@ ref; // ME_5481A0F10108 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_547708500384 // TncsCompatibilityClientTransporter
+ : Parent HWL ME_547708500384 // TncsCompatibilityClientTransporter
  ;
  : Operations
-   Seq: ( ME_5481A0F10108 // DoIt
+   Seq: ( HWL ME_5481A0F10108 // DoIt
  )
  ; // Operations
 
@@ -5452,14 +5452,14 @@ ref; // ME_5481A0E30063 Create
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_547708500384 // TncsCompatibilityClientTransporter
+ : Parent HWL ME_547708500384 // TncsCompatibilityClientTransporter
  ;
  : Inherits
-   Seq: ( ME_5481A0E30063 // Create
+   Seq: ( HWL ME_5481A0E30063 // Create
  )
  ; // Inherits
  : Implements
-   Seq: ( ME_5465A598039E // IncsClientTransporter
+   Seq: ( HWL ME_5465A598039E // IncsClientTransporter
  )
  ; // Implements
 
@@ -5468,7 +5468,7 @@ ref; // ME_5481A13200D2 Make
 : ME_547708AE00EC
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_547708500384 // TncsCompatibilityClientTransporter
+ : Parent HWL ME_547708500384 // TncsCompatibilityClientTransporter
  ;
  : Target WL 'ME_545C9ADE01F3' '52FBB2FC0386.pas.ms.script' // cProtocolVersion
  ;
@@ -5476,13 +5476,13 @@ ref; // ME_5481A13200D2 Make
 ref; // ME_547708AE00EC 
 
 : ME_549279980264_ME_547708500384
- : Original ME_549279980264 // BeforeSendHandshake
+ : Original HWL ME_549279980264 // BeforeSendHandshake
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_549279980264_ME_547708500384 BeforeSendHandshake
 
 : ME_549279B300D5_ME_547708500384
- : Original ME_549279B300D5 // BeforeReceiveHandshake
+ : Original HWL ME_549279B300D5 // BeforeReceiveHandshake
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_549279B300D5_ME_547708500384 BeforeReceiveHandshake
@@ -5495,19 +5495,19 @@ ref; // ME_549279B300D5_ME_547708500384 BeforeReceiveHandshake
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_544E0148010D // Messages
+ : Parent HWL ME_544E0148010D // Messages
  ;
  : Inherits
-   Seq: ( ME_544A0A0D0239 // TncsClientTransporter
+   Seq: ( HWL ME_544A0A0D0239 // TncsClientTransporter
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_5481A0B20013 // f_QueryID
+   Seq: ( HWL ME_5481A0B20013 // f_QueryID
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_5481A0E30063 // Create
- ME_5481A13200D2 // Make
+   Seq: ( HWL ME_5481A0E30063 // Create
+ HWL ME_5481A13200D2 // Make
  )
  ; // Operations
  : Overridden
@@ -5536,7 +5536,7 @@ FORWARD ME_54E333CD0130
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_54E333CD0130 // TncsSynchroTransporter
+ : Parent HWL ME_54E333CD0130 // TncsSynchroTransporter
  ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
@@ -5553,7 +5553,7 @@ ref; // ME_54E33448033C IntSessionID
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_54E333CD0130 // TncsSynchroTransporter
+ : Parent HWL ME_54E333CD0130 // TncsSynchroTransporter
  ;
  : Target WL 'ME_537F4A04037C' '52FBB2FC0386.pas.ms.script' // TCsClientId
  ;
@@ -5567,7 +5567,7 @@ ref; // ME_54E3346203DE f_ClientID
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_54E333CD0130 // TncsSynchroTransporter
+ : Parent HWL ME_54E333CD0130 // TncsSynchroTransporter
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -5582,7 +5582,7 @@ ref; // ME_54E3347301B2 f_Connected
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_54E333CD0130 // TncsSynchroTransporter
+ : Parent HWL ME_54E333CD0130 // TncsSynchroTransporter
  ;
  : Target WL 'ME_538DDC890328' '52FBB2FC0386.pas.ms.script' // TcsIdIOHandlerAbstractAdapter
  ;
@@ -5608,7 +5608,7 @@ ref; // ME_54E334E6039D aValue
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_54E334CD02E9 // SetConnected
+ : Parent HWL ME_54E334CD02E9 // SetConnected
  ;
  : Parameters
    Seq: ( ME_54E334E6039D // aValue
@@ -5625,10 +5625,10 @@ ref; // ME_54E334DA0249 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility ProtectedAccess
  CONST Abstraction at_final
- : Parent ME_54E333CD0130 // TncsSynchroTransporter
+ : Parent HWL ME_54E333CD0130 // TncsSynchroTransporter
  ;
  : Operations
-   Seq: ( ME_54E334DA0249 // DoIt
+   Seq: ( HWL ME_54E334DA0249 // DoIt
  )
  ; // Operations
 
@@ -5642,7 +5642,7 @@ ref; // ME_54E334CD02E9 SetConnected
  CONST Kind kind_NormalClass
  CONST Visibility ProtectedAccess
  CONST Abstraction at_final
- : Parent ME_54E333CD0130 // TncsSynchroTransporter
+ : Parent HWL ME_54E333CD0130 // TncsSynchroTransporter
  ;
 
 ref; // ME_54E334F5028C StartProcessing
@@ -5655,7 +5655,7 @@ ref; // ME_54E334F5028C StartProcessing
  CONST Kind kind_NormalClass
  CONST Visibility ProtectedAccess
  CONST Abstraction at_final
- : Parent ME_54E333CD0130 // TncsSynchroTransporter
+ : Parent HWL ME_54E333CD0130 // TncsSynchroTransporter
  ;
 
 ref; // ME_54E3350B01CD StopProcessing
@@ -5670,7 +5670,7 @@ FORWARD ME_54E3353000D8
  %SUMMARY 'Сигнатура метода HandShake' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_54E3353000D8 // HandShake
+ : Parent HWL ME_54E3353000D8 // HandShake
  ;
 
 ref; // ME_3C2D040A2956 DoIt
@@ -5683,10 +5683,10 @@ ref; // ME_3C2D040A2956 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility ProtectedAccess
  CONST Abstraction at_abstract
- : Parent ME_54E333CD0130 // TncsSynchroTransporter
+ : Parent HWL ME_54E333CD0130 // TncsSynchroTransporter
  ;
  : Operations
-   Seq: ( ME_3C2D040A2956 // DoIt
+   Seq: ( HWL ME_3C2D040A2956 // DoIt
  )
  ; // Operations
 
@@ -5702,7 +5702,7 @@ FORWARD ME_54E335560020
  %SUMMARY 'Сигнатура метода TransportStarted' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_54E335560020 // TransportStarted
+ : Parent HWL ME_54E335560020 // TransportStarted
  ;
 
 ref; // ME_6DE12A456230 DoIt
@@ -5715,10 +5715,10 @@ ref; // ME_6DE12A456230 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_54E333CD0130 // TncsSynchroTransporter
+ : Parent HWL ME_54E333CD0130 // TncsSynchroTransporter
  ;
  : Operations
-   Seq: ( ME_6DE12A456230 // DoIt
+   Seq: ( HWL ME_6DE12A456230 // DoIt
  )
  ; // Operations
 
@@ -5730,7 +5730,7 @@ FORWARD ME_54E45D5E01D9
  CONST Name 'aMessage'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_544E079E0253 // TncsMessage
+ : Target HWL ME_544E079E0253 // TncsMessage
  ;
 
 ref; // ME_54E45D780172 aMessage
@@ -5741,7 +5741,7 @@ ref; // ME_54E45D780172 aMessage
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_54E45D5E01D9 // ProcessMessage
+ : Parent HWL ME_54E45D5E01D9 // ProcessMessage
  ;
  : Parameters
    Seq: ( ME_54E45D780172 // aMessage
@@ -5758,10 +5758,10 @@ ref; // ME_54E45D6B00CC DoIt
  CONST Kind kind_NormalClass
  CONST Visibility ProtectedAccess
  CONST Abstraction at_final
- : Parent ME_54E333CD0130 // TncsSynchroTransporter
+ : Parent HWL ME_54E333CD0130 // TncsSynchroTransporter
  ;
  : Operations
-   Seq: ( ME_54E45D6B00CC // DoIt
+   Seq: ( HWL ME_54E45D6B00CC // DoIt
  )
  ; // Operations
 
@@ -5770,7 +5770,7 @@ ref; // ME_54E45D5E01D9 ProcessMessage
 : ME_54E45D4D0010
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_54E333CD0130 // TncsSynchroTransporter
+ : Parent HWL ME_54E333CD0130 // TncsSynchroTransporter
  ;
  : Target WL 'ME_47E150FF028A' '4AB0997B00A2.pas.ms.script' // TStream
  ;
@@ -5780,7 +5780,7 @@ ref; // ME_54E45D4D0010
 : ME_54E45D500385
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_54E333CD0130 // TncsSynchroTransporter
+ : Parent HWL ME_54E333CD0130 // TncsSynchroTransporter
  ;
  : Target WL 'ME_538DE3F001DC' '47913B47006E.pas.ms.script' // Tl3TempMemoryStream
  ;
@@ -5790,9 +5790,9 @@ ref; // ME_54E45D500385
 : ME_54E45D9A015E
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_54E333CD0130 // TncsSynchroTransporter
+ : Parent HWL ME_54E333CD0130 // TncsSynchroTransporter
  ;
- : Target ME_548AC7FB0046 // ncsProfile
+ : Target HWL ME_548AC7FB0046 // ncsProfile
  ;
 
 ref; // ME_54E45D9A015E 
@@ -5800,7 +5800,7 @@ ref; // ME_54E45D9A015E
 : ME_54E45DB9021F
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_54E333CD0130 // TncsSynchroTransporter
+ : Parent HWL ME_54E333CD0130 // TncsSynchroTransporter
  ;
  : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
  ;
@@ -5810,9 +5810,9 @@ ref; // ME_54E45DB9021F
 : ME_54E45DD30091
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_54E333CD0130 // TncsSynchroTransporter
+ : Parent HWL ME_54E333CD0130 // TncsSynchroTransporter
  ;
- : Target ME_54539F4702B1 // TncsMessageFactory
+ : Target HWL ME_54539F4702B1 // TncsMessageFactory
  ;
 
 ref; // ME_54E45DD30091 
@@ -5820,7 +5820,7 @@ ref; // ME_54E45DD30091
 : ME_54E45DD6032B
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_54E333CD0130 // TncsSynchroTransporter
+ : Parent HWL ME_54E333CD0130 // TncsSynchroTransporter
  ;
  : Target WL 'ME_5461CFB8002C' '484A470100DD.pas.ms.script' // TncsMessageKind
  ;
@@ -5830,7 +5830,7 @@ ref; // ME_54E45DD6032B
 : ME_54E45DEA009C
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_54E333CD0130 // TncsSynchroTransporter
+ : Parent HWL ME_54E333CD0130 // TncsSynchroTransporter
  ;
  : Target WL 'ME_4CDD241C0184' '47913B47006E.pas.ms.script' // l3System
  ;
@@ -5840,9 +5840,9 @@ ref; // ME_54E45DEA009C
 : ME_54E4637B0261
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_54E333CD0130 // TncsSynchroTransporter
+ : Parent HWL ME_54E333CD0130 // TncsSynchroTransporter
  ;
- : Target ME_54607384020A // TncsMessageExecutorFactory
+ : Target HWL ME_54607384020A // TncsMessageExecutorFactory
  ;
 
 ref; // ME_54E4637B0261 
@@ -5850,7 +5850,7 @@ ref; // ME_54E4637B0261
 : ME_54EC261601C5
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_54E333CD0130 // TncsSynchroTransporter
+ : Parent HWL ME_54E333CD0130 // TncsSynchroTransporter
  ;
  : Target WL 'ME_54EC25F3023A' '4AB0997B00A2.pas.ms.script' // MillisecondsBetween
  ;
@@ -5858,40 +5858,40 @@ ref; // ME_54E4637B0261
 ref; // ME_54EC261601C5 
 
 : ME_5464B4E900DA_ME_54E333CD0130
- : Original ME_5464B4E900DA // Send
+ : Original HWL ME_5464B4E900DA // Send
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_5464B4E900DA_ME_54E333CD0130 Send
 
 : ME_5464B52F02D5_ME_54E333CD0130
- : Original ME_5464B52F02D5 // WaitForReply
+ : Original HWL ME_5464B52F02D5 // WaitForReply
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_5464B52F02D5_ME_54E333CD0130 WaitForReply
 
 : ME_5465AB2B00CA_ME_54E333CD0130
- : Original ME_5465AB2B00CA // Connected
+ : Original HWL ME_5465AB2B00CA // Connected
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_5465AB2B00CA_ME_54E333CD0130 Connected
 
 : ME_546608F101DE_ME_54E333CD0130
- : Original ME_546608F101DE // ClientID
+ : Original HWL ME_546608F101DE // ClientID
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_546608F101DE_ME_54E333CD0130 ClientID
 
 : ME_5486B96A0025_ME_54E333CD0130
- : Original ME_5486B96A0025 // Processing
+ : Original HWL ME_5486B96A0025 // Processing
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_5486B96A0025_ME_54E333CD0130 Processing
 
 : ME_548FEF4F002E_ME_54E333CD0130
- : Original ME_548FEF4F002E // SessionID
+ : Original HWL ME_548FEF4F002E // SessionID
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
@@ -5917,30 +5917,30 @@ ref; // ME_47A042E100E2_ME_54E333CD0130 InitFields
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_544E0148010D // Messages
+ : Parent HWL ME_544E0148010D // Messages
  ;
  : Inherits
    Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
  )
  ; // Inherits
  : Implements
-   Seq: ( ME_5464B4730055 // IncsTransporter
+   Seq: ( HWL ME_5464B4730055 // IncsTransporter
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_54E33448033C // IntSessionID
- ME_54E3346203DE // f_ClientID
- ME_54E3347301B2 // f_Connected
- ME_54E334830061 // IOHandler
+   Seq: ( HWL ME_54E33448033C // IntSessionID
+ HWL ME_54E3346203DE // f_ClientID
+ HWL ME_54E3347301B2 // f_Connected
+ HWL ME_54E334830061 // IOHandler
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_54E334CD02E9 // SetConnected
- ME_54E334F5028C // StartProcessing
- ME_54E3350B01CD // StopProcessing
- ME_54E3353000D8 // HandShake
- ME_54E335560020 // TransportStarted
- ME_54E45D5E01D9 // ProcessMessage
+   Seq: ( HWL ME_54E334CD02E9 // SetConnected
+ HWL ME_54E334F5028C // StartProcessing
+ HWL ME_54E3350B01CD // StopProcessing
+ HWL ME_54E3353000D8 // HandShake
+ HWL ME_54E335560020 // TransportStarted
+ HWL ME_54E45D5E01D9 // ProcessMessage
  )
  ; // Operations
  : Implemented
@@ -5985,7 +5985,7 @@ FORWARD ME_54E339B500F7
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_54E339B500F7 // TncsSynchroClientTransporter
+ : Parent HWL ME_54E339B500F7 // TncsSynchroClientTransporter
  ;
  : Target WL 'ME_54522A0E031D' '52FBB2FC0386.pas.ms.script' // TncsTCPClient
  ;
@@ -6000,7 +6000,7 @@ ref; // ME_54E33B0E00EE f_TCPClient
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_54E339B500F7 // TncsSynchroClientTransporter
+ : Parent HWL ME_54E339B500F7 // TncsSynchroClientTransporter
  ;
 
 ref; // ME_54E33A870172 Create
@@ -6013,14 +6013,14 @@ ref; // ME_54E33A870172 Create
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_54E339B500F7 // TncsSynchroClientTransporter
+ : Parent HWL ME_54E339B500F7 // TncsSynchroClientTransporter
  ;
  : Inherits
-   Seq: ( ME_54E33A870172 // Create
+   Seq: ( HWL ME_54E33A870172 // Create
  )
  ; // Inherits
  : Implements
-   Seq: ( ME_5465A598039E // IncsClientTransporter
+   Seq: ( HWL ME_5465A598039E // IncsClientTransporter
  )
  ; // Implements
 
@@ -6034,7 +6034,7 @@ ref; // ME_54E33A920344 Make
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_54E339B500F7 // TncsSynchroClientTransporter
+ : Parent HWL ME_54E339B500F7 // TncsSynchroClientTransporter
  ;
  : Inherits
    Seq: ( WL 'ME_545B3F72015E' '537F464A0198.pas.ms.script' // TIdStatusEvent
@@ -6051,7 +6051,7 @@ ref; // ME_54E33B3A02CB TransportStatus
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_54E339B500F7 // TncsSynchroClientTransporter
+ : Parent HWL ME_54E339B500F7 // TncsSynchroClientTransporter
  ;
 
 ref; // ME_54E33B5E0245 TransportConnected
@@ -6066,7 +6066,7 @@ FORWARD ME_54E33EA40163
  %SUMMARY 'Сигнатура метода BeforeHandshake' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_54E33EA40163 // BeforeHandshake
+ : Parent HWL ME_54E33EA40163 // BeforeHandshake
  ;
 
 ref; // ME_9367E3A2B13B DoIt
@@ -6079,10 +6079,10 @@ ref; // ME_9367E3A2B13B DoIt
  CONST Kind kind_NormalClass
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_54E339B500F7 // TncsSynchroClientTransporter
+ : Parent HWL ME_54E339B500F7 // TncsSynchroClientTransporter
  ;
  : Operations
-   Seq: ( ME_9367E3A2B13B // DoIt
+   Seq: ( HWL ME_9367E3A2B13B // DoIt
  )
  ; // Operations
 
@@ -6091,7 +6091,7 @@ ref; // ME_54E33EA40163 BeforeHandshake
 : ME_54E33B1D023D
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_54E339B500F7 // TncsSynchroClientTransporter
+ : Parent HWL ME_54E339B500F7 // TncsSynchroClientTransporter
  ;
  : Target WL 'ME_538DB527006C' '52FBB2FC0386.pas.ms.script' // TcsIdIOHandlerAdapter
  ;
@@ -6101,7 +6101,7 @@ ref; // ME_54E33B1D023D
 : ME_54E33B220023
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_54E339B500F7 // TncsSynchroClientTransporter
+ : Parent HWL ME_54E339B500F7 // TncsSynchroClientTransporter
  ;
  : Target WL 'ME_538DDC890328' '52FBB2FC0386.pas.ms.script' // TcsIdIOHandlerAbstractAdapter
  ;
@@ -6111,7 +6111,7 @@ ref; // ME_54E33B220023
 : ME_54E34E64034C
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_54E339B500F7 // TncsSynchroClientTransporter
+ : Parent HWL ME_54E339B500F7 // TncsSynchroClientTransporter
  ;
  : Target WL 'ME_4CDD241C0184' '47913B47006E.pas.ms.script' // l3System
  ;
@@ -6121,7 +6121,7 @@ ref; // ME_54E34E64034C
 : ME_54E34E6900C5
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_54E339B500F7 // TncsSynchroClientTransporter
+ : Parent HWL ME_54E339B500F7 // TncsSynchroClientTransporter
  ;
  : Target WL 'ME_544E35D90359' '537F464A0198.pas.ms.script' // IdException
  ;
@@ -6131,7 +6131,7 @@ ref; // ME_54E34E6900C5
 : ME_54E34E6E01B7
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_54E339B500F7 // TncsSynchroClientTransporter
+ : Parent HWL ME_54E339B500F7 // TncsSynchroClientTransporter
  ;
  : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
  ;
@@ -6141,7 +6141,7 @@ ref; // ME_54E34E6E01B7
 : ME_54E34E7201A1
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_54E339B500F7 // TncsSynchroClientTransporter
+ : Parent HWL ME_54E339B500F7 // TncsSynchroClientTransporter
  ;
  : Target WL 'ME_538DDC890328' '52FBB2FC0386.pas.ms.script' // TcsIdIOHandlerAbstractAdapter
  ;
@@ -6151,9 +6151,9 @@ ref; // ME_54E34E7201A1
 : ME_54E34E770042
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_54E339B500F7 // TncsSynchroClientTransporter
+ : Parent HWL ME_54E339B500F7 // TncsSynchroClientTransporter
  ;
- : Target ME_544E079E0253 // TncsMessage
+ : Target HWL ME_544E079E0253 // TncsMessage
  ;
 
 ref; // ME_54E34E770042 
@@ -6161,9 +6161,9 @@ ref; // ME_54E34E770042
 : ME_54E34E7B0116
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_54E339B500F7 // TncsSynchroClientTransporter
+ : Parent HWL ME_54E339B500F7 // TncsSynchroClientTransporter
  ;
- : Target ME_547C1F31030C // TncsDIsconnect
+ : Target HWL ME_547C1F31030C // TncsDIsconnect
  ;
 
 ref; // ME_54E34E7B0116 
@@ -6171,9 +6171,9 @@ ref; // ME_54E34E7B0116
 : ME_54E34E7F017D
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_54E339B500F7 // TncsSynchroClientTransporter
+ : Parent HWL ME_54E339B500F7 // TncsSynchroClientTransporter
  ;
- : Target ME_547C1F3F025A // TncsDIsconnectReply
+ : Target HWL ME_547C1F3F025A // TncsDIsconnectReply
  ;
 
 ref; // ME_54E34E7F017D 
@@ -6181,7 +6181,7 @@ ref; // ME_54E34E7F017D
 : ME_54E34E8302CE
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_54E339B500F7 // TncsSynchroClientTransporter
+ : Parent HWL ME_54E339B500F7 // TncsSynchroClientTransporter
  ;
  : Target WL 'ME_538DB527006C' '52FBB2FC0386.pas.ms.script' // TcsIdIOHandlerAdapter
  ;
@@ -6189,19 +6189,19 @@ ref; // ME_54E34E7F017D
 ref; // ME_54E34E8302CE 
 
 : ME_544A1FD802E9_ME_54E339B500F7
- : Original ME_544A1FD802E9 // Connect
+ : Original HWL ME_544A1FD802E9 // Connect
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_544A1FD802E9_ME_54E339B500F7 Connect
 
 : ME_544A1FF00062_ME_54E339B500F7
- : Original ME_544A1FF00062 // Disconnect
+ : Original HWL ME_544A1FF00062 // Disconnect
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_544A1FF00062_ME_54E339B500F7 Disconnect
 
 : ME_54E3353000D8_ME_54E339B500F7
- : Original ME_54E3353000D8 // HandShake
+ : Original HWL ME_54E3353000D8 // HandShake
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_54E3353000D8_ME_54E339B500F7 HandShake
@@ -6226,26 +6226,26 @@ ref; // ME_47A042E100E2_ME_54E339B500F7 InitFields
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_544E0148010D // Messages
+ : Parent HWL ME_544E0148010D // Messages
  ;
  : Inherits
-   Seq: ( ME_54E333CD0130 // TncsSynchroTransporter
+   Seq: ( HWL ME_54E333CD0130 // TncsSynchroTransporter
  )
  ; // Inherits
  : Implements
-   Seq: ( ME_5465A598039E // IncsClientTransporter
+   Seq: ( HWL ME_5465A598039E // IncsClientTransporter
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_54E33B0E00EE // f_TCPClient
+   Seq: ( HWL ME_54E33B0E00EE // f_TCPClient
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_54E33A870172 // Create
- ME_54E33A920344 // Make
- ME_54E33B3A02CB // TransportStatus
- ME_54E33B5E0245 // TransportConnected
- ME_54E33EA40163 // BeforeHandshake
+   Seq: ( HWL ME_54E33A870172 // Create
+ HWL ME_54E33A920344 // Make
+ HWL ME_54E33B3A02CB // TransportStatus
+ HWL ME_54E33B5E0245 // TransportConnected
+ HWL ME_54E33EA40163 // BeforeHandshake
  )
  ; // Operations
  : Implemented
@@ -6288,7 +6288,7 @@ FORWARD ME_54E33DBC0063
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_54E33DBC0063 // TncsSynchroCompatibilityClientTransporter
+ : Parent HWL ME_54E33DBC0063 // TncsSynchroCompatibilityClientTransporter
  ;
  : Target WL 'ME_537F63760334' '52FBB2FC0386.pas.ms.script' // TCsQueryId
  ;
@@ -6312,7 +6312,7 @@ ref; // ME_54E33E3F01E1 aQueryID
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_54E33E1A00B4 // Create
+ : Parent HWL ME_54E33E1A00B4 // Create
  ;
  : Parameters
    Seq: ( ME_54E33E3F01E1 // aQueryID
@@ -6329,10 +6329,10 @@ ref; // ME_54E33E3D00DB DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_54E33DBC0063 // TncsSynchroCompatibilityClientTransporter
+ : Parent HWL ME_54E33DBC0063 // TncsSynchroCompatibilityClientTransporter
  ;
  : Operations
-   Seq: ( ME_54E33E3D00DB // DoIt
+   Seq: ( HWL ME_54E33E3D00DB // DoIt
  )
  ; // Operations
 
@@ -6346,14 +6346,14 @@ ref; // ME_54E33E1A00B4 Create
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_54E33DBC0063 // TncsSynchroCompatibilityClientTransporter
+ : Parent HWL ME_54E33DBC0063 // TncsSynchroCompatibilityClientTransporter
  ;
  : Inherits
-   Seq: ( ME_54E33E1A00B4 // Create
+   Seq: ( HWL ME_54E33E1A00B4 // Create
  )
  ; // Inherits
  : Implements
-   Seq: ( ME_5465A598039E // IncsClientTransporter
+   Seq: ( HWL ME_5465A598039E // IncsClientTransporter
  )
  ; // Implements
 
@@ -6362,7 +6362,7 @@ ref; // ME_54E33E23020D Make
 : ME_54E355790184
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_54E33DBC0063 // TncsSynchroCompatibilityClientTransporter
+ : Parent HWL ME_54E33DBC0063 // TncsSynchroCompatibilityClientTransporter
  ;
  : Target WL 'ME_545C9ADE01F3' '52FBB2FC0386.pas.ms.script' // cProtocolVersion
  ;
@@ -6370,7 +6370,7 @@ ref; // ME_54E33E23020D Make
 ref; // ME_54E355790184 
 
 : ME_54E33EA40163_ME_54E33DBC0063
- : Original ME_54E33EA40163 // BeforeHandshake
+ : Original HWL ME_54E33EA40163 // BeforeHandshake
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_54E33EA40163_ME_54E33DBC0063 BeforeHandshake
@@ -6383,19 +6383,19 @@ ref; // ME_54E33EA40163_ME_54E33DBC0063 BeforeHandshake
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_544E0148010D // Messages
+ : Parent HWL ME_544E0148010D // Messages
  ;
  : Inherits
-   Seq: ( ME_54E339B500F7 // TncsSynchroClientTransporter
+   Seq: ( HWL ME_54E339B500F7 // TncsSynchroClientTransporter
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_54E33E0F03C2 // f_QueryID
+   Seq: ( HWL ME_54E33E0F03C2 // f_QueryID
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_54E33E1A00B4 // Create
- ME_54E33E23020D // Make
+   Seq: ( HWL ME_54E33E1A00B4 // Create
+ HWL ME_54E33E23020D // Make
  )
  ; // Operations
  : Overridden
@@ -6441,7 +6441,7 @@ ref; // ME_54E591C4005B aSessionID
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_54E591B50054 // Create
+ : Parent HWL ME_54E591B50054 // Create
  ;
  : Parameters
    Seq: ( ME_54E591C4003C // anIOHandler
@@ -6459,10 +6459,10 @@ ref; // ME_54E591C00274 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_54E47AE90373 // TncsSynchroServerTransporter
+ : Parent HWL ME_54E47AE90373 // TncsSynchroServerTransporter
  ;
  : Operations
-   Seq: ( ME_54E591C00274 // DoIt
+   Seq: ( HWL ME_54E591C00274 // DoIt
  )
  ; // Operations
 
@@ -6476,14 +6476,14 @@ ref; // ME_54E591B50054 Create
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_54E47AE90373 // TncsSynchroServerTransporter
+ : Parent HWL ME_54E47AE90373 // TncsSynchroServerTransporter
  ;
  : Inherits
-   Seq: ( ME_54E591B50054 // Create
+   Seq: ( HWL ME_54E591B50054 // Create
  )
  ; // Inherits
  : Implements
-   Seq: ( ME_5465A5AB0324 // IncsServerTransporter
+   Seq: ( HWL ME_5465A5AB0324 // IncsServerTransporter
  )
  ; // Implements
 
@@ -6506,9 +6506,9 @@ ref; // ME_54E5922801B3 anIOHandler
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_54E5920A003C // Make
+ : Parent HWL ME_54E5920A003C // Make
  ;
- : Target ME_5465A5AB0324 // IncsServerTransporter
+ : Target HWL ME_5465A5AB0324 // IncsServerTransporter
  ;
  : Parameters
    Seq: ( ME_54E5922801B3 // anIOHandler
@@ -6525,10 +6525,10 @@ ref; // ME_54E5921C031D DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_54E47AE90373 // TncsSynchroServerTransporter
+ : Parent HWL ME_54E47AE90373 // TncsSynchroServerTransporter
  ;
  : Operations
-   Seq: ( ME_54E5921C031D // DoIt
+   Seq: ( HWL ME_54E5921C031D // DoIt
  )
  ; // Operations
  CONST "is static" true
@@ -6538,7 +6538,7 @@ ref; // ME_54E5920A003C Make
 : ME_54E47B4D01CC
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_54E47AE90373 // TncsSynchroServerTransporter
+ : Parent HWL ME_54E47AE90373 // TncsSynchroServerTransporter
  ;
  : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
  ;
@@ -6548,9 +6548,9 @@ ref; // ME_54E47B4D01CC
 : ME_54E48B7302B3
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_54E47AE90373 // TncsSynchroServerTransporter
+ : Parent HWL ME_54E47AE90373 // TncsSynchroServerTransporter
  ;
- : Target ME_548AC7FB0046 // ncsProfile
+ : Target HWL ME_548AC7FB0046 // ncsProfile
  ;
 
 ref; // ME_54E48B7302B3 
@@ -6558,7 +6558,7 @@ ref; // ME_54E48B7302B3
 : ME_54E48B7C017B
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_54E47AE90373 // TncsSynchroServerTransporter
+ : Parent HWL ME_54E47AE90373 // TncsSynchroServerTransporter
  ;
  : Target WL 'ME_47E150FF028A' '4AB0997B00A2.pas.ms.script' // TStream
  ;
@@ -6568,7 +6568,7 @@ ref; // ME_54E48B7C017B
 : ME_54E48BA50365
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_54E47AE90373 // TncsSynchroServerTransporter
+ : Parent HWL ME_54E47AE90373 // TncsSynchroServerTransporter
  ;
  : Target WL 'ME_538DE3F001DC' '47913B47006E.pas.ms.script' // Tl3TempMemoryStream
  ;
@@ -6578,9 +6578,9 @@ ref; // ME_54E48BA50365
 : ME_54E48F40014E
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_54E47AE90373 // TncsSynchroServerTransporter
+ : Parent HWL ME_54E47AE90373 // TncsSynchroServerTransporter
  ;
- : Target ME_544E079E0253 // TncsMessage
+ : Target HWL ME_544E079E0253 // TncsMessage
  ;
 
 ref; // ME_54E48F40014E 
@@ -6588,9 +6588,9 @@ ref; // ME_54E48F40014E
 : ME_54E48F4A034D
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_54E47AE90373 // TncsSynchroServerTransporter
+ : Parent HWL ME_54E47AE90373 // TncsSynchroServerTransporter
  ;
- : Target ME_54649C7C00E7 // TncsInvalidMessage
+ : Target HWL ME_54649C7C00E7 // TncsInvalidMessage
  ;
 
 ref; // ME_54E48F4A034D 
@@ -6598,9 +6598,9 @@ ref; // ME_54E48F4A034D
 : ME_54E48F55034E
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_54E47AE90373 // TncsSynchroServerTransporter
+ : Parent HWL ME_54E47AE90373 // TncsSynchroServerTransporter
  ;
- : Target ME_547C1F31030C // TncsDIsconnect
+ : Target HWL ME_547C1F31030C // TncsDIsconnect
  ;
 
 ref; // ME_54E48F55034E 
@@ -6608,9 +6608,9 @@ ref; // ME_54E48F55034E
 : ME_54E48F640365
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_54E47AE90373 // TncsSynchroServerTransporter
+ : Parent HWL ME_54E47AE90373 // TncsSynchroServerTransporter
  ;
- : Target ME_547C1F3F025A // TncsDIsconnectReply
+ : Target HWL ME_547C1F3F025A // TncsDIsconnectReply
  ;
 
 ref; // ME_54E48F640365 
@@ -6618,9 +6618,9 @@ ref; // ME_54E48F640365
 : ME_54E494630198
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_54E47AE90373 // TncsSynchroServerTransporter
+ : Parent HWL ME_54E47AE90373 // TncsSynchroServerTransporter
  ;
- : Target ME_54539F4702B1 // TncsMessageFactory
+ : Target HWL ME_54539F4702B1 // TncsMessageFactory
  ;
 
 ref; // ME_54E494630198 
@@ -6628,7 +6628,7 @@ ref; // ME_54E494630198
 : ME_54E49C38016A
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_54E47AE90373 // TncsSynchroServerTransporter
+ : Parent HWL ME_54E47AE90373 // TncsSynchroServerTransporter
  ;
  : Target WL 'ME_4CDD241C0184' '47913B47006E.pas.ms.script' // l3System
  ;
@@ -6636,32 +6636,32 @@ ref; // ME_54E494630198
 ref; // ME_54E49C38016A 
 
 : ME_545335BF0283_ME_54E47AE90373
- : Original ME_545335BF0283 // ProcessMessages
+ : Original HWL ME_545335BF0283 // ProcessMessages
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_545335BF0283_ME_54E47AE90373 ProcessMessages
 
 : ME_5459D46D01FE_ME_54E47AE90373
- : Original ME_5459D46D01FE // Terminate
+ : Original HWL ME_5459D46D01FE // Terminate
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_5459D46D01FE_ME_54E47AE90373 Terminate
 
 : ME_5459E3150030_ME_54E47AE90373
- : Original ME_5459E3150030 // Terminated
+ : Original HWL ME_5459E3150030 // Terminated
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_5459E3150030_ME_54E47AE90373 Terminated
 
 : ME_549180E701E0_ME_54E47AE90373
- : Original ME_549180E701E0 // RegisterSendBackHandler
+ : Original HWL ME_549180E701E0 // RegisterSendBackHandler
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_549180E701E0_ME_54E47AE90373 RegisterSendBackHandler
 
 : ME_54E3353000D8_ME_54E47AE90373
- : Original ME_54E3353000D8 // HandShake
+ : Original HWL ME_54E3353000D8 // HandShake
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_54E3353000D8_ME_54E47AE90373 HandShake
@@ -6674,20 +6674,20 @@ ref; // ME_54E3353000D8_ME_54E47AE90373 HandShake
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_544E0148010D // Messages
+ : Parent HWL ME_544E0148010D // Messages
  ;
  : Inherits
-   Seq: ( ME_54E333CD0130 // TncsSynchroTransporter
+   Seq: ( HWL ME_54E333CD0130 // TncsSynchroTransporter
  )
  ; // Inherits
  : Implements
-   Seq: ( ME_5465A5AB0324 // IncsServerTransporter
+   Seq: ( HWL ME_5465A5AB0324 // IncsServerTransporter
  )
  ; // Implements
  : Operations
-   Seq: ( ME_54E591B50054 // Create
- ME_54E591D102F6 // IntMake
- ME_54E5920A003C // Make
+   Seq: ( HWL ME_54E591B50054 // Create
+ HWL ME_54E591D102F6 // IntMake
+ HWL ME_54E5920A003C // Make
  )
  ; // Operations
  : Implemented
@@ -6728,38 +6728,38 @@ ref; // ME_54E47AE90373 TncsSynchroServerTransporter
  : Parent WL 'ME_52F8C27F01AB' '52F8C27F01AB.pas.ms.script' // cs
  ;
  : Children
-   Seq: ( ME_544E07C6034D // TncsLoginMessage
- ME_544F977F036B // TncsPriorityMessageList
- ME_544E3C54031D // TncsMessageQueue
- ME_5452248C02B8 // TncsTransporterThread
- ME_5460B6230039 // TncsTransporterIOThread
- ME_54534F1A00BF // TncsReceiveThread
- ME_5461D6C30025 // TncsReplyDescription
- ME_5460A4DB018A // ncsMessageInterfaces
- ME_5450E9A0034A // TncsSendThread
- ME_5453986402AC // ncsMessage
- ME_54539F0C00AD // TncsMessageClassList
- ME_54539F4702B1 // TncsMessageFactory
- ME_545CBE61008B // TncsServerTransporterList
- ME_545CBED90193 // TncsServerTransporterPool
- ME_5461D6FC00F7 // TncsReplyDecsriptionList
- ME_54609BB100BB // TncsExecutorFactoryList
- ME_54607384020A // TncsMessageExecutorFactory
- ME_5461D9EE0244 // TncsReplyWaiter
- ME_546061CE03DA // TncsProcessThread
- ME_544A09EE005F // TncsTransporter
- ME_544A0A0D0239 // TncsClientTransporter
- ME_544A0A21036B // TncsServerTransporter
- ME_54634A7902A1 // TncsLoginReply
- ME_547C34C500F7 // nscMessagesReg
- ME_548AC7FB0046 // ncsProfile
- ME_5492D7AC0214 // TncsServerTransporterPtrList
- ME_54917FF702A4 // TncsServerTransporterPtrPool
- ME_547708500384 // TncsCompatibilityClientTransporter
- ME_54E333CD0130 // TncsSynchroTransporter
- ME_54E339B500F7 // TncsSynchroClientTransporter
- ME_54E33DBC0063 // TncsSynchroCompatibilityClientTransporter
- ME_54E47AE90373 // TncsSynchroServerTransporter
+   Seq: ( HWL ME_544E07C6034D // TncsLoginMessage
+ HWL ME_544F977F036B // TncsPriorityMessageList
+ HWL ME_544E3C54031D // TncsMessageQueue
+ HWL ME_5452248C02B8 // TncsTransporterThread
+ HWL ME_5460B6230039 // TncsTransporterIOThread
+ HWL ME_54534F1A00BF // TncsReceiveThread
+ HWL ME_5461D6C30025 // TncsReplyDescription
+ HWL ME_5460A4DB018A // ncsMessageInterfaces
+ HWL ME_5450E9A0034A // TncsSendThread
+ HWL ME_5453986402AC // ncsMessage
+ HWL ME_54539F0C00AD // TncsMessageClassList
+ HWL ME_54539F4702B1 // TncsMessageFactory
+ HWL ME_545CBE61008B // TncsServerTransporterList
+ HWL ME_545CBED90193 // TncsServerTransporterPool
+ HWL ME_5461D6FC00F7 // TncsReplyDecsriptionList
+ HWL ME_54609BB100BB // TncsExecutorFactoryList
+ HWL ME_54607384020A // TncsMessageExecutorFactory
+ HWL ME_5461D9EE0244 // TncsReplyWaiter
+ HWL ME_546061CE03DA // TncsProcessThread
+ HWL ME_544A09EE005F // TncsTransporter
+ HWL ME_544A0A0D0239 // TncsClientTransporter
+ HWL ME_544A0A21036B // TncsServerTransporter
+ HWL ME_54634A7902A1 // TncsLoginReply
+ HWL ME_547C34C500F7 // nscMessagesReg
+ HWL ME_548AC7FB0046 // ncsProfile
+ HWL ME_5492D7AC0214 // TncsServerTransporterPtrList
+ HWL ME_54917FF702A4 // TncsServerTransporterPtrPool
+ HWL ME_547708500384 // TncsCompatibilityClientTransporter
+ HWL ME_54E333CD0130 // TncsSynchroTransporter
+ HWL ME_54E339B500F7 // TncsSynchroClientTransporter
+ HWL ME_54E33DBC0063 // TncsSynchroCompatibilityClientTransporter
+ HWL ME_54E47AE90373 // TncsSynchroServerTransporter
  )
  ; // Children
  : Depends

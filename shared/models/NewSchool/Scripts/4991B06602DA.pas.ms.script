@@ -14,7 +14,7 @@ FORWARD ME_4991B0AF009B
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4991B0AF009B // TnsSuperPreviewKind
+ : Parent HWL ME_4991B0AF009B // TnsSuperPreviewKind
  ;
 
 ref; // ME_4991B0B7020E ns_spkDocumentTitles
@@ -27,7 +27,7 @@ ref; // ME_4991B0B7020E ns_spkDocumentTitles
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4991B0AF009B // TnsSuperPreviewKind
+ : Parent HWL ME_4991B0AF009B // TnsSuperPreviewKind
  ;
 
 ref; // ME_4991B0BF021F ns_spkDocumentTexts
@@ -40,11 +40,11 @@ ref; // ME_4991B0BF021F ns_spkDocumentTexts
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4991B06602DA // PreviewInterfaces
+ : Parent HWL ME_4991B06602DA // PreviewInterfaces
  ;
  : Attributes
-   Seq: ( ME_4991B0B7020E // ns_spkDocumentTitles
- ME_4991B0BF021F // ns_spkDocumentTexts
+   Seq: ( HWL ME_4991B0B7020E // ns_spkDocumentTitles
+ HWL ME_4991B0BF021F // ns_spkDocumentTexts
  )
  ; // Attributes
  CONST extprop:rc:isAcceptableForScripts true
@@ -62,9 +62,9 @@ FORWARD ME_4890158A0251
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4890158A0251 // InsSuperComplexDocumentPreview
+ : Parent HWL ME_4890158A0251 // InsSuperComplexDocumentPreview
  ;
- : Target ME_4991B0AF009B // TnsSuperPreviewKind
+ : Target HWL ME_4991B0AF009B // TnsSuperPreviewKind
  ;
  CONST "pm" true
 
@@ -78,7 +78,7 @@ ref; // ME_4991B10702DF SuperContentKind
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4890158A0251 // InsSuperComplexDocumentPreview
+ : Parent HWL ME_4890158A0251 // InsSuperComplexDocumentPreview
  ;
  : Target WL 'ME_473D8DF50230' '467823B7002C.pas.ms.script' // IafwComplexDocumentPreview
  ;
@@ -94,7 +94,7 @@ ref; // ME_4991B13301A1 SuperCurrent
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4890158A0251 // InsSuperComplexDocumentPreview
+ : Parent HWL ME_4890158A0251 // InsSuperComplexDocumentPreview
  ;
  : Target WL 'ME_473D8DF50230' '467823B7002C.pas.ms.script' // IafwComplexDocumentPreview
  ;
@@ -110,7 +110,7 @@ ref; // ME_4991B14D010E DocumentTitles
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4890158A0251 // InsSuperComplexDocumentPreview
+ : Parent HWL ME_4890158A0251 // InsSuperComplexDocumentPreview
  ;
  : Target WL 'ME_473D8DF50230' '467823B7002C.pas.ms.script' // IafwComplexDocumentPreview
  ;
@@ -294,17 +294,17 @@ ref; // ME_4CC6A6FF0362_ME_4890158A0251 PagesInfo
  %SUMMARY 'Суперкомлпексное превью для списка (текст списка и тексты документов)' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4991B06602DA // PreviewInterfaces
+ : Parent HWL ME_4991B06602DA // PreviewInterfaces
  ;
  : Inherits
    Seq: ( WL 'ME_473D8DF50230' '467823B7002C.pas.ms.script' // IafwComplexDocumentPreview
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_4991B10702DF // SuperContentKind
- ME_4991B13301A1 // SuperCurrent
- ME_4991B14D010E // DocumentTitles
- ME_4991B15F0189 // DocumentTexts
+   Seq: ( HWL ME_4991B10702DF // SuperContentKind
+ HWL ME_4991B13301A1 // SuperCurrent
+ HWL ME_4991B14D010E // DocumentTitles
+ HWL ME_4991B15F0189 // DocumentTexts
  )
  ; // Attributes
  : Implemented
@@ -352,7 +352,7 @@ FORWARD ME_4991B170012C
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4991B170012C // InsTreeMultiDocumentPreviewContainer
+ : Parent HWL ME_4991B170012C // InsTreeMultiDocumentPreviewContainer
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -366,7 +366,7 @@ ref; // ME_4991B17F004B ApproxDocCount
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4991B170012C // InsTreeMultiDocumentPreviewContainer
+ : Parent HWL ME_4991B170012C // InsTreeMultiDocumentPreviewContainer
  ;
 
 ref; // ME_4991B1850249 Prepare
@@ -380,14 +380,14 @@ ref; // ME_4991B1850249 Prepare
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4991B06602DA // PreviewInterfaces
+ : Parent HWL ME_4991B06602DA // PreviewInterfaces
  ;
  : Attributes
-   Seq: ( ME_4991B17F004B // ApproxDocCount
+   Seq: ( HWL ME_4991B17F004B // ApproxDocCount
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_4991B1850249 // Prepare
+   Seq: ( HWL ME_4991B1850249 // Prepare
  )
  ; // Operations
  CONST extprop:rc:SelfName 'TreeMultiDocumentPreviewContainer'
@@ -404,7 +404,7 @@ ref; // ME_4991B170012C InsTreeMultiDocumentPreviewContainer
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4991B06602DA // PreviewInterfaces
+ : Parent HWL ME_4991B06602DA // PreviewInterfaces
  ;
  CONST extprop:rc:SelfName 'TinyPreview'
  CONST extprop:rc:isAcceptableForScripts true
@@ -422,10 +422,10 @@ ref; // ME_4991B18E00F4 InsTinyPreview
  : Parent WL 'ME_47E9EEC60260' '47E9EEC60260.pas.ms.script' // Model
  ;
  : Children
-   Seq: ( ME_4991B0AF009B // TnsSuperPreviewKind
- ME_4890158A0251 // InsSuperComplexDocumentPreview
- ME_4991B170012C // InsTreeMultiDocumentPreviewContainer
- ME_4991B18E00F4 // InsTinyPreview
+   Seq: ( HWL ME_4991B0AF009B // TnsSuperPreviewKind
+ HWL ME_4890158A0251 // InsSuperComplexDocumentPreview
+ HWL ME_4991B170012C // InsTreeMultiDocumentPreviewContainer
+ HWL ME_4991B18E00F4 // InsTinyPreview
  )
  ; // Children
  : Depends

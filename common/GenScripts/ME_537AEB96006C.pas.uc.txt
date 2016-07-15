@@ -36,10 +36,12 @@ var
 //#UC START# *0E111B36F193_537AEC5E03DD_impl*
  if Supports(aTab.TabbedForm, IvcmContainedForm, l_ContainedForm) then
  begin
+  f_ClosingTab := Pointer(aTab);
   TvcmTabbedContainerForm(aTab.TabbedContainer.AsForm).FormSetHistory.SaveTab(aTab);
   if Supports(aTab.TabbedForm, IvcmContainer, l_Container) then
    TvcmFormSetContainerRegistry.Instance.UnregisterContainer(l_Container);
   l_ContainedForm.CloseContainedForm;
+  f_ClosingTab := nil;
  end
  else
   Assert(False);
@@ -64,6 +66,11 @@ var
 //#UC END# *1BFA5AA0644C_537AEC5E03DD_impl*
 //#UC START# *1BFA5AA0644C_537AEC5E03DD_var*
 //#UC END# *1BFA5AA0644C_537AEC5E03DD_var*
+//#UC START# *27138C52AC0C_537AEC5E03DD_impl*
+ Result := (Pointer(aTab) = f_ClosingTab);
+//#UC END# *27138C52AC0C_537AEC5E03DD_impl*
+//#UC START# *27138C52AC0C_537AEC5E03DD_var*
+//#UC END# *27138C52AC0C_537AEC5E03DD_var*
 //#UC START# *2774A286694A_537AEC5E03DD_impl*
  Result := ActiveContainer as Il3TabbedContainer;
 //#UC END# *2774A286694A_537AEC5E03DD_impl*

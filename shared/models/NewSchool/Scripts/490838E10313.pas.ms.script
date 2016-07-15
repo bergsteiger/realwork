@@ -14,7 +14,7 @@ FORWARD ME_4908393001C5
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4908393001C5 // InscContextFilterState
+ : Parent HWL ME_4908393001C5 // InscContextFilterState
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -30,7 +30,7 @@ ref; // ME_4908394101EB Active
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4908393001C5 // InscContextFilterState
+ : Parent HWL ME_4908393001C5 // InscContextFilterState
  ;
  : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
  ;
@@ -46,7 +46,7 @@ ref; // ME_4908395B027E Context
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4908393001C5 // InscContextFilterState
+ : Parent HWL ME_4908393001C5 // InscContextFilterState
  ;
  : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
  ;
@@ -62,7 +62,7 @@ ref; // ME_4908396C014C ActiveContext
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4908393001C5 // InscContextFilterState
+ : Parent HWL ME_4908393001C5 // InscContextFilterState
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -76,7 +76,7 @@ ref; // ME_4908397A033F CaretPos
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4908393001C5 // InscContextFilterState
+ : Parent HWL ME_4908393001C5 // InscContextFilterState
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -93,17 +93,17 @@ ref; // ME_490839F50038 NeedRefilterTree
  %SUMMARY 'Состояние контекстного фильтра' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_490838E10313 // nscNewInterfaces
+ : Parent HWL ME_490838E10313 // nscNewInterfaces
  ;
  : Attributes
-   Seq: ( ME_4908394101EB // Active
- ME_4908395B027E // Context
- ME_4908396C014C // ActiveContext
- ME_4908397A033F // CaretPos
+   Seq: ( HWL ME_4908394101EB // Active
+ HWL ME_4908395B027E // Context
+ HWL ME_4908396C014C // ActiveContext
+ HWL ME_4908397A033F // CaretPos
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_490839F50038 // NeedRefilterTree
+   Seq: ( HWL ME_490839F50038 // NeedRefilterTree
  )
  ; // Operations
  CONST extprop:rc:SelfName 'ContextFilterState'
@@ -135,7 +135,7 @@ ref; // ME_4B16685603E5 aFilterName
  CONST Name 'aState'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_4908393001C5 // InscContextFilterState
+ : Target HWL ME_4908393001C5 // InscContextFilterState
  ;
 
 ref; // ME_4B166857003B aState
@@ -147,7 +147,7 @@ ref; // ME_4B166857003B aState
  %SUMMARY 'событие возможной смены контекста. Генерируется при уходе фокуса из'#13#10'             поля ввода и уничтожении компонента' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_490839920096 // InscContextFilterListener
+ : Parent HWL ME_490839920096 // InscContextFilterListener
  ;
  : Parameters
    Seq: ( ME_4B1668560397 // aHandle
@@ -173,7 +173,7 @@ ref; // ME_4B16685E02A0 aHandle
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_490839920096 // InscContextFilterListener
+ : Parent HWL ME_490839920096 // InscContextFilterListener
  ;
  : Parameters
    Seq: ( ME_4B16685E02A0 // aHandle
@@ -192,11 +192,11 @@ ref; // ME_4B165B44032D FilterRemoving
  %SUMMARY 'Слушатель событий контекстного фильтра' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_490838E10313 // nscNewInterfaces
+ : Parent HWL ME_490838E10313 // nscNewInterfaces
  ;
  : Operations
-   Seq: ( ME_490839BA0073 // ContextCanBeChanged
- ME_4B165B44032D // FilterRemoving
+   Seq: ( HWL ME_490839BA0073 // ContextCanBeChanged
+ HWL ME_4B165B44032D // FilterRemoving
  )
  ; // Operations
  CONST extprop:rc:SelfName 'ContextFilterListener'
@@ -213,7 +213,7 @@ FORWARD ME_496B78080016
  %SUMMARY 'Cобытие активации вкладки' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_496B78080016 // InscPageControlNotification
+ : Parent HWL ME_496B78080016 // InscPageControlNotification
  ;
 
 ref; // ME_496B781903E3 TabActivate
@@ -228,10 +228,10 @@ ref; // ME_496B781903E3 TabActivate
  %SUMMARY 'Для уведомления о событиях компонента с вкладками' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_490838E10313 // nscNewInterfaces
+ : Parent HWL ME_490838E10313 // nscNewInterfaces
  ;
  : Operations
-   Seq: ( ME_496B781903E3 // TabActivate
+   Seq: ( HWL ME_496B781903E3 // TabActivate
  )
  ; // Operations
  CONST extprop:rc:SelfName 'PageControlNotification'
@@ -248,7 +248,7 @@ FORWARD ME_498035FA00E9
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_498035FA00E9 // TnscToolTipKind
+ : Parent HWL ME_498035FA00E9 // TnscToolTipKind
  ;
 
 ref; // ME_498035FF034C nsc_ttkNone
@@ -260,7 +260,7 @@ ref; // ME_498035FF034C nsc_ttkNone
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_498035FA00E9 // TnscToolTipKind
+ : Parent HWL ME_498035FA00E9 // TnscToolTipKind
  ;
 
 ref; // ME_498036040369 nsc_ttkInformation
@@ -272,7 +272,7 @@ ref; // ME_498036040369 nsc_ttkInformation
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_498035FA00E9 // TnscToolTipKind
+ : Parent HWL ME_498035FA00E9 // TnscToolTipKind
  ;
 
 ref; // ME_4980360B0392 nsc_ttkWarning
@@ -284,7 +284,7 @@ ref; // ME_4980360B0392 nsc_ttkWarning
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_498035FA00E9 // TnscToolTipKind
+ : Parent HWL ME_498035FA00E9 // TnscToolTipKind
  ;
 
 ref; // ME_498036100285 nsc_ttkError
@@ -297,13 +297,13 @@ ref; // ME_498036100285 nsc_ttkError
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_490838E10313 // nscNewInterfaces
+ : Parent HWL ME_490838E10313 // nscNewInterfaces
  ;
  : Attributes
-   Seq: ( ME_498035FF034C // nsc_ttkNone
- ME_498036040369 // nsc_ttkInformation
- ME_4980360B0392 // nsc_ttkWarning
- ME_498036100285 // nsc_ttkError
+   Seq: ( HWL ME_498035FF034C // nsc_ttkNone
+ HWL ME_498036040369 // nsc_ttkInformation
+ HWL ME_4980360B0392 // nsc_ttkWarning
+ HWL ME_498036100285 // nsc_ttkError
  )
  ; // Attributes
  CONST extprop:rc:isAcceptableForScripts true
@@ -322,7 +322,7 @@ FORWARD ME_4980350B00FA
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4980350B00FA // InscStatusBarItemDef
+ : Parent HWL ME_4980350B00FA // InscStatusBarItemDef
  ;
  : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
  ;
@@ -338,7 +338,7 @@ ref; // ME_4980370D001D Caption
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4980350B00FA // InscStatusBarItemDef
+ : Parent HWL ME_4980350B00FA // InscStatusBarItemDef
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -354,7 +354,7 @@ ref; // ME_4980371E0167 UseToolTip
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4980350B00FA // InscStatusBarItemDef
+ : Parent HWL ME_4980350B00FA // InscStatusBarItemDef
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -370,7 +370,7 @@ ref; // ME_4980372D0191 RequireAutoPopup
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4980350B00FA // InscStatusBarItemDef
+ : Parent HWL ME_4980350B00FA // InscStatusBarItemDef
  ;
  : Target WL 'ME_46A618AF0053' '4AB0C3C60310.pas.ms.script' // Cardinal
  ;
@@ -386,9 +386,9 @@ ref; // ME_4980373B02B6 AutoPopupTimeout
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4980350B00FA // InscStatusBarItemDef
+ : Parent HWL ME_4980350B00FA // InscStatusBarItemDef
  ;
- : Target ME_498035FA00E9 // TnscToolTipKind
+ : Target HWL ME_498035FA00E9 // TnscToolTipKind
  ;
  CONST "pm" false
 
@@ -402,7 +402,7 @@ ref; // ME_4980374B0266 TootTipKind
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4980350B00FA // InscStatusBarItemDef
+ : Parent HWL ME_4980350B00FA // InscStatusBarItemDef
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -418,7 +418,7 @@ ref; // ME_4ADC59C6003B ShowCaption
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4980350B00FA // InscStatusBarItemDef
+ : Parent HWL ME_4980350B00FA // InscStatusBarItemDef
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -434,9 +434,9 @@ ref; // ME_4BCEAF1A00EE Enabled
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4980350B00FA // InscStatusBarItemDef
+ : Parent HWL ME_4980350B00FA // InscStatusBarItemDef
  ;
- : Target ME_498036360179 // InscStatusBarItemDefsList
+ : Target HWL ME_498036360179 // InscStatusBarItemDefsList
  ;
  CONST "pm" false
 
@@ -448,7 +448,7 @@ FORWARD ME_5060388903AB
  CONST Name 'aServer'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_4980350B00FA // InscStatusBarItemDef
+ : Target HWL ME_4980350B00FA // InscStatusBarItemDef
  ;
 
 ref; // ME_50603893038C aServer
@@ -459,7 +459,7 @@ ref; // ME_50603893038C aServer
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_5060388903AB // SubscribeOnNotification
+ : Parent HWL ME_5060388903AB // SubscribeOnNotification
  ;
  : Parameters
    Seq: ( ME_50603893038C // aServer
@@ -476,10 +476,10 @@ ref; // ME_50603891018D DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4980350B00FA // InscStatusBarItemDef
+ : Parent HWL ME_4980350B00FA // InscStatusBarItemDef
  ;
  : Operations
-   Seq: ( ME_50603891018D // DoIt
+   Seq: ( HWL ME_50603891018D // DoIt
  )
  ; // Operations
 
@@ -494,25 +494,25 @@ ref; // ME_5060388903AB SubscribeOnNotification
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_490838E10313 // nscNewInterfaces
+ : Parent HWL ME_490838E10313 // nscNewInterfaces
  ;
  : Attributes
-   Seq: ( ME_4980370D001D // Caption
- ME_4980371E0167 // UseToolTip
- ME_4980372D0191 // RequireAutoPopup
- ME_4980373B02B6 // AutoPopupTimeout
- ME_4980374B0266 // TootTipKind
- ME_4ADC59C6003B // ShowCaption
- ME_4BCEAF1A00EE // Enabled
- ME_5060385E0190 // SubscribedList
+   Seq: ( HWL ME_4980370D001D // Caption
+ HWL ME_4980371E0167 // UseToolTip
+ HWL ME_4980372D0191 // RequireAutoPopup
+ HWL ME_4980373B02B6 // AutoPopupTimeout
+ HWL ME_4980374B0266 // TootTipKind
+ HWL ME_4ADC59C6003B // ShowCaption
+ HWL ME_4BCEAF1A00EE // Enabled
+ HWL ME_5060385E0190 // SubscribedList
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_5060388903AB // SubscribeOnNotification
+   Seq: ( HWL ME_5060388903AB // SubscribeOnNotification
  )
  ; // Operations
  : Forwarded
-   Seq: ( ME_498036360179 // InscStatusBarItemDefsList
+   Seq: ( HWL ME_498036360179 // InscStatusBarItemDefsList
  )
  ; // Forwarded
  CONST extprop:rc:SelfName 'StatusBarItemDef'
@@ -528,7 +528,7 @@ ref; // ME_4980350B00FA InscStatusBarItemDef
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_498036360179 // InscStatusBarItemDefsList
+ : Parent HWL ME_498036360179 // InscStatusBarItemDefsList
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -545,7 +545,7 @@ FORWARD ME_4980367803E7
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4980367803E7 // Items
+ : Parent HWL ME_4980367803E7 // Items
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -560,12 +560,12 @@ ref; // ME_4980368A0302 anIndex
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_498036360179 // InscStatusBarItemDefsList
+ : Parent HWL ME_498036360179 // InscStatusBarItemDefsList
  ;
- : Target ME_4980350B00FA // InscStatusBarItemDef
+ : Target HWL ME_4980350B00FA // InscStatusBarItemDef
  ;
  : Attributes
-   Seq: ( ME_4980368A0302 // anIndex
+   Seq: ( HWL ME_4980368A0302 // anIndex
  )
  ; // Attributes
  CONST "pm" true
@@ -576,7 +576,7 @@ ref; // ME_4980367803E7 Items
  CONST Name 'aDef'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_4980350B00FA // InscStatusBarItemDef
+ : Target HWL ME_4980350B00FA // InscStatusBarItemDef
  ;
 
 ref; // ME_498036480167 aDef
@@ -587,7 +587,7 @@ ref; // ME_498036480167 aDef
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_498036360179 // InscStatusBarItemDefsList
+ : Parent HWL ME_498036360179 // InscStatusBarItemDefsList
  ;
  : Parameters
    Seq: ( ME_498036480167 // aDef
@@ -605,15 +605,15 @@ ref; // ME_4980364202E5 Add
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_490838E10313 // nscNewInterfaces
+ : Parent HWL ME_490838E10313 // nscNewInterfaces
  ;
  : Attributes
-   Seq: ( ME_498036520375 // Count
- ME_4980367803E7 // Items
+   Seq: ( HWL ME_498036520375 // Count
+ HWL ME_4980367803E7 // Items
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_4980364202E5 // Add
+   Seq: ( HWL ME_4980364202E5 // Add
  )
  ; // Operations
  CONST extprop:rc:SelfName 'StatusBarItemDefsList'
@@ -631,9 +631,9 @@ FORWARD ME_498036AD03AB
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_498036AD03AB // InscStatusBarItemsProvider
+ : Parent HWL ME_498036AD03AB // InscStatusBarItemsProvider
  ;
- : Target ME_498036360179 // InscStatusBarItemDefsList
+ : Target HWL ME_498036360179 // InscStatusBarItemDefsList
  ;
  CONST "pm" false
 
@@ -648,10 +648,10 @@ ref; // ME_498036B8002E Items
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_490838E10313 // nscNewInterfaces
+ : Parent HWL ME_490838E10313 // nscNewInterfaces
  ;
  : Attributes
-   Seq: ( ME_498036B8002E // Items
+   Seq: ( HWL ME_498036B8002E // Items
  )
  ; // Attributes
  CONST extprop:rc:SelfName 'StatusBarItemsProvider'
@@ -665,7 +665,7 @@ FORWARD ME_498036CB01D2
  CONST Name 'aProvider'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_498036AD03AB // InscStatusBarItemsProvider
+ : Target HWL ME_498036AD03AB // InscStatusBarItemsProvider
  ;
 
 ref; // ME_498036D800C7 aProvider
@@ -676,7 +676,7 @@ ref; // ME_498036D800C7 aProvider
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_498036CB01D2 // InscStatusBarItemsVisualizer
+ : Parent HWL ME_498036CB01D2 // InscStatusBarItemsVisualizer
  ;
  : Parameters
    Seq: ( ME_498036D800C7 // aProvider
@@ -689,7 +689,7 @@ ref; // ME_498036D4036F RegisterProvider
  CONST Name 'aProvider'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_498036AD03AB // InscStatusBarItemsProvider
+ : Target HWL ME_498036AD03AB // InscStatusBarItemsProvider
  ;
 
 ref; // ME_498036E302BC aProvider
@@ -700,7 +700,7 @@ ref; // ME_498036E302BC aProvider
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_498036CB01D2 // InscStatusBarItemsVisualizer
+ : Parent HWL ME_498036CB01D2 // InscStatusBarItemsVisualizer
  ;
  : Parameters
    Seq: ( ME_498036E302BC // aProvider
@@ -718,11 +718,11 @@ ref; // ME_498036E00030 UnregisterProvider
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_490838E10313 // nscNewInterfaces
+ : Parent HWL ME_490838E10313 // nscNewInterfaces
  ;
  : Operations
-   Seq: ( ME_498036D4036F // RegisterProvider
- ME_498036E00030 // UnregisterProvider
+   Seq: ( HWL ME_498036D4036F // RegisterProvider
+ HWL ME_498036E00030 // UnregisterProvider
  )
  ; // Operations
  CONST extprop:rc:SelfName 'StatusBarItemsVisualizer'
@@ -740,7 +740,7 @@ FORWARD ME_4FE9F428027C
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4FE9F428027C // InscStatusBarOperationDef
+ : Parent HWL ME_4FE9F428027C // InscStatusBarOperationDef
  ;
  : Target WL 'ME_4683D016009C' '467BAB7F021E.pas.ms.script' // TvcmOpSelector
  ;
@@ -749,63 +749,63 @@ FORWARD ME_4FE9F428027C
 ref; // ME_4FE9F49C0299 Operation
 
 : ME_4980370D001D_ME_4FE9F428027C
- : Original ME_4980370D001D // Caption
+ : Original HWL ME_4980370D001D // Caption
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4980370D001D_ME_4FE9F428027C Caption
 
 : ME_4980371E0167_ME_4FE9F428027C
- : Original ME_4980371E0167 // UseToolTip
+ : Original HWL ME_4980371E0167 // UseToolTip
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4980371E0167_ME_4FE9F428027C UseToolTip
 
 : ME_4980372D0191_ME_4FE9F428027C
- : Original ME_4980372D0191 // RequireAutoPopup
+ : Original HWL ME_4980372D0191 // RequireAutoPopup
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4980372D0191_ME_4FE9F428027C RequireAutoPopup
 
 : ME_4980373B02B6_ME_4FE9F428027C
- : Original ME_4980373B02B6 // AutoPopupTimeout
+ : Original HWL ME_4980373B02B6 // AutoPopupTimeout
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4980373B02B6_ME_4FE9F428027C AutoPopupTimeout
 
 : ME_4980374B0266_ME_4FE9F428027C
- : Original ME_4980374B0266 // TootTipKind
+ : Original HWL ME_4980374B0266 // TootTipKind
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4980374B0266_ME_4FE9F428027C TootTipKind
 
 : ME_4ADC59C6003B_ME_4FE9F428027C
- : Original ME_4ADC59C6003B // ShowCaption
+ : Original HWL ME_4ADC59C6003B // ShowCaption
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4ADC59C6003B_ME_4FE9F428027C ShowCaption
 
 : ME_4BCEAF1A00EE_ME_4FE9F428027C
- : Original ME_4BCEAF1A00EE // Enabled
+ : Original HWL ME_4BCEAF1A00EE // Enabled
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4BCEAF1A00EE_ME_4FE9F428027C Enabled
 
 : ME_5060385E0190_ME_4FE9F428027C
- : Original ME_5060385E0190 // SubscribedList
+ : Original HWL ME_5060385E0190 // SubscribedList
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_5060385E0190_ME_4FE9F428027C SubscribedList
 
 : ME_5060388903AB_ME_4FE9F428027C
- : Original ME_5060388903AB // SubscribeOnNotification
+ : Original HWL ME_5060388903AB // SubscribeOnNotification
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_5060388903AB_ME_4FE9F428027C SubscribeOnNotification
@@ -819,14 +819,14 @@ ref; // ME_5060388903AB_ME_4FE9F428027C SubscribeOnNotification
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_490838E10313 // nscNewInterfaces
+ : Parent HWL ME_490838E10313 // nscNewInterfaces
  ;
  : Inherits
-   Seq: ( ME_4980350B00FA // InscStatusBarItemDef
+   Seq: ( HWL ME_4980350B00FA // InscStatusBarItemDef
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_4FE9F49C0299 // Operation
+   Seq: ( HWL ME_4FE9F49C0299 // Operation
  )
  ; // Attributes
  : Implemented
@@ -858,7 +858,7 @@ FORWARD ME_4FF314BE007F
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4FF314BE007F // TsbdSeparatorPos
+ : Parent HWL ME_4FF314BE007F // TsbdSeparatorPos
  ;
 
 ref; // ME_4FF315020158 spLeft
@@ -870,7 +870,7 @@ ref; // ME_4FF315020158 spLeft
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4FF314BE007F // TsbdSeparatorPos
+ : Parent HWL ME_4FF314BE007F // TsbdSeparatorPos
  ;
 
 ref; // ME_4FF3151100F2 spMiddle
@@ -882,7 +882,7 @@ ref; // ME_4FF3151100F2 spMiddle
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4FF314BE007F // TsbdSeparatorPos
+ : Parent HWL ME_4FF314BE007F // TsbdSeparatorPos
  ;
 
 ref; // ME_4FF3151A02FA spRight
@@ -895,12 +895,12 @@ ref; // ME_4FF3151A02FA spRight
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4FEC3BB5027F // InscStatusBarDelimiterDef
+ : Parent HWL ME_4FEC3BB5027F // InscStatusBarDelimiterDef
  ;
  : Attributes
-   Seq: ( ME_4FF315020158 // spLeft
- ME_4FF3151100F2 // spMiddle
- ME_4FF3151A02FA // spRight
+   Seq: ( HWL ME_4FF315020158 // spLeft
+ HWL ME_4FF3151100F2 // spMiddle
+ HWL ME_4FF3151A02FA // spRight
  )
  ; // Attributes
  CONST extprop:rc:isAcceptableForScripts true
@@ -915,9 +915,9 @@ ref; // ME_4FF314BE007F TsbdSeparatorPos
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4FEC3BB5027F // InscStatusBarDelimiterDef
+ : Parent HWL ME_4FEC3BB5027F // InscStatusBarDelimiterDef
  ;
- : Target ME_4FF314BE007F // TsbdSeparatorPos
+ : Target HWL ME_4FF314BE007F // TsbdSeparatorPos
  ;
  CONST "pm" false
 
@@ -931,7 +931,7 @@ ref; // ME_4FF315450358 SeparatorPos
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4FEC3BB5027F // InscStatusBarDelimiterDef
+ : Parent HWL ME_4FEC3BB5027F // InscStatusBarDelimiterDef
  ;
  : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
  ;
@@ -947,7 +947,7 @@ ref; // ME_4FF3157D0385 IsSeparatorVisible
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4FEC3BB5027F // InscStatusBarDelimiterDef
+ : Parent HWL ME_4FEC3BB5027F // InscStatusBarDelimiterDef
  ;
  : Target WL 'ME_450A61050251' '3DBFDB23006E.pas.ms.script' // integer
  ;
@@ -956,63 +956,63 @@ ref; // ME_4FF3157D0385 IsSeparatorVisible
 ref; // ME_4FF3159402B4 Width
 
 : ME_4980370D001D_ME_4FEC3BB5027F
- : Original ME_4980370D001D // Caption
+ : Original HWL ME_4980370D001D // Caption
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4980370D001D_ME_4FEC3BB5027F Caption
 
 : ME_4980371E0167_ME_4FEC3BB5027F
- : Original ME_4980371E0167 // UseToolTip
+ : Original HWL ME_4980371E0167 // UseToolTip
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4980371E0167_ME_4FEC3BB5027F UseToolTip
 
 : ME_4980372D0191_ME_4FEC3BB5027F
- : Original ME_4980372D0191 // RequireAutoPopup
+ : Original HWL ME_4980372D0191 // RequireAutoPopup
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4980372D0191_ME_4FEC3BB5027F RequireAutoPopup
 
 : ME_4980373B02B6_ME_4FEC3BB5027F
- : Original ME_4980373B02B6 // AutoPopupTimeout
+ : Original HWL ME_4980373B02B6 // AutoPopupTimeout
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4980373B02B6_ME_4FEC3BB5027F AutoPopupTimeout
 
 : ME_4980374B0266_ME_4FEC3BB5027F
- : Original ME_4980374B0266 // TootTipKind
+ : Original HWL ME_4980374B0266 // TootTipKind
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4980374B0266_ME_4FEC3BB5027F TootTipKind
 
 : ME_4ADC59C6003B_ME_4FEC3BB5027F
- : Original ME_4ADC59C6003B // ShowCaption
+ : Original HWL ME_4ADC59C6003B // ShowCaption
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4ADC59C6003B_ME_4FEC3BB5027F ShowCaption
 
 : ME_4BCEAF1A00EE_ME_4FEC3BB5027F
- : Original ME_4BCEAF1A00EE // Enabled
+ : Original HWL ME_4BCEAF1A00EE // Enabled
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4BCEAF1A00EE_ME_4FEC3BB5027F Enabled
 
 : ME_5060385E0190_ME_4FEC3BB5027F
- : Original ME_5060385E0190 // SubscribedList
+ : Original HWL ME_5060385E0190 // SubscribedList
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_5060385E0190_ME_4FEC3BB5027F SubscribedList
 
 : ME_5060388903AB_ME_4FEC3BB5027F
- : Original ME_5060388903AB // SubscribeOnNotification
+ : Original HWL ME_5060388903AB // SubscribeOnNotification
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_5060388903AB_ME_4FEC3BB5027F SubscribeOnNotification
@@ -1026,16 +1026,16 @@ ref; // ME_5060388903AB_ME_4FEC3BB5027F SubscribeOnNotification
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_490838E10313 // nscNewInterfaces
+ : Parent HWL ME_490838E10313 // nscNewInterfaces
  ;
  : Inherits
-   Seq: ( ME_4980350B00FA // InscStatusBarItemDef
+   Seq: ( HWL ME_4980350B00FA // InscStatusBarItemDef
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_4FF315450358 // SeparatorPos
- ME_4FF3157D0385 // IsSeparatorVisible
- ME_4FF3159402B4 // Width
+   Seq: ( HWL ME_4FF315450358 // SeparatorPos
+ HWL ME_4FF3157D0385 // IsSeparatorVisible
+ HWL ME_4FF3159402B4 // Width
  )
  ; // Attributes
  : Implemented
@@ -1051,7 +1051,7 @@ ref; // ME_5060388903AB_ME_4FEC3BB5027F SubscribeOnNotification
  )
  ; // Implemented
  : Children
-   Seq: ( ME_4FF314BE007F // TsbdSeparatorPos
+   Seq: ( HWL ME_4FF314BE007F // TsbdSeparatorPos
  )
  ; // Children
  CONST extprop:rc:SelfName 'StatusBarDelimiterDef'
@@ -1069,7 +1069,7 @@ FORWARD ME_52B9761F024B
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_52B9761F024B // OpenDocument
+ : Parent HWL ME_52B9761F024B // OpenDocument
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -1084,10 +1084,10 @@ ref; // ME_52B981250046 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_52B333A8015C // InscBaseSearchPromptNode
+ : Parent HWL ME_52B333A8015C // InscBaseSearchPromptNode
  ;
  : Operations
-   Seq: ( ME_52B981250046 // DoIt
+   Seq: ( HWL ME_52B981250046 // DoIt
  )
  ; // Operations
 
@@ -1101,7 +1101,7 @@ FORWARD ME_52B977E30154
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_52B977E30154 // IsLinkOnDocument
+ : Parent HWL ME_52B977E30154 // IsLinkOnDocument
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -1116,10 +1116,10 @@ ref; // ME_52B978470198 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_52B333A8015C // InscBaseSearchPromptNode
+ : Parent HWL ME_52B333A8015C // InscBaseSearchPromptNode
  ;
  : Operations
-   Seq: ( ME_52B978470198 // DoIt
+   Seq: ( HWL ME_52B978470198 // DoIt
  )
  ; // Operations
 
@@ -1134,11 +1134,11 @@ ref; // ME_52B977E30154 IsLinkOnDocument
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_490838E10313 // nscNewInterfaces
+ : Parent HWL ME_490838E10313 // nscNewInterfaces
  ;
  : Operations
-   Seq: ( ME_52B9761F024B // OpenDocument
- ME_52B977E30154 // IsLinkOnDocument
+   Seq: ( HWL ME_52B9761F024B // OpenDocument
+ HWL ME_52B977E30154 // IsLinkOnDocument
  )
  ; // Operations
  CONST extprop:rc:SelfName 'BaseSearchPromptNode'
@@ -1157,17 +1157,17 @@ ref; // ME_52B333A8015C InscBaseSearchPromptNode
  : Parent WL 'ME_490838AA02D0' '490838AA02D0.pas.ms.script' // Nemesis
  ;
  : Children
-   Seq: ( ME_4908393001C5 // InscContextFilterState
- ME_490839920096 // InscContextFilterListener
- ME_496B78080016 // InscPageControlNotification
- ME_498035FA00E9 // TnscToolTipKind
- ME_4980350B00FA // InscStatusBarItemDef
- ME_498036360179 // InscStatusBarItemDefsList
- ME_498036AD03AB // InscStatusBarItemsProvider
- ME_498036CB01D2 // InscStatusBarItemsVisualizer
- ME_4FE9F428027C // InscStatusBarOperationDef
- ME_4FEC3BB5027F // InscStatusBarDelimiterDef
- ME_52B333A8015C // InscBaseSearchPromptNode
+   Seq: ( HWL ME_4908393001C5 // InscContextFilterState
+ HWL ME_490839920096 // InscContextFilterListener
+ HWL ME_496B78080016 // InscPageControlNotification
+ HWL ME_498035FA00E9 // TnscToolTipKind
+ HWL ME_4980350B00FA // InscStatusBarItemDef
+ HWL ME_498036360179 // InscStatusBarItemDefsList
+ HWL ME_498036AD03AB // InscStatusBarItemsProvider
+ HWL ME_498036CB01D2 // InscStatusBarItemsVisualizer
+ HWL ME_4FE9F428027C // InscStatusBarOperationDef
+ HWL ME_4FEC3BB5027F // InscStatusBarDelimiterDef
+ HWL ME_52B333A8015C // InscBaseSearchPromptNode
  )
  ; // Children
  : Depends

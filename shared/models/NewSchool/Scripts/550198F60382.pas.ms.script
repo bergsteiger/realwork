@@ -15,7 +15,7 @@ FORWARD ME_513A59658F12
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_513A59658F12 // Ml3MenuManagerHelper
+ : Parent HWL ME_513A59658F12 // Ml3MenuManagerHelper
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -29,7 +29,7 @@ ref; // ME_9CBAC5378D28 CreateManager
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_513A59658F12 // Ml3MenuManagerHelper
+ : Parent HWL ME_513A59658F12 // Ml3MenuManagerHelper
  ;
 
 ref; // ME_FFCD4B7E45D8 FreeManager
@@ -44,56 +44,15 @@ ref; // ME_FFCD4B7E45D8 FreeManager
  %SUMMARY 'Контракт сервиса Tl3MenuManagerHelper' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_550199070251 // Tl3MenuManagerHelper
+ : Parent HWL ME_550199070251 // Tl3MenuManagerHelper
  ;
  : Operations
-   Seq: ( ME_9CBAC5378D28 // CreateManager
- ME_FFCD4B7E45D8 // FreeManager
+   Seq: ( HWL ME_9CBAC5378D28 // CreateManager
+ HWL ME_FFCD4B7E45D8 // FreeManager
  )
  ; // Operations
 
 ref; // ME_513A59658F12 Ml3MenuManagerHelper
-
-FORWARD ME_0BEB6CFDB3DA
-
-: ME_9CBAC5378D28_ME_0BEB6CFDB3DA
- : Original ME_9CBAC5378D28 // CreateManager
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_9CBAC5378D28_ME_0BEB6CFDB3DA CreateManager
-
-: ME_FFCD4B7E45D8_ME_0BEB6CFDB3DA
- : Original ME_FFCD4B7E45D8 // FreeManager
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_FFCD4B7E45D8_ME_0BEB6CFDB3DA FreeManager
-
-: ME_0BEB6CFDB3DA
- CONST UID '0BEB6CFDB3DA'
- CONST GUID 'ECC961D9-9F47-4CCE-87B8-CBDE8D5ABCDA'
- CONST Name 'Il3MenuManagerHelper'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Facet ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Интерфейс сервиса Tl3MenuManagerHelper' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_550199070251 // Tl3MenuManagerHelper
- ;
- : Implements
-   Seq: ( ME_513A59658F12 // Ml3MenuManagerHelper
- )
- ; // Implements
- : Implemented
-   Seq: ( ME_9CBAC5378D28_ME_0BEB6CFDB3DA // CreateManager
- ME_FFCD4B7E45D8_ME_0BEB6CFDB3DA // FreeManager
- )
- ; // Implemented
- CONST extprop:rc:SelfName 'MenuManagerHelper'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_0BEB6CFDB3DA Il3MenuManagerHelper
 
 : ME_5506A8670291
  CONST UID '5506A8670291'
@@ -102,7 +61,7 @@ ref; // ME_0BEB6CFDB3DA Il3MenuManagerHelper
  : Stereotype st_responsibility::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_550199070251 // Tl3MenuManagerHelper
+ : Parent HWL ME_550199070251 // Tl3MenuManagerHelper
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -116,22 +75,10 @@ ref; // ME_5506A8670291 CreateManager
  : Stereotype st_responsibility::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_550199070251 // Tl3MenuManagerHelper
+ : Parent HWL ME_550199070251 // Tl3MenuManagerHelper
  ;
 
 ref; // ME_5506A87D008E FreeManager
-
-: ME_9CBAC5378D28_ME_550199070251
- : Original ME_9CBAC5378D28 // CreateManager
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_9CBAC5378D28_ME_550199070251 CreateManager
-
-: ME_FFCD4B7E45D8_ME_550199070251
- : Original ME_FFCD4B7E45D8 // FreeManager
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_FFCD4B7E45D8_ME_550199070251 FreeManager
 
 : ME_550199070251
  CONST UID '550199070251'
@@ -141,40 +88,25 @@ ref; // ME_FFCD4B7E45D8_ME_550199070251 FreeManager
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_550198F60382 // VCMHelpers
+ : Parent HWL ME_550198F60382 // VCMHelpers
  ;
  : Inherits
    Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
  )
  ; // Inherits
- : Implements
-   Seq: ( ME_513A59658F12 // Ml3MenuManagerHelper
- )
- ; // Implements
  : Operations
-   Seq: ( ME_5506A8670291 // CreateManager
- ME_5506A87D008E // FreeManager
+   Seq: ( HWL ME_5506A8670291 // CreateManager
+ HWL ME_5506A87D008E // FreeManager
  )
  ; // Operations
- : Implemented
-   Seq: ( ME_9CBAC5378D28_ME_550199070251 // CreateManager
- ME_FFCD4B7E45D8_ME_550199070251 // FreeManager
- )
- ; // Implemented
  : Children
-   Seq: ( ME_513A59658F12 // Ml3MenuManagerHelper
- ME_0BEB6CFDB3DA // Il3MenuManagerHelper
+   Seq: ( HWL ME_513A59658F12 // Ml3MenuManagerHelper
  )
  ; // Children
- CONST "singleton" true
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3MenuManagerHelper.pas'
  CONST extprop:rc:SelfName 'MenuManagerHelper'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'l3MenuManagerHelper'
- : Facet ME_0BEB6CFDB3DA // Il3MenuManagerHelper
- ;
- : Mixin ME_513A59658F12 // Ml3MenuManagerHelper
- ;
 
 ref; // ME_550199070251 Tl3MenuManagerHelper
 
@@ -189,7 +121,7 @@ FORWARD ME_1FB1A07FEA18
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_1FB1A07FEA18 // Ml3DispatcherHelper
+ : Parent HWL ME_1FB1A07FEA18 // Ml3DispatcherHelper
  ;
 
 ref; // ME_CA1F3F463873 ClearHistory
@@ -204,48 +136,14 @@ ref; // ME_CA1F3F463873 ClearHistory
  %SUMMARY 'Контракт сервиса Tl3DispatcherHelper' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_5501A3AE02AA // Tl3DispatcherHelper
+ : Parent HWL ME_5501A3AE02AA // Tl3DispatcherHelper
  ;
  : Operations
-   Seq: ( ME_CA1F3F463873 // ClearHistory
+   Seq: ( HWL ME_CA1F3F463873 // ClearHistory
  )
  ; // Operations
 
 ref; // ME_1FB1A07FEA18 Ml3DispatcherHelper
-
-FORWARD ME_0DC9B60865A3
-
-: ME_CA1F3F463873_ME_0DC9B60865A3
- : Original ME_CA1F3F463873 // ClearHistory
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_CA1F3F463873_ME_0DC9B60865A3 ClearHistory
-
-: ME_0DC9B60865A3
- CONST UID '0DC9B60865A3'
- CONST GUID 'BF29E5DD-DC50-4752-800C-CA9E91242A15'
- CONST Name 'Il3DispatcherHelper'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Facet ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Интерфейс сервиса Tl3DispatcherHelper' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_5501A3AE02AA // Tl3DispatcherHelper
- ;
- : Implements
-   Seq: ( ME_1FB1A07FEA18 // Ml3DispatcherHelper
- )
- ; // Implements
- : Implemented
-   Seq: ( ME_CA1F3F463873_ME_0DC9B60865A3 // ClearHistory
- )
- ; // Implemented
- CONST extprop:rc:SelfName 'DispatcherHelper'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_0DC9B60865A3 Il3DispatcherHelper
 
 : ME_55069D5903C8
  CONST UID '55069D5903C8'
@@ -254,16 +152,10 @@ ref; // ME_0DC9B60865A3 Il3DispatcherHelper
  : Stereotype st_responsibility::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_5501A3AE02AA // Tl3DispatcherHelper
+ : Parent HWL ME_5501A3AE02AA // Tl3DispatcherHelper
  ;
 
 ref; // ME_55069D5903C8 ClearHistory
-
-: ME_CA1F3F463873_ME_5501A3AE02AA
- : Original ME_CA1F3F463873 // ClearHistory
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_CA1F3F463873_ME_5501A3AE02AA ClearHistory
 
 : ME_5501A3AE02AA
  CONST UID '5501A3AE02AA'
@@ -273,38 +165,24 @@ ref; // ME_CA1F3F463873_ME_5501A3AE02AA ClearHistory
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_550198F60382 // VCMHelpers
+ : Parent HWL ME_550198F60382 // VCMHelpers
  ;
  : Inherits
    Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
  )
  ; // Inherits
- : Implements
-   Seq: ( ME_1FB1A07FEA18 // Ml3DispatcherHelper
- )
- ; // Implements
  : Operations
-   Seq: ( ME_55069D5903C8 // ClearHistory
+   Seq: ( HWL ME_55069D5903C8 // ClearHistory
  )
  ; // Operations
- : Implemented
-   Seq: ( ME_CA1F3F463873_ME_5501A3AE02AA // ClearHistory
- )
- ; // Implemented
  : Children
-   Seq: ( ME_1FB1A07FEA18 // Ml3DispatcherHelper
- ME_0DC9B60865A3 // Il3DispatcherHelper
+   Seq: ( HWL ME_1FB1A07FEA18 // Ml3DispatcherHelper
  )
  ; // Children
- CONST "singleton" true
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3DispatcherHelper.pas'
  CONST extprop:rc:SelfName 'DispatcherHelper'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'l3DispatcherHelper'
- : Facet ME_0DC9B60865A3 // Il3DispatcherHelper
- ;
- : Mixin ME_1FB1A07FEA18 // Ml3DispatcherHelper
- ;
 
 ref; // ME_5501A3AE02AA Tl3DispatcherHelper
 
@@ -318,8 +196,8 @@ ref; // ME_5501A3AE02AA Tl3DispatcherHelper
  : Parent WL 'ME_550012C403C4' '550012C403C4.pas.ms.script' // L3$AFW
  ;
  : Children
-   Seq: ( ME_550199070251 // Tl3MenuManagerHelper
- ME_5501A3AE02AA // Tl3DispatcherHelper
+   Seq: ( HWL ME_550199070251 // Tl3MenuManagerHelper
+ HWL ME_5501A3AE02AA // Tl3DispatcherHelper
  )
  ; // Children
  : Depends

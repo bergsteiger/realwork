@@ -1,0 +1,77 @@
+// TdsTreeAttributeFirstLevel 492447740299 ViewAreaControllerImp Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_492447740299
+
+: ME_492D864001BA
+ CONST UID '492D864001BA'
+ CONST Name 'FormDataSourceType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent HWL ME_492447740299 // TdsTreeAttributeFirstLevel
+ ;
+ : Target WL 'ME_4924450800EC' '4AA5503000D7.pas.ms.script' // IdsTreeAttributeFirstLevel
+ ;
+
+ref; // ME_492D864001BA FormDataSourceType
+
+: ME_492447CE01A6
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_492447740299 // TdsTreeAttributeFirstLevel
+ ;
+ : Target WL 'ME_4683698E01BC' '49006FAB024A.pas.ms.script' // TnsAttributeOneLevelTreeStruct
+ ;
+
+ref; // ME_492447CE01A6 
+
+: ME_47F4C2B9014A_ME_492447740299
+ : Original WL 'ME_47F4C2B9014A' '47F0C1410011.pas.ms.script' // MakeSimpleTree
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_47F4C2B9014A_ME_492447740299 MakeSimpleTree
+
+: ME_492447740299
+ CONST UID '492447740299'
+ CONST Name 'TdsTreeAttributeFirstLevel'
+ CONST Class class_Class
+ : Stereotype st_ViewAreaControllerImp ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'бизнес объект формы выбранные атрибуты дерева' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_491DCA2C00A9' '491DCA2C00A9.pas.ms.script' // Search
+ ;
+ : Inherits
+   Seq: ( WL 'ME_49242CB201D0' '49242CB201D0.pas.ms.script' // dsSituation
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4924450800EC' '4AA5503000D7.pas.ms.script' // IdsTreeAttributeFirstLevel
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( HWL ME_492D864001BA // FormDataSourceType
+ )
+ ; // Attributes
+ : Implemented
+   Seq: ( ME_47F4C2B9014A_ME_492447740299 // MakeSimpleTree
+ )
+ ; // Implemented
+ : Dependencies
+   Seq: ( ME_492447CE01A6 // TnsAttributeOneLevelTreeStruct
+ )
+ ; // Dependencies
+ CONST "author" 'Морозов М.А.'
+ CONST "no hands" true
+ CONST "started" '2005/07/29 15:27:38'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Search\dsTreeAttributeFirstLevel.pas'
+ CONST extprop:rc:SelfName 'dsTreeAttributeFirstLevel'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'dsTreeAttributeFirstLevel'
+
+ref; // ME_492447740299 TdsTreeAttributeFirstLevel

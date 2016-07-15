@@ -1,0 +1,61 @@
+// RightEdition 4A6EC062005F VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A6EC062005F
+
+: ME_36BDD98F326D
+ CONST UID '36BDD98F326D'
+ CONST Name 'Ini_FormFactory_RightEdition'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы RightEdition' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4A6EC062005F // RightEdition
+ ;
+ : SpelledFor HWL ME_4A6EC062005F // RightEdition
+ ;
+
+ref; // ME_36BDD98F326D Ini_FormFactory_RightEdition
+
+: ME_4A6EC062005F
+ CONST UID '4A6EC062005F'
+ CONST Name 'RightEdition'
+ CONST Class class_Class
+ : Stereotype st_VCMFinalForm ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Текущая редакция' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent WL 'ME_4A6D5F3D03A9' '4A6D5F3D03A9.pas.ms.script' // BaseEditions
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4A6D5ABE020A' '4A6D5ABE020A.pas.ms.script' // PrimRightEdition
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4FFC674F004A' '4FFC670F012B.pas.ms.script' // RightEdition
+ )
+ ; // Implements
+ : Operations
+   Seq: ( HWL ME_36BDD98F326D // Ini_FormFactory_RightEdition
+ )
+ ; // Operations
+ CONST "NeedsHackRef" true
+ CONST "ZoneType" 'Any'
+ CONST "author" 'Люлин А.В.'
+ CONST "finished dfm" true
+ CONST "no hands" true
+ CONST "resizeable" false
+ CONST "restrict form def" 'undefined'
+ CONST "started" '28.07.2009 13:10'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Editions\Forms\RightEdition_Form.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Editions\Forms'
+ CONST extprop:pas:TypeName 'TRightEditionForm'
+ CONST extprop:rc:SelfName 'RightEditionForm'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'RightEdition_Form'
+
+ref; // ME_4A6EC062005F RightEdition

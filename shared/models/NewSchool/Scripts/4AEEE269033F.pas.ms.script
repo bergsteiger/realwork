@@ -1,0 +1,437 @@
+// PrimNavigator 4AEEE269033F VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AEEE269033F
+
+: ME_4BD72ACA02F6
+ CONST UID '4BD72ACA02F6'
+ CONST Name 'utNavigator'
+ CONST Class class_Class
+ : Stereotype st_UserType ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Меню' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AEEE269033F // PrimNavigator
+ ;
+ CONST "ImageIndex" 44
+ CONST "SettingsCaption" 'Меню (вкладка)'
+ CONST "Weight" 10
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\PrimNavigator_utNavigator_UserType.pas'
+ CONST extprop:pas:UnitName 'PrimNavigator_utNavigator_UserType'
+
+ref; // ME_4BD72ACA02F6 utNavigator
+
+FORWARD ME_524006E10126
+
+: ME_524007060294
+ CONST UID '524007060294'
+ CONST Name 'ContextFilter'
+ CONST Class class_Class
+ : Stereotype st_Control ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_524006E10126 // BackgroundPanel
+ ;
+ CONST "ControlClass" 'TnscContextFilter'
+ CONST "pm" true
+ CONST "put to dfm" false
+
+ref; // ME_524007060294 ContextFilter
+
+: ME_4AEEE33B0320
+ CONST UID '4AEEE33B0320'
+ CONST Name 'NavigatorTree'
+ CONST Class class_Class
+ : Stereotype st_Control ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_524006E10126 // BackgroundPanel
+ ;
+ CONST "ControlClass" 'TnscTreeViewWithAdapterDragDrop'
+ CONST "pm" true
+ CONST "put to dfm" false
+
+ref; // ME_4AEEE33B0320 NavigatorTree
+
+: ME_524006E10126
+ CONST UID '524006E10126'
+ CONST Name 'BackgroundPanel'
+ CONST Class class_Class
+ : Stereotype st_Control ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AEEE269033F // PrimNavigator
+ ;
+ : Attributes
+   Seq: ( HWL ME_524007060294 // ContextFilter
+ HWL ME_4AEEE33B0320 // NavigatorTree
+ )
+ ; // Attributes
+ CONST "ControlClass" 'TvtPanel'
+ CONST "pm" true
+ CONST "put to dfm" false
+
+ref; // ME_524006E10126 BackgroundPanel
+
+: ME_4AEEE3280186
+ CONST UID '4AEEE3280186'
+ CONST Name 'f_Lock'
+ CONST Class class_Attribute
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4AEEE269033F // PrimNavigator
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4AEEE3280186 f_Lock
+
+: ME_5240075C038B
+ CONST UID '5240075C038B'
+ CONST Name 'NavigatorTreeActionElement'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AEEE269033F // PrimNavigator
+ ;
+ : Inherits
+   Seq: ( WL 'ME_51432026033F' '4CFFE3470249.pas.ms.script' // TActionElement
+ )
+ ; // Inherits
+
+ref; // ME_5240075C038B NavigatorTreeActionElement
+
+: ME_524007670210
+ CONST UID '524007670210'
+ CONST Name 'NavigatorTreeGetItemImage'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AEEE269033F // PrimNavigator
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47D63B6D0157' '47D036150077.pas.ms.script' // Tl3GetItemImage
+ )
+ ; // Inherits
+
+ref; // ME_524007670210 NavigatorTreeGetItemImage
+
+: ME_5240077701D5
+ CONST UID '5240077701D5'
+ CONST Name 'NavigatorTreeNewCharPressed'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AEEE269033F // PrimNavigator
+ ;
+ : Inherits
+   Seq: ( WL 'ME_5143230F01E4' '494B949E022B.pas.ms.script' // TeeNewCharPressed
+ )
+ ; // Inherits
+
+ref; // ME_5240077701D5 NavigatorTreeNewCharPressed
+
+: ME_524007800305
+ CONST UID '524007800305'
+ CONST Name 'NavigatorTreeMakeTreeSource'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AEEE269033F // PrimNavigator
+ ;
+ : Inherits
+   Seq: ( WL 'ME_5199D8F700DB' '494B949E022B.pas.ms.script' // TeeMakeTreeSource
+ )
+ ; // Inherits
+
+ref; // ME_524007800305 NavigatorTreeMakeTreeSource
+
+: ME_5240078A00F5
+ CONST UID '5240078A00F5'
+ CONST Name 'ContextFilterChange'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AEEE269033F // PrimNavigator
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
+ )
+ ; // Inherits
+
+ref; // ME_5240078A00F5 ContextFilterChange
+
+: ME_5240079601A2
+ CONST UID '5240079601A2'
+ CONST Name 'NavigatorTreeTreeChanged'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AEEE269033F // PrimNavigator
+ ;
+ : Inherits
+   Seq: ( WL 'ME_5146EBE00019' '515DA5860015.pas.ms.script' // TvtTreeChangedEvent
+ )
+ ; // Inherits
+
+ref; // ME_5240079601A2 NavigatorTreeTreeChanged
+
+: ME_524007A00200
+ CONST UID '524007A00200'
+ CONST Name 'ContextFilterWrongContext'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AEEE269033F // PrimNavigator
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
+ )
+ ; // Inherits
+
+ref; // ME_524007A00200 ContextFilterWrongContext
+
+FORWARD ME_4C87A9640232
+
+: ME_4C87A96C02A2
+ CONST UID '4C87A96C02A2'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4C87A9640232 // ExecuteCurrentElement
+ ;
+
+ref; // ME_4C87A96C02A2 DoIt
+
+: ME_4C87A9640232
+ CONST UID '4C87A9640232'
+ CONST Name 'ExecuteCurrentElement'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AEEE269033F // PrimNavigator
+ ;
+ : Operations
+   Seq: ( HWL ME_4C87A96C02A2 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_4C87A9640232 ExecuteCurrentElement
+
+: ME_52402ED303AF
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AEEE269033F // PrimNavigator
+ ;
+ : Target WL 'ME_52400BCF03D1' '497ED74F0032.pas.ms.script' // NavigatorUtils
+ ;
+
+ref; // ME_52402ED303AF 
+
+: ME_52402EE20221
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AEEE269033F // PrimNavigator
+ ;
+ : Target WL 'ME_45EEB95901C5' '457450470167.pas.ms.script' // NodeBase
+ ;
+
+ref; // ME_52402EE20221 
+
+: ME_52402EE602BE
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AEEE269033F // PrimNavigator
+ ;
+ : Target WL 'ME_490C47C70210' '48F747EC0073.pas.ms.script' // nsUtils
+ ;
+
+ref; // ME_52402EE602BE 
+
+: ME_52402EE900D2
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AEEE269033F // PrimNavigator
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_52402EE900D2 
+
+: ME_52402EEB01E5
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AEEE269033F // PrimNavigator
+ ;
+ : Target WL 'ME_47E13C6B0341' '4799D29F033F.pas.ms.script' // Forms
+ ;
+
+ref; // ME_52402EEB01E5 
+
+: ME_52402EED0377
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AEEE269033F // PrimNavigator
+ ;
+ : Target WL 'ME_47E11FC3021E' '4799D29F033F.pas.ms.script' // Controls
+ ;
+
+ref; // ME_52402EED0377 
+
+: ME_52402EF000F0
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AEEE269033F // PrimNavigator
+ ;
+ : Target WL 'ME_52402E6C002E' '4907236C0171.pas.ms.script' // NavigatorRes
+ ;
+
+ref; // ME_52402EF000F0 
+
+: ME_52402EF202E2
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AEEE269033F // PrimNavigator
+ ;
+ : Target WL 'ME_490723DC0096' '4907236C0171.pas.ms.script' // TnsNavigatorTreeStruct
+ ;
+
+ref; // ME_52402EF202E2 
+
+: ME_52402EF5011D
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AEEE269033F // PrimNavigator
+ ;
+ : Target WL 'ME_45EEDB5602C3' '456EA56002BF.pas.ms.script' // ListNodeType
+ ;
+
+ref; // ME_52402EF5011D 
+
+: ME_4AEEE2D40157_ME_4AEEE269033F
+ : Original WL 'ME_4AEEE2D40157' '4AEEE2A40281.pas.ms.script' // SetCurrent
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "Needs Broadcast" false
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_4AEEE2D40157_ME_4AEEE269033F SetCurrent
+
+: ME_479731C50290_ME_4AEEE269033F
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_479731C50290_ME_4AEEE269033F Cleanup
+
+: ME_4A8E8F2E0195_ME_4AEEE269033F
+ : Original WL 'ME_4A8E8F2E0195' '5000041101C8.pas.ms.script' // InitControls
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4A8E8F2E0195_ME_4AEEE269033F InitControls
+
+: ME_4AEEE269033F
+ CONST UID '4AEEE269033F'
+ CONST Name 'PrimNavigator'
+ CONST Class class_Class
+ : Stereotype st_VCMForm ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Меню' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_497ED74F0032' '497ED74F0032.pas.ms.script' // Common
+ ;
+ : Inherits
+   Seq: ( WL 'ME_49525B34022A' '4AADF9450143.pas.ms.script' // TvcmEntityForm
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_48FF6D050234' '47ECAAF901F8.pas.ms.script' // InsTreeDataListener
+ WL 'ME_4AEEE2C402DC' '4AEEE2A40281.pas.ms.script' // Navigator
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( HWL ME_524006E10126 // BackgroundPanel
+ HWL ME_4AEEE3280186 // f_Lock
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( HWL ME_5240075C038B // NavigatorTreeActionElement
+ HWL ME_524007670210 // NavigatorTreeGetItemImage
+ HWL ME_5240077701D5 // NavigatorTreeNewCharPressed
+ HWL ME_524007800305 // NavigatorTreeMakeTreeSource
+ HWL ME_5240078A00F5 // ContextFilterChange
+ HWL ME_5240079601A2 // NavigatorTreeTreeChanged
+ HWL ME_524007A00200 // ContextFilterWrongContext
+ HWL ME_4C87A9640232 // ExecuteCurrentElement
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4AEEE2D40157_ME_4AEEE269033F // SetCurrent
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_479731C50290_ME_4AEEE269033F // Cleanup
+ ME_4A8E8F2E0195_ME_4AEEE269033F // InitControls
+ )
+ ; // Overridden
+ : Children
+   Seq: ( HWL ME_4BD72ACA02F6 // utNavigator
+ )
+ ; // Children
+ : Dependencies
+   Seq: ( ME_52402ED303AF // NavigatorUtils
+ ME_52402EE20221 // NodeBase
+ ME_52402EE602BE // nsUtils
+ ME_52402EE900D2 // SysUtils
+ ME_52402EEB01E5 // Forms
+ ME_52402EED0377 // Controls
+ ME_52402EF000F0 // NavigatorRes
+ ME_52402EF202E2 // TnsNavigatorTreeStruct
+ ME_52402EF5011D // ListNodeType
+ )
+ ; // Dependencies
+ CONST "NeedsHackRef" false
+ CONST "ZoneType" 'Navigator'
+ CONST "author" 'Люлин А.В.'
+ CONST "finished dfm" true
+ CONST "no hands" true
+ CONST "resizeable" false
+ CONST "restrict form def" 'undefined'
+ CONST "started" '02.11.2009 16:45'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\PrimNavigator_Form.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms'
+ CONST extprop:pas:TypeName 'TPrimNavigatorForm'
+ CONST extprop:rc:SelfName 'PrimNavigatorForm'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'PrimNavigator_Form'
+ CONST extprop:NeedsInitEntities true
+
+ref; // ME_4AEEE269033F PrimNavigator

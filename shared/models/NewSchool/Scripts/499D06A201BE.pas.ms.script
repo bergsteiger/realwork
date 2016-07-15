@@ -13,7 +13,7 @@ FORWARD ME_499D06FE010B
  %SUMMARY 'Клиент разрешил закрыть сплеш' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_499D06FE010B // InsSplashWaiter
+ : Parent HWL ME_499D06FE010B // InsSplashWaiter
  ;
 
 ref; // ME_499D070E0287 CanCloseSplash
@@ -28,10 +28,10 @@ ref; // ME_499D070E0287 CanCloseSplash
  %SUMMARY 'Объект ожидающий нотификацию о том, что клиент хочет погасить сплеш' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_499D06A201BE // SplashServerInterfaces
+ : Parent HWL ME_499D06A201BE // SplashServerInterfaces
  ;
  : Operations
-   Seq: ( ME_499D070E0287 // CanCloseSplash
+   Seq: ( HWL ME_499D070E0287 // CanCloseSplash
  )
  ; // Operations
  CONST extprop:rc:SelfName 'SplashWaiter'
@@ -50,9 +50,9 @@ FORWARD ME_499D0728005B
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_499D0728005B // InsSplashInfo
+ : Parent HWL ME_499D0728005B // InsSplashInfo
  ;
- : Target ME_499D06FE010B // InsSplashWaiter
+ : Target HWL ME_499D06FE010B // InsSplashWaiter
  ;
  CONST "pm" false
 
@@ -67,7 +67,7 @@ ref; // ME_499D074100CF Waiter
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_499D0728005B // InsSplashInfo
+ : Parent HWL ME_499D0728005B // InsSplashInfo
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -84,7 +84,7 @@ ref; // ME_499D121F01A1 IsValid
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_499D0728005B // InsSplashInfo
+ : Parent HWL ME_499D0728005B // InsSplashInfo
  ;
  : Target WL 'ME_46A618AF0053' '4AB0C3C60310.pas.ms.script' // Cardinal
  ;
@@ -101,7 +101,7 @@ ref; // ME_499D12390040 MinimalShowTime
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_499D0728005B // InsSplashInfo
+ : Parent HWL ME_499D0728005B // InsSplashInfo
  ;
  : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
  ;
@@ -118,7 +118,7 @@ ref; // ME_499D12670256 Warning
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_499D0728005B // InsSplashInfo
+ : Parent HWL ME_499D0728005B // InsSplashInfo
  ;
  : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
  ;
@@ -135,7 +135,7 @@ ref; // ME_499D128B028A UserInfo
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_499D0728005B // InsSplashInfo
+ : Parent HWL ME_499D0728005B // InsSplashInfo
  ;
  : Target WL 'ME_4771179900D8' '4AB0C3C60310.pas.ms.script' // PChar
  ;
@@ -150,7 +150,7 @@ ref; // ME_499D1298014D ApplicationTitle
  %SUMMARY 'Переключиться на окно клиента (в конце показа)' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_499D0728005B // InsSplashInfo
+ : Parent HWL ME_499D0728005B // InsSplashInfo
  ;
 
 ref; // ME_499D076503E0 SwitchToParent
@@ -161,7 +161,7 @@ ref; // ME_499D076503E0 SwitchToParent
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_499D0728005B // InsSplashInfo
+ : Parent HWL ME_499D0728005B // InsSplashInfo
  ;
  : Target WL 'ME_46A5B0060013' '4677FBA70343.pas.ms.script' // IStream
  ;
@@ -175,7 +175,7 @@ ref; // ME_499D3E8A0270 MakeSplashDataStream
  %SUMMARY 'Создает поток для вычитывания TvtPngImageList в котормо лежит лого' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_499D0728005B // InsSplashInfo
+ : Parent HWL ME_499D0728005B // InsSplashInfo
  ;
  : Target WL 'ME_46A5B0060013' '4677FBA70343.pas.ms.script' // IStream
  ;
@@ -192,21 +192,21 @@ ref; // ME_499E5EA40035 MakeLogoStream
  %SUMMARY 'Информация с описанием сплеша, который надо показать' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_499D06A201BE // SplashServerInterfaces
+ : Parent HWL ME_499D06A201BE // SplashServerInterfaces
  ;
  : Attributes
-   Seq: ( ME_499D074100CF // Waiter
- ME_499D121F01A1 // IsValid
- ME_499D12390040 // MinimalShowTime
- ME_499D12670256 // Warning
- ME_499D128B028A // UserInfo
- ME_499D1298014D // ApplicationTitle
+   Seq: ( HWL ME_499D074100CF // Waiter
+ HWL ME_499D121F01A1 // IsValid
+ HWL ME_499D12390040 // MinimalShowTime
+ HWL ME_499D12670256 // Warning
+ HWL ME_499D128B028A // UserInfo
+ HWL ME_499D1298014D // ApplicationTitle
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_499D076503E0 // SwitchToParent
- ME_499D3E8A0270 // MakeSplashDataStream
- ME_499E5EA40035 // MakeLogoStream
+   Seq: ( HWL ME_499D076503E0 // SwitchToParent
+ HWL ME_499D3E8A0270 // MakeSplashDataStream
+ HWL ME_499E5EA40035 // MakeLogoStream
  )
  ; // Operations
  CONST extprop:rc:SelfName 'SplashInfo'
@@ -225,8 +225,8 @@ ref; // ME_499D0728005B InsSplashInfo
  : Parent WL 'ME_499C065E01E5' '499C065E01E5.pas.ms.script' // Splash
  ;
  : Children
-   Seq: ( ME_499D06FE010B // InsSplashWaiter
- ME_499D0728005B // InsSplashInfo
+   Seq: ( HWL ME_499D06FE010B // InsSplashWaiter
+ HWL ME_499D0728005B // InsSplashInfo
  )
  ; // Children
  : Depends

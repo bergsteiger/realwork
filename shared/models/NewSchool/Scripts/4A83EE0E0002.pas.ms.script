@@ -4,109 +4,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 FORWARD ME_4A83EE0E0002
 
-FORWARD ME_4A83EE2702B6
-
-FORWARD ME_5538D1CB00A7
-
-: ME_5538D2910363
- CONST UID '5538D2910363'
- CONST Name 'OnEndTextPrint'
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_5538D1CB00A7 // TCustomComboTree
- ;
- : Target WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
- ;
- CONST "pm" true
- CONST "reads field" true
- CONST "writes field" true
-
-ref; // ME_5538D2910363 OnEndTextPrint
-
-: ME_5538D2D2035B
- CONST UID '5538D2D2035B'
- CONST Name 'EndTextPrint'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5538D1CB00A7 // TCustomComboTree
- ;
-
-ref; // ME_5538D2D2035B EndTextPrint
-
-: ME_482AE42802AE_ME_5538D1CB00A7
- : Original WL 'ME_482AE42802AE' '48342A280198.pas.ms.script' // Change
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_482AE42802AE_ME_5538D1CB00A7 Change
-
-: ME_53EE0A730393_ME_5538D1CB00A7
- : Original WL 'ME_53EE0A730393' '48297E42011A.pas.ms.script' // ProcessTreeSelect
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_53EE0A730393_ME_5538D1CB00A7 ProcessTreeSelect
-
-: ME_5538D1CB00A7
- CONST UID '5538D1CB00A7'
- CONST Name 'TCustomComboTree'
- CONST Class class_Class
- : Stereotype st_GuiControl ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4A83EE2702B6 // TvtComboBoxQS
- ;
- : Inherits
-   Seq: ( WL 'ME_55B780E60398' '48297E42011A.pas.ms.script' // TvtComboTree
- )
- ; // Inherits
- : Attributes
-   Seq: ( ME_5538D2910363 // OnEndTextPrint
- )
- ; // Attributes
- : Operations
-   Seq: ( ME_5538D2D2035B // EndTextPrint
- )
- ; // Operations
- : Overridden
-   Seq: ( ME_482AE42802AE_ME_5538D1CB00A7 // Change
- ME_53EE0A730393_ME_5538D1CB00A7 // ProcessTreeSelect
- )
- ; // Overridden
- CONST extprop:rc:SelfName 'ComboTree'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_5538D1CB00A7 TCustomComboTree
-
-: ME_4A83EE2702B6
- CONST UID '4A83EE2702B6'
- CONST Name 'TvtComboBoxQS'
- CONST Class class_Class
- : Stereotype st_GuiControl ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4A83EE0E0002 // Combos
- ;
- : Inherits
-   Seq: ( ME_5538D1CB00A7 // TCustomComboTree
- )
- ; // Inherits
- : Children
-   Seq: ( ME_5538D1CB00A7 // TCustomComboTree
- )
- ; // Children
- CONST "need UC" true
- CONST intf.pas:Path 'common\components\gui\Garant\VT\vtComboBoxQS.pas'
- CONST extprop:rc:SelfName 'ComboBoxQS'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'vtComboBoxQS'
-
-ref; // ME_4A83EE2702B6 TvtComboBoxQS
-
 FORWARD ME_51B5C8CB00A0
 
 FORWARD ME_52A9AD5F0269
@@ -128,7 +25,7 @@ ref; // ME_52A9AF600102 Accept
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_52A9AF500143 // DoCloseUp
+ : Parent HWL ME_52A9AF500143 // DoCloseUp
  ;
  : Parameters
    Seq: ( ME_52A9AF600102 // Accept
@@ -145,10 +42,10 @@ ref; // ME_52A9AF5E00FF DoIt
  CONST Kind kind_NormalClass
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_52A9AD5F0269 // TvtSimpleCustomCombo
+ : Parent HWL ME_52A9AD5F0269 // TvtSimpleCustomCombo
  ;
  : Operations
-   Seq: ( ME_52A9AF5E00FF // DoIt
+   Seq: ( HWL ME_52A9AF5E00FF // DoIt
  )
  ; // Operations
 
@@ -189,7 +86,7 @@ ref; // ME_554CA1C0022A aCount
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_554CA18500FB // ProcessCommand
+ : Parent HWL ME_554CA18500FB // ProcessCommand
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -210,10 +107,10 @@ ref; // ME_554CA1B7001B DoIt
  CONST Kind kind_NormalClass
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_52A9AD5F0269 // TvtSimpleCustomCombo
+ : Parent HWL ME_52A9AD5F0269 // TvtSimpleCustomCombo
  ;
  : Operations
-   Seq: ( ME_554CA1B7001B // DoIt
+   Seq: ( HWL ME_554CA1B7001B // DoIt
  )
  ; // Operations
 
@@ -229,7 +126,7 @@ FORWARD ME_554CBBA3004E
  %SUMMARY 'Сигнатура метода UpdateButtonPosition' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_554CBBA3004E // UpdateButtonPosition
+ : Parent HWL ME_554CBBA3004E // UpdateButtonPosition
  ;
 
 ref; // ME_7F65AA4508D1 DoIt
@@ -242,10 +139,10 @@ ref; // ME_7F65AA4508D1 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_52A9AD5F0269 // TvtSimpleCustomCombo
+ : Parent HWL ME_52A9AD5F0269 // TvtSimpleCustomCombo
  ;
  : Operations
-   Seq: ( ME_7F65AA4508D1 // DoIt
+   Seq: ( HWL ME_7F65AA4508D1 // DoIt
  )
  ; // Operations
  CONST "ifdef" 'Delphi7'
@@ -262,7 +159,7 @@ FORWARD ME_554CBC32006E
  %SUMMARY 'Сигнатура метода DropDown' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_554CBC32006E // DropDown
+ : Parent HWL ME_554CBC32006E // DropDown
  ;
 
 ref; // ME_058065FC3623 DoIt
@@ -275,10 +172,10 @@ ref; // ME_058065FC3623 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_52A9AD5F0269 // TvtSimpleCustomCombo
+ : Parent HWL ME_52A9AD5F0269 // TvtSimpleCustomCombo
  ;
  : Operations
-   Seq: ( ME_058065FC3623 // DoIt
+   Seq: ( HWL ME_058065FC3623 // DoIt
  )
  ; // Operations
 
@@ -301,7 +198,7 @@ ref; // ME_554CBC5103E2 Accept
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_554CBC4500ED // CloseUp
+ : Parent HWL ME_554CBC4500ED // CloseUp
  ;
  : Parameters
    Seq: ( ME_554CBC5103E2 // Accept
@@ -318,10 +215,10 @@ ref; // ME_554CBC4F01B5 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_52A9AD5F0269 // TvtSimpleCustomCombo
+ : Parent HWL ME_52A9AD5F0269 // TvtSimpleCustomCombo
  ;
  : Operations
-   Seq: ( ME_554CBC4F01B5 // DoIt
+   Seq: ( HWL ME_554CBC4F01B5 // DoIt
  )
  ; // Operations
 
@@ -335,7 +232,7 @@ ref; // ME_554CBC4500ED CloseUp
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_51B5C8CB00A0 // vtCombo
+ : Parent HWL ME_51B5C8CB00A0 // vtCombo
  ;
  : Inherits
    Seq: ( WL 'ME_52A9ADCB0092' '4799D29F033F.pas.ms.script' // TCustomMaskEdit
@@ -346,11 +243,11 @@ ref; // ME_554CBC4500ED CloseUp
  )
  ; // Implements
  : Operations
-   Seq: ( ME_52A9AF500143 // DoCloseUp
- ME_554CA18500FB // ProcessCommand
- ME_554CBBA3004E // UpdateButtonPosition
- ME_554CBC32006E // DropDown
- ME_554CBC4500ED // CloseUp
+   Seq: ( HWL ME_52A9AF500143 // DoCloseUp
+ HWL ME_554CA18500FB // ProcessCommand
+ HWL ME_554CBBA3004E // UpdateButtonPosition
+ HWL ME_554CBC32006E // DropDown
+ HWL ME_554CBC4500ED // CloseUp
  )
  ; // Operations
  CONST extprop:rc:SelfName 'SimpleCustomCombo'
@@ -368,7 +265,7 @@ FORWARD ME_554CA8F903AE
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_554CA8F903AE // GetDropDownContainer
+ : Parent HWL ME_554CA8F903AE // GetDropDownContainer
  ;
  : Target WL 'ME_47E124E90272' '4799D29F033F.pas.ms.script' // TWinControl
  ;
@@ -383,10 +280,10 @@ ref; // ME_554CA908032A DoIt
  CONST Kind kind_NormalClass
  CONST Visibility ProtectedAccess
  CONST Abstraction at_abstract
- : Parent ME_52A9AD500267 // TvtCustomCombo
+ : Parent HWL ME_52A9AD500267 // TvtCustomCombo
  ;
  : Operations
-   Seq: ( ME_554CA908032A // DoIt
+   Seq: ( HWL ME_554CA908032A // DoIt
  )
  ; // Operations
 
@@ -400,14 +297,14 @@ ref; // ME_554CA8F903AE GetDropDownContainer
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_51B5C8CB00A0 // vtCombo
+ : Parent HWL ME_51B5C8CB00A0 // vtCombo
  ;
  : Inherits
-   Seq: ( ME_52A9AD5F0269 // TvtSimpleCustomCombo
+   Seq: ( HWL ME_52A9AD5F0269 // TvtSimpleCustomCombo
  )
  ; // Inherits
  : Operations
-   Seq: ( ME_554CA8F903AE // GetDropDownContainer
+   Seq: ( HWL ME_554CA8F903AE // GetDropDownContainer
  )
  ; // Operations
  CONST extprop:rc:SelfName 'Combo'
@@ -423,11 +320,11 @@ ref; // ME_52A9AD500267 TvtCustomCombo
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4A83EE0E0002 // Combos
+ : Parent HWL ME_4A83EE0E0002 // Combos
  ;
  : Children
-   Seq: ( ME_52A9AD5F0269 // TvtSimpleCustomCombo
- ME_52A9AD500267 // TvtCustomCombo
+   Seq: ( HWL ME_52A9AD5F0269 // TvtSimpleCustomCombo
+ HWL ME_52A9AD500267 // TvtCustomCombo
  )
  ; // Children
  CONST "finished" false
@@ -435,718 +332,6 @@ ref; // ME_52A9AD500267 TvtCustomCombo
  CONST extprop:rc:SelfName 'Combo'
 
 ref; // ME_51B5C8CB00A0 vtCombo
-
-FORWARD ME_5270BBC702C7
-
-FORWARD ME_5538E639019E
-
-: ME_5538E6500082
- CONST UID '5538E6500082'
- CONST Name 'cbStandardColors'
- CONST Class class_Attribute
- %SUMMARY 'first sixteen RGBI colors' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_5538E639019E // TvtColorBoxStyles
- ;
-
-ref; // ME_5538E6500082 cbStandardColors
-
-: ME_5538E660030A
- CONST UID '5538E660030A'
- CONST Name 'cbExtendedColors'
- CONST Class class_Attribute
- %SUMMARY 'four additional reserved colors' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_5538E639019E // TvtColorBoxStyles
- ;
-
-ref; // ME_5538E660030A cbExtendedColors
-
-: ME_5538E6700384
- CONST UID '5538E6700384'
- CONST Name 'cbSystemColors'
- CONST Class class_Attribute
- %SUMMARY 'system managed/defined colors' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_5538E639019E // TvtColorBoxStyles
- ;
-
-ref; // ME_5538E6700384 cbSystemColors
-
-: ME_5538E67E00CB
- CONST UID '5538E67E00CB'
- CONST Name 'cbIncludeNone'
- CONST Class class_Attribute
- %SUMMARY 'include clNone color, must be used with cbSystemColors' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_5538E639019E // TvtColorBoxStyles
- ;
-
-ref; // ME_5538E67E00CB cbIncludeNone
-
-: ME_5538E69002EC
- CONST UID '5538E69002EC'
- CONST Name 'cbIncludeDefault'
- CONST Class class_Attribute
- %SUMMARY 'include clDefault color, must be used with cbSystemColors' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_5538E639019E // TvtColorBoxStyles
- ;
-
-ref; // ME_5538E69002EC cbIncludeDefault
-
-: ME_5538E69F03AB
- CONST UID '5538E69F03AB'
- CONST Name 'cbCustomColor'
- CONST Class class_Attribute
- %SUMMARY 'first color is customizable' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_5538E639019E // TvtColorBoxStyles
- ;
-
-ref; // ME_5538E69F03AB cbCustomColor
-
-: ME_5538E6AF031E
- CONST UID '5538E6AF031E'
- CONST Name 'cbPrettyNames'
- CONST Class class_Attribute
- %SUMMARY 'instead of ''clColorNames'' you get ''Color Names''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_5538E639019E // TvtColorBoxStyles
- ;
-
-ref; // ME_5538E6AF031E cbPrettyNames
-
-: ME_5538E6BE0205
- CONST UID '5538E6BE0205'
- CONST Name 'cbNoName'
- CONST Class class_Attribute
- %SUMMARY 'show only color rect' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_5538E639019E // TvtColorBoxStyles
- ;
-
-ref; // ME_5538E6BE0205 cbNoName
-
-: ME_5538E639019E
- CONST UID '5538E639019E'
- CONST Name 'TvtColorBoxStyles'
- CONST Class class_Class
- : Stereotype st_Enum ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_5270BBC702C7 // TvtColorBox
- ;
- : Attributes
-   Seq: ( ME_5538E6500082 // cbStandardColors
- ME_5538E660030A // cbExtendedColors
- ME_5538E6700384 // cbSystemColors
- ME_5538E67E00CB // cbIncludeNone
- ME_5538E69002EC // cbIncludeDefault
- ME_5538E69F03AB // cbCustomColor
- ME_5538E6AF031E // cbPrettyNames
- ME_5538E6BE0205 // cbNoName
- )
- ; // Attributes
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_5538E639019E TvtColorBoxStyles
-
-: ME_5538E6D503B4
- CONST UID '5538E6D503B4'
- CONST Name 'TvtColorBoxStyle'
- CONST Class class_Class
- : Stereotype st_SetOf ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_5270BBC702C7 // TvtColorBox
- ;
- : Inherits
-   Seq: ( ME_5538E639019E // TvtColorBoxStyles
- )
- ; // Inherits
-
-ref; // ME_5538E6D503B4 TvtColorBoxStyle
-
-FORWARD ME_5538E709017E
-
-: ME_5538EF8B0385
- CONST UID '5538EF8B0385'
- CONST Name 'ColorStyle'
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_5538E709017E // TvtCustomColorBox
- ;
- : Target ME_5538E6D503B4 // TvtColorBoxStyle
- ;
- CONST "pm" true
- CONST "reads field" true
-
-ref; // ME_5538EF8B0385 ColorStyle
-
-FORWARD ME_5538F01F01D6
-
-: ME_5538F06D01D0
- CONST UID '5538F06D01D0'
- CONST Name 'anIndex'
- CONST Class class_Attribute
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_5538F01F01D6 // Colors
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_5538F06D01D0 anIndex
-
-: ME_5538F01F01D6
- CONST UID '5538F01F01D6'
- CONST Name 'Colors'
- CONST Class class_Attribute
- : Stereotype st_readonly::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_5538E709017E // TvtCustomColorBox
- ;
- : Target WL 'ME_46A44A2F01C7' '55C4AEC801CA.pas.ms.script' // TColor
- ;
- : Attributes
-   Seq: ( ME_5538F06D01D0 // anIndex
- )
- ; // Attributes
- CONST "pm" true
-
-ref; // ME_5538F01F01D6 Colors
-
-FORWARD ME_5538F0A00111
-
-: ME_5538F0B9016F
- CONST UID '5538F0B9016F'
- CONST Name 'anIndex'
- CONST Class class_Attribute
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_5538F0A00111 // ColorNames
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_5538F0B9016F anIndex
-
-: ME_5538F0A00111
- CONST UID '5538F0A00111'
- CONST Name 'ColorNames'
- CONST Class class_Attribute
- : Stereotype st_readonly::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_5538E709017E // TvtCustomColorBox
- ;
- : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
- ;
- : Attributes
-   Seq: ( ME_5538F0B9016F // anIndex
- )
- ; // Attributes
- CONST "pm" true
-
-ref; // ME_5538F0A00111 ColorNames
-
-: ME_5538F0F4031D
- CONST UID '5538F0F4031D'
- CONST Name 'Selected'
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_5538E709017E // TvtCustomColorBox
- ;
- : Target WL 'ME_46A44A2F01C7' '55C4AEC801CA.pas.ms.script' // TColor
- ;
- CONST "needs field" true
- CONST "pm" true
-
-ref; // ME_5538F0F4031D Selected
-
-: ME_5538F2C90308
- CONST UID '5538F2C90308'
- CONST Name 'DefaultColorColor'
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_5538E709017E // TvtCustomColorBox
- ;
- : Target WL 'ME_46A44A2F01C7' '55C4AEC801CA.pas.ms.script' // TColor
- ;
- CONST "pm" true
- CONST "reads field" true
-
-ref; // ME_5538F2C90308 DefaultColorColor
-
-: ME_5538F2DD02EF
- CONST UID '5538F2DD02EF'
- CONST Name 'NoneColorColor'
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_5538E709017E // TvtCustomColorBox
- ;
- : Target WL 'ME_46A44A2F01C7' '55C4AEC801CA.pas.ms.script' // TColor
- ;
- CONST "pm" true
- CONST "reads field" true
-
-ref; // ME_5538F2DD02EF NoneColorColor
-
-: ME_5538F348002C
- CONST UID '5538F348002C'
- CONST Name 'f_NeedToPopulate'
- CONST Class class_Attribute
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_5538E709017E // TvtCustomColorBox
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_5538F348002C f_NeedToPopulate
-
-: ME_5538F3550015
- CONST UID '5538F3550015'
- CONST Name 'f_LockPickCustomColor'
- CONST Class class_Attribute
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_5538E709017E // TvtCustomColorBox
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_5538F3550015 f_LockPickCustomColor
-
-FORWARD ME_5538F3810270
-
-: ME_5538F38F0091
- CONST Name 'aName'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
-
-ref; // ME_5538F38F0091 aName
-
-: ME_5538F38900B4
- CONST UID '5538F38900B4'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5538F3810270 // ColorCallBack
- ;
- : Parameters
-   Seq: ( ME_5538F38F0091 // aName
- )
- ; // Parameters
-
-ref; // ME_5538F38900B4 DoIt
-
-: ME_5538F3810270
- CONST UID '5538F3810270'
- CONST Name 'ColorCallBack'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5538E709017E // TvtCustomColorBox
- ;
- : Operations
-   Seq: ( ME_5538F38900B4 // DoIt
- )
- ; // Operations
-
-ref; // ME_5538F3810270 ColorCallBack
-
-FORWARD ME_5538F39B01D0
-
-: ME_5538F3A402D0
- CONST Name 'aColor'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A44A2F01C7' '55C4AEC801CA.pas.ms.script' // TColor
- ;
-
-ref; // ME_5538F3A402D0 aColor
-
-: ME_5538F3A20155
- CONST UID '5538F3A20155'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5538F39B01D0 // IndexOfColor
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- : Parameters
-   Seq: ( ME_5538F3A402D0 // aColor
- )
- ; // Parameters
-
-ref; // ME_5538F3A20155 DoIt
-
-: ME_5538F39B01D0
- CONST UID '5538F39B01D0'
- CONST Name 'IndexOfColor'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5538E709017E // TvtCustomColorBox
- ;
- : Operations
-   Seq: ( ME_5538F3A20155 // DoIt
- )
- ; // Operations
-
-ref; // ME_5538F39B01D0 IndexOfColor
-
-FORWARD ME_5538F3B8006F
-
-: ME_5538F3C20062
- CONST UID '5538F3C20062'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5538F3B8006F // PickCustomColor
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_5538F3C20062 DoIt
-
-: ME_5538F3B8006F
- CONST UID '5538F3B8006F'
- CONST Name 'PickCustomColor'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility ProtectedAccess
- CONST Abstraction at_regular
- : Parent ME_5538E709017E // TvtCustomColorBox
- ;
- : Operations
-   Seq: ( ME_5538F3C20062 // DoIt
- )
- ; // Operations
-
-ref; // ME_5538F3B8006F PickCustomColor
-
-: ME_5538F3D60102
- CONST UID '5538F3D60102'
- CONST Name 'PopulateList'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility ProtectedAccess
- CONST Abstraction at_final
- : Parent ME_5538E709017E // TvtCustomColorBox
- ;
-
-ref; // ME_5538F3D60102 PopulateList
-
-FORWARD ME_5538F3E80193
-
-: ME_5538F3EF0075
- CONST UID '5538F3EF0075'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5538F3E80193 // DrawNames
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_5538F3EF0075 DoIt
-
-: ME_5538F3E80193
- CONST UID '5538F3E80193'
- CONST Name 'DrawNames'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_5538E709017E // TvtCustomColorBox
- ;
- : Operations
-   Seq: ( ME_5538F3EF0075 // DoIt
- )
- ; // Operations
-
-ref; // ME_5538F3E80193 DrawNames
-
-: ME_47D1602000C6_ME_5538E709017E
- : Original WL 'ME_47D1602000C6' '4AB0997B00A2.pas.ms.script' // Create
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_47D1602000C6_ME_5538E709017E Create
-
-: ME_482AE42802AE_ME_5538E709017E
- : Original WL 'ME_482AE42802AE' '48342A280198.pas.ms.script' // Change
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_482AE42802AE_ME_5538E709017E Change
-
-: ME_484516C00214_ME_5538E709017E
- : Original WL 'ME_484516C00214' '4AB0997B00A2.pas.ms.script' // Loaded
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_484516C00214_ME_5538E709017E Loaded
-
-: ME_4CC8414403B8_ME_5538E709017E
- : Original WL 'ME_4CC8414403B8' '4799D29F033F.pas.ms.script' // CreateWnd
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4CC8414403B8_ME_5538E709017E CreateWnd
-
-: ME_53EE012C0211_ME_5538E709017E
- : Original WL 'ME_53EE012C0211' '48297E42011A.pas.ms.script' // RecreateTreeIfNeeded
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_53EE012C0211_ME_5538E709017E RecreateTreeIfNeeded
-
-: ME_53EE0A730393_ME_5538E709017E
- : Original WL 'ME_53EE0A730393' '48297E42011A.pas.ms.script' // ProcessTreeSelect
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_53EE0A730393_ME_5538E709017E ProcessTreeSelect
-
-: ME_53F45F9F030D_ME_5538E709017E
- : Original WL 'ME_53F45F9F030D' '48297E42011A.pas.ms.script' // DoCreateStrings
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_53F45F9F030D_ME_5538E709017E DoCreateStrings
-
-: ME_5538F4D60240_ME_5538E709017E
- : Original WL 'ME_5538F4D60240' '4829D7D50156.pas.ms.script' // DoDrawDocument
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5538F4D60240_ME_5538E709017E DoDrawDocument
-
-: ME_5538E709017E
- CONST UID '5538E709017E'
- CONST Name 'TvtCustomColorBox'
- CONST Class class_Class
- : Stereotype st_GuiControl ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_5270BBC702C7 // TvtColorBox
- ;
- : Inherits
-   Seq: ( WL 'ME_55B780E60398' '48297E42011A.pas.ms.script' // TvtComboTree
- )
- ; // Inherits
- : Attributes
-   Seq: ( ME_5538EF8B0385 // ColorStyle
- ME_5538F01F01D6 // Colors
- ME_5538F0A00111 // ColorNames
- ME_5538F0F4031D // Selected
- ME_5538F2C90308 // DefaultColorColor
- ME_5538F2DD02EF // NoneColorColor
- ME_5538F348002C // f_NeedToPopulate
- ME_5538F3550015 // f_LockPickCustomColor
- )
- ; // Attributes
- : Operations
-   Seq: ( ME_5538F3810270 // ColorCallBack
- ME_5538F39B01D0 // IndexOfColor
- ME_5538F3B8006F // PickCustomColor
- ME_5538F3D60102 // PopulateList
- ME_5538F3E80193 // DrawNames
- )
- ; // Operations
- : Overridden
-   Seq: ( ME_47D1602000C6_ME_5538E709017E // Create
- ME_482AE42802AE_ME_5538E709017E // Change
- ME_484516C00214_ME_5538E709017E // Loaded
- ME_4CC8414403B8_ME_5538E709017E // CreateWnd
- ME_53EE012C0211_ME_5538E709017E // RecreateTreeIfNeeded
- ME_53EE0A730393_ME_5538E709017E // ProcessTreeSelect
- ME_53F45F9F030D_ME_5538E709017E // DoCreateStrings
- ME_5538F4D60240_ME_5538E709017E // DoDrawDocument
- )
- ; // Overridden
- CONST extprop:rc:SelfName 'ColorBox'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_5538E709017E TvtCustomColorBox
-
-FORWARD ME_5538E74100C3
-
-: ME_5538E75000FA
- CONST UID '5538E75000FA'
- CONST Name 'NoColorSelected'
- CONST Class class_Attribute
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_5538E74100C3 // vtColorBox Consts
- ;
- CONST Value 'TColor($FF000000)'
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value 'TColor($FF000000)'
-
-ref; // ME_5538E75000FA NoColorSelected
-
-: ME_5538E74100C3
- CONST UID '5538E74100C3'
- CONST Name 'vtColorBox Consts'
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_5270BBC702C7 // TvtColorBox
- ;
- : Attributes
-   Seq: ( ME_5538E75000FA // NoColorSelected
- )
- ; // Attributes
- CONST "spell names" false
- CONST extprop:rc:SelfName 'ColorBox Consts'
-
-ref; // ME_5538E74100C3 vtColorBox Consts
-
-: ME_5539067D0136
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_5270BBC702C7 // TvtColorBox
- ;
- : Target WL 'ME_47C69EBC00A8' '47AC75550330.pas.ms.script' // Tk2TagID
- ;
-
-ref; // ME_5539067D0136 
-
-: ME_5539068302A3
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_5270BBC702C7 // TvtColorBox
- ;
- : Target WL 'ME_4773D64E036C' '47913B47006E.pas.ms.script' // l3Base
- ;
-
-ref; // ME_5539068302A3 
-
-: ME_5539068600B3
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_5270BBC702C7 // TvtColorBox
- ;
- : Target WL 'ME_4AB0EE02004E' '4799D29F033F.pas.ms.script' // Dialogs
- ;
-
-ref; // ME_5539068600B3 
-
-: ME_553906880245
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_5270BBC702C7 // TvtColorBox
- ;
- : Target WL 'ME_4C2D9FF00326' '55C4AF3F02EE.pas.ms.script' // Consts
- ;
-
-ref; // ME_553906880245 
-
-FORWARD ME_553907A4021C
-
-: ME_553908140014
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_5270BBC702C7 // TvtColorBox
- ;
- : Target ME_553907A4021C // TvtColorBoxStrings
- ;
-
-ref; // ME_553908140014 
-
-: ME_5270BBC702C7
- CONST UID '5270BBC702C7'
- CONST Name 'TvtColorBox'
- CONST Class class_Class
- : Stereotype st_GuiControl ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4A83EE0E0002 // Combos
- ;
- : Inherits
-   Seq: ( ME_5538E709017E // TvtCustomColorBox
- )
- ; // Inherits
- : Children
-   Seq: ( ME_5538E639019E // TvtColorBoxStyles
- ME_5538E6D503B4 // TvtColorBoxStyle
- ME_5538E709017E // TvtCustomColorBox
- )
- ; // Children
- : Constants
-   Seq: ( ME_5538E74100C3 // vtColorBox Consts
- )
- ; // Constants
- : Dependencies
-   Seq: ( ME_5539067D0136 // Tk2TagID
- ME_5539068302A3 // l3Base
- ME_5539068600B3 // Dialogs
- ME_553906880245 // Consts
- ME_553908140014 // TvtColorBoxStrings
- )
- ; // Dependencies
- CONST "need UC" true
- CONST intf.pas:Path 'common\components\gui\Garant\VT\vtColorBox.pas'
- CONST extprop:rc:SelfName 'ColorBox'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'vtColorBox'
-
-ref; // ME_5270BBC702C7 TvtColorBox
 
 : ME_553907A4021C
  CONST UID '553907A4021C'
@@ -1156,7 +341,7 @@ ref; // ME_5270BBC702C7 TvtColorBox
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4A83EE0E0002 // Combos
+ : Parent HWL ME_4A83EE0E0002 // Combos
  ;
  CONST "finished" false
  CONST intf.pas:Path 'common\components\gui\Garant\VT\NOT_FINISHED_vtColorBoxStrings.pas'
@@ -1177,10 +362,10 @@ ref; // ME_553907A4021C TvtColorBoxStrings
  : Parent WL 'ME_467A75D90346' '467A75D90346.pas.ms.script' // VT
  ;
  : Children
-   Seq: ( ME_4A83EE2702B6 // TvtComboBoxQS
- ME_51B5C8CB00A0 // vtCombo
- ME_5270BBC702C7 // TvtColorBox
- ME_553907A4021C // TvtColorBoxStrings
+   Seq: ( WL 'ME_4A83EE2702B6' '4A83EE2702B6.pas.ms.script' // TvtComboBoxQS
+ HWL ME_51B5C8CB00A0 // vtCombo
+ WL 'ME_5270BBC702C7' '5270BBC702C7.pas.ms.script' // TvtColorBox
+ HWL ME_553907A4021C // TvtColorBoxStrings
  )
  ; // Children
  : Depends

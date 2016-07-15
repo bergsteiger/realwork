@@ -1,0 +1,321 @@
+// DayTips 4AA0D5380056 VCMFormsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AA0D5380056
+
+FORWARD ME_4AA11A2E0144
+
+: ME_4AA11A590095
+ CONST Name 'aDocInfo'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47EA0784000D' '4B1FC2FF03CD.pas.ms.script' // IdeDocInfo
+ ;
+
+ref; // ME_4AA11A590095 aDocInfo
+
+: ME_4AA11A5900B7
+ CONST Name 'aContainer'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
+ ;
+
+ref; // ME_4AA11A5900B7 aContainer
+
+: ME_4AA11A550388
+ CONST UID '4AA11A550388'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AA11A2E0144 // OpenTip
+ ;
+ : Parameters
+   Seq: ( ME_4AA11A590095 // aDocInfo
+ ME_4AA11A5900B7 // aContainer
+ )
+ ; // Parameters
+
+ref; // ME_4AA11A550388 DoIt
+
+: ME_4AA11A8502D4
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AA11A2E0144 // OpenTip
+ ;
+ : Target WL 'ME_493D0AFD02F6' '493D0AFD02F6.pas.ms.script' // TsdsTips
+ ;
+
+ref; // ME_4AA11A8502D4 
+
+: ME_4AA11A2E0144
+ CONST UID '4AA11A2E0144'
+ CONST Name 'OpenTip'
+ CONST Class class_Class
+ : Stereotype st_FormSetFactory ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Открывает совет дня' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AA0D5380056 // DayTips
+ ;
+ : Operations
+   Seq: ( HWL ME_4AA11A550388 // DoIt
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_4AA11A8502D4 // TsdsTips
+ )
+ ; // Dependencies
+ CONST "NO_FACTORY_BRACKECTS" false
+
+ref; // ME_4AA11A2E0144 OpenTip
+
+FORWARD ME_4AA52EC603DC
+
+: ME_4AA52F410310
+ CONST Name 'aSDS'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4936823400AE' '492540AF02CD.pas.ms.script' // IsdsCommonDiction
+ ;
+
+ref; // ME_4AA52F410310 aSDS
+
+: ME_4AA52F410330
+ CONST Name 'aContainer'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
+ ;
+
+ref; // ME_4AA52F410330 aContainer
+
+: ME_4AA52F2B034F
+ CONST UID '4AA52F2B034F'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AA52EC603DC // OpenTipsPrim
+ ;
+ : Parameters
+   Seq: ( ME_4AA52F410310 // aSDS
+ ME_4AA52F410330 // aContainer
+ )
+ ; // Parameters
+
+ref; // ME_4AA52F2B034F DoIt
+
+: ME_4AA52EC603DC
+ CONST UID '4AA52EC603DC'
+ CONST Name 'OpenTipsPrim'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AA0D5380056 // DayTips
+ ;
+ : Operations
+   Seq: ( HWL ME_4AA52F2B034F // DoIt
+ )
+ ; // Operations
+
+ref; // ME_4AA52EC603DC OpenTipsPrim
+
+FORWARD ME_4AB9DAAC00AC
+
+: ME_4AB9DAF502FF
+ CONST UID '4AB9DAF502FF'
+ CONST Name 'Data'
+ CONST Class class_Attribute
+ : Stereotype st_var::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_4AB9DAAC00AC // ShowDayTipsAtStartup
+ ;
+ : Target WL 'ME_4991C6FF00C7' '4991C6930254.pas.ms.script' // InsStartupTips
+ ;
+ CONST "IsResult" false
+
+ref; // ME_4AB9DAF502FF Data
+
+: ME_4AB9DACC01CE
+ CONST UID '4AB9DACC01CE'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AB9DAAC00AC // ShowDayTipsAtStartup
+ ;
+ : Target WL 'ME_4914746C019E' '4683F37902CF.pas.ms.script' // IvcmEntityForm
+ ;
+
+ref; // ME_4AB9DACC01CE DoIt
+
+: ME_4AB9DB2B01A7
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AB9DAAC00AC // ShowDayTipsAtStartup
+ ;
+ : Target WL 'ME_4992891800CF' '491D560F01F4.pas.ms.script' // TnsStartupTips
+ ;
+
+ref; // ME_4AB9DB2B01A7 
+
+: ME_4AB9DB54023E
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AB9DAAC00AC // ShowDayTipsAtStartup
+ ;
+ : Target WL 'ME_47ECE41C00D2' '4799D29F033F.pas.ms.script' // TApplication
+ ;
+
+ref; // ME_4AB9DB54023E 
+
+: ME_4AB9DAAC00AC
+ CONST UID '4AB9DAAC00AC'
+ CONST Name 'ShowDayTipsAtStartup'
+ CONST Class class_Class
+ : Stereotype st_FactoryMethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AA0D5380056 // DayTips
+ ;
+ : Attributes
+   Seq: ( HWL ME_4AB9DAF502FF // Data
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( HWL ME_4AB9DACC01CE // DoIt
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_4AB9DB2B01A7 // TnsStartupTips
+ ME_4AB9DB54023E // TApplication
+ )
+ ; // Dependencies
+ CONST "NO_FACTORY_BRACKECTS" false
+
+ref; // ME_4AB9DAAC00AC ShowDayTipsAtStartup
+
+FORWARD ME_4AB9DBA1038E
+
+: ME_4AB9DBA8008E
+ CONST UID '4AB9DBA8008E'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AB9DBA1038E // ShowDayTips
+ ;
+
+ref; // ME_4AB9DBA8008E DoIt
+
+: ME_4AB9DBD30159
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AB9DBA1038E // ShowDayTips
+ ;
+ : Target WL 'ME_4936823400AE' '492540AF02CD.pas.ms.script' // IsdsCommonDiction
+ ;
+
+ref; // ME_4AB9DBD30159 
+
+: ME_4AB9DC3703C8
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AB9DBA1038E // ShowDayTips
+ ;
+ : Target WL 'ME_48FF556602BA' '48F747EC0073.pas.ms.script' // DataAdapter
+ ;
+
+ref; // ME_4AB9DC3703C8 
+
+: ME_4AB9DBA1038E
+ CONST UID '4AB9DBA1038E'
+ CONST Name 'ShowDayTips'
+ CONST Class class_Class
+ : Stereotype st_ModuleMethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AA0D5380056 // DayTips
+ ;
+ : Operations
+   Seq: ( HWL ME_4AB9DBA8008E // DoIt
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_4AB9DBD30159 // IsdsCommonDiction
+ ME_4AB9DC3703C8 // DataAdapter
+ )
+ ; // Dependencies
+ CONST "ShowInToolbar" 'undefined'
+ CONST "no prefix" false
+ CONST "no test" false
+
+ref; // ME_4AB9DBA1038E ShowDayTips
+
+: ME_4BD6F1DD01AC
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AA0D5380056 // DayTips
+ ;
+ : Target WL 'ME_4BD6F164037F' '497ED770029D.pas.ms.script' // utTips
+ ;
+
+ref; // ME_4BD6F1DD01AC 
+
+: ME_4BD964F200B5
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AA0D5380056 // DayTips
+ ;
+ : Target WL 'ME_4BD964270238' '4BD856E802F9.pas.ms.script' // CommonDiction
+ ;
+
+ref; // ME_4BD964F200B5 
+
+: ME_4AA0D5380056
+ CONST UID '4AA0D5380056'
+ CONST Name 'DayTips'
+ CONST Class class_Class
+ : Stereotype st_VCMFormsPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4AA0D52202F3' '4AA0D52202F3.pas.ms.script' // DayTips
+ ;
+ : Operations
+   Seq: ( HWL ME_4AA11A2E0144 // OpenTip
+ HWL ME_4AA52EC603DC // OpenTipsPrim
+ HWL ME_4AB9DAAC00AC // ShowDayTipsAtStartup
+ HWL ME_4AB9DBA1038E // ShowDayTips
+ )
+ ; // Operations
+ : Children
+   Seq: ( WL 'ME_4AA12AC20374' '4AA12AC20374.pas.ms.script' // Tips
+ WL 'ME_4AB9DA410090' '4AB9DA410090.pas.ms.script' // StartupTips
+ )
+ ; // Children
+ : Dependencies
+   Seq: ( ME_4BD6F1DD01AC // utTips
+ ME_4BD964F200B5 // CommonDiction
+ )
+ ; // Dependencies
+ CONST "author" 'Люлин А.В.'
+ CONST "no hands" true
+ CONST "started" '04.09.2009 12:52'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\DayTips\DayTips_Module.pas'
+ CONST extprop:pas:TypeName 'TDayTipsModule'
+ CONST extprop:rc:SelfName 'DayTipsModule'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'DayTips_Module'
+
+ref; // ME_4AA0D5380056 DayTips

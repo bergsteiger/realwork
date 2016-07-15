@@ -1,0 +1,895 @@
+// PrimDiction 4979D40E0180 VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4979D40E0180
+
+: ME_4BD71EBC00ED
+ CONST UID '4BD71EBC00ED'
+ CONST Name 'utDiction'
+ CONST Class class_Class
+ : Stereotype st_UserType ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Толковый словарь' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4979D40E0180 // PrimDiction
+ ;
+ CONST "CanClose" false
+ CONST "ImageIndex" 60
+ CONST "SettingsCaption" 'Толковый словарь: Список терминов (вкладка)'
+ CONST "Weight" '-1'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Diction\Forms\PrimDiction_utDiction_UserType.pas'
+ CONST extprop:pas:UnitName 'PrimDiction_utDiction_UserType'
+
+ref; // ME_4BD71EBC00ED utDiction
+
+FORWARD ME_51B72B12016F
+
+: ME_50056B450149
+ CONST UID '50056B450149'
+ CONST Name 'ContextFilter'
+ CONST Class class_Class
+ : Stereotype st_Control ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_51B72B12016F // BackgroundPanel
+ ;
+ CONST "ControlClass" 'TnscContextFilter'
+ CONST "pm" true
+ CONST "put to dfm" false
+
+ref; // ME_50056B450149 ContextFilter
+
+: ME_50056AF8009D
+ CONST UID '50056AF8009D'
+ CONST Name 'WordsTree'
+ CONST Class class_Class
+ : Stereotype st_Control ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_51B72B12016F // BackgroundPanel
+ ;
+ CONST "ControlClass" 'TnscTreeViewWithAdapterDragDrop'
+ CONST "pm" true
+ CONST "put to dfm" false
+
+ref; // ME_50056AF8009D WordsTree
+
+: ME_51B72B12016F
+ CONST UID '51B72B12016F'
+ CONST Name 'BackgroundPanel'
+ CONST Class class_Class
+ : Stereotype st_Control ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4979D40E0180 // PrimDiction
+ ;
+ : Attributes
+   Seq: ( HWL ME_50056B450149 // ContextFilter
+ HWL ME_50056AF8009D // WordsTree
+ )
+ ; // Attributes
+ CONST "ControlClass" 'TvtPanel'
+ CONST "pm" true
+ CONST "put to dfm" false
+
+ref; // ME_51B72B12016F BackgroundPanel
+
+: ME_4979D50C0050
+ CONST UID '4979D50C0050'
+ CONST Name 'CommonDiction'
+ CONST Class class_Attribute
+ : Stereotype st_ViewArea::Attribute ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent HWL ME_4979D40E0180 // PrimDiction
+ ;
+ : Target WL 'ME_4925416003BC' '492540AF02CD.pas.ms.script' // IdsCommonDiction
+ ;
+
+ref; // ME_4979D50C0050 CommonDiction
+
+: ME_4979D6070018
+ CONST UID '4979D6070018'
+ CONST Name 'Diction'
+ CONST Class class_Attribute
+ : Stereotype st_ViewArea::Attribute ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent HWL ME_4979D40E0180 // PrimDiction
+ ;
+ : Target WL 'ME_49254FB00390' '491D57C802CD.pas.ms.script' // IdsDiction
+ ;
+
+ref; // ME_4979D6070018 Diction
+
+: ME_51B7302E015F
+ CONST UID '51B7302E015F'
+ CONST Name 'ContextMap'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_4979D40E0180 // PrimDiction
+ ;
+ : Target WL 'ME_52D3BD980262' '491D57C802CD.pas.ms.script' // InsLangToContextMap
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+
+ref; // ME_51B7302E015F ContextMap
+
+: ME_51B73088020A
+ CONST UID '51B73088020A'
+ CONST Name 'f_InternalChange'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4979D40E0180 // PrimDiction
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_51B73088020A f_InternalChange
+
+FORWARD ME_4C85134102E7
+
+: ME_4C85135A02C6
+ CONST Name 'aLang'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47EA082B021A' '47EA07FA02CE.pas.ms.script' // TbsLanguage
+ ;
+
+ref; // ME_4C85135A02C6 aLang
+
+: ME_4C8513570161
+ CONST UID '4C8513570161'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4C85134102E7 // ChangeLang
+ ;
+ : Parameters
+   Seq: ( ME_4C85135A02C6 // aLang
+ )
+ ; // Parameters
+
+ref; // ME_4C8513570161 DoIt
+
+: ME_4C85134102E7
+ CONST UID '4C85134102E7'
+ CONST Name 'ChangeLang'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'изменить язык списка толкований' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4979D40E0180 // PrimDiction
+ ;
+ : Operations
+   Seq: ( HWL ME_4C8513570161 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_4C85134102E7 ChangeLang
+
+FORWARD ME_4C8513680142
+
+: ME_4C8513880155
+ CONST Name 'aLang'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47EA082B021A' '47EA07FA02CE.pas.ms.script' // TbsLanguage
+ ;
+
+ref; // ME_4C8513880155 aLang
+
+: ME_4C851388017F
+ CONST Name 'aParams'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4683E07E004B' '467BAB7F021E.pas.ms.script' // IvcmTestParamsPrim
+ ;
+
+ref; // ME_4C851388017F aParams
+
+: ME_4C85137B001E
+ CONST UID '4C85137B001E'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4C8513680142 // CheckLang
+ ;
+ : Parameters
+   Seq: ( ME_4C8513880155 // aLang
+ ME_4C851388017F // aParams
+ )
+ ; // Parameters
+
+ref; // ME_4C85137B001E DoIt
+
+: ME_4C8513680142
+ CONST UID '4C8513680142'
+ CONST Name 'CheckLang'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'проверим наличие толкований языка' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4979D40E0180 // PrimDiction
+ ;
+ : Operations
+   Seq: ( HWL ME_4C85137B001E // DoIt
+ )
+ ; // Operations
+
+ref; // ME_4C8513680142 CheckLang
+
+: ME_51B72C1D0310
+ CONST UID '51B72C1D0310'
+ CONST Name 'ContextFilterChange'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4979D40E0180 // PrimDiction
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
+ )
+ ; // Inherits
+
+ref; // ME_51B72C1D0310 ContextFilterChange
+
+: ME_51B72C29024A
+ CONST UID '51B72C29024A'
+ CONST Name 'ContextFilterWrongContext'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4979D40E0180 // PrimDiction
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
+ )
+ ; // Inherits
+
+ref; // ME_51B72C29024A ContextFilterWrongContext
+
+: ME_51B72D1B027D
+ CONST UID '51B72D1B027D'
+ CONST Name 'WordsTreeGetItemImage'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4979D40E0180 // PrimDiction
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47D63B6D0157' '47D036150077.pas.ms.script' // Tl3GetItemImage
+ )
+ ; // Inherits
+
+ref; // ME_51B72D1B027D WordsTreeGetItemImage
+
+: ME_51B72D240241
+ CONST UID '51B72D240241'
+ CONST Name 'WordsTreeNewCharPressed'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4979D40E0180 // PrimDiction
+ ;
+ : Inherits
+   Seq: ( WL 'ME_5143230F01E4' '494B949E022B.pas.ms.script' // TeeNewCharPressed
+ )
+ ; // Inherits
+
+ref; // ME_51B72D240241 WordsTreeNewCharPressed
+
+: ME_51B72D300088
+ CONST UID '51B72D300088'
+ CONST Name 'WordsTreeActionElement'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4979D40E0180 // PrimDiction
+ ;
+ : Inherits
+   Seq: ( WL 'ME_51432026033F' '4CFFE3470249.pas.ms.script' // TActionElement
+ )
+ ; // Inherits
+
+ref; // ME_51B72D300088 WordsTreeActionElement
+
+: ME_51B72D3B02F2
+ CONST UID '51B72D3B02F2'
+ CONST Name 'WordsTreeMakeTreeSource'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4979D40E0180 // PrimDiction
+ ;
+ : Inherits
+   Seq: ( WL 'ME_5199D8F700DB' '494B949E022B.pas.ms.script' // TeeMakeTreeSource
+ )
+ ; // Inherits
+
+ref; // ME_51B72D3B02F2 WordsTreeMakeTreeSource
+
+: ME_51B72D4603E7
+ CONST UID '51B72D4603E7'
+ CONST Name 'WordsTreeSelectCountChanged'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4979D40E0180 // PrimDiction
+ ;
+ : Inherits
+   Seq: ( WL 'ME_5146ECE900E3' '515DA5860015.pas.ms.script' // TvtSelectCountChanged
+ )
+ ; // Inherits
+
+ref; // ME_51B72D4603E7 WordsTreeSelectCountChanged
+
+: ME_51B72D520161
+ CONST UID '51B72D520161'
+ CONST Name 'WordsTreeCountChanged'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4979D40E0180 // PrimDiction
+ ;
+ : Inherits
+   Seq: ( WL 'ME_514321950319' '4CFFE3470249.pas.ms.script' // TCountChanged
+ )
+ ; // Inherits
+
+ref; // ME_51B72D520161 WordsTreeCountChanged
+
+: ME_51B72D5E02DC
+ CONST UID '51B72D5E02DC'
+ CONST Name 'WordsTreeCurrentChanged'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4979D40E0180 // PrimDiction
+ ;
+ : Inherits
+   Seq: ( WL 'ME_5143220D002B' '4CFFE3470249.pas.ms.script' // TCurrentChanged
+ )
+ ; // Inherits
+
+ref; // ME_51B72D5E02DC WordsTreeCurrentChanged
+
+: ME_51B72D6C0297
+ CONST UID '51B72D6C0297'
+ CONST Name 'WordsTreeFormatStatusInfo'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4979D40E0180 // PrimDiction
+ ;
+ : Inherits
+   Seq: ( WL 'ME_5143245F0209' '499C0B7B012E.pas.ms.script' // TeeFormatStatusInfo
+ )
+ ; // Inherits
+
+ref; // ME_51B72D6C0297 WordsTreeFormatStatusInfo
+
+FORWARD ME_50056A9D02BE
+
+: ME_50056AD30253
+ CONST Name 'aItem'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_50056AD30253 aItem
+
+: ME_50056AD30281
+ CONST Name 'aUpdateWithDelay'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST Value true
+ : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST extprop:pas:Value true
+
+ref; // ME_50056AD30281 aUpdateWithDelay
+
+: ME_50056AC1022B
+ CONST UID '50056AC1022B'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_50056A9D02BE // ChangeDiction
+ ;
+ : Parameters
+   Seq: ( ME_50056AD30253 // aItem
+ ME_50056AD30281 // aUpdateWithDelay
+ )
+ ; // Parameters
+
+ref; // ME_50056AC1022B DoIt
+
+: ME_50056A9D02BE
+ CONST UID '50056A9D02BE'
+ CONST Name 'ChangeDiction'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'изменить текущее толкование' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4979D40E0180 // PrimDiction
+ ;
+ : Operations
+   Seq: ( HWL ME_50056AC1022B // DoIt
+ )
+ ; // Operations
+
+ref; // ME_50056A9D02BE ChangeDiction
+
+FORWARD ME_52A5A17003E1
+
+: ME_52A5A1820340
+ CONST UID '52A5A1820340'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_52A5A17003E1 // RestoreContextFilter
+ ;
+
+ref; // ME_52A5A1820340 DoIt
+
+: ME_52A5A17003E1
+ CONST UID '52A5A17003E1'
+ CONST Name 'RestoreContextFilter'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4979D40E0180 // PrimDiction
+ ;
+ : Operations
+   Seq: ( HWL ME_52A5A1820340 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_52A5A17003E1 RestoreContextFilter
+
+: ME_4C8513F40329
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4979D40E0180 // PrimDiction
+ ;
+ : Target WL 'ME_456EB2F1034B' '456EA56002BF.pas.ms.script' // Languages
+ ;
+
+ref; // ME_4C8513F40329 
+
+: ME_4D7F65A101E9
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4979D40E0180 // PrimDiction
+ ;
+ : Target WL 'ME_4992F9AF0396' '4683F37902CF.pas.ms.script' // TvcmImageSize
+ ;
+
+ref; // ME_4D7F65A101E9 
+
+: ME_51B731A30276
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4979D40E0180 // PrimDiction
+ ;
+ : Target WL 'ME_4ADF0823017C' '54B90AC6014B.pas.ms.script' // l3IsNil
+ ;
+
+ref; // ME_51B731A30276 
+
+: ME_51B731A70125
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4979D40E0180 // PrimDiction
+ ;
+ : Target WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
+ ;
+
+ref; // ME_51B731A70125 
+
+: ME_51B731A901EE
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4979D40E0180 // PrimDiction
+ ;
+ : Target WL 'ME_50055BE8028C' '4979D3B10102.pas.ms.script' // TnsDictRes
+ ;
+
+ref; // ME_51B731A901EE 
+
+: ME_51B82F5D0332
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4979D40E0180 // PrimDiction
+ ;
+ : Target WL 'ME_490C47C70210' '48F747EC0073.pas.ms.script' // nsUtils
+ ;
+
+ref; // ME_51B82F5D0332 
+
+: ME_51B830D30311
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4979D40E0180 // PrimDiction
+ ;
+ : Target WL 'ME_48FF556602BA' '48F747EC0073.pas.ms.script' // DataAdapter
+ ;
+
+ref; // ME_51B830D30311 
+
+: ME_51B8320803D8
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4979D40E0180 // PrimDiction
+ ;
+ : Target WL 'ME_47F25BC801DB' '47D0E1500033.pas.ms.script' // vcmBase
+ ;
+
+ref; // ME_51B8320803D8 
+
+: ME_51B86CEE0169
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4979D40E0180 // PrimDiction
+ ;
+ : Target WL 'ME_47E13C6B0341' '4799D29F033F.pas.ms.script' // Forms
+ ;
+
+ref; // ME_51B86CEE0169 
+
+: ME_51B86CFF034D
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4979D40E0180 // PrimDiction
+ ;
+ : Target WL 'ME_47E11FC3021E' '4799D29F033F.pas.ms.script' // Controls
+ ;
+
+ref; // ME_51B86CFF034D 
+
+: ME_51B991BE0356
+ CONST Class class_Dependency
+ : Stereotype st_ToolbarAtBottom::Dependency ;
+ : Parent HWL ME_4979D40E0180 // PrimDiction
+ ;
+ : Target WL 'ME_4C850FC30205' '4C850F97017C.pas.ms.script' // Lang
+ ;
+
+ref; // ME_51B991BE0356 
+
+: ME_524AAF82039C
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4979D40E0180 // PrimDiction
+ ;
+ : Target WL 'ME_4BD8774400C5' '4BD856E802F9.pas.ms.script' // Diction
+ ;
+
+ref; // ME_524AAF82039C 
+
+: ME_52A5A10503AA
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4979D40E0180 // PrimDiction
+ ;
+ : Target WL 'ME_493682F9024E' '491D57C802CD.pas.ms.script' // IsdsDiction
+ ;
+
+ref; // ME_52A5A10503AA 
+
+: ME_556DC3EA028F
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4979D40E0180 // PrimDiction
+ ;
+ : Target WL 'ME_556B32D900CD' '4902090401E7.pas.ms.script' // TnsDictCache
+ ;
+
+ref; // ME_556DC3EA028F 
+
+: ME_556DC43C0030
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4979D40E0180 // PrimDiction
+ ;
+ : Target WL 'ME_46836BA203A1' '4902090401E7.pas.ms.script' // TnsDictionTree
+ ;
+
+ref; // ME_556DC43C0030 
+
+: ME_493402BC0160_ME_4979D40E0180
+ : Original WL 'ME_493402BC0160' '492540AF02CD.pas.ms.script' // CurrentUpdated
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_493402BC0160_ME_4979D40E0180 CurrentUpdated
+
+: ME_4934035F013E_ME_4979D40E0180
+ : Original WL 'ME_4934035F013E' '491D57C802CD.pas.ms.script' // UpdateLanguage
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4934035F013E_ME_4979D40E0180 UpdateLanguage
+
+: ME_4C850FD40034_ME_4979D40E0180
+ : Original WL 'ME_4C850FD40034' '4C850F97017C.pas.ms.script' // Russian
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" false
+ CONST "ShowInToolbar" true
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_4C850FD40034_ME_4979D40E0180 Russian
+
+: ME_4C850FFB01EF_ME_4979D40E0180
+ : Original WL 'ME_4C850FFB01EF' '4C850F97017C.pas.ms.script' // English
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" false
+ CONST "ShowInToolbar" true
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_4C850FFB01EF_ME_4979D40E0180 English
+
+: ME_4C85100D0398_ME_4979D40E0180
+ : Original WL 'ME_4C85100D0398' '4C850F97017C.pas.ms.script' // French
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" false
+ CONST "ShowInToolbar" true
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_4C85100D0398_ME_4979D40E0180 French
+
+: ME_4C85101F0258_ME_4979D40E0180
+ : Original WL 'ME_4C85101F0258' '4C850F97017C.pas.ms.script' // Deutch
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" false
+ CONST "ShowInToolbar" true
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_4C85101F0258_ME_4979D40E0180 Deutch
+
+: ME_4C851041010D_ME_4979D40E0180
+ : Original WL 'ME_4C851041010D' '4C850F97017C.pas.ms.script' // Italian
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" false
+ CONST "ShowInToolbar" true
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_4C851041010D_ME_4979D40E0180 Italian
+
+: ME_4C8510570231_ME_4979D40E0180
+ : Original WL 'ME_4C8510570231' '4C850F97017C.pas.ms.script' // Spanish
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" false
+ CONST "ShowInToolbar" true
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_4C8510570231_ME_4979D40E0180 Spanish
+
+: ME_479731C50290_ME_4979D40E0180
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_479731C50290_ME_4979D40E0180 Cleanup
+
+: ME_47EA4E9002C6_ME_4979D40E0180
+ : Original WL 'ME_47EA4E9002C6' '47EA4BB502F9.pas.ms.script' // FinishDataUpdate
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_47EA4E9002C6_ME_4979D40E0180 FinishDataUpdate
+
+: ME_497469C90140_ME_4979D40E0180
+ : Original WL 'ME_497469C90140' '5000041101C8.pas.ms.script' // NotifyDataSourceChanged
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_497469C90140_ME_4979D40E0180 NotifyDataSourceChanged
+
+: ME_49803F5503AA_ME_4979D40E0180
+ : Original WL 'ME_49803F5503AA' '4AADF9450143.pas.ms.script' // DoInit
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_49803F5503AA_ME_4979D40E0180 DoInit
+
+: ME_4A84183701B9_ME_4979D40E0180
+ : Original WL 'ME_4A84183701B9' '4AADF9450143.pas.ms.script' // NeedDrawCaption
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4A84183701B9_ME_4979D40E0180 NeedDrawCaption
+
+: ME_4A8E8F2E0195_ME_4979D40E0180
+ : Original WL 'ME_4A8E8F2E0195' '5000041101C8.pas.ms.script' // InitControls
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4A8E8F2E0195_ME_4979D40E0180 InitControls
+
+: ME_4F7C65380244_ME_4979D40E0180
+ : Original WL 'ME_4F7C65380244' '4F22CB1E0009.pas.ms.script' // FormInsertedIntoContainer
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4F7C65380244_ME_4979D40E0180 FormInsertedIntoContainer
+
+: ME_4979D40E0180
+ CONST UID '4979D40E0180'
+ CONST Name 'PrimDiction'
+ CONST Class class_Class
+ : Stereotype st_VCMForm ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Толковый словарь' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4979D3B10102' '4979D3B10102.pas.ms.script' // Diction
+ ;
+ : Implements
+   Seq: ( WL 'ME_4925542D02E9' '491D57C802CD.pas.ms.script' // IbsDictionListener
+ WL 'ME_49870A7E033E' '49870A7E033E.pas.ms.script' // BaseDocument
+ WL 'ME_4A82BCFA02EF' '4AADF9450143.pas.ms.script' // MvcmEntityForm
+ WL 'ME_4C850FC30205' '4C850F97017C.pas.ms.script' // Lang
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( HWL ME_51B72B12016F // BackgroundPanel
+ HWL ME_4979D50C0050 // CommonDiction
+ HWL ME_4979D6070018 // Diction
+ HWL ME_51B7302E015F // ContextMap
+ HWL ME_51B73088020A // f_InternalChange
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( HWL ME_4C85134102E7 // ChangeLang
+ HWL ME_4C8513680142 // CheckLang
+ HWL ME_51B72C1D0310 // ContextFilterChange
+ HWL ME_51B72C29024A // ContextFilterWrongContext
+ HWL ME_51B72D1B027D // WordsTreeGetItemImage
+ HWL ME_51B72D240241 // WordsTreeNewCharPressed
+ HWL ME_51B72D300088 // WordsTreeActionElement
+ HWL ME_51B72D3B02F2 // WordsTreeMakeTreeSource
+ HWL ME_51B72D4603E7 // WordsTreeSelectCountChanged
+ HWL ME_51B72D520161 // WordsTreeCountChanged
+ HWL ME_51B72D5E02DC // WordsTreeCurrentChanged
+ HWL ME_51B72D6C0297 // WordsTreeFormatStatusInfo
+ HWL ME_50056A9D02BE // ChangeDiction
+ HWL ME_52A5A17003E1 // RestoreContextFilter
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_493402BC0160_ME_4979D40E0180 // CurrentUpdated
+ ME_4934035F013E_ME_4979D40E0180 // UpdateLanguage
+ ME_4C850FD40034_ME_4979D40E0180 // Russian
+ ME_4C850FFB01EF_ME_4979D40E0180 // English
+ ME_4C85100D0398_ME_4979D40E0180 // French
+ ME_4C85101F0258_ME_4979D40E0180 // Deutch
+ ME_4C851041010D_ME_4979D40E0180 // Italian
+ ME_4C8510570231_ME_4979D40E0180 // Spanish
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_479731C50290_ME_4979D40E0180 // Cleanup
+ ME_47EA4E9002C6_ME_4979D40E0180 // FinishDataUpdate
+ ME_497469C90140_ME_4979D40E0180 // NotifyDataSourceChanged
+ ME_49803F5503AA_ME_4979D40E0180 // DoInit
+ ME_4A84183701B9_ME_4979D40E0180 // NeedDrawCaption
+ ME_4A8E8F2E0195_ME_4979D40E0180 // InitControls
+ ME_4F7C65380244_ME_4979D40E0180 // FormInsertedIntoContainer
+ )
+ ; // Overridden
+ : Children
+   Seq: ( HWL ME_4BD71EBC00ED // utDiction
+ )
+ ; // Children
+ : Dependencies
+   Seq: ( ME_4C8513F40329 // Languages
+ ME_4D7F65A101E9 // TvcmImageSize
+ ME_51B731A30276 // l3IsNil
+ ME_51B731A70125 // Il3SimpleNode
+ ME_51B731A901EE // TnsDictRes
+ ME_51B82F5D0332 // nsUtils
+ ME_51B830D30311 // DataAdapter
+ ME_51B8320803D8 // vcmBase
+ ME_51B86CEE0169 // Forms
+ ME_51B86CFF034D // Controls
+ ME_51B991BE0356 // Lang
+ ME_524AAF82039C // Diction
+ ME_52A5A10503AA // IsdsDiction
+ ME_556DC3EA028F // TnsDictCache
+ ME_556DC43C0030 // TnsDictionTree
+ )
+ ; // Dependencies
+ CONST "NeedsHackRef" false
+ CONST "ZoneType" 'Navigator'
+ CONST "author" 'Люлин А.В.'
+ CONST "finished dfm" true
+ CONST "no hands" true
+ CONST "resizeable" false
+ CONST "restrict form def" 'undefined'
+ CONST "started" '23.01.2009 17:29'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Diction\Forms\PrimDiction_Form.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Diction\Forms'
+ CONST extprop:pas:TypeName 'TPrimDictionForm'
+ CONST extprop:rc:SelfName 'PrimDictionForm'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'PrimDiction_Form'
+ CONST extprop:NeedsInitEntities true
+
+ref; // ME_4979D40E0180 PrimDiction

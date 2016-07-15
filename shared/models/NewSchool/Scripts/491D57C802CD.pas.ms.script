@@ -15,7 +15,7 @@ FORWARD ME_52D3BE04039D
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_52D3BE04039D // ByLang
+ : Parent HWL ME_52D3BE04039D // ByLang
  ;
  : Target WL 'ME_47EA082B021A' '47EA07FA02CE.pas.ms.script' // TbsLanguage
  ;
@@ -30,12 +30,12 @@ ref; // ME_52D3BE0F0125 aLang
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_52D3BD980262 // InsLangToContextMap
+ : Parent HWL ME_52D3BD980262 // InsLangToContextMap
  ;
  : Target WL 'ME_4908393001C5' '490838E10313.pas.ms.script' // InscContextFilterState
  ;
  : Attributes
-   Seq: ( ME_52D3BE0F0125 // aLang
+   Seq: ( HWL ME_52D3BE0F0125 // aLang
  )
  ; // Attributes
  CONST "pm" true
@@ -57,7 +57,7 @@ ref; // ME_52D4E4CF0152 aNotifySource
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_52D3BD980262 // InsLangToContextMap
+ : Parent HWL ME_52D3BD980262 // InsLangToContextMap
  ;
  : Parameters
    Seq: ( ME_52D4E4CF0152 // aNotifySource
@@ -81,7 +81,7 @@ ref; // ME_52D4E4EB02B1 aNotifySource
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_52D3BD980262 // InsLangToContextMap
+ : Parent HWL ME_52D3BD980262 // InsLangToContextMap
  ;
  : Parameters
    Seq: ( ME_52D4E4EB02B1 // aNotifySource
@@ -99,15 +99,15 @@ ref; // ME_52D4E4D40318 Unsubscribe
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_491D57C802CD // DictionInterfaces
+ : Parent HWL ME_491D57C802CD // DictionInterfaces
  ;
  : Attributes
-   Seq: ( ME_52D3BE04039D // ByLang
+   Seq: ( HWL ME_52D3BE04039D // ByLang
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_52D3D7D60242 // Subscribe
- ME_52D4E4D40318 // Unsubscribe
+   Seq: ( HWL ME_52D3D7D60242 // Subscribe
+ HWL ME_52D4E4D40318 // Unsubscribe
  )
  ; // Operations
  CONST extprop:rc:SelfName 'LangToContextMap'
@@ -133,7 +133,7 @@ ref; // ME_4934036C0131 aLanguage
  %SUMMARY 'обновить язык списка толкований' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4925542D02E9 // IbsDictionListener
+ : Parent HWL ME_4925542D02E9 // IbsDictionListener
  ;
  : Parameters
    Seq: ( ME_4934036C0131 // aLanguage
@@ -158,14 +158,14 @@ ref; // ME_493402BC0160_ME_4925542D02E9 CurrentUpdated
  %SUMMARY 'Слушатель событий бизнес объекта формы список толкований' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_491D57C802CD // DictionInterfaces
+ : Parent HWL ME_491D57C802CD // DictionInterfaces
  ;
  : Inherits
    Seq: ( WL 'ME_492547040121' '492540AF02CD.pas.ms.script' // IbsCommonDictionListener
  )
  ; // Inherits
  : Operations
-   Seq: ( ME_4934035F013E // UpdateLanguage
+   Seq: ( HWL ME_4934035F013E // UpdateLanguage
  )
  ; // Operations
  : Implemented
@@ -187,7 +187,7 @@ FORWARD ME_49254FB00390
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_49254FB00390 // IdsDiction
+ : Parent HWL ME_49254FB00390 // IdsDiction
  ;
  : Target WL 'ME_47EA082B021A' '47EA07FA02CE.pas.ms.script' // TbsLanguage
  ;
@@ -203,9 +203,9 @@ ref; // ME_49254FF103A4 Language
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_49254FB00390 // IdsDiction
+ : Parent HWL ME_49254FB00390 // IdsDiction
  ;
- : Target ME_52D3BD980262 // InsLangToContextMap
+ : Target HWL ME_52D3BD980262 // InsLangToContextMap
  ;
  CONST "pm" true
 
@@ -268,15 +268,15 @@ ref; // ME_5571E60901BC_ME_49254FB00390 DictionKind
  %SUMMARY 'Список толкований' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_491D57C802CD // DictionInterfaces
+ : Parent HWL ME_491D57C802CD // DictionInterfaces
  ;
  : Inherits
    Seq: ( WL 'ME_4925416003BC' '492540AF02CD.pas.ms.script' // IdsCommonDiction
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_49254FF103A4 // Language
- ME_52D3BECC00A6 // ContextMap
+   Seq: ( HWL ME_49254FF103A4 // Language
+ HWL ME_52D3BECC00A6 // ContextMap
  )
  ; // Attributes
  : Implemented
@@ -304,7 +304,7 @@ FORWARD ME_492552F20152
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_492552F20152 // IdDiction
+ : Parent HWL ME_492552F20152 // IdDiction
  ;
  : Target WL 'ME_49527EE8022E' '47EA07FA02CE.pas.ms.script' // TbsLanguages
  ;
@@ -320,7 +320,7 @@ ref; // ME_49527E380287 Languages
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_492552F20152 // IdDiction
+ : Parent HWL ME_492552F20152 // IdDiction
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -336,7 +336,7 @@ ref; // ME_49527E84009B refTranslationCount
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_492552F20152 // IdDiction
+ : Parent HWL ME_492552F20152 // IdDiction
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -352,9 +352,9 @@ ref; // ME_49527E930015 IsShowLiteratureList
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_492552F20152 // IdDiction
+ : Parent HWL ME_492552F20152 // IdDiction
  ;
- : Target ME_52D3BD980262 // InsLangToContextMap
+ : Target HWL ME_52D3BD980262 // InsLangToContextMap
  ;
  CONST "pm" true
 
@@ -368,7 +368,7 @@ ref; // ME_52D7CF420184 ContextMap
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_492552F20152 // IdDiction
+ : Parent HWL ME_492552F20152 // IdDiction
  ;
  : Target WL 'ME_47EA082B021A' '47EA07FA02CE.pas.ms.script' // TbsLanguage
  ;
@@ -385,7 +385,7 @@ FORWARD ME_49527E60023F
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_49527E60023F // refTranslation
+ : Parent HWL ME_49527E60023F // refTranslation
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -400,12 +400,12 @@ ref; // ME_49527E6E039A aIndex
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_492552F20152 // IdDiction
+ : Parent HWL ME_492552F20152 // IdDiction
  ;
  : Target WL 'ME_47EB514C0336' '4982BE090383.pas.ms.script' // IvcmFormDataSourceRef
  ;
  : Attributes
-   Seq: ( ME_49527E6E039A // aIndex
+   Seq: ( HWL ME_49527E6E039A // aIndex
  )
  ; // Attributes
  CONST "pm" true
@@ -489,19 +489,19 @@ ref; // ME_E1561B99CC62_ME_492552F20152 HasAttributes
  %SUMMARY 'Данные толкового словаря' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_491D57C802CD // DictionInterfaces
+ : Parent HWL ME_491D57C802CD // DictionInterfaces
  ;
  : Inherits
    Seq: ( WL 'ME_492545F700BF' '492540AF02CD.pas.ms.script' // IdCommonDiction
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_49527E380287 // Languages
- ME_49527E84009B // refTranslationCount
- ME_49527E930015 // IsShowLiteratureList
- ME_52D7CF420184 // ContextMap
- ME_56FB811400FB // CurrentLanguage
- ME_49527E60023F // refTranslation
+   Seq: ( HWL ME_49527E380287 // Languages
+ HWL ME_49527E84009B // refTranslationCount
+ HWL ME_49527E930015 // IsShowLiteratureList
+ HWL ME_52D7CF420184 // ContextMap
+ HWL ME_56FB811400FB // CurrentLanguage
+ HWL ME_49527E60023F // refTranslation
  )
  ; // Attributes
  : Implemented
@@ -531,7 +531,7 @@ FORWARD ME_492553F8032A
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_492553F8032A // IdeDiction
+ : Parent HWL ME_492553F8032A // IdeDiction
  ;
  : Target WL 'ME_47EA082B021A' '47EA07FA02CE.pas.ms.script' // TbsLanguage
  ;
@@ -547,9 +547,9 @@ ref; // ME_4B1D157B01C9 DictLanguage
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_492553F8032A // IdeDiction
+ : Parent HWL ME_492553F8032A // IdeDiction
  ;
- : Target ME_52D3BD980262 // InsLangToContextMap
+ : Target HWL ME_52D3BD980262 // InsLangToContextMap
  ;
  CONST "pm" true
 
@@ -731,15 +731,15 @@ ref; // ME_4B1FA0B003E1_ME_492553F8032A ClearListNode
  %SUMMARY 'Данные для сборки Толковый словарь' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_491D57C802CD // DictionInterfaces
+ : Parent HWL ME_491D57C802CD // DictionInterfaces
  ;
  : Inherits
    Seq: ( WL 'ME_4947AD8201F6' '492540AF02CD.pas.ms.script' // IdeCommonDiction
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_4B1D157B01C9 // DictLanguage
- ME_52D3BE9302D6 // ContextMap
+   Seq: ( HWL ME_4B1D157B01C9 // DictLanguage
+ HWL ME_52D3BE9302D6 // ContextMap
  )
  ; // Attributes
  : Implemented
@@ -785,9 +785,9 @@ FORWARD ME_493682F9024E
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_493682F9024E // IsdsDiction
+ : Parent HWL ME_493682F9024E // IsdsDiction
  ;
- : Target ME_49254FB00390 // IdsDiction
+ : Target HWL ME_49254FB00390 // IdsDiction
  ;
  CONST "pm" true
 
@@ -802,7 +802,7 @@ ref; // ME_52D8D3B9012D dsDiction
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_493682F9024E // IsdsDiction
+ : Parent HWL ME_493682F9024E // IsdsDiction
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -819,7 +819,7 @@ ref; // ME_4936835F01D2 TranslationForms
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_493682F9024E // IsdsDiction
+ : Parent HWL ME_493682F9024E // IsdsDiction
  ;
  : Target WL 'ME_47EA082B021A' '47EA07FA02CE.pas.ms.script' // TbsLanguage
  ;
@@ -836,7 +836,7 @@ FORWARD ME_4936C62102DD
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4936C62102DD // dsTranslate
+ : Parent HWL ME_4936C62102DD // dsTranslate
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -852,12 +852,12 @@ ref; // ME_4936C64A009F aLanguageId
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_493682F9024E // IsdsDiction
+ : Parent HWL ME_493682F9024E // IsdsDiction
  ;
  : Target WL 'ME_491D5824017E' '4AC238AF03B8.pas.ms.script' // IdsDictionDocument
  ;
  : Attributes
-   Seq: ( ME_4936C64A009F // aLanguageId
+   Seq: ( HWL ME_4936C64A009F // aLanguageId
  )
  ; // Attributes
  CONST "pm" true
@@ -872,9 +872,9 @@ ref; // ME_4936C62102DD dsTranslate
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_493682F9024E // IsdsDiction
+ : Parent HWL ME_493682F9024E // IsdsDiction
  ;
- : Target ME_52D3BD980262 // InsLangToContextMap
+ : Target HWL ME_52D3BD980262 // InsLangToContextMap
  ;
  CONST "pm" true
 
@@ -887,7 +887,7 @@ ref; // ME_52D3C29C008E ContextMap
  %SUMMARY 'открыть список литературы для толкового словаря' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_493682F9024E // IsdsDiction
+ : Parent HWL ME_493682F9024E // IsdsDiction
  ;
 
 ref; // ME_49368311029E OpenLiteratureList
@@ -898,7 +898,7 @@ ref; // ME_49368311029E OpenLiteratureList
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_493682F9024E // IsdsDiction
+ : Parent HWL ME_493682F9024E // IsdsDiction
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -1008,23 +1008,23 @@ ref; // ME_6DBD21E52E04_ME_493682F9024E HasAttributes
  %SUMMARY 'Толковый словарь' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_491D57C802CD // DictionInterfaces
+ : Parent HWL ME_491D57C802CD // DictionInterfaces
  ;
  : Inherits
    Seq: ( WL 'ME_4936823400AE' '492540AF02CD.pas.ms.script' // IsdsCommonDiction
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_52D8D3B9012D // dsDiction
- ME_4936835F01D2 // TranslationForms
- ME_4936837F0304 // DefaultLanguage
- ME_4936C62102DD // dsTranslate
- ME_52D3C29C008E // ContextMap
+   Seq: ( HWL ME_52D8D3B9012D // dsDiction
+ HWL ME_4936835F01D2 // TranslationForms
+ HWL ME_4936837F0304 // DefaultLanguage
+ HWL ME_4936C62102DD // dsTranslate
+ HWL ME_52D3C29C008E // ContextMap
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_49368311029E // OpenLiteratureList
- ME_49368336033D // IsShowLiteratureList
+   Seq: ( HWL ME_49368311029E // OpenLiteratureList
+ HWL ME_49368336033D // IsShowLiteratureList
  )
  ; // Operations
  : Implemented
@@ -1059,12 +1059,12 @@ ref; // ME_493682F9024E IsdsDiction
  : Parent WL 'ME_4940F539014E' '4940F539014E.pas.ms.script' // Diction
  ;
  : Children
-   Seq: ( ME_52D3BD980262 // InsLangToContextMap
- ME_4925542D02E9 // IbsDictionListener
- ME_49254FB00390 // IdsDiction
- ME_492552F20152 // IdDiction
- ME_492553F8032A // IdeDiction
- ME_493682F9024E // IsdsDiction
+   Seq: ( HWL ME_52D3BD980262 // InsLangToContextMap
+ HWL ME_4925542D02E9 // IbsDictionListener
+ HWL ME_49254FB00390 // IdsDiction
+ HWL ME_492552F20152 // IdDiction
+ HWL ME_492553F8032A // IdeDiction
+ HWL ME_493682F9024E // IsdsDiction
  )
  ; // Children
  : Depends

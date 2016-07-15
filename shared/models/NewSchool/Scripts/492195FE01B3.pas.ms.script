@@ -1,0 +1,102 @@
+// TdsFolderElement 492195FE01B3 ViewAreaControllerImp Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_492195FE01B3
+
+: ME_4921962A0165
+ CONST UID '4921962A0165'
+ CONST Name 'FormDataSourceType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent HWL ME_492195FE01B3 // TdsFolderElement
+ ;
+ : Target WL 'ME_4921928D038A' '492192300095.pas.ms.script' // IdsFolderElement
+ ;
+
+ref; // ME_4921962A0165 FormDataSourceType
+
+: ME_49219642035C
+ CONST UID '49219642035C'
+ CONST Name 'f_SaveObject'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_492195FE01B3 // TdsFolderElement
+ ;
+ : Target WL 'ME_492192160370' '4990135D02F1.pas.ms.script' // IdeSaveObject
+ ;
+
+ref; // ME_49219642035C f_SaveObject
+
+: ME_492196820127
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_492195FE01B3 // TdsFolderElement
+ ;
+ : Target WL 'ME_4921953602C1' '4921954E019B.pas.ms.script' // TdeSaveObject
+ ;
+
+ref; // ME_492196820127 
+
+: ME_492192AA0144_ME_492195FE01B3
+ : Original WL 'ME_492192AA0144' '492192300095.pas.ms.script' // SaveObject
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_492192AA0144_ME_492195FE01B3 SaveObject
+
+: ME_479731C50290_ME_492195FE01B3
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_479731C50290_ME_492195FE01B3 Cleanup
+
+: ME_492195FE01B3
+ CONST UID '492195FE01B3'
+ CONST Name 'TdsFolderElement'
+ CONST Class class_Class
+ : Stereotype st_ViewAreaControllerImp ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4921954E019B' '4921954E019B.pas.ms.script' // Folders
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47ECE94D03D4' '47D0E1500033.pas.ms.script' // vcmFormDataSourcePrim
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4921928D038A' '492192300095.pas.ms.script' // IdsFolderElement
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( HWL ME_4921962A0165 // FormDataSourceType
+ HWL ME_49219642035C // f_SaveObject
+ )
+ ; // Attributes
+ : Implemented
+   Seq: ( ME_492192AA0144_ME_492195FE01B3 // SaveObject
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_479731C50290_ME_492195FE01B3 // Cleanup
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_492196820127 // TdeSaveObject
+ )
+ ; // Dependencies
+ CONST "author" 'Морозов М.А.'
+ CONST "no hands" true
+ CONST "started" '03.05.2006'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Folders\dsFolderElement.pas'
+ CONST extprop:rc:SelfName 'dsFolderElement'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'dsFolderElement'
+
+ref; // ME_492195FE01B3 TdsFolderElement

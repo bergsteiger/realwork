@@ -1,0 +1,883 @@
+// TevCustomMemo 4829D81D02E5 GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4829D81D02E5
+
+: ME_482D9D420205
+ CONST UID '482D9D420205'
+ CONST Name 'RevCustomMemoTextSource'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4829D81D02E5 // TevCustomMemo
+ ;
+ : Inherits
+   Seq: ( WL 'ME_482D98A20190' '4829D7D50156.pas.ms.script' // TevCustomMemoTextSource
+ )
+ ; // Inherits
+ CONST "isClassRef" true
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_482D9D420205 RevCustomMemoTextSource
+
+FORWARD ME_484522B20174
+
+: ME_484522BD035C
+ CONST UID '484522BD035C'
+ CONST Name 'def_MemoLMargin'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_484522B20174 // Defaults
+ ;
+ CONST Value 8
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value 8
+
+ref; // ME_484522BD035C def_MemoLMargin
+
+: ME_484550300370
+ CONST UID '484550300370'
+ CONST Name 'def_MemoScrollStyle'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_484522B20174 // Defaults
+ ;
+ CONST Value 'def_MemoScrollStyle'
+ : ValueType WL 'ME_47F245BD01E1' '47F2458300E4.pas.ms.script' // Defaults
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value 'evDef.def_MemoScrollStyle'
+
+ref; // ME_484550300370 def_MemoScrollStyle
+
+: ME_484522B20174
+ CONST UID '484522B20174'
+ CONST Name 'Defaults'
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4829D81D02E5 // TevCustomMemo
+ ;
+ : Attributes
+   Seq: ( HWL ME_484522BD035C // def_MemoLMargin
+ HWL ME_484550300370 // def_MemoScrollStyle
+ )
+ ; // Attributes
+ CONST "spell names" false
+
+ref; // ME_484522B20174 Defaults
+
+: ME_484517360371
+ CONST UID '484517360371'
+ CONST Name 'NeedDefaultPopupMenu'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_4829D81D02E5 // TevCustomMemo
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST Value true
+ : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+ CONST "reads field" true
+ CONST extprop:pas:Value true
+
+ref; // ME_484517360371 NeedDefaultPopupMenu
+
+: ME_4845175D022D
+ CONST UID '4845175D022D'
+ CONST Name 'KeepAllFormatting'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_4829D81D02E5 // TevCustomMemo
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST Value false
+ : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+ CONST extprop:pas:Value false
+
+ref; // ME_4845175D022D KeepAllFormatting
+
+: ME_484517BD02FF
+ CONST UID '484517BD02FF'
+ CONST Name 'TextLen'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'размер текста.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_4829D81D02E5 // TevCustomMemo
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "needs field" false
+ CONST "pm" true
+
+ref; // ME_484517BD02FF TextLen
+
+: ME_484517DD032E
+ CONST UID '484517DD032E'
+ CONST Name 'Buffer'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ %SUMMARY 'текст мемо-поля.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_4829D81D02E5 // TevCustomMemo
+ ;
+ : Target WL 'ME_46780D0003AF' '4677FBA70343.pas.ms.script' // Tl3WString
+ ;
+ CONST "needs field" false
+ CONST "pm" true
+
+ref; // ME_484517DD032E Buffer
+
+: ME_484518050194
+ CONST UID '484518050194'
+ CONST Name 'Wrap'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ %SUMMARY 'переносить ли слова по размеру мемо-поля.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_4829D81D02E5 // TevCustomMemo
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST Value true
+ : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "needs field" false
+ CONST "pm" true
+ CONST extprop:pas:Value true
+
+ref; // ME_484518050194 Wrap
+
+: ME_4864C60D01F5
+ CONST UID '4864C60D01F5'
+ CONST Name 'NeedReplaceQuotes'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_4829D81D02E5 // TevCustomMemo
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST Value true
+ : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+ CONST extprop:pas:Value true
+
+ref; // ME_4864C60D01F5 NeedReplaceQuotes
+
+: ME_48451D580379
+ CONST UID '48451D580379'
+ CONST Name 'f_Buf'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4829D81D02E5 // TevCustomMemo
+ ;
+ : Target WL 'ME_48451D410179' '47913B47006E.pas.ms.script' // Tl3MemoryPool
+ ;
+
+ref; // ME_48451D580379 f_Buf
+
+: ME_48451DC000CE
+ CONST UID '48451DC000CE'
+ CONST Name 'f_PlainText'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4829D81D02E5 // TevCustomMemo
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_48451DC000CE f_PlainText
+
+FORWARD ME_4D6B97CB00AA
+
+: ME_4D6B97E602BD
+ CONST UID '4D6B97E602BD'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4D6B97CB00AA // UseMemoFontForParagraphs
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4D6B97E602BD DoIt
+
+: ME_4D6B97CB00AA
+ CONST UID '4D6B97CB00AA'
+ CONST Name 'UseMemoFontForParagraphs'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4829D81D02E5 // TevCustomMemo
+ ;
+ : Operations
+   Seq: ( HWL ME_4D6B97E602BD // DoIt
+ )
+ ; // Operations
+
+ref; // ME_4D6B97CB00AA UseMemoFontForParagraphs
+
+: ME_482D9D1701E0
+ CONST UID '482D9D1701E0'
+ CONST Name 'TextSourceClass'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4829D81D02E5 // TevCustomMemo
+ ;
+ : Target HWL ME_482D9D420205 // RevCustomMemoTextSource
+ ;
+
+ref; // ME_482D9D1701E0 TextSourceClass
+
+: ME_484524FD0003
+ CONST Name 'Msg'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_476F793C0385' '46A5E026007E.pas.ms.script' // TMessage
+ ;
+
+ref; // ME_484524FD0003 Msg
+
+: ME_484524F103B7
+ CONST UID '484524F103B7'
+ CONST Name 'WMGetText'
+ CONST Class class_Operation
+ : Stereotype st_message::Operation ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4829D81D02E5 // TevCustomMemo
+ ;
+ : Parameters
+   Seq: ( ME_484524FD0003 // Msg
+ )
+ ; // Parameters
+ CONST "Message ID" 'WM_GetText'
+
+ref; // ME_484524F103B7 WMGetText
+
+: ME_48452517021E
+ CONST Name 'Msg'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_476F793C0385' '46A5E026007E.pas.ms.script' // TMessage
+ ;
+
+ref; // ME_48452517021E Msg
+
+: ME_4845250E02BE
+ CONST UID '4845250E02BE'
+ CONST Name 'WMGetTextLength'
+ CONST Class class_Operation
+ : Stereotype st_message::Operation ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4829D81D02E5 // TevCustomMemo
+ ;
+ : Parameters
+   Seq: ( ME_48452517021E // Msg
+ )
+ ; // Parameters
+ CONST "Message ID" 'WM_GetTextLength'
+
+ref; // ME_4845250E02BE WMGetTextLength
+
+: ME_4845252A03D0
+ CONST Name 'Msg'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_476F793C0385' '46A5E026007E.pas.ms.script' // TMessage
+ ;
+
+ref; // ME_4845252A03D0 Msg
+
+: ME_484525250384
+ CONST UID '484525250384'
+ CONST Name 'WMSetText'
+ CONST Class class_Operation
+ : Stereotype st_message::Operation ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4829D81D02E5 // TevCustomMemo
+ ;
+ : Parameters
+   Seq: ( ME_4845252A03D0 // Msg
+ )
+ ; // Parameters
+ CONST "Message ID" 'WM_SetText'
+
+ref; // ME_484525250384 WMSetText
+
+: ME_48452538032D
+ CONST Name 'Msg'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_476F793C0385' '46A5E026007E.pas.ms.script' // TMessage
+ ;
+
+ref; // ME_48452538032D Msg
+
+: ME_484525330040
+ CONST UID '484525330040'
+ CONST Name 'CMFONTCHANGED'
+ CONST Class class_Operation
+ : Stereotype st_message::Operation ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4829D81D02E5 // TevCustomMemo
+ ;
+ : Parameters
+   Seq: ( ME_48452538032D // Msg
+ )
+ ; // Parameters
+ CONST "Message ID" 'CM_FONTCHANGED'
+
+ref; // ME_484525330040 CMFONTCHANGED
+
+: ME_484525560090
+ CONST Name 'Msg'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_47C7C9F8039E' '476F78840219.pas.ms.script' // TWMKeyDown
+ ;
+
+ref; // ME_484525560090 Msg
+
+: ME_484525510319
+ CONST UID '484525510319'
+ CONST Name 'WMKeyDown'
+ CONST Class class_Operation
+ : Stereotype st_message::Operation ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4829D81D02E5 // TevCustomMemo
+ ;
+ : Parameters
+   Seq: ( ME_484525560090 // Msg
+ )
+ ; // Parameters
+ CONST "Message ID" 'CN_KEYDOWN'
+
+ref; // ME_484525510319 WMKeyDown
+
+: ME_4860F5DF026F
+ CONST UID '4860F5DF026F'
+ CONST Name 'Validate'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4829D81D02E5 // TevCustomMemo
+ ;
+
+ref; // ME_4860F5DF026F Validate
+
+: ME_4A8A6DA10058
+ CONST Name 'aTag'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4A8A6DA10058 aTag
+
+: ME_4A8A6D4701CC
+ CONST UID '4A8A6D4701CC'
+ CONST Name 'KeepParaFormattingTag'
+ CONST Class class_Operation
+ %SUMMARY 'Сохранять ли элемент оформления' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4829D81D02E5 // TevCustomMemo
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   Seq: ( ME_4A8A6DA10058 // aTag
+ )
+ ; // Parameters
+
+ref; // ME_4A8A6D4701CC KeepParaFormattingTag
+
+: ME_4C35BF330018
+ CONST Name 'Message'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_4C35BEF20229' '4799D29F033F.pas.ms.script' // TCMEnter
+ ;
+
+ref; // ME_4C35BF330018 Message
+
+: ME_4C35BF1F02D2
+ CONST UID '4C35BF1F02D2'
+ CONST Name 'CMEnter'
+ CONST Class class_Operation
+ : Stereotype st_message::Operation ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4829D81D02E5 // TevCustomMemo
+ ;
+ : Parameters
+   Seq: ( ME_4C35BF330018 // Message
+ )
+ ; // Parameters
+ CONST "Message ID" 'CM_ENTER'
+
+ref; // ME_4C35BF1F02D2 CMEnter
+
+: ME_4C35C19E0140
+ CONST Name 'Message'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_4C35C1730235' '4799D29F033F.pas.ms.script' // TCMExit
+ ;
+
+ref; // ME_4C35C19E0140 Message
+
+: ME_4C35C19200EC
+ CONST UID '4C35C19200EC'
+ CONST Name 'CMExit'
+ CONST Class class_Operation
+ : Stereotype st_message::Operation ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4829D81D02E5 // TevCustomMemo
+ ;
+ : Parameters
+   Seq: ( ME_4C35C19E0140 // Message
+ )
+ ; // Parameters
+ CONST "Message ID" 'CM_EXIT'
+
+ref; // ME_4C35C19200EC CMExit
+
+: ME_482DA0BE027B
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4829D81D02E5 // TevCustomMemo
+ ;
+ : Target WL 'ME_482D98A20190' '4829D7D50156.pas.ms.script' // TevCustomMemoTextSource
+ ;
+
+ref; // ME_482DA0BE027B 
+
+: ME_48451CD703DC
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4829D81D02E5 // TevCustomMemo
+ ;
+ : Target WL 'ME_47A066980016' '537B83AD01F0.pas.ms.script' // l3MinMax
+ ;
+
+ref; // ME_48451CD703DC 
+
+: ME_48451CED007B
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4829D81D02E5 // TevCustomMemo
+ ;
+ : Target WL 'ME_47A082F101DB' '476BE98C01B8.pas.ms.script' // Ext Chars
+ ;
+
+ref; // ME_48451CED007B 
+
+: ME_48451D1800CE
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4829D81D02E5 // TevCustomMemo
+ ;
+ : Target WL 'ME_47878E0E0191' '54B90AC6014B.pas.ms.script' // l3String
+ ;
+
+ref; // ME_48451D1800CE 
+
+: ME_48451D890396
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4829D81D02E5 // TevCustomMemo
+ ;
+ : Target WL 'ME_476BEEFC018E' '48F4E61C0060.pas.ms.script' // evd_DefaultStoreFlags
+ ;
+
+ref; // ME_48451D890396 
+
+: ME_48451F570242
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4829D81D02E5 // TevCustomMemo
+ ;
+ : Target WL 'ME_47209E670266' '4678193C009C.pas.ms.script' // Tl3PCharLen
+ ;
+
+ref; // ME_48451F570242 
+
+: ME_48451FEA0348
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4829D81D02E5 // TevCustomMemo
+ ;
+ : Target WL 'ME_47F245BD01E1' '47F2458300E4.pas.ms.script' // Defaults
+ ;
+
+ref; // ME_48451FEA0348 
+
+: ME_48452029039C
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4829D81D02E5 // TevCustomMemo
+ ;
+ : Target WL 'ME_48452014010D' '4829D7D50156.pas.ms.script' // TevMemoContextMenu
+ ;
+
+ref; // ME_48452029039C 
+
+: ME_484523B9026B
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4829D81D02E5 // TevCustomMemo
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_484523B9026B 
+
+: ME_484523D1002E
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4829D81D02E5 // TevCustomMemo
+ ;
+ : Target WL 'ME_47CBD5980343' '55C4AEC801CA.pas.ms.script' // Colors
+ ;
+
+ref; // ME_484523D1002E 
+
+: ME_484527C50097
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4829D81D02E5 // TevCustomMemo
+ ;
+ : Target WL 'ME_47C6A6570369' '47C5207602D1.pas.ms.script' // InevParaList
+ ;
+
+ref; // ME_484527C50097 
+
+: ME_484528C70102
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4829D81D02E5 // TevCustomMemo
+ ;
+ : Target WL 'ME_47C69EBC00A8' '47AC75550330.pas.ms.script' // Tk2TagID
+ ;
+
+ref; // ME_484528C70102 
+
+: ME_4845290D019C
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4829D81D02E5 // TevCustomMemo
+ ;
+ : Target WL 'ME_480DBA760390' '480DBA6900E6.pas.ms.script' // k2Facade
+ ;
+
+ref; // ME_4845290D019C 
+
+: ME_484529F200A7
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4829D81D02E5 // TevCustomMemo
+ ;
+ : Target WL 'ME_484529DC0276' '4799D29F033F.pas.ms.script' // TCustomForm
+ ;
+
+ref; // ME_484529F200A7 
+
+: ME_48452A3C01DB
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4829D81D02E5 // TevCustomMemo
+ ;
+ : Target WL 'ME_47D00B7F0171' '4AB0C3F60375.pas.ms.script' // Key Codes
+ ;
+
+ref; // ME_48452A3C01DB 
+
+: ME_48452BEC00B7
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4829D81D02E5 // TevCustomMemo
+ ;
+ : Target WL 'ME_48452BD40093' '48452B7D0314.pas.ms.script' // EevLimitReached
+ ;
+
+ref; // ME_48452BEC00B7 
+
+: ME_48F4EC08032C
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4829D81D02E5 // TevCustomMemo
+ ;
+ : Target WL 'ME_476BED00024F' '48F4E61C0060.pas.ms.script' // StoreFlag
+ ;
+
+ref; // ME_48F4EC08032C 
+
+: ME_4C35C0B803B5
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4829D81D02E5 // TevCustomMemo
+ ;
+ : Target WL 'ME_47C5BA5F017D' '47C5207602D1.pas.ms.script' // InevSelection
+ ;
+
+ref; // ME_4C35C0B803B5 
+
+: ME_530777E703E0
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4829D81D02E5 // TevCustomMemo
+ ;
+ : Target WL 'ME_484CEE9A0170' '484A470100DD.pas.ms.script' // Font
+ ;
+
+ref; // ME_530777E703E0 
+
+: ME_479731C50290_ME_4829D81D02E5
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_479731C50290_ME_4829D81D02E5 Cleanup
+
+: ME_47D1602000C6_ME_4829D81D02E5
+ : Original WL 'ME_47D1602000C6' '4AB0997B00A2.pas.ms.script' // Create
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_47D1602000C6_ME_4829D81D02E5 Create
+
+: ME_482BFB0A00E0_ME_4829D81D02E5
+ : Original WL 'ME_482BFB0A00E0' '4829D92A037B.pas.ms.script' // MakeTextSource
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_482BFB0A00E0_ME_4829D81D02E5 MakeTextSource
+
+: ME_482BFBEE00D5_ME_4829D81D02E5
+ : Original WL 'ME_482BFBEE00D5' '4829D92A037B.pas.ms.script' // AllowDrawDocumentEdge
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_482BFBEE00D5_ME_4829D81D02E5 AllowDrawDocumentEdge
+
+: ME_482BFC8E036F_ME_4829D81D02E5
+ : Original WL 'ME_482BFC8E036F' '4829D92A037B.pas.ms.script' // RightIndentMul
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_482BFC8E036F_ME_4829D81D02E5 RightIndentMul
+
+: ME_482BFCA000E4_ME_4829D81D02E5
+ : Original WL 'ME_482BFCA000E4' '4829D92A037B.pas.ms.script' // WantEnter
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_482BFCA000E4_ME_4829D81D02E5 WantEnter
+
+: ME_482BFCAE0072_ME_4829D81D02E5
+ : Original WL 'ME_482BFCAE0072' '4829D92A037B.pas.ms.script' // WantTab
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_482BFCAE0072_ME_4829D81D02E5 WantTab
+
+: ME_482BFD8601F3_ME_4829D81D02E5
+ : Original WL 'ME_482BFD8601F3' '4829D92A037B.pas.ms.script' // MakeExportFilters
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_482BFD8601F3_ME_4829D81D02E5 MakeExportFilters
+
+: ME_482C26D6006A_ME_4829D81D02E5
+ : Original WL 'ME_482C26D6006A' '4829D92A037B.pas.ms.script' // TextChange
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_482C26D6006A_ME_4829D81D02E5 TextChange
+
+: ME_4831634B00FF_ME_4829D81D02E5
+ : Original WL 'ME_4831634B00FF' '4829D92A037B.pas.ms.script' // SetTextColor
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4831634B00FF_ME_4829D81D02E5 SetTextColor
+
+: ME_484515B3012E_ME_4829D81D02E5
+ : Original WL 'ME_484515B3012E' '4829D92A037B.pas.ms.script' // PlainText
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "needs field" false
+ CONST "pm" true
+ref; // ME_484515B3012E_ME_4829D81D02E5 PlainText
+
+: ME_484516C00214_ME_4829D81D02E5
+ : Original WL 'ME_484516C00214' '4AB0997B00A2.pas.ms.script' // Loaded
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_484516C00214_ME_4829D81D02E5 Loaded
+
+: ME_48E22AD302CE_ME_4829D81D02E5
+ : Original WL 'ME_48E22AD302CE' '4829D92A037B.pas.ms.script' // SelectWhenUnfocused
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_48E22AD302CE_ME_4829D81D02E5 SelectWhenUnfocused
+
+: ME_4B877E7B0330_ME_4829D81D02E5
+ : Original WL 'ME_4B877E7B0330' '4B877C5101C1.pas.ms.script' // AllowParaType
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "needs field" false
+ CONST "pm" true
+ref; // ME_4B877E7B0330_ME_4829D81D02E5 AllowParaType
+
+: ME_4C346719001A_ME_4829D81D02E5
+ : Original WL 'ME_4C346719001A' '4829D89703D2.pas.ms.script' // AllowAutoSelectByMouse
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4C346719001A_ME_4829D81D02E5 AllowAutoSelectByMouse
+
+: ME_4829D81D02E5
+ CONST UID '4829D81D02E5'
+ CONST Name 'TevCustomMemo'
+ CONST Class class_Class
+ : Stereotype st_GuiControl ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Мемо-поле.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4829D7D50156' '4829D7D50156.pas.ms.script' // Editors
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4829D85C03C1' '4829D85C03C1.pas.ms.script' // TevEditorWithOperations
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( HWL ME_484517360371 // NeedDefaultPopupMenu
+ HWL ME_4845175D022D // KeepAllFormatting
+ HWL ME_484517BD02FF // TextLen
+ HWL ME_484517DD032E // Buffer
+ HWL ME_484518050194 // Wrap
+ HWL ME_4864C60D01F5 // NeedReplaceQuotes
+ HWL ME_48451D580379 // f_Buf
+ HWL ME_48451DC000CE // f_PlainText
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( HWL ME_4D6B97CB00AA // UseMemoFontForParagraphs
+ HWL ME_482D9D1701E0 // TextSourceClass
+ HWL ME_484524F103B7 // WMGetText
+ HWL ME_4845250E02BE // WMGetTextLength
+ HWL ME_484525250384 // WMSetText
+ HWL ME_484525330040 // CMFONTCHANGED
+ HWL ME_484525510319 // WMKeyDown
+ HWL ME_4860F5DF026F // Validate
+ HWL ME_4A8A6D4701CC // KeepParaFormattingTag
+ HWL ME_4C35BF1F02D2 // CMEnter
+ HWL ME_4C35C19200EC // CMExit
+ )
+ ; // Operations
+ : Overridden
+   Seq: ( ME_479731C50290_ME_4829D81D02E5 // Cleanup
+ ME_47D1602000C6_ME_4829D81D02E5 // Create
+ ME_482BFB0A00E0_ME_4829D81D02E5 // MakeTextSource
+ ME_482BFBEE00D5_ME_4829D81D02E5 // AllowDrawDocumentEdge
+ ME_482BFC8E036F_ME_4829D81D02E5 // RightIndentMul
+ ME_482BFCA000E4_ME_4829D81D02E5 // WantEnter
+ ME_482BFCAE0072_ME_4829D81D02E5 // WantTab
+ ME_482BFD8601F3_ME_4829D81D02E5 // MakeExportFilters
+ ME_482C26D6006A_ME_4829D81D02E5 // TextChange
+ ME_4831634B00FF_ME_4829D81D02E5 // SetTextColor
+ ME_484515B3012E_ME_4829D81D02E5 // PlainText
+ ME_484516C00214_ME_4829D81D02E5 // Loaded
+ ME_48E22AD302CE_ME_4829D81D02E5 // SelectWhenUnfocused
+ ME_4B877E7B0330_ME_4829D81D02E5 // AllowParaType
+ ME_4C346719001A_ME_4829D81D02E5 // AllowAutoSelectByMouse
+ )
+ ; // Overridden
+ : Children
+   Seq: ( HWL ME_482D9D420205 // RevCustomMemoTextSource
+ )
+ ; // Children
+ : Constants
+   Seq: ( HWL ME_484522B20174 // Defaults
+ )
+ ; // Constants
+ : Dependencies
+   Seq: ( ME_482DA0BE027B // TevCustomMemoTextSource
+ ME_48451CD703DC // l3MinMax
+ ME_48451CED007B // Ext Chars
+ ME_48451D1800CE // l3String
+ ME_48451D890396 // evd_DefaultStoreFlags
+ ME_48451F570242 // Tl3PCharLen
+ ME_48451FEA0348 // Defaults
+ ME_48452029039C // TevMemoContextMenu
+ ME_484523B9026B // SysUtils
+ ME_484523D1002E // Colors
+ ME_484527C50097 // InevParaList
+ ME_484528C70102 // Tk2TagID
+ ME_4845290D019C // k2Facade
+ ME_484529F200A7 // TCustomForm
+ ME_48452A3C01DB // Key Codes
+ ME_48452BEC00B7 // EevLimitReached
+ ME_48F4EC08032C // StoreFlag
+ ME_4C35C0B803B5 // InevSelection
+ ME_530777E703E0 // Font
+ )
+ ; // Dependencies
+ CONST "author" 'Люлин А.В.'
+ CONST "need UC" true
+ CONST "no hands" true
+ CONST "started" '23.05.1997 09:10'
+ CONST intf.pas:Path 'common\components\gui\Garant\Everest\evCustomMemo.pas'
+ CONST extprop:rc:SelfName 'Memo'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evCustomMemo'
+
+ref; // ME_4829D81D02E5 TevCustomMemo

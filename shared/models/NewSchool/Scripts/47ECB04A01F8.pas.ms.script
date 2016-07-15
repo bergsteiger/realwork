@@ -82,7 +82,7 @@ ref; // ME_47C5B1E90326_ME_4F5C4EB20139 Disabled
  %SUMMARY 'Базовый класс для реализации Undo-буфера.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47F252060091 // evUndoB
+ : Parent HWL ME_47F252060091 // evUndoB
  ;
  : Implements
    Seq: ( WL 'ME_47C5B145018F' '47913B47006E.pas.ms.script' // Ik2UndoBuffer
@@ -115,10 +115,10 @@ ref; // ME_4F5C4EB20139 TevCustomUndoBuffer
  %SUMMARY 'Класс для реализации Undo-буфера.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47F252060091 // evUndoB
+ : Parent HWL ME_47F252060091 // evUndoB
  ;
  : Inherits
-   Seq: ( ME_4F5C4EB20139 // TevCustomUndoBuffer
+   Seq: ( HWL ME_4F5C4EB20139 // TevCustomUndoBuffer
  )
  ; // Inherits
  CONST "author" 'Люлин А.В.'
@@ -134,9 +134,9 @@ FORWARD ME_552BAA150205
 : ME_552BAA3102AE
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_47F252060091 // evUndoB
+ : Parent HWL ME_47F252060091 // evUndoB
  ;
- : Target ME_552BAA150205 // evStandardActions
+ : Target HWL ME_552BAA150205 // evStandardActions
  ;
 
 ref; // ME_552BAA3102AE 
@@ -149,11 +149,11 @@ ref; // ME_552BAA3102AE
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_47ECB04A01F8 // Processors
+ : Parent HWL ME_47ECB04A01F8 // Processors
  ;
  : Children
-   Seq: ( ME_4F5C4EB20139 // TevCustomUndoBuffer
- ME_47F2522D0368 // TevUndoBuffer
+   Seq: ( HWL ME_4F5C4EB20139 // TevCustomUndoBuffer
+ HWL ME_47F2522D0368 // TevUndoBuffer
  )
  ; // Children
  : Dependencies
@@ -178,7 +178,7 @@ FORWARD ME_47F351E50367
  CONST Class class_Operation
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_47F351E50367 // TevCustomProcessor
+ : Parent HWL ME_47F351E50367 // TevCustomProcessor
  ;
 
 ref; // ME_482D91730258 BeepOnParaLimit
@@ -240,7 +240,7 @@ ref; // ME_4D077BE80280_ME_47F351E50367 BitmapParaCount
  %SUMMARY 'Обработчик операций.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47F351BC0145 // evOpProc
+ : Parent HWL ME_47F351BC0145 // evOpProc
  ;
  : Inherits
    Seq: ( WL 'ME_47879856035F' '47913B47006E.pas.ms.script' // Tl3_Base
@@ -252,7 +252,7 @@ ref; // ME_4D077BE80280_ME_47F351E50367 BitmapParaCount
  )
  ; // Implements
  : Operations
-   Seq: ( ME_482D91730258 // BeepOnParaLimit
+   Seq: ( HWL ME_482D91730258 // BeepOnParaLimit
  )
  ; // Operations
  : Implemented
@@ -281,7 +281,7 @@ FORWARD ME_47F3521002C7
  CONST Class class_Operation
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_47F3521002C7 // TevCustomUndoProcessor
+ : Parent HWL ME_47F3521002C7 // TevCustomUndoProcessor
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -331,7 +331,7 @@ ref; // ME_48E4CBBA0062 anIndex
  %SUMMARY 'проверить операцию с параграфом' ;
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_47F3521002C7 // TevCustomUndoProcessor
+ : Parent HWL ME_47F3521002C7 // TevCustomUndoProcessor
  ;
  : Parameters
    Seq: ( ME_48E4CBB903B9 // aParent
@@ -349,7 +349,7 @@ ref; // ME_48E4CB990000 DoCheckParaOp
  CONST Class class_Operation
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_47F3521002C7 // TevCustomUndoProcessor
+ : Parent HWL ME_47F3521002C7 // TevCustomUndoProcessor
  ;
 
 ref; // ME_48E4CBD6038B DoAfterUndoRedo
@@ -388,7 +388,7 @@ ref; // ME_48E4CC0002B0 Op
  %SUMMARY 'завершить операцию с параграфом' ;
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_47F3521002C7 // TevCustomUndoProcessor
+ : Parent HWL ME_47F3521002C7 // TevCustomUndoProcessor
  ;
  : Parameters
    Seq: ( ME_48E4CC000240 // Parent
@@ -641,10 +641,10 @@ ref; // ME_4CECE9470154_ME_47F3521002C7 IsCheckOff
  %SUMMARY 'Обработчик операций с возможностью Undo & Redo.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47F351BC0145 // evOpProc
+ : Parent HWL ME_47F351BC0145 // evOpProc
  ;
  : Inherits
-   Seq: ( ME_47F351E50367 // TevCustomProcessor
+   Seq: ( HWL ME_47F351E50367 // TevCustomProcessor
  )
  ; // Inherits
  : Implements
@@ -653,10 +653,10 @@ ref; // ME_4CECE9470154_ME_47F3521002C7 IsCheckOff
  )
  ; // Implements
  : Operations
-   Seq: ( ME_4843D3020153 // GetNeedReplaceQuotes
- ME_48E4CB990000 // DoCheckParaOp
- ME_48E4CBD6038B // DoAfterUndoRedo
- ME_48E4CBE8018B // DoParaOp
+   Seq: ( HWL ME_4843D3020153 // GetNeedReplaceQuotes
+ HWL ME_48E4CB990000 // DoCheckParaOp
+ HWL ME_48E4CBD6038B // DoAfterUndoRedo
+ HWL ME_48E4CBE8018B // DoParaOp
  )
  ; // Operations
  : Implemented
@@ -716,11 +716,11 @@ ref; // ME_47F3521002C7 TevCustomUndoProcessor
  %SUMMARY 'Обработчики операций.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_47ECB04A01F8 // Processors
+ : Parent HWL ME_47ECB04A01F8 // Processors
  ;
  : Children
-   Seq: ( ME_47F351E50367 // TevCustomProcessor
- ME_47F3521002C7 // TevCustomUndoProcessor
+   Seq: ( HWL ME_47F351E50367 // TevCustomProcessor
+ HWL ME_47F3521002C7 // TevCustomUndoProcessor
  )
  ; // Children
  CONST "author" 'Люлин А.В.'
@@ -739,10 +739,10 @@ ref; // ME_47F351BC0145 evOpProc
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47ECB04A01F8 // Processors
+ : Parent HWL ME_47ECB04A01F8 // Processors
  ;
  : Inherits
-   Seq: ( ME_47F3521002C7 // TevCustomUndoProcessor
+   Seq: ( HWL ME_47F3521002C7 // TevCustomUndoProcessor
  )
  ; // Inherits
  CONST "author" 'Люлин А.В.'
@@ -763,7 +763,7 @@ ref; // ME_482D8ABE024B TevNotifiedProcessor
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47ECB04A01F8 // Processors
+ : Parent HWL ME_47ECB04A01F8 // Processors
  ;
  CONST "author" 'Люлин А.В.'
  CONST "finished" false
@@ -783,10 +783,10 @@ ref; // ME_47F35FBA0208 TevDefaultContext
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47ECB04A01F8 // Processors
+ : Parent HWL ME_47ECB04A01F8 // Processors
  ;
  : Inherits
-   Seq: ( ME_482D8ABE024B // TevNotifiedProcessor
+   Seq: ( HWL ME_482D8ABE024B // TevNotifiedProcessor
  )
  ; // Inherits
  CONST "author" 'Люлин А.В.'
@@ -807,10 +807,10 @@ ref; // ME_47ECB0850387 TevPreviewProcessor
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47ECB04A01F8 // Processors
+ : Parent HWL ME_47ECB04A01F8 // Processors
  ;
  : Inherits
-   Seq: ( ME_482D8ABE024B // TevNotifiedProcessor
+   Seq: ( HWL ME_482D8ABE024B // TevNotifiedProcessor
  )
  ; // Inherits
  CONST "author" 'Люлин А.В.'
@@ -831,10 +831,10 @@ ref; // ME_482D8A7101CE TevCustomEditorWindowProcessor
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47ECB04A01F8 // Processors
+ : Parent HWL ME_47ECB04A01F8 // Processors
  ;
  : Inherits
-   Seq: ( ME_482D8A7101CE // TevCustomEditorWindowProcessor
+   Seq: ( HWL ME_482D8A7101CE // TevCustomEditorWindowProcessor
  )
  ; // Inherits
  CONST "author" 'Люлин А.В.'
@@ -855,7 +855,7 @@ ref; // ME_47F35EA70305 TevEditorWindowProcessor
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_552BAA150205 // evStandardActions
+ : Parent HWL ME_552BAA150205 // evStandardActions
  ;
  CONST extprop:rc:isAcceptableForScripts true
 
@@ -869,10 +869,10 @@ ref; // ME_552BAA4B0206 TevOperation
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_47ECB04A01F8 // Processors
+ : Parent HWL ME_47ECB04A01F8 // Processors
  ;
  : Children
-   Seq: ( ME_552BAA4B0206 // TevOperation
+   Seq: ( HWL ME_552BAA4B0206 // TevOperation
  )
  ; // Children
  CONST "finished" false
@@ -892,14 +892,14 @@ ref; // ME_552BAA150205 evStandardActions
  : Parent WL 'ME_4797632D0273' '4797632D0273.pas.ms.script' // Everest
  ;
  : Children
-   Seq: ( ME_47F252060091 // evUndoB
- ME_47F351BC0145 // evOpProc
- ME_482D8ABE024B // TevNotifiedProcessor
- ME_47F35FBA0208 // TevDefaultContext
- ME_47ECB0850387 // TevPreviewProcessor
- ME_482D8A7101CE // TevCustomEditorWindowProcessor
- ME_47F35EA70305 // TevEditorWindowProcessor
- ME_552BAA150205 // evStandardActions
+   Seq: ( HWL ME_47F252060091 // evUndoB
+ HWL ME_47F351BC0145 // evOpProc
+ HWL ME_482D8ABE024B // TevNotifiedProcessor
+ HWL ME_47F35FBA0208 // TevDefaultContext
+ HWL ME_47ECB0850387 // TevPreviewProcessor
+ HWL ME_482D8A7101CE // TevCustomEditorWindowProcessor
+ HWL ME_47F35EA70305 // TevEditorWindowProcessor
+ HWL ME_552BAA150205 // evStandardActions
  )
  ; // Children
  : Depends

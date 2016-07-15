@@ -1,0 +1,101 @@
+// PrimDocNumberQueryOptions 4C863B1E0196 VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4C863B1E0196
+
+: ME_4C863CC30357
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C863B1E0196 // PrimDocNumberQueryOptions
+ ;
+ : Target WL 'ME_4A980B37006B' '4799D29F033F.pas.ms.script' // ModalResults
+ ;
+
+ref; // ME_4C863CC30357 
+
+: ME_51B9F7D90215
+ CONST Class class_Dependency
+ : Stereotype st_ToolbarAtBottom::Dependency ;
+ : Parent HWL ME_4C863B1E0196 // PrimDocNumberQueryOptions
+ ;
+ : Target WL 'ME_4A97EBC80201' '4A8AD3C70195.pas.ms.script' // Result$Ok
+ ;
+
+ref; // ME_51B9F7D90215 
+
+: ME_4C762A1501FC_ME_4C863B1E0196
+ : Original WL 'ME_4C762A1501FC' '4A8AD3C70195.pas.ms.script' // Ok
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" true
+ CONST "ShowInToolbar" true
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_4C762A1501FC_ME_4C863B1E0196 Ok
+
+: ME_4C762C910358_ME_4C863B1E0196
+ : Original WL 'ME_4C762C910358' '4A8AD3C70195.pas.ms.script' // Cancel
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" true
+ CONST "ShowInToolbar" true
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_4C762C910358_ME_4C863B1E0196 Cancel
+
+: ME_4C863B1E0196
+ CONST UID '4C863B1E0196'
+ CONST Name 'PrimDocNumberQueryOptions'
+ CONST Class class_Class
+ : Stereotype st_VCMForm ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4D39876901E7' '4D39876901E7.pas.ms.script' // OpenDocumentByNumber
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4AC63602020E' '4AC63602020E.pas.ms.script' // PrimDocNumberQuery
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4A97EBC80201' '4A8AD3C70195.pas.ms.script' // Result$Ok
+ WL 'ME_4AC5D5FB0293' '4A8AD3C70195.pas.ms.script' // Result$CancelWithState
+ )
+ ; // Implements
+ : Implemented
+   Seq: ( ME_4C762A1501FC_ME_4C863B1E0196 // Ok
+ ME_4C762C910358_ME_4C863B1E0196 // Cancel
+ )
+ ; // Implemented
+ : Dependencies
+   Seq: ( ME_4C863CC30357 // ModalResults
+ ME_51B9F7D90215 // Result$Ok
+ )
+ ; // Dependencies
+ CONST "NeedsHackRef" true
+ CONST "ZoneType" 'Modal'
+ CONST "author" 'Ëþëèí À.Â.'
+ CONST "finished dfm" true
+ CONST "no hands" true
+ CONST "resizeable" false
+ CONST "restrict form def" 'undefined'
+ CONST "started" '07.09.2010 17:16'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\PrimDocNumberQueryOptions_Form.pas'
+ CONST extprop:pas:TypeName 'TPrimDocNumberQueryOptionsForm'
+ CONST extprop:rc:SelfName 'PrimDocNumberQueryOptionsForm'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'PrimDocNumberQueryOptions_Form'
+ CONST extprop:NeedsInitEntities true
+
+ref; // ME_4C863B1E0196 PrimDocNumberQueryOptions

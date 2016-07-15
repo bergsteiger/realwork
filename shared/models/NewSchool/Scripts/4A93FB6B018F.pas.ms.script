@@ -1,0 +1,208 @@
+// PrimEULA 4A93FB6B018F VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A93FB6B018F
+
+FORWARD ME_51BAEE3A02DC
+
+: ME_51BAEE4E01A4
+ CONST UID '51BAEE4E01A4'
+ CONST Name 'EULAText'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_51BAEE3A02DC // EULA Local Const
+ ;
+ CONST "AutoInc" false
+ CONST "Value" '''Правомерное владение экземпляром версии Электронного периодического справочника '' +'#13#10'''\\"Система ГАРАНТ\\" возможно только на основании и на условиях договора с лицами, '' +'#13#10'''указанными на сайте www.garant.ru''#13#10#13#10''ВНИМАНИЕ! НЕСОБЛЮДЕНИЕ '' +'#13#10'''УКАЗАННОГО ВЫШЕ УСЛОВИЯ ЯВЛЯЕТСЯ НАРУШЕНИЕМ ЗАКОНОДАТЕЛЬСТВА РОССИЙСКОЙ '' +'#13#10'''ФЕДЕРАЦИИ И ПРЕСЛЕДУЕТСЯ ПО ЗАКОНУ.'''
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_51BAEE4E01A4 EULAText
+
+: ME_51BAEE3A02DC
+ CONST UID '51BAEE3A02DC'
+ CONST Name 'EULA Local Const'
+ CONST Class class_Class
+ : Stereotype st_LocalConst ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4A93FB6B018F // PrimEULA
+ ;
+ : Attributes
+   Seq: ( HWL ME_51BAEE4E01A4 // EULAText
+ )
+ ; // Attributes
+ CONST "Need map interface" false
+ CONST "Need mapping support" false
+ CONST "spell names" false
+
+ref; // ME_51BAEE3A02DC EULA Local Const
+
+: ME_51BAD0C50140
+ CONST UID '51BAD0C50140'
+ CONST Name 'ShellCaptionLabel'
+ CONST Class class_Class
+ : Stereotype st_Control ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Прочтите внимательно' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4A93FB6B018F // PrimEULA
+ ;
+ CONST "ControlClass" 'TvtLabel'
+ CONST "pm" true
+ CONST "put to dfm" false
+
+ref; // ME_51BAD0C50140 ShellCaptionLabel
+
+: ME_51BAD0EA010E
+ CONST UID '51BAD0EA010E'
+ CONST Name 'OkButton'
+ CONST Class class_Class
+ : Stereotype st_Control ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Ок' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4A93FB6B018F // PrimEULA
+ ;
+ CONST "ControlClass" 'TvtButton'
+ CONST "pm" true
+ CONST "put to dfm" false
+
+ref; // ME_51BAD0EA010E OkButton
+
+: ME_51BAD4030098
+ CONST UID '51BAD4030098'
+ CONST Name 'eeMemoWithEditOperations1'
+ CONST Class class_Class
+ : Stereotype st_Control ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4A93FB6B018F // PrimEULA
+ ;
+ CONST "ControlClass" 'TeeMemoWithEditOperations'
+ CONST "pm" true
+ CONST "put to dfm" false
+
+ref; // ME_51BAD4030098 eeMemoWithEditOperations1
+
+: ME_51BAD500014C
+ CONST UID '51BAD500014C'
+ CONST Name 'OkButtonClick'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4A93FB6B018F // PrimEULA
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
+ )
+ ; // Inherits
+
+ref; // ME_51BAD500014C OkButtonClick
+
+: ME_51BAE14703CB
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A93FB6B018F // PrimEULA
+ ;
+ : Target WL 'ME_4A980B37006B' '4799D29F033F.pas.ms.script' // ModalResults
+ ;
+
+ref; // ME_51BAE14703CB 
+
+: ME_51BAE84E02C5
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A93FB6B018F // PrimEULA
+ ;
+ : Target WL 'ME_47E13C6B0341' '4799D29F033F.pas.ms.script' // Forms
+ ;
+
+ref; // ME_51BAE84E02C5 
+
+: ME_51BAEDD802F6
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A93FB6B018F // PrimEULA
+ ;
+ : Target WL 'ME_47E11FC3021E' '4799D29F033F.pas.ms.script' // Controls
+ ;
+
+ref; // ME_51BAEDD802F6 
+
+: ME_49803F5503AA_ME_4A93FB6B018F
+ : Original WL 'ME_49803F5503AA' '4AADF9450143.pas.ms.script' // DoInit
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_49803F5503AA_ME_4A93FB6B018F DoInit
+
+: ME_4A8E8F2E0195_ME_4A93FB6B018F
+ : Original WL 'ME_4A8E8F2E0195' '5000041101C8.pas.ms.script' // InitControls
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4A8E8F2E0195_ME_4A93FB6B018F InitControls
+
+: ME_4A93FB6B018F
+ CONST UID '4A93FB6B018F'
+ CONST Name 'PrimEULA'
+ CONST Class class_Class
+ : Stereotype st_VCMForm ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_497ED74F0032' '497ED74F0032.pas.ms.script' // Common
+ ;
+ : Inherits
+   Seq: ( WL 'ME_49525B34022A' '4AADF9450143.pas.ms.script' // TvcmEntityForm
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( HWL ME_51BAD0C50140 // ShellCaptionLabel
+ HWL ME_51BAD0EA010E // OkButton
+ HWL ME_51BAD4030098 // eeMemoWithEditOperations1
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( HWL ME_51BAD500014C // OkButtonClick
+ )
+ ; // Operations
+ : Overridden
+   Seq: ( ME_49803F5503AA_ME_4A93FB6B018F // DoInit
+ ME_4A8E8F2E0195_ME_4A93FB6B018F // InitControls
+ )
+ ; // Overridden
+ : Constants
+   Seq: ( HWL ME_51BAEE3A02DC // EULA Local Const
+ )
+ ; // Constants
+ : Dependencies
+   Seq: ( ME_51BAE14703CB // ModalResults
+ ME_51BAE84E02C5 // Forms
+ ME_51BAEDD802F6 // Controls
+ )
+ ; // Dependencies
+ CONST "NeedsHackRef" true
+ CONST "ZoneType" 'Any'
+ CONST "author" 'Люлин А.В.'
+ CONST "finished dfm" true
+ CONST "no hands" true
+ CONST "resizeable" false
+ CONST "restrict form def" 'undefined'
+ CONST "started" '25.08.2009 18:55'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\PrimEULA_Form.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms'
+ CONST extprop:pas:TypeName 'TPrimEULAForm'
+ CONST extprop:rc:SelfName 'PrimEULAForm'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'PrimEULA_Form'
+
+ref; // ME_4A93FB6B018F PrimEULA

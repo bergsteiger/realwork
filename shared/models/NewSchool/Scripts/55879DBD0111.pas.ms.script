@@ -25,7 +25,7 @@ ref; // ME_94965F53B825 aControlWnd
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_9432F7C1A797 // Ml3PopupControlService
+ : Parent HWL ME_9432F7C1A797 // Ml3PopupControlService
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -46,48 +46,14 @@ ref; // ME_D2E4642CC7BC IsPopupControlWindow
  %SUMMARY 'Контракт сервиса Tl3PopupControlService' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_55879E12008D // Tl3PopupControlService
+ : Parent HWL ME_55879E12008D // Tl3PopupControlService
  ;
  : Operations
-   Seq: ( ME_D2E4642CC7BC // IsPopupControlWindow
+   Seq: ( HWL ME_D2E4642CC7BC // IsPopupControlWindow
  )
  ; // Operations
 
 ref; // ME_9432F7C1A797 Ml3PopupControlService
-
-FORWARD ME_824B0D4B2322
-
-: ME_D2E4642CC7BC_ME_824B0D4B2322
- : Original ME_D2E4642CC7BC // IsPopupControlWindow
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_D2E4642CC7BC_ME_824B0D4B2322 IsPopupControlWindow
-
-: ME_824B0D4B2322
- CONST UID '824B0D4B2322'
- CONST GUID 'C4427BB1-962C-43A9-82FB-9DC18D0EB557'
- CONST Name 'Il3PopupControlService'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Facet ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Интерфейс сервиса Tl3PopupControlService' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_55879E12008D // Tl3PopupControlService
- ;
- : Implements
-   Seq: ( ME_9432F7C1A797 // Ml3PopupControlService
- )
- ; // Implements
- : Implemented
-   Seq: ( ME_D2E4642CC7BC_ME_824B0D4B2322 // IsPopupControlWindow
- )
- ; // Implemented
- CONST extprop:rc:SelfName 'PopupControlService'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_824B0D4B2322 Il3PopupControlService
 
 : ME_5587A30D0297
  CONST Name 'aControlWnd'
@@ -105,7 +71,7 @@ ref; // ME_5587A30D0297 aControlWnd
  : Stereotype st_responsibility::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_55879E12008D // Tl3PopupControlService
+ : Parent HWL ME_55879E12008D // Tl3PopupControlService
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -116,12 +82,6 @@ ref; // ME_5587A30D0297 aControlWnd
 
 ref; // ME_55879E4401FC IsPopupControlWindow
 
-: ME_D2E4642CC7BC_ME_55879E12008D
- : Original ME_D2E4642CC7BC // IsPopupControlWindow
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_D2E4642CC7BC_ME_55879E12008D IsPopupControlWindow
-
 : ME_55879E12008D
  CONST UID '55879E12008D'
  CONST Name 'Tl3PopupControlService'
@@ -130,38 +90,24 @@ ref; // ME_D2E4642CC7BC_ME_55879E12008D IsPopupControlWindow
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_55879DBD0111 // PopupControlServices
+ : Parent HWL ME_55879DBD0111 // PopupControlServices
  ;
  : Inherits
    Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
  )
  ; // Inherits
- : Implements
-   Seq: ( ME_9432F7C1A797 // Ml3PopupControlService
- )
- ; // Implements
  : Operations
-   Seq: ( ME_55879E4401FC // IsPopupControlWindow
+   Seq: ( HWL ME_55879E4401FC // IsPopupControlWindow
  )
  ; // Operations
- : Implemented
-   Seq: ( ME_D2E4642CC7BC_ME_55879E12008D // IsPopupControlWindow
- )
- ; // Implemented
  : Children
-   Seq: ( ME_9432F7C1A797 // Ml3PopupControlService
- ME_824B0D4B2322 // Il3PopupControlService
+   Seq: ( HWL ME_9432F7C1A797 // Ml3PopupControlService
  )
  ; // Children
- CONST "singleton" true
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3PopupControlService.pas'
  CONST extprop:rc:SelfName 'PopupControlService'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'l3PopupControlService'
- : Facet ME_824B0D4B2322 // Il3PopupControlService
- ;
- : Mixin ME_9432F7C1A797 // Ml3PopupControlService
- ;
 
 ref; // ME_55879E12008D Tl3PopupControlService
 
@@ -175,7 +121,7 @@ ref; // ME_55879E12008D Tl3PopupControlService
  : Parent WL 'ME_550012C403C4' '550012C403C4.pas.ms.script' // L3$AFW
  ;
  : Children
-   Seq: ( ME_55879E12008D // Tl3PopupControlService
+   Seq: ( HWL ME_55879E12008D // Tl3PopupControlService
  )
  ; // Children
  : Depends

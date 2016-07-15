@@ -13,7 +13,7 @@ FORWARD ME_49525BCE0355
  %SUMMARY 'вызывается перед вызовом окна редактирования панелей инструментов' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_49525BCE0355 // IvcmToolbarsCustomizeListener
+ : Parent HWL ME_49525BCE0355 // IvcmToolbarsCustomizeListener
  ;
 
 ref; // ME_4992FC5700E5 BeforeCustomize
@@ -28,14 +28,14 @@ ref; // ME_4992FC5700E5 BeforeCustomize
  %SUMMARY 'Слушатель событий настройки панелей инструментов' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_499465EE030A // vcmToolbarsInterfaces
+ : Parent HWL ME_499465EE030A // vcmToolbarsInterfaces
  ;
  : Inherits
    Seq: ( WL 'ME_4683CEAD00CF' '467BAB7F021E.pas.ms.script' // IvcmBase
  )
  ; // Inherits
  : Operations
-   Seq: ( ME_4992FC5700E5 // BeforeCustomize
+   Seq: ( HWL ME_4992FC5700E5 // BeforeCustomize
  )
  ; // Operations
  CONST extprop:rc:SelfName 'ToolbarsCustomizeListener'
@@ -49,7 +49,7 @@ FORWARD ME_4992FC6D03E1
  CONST Name 'aListener'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_49525BCE0355 // IvcmToolbarsCustomizeListener
+ : Target HWL ME_49525BCE0355 // IvcmToolbarsCustomizeListener
  ;
 
 ref; // ME_4992FC7D0152 aListener
@@ -60,7 +60,7 @@ ref; // ME_4992FC7D0152 aListener
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4992FC6D03E1 // IvcmToolbarsCustomizeNotify
+ : Parent HWL ME_4992FC6D03E1 // IvcmToolbarsCustomizeNotify
  ;
  : Parameters
    Seq: ( ME_4992FC7D0152 // aListener
@@ -73,7 +73,7 @@ ref; // ME_4992FC7A0212 AddListener
  CONST Name 'aListener'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_49525BCE0355 // IvcmToolbarsCustomizeListener
+ : Target HWL ME_49525BCE0355 // IvcmToolbarsCustomizeListener
  ;
 
 ref; // ME_4992FC8C0020 aListener
@@ -84,7 +84,7 @@ ref; // ME_4992FC8C0020 aListener
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4992FC6D03E1 // IvcmToolbarsCustomizeNotify
+ : Parent HWL ME_4992FC6D03E1 // IvcmToolbarsCustomizeNotify
  ;
  : Parameters
    Seq: ( ME_4992FC8C0020 // aListener
@@ -103,15 +103,15 @@ ref; // ME_4992FC8900E1 RemoveListener
  %SUMMARY 'Уведомляет о событиях редактирования панели инструментов' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_499465EE030A // vcmToolbarsInterfaces
+ : Parent HWL ME_499465EE030A // vcmToolbarsInterfaces
  ;
  : Inherits
    Seq: ( WL 'ME_4683CEAD00CF' '467BAB7F021E.pas.ms.script' // IvcmBase
  )
  ; // Inherits
  : Operations
-   Seq: ( ME_4992FC7A0212 // AddListener
- ME_4992FC8900E1 // RemoveListener
+   Seq: ( HWL ME_4992FC7A0212 // AddListener
+ HWL ME_4992FC8900E1 // RemoveListener
  )
  ; // Operations
  CONST extprop:rc:SelfName 'ToolbarsCustomizeNotify'
@@ -129,9 +129,9 @@ FORWARD ME_4992FC9F029B
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4992FC9F029B // IvcmToolbarsCustomize
+ : Parent HWL ME_4992FC9F029B // IvcmToolbarsCustomize
  ;
- : Target ME_4992FC6D03E1 // IvcmToolbarsCustomizeNotify
+ : Target HWL ME_4992FC6D03E1 // IvcmToolbarsCustomizeNotify
  ;
  CONST "pm" true
 
@@ -147,14 +147,14 @@ ref; // ME_4992FCAD02D1 Notify
  %SUMMARY 'Настройка панелей инструментов' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_499465EE030A // vcmToolbarsInterfaces
+ : Parent HWL ME_499465EE030A // vcmToolbarsInterfaces
  ;
  : Inherits
    Seq: ( WL 'ME_4683CEAD00CF' '467BAB7F021E.pas.ms.script' // IvcmBase
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_4992FCAD02D1 // Notify
+   Seq: ( HWL ME_4992FCAD02D1 // Notify
  )
  ; // Attributes
  CONST extprop:rc:SelfName 'ToolbarsCustomize'
@@ -173,9 +173,9 @@ ref; // ME_4992FC9F029B IvcmToolbarsCustomize
  : Parent WL 'ME_4790C3B8021E' '4790C3B8021E.pas.ms.script' // VCM
  ;
  : Children
-   Seq: ( ME_49525BCE0355 // IvcmToolbarsCustomizeListener
- ME_4992FC6D03E1 // IvcmToolbarsCustomizeNotify
- ME_4992FC9F029B // IvcmToolbarsCustomize
+   Seq: ( HWL ME_49525BCE0355 // IvcmToolbarsCustomizeListener
+ HWL ME_4992FC6D03E1 // IvcmToolbarsCustomizeNotify
+ HWL ME_4992FC9F029B // IvcmToolbarsCustomize
  )
  ; // Children
  : Depends

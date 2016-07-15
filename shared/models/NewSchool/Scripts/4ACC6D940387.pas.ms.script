@@ -13,7 +13,7 @@ FORWARD ME_4ACC6DD00230
  %SUMMARY 'Открыть ссылку баннера (возвращает или IDocument или ExternalLink)' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4ACC6DD00230 // Banner
+ : Parent HWL ME_4ACC6DD00230 // Banner
  ;
  : Target WL 'ME_4242EBBB03B9' '3DBFDB23006E.pas.ms.script' // object
  ;
@@ -38,7 +38,7 @@ ref; // ME_571F758F02D9 server_banner
  : Stereotype st_factory::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4ACC6DD00230 // Banner
+ : Parent HWL ME_4ACC6DD00230 // Banner
  ;
  : CanRaise
    Seq: ( WL 'ME_456EB454018E' '456EA56002BF.pas.ms.script' // CanNotFindData
@@ -60,7 +60,7 @@ ref; // ME_4ACC72770345 make
  %SUMMARY 'Картинка' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4ACC6DD00230 // Banner
+ : Parent HWL ME_4ACC6DD00230 // Banner
  ;
  : Target WL 'ME_45ED932A0044' '45ED922F00A4.pas.ms.script' // ExternalObject
  ;
@@ -77,12 +77,12 @@ ref; // ME_4ACC85A303E1 get_picture
  %SUMMARY 'Баннер' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4ACC6D940387 // Banner
+ : Parent HWL ME_4ACC6D940387 // Banner
  ;
  : Operations
-   Seq: ( ME_4ACC6E5F00E5 // open_link
- ME_4ACC72770345 // make
- ME_4ACC85A303E1 // get_picture
+   Seq: ( HWL ME_4ACC6E5F00E5 // open_link
+ HWL ME_4ACC72770345 // make
+ HWL ME_4ACC85A303E1 // get_picture
  )
  ; // Operations
  CONST "single impl" false
@@ -103,7 +103,7 @@ ref; // ME_4ACC6DD00230 Banner
  : Parent WL 'ME_456EA3D2031C' '456EA3D2031C.pas.ms.script' // GblAdapterLib
  ;
  : Children
-   Seq: ( ME_4ACC6DD00230 // Banner
+   Seq: ( HWL ME_4ACC6DD00230 // Banner
  )
  ; // Children
  : Depends

@@ -1,0 +1,72 @@
+// PrimMonitoringsMain 4AA919040176 VCMMainForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AA919040176
+
+: ME_4BD84E0603B5
+ CONST UID '4BD84E0603B5'
+ CONST Name 'utEmptyMainWindow'
+ CONST Class class_Class
+ : Stereotype st_UserType ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Главное окно' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AA919040176 // PrimMonitoringsMain
+ ;
+ CONST "ImageIndex" '-1'
+ CONST "SettingsCaption" 'Главная панель инструментов'
+ CONST "Weight" '-1'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\PrimMonitoringsMain_utEmptyMainWindow_UserType.pas'
+ CONST extprop:pas:UnitName 'PrimMonitoringsMain_utEmptyMainWindow_UserType'
+
+ref; // ME_4BD84E0603B5 utEmptyMainWindow
+
+: ME_49803F5503AA_ME_4AA919040176
+ : Original WL 'ME_49803F5503AA' '4AADF9450143.pas.ms.script' // DoInit
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_49803F5503AA_ME_4AA919040176 DoInit
+
+: ME_4AA919040176
+ CONST UID '4AA919040176'
+ CONST Name 'PrimMonitoringsMain'
+ CONST Class class_Class
+ : Stereotype st_VCMMainForm ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4AA9038C0387' '4AA9038C0387.pas.ms.script' // Monitorings
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4AAA43F601F7' '4AAA43F601F7.pas.ms.script' // ShellAndMonitoringsMain
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4F7C1E96000A' '4F7C1E2803C5.pas.ms.script' // AdminAndMonitoringsMainForm
+ )
+ ; // Implements
+ : Overridden
+   Seq: ( ME_49803F5503AA_ME_4AA919040176 // DoInit
+ )
+ ; // Overridden
+ : Children
+   Seq: ( HWL ME_4BD84E0603B5 // utEmptyMainWindow
+ )
+ ; // Children
+ CONST "NeedsHackRef" true
+ CONST "ZoneType" 'Any'
+ CONST "author" 'Люлин А.В.'
+ CONST "finished dfm" true
+ CONST "no hands" true
+ CONST "resizeable" false
+ CONST "restrict form def" 'undefined'
+ CONST "started" '10.09.2009 19:19'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\PrimMonitoringsMain_Form.pas'
+ CONST extprop:pas:TypeName 'TPrimMonitoringsMainForm'
+ CONST extprop:rc:SelfName 'PrimMonitoringsMainForm'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'PrimMonitoringsMain_Form'
+
+ref; // ME_4AA919040176 PrimMonitoringsMain

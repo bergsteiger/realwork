@@ -1,0 +1,110 @@
+// TdsMedicFirmDocument 491D7D660107 ViewAreaControllerImp Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_491D7D660107
+
+: ME_4926CE8D018D
+ CONST UID '4926CE8D018D'
+ CONST Name 'FormDataSourceType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent HWL ME_491D7D660107 // TdsMedicFirmDocument
+ ;
+ : Target WL 'ME_491D7D1B026C' '4AC241AC01FC.pas.ms.script' // IdsMedicFirmDocument
+ ;
+
+ref; // ME_4926CE8D018D FormDataSourceType
+
+: ME_4979B5530239
+ CONST UID '4979B5530239'
+ CONST Name 'MedicFirmDocument'
+ CONST Class class_Attribute
+ : Stereotype st_UseCase::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent HWL ME_491D7D660107 // TdsMedicFirmDocument
+ ;
+ : Target WL 'ME_4937A59101D3' '491D7C9603B2.pas.ms.script' // IsdsMedicFirmDocumentPrim
+ ;
+
+ref; // ME_4979B5530239 MedicFirmDocument
+
+: ME_4D35796C03E2
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_491D7D660107 // TdsMedicFirmDocument
+ ;
+ : Target WL 'ME_4C6A9AD101B4' '4C6A7BA001A5.pas.ms.script' // TnsF1DocumentContainer
+ ;
+
+ref; // ME_4D35796C03E2 
+
+: ME_491D7D2A02E0_ME_491D7D660107
+ : Original WL 'ME_491D7D2A02E0' '4AC241AC01FC.pas.ms.script' // OpenDrugList
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_491D7D2A02E0_ME_491D7D660107 OpenDrugList
+
+: ME_491C264C02C2_ME_491D7D660107
+ : Original WL 'ME_491C264C02C2' '47EA20430108.pas.ms.script' // GetTimeMachineOff
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_491C264C02C2_ME_491D7D660107 GetTimeMachineOff
+
+: ME_4C6AB38800F3_ME_491D7D660107
+ : Original WL 'ME_4C6AB38800F3' '47EA20430108.pas.ms.script' // MakeContainer
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4C6AB38800F3_ME_491D7D660107 MakeContainer
+
+: ME_491D7D660107
+ CONST UID '491D7D660107'
+ CONST Name 'TdsMedicFirmDocument'
+ CONST Class class_Class
+ : Stereotype st_ViewAreaControllerImp ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Документ описания фирмы-производителя' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_491D7CDC0221' '491D7CDC0221.pas.ms.script' // Medic
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47EA20430108' '47EA20430108.pas.ms.script' // dsBaseDocumentPrim
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_491D7D1B026C' '4AC241AC01FC.pas.ms.script' // IdsMedicFirmDocument
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( HWL ME_4926CE8D018D // FormDataSourceType
+ HWL ME_4979B5530239 // MedicFirmDocument
+ )
+ ; // Attributes
+ : Implemented
+   Seq: ( ME_491D7D2A02E0_ME_491D7D660107 // OpenDrugList
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_491C264C02C2_ME_491D7D660107 // GetTimeMachineOff
+ ME_4C6AB38800F3_ME_491D7D660107 // MakeContainer
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_4D35796C03E2 // TnsF1DocumentContainer
+ )
+ ; // Dependencies
+ CONST "author" 'Лукьянец Р.В.'
+ CONST "no hands" true
+ CONST "started" '2008/03/26 14:05:01'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Medic\dsMedicFirmDocument.pas'
+ CONST extprop:rc:SelfName 'dsMedicFirmDocument'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'dsMedicFirmDocument'
+
+ref; // ME_491D7D660107 TdsMedicFirmDocument

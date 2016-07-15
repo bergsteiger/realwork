@@ -1,0 +1,74 @@
+// TnscStatusBarButton 503DE6F30027 GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_503DE6F30027
+
+: ME_506028E800FD
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_503DE6F30027 // TnscStatusBarButton
+ ;
+ : Target WL 'ME_47E7626B0083' '4799D29F033F.pas.ms.script' // TCustomAction
+ ;
+
+ref; // ME_506028E800FD 
+
+: ME_503DE82B0311_ME_503DE6F30027
+ : Original WL 'ME_503DE82B0311' '4C43E8750153.pas.ms.script' // IsGtbToolbarButtonSizeNeeded
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_503DE82B0311_ME_503DE6F30027 IsGtbToolbarButtonSizeNeeded
+
+: ME_503E27CA010E_ME_503DE6F30027
+ : Original WL 'ME_503E27CA010E' '4C43E8750153.pas.ms.script' // GetIsAutoCenter
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_503E27CA010E_ME_503DE6F30027 GetIsAutoCenter
+
+: ME_504779E00385_ME_503DE6F30027
+ : Original WL 'ME_504779E00385' '4C43E8750153.pas.ms.script' // CalcSize
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_504779E00385_ME_503DE6F30027 CalcSize
+
+: ME_50477A430157_ME_503DE6F30027
+ : Original WL 'ME_50477A430157' '4C43E8750153.pas.ms.script' // NeedAutoDown
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_50477A430157_ME_503DE6F30027 NeedAutoDown
+
+: ME_503DE6F30027
+ CONST UID '503DE6F30027'
+ CONST Name 'TnscStatusBarButton'
+ CONST Class class_Class
+ : Stereotype st_GuiControl ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_49871D5103B9' '49871D5103B9.pas.ms.script' // StatusBar
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4F69EF8C027C' '4C43E8750153.pas.ms.script' // TCustomToolbarButton97
+ WL 'ME_505DA5E7038D' '505DA8FC03CF.pas.ms.script' // nscStatusBarItemNotification
+ )
+ ; // Inherits
+ : Overridden
+   Seq: ( ME_503DE82B0311_ME_503DE6F30027 // IsGtbToolbarButtonSizeNeeded
+ ME_503E27CA010E_ME_503DE6F30027 // GetIsAutoCenter
+ ME_504779E00385_ME_503DE6F30027 // CalcSize
+ ME_50477A430157_ME_503DE6F30027 // NeedAutoDown
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_506028E800FD // TCustomAction
+ )
+ ; // Dependencies
+ CONST "need UC" true
+ CONST "register in scripts" true
+ CONST intf.pas:Path 'common\components\gui\Garant\Nemesis\nscStatusBarButton.pas'
+ CONST extprop:rc:SelfName 'StatusBarButton'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nscStatusBarButton'
+
+ref; // ME_503DE6F30027 TnscStatusBarButton

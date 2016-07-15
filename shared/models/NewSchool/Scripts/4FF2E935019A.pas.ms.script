@@ -1,0 +1,552 @@
+// AACContainerPrim 4FF2E935019A VCMContainer Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4FF2E935019A
+
+FORWARD ME_4FF2EA2200B3
+
+: ME_4FF2E9C50114
+ CONST UID '4FF2E9C50114'
+ CONST Name 'Left'
+ CONST Class class_Class
+ : Stereotype st_VCMFormZone ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4FF2E935019A // AACContainerPrim
+ ;
+ : Inherits
+   Seq: ( HWL ME_4FF2EA2200B3 // pnLeft
+ )
+ ; // Inherits
+ CONST "MergeBottomTollbarWithContainer" false
+ CONST "MergeTopTollbarWithContainer" false
+ CONST "ZoneType" 'Child'
+
+ref; // ME_4FF2E9C50114 Left
+
+FORWARD ME_4FF2EA3A02C6
+
+: ME_4FF2E9E50337
+ CONST UID '4FF2E9E50337'
+ CONST Name 'Right'
+ CONST Class class_Class
+ : Stereotype st_VCMFormZone ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4FF2E935019A // AACContainerPrim
+ ;
+ : Inherits
+   Seq: ( HWL ME_4FF2EA3A02C6 // pnRight
+ )
+ ; // Inherits
+ CONST "MergeBottomTollbarWithContainer" false
+ CONST "MergeTopTollbarWithContainer" false
+ CONST "ZoneType" 'Main'
+
+ref; // ME_4FF2E9E50337 Right
+
+: ME_4FF2EADD02A4
+ CONST UID '4FF2EADD02A4'
+ CONST Name 'AACContainer'
+ CONST Class class_Class
+ : Stereotype st_UserType ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4FF2E935019A // AACContainerPrim
+ ;
+ CONST "ImageIndex" 21
+ CONST "Weight" '-1'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\AAC\Forms\AACContainerPrim_AACContainer_UserType.pas'
+ CONST extprop:pas:UnitName 'AACContainerPrim_AACContainer_UserType'
+
+ref; // ME_4FF2EADD02A4 AACContainer
+
+: ME_504879B60226
+ CONST UID '504879B60226'
+ CONST Name 'AACContentsContainer'
+ CONST Class class_Class
+ : Stereotype st_UserType ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4FF2E935019A // AACContainerPrim
+ ;
+ : Inherits
+   Seq: ( HWL ME_4FF2EADD02A4 // AACContainer
+ )
+ ; // Inherits
+ CONST "ImageIndex" 21
+ CONST "Weight" '-1'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\AAC\Forms\AACContainerPrim_AACContentsContainer_UserType.pas'
+ CONST extprop:pas:UnitName 'AACContainerPrim_AACContentsContainer_UserType'
+
+ref; // ME_504879B60226 AACContentsContainer
+
+FORWARD ME_4FF405D1019B
+
+FORWARD ME_503CBA9200CC
+
+FORWARD ME_503CD4E9014C
+
+: ME_4FF2EA3A02C6
+ CONST UID '4FF2EA3A02C6'
+ CONST Name 'pnRight'
+ CONST Class class_Class
+ : Stereotype st_Control ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_503CD4E9014C // pnRightForScroll
+ ;
+ : Zones
+   Seq: ( HWL ME_4FF2E9E50337 // Right
+ )
+ ; // Zones
+ CONST "ControlClass" 'TvtPanel'
+ CONST "pm" true
+ CONST "put to dfm" false
+
+ref; // ME_4FF2EA3A02C6 pnRight
+
+: ME_503CB1240162
+ CONST UID '503CB1240162'
+ CONST Name 'pnlRightTop'
+ CONST Class class_Class
+ : Stereotype st_Control ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_503CD4E9014C // pnRightForScroll
+ ;
+ CONST "ControlClass" 'TvtPanel'
+ CONST "pm" true
+ CONST "put to dfm" true
+
+ref; // ME_503CB1240162 pnlRightTop
+
+: ME_503CD4E9014C
+ CONST UID '503CD4E9014C'
+ CONST Name 'pnRightForScroll'
+ CONST Class class_Class
+ : Stereotype st_Control ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_503CBA9200CC // pnRightEx
+ ;
+ : Attributes
+   Seq: ( HWL ME_4FF2EA3A02C6 // pnRight
+ HWL ME_503CB1240162 // pnlRightTop
+ )
+ ; // Attributes
+ CONST "ControlClass" 'TvtPanel'
+ CONST "pm" true
+ CONST "put to dfm" true
+
+ref; // ME_503CD4E9014C pnRightForScroll
+
+: ME_503CD5210135
+ CONST UID '503CD5210135'
+ CONST Name 'scrRight'
+ CONST Class class_Class
+ : Stereotype st_Control ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_503CBA9200CC // pnRightEx
+ ;
+ CONST "ControlClass" 'TvtScrollBar'
+ CONST "pm" true
+ CONST "put to dfm" true
+
+ref; // ME_503CD5210135 scrRight
+
+: ME_503CBA9200CC
+ CONST UID '503CBA9200CC'
+ CONST Name 'pnRightEx'
+ CONST Class class_Class
+ : Stereotype st_Control ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4FF405D1019B // pnBack
+ ;
+ : Attributes
+   Seq: ( HWL ME_503CD4E9014C // pnRightForScroll
+ HWL ME_503CD5210135 // scrRight
+ )
+ ; // Attributes
+ CONST "ControlClass" 'TvtPanel'
+ CONST "pm" true
+ CONST "put to dfm" true
+
+ref; // ME_503CBA9200CC pnRightEx
+
+FORWARD ME_503CBB1800D0
+
+FORWARD ME_503CD53B02F9
+
+: ME_503CB0C80233
+ CONST UID '503CB0C80233'
+ CONST Name 'pnlLeftTop'
+ CONST Class class_Class
+ : Stereotype st_Control ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_503CD53B02F9 // pnLeftForScroll
+ ;
+ CONST "ControlClass" 'TvtPanel'
+ CONST "pm" true
+ CONST "put to dfm" true
+
+ref; // ME_503CB0C80233 pnlLeftTop
+
+: ME_4FF2EA2200B3
+ CONST UID '4FF2EA2200B3'
+ CONST Name 'pnLeft'
+ CONST Class class_Class
+ : Stereotype st_Control ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_503CD53B02F9 // pnLeftForScroll
+ ;
+ : Zones
+   Seq: ( HWL ME_4FF2E9C50114 // Left
+ )
+ ; // Zones
+ CONST "ControlClass" 'TvtPanel'
+ CONST "pm" true
+ CONST "put to dfm" false
+
+ref; // ME_4FF2EA2200B3 pnLeft
+
+: ME_503CD53B02F9
+ CONST UID '503CD53B02F9'
+ CONST Name 'pnLeftForScroll'
+ CONST Class class_Class
+ : Stereotype st_Control ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_503CBB1800D0 // pnLeftEx
+ ;
+ : Attributes
+   Seq: ( HWL ME_503CB0C80233 // pnlLeftTop
+ HWL ME_4FF2EA2200B3 // pnLeft
+ )
+ ; // Attributes
+ CONST "ControlClass" 'TvtPanel'
+ CONST "pm" true
+ CONST "put to dfm" true
+
+ref; // ME_503CD53B02F9 pnLeftForScroll
+
+: ME_503CD55E0038
+ CONST UID '503CD55E0038'
+ CONST Name 'scrLeft'
+ CONST Class class_Class
+ : Stereotype st_Control ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_503CBB1800D0 // pnLeftEx
+ ;
+ CONST "ControlClass" 'TvtScrollBar'
+ CONST "pm" true
+ CONST "put to dfm" true
+
+ref; // ME_503CD55E0038 scrLeft
+
+: ME_503CBB1800D0
+ CONST UID '503CBB1800D0'
+ CONST Name 'pnLeftEx'
+ CONST Class class_Class
+ : Stereotype st_Control ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4FF405D1019B // pnBack
+ ;
+ : Attributes
+   Seq: ( HWL ME_503CD53B02F9 // pnLeftForScroll
+ HWL ME_503CD55E0038 // scrLeft
+ )
+ ; // Attributes
+ CONST "ControlClass" 'TvtSizeablePanel'
+ CONST "pm" true
+ CONST "put to dfm" true
+
+ref; // ME_503CBB1800D0 pnLeftEx
+
+: ME_4FF405D1019B
+ CONST UID '4FF405D1019B'
+ CONST Name 'pnBack'
+ CONST Class class_Class
+ : Stereotype st_Control ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4FF2E935019A // AACContainerPrim
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4A7AD11C028B' '4A7AD11C028B.pas.ms.script' // TvtProportionalPanel
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( HWL ME_503CBA9200CC // pnRightEx
+ HWL ME_503CBB1800D0 // pnLeftEx
+ )
+ ; // Attributes
+ CONST "ControlClass" 'none'
+ CONST "pm" true
+ CONST "put to dfm" false
+
+ref; // ME_4FF405D1019B pnBack
+
+: ME_542A6E2F0204
+ CONST UID '542A6E2F0204'
+ CONST Name 'f_TabCaption'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4FF2E935019A // AACContainerPrim
+ ;
+ : Target WL 'ME_4683C9AC03AC' '467BAB7F021E.pas.ms.script' // IvcmCString
+ ;
+
+ref; // ME_542A6E2F0204 f_TabCaption
+
+FORWARD ME_503CE2E2021B
+
+: ME_503CE32700A7
+ CONST Name 'aLeft'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_503CE32700A7 aLeft
+
+: ME_503CE312021A
+ CONST UID '503CE312021A'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_503CE2E2021B // DoGetVScrollBar
+ ;
+ : Target WL 'ME_50220B0E0061' '50220B0E0061.pas.ms.script' // TvtScrollBar
+ ;
+ : Parameters
+   Seq: ( ME_503CE32700A7 // aLeft
+ )
+ ; // Parameters
+
+ref; // ME_503CE312021A DoIt
+
+: ME_503CE2E2021B
+ CONST UID '503CE2E2021B'
+ CONST Name 'DoGetVScrollBar'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4FF2E935019A // AACContainerPrim
+ ;
+ : Operations
+   Seq: ( HWL ME_503CE312021A // DoIt
+ )
+ ; // Operations
+
+ref; // ME_503CE2E2021B DoGetVScrollBar
+
+FORWARD ME_503CE3500038
+
+: ME_503CE3700373
+ CONST Name 'aJumpTo'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_50041C7C0270' '4829D92A037B.pas.ms.script' // TevJumpToEvent
+ ;
+
+ref; // ME_503CE3700373 aJumpTo
+
+: ME_503CE36D0185
+ CONST UID '503CE36D0185'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_503CE3500038 // DoSetJumpTo
+ ;
+ : Parameters
+   Seq: ( ME_503CE3700373 // aJumpTo
+ )
+ ; // Parameters
+
+ref; // ME_503CE36D0185 DoIt
+
+: ME_503CE3500038
+ CONST UID '503CE3500038'
+ CONST Name 'DoSetJumpTo'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4FF2E935019A // AACContainerPrim
+ ;
+ : Operations
+   Seq: ( HWL ME_503CE36D0185 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_503CE3500038 DoSetJumpTo
+
+: ME_4FF409FB01A7
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4FF2E935019A // AACContainerPrim
+ ;
+ : Target WL 'ME_47E12539018D' '4799D29F033F.pas.ms.script' // TAlign
+ ;
+
+ref; // ME_4FF409FB01A7 
+
+: ME_5048978601F9
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4FF2E935019A // AACContainerPrim
+ ;
+ : Target WL 'ME_50489740018C' '48F747EC0073.pas.ms.script' // Colors
+ ;
+
+ref; // ME_5048978601F9 
+
+: ME_542A76F103D8
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4FF2E935019A // AACContainerPrim
+ ;
+ : Target WL 'ME_4683C9AC03AC' '467BAB7F021E.pas.ms.script' // IvcmCString
+ ;
+
+ref; // ME_542A76F103D8 
+
+: ME_5005237D0210_ME_4FF2E935019A
+ : Original WL 'ME_5005237D0210' '50052359008A.pas.ms.script' // GetVScrollBar
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "Needs Broadcast" false
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_5005237D0210_ME_4FF2E935019A GetVScrollBar
+
+: ME_5006ED2300F9_ME_4FF2E935019A
+ : Original WL 'ME_5006ED2300F9' '50052359008A.pas.ms.script' // SetJumpTo
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "Needs Broadcast" false
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_5006ED2300F9_ME_4FF2E935019A SetJumpTo
+
+: ME_4A8E8F2E0195_ME_4FF2E935019A
+ : Original WL 'ME_4A8E8F2E0195' '5000041101C8.pas.ms.script' // InitControls
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4A8E8F2E0195_ME_4FF2E935019A InitControls
+
+: ME_53F1C6EF02C9_ME_4FF2E935019A
+ : Original WL 'ME_53F1C6EF02C9' '4AADF9450143.pas.ms.script' // DoGetTabCaption
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_53F1C6EF02C9_ME_4FF2E935019A DoGetTabCaption
+
+: ME_542A6DA20026_ME_4FF2E935019A
+ : Original WL 'ME_542A6DA20026' '4AADF9450143.pas.ms.script' // SetTabCaption
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_542A6DA20026_ME_4FF2E935019A SetTabCaption
+
+: ME_4FF2E935019A
+ CONST UID '4FF2E935019A'
+ CONST Name 'AACContainerPrim'
+ CONST Class class_Class
+ : Stereotype st_VCMContainer ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4FF2E5B80387' '4FF2E5B80387.pas.ms.script' // AAC
+ ;
+ : Implements
+   Seq: ( WL 'ME_4A97E71A0270' '4AADF9450143.pas.ms.script' // MvcmContainerForm
+ WL 'ME_500523660003' '50052359008A.pas.ms.script' // AACTextContainer
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( HWL ME_4FF405D1019B // pnBack
+ HWL ME_542A6E2F0204 // f_TabCaption
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( HWL ME_503CE2E2021B // DoGetVScrollBar
+ HWL ME_503CE3500038 // DoSetJumpTo
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_5005237D0210_ME_4FF2E935019A // GetVScrollBar
+ ME_5006ED2300F9_ME_4FF2E935019A // SetJumpTo
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_4A8E8F2E0195_ME_4FF2E935019A // InitControls
+ ME_53F1C6EF02C9_ME_4FF2E935019A // DoGetTabCaption
+ ME_542A6DA20026_ME_4FF2E935019A // SetTabCaption
+ )
+ ; // Overridden
+ : Children
+   Seq: ( HWL ME_4FF2E9C50114 // Left
+ HWL ME_4FF2E9E50337 // Right
+ HWL ME_4FF2EADD02A4 // AACContainer
+ HWL ME_504879B60226 // AACContentsContainer
+ )
+ ; // Children
+ : Dependencies
+   Seq: ( ME_4FF409FB01A7 // TAlign
+ ME_5048978601F9 // Colors
+ ME_542A76F103D8 // IvcmCString
+ )
+ ; // Dependencies
+ CONST "NeedsHackRef" true
+ CONST "ZoneType" 'Any'
+ CONST "finished dfm" true
+ CONST "resizeable" false
+ CONST "restrict form def" 'undefined'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\AAC\Forms\AACContainerPrim_Form.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\AAC\Forms'
+ CONST extprop:pas:TypeName 'TAACContainerPrimForm'
+ CONST extprop:rc:SelfName 'AACContainerPrimForm'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'AACContainerPrim_Form'
+ CONST extprop:NeedsInitEntities true
+
+ref; // ME_4FF2E935019A AACContainerPrim

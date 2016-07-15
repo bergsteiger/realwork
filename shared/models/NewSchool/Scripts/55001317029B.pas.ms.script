@@ -23,7 +23,7 @@ ref; // ME_551409C00088 aMenu
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_5514099B0316 // Tl3PopupMenuHelperCallback
+ : Parent HWL ME_5514099B0316 // Tl3PopupMenuHelperCallback
  ;
  : Parameters
    Seq: ( ME_551409C00088 // aMenu
@@ -40,10 +40,10 @@ ref; // ME_551409B6017E DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_550013770000 // Tl3PopupMenuHelper
+ : Parent HWL ME_550013770000 // Tl3PopupMenuHelper
  ;
  : Operations
-   Seq: ( ME_551409B6017E // DoIt
+   Seq: ( HWL ME_551409B6017E // DoIt
  )
  ; // Operations
  CONST "of object" true
@@ -79,7 +79,7 @@ ref; // ME_E1CC92564CEF aPoint
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_E654F73164D2 // Ml3PopupMenuHelper
+ : Parent HWL ME_E654F73164D2 // Ml3PopupMenuHelper
  ;
  : Target WL 'ME_47E7ABCB0296' '4799D29F033F.pas.ms.script' // TMenuItem
  ;
@@ -116,7 +116,7 @@ ref; // ME_1873E626AAA9 aPoint
  CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_5514099B0316 // Tl3PopupMenuHelperCallback
+ : Target HWL ME_5514099B0316 // Tl3PopupMenuHelperCallback
  ;
 
 ref; // ME_1873E626AAAA aCallback
@@ -128,7 +128,7 @@ ref; // ME_1873E626AAAA aCallback
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_E654F73164D2 // Ml3PopupMenuHelper
+ : Parent HWL ME_E654F73164D2 // Ml3PopupMenuHelper
  ;
  : Parameters
    Seq: ( ME_1873E626AAA8 // aControl
@@ -149,56 +149,15 @@ ref; // ME_E1C719B751DC GetPopupMenuForComponentInfo
  %SUMMARY 'Контракт сервиса Tl3PopupMenuHelper' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_550013770000 // Tl3PopupMenuHelper
+ : Parent HWL ME_550013770000 // Tl3PopupMenuHelper
  ;
  : Operations
-   Seq: ( ME_1FF8AE53688A // GetPopupMenu
- ME_E1C719B751DC // GetPopupMenuForComponentInfo
+   Seq: ( HWL ME_1FF8AE53688A // GetPopupMenu
+ HWL ME_E1C719B751DC // GetPopupMenuForComponentInfo
  )
  ; // Operations
 
 ref; // ME_E654F73164D2 Ml3PopupMenuHelper
-
-FORWARD ME_04CE71F4AB07
-
-: ME_1FF8AE53688A_ME_04CE71F4AB07
- : Original ME_1FF8AE53688A // GetPopupMenu
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_1FF8AE53688A_ME_04CE71F4AB07 GetPopupMenu
-
-: ME_E1C719B751DC_ME_04CE71F4AB07
- : Original ME_E1C719B751DC // GetPopupMenuForComponentInfo
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_E1C719B751DC_ME_04CE71F4AB07 GetPopupMenuForComponentInfo
-
-: ME_04CE71F4AB07
- CONST UID '04CE71F4AB07'
- CONST GUID '0FC02FC0-1297-4100-A3A7-8D342CAD75B2'
- CONST Name 'Il3PopupMenuHelper'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Facet ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Интерфейс сервиса Tl3PopupMenuHelper' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_550013770000 // Tl3PopupMenuHelper
- ;
- : Implements
-   Seq: ( ME_E654F73164D2 // Ml3PopupMenuHelper
- )
- ; // Implements
- : Implemented
-   Seq: ( ME_1FF8AE53688A_ME_04CE71F4AB07 // GetPopupMenu
- ME_E1C719B751DC_ME_04CE71F4AB07 // GetPopupMenuForComponentInfo
- )
- ; // Implemented
- CONST extprop:rc:SelfName 'PopupMenuHelper'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_04CE71F4AB07 Il3PopupMenuHelper
 
 : ME_5506BF9E033F
  CONST Name 'aControl'
@@ -225,7 +184,7 @@ ref; // ME_5506BF9E038C aPoint
  : Stereotype st_responsibility::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_550013770000 // Tl3PopupMenuHelper
+ : Parent HWL ME_550013770000 // Tl3PopupMenuHelper
  ;
  : Target WL 'ME_47E7ABCB0296' '4799D29F033F.pas.ms.script' // TMenuItem
  ;
@@ -259,7 +218,7 @@ ref; // ME_5513F50501E2 aPoint
  CONST Name 'aCallback'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_5514099B0316 // Tl3PopupMenuHelperCallback
+ : Target HWL ME_5514099B0316 // Tl3PopupMenuHelperCallback
  ;
 
 ref; // ME_551409E3015F aCallback
@@ -271,7 +230,7 @@ ref; // ME_551409E3015F aCallback
  : Stereotype st_responsibility::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_550013770000 // Tl3PopupMenuHelper
+ : Parent HWL ME_550013770000 // Tl3PopupMenuHelper
  ;
  : Parameters
    Seq: ( ME_5506BFC00110 // aControl
@@ -285,24 +244,12 @@ ref; // ME_5506BFB302ED GetPopupMenuForComponentInfo
 : ME_5500148103D9
  CONST Class class_Dependency
  : Stereotype st_friend::Dependency ;
- : Parent ME_550013770000 // Tl3PopupMenuHelper
+ : Parent HWL ME_550013770000 // Tl3PopupMenuHelper
  ;
  : Target WL 'ME_47E1201703C3' '4799D29F033F.pas.ms.script' // TControl
  ;
 
 ref; // ME_5500148103D9 
-
-: ME_1FF8AE53688A_ME_550013770000
- : Original ME_1FF8AE53688A // GetPopupMenu
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_1FF8AE53688A_ME_550013770000 GetPopupMenu
-
-: ME_E1C719B751DC_ME_550013770000
- : Original ME_E1C719B751DC // GetPopupMenuForComponentInfo
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_E1C719B751DC_ME_550013770000 GetPopupMenuForComponentInfo
 
 : ME_550013770000
  CONST UID '550013770000'
@@ -312,30 +259,20 @@ ref; // ME_E1C719B751DC_ME_550013770000 GetPopupMenuForComponentInfo
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_55001317029B // VCLHelpers
+ : Parent HWL ME_55001317029B // VCLHelpers
  ;
  : Inherits
    Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
  )
  ; // Inherits
- : Implements
-   Seq: ( ME_E654F73164D2 // Ml3PopupMenuHelper
- )
- ; // Implements
  : Operations
-   Seq: ( ME_5506BF830025 // GetPopupMenu
- ME_5506BFB302ED // GetPopupMenuForComponentInfo
+   Seq: ( HWL ME_5506BF830025 // GetPopupMenu
+ HWL ME_5506BFB302ED // GetPopupMenuForComponentInfo
  )
  ; // Operations
- : Implemented
-   Seq: ( ME_1FF8AE53688A_ME_550013770000 // GetPopupMenu
- ME_E1C719B751DC_ME_550013770000 // GetPopupMenuForComponentInfo
- )
- ; // Implemented
  : Children
-   Seq: ( ME_5514099B0316 // Tl3PopupMenuHelperCallback
- ME_E654F73164D2 // Ml3PopupMenuHelper
- ME_04CE71F4AB07 // Il3PopupMenuHelper
+   Seq: ( HWL ME_5514099B0316 // Tl3PopupMenuHelperCallback
+ HWL ME_E654F73164D2 // Ml3PopupMenuHelper
  )
  ; // Children
  : Dependencies
@@ -347,10 +284,6 @@ ref; // ME_E1C719B751DC_ME_550013770000 GetPopupMenuForComponentInfo
  CONST extprop:rc:SelfName 'PopupMenuHelper'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'l3PopupMenuHelper'
- : Facet ME_04CE71F4AB07 // Il3PopupMenuHelper
- ;
- : Mixin ME_E654F73164D2 // Ml3PopupMenuHelper
- ;
 
 ref; // ME_550013770000 Tl3PopupMenuHelper
 
@@ -375,7 +308,7 @@ ref; // ME_951E20C5C5A6 aControl
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_622F6A2DA951 // Ml3CloseFormHelper
+ : Parent HWL ME_622F6A2DA951 // Ml3CloseFormHelper
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -396,48 +329,14 @@ ref; // ME_A1E64DB467E3 Close
  %SUMMARY 'Контракт сервиса Tl3CloseFormHelper' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_55014D810077 // Tl3CloseFormHelper
+ : Parent HWL ME_55014D810077 // Tl3CloseFormHelper
  ;
  : Operations
-   Seq: ( ME_A1E64DB467E3 // Close
+   Seq: ( HWL ME_A1E64DB467E3 // Close
  )
  ; // Operations
 
 ref; // ME_622F6A2DA951 Ml3CloseFormHelper
-
-FORWARD ME_7ED31A3A9A99
-
-: ME_A1E64DB467E3_ME_7ED31A3A9A99
- : Original ME_A1E64DB467E3 // Close
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_A1E64DB467E3_ME_7ED31A3A9A99 Close
-
-: ME_7ED31A3A9A99
- CONST UID '7ED31A3A9A99'
- CONST GUID 'A031440F-1B01-4D9B-A86B-5F4E065BE1E9'
- CONST Name 'Il3CloseFormHelper'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Facet ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Интерфейс сервиса Tl3CloseFormHelper' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_55014D810077 // Tl3CloseFormHelper
- ;
- : Implements
-   Seq: ( ME_622F6A2DA951 // Ml3CloseFormHelper
- )
- ; // Implements
- : Implemented
-   Seq: ( ME_A1E64DB467E3_ME_7ED31A3A9A99 // Close
- )
- ; // Implemented
- CONST extprop:rc:SelfName 'CloseFormHelper'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_7ED31A3A9A99 Il3CloseFormHelper
 
 : ME_5506BFFA037E
  CONST Name 'aControl'
@@ -455,7 +354,7 @@ ref; // ME_5506BFFA037E aControl
  : Stereotype st_responsibility::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_55014D810077 // Tl3CloseFormHelper
+ : Parent HWL ME_55014D810077 // Tl3CloseFormHelper
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -469,18 +368,12 @@ ref; // ME_5506BFF50385 Close
 : ME_5501605B0022
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_55014D810077 // Tl3CloseFormHelper
+ : Parent HWL ME_55014D810077 // Tl3CloseFormHelper
  ;
  : Target WL 'ME_484529DC0276' '4799D29F033F.pas.ms.script' // TCustomForm
  ;
 
 ref; // ME_5501605B0022 
-
-: ME_A1E64DB467E3_ME_55014D810077
- : Original ME_A1E64DB467E3 // Close
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_A1E64DB467E3_ME_55014D810077 Close
 
 : ME_55014D810077
  CONST UID '55014D810077'
@@ -490,27 +383,18 @@ ref; // ME_A1E64DB467E3_ME_55014D810077 Close
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_55001317029B // VCLHelpers
+ : Parent HWL ME_55001317029B // VCLHelpers
  ;
  : Inherits
    Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
  )
  ; // Inherits
- : Implements
-   Seq: ( ME_622F6A2DA951 // Ml3CloseFormHelper
- )
- ; // Implements
  : Operations
-   Seq: ( ME_5506BFF50385 // Close
+   Seq: ( HWL ME_5506BFF50385 // Close
  )
  ; // Operations
- : Implemented
-   Seq: ( ME_A1E64DB467E3_ME_55014D810077 // Close
- )
- ; // Implemented
  : Children
-   Seq: ( ME_622F6A2DA951 // Ml3CloseFormHelper
- ME_7ED31A3A9A99 // Il3CloseFormHelper
+   Seq: ( HWL ME_622F6A2DA951 // Ml3CloseFormHelper
  )
  ; // Children
  : Dependencies
@@ -522,10 +406,6 @@ ref; // ME_A1E64DB467E3_ME_55014D810077 Close
  CONST extprop:rc:SelfName 'CloseFormHelper'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'l3CloseFormHelper'
- : Facet ME_7ED31A3A9A99 // Il3CloseFormHelper
- ;
- : Mixin ME_622F6A2DA951 // Ml3CloseFormHelper
- ;
 
 ref; // ME_55014D810077 Tl3CloseFormHelper
 
@@ -550,7 +430,7 @@ ref; // ME_1B4D9FCCF6EF anAction
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_2B0D8771E8B2 // Ml3FormatActionInfoHelper
+ : Parent HWL ME_2B0D8771E8B2 // Ml3FormatActionInfoHelper
  ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
@@ -571,48 +451,14 @@ ref; // ME_781F06EEA149 Format
  %SUMMARY 'Контракт сервиса Tl3FormatActionInfoHelper' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_551442110069 // Tl3FormatActionInfoHelper
+ : Parent HWL ME_551442110069 // Tl3FormatActionInfoHelper
  ;
  : Operations
-   Seq: ( ME_781F06EEA149 // Format
+   Seq: ( HWL ME_781F06EEA149 // Format
  )
  ; // Operations
 
 ref; // ME_2B0D8771E8B2 Ml3FormatActionInfoHelper
-
-FORWARD ME_19259CFA643D
-
-: ME_781F06EEA149_ME_19259CFA643D
- : Original ME_781F06EEA149 // Format
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_781F06EEA149_ME_19259CFA643D Format
-
-: ME_19259CFA643D
- CONST UID '19259CFA643D'
- CONST GUID 'CBBE7B8C-EED1-4A7B-ADB2-361BE86A2A05'
- CONST Name 'Il3FormatActionInfoHelper'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Facet ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Интерфейс сервиса Tl3FormatActionInfoHelper' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_551442110069 // Tl3FormatActionInfoHelper
- ;
- : Implements
-   Seq: ( ME_2B0D8771E8B2 // Ml3FormatActionInfoHelper
- )
- ; // Implements
- : Implemented
-   Seq: ( ME_781F06EEA149_ME_19259CFA643D // Format
- )
- ; // Implemented
- CONST extprop:rc:SelfName 'FormatActionInfoHelper'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_19259CFA643D Il3FormatActionInfoHelper
 
 : ME_5514426501EC
  CONST Name 'anAction'
@@ -630,7 +476,7 @@ ref; // ME_5514426501EC anAction
  : Stereotype st_responsibility::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_551442110069 // Tl3FormatActionInfoHelper
+ : Parent HWL ME_551442110069 // Tl3FormatActionInfoHelper
  ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
@@ -641,12 +487,6 @@ ref; // ME_5514426501EC anAction
 
 ref; // ME_5514424D01A2 Format
 
-: ME_781F06EEA149_ME_551442110069
- : Original ME_781F06EEA149 // Format
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_781F06EEA149_ME_551442110069 Format
-
 : ME_551442110069
  CONST UID '551442110069'
  CONST Name 'Tl3FormatActionInfoHelper'
@@ -655,27 +495,18 @@ ref; // ME_781F06EEA149_ME_551442110069 Format
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_55001317029B // VCLHelpers
+ : Parent HWL ME_55001317029B // VCLHelpers
  ;
  : Inherits
    Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
  )
  ; // Inherits
- : Implements
-   Seq: ( ME_2B0D8771E8B2 // Ml3FormatActionInfoHelper
- )
- ; // Implements
  : Operations
-   Seq: ( ME_5514424D01A2 // Format
+   Seq: ( HWL ME_5514424D01A2 // Format
  )
  ; // Operations
- : Implemented
-   Seq: ( ME_781F06EEA149_ME_551442110069 // Format
- )
- ; // Implemented
  : Children
-   Seq: ( ME_2B0D8771E8B2 // Ml3FormatActionInfoHelper
- ME_19259CFA643D // Il3FormatActionInfoHelper
+   Seq: ( HWL ME_2B0D8771E8B2 // Ml3FormatActionInfoHelper
  )
  ; // Children
  CONST "singleton" true
@@ -683,10 +514,6 @@ ref; // ME_781F06EEA149_ME_551442110069 Format
  CONST extprop:rc:SelfName 'FormatActionInfoHelper'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'l3FormatActionInfoHelper'
- : Facet ME_19259CFA643D // Il3FormatActionInfoHelper
- ;
- : Mixin ME_2B0D8771E8B2 // Ml3FormatActionInfoHelper
- ;
 
 ref; // ME_551442110069 Tl3FormatActionInfoHelper
 
@@ -709,7 +536,7 @@ ref; // ME_55154410019B aLinkData
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_5515434903D6 // Tl3WikiLinkClicked
+ : Parent HWL ME_5515434903D6 // Tl3WikiLinkClicked
  ;
  : Parameters
    Seq: ( ME_55154410019B // aLinkData
@@ -726,10 +553,10 @@ ref; // ME_5515436B02F8 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_551542E902F5 // Tl3HugeMessageDlgWithWikiHelper
+ : Parent HWL ME_551542E902F5 // Tl3HugeMessageDlgWithWikiHelper
  ;
  : Operations
-   Seq: ( ME_5515436B02F8 // DoIt
+   Seq: ( HWL ME_5515436B02F8 // DoIt
  )
  ; // Operations
  CONST "of object" true
@@ -753,7 +580,7 @@ ref; // ME_9FEE7453B595 aText
  CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_5515434903D6 // Tl3WikiLinkClicked
+ : Target HWL ME_5515434903D6 // Tl3WikiLinkClicked
  ;
 
 ref; // ME_9FEE7453B596 aClickCallback
@@ -765,7 +592,7 @@ ref; // ME_9FEE7453B596 aClickCallback
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_59B170ED03AC // Ml3HugeMessageDlgWithWikiHelper
+ : Parent HWL ME_59B170ED03AC // Ml3HugeMessageDlgWithWikiHelper
  ;
  : Parameters
    Seq: ( ME_9FEE7453B595 // aText
@@ -802,7 +629,7 @@ ref; // ME_6E0C463C6134 aLinkData
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_59B170ED03AC // Ml3HugeMessageDlgWithWikiHelper
+ : Parent HWL ME_59B170ED03AC // Ml3HugeMessageDlgWithWikiHelper
  ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
@@ -841,7 +668,7 @@ ref; // ME_454847872577 aText
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_59B170ED03AC // Ml3HugeMessageDlgWithWikiHelper
+ : Parent HWL ME_59B170ED03AC // Ml3HugeMessageDlgWithWikiHelper
  ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
@@ -860,7 +687,7 @@ ref; // ME_3CDB8D32C712 FormatCloak
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_59B170ED03AC // Ml3HugeMessageDlgWithWikiHelper
+ : Parent HWL ME_59B170ED03AC // Ml3HugeMessageDlgWithWikiHelper
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -877,72 +704,17 @@ ref; // ME_CDCC556698E5 CanUseWiki
  %SUMMARY 'Контракт сервиса Tl3HugeMessageDlgWithWikiHelper' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_551542E902F5 // Tl3HugeMessageDlgWithWikiHelper
+ : Parent HWL ME_551542E902F5 // Tl3HugeMessageDlgWithWikiHelper
  ;
  : Operations
-   Seq: ( ME_03211FE23BF3 // Say
- ME_5AFFFDE1F6AB // FormatLink
- ME_3CDB8D32C712 // FormatCloak
- ME_CDCC556698E5 // CanUseWiki
+   Seq: ( HWL ME_03211FE23BF3 // Say
+ HWL ME_5AFFFDE1F6AB // FormatLink
+ HWL ME_3CDB8D32C712 // FormatCloak
+ HWL ME_CDCC556698E5 // CanUseWiki
  )
  ; // Operations
 
 ref; // ME_59B170ED03AC Ml3HugeMessageDlgWithWikiHelper
-
-FORWARD ME_765520F9F4F4
-
-: ME_03211FE23BF3_ME_765520F9F4F4
- : Original ME_03211FE23BF3 // Say
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_03211FE23BF3_ME_765520F9F4F4 Say
-
-: ME_3CDB8D32C712_ME_765520F9F4F4
- : Original ME_3CDB8D32C712 // FormatCloak
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_3CDB8D32C712_ME_765520F9F4F4 FormatCloak
-
-: ME_5AFFFDE1F6AB_ME_765520F9F4F4
- : Original ME_5AFFFDE1F6AB // FormatLink
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_5AFFFDE1F6AB_ME_765520F9F4F4 FormatLink
-
-: ME_CDCC556698E5_ME_765520F9F4F4
- : Original ME_CDCC556698E5 // CanUseWiki
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_CDCC556698E5_ME_765520F9F4F4 CanUseWiki
-
-: ME_765520F9F4F4
- CONST UID '765520F9F4F4'
- CONST GUID 'E19F61CE-9AEF-409B-814C-B75941D1010E'
- CONST Name 'Il3HugeMessageDlgWithWikiHelper'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Facet ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Интерфейс сервиса Tl3HugeMessageDlgWithWikiHelper' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_551542E902F5 // Tl3HugeMessageDlgWithWikiHelper
- ;
- : Implements
-   Seq: ( ME_59B170ED03AC // Ml3HugeMessageDlgWithWikiHelper
- )
- ; // Implements
- : Implemented
-   Seq: ( ME_03211FE23BF3_ME_765520F9F4F4 // Say
- ME_3CDB8D32C712_ME_765520F9F4F4 // FormatCloak
- ME_5AFFFDE1F6AB_ME_765520F9F4F4 // FormatLink
- ME_CDCC556698E5_ME_765520F9F4F4 // CanUseWiki
- )
- ; // Implemented
- CONST extprop:rc:SelfName 'HugeMessageDlgWithWikiHelper'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_765520F9F4F4 Il3HugeMessageDlgWithWikiHelper
 
 : ME_551543BA03AF
  CONST Name 'aText'
@@ -957,7 +729,7 @@ ref; // ME_551543BA03AF aText
  CONST Name 'aClickCallback'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_5515434903D6 // Tl3WikiLinkClicked
+ : Target HWL ME_5515434903D6 // Tl3WikiLinkClicked
  ;
 
 ref; // ME_551543BA03CD aClickCallback
@@ -969,7 +741,7 @@ ref; // ME_551543BA03CD aClickCallback
  : Stereotype st_responsibility::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_551542E902F5 // Tl3HugeMessageDlgWithWikiHelper
+ : Parent HWL ME_551542E902F5 // Tl3HugeMessageDlgWithWikiHelper
  ;
  : Parameters
    Seq: ( ME_551543BA03AF // aText
@@ -1004,7 +776,7 @@ ref; // ME_55154DDE0223 aLinkData
  : Stereotype st_responsibility::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_551542E902F5 // Tl3HugeMessageDlgWithWikiHelper
+ : Parent HWL ME_551542E902F5 // Tl3HugeMessageDlgWithWikiHelper
  ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
@@ -1041,7 +813,7 @@ ref; // ME_551572F60231 aText
  : Stereotype st_responsibility::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_551542E902F5 // Tl3HugeMessageDlgWithWikiHelper
+ : Parent HWL ME_551542E902F5 // Tl3HugeMessageDlgWithWikiHelper
  ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
@@ -1060,7 +832,7 @@ ref; // ME_551572DE021E FormatCloak
  : Stereotype st_responsibility::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_551542E902F5 // Tl3HugeMessageDlgWithWikiHelper
+ : Parent HWL ME_551542E902F5 // Tl3HugeMessageDlgWithWikiHelper
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -1070,7 +842,7 @@ ref; // ME_55157F5F013E CanUseWiki
 : ME_55154EAC01BE
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_551542E902F5 // Tl3HugeMessageDlgWithWikiHelper
+ : Parent HWL ME_551542E902F5 // Tl3HugeMessageDlgWithWikiHelper
  ;
  : Target WL 'ME_47E13C6B0341' '4799D29F033F.pas.ms.script' // Forms
  ;
@@ -1080,7 +852,7 @@ ref; // ME_55154EAC01BE
 : ME_55154EB0028E
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_551542E902F5 // Tl3HugeMessageDlgWithWikiHelper
+ : Parent HWL ME_551542E902F5 // Tl3HugeMessageDlgWithWikiHelper
  ;
  : Target WL 'ME_47E11FC3021E' '4799D29F033F.pas.ms.script' // Controls
  ;
@@ -1090,7 +862,7 @@ ref; // ME_55154EB0028E
 : ME_55154EC0027C
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_551542E902F5 // Tl3HugeMessageDlgWithWikiHelper
+ : Parent HWL ME_551542E902F5 // Tl3HugeMessageDlgWithWikiHelper
  ;
  : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
  ;
@@ -1100,7 +872,7 @@ ref; // ME_55154EC0027C
 : ME_55154F03034C
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_551542E902F5 // Tl3HugeMessageDlgWithWikiHelper
+ : Parent HWL ME_551542E902F5 // Tl3HugeMessageDlgWithWikiHelper
  ;
  : Target WL 'ME_48C78D5402A6' '4799D29F033F.pas.ms.script' // StdCtrls
  ;
@@ -1110,36 +882,12 @@ ref; // ME_55154F03034C
 : ME_551572D4034A
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_551542E902F5 // Tl3HugeMessageDlgWithWikiHelper
+ : Parent HWL ME_551542E902F5 // Tl3HugeMessageDlgWithWikiHelper
  ;
  : Target WL 'ME_48C7C95C0221' '4799D29F033F.pas.ms.script' // ExtCtrls
  ;
 
 ref; // ME_551572D4034A 
-
-: ME_03211FE23BF3_ME_551542E902F5
- : Original ME_03211FE23BF3 // Say
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_03211FE23BF3_ME_551542E902F5 Say
-
-: ME_3CDB8D32C712_ME_551542E902F5
- : Original ME_3CDB8D32C712 // FormatCloak
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_3CDB8D32C712_ME_551542E902F5 FormatCloak
-
-: ME_5AFFFDE1F6AB_ME_551542E902F5
- : Original ME_5AFFFDE1F6AB // FormatLink
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_5AFFFDE1F6AB_ME_551542E902F5 FormatLink
-
-: ME_CDCC556698E5_ME_551542E902F5
- : Original ME_CDCC556698E5 // CanUseWiki
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_CDCC556698E5_ME_551542E902F5 CanUseWiki
 
 : ME_551542E902F5
  CONST UID '551542E902F5'
@@ -1149,34 +897,22 @@ ref; // ME_CDCC556698E5_ME_551542E902F5 CanUseWiki
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_55001317029B // VCLHelpers
+ : Parent HWL ME_55001317029B // VCLHelpers
  ;
  : Inherits
    Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
  )
  ; // Inherits
- : Implements
-   Seq: ( ME_59B170ED03AC // Ml3HugeMessageDlgWithWikiHelper
- )
- ; // Implements
  : Operations
-   Seq: ( ME_55154391001C // Say
- ME_55154DC20217 // FormatLink
- ME_551572DE021E // FormatCloak
- ME_55157F5F013E // CanUseWiki
+   Seq: ( HWL ME_55154391001C // Say
+ HWL ME_55154DC20217 // FormatLink
+ HWL ME_551572DE021E // FormatCloak
+ HWL ME_55157F5F013E // CanUseWiki
  )
  ; // Operations
- : Implemented
-   Seq: ( ME_03211FE23BF3_ME_551542E902F5 // Say
- ME_3CDB8D32C712_ME_551542E902F5 // FormatCloak
- ME_5AFFFDE1F6AB_ME_551542E902F5 // FormatLink
- ME_CDCC556698E5_ME_551542E902F5 // CanUseWiki
- )
- ; // Implemented
  : Children
-   Seq: ( ME_5515434903D6 // Tl3WikiLinkClicked
- ME_59B170ED03AC // Ml3HugeMessageDlgWithWikiHelper
- ME_765520F9F4F4 // Il3HugeMessageDlgWithWikiHelper
+   Seq: ( HWL ME_5515434903D6 // Tl3WikiLinkClicked
+ HWL ME_59B170ED03AC // Ml3HugeMessageDlgWithWikiHelper
  )
  ; // Children
  : Dependencies
@@ -1187,15 +923,10 @@ ref; // ME_CDCC556698E5_ME_551542E902F5 CanUseWiki
  ME_551572D4034A // ExtCtrls
  )
  ; // Dependencies
- CONST "singleton" true
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3HugeMessageDlgWithWikiHelper.pas'
  CONST extprop:rc:SelfName 'HugeMessageDlgWithWikiHelper'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'l3HugeMessageDlgWithWikiHelper'
- : Facet ME_765520F9F4F4 // Il3HugeMessageDlgWithWikiHelper
- ;
- : Mixin ME_59B170ED03AC // Ml3HugeMessageDlgWithWikiHelper
- ;
 
 ref; // ME_551542E902F5 Tl3HugeMessageDlgWithWikiHelper
 
@@ -1214,7 +945,7 @@ FORWARD ME_3410F441967F
  CONST Visibility PublicAccess
  CONST Abstraction at_final
  CONST LinkType lt_lnk
- : Parent ME_3410F441967F // IterateF
+ : Parent HWL ME_3410F441967F // IterateF
  ;
  : Target WL 'ME_479878FA0103' '4AB0997B00A2.pas.ms.script' // TComponent
  ;
@@ -1229,7 +960,7 @@ ref; // ME_24C2D2F69431 aComponent
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  CONST LinkType lt_lnk
- : Parent ME_3410F441967F // IterateF
+ : Parent HWL ME_3410F441967F // IterateF
  ;
  : Target WL 'ME_479878FA0103' '4AB0997B00A2.pas.ms.script' // TComponent
  ;
@@ -1240,7 +971,7 @@ ref; // ME_C55E2E29D333
  CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_3410F441967F // IterateF
+ : Parent HWL ME_3410F441967F // IterateF
  ;
  : Target WL 'ME_47E11FC3021E' '4799D29F033F.pas.ms.script' // Controls
  ;
@@ -1256,11 +987,11 @@ ref; // ME_C4546DACFBEA
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_8F612712D29F // Ml3IterateComponentParents
+ : Parent HWL ME_8F612712D29F // Ml3IterateComponentParents
  ;
  : Attributes
-   Seq: ( ME_24C2D2F69431 // aComponent
- ME_C55E2E29D333 // 
+   Seq: ( HWL ME_24C2D2F69431 // aComponent
+ HWL ME_C55E2E29D333 // 
  )
  ; // Attributes
  : Dependencies
@@ -1282,50 +1013,14 @@ ref; // ME_3410F441967F IterateF
  %SUMMARY 'Контракт сервиса Tl3IterateComponentParents' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_551AA9BD01EE // Tl3IterateComponentParents
+ : Parent HWL ME_551AA9BD01EE // Tl3IterateComponentParents
  ;
  : Operations
-   Seq: ( ME_3410F441967F // IterateF
+   Seq: ( HWL ME_3410F441967F // IterateF
  )
  ; // Operations
 
 ref; // ME_8F612712D29F Ml3IterateComponentParents
-
-FORWARD ME_7D793C9B4E2A
-
-: ME_3410F441967F_ME_7D793C9B4E2A
- : Original ME_3410F441967F // IterateF
- ;
- CONST OpKind opkind_Implemented
- CONST "needs index" 'undefined'
- CONST "needs result" 'undefined'
-ref; // ME_3410F441967F_ME_7D793C9B4E2A IterateF
-
-: ME_7D793C9B4E2A
- CONST UID '7D793C9B4E2A'
- CONST GUID '5A7F04AD-BABF-4265-8160-3A5BDA277D22'
- CONST Name 'Il3IterateComponentParents'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Facet ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Интерфейс сервиса Tl3IterateComponentParents' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_551AA9BD01EE // Tl3IterateComponentParents
- ;
- : Implements
-   Seq: ( ME_8F612712D29F // Ml3IterateComponentParents
- )
- ; // Implements
- : Implemented
-   Seq: ( ME_3410F441967F_ME_7D793C9B4E2A // IterateF
- )
- ; // Implemented
- CONST extprop:rc:SelfName 'IterateComponentParents'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_7D793C9B4E2A Il3IterateComponentParents
 
 FORWARD ME_551AAAFB036B
 
@@ -1337,7 +1032,7 @@ FORWARD ME_551AAAFB036B
  CONST Visibility PublicAccess
  CONST Abstraction at_final
  CONST LinkType lt_lnk
- : Parent ME_551AAAFB036B // Iterate
+ : Parent HWL ME_551AAAFB036B // Iterate
  ;
  : Target WL 'ME_479878FA0103' '4AB0997B00A2.pas.ms.script' // TComponent
  ;
@@ -1351,7 +1046,7 @@ ref; // ME_551AB83701BC aComponent
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  CONST LinkType lt_lnk
- : Parent ME_551AAAFB036B // Iterate
+ : Parent HWL ME_551AAAFB036B // Iterate
  ;
  : Target WL 'ME_479878FA0103' '4AB0997B00A2.pas.ms.script' // TComponent
  ;
@@ -1361,7 +1056,7 @@ ref; // ME_551AB59F02E1
 : ME_551C4D0802D4
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_551AAAFB036B // Iterate
+ : Parent HWL ME_551AAAFB036B // Iterate
  ;
  : Target WL 'ME_47E11FC3021E' '4799D29F033F.pas.ms.script' // Controls
  ;
@@ -1376,11 +1071,11 @@ ref; // ME_551C4D0802D4
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_551AA9BD01EE // Tl3IterateComponentParents
+ : Parent HWL ME_551AA9BD01EE // Tl3IterateComponentParents
  ;
  : Attributes
-   Seq: ( ME_551AB83701BC // aComponent
- ME_551AB59F02E1 // 
+   Seq: ( HWL ME_551AB83701BC // aComponent
+ HWL ME_551AB59F02E1 // 
  )
  ; // Attributes
  : Dependencies
@@ -1392,14 +1087,6 @@ ref; // ME_551C4D0802D4
 
 ref; // ME_551AAAFB036B Iterate
 
-: ME_3410F441967F_ME_551AA9BD01EE
- : Original ME_3410F441967F // IterateF
- ;
- CONST OpKind opkind_Implemented
- CONST "needs index" 'undefined'
- CONST "needs result" 'undefined'
-ref; // ME_3410F441967F_ME_551AA9BD01EE IterateF
-
 : ME_551AA9BD01EE
  CONST UID '551AA9BD01EE'
  CONST Name 'Tl3IterateComponentParents'
@@ -1408,38 +1095,24 @@ ref; // ME_3410F441967F_ME_551AA9BD01EE IterateF
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_55001317029B // VCLHelpers
+ : Parent HWL ME_55001317029B // VCLHelpers
  ;
  : Inherits
    Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
  )
  ; // Inherits
- : Implements
-   Seq: ( ME_8F612712D29F // Ml3IterateComponentParents
- )
- ; // Implements
  : Operations
-   Seq: ( ME_551AAAFB036B // Iterate
+   Seq: ( HWL ME_551AAAFB036B // Iterate
  )
  ; // Operations
- : Implemented
-   Seq: ( ME_3410F441967F_ME_551AA9BD01EE // IterateF
- )
- ; // Implemented
  : Children
-   Seq: ( ME_8F612712D29F // Ml3IterateComponentParents
- ME_7D793C9B4E2A // Il3IterateComponentParents
+   Seq: ( HWL ME_8F612712D29F // Ml3IterateComponentParents
  )
  ; // Children
- CONST "singleton" true
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3IterateComponentParents.pas'
  CONST extprop:rc:SelfName 'IterateComponentParents'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'l3IterateComponentParents'
- : Facet ME_7D793C9B4E2A // Il3IterateComponentParents
- ;
- : Mixin ME_8F612712D29F // Ml3IterateComponentParents
- ;
 
 ref; // ME_551AA9BD01EE Tl3IterateComponentParents
 
@@ -1485,7 +1158,7 @@ ref; // ME_938AE659321E aBindedControl
  %SUMMARY 'aBindedControl - если найденный компонент - контрол, то равен этому контролу, если нет, то его родитель' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_A24A217A2949 // Ml3GetComponentFromPointHelper
+ : Parent HWL ME_A24A217A2949 // Ml3GetComponentFromPointHelper
  ;
  : Parameters
    Seq: ( ME_938AE659321C // aPoint
@@ -1506,48 +1179,14 @@ ref; // ME_77F02E022F3C GetComponent
  %SUMMARY 'Контракт сервиса Tl3GetComponentFromPointHelper' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_551AB8CA014A // Tl3GetComponentFromPointHelper
+ : Parent HWL ME_551AB8CA014A // Tl3GetComponentFromPointHelper
  ;
  : Operations
-   Seq: ( ME_77F02E022F3C // GetComponent
+   Seq: ( HWL ME_77F02E022F3C // GetComponent
  )
  ; // Operations
 
 ref; // ME_A24A217A2949 Ml3GetComponentFromPointHelper
-
-FORWARD ME_90623703A4D4
-
-: ME_77F02E022F3C_ME_90623703A4D4
- : Original ME_77F02E022F3C // GetComponent
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_77F02E022F3C_ME_90623703A4D4 GetComponent
-
-: ME_90623703A4D4
- CONST UID '90623703A4D4'
- CONST GUID '8A45EBEB-1919-4ED9-AE29-39A44F9B3F6E'
- CONST Name 'Il3GetComponentFromPointHelper'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Facet ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Интерфейс сервиса Tl3GetComponentFromPointHelper' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_551AB8CA014A // Tl3GetComponentFromPointHelper
- ;
- : Implements
-   Seq: ( ME_A24A217A2949 // Ml3GetComponentFromPointHelper
- )
- ; // Implements
- : Implemented
-   Seq: ( ME_77F02E022F3C_ME_90623703A4D4 // GetComponent
- )
- ; // Implemented
- CONST extprop:rc:SelfName 'GetComponentFromPointHelper'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_90623703A4D4 Il3GetComponentFromPointHelper
 
 : ME_551ABA3E0014
  CONST Name 'aPoint'
@@ -1584,7 +1223,7 @@ ref; // ME_551AD6E100F1 aBindedControl
  %SUMMARY 'aBindedControl - если найденный компонент - контрол, то равен этому контролу, если нет, то его родитель' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_551AB8CA014A // Tl3GetComponentFromPointHelper
+ : Parent HWL ME_551AB8CA014A // Tl3GetComponentFromPointHelper
  ;
  : Parameters
    Seq: ( ME_551ABA3E0014 // aPoint
@@ -1595,12 +1234,6 @@ ref; // ME_551AD6E100F1 aBindedControl
 
 ref; // ME_551ABA0A0154 GetComponent
 
-: ME_77F02E022F3C_ME_551AB8CA014A
- : Original ME_77F02E022F3C // GetComponent
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_77F02E022F3C_ME_551AB8CA014A GetComponent
-
 : ME_551AB8CA014A
  CONST UID '551AB8CA014A'
  CONST Name 'Tl3GetComponentFromPointHelper'
@@ -1609,38 +1242,24 @@ ref; // ME_77F02E022F3C_ME_551AB8CA014A GetComponent
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_55001317029B // VCLHelpers
+ : Parent HWL ME_55001317029B // VCLHelpers
  ;
  : Inherits
    Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
  )
  ; // Inherits
- : Implements
-   Seq: ( ME_A24A217A2949 // Ml3GetComponentFromPointHelper
- )
- ; // Implements
  : Operations
-   Seq: ( ME_551ABA0A0154 // GetComponent
+   Seq: ( HWL ME_551ABA0A0154 // GetComponent
  )
  ; // Operations
- : Implemented
-   Seq: ( ME_77F02E022F3C_ME_551AB8CA014A // GetComponent
- )
- ; // Implemented
  : Children
-   Seq: ( ME_A24A217A2949 // Ml3GetComponentFromPointHelper
- ME_90623703A4D4 // Il3GetComponentFromPointHelper
+   Seq: ( HWL ME_A24A217A2949 // Ml3GetComponentFromPointHelper
  )
  ; // Children
- CONST "singleton" true
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3GetComponentFromPointHelper.pas'
  CONST extprop:rc:SelfName 'GetComponentFromPointHelper'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'l3GetComponentFromPointHelper'
- : Facet ME_90623703A4D4 // Il3GetComponentFromPointHelper
- ;
- : Mixin ME_A24A217A2949 // Ml3GetComponentFromPointHelper
- ;
 
 ref; // ME_551AB8CA014A Tl3GetComponentFromPointHelper
 
@@ -1685,7 +1304,7 @@ ref; // ME_18E0BD886494 anObjectPropFound
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_6FB88E211F27 // Ml3FormatObjectInfoHelper
+ : Parent HWL ME_6FB88E211F27 // Ml3FormatObjectInfoHelper
  ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
@@ -1708,48 +1327,14 @@ ref; // ME_D4A861440DBF Format
  %SUMMARY 'Контракт сервиса Tl3FormatObjectInfoHelper' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_551BCBFD0240 // Tl3FormatObjectInfoHelper
+ : Parent HWL ME_551BCBFD0240 // Tl3FormatObjectInfoHelper
  ;
  : Operations
-   Seq: ( ME_D4A861440DBF // Format
+   Seq: ( HWL ME_D4A861440DBF // Format
  )
  ; // Operations
 
 ref; // ME_6FB88E211F27 Ml3FormatObjectInfoHelper
-
-FORWARD ME_5DD0A3AA9AB2
-
-: ME_D4A861440DBF_ME_5DD0A3AA9AB2
- : Original ME_D4A861440DBF // Format
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_D4A861440DBF_ME_5DD0A3AA9AB2 Format
-
-: ME_5DD0A3AA9AB2
- CONST UID '5DD0A3AA9AB2'
- CONST GUID 'ABD71A64-8BB2-4F31-9E8A-D6E19C4EB16A'
- CONST Name 'Il3FormatObjectInfoHelper'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Facet ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Интерфейс сервиса Tl3FormatObjectInfoHelper' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_551BCBFD0240 // Tl3FormatObjectInfoHelper
- ;
- : Implements
-   Seq: ( ME_6FB88E211F27 // Ml3FormatObjectInfoHelper
- )
- ; // Implements
- : Implemented
-   Seq: ( ME_D4A861440DBF_ME_5DD0A3AA9AB2 // Format
- )
- ; // Implemented
- CONST extprop:rc:SelfName 'FormatObjectInfoHelper'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_5DD0A3AA9AB2 Il3FormatObjectInfoHelper
 
 : ME_551BE08301D7
  CONST Name 'anObject'
@@ -1785,7 +1370,7 @@ ref; // ME_551BE083025F anObjectPropFound
  : Stereotype st_responsibility::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_551BCBFD0240 // Tl3FormatObjectInfoHelper
+ : Parent HWL ME_551BCBFD0240 // Tl3FormatObjectInfoHelper
  ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
@@ -1801,9 +1386,9 @@ ref; // ME_551BCC1F00E6 Format
 : ME_551BCC1303DA
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_551BCBFD0240 // Tl3FormatObjectInfoHelper
+ : Parent HWL ME_551BCBFD0240 // Tl3FormatObjectInfoHelper
  ;
- : Target ME_551442110069 // Tl3FormatActionInfoHelper
+ : Target HWL ME_551442110069 // Tl3FormatActionInfoHelper
  ;
 
 ref; // ME_551BCC1303DA 
@@ -1811,7 +1396,7 @@ ref; // ME_551BCC1303DA
 : ME_551BCCE303C0
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_551BCBFD0240 // Tl3FormatObjectInfoHelper
+ : Parent HWL ME_551BCBFD0240 // Tl3FormatObjectInfoHelper
  ;
  : Target WL 'ME_47E11FC3021E' '4799D29F033F.pas.ms.script' // Controls
  ;
@@ -1821,7 +1406,7 @@ ref; // ME_551BCCE303C0
 : ME_551BCD5B036A
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_551BCBFD0240 // Tl3FormatObjectInfoHelper
+ : Parent HWL ME_551BCBFD0240 // Tl3FormatObjectInfoHelper
  ;
  : Target WL 'ME_47E76250004C' '4799D29F033F.pas.ms.script' // ActnList
  ;
@@ -1831,7 +1416,7 @@ ref; // ME_551BCD5B036A
 : ME_551BCDCA01B5
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_551BCBFD0240 // Tl3FormatObjectInfoHelper
+ : Parent HWL ME_551BCBFD0240 // Tl3FormatObjectInfoHelper
  ;
  : Target WL 'ME_4F82F2A000A1' '4767743E00E5.pas.ms.script' // GetObjectProp
  ;
@@ -1841,7 +1426,7 @@ ref; // ME_551BCDCA01B5
 : ME_551BE05B00B1
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_551BCBFD0240 // Tl3FormatObjectInfoHelper
+ : Parent HWL ME_551BCBFD0240 // Tl3FormatObjectInfoHelper
  ;
  : Target WL 'ME_5012BFDC0300' '5012CA2D0012.pas.ms.script' // l3RTTI
  ;
@@ -1851,9 +1436,9 @@ ref; // ME_551BE05B00B1
 : ME_551BE86403E7
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_551BCBFD0240 // Tl3FormatObjectInfoHelper
+ : Parent HWL ME_551BCBFD0240 // Tl3FormatObjectInfoHelper
  ;
- : Target ME_551542E902F5 // Tl3HugeMessageDlgWithWikiHelper
+ : Target HWL ME_551542E902F5 // Tl3HugeMessageDlgWithWikiHelper
  ;
 
 ref; // ME_551BE86403E7 
@@ -1861,18 +1446,12 @@ ref; // ME_551BE86403E7
 : ME_551BE8F600B4
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_551BCBFD0240 // Tl3FormatObjectInfoHelper
+ : Parent HWL ME_551BCBFD0240 // Tl3FormatObjectInfoHelper
  ;
  : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
  ;
 
 ref; // ME_551BE8F600B4 
-
-: ME_D4A861440DBF_ME_551BCBFD0240
- : Original ME_D4A861440DBF // Format
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_D4A861440DBF_ME_551BCBFD0240 Format
 
 : ME_551BCBFD0240
  CONST UID '551BCBFD0240'
@@ -1882,27 +1461,18 @@ ref; // ME_D4A861440DBF_ME_551BCBFD0240 Format
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_55001317029B // VCLHelpers
+ : Parent HWL ME_55001317029B // VCLHelpers
  ;
  : Inherits
    Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
  )
  ; // Inherits
- : Implements
-   Seq: ( ME_6FB88E211F27 // Ml3FormatObjectInfoHelper
- )
- ; // Implements
  : Operations
-   Seq: ( ME_551BCC1F00E6 // Format
+   Seq: ( HWL ME_551BCC1F00E6 // Format
  )
  ; // Operations
- : Implemented
-   Seq: ( ME_D4A861440DBF_ME_551BCBFD0240 // Format
- )
- ; // Implemented
  : Children
-   Seq: ( ME_6FB88E211F27 // Ml3FormatObjectInfoHelper
- ME_5DD0A3AA9AB2 // Il3FormatObjectInfoHelper
+   Seq: ( HWL ME_6FB88E211F27 // Ml3FormatObjectInfoHelper
  )
  ; // Children
  : Dependencies
@@ -1915,15 +1485,10 @@ ref; // ME_D4A861440DBF_ME_551BCBFD0240 Format
  ME_551BE8F600B4 // SysUtils
  )
  ; // Dependencies
- CONST "singleton" true
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3FormatObjectInfoHelper.pas'
  CONST extprop:rc:SelfName 'FormatObjectInfoHelper'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'l3FormatObjectInfoHelper'
- : Facet ME_5DD0A3AA9AB2 // Il3FormatObjectInfoHelper
- ;
- : Mixin ME_6FB88E211F27 // Ml3FormatObjectInfoHelper
- ;
 
 ref; // ME_551BCBFD0240 Tl3FormatObjectInfoHelper
 
@@ -1938,7 +1503,7 @@ FORWARD ME_358069CF953D
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_358069CF953D // Ml3GetCaptureHelper
+ : Parent HWL ME_358069CF953D // Ml3GetCaptureHelper
  ;
  : Target WL 'ME_479878FA0103' '4AB0997B00A2.pas.ms.script' // TComponent
  ;
@@ -1955,48 +1520,14 @@ ref; // ME_FC96CEF34C46 GetCapture
  %SUMMARY 'Контракт сервиса Tl3GetCaptureHelper' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_55226C5F035A // Tl3GetCaptureHelper
+ : Parent HWL ME_55226C5F035A // Tl3GetCaptureHelper
  ;
  : Operations
-   Seq: ( ME_FC96CEF34C46 // GetCapture
+   Seq: ( HWL ME_FC96CEF34C46 // GetCapture
  )
  ; // Operations
 
 ref; // ME_358069CF953D Ml3GetCaptureHelper
-
-FORWARD ME_23B04EF2BA04
-
-: ME_FC96CEF34C46_ME_23B04EF2BA04
- : Original ME_FC96CEF34C46 // GetCapture
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_FC96CEF34C46_ME_23B04EF2BA04 GetCapture
-
-: ME_23B04EF2BA04
- CONST UID '23B04EF2BA04'
- CONST GUID '37325DBC-4527-4860-8B30-E4FA121B0FC5'
- CONST Name 'Il3GetCaptureHelper'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Facet ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Интерфейс сервиса Tl3GetCaptureHelper' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_55226C5F035A // Tl3GetCaptureHelper
- ;
- : Implements
-   Seq: ( ME_358069CF953D // Ml3GetCaptureHelper
- )
- ; // Implements
- : Implemented
-   Seq: ( ME_FC96CEF34C46_ME_23B04EF2BA04 // GetCapture
- )
- ; // Implemented
- CONST extprop:rc:SelfName 'GetCaptureHelper'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_23B04EF2BA04 Il3GetCaptureHelper
 
 : ME_55226C7E01C4
  CONST UID '55226C7E01C4'
@@ -2005,7 +1536,7 @@ ref; // ME_23B04EF2BA04 Il3GetCaptureHelper
  : Stereotype st_responsibility::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_55226C5F035A // Tl3GetCaptureHelper
+ : Parent HWL ME_55226C5F035A // Tl3GetCaptureHelper
  ;
  : Target WL 'ME_479878FA0103' '4AB0997B00A2.pas.ms.script' // TComponent
  ;
@@ -2015,18 +1546,12 @@ ref; // ME_55226C7E01C4 GetCapture
 : ME_5523DAD002EB
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_55226C5F035A // Tl3GetCaptureHelper
+ : Parent HWL ME_55226C5F035A // Tl3GetCaptureHelper
  ;
  : Target WL 'ME_47E11FC3021E' '4799D29F033F.pas.ms.script' // Controls
  ;
 
 ref; // ME_5523DAD002EB 
-
-: ME_FC96CEF34C46_ME_55226C5F035A
- : Original ME_FC96CEF34C46 // GetCapture
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_FC96CEF34C46_ME_55226C5F035A GetCapture
 
 : ME_55226C5F035A
  CONST UID '55226C5F035A'
@@ -2036,42 +1561,28 @@ ref; // ME_FC96CEF34C46_ME_55226C5F035A GetCapture
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_55001317029B // VCLHelpers
+ : Parent HWL ME_55001317029B // VCLHelpers
  ;
  : Inherits
    Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
  )
  ; // Inherits
- : Implements
-   Seq: ( ME_358069CF953D // Ml3GetCaptureHelper
- )
- ; // Implements
  : Operations
-   Seq: ( ME_55226C7E01C4 // GetCapture
+   Seq: ( HWL ME_55226C7E01C4 // GetCapture
  )
  ; // Operations
- : Implemented
-   Seq: ( ME_FC96CEF34C46_ME_55226C5F035A // GetCapture
- )
- ; // Implemented
  : Children
-   Seq: ( ME_358069CF953D // Ml3GetCaptureHelper
- ME_23B04EF2BA04 // Il3GetCaptureHelper
+   Seq: ( HWL ME_358069CF953D // Ml3GetCaptureHelper
  )
  ; // Children
  : Dependencies
    Seq: ( ME_5523DAD002EB // Controls
  )
  ; // Dependencies
- CONST "singleton" true
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3GetCaptureHelper.pas'
  CONST extprop:rc:SelfName 'GetCaptureHelper'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'l3GetCaptureHelper'
- : Facet ME_23B04EF2BA04 // Il3GetCaptureHelper
- ;
- : Mixin ME_358069CF953D // Ml3GetCaptureHelper
- ;
 
 ref; // ME_55226C5F035A Tl3GetCaptureHelper
 
@@ -2096,7 +1607,7 @@ ref; // ME_2C21E4297A48 aComponent
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_EFEB3610D6E5 // Ml3GetComponentBoundsHelper
+ : Parent HWL ME_EFEB3610D6E5 // Ml3GetComponentBoundsHelper
  ;
  : Target WL 'ME_4728A7190065' '4728A7020026.pas.ms.script' // TRect
  ;
@@ -2117,48 +1628,14 @@ ref; // ME_BB0BB5CAA29B GetBounds
  %SUMMARY 'Контракт сервиса Tl3GetComponentBoundsHelper' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_5522D7A90252 // Tl3GetComponentBoundsHelper
+ : Parent HWL ME_5522D7A90252 // Tl3GetComponentBoundsHelper
  ;
  : Operations
-   Seq: ( ME_BB0BB5CAA29B // GetBounds
+   Seq: ( HWL ME_BB0BB5CAA29B // GetBounds
  )
  ; // Operations
 
 ref; // ME_EFEB3610D6E5 Ml3GetComponentBoundsHelper
-
-FORWARD ME_DFD91650A75C
-
-: ME_BB0BB5CAA29B_ME_DFD91650A75C
- : Original ME_BB0BB5CAA29B // GetBounds
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_BB0BB5CAA29B_ME_DFD91650A75C GetBounds
-
-: ME_DFD91650A75C
- CONST UID 'DFD91650A75C'
- CONST GUID 'B081F2FC-089F-4E17-A5BC-DE28732B26EB'
- CONST Name 'Il3GetComponentBoundsHelper'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Facet ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Интерфейс сервиса Tl3GetComponentBoundsHelper' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_5522D7A90252 // Tl3GetComponentBoundsHelper
- ;
- : Implements
-   Seq: ( ME_EFEB3610D6E5 // Ml3GetComponentBoundsHelper
- )
- ; // Implements
- : Implemented
-   Seq: ( ME_BB0BB5CAA29B_ME_DFD91650A75C // GetBounds
- )
- ; // Implemented
- CONST extprop:rc:SelfName 'GetComponentBoundsHelper'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_DFD91650A75C Il3GetComponentBoundsHelper
 
 : ME_5522D7EF02AB
  CONST Name 'aComponent'
@@ -2176,7 +1653,7 @@ ref; // ME_5522D7EF02AB aComponent
  : Stereotype st_responsibility::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_5522D7A90252 // Tl3GetComponentBoundsHelper
+ : Parent HWL ME_5522D7A90252 // Tl3GetComponentBoundsHelper
  ;
  : Target WL 'ME_4728A7190065' '4728A7020026.pas.ms.script' // TRect
  ;
@@ -2190,18 +1667,12 @@ ref; // ME_5522D7D800FE GetBounds
 : ME_5522D89E03B2
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_5522D7A90252 // Tl3GetComponentBoundsHelper
+ : Parent HWL ME_5522D7A90252 // Tl3GetComponentBoundsHelper
  ;
  : Target WL 'ME_47E11FC3021E' '4799D29F033F.pas.ms.script' // Controls
  ;
 
 ref; // ME_5522D89E03B2 
-
-: ME_BB0BB5CAA29B_ME_5522D7A90252
- : Original ME_BB0BB5CAA29B // GetBounds
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_BB0BB5CAA29B_ME_5522D7A90252 GetBounds
 
 : ME_5522D7A90252
  CONST UID '5522D7A90252'
@@ -2211,42 +1682,28 @@ ref; // ME_BB0BB5CAA29B_ME_5522D7A90252 GetBounds
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_55001317029B // VCLHelpers
+ : Parent HWL ME_55001317029B // VCLHelpers
  ;
  : Inherits
    Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
  )
  ; // Inherits
- : Implements
-   Seq: ( ME_EFEB3610D6E5 // Ml3GetComponentBoundsHelper
- )
- ; // Implements
  : Operations
-   Seq: ( ME_5522D7D800FE // GetBounds
+   Seq: ( HWL ME_5522D7D800FE // GetBounds
  )
  ; // Operations
- : Implemented
-   Seq: ( ME_BB0BB5CAA29B_ME_5522D7A90252 // GetBounds
- )
- ; // Implemented
  : Children
-   Seq: ( ME_EFEB3610D6E5 // Ml3GetComponentBoundsHelper
- ME_DFD91650A75C // Il3GetComponentBoundsHelper
+   Seq: ( HWL ME_EFEB3610D6E5 // Ml3GetComponentBoundsHelper
  )
  ; // Children
  : Dependencies
    Seq: ( ME_5522D89E03B2 // Controls
  )
  ; // Dependencies
- CONST "singleton" true
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3GetComponentBoundsHelper.pas'
  CONST extprop:rc:SelfName 'GetComponentBoundsHelper'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'l3GetComponentBoundsHelper'
- : Facet ME_DFD91650A75C // Il3GetComponentBoundsHelper
- ;
- : Mixin ME_EFEB3610D6E5 // Ml3GetComponentBoundsHelper
- ;
 
 ref; // ME_5522D7A90252 Tl3GetComponentBoundsHelper
 
@@ -2261,7 +1718,7 @@ FORWARD ME_556F25860097
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_556F25860097 // Tl3ControlFontInfo
+ : Parent HWL ME_556F25860097 // Tl3ControlFontInfo
  ;
  : Target WL 'ME_47E1201703C3' '4799D29F033F.pas.ms.script' // TControl
  ;
@@ -2285,7 +1742,7 @@ ref; // ME_556F25E303CC aControl
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_556F25D20367 // Create
+ : Parent HWL ME_556F25D20367 // Create
  ;
  : Parameters
    Seq: ( ME_556F25E303CC // aControl
@@ -2302,10 +1759,10 @@ ref; // ME_556F25D801C0 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_556F25860097 // Tl3ControlFontInfo
+ : Parent HWL ME_556F25860097 // Tl3ControlFontInfo
  ;
  : Operations
-   Seq: ( ME_556F25D801C0 // DoIt
+   Seq: ( HWL ME_556F25D801C0 // DoIt
  )
  ; // Operations
 
@@ -2319,10 +1776,10 @@ ref; // ME_556F25D20367 Create
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_556F25860097 // Tl3ControlFontInfo
+ : Parent HWL ME_556F25860097 // Tl3ControlFontInfo
  ;
  : Inherits
-   Seq: ( ME_556F25D20367 // Create
+   Seq: ( HWL ME_556F25D20367 // Create
  )
  ; // Inherits
  : Implements
@@ -2335,7 +1792,7 @@ ref; // ME_556F25ED00C2 Make
 : ME_556F25AF0144
  CONST Class class_Dependency
  : Stereotype st_friend::Dependency ;
- : Parent ME_556F25860097 // Tl3ControlFontInfo
+ : Parent HWL ME_556F25860097 // Tl3ControlFontInfo
  ;
  : Target WL 'ME_47E1201703C3' '4799D29F033F.pas.ms.script' // TControl
  ;
@@ -2345,7 +1802,7 @@ ref; // ME_556F25AF0144
 : ME_556F3C8C0144
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_556F25860097 // Tl3ControlFontInfo
+ : Parent HWL ME_556F25860097 // Tl3ControlFontInfo
  ;
  : Target WL 'ME_47D15712022D' '55C4AEC801CA.pas.ms.script' // Graphics
  ;
@@ -2436,7 +1893,7 @@ ref; // ME_479731C50290_ME_556F25860097 Cleanup
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_556F24A80035 // Tl3ControlFontService
+ : Parent HWL ME_556F24A80035 // Tl3ControlFontService
  ;
  : Inherits
    Seq: ( WL 'ME_4AE5CA2D0034' '47913B47006E.pas.ms.script' // Tl3CProtoObject
@@ -2447,12 +1904,12 @@ ref; // ME_479731C50290_ME_556F25860097 Cleanup
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_556F25FC0213 // f_Control
+   Seq: ( HWL ME_556F25FC0213 // f_Control
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_556F25D20367 // Create
- ME_556F25ED00C2 // Make
+   Seq: ( HWL ME_556F25D20367 // Create
+ HWL ME_556F25ED00C2 // Make
  )
  ; // Operations
  : Implemented
@@ -2501,7 +1958,7 @@ ref; // ME_0F97AE3EC352 aControl
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_6CEEDAAA8451 // Ml3ControlFontService
+ : Parent HWL ME_6CEEDAAA8451 // Ml3ControlFontService
  ;
  : Target WL 'ME_46A60B17028B' '4677FBA70343.pas.ms.script' // Il3FontInfo
  ;
@@ -2522,48 +1979,14 @@ ref; // ME_B31F486B3A13 GetFont
  %SUMMARY 'Контракт сервиса Tl3ControlFontService' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_556F24A80035 // Tl3ControlFontService
+ : Parent HWL ME_556F24A80035 // Tl3ControlFontService
  ;
  : Operations
-   Seq: ( ME_B31F486B3A13 // GetFont
+   Seq: ( HWL ME_B31F486B3A13 // GetFont
  )
  ; // Operations
 
 ref; // ME_6CEEDAAA8451 Ml3ControlFontService
-
-FORWARD ME_5B1EBFCEA918
-
-: ME_B31F486B3A13_ME_5B1EBFCEA918
- : Original ME_B31F486B3A13 // GetFont
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_B31F486B3A13_ME_5B1EBFCEA918 GetFont
-
-: ME_5B1EBFCEA918
- CONST UID '5B1EBFCEA918'
- CONST GUID '04DBC214-58B9-46AE-ADC2-A02B5FFF1CE1'
- CONST Name 'Il3ControlFontService'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Facet ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Интерфейс сервиса Tl3ControlFontService' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_556F24A80035 // Tl3ControlFontService
- ;
- : Implements
-   Seq: ( ME_6CEEDAAA8451 // Ml3ControlFontService
- )
- ; // Implements
- : Implemented
-   Seq: ( ME_B31F486B3A13_ME_5B1EBFCEA918 // GetFont
- )
- ; // Implemented
- CONST extprop:rc:SelfName 'ControlFontService'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_5B1EBFCEA918 Il3ControlFontService
 
 : ME_556F24EF0347
  CONST Name 'aControl'
@@ -2581,7 +2004,7 @@ ref; // ME_556F24EF0347 aControl
  : Stereotype st_responsibility::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_556F24A80035 // Tl3ControlFontService
+ : Parent HWL ME_556F24A80035 // Tl3ControlFontService
  ;
  : Target WL 'ME_46A60B17028B' '4677FBA70343.pas.ms.script' // Il3FontInfo
  ;
@@ -2592,12 +2015,6 @@ ref; // ME_556F24EF0347 aControl
 
 ref; // ME_556F24D50369 GetFont
 
-: ME_B31F486B3A13_ME_556F24A80035
- : Original ME_B31F486B3A13 // GetFont
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_B31F486B3A13_ME_556F24A80035 GetFont
-
 : ME_556F24A80035
  CONST UID '556F24A80035'
  CONST Name 'Tl3ControlFontService'
@@ -2606,39 +2023,25 @@ ref; // ME_B31F486B3A13_ME_556F24A80035 GetFont
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_55001317029B // VCLHelpers
+ : Parent HWL ME_55001317029B // VCLHelpers
  ;
  : Inherits
    Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
  )
  ; // Inherits
- : Implements
-   Seq: ( ME_6CEEDAAA8451 // Ml3ControlFontService
- )
- ; // Implements
  : Operations
-   Seq: ( ME_556F24D50369 // GetFont
+   Seq: ( HWL ME_556F24D50369 // GetFont
  )
  ; // Operations
- : Implemented
-   Seq: ( ME_B31F486B3A13_ME_556F24A80035 // GetFont
- )
- ; // Implemented
  : Children
-   Seq: ( ME_556F25860097 // Tl3ControlFontInfo
- ME_6CEEDAAA8451 // Ml3ControlFontService
- ME_5B1EBFCEA918 // Il3ControlFontService
+   Seq: ( HWL ME_556F25860097 // Tl3ControlFontInfo
+ HWL ME_6CEEDAAA8451 // Ml3ControlFontService
  )
  ; // Children
- CONST "singleton" true
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3ControlFontService.pas'
  CONST extprop:rc:SelfName 'ControlFontService'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'l3ControlFontService'
- : Facet ME_5B1EBFCEA918 // Il3ControlFontService
- ;
- : Mixin ME_6CEEDAAA8451 // Ml3ControlFontService
- ;
 
 ref; // ME_556F24A80035 Tl3ControlFontService
 
@@ -2652,16 +2055,16 @@ ref; // ME_556F24A80035 Tl3ControlFontService
  : Parent WL 'ME_550012C403C4' '550012C403C4.pas.ms.script' // L3$AFW
  ;
  : Children
-   Seq: ( ME_550013770000 // Tl3PopupMenuHelper
- ME_55014D810077 // Tl3CloseFormHelper
- ME_551442110069 // Tl3FormatActionInfoHelper
- ME_551542E902F5 // Tl3HugeMessageDlgWithWikiHelper
- ME_551AA9BD01EE // Tl3IterateComponentParents
- ME_551AB8CA014A // Tl3GetComponentFromPointHelper
- ME_551BCBFD0240 // Tl3FormatObjectInfoHelper
- ME_55226C5F035A // Tl3GetCaptureHelper
- ME_5522D7A90252 // Tl3GetComponentBoundsHelper
- ME_556F24A80035 // Tl3ControlFontService
+   Seq: ( HWL ME_550013770000 // Tl3PopupMenuHelper
+ HWL ME_55014D810077 // Tl3CloseFormHelper
+ HWL ME_551442110069 // Tl3FormatActionInfoHelper
+ HWL ME_551542E902F5 // Tl3HugeMessageDlgWithWikiHelper
+ HWL ME_551AA9BD01EE // Tl3IterateComponentParents
+ HWL ME_551AB8CA014A // Tl3GetComponentFromPointHelper
+ HWL ME_551BCBFD0240 // Tl3FormatObjectInfoHelper
+ HWL ME_55226C5F035A // Tl3GetCaptureHelper
+ HWL ME_5522D7A90252 // Tl3GetComponentBoundsHelper
+ HWL ME_556F24A80035 // Tl3ControlFontService
  )
  ; // Children
  : Depends

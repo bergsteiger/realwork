@@ -11,6 +11,8 @@ USES
  axiom:TenQueryCard
  axiom:TefPreviewForm
  axiom:TChangesBetweenEditonsForm
+ axiom:wait
+ axiom:waited
  
  WordsTranslation.script
  @\Controls.script
@@ -391,14 +393,14 @@ PROCEDURE ПЗ
  OBJECT VAR "Панель задач"
  форма::TasksPanel "Главное окно" pop:Control:FindControlByName =: "Панель задач"
  "Панель задач" "Объект не существует?" ? (
-  моп::Окна_Панель_задач
+  моп::Файл_Панель_задач
   OnTest 
  )
 ;
 
 PROCEDURE "Закрыть вкладку ПЗ"
  "Существует ли в главном окне форма {(форма::TasksPanel)}?" ? (
-  моп::Окна_Панель_задач
+  моп::Файл_Панель_задач
   OnTest
   "Закрыть вложенные формы"
  )
@@ -481,7 +483,7 @@ PROCEDURE "Открыть журнал работы"
  BOOLEAN VAR l_Found
  true ANYUSERTYPE контрол::JournalTree форма::WorkJournal TryFocusOnForm =: l_Found
  l_Found ! ? (
-  моп::Журнал_работы_OpenJournal
+  моп::Журнал_работы_Журнал_работы
   "Перевести фокус в {(контрол::JournalTree)} на форме {(форма::WorkJournal)}"
   "Дождаться переключения вкладок"
  )
@@ -489,7 +491,7 @@ PROCEDURE "Открыть журнал работы"
 
 PROCEDURE "Закрыть журнал работы"
  "Удалось перевести фокус в {(контрол::JournalTree)} на форме{(форма::WorkJournal)}?" ? (
-  моп::Журнал_работы_OpenJournal
+  моп::Журнал_работы_Журнал_работы
   "Дождаться переключения вкладок"
  )
 ; // "Закрыть журнал работы"

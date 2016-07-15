@@ -17,7 +17,7 @@ FORWARD ME_4C7D0CC90052
  %SUMMARY 'Снять с контроля' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4C7D0CC90052 // Delete
+ : Parent HWL ME_4C7D0CC90052 // Delete
  ;
  CONST "Checked" 'undefined'
  CONST "Enabled" 'undefined'
@@ -35,7 +35,7 @@ ref; // ME_4C7D0CDB0298 Controlled
  %SUMMARY 'Удалить пользователя' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4C7D0CC90052 // Delete
+ : Parent HWL ME_4C7D0CC90052 // Delete
  ;
  CONST "Checked" 'undefined'
  CONST "Enabled" 'undefined'
@@ -54,7 +54,7 @@ ref; // ME_4C7D0CEC0160 User
  %SUMMARY 'Удалить выделенных пользователей' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4C7D0CC90052 // Delete
+ : Parent HWL ME_4C7D0CC90052 // Delete
  ;
  CONST "Checked" 'undefined'
  CONST "Enabled" 'undefined'
@@ -73,7 +73,7 @@ ref; // ME_4C7D0D02005D MultiUsers
  %SUMMARY 'Удалить группу' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4C7D0CC90052 // Delete
+ : Parent HWL ME_4C7D0CC90052 // Delete
  ;
  CONST "Checked" 'undefined'
  CONST "Enabled" 'undefined'
@@ -92,7 +92,7 @@ ref; // ME_4C7D0D160126 Group
  %SUMMARY 'Удалить пользователя' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4C7D0CC90052 // Delete
+ : Parent HWL ME_4C7D0CC90052 // Delete
  ;
  CONST "Checked" 'undefined'
  CONST "Enabled" 'undefined'
@@ -110,14 +110,14 @@ ref; // ME_4C7D0D2C028F Contact
  %SUMMARY 'Удалить' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_494F89AA0017 // Edit
+ : Parent HWL ME_494F89AA0017 // Edit
  ;
  : Children
-   Seq: ( ME_4C7D0CDB0298 // Controlled
- ME_4C7D0CEC0160 // User
- ME_4C7D0D02005D // MultiUsers
- ME_4C7D0D160126 // Group
- ME_4C7D0D2C028F // Contact
+   Seq: ( HWL ME_4C7D0CDB0298 // Controlled
+ HWL ME_4C7D0CEC0160 // User
+ HWL ME_4C7D0D02005D // MultiUsers
+ HWL ME_4C7D0D160126 // Group
+ HWL ME_4C7D0D2C028F // Contact
  )
  ; // Children
  CONST "AutoFocus" false
@@ -139,7 +139,7 @@ ref; // ME_4C7D0CC90052 Delete
  %SUMMARY 'Удалить' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_494F89AA0017 // Edit
+ : Parent HWL ME_494F89AA0017 // Edit
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -162,11 +162,11 @@ ref; // ME_494F89C30197 Delete
  %SUMMARY 'Правка' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_494F898C013E // Usual
+ : Parent HWL ME_494F898C013E // Usual
  ;
  : Operations
-   Seq: ( ME_4C7D0CC90052 // Delete
- ME_494F89C30197 // Delete
+   Seq: ( HWL ME_4C7D0CC90052 // Delete
+ HWL ME_494F89C30197 // Delete
  )
  ; // Operations
 
@@ -181,7 +181,7 @@ FORWARD ME_49521D8203A0
  %SUMMARY 'Печать' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_49521D8203A0 // File
+ : Parent HWL ME_49521D8203A0 // File
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -202,7 +202,7 @@ ref; // ME_49521D8E0295 Print
  %SUMMARY 'Печать...' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_49521D8203A0 // File
+ : Parent HWL ME_49521D8203A0 // File
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -223,7 +223,7 @@ ref; // ME_495220DE0298 PrintDialog
  %SUMMARY 'Предварительный просмотр' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_49521D8203A0 // File
+ : Parent HWL ME_49521D8203A0 // File
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -244,7 +244,7 @@ ref; // ME_495220F2033A PrintPreview
  %SUMMARY 'Сохранить' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_49521D8203A0 // File
+ : Parent HWL ME_49521D8203A0 // File
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -267,13 +267,13 @@ ref; // ME_495235F401C0 Save
  %SUMMARY 'Файл' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_494F898C013E // Usual
+ : Parent HWL ME_494F898C013E // Usual
  ;
  : Operations
-   Seq: ( ME_49521D8E0295 // Print
- ME_495220DE0298 // PrintDialog
- ME_495220F2033A // PrintPreview
- ME_495235F401C0 // Save
+   Seq: ( HWL ME_49521D8E0295 // Print
+ HWL ME_495220DE0298 // PrintDialog
+ HWL ME_495220F2033A // PrintPreview
+ HWL ME_495235F401C0 // Save
  )
  ; // Operations
 
@@ -287,7 +287,7 @@ FORWARD ME_4A8ED77F0142
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4A8ED77F0142 // Common
+ : Parent HWL ME_4A8ED77F0142 // Common
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -310,10 +310,10 @@ ref; // ME_4ADDD377028F Exit
  %SUMMARY 'Файл' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_494F898C013E // Usual
+ : Parent HWL ME_494F898C013E // Usual
  ;
  : Operations
-   Seq: ( ME_4ADDD377028F // Exit
+   Seq: ( HWL ME_4ADDD377028F // Exit
  )
  ; // Operations
 
@@ -328,7 +328,7 @@ FORWARD ME_4ADDDC4C0255
  %SUMMARY 'Назад' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4ADDDC4C0255 // History
+ : Parent HWL ME_4ADDDC4C0255 // History
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -349,7 +349,7 @@ ref; // ME_4ADDDC550118 Back
  %SUMMARY 'Вперёд' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4ADDDC4C0255 // History
+ : Parent HWL ME_4ADDDC4C0255 // History
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -372,11 +372,11 @@ ref; // ME_4ADDDC630097 Forward
  %SUMMARY 'История' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_494F898C013E // Usual
+ : Parent HWL ME_494F898C013E // Usual
  ;
  : Operations
-   Seq: ( ME_4ADDDC550118 // Back
- ME_4ADDDC630097 // Forward
+   Seq: ( HWL ME_4ADDDC550118 // Back
+ HWL ME_4ADDDC630097 // Forward
  )
  ; // Operations
 
@@ -393,10 +393,10 @@ ref; // ME_4ADDDC4C0255 History
  : Parent WL 'ME_4954C0500033' '4954C0500033.pas.ms.script' // UserInteraction
  ;
  : Children
-   Seq: ( ME_494F89AA0017 // Edit
- ME_49521D8203A0 // File
- ME_4A8ED77F0142 // Common
- ME_4ADDDC4C0255 // History
+   Seq: ( HWL ME_494F89AA0017 // Edit
+ HWL ME_49521D8203A0 // File
+ HWL ME_4A8ED77F0142 // Common
+ HWL ME_4ADDDC4C0255 // History
  )
  ; // Children
  : Depends

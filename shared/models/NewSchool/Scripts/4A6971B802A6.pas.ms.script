@@ -1,0 +1,340 @@
+// BaseChat 4A6971B802A6 VCMFormsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A6971B802A6
+
+FORWARD ME_4A82A0A603BF
+
+: ME_4A82A0B70394
+ CONST UID '4A82A0B70394'
+ CONST Name 'MakeChatDispatcher'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4A82A0A603BF // MakeChatDispatcher
+ ;
+ : Target WL 'ME_4A66DEE901C9' '4A66DD3C01E8.pas.ms.script' // IbsChatDispatcher
+ ;
+
+ref; // ME_4A82A0B70394 MakeChatDispatcher
+
+: ME_4A82A9DC01CE
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A82A0A603BF // MakeChatDispatcher
+ ;
+ : Target WL 'ME_4A683EC401BB' '4A66EB280367.pas.ms.script' // TbsChatDispatcher
+ ;
+
+ref; // ME_4A82A9DC01CE 
+
+: ME_4A82A0A603BF
+ CONST UID '4A82A0A603BF'
+ CONST Name 'MakeChatDispatcher'
+ CONST Class class_Class
+ : Stereotype st_FactoryMethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4A6971B802A6 // BaseChat
+ ;
+ : Operations
+   Seq: ( HWL ME_4A82A0B70394 // MakeChatDispatcher
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_4A82A9DC01CE // TbsChatDispatcher
+ )
+ ; // Dependencies
+ CONST "NO_FACTORY_BRACKECTS" false
+
+ref; // ME_4A82A0A603BF MakeChatDispatcher
+
+FORWARD ME_4AAFC1E00279
+
+: ME_4B02C47C0128
+ CONST Name 'anUID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4A66BABA015C' '4A66B9840002.pas.ms.script' // TbsUserID
+ ;
+
+ref; // ME_4B02C47C0128 anUID
+
+: ME_4B02C47C015B
+ CONST Name 'aName'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_4B02C47C015B aName
+
+: ME_4AAFC1ED014F
+ CONST UID '4AAFC1ED014F'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AAFC1E00279 // OpenChatWindow
+ ;
+ : Parameters
+   Seq: ( ME_4B02C47C0128 // anUID
+ ME_4B02C47C015B // aName
+ )
+ ; // Parameters
+
+ref; // ME_4AAFC1ED014F DoIt
+
+: ME_4AAFC1E00279
+ CONST UID '4AAFC1E00279'
+ CONST Name 'OpenChatWindow'
+ CONST Class class_Class
+ : Stereotype st_FormFactory ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4A6971B802A6 // BaseChat
+ ;
+ : Operations
+   Seq: ( HWL ME_4AAFC1ED014F // DoIt
+ )
+ ; // Operations
+ CONST "NO_FACTORY_BRACKECTS" false
+
+ref; // ME_4AAFC1E00279 OpenChatWindow
+
+FORWARD ME_4AAFC50002E0
+
+: ME_4AAFC5070018
+ CONST UID '4AAFC5070018'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AAFC50002E0 // OpenAddUserDialog
+ ;
+
+ref; // ME_4AAFC5070018 DoIt
+
+: ME_4AAFC50002E0
+ CONST UID '4AAFC50002E0'
+ CONST Name 'OpenAddUserDialog'
+ CONST Class class_Class
+ : Stereotype st_FormFactory ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4A6971B802A6 // BaseChat
+ ;
+ : Operations
+   Seq: ( HWL ME_4AAFC5070018 // DoIt
+ )
+ ; // Operations
+ CONST "NO_FACTORY_BRACKECTS" false
+
+ref; // ME_4AAFC50002E0 OpenAddUserDialog
+
+FORWARD ME_4AAFC77602D8
+
+: ME_4B02C48503DC
+ CONST Name 'anUID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4A66BABA015C' '4A66B9840002.pas.ms.script' // TbsUserID
+ ;
+
+ref; // ME_4B02C48503DC anUID
+
+: ME_4B02C486002F
+ CONST Name 'aName'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_4B02C486002F aName
+
+: ME_4AAFC78401C7
+ CONST UID '4AAFC78401C7'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AAFC77602D8 // OpenHistoryWindow
+ ;
+ : Parameters
+   Seq: ( ME_4B02C48503DC // anUID
+ ME_4B02C486002F // aName
+ )
+ ; // Parameters
+
+ref; // ME_4AAFC78401C7 DoIt
+
+: ME_4AAFC77602D8
+ CONST UID '4AAFC77602D8'
+ CONST Name 'OpenHistoryWindow'
+ CONST Class class_Class
+ : Stereotype st_FormFactory ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4A6971B802A6 // BaseChat
+ ;
+ : Operations
+   Seq: ( HWL ME_4AAFC78401C7 // DoIt
+ )
+ ; // Operations
+ CONST "NO_FACTORY_BRACKECTS" false
+
+ref; // ME_4AAFC77602D8 OpenHistoryWindow
+
+: ME_4A97C2460052
+ CONST UID '4A97C2460052'
+ CONST Name 'OpenContactList'
+ CONST Class class_Operation
+ : Stereotype st_ModuleOperation::Operation ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4A6971B802A6 // BaseChat
+ ;
+ CONST "ShowInToolbar" 'undefined'
+ CONST "no prefix" false
+ CONST "no test" false
+
+ref; // ME_4A97C2460052 OpenContactList
+
+: ME_4A97C20101E6
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A6971B802A6 // BaseChat
+ ;
+ : Target WL 'ME_47F25BC801DB' '47D0E1500033.pas.ms.script' // vcmBase
+ ;
+
+ref; // ME_4A97C20101E6 
+
+: ME_4A97C2030179
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A6971B802A6 // BaseChat
+ ;
+ : Target WL 'ME_47F260EC02C7' '521C9DA50125.pas.ms.script' // StdRes
+ ;
+
+ref; // ME_4A97C2030179 
+
+: ME_4A97C204025F
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A6971B802A6 // BaseChat
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_4A97C204025F 
+
+: ME_4A97C205039F
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A6971B802A6 // BaseChat
+ ;
+ : Target WL 'ME_47E13C6B0341' '4799D29F033F.pas.ms.script' // Forms
+ ;
+
+ref; // ME_4A97C205039F 
+
+: ME_4A97C208017B
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A6971B802A6 // BaseChat
+ ;
+ : Target WL 'ME_4683D6ED03C5' '467BAB7F021E.pas.ms.script' // TvcmOpFlag
+ ;
+
+ref; // ME_4A97C208017B 
+
+: ME_4BD5B7A5035D
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A6971B802A6 // BaseChat
+ ;
+ : Target WL 'ME_4BD5B5C8019F' '4AC4EF5600B4.pas.ms.script' // chatAddContact
+ ;
+
+ref; // ME_4BD5B7A5035D 
+
+: ME_4BD5B7AD019B
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A6971B802A6 // BaseChat
+ ;
+ : Target WL 'ME_4BD5B59500D6' '4AC4EF5600B4.pas.ms.script' // chatContacts
+ ;
+
+ref; // ME_4BD5B7AD019B 
+
+: ME_4BD5B8DB00D8
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A6971B802A6 // BaseChat
+ ;
+ : Target WL 'ME_4BD5B8B90175' '4A6EA45C01C4.pas.ms.script' // utChatHistory
+ ;
+
+ref; // ME_4BD5B8DB00D8 
+
+: ME_4BD6D57F01AC
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A6971B802A6 // BaseChat
+ ;
+ : Target WL 'ME_4BD6D5500287' '4A6EA44C0038.pas.ms.script' // cwChat
+ ;
+
+ref; // ME_4BD6D57F01AC 
+
+: ME_4A6971B802A6
+ CONST UID '4A6971B802A6'
+ CONST Name 'BaseChat'
+ CONST Class class_Class
+ : Stereotype st_VCMFormsPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4A66D6BF0190' '4A66D6BF0190.pas.ms.script' // Chat
+ ;
+ : Operations
+   Seq: ( HWL ME_4A82A0A603BF // MakeChatDispatcher
+ HWL ME_4AAFC1E00279 // OpenChatWindow
+ HWL ME_4AAFC50002E0 // OpenAddUserDialog
+ HWL ME_4AAFC77602D8 // OpenHistoryWindow
+ HWL ME_4A97C2460052 // OpenContactList
+ )
+ ; // Operations
+ : Children
+   Seq: ( WL 'ME_4A6971D00157' '4A6971D00157.pas.ms.script' // ContactList
+ WL 'ME_4A6971E802F5' '4A6971E802F5.pas.ms.script' // ChatWindow
+ WL 'ME_4A6EA397035D' '4A6EA397035D.pas.ms.script' // ChatHistory
+ )
+ ; // Children
+ : Dependencies
+   Seq: ( ME_4A97C20101E6 // vcmBase
+ ME_4A97C2030179 // StdRes
+ ME_4A97C204025F // SysUtils
+ ME_4A97C205039F // Forms
+ ME_4A97C208017B // TvcmOpFlag
+ ME_4BD5B7A5035D // chatAddContact
+ ME_4BD5B7AD019B // chatContacts
+ ME_4BD5B8DB00D8 // utChatHistory
+ ME_4BD6D57F01AC // cwChat
+ )
+ ; // Dependencies
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Chat\BaseChat_Module.pas'
+ CONST extprop:pas:TypeName 'TBaseChatModule'
+ CONST extprop:rc:SelfName 'BaseChatModule'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'BaseChat_Module'
+
+ref; // ME_4A6971B802A6 BaseChat

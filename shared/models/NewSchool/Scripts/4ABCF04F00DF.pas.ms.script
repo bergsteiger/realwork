@@ -12,7 +12,7 @@ FORWARD ME_4ABCF04F00DF
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4ABCF04F00DF // ConsultationDomainInterfaces
+ : Parent HWL ME_4ABCF04F00DF // ConsultationDomainInterfaces
  ;
  : Inherits
    Seq: ( WL 'ME_47272C8B0128' '4AB0C3C60310.pas.ms.script' // TDateTime
@@ -32,7 +32,7 @@ FORWARD ME_491C422A0003
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_491C422A0003 // IbsConsultation
+ : Parent HWL ME_491C422A0003 // IbsConsultation
  ;
  : Target WL 'ME_491C3F2F000F' '47EA07FA02CE.pas.ms.script' // TbsConsultationStatuses
  ;
@@ -49,7 +49,7 @@ ref; // ME_491C424C019F Status
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_491C422A0003 // IbsConsultation
+ : Parent HWL ME_491C422A0003 // IbsConsultation
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -66,7 +66,7 @@ ref; // ME_491C427502ED IsStatusChached
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_491C422A0003 // IbsConsultation
+ : Parent HWL ME_491C422A0003 // IbsConsultation
  ;
  : Target WL 'ME_457008050157' '457007DB002E.pas.ms.script' // Consultation
  ;
@@ -83,7 +83,7 @@ ref; // ME_491C42A60032 Data
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_491C422A0003 // IbsConsultation
+ : Parent HWL ME_491C422A0003 // IbsConsultation
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -100,7 +100,7 @@ ref; // ME_491C42C30267 WasDeleted
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_491C422A0003 // IbsConsultation
+ : Parent HWL ME_491C422A0003 // IbsConsultation
  ;
  : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
  ;
@@ -117,9 +117,9 @@ ref; // ME_491C42EC02BC Id
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_491C422A0003 // IbsConsultation
+ : Parent HWL ME_491C422A0003 // IbsConsultation
  ;
- : Target ME_499002C201C9 // SysDateTime
+ : Target HWL ME_499002C201C9 // SysDateTime
  ;
  CONST "pm" true
 
@@ -134,9 +134,9 @@ ref; // ME_491C430C0132 WasCreated
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_491C422A0003 // IbsConsultation
+ : Parent HWL ME_491C422A0003 // IbsConsultation
  ;
- : Target ME_499002C201C9 // SysDateTime
+ : Target HWL ME_499002C201C9 // SysDateTime
  ;
  CONST "pm" true
 
@@ -151,7 +151,7 @@ ref; // ME_491C431F01F8 WasModified
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_491C422A0003 // IbsConsultation
+ : Parent HWL ME_491C422A0003 // IbsConsultation
  ;
  : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
  ;
@@ -168,7 +168,7 @@ ref; // ME_491C43420213 Caption
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_491C422A0003 // IbsConsultation
+ : Parent HWL ME_491C422A0003 // IbsConsultation
  ;
  : Target WL 'ME_45EEB6520191' '4570511E038A.pas.ms.script' // Document
  ;
@@ -183,7 +183,7 @@ ref; // ME_491C437500BB Text
  %SUMMARY 'обновить текст. Необхоидимо при изменении состояния консультации' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_491C422A0003 // IbsConsultation
+ : Parent HWL ME_491C422A0003 // IbsConsultation
  ;
 
 ref; // ME_491C42400193 RefreshText
@@ -198,22 +198,22 @@ ref; // ME_491C42400193 RefreshText
  %SUMMARY 'Консультация. Обертка сделана для удобства работы с удаленной консультацией, при работе с методами которой летит исключение EDeleted' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4ABCF04F00DF // ConsultationDomainInterfaces
+ : Parent HWL ME_4ABCF04F00DF // ConsultationDomainInterfaces
  ;
  : Attributes
-   Seq: ( ME_491C424C019F // Status
- ME_491C427502ED // IsStatusChached
- ME_491C42A60032 // Data
- ME_491C42C30267 // WasDeleted
- ME_491C42EC02BC // Id
- ME_491C430C0132 // WasCreated
- ME_491C431F01F8 // WasModified
- ME_491C43420213 // Caption
- ME_491C437500BB // Text
+   Seq: ( HWL ME_491C424C019F // Status
+ HWL ME_491C427502ED // IsStatusChached
+ HWL ME_491C42A60032 // Data
+ HWL ME_491C42C30267 // WasDeleted
+ HWL ME_491C42EC02BC // Id
+ HWL ME_491C430C0132 // WasCreated
+ HWL ME_491C431F01F8 // WasModified
+ HWL ME_491C43420213 // Caption
+ HWL ME_491C437500BB // Text
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_491C42400193 // RefreshText
+   Seq: ( HWL ME_491C42400193 // RefreshText
  )
  ; // Operations
  CONST extprop:rc:SelfName 'bsConsultation'
@@ -230,7 +230,7 @@ ref; // ME_491C422A0003 IbsConsultation
  %SUMMARY 'Оплата консультации уже подтверждена/отвергнута' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4ABCF04F00DF // ConsultationDomainInterfaces
+ : Parent HWL ME_4ABCF04F00DF // ConsultationDomainInterfaces
  ;
  : Inherits
    Seq: ( WL 'ME_4787A405013D' '4AB0C3C60310.pas.ms.script' // Exception
@@ -248,7 +248,7 @@ ref; // ME_492EB8EF0388 EbsConsultationAlreadyConfirmed
  %SUMMARY 'Консультация уже была оценена' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4ABCF04F00DF // ConsultationDomainInterfaces
+ : Parent HWL ME_4ABCF04F00DF // ConsultationDomainInterfaces
  ;
  : Inherits
    Seq: ( WL 'ME_4787A405013D' '4AB0C3C60310.pas.ms.script' // Exception
@@ -266,7 +266,7 @@ ref; // ME_492EB7F50331 EbsConsultationAlreadyMark
  %SUMMARY 'Консультация была удалена' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4ABCF04F00DF // ConsultationDomainInterfaces
+ : Parent HWL ME_4ABCF04F00DF // ConsultationDomainInterfaces
  ;
  : Inherits
    Seq: ( WL 'ME_4787A405013D' '4AB0C3C60310.pas.ms.script' // Exception
@@ -284,7 +284,7 @@ ref; // ME_492EB8A4021E EbsConsultationWasDeleted
  %SUMMARY 'Платные консультации для пользователя запрещены' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4ABCF04F00DF // ConsultationDomainInterfaces
+ : Parent HWL ME_4ABCF04F00DF // ConsultationDomainInterfaces
  ;
  : Inherits
    Seq: ( WL 'ME_4787A405013D' '4AB0C3C60310.pas.ms.script' // Exception
@@ -304,7 +304,7 @@ FORWARD ME_491C3F68021E
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_491C3F68021E // IdsConsultation
+ : Parent HWL ME_491C3F68021E // IdsConsultation
  ;
  : Target WL 'ME_491C3F2F000F' '47EA07FA02CE.pas.ms.script' // TbsConsultationStatuses
  ;
@@ -455,14 +455,14 @@ ref; // ME_54B3A7C7038F_ME_491C3F68021E GetDocumentName
  %SUMMARY 'БОС консультации' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4ABCF04F00DF // ConsultationDomainInterfaces
+ : Parent HWL ME_4ABCF04F00DF // ConsultationDomainInterfaces
  ;
  : Inherits
    Seq: ( WL 'ME_47EA0356011B' '491B305A0096.pas.ms.script' // IdsBaseDocument
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_491C3FAA009D // ShowingStatus
+   Seq: ( HWL ME_491C3FAA009D // ShowingStatus
  )
  ; // Attributes
  : Implemented
@@ -504,7 +504,7 @@ FORWARD ME_492164C302A6
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_492164C302A6 // IdsConsultationMark
+ : Parent HWL ME_492164C302A6 // IdsConsultationMark
  ;
  : Target WL 'ME_4921639C00DB' '47EA07FA02CE.pas.ms.script' // TbsConsultationMark
  ;
@@ -521,7 +521,7 @@ ref; // ME_49216542034E Mark
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_492164C302A6 // IdsConsultationMark
+ : Parent HWL ME_492164C302A6 // IdsConsultationMark
  ;
  : Target WL 'ME_46780D0003AF' '4677FBA70343.pas.ms.script' // Tl3WString
  ;
@@ -538,7 +538,7 @@ ref; // ME_49216552037B Comment
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_492164C302A6 // IdsConsultationMark
+ : Parent HWL ME_492164C302A6 // IdsConsultationMark
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -553,7 +553,7 @@ ref; // ME_49216566017F CanSend
  %SUMMARY 'послать оценку' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_492164C302A6 // IdsConsultationMark
+ : Parent HWL ME_492164C302A6 // IdsConsultationMark
  ;
 
 ref; // ME_49216508016D Send
@@ -568,16 +568,16 @@ ref; // ME_49216508016D Send
  %SUMMARY 'БОС оценка консультации' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4ABCF04F00DF // ConsultationDomainInterfaces
+ : Parent HWL ME_4ABCF04F00DF // ConsultationDomainInterfaces
  ;
  : Attributes
-   Seq: ( ME_49216542034E // Mark
- ME_49216552037B // Comment
- ME_49216566017F // CanSend
+   Seq: ( HWL ME_49216542034E // Mark
+ HWL ME_49216552037B // Comment
+ HWL ME_49216566017F // CanSend
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_49216508016D // Send
+   Seq: ( HWL ME_49216508016D // Send
  )
  ; // Operations
  CONST extprop:rc:SelfName 'dsConsultationMark'
@@ -596,9 +596,9 @@ FORWARD ME_4921732002D9
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4921732002D9 // IsdsConsultation
+ : Parent HWL ME_4921732002D9 // IsdsConsultation
  ;
- : Target ME_491C3F68021E // IdsConsultation
+ : Target HWL ME_491C3F68021E // IdsConsultation
  ;
  CONST "pm" true
 
@@ -613,7 +613,7 @@ ref; // ME_492EB71000D6 dsConsultation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4921732002D9 // IsdsConsultation
+ : Parent HWL ME_4921732002D9 // IsdsConsultation
  ;
  : Target WL 'ME_47E9F032005A' '491B305A0096.pas.ms.script' // IdsDocumentList
  ;
@@ -630,7 +630,7 @@ FORWARD ME_492EB793009E
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_492EB793009E // DSConsultationMark
+ : Parent HWL ME_492EB793009E // DSConsultationMark
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -646,12 +646,12 @@ ref; // ME_492EB79D0335 aForce
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4921732002D9 // IsdsConsultation
+ : Parent HWL ME_4921732002D9 // IsdsConsultation
  ;
- : Target ME_492164C302A6 // IdsConsultationMark
+ : Target HWL ME_492164C302A6 // IdsConsultationMark
  ;
  : Attributes
-   Seq: ( ME_492EB79D0335 // aForce
+   Seq: ( HWL ME_492EB79D0335 // aForce
  )
  ; // Attributes
  CONST "pm" true
@@ -666,9 +666,9 @@ ref; // ME_492EB793009E DSConsultationMark
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4921732002D9 // IsdsConsultation
+ : Parent HWL ME_4921732002D9 // IsdsConsultation
  ;
- : Target ME_491C422A0003 // IbsConsultation
+ : Target HWL ME_491C422A0003 // IbsConsultation
  ;
  CONST "pm" false
 
@@ -681,11 +681,11 @@ ref; // ME_4F4E1E06038E bsConsultation
  %SUMMARY 'дать оценку.'#13#10'           Возможные исключения:'#13#10'           - EbsConsultationAlreadyMark' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4921732002D9 // IsdsConsultation
+ : Parent HWL ME_4921732002D9 // IsdsConsultation
  ;
  : CanRaise
-   Seq: ( ME_492EB7F50331 // EbsConsultationAlreadyMark
- ME_492EB8A4021E // EbsConsultationWasDeleted
+   Seq: ( HWL ME_492EB7F50331 // EbsConsultationAlreadyMark
+ HWL ME_492EB8A4021E // EbsConsultationWasDeleted
  )
  ; // CanRaise
 
@@ -697,7 +697,7 @@ ref; // ME_492EB7BA035E GiveMark
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4921732002D9 // IsdsConsultation
+ : Parent HWL ME_4921732002D9 // IsdsConsultation
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -720,12 +720,12 @@ ref; // ME_492EB86F0058 anAccept
  %SUMMARY 'Подтвердить оплату консультации. Да/Нет;'#13#10'           Исключения:'#13#10'             - EbsPaymentForbidden' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4921732002D9 // IsdsConsultation
+ : Parent HWL ME_4921732002D9 // IsdsConsultation
  ;
  : CanRaise
-   Seq: ( ME_492EB844004A // EbsPaymentForbidden
- ME_492EB8A4021E // EbsConsultationWasDeleted
- ME_492EB8EF0388 // EbsConsultationAlreadyConfirmed
+   Seq: ( HWL ME_492EB844004A // EbsPaymentForbidden
+ HWL ME_492EB8A4021E // EbsConsultationWasDeleted
+ HWL ME_492EB8EF0388 // EbsConsultationAlreadyConfirmed
  )
  ; // CanRaise
  : Parameters
@@ -742,7 +742,7 @@ ref; // ME_492EB8620306 ConfirmPayment
  %SUMMARY 'перечитать ответ' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4921732002D9 // IsdsConsultation
+ : Parent HWL ME_4921732002D9 // IsdsConsultation
  ;
 
 ref; // ME_492EB8820218 UpdateAnswer
@@ -754,7 +754,7 @@ ref; // ME_492EB8820218 UpdateAnswer
  %SUMMARY 'список документов консультации изменен пользователем. Используется'#13#10'           при перезагрузке консультации' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4921732002D9 // IsdsConsultation
+ : Parent HWL ME_4921732002D9 // IsdsConsultation
  ;
 
 ref; // ME_492EB91F0391 ListChanged
@@ -763,7 +763,7 @@ ref; // ME_492EB91F0391 ListChanged
  CONST Name 'aConsultation'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_4921732002D9 // IsdsConsultation
+ : Target HWL ME_4921732002D9 // IsdsConsultation
  ;
 
 ref; // ME_492EB941035C aConsultation
@@ -775,7 +775,7 @@ ref; // ME_492EB941035C aConsultation
  %SUMMARY 'консультация была оценена. Для случая когда консультацию оценили в'#13#10'           дереве, при этом эта же консультация открыта на экране и ее нужно'#13#10'           перечитать, чтобы ссылка оценить пропала' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4921732002D9 // IsdsConsultation
+ : Parent HWL ME_4921732002D9 // IsdsConsultation
  ;
  : Parameters
    Seq: ( ME_492EB941035C // aConsultation
@@ -790,7 +790,7 @@ ref; // ME_492EB93700FF ConsultationWasMarked
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4921732002D9 // IsdsConsultation
+ : Parent HWL ME_4921732002D9 // IsdsConsultation
  ;
 
 ref; // ME_492EBCE002E0 MarkSended
@@ -811,7 +811,7 @@ ref; // ME_492597A602F6_ME_4921732002D9 MakeGotoPointData
  %SUMMARY 'Бизнес объект прецедента "Консультация"' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4ABCF04F00DF // ConsultationDomainInterfaces
+ : Parent HWL ME_4ABCF04F00DF // ConsultationDomainInterfaces
  ;
  : Implements
    Seq: ( WL 'ME_4E92C3A5037B' '491B305A0096.pas.ms.script' // IsdsGotoPointDataMaker
@@ -819,20 +819,20 @@ ref; // ME_492597A602F6_ME_4921732002D9 MakeGotoPointData
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_492EB71000D6 // dsConsultation
- ME_492EB77C0125 // dsList
- ME_492EB793009E // DSConsultationMark
- ME_4F4E1E06038E // bsConsultation
+   Seq: ( HWL ME_492EB71000D6 // dsConsultation
+ HWL ME_492EB77C0125 // dsList
+ HWL ME_492EB793009E // DSConsultationMark
+ HWL ME_4F4E1E06038E // bsConsultation
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_492EB7BA035E // GiveMark
- ME_492EB82F0391 // NeedGiveMark
- ME_492EB8620306 // ConfirmPayment
- ME_492EB8820218 // UpdateAnswer
- ME_492EB91F0391 // ListChanged
- ME_492EB93700FF // ConsultationWasMarked
- ME_492EBCE002E0 // MarkSended
+   Seq: ( HWL ME_492EB7BA035E // GiveMark
+ HWL ME_492EB82F0391 // NeedGiveMark
+ HWL ME_492EB8620306 // ConfirmPayment
+ HWL ME_492EB8820218 // UpdateAnswer
+ HWL ME_492EB91F0391 // ListChanged
+ HWL ME_492EB93700FF // ConsultationWasMarked
+ HWL ME_492EBCE002E0 // MarkSended
  )
  ; // Operations
  : Implemented
@@ -854,15 +854,15 @@ ref; // ME_4921732002D9 IsdsConsultation
  : Parent WL 'ME_4ABCF16F01CD' '4ABCF16F01CD.pas.ms.script' // Consultation$Lib
  ;
  : Children
-   Seq: ( ME_499002C201C9 // SysDateTime
- ME_491C422A0003 // IbsConsultation
- ME_492EB8EF0388 // EbsConsultationAlreadyConfirmed
- ME_492EB7F50331 // EbsConsultationAlreadyMark
- ME_492EB8A4021E // EbsConsultationWasDeleted
- ME_492EB844004A // EbsPaymentForbidden
- ME_491C3F68021E // IdsConsultation
- ME_492164C302A6 // IdsConsultationMark
- ME_4921732002D9 // IsdsConsultation
+   Seq: ( HWL ME_499002C201C9 // SysDateTime
+ HWL ME_491C422A0003 // IbsConsultation
+ HWL ME_492EB8EF0388 // EbsConsultationAlreadyConfirmed
+ HWL ME_492EB7F50331 // EbsConsultationAlreadyMark
+ HWL ME_492EB8A4021E // EbsConsultationWasDeleted
+ HWL ME_492EB844004A // EbsPaymentForbidden
+ HWL ME_491C3F68021E // IdsConsultation
+ HWL ME_492164C302A6 // IdsConsultationMark
+ HWL ME_4921732002D9 // IsdsConsultation
  )
  ; // Children
  : Depends

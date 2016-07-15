@@ -15,7 +15,7 @@ FORWARD ME_49DB5FEF01D8
  %SUMMARY 'Рисователь параграфа является рисователем списка параграфов' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_49DB5FEF01D8 // TevParaListPainter
+ : Parent HWL ME_49DB5FEF01D8 // TevParaListPainter
  ;
 
 ref; // ME_4D496E920367 ParaPainter_IsParaListPainter
@@ -28,7 +28,7 @@ ref; // ME_4D496E920367 ParaPainter_IsParaListPainter
  CONST Visibility PrivateAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_49DB5FEF01D8 // TevParaListPainter
+ : Parent HWL ME_49DB5FEF01D8 // TevParaListPainter
  ;
  : Target WL 'ME_47C6A6570369' '47C5207602D1.pas.ms.script' // InevParaList
  ;
@@ -38,7 +38,7 @@ ref; // ME_49DB52D102F5 X
 : ME_4DD67B0802E0
  CONST Class class_Dependency
  : Stereotype st_injects::Dependency ;
- : Parent ME_49DB5FEF01D8 // TevParaListPainter
+ : Parent HWL ME_49DB5FEF01D8 // TevParaListPainter
  ;
  : Target WL 'ME_48579EA1011D' '53D258F1004F.pas.ms.script' // TevParaList
  ;
@@ -49,7 +49,7 @@ ref; // ME_4DD67B0802E0
 : ME_53D780420372
  CONST Class class_Dependency
  : Stereotype st_injects_this::Dependency ;
- : Parent ME_49DB5FEF01D8 // TevParaListPainter
+ : Parent HWL ME_49DB5FEF01D8 // TevParaListPainter
  ;
  : Target WL 'ME_47C7DC2801FB' '49D2080D020C.pas.ms.script' // IevPainter
  ;
@@ -65,18 +65,18 @@ ref; // ME_53D780420372
  %SUMMARY 'Рисователь списка параграфов' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_49DCC860038B // ParaList Painters
+ : Parent HWL ME_49DCC860038B // ParaList Painters
  ;
  : Inherits
    Seq: ( WL 'ME_481D6C300084' '49DCBC09029B.pas.ms.script' // evParaListPainter
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_49DB52D102F5 // X
+   Seq: ( HWL ME_49DB52D102F5 // X
  )
  ; // Attributes
  : Children
-   Seq: ( ME_4D496E920367 // ParaPainter_IsParaListPainter
+   Seq: ( HWL ME_4D496E920367 // ParaPainter_IsParaListPainter
  )
  ; // Children
  : Dependencies
@@ -103,7 +103,7 @@ FORWARD ME_49DA417B010F
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_49DA417B010F // TevDocumentPainter
+ : Parent HWL ME_49DA417B010F // TevDocumentPainter
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -113,7 +113,7 @@ ref; // ME_5098F71901D0 f_ArrowWasDrawn
 : ME_4DD67B9502B0
  CONST Class class_Dependency
  : Stereotype st_injects::Dependency ;
- : Parent ME_49DA417B010F // TevDocumentPainter
+ : Parent HWL ME_49DA417B010F // TevDocumentPainter
  ;
  : Target WL 'ME_4857B637007C' '53D258F1004F.pas.ms.script' // TevDocument
  ;
@@ -124,7 +124,7 @@ ref; // ME_4DD67B9502B0
 : ME_4E6E12B80383
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_49DA417B010F // TevDocumentPainter
+ : Parent HWL ME_49DA417B010F // TevDocumentPainter
  ;
  : Target WL 'ME_4E1C67860321' '4678209200A6.pas.ms.script' // TnevDecorType
  ;
@@ -134,7 +134,7 @@ ref; // ME_4E6E12B80383
 : ME_4E6F53940255
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_49DA417B010F // TevDocumentPainter
+ : Parent HWL ME_49DA417B010F // TevDocumentPainter
  ;
  : Target WL 'ME_4727456300E7' '472745450206.pas.ms.script' // Tl3Point
  ;
@@ -144,7 +144,7 @@ ref; // ME_4E6F53940255
 : ME_5098EB5501BF
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_49DA417B010F // TevDocumentPainter
+ : Parent HWL ME_49DA417B010F // TevDocumentPainter
  ;
  : Target WL 'ME_47AC7CF90230' '47A1D4C201E8.pas.ms.script' // L3 Core Consts
  ;
@@ -154,7 +154,7 @@ ref; // ME_5098EB5501BF
 : ME_53D26E190193
  CONST Class class_Dependency
  : Stereotype st_injects_this::Dependency ;
- : Parent ME_49DA417B010F // TevDocumentPainter
+ : Parent HWL ME_49DA417B010F // TevDocumentPainter
  ;
  : Target WL 'ME_47C7DC2801FB' '49D2080D020C.pas.ms.script' // IevPainter
  ;
@@ -182,10 +182,10 @@ ref; // ME_4804C35B00B2_ME_49DA417B010F DoDrawFrameText
  %SUMMARY '"рисователь" документа' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_49DCC860038B // ParaList Painters
+ : Parent HWL ME_49DCC860038B // ParaList Painters
  ;
  : Inherits
-   Seq: ( ME_49DB5FEF01D8 // TevParaListPainter
+   Seq: ( HWL ME_49DB5FEF01D8 // TevParaListPainter
  )
  ; // Inherits
  : Implements
@@ -193,7 +193,7 @@ ref; // ME_4804C35B00B2_ME_49DA417B010F DoDrawFrameText
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_5098F71901D0 // f_ArrowWasDrawn
+   Seq: ( HWL ME_5098F71901D0 // f_ArrowWasDrawn
  )
  ; // Attributes
  : Overridden
@@ -228,7 +228,7 @@ FORWARD ME_48C7E98600AB
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_48C7E98600AB // TevTableRowPainter
+ : Parent HWL ME_48C7E98600AB // TevTableRowPainter
  ;
  : Target WL 'ME_46A608F00301' '4AB0C3C60310.pas.ms.script' // Pointer
  ;
@@ -252,7 +252,7 @@ ref; // ME_4B3B2F63033D l_Height
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4B3B2F3C01B2 // CheckHeight
+ : Parent HWL ME_4B3B2F3C01B2 // CheckHeight
  ;
  : Parameters
    Seq: ( ME_4B3B2F63033D // l_Height
@@ -269,10 +269,10 @@ ref; // ME_4B3B2F5803C6 CheckHeight
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_48C7E98600AB // TevTableRowPainter
+ : Parent HWL ME_48C7E98600AB // TevTableRowPainter
  ;
  : Operations
-   Seq: ( ME_4B3B2F5803C6 // CheckHeight
+   Seq: ( HWL ME_4B3B2F5803C6 // CheckHeight
  )
  ; // Operations
 
@@ -304,7 +304,7 @@ ref; // ME_5579555B02A1 aRealPoint
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_508FA94102B2 // GetRowPoint
+ : Parent HWL ME_508FA94102B2 // GetRowPoint
  ;
  : Target WL 'ME_47C5B57E0390' '47C5207602D1.pas.ms.script' // InevBasePoint
  ;
@@ -324,10 +324,10 @@ ref; // ME_508FA9610359 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_48C7E98600AB // TevTableRowPainter
+ : Parent HWL ME_48C7E98600AB // TevTableRowPainter
  ;
  : Operations
-   Seq: ( ME_508FA9610359 // DoIt
+   Seq: ( HWL ME_508FA9610359 // DoIt
  )
  ; // Operations
 
@@ -336,7 +336,7 @@ ref; // ME_508FA94102B2 GetRowPoint
 : ME_48C7EBB30324
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_48C7E98600AB // TevTableRowPainter
+ : Parent HWL ME_48C7E98600AB // TevTableRowPainter
  ;
  : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
  ;
@@ -346,7 +346,7 @@ ref; // ME_48C7EBB30324
 : ME_48C7ED0D0248
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_48C7E98600AB // TevTableRowPainter
+ : Parent HWL ME_48C7E98600AB // TevTableRowPainter
  ;
  : Target WL 'ME_47C69EBC00A8' '47AC75550330.pas.ms.script' // Tk2TagID
  ;
@@ -356,7 +356,7 @@ ref; // ME_48C7ED0D0248
 : ME_48DC9DC10193
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_48C7E98600AB // TevTableRowPainter
+ : Parent HWL ME_48C7E98600AB // TevTableRowPainter
  ;
  : Target WL 'ME_47AC7CF90230' '47A1D4C201E8.pas.ms.script' // L3 Core Consts
  ;
@@ -366,7 +366,7 @@ ref; // ME_48DC9DC10193
 : ME_48DC9EBB00A1
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_48C7E98600AB // TevTableRowPainter
+ : Parent HWL ME_48C7E98600AB // TevTableRowPainter
  ;
  : Target WL 'ME_47A066980016' '537B83AD01F0.pas.ms.script' // l3MinMax
  ;
@@ -376,7 +376,7 @@ ref; // ME_48DC9EBB00A1
 : ME_48DCBA26019C
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_48C7E98600AB // TevTableRowPainter
+ : Parent HWL ME_48C7E98600AB // TevTableRowPainter
  ;
  : Target WL 'ME_468E49730365' '469D0AC7005E.pas.ms.script' // MergeStatus
  ;
@@ -386,7 +386,7 @@ ref; // ME_48DCBA26019C
 : ME_49AE5B820095
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_48C7E98600AB // TevTableRowPainter
+ : Parent HWL ME_48C7E98600AB // TevTableRowPainter
  ;
  : Target WL 'ME_4857D48E00F4' '48492FC0029D.pas.ms.script' // Table
  ;
@@ -396,7 +396,7 @@ ref; // ME_49AE5B820095
 : ME_49AE5B88004F
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_48C7E98600AB // TevTableRowPainter
+ : Parent HWL ME_48C7E98600AB // TevTableRowPainter
  ;
  : Target WL 'ME_4857CD8D0093' '48492FC0029D.pas.ms.script' // TableCell
  ;
@@ -406,7 +406,7 @@ ref; // ME_49AE5B88004F
 : ME_49D34A1F0230
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_48C7E98600AB // TevTableRowPainter
+ : Parent HWL ME_48C7E98600AB // TevTableRowPainter
  ;
  : Target WL 'ME_47C7DE24022A' '49D2080D020C.pas.ms.script' // InevPaintersHolder
  ;
@@ -416,7 +416,7 @@ ref; // ME_49D34A1F0230
 : ME_4C07955601F1
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_48C7E98600AB // TevTableRowPainter
+ : Parent HWL ME_48C7E98600AB // TevTableRowPainter
  ;
  : Target WL 'ME_47D00CC20108' '47C52679006D.pas.ms.script' // nevFacade
  ;
@@ -426,7 +426,7 @@ ref; // ME_4C07955601F1
 : ME_4C0FB439014D
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_48C7E98600AB // TevTableRowPainter
+ : Parent HWL ME_48C7E98600AB // TevTableRowPainter
  ;
  : Target WL 'ME_479F1C5600EA' '4AB0997B00A2.pas.ms.script' // EListError
  ;
@@ -436,7 +436,7 @@ ref; // ME_4C0FB439014D
 : ME_4C775B730244
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_48C7E98600AB // TevTableRowPainter
+ : Parent HWL ME_48C7E98600AB // TevTableRowPainter
  ;
  : Target WL 'ME_4C3849220132' '47F1F38601A3.pas.ms.script' // evTableCellUtils
  ;
@@ -446,7 +446,7 @@ ref; // ME_4C775B730244
 : ME_4DD67B4C01B4
  CONST Class class_Dependency
  : Stereotype st_injects::Dependency ;
- : Parent ME_48C7E98600AB // TevTableRowPainter
+ : Parent HWL ME_48C7E98600AB // TevTableRowPainter
  ;
  : Target WL 'ME_4857D32B011E' '53D258F1004F.pas.ms.script' // TevTableRow
  ;
@@ -457,7 +457,7 @@ ref; // ME_4DD67B4C01B4
 : ME_4DF2075C00A0
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_48C7E98600AB // TevTableRowPainter
+ : Parent HWL ME_48C7E98600AB // TevTableRowPainter
  ;
  : Target WL 'ME_4DF1C6E90221' '47C52679006D.pas.ms.script' // PrintRowHeightsSpy
  ;
@@ -467,7 +467,7 @@ ref; // ME_4DF2075C00A0
 : ME_4FD99EBE0354
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_48C7E98600AB // TevTableRowPainter
+ : Parent HWL ME_48C7E98600AB // TevTableRowPainter
  ;
  : Target WL 'ME_4857A87D0337' '48492FC0029D.pas.ms.script' // Block
  ;
@@ -477,7 +477,7 @@ ref; // ME_4FD99EBE0354
 : ME_4FD99FD603C1
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_48C7E98600AB // TevTableRowPainter
+ : Parent HWL ME_48C7E98600AB // TevTableRowPainter
  ;
  : Target WL 'ME_4FBDEF6A019B' '47F1F38601A3.pas.ms.script' // evHasOwnStyle
  ;
@@ -487,7 +487,7 @@ ref; // ME_4FD99FD603C1
 : ME_5033725E03B1
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_48C7E98600AB // TevTableRowPainter
+ : Parent HWL ME_48C7E98600AB // TevTableRowPainter
  ;
  : Target WL 'ME_4857D2F8006D' '48492FC0029D.pas.ms.script' // TableRow
  ;
@@ -497,7 +497,7 @@ ref; // ME_5033725E03B1
 : ME_53D675E8030C
  CONST Class class_Dependency
  : Stereotype st_injects_this::Dependency ;
- : Parent ME_48C7E98600AB // TevTableRowPainter
+ : Parent HWL ME_48C7E98600AB // TevTableRowPainter
  ;
  : Target WL 'ME_47C7DC2801FB' '49D2080D020C.pas.ms.script' // IevPainter
  ;
@@ -615,10 +615,10 @@ ref; // ME_4FD97F890377_ME_48C7E98600AB CheckNeedLaterFilling
  %SUMMARY '"рисователь" строк таблиц' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_49DCC860038B // ParaList Painters
+ : Parent HWL ME_49DCC860038B // ParaList Painters
  ;
  : Inherits
-   Seq: ( ME_49DB5FEF01D8 // TevParaListPainter
+   Seq: ( HWL ME_49DB5FEF01D8 // TevParaListPainter
  )
  ; // Inherits
  : Implements
@@ -626,12 +626,12 @@ ref; // ME_4FD97F890377_ME_48C7E98600AB CheckNeedLaterFilling
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_50A234810143 // f_DrawView
+   Seq: ( HWL ME_50A234810143 // f_DrawView
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_4B3B2F3C01B2 // CheckHeight
- ME_508FA94102B2 // GetRowPoint
+   Seq: ( HWL ME_4B3B2F3C01B2 // CheckHeight
+ HWL ME_508FA94102B2 // GetRowPoint
  )
  ; // Operations
  : Implemented
@@ -697,7 +697,7 @@ FORWARD ME_481D6D3F003F
  CONST Visibility PrivateAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_481D6D3F003F // TevTableCellPainter
+ : Parent HWL ME_481D6D3F003F // TevTableCellPainter
  ;
  : Target WL 'ME_47C7F0DA0325' '47C5207602D1.pas.ms.script' // InevTableCell
  ;
@@ -712,7 +712,7 @@ FORWARD ME_52B3CE5501D4
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_52B3CE5501D4 // GetTablePainter
+ : Parent HWL ME_52B3CE5501D4 // GetTablePainter
  ;
  : Target WL 'ME_49CB6B81028D' '49D2080D020C.pas.ms.script' // IevTablePainter
  ;
@@ -727,10 +727,10 @@ ref; // ME_52B3CE61004B DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_481D6D3F003F // TevTableCellPainter
+ : Parent HWL ME_481D6D3F003F // TevTableCellPainter
  ;
  : Operations
-   Seq: ( ME_52B3CE61004B // DoIt
+   Seq: ( HWL ME_52B3CE61004B // DoIt
  )
  ; // Operations
 
@@ -739,7 +739,7 @@ ref; // ME_52B3CE5501D4 GetTablePainter
 : ME_481D6F36022C
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_481D6D3F003F // TevTableCellPainter
+ : Parent HWL ME_481D6D3F003F // TevTableCellPainter
  ;
  : Target WL 'ME_47C69EBC00A8' '47AC75550330.pas.ms.script' // Tk2TagID
  ;
@@ -749,7 +749,7 @@ ref; // ME_481D6F36022C
 : ME_481D6F980067
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_481D6D3F003F // TevTableCellPainter
+ : Parent HWL ME_481D6D3F003F // TevTableCellPainter
  ;
  : Target WL 'ME_468E49730365' '469D0AC7005E.pas.ms.script' // MergeStatus
  ;
@@ -759,7 +759,7 @@ ref; // ME_481D6F980067
 : ME_481D6FA100CD
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_481D6D3F003F // TevTableCellPainter
+ : Parent HWL ME_481D6D3F003F // TevTableCellPainter
  ;
  : Target WL 'ME_467BC89800B9' '469D0AC7005E.pas.ms.script' // VerticalAligment
  ;
@@ -769,7 +769,7 @@ ref; // ME_481D6FA100CD
 : ME_48C907B502BC
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_481D6D3F003F // TevTableCellPainter
+ : Parent HWL ME_481D6D3F003F // TevTableCellPainter
  ;
  : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
  ;
@@ -779,7 +779,7 @@ ref; // ME_48C907B502BC
 : ME_491831500194
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_481D6D3F003F // TevTableCellPainter
+ : Parent HWL ME_481D6D3F003F // TevTableCellPainter
  ;
  : Target WL 'ME_49182CE401C8' '467C0CAA02AB.pas.ms.script' // Tl3FrameAnalizeType
  ;
@@ -789,7 +789,7 @@ ref; // ME_491831500194
 : ME_49D0B5930204
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_481D6D3F003F // TevTableCellPainter
+ : Parent HWL ME_481D6D3F003F // TevTableCellPainter
  ;
  : Target WL 'ME_480F377B0271' '4678209200A6.pas.ms.script' // TnevFormatInfoPrim
  ;
@@ -799,7 +799,7 @@ ref; // ME_49D0B5930204
 : ME_4DD67B1F037F
  CONST Class class_Dependency
  : Stereotype st_injects::Dependency ;
- : Parent ME_481D6D3F003F // TevTableCellPainter
+ : Parent HWL ME_481D6D3F003F // TevTableCellPainter
  ;
  : Target WL 'ME_4857CDBF0197' '53D258F1004F.pas.ms.script' // TevTableCell
  ;
@@ -810,7 +810,7 @@ ref; // ME_4DD67B1F037F
 : ME_53D2442501A7
  CONST Class class_Dependency
  : Stereotype st_injects_this::Dependency ;
- : Parent ME_481D6D3F003F // TevTableCellPainter
+ : Parent HWL ME_481D6D3F003F // TevTableCellPainter
  ;
  : Target WL 'ME_47C7DC2801FB' '49D2080D020C.pas.ms.script' // IevPainter
  ;
@@ -894,18 +894,18 @@ ref; // ME_4D9AF3680146_ME_481D6D3F003F IsTopAnchorAtStart
  %SUMMARY 'Реализация интерфейса IevPainter для ячеек' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_49DCC860038B // ParaList Painters
+ : Parent HWL ME_49DCC860038B // ParaList Painters
  ;
  : Inherits
    Seq: ( WL 'ME_481D6C300084' '49DCBC09029B.pas.ms.script' // evParaListPainter
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_49DB60B30278 // X
+   Seq: ( HWL ME_49DB60B30278 // X
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_52B3CE5501D4 // GetTablePainter
+   Seq: ( HWL ME_52B3CE5501D4 // GetTablePainter
  )
  ; // Operations
  : Overridden
@@ -948,7 +948,7 @@ FORWARD ME_49DA43AA01B9
 : ME_4DD67B33029F
  CONST Class class_Dependency
  : Stereotype st_injects::Dependency ;
- : Parent ME_49DA43AA01B9 // TevSBSCellPainter
+ : Parent HWL ME_49DA43AA01B9 // TevSBSCellPainter
  ;
  : Target WL 'ME_4857D1860221' '53D258F1004F.pas.ms.script' // TevSBSCell
  ;
@@ -959,7 +959,7 @@ ref; // ME_4DD67B33029F
 : ME_53D0D11800CC
  CONST Class class_Dependency
  : Stereotype st_injects_this::Dependency ;
- : Parent ME_49DA43AA01B9 // TevSBSCellPainter
+ : Parent HWL ME_49DA43AA01B9 // TevSBSCellPainter
  ;
  : Target WL 'ME_47C7DC2801FB' '49D2080D020C.pas.ms.script' // IevPainter
  ;
@@ -989,10 +989,10 @@ ref; // ME_4CAF3D530327_ME_49DA43AA01B9 NeedsHackK235870994
  %SUMMARY 'Реализация интерфейса IevPainter для ячеек подписи' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_49DCC860038B // ParaList Painters
+ : Parent HWL ME_49DCC860038B // ParaList Painters
  ;
  : Inherits
-   Seq: ( ME_481D6D3F003F // TevTableCellPainter
+   Seq: ( HWL ME_481D6D3F003F // TevTableCellPainter
  )
  ; // Inherits
  : Overridden
@@ -1026,7 +1026,7 @@ FORWARD ME_4EB9310D007D
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4EB9310D007D // PlusPictureConsts
+ : Parent HWL ME_4EB9310D007D // PlusPictureConsts
  ;
  CONST Value 1
  CONST "AutoInc" false
@@ -1043,7 +1043,7 @@ ref; // ME_4EB931610087 cPlusFrameWidth
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4EB9310D007D // PlusPictureConsts
+ : Parent HWL ME_4EB9310D007D // PlusPictureConsts
  ;
  CONST Value 10
  CONST "AutoInc" false
@@ -1060,7 +1060,7 @@ ref; // ME_4EB931830150 cPlusSize
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4EB9310D007D // PlusPictureConsts
+ : Parent HWL ME_4EB9310D007D // PlusPictureConsts
  ;
  CONST Value 5
  CONST "AutoInc" false
@@ -1078,7 +1078,7 @@ ref; // ME_4EB93198007D cHalfPlusSize
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4EB9310D007D // PlusPictureConsts
+ : Parent HWL ME_4EB9310D007D // PlusPictureConsts
  ;
  CONST Value 'cHalfPlusSize + cPlusFrameWidth'
  CONST "AutoInc" false
@@ -1096,7 +1096,7 @@ ref; // ME_4EB931AC00A2 cDeltaPlus
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4EB9310D007D // PlusPictureConsts
+ : Parent HWL ME_4EB9310D007D // PlusPictureConsts
  ;
  CONST Value 'cPlusSize + cPlusFrameWidth'
  CONST "AutoInc" false
@@ -1115,14 +1115,14 @@ ref; // ME_4EB931D801F7 cDeltaText
  %SUMMARY 'Константы для рисования плюсика (минусика) в пикселах.' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
- : Parent ME_49DB1B70013F // TevDocumentPartPainter
+ : Parent HWL ME_49DB1B70013F // TevDocumentPartPainter
  ;
  : Attributes
-   Seq: ( ME_4EB931610087 // cPlusFrameWidth
- ME_4EB931830150 // cPlusSize
- ME_4EB93198007D // cHalfPlusSize
- ME_4EB931AC00A2 // cDeltaPlus
- ME_4EB931D801F7 // cDeltaText
+   Seq: ( HWL ME_4EB931610087 // cPlusFrameWidth
+ HWL ME_4EB931830150 // cPlusSize
+ HWL ME_4EB93198007D // cHalfPlusSize
+ HWL ME_4EB931AC00A2 // cDeltaPlus
+ HWL ME_4EB931D801F7 // cDeltaText
  )
  ; // Attributes
  CONST "spell names" false
@@ -1137,7 +1137,7 @@ FORWARD ME_4EB92D5A0249
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4EB92D5A0249 // CorrectFrameBounds
+ : Parent HWL ME_4EB92D5A0249 // CorrectFrameBounds
  ;
 
 ref; // ME_4EB92D680190 DoIt
@@ -1150,10 +1150,10 @@ ref; // ME_4EB92D680190 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_49DB1B70013F // TevDocumentPartPainter
+ : Parent HWL ME_49DB1B70013F // TevDocumentPartPainter
  ;
  : Operations
-   Seq: ( ME_4EB92D680190 // DoIt
+   Seq: ( HWL ME_4EB92D680190 // DoIt
  )
  ; // Operations
 
@@ -1176,7 +1176,7 @@ ref; // ME_4EB92E2E0126 aDrawText
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4EB92D990307 // DoWithFrameName
+ : Parent HWL ME_4EB92D990307 // DoWithFrameName
  ;
  : Target WL 'ME_4727456300E7' '472745450206.pas.ms.script' // Tl3Point
  ;
@@ -1195,10 +1195,10 @@ ref; // ME_4EB92E1403E5 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_49DB1B70013F // TevDocumentPartPainter
+ : Parent HWL ME_49DB1B70013F // TevDocumentPartPainter
  ;
  : Operations
-   Seq: ( ME_4EB92E1403E5 // DoIt
+   Seq: ( HWL ME_4EB92E1403E5 // DoIt
  )
  ; // Operations
 
@@ -1212,7 +1212,7 @@ FORWARD ME_55150D6300DE
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_55150D6300DE // FirstParaAsHeader
+ : Parent HWL ME_55150D6300DE // FirstParaAsHeader
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -1227,10 +1227,10 @@ ref; // ME_55150DD1025F DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_49DB1B70013F // TevDocumentPartPainter
+ : Parent HWL ME_49DB1B70013F // TevDocumentPartPainter
  ;
  : Operations
-   Seq: ( ME_55150DD1025F // DoIt
+   Seq: ( HWL ME_55150DD1025F // DoIt
  )
  ; // Operations
 
@@ -1244,7 +1244,7 @@ FORWARD ME_5617929E0312
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_5617929E0312 // CheckColor4ExpandedText
+ : Parent HWL ME_5617929E0312 // CheckColor4ExpandedText
  ;
 
 ref; // ME_561792BB00F1 DoIt
@@ -1257,10 +1257,10 @@ ref; // ME_561792BB00F1 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_49DB1B70013F // TevDocumentPartPainter
+ : Parent HWL ME_49DB1B70013F // TevDocumentPartPainter
  ;
  : Operations
-   Seq: ( ME_561792BB00F1 // DoIt
+   Seq: ( HWL ME_561792BB00F1 // DoIt
  )
  ; // Operations
 
@@ -1273,7 +1273,7 @@ ref; // ME_5617929E0312 CheckColor4ExpandedText
  %SUMMARY 'Рисует имя блока в области рамки' ;
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_49DB1B70013F // TevDocumentPartPainter
+ : Parent HWL ME_49DB1B70013F // TevDocumentPartPainter
  ;
 
 ref; // ME_49DB1B9E0191 DrawFrameName
@@ -1285,7 +1285,7 @@ ref; // ME_49DB1B9E0191 DrawFrameName
  %SUMMARY 'Нужно ли рисовать плюс/минус для открытия/сворачивания блока' ;
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_49DB1B70013F // TevDocumentPartPainter
+ : Parent HWL ME_49DB1B70013F // TevDocumentPartPainter
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -1295,7 +1295,7 @@ ref; // ME_49DB1BF30312 NeedDrawPlus
 : ME_49DB1D6600D6
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_49DB1B70013F // TevDocumentPartPainter
+ : Parent HWL ME_49DB1B70013F // TevDocumentPartPainter
  ;
  : Target WL 'ME_4857B15A000E' '47F1F38601A3.pas.ms.script' // evDocumentPart
  ;
@@ -1305,7 +1305,7 @@ ref; // ME_49DB1D6600D6
 : ME_49DB1D8B02A0
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_49DB1B70013F // TevDocumentPartPainter
+ : Parent HWL ME_49DB1B70013F // TevDocumentPartPainter
  ;
  : Target WL 'ME_4799ECBF00D6' '4799EC9300AF.pas.ms.script' // Defaults
  ;
@@ -1315,7 +1315,7 @@ ref; // ME_49DB1D8B02A0
 : ME_49DB1DA501BC
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_49DB1B70013F // TevDocumentPartPainter
+ : Parent HWL ME_49DB1B70013F // TevDocumentPartPainter
  ;
  : Target WL 'ME_47CBD5980343' '55C4AEC801CA.pas.ms.script' // Colors
  ;
@@ -1325,7 +1325,7 @@ ref; // ME_49DB1DA501BC
 : ME_49DB1DB50214
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_49DB1B70013F // TevDocumentPartPainter
+ : Parent HWL ME_49DB1B70013F // TevDocumentPartPainter
  ;
  : Target WL 'ME_47C69EBC00A8' '47AC75550330.pas.ms.script' // Tk2TagID
  ;
@@ -1335,7 +1335,7 @@ ref; // ME_49DB1DB50214
 : ME_49DB1DD803A6
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_49DB1B70013F // TevDocumentPartPainter
+ : Parent HWL ME_49DB1B70013F // TevDocumentPartPainter
  ;
  : Target WL 'ME_47F245BD01E1' '47F2458300E4.pas.ms.script' // Defaults
  ;
@@ -1345,7 +1345,7 @@ ref; // ME_49DB1DD803A6
 : ME_49DB1E1A0129
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_49DB1B70013F // TevDocumentPartPainter
+ : Parent HWL ME_49DB1B70013F // TevDocumentPartPainter
  ;
  : Target WL 'ME_4773DEF0021B' '47913B47006E.pas.ms.script' // Tl3CustomString
  ;
@@ -1355,7 +1355,7 @@ ref; // ME_49DB1E1A0129
 : ME_49DB21470163
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_49DB1B70013F // TevDocumentPartPainter
+ : Parent HWL ME_49DB1B70013F // TevDocumentPartPainter
  ;
  : Target WL 'ME_4727456300E7' '472745450206.pas.ms.script' // Tl3Point
  ;
@@ -1365,7 +1365,7 @@ ref; // ME_49DB21470163
 : ME_49DB22440173
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_49DB1B70013F // TevDocumentPartPainter
+ : Parent HWL ME_49DB1B70013F // TevDocumentPartPainter
  ;
  : Target WL 'ME_49C22CE30210' '476BEA0B0103.pas.ms.script' // evL3CoreConsts
  ;
@@ -1375,7 +1375,7 @@ ref; // ME_49DB22440173
 : ME_49E61A910393
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_49DB1B70013F // TevDocumentPartPainter
+ : Parent HWL ME_49DB1B70013F // TevDocumentPartPainter
  ;
  : Target WL 'ME_47C7F2FA0277' '4678209200A6.pas.ms.script' // Constants
  ;
@@ -1385,7 +1385,7 @@ ref; // ME_49E61A910393
 : ME_4DD67AED00FD
  CONST Class class_Dependency
  : Stereotype st_injects::Dependency ;
- : Parent ME_49DB1B70013F // TevDocumentPartPainter
+ : Parent HWL ME_49DB1B70013F // TevDocumentPartPainter
  ;
  : Target WL 'ME_4857AA550220' '53D258F1004F.pas.ms.script' // TevBlock
  ;
@@ -1396,7 +1396,7 @@ ref; // ME_4DD67AED00FD
 : ME_4EB935280176
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_49DB1B70013F // TevDocumentPartPainter
+ : Parent HWL ME_49DB1B70013F // TevDocumentPartPainter
  ;
  : Target WL 'ME_47A066980016' '537B83AD01F0.pas.ms.script' // l3MinMax
  ;
@@ -1406,7 +1406,7 @@ ref; // ME_4EB935280176
 : ME_4FBCCF250245
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_49DB1B70013F // TevDocumentPartPainter
+ : Parent HWL ME_49DB1B70013F // TevDocumentPartPainter
  ;
  : Target WL 'ME_47AC7CF90230' '47A1D4C201E8.pas.ms.script' // L3 Core Consts
  ;
@@ -1416,7 +1416,7 @@ ref; // ME_4FBCCF250245
 : ME_4FBCD22E0370
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_49DB1B70013F // TevDocumentPartPainter
+ : Parent HWL ME_49DB1B70013F // TevDocumentPartPainter
  ;
  : Target WL 'ME_47209E670266' '4678193C009C.pas.ms.script' // Tl3PCharLen
  ;
@@ -1426,7 +1426,7 @@ ref; // ME_4FBCD22E0370
 : ME_4FBCD252032E
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_49DB1B70013F // TevDocumentPartPainter
+ : Parent HWL ME_49DB1B70013F // TevDocumentPartPainter
  ;
  : Target WL 'ME_4ADF0823017C' '54B90AC6014B.pas.ms.script' // l3IsNil
  ;
@@ -1436,7 +1436,7 @@ ref; // ME_4FBCD252032E
 : ME_4FBCD2D80329
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_49DB1B70013F // TevDocumentPartPainter
+ : Parent HWL ME_49DB1B70013F // TevDocumentPartPainter
  ;
  : Target WL 'ME_47A082F101DB' '476BE98C01B8.pas.ms.script' // Ext Chars
  ;
@@ -1446,7 +1446,7 @@ ref; // ME_4FBCD2D80329
 : ME_4FBCD32100DB
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_49DB1B70013F // TevDocumentPartPainter
+ : Parent HWL ME_49DB1B70013F // TevDocumentPartPainter
  ;
  : Target WL 'ME_47E0C36201C7' '537B83AD01F0.pas.ms.script' // l3Math
  ;
@@ -1456,7 +1456,7 @@ ref; // ME_4FBCD32100DB
 : ME_4FBDF1E001E6
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_49DB1B70013F // TevDocumentPartPainter
+ : Parent HWL ME_49DB1B70013F // TevDocumentPartPainter
  ;
  : Target WL 'ME_4FBDEF6A019B' '47F1F38601A3.pas.ms.script' // evHasOwnStyle
  ;
@@ -1466,7 +1466,7 @@ ref; // ME_4FBDF1E001E6
 : ME_53D669F7023D
  CONST Class class_Dependency
  : Stereotype st_injects_this::Dependency ;
- : Parent ME_49DB1B70013F // TevDocumentPartPainter
+ : Parent HWL ME_49DB1B70013F // TevDocumentPartPainter
  ;
  : Target WL 'ME_47C7DC2801FB' '49D2080D020C.pas.ms.script' // IevPainter
  ;
@@ -1476,7 +1476,7 @@ ref; // ME_53D669F7023D
 : ME_54B4ED3601F5
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_49DB1B70013F // TevDocumentPartPainter
+ : Parent HWL ME_49DB1B70013F // TevDocumentPartPainter
  ;
  : Target WL 'ME_54B4D869005D' '467C0CAA02AB.pas.ms.script' // TspBlockType
  ;
@@ -1486,7 +1486,7 @@ ref; // ME_54B4ED3601F5
 : ME_551512CD02D4
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_49DB1B70013F // TevDocumentPartPainter
+ : Parent HWL ME_49DB1B70013F // TevDocumentPartPainter
  ;
  : Target WL 'ME_5513C4FD0239' '48492FC0029D.pas.ms.script' // ExpandedText
  ;
@@ -1496,7 +1496,7 @@ ref; // ME_551512CD02D4
 : ME_5617927F00A5
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_49DB1B70013F // TevDocumentPartPainter
+ : Parent HWL ME_49DB1B70013F // TevDocumentPartPainter
  ;
  : Target WL 'ME_47C520D80305' '47C5207602D1.pas.ms.script' // InevPara
  ;
@@ -1578,20 +1578,20 @@ ref; // ME_5062C3470289_ME_49DB1B70013F CorrectByTextHeight
  %SUMMARY 'Реализация интерфейса IevPainter для блока параграфов' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_49DCC860038B // ParaList Painters
+ : Parent HWL ME_49DCC860038B // ParaList Painters
  ;
  : Inherits
-   Seq: ( ME_49DB5FEF01D8 // TevParaListPainter
+   Seq: ( HWL ME_49DB5FEF01D8 // TevParaListPainter
  WL 'ME_5062BFDB025E' '49DCBC09029B.pas.ms.script' // AACSpaceDrawing
  )
  ; // Inherits
  : Operations
-   Seq: ( ME_4EB92D5A0249 // CorrectFrameBounds
- ME_4EB92D990307 // DoWithFrameName
- ME_55150D6300DE // FirstParaAsHeader
- ME_5617929E0312 // CheckColor4ExpandedText
- ME_49DB1B9E0191 // DrawFrameName
- ME_49DB1BF30312 // NeedDrawPlus
+   Seq: ( HWL ME_4EB92D5A0249 // CorrectFrameBounds
+ HWL ME_4EB92D990307 // DoWithFrameName
+ HWL ME_55150D6300DE // FirstParaAsHeader
+ HWL ME_5617929E0312 // CheckColor4ExpandedText
+ HWL ME_49DB1B9E0191 // DrawFrameName
+ HWL ME_49DB1BF30312 // NeedDrawPlus
  )
  ; // Operations
  : Implemented
@@ -1612,7 +1612,7 @@ ref; // ME_5062C3470289_ME_49DB1B70013F CorrectByTextHeight
  )
  ; // Overridden
  : Constants
-   Seq: ( ME_4EB9310D007D // PlusPictureConsts
+   Seq: ( HWL ME_4EB9310D007D // PlusPictureConsts
  )
  ; // Constants
  : Dependencies
@@ -1654,7 +1654,7 @@ FORWARD ME_49DB2E390053
 : ME_49DB300A016F
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_49DB2E390053 // TevCommentParaPainter
+ : Parent HWL ME_49DB2E390053 // TevCommentParaPainter
  ;
  : Target WL 'ME_4857B15A000E' '47F1F38601A3.pas.ms.script' // evDocumentPart
  ;
@@ -1664,7 +1664,7 @@ ref; // ME_49DB300A016F
 : ME_49DB302401AE
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_49DB2E390053 // TevCommentParaPainter
+ : Parent HWL ME_49DB2E390053 // TevCommentParaPainter
  ;
  : Target WL 'ME_485683750360' '48492FC0029D.pas.ms.script' // TextPara
  ;
@@ -1674,7 +1674,7 @@ ref; // ME_49DB302401AE
 : ME_49DB30360095
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_49DB2E390053 // TevCommentParaPainter
+ : Parent HWL ME_49DB2E390053 // TevCommentParaPainter
  ;
  : Target WL 'ME_476BE0660328' '476BE0350329.pas.ms.script' // Standard
  ;
@@ -1684,7 +1684,7 @@ ref; // ME_49DB30360095
 : ME_49DB30400136
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_49DB2E390053 // TevCommentParaPainter
+ : Parent HWL ME_49DB2E390053 // TevCommentParaPainter
  ;
  : Target WL 'ME_47C69EBC00A8' '47AC75550330.pas.ms.script' // Tk2TagID
  ;
@@ -1694,7 +1694,7 @@ ref; // ME_49DB30400136
 : ME_49DB3D03035F
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_49DB2E390053 // TevCommentParaPainter
+ : Parent HWL ME_49DB2E390053 // TevCommentParaPainter
  ;
  : Target WL 'ME_47AC6F0B025E' '49A58A1A03C4.pas.ms.script' // k2Base
  ;
@@ -1704,7 +1704,7 @@ ref; // ME_49DB3D03035F
 : ME_49DB3D100184
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_49DB2E390053 // TevCommentParaPainter
+ : Parent HWL ME_49DB2E390053 // TevCommentParaPainter
  ;
  : Target WL 'ME_47CBD5980343' '55C4AEC801CA.pas.ms.script' // Colors
  ;
@@ -1714,7 +1714,7 @@ ref; // ME_49DB3D100184
 : ME_49DB3EB4028A
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_49DB2E390053 // TevCommentParaPainter
+ : Parent HWL ME_49DB2E390053 // TevCommentParaPainter
  ;
  : Target WL 'ME_4728974E009E' '472745450206.pas.ms.script' // Tl3Rect
  ;
@@ -1724,7 +1724,7 @@ ref; // ME_49DB3EB4028A
 : ME_49DB4028019D
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_49DB2E390053 // TevCommentParaPainter
+ : Parent HWL ME_49DB2E390053 // TevCommentParaPainter
  ;
  : Target WL 'ME_47A066980016' '537B83AD01F0.pas.ms.script' // l3MinMax
  ;
@@ -1734,7 +1734,7 @@ ref; // ME_49DB4028019D
 : ME_49DB40320257
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_49DB2E390053 // TevCommentParaPainter
+ : Parent HWL ME_49DB2E390053 // TevCommentParaPainter
  ;
  : Target WL 'ME_47878E0E0191' '54B90AC6014B.pas.ms.script' // l3String
  ;
@@ -1744,7 +1744,7 @@ ref; // ME_49DB40320257
 : ME_49DB406002DB
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_49DB2E390053 // TevCommentParaPainter
+ : Parent HWL ME_49DB2E390053 // TevCommentParaPainter
  ;
  : Target WL 'ME_47CD3486030A' '47CD3441002F.pas.ms.script' // TnevMiscMessages
  ;
@@ -1754,7 +1754,7 @@ ref; // ME_49DB406002DB
 : ME_4DD67AD7018C
  CONST Class class_Dependency
  : Stereotype st_injects::Dependency ;
- : Parent ME_49DB2E390053 // TevCommentParaPainter
+ : Parent HWL ME_49DB2E390053 // TevCommentParaPainter
  ;
  : Target WL 'ME_4857C9F90189' '53D258F1004F.pas.ms.script' // TevCommentPara
  ;
@@ -1765,7 +1765,7 @@ ref; // ME_4DD67AD7018C
 : ME_53D247C80021
  CONST Class class_Dependency
  : Stereotype st_injects_this::Dependency ;
- : Parent ME_49DB2E390053 // TevCommentParaPainter
+ : Parent HWL ME_49DB2E390053 // TevCommentParaPainter
  ;
  : Target WL 'ME_47C7DC2801FB' '49D2080D020C.pas.ms.script' // IevPainter
  ;
@@ -1791,13 +1791,13 @@ ref; // ME_4804B9BB0383_ME_49DB2E390053 GetFramePartPrim
 ref; // ME_4804C35B00B2_ME_49DB2E390053 DoDrawFrameText
 
 : ME_49DB1B9E0191_ME_49DB2E390053
- : Original ME_49DB1B9E0191 // DrawFrameName
+ : Original HWL ME_49DB1B9E0191 // DrawFrameName
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_49DB1B9E0191_ME_49DB2E390053 DrawFrameName
 
 : ME_49DB1BF30312_ME_49DB2E390053
- : Original ME_49DB1BF30312 // NeedDrawPlus
+ : Original HWL ME_49DB1BF30312 // NeedDrawPlus
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_49DB1BF30312_ME_49DB2E390053 NeedDrawPlus
@@ -1811,10 +1811,10 @@ ref; // ME_49DB1BF30312_ME_49DB2E390053 NeedDrawPlus
  %SUMMARY 'Реализация интерфейса IevPainter для блока с комментариями' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_49DCC860038B // ParaList Painters
+ : Parent HWL ME_49DCC860038B // ParaList Painters
  ;
  : Inherits
-   Seq: ( ME_49DB1B70013F // TevDocumentPartPainter
+   Seq: ( HWL ME_49DB1B70013F // TevDocumentPartPainter
  )
  ; // Inherits
  : Overridden
@@ -1854,7 +1854,7 @@ FORWARD ME_49DB469F01B8
 : ME_49DB48C000CD
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_49DB469F01B8 // TevControlsBlockPainter
+ : Parent HWL ME_49DB469F01B8 // TevControlsBlockPainter
  ;
  : Target WL 'ME_4773DEF0021B' '47913B47006E.pas.ms.script' // Tl3CustomString
  ;
@@ -1864,7 +1864,7 @@ ref; // ME_49DB48C000CD
 : ME_49DB48CF0004
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_49DB469F01B8 // TevControlsBlockPainter
+ : Parent HWL ME_49DB469F01B8 // TevControlsBlockPainter
  ;
  : Target WL 'ME_4728C6AC0070' '467C0CAA02AB.pas.ms.script' // Il3ImageList
  ;
@@ -1874,7 +1874,7 @@ ref; // ME_49DB48CF0004
 : ME_49DB48D90066
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_49DB469F01B8 // TevControlsBlockPainter
+ : Parent HWL ME_49DB469F01B8 // TevControlsBlockPainter
  ;
  : Target WL 'ME_4727456300E7' '472745450206.pas.ms.script' // Tl3Point
  ;
@@ -1884,7 +1884,7 @@ ref; // ME_49DB48D90066
 : ME_49DB48EF017C
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_49DB469F01B8 // TevControlsBlockPainter
+ : Parent HWL ME_49DB469F01B8 // TevControlsBlockPainter
  ;
  : Target WL 'ME_4857B15A000E' '47F1F38601A3.pas.ms.script' // evDocumentPart
  ;
@@ -1894,7 +1894,7 @@ ref; // ME_49DB48EF017C
 : ME_49DB490702C2
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_49DB469F01B8 // TevControlsBlockPainter
+ : Parent HWL ME_49DB469F01B8 // TevControlsBlockPainter
  ;
  : Target WL 'ME_485683750360' '48492FC0029D.pas.ms.script' // TextPara
  ;
@@ -1904,7 +1904,7 @@ ref; // ME_49DB490702C2
 : ME_49DB4912012D
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_49DB469F01B8 // TevControlsBlockPainter
+ : Parent HWL ME_49DB469F01B8 // TevControlsBlockPainter
  ;
  : Target WL 'ME_476BE0660328' '476BE0350329.pas.ms.script' // Standard
  ;
@@ -1914,7 +1914,7 @@ ref; // ME_49DB4912012D
 : ME_49DB49D90077
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_49DB469F01B8 // TevControlsBlockPainter
+ : Parent HWL ME_49DB469F01B8 // TevControlsBlockPainter
  ;
  : Target WL 'ME_47C69EBC00A8' '47AC75550330.pas.ms.script' // Tk2TagID
  ;
@@ -1924,7 +1924,7 @@ ref; // ME_49DB49D90077
 : ME_49DB49E70367
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_49DB469F01B8 // TevControlsBlockPainter
+ : Parent HWL ME_49DB469F01B8 // TevControlsBlockPainter
  ;
  : Target WL 'ME_47AC6F0B025E' '49A58A1A03C4.pas.ms.script' // k2Base
  ;
@@ -1934,7 +1934,7 @@ ref; // ME_49DB49E70367
 : ME_49DB4A97032D
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_49DB469F01B8 // TevControlsBlockPainter
+ : Parent HWL ME_49DB469F01B8 // TevControlsBlockPainter
  ;
  : Target WL 'ME_485808D2028D' '485808AB001D.pas.ms.script' // ControlsBlockConst
  ;
@@ -1944,7 +1944,7 @@ ref; // ME_49DB4A97032D
 : ME_49DB4ABA01D4
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_49DB469F01B8 // TevControlsBlockPainter
+ : Parent HWL ME_49DB469F01B8 // TevControlsBlockPainter
  ;
  : Target WL 'ME_47CFFEDE0215' '47CEBC900123.pas.ms.script' // evControlParaTools
  ;
@@ -1954,7 +1954,7 @@ ref; // ME_49DB4ABA01D4
 : ME_49DB4ACB0255
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_49DB469F01B8 // TevControlsBlockPainter
+ : Parent HWL ME_49DB469F01B8 // TevControlsBlockPainter
  ;
  : Target WL 'ME_469245FB0354' '469D0AC7005E.pas.ms.script' // ControlType
  ;
@@ -1964,7 +1964,7 @@ ref; // ME_49DB4ACB0255
 : ME_4D7240C2006F
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_49DB469F01B8 // TevControlsBlockPainter
+ : Parent HWL ME_49DB469F01B8 // TevControlsBlockPainter
  ;
  : Target WL 'ME_4799ED060093' '4799EC9300AF.pas.ms.script' // l3Defaults
  ;
@@ -1974,7 +1974,7 @@ ref; // ME_4D7240C2006F
 : ME_4D7240DF02BF
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_49DB469F01B8 // TevControlsBlockPainter
+ : Parent HWL ME_49DB469F01B8 // TevControlsBlockPainter
  ;
  : Target WL 'ME_47CBD5980343' '55C4AEC801CA.pas.ms.script' // Colors
  ;
@@ -1984,7 +1984,7 @@ ref; // ME_4D7240DF02BF
 : ME_4DD67AA80086
  CONST Class class_Dependency
  : Stereotype st_injects::Dependency ;
- : Parent ME_49DB469F01B8 // TevControlsBlockPainter
+ : Parent HWL ME_49DB469F01B8 // TevControlsBlockPainter
  ;
  : Target WL 'ME_485807480091' '53D258F1004F.pas.ms.script' // TevControlsBlock
  ;
@@ -1995,7 +1995,7 @@ ref; // ME_4DD67AA80086
 : ME_4E133C7900B9
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_49DB469F01B8 // TevControlsBlockPainter
+ : Parent HWL ME_49DB469F01B8 // TevControlsBlockPainter
  ;
  : Target WL 'ME_4E13366702E2' '48492FC0029D.pas.ms.script' // Cloak
  ;
@@ -2005,7 +2005,7 @@ ref; // ME_4E133C7900B9
 : ME_4E1431F100C1
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_49DB469F01B8 // TevControlsBlockPainter
+ : Parent HWL ME_49DB469F01B8 // TevControlsBlockPainter
  ;
  : Target WL 'ME_47E0C36201C7' '537B83AD01F0.pas.ms.script' // l3Math
  ;
@@ -2015,7 +2015,7 @@ ref; // ME_4E1431F100C1
 : ME_4E144F740077
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_49DB469F01B8 // TevControlsBlockPainter
+ : Parent HWL ME_49DB469F01B8 // TevControlsBlockPainter
  ;
  : Target WL 'ME_4D5936FC01A0' '4678209200A6.pas.ms.script' // TnevControlImageInfo
  ;
@@ -2025,7 +2025,7 @@ ref; // ME_4E144F740077
 : ME_4E16F0F900BB
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_49DB469F01B8 // TevControlsBlockPainter
+ : Parent HWL ME_49DB469F01B8 // TevControlsBlockPainter
  ;
  : Target WL 'ME_47AC7CF90230' '47A1D4C201E8.pas.ms.script' // L3 Core Consts
  ;
@@ -2035,7 +2035,7 @@ ref; // ME_4E16F0F900BB
 : ME_4E85CB3A0299
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_49DB469F01B8 // TevControlsBlockPainter
+ : Parent HWL ME_49DB469F01B8 // TevControlsBlockPainter
  ;
  : Target WL 'ME_47209E670266' '4678193C009C.pas.ms.script' // Tl3PCharLen
  ;
@@ -2045,7 +2045,7 @@ ref; // ME_4E85CB3A0299
 : ME_4E85CB490292
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_49DB469F01B8 // TevControlsBlockPainter
+ : Parent HWL ME_49DB469F01B8 // TevControlsBlockPainter
  ;
  : Target WL 'ME_47878E0E0191' '54B90AC6014B.pas.ms.script' // l3String
  ;
@@ -2055,7 +2055,7 @@ ref; // ME_4E85CB490292
 : ME_4ED4DDCF032F
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_49DB469F01B8 // TevControlsBlockPainter
+ : Parent HWL ME_49DB469F01B8 // TevControlsBlockPainter
  ;
  : Target WL 'ME_4ED4DDA10234' '48492FC0029D.pas.ms.script' // NodeGroup
  ;
@@ -2065,7 +2065,7 @@ ref; // ME_4ED4DDCF032F
 : ME_4ED4DDE00036
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_49DB469F01B8 // TevControlsBlockPainter
+ : Parent HWL ME_49DB469F01B8 // TevControlsBlockPainter
  ;
  : Target WL 'ME_4E13366702E2' '48492FC0029D.pas.ms.script' // Cloak
  ;
@@ -2075,7 +2075,7 @@ ref; // ME_4ED4DDE00036
 : ME_4ED4DE09012A
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_49DB469F01B8 // TevControlsBlockPainter
+ : Parent HWL ME_49DB469F01B8 // TevControlsBlockPainter
  ;
  : Target WL 'ME_485806FC032D' '48492FC0029D.pas.ms.script' // ControlsBlock
  ;
@@ -2085,7 +2085,7 @@ ref; // ME_4ED4DE09012A
 : ME_53D6367E008F
  CONST Class class_Dependency
  : Stereotype st_injects_this::Dependency ;
- : Parent ME_49DB469F01B8 // TevControlsBlockPainter
+ : Parent HWL ME_49DB469F01B8 // TevControlsBlockPainter
  ;
  : Target WL 'ME_47C7DC2801FB' '49D2080D020C.pas.ms.script' // IevPainter
  ;
@@ -2117,7 +2117,7 @@ ref; // ME_4804C35B00B2_ME_49DB469F01B8 DoDrawFrameText
 ref; // ME_481D6CCF016D_ME_49DB469F01B8 NeedCheckTopAnchor
 
 : ME_49DB1B9E0191_ME_49DB469F01B8
- : Original ME_49DB1B9E0191 // DrawFrameName
+ : Original HWL ME_49DB1B9E0191 // DrawFrameName
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_49DB1B9E0191_ME_49DB469F01B8 DrawFrameName
@@ -2137,10 +2137,10 @@ ref; // ME_4D9AF3680146_ME_49DB469F01B8 IsTopAnchorAtStart
  %SUMMARY 'Рисователь группы контролов' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_49DCC860038B // ParaList Painters
+ : Parent HWL ME_49DCC860038B // ParaList Painters
  ;
  : Inherits
-   Seq: ( ME_49DB1B70013F // TevDocumentPartPainter
+   Seq: ( HWL ME_49DB1B70013F // TevDocumentPartPainter
  )
  ; // Inherits
  : Implements
@@ -2202,7 +2202,7 @@ FORWARD ME_48C91428029E
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_48C91428029E // TevSelectedPart
+ : Parent HWL ME_48C91428029E // TevSelectedPart
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -2216,7 +2216,7 @@ ref; // ME_48C914380253 rRowIndex
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_48C91428029E // TevSelectedPart
+ : Parent HWL ME_48C91428029E // TevSelectedPart
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -2230,7 +2230,7 @@ ref; // ME_48C9144101BB rWidth
  CONST Visibility PublicAccess
  CONST Abstraction at_final
  CONST LinkType lt_agr
- : Parent ME_48C91428029E // TevSelectedPart
+ : Parent HWL ME_48C91428029E // TevSelectedPart
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -2244,7 +2244,7 @@ ref; // ME_4FD8731A039E rSelection
  CONST Visibility PublicAccess
  CONST Abstraction at_final
  CONST LinkType lt_agr
- : Parent ME_48C91428029E // TevSelectedPart
+ : Parent HWL ME_48C91428029E // TevSelectedPart
  ;
  : Target WL 'ME_47C59DE803AD' '4678209200A6.pas.ms.script' // TnevPoint
  ;
@@ -2259,13 +2259,13 @@ ref; // ME_49DCB3DE0296 rWindowOrg
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_48C911C702A4 // TevSelectedParts
+ : Parent HWL ME_48C911C702A4 // TevSelectedParts
  ;
  : Attributes
-   Seq: ( ME_48C914380253 // rRowIndex
- ME_48C9144101BB // rWidth
- ME_4FD8731A039E // rSelection
- ME_49DCB3DE0296 // rWindowOrg
+   Seq: ( HWL ME_48C914380253 // rRowIndex
+ HWL ME_48C9144101BB // rWidth
+ HWL ME_4FD8731A039E // rSelection
+ HWL ME_49DCB3DE0296 // rWindowOrg
  )
  ; // Attributes
 
@@ -2279,9 +2279,9 @@ ref; // ME_48C91428029E TevSelectedPart
  CONST Visibility PrivateAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_48C911C702A4 // TevSelectedParts
+ : Parent HWL ME_48C911C702A4 // TevSelectedParts
  ;
- : Target ME_48C91428029E // TevSelectedPart
+ : Target HWL ME_48C91428029E // TevSelectedPart
  ;
 
 ref; // ME_48C9181101C3 ItemType
@@ -2316,7 +2316,7 @@ ref; // ME_47B99D4503A2_ME_48C911C702A4 CompareExistingItems
  %SUMMARY 'Коллекция выделенных прямоугольников' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_49DCC860038B // ParaList Painters
+ : Parent HWL ME_49DCC860038B // ParaList Painters
  ;
  : Inherits
    Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
@@ -2324,7 +2324,7 @@ ref; // ME_47B99D4503A2_ME_48C911C702A4 CompareExistingItems
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_48C9181101C3 // ItemType
+   Seq: ( HWL ME_48C9181101C3 // ItemType
  )
  ; // Attributes
  : Implemented
@@ -2334,7 +2334,7 @@ ref; // ME_47B99D4503A2_ME_48C911C702A4 CompareExistingItems
  )
  ; // Implemented
  : Children
-   Seq: ( ME_48C91428029E // TevSelectedPart
+   Seq: ( HWL ME_48C91428029E // TevSelectedPart
  )
  ; // Children
  CONST "author" 'Люлин А.В.'
@@ -2357,9 +2357,9 @@ FORWARD ME_48C928EE0282
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_48C928EE0282 // evDelayedPainters
+ : Parent HWL ME_48C928EE0282 // evDelayedPainters
  ;
- : Target ME_48C911C702A4 // TevSelectedParts
+ : Target HWL ME_48C911C702A4 // TevSelectedParts
  ;
 
 ref; // ME_48C9291B03C6 f_SelectedList
@@ -2372,7 +2372,7 @@ ref; // ME_48C9291B03C6 f_SelectedList
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_48C928EE0282 // evDelayedPainters
+ : Parent HWL ME_48C928EE0282 // evDelayedPainters
  ;
  : Target WL 'ME_47BB29D40117' '47913B47006E.pas.ms.script' // Tl3LongintList
  ;
@@ -2385,7 +2385,7 @@ ref; // ME_48C929410274 f_RowHeights
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_48C928EE0282 // evDelayedPainters
+ : Parent HWL ME_48C928EE0282 // evDelayedPainters
  ;
  : Target WL 'ME_47BB29D40117' '47913B47006E.pas.ms.script' // Tl3LongintList
  ;
@@ -2398,7 +2398,7 @@ ref; // ME_48C9294D0370 GetRowHeights
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_48C928EE0282 // evDelayedPainters
+ : Parent HWL ME_48C928EE0282 // evDelayedPainters
  ;
 
 ref; // ME_48C929A40284 PaintSelectionParts
@@ -2410,7 +2410,7 @@ ref; // ME_48C929A40284 PaintSelectionParts
  : Stereotype st_override::Operation ;
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_48C928EE0282 // evDelayedPainters
+ : Parent HWL ME_48C928EE0282 // evDelayedPainters
  ;
  CONST "is static" false
 
@@ -2423,7 +2423,7 @@ ref; // ME_4A56234C0060 Release
  : Stereotype st_override::Operation ;
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_48C928EE0282 // evDelayedPainters
+ : Parent HWL ME_48C928EE0282 // evDelayedPainters
  ;
  CONST "is static" false
 
@@ -2432,7 +2432,7 @@ ref; // ME_4A56235D01C9 BeforeAddToCache
 : ME_48C92A90037B
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_48C928EE0282 // evDelayedPainters
+ : Parent HWL ME_48C928EE0282 // evDelayedPainters
  ;
  : Target WL 'ME_4727456300E7' '472745450206.pas.ms.script' // Tl3Point
  ;
@@ -2442,7 +2442,7 @@ ref; // ME_48C92A90037B
 : ME_48C92B8F0121
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_48C928EE0282 // evDelayedPainters
+ : Parent HWL ME_48C928EE0282 // evDelayedPainters
  ;
  : Target WL 'ME_4773D64E036C' '47913B47006E.pas.ms.script' // l3Base
  ;
@@ -2454,9 +2454,9 @@ FORWARD ME_4D6F3F42007C
 : ME_4D6F3F9E0228
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_48C928EE0282 // evDelayedPainters
+ : Parent HWL ME_48C928EE0282 // evDelayedPainters
  ;
- : Target ME_4D6F3F42007C // TevDelayedPaintersSpy
+ : Target HWL ME_4D6F3F42007C // TevDelayedPaintersSpy
  ;
  CONST "ifdef" 'nsTest'
 
@@ -2482,22 +2482,22 @@ ref; // ME_47C7DE42020F_ME_48C928EE0282 SetHeight
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_49DCC860038B // ParaList Painters
+ : Parent HWL ME_49DCC860038B // ParaList Painters
  ;
  : Implements
    Seq: ( WL 'ME_47C7DE24022A' '49D2080D020C.pas.ms.script' // InevPaintersHolder
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_48C9291B03C6 // f_SelectedList
- ME_48C929410274 // f_RowHeights
+   Seq: ( HWL ME_48C9291B03C6 // f_SelectedList
+ HWL ME_48C929410274 // f_RowHeights
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_48C9294D0370 // GetRowHeights
- ME_48C929A40284 // PaintSelectionParts
- ME_4A56234C0060 // Release
- ME_4A56235D01C9 // BeforeAddToCache
+   Seq: ( HWL ME_48C9294D0370 // GetRowHeights
+ HWL ME_48C929A40284 // PaintSelectionParts
+ HWL ME_4A56234C0060 // Release
+ HWL ME_4A56235D01C9 // BeforeAddToCache
  )
  ; // Operations
  : Implemented
@@ -2530,7 +2530,7 @@ FORWARD ME_51B96E5A0285
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_51B96E5A0285 // GetFameObjectBehaviur
+ : Parent HWL ME_51B96E5A0285 // GetFameObjectBehaviur
  ;
  : Target WL 'ME_51B9640502D4' '467C0CAA02AB.pas.ms.script' // Tl3FrameObjectBehaviour
  ;
@@ -2545,10 +2545,10 @@ ref; // ME_51B96E860363 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_48C9300A02EF // TevFramedParaListPainter
+ : Parent HWL ME_48C9300A02EF // TevFramedParaListPainter
  ;
  : Operations
-   Seq: ( ME_51B96E860363 // DoIt
+   Seq: ( HWL ME_51B96E860363 // DoIt
  )
  ; // Operations
 
@@ -2560,7 +2560,7 @@ ref; // ME_51B96E5A0285 GetFameObjectBehaviur
  CONST Class class_Operation
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_48C9300A02EF // TevFramedParaListPainter
+ : Parent HWL ME_48C9300A02EF // TevFramedParaListPainter
  ;
  : Target WL 'ME_475E5EC90186' '4677FBA70343.pas.ms.script' // Tl3LinesColorArray
  ;
@@ -2574,7 +2574,7 @@ ref; // ME_48C9339E0013 GetColorArray
  %SUMMARY 'Поддерживает ли табличный объект запись в лог для тестов.' ;
  CONST Visibility ProtectedAccess
  CONST Abstraction at_abstract
- : Parent ME_48C9300A02EF // TevFramedParaListPainter
+ : Parent HWL ME_48C9300A02EF // TevFramedParaListPainter
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -2585,7 +2585,7 @@ ref; // ME_4D0203AA016F NeedLog
 : ME_48C9335D0133
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_48C9300A02EF // TevFramedParaListPainter
+ : Parent HWL ME_48C9300A02EF // TevFramedParaListPainter
  ;
  : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
  ;
@@ -2595,7 +2595,7 @@ ref; // ME_48C9335D0133
 : ME_48C934420187
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_48C9300A02EF // TevFramedParaListPainter
+ : Parent HWL ME_48C9300A02EF // TevFramedParaListPainter
  ;
  : Target WL 'ME_47D15712022D' '55C4AEC801CA.pas.ms.script' // Graphics
  ;
@@ -2605,7 +2605,7 @@ ref; // ME_48C934420187
 : ME_527A46A402F2
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_48C9300A02EF // TevFramedParaListPainter
+ : Parent HWL ME_48C9300A02EF // TevFramedParaListPainter
  ;
  : Target WL 'ME_47AC6F0B025E' '49A58A1A03C4.pas.ms.script' // k2Base
  ;
@@ -2615,7 +2615,7 @@ ref; // ME_527A46A402F2
 : ME_52BD340C0308
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_48C9300A02EF // TevFramedParaListPainter
+ : Parent HWL ME_48C9300A02EF // TevFramedParaListPainter
  ;
  : Target WL 'ME_47C69EBC00A8' '47AC75550330.pas.ms.script' // Tk2TagID
  ;
@@ -2661,17 +2661,17 @@ ref; // ME_49DB948303B9_ME_48C9300A02EF GetPaintersHolder
  %SUMMARY 'общая функциональность для рисователей таблиц' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_49DCC860038B // ParaList Painters
+ : Parent HWL ME_49DCC860038B // ParaList Painters
  ;
  : Inherits
-   Seq: ( ME_48C928EE0282 // evDelayedPainters
- ME_49DB5FEF01D8 // TevParaListPainter
+   Seq: ( HWL ME_48C928EE0282 // evDelayedPainters
+ HWL ME_49DB5FEF01D8 // TevParaListPainter
  )
  ; // Inherits
  : Operations
-   Seq: ( ME_51B96E5A0285 // GetFameObjectBehaviur
- ME_48C9339E0013 // GetColorArray
- ME_4D0203AA016F // NeedLog
+   Seq: ( HWL ME_51B96E5A0285 // GetFameObjectBehaviur
+ HWL ME_48C9339E0013 // GetColorArray
+ HWL ME_4D0203AA016F // NeedLog
  )
  ; // Operations
  : Overridden
@@ -2708,7 +2708,7 @@ FORWARD ME_48C9377502A0
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_48C9377502A0 // TevTablePainter
+ : Parent HWL ME_48C9377502A0 // TevTablePainter
  ;
  : Target WL 'ME_49CB6E880188' '4E451815031E.pas.ms.script' // TevCellsOffsets
  ;
@@ -2721,7 +2721,7 @@ ref; // ME_4A562822030E f_CellsOffsets
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_48C9377502A0 // TevTablePainter
+ : Parent HWL ME_48C9377502A0 // TevTablePainter
  ;
  : Target WL 'ME_49CB6E880188' '4E451815031E.pas.ms.script' // TevCellsOffsets
  ;
@@ -2731,7 +2731,7 @@ ref; // ME_49CB6F2D03C8 CellsOffsets
 : ME_49CB7EA80281
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_48C9377502A0 // TevTablePainter
+ : Parent HWL ME_48C9377502A0 // TevTablePainter
  ;
  : Target WL 'ME_47C69EBC00A8' '47AC75550330.pas.ms.script' // Tk2TagID
  ;
@@ -2741,7 +2741,7 @@ ref; // ME_49CB7EA80281
 : ME_49CB7F1E0073
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_48C9377502A0 // TevTablePainter
+ : Parent HWL ME_48C9377502A0 // TevTablePainter
  ;
  : Target WL 'ME_468E49730365' '469D0AC7005E.pas.ms.script' // MergeStatus
  ;
@@ -2751,7 +2751,7 @@ ref; // ME_49CB7F1E0073
 : ME_49CB808701F0
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_48C9377502A0 // TevTablePainter
+ : Parent HWL ME_48C9377502A0 // TevTablePainter
  ;
  : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
  ;
@@ -2761,7 +2761,7 @@ ref; // ME_49CB808701F0
 : ME_4DD67A8D02FF
  CONST Class class_Dependency
  : Stereotype st_injects::Dependency ;
- : Parent ME_48C9377502A0 // TevTablePainter
+ : Parent HWL ME_48C9377502A0 // TevTablePainter
  ;
  : Target WL 'ME_4857E163036B' '53D258F1004F.pas.ms.script' // TevTable
  ;
@@ -2772,7 +2772,7 @@ ref; // ME_4DD67A8D02FF
 : ME_52B158D20205
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_48C9377502A0 // TevTablePainter
+ : Parent HWL ME_48C9377502A0 // TevTablePainter
  ;
  : Target WL 'ME_4FBDEF6A019B' '47F1F38601A3.pas.ms.script' // evHasOwnStyle
  ;
@@ -2782,7 +2782,7 @@ ref; // ME_52B158D20205
 : ME_53D6744000AF
  CONST Class class_Dependency
  : Stereotype st_injects_this::Dependency ;
- : Parent ME_48C9377502A0 // TevTablePainter
+ : Parent HWL ME_48C9377502A0 // TevTablePainter
  ;
  : Target WL 'ME_47C7DC2801FB' '49D2080D020C.pas.ms.script' // IevPainter
  ;
@@ -2808,7 +2808,7 @@ ref; // ME_49CB6C1A02DF_ME_48C9377502A0 CalcOffset
 ref; // ME_49CB6C2E02E2_ME_48C9377502A0 WasPainted
 
 : ME_4D0203AA016F_ME_48C9377502A0
- : Original ME_4D0203AA016F // NeedLog
+ : Original HWL ME_4D0203AA016F // NeedLog
  ;
  CONST OpKind opkind_Implemented
  CONST "ifdef" 'nsTest'
@@ -2877,10 +2877,10 @@ ref; // ME_4D63E3490015_ME_48C9377502A0 AfterDrawChild
  %SUMMARY 'Реализация интерфейса IevPainter для таблицы' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_49DCC860038B // ParaList Painters
+ : Parent HWL ME_49DCC860038B // ParaList Painters
  ;
  : Inherits
-   Seq: ( ME_48C9300A02EF // TevFramedParaListPainter
+   Seq: ( HWL ME_48C9300A02EF // TevFramedParaListPainter
  )
  ; // Inherits
  : Implements
@@ -2888,11 +2888,11 @@ ref; // ME_4D63E3490015_ME_48C9377502A0 AfterDrawChild
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_4A562822030E // f_CellsOffsets
+   Seq: ( HWL ME_4A562822030E // f_CellsOffsets
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_49CB6F2D03C8 // CellsOffsets
+   Seq: ( HWL ME_49CB6F2D03C8 // CellsOffsets
  )
  ; // Operations
  : Implemented
@@ -2938,7 +2938,7 @@ FORWARD ME_48C9390D0155
 : ME_53D0D8400038
  CONST Class class_Dependency
  : Stereotype st_injects::Dependency ;
- : Parent ME_48C9390D0155 // TevSBSPainter
+ : Parent HWL ME_48C9390D0155 // TevSBSPainter
  ;
  : Target WL 'ME_4857E36301AD' '53D258F1004F.pas.ms.script' // TevSBS
  ;
@@ -2949,7 +2949,7 @@ ref; // ME_53D0D8400038
 : ME_53D0D88801FF
  CONST Class class_Dependency
  : Stereotype st_injects_this::Dependency ;
- : Parent ME_48C9390D0155 // TevSBSPainter
+ : Parent HWL ME_48C9390D0155 // TevSBSPainter
  ;
  : Target WL 'ME_47C7DC2801FB' '49D2080D020C.pas.ms.script' // IevPainter
  ;
@@ -2957,7 +2957,7 @@ ref; // ME_53D0D8400038
 ref; // ME_53D0D88801FF 
 
 : ME_48C9339E0013_ME_48C9390D0155
- : Original ME_48C9339E0013 // GetColorArray
+ : Original HWL ME_48C9339E0013 // GetColorArray
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_48C9339E0013_ME_48C9390D0155 GetColorArray
@@ -2969,14 +2969,14 @@ ref; // ME_48C9339E0013_ME_48C9390D0155 GetColorArray
 ref; // ME_4CAF3D530327_ME_48C9390D0155 NeedsHackK235870994
 
 : ME_4D0203AA016F_ME_48C9390D0155
- : Original ME_4D0203AA016F // NeedLog
+ : Original HWL ME_4D0203AA016F // NeedLog
  ;
  CONST OpKind opkind_Overridden
  CONST "ifdef" 'nsTest'
 ref; // ME_4D0203AA016F_ME_48C9390D0155 NeedLog
 
 : ME_51B96E5A0285_ME_48C9390D0155
- : Original ME_51B96E5A0285 // GetFameObjectBehaviur
+ : Original HWL ME_51B96E5A0285 // GetFameObjectBehaviur
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_51B96E5A0285_ME_48C9390D0155 GetFameObjectBehaviur
@@ -2990,10 +2990,10 @@ ref; // ME_51B96E5A0285_ME_48C9390D0155 GetFameObjectBehaviur
  %SUMMARY 'Инструмент для рисования параграфа Side By Side' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_49DCC860038B // ParaList Painters
+ : Parent HWL ME_49DCC860038B // ParaList Painters
  ;
  : Inherits
-   Seq: ( ME_48C9377502A0 // TevTablePainter
+   Seq: ( HWL ME_48C9377502A0 // TevTablePainter
  )
  ; // Inherits
  : Overridden
@@ -3023,7 +3023,7 @@ FORWARD ME_4D63C57601A4
 : ME_4D63E88B0318
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4D63C57601A4 // TevReqGroupPainter
+ : Parent HWL ME_4D63C57601A4 // TevReqGroupPainter
  ;
  : Target WL 'ME_4728976B0154' '472745450206.pas.ms.script' // Tl3SRect
  ;
@@ -3033,7 +3033,7 @@ ref; // ME_4D63E88B0318
 : ME_4D63E8A00145
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4D63C57601A4 // TevReqGroupPainter
+ : Parent HWL ME_4D63C57601A4 // TevReqGroupPainter
  ;
  : Target WL 'ME_46A5ECB20217' '4677FBA70343.pas.ms.script' // Tl3CheckBoxState
  ;
@@ -3043,7 +3043,7 @@ ref; // ME_4D63E8A00145
 : ME_4D63E8B40056
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4D63C57601A4 // TevReqGroupPainter
+ : Parent HWL ME_4D63C57601A4 // TevReqGroupPainter
  ;
  : Target WL 'ME_47C69EBC00A8' '47AC75550330.pas.ms.script' // Tk2TagID
  ;
@@ -3053,7 +3053,7 @@ ref; // ME_4D63E8B40056
 : ME_4D63FAB5015E
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4D63C57601A4 // TevReqGroupPainter
+ : Parent HWL ME_4D63C57601A4 // TevReqGroupPainter
  ;
  : Target WL 'ME_47A066980016' '537B83AD01F0.pas.ms.script' // l3MinMax
  ;
@@ -3063,7 +3063,7 @@ ref; // ME_4D63FAB5015E
 : ME_4D66458F019A
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4D63C57601A4 // TevReqGroupPainter
+ : Parent HWL ME_4D63C57601A4 // TevReqGroupPainter
  ;
  : Target WL 'ME_4727456300E7' '472745450206.pas.ms.script' // Tl3Point
  ;
@@ -3073,7 +3073,7 @@ ref; // ME_4D66458F019A
 : ME_53CE5F4E0122
  CONST Class class_Dependency
  : Stereotype st_injects::Dependency ;
- : Parent ME_4D63C57601A4 // TevReqGroupPainter
+ : Parent HWL ME_4D63C57601A4 // TevReqGroupPainter
  ;
  : Target WL 'ME_4D63C1860228' '53D258F1004F.pas.ms.script' // TevReqGroup
  ;
@@ -3084,7 +3084,7 @@ ref; // ME_53CE5F4E0122
 : ME_53CE5F570291
  CONST Class class_Dependency
  : Stereotype st_injects_this::Dependency ;
- : Parent ME_4D63C57601A4 // TevReqGroupPainter
+ : Parent HWL ME_4D63C57601A4 // TevReqGroupPainter
  ;
  : Target WL 'ME_47C7DC2801FB' '49D2080D020C.pas.ms.script' // IevPainter
  ;
@@ -3111,10 +3111,10 @@ ref; // ME_4D63E3490015_ME_4D63C57601A4 AfterDrawChild
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_49DCC860038B // ParaList Painters
+ : Parent HWL ME_49DCC860038B // ParaList Painters
  ;
  : Inherits
-   Seq: ( ME_48C9377502A0 // TevTablePainter
+   Seq: ( HWL ME_48C9377502A0 // TevTablePainter
  )
  ; // Inherits
  : Overridden
@@ -3151,7 +3151,7 @@ FORWARD ME_4D6F41500130
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4D6F41500130 // IevDelayedPainterLogger
+ : Parent HWL ME_4D6F41500130 // IevDelayedPainterLogger
  ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
@@ -3173,7 +3173,7 @@ ref; // ME_4D6F66CE0320 aLogName
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4D6F41500130 // IevDelayedPainterLogger
+ : Parent HWL ME_4D6F41500130 // IevDelayedPainterLogger
  ;
  : Parameters
    Seq: ( ME_4D6F66CE0320 // aLogName
@@ -3191,11 +3191,11 @@ ref; // ME_4D6F669C0185 CloseSelectionLog
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4D6F3F42007C // TevDelayedPaintersSpy
+ : Parent HWL ME_4D6F3F42007C // TevDelayedPaintersSpy
  ;
  : Operations
-   Seq: ( ME_4D6F66820158 // OpenSelectionLog
- ME_4D6F669C0185 // CloseSelectionLog
+   Seq: ( HWL ME_4D6F66820158 // OpenSelectionLog
+ HWL ME_4D6F669C0185 // CloseSelectionLog
  )
  ; // Operations
  CONST extprop:rc:SelfName 'DelayedPainterLogger'
@@ -3210,9 +3210,9 @@ ref; // ME_4D6F41500130 IevDelayedPainterLogger
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_ref
- : Parent ME_4D6F3F42007C // TevDelayedPaintersSpy
+ : Parent HWL ME_4D6F3F42007C // TevDelayedPaintersSpy
  ;
- : Target ME_4D6F41500130 // IevDelayedPainterLogger
+ : Target HWL ME_4D6F41500130 // IevDelayedPainterLogger
  ;
 
 ref; // ME_4D6F4B510332 f_Logger
@@ -3224,7 +3224,7 @@ ref; // ME_4D6F4B510332 f_Logger
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_ref
- : Parent ME_4D6F3F42007C // TevDelayedPaintersSpy
+ : Parent HWL ME_4D6F3F42007C // TevDelayedPaintersSpy
  ;
  : Target WL 'ME_47A0679D00E4' '47913B47006E.pas.ms.script' // Tl3CustomFiler
  ;
@@ -3237,7 +3237,7 @@ FORWARD ME_4D6F41880325
  CONST Name 'aLogger'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_4D6F41500130 // IevDelayedPainterLogger
+ : Target HWL ME_4D6F41500130 // IevDelayedPainterLogger
  ;
 
 ref; // ME_4D6F43B90124 aLogger
@@ -3248,7 +3248,7 @@ ref; // ME_4D6F43B90124 aLogger
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4D6F41880325 // SetLogger
+ : Parent HWL ME_4D6F41880325 // SetLogger
  ;
  : Parameters
    Seq: ( ME_4D6F43B90124 // aLogger
@@ -3265,10 +3265,10 @@ ref; // ME_4D6F43740076 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4D6F3F42007C // TevDelayedPaintersSpy
+ : Parent HWL ME_4D6F3F42007C // TevDelayedPaintersSpy
  ;
  : Operations
-   Seq: ( ME_4D6F43740076 // DoIt
+   Seq: ( HWL ME_4D6F43740076 // DoIt
  )
  ; // Operations
 
@@ -3280,7 +3280,7 @@ FORWARD ME_4D6F43CA0257
  CONST Name 'aLogger'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_4D6F41500130 // IevDelayedPainterLogger
+ : Target HWL ME_4D6F41500130 // IevDelayedPainterLogger
  ;
 
 ref; // ME_4D6F43F00304 aLogger
@@ -3291,7 +3291,7 @@ ref; // ME_4D6F43F00304 aLogger
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4D6F43CA0257 // RemoveLogger
+ : Parent HWL ME_4D6F43CA0257 // RemoveLogger
  ;
  : Parameters
    Seq: ( ME_4D6F43F00304 // aLogger
@@ -3308,10 +3308,10 @@ ref; // ME_4D6F43DA0200 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4D6F3F42007C // TevDelayedPaintersSpy
+ : Parent HWL ME_4D6F3F42007C // TevDelayedPaintersSpy
  ;
  : Operations
-   Seq: ( ME_4D6F43DA0200 // DoIt
+   Seq: ( HWL ME_4D6F43DA0200 // DoIt
  )
  ; // Operations
 
@@ -3325,7 +3325,7 @@ FORWARD ME_4D6F440500EE
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4D6F440500EE // Exists
+ : Parent HWL ME_4D6F440500EE // Exists
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -3340,10 +3340,10 @@ ref; // ME_4D6F4424024D DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4D6F3F42007C // TevDelayedPaintersSpy
+ : Parent HWL ME_4D6F3F42007C // TevDelayedPaintersSpy
  ;
  : Operations
-   Seq: ( ME_4D6F4424024D // DoIt
+   Seq: ( HWL ME_4D6F4424024D // DoIt
  )
  ; // Operations
  CONST "is static" true
@@ -3356,7 +3356,7 @@ FORWARD ME_4D6F4C1700DC
  CONST Name 'aSelParts'
  CONST Class class_Parameter
  : Stereotype st_const ;
- : Target ME_48C911C702A4 // TevSelectedParts
+ : Target HWL ME_48C911C702A4 // TevSelectedParts
  ;
 
 ref; // ME_4D6F6CE7022E aSelParts
@@ -3376,7 +3376,7 @@ ref; // ME_4D6F6CE7025C aRowHeights
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4D6F4C1700DC // LogSelections
+ : Parent HWL ME_4D6F4C1700DC // LogSelections
  ;
  : Parameters
    Seq: ( ME_4D6F6CE7022E // aSelParts
@@ -3394,10 +3394,10 @@ ref; // ME_4D6F4C3B0360 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4D6F3F42007C // TevDelayedPaintersSpy
+ : Parent HWL ME_4D6F3F42007C // TevDelayedPaintersSpy
  ;
  : Operations
-   Seq: ( ME_4D6F4C3B0360 // DoIt
+   Seq: ( HWL ME_4D6F4C3B0360 // DoIt
  )
  ; // Operations
 
@@ -3406,7 +3406,7 @@ ref; // ME_4D6F4C1700DC LogSelections
 : ME_4D6F5B22038F
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4D6F3F42007C // TevDelayedPaintersSpy
+ : Parent HWL ME_4D6F3F42007C // TevDelayedPaintersSpy
  ;
  : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
  ;
@@ -3416,7 +3416,7 @@ ref; // ME_4D6F5B22038F
 : ME_4D6F7AB200D9
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4D6F3F42007C // TevDelayedPaintersSpy
+ : Parent HWL ME_4D6F3F42007C // TevDelayedPaintersSpy
  ;
  : Target WL 'ME_48F4BE400154' '4678193C009C.pas.ms.script' // Tl3FileMode
  ;
@@ -3437,22 +3437,22 @@ ref; // ME_479731C50290_ME_4D6F3F42007C Cleanup
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_49DCC860038B // ParaList Painters
+ : Parent HWL ME_49DCC860038B // ParaList Painters
  ;
  : Inherits
    Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_4D6F4B510332 // f_Logger
- ME_4D6F4B7700AB // f_Filer
+   Seq: ( HWL ME_4D6F4B510332 // f_Logger
+ HWL ME_4D6F4B7700AB // f_Filer
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_4D6F41880325 // SetLogger
- ME_4D6F43CA0257 // RemoveLogger
- ME_4D6F440500EE // Exists
- ME_4D6F4C1700DC // LogSelections
+   Seq: ( HWL ME_4D6F41880325 // SetLogger
+ HWL ME_4D6F43CA0257 // RemoveLogger
+ HWL ME_4D6F440500EE // Exists
+ HWL ME_4D6F4C1700DC // LogSelections
  )
  ; // Operations
  : Overridden
@@ -3460,7 +3460,7 @@ ref; // ME_479731C50290_ME_4D6F3F42007C Cleanup
  )
  ; // Overridden
  : Children
-   Seq: ( ME_4D6F41500130 // IevDelayedPainterLogger
+   Seq: ( HWL ME_4D6F41500130 // IevDelayedPainterLogger
  )
  ; // Children
  : Dependencies
@@ -3482,7 +3482,7 @@ FORWARD ME_50D3F54E00A8
 : ME_53D667F403CC
  CONST Class class_Dependency
  : Stereotype st_injects::Dependency ;
- : Parent ME_50D3F54E00A8 // TevReqRowPainter
+ : Parent HWL ME_50D3F54E00A8 // TevReqRowPainter
  ;
  : Target WL 'ME_4857EAD30281' '53D258F1004F.pas.ms.script' // TevReqRow
  ;
@@ -3493,7 +3493,7 @@ ref; // ME_53D667F403CC
 : ME_53D668150164
  CONST Class class_Dependency
  : Stereotype st_injects_this::Dependency ;
- : Parent ME_50D3F54E00A8 // TevReqRowPainter
+ : Parent HWL ME_50D3F54E00A8 // TevReqRowPainter
  ;
  : Target WL 'ME_47C7DC2801FB' '49D2080D020C.pas.ms.script' // IevPainter
  ;
@@ -3508,10 +3508,10 @@ ref; // ME_53D668150164
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_49DCC860038B // ParaList Painters
+ : Parent HWL ME_49DCC860038B // ParaList Painters
  ;
  : Inherits
-   Seq: ( ME_48C7E98600AB // TevTableRowPainter
+   Seq: ( HWL ME_48C7E98600AB // TevTableRowPainter
  )
  ; // Inherits
  : Dependencies
@@ -3537,22 +3537,22 @@ ref; // ME_50D3F54E00A8 TevReqRowPainter
  : Parent WL 'ME_4797632D0273' '4797632D0273.pas.ms.script' // Everest
  ;
  : Children
-   Seq: ( ME_49DB5FEF01D8 // TevParaListPainter
- ME_49DA417B010F // TevDocumentPainter
- ME_48C7E98600AB // TevTableRowPainter
- ME_481D6D3F003F // TevTableCellPainter
- ME_49DA43AA01B9 // TevSBSCellPainter
- ME_49DB1B70013F // TevDocumentPartPainter
- ME_49DB2E390053 // TevCommentParaPainter
- ME_49DB469F01B8 // TevControlsBlockPainter
- ME_48C911C702A4 // TevSelectedParts
- ME_48C928EE0282 // evDelayedPainters
- ME_48C9300A02EF // TevFramedParaListPainter
- ME_48C9377502A0 // TevTablePainter
- ME_48C9390D0155 // TevSBSPainter
- ME_4D63C57601A4 // TevReqGroupPainter
- ME_4D6F3F42007C // TevDelayedPaintersSpy
- ME_50D3F54E00A8 // TevReqRowPainter
+   Seq: ( HWL ME_49DB5FEF01D8 // TevParaListPainter
+ HWL ME_49DA417B010F // TevDocumentPainter
+ HWL ME_48C7E98600AB // TevTableRowPainter
+ HWL ME_481D6D3F003F // TevTableCellPainter
+ HWL ME_49DA43AA01B9 // TevSBSCellPainter
+ HWL ME_49DB1B70013F // TevDocumentPartPainter
+ HWL ME_49DB2E390053 // TevCommentParaPainter
+ HWL ME_49DB469F01B8 // TevControlsBlockPainter
+ HWL ME_48C911C702A4 // TevSelectedParts
+ HWL ME_48C928EE0282 // evDelayedPainters
+ HWL ME_48C9300A02EF // TevFramedParaListPainter
+ HWL ME_48C9377502A0 // TevTablePainter
+ HWL ME_48C9390D0155 // TevSBSPainter
+ HWL ME_4D63C57601A4 // TevReqGroupPainter
+ HWL ME_4D6F3F42007C // TevDelayedPaintersSpy
+ HWL ME_50D3F54E00A8 // TevReqRowPainter
  )
  ; // Children
  : Depends

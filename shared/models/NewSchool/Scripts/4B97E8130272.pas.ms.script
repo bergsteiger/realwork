@@ -1,0 +1,316 @@
+// TvtOutlinerWithDragDrop 4B97E8130272 GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B97E8130272
+
+FORWARD ME_51BB14E6006F
+
+: ME_51BB1554038A
+ CONST Name 'aNode'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
+ ;
+
+ref; // ME_51BB1554038A aNode
+
+: ME_51BB155403A2
+ CONST Name 'aOkEffect'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_4DE60F5E00A6' '4AB0C3C60310.pas.ms.script' // LongInt
+ ;
+
+ref; // ME_51BB155403A2 aOkEffect
+
+: ME_51BB154A0151
+ CONST UID '51BB154A0151'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_51BB14E6006F // Tl3CanBeginDrag
+ ;
+ : Parameters
+   Seq: ( ME_51BB1554038A // aNode
+ ME_51BB155403A2 // aOkEffect
+ )
+ ; // Parameters
+
+ref; // ME_51BB154A0151 DoIt
+
+: ME_51BB14E6006F
+ CONST UID '51BB14E6006F'
+ CONST Name 'Tl3CanBeginDrag'
+ CONST Class class_Class
+ : Stereotype st_Function ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4B97E8130272 // TvtOutlinerWithDragDrop
+ ;
+ : Operations
+   Seq: ( HWL ME_51BB154A0151 // DoIt
+ )
+ ; // Operations
+ CONST "of object" true
+
+ref; // ME_51BB14E6006F Tl3CanBeginDrag
+
+FORWARD ME_51BB152A02AD
+
+: ME_51BB4AE802AA
+ CONST Name 'aData'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A0E6FF037E' '46A0E6C5023A.pas.ms.script' // IDataObject
+ ;
+
+ref; // ME_51BB4AE802AA aData
+
+: ME_51BB157703A6
+ CONST UID '51BB157703A6'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_51BB152A02AD // Tl3CanAcceptData
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   Seq: ( ME_51BB4AE802AA // aData
+ )
+ ; // Parameters
+
+ref; // ME_51BB157703A6 DoIt
+
+: ME_51BB152A02AD
+ CONST UID '51BB152A02AD'
+ CONST Name 'Tl3CanAcceptData'
+ CONST Class class_Class
+ : Stereotype st_Function ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4B97E8130272 // TvtOutlinerWithDragDrop
+ ;
+ : Operations
+   Seq: ( HWL ME_51BB157703A6 // DoIt
+ )
+ ; // Operations
+ CONST "of object" true
+
+ref; // ME_51BB152A02AD Tl3CanAcceptData
+
+FORWARD ME_51BB15370161
+
+: ME_51BB159E036C
+ CONST Name 'aData'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
+ ;
+
+ref; // ME_51BB159E036C aData
+
+: ME_51BB159E0383
+ CONST Name 'aWantMenu'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_51BB159E0383 aWantMenu
+
+: ME_51BB159E0399
+ CONST Name 'dwEffect'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_4DE60F5E00A6' '4AB0C3C60310.pas.ms.script' // LongInt
+ ;
+
+ref; // ME_51BB159E0399 dwEffect
+
+: ME_51BB1593024E
+ CONST UID '51BB1593024E'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_51BB15370161 // Tl3DoDrop
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   Seq: ( ME_51BB159E036C // aData
+ ME_51BB159E0383 // aWantMenu
+ ME_51BB159E0399 // dwEffect
+ )
+ ; // Parameters
+
+ref; // ME_51BB1593024E DoIt
+
+: ME_51BB15370161
+ CONST UID '51BB15370161'
+ CONST Name 'Tl3DoDrop'
+ CONST Class class_Class
+ : Stereotype st_Function ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4B97E8130272 // TvtOutlinerWithDragDrop
+ ;
+ : Operations
+   Seq: ( HWL ME_51BB1593024E // DoIt
+ )
+ ; // Operations
+ CONST "of object" true
+
+ref; // ME_51BB15370161 Tl3DoDrop
+
+: ME_52DD104003A6
+ CONST UID '52DD104003A6'
+ CONST Name 'RvtNodeDataObject'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4B97E8130272 // TvtOutlinerWithDragDrop
+ ;
+ CONST "ifndef" 'DesignTimeLibrary'
+
+ref; // ME_52DD104003A6 RvtNodeDataObject
+
+FORWARD ME_51EEB81F017C
+
+: ME_D0E06EDB5EF3
+ CONST Name 'aData'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A0E6FF037E' '46A0E6C5023A.pas.ms.script' // IDataObject
+ ;
+
+ref; // ME_D0E06EDB5EF3 aData
+
+: ME_58CCEA387BBD
+ CONST UID '58CCEA387BBD'
+ CONST Name 'DoIt'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_51EEB81F017C // CanAcceptData
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   Seq: ( ME_D0E06EDB5EF3 // aData
+ )
+ ; // Parameters
+
+ref; // ME_58CCEA387BBD DoIt
+
+: ME_51EEB81F017C
+ CONST UID '51EEB81F017C'
+ CONST Name 'CanAcceptData'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4B97E8130272 // TvtOutlinerWithDragDrop
+ ;
+ : Inherits
+   Seq: ( HWL ME_51BB152A02AD // Tl3CanAcceptData
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( HWL ME_58CCEA387BBD // DoIt
+ )
+ ; // Operations
+
+ref; // ME_51EEB81F017C CanAcceptData
+
+FORWARD ME_52DD106403D3
+
+: ME_52DD107201CC
+ CONST UID '52DD107201CC'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_52DD106403D3 // DataObjectClass
+ ;
+ : Target HWL ME_52DD104003A6 // RvtNodeDataObject
+ ;
+
+ref; // ME_52DD107201CC DoIt
+
+: ME_52DD106403D3
+ CONST UID '52DD106403D3'
+ CONST Name 'DataObjectClass'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4B97E8130272 // TvtOutlinerWithDragDrop
+ ;
+ : Operations
+   Seq: ( HWL ME_52DD107201CC // DoIt
+ )
+ ; // Operations
+
+ref; // ME_52DD106403D3 DataObjectClass
+
+: ME_4B97E841019C
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4B97E8130272 // TvtOutlinerWithDragDrop
+ ;
+ : Target WL 'ME_4B97E82200D4' '4B97E7FD006C.pas.ms.script' // vtOutlinerWithDragDropRes
+ ;
+
+ref; // ME_4B97E841019C 
+
+: ME_4B97E8130272
+ CONST UID '4B97E8130272'
+ CONST Name 'TvtOutlinerWithDragDrop'
+ CONST Class class_Class
+ : Stereotype st_GuiControl ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4B97E7FD006C' '4B97E7FD006C.pas.ms.script' // Outliner
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4B97EA0802EB' '4B97EA0802EB.pas.ms.script' // TvtOutlinerWithQuickSearch
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( HWL ME_51EEB81F017C // CanAcceptData
+ HWL ME_52DD106403D3 // DataObjectClass
+ )
+ ; // Operations
+ : Children
+   Seq: ( HWL ME_51BB14E6006F // Tl3CanBeginDrag
+ HWL ME_51BB152A02AD // Tl3CanAcceptData
+ HWL ME_51BB15370161 // Tl3DoDrop
+ HWL ME_52DD104003A6 // RvtNodeDataObject
+ )
+ ; // Children
+ : Dependencies
+   Seq: ( ME_4B97E841019C // vtOutlinerWithDragDropRes
+ )
+ ; // Dependencies
+ CONST "finished" false
+ CONST intf.pas:Path 'common\components\gui\Garant\VT\NOT_FINISHED_vtOutlinerWithDragDrop.pas'
+ CONST extprop:rc:SelfName 'OutlinerWithDragDrop'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vtOutlinerWithDragDrop'
+
+ref; // ME_4B97E8130272 TvtOutlinerWithDragDrop

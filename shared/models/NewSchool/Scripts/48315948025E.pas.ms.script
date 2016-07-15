@@ -1,0 +1,1184 @@
+// TEditableBox 48315948025E GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_48315948025E
+
+FORWARD ME_53F348D70176
+
+: ME_53F348E60373
+ CONST UID '53F348E60373'
+ CONST Name 'esNone'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_53F348D70176 // TEditableState
+ ;
+
+ref; // ME_53F348E60373 esNone
+
+: ME_53F348EE01ED
+ CONST UID '53F348EE01ED'
+ CONST Name 'esSemiCompleted'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_53F348D70176 // TEditableState
+ ;
+
+ref; // ME_53F348EE01ED esSemiCompleted
+
+: ME_53F348F502CB
+ CONST UID '53F348F502CB'
+ CONST Name 'esCompleted'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_53F348D70176 // TEditableState
+ ;
+
+ref; // ME_53F348F502CB esCompleted
+
+: ME_53F348FD033A
+ CONST UID '53F348FD033A'
+ CONST Name 'esWrong'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_53F348D70176 // TEditableState
+ ;
+
+ref; // ME_53F348FD033A esWrong
+
+: ME_53F348D70176
+ CONST UID '53F348D70176'
+ CONST Name 'TEditableState'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_48315948025E // TEditableBox
+ ;
+ : Attributes
+   Seq: ( HWL ME_53F348E60373 // esNone
+ HWL ME_53F348EE01ED // esSemiCompleted
+ HWL ME_53F348F502CB // esCompleted
+ HWL ME_53F348FD033A // esWrong
+ )
+ ; // Attributes
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_53F348D70176 TEditableState
+
+: ME_53F3499901A1
+ CONST UID '53F3499901A1'
+ CONST Name 'OnClear'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_48315948025E // TEditableBox
+ ;
+ : Target WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_53F3499901A1 OnClear
+
+: ME_53F349D30104
+ CONST UID '53F349D30104'
+ CONST Name 'FullWidth'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'ширина необходимая edit-у для отображения всей строки.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_48315948025E // TEditableBox
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "pm" true
+
+ref; // ME_53F349D30104 FullWidth
+
+: ME_53F34A490058
+ CONST UID '53F34A490058'
+ CONST Name 'AutoWidth'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_48315948025E // TEditableBox
+ ;
+ : Target WL 'ME_53F34A330195' '48297E42011A.pas.ms.script' // TAutoWidthMode
+ ;
+ CONST "needs stored directive" true
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_53F34A490058 AutoWidth
+
+: ME_53F34A8B0165
+ CONST UID '53F34A8B0165'
+ CONST Name 'ProcessServerTreeNotification'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_48315948025E // TEditableBox
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_53F34A8B0165 ProcessServerTreeNotification
+
+: ME_53F34AEC0368
+ CONST UID '53F34AEC0368'
+ CONST Name 'RootNode'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_48315948025E // TEditableBox
+ ;
+ : Target WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
+ ;
+ CONST "ifndef" 'DesignTimeLibrary'
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_53F34AEC0368 RootNode
+
+: ME_53F34B1C037A
+ CONST UID '53F34B1C037A'
+ CONST Name 'AfterCompletion'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_48315948025E // TEditableBox
+ ;
+ : Target WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_53F34B1C037A AfterCompletion
+
+: ME_53F34F3D0026
+ CONST UID '53F34F3D0026'
+ CONST Name 'f_TempObjectCompleted'
+ CONST Class class_Attribute
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_48315948025E // TEditableBox
+ ;
+ : Target WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
+ ;
+ CONST "ifndef" 'DesignTimeLibrary'
+
+ref; // ME_53F34F3D0026 f_TempObjectCompleted
+
+: ME_53F34F6B002F
+ CONST UID '53F34F6B002F'
+ CONST Name 'f_Border'
+ CONST Class class_Attribute
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_48315948025E // TEditableBox
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_53F34F6B002F f_Border
+
+: ME_53F34F840161
+ CONST UID '53F34F840161'
+ CONST Name 'State'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_48315948025E // TEditableBox
+ ;
+ : Target HWL ME_53F348D70176 // TEditableState
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_53F34F840161 State
+
+: ME_53F34FD9032E
+ CONST UID '53F34FD9032E'
+ CONST Name 'f_NeedDropFiltering'
+ CONST Class class_Attribute
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_48315948025E // TEditableBox
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_53F34FD9032E f_NeedDropFiltering
+
+: ME_53F34FE701D0
+ CONST UID '53F34FE701D0'
+ CONST Name 'f_NeedGotoNode'
+ CONST Class class_Attribute
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_48315948025E // TEditableBox
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_53F34FE701D0 f_NeedGotoNode
+
+: ME_53F3500501DF
+ CONST UID '53F3500501DF'
+ CONST Name 'f_FiltCount'
+ CONST Class class_Attribute
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_48315948025E // TEditableBox
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_53F3500501DF f_FiltCount
+
+: ME_53F3501A03A0
+ CONST UID '53F3501A03A0'
+ CONST Name 'f_NarrowSearch'
+ CONST Class class_Attribute
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_48315948025E // TEditableBox
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_53F3501A03A0 f_NarrowSearch
+
+: ME_53F35034020F
+ CONST UID '53F35034020F'
+ CONST Name 'f_SaveNode'
+ CONST Class class_Attribute
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_48315948025E // TEditableBox
+ ;
+ : Target WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
+ ;
+
+ref; // ME_53F35034020F f_SaveNode
+
+: ME_53F3504F0069
+ CONST UID '53F3504F0069'
+ CONST Name 'f_SaveBorder'
+ CONST Class class_Attribute
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_48315948025E // TEditableBox
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_53F3504F0069 f_SaveBorder
+
+: ME_53F3507D0212
+ CONST UID '53F3507D0212'
+ CONST Name 'f_SaveHint'
+ CONST Class class_Attribute
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_48315948025E // TEditableBox
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_53F3507D0212 f_SaveHint
+
+: ME_53F3509E0385
+ CONST UID '53F3509E0385'
+ CONST Name 'f_HintSaved'
+ CONST Class class_Attribute
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_48315948025E // TEditableBox
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_53F3509E0385 f_HintSaved
+
+: ME_53F350B70247
+ CONST UID '53F350B70247'
+ CONST Name 'f_RestrictHintChanging'
+ CONST Class class_Attribute
+ %SUMMARY 'дизейблит HintChanged' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_48315948025E // TEditableBox
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_53F350B70247 f_RestrictHintChanging
+
+: ME_53F350F3002F
+ CONST UID '53F350F3002F'
+ CONST Name 'f_Items'
+ CONST Class class_Attribute
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_48315948025E // TEditableBox
+ ;
+ : Target WL 'ME_48721F730220' '47E21C730035.pas.ms.script' // Tl3Strings
+ ;
+
+ref; // ME_53F350F3002F f_Items
+
+: ME_53F35138024D
+ CONST UID '53F35138024D'
+ CONST Name 'f_ItemIndex'
+ CONST Class class_Attribute
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_48315948025E // TEditableBox
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_53F35138024D f_ItemIndex
+
+: ME_53F3514F011B
+ CONST UID '53F3514F011B'
+ CONST Name 'f_TreeIsFiltered'
+ CONST Class class_Attribute
+ %SUMMARY 'дерево было отфильтровано (чтобы не делать лишний раз Deselect Hidden)' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_48315948025E // TEditableBox
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_53F3514F011B f_TreeIsFiltered
+
+: ME_53F3517202BB
+ CONST UID '53F3517202BB'
+ CONST Name 'SaveState'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_48315948025E // TEditableBox
+ ;
+ CONST "ifndef" 'DesignTimeLibrary'
+
+ref; // ME_53F3517202BB SaveState
+
+: ME_53F3518A008C
+ CONST UID '53F3518A008C'
+ CONST Name 'RestoreState'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_48315948025E // TEditableBox
+ ;
+ CONST "ifndef" 'DesignTimeLibrary'
+
+ref; // ME_53F3518A008C RestoreState
+
+: ME_53F351A602B4
+ CONST UID '53F351A602B4'
+ CONST Name 'TriggerClearEvent'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_48315948025E // TEditableBox
+ ;
+
+ref; // ME_53F351A602B4 TriggerClearEvent
+
+FORWARD ME_53F351B70032
+
+: ME_53F351CD015A
+ CONST Name 'aStr'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_53F351CD015A aStr
+
+: ME_53F351CD017A
+ CONST Name 'aBorder'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST Value '-1'
+ : ValueType WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST extprop:pas:Value '-1'
+
+ref; // ME_53F351CD017A aBorder
+
+: ME_53F351C5020C
+ CONST UID '53F351C5020C'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_53F351B70032 // InternalSetText
+ ;
+ : Parameters
+   Seq: ( ME_53F351CD015A // aStr
+ ME_53F351CD017A // aBorder
+ )
+ ; // Parameters
+
+ref; // ME_53F351C5020C DoIt
+
+: ME_53F351B70032
+ CONST UID '53F351B70032'
+ CONST Name 'InternalSetText'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_48315948025E // TEditableBox
+ ;
+ : Operations
+   Seq: ( HWL ME_53F351C5020C // DoIt
+ )
+ ; // Operations
+
+ref; // ME_53F351B70032 InternalSetText
+
+FORWARD ME_53F351DE025A
+
+: ME_53F3520103AB
+ CONST Name 'aRoot'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4683D617036D' '467BAB7F021E.pas.ms.script' // IvcmNodes
+ ;
+
+ref; // ME_53F3520103AB aRoot
+
+: ME_53F351FE0207
+ CONST UID '53F351FE0207'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_53F351DE025A // vcmSetRoot
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   Seq: ( ME_53F3520103AB // aRoot
+ )
+ ; // Parameters
+
+ref; // ME_53F351FE0207 DoIt
+
+: ME_53F351DE025A
+ CONST UID '53F351DE025A'
+ CONST Name 'vcmSetRoot'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_48315948025E // TEditableBox
+ ;
+ : Operations
+   Seq: ( HWL ME_53F351FE0207 // DoIt
+ )
+ ; // Operations
+ CONST "ifndef" 'NoVCM'
+ CONST extprop:rc:SelfName 'SetRoot'
+
+ref; // ME_53F351DE025A vcmSetRoot
+
+FORWARD ME_53F352370117
+
+: ME_53F352580294
+ CONST Name 'aCurrent'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
+ ;
+
+ref; // ME_53F352580294 aCurrent
+
+: ME_53F352550242
+ CONST UID '53F352550242'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_53F352370117 // vcmSetCurrent
+ ;
+ : Parameters
+   Seq: ( ME_53F352580294 // aCurrent
+ )
+ ; // Parameters
+
+ref; // ME_53F352550242 DoIt
+
+: ME_53F352370117
+ CONST UID '53F352370117'
+ CONST Name 'vcmSetCurrent'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_48315948025E // TEditableBox
+ ;
+ : Operations
+   Seq: ( HWL ME_53F352550242 // DoIt
+ )
+ ; // Operations
+ CONST "ifndef" 'DesignTimeLibrary'
+ CONST extprop:rc:SelfName 'SetCurrent'
+
+ref; // ME_53F352370117 vcmSetCurrent
+
+FORWARD ME_53F3527902A3
+
+: ME_53F3528F01DB
+ CONST Name 'aRoot'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
+ ;
+
+ref; // ME_53F3528F01DB aRoot
+
+: ME_53F3528C032C
+ CONST UID '53F3528C032C'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_53F3527902A3 // SetRoot
+ ;
+ : Parameters
+   Seq: ( ME_53F3528F01DB // aRoot
+ )
+ ; // Parameters
+
+ref; // ME_53F3528C032C DoIt
+
+: ME_53F3527902A3
+ CONST UID '53F3527902A3'
+ CONST Name 'SetRoot'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_48315948025E // TEditableBox
+ ;
+ : Operations
+   Seq: ( HWL ME_53F3528C032C // DoIt
+ )
+ ; // Operations
+ CONST "ifndef" 'DesignTimeLibrary'
+
+ref; // ME_53F3527902A3 SetRoot
+
+FORWARD ME_53F352FD0111
+
+: ME_53F353040198
+ CONST UID '53F353040198'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_53F352FD0111 // IsSimpleTree
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_53F353040198 DoIt
+
+: ME_53F352FD0111
+ CONST UID '53F352FD0111'
+ CONST Name 'IsSimpleTree'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_48315948025E // TEditableBox
+ ;
+ : Operations
+   Seq: ( HWL ME_53F353040198 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_53F352FD0111 IsSimpleTree
+
+FORWARD ME_53F3531702B5
+
+: ME_05936774E96D
+ CONST UID '05936774E96D'
+ CONST Name 'DoIt'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура метода ChangeUnsimpleTree' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_53F3531702B5 // ChangeUnsimpleTree
+ ;
+
+ref; // ME_05936774E96D DoIt
+
+: ME_53F3531702B5
+ CONST UID '53F3531702B5'
+ CONST Name 'ChangeUnsimpleTree'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_48315948025E // TEditableBox
+ ;
+ : Operations
+   Seq: ( HWL ME_05936774E96D // DoIt
+ )
+ ; // Operations
+
+ref; // ME_53F3531702B5 ChangeUnsimpleTree
+
+FORWARD ME_53F3535A02BD
+
+: ME_53F3536300AB
+ CONST UID '53F3536300AB'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_53F3535A02BD // MakeNodesFromItems
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_53F3536300AB DoIt
+
+: ME_53F3535A02BD
+ CONST UID '53F3535A02BD'
+ CONST Name 'MakeNodesFromItems'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_48315948025E // TEditableBox
+ ;
+ : Operations
+   Seq: ( HWL ME_53F3536300AB // DoIt
+ )
+ ; // Operations
+
+ref; // ME_53F3535A02BD MakeNodesFromItems
+
+: ME_53F353780395
+ CONST UID '53F353780395'
+ CONST Name 'Clear'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_48315948025E // TEditableBox
+ ;
+
+ref; // ME_53F353780395 Clear
+
+: ME_53F35386025E
+ CONST UID '53F35386025E'
+ CONST Name 'DropDownCompletion'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_48315948025E // TEditableBox
+ ;
+
+ref; // ME_53F35386025E DropDownCompletion
+
+FORWARD ME_53F353B801E4
+
+: ME_53F354140084
+ CONST Name 'aNode'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
+ ;
+
+ref; // ME_53F354140084 aNode
+
+: ME_53F3540F03A1
+ CONST UID '53F3540F03A1'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_53F353B801E4 // GetFullPath
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+ : Parameters
+   Seq: ( ME_53F354140084 // aNode
+ )
+ ; // Parameters
+
+ref; // ME_53F3540F03A1 DoIt
+
+: ME_53F353B801E4
+ CONST UID '53F353B801E4'
+ CONST Name 'GetFullPath'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_48315948025E // TEditableBox
+ ;
+ : Operations
+   Seq: ( HWL ME_53F3540F03A1 // DoIt
+ )
+ ; // Operations
+ CONST "ifndef" 'DesignTimeLibrary'
+
+ref; // ME_53F353B801E4 GetFullPath
+
+: ME_53F352D6006C
+ CONST Name 'Msg'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_476F78A602B2' '476F78840219.pas.ms.script' // TMessage
+ ;
+
+ref; // ME_53F352D6006C Msg
+
+: ME_53F352C803D9
+ CONST UID '53F352C803D9'
+ CONST Name 'CMEnabledChanged'
+ CONST Class class_Operation
+ : Stereotype st_message::Operation ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_48315948025E // TEditableBox
+ ;
+ : Parameters
+   Seq: ( ME_53F352D6006C // Msg
+ )
+ ; // Parameters
+ CONST "Message ID" 'CM_ENABLEDCHANGED'
+
+ref; // ME_53F352C803D9 CMEnabledChanged
+
+: ME_53F3661D02A6
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_48315948025E // TEditableBox
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_53F3661D02A6 
+
+: ME_53F3663B010F
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_48315948025E // TEditableBox
+ ;
+ : Target WL 'ME_47E13C6B0341' '4799D29F033F.pas.ms.script' // Forms
+ ;
+
+ref; // ME_53F3663B010F 
+
+: ME_53F3665E0036
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_48315948025E // TEditableBox
+ ;
+ : Target WL 'ME_4CFFBEEA0109' '515DA5860015.pas.ms.script' // TvtCustomOutliner
+ ;
+
+ref; // ME_53F3665E0036 
+
+: ME_53F36668003C
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_48315948025E // TEditableBox
+ ;
+ : Target WL 'ME_48724DAD02E0' '47E246C90144.pas.ms.script' // Tl3SimpleTree
+ ;
+
+ref; // ME_53F36668003C 
+
+: ME_53F3669200BA
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_48315948025E // TEditableBox
+ ;
+ : Target WL 'ME_4727449A00A2' '467C0CAA02AB.pas.ms.script' // Il3Canvas
+ ;
+
+ref; // ME_53F3669200BA 
+
+: ME_53F366A90246
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_48315948025E // TEditableBox
+ ;
+ : Target WL 'ME_4799F84900DD' '473C3BEE0334.pas.ms.script' // l3ScreenIC
+ ;
+
+ref; // ME_53F366A90246 
+
+: ME_53F366C7009E
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_48315948025E // TEditableBox
+ ;
+ : Target WL 'ME_4773D64E036C' '47913B47006E.pas.ms.script' // l3Base
+ ;
+
+ref; // ME_53F366C7009E 
+
+: ME_53F366D80142
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_48315948025E // TEditableBox
+ ;
+ : Target WL 'ME_47878E0E0191' '54B90AC6014B.pas.ms.script' // l3String
+ ;
+
+ref; // ME_53F366D80142 
+
+: ME_53F366EE026C
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_48315948025E // TEditableBox
+ ;
+ : Target WL 'ME_476BF22B03E1' '476BF10A0280.pas.ms.script' // Il3Node
+ ;
+
+ref; // ME_53F366EE026C 
+
+: ME_53F3671403D5
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_48315948025E // TEditableBox
+ ;
+ : Target WL 'ME_47D036300337' '47D036150077.pas.ms.script' // TvtViewOption
+ ;
+
+ref; // ME_53F3671403D5 
+
+: ME_53F367290074
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_48315948025E // TEditableBox
+ ;
+ : Target WL 'ME_47F25741021C' '47E246C90144.pas.ms.script' // l3Nodes
+ ;
+
+ref; // ME_53F367290074 
+
+: ME_53F3674102AD
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_48315948025E // TEditableBox
+ ;
+ : Target WL 'ME_47A066980016' '537B83AD01F0.pas.ms.script' // l3MinMax
+ ;
+
+ref; // ME_53F3674102AD 
+
+: ME_53F367580350
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_48315948025E // TEditableBox
+ ;
+ : Target WL 'ME_4727456300E7' '472745450206.pas.ms.script' // Tl3Point
+ ;
+
+ref; // ME_53F367580350 
+
+: ME_53F3676C031C
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_48315948025E // TEditableBox
+ ;
+ : Target WL 'ME_47CFE7F00221' '47BB24D30205.pas.ms.script' // l3InterfacesMisc
+ ;
+
+ref; // ME_53F3676C031C 
+
+: ME_479731C50290_ME_48315948025E
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_479731C50290_ME_48315948025E Cleanup
+
+: ME_47A042E100E2_ME_48315948025E
+ : Original WL 'ME_47A042E100E2' '47913B47006E.pas.ms.script' // InitFields
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_47A042E100E2_ME_48315948025E InitFields
+
+: ME_47D1602000C6_ME_48315948025E
+ : Original WL 'ME_47D1602000C6' '4AB0997B00A2.pas.ms.script' // Create
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_47D1602000C6_ME_48315948025E Create
+
+: ME_47D160620295_ME_48315948025E
+ : Original WL 'ME_47D160620295' '4AB0997B00A2.pas.ms.script' // QueryInterface
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "calling conventions" 'stdcall'
+ref; // ME_47D160620295_ME_48315948025E QueryInterface
+
+: ME_482AE42802AE_ME_48315948025E
+ : Original WL 'ME_482AE42802AE' '482ACC330173.pas.ms.script' // Change
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_482AE42802AE_ME_48315948025E Change
+
+: ME_482C0BBD01CF_ME_48315948025E
+ : Original WL 'ME_482C0BBD01CF' '482ACC330173.pas.ms.script' // TriggerCaretXChangedEvent
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_482C0BBD01CF_ME_48315948025E TriggerCaretXChangedEvent
+
+: ME_4F2AA6F20181_ME_48315948025E
+ : Original WL 'ME_4F2AA6F20181' '482ACFA703C2.pas.ms.script' // AdjustWidth
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4F2AA6F20181_ME_48315948025E AdjustWidth
+
+: ME_53ECCEC9013B_ME_48315948025E
+ : Original WL 'ME_53ECCEC9013B' '482C80EA0131.pas.ms.script' // ComboStyle
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "pm" true
+ CONST "reads field" true
+ref; // ME_53ECCEC9013B_ME_48315948025E ComboStyle
+
+: ME_53ECCF9101EF_ME_48315948025E
+ : Original WL 'ME_53ECCF9101EF' '482C80EA0131.pas.ms.script' // Style
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "pm" true
+ref; // ME_53ECCF9101EF_ME_48315948025E Style
+
+: ME_53EDCF6F0223_ME_48315948025E
+ : Original WL 'ME_53EDCF6F0223' '482C80EA0131.pas.ms.script' // EscapePressed
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_53EDCF6F0223_ME_48315948025E EscapePressed
+
+: ME_53EE012C0211_ME_48315948025E
+ : Original WL 'ME_53EE012C0211' '53F1DC8F01AD.pas.ms.script' // RecreateTreeIfNeeded
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_53EE012C0211_ME_48315948025E RecreateTreeIfNeeded
+
+: ME_53EE02C3009D_ME_48315948025E
+ : Original WL 'ME_53EE02C3009D' '53F1DC8F01AD.pas.ms.script' // CurrentNode
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "pm" true
+ref; // ME_53EE02C3009D_ME_48315948025E CurrentNode
+
+: ME_53EE0A3D023F_ME_48315948025E
+ : Original WL 'ME_53EE0A3D023F' '53F1DC8F01AD.pas.ms.script' // TreeChangedNotification
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_53EE0A3D023F_ME_48315948025E TreeChangedNotification
+
+: ME_53F1D483009C_ME_48315948025E
+ : Original WL 'ME_53F1D483009C' '53F1DC8F01AD.pas.ms.script' // IsList
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "pm" true
+ref; // ME_53F1D483009C_ME_48315948025E IsList
+
+: ME_53F1DB47024C_ME_48315948025E
+ : Original WL 'ME_53F1DB47024C' '53F1DC8F01AD.pas.ms.script' // CustomDoEnter
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_53F1DB47024C_ME_48315948025E CustomDoEnter
+
+: ME_53F34C2A025E_ME_48315948025E
+ : Original WL 'ME_53F34C2A025E' '4829D92A037B.pas.ms.script' // IsReadOnly
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_53F34C2A025E_ME_48315948025E IsReadOnly
+
+: ME_53F34DE200C9_ME_48315948025E
+ : Original WL 'ME_53F34DE200C9' '4799D29F033F.pas.ms.script' // HintChanged
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "ifdef" 'l3HackedVCL'
+ CONST "ifndef" 'DesignTimeLibrary'
+ref; // ME_53F34DE200C9_ME_48315948025E HintChanged
+
+: ME_48315948025E
+ CONST UID '48315948025E'
+ CONST Name 'TEditableBox'
+ CONST Class class_Class
+ : Stereotype st_GuiControl ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'логика фильтрации' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_48297E42011A' '48297E42011A.pas.ms.script' // ComboTree
+ ;
+ : Inherits
+   Seq: ( WL 'ME_53F1DC8F01AD' '53F1DC8F01AD.pas.ms.script' // TDropDownTree
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( HWL ME_53F3499901A1 // OnClear
+ HWL ME_53F349D30104 // FullWidth
+ HWL ME_53F34A490058 // AutoWidth
+ HWL ME_53F34A8B0165 // ProcessServerTreeNotification
+ HWL ME_53F34AEC0368 // RootNode
+ HWL ME_53F34B1C037A // AfterCompletion
+ HWL ME_53F34F3D0026 // f_TempObjectCompleted
+ HWL ME_53F34F6B002F // f_Border
+ HWL ME_53F34F840161 // State
+ HWL ME_53F34FD9032E // f_NeedDropFiltering
+ HWL ME_53F34FE701D0 // f_NeedGotoNode
+ HWL ME_53F3500501DF // f_FiltCount
+ HWL ME_53F3501A03A0 // f_NarrowSearch
+ HWL ME_53F35034020F // f_SaveNode
+ HWL ME_53F3504F0069 // f_SaveBorder
+ HWL ME_53F3507D0212 // f_SaveHint
+ HWL ME_53F3509E0385 // f_HintSaved
+ HWL ME_53F350B70247 // f_RestrictHintChanging
+ HWL ME_53F350F3002F // f_Items
+ HWL ME_53F35138024D // f_ItemIndex
+ HWL ME_53F3514F011B // f_TreeIsFiltered
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( HWL ME_53F3517202BB // SaveState
+ HWL ME_53F3518A008C // RestoreState
+ HWL ME_53F351A602B4 // TriggerClearEvent
+ HWL ME_53F351B70032 // InternalSetText
+ HWL ME_53F351DE025A // vcmSetRoot
+ HWL ME_53F352370117 // vcmSetCurrent
+ HWL ME_53F3527902A3 // SetRoot
+ HWL ME_53F352FD0111 // IsSimpleTree
+ HWL ME_53F3531702B5 // ChangeUnsimpleTree
+ HWL ME_53F3535A02BD // MakeNodesFromItems
+ HWL ME_53F353780395 // Clear
+ HWL ME_53F35386025E // DropDownCompletion
+ HWL ME_53F353B801E4 // GetFullPath
+ HWL ME_53F352C803D9 // CMEnabledChanged
+ )
+ ; // Operations
+ : Overridden
+   Seq: ( ME_479731C50290_ME_48315948025E // Cleanup
+ ME_47A042E100E2_ME_48315948025E // InitFields
+ ME_47D1602000C6_ME_48315948025E // Create
+ ME_47D160620295_ME_48315948025E // QueryInterface
+ ME_482AE42802AE_ME_48315948025E // Change
+ ME_482C0BBD01CF_ME_48315948025E // TriggerCaretXChangedEvent
+ ME_4F2AA6F20181_ME_48315948025E // AdjustWidth
+ ME_53ECCEC9013B_ME_48315948025E // ComboStyle
+ ME_53ECCF9101EF_ME_48315948025E // Style
+ ME_53EDCF6F0223_ME_48315948025E // EscapePressed
+ ME_53EE012C0211_ME_48315948025E // RecreateTreeIfNeeded
+ ME_53EE02C3009D_ME_48315948025E // CurrentNode
+ ME_53EE0A3D023F_ME_48315948025E // TreeChangedNotification
+ ME_53F1D483009C_ME_48315948025E // IsList
+ ME_53F1DB47024C_ME_48315948025E // CustomDoEnter
+ ME_53F34C2A025E_ME_48315948025E // IsReadOnly
+ ME_53F34DE200C9_ME_48315948025E // HintChanged
+ )
+ ; // Overridden
+ : Children
+   Seq: ( HWL ME_53F348D70176 // TEditableState
+ )
+ ; // Children
+ : Dependencies
+   Seq: ( ME_53F3661D02A6 // SysUtils
+ ME_53F3663B010F // Forms
+ ME_53F3665E0036 // TvtCustomOutliner
+ ME_53F36668003C // Tl3SimpleTree
+ ME_53F3669200BA // Il3Canvas
+ ME_53F366A90246 // l3ScreenIC
+ ME_53F366C7009E // l3Base
+ ME_53F366D80142 // l3String
+ ME_53F366EE026C // Il3Node
+ ME_53F3671403D5 // TvtViewOption
+ ME_53F367290074 // l3Nodes
+ ME_53F3674102AD // l3MinMax
+ ME_53F367580350 // Tl3Point
+ ME_53F3676C031C // l3InterfacesMisc
+ )
+ ; // Dependencies
+ CONST "author" 'Люлин А.В.'
+ CONST "need UC" true
+ CONST "started" '19.05.2008 14:41'
+ CONST intf.pas:Path 'common\components\gui\Garant\VT\ComboTree\EditableBox.pas'
+ CONST extprop:rc:SelfName 'EditableBox'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'EditableBox'
+
+ref; // ME_48315948025E TEditableBox

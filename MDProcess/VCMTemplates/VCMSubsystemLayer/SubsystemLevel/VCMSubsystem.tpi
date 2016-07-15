@@ -86,7 +86,7 @@ P
 O [{%S{finished}!=true}NOT_FINISHED_]%f_pas_UnitFileName(%S)
 C [{%S{vendor}!=none}[{}{/GbaNemesis}%S{vendor}]]
 	[{"%SO"!=""}%S%f_pas_OutUnitFile()]\
-	<%CX>
+	<{}{%C#f_UseNewGenRec()!=true}%CX>
 //#UC END# *470F1571031Cfor4953E0360081*
 
 // перекрытие базового стереотипа ModelBuilding::MDAGenerator
@@ -95,7 +95,6 @@ C [{%S{vendor}!=none}[{}{/GbaNemesis}%S{vendor}]]
 + spell
 //#UC START# *4A41A13D03D5for4953E0360081*
 	<%CX>
-	%S%f_DoSpell()
 //#UC END# *4A41A13D03D5for4953E0360081*
 
 

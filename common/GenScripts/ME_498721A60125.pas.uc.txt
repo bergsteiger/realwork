@@ -70,19 +70,19 @@ var
   begin
    l_Item := TnscStatusBarItemDef.Make(True, str_IsDocumentUsefulCaption.AsCStr, False, False, 0, nsc_ttkNone);
    Add(l_Item);
-   l_Operation := TnscStatusBarOperationDef.MakeSNoCaption(TdmStdRes.opcode_Document_DocumentIsUseful, False, False, 0, nsc_ttkNone);
+   l_Operation := TnscStatusBarOperationDef.MakeSNoCaption(opcode_Document_DocumentIsUseful, False, False, 0, nsc_ttkNone);
    Add(l_Operation);
-   Add(TnscStatusBarOperationDef.MakeSNoCaption(TdmStdRes.opcode_Document_DocumentIsUseless, False, False, 0, nsc_ttkNone));
+   Add(TnscStatusBarOperationDef.MakeSNoCaption(opcode_Document_DocumentIsUseless, False, False, 0, nsc_ttkNone));
    l_Delimiter := TnscStatusBarDelimiterDef.Make(True);
    Add(l_Delimiter);
    l_Delimiter.SubscribeOnNotification(l_Operation);
    l_Item.SubscribeOnNotification(l_Operation);
   end;
-  Add(TnscStatusBarOperationDef.MakeS(TdmStdRes.opcode_Document_PrevDocumentInList,
+  Add(TnscStatusBarOperationDef.MakeS(opcode_Document_PrevDocumentInList,
    False, str_PrevDocumentInList, True, False, 0, nsc_ttkNone));
-  Add(TnscStatusBarOperationDef.MakeS(TdmStdRes.opcode_Document_ReturnToList,
+  Add(TnscStatusBarOperationDef.MakeS(opcode_Document_ReturnToList,
    False, str_ListCaption, True, False, 0, nsc_ttkNone));
-  Add(TnscStatusBarOperationDef.MakeS(TdmStdRes.opcode_Document_NextDocumentInList,
+  Add(TnscStatusBarOperationDef.MakeS(opcode_Document_NextDocumentInList,
    False, str_NextDocumentInList, True, False, 0, nsc_ttkNone));
  end;//with aList
 //#UC END# *4A8E5E4702C6_498721A60125_impl*

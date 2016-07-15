@@ -13,7 +13,7 @@ FORWARD ME_4952380301A6
  %SUMMARY 'Экспорт в Word' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4952380301A6 // File
+ : Parent HWL ME_4952380301A6 // File
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -34,7 +34,7 @@ ref; // ME_495238EB0160 ToMSWord
  %SUMMARY 'Послать по e-mail' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4952380301A6 // File
+ : Parent HWL ME_4952380301A6 // File
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -117,15 +117,15 @@ ref; // ME_495235F401C0_ME_4952380301A6 Save
  %SUMMARY 'Файл' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_495237D80268 // F1Specific
+ : Parent HWL ME_495237D80268 // F1Specific
  ;
  : Inherits
    Seq: ( WL 'ME_49521D8203A0' '494F898C013E.pas.ms.script' // File
  )
  ; // Inherits
  : Operations
-   Seq: ( ME_495238EB0160 // ToMSWord
- ME_495253870002 // SendMailAsAttachment
+   Seq: ( HWL ME_495238EB0160 // ToMSWord
+ HWL ME_495253870002 // SendMailAsAttachment
  )
  ; // Operations
  : Implemented
@@ -149,7 +149,7 @@ ref; // ME_4952380301A6 File
  : Parent WL 'ME_4A7C099B004F' '4A7C099B004F.pas.ms.script' // View
  ;
  : Children
-   Seq: ( ME_4952380301A6 // File
+   Seq: ( HWL ME_4952380301A6 // File
  )
  ; // Children
  : Depends

@@ -2,37 +2,6 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-FORWARD ME_4A66B8720216
-
-: ME_4A697E4303C9
- CONST UID '4A697E4303C9'
- CONST Name 'Chat'
- CONST Class class_Class
- : Stereotype st_VCMUseCaseRealization ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Чат' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4A66B8720216 // Chat
- ;
- : Inherits
-   Seq: ( WL 'ME_4A6971B802A6' '4A66D6BF0190.pas.ms.script' // BaseChat
- )
- ; // Inherits
- : Implements
-   Seq: ( WL 'ME_49EC560D03E0' '484F80CF0274.pas.ms.script' // Совещание онлайн
- )
- ; // Implements
- CONST "ifndef" 'Admin,Monitorings'
- CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\moChat.pas'
- CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
- CONST extprop:pas:TypeName 'Tmo_Chat'
- CONST extprop:rc:SelfName 'mo_Chat'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'moChat'
-
-ref; // ME_4A697E4303C9 Chat$UC
-
 : ME_4A66B8720216
  CONST UID '4A66B8720216'
  CONST Name 'Chat'
@@ -44,7 +13,7 @@ ref; // ME_4A697E4303C9 Chat$UC
  : Parent WL 'ME_4AC2470103B2' '4AC2470103B2.pas.ms.script' // F1 Встроенные продукты
  ;
  : Children
-   Seq: ( ME_4A697E4303C9 // Chat$UC
+   Seq: ( WL 'ME_4A697E4303C9' '4A697E4303C9.pas.ms.script' // Chat$UC
  WL 'ME_4A66B91A01E4' '4A66B91A01E4.pas.ms.script' // Chat
  WL 'ME_4A66B9520090' '4A66B9520090.pas.ms.script' // View
  )
@@ -70,7 +39,6 @@ ref; // ME_4A697E4303C9 Chat$UC
  WL 'ME_4A92C561015D' '4A92C561015D.pas.ms.script' // Common
  WL 'ME_4C6A65ED0374' '4C6A65ED0374.pas.ms.script' // F1DocumentProcessing
  WL 'ME_4E13416D0227' '4E13416D0227.pas.ms.script' // VCM$Visual
- WL 'ME_4E200FC9003B' '4E200FC9003B.pas.ms.script' // VCM$Scripting
  WL 'ME_4E2F0E1B03BB' '4E2F0E1B03BB.pas.ms.script' // L3$Domain
  WL 'ME_547CC9D40158' '547CC9D40158.pas.ms.script' // VT$Panels
  )

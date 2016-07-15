@@ -1,0 +1,5937 @@
+// TvcmMenuManager 4B30EC67025A GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B30EC67025A
+
+FORWARD ME_51ED01600060
+
+: ME_52A0911C0003
+ CONST UID '52A0911C0003'
+ CONST Name 'f_InPopup'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_51ED01600060 // TvcmPopupMenu
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_52A0911C0003 f_InPopup
+
+: ME_52A091000334
+ CONST UID '52A091000334'
+ CONST Name 'ClearInPopup'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_51ED01600060 // TvcmPopupMenu
+ ;
+
+ref; // ME_52A091000334 ClearInPopup
+
+: ME_52A0905E002D_ME_51ED01600060
+ : Original WL 'ME_52A0905E002D' '4799D29F033F.pas.ms.script' // IsShortCut
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_52A0905E002D_ME_51ED01600060 IsShortCut
+
+: ME_52A090A90317_ME_51ED01600060
+ : Original WL 'ME_52A090A90317' '4799D29F033F.pas.ms.script' // Popup
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_52A090A90317_ME_51ED01600060 Popup
+
+: ME_51ED01600060
+ CONST UID '51ED01600060'
+ CONST Name 'TvcmPopupMenu'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4C8E3AC40306' '52A1ACC102FE.pas.ms.script' // TvcmPopupMenuPrim
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( HWL ME_52A0911C0003 // f_InPopup
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( HWL ME_52A091000334 // ClearInPopup
+ )
+ ; // Operations
+ : Overridden
+   Seq: ( ME_52A0905E002D_ME_51ED01600060 // IsShortCut
+ ME_52A090A90317_ME_51ED01600060 // Popup
+ )
+ ; // Overridden
+ CONST extprop:rc:SelfName 'PopupMenu'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_51ED01600060 TvcmPopupMenu
+
+FORWARD ME_52A082BA0188
+
+: ME_52A0830F0093
+ CONST UID '52A0830F0093'
+ CONST Name 'rPos'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_52A082BA0188 // TvcmButtonDef
+ ;
+ : Target WL 'ME_46A618AF0053' '4AB0C3C60310.pas.ms.script' // Cardinal
+ ;
+
+ref; // ME_52A0830F0093 rPos
+
+: ME_52A0832201F7
+ CONST UID '52A0832201F7'
+ CONST Name 'rEn'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_52A082BA0188 // TvcmButtonDef
+ ;
+ : Target WL 'ME_499566D90215' '499EAAE502A8.pas.ms.script' // IvcmOperationalIdentifiedUserFriendlyControl
+ ;
+
+ref; // ME_52A0832201F7 rEn
+
+: ME_52A0835800E0
+ CONST UID '52A0835800E0'
+ CONST Name 'rOp'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_52A082BA0188 // TvcmButtonDef
+ ;
+ : Target WL 'ME_4995624100A6' '499EAAE502A8.pas.ms.script' // IvcmOperationDef
+ ;
+
+ref; // ME_52A0835800E0 rOp
+
+: ME_52A083660202
+ CONST UID '52A083660202'
+ CONST Name 'rOptions'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_52A082BA0188 // TvcmButtonDef
+ ;
+ : Target WL 'ME_51E00A6B0010' '499EAAE502A8.pas.ms.script' // TvcmOperationOptions
+ ;
+
+ref; // ME_52A083660202 rOptions
+
+: ME_52A0836D02C3
+ CONST UID '52A0836D02C3'
+ CONST Name 'rNeedSep'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_52A082BA0188 // TvcmButtonDef
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_52A0836D02C3 rNeedSep
+
+: ME_52A0837500F7
+ CONST UID '52A0837500F7'
+ CONST Name 'rIconText'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_52A082BA0188 // TvcmButtonDef
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_52A0837500F7 rIconText
+
+: ME_52A0837B035A
+ CONST UID '52A0837B035A'
+ CONST Name 'rLoaded'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_52A082BA0188 // TvcmButtonDef
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_52A0837B035A rLoaded
+
+: ME_52A082BA0188
+ CONST UID '52A082BA0188'
+ CONST Name 'TvcmButtonDef'
+ CONST Class class_Class
+ : Stereotype st_Struct ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ : Attributes
+   Seq: ( HWL ME_52A0830F0093 // rPos
+ HWL ME_52A0832201F7 // rEn
+ HWL ME_52A0835800E0 // rOp
+ HWL ME_52A083660202 // rOptions
+ HWL ME_52A0836D02C3 // rNeedSep
+ HWL ME_52A0837500F7 // rIconText
+ HWL ME_52A0837B035A // rLoaded
+ )
+ ; // Attributes
+ CONST "ifdef" 'vcmUseSettings'
+
+ref; // ME_52A082BA0188 TvcmButtonDef
+
+FORWARD ME_52A8430201C5
+
+: ME_52A845600399
+ CONST UID '52A845600399'
+ CONST Name 'f_MinWidth'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_52A8430201C5 // TvcmFakeBox
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_52A845600399 f_MinWidth
+
+: ME_52A8447101AF_ME_52A8430201C5
+ : Original WL 'ME_52A8447101AF' '52A8439001F3.pas.ms.script' // FullWidth
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_52A8447101AF_ME_52A8430201C5 FullWidth
+
+: ME_52A8448E0050_ME_52A8430201C5
+ : Original WL 'ME_52A8448E0050' '52A8439001F3.pas.ms.script' // IsSizeable
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_52A8448E0050_ME_52A8430201C5 IsSizeable
+
+: ME_52A844A300F5_ME_52A8430201C5
+ : Original WL 'ME_52A844A300F5' '52A8439001F3.pas.ms.script' // MinWidth
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_52A844A300F5_ME_52A8430201C5 MinWidth
+
+: ME_52A844D303D9_ME_52A8430201C5
+ : Original WL 'ME_52A844D303D9' '52A8439001F3.pas.ms.script' // DoFitToWidth
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_52A844D303D9_ME_52A8430201C5 DoFitToWidth
+
+: ME_52A844E6012E_ME_52A8430201C5
+ : Original WL 'ME_52A844E6012E' '52A8439001F3.pas.ms.script' // DoUnFitToWidth
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_52A844E6012E_ME_52A8430201C5 DoUnFitToWidth
+
+: ME_52A844F600E6_ME_52A8430201C5
+ : Original WL 'ME_52A844F600E6' '52A8439001F3.pas.ms.script' // Expand
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_52A844F600E6_ME_52A8430201C5 Expand
+
+: ME_47D1602000C6_ME_52A8430201C5
+ : Original WL 'ME_47D1602000C6' '4AB0997B00A2.pas.ms.script' // Create
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_47D1602000C6_ME_52A8430201C5 Create
+
+: ME_52A8430201C5
+ CONST UID '52A8430201C5'
+ CONST Name 'TvcmFakeBox'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'общая функциональность необходимая vcm при использовании TFakeBox' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ : Inherits
+   Seq: ( WL 'ME_55B780E60398' '48297E42011A.pas.ms.script' // TvtComboTree
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_52A843B3028F' '52A8439001F3.pas.ms.script' // ITB97Ctrl
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( HWL ME_52A845600399 // f_MinWidth
+ )
+ ; // Attributes
+ : Implemented
+   Seq: ( ME_52A8447101AF_ME_52A8430201C5 // FullWidth
+ ME_52A8448E0050_ME_52A8430201C5 // IsSizeable
+ ME_52A844A300F5_ME_52A8430201C5 // MinWidth
+ ME_52A844D303D9_ME_52A8430201C5 // DoFitToWidth
+ ME_52A844E6012E_ME_52A8430201C5 // DoUnFitToWidth
+ ME_52A844F600E6_ME_52A8430201C5 // Expand
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_47D1602000C6_ME_52A8430201C5 // Create
+ )
+ ; // Overridden
+ CONST "register in scripts" true
+ CONST extprop:rc:SelfName 'FakeBox'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_52A8430201C5 TvcmFakeBox
+
+FORWARD ME_52A0812B00B7
+
+: ME_47D1602000C6_ME_52A0812B00B7
+ : Original WL 'ME_47D1602000C6' '4AB0997B00A2.pas.ms.script' // Create
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_47D1602000C6_ME_52A0812B00B7 Create
+
+: ME_52A0812B00B7
+ CONST UID '52A0812B00B7'
+ CONST Name 'TvcmDockContainer'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Панель используемая для размещения главной панели инструментов формы.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ : Inherits
+   Seq: ( WL 'ME_5028E84F00EE' '4799D29F033F.pas.ms.script' // TPanel
+ )
+ ; // Inherits
+ : Overridden
+   Seq: ( ME_47D1602000C6_ME_52A0812B00B7 // Create
+ )
+ ; // Overridden
+ CONST extprop:rc:SelfName 'DockContainer'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_52A0812B00B7 TvcmDockContainer
+
+FORWARD ME_52A0838A0001
+
+: ME_52A0839101F7
+ CONST UID '52A0839101F7'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent HWL ME_52A0838A0001 // TvcmButtonDefs
+ ;
+ : Target HWL ME_52A082BA0188 // TvcmButtonDef
+ ;
+
+ref; // ME_52A0839101F7 
+
+: ME_52A0838A0001
+ CONST UID '52A0838A0001'
+ CONST Name 'TvcmButtonDefs'
+ CONST Class class_Class
+ : Stereotype st_Vector ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ : Attributes
+   Seq: ( HWL ME_52A0839101F7 // 
+ )
+ ; // Attributes
+ CONST "array type" 'dynamic'
+ CONST "ifdef" 'vcmUseSettings'
+
+ref; // ME_52A0838A0001 TvcmButtonDefs
+
+FORWARD ME_52A08EDC003D
+
+: ME_52A08EE50385
+ CONST UID '52A08EE50385'
+ CONST Name 'vcm_itDefault'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_52A08EDC003D // TvcmIconTextType
+ ;
+
+ref; // ME_52A08EE50385 vcm_itDefault
+
+: ME_52A08EEE01E0
+ CONST UID '52A08EEE01E0'
+ CONST Name 'vcm_itIcon'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_52A08EDC003D // TvcmIconTextType
+ ;
+
+ref; // ME_52A08EEE01E0 vcm_itIcon
+
+: ME_52A08EF50190
+ CONST UID '52A08EF50190'
+ CONST Name 'vcm_itIconText'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_52A08EDC003D // TvcmIconTextType
+ ;
+
+ref; // ME_52A08EF50190 vcm_itIconText
+
+: ME_52A08EDC003D
+ CONST UID '52A08EDC003D'
+ CONST Name 'TvcmIconTextType'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ : Attributes
+   Seq: ( HWL ME_52A08EE50385 // vcm_itDefault
+ HWL ME_52A08EEE01E0 // vcm_itIcon
+ HWL ME_52A08EF50190 // vcm_itIconText
+ )
+ ; // Attributes
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_52A08EDC003D TvcmIconTextType
+
+FORWARD ME_52A087CA0218
+
+: ME_476961930017_ME_52A087CA0218
+ : Original WL 'ME_476961930017' '467BAB7F021E.pas.ms.script' // ParamsChanged
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_476961930017_ME_52A087CA0218 ParamsChanged
+
+: ME_476961A40369_ME_52A087CA0218
+ : Original WL 'ME_476961A40369' '467BAB7F021E.pas.ms.script' // ParamsChanging
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_476961A40369_ME_52A087CA0218 ParamsChanging
+
+: ME_52A087CA0218
+ CONST UID '52A087CA0218'
+ CONST Name 'TvcmToolButtonDefActionLink'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ : Inherits
+   Seq: ( WL 'ME_52A08684012E' '52A085A703D4.pas.ms.script' // TevCustomButtonActionLink
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_476961870161' '467BAB7F021E.pas.ms.script' // IvcmActionLink
+ )
+ ; // Implements
+ : Implemented
+   Seq: ( ME_476961930017_ME_52A087CA0218 // ParamsChanged
+ ME_476961A40369_ME_52A087CA0218 // ParamsChanging
+ )
+ ; // Implemented
+ CONST extprop:rc:SelfName 'ToolButtonDefActionLink'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_52A087CA0218 TvcmToolButtonDefActionLink
+
+FORWARD ME_52A08A9E0275
+
+FORWARD ME_52A08B7F0082
+
+: ME_52A08B8902AC
+ CONST UID '52A08B8902AC'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_52A08B7F0082 // IsIconText
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_52A08B8902AC DoIt
+
+: ME_52A08B7F0082
+ CONST UID '52A08B7F0082'
+ CONST Name 'IsIconText'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_52A08A9E0275 // TvcmToolButtonDef
+ ;
+ : Operations
+   Seq: ( HWL ME_52A08B8902AC // DoIt
+ )
+ ; // Operations
+
+ref; // ME_52A08B7F0082 IsIconText
+
+: ME_4F8845840032_ME_52A08A9E0275
+ : Original WL 'ME_4F8845840032' '4799D29F033F.pas.ms.script' // GetActionLinkClass
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4F8845840032_ME_52A08A9E0275 GetActionLinkClass
+
+: ME_50477A430157_ME_52A08A9E0275
+ : Original WL 'ME_50477A430157' '4C43E8750153.pas.ms.script' // NeedAutoDown
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_50477A430157_ME_52A08A9E0275 NeedAutoDown
+
+: ME_52A08AF5004B_ME_52A08A9E0275
+ : Original WL 'ME_52A08AF5004B' '52A085A703D4.pas.ms.script' // HackCheck
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_52A08AF5004B_ME_52A08A9E0275 HackCheck
+
+: ME_52A08B2C0001_ME_52A08A9E0275
+ : Original WL 'ME_52A08B2C0001' '4C43E8750153.pas.ms.script' // AutoAllUp
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_52A08B2C0001_ME_52A08A9E0275 AutoAllUp
+
+: ME_52A08A9E0275
+ CONST UID '52A08A9E0275'
+ CONST Name 'TvcmToolButtonDef'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ : Inherits
+   Seq: ( WL 'ME_52A085A703D4' '52A085A703D4.pas.ms.script' // TevButton
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( HWL ME_52A08B7F0082 // IsIconText
+ )
+ ; // Operations
+ : Overridden
+   Seq: ( ME_4F8845840032_ME_52A08A9E0275 // GetActionLinkClass
+ ME_50477A430157_ME_52A08A9E0275 // NeedAutoDown
+ ME_52A08AF5004B_ME_52A08A9E0275 // HackCheck
+ ME_52A08B2C0001_ME_52A08A9E0275 // AutoAllUp
+ )
+ ; // Overridden
+ CONST "register in scripts" true
+ CONST extprop:rc:SelfName 'ToolButtonDef'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_52A08A9E0275 TvcmToolButtonDef
+
+FORWARD ME_52A08EAA00E4
+
+: ME_52A08EBB01D6
+ CONST UID '52A08EBB01D6'
+ CONST Name 'vcm_DefaultMenuOptions'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_52A08EAA00E4 // vcmMenuManager Const
+ ;
+ CONST Value '[vcm_moEntitiesInMainMenu, vcm_moEntitiesInTopMainMenu]'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '[vcm_moEntitiesInMainMenu, vcm_moEntitiesInTopMainMenu]'
+
+ref; // ME_52A08EBB01D6 vcm_DefaultMenuOptions
+
+: ME_52A08EC7005D
+ CONST UID '52A08EC7005D'
+ CONST Name 'vcm_DefaultToolbarOptions'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_52A08EAA00E4 // vcmMenuManager Const
+ ;
+ CONST Value '[vcm_toModulesInMainToolbar, vcm_toEntitiesInMainToolbar]'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '[vcm_toModulesInMainToolbar, vcm_toEntitiesInMainToolbar]'
+
+ref; // ME_52A08EC7005D vcm_DefaultToolbarOptions
+
+: ME_52A08EAA00E4
+ CONST UID '52A08EAA00E4'
+ CONST Name 'vcmMenuManager Const'
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ : Attributes
+   Seq: ( HWL ME_52A08EBB01D6 // vcm_DefaultMenuOptions
+ HWL ME_52A08EC7005D // vcm_DefaultToolbarOptions
+ )
+ ; // Attributes
+ CONST "spell names" false
+ CONST extprop:rc:SelfName 'MenuManager Const'
+
+ref; // ME_52A08EAA00E4 vcmMenuManager Const
+
+FORWARD ME_52A08EFE0261
+
+: ME_52A08F0502FA
+ CONST UID '52A08F0502FA'
+ CONST Name 'vcm_gcAuto'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_52A08EFE0261 // TvcmGlyphColordepth
+ ;
+
+ref; // ME_52A08F0502FA vcm_gcAuto
+
+: ME_52A08F0C0167
+ CONST UID '52A08F0C0167'
+ CONST Name 'vcm_gc16'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_52A08EFE0261 // TvcmGlyphColordepth
+ ;
+
+ref; // ME_52A08F0C0167 vcm_gc16
+
+: ME_52A08F120278
+ CONST UID '52A08F120278'
+ CONST Name 'vcm_gc256'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_52A08EFE0261 // TvcmGlyphColordepth
+ ;
+
+ref; // ME_52A08F120278 vcm_gc256
+
+: ME_52A08F190265
+ CONST UID '52A08F190265'
+ CONST Name 'vcm_gcTrueColor'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_52A08EFE0261 // TvcmGlyphColordepth
+ ;
+
+ref; // ME_52A08F190265 vcm_gcTrueColor
+
+: ME_52A08EFE0261
+ CONST UID '52A08EFE0261'
+ CONST Name 'TvcmGlyphColordepth'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ : Attributes
+   Seq: ( HWL ME_52A08F0502FA // vcm_gcAuto
+ HWL ME_52A08F0C0167 // vcm_gc16
+ HWL ME_52A08F120278 // vcm_gc256
+ HWL ME_52A08F190265 // vcm_gcTrueColor
+ )
+ ; // Attributes
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_52A08EFE0261 TvcmGlyphColordepth
+
+FORWARD ME_52A8304401E3
+
+: ME_52A8307002AB
+ CONST UID '52A8307002AB'
+ CONST Name 'rVisibleLoaded'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_52A8304401E3 // TvcmToolbarDefForMenuManager
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_52A8307002AB rVisibleLoaded
+
+: ME_52A8307D029A
+ CONST UID '52A8307D029A'
+ CONST Name 'rVisible'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_52A8304401E3 // TvcmToolbarDefForMenuManager
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_52A8307D029A rVisible
+
+: ME_52A830890219
+ CONST UID '52A830890219'
+ CONST Name 'rButtons'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_52A8304401E3 // TvcmToolbarDefForMenuManager
+ ;
+ : Target HWL ME_52A0838A0001 // TvcmButtonDefs
+ ;
+
+ref; // ME_52A830890219 rButtons
+
+: ME_52A830920012
+ CONST UID '52A830920012'
+ CONST Name 'rUserType'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_52A8304401E3 // TvcmToolbarDefForMenuManager
+ ;
+ : Target WL 'ME_49930DA10146' '4683F37902CF.pas.ms.script' // IvcmUserTypeDef
+ ;
+
+ref; // ME_52A830920012 rUserType
+
+: ME_52A830990163
+ CONST UID '52A830990163'
+ CONST Name 'rToolbarName'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_52A8304401E3 // TvcmToolbarDefForMenuManager
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_52A830990163 rToolbarName
+
+: ME_52A8304401E3
+ CONST UID '52A8304401E3'
+ CONST Name 'TvcmToolbarDefForMenuManager'
+ CONST Class class_Class
+ : Stereotype st_Struct ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ : Attributes
+   Seq: ( HWL ME_52A8307002AB // rVisibleLoaded
+ HWL ME_52A8307D029A // rVisible
+ HWL ME_52A830890219 // rButtons
+ HWL ME_52A830920012 // rUserType
+ HWL ME_52A830990163 // rToolbarName
+ )
+ ; // Attributes
+ CONST "ifdef" 'vcmUseSettings'
+
+ref; // ME_52A8304401E3 TvcmToolbarDefForMenuManager
+
+: ME_52A091340172
+ CONST UID '52A091340172'
+ CONST Name 'TvcmButtonPopupMenu'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4C8E3AC40306' '52A1ACC102FE.pas.ms.script' // TvcmPopupMenuPrim
+ )
+ ; // Inherits
+ CONST extprop:rc:SelfName 'ButtonPopupMenu'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_52A091340172 TvcmButtonPopupMenu
+
+FORWARD ME_52A830D30389
+
+: ME_52A830E60086
+ CONST UID '52A830E60086'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent HWL ME_52A830D30389 // TvcmToolbarDefsForMenuManager
+ ;
+ : Target HWL ME_52A8304401E3 // TvcmToolbarDefForMenuManager
+ ;
+
+ref; // ME_52A830E60086 
+
+: ME_52A830D30389
+ CONST UID '52A830D30389'
+ CONST Name 'TvcmToolbarDefsForMenuManager'
+ CONST Class class_Class
+ : Stereotype st_Array ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4992F83801C5' '499EAAE502A8.pas.ms.script' // TvcmEffectiveToolBarPos
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( HWL ME_52A830E60086 // 
+ )
+ ; // Attributes
+ CONST "array type" 'dynamic'
+ CONST "ifdef" 'vcmUseSettings'
+
+ref; // ME_52A830D30389 TvcmToolbarDefsForMenuManager
+
+FORWARD ME_4B30EC81021A
+
+FORWARD ME_552BADA90096
+
+FORWARD ME_CA3791F56DC7
+
+: ME_3275AC4F0F3F
+ CONST Name 'aValue'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4B977802001D' '4B8E967100D5.pas.ms.script' // TvcmGlyphSize
+ ;
+
+ref; // ME_3275AC4F0F3F aValue
+
+: ME_E8ADA32D143E
+ CONST UID 'E8ADA32D143E'
+ CONST Name 'SetGlyphSize'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_CA3791F56DC7 // MvcmToolbarGlyphService
+ ;
+ : Parameters
+   Seq: ( ME_3275AC4F0F3F // aValue
+ )
+ ; // Parameters
+
+ref; // ME_E8ADA32D143E SetGlyphSize
+
+: ME_9DEC90563B75
+ CONST UID '9DEC90563B75'
+ CONST Name 'GetGlyphSize'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_CA3791F56DC7 // MvcmToolbarGlyphService
+ ;
+ : Target WL 'ME_4B977802001D' '4B8E967100D5.pas.ms.script' // TvcmGlyphSize
+ ;
+
+ref; // ME_9DEC90563B75 GetGlyphSize
+
+: ME_BC663849408C
+ CONST UID 'BC663849408C'
+ CONST Name 'GetGlyphColorDepth'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_CA3791F56DC7 // MvcmToolbarGlyphService
+ ;
+ : Target HWL ME_52A08EFE0261 // TvcmGlyphColordepth
+ ;
+
+ref; // ME_BC663849408C GetGlyphColorDepth
+
+: ME_EC9A7EABE0D0
+ CONST Name 'aValue'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target HWL ME_52A08EFE0261 // TvcmGlyphColordepth
+ ;
+
+ref; // ME_EC9A7EABE0D0 aValue
+
+: ME_B8089BE16F42
+ CONST UID 'B8089BE16F42'
+ CONST Name 'SetGlyphColorDepth'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_CA3791F56DC7 // MvcmToolbarGlyphService
+ ;
+ : Parameters
+   Seq: ( ME_EC9A7EABE0D0 // aValue
+ )
+ ; // Parameters
+
+ref; // ME_B8089BE16F42 SetGlyphColorDepth
+
+: ME_CA3791F56DC7
+ CONST UID 'CA3791F56DC7'
+ CONST Name 'MvcmToolbarGlyphService'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_PureMixIn ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Контракт сервиса TvcmToolbarGlyphService' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_552BADA90096 // TvcmToolbarGlyphService
+ ;
+ : Operations
+   Seq: ( HWL ME_E8ADA32D143E // SetGlyphSize
+ HWL ME_9DEC90563B75 // GetGlyphSize
+ HWL ME_BC663849408C // GetGlyphColorDepth
+ HWL ME_B8089BE16F42 // SetGlyphColorDepth
+ )
+ ; // Operations
+
+ref; // ME_CA3791F56DC7 MvcmToolbarGlyphService
+
+: ME_552BAE23020F
+ CONST Name 'aValue'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4B977802001D' '4B8E967100D5.pas.ms.script' // TvcmGlyphSize
+ ;
+
+ref; // ME_552BAE23020F aValue
+
+: ME_552BAE12019C
+ CONST UID '552BAE12019C'
+ CONST Name 'SetGlyphSize'
+ CONST Class class_Operation
+ : Stereotype st_responsibility::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_552BADA90096 // TvcmToolbarGlyphService
+ ;
+ : Parameters
+   Seq: ( ME_552BAE23020F // aValue
+ )
+ ; // Parameters
+
+ref; // ME_552BAE12019C SetGlyphSize
+
+: ME_552BBC750285
+ CONST UID '552BBC750285'
+ CONST Name 'GetGlyphSize'
+ CONST Class class_Operation
+ : Stereotype st_responsibility::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_552BADA90096 // TvcmToolbarGlyphService
+ ;
+ : Target WL 'ME_4B977802001D' '4B8E967100D5.pas.ms.script' // TvcmGlyphSize
+ ;
+
+ref; // ME_552BBC750285 GetGlyphSize
+
+: ME_552BC35B0274
+ CONST UID '552BC35B0274'
+ CONST Name 'GetGlyphColorDepth'
+ CONST Class class_Operation
+ : Stereotype st_responsibility::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_552BADA90096 // TvcmToolbarGlyphService
+ ;
+ : Target HWL ME_52A08EFE0261 // TvcmGlyphColordepth
+ ;
+
+ref; // ME_552BC35B0274 GetGlyphColorDepth
+
+: ME_552BC3800239
+ CONST Name 'aValue'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target HWL ME_52A08EFE0261 // TvcmGlyphColordepth
+ ;
+
+ref; // ME_552BC3800239 aValue
+
+: ME_552BC3720035
+ CONST UID '552BC3720035'
+ CONST Name 'SetGlyphColorDepth'
+ CONST Class class_Operation
+ : Stereotype st_responsibility::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_552BADA90096 // TvcmToolbarGlyphService
+ ;
+ : Parameters
+   Seq: ( ME_552BC3800239 // aValue
+ )
+ ; // Parameters
+
+ref; // ME_552BC3720035 SetGlyphColorDepth
+
+: ME_552BADA90096
+ CONST UID '552BADA90096'
+ CONST Name 'TvcmToolbarGlyphService'
+ CONST Class class_Class
+ : Stereotype st_Service ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ : Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( HWL ME_552BAE12019C // SetGlyphSize
+ HWL ME_552BBC750285 // GetGlyphSize
+ HWL ME_552BC35B0274 // GetGlyphColorDepth
+ HWL ME_552BC3720035 // SetGlyphColorDepth
+ )
+ ; // Operations
+ : Children
+   Seq: ( HWL ME_CA3791F56DC7 // MvcmToolbarGlyphService
+ )
+ ; // Children
+ : Injected
+   Seq: ( WL 'ME_552BAECF03A7' '54DCB32F019F.pas.ms.script' // VCMApllicationSettingsPack
+ )
+ ; // Injected
+ CONST extprop:rc:SelfName 'ToolbarGlyphService'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_552BADA90096 TvcmToolbarGlyphService
+
+: ME_52A822880118
+ CONST UID '52A822880118'
+ CONST Name 'DockButtonsImageList'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ %SUMMARY 'imagelist используемый для кнопок области dock-а' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ : Target WL 'ME_473DA2AF0168' '4799D29F033F.pas.ms.script' // TCustomImageList
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_52A822880118 DockButtonsImageList
+
+: ME_52A822E00293
+ CONST UID '52A822E00293'
+ CONST Name 'BtnCloseImageIndex'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ : Target WL 'ME_4788207F0056' '4799D29F033F.pas.ms.script' // TImageIndex
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_52A822E00293 BtnCloseImageIndex
+
+: ME_52A822FB00A0
+ CONST UID '52A822FB00A0'
+ CONST Name 'BtnOpenImageIndex'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ : Target WL 'ME_4788207F0056' '4799D29F033F.pas.ms.script' // TImageIndex
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_52A822FB00A0 BtnOpenImageIndex
+
+: ME_52A8230C0051
+ CONST UID '52A8230C0051'
+ CONST Name 'BtnOpenNewWindowImageIndex'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ : Target WL 'ME_4788207F0056' '4799D29F033F.pas.ms.script' // TImageIndex
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_52A8230C0051 BtnOpenNewWindowImageIndex
+
+: ME_52A823910334
+ CONST UID '52A823910334'
+ CONST Name 'Actions'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ : Target WL 'ME_52A823770326' '4799D29F033F.pas.ms.script' // TCustomActionList
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_52A823910334 Actions
+
+: ME_52A823D2029C
+ CONST UID '52A823D2029C'
+ CONST Name 'GlyphSize'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ : Target WL 'ME_4B977802001D' '4B8E967100D5.pas.ms.script' // TvcmGlyphSize
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_52A823D2029C GlyphSize
+
+: ME_52A824150341
+ CONST UID '52A824150341'
+ CONST Name 'GlyphColordepth'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ : Target HWL ME_52A08EFE0261 // TvcmGlyphColordepth
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_52A824150341 GlyphColordepth
+
+: ME_52A8246C022D
+ CONST UID '52A8246C022D'
+ CONST Name 'MainMenuItems'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ : Target WL 'ME_52A824420357' '4AB34028023E.pas.ms.script' // TvcmMenuItemsCollection
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_52A8246C022D MainMenuItems
+
+: ME_52A825320275
+ CONST UID '52A825320275'
+ CONST Name 'UserTypes'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ : Target WL 'ME_559CEE5A000E' '47D0E1500033.pas.ms.script' // TvcmUserTypeDefList
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_52A825320275 UserTypes
+
+: ME_52A8256F03CA
+ CONST UID '52A8256F03CA'
+ CONST Name 'SmallToolbarSize'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'размер toolbar-а в котором находятся кнопки с маленькими иконками, компонентами TvcmEdit и TvcmDateEdit' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_52A8256F03CA SmallToolbarSize
+
+: ME_52A825AB0067
+ CONST UID '52A825AB0067'
+ CONST Name 'MaxControlToolbarSize'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'максимальная высота компонента находящегося в toolbar-е' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_52A825AB0067 MaxControlToolbarSize
+
+: ME_52A825E400E4
+ CONST UID '52A825E400E4'
+ CONST Name 'OneToolbarPerForm'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_52A825E400E4 OneToolbarPerForm
+
+: ME_52A82A550048
+ CONST UID '52A82A550048'
+ CONST Name 'OnGlyphSizeChanged'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ : Target WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_52A82A550048 OnGlyphSizeChanged
+
+: ME_52A82A7C024B
+ CONST UID '52A82A7C024B'
+ CONST Name 'OnGlyphColordepthChanged'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ : Target WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_52A82A7C024B OnGlyphColordepthChanged
+
+: ME_52A82BB301D0
+ CONST UID '52A82BB301D0'
+ CONST Name 'f_FocusControl'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ : Target WL 'ME_47E124E90272' '4799D29F033F.pas.ms.script' // TWinControl
+ ;
+
+ref; // ME_52A82BB301D0 f_FocusControl
+
+: ME_52A82C0D03C8
+ CONST UID '52A82C0D03C8'
+ CONST Name 'f_InEnter'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_52A82C0D03C8 f_InEnter
+
+: ME_52A82C3302F2
+ CONST UID '52A82C3302F2'
+ CONST Name 'f_WasDrop'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_52A82C3302F2 f_WasDrop
+
+: ME_52A82D1C03AA
+ CONST UID '52A82D1C03AA'
+ CONST Name 'f_TickCount'
+ CONST Class class_Attribute
+ %SUMMARY 'можно избавиться?' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ : Target WL 'ME_46A618AF0053' '4AB0C3C60310.pas.ms.script' // Cardinal
+ ;
+
+ref; // ME_52A82D1C03AA f_TickCount
+
+: ME_52A82D5401DE
+ CONST UID '52A82D5401DE'
+ CONST Name 'f_UserTypesLoaded'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_52A82D5401DE f_UserTypesLoaded
+
+: ME_52A82E8E02ED
+ CONST UID '52A82E8E02ED'
+ CONST Name 'f_IsUnlockExecute'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_52A82E8E02ED f_IsUnlockExecute
+
+: ME_52A82EF601CB
+ CONST UID '52A82EF601CB'
+ CONST Name 'f_SaveDockList'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ : Target WL 'ME_4CE521C80107' '4A6D65B9022A.pas.ms.script' // Tl3ProtoObjectRefList
+ ;
+
+ref; // ME_52A82EF601CB f_SaveDockList
+
+: ME_52A82F6503C9
+ CONST UID '52A82F6503C9'
+ CONST Name 'f_SaveLockCounter'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ : Target WL 'ME_52A82F500189' '47D0E1500033.pas.ms.script' // TvcmLongintList
+ ;
+
+ref; // ME_52A82F6503C9 f_SaveLockCounter
+
+: ME_52A82F9B03B7
+ CONST UID '52A82F9B03B7'
+ CONST Name 'f_LockCounter'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_52A82F9B03B7 f_LockCounter
+
+: ME_52A82FA40313
+ CONST UID '52A82FA40313'
+ CONST Name 'f_UnlockInProgress'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_52A82FA40313 f_UnlockInProgress
+
+: ME_52A82FAE02E6
+ CONST UID '52A82FAE02E6'
+ CONST Name 'f_FastenToolbars'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_52A82FAE02E6 f_FastenToolbars
+
+: ME_52A82FC101C3
+ CONST UID '52A82FC101C3'
+ CONST Name 'f_ButtonHeight'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_52A82FC101C3 f_ButtonHeight
+
+: ME_52A82FE70277
+ CONST UID '52A82FE70277'
+ CONST Name 'f_LockList'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ : Target WL 'ME_4B0529C501F5' '47764CED0308.pas.ms.script' // TIafwMenuUnlockedPostBuildPtrList
+ ;
+
+ref; // ME_52A82FE70277 f_LockList
+
+: ME_52A8319200DD
+ CONST UID '52A8319200DD'
+ CONST Name 'f_MainToolbarDefs'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ : Target HWL ME_52A830D30389 // TvcmToolbarDefsForMenuManager
+ ;
+ CONST "ifdef" 'vcmUseSettings'
+
+ref; // ME_52A8319200DD f_MainToolbarDefs
+
+: ME_52AB11130037
+ CONST UID '52AB11130037'
+ CONST Name 'f_Popup'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ : Target HWL ME_51ED01600060 // TvcmPopupMenu
+ ;
+
+ref; // ME_52AB11130037 f_Popup
+
+: ME_52AB11690171
+ CONST UID '52AB11690171'
+ CONST Name 'f_PopupForm'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ : Target WL 'ME_49525B34022A' '4AADF9450143.pas.ms.script' // TvcmEntityForm
+ ;
+
+ref; // ME_52AB11690171 f_PopupForm
+
+: ME_52AB11B702ED
+ CONST UID '52AB11B702ED'
+ CONST Name 'MenuOptions'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ : Target WL 'ME_52A9A23E0251' '4AADF9450143.pas.ms.script' // TvcmMenuOptions
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_52AB11B702ED MenuOptions
+
+: ME_52AB11DE02DF
+ CONST UID '52AB11DE02DF'
+ CONST Name 'ToolbarOptions'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ : Target WL 'ME_52A9A2B3038D' '4AADF9450143.pas.ms.script' // TvcmToolbarOptions
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_52AB11DE02DF ToolbarOptions
+
+FORWARD ME_52A83208018D
+
+: ME_52A8321600BA
+ CONST Name 'aForm'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_484529DC0276' '4799D29F033F.pas.ms.script' // TCustomForm
+ ;
+
+ref; // ME_52A8321600BA aForm
+
+: ME_52A832130256
+ CONST UID '52A832130256'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_52A83208018D // OverridePopupMenu
+ ;
+ : Parameters
+   Seq: ( ME_52A8321600BA // aForm
+ )
+ ; // Parameters
+
+ref; // ME_52A832130256 DoIt
+
+: ME_52A83208018D
+ CONST UID '52A83208018D'
+ CONST Name 'OverridePopupMenu'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ : Operations
+   Seq: ( HWL ME_52A832130256 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_52A83208018D OverridePopupMenu
+
+FORWARD ME_52A8329D033C
+
+: ME_52A832BD00FB
+ CONST Name 'aToolbarButton'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4F69EF8C027C' '4C43E8750153.pas.ms.script' // TCustomToolbarButton97
+ ;
+
+ref; // ME_52A832BD00FB aToolbarButton
+
+: ME_52A832BD0112
+ CONST Name 'aSize'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_52A832BD0112 aSize
+
+: ME_52A832B10322
+ CONST UID '52A832B10322'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ %SUMMARY 'по параметрам кнопки определяет её высоту' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_52A8329D033C // ToolbarButtonSize$1
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   Seq: ( ME_52A832BD00FB // aToolbarButton
+ ME_52A832BD0112 // aSize
+ )
+ ; // Parameters
+
+ref; // ME_52A832B10322 DoIt
+
+: ME_52A8329D033C
+ CONST UID '52A8329D033C'
+ CONST Name 'ToolbarButtonSize'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ : Operations
+   Seq: ( HWL ME_52A832B10322 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_52A8329D033C ToolbarButtonSize$1
+
+FORWARD ME_52A832CD000B
+
+: ME_52A832DE01B2
+ CONST Name 'aToolbarButton'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4F69EF8C027C' '4C43E8750153.pas.ms.script' // TCustomToolbarButton97
+ ;
+
+ref; // ME_52A832DE01B2 aToolbarButton
+
+: ME_52A832D901B3
+ CONST UID '52A832D901B3'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_52A832CD000B // ToolbarButtonSize$2
+ ;
+ : Parameters
+   Seq: ( ME_52A832DE01B2 // aToolbarButton
+ )
+ ; // Parameters
+
+ref; // ME_52A832D901B3 DoIt
+
+: ME_52A832CD000B
+ CONST UID '52A832CD000B'
+ CONST Name 'ToolbarButtonSize'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'устанавливает ширину и высоту кнопки' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ : Operations
+   Seq: ( HWL ME_52A832D901B3 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_52A832CD000B ToolbarButtonSize$2
+
+FORWARD ME_52A833300250
+
+: ME_52A8334100B8
+ CONST Name 'aToolbar'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_502888EA0114' '5028887002FD.pas.ms.script' // TCustomToolbar97
+ ;
+
+ref; // ME_52A8334100B8 aToolbar
+
+: ME_52A8334100E6
+ CONST Name 'aSize'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_52A8334100E6 aSize
+
+: ME_52A8333D02F7
+ CONST UID '52A8333D02F7'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_52A833300250 // ToolbarSize
+ ;
+ : Parameters
+   Seq: ( ME_52A8334100B8 // aToolbar
+ ME_52A8334100E6 // aSize
+ )
+ ; // Parameters
+
+ref; // ME_52A8333D02F7 DoIt
+
+: ME_52A833300250
+ CONST UID '52A833300250'
+ CONST Name 'ToolbarSize'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'определяет размер toolbar-а' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ : Operations
+   Seq: ( HWL ME_52A8333D02F7 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_52A833300250 ToolbarSize
+
+: ME_52A83386032D
+ CONST UID '52A83386032D'
+ CONST Name 'RefocusEntity'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+
+ref; // ME_52A83386032D RefocusEntity
+
+: ME_52A833C103E0
+ CONST UID '52A833C103E0'
+ CONST Name 'RestoreControlText'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
+ )
+ ; // Inherits
+
+ref; // ME_52A833C103E0 RestoreControlText
+
+: ME_52A833D5007C
+ CONST UID '52A833D5007C'
+ CONST Name 'ChangeEntityText'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
+ )
+ ; // Inherits
+
+ref; // ME_52A833D5007C ChangeEntityText
+
+: ME_52A8343B0397
+ CONST UID '52A8343B0397'
+ CONST Name 'ChangeTyperText'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
+ )
+ ; // Inherits
+
+ref; // ME_52A8343B0397 ChangeTyperText
+
+: ME_52A835090368
+ CONST UID '52A835090368'
+ CONST Name 'ControlKeyDown'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ : Inherits
+   Seq: ( WL 'ME_51B595330096' '4799D29F033F.pas.ms.script' // TKeyEvent
+ )
+ ; // Inherits
+
+ref; // ME_52A835090368 ControlKeyDown
+
+: ME_52A835400086
+ CONST UID '52A835400086'
+ CONST Name 'ControlEnter'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
+ )
+ ; // Inherits
+
+ref; // ME_52A835400086 ControlEnter
+
+: ME_52A8357200BD
+ CONST UID '52A8357200BD'
+ CONST Name 'ControlExit'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
+ )
+ ; // Inherits
+
+ref; // ME_52A8357200BD ControlExit
+
+: ME_52A835800363
+ CONST UID '52A835800363'
+ CONST Name 'ControlDown'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
+ )
+ ; // Inherits
+
+ref; // ME_52A835800363 ControlDown
+
+: ME_52A835BC02D8
+ CONST UID '52A835BC02D8'
+ CONST Name 'DateDown'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
+ )
+ ; // Inherits
+
+ref; // ME_52A835BC02D8 DateDown
+
+: ME_52A835EC002D
+ CONST UID '52A835EC002D'
+ CONST Name 'ComboDown'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
+ )
+ ; // Inherits
+
+ref; // ME_52A835EC002D ComboDown
+
+: ME_52A835F8034A
+ CONST UID '52A835F8034A'
+ CONST Name 'ControlSelect'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
+ )
+ ; // Inherits
+
+ref; // ME_52A835F8034A ControlSelect
+
+: ME_52A8360602D0
+ CONST UID '52A8360602D0'
+ CONST Name 'FormChange'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
+ )
+ ; // Inherits
+
+ref; // ME_52A8360602D0 FormChange
+
+: ME_52A8362B00B7
+ CONST UID '52A8362B00B7'
+ CONST Name 'DoPopup'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
+ )
+ ; // Inherits
+
+ref; // ME_52A8362B00B7 DoPopup
+
+FORWARD ME_52A8367B01FC
+
+: ME_52A8368B00A6
+ CONST Name 'anEntityDef'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49956D4A00C6' '4683F37902CF.pas.ms.script' // IvcmEntityDef
+ ;
+
+ref; // ME_52A8368B00A6 anEntityDef
+
+: ME_52A836880393
+ CONST UID '52A836880393'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_52A8367B01FC // CheckPopup
+ ;
+ : Target WL 'ME_4991AD08005B' '4683F37902CF.pas.ms.script' // IvcmEntity
+ ;
+ : Parameters
+   Seq: ( ME_52A8368B00A6 // anEntityDef
+ )
+ ; // Parameters
+
+ref; // ME_52A836880393 DoIt
+
+: ME_52A8367B01FC
+ CONST UID '52A8367B01FC'
+ CONST Name 'CheckPopup'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ : Operations
+   Seq: ( HWL ME_52A836880393 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_52A8367B01FC CheckPopup
+
+FORWARD ME_52A836E4024C
+
+: ME_52A836F90076
+ CONST Name 'aForm'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525B34022A' '4AADF9450143.pas.ms.script' // TvcmEntityForm
+ ;
+
+ref; // ME_52A836F90076 aForm
+
+: ME_52A836F9008E
+ CONST Name 'aDef'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_499566D90215' '499EAAE502A8.pas.ms.script' // IvcmOperationalIdentifiedUserFriendlyControl
+ ;
+
+ref; // ME_52A836F9008E aDef
+
+: ME_52A836F900BD
+ CONST Name 'anIndex'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_52A836F900BD anIndex
+
+: ME_52A836F501E5
+ CONST UID '52A836F501E5'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_52A836E4024C // GetToolbarName
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+ : Parameters
+   Seq: ( ME_52A836F90076 // aForm
+ ME_52A836F9008E // aDef
+ ME_52A836F900BD // anIndex
+ )
+ ; // Parameters
+
+ref; // ME_52A836F501E5 DoIt
+
+: ME_52A836E4024C
+ CONST UID '52A836E4024C'
+ CONST Name 'GetToolbarName'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ : Operations
+   Seq: ( HWL ME_52A836F501E5 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_52A836E4024C GetToolbarName
+
+FORWARD ME_52A83799024A
+
+: ME_52A837C60301
+ CONST Name 'aForm'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525B34022A' '4AADF9450143.pas.ms.script' // TvcmEntityForm
+ ;
+
+ref; // ME_52A837C60301 aForm
+
+: ME_52A837C6031A
+ CONST Name 'aDef'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_499566D90215' '499EAAE502A8.pas.ms.script' // IvcmOperationalIdentifiedUserFriendlyControl
+ ;
+
+ref; // ME_52A837C6031A aDef
+
+: ME_52A837C60333
+ CONST Name 'anIndex'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_52A837C60333 anIndex
+
+: ME_52A837C202EE
+ CONST UID '52A837C202EE'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_52A83799024A // BuildToolbar$1
+ ;
+ : Target WL 'ME_50289DB9036F' '5028A4C0019B.pas.ms.script' // TvcmToolbarDef
+ ;
+ : Parameters
+   Seq: ( ME_52A837C60301 // aForm
+ ME_52A837C6031A // aDef
+ ME_52A837C60333 // anIndex
+ )
+ ; // Parameters
+
+ref; // ME_52A837C202EE DoIt
+
+: ME_52A83799024A
+ CONST UID '52A83799024A'
+ CONST Name 'BuildToolbar'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'anIndex - порядковый номер Toolbar''а (для огранизации нескольких Toolbar''ов в одном доке)' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ : Operations
+   Seq: ( HWL ME_52A837C202EE // DoIt
+ )
+ ; // Operations
+ CONST "ifndef" 'DesignTimeLibrary'
+
+ref; // ME_52A83799024A BuildToolbar$1
+
+FORWARD ME_52A838180205
+
+: ME_52A838510173
+ CONST Name 'aForm'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525B34022A' '4AADF9450143.pas.ms.script' // TvcmEntityForm
+ ;
+
+ref; // ME_52A838510173 aForm
+
+: ME_52A83851018A
+ CONST Name 'aToolBar'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_50289DB9036F' '5028A4C0019B.pas.ms.script' // TvcmToolbarDef
+ ;
+
+ref; // ME_52A83851018A aToolBar
+
+: ME_52A8385101A3
+ CONST Name 'aHolder'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_499566D90215' '499EAAE502A8.pas.ms.script' // IvcmOperationalIdentifiedUserFriendlyControl
+ ;
+
+ref; // ME_52A8385101A3 aHolder
+
+: ME_52A8385101BB
+ CONST Name 'anOperations'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4995644E03A9' '499EAAE502A8.pas.ms.script' // IvcmOperationsDefIterator
+ ;
+
+ref; // ME_52A8385101BB anOperations
+
+: ME_52A8385101D4
+ CONST Name 'anOptions'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_51E00A6B0010' '499EAAE502A8.pas.ms.script' // TvcmOperationOptions
+ ;
+
+ref; // ME_52A8385101D4 anOptions
+
+: ME_52A8384E01BA
+ CONST UID '52A8384E01BA'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_52A838180205 // FillToolbar
+ ;
+ : Parameters
+   Seq: ( ME_52A838510173 // aForm
+ ME_52A83851018A // aToolBar
+ ME_52A8385101A3 // aHolder
+ ME_52A8385101BB // anOperations
+ ME_52A8385101D4 // anOptions
+ )
+ ; // Parameters
+
+ref; // ME_52A8384E01BA DoIt
+
+: ME_52A838180205
+ CONST UID '52A838180205'
+ CONST Name 'FillToolbar'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ : Operations
+   Seq: ( HWL ME_52A8384E01BA // DoIt
+ )
+ ; // Operations
+
+ref; // ME_52A838180205 FillToolbar
+
+FORWARD ME_52A8391000A9
+
+: ME_52A8391B00DF
+ CONST Name 'aToolBar'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_50289DB9036F' '5028A4C0019B.pas.ms.script' // TvcmToolbarDef
+ ;
+
+ref; // ME_52A8391B00DF aToolBar
+
+: ME_52A839170268
+ CONST UID '52A839170268'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_52A8391000A9 // CheckToolbar
+ ;
+ : Parameters
+   Seq: ( ME_52A8391B00DF // aToolBar
+ )
+ ; // Parameters
+
+ref; // ME_52A839170268 DoIt
+
+: ME_52A8391000A9
+ CONST UID '52A8391000A9'
+ CONST Name 'CheckToolbar'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ : Operations
+   Seq: ( HWL ME_52A839170268 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_52A8391000A9 CheckToolbar
+
+FORWARD ME_52A8393D0073
+
+: ME_52A8396500E2
+ CONST Name 'aForm'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525B34022A' '4AADF9450143.pas.ms.script' // TvcmEntityForm
+ ;
+
+ref; // ME_52A8396500E2 aForm
+
+: ME_52A8396500FA
+ CONST Name 'aHolder'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_499566D90215' '499EAAE502A8.pas.ms.script' // IvcmOperationalIdentifiedUserFriendlyControl
+ ;
+
+ref; // ME_52A8396500FA aHolder
+
+: ME_52A839650113
+ CONST Name 'anOptions'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_51E00A6B0010' '499EAAE502A8.pas.ms.script' // TvcmOperationOptions
+ ;
+
+ref; // ME_52A839650113 anOptions
+
+: ME_52A83965012C
+ CONST Name 'anExcludePoses'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4992F87800BC' '499EAAE502A8.pas.ms.script' // TvcmEffectiveToolBarPoses
+ ;
+
+ref; // ME_52A83965012C anExcludePoses
+
+: ME_52A8395C01C8
+ CONST UID '52A8395C01C8'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_52A8393D0073 // MakeToolbar
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   Seq: ( ME_52A8396500E2 // aForm
+ ME_52A8396500FA // aHolder
+ ME_52A839650113 // anOptions
+ ME_52A83965012C // anExcludePoses
+ )
+ ; // Parameters
+
+ref; // ME_52A8395C01C8 DoIt
+
+: ME_52A8393D0073
+ CONST UID '52A8393D0073'
+ CONST Name 'MakeToolbar'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ : Operations
+   Seq: ( HWL ME_52A8395C01C8 // DoIt
+ )
+ ; // Operations
+ CONST "ifndef" 'DesignTimeLibrary'
+
+ref; // ME_52A8393D0073 MakeToolbar
+
+FORWARD ME_52A8398C01D1
+
+: ME_52A839B3035A
+ CONST Name 'aForm'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525B34022A' '4AADF9450143.pas.ms.script' // TvcmEntityForm
+ ;
+
+ref; // ME_52A839B3035A aForm
+
+: ME_52A839B30371
+ CONST Name 'anEntities'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49956DA70152' '4683F37902CF.pas.ms.script' // IvcmEntitiesDefIterator
+ ;
+
+ref; // ME_52A839B30371 anEntities
+
+: ME_52A839B3038A
+ CONST Name 'anOptions'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_51E00A6B0010' '499EAAE502A8.pas.ms.script' // TvcmOperationOptions
+ ;
+
+ref; // ME_52A839B3038A anOptions
+
+: ME_52A839B303A2
+ CONST Name 'anExcludePoses'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4992F87800BC' '499EAAE502A8.pas.ms.script' // TvcmEffectiveToolBarPoses
+ ;
+
+ref; // ME_52A839B303A2 anExcludePoses
+
+: ME_52A839B10264
+ CONST UID '52A839B10264'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_52A8398C01D1 // BuildEntitiesToolbars
+ ;
+ : Parameters
+   Seq: ( ME_52A839B3035A // aForm
+ ME_52A839B30371 // anEntities
+ ME_52A839B3038A // anOptions
+ ME_52A839B303A2 // anExcludePoses
+ )
+ ; // Parameters
+
+ref; // ME_52A839B10264 DoIt
+
+: ME_52A8398C01D1
+ CONST UID '52A8398C01D1'
+ CONST Name 'BuildEntitiesToolbars'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ : Operations
+   Seq: ( HWL ME_52A839B10264 // DoIt
+ )
+ ; // Operations
+ CONST "ifndef" 'DesignTimeLibrary'
+
+ref; // ME_52A8398C01D1 BuildEntitiesToolbars
+
+FORWARD ME_52A839C302A6
+
+: ME_52A839DC03A9
+ CONST Name 'aUserType'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49930DA10146' '4683F37902CF.pas.ms.script' // IvcmUserTypeDef
+ ;
+
+ref; // ME_52A839DC03A9 aUserType
+
+: ME_52A839DC03C1
+ CONST Name 'aToolbar'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_52A839DC03C1 aToolbar
+
+: ME_52A839DC03D9
+ CONST Name 'AddUnsavedButton'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_52A839DC03D9 AddUnsavedButton
+
+: ME_52A839DD000B
+ CONST Name 'theButton'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target HWL ME_52A082BA0188 // TvcmButtonDef
+ ;
+
+ref; // ME_52A839DD000B theButton
+
+: ME_52A839DD0024
+ CONST Name 'theButtons'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target HWL ME_52A0838A0001 // TvcmButtonDefs
+ ;
+
+ref; // ME_52A839DD0024 theButtons
+
+: ME_52A839D90329
+ CONST UID '52A839D90329'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_52A839C302A6 // LoadButtonsFromSettings
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   Seq: ( ME_52A839DC03A9 // aUserType
+ ME_52A839DC03C1 // aToolbar
+ ME_52A839DC03D9 // AddUnsavedButton
+ ME_52A839DD000B // theButton
+ ME_52A839DD0024 // theButtons
+ )
+ ; // Parameters
+
+ref; // ME_52A839D90329 DoIt
+
+: ME_52A839C302A6
+ CONST UID '52A839C302A6'
+ CONST Name 'LoadButtonsFromSettings'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ : Operations
+   Seq: ( HWL ME_52A839D90329 // DoIt
+ )
+ ; // Operations
+ CONST "ifdef" 'vcmUseSettings'
+
+ref; // ME_52A839C302A6 LoadButtonsFromSettings
+
+FORWARD ME_52A83A050068
+
+: ME_52A83A270179
+ CONST Name 'aForm'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525B34022A' '4AADF9450143.pas.ms.script' // TvcmEntityForm
+ ;
+
+ref; // ME_52A83A270179 aForm
+
+: ME_52A83A270190
+ CONST Name 'aToolbarName'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_52A83A270190 aToolbarName
+
+: ME_52A83A2701A8
+ CONST Name 'aPos'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4992F83801C5' '499EAAE502A8.pas.ms.script' // TvcmEffectiveToolBarPos
+ ;
+
+ref; // ME_52A83A2701A8 aPos
+
+: ME_52A83A2701C0
+ CONST Name 'anOptions'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_51E00A6B0010' '499EAAE502A8.pas.ms.script' // TvcmOperationOptions
+ ;
+
+ref; // ME_52A83A2701C0 anOptions
+
+: ME_52A83A2701D8
+ CONST Name 'theButtons'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target HWL ME_52A0838A0001 // TvcmButtonDefs
+ ;
+
+ref; // ME_52A83A2701D8 theButtons
+
+: ME_52A83A2200D4
+ CONST UID '52A83A2200D4'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_52A83A050068 // MakeToolbarFromSettings
+ ;
+ : Parameters
+   Seq: ( ME_52A83A270179 // aForm
+ ME_52A83A270190 // aToolbarName
+ ME_52A83A2701A8 // aPos
+ ME_52A83A2701C0 // anOptions
+ ME_52A83A2701D8 // theButtons
+ )
+ ; // Parameters
+
+ref; // ME_52A83A2200D4 DoIt
+
+: ME_52A83A050068
+ CONST UID '52A83A050068'
+ CONST Name 'MakeToolbarFromSettings'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ : Operations
+   Seq: ( HWL ME_52A83A2200D4 // DoIt
+ )
+ ; // Operations
+ CONST "ifdef" 'vcmUseSettings'
+
+ref; // ME_52A83A050068 MakeToolbarFromSettings
+
+FORWARD ME_52A83A37024D
+
+: ME_52A83A470044
+ CONST Name 'aForm'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525B34022A' '4AADF9450143.pas.ms.script' // TvcmEntityForm
+ ;
+
+ref; // ME_52A83A470044 aForm
+
+: ME_52A83A420359
+ CONST UID '52A83A420359'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_52A83A37024D // MakeMainToolbarFromSettings
+ ;
+ : Parameters
+   Seq: ( ME_52A83A470044 // aForm
+ )
+ ; // Parameters
+
+ref; // ME_52A83A420359 DoIt
+
+: ME_52A83A37024D
+ CONST UID '52A83A37024D'
+ CONST Name 'MakeMainToolbarFromSettings'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ : Operations
+   Seq: ( HWL ME_52A83A420359 // DoIt
+ )
+ ; // Operations
+ CONST "ifdef" 'vcmUseSettings'
+
+ref; // ME_52A83A37024D MakeMainToolbarFromSettings
+
+FORWARD ME_52A83A6903B7
+
+: ME_52A83A7B0370
+ CONST Name 'aForm'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525B34022A' '4AADF9450143.pas.ms.script' // TvcmEntityForm
+ ;
+
+ref; // ME_52A83A7B0370 aForm
+
+: ME_52A83A7B038A
+ CONST Name 'anOptions'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_51E00A6B0010' '499EAAE502A8.pas.ms.script' // TvcmOperationOptions
+ ;
+
+ref; // ME_52A83A7B038A anOptions
+
+: ME_52A83A78029F
+ CONST UID '52A83A78029F'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_52A83A6903B7 // BuildFormToolbars
+ ;
+ : Parameters
+   Seq: ( ME_52A83A7B0370 // aForm
+ ME_52A83A7B038A // anOptions
+ )
+ ; // Parameters
+
+ref; // ME_52A83A78029F DoIt
+
+: ME_52A83A6903B7
+ CONST UID '52A83A6903B7'
+ CONST Name 'BuildFormToolbars'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ : Operations
+   Seq: ( HWL ME_52A83A78029F // DoIt
+ )
+ ; // Operations
+ CONST "ifndef" 'DesignTimeLibrary'
+
+ref; // ME_52A83A6903B7 BuildFormToolbars
+
+FORWARD ME_52A83AA6033F
+
+: ME_52A83AC00081
+ CONST Name 'aForm'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525B34022A' '4AADF9450143.pas.ms.script' // TvcmEntityForm
+ ;
+
+ref; // ME_52A83AC00081 aForm
+
+: ME_52A83AC0009B
+ CONST Name 'aModuleDef'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_499303E502C9' '4683F37902CF.pas.ms.script' // IvcmModuleDef
+ ;
+
+ref; // ME_52A83AC0009B aModuleDef
+
+: ME_52A83ABD0145
+ CONST UID '52A83ABD0145'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_52A83AA6033F // BuildMainToolbars
+ ;
+ : Parameters
+   Seq: ( ME_52A83AC00081 // aForm
+ ME_52A83AC0009B // aModuleDef
+ )
+ ; // Parameters
+
+ref; // ME_52A83ABD0145 DoIt
+
+: ME_52A83AA6033F
+ CONST UID '52A83AA6033F'
+ CONST Name 'BuildMainToolbars'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'создает Toolbar''ы основной формы' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ : Operations
+   Seq: ( HWL ME_52A83ABD0145 // DoIt
+ )
+ ; // Operations
+ CONST "ifndef" 'DesignTimeLibrary'
+
+ref; // ME_52A83AA6033F BuildMainToolbars
+
+: ME_52A83AE7029B
+ CONST UID '52A83AE7029B'
+ CONST Name 'CheckUserTypes'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+
+ref; // ME_52A83AE7029B CheckUserTypes
+
+FORWARD ME_52A83AF900CF
+
+: ME_52A83B0103CD
+ CONST Name 'aModuleDef'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_499303E502C9' '4683F37902CF.pas.ms.script' // IvcmModuleDef
+ ;
+
+ref; // ME_52A83B0103CD aModuleDef
+
+: ME_52A83AFF03E6
+ CONST UID '52A83AFF03E6'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_52A83AF900CF // BuildUserTypes
+ ;
+ : Parameters
+   Seq: ( ME_52A83B0103CD // aModuleDef
+ )
+ ; // Parameters
+
+ref; // ME_52A83AFF03E6 DoIt
+
+: ME_52A83AF900CF
+ CONST UID '52A83AF900CF'
+ CONST Name 'BuildUserTypes'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ : Operations
+   Seq: ( HWL ME_52A83AFF03E6 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_52A83AF900CF BuildUserTypes
+
+FORWARD ME_52A83B1102D4
+
+: ME_52A83B220288
+ CONST Name 'Sender'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_52A83B220288 Sender
+
+: ME_52A83B2202A1
+ CONST Name 'DockClient'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_50288A3D023C' '5028898902A2.pas.ms.script' // TCustomToolWindow97
+ ;
+
+ref; // ME_52A83B2202A1 DockClient
+
+: ME_52A83B2202BA
+ CONST Name 'CanDock'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_52A83B2202BA CanDock
+
+: ME_52A83B1F0364
+ CONST UID '52A83B1F0364'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_52A83B1102D4 // ToolbarsGetSiteInfo
+ ;
+ : Parameters
+   Seq: ( ME_52A83B220288 // Sender
+ ME_52A83B2202A1 // DockClient
+ ME_52A83B2202BA // CanDock
+ )
+ ; // Parameters
+
+ref; // ME_52A83B1F0364 DoIt
+
+: ME_52A83B1102D4
+ CONST UID '52A83B1102D4'
+ CONST Name 'ToolbarsGetSiteInfo'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ : Operations
+   Seq: ( HWL ME_52A83B1F0364 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_52A83B1102D4 ToolbarsGetSiteInfo
+
+FORWARD ME_52A83EA20222
+
+: ME_52A83EB0005E
+ CONST Name 'aForm'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525B34022A' '4AADF9450143.pas.ms.script' // TvcmEntityForm
+ ;
+
+ref; // ME_52A83EB0005E aForm
+
+: ME_52A83EB00077
+ CONST Name 'aToolBar'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_50289DB9036F' '5028A4C0019B.pas.ms.script' // TvcmToolbarDef
+ ;
+
+ref; // ME_52A83EB00077 aToolBar
+
+: ME_52A83EB00090
+ CONST Name 'aModuleDef'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_499303E502C9' '4683F37902CF.pas.ms.script' // IvcmModuleDef
+ ;
+
+ref; // ME_52A83EB00090 aModuleDef
+
+: ME_52A83EB000AA
+ CONST Name 'anEntityDef'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49956D4A00C6' '4683F37902CF.pas.ms.script' // IvcmEntityDef
+ ;
+
+ref; // ME_52A83EB000AA anEntityDef
+
+: ME_52A83EB000C4
+ CONST Name 'anOp'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4995624100A6' '499EAAE502A8.pas.ms.script' // IvcmOperationDef
+ ;
+
+ref; // ME_52A83EB000C4 anOp
+
+: ME_52A83EB000DF
+ CONST Name 'anOptions'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_51E00A6B0010' '499EAAE502A8.pas.ms.script' // TvcmOperationOptions
+ ;
+
+ref; // ME_52A83EB000DF anOptions
+
+: ME_52A83EB000F9
+ CONST Name 'anIconText'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target HWL ME_52A08EDC003D // TvcmIconTextType
+ ;
+ CONST Value 'vcm_itDefault'
+ : ValueType HWL ME_52A08EDC003D // TvcmIconTextType
+ ;
+ CONST extprop:pas:Value 'vcm_itDefault'
+
+ref; // ME_52A83EB000F9 anIconText
+
+: ME_52A83EAD00BB
+ CONST UID '52A83EAD00BB'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_52A83EA20222 // BuildButton$1
+ ;
+ : Target WL 'ME_47E1201703C3' '4799D29F033F.pas.ms.script' // TControl
+ ;
+ : Parameters
+   Seq: ( ME_52A83EB0005E // aForm
+ ME_52A83EB00077 // aToolBar
+ ME_52A83EB00090 // aModuleDef
+ ME_52A83EB000AA // anEntityDef
+ ME_52A83EB000C4 // anOp
+ ME_52A83EB000DF // anOptions
+ ME_52A83EB000F9 // anIconText
+ )
+ ; // Parameters
+
+ref; // ME_52A83EAD00BB DoIt
+
+: ME_52A83EA20222
+ CONST UID '52A83EA20222'
+ CONST Name 'BuildButton'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ : Operations
+   Seq: ( HWL ME_52A83EAD00BB // DoIt
+ )
+ ; // Operations
+
+ref; // ME_52A83EA20222 BuildButton$1
+
+FORWARD ME_52A83EDA006E
+
+: ME_52A83EE800BB
+ CONST Name 'aForm'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525B34022A' '4AADF9450143.pas.ms.script' // TvcmEntityForm
+ ;
+
+ref; // ME_52A83EE800BB aForm
+
+: ME_52A83EE800D5
+ CONST Name 'aToolBar'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_50289DB9036F' '5028A4C0019B.pas.ms.script' // TvcmToolbarDef
+ ;
+
+ref; // ME_52A83EE800D5 aToolBar
+
+: ME_52A83EE800EE
+ CONST Name 'aModuleDef'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_499303E502C9' '4683F37902CF.pas.ms.script' // IvcmModuleDef
+ ;
+
+ref; // ME_52A83EE800EE aModuleDef
+
+: ME_52A83EE80108
+ CONST Name 'anEntityDef'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49956D4A00C6' '4683F37902CF.pas.ms.script' // IvcmEntityDef
+ ;
+
+ref; // ME_52A83EE80108 anEntityDef
+
+: ME_52A83EE80122
+ CONST Name 'anOp'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4995624100A6' '499EAAE502A8.pas.ms.script' // IvcmOperationDef
+ ;
+
+ref; // ME_52A83EE80122 anOp
+
+: ME_52A83EE8013C
+ CONST Name 'anOpOptions'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_51E00A6B0010' '499EAAE502A8.pas.ms.script' // TvcmOperationOptions
+ ;
+
+ref; // ME_52A83EE8013C anOpOptions
+
+: ME_52A83EE80157
+ CONST Name 'anOptions'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_51E00A6B0010' '499EAAE502A8.pas.ms.script' // TvcmOperationOptions
+ ;
+
+ref; // ME_52A83EE80157 anOptions
+
+: ME_52A83EE80172
+ CONST Name 'anIconText'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target HWL ME_52A08EDC003D // TvcmIconTextType
+ ;
+ CONST Value 'vcm_itDefault'
+ : ValueType HWL ME_52A08EDC003D // TvcmIconTextType
+ ;
+ CONST extprop:pas:Value 'vcm_itDefault'
+
+ref; // ME_52A83EE80172 anIconText
+
+: ME_52A83EE40308
+ CONST UID '52A83EE40308'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_52A83EDA006E // BuildButton$2
+ ;
+ : Target WL 'ME_47E1201703C3' '4799D29F033F.pas.ms.script' // TControl
+ ;
+ : Parameters
+   Seq: ( ME_52A83EE800BB // aForm
+ ME_52A83EE800D5 // aToolBar
+ ME_52A83EE800EE // aModuleDef
+ ME_52A83EE80108 // anEntityDef
+ ME_52A83EE80122 // anOp
+ ME_52A83EE8013C // anOpOptions
+ ME_52A83EE80157 // anOptions
+ ME_52A83EE80172 // anIconText
+ )
+ ; // Parameters
+
+ref; // ME_52A83EE40308 DoIt
+
+: ME_52A83EDA006E
+ CONST UID '52A83EDA006E'
+ CONST Name 'BuildButton'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ : Operations
+   Seq: ( HWL ME_52A83EE40308 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_52A83EDA006E BuildButton$2
+
+FORWARD ME_52A83F1203DA
+
+: ME_52A83F1F014E
+ CONST Name 'aForm'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525B34022A' '4AADF9450143.pas.ms.script' // TvcmEntityForm
+ ;
+
+ref; // ME_52A83F1F014E aForm
+
+: ME_52A83F1F0167
+ CONST Name 'aToolBar'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_50289DB9036F' '5028A4C0019B.pas.ms.script' // TvcmToolbarDef
+ ;
+
+ref; // ME_52A83F1F0167 aToolBar
+
+: ME_52A83F1F017E
+ CONST Name 'aHolder'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_499566D90215' '499EAAE502A8.pas.ms.script' // IvcmOperationalIdentifiedUserFriendlyControl
+ ;
+
+ref; // ME_52A83F1F017E aHolder
+
+: ME_52A83F1F0196
+ CONST Name 'anOp'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4995624100A6' '499EAAE502A8.pas.ms.script' // IvcmOperationDef
+ ;
+
+ref; // ME_52A83F1F0196 anOp
+
+: ME_52A83F1F01AF
+ CONST Name 'anOpOptions'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_51E00A6B0010' '499EAAE502A8.pas.ms.script' // TvcmOperationOptions
+ ;
+
+ref; // ME_52A83F1F01AF anOpOptions
+
+: ME_52A83F1F01C8
+ CONST Name 'anOptions'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_51E00A6B0010' '499EAAE502A8.pas.ms.script' // TvcmOperationOptions
+ ;
+
+ref; // ME_52A83F1F01C8 anOptions
+
+: ME_52A83F1F01E2
+ CONST Name 'anIconText'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target HWL ME_52A08EDC003D // TvcmIconTextType
+ ;
+ CONST Value 'vcm_itDefault'
+ : ValueType HWL ME_52A08EDC003D // TvcmIconTextType
+ ;
+ CONST extprop:pas:Value 'vcm_itDefault'
+
+ref; // ME_52A83F1F01E2 anIconText
+
+: ME_52A83F1B0247
+ CONST UID '52A83F1B0247'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_52A83F1203DA // BuildButton$3
+ ;
+ : Target WL 'ME_47E1201703C3' '4799D29F033F.pas.ms.script' // TControl
+ ;
+ : Parameters
+   Seq: ( ME_52A83F1F014E // aForm
+ ME_52A83F1F0167 // aToolBar
+ ME_52A83F1F017E // aHolder
+ ME_52A83F1F0196 // anOp
+ ME_52A83F1F01AF // anOpOptions
+ ME_52A83F1F01C8 // anOptions
+ ME_52A83F1F01E2 // anIconText
+ )
+ ; // Parameters
+
+ref; // ME_52A83F1B0247 DoIt
+
+: ME_52A83F1203DA
+ CONST UID '52A83F1203DA'
+ CONST Name 'BuildButton'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ : Operations
+   Seq: ( HWL ME_52A83F1B0247 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_52A83F1203DA BuildButton$3
+
+FORWARD ME_52A83F4001DE
+
+: ME_52A83F4C029F
+ CONST Name 'aForm'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525B34022A' '4AADF9450143.pas.ms.script' // TvcmEntityForm
+ ;
+
+ref; // ME_52A83F4C029F aForm
+
+: ME_52A83F4C02B7
+ CONST Name 'aToolBar'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_50289DB9036F' '5028A4C0019B.pas.ms.script' // TvcmToolbarDef
+ ;
+
+ref; // ME_52A83F4C02B7 aToolBar
+
+: ME_52A83F4C02CF
+ CONST Name 'aHolder'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_499566D90215' '499EAAE502A8.pas.ms.script' // IvcmOperationalIdentifiedUserFriendlyControl
+ ;
+
+ref; // ME_52A83F4C02CF aHolder
+
+: ME_52A83F4C02E9
+ CONST Name 'anOp'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4995624100A6' '499EAAE502A8.pas.ms.script' // IvcmOperationDef
+ ;
+
+ref; // ME_52A83F4C02E9 anOp
+
+: ME_52A83F4C0303
+ CONST Name 'anOptions'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_51E00A6B0010' '499EAAE502A8.pas.ms.script' // TvcmOperationOptions
+ ;
+
+ref; // ME_52A83F4C0303 anOptions
+
+: ME_52A83F4C031E
+ CONST Name 'anIconText'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target HWL ME_52A08EDC003D // TvcmIconTextType
+ ;
+ CONST Value 'vcm_itDefault'
+ : ValueType HWL ME_52A08EDC003D // TvcmIconTextType
+ ;
+ CONST extprop:pas:Value 'vcm_itDefault'
+
+ref; // ME_52A83F4C031E anIconText
+
+: ME_52A83F490353
+ CONST UID '52A83F490353'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_52A83F4001DE // BuildButton$4
+ ;
+ : Target WL 'ME_47E1201703C3' '4799D29F033F.pas.ms.script' // TControl
+ ;
+ : Parameters
+   Seq: ( ME_52A83F4C029F // aForm
+ ME_52A83F4C02B7 // aToolBar
+ ME_52A83F4C02CF // aHolder
+ ME_52A83F4C02E9 // anOp
+ ME_52A83F4C0303 // anOptions
+ ME_52A83F4C031E // anIconText
+ )
+ ; // Parameters
+
+ref; // ME_52A83F490353 DoIt
+
+: ME_52A83F4001DE
+ CONST UID '52A83F4001DE'
+ CONST Name 'BuildButton'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ : Operations
+   Seq: ( HWL ME_52A83F490353 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_52A83F4001DE BuildButton$4
+
+FORWARD ME_52A83F6002D5
+
+: ME_52A83F6E034C
+ CONST Name 'aModuleDef'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_499303E502C9' '4683F37902CF.pas.ms.script' // IvcmModuleDef
+ ;
+
+ref; // ME_52A83F6E034C aModuleDef
+
+: ME_52A83F6E0365
+ CONST Name 'anOpDef'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4995624100A6' '499EAAE502A8.pas.ms.script' // IvcmOperationDef
+ ;
+
+ref; // ME_52A83F6E0365 anOpDef
+
+: ME_52A83F6C015B
+ CONST UID '52A83F6C015B'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_52A83F6002D5 // BuildAction$1
+ ;
+ : Target WL 'ME_47E7626B0083' '4799D29F033F.pas.ms.script' // TCustomAction
+ ;
+ : Parameters
+   Seq: ( ME_52A83F6E034C // aModuleDef
+ ME_52A83F6E0365 // anOpDef
+ )
+ ; // Parameters
+
+ref; // ME_52A83F6C015B DoIt
+
+: ME_52A83F6002D5
+ CONST UID '52A83F6002D5'
+ CONST Name 'BuildAction'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ : Operations
+   Seq: ( HWL ME_52A83F6C015B // DoIt
+ )
+ ; // Operations
+
+ref; // ME_52A83F6002D5 BuildAction$1
+
+FORWARD ME_52A83F7C010F
+
+: ME_52A83F9A01A6
+ CONST Name 'anOwner'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_479878FA0103' '4AB0997B00A2.pas.ms.script' // TComponent
+ ;
+
+ref; // ME_52A83F9A01A6 anOwner
+
+: ME_52A83F9A01BF
+ CONST Name 'anEntity'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4991AD08005B' '4683F37902CF.pas.ms.script' // IvcmEntity
+ ;
+
+ref; // ME_52A83F9A01BF anEntity
+
+: ME_52A83F9A01D8
+ CONST Name 'anEntityDef'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49956D4A00C6' '4683F37902CF.pas.ms.script' // IvcmEntityDef
+ ;
+
+ref; // ME_52A83F9A01D8 anEntityDef
+
+: ME_52A83F9A01F1
+ CONST Name 'anOpDef'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4995624100A6' '499EAAE502A8.pas.ms.script' // IvcmOperationDef
+ ;
+
+ref; // ME_52A83F9A01F1 anOpDef
+
+: ME_52A83F9A020A
+ CONST Name 'anOptions'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_51E00A6B0010' '499EAAE502A8.pas.ms.script' // TvcmOperationOptions
+ ;
+
+ref; // ME_52A83F9A020A anOptions
+
+: ME_52A83F9503D6
+ CONST UID '52A83F9503D6'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_52A83F7C010F // BuildAction$2
+ ;
+ : Target WL 'ME_47E7626B0083' '4799D29F033F.pas.ms.script' // TCustomAction
+ ;
+ : Parameters
+   Seq: ( ME_52A83F9A01A6 // anOwner
+ ME_52A83F9A01BF // anEntity
+ ME_52A83F9A01D8 // anEntityDef
+ ME_52A83F9A01F1 // anOpDef
+ ME_52A83F9A020A // anOptions
+ )
+ ; // Parameters
+
+ref; // ME_52A83F9503D6 DoIt
+
+: ME_52A83F7C010F
+ CONST UID '52A83F7C010F'
+ CONST Name 'BuildAction'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ : Operations
+   Seq: ( HWL ME_52A83F9503D6 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_52A83F7C010F BuildAction$2
+
+FORWARD ME_52A83FA901D2
+
+: ME_52A83FB5007D
+ CONST Name 'aToolBar'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_50289DB9036F' '5028A4C0019B.pas.ms.script' // TvcmToolbarDef
+ ;
+
+ref; // ME_52A83FB5007D aToolBar
+
+: ME_52A83FB20113
+ CONST UID '52A83FB20113'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_52A83FA901D2 // BuildSeparator
+ ;
+ : Target WL 'ME_47E1201703C3' '4799D29F033F.pas.ms.script' // TControl
+ ;
+ : Parameters
+   Seq: ( ME_52A83FB5007D // aToolBar
+ )
+ ; // Parameters
+
+ref; // ME_52A83FB20113 DoIt
+
+: ME_52A83FA901D2
+ CONST UID '52A83FA901D2'
+ CONST Name 'BuildSeparator'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ : Operations
+   Seq: ( HWL ME_52A83FB20113 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_52A83FA901D2 BuildSeparator
+
+FORWARD ME_52A840050220
+
+: ME_52A8401102A5
+ CONST Name 'aCaption'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_52A8401102A5 aCaption
+
+: ME_52A8401102BD
+ CONST Name 'aFormClass'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476775CB036A' '4AB0C3C60310.pas.ms.script' // TClass
+ ;
+ CONST Value 'nil'
+ : ValueType WL 'ME_476775CB036A' '4AB0C3C60310.pas.ms.script' // TClass
+ ;
+ CONST extprop:pas:Value 'nil'
+
+ref; // ME_52A8401102BD aFormClass
+
+: ME_52A8400D0373
+ CONST UID '52A8400D0373'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_52A840050220 // UserTypeByCaption
+ ;
+ : Target WL 'ME_49930DA10146' '4683F37902CF.pas.ms.script' // IvcmUserTypeDef
+ ;
+ : Parameters
+   Seq: ( ME_52A8401102A5 // aCaption
+ ME_52A8401102BD // aFormClass
+ )
+ ; // Parameters
+
+ref; // ME_52A8400D0373 DoIt
+
+: ME_52A840050220
+ CONST UID '52A840050220'
+ CONST Name 'UserTypeByCaption'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ : Operations
+   Seq: ( HWL ME_52A8400D0373 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_52A840050220 UserTypeByCaption
+
+FORWARD ME_52A840210281
+
+: ME_52A8402C025D
+ CONST Name 'aForm'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525B34022A' '4AADF9450143.pas.ms.script' // TvcmEntityForm
+ ;
+
+ref; // ME_52A8402C025D aForm
+
+: ME_52A8402C0277
+ CONST Name 'aPos'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4992F83801C5' '499EAAE502A8.pas.ms.script' // TvcmEffectiveToolBarPos
+ ;
+
+ref; // ME_52A8402C0277 aPos
+
+: ME_52A8402C0291
+ CONST Name 'anIndex'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_52A8402C0291 anIndex
+
+: ME_52A8402902CC
+ CONST UID '52A8402902CC'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_52A840210281 // GetOneToolbarPerFormName
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+ : Parameters
+   Seq: ( ME_52A8402C025D // aForm
+ ME_52A8402C0277 // aPos
+ ME_52A8402C0291 // anIndex
+ )
+ ; // Parameters
+
+ref; // ME_52A8402902CC DoIt
+
+: ME_52A840210281
+ CONST UID '52A840210281'
+ CONST Name 'GetOneToolbarPerFormName'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ : Operations
+   Seq: ( HWL ME_52A8402902CC // DoIt
+ )
+ ; // Operations
+
+ref; // ME_52A840210281 GetOneToolbarPerFormName
+
+FORWARD ME_52A84049016E
+
+: ME_52A8405B003E
+ CONST Name 'aForm'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525B34022A' '4AADF9450143.pas.ms.script' // TvcmEntityForm
+ ;
+
+ref; // ME_52A8405B003E aForm
+
+: ME_52A8405B0056
+ CONST Name 'aName'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_52A8405B0056 aName
+
+: ME_52A8405B006F
+ CONST Name 'aCaption'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4683C9AC03AC' '467BAB7F021E.pas.ms.script' // IvcmCString
+ ;
+
+ref; // ME_52A8405B006F aCaption
+
+: ME_52A8405B0089
+ CONST Name 'aPos'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4992F83801C5' '499EAAE502A8.pas.ms.script' // TvcmEffectiveToolBarPos
+ ;
+
+ref; // ME_52A8405B0089 aPos
+
+: ME_52A840570333
+ CONST UID '52A840570333'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_52A84049016E // BuildToolbar$2
+ ;
+ : Target WL 'ME_50289DB9036F' '5028A4C0019B.pas.ms.script' // TvcmToolbarDef
+ ;
+ : Parameters
+   Seq: ( ME_52A8405B003E // aForm
+ ME_52A8405B0056 // aName
+ ME_52A8405B006F // aCaption
+ ME_52A8405B0089 // aPos
+ )
+ ; // Parameters
+
+ref; // ME_52A840570333 DoIt
+
+: ME_52A84049016E
+ CONST UID '52A84049016E'
+ CONST Name 'BuildToolbar'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ : Operations
+   Seq: ( HWL ME_52A840570333 // DoIt
+ )
+ ; // Operations
+ CONST "ifndef" 'DesignTimeLibrary'
+
+ref; // ME_52A84049016E BuildToolbar$2
+
+FORWARD ME_52A84071026E
+
+: ME_52A840800335
+ CONST Name 'aForm'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525B34022A' '4AADF9450143.pas.ms.script' // TvcmEntityForm
+ ;
+
+ref; // ME_52A840800335 aForm
+
+: ME_52A84080034F
+ CONST Name 'aPos'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4992F83801C5' '499EAAE502A8.pas.ms.script' // TvcmEffectiveToolBarPos
+ ;
+
+ref; // ME_52A84080034F aPos
+
+: ME_52A8407E0146
+ CONST UID '52A8407E0146'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_52A84071026E // BuildToolbar$3
+ ;
+ : Target WL 'ME_50289DB9036F' '5028A4C0019B.pas.ms.script' // TvcmToolbarDef
+ ;
+ : Parameters
+   Seq: ( ME_52A840800335 // aForm
+ ME_52A84080034F // aPos
+ )
+ ; // Parameters
+
+ref; // ME_52A8407E0146 DoIt
+
+: ME_52A84071026E
+ CONST UID '52A84071026E'
+ CONST Name 'BuildToolbar'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ : Operations
+   Seq: ( HWL ME_52A8407E0146 // DoIt
+ )
+ ; // Operations
+ CONST "ifndef" 'DesignTimeLibrary'
+
+ref; // ME_52A84071026E BuildToolbar$3
+
+FORWARD ME_52A840E30329
+
+: ME_52A840ED0056
+ CONST Name 'anItem'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_5028DD5E0384' '5028A4C0019B.pas.ms.script' // TvcmDockDef
+ ;
+
+ref; // ME_52A840ED0056 anItem
+
+: ME_52A840EA008C
+ CONST UID '52A840EA008C'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_52A840E30329 // CleanupSaveDockList
+ ;
+ : Parameters
+   Seq: ( ME_52A840ED0056 // anItem
+ )
+ ; // Parameters
+
+ref; // ME_52A840EA008C DoIt
+
+: ME_52A840E30329
+ CONST UID '52A840E30329'
+ CONST Name 'CleanupSaveDockList'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ : Operations
+   Seq: ( HWL ME_52A840EA008C // DoIt
+ )
+ ; // Operations
+
+ref; // ME_52A840E30329 CleanupSaveDockList
+
+FORWARD ME_52A840F6027C
+
+: ME_52A840FF034D
+ CONST Name 'aForm'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_484529DC0276' '4799D29F033F.pas.ms.script' // TCustomForm
+ ;
+
+ref; // ME_52A840FF034D aForm
+
+: ME_52A840FD02ED
+ CONST UID '52A840FD02ED'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_52A840F6027C // GetDockParent
+ ;
+ : Target WL 'ME_47E124E90272' '4799D29F033F.pas.ms.script' // TWinControl
+ ;
+ : Parameters
+   Seq: ( ME_52A840FF034D // aForm
+ )
+ ; // Parameters
+
+ref; // ME_52A840FD02ED DoIt
+
+: ME_52A840F6027C
+ CONST UID '52A840F6027C'
+ CONST Name 'GetDockParent'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ : Operations
+   Seq: ( HWL ME_52A840FD02ED // DoIt
+ )
+ ; // Operations
+
+ref; // ME_52A840F6027C GetDockParent
+
+FORWARD ME_52A8410A0048
+
+: ME_52A841120332
+ CONST Name 'aDefault'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST Value false
+ : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST extprop:pas:Value false
+
+ref; // ME_52A841120332 aDefault
+
+: ME_52A84110027A
+ CONST UID '52A84110027A'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_52A8410A0048 // LoadGlyphSize
+ ;
+ : Parameters
+   Seq: ( ME_52A841120332 // aDefault
+ )
+ ; // Parameters
+
+ref; // ME_52A84110027A DoIt
+
+: ME_52A8410A0048
+ CONST UID '52A8410A0048'
+ CONST Name 'LoadGlyphSize'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ : Operations
+   Seq: ( HWL ME_52A84110027A // DoIt
+ )
+ ; // Operations
+
+ref; // ME_52A8410A0048 LoadGlyphSize
+
+FORWARD ME_52A8411D0360
+
+: ME_52A8412A0098
+ CONST Name 'aDefault'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST Value false
+ : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST extprop:pas:Value false
+
+ref; // ME_52A8412A0098 aDefault
+
+: ME_52A8412602E3
+ CONST UID '52A8412602E3'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_52A8411D0360 // LoadGlyphColorDepth
+ ;
+ : Parameters
+   Seq: ( ME_52A8412A0098 // aDefault
+ )
+ ; // Parameters
+
+ref; // ME_52A8412602E3 DoIt
+
+: ME_52A8411D0360
+ CONST UID '52A8411D0360'
+ CONST Name 'LoadGlyphColorDepth'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ : Operations
+   Seq: ( HWL ME_52A8412602E3 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_52A8411D0360 LoadGlyphColorDepth
+
+: ME_52A8413B028B
+ CONST UID '52A8413B028B'
+ CONST Name 'UnlockDocks'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+
+ref; // ME_52A8413B028B UnlockDocks
+
+: ME_52A841470203
+ CONST UID '52A841470203'
+ CONST Name 'LockDocks'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+
+ref; // ME_52A841470203 LockDocks
+
+: ME_52A8415303B8
+ CONST UID '52A8415303B8'
+ CONST Name 'StoreGlyphSize'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+
+ref; // ME_52A8415303B8 StoreGlyphSize
+
+: ME_52A8416200DA
+ CONST UID '52A8416200DA'
+ CONST Name 'RestoreGlyphSize'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+
+ref; // ME_52A8416200DA RestoreGlyphSize
+
+: ME_52A8416F01AC
+ CONST UID '52A8416F01AC'
+ CONST Name 'StoreGlyphColordepth'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+
+ref; // ME_52A8416F01AC StoreGlyphColordepth
+
+: ME_52A8417A02AD
+ CONST UID '52A8417A02AD'
+ CONST Name 'RestoreGlyphColordepth'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+
+ref; // ME_52A8417A02AD RestoreGlyphColordepth
+
+FORWARD ME_52A8418F0245
+
+: ME_52A8419E01DA
+ CONST Name 'aForm'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_484529DC0276' '4799D29F033F.pas.ms.script' // TCustomForm
+ ;
+
+ref; // ME_52A8419E01DA aForm
+
+: ME_52A8419C0021
+ CONST UID '52A8419C0021'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_52A8418F0245 // InitToolbarMetrics
+ ;
+ : Parameters
+   Seq: ( ME_52A8419E01DA // aForm
+ )
+ ; // Parameters
+
+ref; // ME_52A8419C0021 DoIt
+
+: ME_52A8418F0245
+ CONST UID '52A8418F0245'
+ CONST Name 'InitToolbarMetrics'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'определить метрики панели инструментов. Компоненты, которые могут быть помещены в панель, могут иметь разные размеры, чтобы высота панелей была одинаковой, считаем максимальную высоту и используем её для всех панелей.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ : Operations
+   Seq: ( HWL ME_52A8419C0021 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_52A8418F0245 InitToolbarMetrics
+
+: ME_552BC8BF02EB
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ : Target HWL ME_552BADA90096 // TvcmToolbarGlyphService
+ ;
+
+ref; // ME_552BC8BF02EB 
+
+FORWARD ME_55CA130E00D1
+
+: ME_55CA17720262
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ : Target HWL ME_55CA130E00D1 // TvcmToolbarDefList
+ ;
+
+ref; // ME_55CA17720262 
+
+: ME_479731C50290_ME_4B30EC81021A
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_479731C50290_ME_4B30EC81021A Cleanup
+
+: ME_47D1602000C6_ME_4B30EC81021A
+ : Original WL 'ME_47D1602000C6' '4AB0997B00A2.pas.ms.script' // Create
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_47D1602000C6_ME_4B30EC81021A Create
+
+: ME_52A1FC0C0333_ME_4B30EC81021A
+ : Original WL 'ME_52A1FC0C0333' '4AADF9450143.pas.ms.script' // RegisterModuleInMenu
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "ifndef" 'DesignTimeLibrary'
+ref; // ME_52A1FC0C0333_ME_4B30EC81021A RegisterModuleInMenu
+
+: ME_52A1FC3D0231_ME_4B30EC81021A
+ : Original WL 'ME_52A1FC3D0231' '4AADF9450143.pas.ms.script' // MainCreated
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "ifndef" 'DesignTimeLibrary'
+ref; // ME_52A1FC3D0231_ME_4B30EC81021A MainCreated
+
+: ME_52A1FC5500AC_ME_4B30EC81021A
+ : Original WL 'ME_52A1FC5500AC' '4AADF9450143.pas.ms.script' // RegisterMainInMenu
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_52A1FC5500AC_ME_4B30EC81021A RegisterMainInMenu
+
+: ME_52A1FC79004A_ME_4B30EC81021A
+ : Original WL 'ME_52A1FC79004A' '4AADF9450143.pas.ms.script' // RegisterChildInMenu
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "ifndef" 'DesignTimeLibrary'
+ref; // ME_52A1FC79004A_ME_4B30EC81021A RegisterChildInMenu
+
+: ME_52A1FCA20227_ME_4B30EC81021A
+ : Original WL 'ME_52A1FCA20227' '4AADF9450143.pas.ms.script' // GetPopupMenu
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_52A1FCA20227_ME_4B30EC81021A GetPopupMenu
+
+: ME_52A1FD4C002A_ME_4B30EC81021A
+ : Original WL 'ME_52A1FD4C002A' '4AADF9450143.pas.ms.script' // ReloadToolbars
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_52A1FD4C002A_ME_4B30EC81021A ReloadToolbars
+
+: ME_52A1FD7301A8_ME_4B30EC81021A
+ : Original WL 'ME_52A1FD7301A8' '4AADF9450143.pas.ms.script' // PostBuild
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_52A1FD7301A8_ME_4B30EC81021A PostBuild
+
+: ME_52A1FDD7006C_ME_4B30EC81021A
+ : Original WL 'ME_52A1FDD7006C' '4AADF9450143.pas.ms.script' // BackupOpStatus
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_52A1FDD7006C_ME_4B30EC81021A BackupOpStatus
+
+: ME_52A1FE020318_ME_4B30EC81021A
+ : Original WL 'ME_52A1FE020318' '4AADF9450143.pas.ms.script' // RestoreOpStatus
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_52A1FE020318_ME_4B30EC81021A RestoreOpStatus
+
+: ME_52A1FE1602AA_ME_4B30EC81021A
+ : Original WL 'ME_52A1FE1602AA' '4AADF9450143.pas.ms.script' // BeginOp
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_52A1FE1602AA_ME_4B30EC81021A BeginOp
+
+: ME_52A1FE2E0059_ME_4B30EC81021A
+ : Original WL 'ME_52A1FE2E0059' '4AADF9450143.pas.ms.script' // GetOpLock
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_52A1FE2E0059_ME_4B30EC81021A GetOpLock
+
+: ME_52A1FE4B0329_ME_4B30EC81021A
+ : Original WL 'ME_52A1FE4B0329' '4AADF9450143.pas.ms.script' // EndOp
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_52A1FE4B0329_ME_4B30EC81021A EndOp
+
+: ME_52A1FE58028C_ME_4B30EC81021A
+ : Original WL 'ME_52A1FE58028C' '4AADF9450143.pas.ms.script' // FastenToolbars
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_52A1FE58028C_ME_4B30EC81021A FastenToolbars
+
+: ME_52A1FE730278_ME_4B30EC81021A
+ : Original WL 'ME_52A1FE730278' '4AADF9450143.pas.ms.script' // GetFastenMode
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_52A1FE730278_ME_4B30EC81021A GetFastenMode
+
+: ME_52A1FF0902CE_ME_4B30EC81021A
+ : Original WL 'ME_52A1FF0902CE' '4AADF9450143.pas.ms.script' // ObjectByType
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_52A1FF0902CE_ME_4B30EC81021A ObjectByType
+
+: ME_52A2008D00DA_ME_4B30EC81021A
+ : Original WL 'ME_52A2008D00DA' '4AADF9450143.pas.ms.script' // UnlockInProgress
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_52A2008D00DA_ME_4B30EC81021A UnlockInProgress
+
+: ME_52A200A001C8_ME_4B30EC81021A
+ : Original WL 'ME_52A200A001C8' '4AADF9450143.pas.ms.script' // AddControlForUnlockPostBuild
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_52A200A001C8_ME_4B30EC81021A AddControlForUnlockPostBuild
+
+: ME_52A200C203A4_ME_4B30EC81021A
+ : Original WL 'ME_52A200C203A4' '4AADF9450143.pas.ms.script' // ListenerControlDestroying
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_52A200C203A4_ME_4B30EC81021A ListenerControlDestroying
+
+: ME_52A841C500C5_ME_4B30EC81021A
+ : Original WL 'ME_52A841C500C5' '4AADF9450143.pas.ms.script' // FillPopupMenu
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_52A841C500C5_ME_4B30EC81021A FillPopupMenu
+
+: ME_4B30EC81021A
+ CONST UID '4B30EC81021A'
+ CONST Name 'TvcmCustomMenuManager'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ : Inherits
+   Seq: ( WL 'ME_52A1F4A201F9' '4AADF9450143.pas.ms.script' // TvcmBaseMenuManager
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( HWL ME_52A822880118 // DockButtonsImageList
+ HWL ME_52A822E00293 // BtnCloseImageIndex
+ HWL ME_52A822FB00A0 // BtnOpenImageIndex
+ HWL ME_52A8230C0051 // BtnOpenNewWindowImageIndex
+ HWL ME_52A823910334 // Actions
+ HWL ME_52A823D2029C // GlyphSize
+ HWL ME_52A824150341 // GlyphColordepth
+ HWL ME_52A8246C022D // MainMenuItems
+ HWL ME_52A825320275 // UserTypes
+ HWL ME_52A8256F03CA // SmallToolbarSize
+ HWL ME_52A825AB0067 // MaxControlToolbarSize
+ HWL ME_52A825E400E4 // OneToolbarPerForm
+ HWL ME_52A82A550048 // OnGlyphSizeChanged
+ HWL ME_52A82A7C024B // OnGlyphColordepthChanged
+ HWL ME_52A82BB301D0 // f_FocusControl
+ HWL ME_52A82C0D03C8 // f_InEnter
+ HWL ME_52A82C3302F2 // f_WasDrop
+ HWL ME_52A82D1C03AA // f_TickCount
+ HWL ME_52A82D5401DE // f_UserTypesLoaded
+ HWL ME_52A82E8E02ED // f_IsUnlockExecute
+ HWL ME_52A82EF601CB // f_SaveDockList
+ HWL ME_52A82F6503C9 // f_SaveLockCounter
+ HWL ME_52A82F9B03B7 // f_LockCounter
+ HWL ME_52A82FA40313 // f_UnlockInProgress
+ HWL ME_52A82FAE02E6 // f_FastenToolbars
+ HWL ME_52A82FC101C3 // f_ButtonHeight
+ HWL ME_52A82FE70277 // f_LockList
+ HWL ME_52A8319200DD // f_MainToolbarDefs
+ HWL ME_52AB11130037 // f_Popup
+ HWL ME_52AB11690171 // f_PopupForm
+ HWL ME_52AB11B702ED // MenuOptions
+ HWL ME_52AB11DE02DF // ToolbarOptions
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( HWL ME_52A83208018D // OverridePopupMenu
+ HWL ME_52A8329D033C // ToolbarButtonSize$1
+ HWL ME_52A832CD000B // ToolbarButtonSize$2
+ HWL ME_52A833300250 // ToolbarSize
+ HWL ME_52A83386032D // RefocusEntity
+ HWL ME_52A833C103E0 // RestoreControlText
+ HWL ME_52A833D5007C // ChangeEntityText
+ HWL ME_52A8343B0397 // ChangeTyperText
+ HWL ME_52A835090368 // ControlKeyDown
+ HWL ME_52A835400086 // ControlEnter
+ HWL ME_52A8357200BD // ControlExit
+ HWL ME_52A835800363 // ControlDown
+ HWL ME_52A835BC02D8 // DateDown
+ HWL ME_52A835EC002D // ComboDown
+ HWL ME_52A835F8034A // ControlSelect
+ HWL ME_52A8360602D0 // FormChange
+ HWL ME_52A8362B00B7 // DoPopup
+ HWL ME_52A8367B01FC // CheckPopup
+ HWL ME_52A836E4024C // GetToolbarName
+ HWL ME_52A83799024A // BuildToolbar$1
+ HWL ME_52A838180205 // FillToolbar
+ HWL ME_52A8391000A9 // CheckToolbar
+ HWL ME_52A8393D0073 // MakeToolbar
+ HWL ME_52A8398C01D1 // BuildEntitiesToolbars
+ HWL ME_52A839C302A6 // LoadButtonsFromSettings
+ HWL ME_52A83A050068 // MakeToolbarFromSettings
+ HWL ME_52A83A37024D // MakeMainToolbarFromSettings
+ HWL ME_52A83A6903B7 // BuildFormToolbars
+ HWL ME_52A83AA6033F // BuildMainToolbars
+ HWL ME_52A83AE7029B // CheckUserTypes
+ HWL ME_52A83AF900CF // BuildUserTypes
+ HWL ME_52A83B1102D4 // ToolbarsGetSiteInfo
+ HWL ME_52A83EA20222 // BuildButton$1
+ HWL ME_52A83EDA006E // BuildButton$2
+ HWL ME_52A83F1203DA // BuildButton$3
+ HWL ME_52A83F4001DE // BuildButton$4
+ HWL ME_52A83F6002D5 // BuildAction$1
+ HWL ME_52A83F7C010F // BuildAction$2
+ HWL ME_52A83FA901D2 // BuildSeparator
+ HWL ME_52A840050220 // UserTypeByCaption
+ HWL ME_52A840210281 // GetOneToolbarPerFormName
+ HWL ME_52A84049016E // BuildToolbar$2
+ HWL ME_52A84071026E // BuildToolbar$3
+ HWL ME_52A840E30329 // CleanupSaveDockList
+ HWL ME_52A840F6027C // GetDockParent
+ HWL ME_52A8410A0048 // LoadGlyphSize
+ HWL ME_52A8411D0360 // LoadGlyphColorDepth
+ HWL ME_52A8413B028B // UnlockDocks
+ HWL ME_52A841470203 // LockDocks
+ HWL ME_52A8415303B8 // StoreGlyphSize
+ HWL ME_52A8416200DA // RestoreGlyphSize
+ HWL ME_52A8416F01AC // StoreGlyphColordepth
+ HWL ME_52A8417A02AD // RestoreGlyphColordepth
+ HWL ME_52A8418F0245 // InitToolbarMetrics
+ )
+ ; // Operations
+ : Overridden
+   Seq: ( ME_479731C50290_ME_4B30EC81021A // Cleanup
+ ME_47D1602000C6_ME_4B30EC81021A // Create
+ ME_52A1FC0C0333_ME_4B30EC81021A // RegisterModuleInMenu
+ ME_52A1FC3D0231_ME_4B30EC81021A // MainCreated
+ ME_52A1FC5500AC_ME_4B30EC81021A // RegisterMainInMenu
+ ME_52A1FC79004A_ME_4B30EC81021A // RegisterChildInMenu
+ ME_52A1FCA20227_ME_4B30EC81021A // GetPopupMenu
+ ME_52A1FD4C002A_ME_4B30EC81021A // ReloadToolbars
+ ME_52A1FD7301A8_ME_4B30EC81021A // PostBuild
+ ME_52A1FDD7006C_ME_4B30EC81021A // BackupOpStatus
+ ME_52A1FE020318_ME_4B30EC81021A // RestoreOpStatus
+ ME_52A1FE1602AA_ME_4B30EC81021A // BeginOp
+ ME_52A1FE2E0059_ME_4B30EC81021A // GetOpLock
+ ME_52A1FE4B0329_ME_4B30EC81021A // EndOp
+ ME_52A1FE58028C_ME_4B30EC81021A // FastenToolbars
+ ME_52A1FE730278_ME_4B30EC81021A // GetFastenMode
+ ME_52A1FF0902CE_ME_4B30EC81021A // ObjectByType
+ ME_52A2008D00DA_ME_4B30EC81021A // UnlockInProgress
+ ME_52A200A001C8_ME_4B30EC81021A // AddControlForUnlockPostBuild
+ ME_52A200C203A4_ME_4B30EC81021A // ListenerControlDestroying
+ ME_52A841C500C5_ME_4B30EC81021A // FillPopupMenu
+ )
+ ; // Overridden
+ : Children
+   Seq: ( HWL ME_552BADA90096 // TvcmToolbarGlyphService
+ )
+ ; // Children
+ : Dependencies
+   Seq: ( ME_552BC8BF02EB // TvcmToolbarGlyphService
+ ME_55CA17720262 // TvcmToolbarDefList
+ )
+ ; // Dependencies
+ CONST extprop:rc:SelfName 'MenuManager'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4B30EC81021A TvcmCustomMenuManager
+
+FORWARD ME_52A8429102F6
+
+: ME_52A842A4000A
+ CONST UID '52A842A4000A'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent HWL ME_52A8429102F6 // TvcmGlyphSizeMap
+ ;
+ : Target WL 'ME_46A618AF0053' '4AB0C3C60310.pas.ms.script' // Cardinal
+ ;
+
+ref; // ME_52A842A4000A 
+
+: ME_52A8429102F6
+ CONST UID '52A8429102F6'
+ CONST Name 'TvcmGlyphSizeMap'
+ CONST Class class_Class
+ : Stereotype st_Vector ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4B977802001D' '4B8E967100D5.pas.ms.script' // TvcmGlyphSize
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( HWL ME_52A842A4000A // 
+ )
+ ; // Attributes
+ CONST "array type" 'dynamic'
+
+ref; // ME_52A8429102F6 TvcmGlyphSizeMap
+
+FORWARD ME_52AAFF960114
+
+: ME_52AAFFCB028F
+ CONST UID '52AAFFCB028F'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent HWL ME_52AAFF960114 // TvcmTBPosStringArray
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_52AAFFCB028F 
+
+: ME_52AAFF960114
+ CONST UID '52AAFF960114'
+ CONST Name 'TvcmTBPosStringArray'
+ CONST Class class_Class
+ : Stereotype st_Vector ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4992F83801C5' '499EAAE502A8.pas.ms.script' // TvcmEffectiveToolBarPos
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( HWL ME_52AAFFCB028F // 
+ )
+ ; // Attributes
+ CONST "array type" 'dynamic'
+
+ref; // ME_52AAFF960114 TvcmTBPosStringArray
+
+FORWARD ME_52A045E102E3
+
+FORWARD ME_52A8477B0012
+
+: ME_508F991B003B_ME_52A8477B0012
+ : Original WL 'ME_508F991B003B' '4799D29F033F.pas.ms.script' // SetCaption
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_508F991B003B_ME_52A8477B0012 SetCaption
+
+: ME_52A8469903AF_ME_52A8477B0012
+ : Original WL 'ME_52A8469903AF' '4AADF9450143.pas.ms.script' // DoParamsChanged
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_52A8469903AF_ME_52A8477B0012 DoParamsChanged
+
+: ME_52A846AF0108_ME_52A8477B0012
+ : Original WL 'ME_52A846AF0108' '4AADF9450143.pas.ms.script' // DoParamsChanging
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_52A846AF0108_ME_52A8477B0012 DoParamsChanging
+
+: ME_52A8477B0012
+ CONST UID '52A8477B0012'
+ CONST Name 'TvcmComboBoxActionLink'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_52A045E102E3 // TvcmComboBox
+ ;
+ : Inherits
+   Seq: ( WL 'ME_52A845E50292' '4AADF9450143.pas.ms.script' // TvcmWinControlActionLink
+ )
+ ; // Inherits
+ : Overridden
+   Seq: ( ME_508F991B003B_ME_52A8477B0012 // SetCaption
+ ME_52A8469903AF_ME_52A8477B0012 // DoParamsChanged
+ ME_52A846AF0108_ME_52A8477B0012 // DoParamsChanging
+ )
+ ; // Overridden
+ CONST extprop:rc:SelfName 'ComboBoxActionLink'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_52A8477B0012 TvcmComboBoxActionLink
+
+: ME_52A9AB290252
+ CONST UID '52A9AB290252'
+ CONST Name 'f_InUpdateCation'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_52A045E102E3 // TvcmComboBox
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_52A9AB290252 f_InUpdateCation
+
+FORWARD ME_52A9AA140394
+
+: ME_52A9AA2F023F
+ CONST Name 'anAction'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4F82EFBE018A' '47E7617C0275.pas.ms.script' // TvcmOperationAction
+ ;
+
+ref; // ME_52A9AA2F023F anAction
+
+: ME_52A9AA2F0258
+ CONST Name 'anUpdateIndex'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_52A9AA2F0258 anUpdateIndex
+
+: ME_52A9AA2D00E1
+ CONST UID '52A9AA2D00E1'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_52A9AA140394 // SetCaptionFromAction
+ ;
+ : Parameters
+   Seq: ( ME_52A9AA2F023F // anAction
+ ME_52A9AA2F0258 // anUpdateIndex
+ )
+ ; // Parameters
+
+ref; // ME_52A9AA2D00E1 DoIt
+
+: ME_52A9AA140394
+ CONST UID '52A9AA140394'
+ CONST Name 'SetCaptionFromAction'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_52A045E102E3 // TvcmComboBox
+ ;
+ : Operations
+   Seq: ( HWL ME_52A9AA2D00E1 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_52A9AA140394 SetCaptionFromAction
+
+FORWARD ME_52A9AA400220
+
+: ME_52A9AA4C01B0
+ CONST Name 'anAction'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4683E8080191' '467BAB7F021E.pas.ms.script' // IvcmAction
+ ;
+
+ref; // ME_52A9AA4C01B0 anAction
+
+: ME_52A9AA48038F
+ CONST UID '52A9AA48038F'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_52A9AA400220 // SetStringsFromAction
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   Seq: ( ME_52A9AA4C01B0 // anAction
+ )
+ ; // Parameters
+
+ref; // ME_52A9AA48038F DoIt
+
+: ME_52A9AA400220
+ CONST UID '52A9AA400220'
+ CONST Name 'SetStringsFromAction'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_52A045E102E3 // TvcmComboBox
+ ;
+ : Operations
+   Seq: ( HWL ME_52A9AA48038F // DoIt
+ )
+ ; // Operations
+
+ref; // ME_52A9AA400220 SetStringsFromAction
+
+: ME_52A9A44702E3
+ CONST Name 'Msg'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_476F78A602B2' '476F78840219.pas.ms.script' // TMessage
+ ;
+
+ref; // ME_52A9A44702E3 Msg
+
+: ME_52A9A42D031B
+ CONST UID '52A9A42D031B'
+ CONST Name 'CMTBMouseQuery'
+ CONST Class class_Operation
+ : Stereotype st_message::Operation ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_52A045E102E3 // TvcmComboBox
+ ;
+ : Parameters
+   Seq: ( ME_52A9A44702E3 // Msg
+ )
+ ; // Parameters
+ CONST "Message ID" 'CM_TBMOUSEQUERY'
+
+ref; // ME_52A9A42D031B CMTBMouseQuery
+
+: ME_52A9A469002C
+ CONST Name 'Msg'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_476F78A602B2' '476F78840219.pas.ms.script' // TMessage
+ ;
+
+ref; // ME_52A9A469002C Msg
+
+: ME_52A9A4500057
+ CONST UID '52A9A4500057'
+ CONST Name 'CMTBCheckControl'
+ CONST Class class_Operation
+ : Stereotype st_message::Operation ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_52A045E102E3 // TvcmComboBox
+ ;
+ : Parameters
+   Seq: ( ME_52A9A469002C // Msg
+ )
+ ; // Parameters
+ CONST "Message ID" 'CM_TBCHECKCONTROL'
+
+ref; // ME_52A9A4500057 CMTBCheckControl
+
+: ME_52EB480C0145
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_52A045E102E3 // TvcmComboBox
+ ;
+ : Target WL 'ME_52AB1AC403E7' '52AB1AAD01E5.pas.ms.script' // tb97vt
+ ;
+
+ref; // ME_52EB480C0145 
+
+FORWARD ME_52EB8107015C
+
+: ME_52EB8E27004F
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_52A045E102E3 // TvcmComboBox
+ ;
+ : Target HWL ME_52EB8107015C // MessageConstants
+ ;
+
+ref; // ME_52EB8E27004F 
+
+: ME_47D1602000C6_ME_52A045E102E3
+ : Original WL 'ME_47D1602000C6' '4AB0997B00A2.pas.ms.script' // Create
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_47D1602000C6_ME_52A045E102E3 Create
+
+: ME_4F8845840032_ME_52A045E102E3
+ : Original WL 'ME_4F8845840032' '4799D29F033F.pas.ms.script' // GetActionLinkClass
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4F8845840032_ME_52A045E102E3 GetActionLinkClass
+
+: ME_52A9A8710199_ME_52A045E102E3
+ : Original WL 'ME_52A9A8710199' '4799D29F033F.pas.ms.script' // ActionChange
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_52A9A8710199_ME_52A045E102E3 ActionChange
+
+: ME_52A9A9B802B4_ME_52A045E102E3
+ : Original WL 'ME_52A9A9B802B4' '482C80EA0131.pas.ms.script' // DropDown
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_52A9A9B802B4_ME_52A045E102E3 DropDown
+
+: ME_52A9AADF0289_ME_52A045E102E3
+ : Original WL 'ME_52A9AADF0289' '483158FD0155.pas.ms.script' // ActionExecuteHandler
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_52A9AADF0289_ME_52A045E102E3 ActionExecuteHandler
+
+: ME_52A9AAEA0068_ME_52A045E102E3
+ : Original WL 'ME_52A9AAEA0068' '483158FD0155.pas.ms.script' // LocalUpdateAction
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_52A9AAEA0068_ME_52A045E102E3 LocalUpdateAction
+
+: ME_52A045E102E3
+ CONST UID '52A045E102E3'
+ CONST Name 'TvcmComboBox'
+ CONST Class class_Class
+ : Stereotype st_GuiControl ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ : Inherits
+   Seq: ( HWL ME_52A8430201C5 // TvcmFakeBox
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( HWL ME_52A9AB290252 // f_InUpdateCation
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( HWL ME_52A9AA140394 // SetCaptionFromAction
+ HWL ME_52A9AA400220 // SetStringsFromAction
+ HWL ME_52A9A42D031B // CMTBMouseQuery
+ HWL ME_52A9A4500057 // CMTBCheckControl
+ )
+ ; // Operations
+ : Overridden
+   Seq: ( ME_47D1602000C6_ME_52A045E102E3 // Create
+ ME_4F8845840032_ME_52A045E102E3 // GetActionLinkClass
+ ME_52A9A8710199_ME_52A045E102E3 // ActionChange
+ ME_52A9A9B802B4_ME_52A045E102E3 // DropDown
+ ME_52A9AADF0289_ME_52A045E102E3 // ActionExecuteHandler
+ ME_52A9AAEA0068_ME_52A045E102E3 // LocalUpdateAction
+ )
+ ; // Overridden
+ : Children
+   Seq: ( HWL ME_52A8477B0012 // TvcmComboBoxActionLink
+ )
+ ; // Children
+ : Dependencies
+   Seq: ( ME_52EB480C0145 // tb97vt
+ ME_52EB8E27004F // MessageConstants
+ )
+ ; // Dependencies
+ CONST "register in scripts" true
+ CONST extprop:rc:SelfName 'ComboBox'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_52A045E102E3 TvcmComboBox
+
+FORWARD ME_52A9AB640217
+
+: ME_52A9AB4D017C
+ CONST UID '52A9AB4D017C'
+ CONST Name 'TvcmEditActionLink'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_52A9AB640217 // TvcmEdit
+ ;
+ : Inherits
+   Seq: ( WL 'ME_52A845E50292' '4AADF9450143.pas.ms.script' // TvcmWinControlActionLink
+ )
+ ; // Inherits
+ CONST extprop:rc:SelfName 'EditActionLink'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_52A9AB4D017C TvcmEditActionLink
+
+: ME_47D1602000C6_ME_52A9AB640217
+ : Original WL 'ME_47D1602000C6' '4AB0997B00A2.pas.ms.script' // Create
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_47D1602000C6_ME_52A9AB640217 Create
+
+: ME_48BD22E601F2_ME_52A9AB640217
+ : Original WL 'ME_48BD22E601F2' '48BD1975029B.pas.ms.script' // DoProcessCommand
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_48BD22E601F2_ME_52A9AB640217 DoProcessCommand
+
+: ME_4F8845840032_ME_52A9AB640217
+ : Original WL 'ME_4F8845840032' '4799D29F033F.pas.ms.script' // GetActionLinkClass
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4F8845840032_ME_52A9AB640217 GetActionLinkClass
+
+: ME_52A9A8710199_ME_52A9AB640217
+ : Original WL 'ME_52A9A8710199' '4799D29F033F.pas.ms.script' // ActionChange
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_52A9A8710199_ME_52A9AB640217 ActionChange
+
+: ME_52A9AB640217
+ CONST UID '52A9AB640217'
+ CONST Name 'TvcmEdit'
+ CONST Class class_Class
+ : Stereotype st_GuiControl ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ : Inherits
+   Seq: ( HWL ME_52A8430201C5 // TvcmFakeBox
+ )
+ ; // Inherits
+ : Overridden
+   Seq: ( ME_47D1602000C6_ME_52A9AB640217 // Create
+ ME_48BD22E601F2_ME_52A9AB640217 // DoProcessCommand
+ ME_4F8845840032_ME_52A9AB640217 // GetActionLinkClass
+ ME_52A9A8710199_ME_52A9AB640217 // ActionChange
+ )
+ ; // Overridden
+ : Children
+   Seq: ( HWL ME_52A9AB4D017C // TvcmEditActionLink
+ )
+ ; // Children
+ CONST extprop:rc:SelfName 'Edit'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_52A9AB640217 TvcmEdit
+
+FORWARD ME_52A9ABFF02E0
+
+FORWARD ME_52A9AF9703DC
+
+: ME_508F983B0344_ME_52A9AF9703DC
+ : Original WL 'ME_508F983B0344' '4799D29F033F.pas.ms.script' // IsCaptionLinked
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_508F983B0344_ME_52A9AF9703DC IsCaptionLinked
+
+: ME_52A8469903AF_ME_52A9AF9703DC
+ : Original WL 'ME_52A8469903AF' '4AADF9450143.pas.ms.script' // DoParamsChanged
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_52A8469903AF_ME_52A9AF9703DC DoParamsChanged
+
+: ME_52A9AF9703DC
+ CONST UID '52A9AF9703DC'
+ CONST Name 'TvcmDateEditActionLink'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_52A9ABFF02E0 // TvcmDateEdit
+ ;
+ : Inherits
+   Seq: ( WL 'ME_52A845E50292' '4AADF9450143.pas.ms.script' // TvcmWinControlActionLink
+ )
+ ; // Inherits
+ : Overridden
+   Seq: ( ME_508F983B0344_ME_52A9AF9703DC // IsCaptionLinked
+ ME_52A8469903AF_ME_52A9AF9703DC // DoParamsChanged
+ )
+ ; // Overridden
+ CONST extprop:rc:SelfName 'DateEditActionLink'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_52A9AF9703DC TvcmDateEditActionLink
+
+: ME_52A9AEBC0094
+ CONST UID '52A9AEBC0094'
+ CONST Name 'OnSelectDate'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_52A9ABFF02E0 // TvcmDateEdit
+ ;
+ : Target WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_52A9AEBC0094 OnSelectDate
+
+: ME_52A9AC200095
+ CONST Name 'Message'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_476F78A602B2' '476F78840219.pas.ms.script' // TMessage
+ ;
+
+ref; // ME_52A9AC200095 Message
+
+: ME_52A9AC1601B3
+ CONST UID '52A9AC1601B3'
+ CONST Name 'CMTextChanged'
+ CONST Class class_Operation
+ : Stereotype st_message::Operation ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_52A9ABFF02E0 // TvcmDateEdit
+ ;
+ : Parameters
+   Seq: ( ME_52A9AC200095 // Message
+ )
+ ; // Parameters
+ CONST "Message ID" 'CM_TEXTCHANGED'
+
+ref; // ME_52A9AC1601B3 CMTextChanged
+
+: ME_47D1602000C6_ME_52A9ABFF02E0
+ : Original WL 'ME_47D1602000C6' '4AB0997B00A2.pas.ms.script' // Create
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_47D1602000C6_ME_52A9ABFF02E0 Create
+
+: ME_4F8845840032_ME_52A9ABFF02E0
+ : Original WL 'ME_4F8845840032' '4799D29F033F.pas.ms.script' // GetActionLinkClass
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4F8845840032_ME_52A9ABFF02E0 GetActionLinkClass
+
+: ME_52A9A8710199_ME_52A9ABFF02E0
+ : Original WL 'ME_52A9A8710199' '4799D29F033F.pas.ms.script' // ActionChange
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_52A9A8710199_ME_52A9ABFF02E0 ActionChange
+
+: ME_52A9AF500143_ME_52A9ABFF02E0
+ : Original WL 'ME_52A9AF500143' '4A83EE0E0002.pas.ms.script' // DoCloseUp
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_52A9AF500143_ME_52A9ABFF02E0 DoCloseUp
+
+: ME_52A9ABFF02E0
+ CONST UID '52A9ABFF02E0'
+ CONST Name 'TvcmDateEdit'
+ CONST Class class_Class
+ : Stereotype st_GuiControl ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4AC5DAE50246' '4AC5DAE50246.pas.ms.script' // TvtDblClickDateEdit
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( HWL ME_52A9AEBC0094 // OnSelectDate
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( HWL ME_52A9AC1601B3 // CMTextChanged
+ )
+ ; // Operations
+ : Overridden
+   Seq: ( ME_47D1602000C6_ME_52A9ABFF02E0 // Create
+ ME_4F8845840032_ME_52A9ABFF02E0 // GetActionLinkClass
+ ME_52A9A8710199_ME_52A9ABFF02E0 // ActionChange
+ ME_52A9AF500143_ME_52A9ABFF02E0 // DoCloseUp
+ )
+ ; // Overridden
+ : Children
+   Seq: ( HWL ME_52A9AF9703DC // TvcmDateEditActionLink
+ )
+ ; // Children
+ CONST "register in scripts" true
+ CONST extprop:rc:SelfName 'DateEdit'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_52A9ABFF02E0 TvcmDateEdit
+
+: ME_52A9B06C00C9
+ CONST UID '52A9B06C00C9'
+ CONST Name 'THackWinControl'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47E124E90272' '4799D29F033F.pas.ms.script' // TWinControl
+ )
+ ; // Inherits
+ CONST extprop:rc:SelfName 'HackWinControl'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_52A9B06C00C9 THackWinControl
+
+: ME_52A9B0F7029E
+ CONST UID '52A9B0F7029E'
+ CONST Name 'THackControl'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47E1201703C3' '4799D29F033F.pas.ms.script' // TControl
+ )
+ ; // Inherits
+ CONST extprop:rc:SelfName 'HackControl'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_52A9B0F7029E THackControl
+
+FORWARD ME_52A9B15502FC
+
+: ME_52A9B167039E
+ CONST UID '52A9B167039E'
+ CONST Name 'FPopupPoint'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_52A9B15502FC // THackPopupMenu
+ ;
+ : Target WL 'ME_46A104F4028B' '4AB0C3F60375.pas.ms.script' // TPoint
+ ;
+
+ref; // ME_52A9B167039E FPopupPoint
+
+: ME_52A9B15502FC
+ CONST UID '52A9B15502FC'
+ CONST Name 'THackPopupMenu'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ : Inherits
+   Seq: ( WL 'ME_49A3EC9F01DC' '4799D29F033F.pas.ms.script' // TMenu
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( HWL ME_52A9B167039E // FPopupPoint
+ )
+ ; // Attributes
+ CONST extprop:rc:SelfName 'HackPopupMenu'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_52A9B15502FC THackPopupMenu
+
+FORWARD ME_52A841F4031F
+
+: ME_52A8420A02CD
+ CONST UID '52A8420A02CD'
+ CONST Name 'c_vcmCloseBmpName'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_52A841F4031F // vcmMenuManager Private Const
+ ;
+ CONST Value '''CLOSEBTN_DOCK97'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '''CLOSEBTN_DOCK97'''
+
+ref; // ME_52A8420A02CD c_vcmCloseBmpName
+
+: ME_52A842150192
+ CONST UID '52A842150192'
+ CONST Name 'c_vcmMaximizedBmpName'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_52A841F4031F // vcmMenuManager Private Const
+ ;
+ CONST Value '''MAXIMIZEDBTN_DOCK97'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '''MAXIMIZEDBTN_DOCK97'''
+
+ref; // ME_52A842150192 c_vcmMaximizedBmpName
+
+: ME_52A8421E01CF
+ CONST UID '52A8421E01CF'
+ CONST Name 'c_vcmOpenBmpName'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_52A841F4031F // vcmMenuManager Private Const
+ ;
+ CONST Value '''OPENBTN_DOCK97'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '''OPENBTN_DOCK97'''
+
+ref; // ME_52A8421E01CF c_vcmOpenBmpName
+
+: ME_52A842280127
+ CONST UID '52A842280127'
+ CONST Name 'c_vcmCloseImageIndex'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_52A841F4031F // vcmMenuManager Private Const
+ ;
+ CONST Value 0
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value 0
+
+ref; // ME_52A842280127 c_vcmCloseImageIndex
+
+: ME_52A8423200CC
+ CONST UID '52A8423200CC'
+ CONST Name 'c_vcmMaximizedImageIndex'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_52A841F4031F // vcmMenuManager Private Const
+ ;
+ CONST Value 1
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value 1
+
+ref; // ME_52A8423200CC c_vcmMaximizedImageIndex
+
+: ME_52A8423C028B
+ CONST UID '52A8423C028B'
+ CONST Name 'c_vcmOpenImageIndex'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_52A841F4031F // vcmMenuManager Private Const
+ ;
+ CONST Value 2
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value 2
+
+ref; // ME_52A8423C028B c_vcmOpenImageIndex
+
+: ME_52A8424701E8
+ CONST UID '52A8424701E8'
+ CONST Name 'c_vcmDockContainerName'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_52A841F4031F // vcmMenuManager Private Const
+ ;
+ CONST Value '''vcmDockContainer'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '''vcmDockContainer'''
+
+ref; // ME_52A8424701E8 c_vcmDockContainerName
+
+: ME_52A842B002B9
+ CONST UID '52A842B002B9'
+ CONST Name 'c_GlyphSizeMap'
+ CONST Class class_Attribute
+ %SUMMARY 'c_GlyphSizeMap: array [TvcmGlyphSize] of Cardinal = ('#13#10'   2, // vcm_gsAutomatic'#13#10'   0, // vcm_gs16x16'#13#10'   3, // vcm_gs24x24'#13#10'   1 // vcm_gs32x32'#13#10'  );' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_52A841F4031F // vcmMenuManager Private Const
+ ;
+ : Target HWL ME_52A8429102F6 // TvcmGlyphSizeMap
+ ;
+ CONST Value '(2, 0, 3, 1)'
+ : ValueType HWL ME_52A8429102F6 // TvcmGlyphSizeMap
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(2, 0, 3, 1)'
+
+ref; // ME_52A842B002B9 c_GlyphSizeMap
+
+: ME_52AB0050035B
+ CONST UID '52AB0050035B'
+ CONST Name 'cTBName'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_52A841F4031F // vcmMenuManager Private Const
+ ;
+ : Target HWL ME_52AAFF960114 // TvcmTBPosStringArray
+ ;
+ CONST Value '(''Top'', ''Bottom'', ''Left'', ''Right'')'
+ : ValueType HWL ME_52AAFF960114 // TvcmTBPosStringArray
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(''Top'', ''Bottom'', ''Left'', ''Right'')'
+
+ref; // ME_52AB0050035B cTBName
+
+: ME_52A841F4031F
+ CONST UID '52A841F4031F'
+ CONST Name 'vcmMenuManager Private Const'
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ : Attributes
+   Seq: ( HWL ME_52A8420A02CD // c_vcmCloseBmpName
+ HWL ME_52A842150192 // c_vcmMaximizedBmpName
+ HWL ME_52A8421E01CF // c_vcmOpenBmpName
+ HWL ME_52A842280127 // c_vcmCloseImageIndex
+ HWL ME_52A8423200CC // c_vcmMaximizedImageIndex
+ HWL ME_52A8423C028B // c_vcmOpenImageIndex
+ HWL ME_52A8424701E8 // c_vcmDockContainerName
+ HWL ME_52A842B002B9 // c_GlyphSizeMap
+ HWL ME_52AB0050035B // cTBName
+ )
+ ; // Attributes
+ CONST "spell names" false
+ CONST extprop:rc:SelfName 'MenuManager Private Const'
+
+ref; // ME_52A841F4031F vcmMenuManager Private Const
+
+: ME_52EB816302D2
+ CONST UID '52EB816302D2'
+ CONST Name 'CM_TBMOUSEQUERY'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_52EB8107015C // MessageConstants
+ ;
+ CONST Value 'CM_TBMOUSEQUERY'
+ : ValueType WL 'ME_52AB1AC403E7' '52AB1AAD01E5.pas.ms.script' // tb97vt
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value 'tb97vt.CM_TBMOUSEQUERY'
+
+ref; // ME_52EB816302D2 CM_TBMOUSEQUERY
+
+: ME_52EB817B02E2
+ CONST UID '52EB817B02E2'
+ CONST Name 'CM_TBCHECKCONTROL'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_52EB8107015C // MessageConstants
+ ;
+ CONST Value 'CM_TBCHECKCONTROL'
+ : ValueType WL 'ME_52AB1AC403E7' '52AB1AAD01E5.pas.ms.script' // tb97vt
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value 'tb97vt.CM_TBCHECKCONTROL'
+
+ref; // ME_52EB817B02E2 CM_TBCHECKCONTROL
+
+: ME_52EB8107015C
+ CONST UID '52EB8107015C'
+ CONST Name 'MessageConstants'
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ : Attributes
+   Seq: ( HWL ME_52EB816302D2 // CM_TBMOUSEQUERY
+ HWL ME_52EB817B02E2 // CM_TBCHECKCONTROL
+ )
+ ; // Attributes
+ CONST "spell names" false
+
+ref; // ME_52EB8107015C MessageConstants
+
+FORWARD ME_55019B3B011B
+
+: ME_550304DA00CB
+ CONST Class class_Dependency
+ : Stereotype st_implements::Dependency ;
+ : Parent HWL ME_55019B3B011B // TvcmMenuManagerHelper
+ ;
+ : Target WL 'ME_550199070251' '550198F60382.pas.ms.script' // Tl3MenuManagerHelper
+ ;
+
+ref; // ME_550304DA00CB 
+
+: ME_55019B3B011B
+ CONST UID '55019B3B011B'
+ CONST Name 'TvcmMenuManagerHelper'
+ CONST Class class_Class
+ : Stereotype st_ServiceImplementation ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ : Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ : Dependencies
+   Seq: ( ME_550304DA00CB // Tl3MenuManagerHelper
+ )
+ ; // Dependencies
+ CONST "singleton" true
+ CONST extprop:rc:SelfName 'MenuManagerHelper'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_55019B3B011B TvcmMenuManagerHelper
+
+FORWARD ME_5501A60D002E
+
+: ME_55030510030A
+ CONST Class class_Dependency
+ : Stereotype st_implements::Dependency ;
+ : Parent HWL ME_5501A60D002E // TvcmDispatcherHelper
+ ;
+ : Target WL 'ME_5501A3AE02AA' '550198F60382.pas.ms.script' // Tl3DispatcherHelper
+ ;
+
+ref; // ME_55030510030A 
+
+: ME_5501A60D002E
+ CONST UID '5501A60D002E'
+ CONST Name 'TvcmDispatcherHelper'
+ CONST Class class_Class
+ : Stereotype st_ServiceImplementation ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ : Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ : Dependencies
+   Seq: ( ME_55030510030A // Tl3DispatcherHelper
+ )
+ ; // Dependencies
+ CONST "singleton" true
+ CONST extprop:rc:SelfName 'DispatcherHelper'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_5501A60D002E TvcmDispatcherHelper
+
+: ME_55CA131A0366
+ CONST UID '55CA131A0366'
+ CONST Name 'ItemType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent HWL ME_55CA130E00D1 // TvcmToolbarDefList
+ ;
+ : Target WL 'ME_50289DB9036F' '5028A4C0019B.pas.ms.script' // TvcmToolbarDef
+ ;
+
+ref; // ME_55CA131A0366 ItemType
+
+: ME_55CA130E00D1
+ CONST UID '55CA130E00D1'
+ CONST Name 'TvcmToolbarDefList'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_47B57B7800A7' '47913B47006E.pas.ms.script' // l3ObjectPtrList
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( HWL ME_55CA131A0366 // ItemType
+ )
+ ; // Attributes
+ CONST extprop:rc:SelfName 'ToolbarDefList'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_55CA130E00D1 TvcmToolbarDefList
+
+: ME_5722F446009F
+ CONST UID '5722F446009F'
+ CONST Name 'TvcmMenuOption'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ : Inherits
+   Seq: ( WL 'ME_52A08D51029E' '4AADF9450143.pas.ms.script' // TvcmMenuOption
+ )
+ ; // Inherits
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_5722F446009F TvcmMenuOption
+
+: ME_5722F46303DB
+ CONST UID '5722F46303DB'
+ CONST Name 'TvcmToolbarOption'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ : Inherits
+   Seq: ( WL 'ME_52A08D9D00F2' '4AADF9450143.pas.ms.script' // TvcmToolbarOption
+ )
+ ; // Inherits
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_5722F46303DB TvcmToolbarOption
+
+: ME_5722F47F02E5
+ CONST UID '5722F47F02E5'
+ CONST Name 'TvcmMenuOptions'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ : Inherits
+   Seq: ( WL 'ME_52A9A23E0251' '4AADF9450143.pas.ms.script' // TvcmMenuOptions
+ )
+ ; // Inherits
+
+ref; // ME_5722F47F02E5 TvcmMenuOptions
+
+: ME_5722F49C02B0
+ CONST UID '5722F49C02B0'
+ CONST Name 'TvcmToolbarOptions'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ : Inherits
+   Seq: ( WL 'ME_52A9A2B3038D' '4AADF9450143.pas.ms.script' // TvcmToolbarOptions
+ )
+ ; // Inherits
+
+ref; // ME_5722F49C02B0 TvcmToolbarOptions
+
+: ME_52A9AFFF03C0
+ CONST UID '52A9AFFF03C0'
+ CONST Name 'g_InternalButton'
+ CONST Class class_Attribute
+ : Stereotype st_static::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ : Target HWL ME_52A08A9E0275 // TvcmToolButtonDef
+ ;
+
+ref; // ME_52A9AFFF03C0 g_InternalButton
+
+: ME_52AB0BCD033E
+ CONST UID '52AB0BCD033E'
+ CONST Name 'new_ini_op'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+
+ref; // ME_52AB0BCD033E new_ini_op
+
+: ME_52AB0BD60025
+ CONST UID '52AB0BD60025'
+ CONST Name 'new_fini_op'
+ CONST Class class_Operation
+ : Stereotype st_fini::Operation ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+
+ref; // ME_52AB0BD60025 new_fini_op
+
+: ME_51D12B1703DA
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ : Target WL 'ME_51D128930090' '4AB34028023E.pas.ms.script' // TvcmEntitiesDefIteratorForContextMenu
+ ;
+
+ref; // ME_51D12B1703DA 
+
+: ME_52AB0A4902C3
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ : Target WL 'ME_52AB0A3703E2' '4AADF9450143.pas.ms.script' // vcmMenuManagerUtils
+ ;
+
+ref; // ME_52AB0A4902C3 
+
+: ME_52AB1D220031
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ : Target WL 'ME_52AB0AFE0049' '47D0E1500033.pas.ms.script' // vcmMessages
+ ;
+
+ref; // ME_52AB1D220031 
+
+: ME_52AB1D2502B0
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ : Target WL 'ME_4727449A00A2' '467C0CAA02AB.pas.ms.script' // Il3Canvas
+ ;
+
+ref; // ME_52AB1D2502B0 
+
+: ME_52AB1D280353
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ : Target WL 'ME_4799F84900DD' '473C3BEE0334.pas.ms.script' // l3ScreenIC
+ ;
+
+ref; // ME_52AB1D280353 
+
+: ME_52AB1D2B0365
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_52AB1D2B0365 
+
+: ME_52AB1D2F003F
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ : Target WL 'ME_52AB1AC403E7' '52AB1AAD01E5.pas.ms.script' // tb97vt
+ ;
+
+ref; // ME_52AB1D2F003F 
+
+: ME_52AB1D320094
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ : Target WL 'ME_478E1F060192' '4767743E00E5.pas.ms.script' // PTypeData
+ ;
+
+ref; // ME_52AB1D320094 
+
+: ME_52AB1D35016C
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_52AB1D35016C 
+
+: ME_52AB1D380100
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ : Target WL 'ME_48C78D5402A6' '4799D29F033F.pas.ms.script' // StdCtrls
+ ;
+
+ref; // ME_52AB1D380100 
+
+: ME_52AB1D3B023B
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ : Target WL 'ME_47878E0E0191' '54B90AC6014B.pas.ms.script' // l3String
+ ;
+
+ref; // ME_52AB1D3B023B 
+
+: ME_52AB1D3E0360
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ : Target WL 'ME_4A8432960266' '48297E42011A.pas.ms.script' // ctTypes
+ ;
+
+ref; // ME_52AB1D3E0360 
+
+: ME_52AB1D41034B
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ : Target WL 'ME_48D2191902CB' '48D21909003A.pas.ms.script' // ActionCodes
+ ;
+
+ref; // ME_52AB1D41034B 
+
+: ME_52AB1D4403C7
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ : Target WL 'ME_4C8E3AB70291' '4AADF9450143.pas.ms.script' // vcmMenus
+ ;
+
+ref; // ME_52AB1D4403C7 
+
+: ME_52AB1D4703B1
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ : Target WL 'ME_47E761BB02FE' '47E7617C0275.pas.ms.script' // TvcmAction
+ ;
+
+ref; // ME_52AB1D4703B1 
+
+: ME_52AB1D4B00DD
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ : Target WL 'ME_47752AF90375' '47750CE700D0.pas.ms.script' // afwFacade
+ ;
+
+ref; // ME_52AB1D4B00DD 
+
+: ME_52AB1D4E00A5
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ : Target WL 'ME_49944C620372' '49944A1502FE.pas.ms.script' // vcm_ComboOperations
+ ;
+
+ref; // ME_52AB1D4E00A5 
+
+: ME_52AB1D5100B4
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ : Target WL 'ME_4773D64E036C' '47913B47006E.pas.ms.script' // l3Base
+ ;
+
+ref; // ME_52AB1D5100B4 
+
+: ME_52AB1D54013A
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ : Target WL 'ME_47A066980016' '537B83AD01F0.pas.ms.script' // l3MinMax
+ ;
+
+ref; // ME_52AB1D54013A 
+
+: ME_52AB1D57017B
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ : Target WL 'ME_502BC6DC00F4' '502BC6B600F3.pas.ms.script' // vcmToolbarUtils
+ ;
+
+ref; // ME_52AB1D57017B 
+
+: ME_52AB1D5A01A1
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ : Target WL 'ME_4E01F29C0139' '47D0E1500033.pas.ms.script' // vcmSettings
+ ;
+
+ref; // ME_52AB1D5A01A1 
+
+: ME_52AB1D5D011F
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ : Target WL 'ME_49525C7A0114' '4AADF9450143.pas.ms.script' // TvcmMainForm
+ ;
+
+ref; // ME_52AB1D5D011F 
+
+: ME_52AB1D6001C1
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ : Target WL 'ME_4AA9377803B5' '47D0E1500033.pas.ms.script' // vcmUtils
+ ;
+
+ref; // ME_52AB1D6001C1 
+
+: ME_52AB1D630372
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ : Target WL 'ME_4F82EFD20255' '47E7617C0275.pas.ms.script' // TvcmModuleAction
+ ;
+
+ref; // ME_52AB1D630372 
+
+: ME_52AB1D670118
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ : Target WL 'ME_4F82EFAB02D4' '47E7617C0275.pas.ms.script' // TvcmEntityAction
+ ;
+
+ref; // ME_52AB1D670118 
+
+: ME_52AB1D6A02E9
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ : Target WL 'ME_47D0E1C9021A' '4AADF9450143.pas.ms.script' // TvcmFormHandler
+ ;
+
+ref; // ME_52AB1D6A02E9 
+
+: ME_52AB1D6E00B2
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ : Target WL 'ME_4B8E967F00BE' '4B8E967100D5.pas.ms.script' // vcmMenuManagerRes
+ ;
+
+ref; // ME_52AB1D6E00B2 
+
+: ME_52AB1D71018A
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ : Target WL 'ME_52AB1CF803B2' '4AB34028023E.pas.ms.script' // TvcmMenuItemsCollectionItem
+ ;
+
+ref; // ME_52AB1D71018A 
+
+: ME_52AB1D7401DA
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ : Target WL 'ME_47E7652402FF' '47E7617C0275.pas.ms.script' // TvcmMainMenuAction
+ ;
+
+ref; // ME_52AB1D7401DA 
+
+: ME_537DC3D80062
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ : Target WL 'ME_537D82F10098' '537D82CB0161.pas.ms.script' // vcmChromeLikeTypes
+ ;
+
+ref; // ME_537DC3D80062 
+
+: ME_564AEBE30348
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ : Target WL 'ME_564AE7F4023F' '4AADF9450143.pas.ms.script' // TvcmMainMenuBuilder
+ ;
+
+ref; // ME_564AEBE30348 
+
+: ME_5722F3C60362
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ : Target WL 'ME_53E9DB8702DD' '4AADF9450143.pas.ms.script' // vcmMenuManagerTypes
+ ;
+
+ref; // ME_5722F3C60362 
+
+: ME_4B30EC67025A
+ CONST UID '4B30EC67025A'
+ CONST Name 'TvcmMenuManager'
+ CONST Class class_Class
+ : Stereotype st_GuiControl ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent WL 'ME_4AADF9450143' '4AADF9450143.pas.ms.script' // Visual
+ ;
+ : Inherits
+   Seq: ( HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( HWL ME_52A9AFFF03C0 // g_InternalButton
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( HWL ME_52AB0BCD033E // new_ini_op
+ HWL ME_52AB0BD60025 // new_fini_op
+ )
+ ; // Operations
+ : Children
+   Seq: ( HWL ME_51ED01600060 // TvcmPopupMenu
+ HWL ME_52A082BA0188 // TvcmButtonDef
+ HWL ME_52A8430201C5 // TvcmFakeBox
+ HWL ME_52A0812B00B7 // TvcmDockContainer
+ HWL ME_52A0838A0001 // TvcmButtonDefs
+ HWL ME_52A08EDC003D // TvcmIconTextType
+ HWL ME_52A087CA0218 // TvcmToolButtonDefActionLink
+ HWL ME_52A08A9E0275 // TvcmToolButtonDef
+ HWL ME_52A08EFE0261 // TvcmGlyphColordepth
+ HWL ME_52A8304401E3 // TvcmToolbarDefForMenuManager
+ HWL ME_52A091340172 // TvcmButtonPopupMenu
+ HWL ME_52A830D30389 // TvcmToolbarDefsForMenuManager
+ HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ HWL ME_52A8429102F6 // TvcmGlyphSizeMap
+ HWL ME_52AAFF960114 // TvcmTBPosStringArray
+ HWL ME_52A045E102E3 // TvcmComboBox
+ HWL ME_52A9AB640217 // TvcmEdit
+ HWL ME_52A9ABFF02E0 // TvcmDateEdit
+ HWL ME_52A9B06C00C9 // THackWinControl
+ HWL ME_52A9B0F7029E // THackControl
+ HWL ME_52A9B15502FC // THackPopupMenu
+ HWL ME_55019B3B011B // TvcmMenuManagerHelper
+ HWL ME_5501A60D002E // TvcmDispatcherHelper
+ HWL ME_55CA130E00D1 // TvcmToolbarDefList
+ HWL ME_5722F446009F // TvcmMenuOption
+ HWL ME_5722F46303DB // TvcmToolbarOption
+ HWL ME_5722F47F02E5 // TvcmMenuOptions
+ HWL ME_5722F49C02B0 // TvcmToolbarOptions
+ )
+ ; // Children
+ : Constants
+   Seq: ( HWL ME_52A08EAA00E4 // vcmMenuManager Const
+ HWL ME_52A841F4031F // vcmMenuManager Private Const
+ HWL ME_52EB8107015C // MessageConstants
+ )
+ ; // Constants
+ : Dependencies
+   Seq: ( ME_51D12B1703DA // TvcmEntitiesDefIteratorForContextMenu
+ ME_52AB0A4902C3 // vcmMenuManagerUtils
+ ME_52AB1D220031 // vcmMessages
+ ME_52AB1D2502B0 // Il3Canvas
+ ME_52AB1D280353 // l3ScreenIC
+ ME_52AB1D2B0365 // Il3CString
+ ME_52AB1D2F003F // tb97vt
+ ME_52AB1D320094 // PTypeData
+ ME_52AB1D35016C // SysUtils
+ ME_52AB1D380100 // StdCtrls
+ ME_52AB1D3B023B // l3String
+ ME_52AB1D3E0360 // ctTypes
+ ME_52AB1D41034B // ActionCodes
+ ME_52AB1D4403C7 // vcmMenus
+ ME_52AB1D4703B1 // TvcmAction
+ ME_52AB1D4B00DD // afwFacade
+ ME_52AB1D4E00A5 // vcm_ComboOperations
+ ME_52AB1D5100B4 // l3Base
+ ME_52AB1D54013A // l3MinMax
+ ME_52AB1D57017B // vcmToolbarUtils
+ ME_52AB1D5A01A1 // vcmSettings
+ ME_52AB1D5D011F // TvcmMainForm
+ ME_52AB1D6001C1 // vcmUtils
+ ME_52AB1D630372 // TvcmModuleAction
+ ME_52AB1D670118 // TvcmEntityAction
+ ME_52AB1D6A02E9 // TvcmFormHandler
+ ME_52AB1D6E00B2 // vcmMenuManagerRes
+ ME_52AB1D71018A // TvcmMenuItemsCollectionItem
+ ME_52AB1D7401DA // TvcmMainMenuAction
+ ME_537DC3D80062 // vcmChromeLikeTypes
+ ME_564AEBE30348 // TvcmMainMenuBuilder
+ ME_5722F3C60362 // vcmMenuManagerTypes
+ )
+ ; // Dependencies
+ CONST "need UC" true
+ CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Visual\vcmMenuManager.pas'
+ CONST extprop:rc:SelfName 'MenuManager'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vcmMenuManager'
+
+ref; // ME_4B30EC67025A TvcmMenuManager

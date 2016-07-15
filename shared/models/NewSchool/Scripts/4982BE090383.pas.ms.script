@@ -13,7 +13,7 @@ FORWARD ME_4982BE090383
  %SUMMARY 'ѕеречислимый тип определ€ющий необходимость создани€ Ѕќ‘' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4982BE090383 // vcmControllers
+ : Parent HWL ME_4982BE090383 // vcmControllers
  ;
  : Inherits
    Seq: ( WL 'ME_528D9F530036' '528C93040132.pas.ms.script' // TvcmNeedMakeDS
@@ -34,7 +34,7 @@ FORWARD ME_47EB514C0336
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_47EB514C0336 // IvcmFormDataSourceRef
+ : Parent HWL ME_47EB514C0336 // IvcmFormDataSourceRef
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -51,7 +51,7 @@ ref; // ME_4982B4940122 IsEmpty
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_47EB514C0336 // IvcmFormDataSourceRef
+ : Parent HWL ME_47EB514C0336 // IvcmFormDataSourceRef
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -68,7 +68,7 @@ ref; // ME_4982B4A501A0 CanBeClosed
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_47EB514C0336 // IvcmFormDataSourceRef
+ : Parent HWL ME_47EB514C0336 // IvcmFormDataSourceRef
  ;
  : Target WL 'ME_47EB900B0216' '4683F37902CF.pas.ms.script' // IvcmFormDataSource
  ;
@@ -85,9 +85,9 @@ ref; // ME_4982B449023F Referred
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_47EB514C0336 // IvcmFormDataSourceRef
+ : Parent HWL ME_47EB514C0336 // IvcmFormDataSourceRef
  ;
- : Target ME_47FB5A0F0375 // TvcmNeedMakeDS
+ : Target HWL ME_47FB5A0F0375 // TvcmNeedMakeDS
  ;
  CONST "pm" true
 
@@ -100,7 +100,7 @@ ref; // ME_4982B4600057 NeedMake
  %SUMMARY 'сбрасывает ссылку на _DataSource и NeedMake устанавливает как vcm_nmNo' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_47EB514C0336 // IvcmFormDataSourceRef
+ : Parent HWL ME_47EB514C0336 // IvcmFormDataSourceRef
  ;
 
 ref; // ME_4982B3B10155 Clear
@@ -109,7 +109,7 @@ ref; // ME_4982B3B10155 Clear
  CONST Name 'aValue'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_47FB5A0F0375 // TvcmNeedMakeDS
+ : Target HWL ME_47FB5A0F0375 // TvcmNeedMakeDS
  ;
 
 ref; // ME_4982B41402C7 aValue
@@ -121,7 +121,7 @@ ref; // ME_4982B41402C7 aValue
  %SUMMARY 'устанавливаем флаг если его значение vcm_nmNo' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_47EB514C0336 // IvcmFormDataSourceRef
+ : Parent HWL ME_47EB514C0336 // IvcmFormDataSourceRef
  ;
  : Parameters
    Seq: ( ME_4982B41402C7 // aValue
@@ -134,7 +134,7 @@ ref; // ME_4982B40202EE SetIfNeedMakeNo
  CONST Name 'aSource'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_47EB514C0336 // IvcmFormDataSourceRef
+ : Target HWL ME_47EB514C0336 // IvcmFormDataSourceRef
  ;
 
 ref; // ME_4982B4350056 aSource
@@ -146,7 +146,7 @@ ref; // ME_4982B4350056 aSource
  %SUMMARY 'скопировать данные aSource' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_47EB514C0336 // IvcmFormDataSourceRef
+ : Parent HWL ME_47EB514C0336 // IvcmFormDataSourceRef
  ;
  : Parameters
    Seq: ( ME_4982B4350056 // aSource
@@ -165,19 +165,19 @@ ref; // ME_4982B4280318 Assign
  %SUMMARY '—амоочищаема€ ссылка на бизнес объект формы.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4982BE090383 // vcmControllers
+ : Parent HWL ME_4982BE090383 // vcmControllers
  ;
  : Attributes
-   Seq: ( ME_4982B4940122 // IsEmpty
- ME_4982B4A501A0 // CanBeClosed
- ME_4982B449023F // Referred
- ME_4982B4600057 // NeedMake
+   Seq: ( HWL ME_4982B4940122 // IsEmpty
+ HWL ME_4982B4A501A0 // CanBeClosed
+ HWL ME_4982B449023F // Referred
+ HWL ME_4982B4600057 // NeedMake
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_4982B3B10155 // Clear
- ME_4982B40202EE // SetIfNeedMakeNo
- ME_4982B4280318 // Assign
+   Seq: ( HWL ME_4982B3B10155 // Clear
+ HWL ME_4982B40202EE // SetIfNeedMakeNo
+ HWL ME_4982B4280318 // Assign
  )
  ; // Operations
  CONST extprop:rc:SelfName 'FormDataSourceRef'
@@ -193,10 +193,10 @@ ref; // ME_47EB514C0336 IvcmFormDataSourceRef
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4982BE090383 // vcmControllers
+ : Parent HWL ME_4982BE090383 // vcmControllers
  ;
  : Inherits
-   Seq: ( ME_47EB514C0336 // IvcmFormDataSourceRef
+   Seq: ( HWL ME_47EB514C0336 // IvcmFormDataSourceRef
  )
  ; // Inherits
  CONST extprop:rc:SelfName 'ViewAreaControllerRef'
@@ -213,7 +213,7 @@ ref; // ME_4982B4D00032 IvcmViewAreaControllerRef
  %SUMMARY '—сылка на IvcmFormDataSource. ƒл€ использовани€ в автоматичексом кода. ¬ ручном коде примен€ть Ќ≈Ћ№«я, надо примен€ть IvcmFormDataSource' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4982BE090383 // vcmControllers
+ : Parent HWL ME_4982BE090383 // vcmControllers
  ;
  : Inherits
    Seq: ( WL 'ME_47EB900B0216' '4683F37902CF.pas.ms.script' // IvcmFormDataSource
@@ -233,7 +233,7 @@ ref; // ME_497841510139 IvcmViewAreaController
  %SUMMARY '—сылка на IvcmFormSetDataSource. ƒл€ использовани€ в автоматичексом кода. ¬ ручном коде примен€ть Ќ≈Ћ№«я, надо примен€ть IvcmFormSetDataSource' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4982BE090383 // vcmControllers
+ : Parent HWL ME_4982BE090383 // vcmControllers
  ;
  : Inherits
    Seq: ( WL 'ME_47F252870299' '4683F37902CF.pas.ms.script' // IvcmFormSetDataSource
@@ -255,11 +255,11 @@ ref; // ME_4981E70101D7 IvcmUseCaseController
  : Parent WL 'ME_4790C3B8021E' '4790C3B8021E.pas.ms.script' // VCM
  ;
  : Children
-   Seq: ( ME_47FB5A0F0375 // TvcmNeedMakeDS
- ME_47EB514C0336 // IvcmFormDataSourceRef
- ME_4982B4D00032 // IvcmViewAreaControllerRef
- ME_497841510139 // IvcmViewAreaController
- ME_4981E70101D7 // IvcmUseCaseController
+   Seq: ( HWL ME_47FB5A0F0375 // TvcmNeedMakeDS
+ HWL ME_47EB514C0336 // IvcmFormDataSourceRef
+ HWL ME_4982B4D00032 // IvcmViewAreaControllerRef
+ HWL ME_497841510139 // IvcmViewAreaController
+ HWL ME_4981E70101D7 // IvcmUseCaseController
  )
  ; // Children
  : Depends

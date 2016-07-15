@@ -12,7 +12,7 @@ FORWARD ME_480865840083
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_480865840083 // OperationsFramework
+ : Parent HWL ME_480865840083 // OperationsFramework
  ;
  CONST extprop:pas:TypeName '_HistoryStoredObject_'
 
@@ -28,7 +28,7 @@ FORWARD ME_483A7BE60395
  CONST Visibility PublicAccess
  CONST Abstraction at_final
  CONST LinkType lt_agr
- : Parent ME_483A7BE60395 // atObjectHistory
+ : Parent HWL ME_483A7BE60395 // atObjectHistory
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -45,9 +45,9 @@ ref; // ME_483A8008021E HistoryLength
  CONST Visibility PrivateAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_483A7BE60395 // atObjectHistory
+ : Parent HWL ME_483A7BE60395 // atObjectHistory
  ;
- : Target ME_483A7C1F024D // HistoryStoredObject
+ : Target HWL ME_483A7C1F024D // HistoryStoredObject
  ;
 
 ref; // ME_483A7C2C0318 InterfaceListElement
@@ -59,9 +59,9 @@ ref; // ME_483A7C2C0318 InterfaceListElement
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_483A7BE60395 // atObjectHistory
+ : Parent HWL ME_483A7BE60395 // atObjectHistory
  ;
- : Target ME_483A7C1F024D // HistoryStoredObject
+ : Target HWL ME_483A7C1F024D // HistoryStoredObject
  ;
 
 ref; // ME_483A7C3701A1 
@@ -74,9 +74,9 @@ ref; // ME_483A7C3701A1
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_483A7BE60395 // atObjectHistory
+ : Parent HWL ME_483A7BE60395 // atObjectHistory
  ;
- : Target ME_483A7C1F024D // HistoryStoredObject
+ : Target HWL ME_483A7C1F024D // HistoryStoredObject
  ;
  CONST "needs field" false
  CONST "pm" true
@@ -87,7 +87,7 @@ ref; // ME_483A8053003A Current
  CONST Name 'aStoredObject'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_483A7C1F024D // HistoryStoredObject
+ : Target HWL ME_483A7C1F024D // HistoryStoredObject
  ;
 
 ref; // ME_483A80DE0115 aStoredObject
@@ -99,7 +99,7 @@ ref; // ME_483A80DE0115 aStoredObject
  : Stereotype st_chg::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_483A7BE60395 // atObjectHistory
+ : Parent HWL ME_483A7BE60395 // atObjectHistory
  ;
  : Parameters
    Seq: ( ME_483A80DE0115 // aStoredObject
@@ -115,7 +115,7 @@ ref; // ME_483A8088025D AddToHistory
  : Stereotype st_chg::Operation ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
- : Parent ME_483A7BE60395 // atObjectHistory
+ : Parent HWL ME_483A7BE60395 // atObjectHistory
  ;
 
 ref; // ME_483AA4810302 TrimHistory
@@ -128,7 +128,7 @@ ref; // ME_483AA4810302 TrimHistory
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_480865840083 // OperationsFramework
+ : Parent HWL ME_480865840083 // OperationsFramework
  ;
  : Inherits
    Seq: ( WL 'ME_4807825A006E' '4AB0997B00A2.pas.ms.script' // TInterfaceList
@@ -136,15 +136,15 @@ ref; // ME_483AA4810302 TrimHistory
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_483A8008021E // HistoryLength
- ME_483A7C2C0318 // InterfaceListElement
- ME_483A7C3701A1 // 
- ME_483A8053003A // Current
+   Seq: ( HWL ME_483A8008021E // HistoryLength
+ HWL ME_483A7C2C0318 // InterfaceListElement
+ HWL ME_483A7C3701A1 // 
+ HWL ME_483A8053003A // Current
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_483A8088025D // AddToHistory
- ME_483AA4810302 // TrimHistory
+   Seq: ( HWL ME_483A8088025D // AddToHistory
+ HWL ME_483AA4810302 // TrimHistory
  )
  ; // Operations
  CONST intf.pas:Path 'quality\test\garant6x\AdapterTest\OperationsFramework\atObjectHistory.imp.pas'
@@ -163,7 +163,7 @@ FORWARD ME_48089A46022D
  CONST Visibility PublicAccess
  CONST Abstraction at_final
  CONST LinkType lt_agr
- : Parent ME_48089A46022D // TatOperationParameter
+ : Parent HWL ME_48089A46022D // TatOperationParameter
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -177,9 +177,9 @@ FORWARD ME_5396EA3E0230
 : ME_5396ED0B026D
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_48089A46022D // TatOperationParameter
+ : Parent HWL ME_48089A46022D // TatOperationParameter
  ;
- : Target ME_5396EA3E0230 // TatOperationEnv
+ : Target HWL ME_5396EA3E0230 // TatOperationEnv
  ;
 
 ref; // ME_5396ED0B026D 
@@ -187,7 +187,7 @@ ref; // ME_5396ED0B026D
 : ME_539706DA034E
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_48089A46022D // TatOperationParameter
+ : Parent HWL ME_48089A46022D // TatOperationParameter
  ;
  : Target WL 'ME_48088D6800F9' '4AB0C3C60310.pas.ms.script' // Variants
  ;
@@ -210,14 +210,14 @@ ref; // ME_48086F180372_ME_48089A46022D Value
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_480865840083 // OperationsFramework
+ : Parent HWL ME_480865840083 // OperationsFramework
  ;
  : Inherits
    Seq: ( WL 'ME_480890870368' '48076E7F0260.pas.ms.script' // TatNamedParameter
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_48089A77026D // IsRequired
+   Seq: ( HWL ME_48089A77026D // IsRequired
  )
  ; // Attributes
  : Overridden
@@ -246,9 +246,9 @@ FORWARD ME_48089BA60088
  CONST Visibility PrivateAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_48089BA60088 // TatOperationParametersList
+ : Parent HWL ME_48089BA60088 // TatOperationParametersList
  ;
- : Target ME_48089A46022D // TatOperationParameter
+ : Target HWL ME_48089A46022D // TatOperationParameter
  ;
 
 ref; // ME_48089BCD02A7 NamedParameter
@@ -261,7 +261,7 @@ ref; // ME_48089BCD02A7 NamedParameter
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_480865840083 // OperationsFramework
+ : Parent HWL ME_480865840083 // OperationsFramework
  ;
  : Inherits
    Seq: ( WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
@@ -269,7 +269,7 @@ ref; // ME_48089BCD02A7 NamedParameter
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_48089BCD02A7 // NamedParameter
+   Seq: ( HWL ME_48089BCD02A7 // NamedParameter
  )
  ; // Attributes
  CONST intf.pas:Path 'quality\test\garant6x\AdapterTest\OperationsFramework\atOperationParametersList.pas'
@@ -289,7 +289,7 @@ FORWARD ME_483A9A3600C3
  CONST Visibility PrivateAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_483A9A3600C3 // TatDocumentHistory
+ : Parent HWL ME_483A9A3600C3 // TatDocumentHistory
  ;
  : Target WL 'ME_45EEB6520191' '4570511E038A.pas.ms.script' // Document
  ;
@@ -304,15 +304,15 @@ ref; // ME_483A9A4B0111 HistoryStoredObject
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_480865840083 // OperationsFramework
+ : Parent HWL ME_480865840083 // OperationsFramework
  ;
  : Inherits
    Seq: ( WL 'ME_4807825A006E' '4AB0997B00A2.pas.ms.script' // TInterfaceList
- ME_483A7BE60395 // atObjectHistory
+ HWL ME_483A7BE60395 // atObjectHistory
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_483A9A4B0111 // HistoryStoredObject
+   Seq: ( HWL ME_483A9A4B0111 // HistoryStoredObject
  )
  ; // Attributes
  CONST intf.pas:Path 'quality\test\garant6x\AdapterTest\OperationsFramework\atDocumentHistory.pas'
@@ -332,7 +332,7 @@ FORWARD ME_483A9A690324
  CONST Visibility PrivateAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_483A9A690324 // TatListHistory
+ : Parent HWL ME_483A9A690324 // TatListHistory
  ;
  : Target WL 'ME_45EEDB730265' '45700BFD0251.pas.ms.script' // DynList
  ;
@@ -347,15 +347,15 @@ ref; // ME_483A9A760065 HistoryStoredObject
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_480865840083 // OperationsFramework
+ : Parent HWL ME_480865840083 // OperationsFramework
  ;
  : Inherits
    Seq: ( WL 'ME_4807825A006E' '4AB0997B00A2.pas.ms.script' // TInterfaceList
- ME_483A7BE60395 // atObjectHistory
+ HWL ME_483A7BE60395 // atObjectHistory
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_483A9A760065 // HistoryStoredObject
+   Seq: ( HWL ME_483A9A760065 // HistoryStoredObject
  )
  ; // Attributes
  CONST intf.pas:Path 'quality\test\garant6x\AdapterTest\OperationsFramework\atListHistory.pas'
@@ -375,7 +375,7 @@ FORWARD ME_4808672500A0
  CONST Visibility PublicAccess
  CONST Abstraction at_final
  CONST LinkType lt_agr
- : Parent ME_4808672500A0 // TatUserWorkContext
+ : Parent HWL ME_4808672500A0 // TatUserWorkContext
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -392,7 +392,7 @@ ref; // ME_4808679100E8 DocHistoryLength
  CONST Visibility PublicAccess
  CONST Abstraction at_final
  CONST LinkType lt_agr
- : Parent ME_4808672500A0 // TatUserWorkContext
+ : Parent HWL ME_4808672500A0 // TatUserWorkContext
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -410,7 +410,7 @@ ref; // ME_483A884E0115 ListHistoryLength
  CONST Visibility PublicAccess
  CONST Abstraction at_final
  CONST LinkType lt_agr
- : Parent ME_4808672500A0 // TatUserWorkContext
+ : Parent HWL ME_4808672500A0 // TatUserWorkContext
  ;
  : Target WL 'ME_45EEB6520191' '4570511E038A.pas.ms.script' // Document
  ;
@@ -428,7 +428,7 @@ ref; // ME_480867F10278 CurrDoc
  CONST Visibility PublicAccess
  CONST Abstraction at_final
  CONST LinkType lt_agr
- : Parent ME_4808672500A0 // TatUserWorkContext
+ : Parent HWL ME_4808672500A0 // TatUserWorkContext
  ;
  : Target WL 'ME_45EEDB730265' '45700BFD0251.pas.ms.script' // DynList
  ;
@@ -444,9 +444,9 @@ ref; // ME_483A85FB0088 CurrList
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4808672500A0 // TatUserWorkContext
+ : Parent HWL ME_4808672500A0 // TatUserWorkContext
  ;
- : Target ME_483A9A3600C3 // TatDocumentHistory
+ : Target HWL ME_483A9A3600C3 // TatDocumentHistory
  ;
 
 ref; // ME_483A9A5D0075 f_DocumentHistory
@@ -458,9 +458,9 @@ ref; // ME_483A9A5D0075 f_DocumentHistory
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4808672500A0 // TatUserWorkContext
+ : Parent HWL ME_4808672500A0 // TatUserWorkContext
  ;
- : Target ME_483A9A690324 // TatListHistory
+ : Target HWL ME_483A9A690324 // TatListHistory
  ;
 
 ref; // ME_483A9A800046 f_ListHistory
@@ -474,7 +474,7 @@ ref; // ME_483A9A800046 f_ListHistory
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4808672500A0 // TatUserWorkContext
+ : Parent HWL ME_4808672500A0 // TatUserWorkContext
  ;
  : Target WL 'ME_45EED5F0008E' '4570501E037A.pas.ms.script' // FoldersNode
  ;
@@ -491,7 +491,7 @@ ref; // ME_484AA281000E CurrFolder
  : Stereotype st_ctor::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4808672500A0 // TatUserWorkContext
+ : Parent HWL ME_4808672500A0 // TatUserWorkContext
  ;
 
 ref; // ME_4808681E00D9 Create
@@ -511,7 +511,7 @@ ref; // ME_4808684202C3 document
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4808672500A0 // TatUserWorkContext
+ : Parent HWL ME_4808672500A0 // TatUserWorkContext
  ;
  : Parameters
    Seq: ( ME_4808684202C3 // document
@@ -526,7 +526,7 @@ ref; // ME_480868380180 AddDocToHistory
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4808672500A0 // TatUserWorkContext
+ : Parent HWL ME_4808672500A0 // TatUserWorkContext
  ;
 
 ref; // ME_4808684A0084 Clear
@@ -547,7 +547,7 @@ ref; // ME_483A887D023E list
  : Stereotype st_chg::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4808672500A0 // TatUserWorkContext
+ : Parent HWL ME_4808672500A0 // TatUserWorkContext
  ;
  : Parameters
    Seq: ( ME_483A887D023E // list
@@ -559,7 +559,7 @@ ref; // ME_483A88650069 AddListToHistory
 : ME_4808697103C3
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4808672500A0 // TatUserWorkContext
+ : Parent HWL ME_4808672500A0 // TatUserWorkContext
  ;
  : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
  ;
@@ -580,27 +580,27 @@ ref; // ME_48077504027E_ME_4808672500A0 Destroy
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_480865840083 // OperationsFramework
+ : Parent HWL ME_480865840083 // OperationsFramework
  ;
  : Inherits
    Seq: ( WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_4808679100E8 // DocHistoryLength
- ME_483A884E0115 // ListHistoryLength
- ME_480867F10278 // CurrDoc
- ME_483A85FB0088 // CurrList
- ME_483A9A5D0075 // f_DocumentHistory
- ME_483A9A800046 // f_ListHistory
- ME_484AA281000E // CurrFolder
+   Seq: ( HWL ME_4808679100E8 // DocHistoryLength
+ HWL ME_483A884E0115 // ListHistoryLength
+ HWL ME_480867F10278 // CurrDoc
+ HWL ME_483A85FB0088 // CurrList
+ HWL ME_483A9A5D0075 // f_DocumentHistory
+ HWL ME_483A9A800046 // f_ListHistory
+ HWL ME_484AA281000E // CurrFolder
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_4808681E00D9 // Create
- ME_480868380180 // AddDocToHistory
- ME_4808684A0084 // Clear
- ME_483A88650069 // AddListToHistory
+   Seq: ( HWL ME_4808681E00D9 // Create
+ HWL ME_480868380180 // AddDocToHistory
+ HWL ME_4808684A0084 // Clear
+ HWL ME_483A88650069 // AddListToHistory
  )
  ; // Operations
  : Overridden
@@ -629,7 +629,7 @@ FORWARD ME_48086B0F0399
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_48086B0F0399 // TatLoginData
+ : Parent HWL ME_48086B0F0399 // TatLoginData
  ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
@@ -643,7 +643,7 @@ ref; // ME_48086B1A0138 Login
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_48086B0F0399 // TatLoginData
+ : Parent HWL ME_48086B0F0399 // TatLoginData
  ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
@@ -658,11 +658,11 @@ ref; // ME_48086B22022C Password
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_480869EE029E // TatExecutionContext
+ : Parent HWL ME_480869EE029E // TatExecutionContext
  ;
  : Attributes
-   Seq: ( ME_48086B1A0138 // Login
- ME_48086B22022C // Password
+   Seq: ( HWL ME_48086B1A0138 // Login
+ HWL ME_48086B22022C // Password
  )
  ; // Attributes
 
@@ -676,7 +676,7 @@ ref; // ME_48086B0F0399 TatLoginData
  CONST Visibility PublicAccess
  CONST Abstraction at_final
  CONST LinkType lt_agr
- : Parent ME_480869EE029E // TatExecutionContext
+ : Parent HWL ME_480869EE029E // TatExecutionContext
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -695,7 +695,7 @@ ref; // ME_48086AA10191 MinDelay
  CONST Visibility PublicAccess
  CONST Abstraction at_final
  CONST LinkType lt_agr
- : Parent ME_480869EE029E // TatExecutionContext
+ : Parent HWL ME_480869EE029E // TatExecutionContext
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -715,9 +715,9 @@ ref; // ME_48086AB200BF MaxDelay
  CONST Visibility PublicAccess
  CONST Abstraction at_final
  CONST LinkType lt_agr
- : Parent ME_480869EE029E // TatExecutionContext
+ : Parent HWL ME_480869EE029E // TatExecutionContext
  ;
- : Target ME_4808672500A0 // TatUserWorkContext
+ : Target HWL ME_4808672500A0 // TatUserWorkContext
  ;
  CONST "needs field" true
  CONST "pm" true
@@ -732,9 +732,9 @@ ref; // ME_48086ABF005F UserWorkContext
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_480869EE029E // TatExecutionContext
+ : Parent HWL ME_480869EE029E // TatExecutionContext
  ;
- : Target ME_48086B0F0399 // TatLoginData
+ : Target HWL ME_48086B0F0399 // TatLoginData
  ;
 
 ref; // ME_48086B410047 F_LoginData
@@ -747,7 +747,7 @@ ref; // ME_48086B410047 F_LoginData
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_480869EE029E // TatExecutionContext
+ : Parent HWL ME_480869EE029E // TatExecutionContext
  ;
  : Target WL 'ME_483C0B6B0167' '48078CC202EC.pas.ms.script' // TatGblAdapterWorker
  ;
@@ -763,7 +763,7 @@ ref; // ME_483C18680261 GblAdapterWorker
  : Stereotype st_ctor::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_480869EE029E // TatExecutionContext
+ : Parent HWL ME_480869EE029E // TatExecutionContext
  ;
 
 ref; // ME_48086AF9022F Create
@@ -771,7 +771,7 @@ ref; // ME_48086AF9022F Create
 : ME_48086C100100
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_480869EE029E // TatExecutionContext
+ : Parent HWL ME_480869EE029E // TatExecutionContext
  ;
  : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
  ;
@@ -792,22 +792,22 @@ ref; // ME_48077504027E_ME_480869EE029E Destroy
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_480865840083 // OperationsFramework
+ : Parent HWL ME_480865840083 // OperationsFramework
  ;
  : Inherits
    Seq: ( WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_48086AA10191 // MinDelay
- ME_48086AB200BF // MaxDelay
- ME_48086ABF005F // UserWorkContext
- ME_48086B410047 // F_LoginData
- ME_483C18680261 // GblAdapterWorker
+   Seq: ( HWL ME_48086AA10191 // MinDelay
+ HWL ME_48086AB200BF // MaxDelay
+ HWL ME_48086ABF005F // UserWorkContext
+ HWL ME_48086B410047 // F_LoginData
+ HWL ME_483C18680261 // GblAdapterWorker
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_48086AF9022F // Create
+   Seq: ( HWL ME_48086AF9022F // Create
  )
  ; // Operations
  : Overridden
@@ -815,7 +815,7 @@ ref; // ME_48077504027E_ME_480869EE029E Destroy
  )
  ; // Overridden
  : Children
-   Seq: ( ME_48086B0F0399 // TatLoginData
+   Seq: ( HWL ME_48086B0F0399 // TatLoginData
  )
  ; // Children
  : Dependencies
@@ -838,7 +838,7 @@ FORWARD ME_5396F07A0079
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_5396F07A0079 // EnvVarNames
+ : Parent HWL ME_5396F07A0079 // EnvVarNames
  ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
@@ -859,7 +859,7 @@ ref; // ME_5396F086021F ENV_CURRENT_FILE_PATH
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_5396F07A0079 // EnvVarNames
+ : Parent HWL ME_5396F07A0079 // EnvVarNames
  ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
@@ -880,7 +880,7 @@ ref; // ME_5396F0F40319 ENV_CURRENT_FILE_DIR
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_5396F07A0079 // EnvVarNames
+ : Parent HWL ME_5396F07A0079 // EnvVarNames
  ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
@@ -901,7 +901,7 @@ ref; // ME_5396F11102DA ENV_CURRENT_FILE_NAME
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_5396F07A0079 // EnvVarNames
+ : Parent HWL ME_5396F07A0079 // EnvVarNames
  ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
@@ -923,13 +923,13 @@ ref; // ME_5397328603BB ENV_F1_USER_NAME
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_5396EA3E0230 // TatOperationEnv
+ : Parent HWL ME_5396EA3E0230 // TatOperationEnv
  ;
  : Attributes
-   Seq: ( ME_5396F086021F // ENV_CURRENT_FILE_PATH
- ME_5396F0F40319 // ENV_CURRENT_FILE_DIR
- ME_5396F11102DA // ENV_CURRENT_FILE_NAME
- ME_5397328603BB // ENV_F1_USER_NAME
+   Seq: ( HWL ME_5396F086021F // ENV_CURRENT_FILE_PATH
+ HWL ME_5396F0F40319 // ENV_CURRENT_FILE_DIR
+ HWL ME_5396F11102DA // ENV_CURRENT_FILE_NAME
+ HWL ME_5397328603BB // ENV_F1_USER_NAME
  )
  ; // Attributes
  CONST "spell names" false
@@ -945,7 +945,7 @@ FORWARD ME_5396EBFF012A
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_5396EBFF012A // EnvVar
+ : Parent HWL ME_5396EBFF012A // EnvVar
  ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
@@ -960,12 +960,12 @@ ref; // ME_5396EC0903E5 aName
  CONST Visibility PublicAccess
  CONST Abstraction at_final
  CONST LinkType lt_agr
- : Parent ME_5396EA3E0230 // TatOperationEnv
+ : Parent HWL ME_5396EA3E0230 // TatOperationEnv
  ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
  : Attributes
-   Seq: ( ME_5396EC0903E5 // aName
+   Seq: ( HWL ME_5396EC0903E5 // aName
  )
  ; // Attributes
  CONST "pm" true
@@ -979,7 +979,7 @@ ref; // ME_5396EBFF012A EnvVar
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_5396EA3E0230 // TatOperationEnv
+ : Parent HWL ME_5396EA3E0230 // TatOperationEnv
  ;
  : Target WL 'ME_4807756101FE' '4AB0997B00A2.pas.ms.script' // TStringList
  ;
@@ -1001,7 +1001,7 @@ ref; // ME_5396EC5C0316 aString
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_5396EA3E0230 // TatOperationEnv
+ : Parent HWL ME_5396EA3E0230 // TatOperationEnv
  ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
@@ -1019,7 +1019,7 @@ ref; // ME_5396EC3D006D ExpandString
  : Stereotype st_ctor::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_5396EA3E0230 // TatOperationEnv
+ : Parent HWL ME_5396EA3E0230 // TatOperationEnv
  ;
 
 ref; // ME_5396F0310309 Create
@@ -1027,7 +1027,7 @@ ref; // ME_5396F0310309 Create
 : ME_539701E6020A
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_5396EA3E0230 // TatOperationEnv
+ : Parent HWL ME_5396EA3E0230 // TatOperationEnv
  ;
  : Target WL 'ME_483C378301CB' '4AB0997B00A2.pas.ms.script' // StrUtils
  ;
@@ -1037,7 +1037,7 @@ ref; // ME_539701E6020A
 : ME_539704100316
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_5396EA3E0230 // TatOperationEnv
+ : Parent HWL ME_5396EA3E0230 // TatOperationEnv
  ;
  : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
  ;
@@ -1058,20 +1058,20 @@ ref; // ME_48077504027E_ME_5396EA3E0230 Destroy
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_480865840083 // OperationsFramework
+ : Parent HWL ME_480865840083 // OperationsFramework
  ;
  : Inherits
    Seq: ( WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_5396EBFF012A // EnvVar
- ME_5396EFE6029C // f_VarList
+   Seq: ( HWL ME_5396EBFF012A // EnvVar
+ HWL ME_5396EFE6029C // f_VarList
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_5396EC3D006D // ExpandString
- ME_5396F0310309 // Create
+   Seq: ( HWL ME_5396EC3D006D // ExpandString
+ HWL ME_5396F0310309 // Create
  )
  ; // Operations
  : Overridden
@@ -1079,7 +1079,7 @@ ref; // ME_48077504027E_ME_5396EA3E0230 Destroy
  )
  ; // Overridden
  : Constants
-   Seq: ( ME_5396F07A0079 // EnvVarNames
+   Seq: ( HWL ME_5396F07A0079 // EnvVarNames
  )
  ; // Constants
  : Dependencies
@@ -1110,7 +1110,7 @@ FORWARD ME_4808A3EC021F
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4808A3EC021F // TatScenario
+ : Parent HWL ME_4808A3EC021F // TatScenario
  ;
  : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
  ;
@@ -1120,9 +1120,9 @@ ref; // ME_4808A40E017B f_IsAlwaysRun
 : ME_4808A57702CA
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4808A3EC021F // TatScenario
+ : Parent HWL ME_4808A3EC021F // TatScenario
  ;
- : Target ME_48089A46022D // TatOperationParameter
+ : Target HWL ME_48089A46022D // TatOperationParameter
  ;
 
 ref; // ME_4808A57702CA 
@@ -1130,7 +1130,7 @@ ref; // ME_4808A57702CA
 : ME_4A4B94FA0286
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4808A3EC021F // TatScenario
+ : Parent HWL ME_4808A3EC021F // TatScenario
  ;
  : Target WL 'ME_4A4B91810237' '48172BE2027A.pas.ms.script' // atCRC32
  ;
@@ -1140,7 +1140,7 @@ ref; // ME_4A4B94FA0286
 : ME_4A4B960800D6
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4808A3EC021F // TatScenario
+ : Parent HWL ME_4808A3EC021F // TatScenario
  ;
  : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
  ;
@@ -1150,7 +1150,7 @@ ref; // ME_4A4B960800D6
 : ME_4B740F2D01E3
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4808A3EC021F // TatScenario
+ : Parent HWL ME_4808A3EC021F // TatScenario
  ;
  : Target WL 'ME_48A41FF10094' '4AB0C3F60375.pas.ms.script' // Windows
  ;
@@ -1160,7 +1160,7 @@ ref; // ME_4B740F2D01E3
 : ME_4B74107100F0
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4808A3EC021F // TatScenario
+ : Parent HWL ME_4808A3EC021F // TatScenario
  ;
  : Target WL 'ME_4808B6A20344' '48076E7F0260.pas.ms.script' // atLogger
  ;
@@ -1168,7 +1168,7 @@ ref; // ME_4B740F2D01E3
 ref; // ME_4B74107100F0 
 
 : ME_48089F460352_ME_4808A3EC021F
- : Original ME_48089F460352 // ExecuteSelf
+ : Original HWL ME_48089F460352 // ExecuteSelf
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_48089F460352_ME_4808A3EC021F ExecuteSelf
@@ -1180,7 +1180,7 @@ ref; // ME_48089F460352_ME_4808A3EC021F ExecuteSelf
 ref; // ME_47A042E100E2_ME_4808A3EC021F InitFields
 
 : ME_48089F3701B4_ME_4808A3EC021F
- : Original ME_48089F3701B4 // InitParamList
+ : Original HWL ME_48089F3701B4 // InitParamList
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_48089F3701B4_ME_4808A3EC021F InitParamList
@@ -1193,14 +1193,14 @@ ref; // ME_48089F3701B4_ME_4808A3EC021F InitParamList
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_480865840083 // OperationsFramework
+ : Parent HWL ME_480865840083 // OperationsFramework
  ;
  : Inherits
-   Seq: ( ME_48076E9D013E // TatOperationBase
+   Seq: ( HWL ME_48076E9D013E // TatOperationBase
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_4808A40E017B // f_IsAlwaysRun
+   Seq: ( HWL ME_4808A40E017B // f_IsAlwaysRun
  )
  ; // Attributes
  : Implemented
@@ -1239,7 +1239,7 @@ FORWARD ME_4808AA270314
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4808AA270314 // TatOperationFactory
+ : Parent HWL ME_4808AA270314 // TatOperationFactory
  ;
  : Inherits
    Seq: ( WL 'ME_4787A405013D' '4AB0C3C60310.pas.ms.script' // Exception
@@ -1255,7 +1255,7 @@ ref; // ME_4808AA7401A8 EOperationNotRegistered
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4808AA270314 // TatOperationFactory
+ : Parent HWL ME_4808AA270314 // TatOperationFactory
  ;
  : Target WL 'ME_4807752C025A' '48076E7F0260.pas.ms.script' // TatStringListWithOwn
  ;
@@ -1269,7 +1269,7 @@ ref; // ME_4808AA610137 f_Operations
  : Stereotype st_ctor::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4808AA270314 // TatOperationFactory
+ : Parent HWL ME_4808AA270314 // TatOperationFactory
  ;
 
 ref; // ME_4808AA940289 Create
@@ -1280,7 +1280,7 @@ FORWARD ME_4808A2FF00D6
  CONST Name 'opClass'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_4808A2FF00D6 // CTatOperationBase
+ : Target HWL ME_4808A2FF00D6 // CTatOperationBase
  ;
 
 ref; // ME_4808AAAB0201 opClass
@@ -1291,7 +1291,7 @@ ref; // ME_4808AAAB0201 opClass
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4808AA270314 // TatOperationFactory
+ : Parent HWL ME_4808AA270314 // TatOperationFactory
  ;
  : Parameters
    Seq: ( ME_4808AAAB0201 // opClass
@@ -1315,9 +1315,9 @@ ref; // ME_4808AAC401C1 name
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4808AA270314 // TatOperationFactory
+ : Parent HWL ME_4808AA270314 // TatOperationFactory
  ;
- : Target ME_48076E9D013E // TatOperationBase
+ : Target HWL ME_48076E9D013E // TatOperationBase
  ;
  : Parameters
    Seq: ( ME_4808AAC401C1 // name
@@ -1329,7 +1329,7 @@ ref; // ME_4808AABD0051 MakeOperation
 : ME_4808AB4B01B4
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4808AA270314 // TatOperationFactory
+ : Parent HWL ME_4808AA270314 // TatOperationFactory
  ;
  : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
  ;
@@ -1341,9 +1341,9 @@ FORWARD ME_4808A8F6016B
 : ME_4808AB9503D9
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4808AA270314 // TatOperationFactory
+ : Parent HWL ME_4808AA270314 // TatOperationFactory
  ;
- : Target ME_4808A8F6016B // TatClassContainer
+ : Target HWL ME_4808A8F6016B // TatClassContainer
  ;
 
 ref; // ME_4808AB9503D9 
@@ -1362,20 +1362,20 @@ ref; // ME_48077504027E_ME_4808AA270314 Destroy
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4808A9F301D4 // atOperationFactory
+ : Parent HWL ME_4808A9F301D4 // atOperationFactory
  ;
  : Inherits
    Seq: ( WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_4808AA610137 // f_Operations
+   Seq: ( HWL ME_4808AA610137 // f_Operations
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_4808AA940289 // Create
- ME_4808AAA60096 // RegisterOperation
- ME_4808AABD0051 // MakeOperation
+   Seq: ( HWL ME_4808AA940289 // Create
+ HWL ME_4808AAA60096 // RegisterOperation
+ HWL ME_4808AABD0051 // MakeOperation
  )
  ; // Operations
  : Overridden
@@ -1383,7 +1383,7 @@ ref; // ME_48077504027E_ME_4808AA270314 Destroy
  )
  ; // Overridden
  : Children
-   Seq: ( ME_4808AA7401A8 // EOperationNotRegistered
+   Seq: ( HWL ME_4808AA7401A8 // EOperationNotRegistered
  )
  ; // Children
  : Dependencies
@@ -1403,9 +1403,9 @@ ref; // ME_4808AA270314 TatOperationFactory
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4808A8F6016B // TatClassContainer
+ : Parent HWL ME_4808A8F6016B // TatClassContainer
  ;
- : Target ME_4808A2FF00D6 // CTatOperationBase
+ : Target HWL ME_4808A2FF00D6 // CTatOperationBase
  ;
 
 ref; // ME_4808A9150291 F_OpClass
@@ -1414,7 +1414,7 @@ ref; // ME_4808A9150291 F_OpClass
  CONST Name 'opClass'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_4808A2FF00D6 // CTatOperationBase
+ : Target HWL ME_4808A2FF00D6 // CTatOperationBase
  ;
 
 ref; // ME_4808A92D035F opClass
@@ -1426,7 +1426,7 @@ ref; // ME_4808A92D035F opClass
  : Stereotype st_ctor::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4808A8F6016B // TatClassContainer
+ : Parent HWL ME_4808A8F6016B // TatClassContainer
  ;
  : Parameters
    Seq: ( ME_4808A92D035F // opClass
@@ -1443,18 +1443,18 @@ ref; // ME_4808A92C0073 Create
  CONST Kind kind_NormalClass
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
- : Parent ME_4808A9F301D4 // atOperationFactory
+ : Parent HWL ME_4808A9F301D4 // atOperationFactory
  ;
  : Inherits
    Seq: ( WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_4808A9150291 // F_OpClass
+   Seq: ( HWL ME_4808A9150291 // F_OpClass
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_4808A92C0073 // Create
+   Seq: ( HWL ME_4808A92C0073 // Create
  )
  ; // Operations
  CONST extprop:rc:SelfName 'atClassContainer'
@@ -1469,12 +1469,12 @@ ref; // ME_4808A8F6016B TatClassContainer
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4808A9F301D4 // atOperationFactory
+ : Parent HWL ME_4808A9F301D4 // atOperationFactory
  ;
- : Target ME_4808AA270314 // TatOperationFactory
+ : Target HWL ME_4808AA270314 // TatOperationFactory
  ;
  CONST Value 'nil'
- : ValueType ME_4808AA270314 // TatOperationFactory
+ : ValueType HWL ME_4808AA270314 // TatOperationFactory
  ;
  CONST extprop:pas:Value 'nil'
 
@@ -1487,7 +1487,7 @@ ref; // ME_4808AAD8005B OperationFactory
  : Stereotype st_ini::Operation ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4808A9F301D4 // atOperationFactory
+ : Parent HWL ME_4808A9F301D4 // atOperationFactory
  ;
 
 ref; // ME_4808AA000171 Ini
@@ -1499,7 +1499,7 @@ ref; // ME_4808AA000171 Ini
  : Stereotype st_fini::Operation ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4808A9F301D4 // atOperationFactory
+ : Parent HWL ME_4808A9F301D4 // atOperationFactory
  ;
 
 ref; // ME_4808AA0E02AD Fini
@@ -1512,20 +1512,20 @@ ref; // ME_4808AA0E02AD Fini
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_480865840083 // OperationsFramework
+ : Parent HWL ME_480865840083 // OperationsFramework
  ;
  : Attributes
-   Seq: ( ME_4808AAD8005B // OperationFactory
+   Seq: ( HWL ME_4808AAD8005B // OperationFactory
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_4808AA000171 // Ini
- ME_4808AA0E02AD // Fini
+   Seq: ( HWL ME_4808AA000171 // Ini
+ HWL ME_4808AA0E02AD // Fini
  )
  ; // Operations
  : Children
-   Seq: ( ME_4808AA270314 // TatOperationFactory
- ME_4808A8F6016B // TatClassContainer
+   Seq: ( HWL ME_4808AA270314 // TatOperationFactory
+ HWL ME_4808A8F6016B // TatClassContainer
  )
  ; // Children
  CONST intf.pas:Path 'quality\test\garant6x\AdapterTest\OperationsFramework\atOperationFactory.pas'
@@ -1544,7 +1544,7 @@ FORWARD ME_48076ECB00C3
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_48076E9D013E // TatOperationBase
+ : Parent HWL ME_48076E9D013E // TatOperationBase
  ;
  : Inherits
    Seq: ( WL 'ME_4787A405013D' '4AB0C3C60310.pas.ms.script' // Exception
@@ -1561,9 +1561,9 @@ ref; // ME_4808ACF6022D EInvalidOpParams
  CONST Visibility ProtectedAccess
  CONST Abstraction at_final
  CONST LinkType lt_agr
- : Parent ME_48076E9D013E // TatOperationBase
+ : Parent HWL ME_48076E9D013E // TatOperationBase
  ;
- : Target ME_480869EE029E // TatExecutionContext
+ : Target HWL ME_480869EE029E // TatExecutionContext
  ;
  CONST "needs field" true
  CONST "pm" true
@@ -1579,9 +1579,9 @@ ref; // ME_484CF1D900E3 ExecutionContext
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_48076E9D013E // TatOperationBase
+ : Parent HWL ME_48076E9D013E // TatOperationBase
  ;
- : Target ME_48089BA60088 // TatOperationParametersList
+ : Target HWL ME_48089BA60088 // TatOperationParametersList
  ;
 
 ref; // ME_48089D7202B7 f_ParamList
@@ -1593,9 +1593,9 @@ ref; // ME_48089D7202B7 f_ParamList
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_lnk
- : Parent ME_48076E9D013E // TatOperationBase
+ : Parent HWL ME_48076E9D013E // TatOperationBase
  ;
- : Target ME_48076ECB00C3 // TatOperationsList
+ : Target HWL ME_48076ECB00C3 // TatOperationsList
  ;
 
 ref; // ME_48089E9B0348 f_ChildOperations
@@ -1609,7 +1609,7 @@ FORWARD ME_4808A004003A
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4808A004003A // Parameters
+ : Parent HWL ME_4808A004003A // Parameters
  ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
@@ -1624,12 +1624,12 @@ ref; // ME_4808A026038F aName
  CONST Visibility PublicAccess
  CONST Abstraction at_final
  CONST LinkType lt_agr
- : Parent ME_48076E9D013E // TatOperationBase
+ : Parent HWL ME_48076E9D013E // TatOperationBase
  ;
- : Target ME_48089A46022D // TatOperationParameter
+ : Target HWL ME_48089A46022D // TatOperationParameter
  ;
  : Attributes
-   Seq: ( ME_4808A026038F // aName
+   Seq: ( HWL ME_4808A026038F // aName
  )
  ; // Attributes
  CONST "needs field" false
@@ -1645,9 +1645,9 @@ ref; // ME_4808A004003A Parameters
  CONST Visibility ProtectedAccess
  CONST Abstraction at_final
  CONST LinkType lt_agr
- : Parent ME_48076E9D013E // TatOperationBase
+ : Parent HWL ME_48076E9D013E // TatOperationBase
  ;
- : Target ME_5396EA3E0230 // TatOperationEnv
+ : Target HWL ME_5396EA3E0230 // TatOperationEnv
  ;
  CONST "needs field" false
  CONST "pm" true
@@ -1660,7 +1660,7 @@ ref; // ME_5396F1F60329 Env
  CONST Class class_Operation
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_48076E9D013E // TatOperationBase
+ : Parent HWL ME_48076E9D013E // TatOperationBase
  ;
 
 ref; // ME_48089F3701B4 InitParamList
@@ -1671,7 +1671,7 @@ ref; // ME_48089F3701B4 InitParamList
  CONST Class class_Operation
  CONST Visibility ProtectedAccess
  CONST Abstraction at_abstract
- : Parent ME_48076E9D013E // TatOperationBase
+ : Parent HWL ME_48076E9D013E // TatOperationBase
  ;
 
 ref; // ME_48089F460352 ExecuteSelf
@@ -1682,7 +1682,7 @@ ref; // ME_48089F460352 ExecuteSelf
  CONST Class class_Operation
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_48076E9D013E // TatOperationBase
+ : Parent HWL ME_48076E9D013E // TatOperationBase
  ;
 
 ref; // ME_48089F660238 ExecuteChilds
@@ -1694,7 +1694,7 @@ ref; // ME_48089F660238 ExecuteChilds
  : Stereotype st_static::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_48076E9D013E // TatOperationBase
+ : Parent HWL ME_48076E9D013E // TatOperationBase
  ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
@@ -1705,7 +1705,7 @@ ref; // ME_48089F8B00C5 GetName
  CONST Name 'eCtxt'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_480869EE029E // TatExecutionContext
+ : Target HWL ME_480869EE029E // TatExecutionContext
  ;
 
 ref; // ME_484CF2430383 eCtxt
@@ -1716,7 +1716,7 @@ ref; // ME_484CF2430383 eCtxt
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_48076E9D013E // TatOperationBase
+ : Parent HWL ME_48076E9D013E // TatOperationBase
  ;
  : Parameters
    Seq: ( ME_484CF2430383 // eCtxt
@@ -1729,7 +1729,7 @@ ref; // ME_48089FA50390 Execute
  CONST Name 'childOperation'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_48076E9D013E // TatOperationBase
+ : Target HWL ME_48076E9D013E // TatOperationBase
  ;
 
 ref; // ME_48089FC402DE childOperation
@@ -1740,7 +1740,7 @@ ref; // ME_48089FC402DE childOperation
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_48076E9D013E // TatOperationBase
+ : Parent HWL ME_48076E9D013E // TatOperationBase
  ;
  : Parameters
    Seq: ( ME_48089FC402DE // childOperation
@@ -1757,7 +1757,7 @@ ref; // ME_48089FBE0004 AddChild
  %SUMMARY 'Вызывается генератором сценария после заполнения значений параметров.'#13#10'Если операции надо что-то инициализировать, и для этого нужны значения параметров из сценария.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_48076E9D013E // TatOperationBase
+ : Parent HWL ME_48076E9D013E // TatOperationBase
  ;
 
 ref; // ME_492188F70140 AfterFillingParamList
@@ -1765,7 +1765,7 @@ ref; // ME_492188F70140 AfterFillingParamList
 : ME_4808A25A01E1
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_48076E9D013E // TatOperationBase
+ : Parent HWL ME_48076E9D013E // TatOperationBase
  ;
  : Target WL 'ME_4808A20402DC' '4AB0997B00A2.pas.ms.script' // Math
  ;
@@ -1775,7 +1775,7 @@ ref; // ME_4808A25A01E1
 : ME_4808A2A50351
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_48076E9D013E // TatOperationBase
+ : Parent HWL ME_48076E9D013E // TatOperationBase
  ;
  : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
  ;
@@ -1785,7 +1785,7 @@ ref; // ME_4808A2A50351
 : ME_4811FDCE0122
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_48076E9D013E // TatOperationBase
+ : Parent HWL ME_48076E9D013E // TatOperationBase
  ;
  : Target WL 'ME_4808B6A20344' '48076E7F0260.pas.ms.script' // atLogger
  ;
@@ -1812,28 +1812,28 @@ ref; // ME_47A042E100E2_ME_48076E9D013E InitFields
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_48089D120398 // atOperationBase
+ : Parent HWL ME_48089D120398 // atOperationBase
  ;
  : Inherits
    Seq: ( WL 'ME_47879856035F' '47913B47006E.pas.ms.script' // Tl3_Base
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_484CF1D900E3 // ExecutionContext
- ME_48089D7202B7 // f_ParamList
- ME_48089E9B0348 // f_ChildOperations
- ME_4808A004003A // Parameters
- ME_5396F1F60329 // Env
+   Seq: ( HWL ME_484CF1D900E3 // ExecutionContext
+ HWL ME_48089D7202B7 // f_ParamList
+ HWL ME_48089E9B0348 // f_ChildOperations
+ HWL ME_4808A004003A // Parameters
+ HWL ME_5396F1F60329 // Env
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_48089F3701B4 // InitParamList
- ME_48089F460352 // ExecuteSelf
- ME_48089F660238 // ExecuteChilds
- ME_48089F8B00C5 // GetName
- ME_48089FA50390 // Execute
- ME_48089FBE0004 // AddChild
- ME_492188F70140 // AfterFillingParamList
+   Seq: ( HWL ME_48089F3701B4 // InitParamList
+ HWL ME_48089F460352 // ExecuteSelf
+ HWL ME_48089F660238 // ExecuteChilds
+ HWL ME_48089F8B00C5 // GetName
+ HWL ME_48089FA50390 // Execute
+ HWL ME_48089FBE0004 // AddChild
+ HWL ME_492188F70140 // AfterFillingParamList
  )
  ; // Operations
  : Overridden
@@ -1842,7 +1842,7 @@ ref; // ME_47A042E100E2_ME_48076E9D013E InitFields
  )
  ; // Overridden
  : Children
-   Seq: ( ME_4808ACF6022D // EInvalidOpParams
+   Seq: ( HWL ME_4808ACF6022D // EInvalidOpParams
  )
  ; // Children
  : Dependencies
@@ -1852,7 +1852,7 @@ ref; // ME_47A042E100E2_ME_48076E9D013E InitFields
  )
  ; // Dependencies
  : Forwarded
-   Seq: ( ME_48076ECB00C3 // TatOperationsList
+   Seq: ( HWL ME_48076ECB00C3 // TatOperationsList
  )
  ; // Forwarded
  CONST "finished" false
@@ -1869,9 +1869,9 @@ ref; // ME_48076E9D013E TatOperationBase
  CONST Visibility PrivateAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_agr
- : Parent ME_48076ECB00C3 // TatOperationsList
+ : Parent HWL ME_48076ECB00C3 // TatOperationsList
  ;
- : Target ME_48076E9D013E // TatOperationBase
+ : Target HWL ME_48076E9D013E // TatOperationBase
  ;
 
 ref; // ME_48076EE503C2 ObjectListElement
@@ -1884,7 +1884,7 @@ ref; // ME_48076EE503C2 ObjectListElement
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_48089D120398 // atOperationBase
+ : Parent HWL ME_48089D120398 // atOperationBase
  ;
  : Inherits
    Seq: ( WL 'ME_4807688A0144' '4AB0997B00A2.pas.ms.script' // TObjectList
@@ -1892,7 +1892,7 @@ ref; // ME_48076EE503C2 ObjectListElement
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_48076EE503C2 // ObjectListElement
+   Seq: ( HWL ME_48076EE503C2 // ObjectListElement
  )
  ; // Attributes
  CONST extprop:rc:SelfName 'atOperationsList'
@@ -1908,10 +1908,10 @@ ref; // ME_48076ECB00C3 TatOperationsList
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_48089D120398 // atOperationBase
+ : Parent HWL ME_48089D120398 // atOperationBase
  ;
  : Inherits
-   Seq: ( ME_48076E9D013E // TatOperationBase
+   Seq: ( HWL ME_48076E9D013E // TatOperationBase
  )
  ; // Inherits
  CONST "isClassRef" true
@@ -1927,12 +1927,12 @@ ref; // ME_4808A2FF00D6 CTatOperationBase
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_480865840083 // OperationsFramework
+ : Parent HWL ME_480865840083 // OperationsFramework
  ;
  : Children
-   Seq: ( ME_48076E9D013E // TatOperationBase
- ME_48076ECB00C3 // TatOperationsList
- ME_4808A2FF00D6 // CTatOperationBase
+   Seq: ( HWL ME_48076E9D013E // TatOperationBase
+ HWL ME_48076ECB00C3 // TatOperationsList
+ HWL ME_4808A2FF00D6 // CTatOperationBase
  )
  ; // Children
  CONST intf.pas:Path 'quality\test\garant6x\AdapterTest\OperationsFramework\atOperationBase.pas'
@@ -1949,7 +1949,7 @@ FORWARD ME_483EC52400C9
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_483EC52400C9 // TatXMLScenarioGenerator
+ : Parent HWL ME_483EC52400C9 // TatXMLScenarioGenerator
  ;
  : Inherits
    Seq: ( WL 'ME_4787A405013D' '4AB0C3C60310.pas.ms.script' // Exception
@@ -1965,9 +1965,9 @@ ref; // ME_483EDDC102A6 EInvalidXMLScenario
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_483EC52400C9 // TatXMLScenarioGenerator
+ : Parent HWL ME_483EC52400C9 // TatXMLScenarioGenerator
  ;
- : Target ME_4808A3EC021F // TatScenario
+ : Target HWL ME_4808A3EC021F // TatScenario
  ;
 
 ref; // ME_483EC55302CC f_Scenario
@@ -1976,7 +1976,7 @@ ref; // ME_483EC55302CC f_Scenario
  CONST Name 'aScenario'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_4808A3EC021F // TatScenario
+ : Target HWL ME_4808A3EC021F // TatScenario
  ;
 
 ref; // ME_483ECFE00068 aScenario
@@ -1997,7 +1997,7 @@ ref; // ME_483ECFE000D6 aXmlFileName
  : Stereotype st_chg::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_483EC52400C9 // TatXMLScenarioGenerator
+ : Parent HWL ME_483EC52400C9 // TatXMLScenarioGenerator
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -2013,7 +2013,7 @@ ref; // ME_483ECFCA023D FillScenario
  CONST Name 'anOperation'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_48076E9D013E // TatOperationBase
+ : Target HWL ME_48076E9D013E // TatOperationBase
  ;
 
 ref; // ME_483ED06F01F3 anOperation
@@ -2034,7 +2034,7 @@ ref; // ME_483ED06F0280 anAttributes
  : Stereotype st_chg::Operation ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
- : Parent ME_483EC52400C9 // TatXMLScenarioGenerator
+ : Parent HWL ME_483EC52400C9 // TatXMLScenarioGenerator
  ;
  : Parameters
    Seq: ( ME_483ED06F01F3 // anOperation
@@ -2060,7 +2060,7 @@ ref; // ME_483ED097036A aXmlDoc
  : Stereotype st_chg::Operation ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
- : Parent ME_483EC52400C9 // TatXMLScenarioGenerator
+ : Parent HWL ME_483EC52400C9 // TatXMLScenarioGenerator
  ;
  : Parameters
    Seq: ( ME_483ED097036A // aXmlDoc
@@ -2082,7 +2082,7 @@ ref; // ME_483ED0B20222 aXmlNode
  CONST Name 'aParentOp'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_48076E9D013E // TatOperationBase
+ : Target HWL ME_48076E9D013E // TatOperationBase
  ;
 
 ref; // ME_483ED0B202AF aParentOp
@@ -2094,7 +2094,7 @@ ref; // ME_483ED0B202AF aParentOp
  : Stereotype st_chg::Operation ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
- : Parent ME_483EC52400C9 // TatXMLScenarioGenerator
+ : Parent HWL ME_483EC52400C9 // TatXMLScenarioGenerator
  ;
  : Parameters
    Seq: ( ME_483ED0B20222 // aXmlNode
@@ -2107,7 +2107,7 @@ ref; // ME_483ED09F0138 ParseOperationNode
 : ME_483ED5320262
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_483EC52400C9 // TatXMLScenarioGenerator
+ : Parent HWL ME_483EC52400C9 // TatXMLScenarioGenerator
  ;
  : Target WL 'ME_483E978A0380' '483E97460331.pas.ms.script' // IXMLDocument
  ;
@@ -2117,7 +2117,7 @@ ref; // ME_483ED5320262
 : ME_483ED53A030E
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_483EC52400C9 // TatXMLScenarioGenerator
+ : Parent HWL ME_483EC52400C9 // TatXMLScenarioGenerator
  ;
  : Target WL 'ME_483E97620058' '483E97460331.pas.ms.script' // IXMLNode
  ;
@@ -2127,7 +2127,7 @@ ref; // ME_483ED53A030E
 : ME_483ED53E0262
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_483EC52400C9 // TatXMLScenarioGenerator
+ : Parent HWL ME_483EC52400C9 // TatXMLScenarioGenerator
  ;
  : Target WL 'ME_483E976B0393' '483E97460331.pas.ms.script' // IXMLNodeList
  ;
@@ -2137,7 +2137,7 @@ ref; // ME_483ED53E0262
 : ME_483ED5910158
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_483EC52400C9 // TatXMLScenarioGenerator
+ : Parent HWL ME_483EC52400C9 // TatXMLScenarioGenerator
  ;
  : Target WL 'ME_4808B6A20344' '48076E7F0260.pas.ms.script' // atLogger
  ;
@@ -2147,9 +2147,9 @@ ref; // ME_483ED5910158
 : ME_483ED5DD0010
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_483EC52400C9 // TatXMLScenarioGenerator
+ : Parent HWL ME_483EC52400C9 // TatXMLScenarioGenerator
  ;
- : Target ME_4808A9F301D4 // atOperationFactory
+ : Target HWL ME_4808A9F301D4 // atOperationFactory
  ;
 
 ref; // ME_483ED5DD0010 
@@ -2157,7 +2157,7 @@ ref; // ME_483ED5DD0010
 : ME_483EDBB30073
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_483EC52400C9 // TatXMLScenarioGenerator
+ : Parent HWL ME_483EC52400C9 // TatXMLScenarioGenerator
  ;
  : Target WL 'ME_483E9810029D' '483E97C402FD.pas.ms.script' // XMLDoc
  ;
@@ -2172,21 +2172,21 @@ ref; // ME_483EDBB30073
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_480865840083 // OperationsFramework
+ : Parent HWL ME_480865840083 // OperationsFramework
  ;
  : Attributes
-   Seq: ( ME_483EC55302CC // f_Scenario
+   Seq: ( HWL ME_483EC55302CC // f_Scenario
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_483ECFCA023D // FillScenario
- ME_483ECFFD02CA // FillOperationParameters
- ME_483ED078005D // ParseXMLDoc
- ME_483ED09F0138 // ParseOperationNode
+   Seq: ( HWL ME_483ECFCA023D // FillScenario
+ HWL ME_483ECFFD02CA // FillOperationParameters
+ HWL ME_483ED078005D // ParseXMLDoc
+ HWL ME_483ED09F0138 // ParseOperationNode
  )
  ; // Operations
  : Children
-   Seq: ( ME_483EDDC102A6 // EInvalidXMLScenario
+   Seq: ( HWL ME_483EDDC102A6 // EInvalidXMLScenario
  )
  ; // Children
  : Dependencies
@@ -2214,9 +2214,9 @@ FORWARD ME_4808A6A50028
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4808A6A50028 // TatScenarioPlayer
+ : Parent HWL ME_4808A6A50028 // TatScenarioPlayer
  ;
- : Target ME_4808A3EC021F // TatScenario
+ : Target HWL ME_4808A3EC021F // TatScenario
  ;
 
 ref; // ME_4808A6C902DF f_Scenario
@@ -2228,9 +2228,9 @@ ref; // ME_4808A6C902DF f_Scenario
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4808A6A50028 // TatScenarioPlayer
+ : Parent HWL ME_4808A6A50028 // TatScenarioPlayer
  ;
- : Target ME_480869EE029E // TatExecutionContext
+ : Target HWL ME_480869EE029E // TatExecutionContext
  ;
 
 ref; // ME_4808A6EE0051 F_ExecutionContext
@@ -2239,7 +2239,7 @@ ref; // ME_4808A6EE0051 F_ExecutionContext
  CONST Name 'scenario'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_4808A3EC021F // TatScenario
+ : Target HWL ME_4808A3EC021F // TatScenario
  ;
 
 ref; // ME_4808A73603D3 scenario
@@ -2251,7 +2251,7 @@ ref; // ME_4808A73603D3 scenario
  : Stereotype st_ctor::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4808A6A50028 // TatScenarioPlayer
+ : Parent HWL ME_4808A6A50028 // TatScenarioPlayer
  ;
  : Parameters
    Seq: ( ME_4808A73603D3 // scenario
@@ -2266,7 +2266,7 @@ ref; // ME_4808A73202A6 Create
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4808A6A50028 // TatScenarioPlayer
+ : Parent HWL ME_4808A6A50028 // TatScenarioPlayer
  ;
 
 ref; // ME_4808A7470307 Execute
@@ -2274,7 +2274,7 @@ ref; // ME_4808A7470307 Execute
 : ME_4808A79A02C3
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_4808A6A50028 // TatScenarioPlayer
+ : Parent HWL ME_4808A6A50028 // TatScenarioPlayer
  ;
  : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
  ;
@@ -2295,20 +2295,20 @@ ref; // ME_48077504027E_ME_4808A6A50028 Destroy
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_480865840083 // OperationsFramework
+ : Parent HWL ME_480865840083 // OperationsFramework
  ;
  : Inherits
    Seq: ( WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_4808A6C902DF // f_Scenario
- ME_4808A6EE0051 // F_ExecutionContext
+   Seq: ( HWL ME_4808A6C902DF // f_Scenario
+ HWL ME_4808A6EE0051 // F_ExecutionContext
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_4808A73202A6 // Create
- ME_4808A7470307 // Execute
+   Seq: ( HWL ME_4808A73202A6 // Create
+ HWL ME_4808A7470307 // Execute
  )
  ; // Operations
  : Overridden
@@ -2336,20 +2336,20 @@ ref; // ME_4808A6A50028 TatScenarioPlayer
  : Parent WL 'ME_48075C0E02DE' '48075C0E02DE.pas.ms.script' // AdapterTest
  ;
  : Children
-   Seq: ( ME_483A7C1F024D // HistoryStoredObject
- ME_483A7BE60395 // atObjectHistory
- ME_48089A46022D // TatOperationParameter
- ME_48089BA60088 // TatOperationParametersList
- ME_483A9A3600C3 // TatDocumentHistory
- ME_483A9A690324 // TatListHistory
- ME_4808672500A0 // TatUserWorkContext
- ME_480869EE029E // TatExecutionContext
- ME_5396EA3E0230 // TatOperationEnv
- ME_4808A3EC021F // TatScenario
- ME_4808A9F301D4 // atOperationFactory
- ME_48089D120398 // atOperationBase
- ME_483EC52400C9 // TatXMLScenarioGenerator
- ME_4808A6A50028 // TatScenarioPlayer
+   Seq: ( HWL ME_483A7C1F024D // HistoryStoredObject
+ HWL ME_483A7BE60395 // atObjectHistory
+ HWL ME_48089A46022D // TatOperationParameter
+ HWL ME_48089BA60088 // TatOperationParametersList
+ HWL ME_483A9A3600C3 // TatDocumentHistory
+ HWL ME_483A9A690324 // TatListHistory
+ HWL ME_4808672500A0 // TatUserWorkContext
+ HWL ME_480869EE029E // TatExecutionContext
+ HWL ME_5396EA3E0230 // TatOperationEnv
+ HWL ME_4808A3EC021F // TatScenario
+ HWL ME_4808A9F301D4 // atOperationFactory
+ HWL ME_48089D120398 // atOperationBase
+ HWL ME_483EC52400C9 // TatXMLScenarioGenerator
+ HWL ME_4808A6A50028 // TatScenarioPlayer
  )
  ; // Children
  : Depends

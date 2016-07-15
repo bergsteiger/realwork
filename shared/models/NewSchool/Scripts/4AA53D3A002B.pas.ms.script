@@ -1,0 +1,307 @@
+// SendConsultation 4AA53D3A002B VCMFormSetFactory Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AA53D3A002B
+
+FORWARD ME_4FFAE62E0209
+
+FORWARD ME_4FFAE7500345
+
+: ME_492F006F00BE_ME_4FFAE7500345
+ : Original WL 'ME_492F006F00BE' '491C3E540050.pas.ms.script' // dsQuery
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_492F006F00BE_ME_4FFAE7500345 dsQuery
+
+: ME_492F00890059_ME_4FFAE7500345
+ : Original WL 'ME_492F00890059' '491C3E540050.pas.ms.script' // dsSaveLoad
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_492F00890059_ME_4FFAE7500345 dsSaveLoad
+
+: ME_4FFAE7500345
+ CONST UID '4FFAE7500345'
+ CONST Name 'QueryCard'
+ CONST Class class_Class
+ : Stereotype st_VCMZone ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4FFAE62E0209 // SaveLoad
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4BD5C37D030C' '497EBA4301CA.pas.ms.script' // utqcSendConsultation
+ WL 'ME_4BD97FFF0005' '4BD97FDB031A.pas.ms.script' // QueryCard
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_492F005A02C7' '491C3E540050.pas.ms.script' // IsdsQuery
+ )
+ ; // Implements
+ : Implemented
+   Seq: ( ME_492F006F00BE_ME_4FFAE7500345 // dsQuery
+ ME_492F00890059_ME_4FFAE7500345 // dsSaveLoad
+ )
+ ; // Implemented
+ CONST "ActivateIfUpdate" 'None'
+ CONST "Caption" '''Поиск с правовой поддержкой'''
+ CONST "Need GetFormCount" false
+ CONST "Need OnFormWeight" 'undefined'
+ CONST "ZoneType" 'Parent'
+
+ref; // ME_4FFAE7500345 QueryCard
+
+: ME_492F006F00BE_ME_4FFAE62E0209
+ : Original WL 'ME_492F006F00BE' '491C3E540050.pas.ms.script' // dsQuery
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_492F006F00BE_ME_4FFAE62E0209 dsQuery
+
+: ME_492F00890059_ME_4FFAE62E0209
+ : Original WL 'ME_492F00890059' '491C3E540050.pas.ms.script' // dsSaveLoad
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_492F00890059_ME_4FFAE62E0209 dsSaveLoad
+
+: ME_4FFAE62E0209
+ CONST UID '4FFAE62E0209'
+ CONST Name 'SaveLoad'
+ CONST Class class_Class
+ : Stereotype st_VCMZone ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4AA53D3A002B // SendConsultation
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4BD5BC700046' '4F5DFE09009E.pas.ms.script' // slqtConsult
+ WL 'ME_4D77A59D03E6' '4BD97FDB031A.pas.ms.script' // SaveLoad
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_492F005A02C7' '491C3E540050.pas.ms.script' // IsdsQuery
+ )
+ ; // Implements
+ : Implemented
+   Seq: ( ME_492F006F00BE_ME_4FFAE62E0209 // dsQuery
+ ME_492F00890059_ME_4FFAE62E0209 // dsSaveLoad
+ )
+ ; // Implemented
+ : Children
+   Seq: ( HWL ME_4FFAE7500345 // QueryCard
+ )
+ ; // Children
+ CONST "ActivateIfUpdate" 'None'
+ CONST "Need GetFormCount" false
+ CONST "Need OnFormWeight" 'undefined'
+ CONST "ZoneType" 'Parent'
+
+ref; // ME_4FFAE62E0209 SaveLoad
+
+FORWARD ME_C649B12203E0
+
+: ME_4A185158B971
+ CONST UID '4A185158B971'
+ CONST Name 'fszQueryCard_Parent_utqcSendConsultationCaption'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY 'Заголовок зоны "QueryCard" фабрики сборки форм "SendConsultation"' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_C649B12203E0 // QueryCardCaptionLocalConstants
+ ;
+ CONST Value '''Поиск с правовой поддержкой'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '''Поиск с правовой поддержкой'''
+
+ref; // ME_4A185158B971 fszQueryCard_Parent_utqcSendConsultationCaption
+
+: ME_C649B12203E0
+ CONST UID 'C649B12203E0'
+ CONST Name 'QueryCardCaptionLocalConstants'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_LocalConst ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Локализуемые константы для зоны QueryCard сборки форм SendConsultation' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AA53D3A002B // SendConsultation
+ ;
+ : Attributes
+   Seq: ( HWL ME_4A185158B971 // fszQueryCard_Parent_utqcSendConsultationCaption
+ )
+ ; // Attributes
+ CONST "Need map interface" false
+ CONST "Need mapping support" false
+ CONST "spell names" false
+
+ref; // ME_C649B12203E0 QueryCardCaptionLocalConstants
+
+FORWARD ME_83A95AFD27A0
+
+: ME_99948C597286
+ CONST UID '99948C597286'
+ CONST Name 'fsSendConsultationCaption'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY 'Заголовок фабрики сборки форм "SendConsultation"' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_83A95AFD27A0 // SendConsultationCaptionLocalConstants
+ ;
+ CONST Value '''Правовая поддержка'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '''Правовая поддержка'''
+
+ref; // ME_99948C597286 fsSendConsultationCaption
+
+: ME_83A95AFD27A0
+ CONST UID '83A95AFD27A0'
+ CONST Name 'SendConsultationCaptionLocalConstants'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_LocalConst ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Локализуемые константы для фабрики сборки форм SendConsultation' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AA53D3A002B // SendConsultation
+ ;
+ : Attributes
+   Seq: ( HWL ME_99948C597286 // fsSendConsultationCaption
+ )
+ ; // Attributes
+ CONST "Need map interface" false
+ CONST "Need mapping support" false
+ CONST "spell names" false
+
+ref; // ME_83A95AFD27A0 SendConsultationCaptionLocalConstants
+
+: ME_CAD3716E6F7B
+ CONST UID 'CAD3716E6F7B'
+ CONST Name 'SaveLoad_Parent_slqtConsult_NeedMakeForm'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Обработчик OnNeedMakeForm для SaveLoad' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AA53D3A002B // SendConsultation
+ ;
+ : Inherits
+   Seq: ( WL 'ME_50096E800075' '47B9727603BE.pas.ms.script' // TvcmNeedMakeFormEvent
+ )
+ ; // Inherits
+ : Speller HWL ME_4FFAE62E0209 // SaveLoad
+ ;
+
+ref; // ME_CAD3716E6F7B SaveLoad_Parent_slqtConsult_NeedMakeForm
+
+: ME_0BD7FE614FE1
+ CONST UID '0BD7FE614FE1'
+ CONST Name 'QueryCard_Parent_utqcSendConsultation_NeedMakeForm'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Обработчик OnNeedMakeForm для QueryCard' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4AA53D3A002B // SendConsultation
+ ;
+ : Inherits
+   Seq: ( WL 'ME_50096E800075' '47B9727603BE.pas.ms.script' // TvcmNeedMakeFormEvent
+ )
+ ; // Inherits
+ : Speller HWL ME_4FFAE7500345 // QueryCard
+ ;
+
+ref; // ME_0BD7FE614FE1 QueryCard_Parent_utqcSendConsultation_NeedMakeForm
+
+: ME_4FFAE6370055
+ CONST Class class_Dependency
+ : Stereotype st_OwnerForm::Dependency ;
+ : Parent HWL ME_4AA53D3A002B // SendConsultation
+ ;
+ : Target HWL ME_4FFAE62E0209 // SaveLoad
+ ;
+
+ref; // ME_4FFAE6370055 
+
+: ME_47A042E100E2_ME_4AA53D3A002B
+ : Original WL 'ME_47A042E100E2' '47913B47006E.pas.ms.script' // InitFields
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_47A042E100E2_ME_4AA53D3A002B InitFields
+
+: ME_4FFE854A009B_ME_4AA53D3A002B
+ : Original WL 'ME_4FFE854A009B' '47B9727603BE.pas.ms.script' // GetInstance
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "is static" true
+ref; // ME_4FFE854A009B_ME_4AA53D3A002B GetInstance
+
+: ME_4AA53D3A002B
+ CONST UID '4AA53D3A002B'
+ CONST Name 'SendConsultation'
+ CONST Class class_Class
+ : Stereotype st_VCMFormSetFactory ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent WL 'ME_4ABCFB7F017B' '4ABCFB7F017B.pas.ms.script' // Consultation$FP
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47B97312006D' '47B9727603BE.pas.ms.script' // TvcmFormSetFactory
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( HWL ME_CAD3716E6F7B // SaveLoad_Parent_slqtConsult_NeedMakeForm
+ HWL ME_0BD7FE614FE1 // QueryCard_Parent_utqcSendConsultation_NeedMakeForm
+ )
+ ; // Operations
+ : Overridden
+   Seq: ( ME_47A042E100E2_ME_4AA53D3A002B // InitFields
+ ME_4FFE854A009B_ME_4AA53D3A002B // GetInstance
+ )
+ ; // Overridden
+ : Children
+   Seq: ( HWL ME_4FFAE62E0209 // SaveLoad
+ )
+ ; // Children
+ : Constants
+   Seq: ( HWL ME_C649B12203E0 // QueryCardCaptionLocalConstants
+ HWL ME_83A95AFD27A0 // SendConsultationCaptionLocalConstants
+ )
+ ; // Constants
+ : Dependencies
+   Seq: ( ME_4FFAE6370055 // SaveLoad
+ )
+ ; // Dependencies
+ CONST "Caption" 'Правовая поддержка'
+ CONST "DefaultStatusForm" '-1'
+ CONST "Need GetMainCaption" false
+ CONST "Need GetMainImageIndex" false
+ CONST "finished dfm" true
+ CONST "singleton" true
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Consultation\fsSendConsultation.pas'
+ CONST extprop:pas:TypeName 'Tfs_SendConsultation'
+ CONST extprop:rc:SelfName 'fs_SendConsultation'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'fsSendConsultation'
+ CONST extprop:pas:InitFields ' inherited;'#13#10' with AddZone(''SaveLoad'', vcm_ztParent, fm_cfSaveLoad) do'#13#10' begin'#13#10'  UserType := slqtConsult;'#13#10'  with AddZone(''QueryCard'', vcm_ztParent, fm_enQueryCard) do'#13#10'  begin'#13#10'   Caption := str_fszQueryCard_Parent_utqcSendConsultationCaption.AsCStr;'#13#10'   UserType := utqcSendConsultation;'#13#10'   OnNeedMakeForm := QueryCardParentUtqcSendConsultationNeedMakeForm;'#13#10'  end;'#13#10'  OnNeedMakeForm := SaveLoadParentSlqtConsultNeedMakeForm;'#13#10' end;'#13#10' Caption := str_fsSendConsultationCaption.AsCStr;'#13#10' OwnerForm := 0;'
+
+ref; // ME_4AA53D3A002B SendConsultation

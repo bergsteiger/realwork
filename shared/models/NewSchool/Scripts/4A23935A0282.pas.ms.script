@@ -14,7 +14,7 @@ FORWARD ME_4A23935A0282
  %SUMMARY 'Базовый интерфейс для указателей на различные объекты.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4A23935A0282 // afwNavigation
+ : Parent HWL ME_4A23935A0282 // afwNavigation
  ;
  CONST extprop:rc:SelfName 'Moniker'
  CONST extprop:rc:isAcceptableForScripts true
@@ -32,7 +32,7 @@ FORWARD ME_4A23BB9A02AC
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4A23BB9A02AC // IevURLMoniker
+ : Parent HWL ME_4A23BB9A02AC // IevURLMoniker
  ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
@@ -50,14 +50,14 @@ ref; // ME_4A23BBBA02D6 URL
  %SUMMARY 'Интерфейс для объектов указывающих на URL' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4A23935A0282 // afwNavigation
+ : Parent HWL ME_4A23935A0282 // afwNavigation
  ;
  : Inherits
-   Seq: ( ME_47C5BD35000A // IevMoniker
+   Seq: ( HWL ME_47C5BD35000A // IevMoniker
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_4A23BBBA02D6 // URL
+   Seq: ( HWL ME_4A23BBBA02D6 // URL
  )
  ; // Attributes
  CONST extprop:rc:SelfName 'URLMoniker'
@@ -76,7 +76,7 @@ FORWARD ME_4A23BBD90274
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4A23BBD90274 // IevIDMoniker
+ : Parent HWL ME_4A23BBD90274 // IevIDMoniker
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
@@ -94,14 +94,14 @@ ref; // ME_4A23BBF30230 ID
  %SUMMARY 'Адрес объекта, имеющего целочисленный идентификатор' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4A23935A0282 // afwNavigation
+ : Parent HWL ME_4A23935A0282 // afwNavigation
  ;
  : Inherits
-   Seq: ( ME_47C5BD35000A // IevMoniker
+   Seq: ( HWL ME_47C5BD35000A // IevMoniker
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_4A23BBF30230 // ID
+   Seq: ( HWL ME_4A23BBF30230 // ID
  )
  ; // Attributes
  CONST extprop:rc:SelfName 'IDMoniker'
@@ -112,7 +112,7 @@ ref; // ME_4A23BBD90274 IevIDMoniker
 FORWARD ME_4A23BC0D0331
 
 : ME_4A23BBF30230_ME_4A23BC0D0331
- : Original ME_4A23BBF30230 // ID
+ : Original HWL ME_4A23BBF30230 // ID
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
@@ -128,10 +128,10 @@ ref; // ME_4A23BBF30230_ME_4A23BC0D0331 ID
  %SUMMARY 'Объект, указывающий на гипертекстовую ссылку' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4A23935A0282 // afwNavigation
+ : Parent HWL ME_4A23935A0282 // afwNavigation
  ;
  : Inherits
-   Seq: ( ME_4A23BBD90274 // IevIDMoniker
+   Seq: ( HWL ME_4A23BBD90274 // IevIDMoniker
  )
  ; // Inherits
  : Implemented
@@ -151,7 +151,7 @@ ref; // ME_4A23BC0D0331 IevHyperlinkMoniker
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4A23935A0282 // afwNavigation
+ : Parent HWL ME_4A23935A0282 // afwNavigation
  ;
  : Inherits
    Seq: ( WL 'ME_48F4941A0249' '48F4E61C0060.pas.ms.script' // Address
@@ -178,7 +178,7 @@ ref; // ME_49E6009D0343 anAddress
  %SUMMARY 'Проверяет адреса на совпадение' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_48F4940C01C0 // TevAddress
+ : Parent HWL ME_48F4940C01C0 // TevAddress
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -240,7 +240,7 @@ ref; // ME_49E6051D006F aRevisionID
  : Stereotype st_ctor::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_48F4940C01C0 // TevAddress
+ : Parent HWL ME_48F4940C01C0 // TevAddress
  ;
  : Parameters
    Seq: ( ME_49E6051C03A9 // aDocID
@@ -260,15 +260,15 @@ ref; // ME_49E604FE0347 C
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4A23935A0282 // afwNavigation
+ : Parent HWL ME_4A23935A0282 // afwNavigation
  ;
  : Inherits
-   Seq: ( ME_4CDD38E601A5 // TafwAddress
+   Seq: ( HWL ME_4CDD38E601A5 // TafwAddress
  )
  ; // Inherits
  : Operations
-   Seq: ( ME_49E6009D02ED // EQ
- ME_49E604FE0347 // C
+   Seq: ( HWL ME_49E6009D02ED // EQ
+ HWL ME_49E604FE0347 // C
  )
  ; // Operations
  CONST extprop:rc:SelfName 'Address'
@@ -290,7 +290,7 @@ ref; // ME_49DC81920264 anEffects
  CONST Name 'aMoniker'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target ME_47C5BD35000A // IevMoniker
+ : Target HWL ME_47C5BD35000A // IevMoniker
  ;
 
 ref; // ME_49DC819202A2 aMoniker
@@ -302,7 +302,7 @@ ref; // ME_49DC819202A2 aMoniker
  %SUMMARY 'перейти по адресу aMoniker.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_47C5BD43008C // IevMonikerSink
+ : Parent HWL ME_47C5BD43008C // IevMonikerSink
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -324,10 +324,10 @@ ref; // ME_47C5BD5B00AE JumpTo
  %SUMMARY 'Интерфейс для реализации перехода по адресу.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4A23935A0282 // afwNavigation
+ : Parent HWL ME_4A23935A0282 // afwNavigation
  ;
  : Operations
-   Seq: ( ME_47C5BD5B00AE // JumpTo
+   Seq: ( HWL ME_47C5BD5B00AE // JumpTo
  )
  ; // Operations
  CONST extprop:rc:SelfName 'MonikerSink'
@@ -345,9 +345,9 @@ FORWARD ME_4A23C8F40181
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4A23C8F40181 // IevAddressMoniker
+ : Parent HWL ME_4A23C8F40181 // IevAddressMoniker
  ;
- : Target ME_48F4940C01C0 // TevAddress
+ : Target HWL ME_48F4940C01C0 // TevAddress
  ;
  CONST "pm" true
 
@@ -363,14 +363,14 @@ ref; // ME_4A23C92103C2 Address
  %SUMMARY 'Адрес точки входа' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4A23935A0282 // afwNavigation
+ : Parent HWL ME_4A23935A0282 // afwNavigation
  ;
  : Inherits
-   Seq: ( ME_47C5BD35000A // IevMoniker
+   Seq: ( HWL ME_47C5BD35000A // IevMoniker
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_4A23C92103C2 // Address
+   Seq: ( HWL ME_4A23C92103C2 // Address
  )
  ; // Attributes
  CONST extprop:rc:SelfName 'AddressMoniker'
@@ -389,14 +389,14 @@ ref; // ME_4A23C8F40181 IevAddressMoniker
  : Parent WL 'ME_4790B4F00236' '4790B4F00236.pas.ms.script' // AFW
  ;
  : Children
-   Seq: ( ME_47C5BD35000A // IevMoniker
- ME_4A23BB9A02AC // IevURLMoniker
- ME_4A23BBD90274 // IevIDMoniker
- ME_4A23BC0D0331 // IevHyperlinkMoniker
- ME_4CDD38E601A5 // TafwAddress
- ME_48F4940C01C0 // TevAddress
- ME_47C5BD43008C // IevMonikerSink
- ME_4A23C8F40181 // IevAddressMoniker
+   Seq: ( HWL ME_47C5BD35000A // IevMoniker
+ HWL ME_4A23BB9A02AC // IevURLMoniker
+ HWL ME_4A23BBD90274 // IevIDMoniker
+ HWL ME_4A23BC0D0331 // IevHyperlinkMoniker
+ HWL ME_4CDD38E601A5 // TafwAddress
+ HWL ME_48F4940C01C0 // TevAddress
+ HWL ME_47C5BD43008C // IevMonikerSink
+ HWL ME_4A23C8F40181 // IevAddressMoniker
  )
  ; // Children
  : Depends

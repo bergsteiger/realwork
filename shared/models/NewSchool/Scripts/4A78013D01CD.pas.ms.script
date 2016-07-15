@@ -2,119 +2,6 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-FORWARD ME_4A78013D01CD
-
-FORWARD ME_4AAA42BF0267
-
-: ME_4AAA43F601F7
- CONST UID '4AAA43F601F7'
- CONST Name 'ShellAndMonitoringsMain'
- CONST Class class_Class
- : Stereotype st_VCMMainForm ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4AAA42BF0267 // ShellAndMonitorings
- ;
- : Inherits
-   Seq: ( WL 'ME_4C8A210E018C' '4986ECDF01F4.pas.ms.script' // PrimMainOptions
- )
- ; // Inherits
- CONST "NeedsHackRef" true
- CONST "ZoneType" 'Any'
- CONST "finished dfm" true
- CONST "resizeable" false
- CONST "restrict form def" 'undefined'
- CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\ShellAndMonitoringsMain_Form.pas'
- CONST extprop:pas:TypeName 'TShellAndMonitoringsMainForm'
- CONST extprop:rc:SelfName 'ShellAndMonitoringsMainForm'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'ShellAndMonitoringsMain_Form'
-
-ref; // ME_4AAA43F601F7 ShellAndMonitoringsMain
-
-: ME_80E6FB178A48
- CONST UID '80E6FB178A48'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация ShellAndMonitorings' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AAA42BF0267 // ShellAndMonitorings
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_80E6FB178A48 Ini_Reg_Class
-
-: ME_4AAA42EF025A
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AAA42BF0267 // ShellAndMonitorings
- ;
- : Target WL 'ME_4AA93171022B' '4958E382019E.pas.ms.script' // CommonSearch$UC
- ;
-
-ref; // ME_4AAA42EF025A 
-
-: ME_54F8582001BD
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AAA42BF0267 // ShellAndMonitorings
- ;
- : Target WL 'ME_54F83BC9036B' '54F83B9F01BB.pas.ms.script' // TtasSaveLoadRealization
- ;
-
-ref; // ME_54F8582001BD 
-
-: ME_17C30076620B
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AAA42BF0267 // ShellAndMonitorings
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_17C30076620B 
-
-: ME_4AAA42BF0267
- CONST UID '4AAA42BF0267'
- CONST Name 'ShellAndMonitorings'
- CONST Class class_Class
- : Stereotype st_VCMApplication ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_abstract
- : Parent ME_4A78013D01CD // View$For F1 and Monitorings
- ;
- : Inherits
-   Seq: ( WL 'ME_4A92BBDF0126' '4986ECDF01F4.pas.ms.script' // PrimF1
- )
- ; // Inherits
- : Operations
-   Seq: ( ME_80E6FB178A48 // Ini_Reg_Class
- )
- ; // Operations
- : Children
-   Seq: ( ME_4AAA43F601F7 // ShellAndMonitoringsMain
- )
- ; // Children
- : Dependencies
-   Seq: ( ME_4AAA42EF025A // CommonSearch$UC
- ME_54F8582001BD // TtasSaveLoadRealization
- ME_17C30076620B // TtfwClassRef
- )
- ; // Dependencies
- CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\ShellAndMonitoringsRes.pas'
- CONST extprop:pas:TypeName 'TShellAndMonitoringsRes'
- CONST extprop:rc:SelfName 'ShellAndMonitoringsRes'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'ShellAndMonitoringsRes'
-
-ref; // ME_4AAA42BF0267 ShellAndMonitorings
-
 : ME_4A78013D01CD
  CONST UID '4A78013D01CD'
  CONST Name 'View'
@@ -126,7 +13,7 @@ ref; // ME_4AAA42BF0267 ShellAndMonitorings
  : Parent WL 'ME_4A78010000B7' '4A78010000B7.pas.ms.script' // Search
  ;
  : Children
-   Seq: ( ME_4AAA42BF0267 // ShellAndMonitorings
+   Seq: ( WL 'ME_4AAA42BF0267' '4AAA42BF0267.pas.ms.script' // ShellAndMonitorings
  WL 'ME_4BD97FDB031A' '4BD97FDB031A.pas.ms.script' // FormDefinitions
  WL 'ME_4AAA216F032C' '4AAA216F032C.pas.ms.script' // Images
  WL 'ME_4ACF3E400050' '4ACF3E400050.pas.ms.script' // BaseSearch
@@ -184,7 +71,6 @@ ref; // ME_4AAA42BF0267 ShellAndMonitorings
  WL 'ME_55B62380030A' '55B62380030A.pas.ms.script' // Logging
  WL 'ME_55C4AEB903E1' '55C4AEB903E1.pas.ms.script' // Printing
  WL 'ME_55C4AEC801CA' '55C4AEC801CA.pas.ms.script' // Graphics
- WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
  )
  ; // Depends
  CONST "exec mode" 'concluded'

@@ -14,7 +14,7 @@ FORWARD ME_4A409BC300FB
  CONST Visibility PublicAccess
  CONST Abstraction at_final
  CONST LinkType lt_ref
- : Parent ME_4A409BC300FB // UserInfo
+ : Parent HWL ME_4A409BC300FB // UserInfo
  ;
  : Target WL 'ME_431841610361' '4423F94903C8.pas.ms.script' // String
  ;
@@ -29,7 +29,7 @@ ref; // ME_4A409BE202A3 email
  CONST Visibility PublicAccess
  CONST Abstraction at_final
  CONST LinkType lt_ref
- : Parent ME_4A409BC300FB // UserInfo
+ : Parent HWL ME_4A409BC300FB // UserInfo
  ;
  : Target WL 'ME_431841610361' '4423F94903C8.pas.ms.script' // String
  ;
@@ -44,7 +44,7 @@ ref; // ME_4A409BFB0002 login
  CONST Visibility PublicAccess
  CONST Abstraction at_final
  CONST LinkType lt_ref
- : Parent ME_4A409BC300FB // UserInfo
+ : Parent HWL ME_4A409BC300FB // UserInfo
  ;
  : Target WL 'ME_431841610361' '4423F94903C8.pas.ms.script' // String
  ;
@@ -60,12 +60,12 @@ ref; // ME_4A409C1D03A7 name
  %SUMMARY 'информация о пользователе' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4A40991F003F // ChatInterfaces
+ : Parent HWL ME_4A40991F003F // ChatInterfaces
  ;
  : Attributes
-   Seq: ( ME_4A409BE202A3 // email
- ME_4A409BFB0002 // login
- ME_4A409C1D03A7 // name
+   Seq: ( HWL ME_4A409BE202A3 // email
+ HWL ME_4A409BFB0002 // login
+ HWL ME_4A409C1D03A7 // name
  )
  ; // Attributes
  CONST extprop:pas:TypeName 'TUserInfo'
@@ -81,7 +81,7 @@ ref; // ME_4A409BC300FB UserInfo
  %SUMMARY 'задан идентификатор неизвестного пользователя' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4A40991F003F // ChatInterfaces
+ : Parent HWL ME_4A40991F003F // ChatInterfaces
  ;
 
 ref; // ME_4A409D1F00AA UnknownUser
@@ -96,7 +96,7 @@ FORWARD ME_4A4099A302A3
  %SUMMARY 'фабрика' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4A4099A302A3 // ChatManager
+ : Parent HWL ME_4A4099A302A3 // ChatManager
  ;
  CONST TargetStereotype 'cached'
  CONST "const_type" 'read-write'
@@ -110,7 +110,7 @@ ref; // ME_4A4099B701A8 make
  %SUMMARY 'возвращает true, если на сервере обеспечена поддержка чата' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4A4099A302A3 // ChatManager
+ : Parent HWL ME_4A4099A302A3 // ChatManager
  ;
  : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
  ;
@@ -124,7 +124,7 @@ ref; // ME_4A4099E902D0 is_embed_chat_enabled
  %SUMMARY 'получить список пользователей, добавленных в контакты' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4A4099A302A3 // ChatManager
+ : Parent HWL ME_4A4099A302A3 // ChatManager
  ;
  : Target WL 'ME_45EEB95901C5' '457450470167.pas.ms.script' // NodeBase
  ;
@@ -147,12 +147,12 @@ ref; // ME_4A409B63008E uid
  %SUMMARY 'информация о пользователе с заданным идентификатором' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4A4099A302A3 // ChatManager
+ : Parent HWL ME_4A4099A302A3 // ChatManager
  ;
- : Target ME_4A409BC300FB // UserInfo
+ : Target HWL ME_4A409BC300FB // UserInfo
  ;
  : CanRaise
-   Seq: ( ME_4A409D1F00AA // UnknownUser
+   Seq: ( HWL ME_4A409D1F00AA // UnknownUser
  )
  ; // CanRaise
  : Parameters
@@ -179,10 +179,10 @@ ref; // ME_4A409CD103C9 uid
  %SUMMARY 'добавить пользователя в список контактов' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4A4099A302A3 // ChatManager
+ : Parent HWL ME_4A4099A302A3 // ChatManager
  ;
  : CanRaise
-   Seq: ( ME_4A409D1F00AA // UnknownUser
+   Seq: ( HWL ME_4A409D1F00AA // UnknownUser
  )
  ; // CanRaise
  : Parameters
@@ -209,10 +209,10 @@ ref; // ME_4A409D1700E5 uid
  %SUMMARY 'удалить пользователя из списка контактов' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4A4099A302A3 // ChatManager
+ : Parent HWL ME_4A4099A302A3 // ChatManager
  ;
  : CanRaise
-   Seq: ( ME_4A409D1F00AA // UnknownUser
+   Seq: ( HWL ME_4A409D1F00AA // UnknownUser
  )
  ; // CanRaise
  : Parameters
@@ -239,7 +239,7 @@ ref; // ME_4A43639603D6 listener
  %SUMMARY 'зарегестрировать слушателя' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4A4099A302A3 // ChatManager
+ : Parent HWL ME_4A4099A302A3 // ChatManager
  ;
  : Parameters
    Seq: ( ME_4A43639603D6 // listener
@@ -263,7 +263,7 @@ ref; // ME_4A436A9803D8 message
  %SUMMARY 'получить сообщение с сервера' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4A4099A302A3 // ChatManager
+ : Parent HWL ME_4A4099A302A3 // ChatManager
  ;
  : Parameters
    Seq: ( ME_4A436A9803D8 // message
@@ -290,7 +290,7 @@ ref; // ME_4A4B16B400E6 uid
  %SUMMARY 'выбрать все непрочитанные сообщения' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4A4099A302A3 // ChatManager
+ : Parent HWL ME_4A4099A302A3 // ChatManager
  ;
  : Parameters
    Seq: ( ME_4A4B16B400E6 // uid
@@ -308,7 +308,7 @@ ref; // ME_4A4B13F40252 take_unreaded_messages
  %SUMMARY 'вызывается при выходе из системы' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4A4099A302A3 // ChatManager
+ : Parent HWL ME_4A4099A302A3 // ChatManager
  ;
  CONST "dll export" false
 
@@ -324,19 +324,19 @@ ref; // ME_4A4C657500D1 logout
  %SUMMARY 'управление чатом' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4A40991F003F // ChatInterfaces
+ : Parent HWL ME_4A40991F003F // ChatInterfaces
  ;
  : Operations
-   Seq: ( ME_4A4099B701A8 // make
- ME_4A4099E902D0 // is_embed_chat_enabled
- ME_4A409AAF0399 // get_contacts_tree
- ME_4A409B2D01EC // get_user_info
- ME_4A409CB202AF // add_user
- ME_4A409CFB026A // delete_user
- ME_4A43633E02A4 // register_listener_for_notify
- ME_4A4369DE03C8 // receive_message
- ME_4A4B13F40252 // take_unreaded_messages
- ME_4A4C657500D1 // logout
+   Seq: ( HWL ME_4A4099B701A8 // make
+ HWL ME_4A4099E902D0 // is_embed_chat_enabled
+ HWL ME_4A409AAF0399 // get_contacts_tree
+ HWL ME_4A409B2D01EC // get_user_info
+ HWL ME_4A409CB202AF // add_user
+ HWL ME_4A409CFB026A // delete_user
+ HWL ME_4A43633E02A4 // register_listener_for_notify
+ HWL ME_4A4369DE03C8 // receive_message
+ HWL ME_4A4B13F40252 // take_unreaded_messages
+ HWL ME_4A4C657500D1 // logout
  )
  ; // Operations
  CONST "single impl" false
@@ -356,7 +356,7 @@ FORWARD ME_4A409DE402DE
  CONST Visibility PublicAccess
  CONST Abstraction at_final
  CONST LinkType lt_ref
- : Parent ME_4A409DE402DE // Message
+ : Parent HWL ME_4A409DE402DE // Message
  ;
  : Target WL 'ME_4423FB5903D8' '4423F94903C8.pas.ms.script' // Stream
  ;
@@ -371,7 +371,7 @@ ref; // ME_4A409E150108 text
  CONST Visibility PublicAccess
  CONST Abstraction at_final
  CONST LinkType lt_agr
- : Parent ME_4A409DE402DE // Message
+ : Parent HWL ME_4A409DE402DE // Message
  ;
  : Target WL 'ME_456EA7D402DE' '456EA56002BF.pas.ms.script' // DateTime
  ;
@@ -386,7 +386,7 @@ ref; // ME_4A40A01A020D time
  CONST Visibility PublicAccess
  CONST Abstraction at_final
  CONST LinkType lt_agr
- : Parent ME_4A409DE402DE // Message
+ : Parent HWL ME_4A409DE402DE // Message
  ;
  : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
  ;
@@ -402,12 +402,12 @@ ref; // ME_4A437417028D my
  %SUMMARY 'данные сообщения' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4A40991F003F // ChatInterfaces
+ : Parent HWL ME_4A40991F003F // ChatInterfaces
  ;
  : Attributes
-   Seq: ( ME_4A409E150108 // text
- ME_4A40A01A020D // time
- ME_4A437417028D // my
+   Seq: ( HWL ME_4A409E150108 // text
+ HWL ME_4A40A01A020D // time
+ HWL ME_4A437417028D // my
  )
  ; // Attributes
  CONST extprop:pas:TypeName 'TMessage'
@@ -422,9 +422,9 @@ FORWARD ME_4A40A5670265
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4A40A5670265 // Messages
+ : Parent HWL ME_4A40A5670265 // Messages
  ;
- : Target ME_4A409DE402DE // Message
+ : Target HWL ME_4A409DE402DE // Message
  ;
 
 ref; // ME_4A40A5800332 
@@ -438,10 +438,10 @@ ref; // ME_4A40A5800332
  %SUMMARY 'список сообщений' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4A40991F003F // ChatInterfaces
+ : Parent HWL ME_4A40991F003F // ChatInterfaces
  ;
  : Attributes
-   Seq: ( ME_4A40A5800332 // 
+   Seq: ( HWL ME_4A40A5800332 // 
  )
  ; // Attributes
  CONST "array type" 'dynamic'
@@ -459,7 +459,7 @@ FORWARD ME_4A409DC300BF
  %SUMMARY 'фабрика' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4A409DC300BF // MessagesManager
+ : Parent HWL ME_4A409DC300BF // MessagesManager
  ;
  CONST TargetStereotype 'cached'
  CONST "const_type" 'read-write'
@@ -482,12 +482,12 @@ ref; // ME_4A40A5FE0093 uid
  %SUMMARY 'получить непрочитанные сообщения от пользователя с заданным uid' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4A409DC300BF // MessagesManager
+ : Parent HWL ME_4A409DC300BF // MessagesManager
  ;
- : Target ME_4A40A5670265 // Messages
+ : Target HWL ME_4A40A5670265 // Messages
  ;
  : CanRaise
-   Seq: ( ME_4A409D1F00AA // UnknownUser
+   Seq: ( HWL ME_4A409D1F00AA // UnknownUser
  )
  ; // CanRaise
  : Parameters
@@ -522,10 +522,10 @@ ref; // ME_4A40A7580149 uid
  %SUMMARY 'послать сообщение заданному пользователю' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4A409DC300BF // MessagesManager
+ : Parent HWL ME_4A409DC300BF // MessagesManager
  ;
  : CanRaise
-   Seq: ( ME_4A409D1F00AA // UnknownUser
+   Seq: ( HWL ME_4A409D1F00AA // UnknownUser
  )
  ; // CanRaise
  : Parameters
@@ -570,12 +570,12 @@ ref; // ME_4A40A913000B uid
  %SUMMARY 'получить count последних сообщений переписки с пользователем uid. Если count = 0, получить полную историю переписки. Если all_new = true, будут получены все непрочитанные сообщения, даже если их количество превышает count.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4A409DC300BF // MessagesManager
+ : Parent HWL ME_4A409DC300BF // MessagesManager
  ;
- : Target ME_4A40A5670265 // Messages
+ : Target HWL ME_4A40A5670265 // Messages
  ;
  : CanRaise
-   Seq: ( ME_4A409D1F00AA // UnknownUser
+   Seq: ( HWL ME_4A409D1F00AA // UnknownUser
  )
  ; // CanRaise
  : Parameters
@@ -604,10 +604,10 @@ ref; // ME_4A40A9450393 uid
  %SUMMARY 'очистить историю сообщений с заданным пользователем' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4A409DC300BF // MessagesManager
+ : Parent HWL ME_4A409DC300BF // MessagesManager
  ;
  : CanRaise
-   Seq: ( ME_4A409D1F00AA // UnknownUser
+   Seq: ( HWL ME_4A409D1F00AA // UnknownUser
  )
  ; // CanRaise
  : Parameters
@@ -624,7 +624,7 @@ ref; // ME_4A40A93400D7 clean_history
  %SUMMARY 'получить непрочитанные сообщения с сервера' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4A409DC300BF // MessagesManager
+ : Parent HWL ME_4A409DC300BF // MessagesManager
  ;
  CONST "dll export" false
 
@@ -640,15 +640,15 @@ ref; // ME_4A4B0CCC007A get_unreaded_messages
  %SUMMARY 'работа с сообщениями' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4A40991F003F // ChatInterfaces
+ : Parent HWL ME_4A40991F003F // ChatInterfaces
  ;
  : Operations
-   Seq: ( ME_4A40A59901F4 // make
- ME_4A40A5D7025F // get_unreaded_messages
- ME_4A40A73102AC // send_message
- ME_4A40A84A02FE // get_history_for_user
- ME_4A40A93400D7 // clean_history
- ME_4A4B0CCC007A // get_unreaded_messages
+   Seq: ( HWL ME_4A40A59901F4 // make
+ HWL ME_4A40A5D7025F // get_unreaded_messages
+ HWL ME_4A40A73102AC // send_message
+ HWL ME_4A40A84A02FE // get_history_for_user
+ HWL ME_4A40A93400D7 // clean_history
+ HWL ME_4A4B0CCC007A // get_unreaded_messages
  )
  ; // Operations
  CONST "single impl" false
@@ -669,12 +669,12 @@ ref; // ME_4A409DC300BF MessagesManager
  : Parent WL 'ME_456EA3D2031C' '456EA3D2031C.pas.ms.script' // GblAdapterLib
  ;
  : Children
-   Seq: ( ME_4A409BC300FB // UserInfo
- ME_4A409D1F00AA // UnknownUser
- ME_4A4099A302A3 // ChatManager
- ME_4A409DE402DE // Message
- ME_4A40A5670265 // Messages
- ME_4A409DC300BF // MessagesManager
+   Seq: ( HWL ME_4A409BC300FB // UserInfo
+ HWL ME_4A409D1F00AA // UnknownUser
+ HWL ME_4A4099A302A3 // ChatManager
+ HWL ME_4A409DE402DE // Message
+ HWL ME_4A40A5670265 // Messages
+ HWL ME_4A409DC300BF // MessagesManager
  )
  ; // Children
  : Depends

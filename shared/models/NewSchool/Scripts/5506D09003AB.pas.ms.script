@@ -15,7 +15,7 @@ FORWARD ME_62280531B792
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_62280531B792 // Ml3DocumentsCacheService
+ : Parent HWL ME_62280531B792 // Ml3DocumentsCacheService
  ;
 
 ref; // ME_0AC8DEBDD602 Clear
@@ -30,48 +30,14 @@ ref; // ME_0AC8DEBDD602 Clear
  %SUMMARY 'Контракт сервиса Tl3DocumentsCacheService' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_5506FEA6012A // Tl3DocumentsCacheService
+ : Parent HWL ME_5506FEA6012A // Tl3DocumentsCacheService
  ;
  : Operations
-   Seq: ( ME_0AC8DEBDD602 // Clear
+   Seq: ( HWL ME_0AC8DEBDD602 // Clear
  )
  ; // Operations
 
 ref; // ME_62280531B792 Ml3DocumentsCacheService
-
-FORWARD ME_8089B05A548A
-
-: ME_0AC8DEBDD602_ME_8089B05A548A
- : Original ME_0AC8DEBDD602 // Clear
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_0AC8DEBDD602_ME_8089B05A548A Clear
-
-: ME_8089B05A548A
- CONST UID '8089B05A548A'
- CONST GUID 'A7573672-88C4-4CF0-8F63-F2AD42FA8794'
- CONST Name 'Il3DocumentsCacheService'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Facet ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Интерфейс сервиса Tl3DocumentsCacheService' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_5506FEA6012A // Tl3DocumentsCacheService
- ;
- : Implements
-   Seq: ( ME_62280531B792 // Ml3DocumentsCacheService
- )
- ; // Implements
- : Implemented
-   Seq: ( ME_0AC8DEBDD602_ME_8089B05A548A // Clear
- )
- ; // Implemented
- CONST extprop:rc:SelfName 'DocumentsCacheService'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_8089B05A548A Il3DocumentsCacheService
 
 : ME_5506FEB701D1
  CONST UID '5506FEB701D1'
@@ -80,16 +46,10 @@ ref; // ME_8089B05A548A Il3DocumentsCacheService
  : Stereotype st_responsibility::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_5506FEA6012A // Tl3DocumentsCacheService
+ : Parent HWL ME_5506FEA6012A // Tl3DocumentsCacheService
  ;
 
 ref; // ME_5506FEB701D1 Clear
-
-: ME_0AC8DEBDD602_ME_5506FEA6012A
- : Original ME_0AC8DEBDD602 // Clear
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_0AC8DEBDD602_ME_5506FEA6012A Clear
 
 : ME_5506FEA6012A
  CONST UID '5506FEA6012A'
@@ -99,38 +59,24 @@ ref; // ME_0AC8DEBDD602_ME_5506FEA6012A Clear
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_5506D09003AB // EverestServices
+ : Parent HWL ME_5506D09003AB // EverestServices
  ;
  : Inherits
    Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
  )
  ; // Inherits
- : Implements
-   Seq: ( ME_62280531B792 // Ml3DocumentsCacheService
- )
- ; // Implements
  : Operations
-   Seq: ( ME_5506FEB701D1 // Clear
+   Seq: ( HWL ME_5506FEB701D1 // Clear
  )
  ; // Operations
- : Implemented
-   Seq: ( ME_0AC8DEBDD602_ME_5506FEA6012A // Clear
- )
- ; // Implemented
  : Children
-   Seq: ( ME_62280531B792 // Ml3DocumentsCacheService
- ME_8089B05A548A // Il3DocumentsCacheService
+   Seq: ( HWL ME_62280531B792 // Ml3DocumentsCacheService
  )
  ; // Children
- CONST "singleton" true
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3DocumentsCacheService.pas'
  CONST extprop:rc:SelfName 'DocumentsCacheService'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'l3DocumentsCacheService'
- : Facet ME_8089B05A548A // Il3DocumentsCacheService
- ;
- : Mixin ME_62280531B792 // Ml3DocumentsCacheService
- ;
 
 ref; // ME_5506FEA6012A Tl3DocumentsCacheService
 
@@ -144,7 +90,7 @@ ref; // ME_5506FEA6012A Tl3DocumentsCacheService
  : Parent WL 'ME_550012C403C4' '550012C403C4.pas.ms.script' // L3$AFW
  ;
  : Children
-   Seq: ( ME_5506FEA6012A // Tl3DocumentsCacheService
+   Seq: ( HWL ME_5506FEA6012A // Tl3DocumentsCacheService
  )
  ; // Children
  : Depends

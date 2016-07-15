@@ -1,0 +1,85 @@
+// InternetAgent$F 49EC74D002B8 VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49EC74D002B8
+
+: ME_36BF14AE3334
+ CONST UID '36BF14AE3334'
+ CONST GUID '4953CF3C-7760-41BE-BBC7-7CA06BAE484D'
+ CONST Name 'InternetAgent'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_VCMFormDefinition ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Идентификатор формы InternetAgent$F' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_49EC74D002B8 // InternetAgent$F
+ ;
+ : Implementors
+   Seq: ( HWL ME_49EC74D002B8 // InternetAgent$F
+ )
+ ; // Implementors
+ CONST extprop:pas:TypeName 'InternetAgentFormDef'
+ CONST extprop:rc:SelfName 'nternetAgentFormDef'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_36BF14AE3334 InternetAgent$F$Def
+
+: ME_A52D967E41C5
+ CONST UID 'A52D967E41C5'
+ CONST Name 'Ini_FormFactory_InternetAgent'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы InternetAgent$F' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_49EC74D002B8 // InternetAgent$F
+ ;
+ : SpelledFor HWL ME_49EC74D002B8 // InternetAgent$F
+ ;
+
+ref; // ME_A52D967E41C5 Ini_FormFactory_InternetAgent$F$Def
+
+: ME_49EC74D002B8
+ CONST UID '49EC74D002B8'
+ CONST Name 'InternetAgent'
+ CONST Class class_Class
+ : Stereotype st_VCMFinalForm ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Новости онлайн' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent WL 'ME_49EC739C0100' '49EC739C0100.pas.ms.script' // PrimInternetAgent$FP
+ ;
+ : Inherits
+   Seq: ( WL 'ME_49EC746B01E5' '49EC746B01E5.pas.ms.script' // PrimInternetAgent
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( HWL ME_36BF14AE3334 // InternetAgent$F$Def
+ )
+ ; // Implements
+ : Operations
+   Seq: ( HWL ME_A52D967E41C5 // Ini_FormFactory_InternetAgent$F$Def
+ )
+ ; // Operations
+ : Children
+   Seq: ( HWL ME_36BF14AE3334 // InternetAgent$F$Def
+ )
+ ; // Children
+ CONST "NeedsHackRef" true
+ CONST "ZoneType" 'Any'
+ CONST "finished dfm" true
+ CONST "resizeable" false
+ CONST "restrict form def" 'undefined'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\InternetAgent\Forms\InternetAgent_Form.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\InternetAgent\Forms'
+ CONST extprop:pas:TypeName 'TInternetAgentForm'
+ CONST extprop:rc:SelfName 'InternetAgentForm'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'InternetAgent_Form'
+
+ref; // ME_49EC74D002B8 InternetAgent$F

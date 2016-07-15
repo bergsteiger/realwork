@@ -13,7 +13,7 @@ FORWARD ME_499C38220140
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_499C38220140 // TMessageOnDesktop
+ : Parent HWL ME_499C38220140 // TMessageOnDesktop
  ;
  : Target WL 'ME_47726DC00087' '46A5E026007E.pas.ms.script' // hDC
  ;
@@ -27,7 +27,7 @@ ref; // ME_499C389C0050 hDC
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_499C38220140 // TMessageOnDesktop
+ : Parent HWL ME_499C38220140 // TMessageOnDesktop
  ;
  : Target WL 'ME_46A61419013D' '4AB0C3F60375.pas.ms.script' // HFONT
  ;
@@ -41,7 +41,7 @@ ref; // ME_499C38A5001E hFont
  : Stereotype st_ctor::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_499C38220140 // TMessageOnDesktop
+ : Parent HWL ME_499C38220140 // TMessageOnDesktop
  ;
 
 ref; // ME_499C387E0015 Create
@@ -61,7 +61,7 @@ ref; // ME_499C389102C5 aMsg
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_499C38220140 // TMessageOnDesktop
+ : Parent HWL ME_499C38220140 // TMessageOnDesktop
  ;
  : Parameters
    Seq: ( ME_499C389102C5 // aMsg
@@ -73,7 +73,7 @@ ref; // ME_499C388A00BB DrawMessage
 : ME_499C38B30357
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_499C38220140 // TMessageOnDesktop
+ : Parent HWL ME_499C38220140 // TMessageOnDesktop
  ;
  : Target WL 'ME_48A41FF10094' '4AB0C3F60375.pas.ms.script' // Windows
  ;
@@ -83,7 +83,7 @@ ref; // ME_499C38B30357
 : ME_499C3AC10106
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_499C38220140 // TMessageOnDesktop
+ : Parent HWL ME_499C38220140 // TMessageOnDesktop
  ;
  : Target WL 'ME_47CBD5980343' '55C4AEC801CA.pas.ms.script' // Colors
  ;
@@ -105,20 +105,20 @@ ref; // ME_479731C50290_ME_499C38220140 Cleanup
  %SUMMARY 'Коллеги, это что?' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_499C380102CF // TestHelpers
+ : Parent HWL ME_499C380102CF // TestHelpers
  ;
  : Inherits
    Seq: ( WL 'ME_47BC391D0259' '47913B47006E.pas.ms.script' // Tl3SimpleObject
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_499C389C0050 // hDC
- ME_499C38A5001E // hFont
+   Seq: ( HWL ME_499C389C0050 // hDC
+ HWL ME_499C38A5001E // hFont
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_499C387E0015 // Create
- ME_499C388A00BB // DrawMessage
+   Seq: ( HWL ME_499C387E0015 // Create
+ HWL ME_499C388A00BB // DrawMessage
  )
  ; // Operations
  : Overridden
@@ -172,7 +172,7 @@ ref; // ME_499C3EA102D0 Strings
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_499C3E6803D8 // TestStringUtils
+ : Parent HWL ME_499C3E6803D8 // TestStringUtils
  ;
  : Parameters
    Seq: ( ME_499C3EA1029F // Delimiter
@@ -192,10 +192,10 @@ ref; // ME_499C3E8E03D8 Split
  %SUMMARY 'Работа со строками' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_499C380102CF // TestHelpers
+ : Parent HWL ME_499C380102CF // TestHelpers
  ;
  : Operations
-   Seq: ( ME_499C3E8E03D8 // Split
+   Seq: ( HWL ME_499C3E8E03D8 // Split
  )
  ; // Operations
  CONST "author" 'ГК'
@@ -216,8 +216,8 @@ ref; // ME_499C3E6803D8 TestStringUtils
  : Parent WL 'ME_499AEC6A0372' '499AEC6A0372.pas.ms.script' // F1Test
  ;
  : Children
-   Seq: ( ME_499C38220140 // TMessageOnDesktop
- ME_499C3E6803D8 // TestStringUtils
+   Seq: ( HWL ME_499C38220140 // TMessageOnDesktop
+ HWL ME_499C3E6803D8 // TestStringUtils
  )
  ; // Children
  : Depends

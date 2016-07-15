@@ -1,0 +1,58 @@
+// FoldersTree 4ABCD29401B2 VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4ABCD29401B2
+
+: ME_43526C095459
+ CONST UID '43526C095459'
+ CONST Name 'Ini_FormFactory_FoldersTree'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы FoldersTree' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4ABCD29401B2 // FoldersTree
+ ;
+ : SpelledFor HWL ME_4ABCD29401B2 // FoldersTree
+ ;
+
+ref; // ME_43526C095459 Ini_FormFactory_FoldersTree
+
+: ME_4ABCD29401B2
+ CONST UID '4ABCD29401B2'
+ CONST Name 'FoldersTree'
+ CONST Class class_Class
+ : Stereotype st_VCMFinalForm ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent WL 'ME_4A96B68A03B1' '4A96B68A03B1.pas.ms.script' // PrimFolders$UC
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4C7E651B0179' '4C7E651B0179.pas.ms.script' // PrimFoldersTreeOptions
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4FFAA5C70362' '4BD856E802F9.pas.ms.script' // FoldersTree
+ )
+ ; // Implements
+ : Operations
+   Seq: ( HWL ME_43526C095459 // Ini_FormFactory_FoldersTree
+ )
+ ; // Operations
+ CONST "NeedsHackRef" true
+ CONST "ZoneType" 'Parent'
+ CONST "finished dfm" true
+ CONST "form name prefix" 'en'
+ CONST "resizeable" false
+ CONST "restrict form def" 'undefined'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Folders\Forms\FoldersTree_Form.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Folders\Forms'
+ CONST extprop:pas:TypeName 'TenFoldersTree'
+ CONST extprop:rc:SelfName 'enFoldersTree'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'FoldersTree_Form'
+
+ref; // ME_4ABCD29401B2 FoldersTree

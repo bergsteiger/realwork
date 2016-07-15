@@ -43,6 +43,14 @@
 //#UC END# *552FAFDC0324_64C2DF1C9241_impl*
 //#UC START# *552FAFDC0324_64C2DF1C9241_var*
 //#UC END# *552FAFDC0324_64C2DF1C9241_var*
+//#UC START# *577E436B026F_577E436B026F_Word_impl*
+ if TvtHintManager.Instance.Count > 0 then
+  Result := Tl3FontInfo.Make(TvtHintManager.Instance.Item[TvtHintManager.Instance.Count - 1].Canvas.Font)
+ else
+  Result := nil;
+//#UC END# *577E436B026F_577E436B026F_Word_impl*
+//#UC START# *577E436B026F_577E436B026F_Word_var*
+//#UC END# *577E436B026F_577E436B026F_Word_var*
 //#UC START# *84B99BA2B7CE_0EF7A152CBB4_impl*
  with TvtHintManager.Instance do
   Result := ((Count > 0) and IsWindowVisible(Item[Count - 1].Handle));

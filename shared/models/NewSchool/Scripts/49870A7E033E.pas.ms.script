@@ -1,0 +1,52 @@
+// BaseDocument 49870A7E033E VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49870A7E033E
+
+: ME_49870AB400FA
+ CONST UID '49870AB400FA'
+ CONST Name 'sdsBaseDocument'
+ CONST Class class_Attribute
+ : Stereotype st_UseCase::Attribute ;
+ %SUMMARY 'Базовый прецедент работы с документом' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent HWL ME_49870A7E033E // BaseDocument
+ ;
+ : Target WL 'ME_47EA0F8D010D' '491B305A0096.pas.ms.script' // IsdsBaseDocument
+ ;
+
+ref; // ME_49870AB400FA sdsBaseDocument
+
+: ME_49870A7E033E
+ CONST UID '49870A7E033E'
+ CONST Name 'BaseDocument'
+ CONST Class class_Class
+ : Stereotype st_VCMForm ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Абстрактное представление базового документа' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent WL 'ME_497ED74F0032' '497ED74F0032.pas.ms.script' // Common
+ ;
+ : Attributes
+   Seq: ( HWL ME_49870AB400FA // sdsBaseDocument
+ )
+ ; // Attributes
+ CONST "NeedsHackRef" true
+ CONST "ZoneType" 'Any'
+ CONST "author" 'Люлин А.В.'
+ CONST "finished dfm" true
+ CONST "no hands" true
+ CONST "resizeable" false
+ CONST "restrict form def" 'undefined'
+ CONST "started" '02.02.2009 18:00'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\BaseDocument.imp.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms'
+ CONST extprop:pas:TypeName '_BaseDocument_'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'BaseDocument.imp'
+
+ref; // ME_49870A7E033E BaseDocument

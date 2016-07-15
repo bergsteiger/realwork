@@ -1,0 +1,125 @@
+// TctAbstractEdit 4829BB0F0179 GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4829BB0F0179
+
+: ME_482C806D02B4
+ CONST UID '482C806D02B4'
+ CONST Name 'DeleteToClipboard'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4829BB0F0179 // TctAbstractEdit
+ ;
+
+ref; // ME_482C806D02B4 DeleteToClipboard
+
+: ME_482C808C0188
+ CONST UID '482C808C0188'
+ CONST Name 'CopyAllowed'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4829BB0F0179 // TctAbstractEdit
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_482C808C0188 CopyAllowed
+
+: ME_482C809801F7
+ CONST UID '482C809801F7'
+ CONST Name 'CutAllowed'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4829BB0F0179 // TctAbstractEdit
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_482C809801F7 CutAllowed
+
+: ME_482C80A30223
+ CONST UID '482C80A30223'
+ CONST Name 'PasteAllowed'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4829BB0F0179 // TctAbstractEdit
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_482C80A30223 PasteAllowed
+
+: ME_482C80CA01B7
+ CONST UID '482C80CA01B7'
+ CONST Name 'DeleteAllowed'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4829BB0F0179 // TctAbstractEdit
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_482C80CA01B7 DeleteAllowed
+
+: ME_482C84C1025D
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4829BB0F0179 // TctAbstractEdit
+ ;
+ : Target WL 'ME_482C8482030E' '4799D29F033F.pas.ms.script' // Clipbrd
+ ;
+
+ref; // ME_482C84C1025D 
+
+: ME_482C8589007C
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4829BB0F0179 // TctAbstractEdit
+ ;
+ : Target WL 'ME_46A625D4028C' '4677FBA70343.pas.ms.script' // CodePages
+ ;
+
+ref; // ME_482C8589007C 
+
+: ME_4829BB0F0179
+ CONST UID '4829BB0F0179'
+ CONST Name 'TctAbstractEdit'
+ CONST Class class_Class
+ : Stereotype st_GuiControl ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_48297E42011A' '48297E42011A.pas.ms.script' // ComboTree
+ ;
+ : Inherits
+   Seq: ( WL 'ME_482AE8CA0176' '482AE8CA0176.pas.ms.script' // TctButtonEdit
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( HWL ME_482C806D02B4 // DeleteToClipboard
+ HWL ME_482C808C0188 // CopyAllowed
+ HWL ME_482C809801F7 // CutAllowed
+ HWL ME_482C80A30223 // PasteAllowed
+ HWL ME_482C80CA01B7 // DeleteAllowed
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_482C84C1025D // Clipbrd
+ ME_482C8589007C // CodePages
+ )
+ ; // Dependencies
+ CONST "author" 'Ëþëèí À.Â.'
+ CONST "no hands" true
+ CONST "started" '13.05.2008 20:00'
+ CONST intf.pas:Path 'common\components\gui\Garant\VT\ComboTree\ctAbstractEdit.pas'
+ CONST extprop:rc:SelfName 'ctAbstractEdit'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'ctAbstractEdit'
+
+ref; // ME_4829BB0F0179 TctAbstractEdit

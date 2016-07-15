@@ -1,0 +1,59 @@
+// CommonDiction 4ABBB22002AA VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4ABBB22002AA
+
+: ME_65EC607BB36F
+ CONST UID '65EC607BB36F'
+ CONST Name 'Ini_FormFactory_CommonDiction'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы CommonDiction' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4ABBB22002AA // CommonDiction
+ ;
+ : SpelledFor HWL ME_4ABBB22002AA // CommonDiction
+ ;
+
+ref; // ME_65EC607BB36F Ini_FormFactory_CommonDiction
+
+: ME_4ABBB22002AA
+ CONST UID '4ABBB22002AA'
+ CONST Name 'CommonDiction'
+ CONST Class class_Class
+ : Stereotype st_VCMFinalForm ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Совет дня' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent WL 'ME_4A9CE5F2036F' '4A9CE5F2036F.pas.ms.script' // Diction$FP
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4C87A1DF00B4' '4C87A1DF00B4.pas.ms.script' // PrimCommonDictionOptions
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4BD964270238' '4BD856E802F9.pas.ms.script' // CommonDiction
+ )
+ ; // Implements
+ : Operations
+   Seq: ( HWL ME_65EC607BB36F // Ini_FormFactory_CommonDiction
+ )
+ ; // Operations
+ CONST "NeedsHackRef" true
+ CONST "ZoneType" 'Navigator'
+ CONST "finished dfm" true
+ CONST "form name prefix" 'en_'
+ CONST "resizeable" false
+ CONST "restrict form def" 'undefined'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Diction\Forms\CommonDiction_Form.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Diction\Forms'
+ CONST extprop:pas:TypeName 'Ten_CommonDiction'
+ CONST extprop:rc:SelfName 'en_CommonDiction'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'CommonDiction_Form'
+
+ref; // ME_4ABBB22002AA CommonDiction

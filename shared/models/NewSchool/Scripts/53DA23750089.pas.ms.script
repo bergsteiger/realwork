@@ -11,9 +11,9 @@ FORWARD ME_53DA248C0014
 : ME_53DA24B80027
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_53DA23CD0105 // ScriptsCompilingAndProcessingPack
+ : Parent HWL ME_53DA23CD0105 // ScriptsCompilingAndProcessingPack
  ;
- : Target ME_53DA248C0014 // script_CompileAndProcess
+ : Target HWL ME_53DA248C0014 // script_CompileAndProcess
  ;
 
 ref; // ME_53DA24B80027 
@@ -23,9 +23,9 @@ FORWARD ME_56420D340374
 : ME_56420D3E03A0
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_53DA23CD0105 // ScriptsCompilingAndProcessingPack
+ : Parent HWL ME_53DA23CD0105 // ScriptsCompilingAndProcessingPack
  ;
- : Target ME_56420D340374 // script_CompileStringAndProcess
+ : Target HWL ME_56420D340374 // script_CompileStringAndProcess
  ;
 
 ref; // ME_56420D3E03A0 
@@ -38,7 +38,7 @@ ref; // ME_56420D3E03A0
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_53DA23750089 // ScriptsCompilingAndProcessing
+ : Parent HWL ME_53DA23750089 // ScriptsCompilingAndProcessing
  ;
  : Dependencies
    Seq: ( ME_53DA24B80027 // script_CompileAndProcess
@@ -55,9 +55,9 @@ FORWARD ME_53DA24F802A7
 : ME_53DA250F023C
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_53DA248C0014 // script_CompileAndProcess
+ : Parent HWL ME_53DA248C0014 // script_CompileAndProcess
  ;
- : Target ME_53DA24F802A7 // TkwCompiledScriptCompileAndProcess
+ : Target HWL ME_53DA24F802A7 // TkwCompiledScriptCompileAndProcess
  ;
 
 ref; // ME_53DA250F023C 
@@ -77,7 +77,7 @@ ref; // ME_4DCBD67C0362_ME_53DA248C0014 CompiledWorkerClass
  %SUMMARY 'Компилирует скрипт и обрабатывает его указанной лямбдой' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_53DA23750089 // ScriptsCompilingAndProcessing
+ : Parent HWL ME_53DA23750089 // ScriptsCompilingAndProcessing
  ;
  : Inherits
    Seq: ( WL 'ME_4DCBD489023A' '54F079B5035C.pas.ms.script' // TtfwWordWorker
@@ -106,7 +106,7 @@ ref; // ME_53DA248C0014 script_CompileAndProcess
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_ref
- : Parent ME_53DA24F802A7 // TkwCompiledScriptCompileAndProcess
+ : Parent HWL ME_53DA24F802A7 // TkwCompiledScriptCompileAndProcess
  ;
  : Target WL 'ME_4DAF1A1700F7' '4DAF19F600C5.pas.ms.script' // ItfwScriptCaller
  ;
@@ -130,7 +130,7 @@ ref; // ME_56420D2501B6 aData
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_56420D080052 // MakeStream
+ : Parent HWL ME_56420D080052 // MakeStream
  ;
  : Target WL 'ME_52F4E6AA02BB' '4F4734A40270.pas.ms.script' // TtfwStreamFactory
  ;
@@ -149,10 +149,10 @@ ref; // ME_56420D1802C0 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_53DA24F802A7 // TkwCompiledScriptCompileAndProcess
+ : Parent HWL ME_53DA24F802A7 // TkwCompiledScriptCompileAndProcess
  ;
  : Operations
-   Seq: ( ME_56420D1802C0 // DoIt
+   Seq: ( HWL ME_56420D1802C0 // DoIt
  )
  ; // Operations
 
@@ -161,7 +161,7 @@ ref; // ME_56420D080052 MakeStream
 : ME_53DA2544016C
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_53DA24F802A7 // TkwCompiledScriptCompileAndProcess
+ : Parent HWL ME_53DA24F802A7 // TkwCompiledScriptCompileAndProcess
  ;
  : Target WL 'ME_52F4E85300D4' '4F4734A40270.pas.ms.script' // TtfwFileStreamFactory
  ;
@@ -171,7 +171,7 @@ ref; // ME_53DA2544016C
 : ME_53DA254E0013
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_53DA24F802A7 // TkwCompiledScriptCompileAndProcess
+ : Parent HWL ME_53DA24F802A7 // TkwCompiledScriptCompileAndProcess
  ;
  : Target WL 'ME_4DC90A1E03C2' '4DAEEA14018A.pas.ms.script' // TkwMain
  ;
@@ -183,9 +183,9 @@ FORWARD ME_53DA257D011C
 : ME_53DA259202C3
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_53DA24F802A7 // TkwCompiledScriptCompileAndProcess
+ : Parent HWL ME_53DA24F802A7 // TkwCompiledScriptCompileAndProcess
  ;
- : Target ME_53DA257D011C // TkwMainCodeController
+ : Target HWL ME_53DA257D011C // TkwMainCodeController
  ;
 
 ref; // ME_53DA259202C3 
@@ -193,7 +193,7 @@ ref; // ME_53DA259202C3
 : ME_53DA265C03DA
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_53DA24F802A7 // TkwCompiledScriptCompileAndProcess
+ : Parent HWL ME_53DA24F802A7 // TkwCompiledScriptCompileAndProcess
  ;
  : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
  ;
@@ -364,7 +364,7 @@ ref; // ME_536A15F901DA_ME_53DA24F802A7 CheckPictureOnly
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_53DA23750089 // ScriptsCompilingAndProcessing
+ : Parent HWL ME_53DA23750089 // ScriptsCompilingAndProcessing
  ;
  : Inherits
    Seq: ( WL 'ME_4DCBD50101CB' '54F079B5035C.pas.ms.script' // TkwCompiledWordWorker
@@ -375,11 +375,11 @@ ref; // ME_536A15F901DA_ME_53DA24F802A7 CheckPictureOnly
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_53DA33C9002A // f_NativeCaller
+   Seq: ( HWL ME_53DA33C9002A // f_NativeCaller
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_56420D080052 // MakeStream
+   Seq: ( HWL ME_56420D080052 // MakeStream
  )
  ; // Operations
  : Implemented
@@ -432,7 +432,7 @@ ref; // ME_53DA24F802A7 TkwCompiledScriptCompileAndProcess
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_53DA257D011C // TkwMainCodeController
+ : Parent HWL ME_53DA257D011C // TkwMainCodeController
  ;
  : Target WL 'ME_4DAEED140007' '4DAF19F600C5.pas.ms.script' // TtfwWord
  ;
@@ -446,7 +446,7 @@ ref; // ME_53DA26030089 f_Lambda
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_53DA257D011C // TkwMainCodeController
+ : Parent HWL ME_53DA257D011C // TkwMainCodeController
  ;
  : Target WL 'ME_4DCACEA0005A' '4DAF19F600C5.pas.ms.script' // PtfwContext
  ;
@@ -479,7 +479,7 @@ ref; // ME_53DA473A0293 aOuterContext
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_53DA263600C7 // Create
+ : Parent HWL ME_53DA263600C7 // Create
  ;
  : Parameters
    Seq: ( ME_53DA264A01A2 // aLambda
@@ -497,10 +497,10 @@ ref; // ME_53DA263D0225 DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_53DA257D011C // TkwMainCodeController
+ : Parent HWL ME_53DA257D011C // TkwMainCodeController
  ;
  : Operations
-   Seq: ( ME_53DA263D0225 // DoIt
+   Seq: ( HWL ME_53DA263D0225 // DoIt
  )
  ; // Operations
 
@@ -509,7 +509,7 @@ ref; // ME_53DA263600C7 Create
 : ME_53DA25E702CA
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_53DA257D011C // TkwMainCodeController
+ : Parent HWL ME_53DA257D011C // TkwMainCodeController
  ;
  : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
  ;
@@ -542,19 +542,19 @@ ref; // ME_55AF8A9D03A2_ME_53DA257D011C CacheDict
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_53DA23750089 // ScriptsCompilingAndProcessing
+ : Parent HWL ME_53DA23750089 // ScriptsCompilingAndProcessing
  ;
  : Inherits
    Seq: ( WL 'ME_4DC90A1E03C2' '4DAEEA14018A.pas.ms.script' // TkwMain
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_53DA26030089 // f_Lambda
- ME_53DA472201B5 // f_OuterContext
+   Seq: ( HWL ME_53DA26030089 // f_Lambda
+ HWL ME_53DA472201B5 // f_OuterContext
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_53DA263600C7 // Create
+   Seq: ( HWL ME_53DA263600C7 // Create
  )
  ; // Operations
  : Overridden
@@ -579,9 +579,9 @@ FORWARD ME_56420D5500CC
 : ME_56420D650171
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_56420D340374 // script_CompileStringAndProcess
+ : Parent HWL ME_56420D340374 // script_CompileStringAndProcess
  ;
- : Target ME_56420D5500CC // TkwCompiledScriptCompileStringAndProcess
+ : Target HWL ME_56420D5500CC // TkwCompiledScriptCompileStringAndProcess
  ;
 
 ref; // ME_56420D650171 
@@ -600,7 +600,7 @@ ref; // ME_4DCBD67C0362_ME_56420D340374 CompiledWorkerClass
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_53DA23750089 // ScriptsCompilingAndProcessing
+ : Parent HWL ME_53DA23750089 // ScriptsCompilingAndProcessing
  ;
  : Inherits
    Seq: ( WL 'ME_4DCBD489023A' '54F079B5035C.pas.ms.script' // TtfwWordWorker
@@ -625,7 +625,7 @@ ref; // ME_56420D340374 script_CompileStringAndProcess
 : ME_56420D760057
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_56420D5500CC // TkwCompiledScriptCompileStringAndProcess
+ : Parent HWL ME_56420D5500CC // TkwCompiledScriptCompileStringAndProcess
  ;
  : Target WL 'ME_52F4FAF80376' '4F4734A40270.pas.ms.script' // TtfwStringStreamFactory
  ;
@@ -633,7 +633,7 @@ ref; // ME_56420D340374 script_CompileStringAndProcess
 ref; // ME_56420D760057 
 
 : ME_56420D080052_ME_56420D5500CC
- : Original ME_56420D080052 // MakeStream
+ : Original HWL ME_56420D080052 // MakeStream
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_56420D080052_ME_56420D5500CC MakeStream
@@ -646,10 +646,10 @@ ref; // ME_56420D080052_ME_56420D5500CC MakeStream
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_53DA23750089 // ScriptsCompilingAndProcessing
+ : Parent HWL ME_53DA23750089 // ScriptsCompilingAndProcessing
  ;
  : Inherits
-   Seq: ( ME_53DA24F802A7 // TkwCompiledScriptCompileAndProcess
+   Seq: ( HWL ME_53DA24F802A7 // TkwCompiledScriptCompileAndProcess
  )
  ; // Inherits
  : Overridden
@@ -677,12 +677,12 @@ ref; // ME_56420D5500CC TkwCompiledScriptCompileStringAndProcess
  : Parent WL 'ME_4E1F0EB100C4' '4E1F0EB100C4.pas.ms.script' // ScriptEngine
  ;
  : Children
-   Seq: ( ME_53DA23CD0105 // ScriptsCompilingAndProcessingPack
- ME_53DA248C0014 // script_CompileAndProcess
- ME_53DA24F802A7 // TkwCompiledScriptCompileAndProcess
- ME_53DA257D011C // TkwMainCodeController
- ME_56420D340374 // script_CompileStringAndProcess
- ME_56420D5500CC // TkwCompiledScriptCompileStringAndProcess
+   Seq: ( HWL ME_53DA23CD0105 // ScriptsCompilingAndProcessingPack
+ HWL ME_53DA248C0014 // script_CompileAndProcess
+ HWL ME_53DA24F802A7 // TkwCompiledScriptCompileAndProcess
+ HWL ME_53DA257D011C // TkwMainCodeController
+ HWL ME_56420D340374 // script_CompileStringAndProcess
+ HWL ME_56420D5500CC // TkwCompiledScriptCompileStringAndProcess
  )
  ; // Children
  : Depends

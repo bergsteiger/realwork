@@ -14,7 +14,7 @@ FORWARD ME_47BC507501AB
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_47BC507501AB // TdtCustomDictItem
+ : Parent HWL ME_47BC507501AB // TdtCustomDictItem
  ;
  : Target WL 'ME_47BC52180382' '47BC51FE018B.pas.ms.script' // TDictID
  ;
@@ -40,14 +40,14 @@ ref; // ME_47BC3BFD017F_ME_47BC507501AB StringID
  %SUMMARY 'Базовый элемент словаря.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47BC50280350 // Dictionary
+ : Parent HWL ME_47BC50280350 // Dictionary
  ;
  : Inherits
    Seq: ( WL 'ME_47BC50F5038E' '47913B47006E.pas.ms.script' // Tl3NCString
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_47BC528601A2 // Handle
+   Seq: ( HWL ME_47BC528601A2 // Handle
  )
  ; // Attributes
  : Overridden
@@ -71,9 +71,9 @@ FORWARD ME_47BC53EE023A
  CONST Visibility PrivateAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_ref
- : Parent ME_47BC53EE023A // TdtDictItemsPrim
+ : Parent HWL ME_47BC53EE023A // TdtDictItemsPrim
  ;
- : Target ME_47BC507501AB // TdtCustomDictItem
+ : Target HWL ME_47BC507501AB // TdtCustomDictItem
  ;
 
 ref; // ME_47BC5421007E ItemType
@@ -101,7 +101,7 @@ ref; // ME_47B99D4503A2_ME_47BC53EE023A CompareExistingItems
  %SUMMARY 'Базовый список элементов словаря.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47BC50280350 // Dictionary
+ : Parent HWL ME_47BC50280350 // Dictionary
  ;
  : Inherits
    Seq: ( WL 'ME_47B99E920196' '47913B47006E.pas.ms.script' // l3UncomparabeObjectRefList
@@ -109,7 +109,7 @@ ref; // ME_47B99D4503A2_ME_47BC53EE023A CompareExistingItems
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_47BC5421007E // ItemType
+   Seq: ( HWL ME_47BC5421007E // ItemType
  )
  ; // Attributes
  : Implemented
@@ -134,7 +134,7 @@ FORWARD ME_47BC55C00240
  CONST Visibility PrivateAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_ref
- : Parent ME_47BC55C00240 // TdtDictItems
+ : Parent HWL ME_47BC55C00240 // TdtDictItems
  ;
  : Target WL 'ME_47BC52180382' '47BC51FE018B.pas.ms.script' // TDictID
  ;
@@ -156,15 +156,15 @@ ref; // ME_47B9BAFD01F4_ME_47BC55C00240 CompareItemWithData
  %SUMMARY 'Список элементов словаря.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_47BC50280350 // Dictionary
+ : Parent HWL ME_47BC50280350 // Dictionary
  ;
  : Inherits
    Seq: ( WL 'ME_47B47E230134' '47BB24D30205.pas.ms.script' // l3Searcher
- ME_47BC53EE023A // TdtDictItemsPrim
+ HWL ME_47BC53EE023A // TdtDictItemsPrim
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_47BC55F90059 // FindDataType
+   Seq: ( HWL ME_47BC55F90059 // FindDataType
  )
  ; // Attributes
  : Overridden
@@ -197,7 +197,7 @@ ref; // ME_4E2530AD00AB aDictID
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_4E253095034C // GetDictName
+ : Parent HWL ME_4E253095034C // GetDictName
  ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
@@ -216,10 +216,10 @@ ref; // ME_4E25309D027D DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4E25307E022D // DictsSup
+ : Parent HWL ME_4E25307E022D // DictsSup
  ;
  : Operations
-   Seq: ( ME_4E25309D027D // DoIt
+   Seq: ( HWL ME_4E25309D027D // DoIt
  )
  ; // Operations
 
@@ -233,10 +233,10 @@ ref; // ME_4E253095034C GetDictName
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_47BC50280350 // Dictionary
+ : Parent HWL ME_47BC50280350 // Dictionary
  ;
  : Operations
-   Seq: ( ME_4E253095034C // GetDictName
+   Seq: ( HWL ME_4E253095034C // GetDictName
  )
  ; // Operations
  CONST "finished" false
@@ -254,7 +254,7 @@ FORWARD ME_55E6B6330367
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_55E6B6330367 // dt_DictTypes
+ : Parent HWL ME_55E6B6330367 // dt_DictTypes
  ;
  CONST "finished" false
 
@@ -266,7 +266,7 @@ FORWARD ME_55E6B64E030E
  CONST Name 'Info'
  CONST Class class_Parameter
  : Stereotype st_const ;
- : Target ME_55E6B69701C1 // TDictMessageRec
+ : Target HWL ME_55E6B69701C1 // TDictMessageRec
  ;
 
 ref; // ME_55E6B6890215 Info
@@ -277,7 +277,7 @@ ref; // ME_55E6B6890215 Info
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_55E6B64E030E // IDictChangeNotifyRecipient
+ : Parent HWL ME_55E6B64E030E // IDictChangeNotifyRecipient
  ;
  : Parameters
    Seq: ( ME_55E6B6890215 // Info
@@ -295,10 +295,10 @@ ref; // ME_55E6B66A036E dcn__DictionaryChange
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_55E6B6330367 // dt_DictTypes
+ : Parent HWL ME_55E6B6330367 // dt_DictTypes
  ;
  : Operations
-   Seq: ( ME_55E6B66A036E // dcn__DictionaryChange
+   Seq: ( HWL ME_55E6B66A036E // dcn__DictionaryChange
  )
  ; // Operations
  CONST extprop:rc:SelfName 'DictChangeNotifyRecipient'
@@ -314,11 +314,11 @@ ref; // ME_55E6B64E030E IDictChangeNotifyRecipient
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_47BC50280350 // Dictionary
+ : Parent HWL ME_47BC50280350 // Dictionary
  ;
  : Children
-   Seq: ( ME_55E6B69701C1 // TDictMessageRec
- ME_55E6B64E030E // IDictChangeNotifyRecipient
+   Seq: ( HWL ME_55E6B69701C1 // TDictMessageRec
+ HWL ME_55E6B64E030E // IDictChangeNotifyRecipient
  )
  ; // Children
  CONST "finished" false
@@ -336,7 +336,7 @@ FORWARD ME_55E6DBED01B3
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_55E6DBED01B3 // dt_Dict
+ : Parent HWL ME_55E6DBED01B3 // dt_Dict
  ;
  CONST "finished" false
  CONST extprop:rc:SelfName 'DictionaryServer'
@@ -361,9 +361,9 @@ ref; // ME_55E6DC4C0134 aFamily
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_55E6DC0802A7 // DictServer
+ : Parent HWL ME_55E6DC0802A7 // DictServer
  ;
- : Target ME_55E6DC5C02C0 // TDictionaryServer
+ : Target HWL ME_55E6DC5C02C0 // TDictionaryServer
  ;
  : Parameters
    Seq: ( ME_55E6DC4C0134 // aFamily
@@ -380,10 +380,10 @@ ref; // ME_55E6DC37006A DoIt
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_55E6DBED01B3 // dt_Dict
+ : Parent HWL ME_55E6DBED01B3 // dt_Dict
  ;
  : Operations
-   Seq: ( ME_55E6DC37006A // DoIt
+   Seq: ( HWL ME_55E6DC37006A // DoIt
  )
  ; // Operations
  CONST "finished" false
@@ -398,14 +398,14 @@ ref; // ME_55E6DC0802A7 DictServer
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_47BC50280350 // Dictionary
+ : Parent HWL ME_47BC50280350 // Dictionary
  ;
  : Operations
-   Seq: ( ME_55E6DC0802A7 // DictServer
+   Seq: ( HWL ME_55E6DC0802A7 // DictServer
  )
  ; // Operations
  : Children
-   Seq: ( ME_55E6DC5C02C0 // TDictionaryServer
+   Seq: ( HWL ME_55E6DC5C02C0 // TDictionaryServer
  )
  ; // Children
  CONST "finished" false
@@ -424,7 +424,7 @@ FORWARD ME_55E94F580288
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_55E94F580288 // cLengths
+ : Parent HWL ME_55E94F580288 // cLengths
  ;
  CONST Value 30
  CONST "AutoInc" false
@@ -441,7 +441,7 @@ ref; // ME_55E94F65037D cPublInNumLen
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_55E94F580288 // cLengths
+ : Parent HWL ME_55E94F580288 // cLengths
  ;
  CONST Value 200
  CONST "AutoInc" false
@@ -458,7 +458,7 @@ ref; // ME_55E94F8E02C6 cSourceNameLen
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_55E94F580288 // cLengths
+ : Parent HWL ME_55E94F580288 // cLengths
  ;
  CONST Value 70
  CONST "AutoInc" false
@@ -475,7 +475,7 @@ ref; // ME_55E94FA40006 cSourceShortNameLen
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_55E94F580288 // cLengths
+ : Parent HWL ME_55E94F580288 // cLengths
  ;
  CONST Value 800
  CONST "AutoInc" false
@@ -493,13 +493,13 @@ ref; // ME_55E94FB2010A cSourceSynonimsLen
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_55E7042003D3 // dt_DictConst
+ : Parent HWL ME_55E7042003D3 // dt_DictConst
  ;
  : Attributes
-   Seq: ( ME_55E94F65037D // cPublInNumLen
- ME_55E94F8E02C6 // cSourceNameLen
- ME_55E94FA40006 // cSourceShortNameLen
- ME_55E94FB2010A // cSourceSynonimsLen
+   Seq: ( HWL ME_55E94F65037D // cPublInNumLen
+ HWL ME_55E94F8E02C6 // cSourceNameLen
+ HWL ME_55E94FA40006 // cSourceShortNameLen
+ HWL ME_55E94FB2010A // cSourceSynonimsLen
  )
  ; // Attributes
  CONST "spell names" false
@@ -514,10 +514,10 @@ ref; // ME_55E94F580288 cLengths
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_47BC50280350 // Dictionary
+ : Parent HWL ME_47BC50280350 // Dictionary
  ;
  : Constants
-   Seq: ( ME_55E94F580288 // cLengths
+   Seq: ( HWL ME_55E94F580288 // cLengths
  )
  ; // Constants
  CONST "finished" false
@@ -536,13 +536,13 @@ ref; // ME_55E7042003D3 dt_DictConst
  : Parent WL 'ME_47BC4FCB0115' '47BC4FCB0115.pas.ms.script' // DT
  ;
  : Children
-   Seq: ( ME_47BC507501AB // TdtCustomDictItem
- ME_47BC53EE023A // TdtDictItemsPrim
- ME_47BC55C00240 // TdtDictItems
- ME_4E25307E022D // DictsSup
- ME_55E6B6330367 // dt_DictTypes
- ME_55E6DBED01B3 // dt_Dict
- ME_55E7042003D3 // dt_DictConst
+   Seq: ( HWL ME_47BC507501AB // TdtCustomDictItem
+ HWL ME_47BC53EE023A // TdtDictItemsPrim
+ HWL ME_47BC55C00240 // TdtDictItems
+ HWL ME_4E25307E022D // DictsSup
+ HWL ME_55E6B6330367 // dt_DictTypes
+ HWL ME_55E6DBED01B3 // dt_Dict
+ HWL ME_55E7042003D3 // dt_DictConst
  )
  ; // Children
  : Depends

@@ -1,0 +1,142 @@
+// TdsListInfo 47FEF9AA00CC ViewAreaControllerImp Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47FEF9AA00CC
+
+: ME_4922A8E40072
+ CONST UID '4922A8E40072'
+ CONST Name 'InitDataType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent HWL ME_47FEF9AA00CC // TdsListInfo
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_4922A8E40072 InitDataType
+
+: ME_4922A8EE02F3
+ CONST UID '4922A8EE02F3'
+ CONST Name 'f_Info'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_47FEF9AA00CC // TdsListInfo
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_4922A8EE02F3 f_Info
+
+: ME_5018071F0299
+ CONST UID '5018071F0299'
+ CONST Name 'UseCaseControllerType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent HWL ME_47FEF9AA00CC // TdsListInfo
+ ;
+ : Target WL 'ME_5018061500D8' '4D1B444C015E.pas.ms.script' // IsdsListNameHolder
+ ;
+
+ref; // ME_5018071F0299 UseCaseControllerType
+
+: ME_4900615A011B
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_47FEF9AA00CC // TdsListInfo
+ ;
+ : Target WL 'ME_47878E0E0191' '54B90AC6014B.pas.ms.script' // l3String
+ ;
+
+ref; // ME_4900615A011B 
+
+: ME_49005EDD006C_ME_47FEF9AA00CC
+ : Original WL 'ME_49005EDD006C' '4D1B444C015E.pas.ms.script' // Info
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_49005EDD006C_ME_47FEF9AA00CC Info
+
+: ME_49005EEC0338_ME_47FEF9AA00CC
+ : Original WL 'ME_49005EEC0338' '4D1B444C015E.pas.ms.script' // ListName
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_49005EEC0338_ME_47FEF9AA00CC ListName
+
+: ME_49005EF9034C_ME_47FEF9AA00CC
+ : Original WL 'ME_49005EF9034C' '4D1B444C015E.pas.ms.script' // ShortListName
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_49005EF9034C_ME_47FEF9AA00CC ShortListName
+
+: ME_479731C50290_ME_47FEF9AA00CC
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_479731C50290_ME_47FEF9AA00CC Cleanup
+
+: ME_492ACF630072_ME_47FEF9AA00CC
+ : Original WL 'ME_492ACF630072' '47D0E1500033.pas.ms.script' // GotData
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_492ACF630072_ME_47FEF9AA00CC GotData
+
+: ME_47FEF9AA00CC
+ CONST UID '47FEF9AA00CC'
+ CONST Name 'TdsListInfo'
+ CONST Class class_Class
+ : Stereotype st_ViewAreaControllerImp ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Информация о списке.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent WL 'ME_47EA5024034B' '47EA5024034B.pas.ms.script' // ListDataSources
+ ;
+ : Inherits
+   Seq: ( WL 'ME_50180358024F' '47D0E1500033.pas.ms.script' // vcmFormDataSourceWithFlexUseCaseControllerType
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_49005E89009D' '4D1B444C015E.pas.ms.script' // IdsListInfo
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( HWL ME_4922A8E40072 // InitDataType
+ HWL ME_4922A8EE02F3 // f_Info
+ HWL ME_5018071F0299 // UseCaseControllerType
+ )
+ ; // Attributes
+ : Implemented
+   Seq: ( ME_49005EDD006C_ME_47FEF9AA00CC // Info
+ ME_49005EEC0338_ME_47FEF9AA00CC // ListName
+ ME_49005EF9034C_ME_47FEF9AA00CC // ShortListName
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_479731C50290_ME_47FEF9AA00CC // Cleanup
+ ME_492ACF630072_ME_47FEF9AA00CC // GotData
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_4900615A011B // l3String
+ )
+ ; // Dependencies
+ CONST "author" 'Морозов М.А.'
+ CONST "no hands" true
+ CONST "started" '29.07.2005 17.07'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Business\List\dsListInfo.pas'
+ CONST extprop:rc:SelfName 'dsListInfo'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'dsListInfo'
+
+ref; // ME_47FEF9AA00CC TdsListInfo

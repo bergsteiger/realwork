@@ -4,8 +4,8 @@ tasklist /FI "IMAGENAME eq callMSS.exe" /FO TABLE /NH >> hasgen.tmp
 for /f %%i in (hasgen.tmp) do if /I %%i==callMSS.exe goto got
 
 echo No gen running
-del changed.lst
-echo ~>>changed.lst
+del C:\Temp\changed.lst
+echo ~>>C:\Temp\changed.lst
 del "%~1" /s /q
 
 goto exit

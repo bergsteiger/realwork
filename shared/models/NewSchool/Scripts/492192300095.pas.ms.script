@@ -15,7 +15,7 @@ FORWARD ME_4921928D038A
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_4921928D038A // IdsFolderElement
+ : Parent HWL ME_4921928D038A // IdsFolderElement
  ;
  : Target WL 'ME_492192160370' '4990135D02F1.pas.ms.script' // IdeSaveObject
  ;
@@ -33,10 +33,10 @@ ref; // ME_492192AA0144 SaveObject
  %SUMMARY 'Элемент папок' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_492192300095 // FoldersInterfaces
+ : Parent HWL ME_492192300095 // FoldersInterfaces
  ;
  : Attributes
-   Seq: ( ME_492192AA0144 // SaveObject
+   Seq: ( HWL ME_492192AA0144 // SaveObject
  )
  ; // Attributes
  CONST extprop:rc:SelfName 'dsFolderElement'
@@ -53,7 +53,7 @@ ref; // ME_4921928D038A IdsFolderElement
  %SUMMARY 'консультация находится в процессе обработки' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_492192300095 // FoldersInterfaces
+ : Parent HWL ME_492192300095 // FoldersInterfaces
  ;
  : Inherits
    Seq: ( WL 'ME_4787A405013D' '4AB0C3C60310.pas.ms.script' // Exception
@@ -71,7 +71,7 @@ ref; // ME_49219A640243 EdsConsultationInProcess
  %SUMMARY 'консультация отправляется в службу консультаций' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_492192300095 // FoldersInterfaces
+ : Parent HWL ME_492192300095 // FoldersInterfaces
  ;
  : Inherits
    Seq: ( WL 'ME_4787A405013D' '4AB0C3C60310.pas.ms.script' // Exception
@@ -89,7 +89,7 @@ ref; // ME_49219A730061 EdsConsultationSending
  %SUMMARY 'пользователь отказался оплатить консультацию' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_492192300095 // FoldersInterfaces
+ : Parent HWL ME_492192300095 // FoldersInterfaces
  ;
  : Inherits
    Seq: ( WL 'ME_4787A405013D' '4AB0C3C60310.pas.ms.script' // Exception
@@ -116,12 +116,12 @@ ref; // ME_49219AED021B aNode
  %SUMMARY 'можно ли открыть элемент.'#13#10'           Возможные исключения:'#13#10'             - EdsConsultationInProcess;'#13#10'             - EdsConsultationSending;' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_49219A930293 // IdsFoldersTree
+ : Parent HWL ME_49219A930293 // IdsFoldersTree
  ;
  : CanRaise
-   Seq: ( ME_49219A640243 // EdsConsultationInProcess
- ME_49219A730061 // EdsConsultationSending
- ME_492EBE2802A6 // EdsOldRefusalConsultationFormat
+   Seq: ( HWL ME_49219A640243 // EdsConsultationInProcess
+ HWL ME_49219A730061 // EdsConsultationSending
+ HWL ME_492EBE2802A6 // EdsOldRefusalConsultationFormat
  )
  ; // CanRaise
  : Parameters
@@ -147,7 +147,7 @@ ref; // ME_49219B15005A aNode
  %SUMMARY 'определяет возможность открытия объекта без типизации' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_49219A930293 // IdsFoldersTree
+ : Parent HWL ME_49219A930293 // IdsFoldersTree
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -174,7 +174,7 @@ ref; // ME_49219B2702F1 aNode
  %SUMMARY 'определяет возможность оценки на консультацию' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_49219A930293 // IdsFoldersTree
+ : Parent HWL ME_49219A930293 // IdsFoldersTree
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -201,7 +201,7 @@ ref; // ME_49219B560268 aNode
  %SUMMARY 'можено удалить' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_49219A930293 // IdsFoldersTree
+ : Parent HWL ME_49219A930293 // IdsFoldersTree
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -228,7 +228,7 @@ ref; // ME_49219B670060 aNode
  %SUMMARY 'узел является консультацией' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_49219A930293 // IdsFoldersTree
+ : Parent HWL ME_49219A930293 // IdsFoldersTree
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -255,7 +255,7 @@ ref; // ME_49219B7402EE aNode
  %SUMMARY 'удалить консультацию' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_49219A930293 // IdsFoldersTree
+ : Parent HWL ME_49219A930293 // IdsFoldersTree
  ;
  : Parameters
    Seq: ( ME_49219B7402EE // aNode
@@ -280,7 +280,7 @@ ref; // ME_49219B8801C2 aNode
  %SUMMARY 'можно ли импортировать консультацию. Возможно только если aNode ='#13#10'           "Мои консультации"' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_49219A930293 // IdsFoldersTree
+ : Parent HWL ME_49219A930293 // IdsFoldersTree
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -307,7 +307,7 @@ ref; // ME_49219B9B0008 aFileName
  %SUMMARY 'испортировать консультацию.'#13#10'           Исключения:'#13#10'           - EAccessDenied;'#13#10'           - EInvalidXMLType;' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_49219A930293 // IdsFoldersTree
+ : Parent HWL ME_49219A930293 // IdsFoldersTree
  ;
  : Parameters
    Seq: ( ME_49219B9B0008 // aFileName
@@ -332,7 +332,7 @@ ref; // ME_49219BB5018F aNode
  %SUMMARY 'можно ли экспортировать полученный ответ на консультацию' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_49219A930293 // IdsFoldersTree
+ : Parent HWL ME_49219A930293 // IdsFoldersTree
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -359,7 +359,7 @@ ref; // ME_49219BC701C2 aNode
  %SUMMARY 'экспортировать консультацию.'#13#10'           Исключения:'#13#10'           - EInvalidEntityType;' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_49219A930293 // IdsFoldersTree
+ : Parent HWL ME_49219A930293 // IdsFoldersTree
  ;
  : Parameters
    Seq: ( ME_49219BC701C2 // aNode
@@ -384,7 +384,7 @@ ref; // ME_49219BD90082 aNode
  %SUMMARY 'можно ли экспортировать ноду из папок' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_49219A930293 // IdsFoldersTree
+ : Parent HWL ME_49219A930293 // IdsFoldersTree
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -420,7 +420,7 @@ ref; // ME_49219BEF0242 aFileName
  %SUMMARY 'экспортировать ноду из папок.'#13#10'           Исключения:'#13#10'           - EAccessDenied;'#13#10'           - EInvalidEntityType;' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_49219A930293 // IdsFoldersTree
+ : Parent HWL ME_49219A930293 // IdsFoldersTree
  ;
  : Parameters
    Seq: ( ME_49219BEF0204 // aNode
@@ -446,7 +446,7 @@ ref; // ME_49219C070003 aNode
  %SUMMARY 'можно ли импортировать ноду в папки' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_49219A930293 // IdsFoldersTree
+ : Parent HWL ME_49219A930293 // IdsFoldersTree
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -482,7 +482,7 @@ ref; // ME_49219C1A0255 aFileName
  %SUMMARY 'импортировать ноду в папки.'#13#10'           Исключения:'#13#10'           - EAccessDenied;'#13#10'           - EInvalidEntityType;' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_49219A930293 // IdsFoldersTree
+ : Parent HWL ME_49219A930293 // IdsFoldersTree
  ;
  : Parameters
    Seq: ( ME_49219C1A0213 // aNode
@@ -502,23 +502,23 @@ ref; // ME_49219C0C0077 ImportFromXML
  %SUMMARY 'Дерево папок' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_492192300095 // FoldersInterfaces
+ : Parent HWL ME_492192300095 // FoldersInterfaces
  ;
  : Operations
-   Seq: ( ME_49219AE20118 // CanBeOpen
- ME_49219B0B0108 // CanBeOpenAsConsultation
- ME_49219B1D02A0 // CanGiveMarkOnConsultation
- ME_49219B4D029C // CanDelete
- ME_49219B5E0026 // IsConsultation
- ME_49219B6D00F7 // DeleteConsultation
- ME_49219B7D0122 // CanImportConsultation
- ME_49219B9101C6 // ImportConsultation
- ME_49219BAA0308 // CanExportForIntegration
- ME_49219BBE035D // ExportForIntegration
- ME_49219BD0007C // CanExportToXML
- ME_49219BE201A9 // ExportToXML
- ME_49219BFC01FD // CanImportFromXML
- ME_49219C0C0077 // ImportFromXML
+   Seq: ( HWL ME_49219AE20118 // CanBeOpen
+ HWL ME_49219B0B0108 // CanBeOpenAsConsultation
+ HWL ME_49219B1D02A0 // CanGiveMarkOnConsultation
+ HWL ME_49219B4D029C // CanDelete
+ HWL ME_49219B5E0026 // IsConsultation
+ HWL ME_49219B6D00F7 // DeleteConsultation
+ HWL ME_49219B7D0122 // CanImportConsultation
+ HWL ME_49219B9101C6 // ImportConsultation
+ HWL ME_49219BAA0308 // CanExportForIntegration
+ HWL ME_49219BBE035D // ExportForIntegration
+ HWL ME_49219BD0007C // CanExportToXML
+ HWL ME_49219BE201A9 // ExportToXML
+ HWL ME_49219BFC01FD // CanImportFromXML
+ HWL ME_49219C0C0077 // ImportFromXML
  )
  ; // Operations
  CONST extprop:rc:SelfName 'dsFoldersTree'
@@ -536,7 +536,7 @@ ref; // ME_49219A930293 IdsFoldersTree
  %SUMMARY 'Папки' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_492192300095 // FoldersInterfaces
+ : Parent HWL ME_492192300095 // FoldersInterfaces
  ;
  CONST extprop:rc:SelfName 'dsFolders'
  CONST extprop:rc:isAcceptableForScripts true
@@ -554,9 +554,9 @@ FORWARD ME_492EAE13002A
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_492EAE13002A // IsdsFolders
+ : Parent HWL ME_492EAE13002A // IsdsFolders
  ;
- : Target ME_49340A8D0243 // IdsFolders
+ : Target HWL ME_49340A8D0243 // IdsFolders
  ;
  CONST "pm" true
 
@@ -571,9 +571,9 @@ ref; // ME_492EAE8B01AC dsFolders
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_492EAE13002A // IsdsFolders
+ : Parent HWL ME_492EAE13002A // IsdsFolders
  ;
- : Target ME_49219A930293 // IdsFoldersTree
+ : Target HWL ME_49219A930293 // IdsFoldersTree
  ;
  CONST "pm" true
 
@@ -588,9 +588,9 @@ ref; // ME_492EB06D013C dsFoldersTree
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent ME_492EAE13002A // IsdsFolders
+ : Parent HWL ME_492EAE13002A // IsdsFolders
  ;
- : Target ME_4921928D038A // IdsFolderElement
+ : Target HWL ME_4921928D038A // IdsFolderElement
  ;
  CONST "pm" true
 
@@ -606,12 +606,12 @@ ref; // ME_492EB098008A dsFolderElement
  %SUMMARY 'Прецедент папки' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_492192300095 // FoldersInterfaces
+ : Parent HWL ME_492192300095 // FoldersInterfaces
  ;
  : Attributes
-   Seq: ( ME_492EAE8B01AC // dsFolders
- ME_492EB06D013C // dsFoldersTree
- ME_492EB098008A // dsFolderElement
+   Seq: ( HWL ME_492EAE8B01AC // dsFolders
+ HWL ME_492EB06D013C // dsFoldersTree
+ HWL ME_492EB098008A // dsFolderElement
  )
  ; // Attributes
  CONST extprop:rc:SelfName 'sdsFolders'
@@ -630,13 +630,13 @@ ref; // ME_492EAE13002A IsdsFolders
  : Parent WL 'ME_493FCEBB018B' '493FCEBB018B.pas.ms.script' // Folders
  ;
  : Children
-   Seq: ( ME_4921928D038A // IdsFolderElement
- ME_49219A640243 // EdsConsultationInProcess
- ME_49219A730061 // EdsConsultationSending
- ME_492EBE2802A6 // EdsOldRefusalConsultationFormat
- ME_49219A930293 // IdsFoldersTree
- ME_49340A8D0243 // IdsFolders
- ME_492EAE13002A // IsdsFolders
+   Seq: ( HWL ME_4921928D038A // IdsFolderElement
+ HWL ME_49219A640243 // EdsConsultationInProcess
+ HWL ME_49219A730061 // EdsConsultationSending
+ HWL ME_492EBE2802A6 // EdsOldRefusalConsultationFormat
+ HWL ME_49219A930293 // IdsFoldersTree
+ HWL ME_49340A8D0243 // IdsFolders
+ HWL ME_492EAE13002A // IsdsFolders
  )
  ; // Children
  : Depends

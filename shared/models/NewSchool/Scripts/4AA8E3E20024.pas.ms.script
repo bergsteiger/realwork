@@ -1,0 +1,65 @@
+// GroupProperty 4AA8E3E20024 VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AA8E3E20024
+
+: ME_71BC5A4EDB66
+ CONST UID '71BC5A4EDB66'
+ CONST GUID 'F213AE84-ECF9-427D-8B89-53C6221D1F27'
+ CONST Name 'GroupProperty'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_VCMFormDefinition ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Идентификатор формы GroupProperty' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4AA8E3E20024 // GroupProperty
+ ;
+ : Implementors
+   Seq: ( HWL ME_4AA8E3E20024 // GroupProperty
+ )
+ ; // Implementors
+ CONST extprop:pas:TypeName 'GroupPropertyFormDef'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_71BC5A4EDB66 GroupProperty$Def
+
+: ME_4AA8E3E20024
+ CONST UID '4AA8E3E20024'
+ CONST Name 'GroupProperty'
+ CONST Class class_Class
+ : Stereotype st_VCMFinalForm ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Свойства группы' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent WL 'ME_4AA5120303E5' '4AA5120303E5.pas.ms.script' // Admin
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4C8A09E103B7' '4C8A09E103B7.pas.ms.script' // PrimGroupPropertyOptions
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( HWL ME_71BC5A4EDB66 // GroupProperty$Def
+ )
+ ; // Implements
+ : Children
+   Seq: ( HWL ME_71BC5A4EDB66 // GroupProperty$Def
+ )
+ ; // Children
+ CONST "NeedsHackRef" true
+ CONST "ZoneType" 'Modal'
+ CONST "finished dfm" true
+ CONST "form name prefix" 'ef'
+ CONST "resizeable" false
+ CONST "restrict form def" 'undefined'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Admin\Forms\GroupProperty_Form.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Admin\Forms'
+ CONST extprop:pas:TypeName 'TefGroupProperty'
+ CONST extprop:rc:SelfName 'efGroupProperty'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'GroupProperty_Form'
+
+ref; // ME_4AA8E3E20024 GroupProperty

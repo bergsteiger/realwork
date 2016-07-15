@@ -1,0 +1,60 @@
+// DictionContainer 4D7A6A2E00F7 VCMFinalContainer Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4D7A6A2E00F7
+
+: ME_08B8272CA440
+ CONST UID '08B8272CA440'
+ CONST Name 'Ini_FormFactory_DictionContainer'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы DictionContainer' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4D7A6A2E00F7 // DictionContainer
+ ;
+ : SpelledFor HWL ME_4D7A6A2E00F7 // DictionContainer
+ ;
+
+ref; // ME_08B8272CA440 Ini_FormFactory_DictionContainer
+
+: ME_4D7A6A2E00F7
+ CONST UID '4D7A6A2E00F7'
+ CONST Name 'DictionContainer'
+ CONST Class class_Class
+ : Stereotype st_VCMFinalContainer ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent WL 'ME_4A9CE5F2036F' '4A9CE5F2036F.pas.ms.script' // Diction$FP
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4D7A69F9028C' '4D7A69F9028C.pas.ms.script' // PrimDictionContainer
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4D7A6A680179' '4BD856E802F9.pas.ms.script' // DictionContainer
+ )
+ ; // Implements
+ : Operations
+   Seq: ( HWL ME_08B8272CA440 // Ini_FormFactory_DictionContainer
+ )
+ ; // Operations
+ CONST "NeedsHackRef" true
+ CONST "ZoneType" 'Any'
+ CONST "author" 'Люлин А.В.'
+ CONST "finished dfm" true
+ CONST "no hands" true
+ CONST "resizeable" false
+ CONST "restrict form def" 'undefined'
+ CONST "started" '11.03.2011 21:30'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Diction\Forms\DictionContainer_Form.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Diction\Forms'
+ CONST extprop:pas:TypeName 'TDictionContainerForm'
+ CONST extprop:rc:SelfName 'DictionContainerForm'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'DictionContainer_Form'
+
+ref; // ME_4D7A6A2E00F7 DictionContainer

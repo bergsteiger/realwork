@@ -32,7 +32,7 @@ ref; // ME_4AE97390014D aCloseInterval
  %SUMMARY 'Начать процесс завершения работы' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4A8EC9DC0375 // System
+ : Parent HWL ME_4A8EC9DC0375 // System
  ;
  : Parameters
    Seq: ( ME_4AE973900136 // aShotdown
@@ -59,10 +59,10 @@ ref; // ME_4A8EC9E902CD InitShutdown
  %SUMMARY 'Система' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4A8EC95E015F // InternalOperations
+ : Parent HWL ME_4A8EC95E015F // InternalOperations
  ;
  : Operations
-   Seq: ( ME_4A8EC9E902CD // InitShutdown
+   Seq: ( HWL ME_4A8EC9E902CD // InitShutdown
  )
  ; // Operations
 
@@ -78,7 +78,7 @@ FORWARD ME_4C8A27C4035F
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_4C8A27C4035F // Help
+ : Parent HWL ME_4C8A27C4035F // Help
  ;
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -100,10 +100,10 @@ ref; // ME_4C8A27DA0087 HelpTopics
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4A8EC95E015F // InternalOperations
+ : Parent HWL ME_4A8EC95E015F // InternalOperations
  ;
  : Operations
-   Seq: ( ME_4C8A27DA0087 // HelpTopics
+   Seq: ( HWL ME_4C8A27DA0087 // HelpTopics
  )
  ; // Operations
 
@@ -120,8 +120,8 @@ ref; // ME_4C8A27C4035F Help
  : Parent WL 'ME_4986ECDF01F4' '4986ECDF01F4.pas.ms.script' // View
  ;
  : Children
-   Seq: ( ME_4A8EC9DC0375 // System
- ME_4C8A27C4035F // Help
+   Seq: ( HWL ME_4A8EC9DC0375 // System
+ HWL ME_4C8A27C4035F // Help
  )
  ; // Children
  : Depends

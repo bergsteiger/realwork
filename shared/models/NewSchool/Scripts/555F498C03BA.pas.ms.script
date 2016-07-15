@@ -16,32 +16,10 @@ FORWARD ME_555F49A0015B
  %SUMMARY 'Контракт сервиса Tl3EtalonsService' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_555F49A0015B // Tl3EtalonsService
+ : Parent HWL ME_555F49A0015B // Tl3EtalonsService
  ;
 
 ref; // ME_2B5260926DBC Ml3EtalonsService
-
-: ME_196A761AE947
- CONST UID '196A761AE947'
- CONST GUID '61640207-46D1-41DC-A087-0DC7D620B901'
- CONST Name 'Il3EtalonsService'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Facet ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Интерфейс сервиса Tl3EtalonsService' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_555F49A0015B // Tl3EtalonsService
- ;
- : Implements
-   Seq: ( ME_2B5260926DBC // Ml3EtalonsService
- )
- ; // Implements
- CONST extprop:rc:SelfName 'EtalonsService'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_196A761AE947 Il3EtalonsService
 
 : ME_555F49BD0098
  CONST UID '555F49BD0098'
@@ -51,7 +29,7 @@ ref; // ME_196A761AE947 Il3EtalonsService
  CONST Visibility PublicAccess
  CONST Abstraction at_final
  CONST LinkType lt_agr
- : Parent ME_555F49A0015B // Tl3EtalonsService
+ : Parent HWL ME_555F49A0015B // Tl3EtalonsService
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -69,7 +47,7 @@ ref; // ME_555F49BD0098 EtalonNeedsComputerName
  CONST Visibility PublicAccess
  CONST Abstraction at_final
  CONST LinkType lt_agr
- : Parent ME_555F49A0015B // Tl3EtalonsService
+ : Parent HWL ME_555F49A0015B // Tl3EtalonsService
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -87,7 +65,7 @@ ref; // ME_555F49DE0060 EtalonNeedsOSName
  CONST Visibility PublicAccess
  CONST Abstraction at_final
  CONST LinkType lt_agr
- : Parent ME_555F49A0015B // Tl3EtalonsService
+ : Parent HWL ME_555F49A0015B // Tl3EtalonsService
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -106,7 +84,7 @@ ref; // ME_555F49FD0175 EtalonNeedsXE
  CONST Visibility PublicAccess
  CONST Abstraction at_final
  CONST LinkType lt_agr
- : Parent ME_555F49A0015B // Tl3EtalonsService
+ : Parent HWL ME_555F49A0015B // Tl3EtalonsService
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -124,37 +102,27 @@ ref; // ME_555F4A16032F EtalonNeeds64
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_555F498C03BA // EtalonsServices
+ : Parent HWL ME_555F498C03BA // EtalonsServices
  ;
  : Inherits
    Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
  )
  ; // Inherits
- : Implements
-   Seq: ( ME_2B5260926DBC // Ml3EtalonsService
- )
- ; // Implements
  : Attributes
-   Seq: ( ME_555F49BD0098 // EtalonNeedsComputerName
- ME_555F49DE0060 // EtalonNeedsOSName
- ME_555F49FD0175 // EtalonNeedsXE
- ME_555F4A16032F // EtalonNeeds64
+   Seq: ( HWL ME_555F49BD0098 // EtalonNeedsComputerName
+ HWL ME_555F49DE0060 // EtalonNeedsOSName
+ HWL ME_555F49FD0175 // EtalonNeedsXE
+ HWL ME_555F4A16032F // EtalonNeeds64
  )
  ; // Attributes
  : Children
-   Seq: ( ME_2B5260926DBC // Ml3EtalonsService
- ME_196A761AE947 // Il3EtalonsService
+   Seq: ( HWL ME_2B5260926DBC // Ml3EtalonsService
  )
  ; // Children
- CONST "singleton" true
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3EtalonsService.pas'
  CONST extprop:rc:SelfName 'EtalonsService'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'l3EtalonsService'
- : Facet ME_196A761AE947 // Il3EtalonsService
- ;
- : Mixin ME_2B5260926DBC // Ml3EtalonsService
- ;
 
 ref; // ME_555F49A0015B Tl3EtalonsService
 
@@ -168,7 +136,7 @@ ref; // ME_555F49A0015B Tl3EtalonsService
  : Parent WL 'ME_550012C403C4' '550012C403C4.pas.ms.script' // L3$AFW
  ;
  : Children
-   Seq: ( ME_555F49A0015B // Tl3EtalonsService
+   Seq: ( HWL ME_555F49A0015B // Tl3EtalonsService
  )
  ; // Children
  : Depends

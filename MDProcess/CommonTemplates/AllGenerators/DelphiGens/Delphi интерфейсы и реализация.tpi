@@ -49,7 +49,8 @@ F %S%f_pas_script_GenerateForward()
 	[{%S%f_pas_script_NeedOwnFile()=true}\
 	%S%f_pas_script_Generate()\
 	]\
-	<{}{%C#f_pas_script_NeedOwnFile()=true}%CX>
+	<%CX>
+//	<{}{%C#f_pas_script_NeedOwnFile()=true}%CX>
 
 f _CallAppend
 	[{%S%f_pas_script_runner_NeedOwnFile()=true}\
@@ -71,7 +72,8 @@ O %S%f_pas_script_runner_FileName()
 	[{%S%f_pas_script_runner_NeedOwnFile()=true}\
 	%S%f_pas_script_runner_Generate()\
 	]\
-	<{}{%C#f_pas_script_runner_NeedOwnFile()=true}%CX>
+	<%CX>
+//	<{}{%C#f_pas_script_runner_NeedOwnFile()=true}%CX>
 //#UC END# *563CBCC10243for470F151302FD*
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -281,7 +283,6 @@ f _OutInclude
 	%f_shift_intend(+1)\
 	%f_pas_OpenType(%S)\
 	[{%S{need UC}=true}%U[{ci}\n]\n]\
-	%S%f_pas_OutMixInValues()\
 	<{}{"%CS"="impurity value"}\
 	[{%SU=%C%TU}%SF]\
 	#_%CN_ = %f_pas_TypeName(%C%T);\n\
@@ -476,7 +477,6 @@ f _OutInclude
 	>\
 	]\
 
-	%S%f_pas_BeforeClassEnd()\
 	#end;//%f_pas_TypeName(%S)\
 	%S%f_pas_AfterClassEnd()\
 	<{}{%t_interface(%R)=true}%R<{}{%CS=impurity value}%f_set_var(%CN,"")>>\
@@ -545,11 +545,6 @@ f _CalcParentAndInclude
 %f _pas_OutClassMark
 //#UC START# *494B74D7016Bfor470F151302FD*
 //#UC END# *494B74D7016Bfor470F151302FD*
-
-// Выводит значения параметров примесей
-%f _pas_OutMixInValues
-//#UC START# *494B7E6D0125for470F151302FD*
-//#UC END# *494B7E6D0125for470F151302FD*
 
 // Определяет является ли элемент контроллером прецедента
 %f _IsUseCaseController
@@ -887,13 +882,6 @@ f _CalcParentAndInclude
 	[{<{}{%C#f_IsVCMController()=true}{C}>!=0}{false}true]
 //#UC END# *497874AD00B1for470F151302FD*
 
-// Определяет, что стереотип содержит хотя бы один именованный VCM-контроллер среди своих детей
-%f _HasAnyNamedVCMController
-//#UC START# *4978770402B4for470F151302FD*
-@ %SU
-	[{<{}{%C#f_IsVCMController()=true&"%CN"!=""}{C}>!=0}{false}true]
-//#UC END# *4978770402B4for470F151302FD*
-
 // Определяет, что элемент является контролелром области вывода
 %f _IsViewAreaController
 //#UC START# *497DF8C8028Efor470F151302FD*
@@ -1162,10 +1150,6 @@ f _CalcParentAndInclude
 	%f_shift_intend(+1)]
 //#UC END# *4A7ADFAE0118for470F151302FD*
 
-%f _pas_BeforeClassEnd
-//#UC START# *4A9293AE02DCfor470F151302FD*
-//#UC END# *4A9293AE02DCfor470F151302FD*
-
 %f _pas_TotalUses
 //#UC START# *4AA8B1D901E5for470F151302FD*
 	[{"%SS"!=""|"%SC"!=""}\
@@ -1375,38 +1359,6 @@ f _clear_TotalUses
 
 %f _DoSpell
 //#UC START# *4B2A19E3038Bfor470F151302FD*
-	%f_SpellAreaLinks(%S)
-
-f _SpellAreaLinks
-	[{%f_UseNewGenRecG(%S)!=true}\
-	[{%SC=Class}\
-	[{%S#f_IsMethod()!=true}\
-	[{%S#f_IsInterface()!=true&%S#f_IsVCMFormSetFactory()!=true&%S#f_IsVCMZone()!=true}\
-	%f_set_var(PARENT_CLASS,S)\
-//	<{}{%P#f_IsControl()!=true}\
-//	%f_set_var(PARENT_CLASS,P)\
-//	%f_cycle_break(%S)\
-//	>\
-
-	<{}{%o#f_IsVCMAreaLink()=true}\
-	[{"%{IvcmViewAreaControllerRef}N"=""}%f_find_element(IvcmViewAreaControllerRef,IvcmViewAreaControllerRef)]\
-	%{PARENT_CLASS}%f_make_accessable(%{IvcmViewAreaControllerRef}U)\
-	%{PARENT_CLASS}%f_add_attribute(%oU_AutoField,,\
-	f_%oN: %{IvcmViewAreaControllerRef}U,\
-	Attr_Inst)\
-	%{Attr_Inst}%f_set_link_type(ref)\
-//	%{Attr_Inst}%f_set_abstraction_type(final)\
-	%{Attr_Inst}%f_set_visibility_type(PrivateAccess)\
-	%{Attr_Inst}%f_set_up(ifdef,%o{ifdef})\
-	%{Attr_Inst}%f_set_up(ifndef,%o{ifndef})\
-	%{Attr_Inst}%f_set_applied_gen(cpp,false)\
-	%{Attr_Inst}%f_set_applied_gen(h,false)\
-	%{Attr_Inst}%f_set_documentation(Поле для области вывода %oN)\
-	>\
-	]\
-	]\
-	]\
-	]
 //#UC END# *4B2A19E3038Bfor470F151302FD*
 
 %f _IsMethod
@@ -1697,72 +1649,6 @@ f _NeedFinalize
 	true\
 	]
 //#UC END# *4BA3AF160024for470F151302FD*
-
-// Реализация Spell'а для итератора
-%f _IteratorSpell
-//#UC START# *4BA884DD00A7for470F151302FD*
-	[{%S#f_UseNewGenRec()!=true}\
-	[{%SC!=Class|%Cx=true}\
-	[{%S#f_IsOverride()!=true}\
-//	- это чтобы C++ не сломать
-
-	[{%SC=Class}{\
-	%f_set_var(ELEMENT_TYPE,T)\
-	}\
-	<{}{%CS=element type}%f_set_var(ELEMENT_TYPE,C%T)>\
-	]\
-
-//	[{"%{ELEMENT_TYPE}S"="ImpurityParamType"}\
-//	%f_warning("%{%{ELEMENT_TYPE}N}U")\
-//	%f_set_var(ELEMENT_TYPE,{%{ELEMENT_TYPE}N})\
-//	]\
-
-	%P%f_add_class(%SU_Action,Function,%PN_%f_N(%S)_Action,Action_Inst)\
-	%{Action_Inst}%f_set_visibility_type(PublicAccess)\
-	%{Action_Inst}%f_set_documentation(Тип подитеративной функции для %PN.%f_N(%S))\
-	%{Action_Inst}%f_add_operation(%SU_Action_Sig,,\
-	DoIt (anItem: \
-//	[{"%{ELEMENT_TYPE}S"="ImpurityParamType"}{\
-	%{ELEMENT_TYPE}U\
-//	}\
-//	%{%{ELEMENT_TYPE}N}U\
-//	]\
-	[{%S{needs index}=true}\
-	, anIndex: [{}{long}<{}{%CS=index type}%C%TU>]\
-	]\
-	): boolean,Op_Instance\
-	)\
-	%{Op_Instance}%f_set_documentation(Тип подитеративной функции для %PN.%f_N(%S))\
-	%S%f_set_var(Action,{Action_Inst})\
-
-	%P%f_add_operation(%SU_Stub,static,L2_%PN_%f_N(%S)_Action (anAction: pointer): %{Action_Inst}U,Op_Instance)
-	%{Op_Instance}%f_set_documentation(Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для %PN.%f_N(%S))\
-	%{Op_Instance}%f_set_up(isGlobal,true)\
-	%{Op_Instance}%f_set_up(isAsm,true)\
-
-	%S%f_set_var(Stub,{Op_Instance})\
-
-	[{"%S%{SPELLER}N"!=""}\
-	%S%{SPELLER}%f_set_var(Stub,{Op_Instance})\
-	]\
-
-	[{"%{l3LocalStub}N"=""}%f_find_element(l3LocalStub,l3LocalStub)]\
-	%P%f_make_accessable(%{l3LocalStub}U)\
-	[{%SC=Class}\
-	%f_addCDep(%S,%{l3LocalStub})\
-	]\
-
-	%{Op_Instance}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Op_Instance},%P)_var,\
-	 {-}\
-	)\
-	%{Op_Instance}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Op_Instance},%P)_impl,\
-	\tjmp l3LocalStub\
-	)\
-	]\
-
-	]\
-	]
-//#UC END# *4BA884DD00A7for470F151302FD*
 
 %f _IsIterator
 // возвращаемый результат: boolean
@@ -2102,12 +1988,16 @@ f _NeedFinalize
 	[{%SC=Class}{\
 	true\
 	}\
-	[{%PC=Class|%SS=TestCase}{\
+	[{%SS=VCMFormsPack|%SS=VCMUseCaseRealization|%S#f_IsVCMForm()=true|%SS=ViewAreaControllerImp|%SS=UseCaseControllerImp|%SS=VCMFormSetFactory|%SS=VCMAbstractFormSetFactory|%SS=VCMApplication|%SS=VCMTestApplication}{\
+	[{%SS=GuiControl&%PC!=Class}{\
 	false\
 // - наверное классы не надо в отдельные файлы выливать
-//	true\
-	}
-	false\
+	}\
+	true\
+	]\
+	}\
+	true\
+// - а вот паки и формы - наверное нужно
 	]\
 	]\
 	}\
@@ -2156,7 +2046,6 @@ f _NeedFinalize
 	[{"%SS"!=""}\
 	[{%SC=Category|%SC=Class}{\
 	[{%SC=Operation|%SC=Attribute|%SC=Dependency}{\
-//	 CONST Stereotype '%f_str_replace(%SS,','')'
 	 : Stereotype st_%f_str_replace(%SS, ,_) ;
 	}\
 	 : Stereotype st_%f_str_replace(%SS, ,_)::%SC ;
@@ -2391,6 +2280,12 @@ f _NeedFinalize
 	]\
 	]\
 
+	[{"%S#f_InitFieldsUC()"!=""}\
+	[\
+	 CONST extprop:pas:InitFields %f_out_val(%f_fine_string("%f_with_gen_id(intf.pas,%S#f_InitFieldsUC())"))
+	]\
+	]\
+
 	[{"%S{prop_stereo}"!=""}\
 	[\
 	 CONST extprop:prop_stereo %f_out_val("%S{prop_stereo}")
@@ -2433,22 +2328,6 @@ f _NeedFinalize
 
 	[{%S#f_NeedsInitEntities()=true}\
 	 CONST extprop:NeedsInitEntities true
-	]\
-
-	[{%S#f_HasAnyVCMController()=true}\
-	 CONST extprop:HasAnyVCMController true
-	]\
-
-	[{"%S%{Facet}U"!=""}\
-	[\
-	 : Facet %S%{Facet}#f_pas_script_Reference() ;
-	]\
-	]\
-
-	[{"%S%{Mixin}U"!=""}\
-	[\
-	 : Mixin %S%{Mixin}#f_pas_script_Reference() ;
-	]\
 	]\
 
 	[{"%S%{Speller}U"!=""}\
@@ -2608,7 +2487,7 @@ f _out_val
 	]
 
 f _fine_string
-	%f_str_replace(%f_str_replace(%SN,',''),\n,'\#13\#10')
+	%f_str_replace(%f_str_replace(%f_str_replace(%SN,',''),\n,'\#13\#10'),\t, )
 
 f _cut_quotes
 	%f_cut_postfix(%f_cut_prefix(%SN,%f_quote(%S)),%f_quote(%S))
@@ -3119,13 +2998,13 @@ f _IsConstants
 	<%E#f_pas_script_GenerateIncludeOrForward()>\
 	<%e#f_pas_script_GenerateIncludeOrForward()>\
 
-	[{"%S%{Facet}U"!=""}\
-	%S%{Facet}#f_pas_script_GenerateIncludeOrForward()\
-	]\
+//	[{"%S%{Facet}U"!=""}\
+//	%S%{Facet}#f_pas_script_GenerateIncludeOrForward()\
+//	]\
 
-	[{"%S%{Mixin}U"!=""}\
-	%S%{Mixin}#f_pas_script_GenerateIncludeOrForward()\
-	]\
+//	[{"%S%{Mixin}U"!=""}\
+//	%S%{Mixin}#f_pas_script_GenerateIncludeOrForward()\
+//	]\
 
 	[{"%S%{Speller}U"!=""}\
 	%S%{Speller}#f_pas_script_GenerateIncludeOrForward()\
@@ -3267,6 +3146,10 @@ f _OutOverride
 // возвращаемый результат: a-string
 //#UC START# *563765ED0263for470F151302FD*
 	[{"%S#f_pas_script_FileNameForLink()"!="%BO"}{\
+	[{%SC=Dependency|%SC=Parameter}{\
+	HWL \
+	}\
+	]\
 	%S%f_pas_script_Name()\
 	}\
 	WL '%S%f_pas_script_Name()' \

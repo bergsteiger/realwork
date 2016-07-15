@@ -4,948 +4,7 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 FORWARD ME_491D9414002B
 
-: ME_491D945A00C7
- CONST UID '491D945A00C7'
- CONST Name 'TdsAdmin'
- CONST Class class_Class
- : Stereotype st_ViewAreaControllerImp ;
- CONST Kind kind_NormalClass
- %SUMMARY 'бизнес объект контейнера cfAdmin' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_491D9414002B // Admin
- ;
- : Inherits
-   Seq: ( WL 'ME_47ECE94D03D4' '47D0E1500033.pas.ms.script' // vcmFormDataSourcePrim
- )
- ; // Inherits
- : Implements
-   Seq: ( WL 'ME_4933A4190027' '491D961C0122.pas.ms.script' // IdsAdmin
- )
- ; // Implements
- CONST "author" 'Тучнин Д.А.'
- CONST "no hands" true
- CONST "started" '16.08.2005 13.00'
- CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Admin\dsAdmin.pas'
- CONST extprop:rc:SelfName 'dsAdmin'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'dsAdmin'
-
-ref; // ME_491D945A00C7 TdsAdmin
-
-FORWARD ME_491D9D81001D
-
-FORWARD ME_491D9DFC0019
-
-: ME_491D9E0F01A4
- CONST UID '491D9E0F01A4'
- CONST Name 'c_MaxLength'
- CONST Class class_Attribute
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_491D9DFC0019 // Limits
- ;
- CONST Value 50
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value 50
-
-ref; // ME_491D9E0F01A4 c_MaxLength
-
-: ME_491D9DFC0019
- CONST UID '491D9DFC0019'
- CONST Name 'Limits'
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- : Parent ME_491D9D81001D // TdsForbidAutoregistration
- ;
- : Attributes
-   Seq: ( ME_491D9E0F01A4 // c_MaxLength
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_491D9DFC0019 Limits
-
-: ME_4B02D8A60167
- CONST UID '4B02D8A60167'
- CONST Name 'f_NeedForbid'
- CONST Class class_Attribute
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_491D9D81001D // TdsForbidAutoregistration
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_4B02D8A60167 f_NeedForbid
-
-: ME_491D9E2B031F
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_491D9D81001D // TdsForbidAutoregistration
- ;
- : Target WL 'ME_48FF556602BA' '48F747EC0073.pas.ms.script' // DataAdapter
- ;
-
-ref; // ME_491D9E2B031F 
-
-: ME_491DA04703CD
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_491D9D81001D // TdsForbidAutoregistration
- ;
- : Target WL 'ME_47878E0E0191' '54B90AC6014B.pas.ms.script' // l3String
- ;
-
-ref; // ME_491DA04703CD 
-
-: ME_491D96B9006E_ME_491D9D81001D
- : Original WL 'ME_491D96B9006E' '491D961C0122.pas.ms.script' // Phone
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" true
-ref; // ME_491D96B9006E_ME_491D9D81001D Phone
-
-: ME_491D96D0039F_ME_491D9D81001D
- : Original WL 'ME_491D96D0039F' '491D961C0122.pas.ms.script' // Email
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" true
-ref; // ME_491D96D0039F_ME_491D9D81001D Email
-
-: ME_4B02D4DD00FC_ME_491D9D81001D
- : Original WL 'ME_4B02D4DD00FC' '491D961C0122.pas.ms.script' // NeedForbid
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" false
-ref; // ME_4B02D4DD00FC_ME_491D9D81001D NeedForbid
-
-: ME_47A042E100E2_ME_491D9D81001D
- : Original WL 'ME_47A042E100E2' '47913B47006E.pas.ms.script' // InitFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_47A042E100E2_ME_491D9D81001D InitFields
-
-: ME_491D9D81001D
- CONST UID '491D9D81001D'
- CONST Name 'TdsForbidAutoregistration'
- CONST Class class_Class
- : Stereotype st_ViewAreaControllerImp ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Запрет авторегистрации' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_491D9414002B // Admin
- ;
- : Inherits
-   Seq: ( WL 'ME_47ECE94D03D4' '47D0E1500033.pas.ms.script' // vcmFormDataSourcePrim
- )
- ; // Inherits
- : Implements
-   Seq: ( WL 'ME_491D962D01DA' '491D961C0122.pas.ms.script' // IdsForbidAutoregistration
- )
- ; // Implements
- : Attributes
-   Seq: ( ME_4B02D8A60167 // f_NeedForbid
- )
- ; // Attributes
- : Implemented
-   Seq: ( ME_491D96B9006E_ME_491D9D81001D // Phone
- ME_491D96D0039F_ME_491D9D81001D // Email
- ME_4B02D4DD00FC_ME_491D9D81001D // NeedForbid
- )
- ; // Implemented
- : Overridden
-   Seq: ( ME_47A042E100E2_ME_491D9D81001D // InitFields
- )
- ; // Overridden
- : Constants
-   Seq: ( ME_491D9DFC0019 // Limits
- )
- ; // Constants
- : Dependencies
-   Seq: ( ME_491D9E2B031F // DataAdapter
- ME_491DA04703CD // l3String
- )
- ; // Dependencies
- CONST "author" 'Морозов М.А.'
- CONST "no hands" true
- CONST "started" '20.05.2007'
- CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Admin\dsForbidAutoregistration.pas'
- CONST extprop:rc:SelfName 'dsForbidAutoregistration'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'dsForbidAutoregistration'
-
-ref; // ME_491D9D81001D TdsForbidAutoregistration
-
-FORWARD ME_491DA7AB0298
-
-: ME_491DA8220016
- CONST UID '491DA8220016'
- CONST Name 'InitDataType'
- CONST Class class_Attribute
- : Stereotype st_impurity_value::Attribute ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_abstract
- CONST LinkType lt_agr
- : Parent ME_491DA7AB0298 // TdsUserProperty
- ;
- : Target WL 'ME_491DA3810273' '491D961C0122.pas.ms.script' // IdeProfile
- ;
-
-ref; // ME_491DA8220016 InitDataType
-
-: ME_49787F4B01C1
- CONST UID '49787F4B01C1'
- CONST Name 'SDS'
- CONST Class class_Attribute
- : Stereotype st_UseCase::Attribute ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- CONST LinkType lt_lnk
- : Parent ME_491DA7AB0298 // TdsUserProperty
- ;
- : Target WL 'ME_491DAB560173' '491D961C0122.pas.ms.script' // IsdsAdmin
- ;
-
-ref; // ME_49787F4B01C1 SDS
-
-: ME_4F1D49590281
- CONST UID '4F1D49590281'
- CONST Name 'f_IsReadOnlyFor268342582'
- CONST Class class_Attribute
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_491DA7AB0298 // TdsUserProperty
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_4F1D49590281 f_IsReadOnlyFor268342582
-
-: ME_491DA8E3029B
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_491DA7AB0298 // TdsUserProperty
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_491DA8E3029B 
-
-: ME_491DA8F702C3
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_491DA7AB0298 // TdsUserProperty
- ;
- : Target WL 'ME_48FF556602BA' '48F747EC0073.pas.ms.script' // DataAdapter
- ;
-
-ref; // ME_491DA8F702C3 
-
-: ME_491DA9B30071
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_491DA7AB0298 // TdsUserProperty
- ;
- : Target WL 'ME_48FF569700F6' '47F2170002B2.pas.ms.script' // StringRoutines
- ;
-
-ref; // ME_491DA9B30071 
-
-: ME_491DA9D90115
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_491DA7AB0298 // TdsUserProperty
- ;
- : Target WL 'ME_431841610361' '4423F94903C8.pas.ms.script' // String
- ;
-
-ref; // ME_491DA9D90115 
-
-: ME_491DABE700BA
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_491DA7AB0298 // TdsUserProperty
- ;
- : Target WL 'ME_47FB50E4008E' '48F747EC0073.pas.ms.script' // nsConst
- ;
-
-ref; // ME_491DABE700BA 
-
-: ME_491DA41B00E4_ME_491DA7AB0298
- : Original WL 'ME_491DA41B00E4' '491D961C0122.pas.ms.script' // CreateUserProfile
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_491DA41B00E4_ME_491DA7AB0298 CreateUserProfile
-
-: ME_49E5B86D002D_ME_491DA7AB0298
- : Original WL 'ME_49E5B86D002D' '491D961C0122.pas.ms.script' // CreateUserFinished
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_49E5B86D002D_ME_491DA7AB0298 CreateUserFinished
-
-: ME_49F6E60E0293_ME_491DA7AB0298
- : Original WL 'ME_49F6E60E0293' '491D961C0122.pas.ms.script' // CheckUnsavedUserProperty
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_49F6E60E0293_ME_491DA7AB0298 CheckUnsavedUserProperty
-
-: ME_4B50439D03B6_ME_491DA7AB0298
- : Original WL 'ME_4B50439D03B6' '4ACF68160358.pas.ms.script' // DefaultGroupID
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4B50439D03B6_ME_491DA7AB0298 DefaultGroupID
-
-: ME_4F1D3E8501B0_ME_491DA7AB0298
- : Original WL 'ME_4F1D3E8501B0' '491D961C0122.pas.ms.script' // IsReadOnlyFor268342582
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" false
-ref; // ME_4F1D3E8501B0_ME_491DA7AB0298 IsReadOnlyFor268342582
-
-: ME_479731C50290_ME_491DA7AB0298
- : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_479731C50290_ME_491DA7AB0298 Cleanup
-
-: ME_492ACF630072_ME_491DA7AB0298
- : Original WL 'ME_492ACF630072' '47D0E1500033.pas.ms.script' // GotData
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_492ACF630072_ME_491DA7AB0298 GotData
-
-: ME_4B5049D901A9_ME_491DA7AB0298
- : Original WL 'ME_4B5049D901A9' '4ACF68160358.pas.ms.script' // ClearNewUser
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4B5049D901A9_ME_491DA7AB0298 ClearNewUser
-
-: ME_491DA7AB0298
- CONST UID '491DA7AB0298'
- CONST Name 'TdsUserProperty'
- CONST Class class_Class
- : Stereotype st_ViewAreaControllerImp ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_491D9414002B // Admin
- ;
- : Inherits
-   Seq: ( WL 'ME_492ACB4100B2' '47D0E1500033.pas.ms.script' // vcmFormDataSource
- )
- ; // Inherits
- : Implements
-   Seq: ( WL 'ME_491DA3AF0290' '491D961C0122.pas.ms.script' // IdsUserProperty
- WL 'ME_4B50388A00E5' '4ACF68160358.pas.ms.script' // nsUserPropertyImpl
- )
- ; // Implements
- : Attributes
-   Seq: ( ME_491DA8220016 // InitDataType
- ME_49787F4B01C1 // SDS
- ME_4F1D49590281 // f_IsReadOnlyFor268342582
- )
- ; // Attributes
- : Implemented
-   Seq: ( ME_491DA41B00E4_ME_491DA7AB0298 // CreateUserProfile
- ME_49E5B86D002D_ME_491DA7AB0298 // CreateUserFinished
- ME_49F6E60E0293_ME_491DA7AB0298 // CheckUnsavedUserProperty
- ME_4B50439D03B6_ME_491DA7AB0298 // DefaultGroupID
- ME_4F1D3E8501B0_ME_491DA7AB0298 // IsReadOnlyFor268342582
- )
- ; // Implemented
- : Overridden
-   Seq: ( ME_479731C50290_ME_491DA7AB0298 // Cleanup
- ME_492ACF630072_ME_491DA7AB0298 // GotData
- ME_4B5049D901A9_ME_491DA7AB0298 // ClearNewUser
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_491DA8E3029B // SysUtils
- ME_491DA8F702C3 // DataAdapter
- ME_491DA9B30071 // StringRoutines
- ME_491DA9D90115 // String
- ME_491DABE700BA // nsConst
- )
- ; // Dependencies
- CONST "author" 'Тучнин Д.А.'
- CONST "no hands" true
- CONST "started" '15.08.2005 20.30'
- CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Admin\dsUserProperty.pas'
- CONST extprop:rc:SelfName 'dsUserProperty'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'dsUserProperty'
- CONST extprop:HasAnyVCMController true
-
-ref; // ME_491DA7AB0298 TdsUserProperty
-
-FORWARD ME_49246742002B
-
-: ME_492467D4020B
- CONST UID '492467D4020B'
- CONST Name 'f_Root'
- CONST Class class_Attribute
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_49246742002B // TdsUserList
- ;
- : Target WL 'ME_45EEB95901C5' '457450470167.pas.ms.script' // NodeBase
- ;
-
-ref; // ME_492467D4020B f_Root
-
-: ME_492467F60282
- CONST UID '492467F60282'
- CONST Name 'CurrentFlagFilter'
- CONST Class class_Attribute
- : Stereotype st_readonly::Attribute ;
- CONST Visibility ProtectedAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_49246742002B // TdsUserList
- ;
- : Target WL 'ME_49245FE703A3' '491D961C0122.pas.ms.script' // TUserListFilterTypes
- ;
- CONST "needs field" true
- CONST "pm" true
- CONST "reads field" true
-
-ref; // ME_492467F60282 CurrentFlagFilter
-
-: ME_492D60810349
- CONST UID '492D60810349'
- CONST Name 'InitDataType'
- CONST Class class_Attribute
- : Stereotype st_impurity_value::Attribute ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_abstract
- CONST LinkType lt_agr
- : Parent ME_49246742002B // TdsUserList
- ;
- : Target WL 'ME_49245E750210' '491D961C0122.pas.ms.script' // IdeNode
- ;
-
-ref; // ME_492D60810349 InitDataType
-
-: ME_4978666B005C
- CONST UID '4978666B005C'
- CONST Name 'SDS'
- CONST Class class_Attribute
- : Stereotype st_UseCase::Attribute ;
- %SUMMARY 'Прецедент Администрирование' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- CONST LinkType lt_lnk
- : Parent ME_49246742002B // TdsUserList
- ;
- : Target WL 'ME_491DAB560173' '491D961C0122.pas.ms.script' // IsdsAdmin
- ;
-
-ref; // ME_4978666B005C SDS
-
-: ME_49F02D70017F
- CONST UID '49F02D70017F'
- CONST Name 'CurrentGroupFilter'
- CONST Class class_Attribute
- : Stereotype st_readonly::Attribute ;
- CONST Visibility ProtectedAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_49246742002B // TdsUserList
- ;
- : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
- ;
- CONST "needs field" true
- CONST "pm" true
- CONST "reads field" true
-
-ref; // ME_49F02D70017F CurrentGroupFilter
-
-: ME_AEBFCCE1FE05
- CONST UID 'AEBFCCE1FE05'
- CONST Name 'f_CurrentFlagFilter'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства CurrentFlagFilter' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_49246742002B // TdsUserList
- ;
- : Target WL 'ME_49245FE703A3' '491D961C0122.pas.ms.script' // TUserListFilterTypes
- ;
-
-ref; // ME_AEBFCCE1FE05 f_CurrentFlagFilter
-
-: ME_CF3BF9A8D4AD
- CONST UID 'CF3BF9A8D4AD'
- CONST Name 'f_CurrentGroupFilter'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства CurrentGroupFilter' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_49246742002B // TdsUserList
- ;
- : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
- ;
-
-ref; // ME_CF3BF9A8D4AD f_CurrentGroupFilter
-
-: ME_49246C7503D5
- CONST Name 'aTree'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46825CC00249' '4682595B0268.pas.ms.script' // Il3SimpleTree
- ;
-
-ref; // ME_49246C7503D5 aTree
-
-: ME_49246C70028F
- CONST UID '49246C70028F'
- CONST Name 'MakeSelectedList'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_49246742002B // TdsUserList
- ;
- : Target WL 'ME_559E9E3D0263' '491D961C0122.pas.ms.script' // IadminUserNodeList
- ;
- : Parameters
-   Seq: ( ME_49246C7503D5 // aTree
- )
- ; // Parameters
-
-ref; // ME_49246C70028F MakeSelectedList
-
-: ME_492468610112
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_49246742002B // TdsUserList
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_492468610112 
-
-: ME_492468F10292
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_49246742002B // TdsUserList
- ;
- : Target WL 'ME_45EED4D003A9' '45EEAA96039C.pas.ms.script' // ProfileNodeType
- ;
-
-ref; // ME_492468F10292 
-
-: ME_49246BE500AD
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_49246742002B // TdsUserList
- ;
- : Target WL 'ME_47F4853203E7' '47F485150151.pas.ms.script' // vtUtils
- ;
-
-ref; // ME_49246BE500AD 
-
 FORWARD ME_49246C1F015D
-
-: ME_49246C2903B3
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_49246742002B // TdsUserList
- ;
- : Target ME_49246C1F015D // AdminRes
- ;
-
-ref; // ME_49246C2903B3 
-
-: ME_4924716E001A
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_49246742002B // TdsUserList
- ;
- : Target WL 'ME_47CBED200390' '47913B47006E.pas.ms.script' // Tl3InterfacedInterfaceList
- ;
-
-ref; // ME_4924716E001A 
-
-: ME_4924726E0339
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_49246742002B // TdsUserList
- ;
- : Target WL 'ME_47F25741021C' '47E246C90144.pas.ms.script' // l3Nodes
- ;
-
-ref; // ME_4924726E0339 
-
-FORWARD ME_492472AC0033
-
-: ME_492472BE0394
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_49246742002B // TdsUserList
- ;
- : Target ME_492472AC0033 // TdeNode
- ;
-
-ref; // ME_492472BE0394 
-
-: ME_49247339034D
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_49246742002B // TdsUserList
- ;
- : Target WL 'ME_4901E66D024F' '47ECAAF901F8.pas.ms.script' // InsUserFlagsFilters
- ;
-
-ref; // ME_49247339034D 
-
-: ME_492473900010
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_49246742002B // TdsUserList
- ;
- : Target WL 'ME_4901E8E20154' '4ACF68160358.pas.ms.script' // TnsUserFlagsFilter
- ;
-
-ref; // ME_492473900010 
-
-: ME_492474700264
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_49246742002B // TdsUserList
- ;
- : Target WL 'ME_456EB3E10177' '456EA56002BF.pas.ms.script' // EntityBase
- ;
-
-ref; // ME_492474700264 
-
-: ME_492474B00083
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_49246742002B // TdsUserList
- ;
- : Target WL 'ME_49F16EBF02AD' '4901E79300F5.pas.ms.script' // TnsUserTreeStructWithDrag
- ;
-
-ref; // ME_492474B00083 
-
-: ME_49F0187300D5
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_49246742002B // TdsUserList
- ;
- : Target WL 'ME_49F017390338' '4ACF68160358.pas.ms.script' // TnsGroupFilter
- ;
-
-ref; // ME_49F0187300D5 
-
-: ME_49F03CA10181
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_49246742002B // TdsUserList
- ;
- : Target WL 'ME_47FB50E4008E' '48F747EC0073.pas.ms.script' // nsConst
- ;
-
-ref; // ME_49F03CA10181 
-
-FORWARD ME_4AA5275401A5
-
-: ME_4AA527E9029C
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_49246742002B // TdsUserList
- ;
- : Target ME_4AA5275401A5 // TdeProfile
- ;
-
-ref; // ME_4AA527E9029C 
-
-FORWARD ME_559E9F2B02D6
-
-: ME_559F83360136
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_49246742002B // TdsUserList
- ;
- : Target ME_559E9F2B02D6 // TadminUserNodeList
- ;
-
-ref; // ME_559F83360136 
-
-: ME_47F4C2B9014A_ME_49246742002B
- : Original WL 'ME_47F4C2B9014A' '47F282AE0082.pas.ms.script' // MakeSimpleTree
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_47F4C2B9014A_ME_49246742002B MakeSimpleTree
-
-: ME_49245EB103E1_ME_49246742002B
- : Original WL 'ME_49245EB103E1' '491D961C0122.pas.ms.script' // UserListNodeType
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_49245EB103E1_ME_49246742002B UserListNodeType
-
-: ME_49245EC10119_ME_49246742002B
- : Original WL 'ME_49245EC10119' '491D961C0122.pas.ms.script' // GetFrosenNode
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_49245EC10119_ME_49246742002B GetFrosenNode
-
-: ME_49245ECB01E9_ME_49246742002B
- : Original WL 'ME_49245ECB01E9' '491D961C0122.pas.ms.script' // FindFrosenNode
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_49245ECB01E9_ME_49246742002B FindFrosenNode
-
-: ME_49245EDB0225_ME_49246742002B
- : Original WL 'ME_49245EDB0225' '491D961C0122.pas.ms.script' // DeleteUser
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_49245EDB0225_ME_49246742002B DeleteUser
-
-: ME_49245EE602A0_ME_49246742002B
- : Original WL 'ME_49245EE602A0' '491D961C0122.pas.ms.script' // DeleteUsers
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_49245EE602A0_ME_49246742002B DeleteUsers
-
-: ME_49245EF90140_ME_49246742002B
- : Original WL 'ME_49245EF90140' '491D961C0122.pas.ms.script' // CreateNewUser
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_49245EF90140_ME_49246742002B CreateNewUser
-
-: ME_49245F730020_ME_49246742002B
- : Original WL 'ME_49245F730020' '491D961C0122.pas.ms.script' // GetUserState
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_49245F730020_ME_49246742002B GetUserState
-
-: ME_49245FA201D9_ME_49246742002B
- : Original WL 'ME_49245FA201D9' '491D961C0122.pas.ms.script' // LogoutUser
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_49245FA201D9_ME_49246742002B LogoutUser
-
-: ME_49245FC30050_ME_49246742002B
- : Original WL 'ME_49245FC30050' '491D961C0122.pas.ms.script' // LogoutUsers
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_49245FC30050_ME_49246742002B LogoutUsers
-
-: ME_49246092009E_ME_49246742002B
- : Original WL 'ME_49246092009E' '491D961C0122.pas.ms.script' // FiltrateByType
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_49246092009E_ME_49246742002B FiltrateByType
-
-: ME_49246116033D_ME_49246742002B
- : Original WL 'ME_49246116033D' '491D961C0122.pas.ms.script' // SetConsultingPaymentForAll
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_49246116033D_ME_49246742002B SetConsultingPaymentForAll
-
-: ME_4924612E0296_ME_49246742002B
- : Original WL 'ME_4924612E0296' '491D961C0122.pas.ms.script' // SetConsultingPayment
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4924612E0296_ME_49246742002B SetConsultingPayment
-
-: ME_4924614D0345_ME_49246742002B
- : Original WL 'ME_4924614D0345' '491D961C0122.pas.ms.script' // SetIsPrivileged
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4924614D0345_ME_49246742002B SetIsPrivileged
-
-: ME_4924615E0279_ME_49246742002B
- : Original WL 'ME_4924615E0279' '491D961C0122.pas.ms.script' // SetPrivelegedRights
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4924615E0279_ME_49246742002B SetPrivelegedRights
-
-: ME_492461970357_ME_49246742002B
- : Original WL 'ME_492461970357' '491D961C0122.pas.ms.script' // SelectNodes
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_492461970357_ME_49246742002B SelectNodes
-
-: ME_492461B60284_ME_49246742002B
- : Original WL 'ME_492461B60284' '491D961C0122.pas.ms.script' // CurrentFlagFilter
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" true
-ref; // ME_492461B60284_ME_49246742002B CurrentFlagFilter
-
-: ME_492461FE0363_ME_49246742002B
- : Original WL 'ME_492461FE0363' '491D961C0122.pas.ms.script' // ConsultingPaymentForNewbies
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" true
-ref; // ME_492461FE0363_ME_49246742002B ConsultingPaymentForNewbies
-
-: ME_49E5B8C7024C_ME_49246742002B
- : Original WL 'ME_49E5B8C7024C' '491D961C0122.pas.ms.script' // NotifyCreateUserFinished
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_49E5B8C7024C_ME_49246742002B NotifyCreateUserFinished
-
-: ME_49F02BA70361_ME_49246742002B
- : Original WL 'ME_49F02BA70361' '491D961C0122.pas.ms.script' // NotifyGroupChanged
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_49F02BA70361_ME_49246742002B NotifyGroupChanged
-
-: ME_49F02C0400AA_ME_49246742002B
- : Original WL 'ME_49F02C0400AA' '491D961C0122.pas.ms.script' // FiltrateByGroup
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_49F02C0400AA_ME_49246742002B FiltrateByGroup
-
-: ME_49F6DB9B02A8_ME_49246742002B
- : Original WL 'ME_49F6DB9B02A8' '491D961C0122.pas.ms.script' // CheckUnsavedUserProperty
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_49F6DB9B02A8_ME_49246742002B CheckUnsavedUserProperty
-
-: ME_49F6E0DB0163_ME_49246742002B
- : Original WL 'ME_49F6E0DB0163' '491D961C0122.pas.ms.script' // RequestUpdateCureent
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_49F6E0DB0163_ME_49246742002B RequestUpdateCureent
-
-: ME_479731C50290_ME_49246742002B
- : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_479731C50290_ME_49246742002B Cleanup
-
-: ME_47F0C1BF0314_ME_49246742002B
- : Original WL 'ME_47F0C1BF0314' '47F282AE0082.pas.ms.script' // DoCurrentChanged
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_47F0C1BF0314_ME_49246742002B DoCurrentChanged
-
-: ME_47F465F80149_ME_49246742002B
- : Original WL 'ME_47F465F80149' '47F282AE0082.pas.ms.script' // MakeImageList
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_47F465F80149_ME_49246742002B MakeImageList
-
-: ME_492ACF630072_ME_49246742002B
- : Original WL 'ME_492ACF630072' '47D0E1500033.pas.ms.script' // GotData
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_492ACF630072_ME_49246742002B GotData
-
-: ME_49246742002B
- CONST UID '49246742002B'
- CONST Name 'TdsUserList'
- CONST Class class_Class
- : Stereotype st_ViewAreaControllerImp ;
- CONST Kind kind_NormalClass
- %SUMMARY 'бизнес объект формы efUserList' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_491D9414002B // Admin
- ;
- : Inherits
-   Seq: ( WL 'ME_47F0C1410011' '47F282AE0082.pas.ms.script' // dsSimpleTree
- )
- ; // Inherits
- : Implements
-   Seq: ( WL 'ME_49245DD203E0' '491D961C0122.pas.ms.script' // IdsUserList
- WL 'ME_492D91B7037E' '47F282AE0082.pas.ms.script' // nsContextFilter
- )
- ; // Implements
- : Attributes
-   Seq: ( ME_492467D4020B // f_Root
- ME_492467F60282 // CurrentFlagFilter
- ME_492D60810349 // InitDataType
- ME_4978666B005C // SDS
- ME_49F02D70017F // CurrentGroupFilter
- ME_AEBFCCE1FE05 // f_CurrentFlagFilter
- ME_CF3BF9A8D4AD // f_CurrentGroupFilter
- )
- ; // Attributes
- : Operations
-   Seq: ( ME_49246C70028F // MakeSelectedList
- )
- ; // Operations
- : Implemented
-   Seq: ( ME_47F4C2B9014A_ME_49246742002B // MakeSimpleTree
- ME_49245EB103E1_ME_49246742002B // UserListNodeType
- ME_49245EC10119_ME_49246742002B // GetFrosenNode
- ME_49245ECB01E9_ME_49246742002B // FindFrosenNode
- ME_49245EDB0225_ME_49246742002B // DeleteUser
- ME_49245EE602A0_ME_49246742002B // DeleteUsers
- ME_49245EF90140_ME_49246742002B // CreateNewUser
- ME_49245F730020_ME_49246742002B // GetUserState
- ME_49245FA201D9_ME_49246742002B // LogoutUser
- ME_49245FC30050_ME_49246742002B // LogoutUsers
- ME_49246092009E_ME_49246742002B // FiltrateByType
- ME_49246116033D_ME_49246742002B // SetConsultingPaymentForAll
- ME_4924612E0296_ME_49246742002B // SetConsultingPayment
- ME_4924614D0345_ME_49246742002B // SetIsPrivileged
- ME_4924615E0279_ME_49246742002B // SetPrivelegedRights
- ME_492461970357_ME_49246742002B // SelectNodes
- ME_492461B60284_ME_49246742002B // CurrentFlagFilter
- ME_492461FE0363_ME_49246742002B // ConsultingPaymentForNewbies
- ME_49E5B8C7024C_ME_49246742002B // NotifyCreateUserFinished
- ME_49F02BA70361_ME_49246742002B // NotifyGroupChanged
- ME_49F02C0400AA_ME_49246742002B // FiltrateByGroup
- ME_49F6DB9B02A8_ME_49246742002B // CheckUnsavedUserProperty
- ME_49F6E0DB0163_ME_49246742002B // RequestUpdateCureent
- )
- ; // Implemented
- : Overridden
-   Seq: ( ME_479731C50290_ME_49246742002B // Cleanup
- ME_47F0C1BF0314_ME_49246742002B // DoCurrentChanged
- ME_47F465F80149_ME_49246742002B // MakeImageList
- ME_492ACF630072_ME_49246742002B // GotData
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_492468610112 // SysUtils
- ME_492468F10292 // ProfileNodeType
- ME_49246BE500AD // vtUtils
- ME_49246C2903B3 // AdminRes
- ME_4924716E001A // Tl3InterfacedInterfaceList
- ME_4924726E0339 // l3Nodes
- ME_492472BE0394 // TdeNode
- ME_49247339034D // InsUserFlagsFilters
- ME_492473900010 // TnsUserFlagsFilter
- ME_492474700264 // EntityBase
- ME_492474B00083 // TnsUserTreeStructWithDrag
- ME_49F0187300D5 // TnsGroupFilter
- ME_49F03CA10181 // nsConst
- ME_4AA527E9029C // TdeProfile
- ME_559F83360136 // TadminUserNodeList
- )
- ; // Dependencies
- CONST "author" 'Тучнин Д.А.'
- CONST "no hands" true
- CONST "started" '15.08.2005 20.30'
- CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Admin\dsUserList.pas'
- CONST extprop:rc:SelfName 'dsUserList'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'dsUserList'
- CONST extprop:HasAnyVCMController true
-
-ref; // ME_49246742002B TdsUserList
 
 : ME_49246C310363
  CONST UID '49246C310363'
@@ -953,7 +12,7 @@ ref; // ME_49246742002B TdsUserList
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_49246C1F015D // AdminRes
+ : Parent HWL ME_49246C1F015D // AdminRes
  ;
 
 ref; // ME_49246C310363 dmAdmin
@@ -966,10 +25,10 @@ ref; // ME_49246C310363 dmAdmin
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_491D9414002B // Admin
+ : Parent HWL ME_491D9414002B // Admin
  ;
  : Operations
-   Seq: ( ME_49246C310363 // dmAdmin
+   Seq: ( HWL ME_49246C310363 // dmAdmin
  )
  ; // Operations
  CONST "finished" false
@@ -977,1106 +36,7 @@ ref; // ME_49246C310363 dmAdmin
 
 ref; // ME_49246C1F015D AdminRes
 
-FORWARD ME_493126130280
-
-: ME_49EEDCDA0085
- CONST UID '49EEDCDA0085'
- CONST Name 'f_CurrentGroupID'
- CONST Class class_Attribute
- %SUMMARY 'Текущая группа' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_493126130280 // TsdsAdmin
- ;
- : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
- ;
-
-ref; // ME_49EEDCDA0085 f_CurrentGroupID
-
-: ME_49F0282D02AA
- CONST UID '49F0282D02AA'
- CONST Name 'InternalUserList'
- CONST Class class_Attribute
- : Stereotype st_readonly::Attribute ;
- %SUMMARY 'Ссылка на собственный ds' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_493126130280 // TsdsAdmin
- ;
- : Target WL 'ME_49245DD203E0' '491D961C0122.pas.ms.script' // IdsUserList
- ;
- CONST "needs field" false
- CONST "pm" true
-
-ref; // ME_49F0282D02AA InternalUserList
-
-: ME_49F6E384028E
- CONST UID '49F6E384028E'
- CONST Name 'InternalUserProperty'
- CONST Class class_Attribute
- : Stereotype st_readonly::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_493126130280 // TsdsAdmin
- ;
- : Target WL 'ME_491DA3AF0290' '491D961C0122.pas.ms.script' // IdsUserProperty
- ;
- CONST "needs field" false
- CONST "pm" true
-
-ref; // ME_49F6E384028E InternalUserProperty
-
-: ME_493126CC02EE
- CONST UID '493126CC02EE'
- CONST Name 'f_Profile'
- CONST Class class_Attribute
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_493126130280 // TsdsAdmin
- ;
- : Target WL 'ME_491DA3810273' '491D961C0122.pas.ms.script' // IdeProfile
- ;
-
-ref; // ME_493126CC02EE f_Profile
-
-: ME_4931295B0260
- CONST UID '4931295B0260'
- CONST Name 'BaseAccessRootTag'
- CONST Class class_Attribute
- : Stereotype st_readonly::Attribute ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_493126130280 // TsdsAdmin
- ;
- : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
- ;
- CONST "needs field" false
- CONST "pm" true
-
-ref; // ME_4931295B0260 BaseAccessRootTag
-
-: ME_4931297703B0
- CONST UID '4931297703B0'
- CONST Name 'BaseAccessRoot'
- CONST Class class_Attribute
- : Stereotype st_readonly::Attribute ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_493126130280 // TsdsAdmin
- ;
- : Target WL 'ME_45EEB95901C5' '457450470167.pas.ms.script' // NodeBase
- ;
- CONST "needs field" false
- CONST "pm" true
-
-ref; // ME_4931297703B0 BaseAccessRoot
-
-: ME_4947A57603E2
- CONST UID '4947A57603E2'
- CONST Name 'InitDataType'
- CONST Class class_Attribute
- : Stereotype st_impurity_value::Attribute ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_abstract
- CONST LinkType lt_agr
- : Parent ME_493126130280 // TsdsAdmin
- ;
- : Target WL 'ME_49EEBFE5027B' '491D961C0122.pas.ms.script' // IdeAdmin
- ;
-
-ref; // ME_4947A57603E2 InitDataType
-
-FORWARD ME_4AAF58000352
-
-: ME_4AAF58140359
- CONST UID '4AAF58140359'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AAF58000352 // ChangeBaseAccess
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_4AAF58140359 DoIt
-
-: ME_4AAF574702B7
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AAF58000352 // ChangeBaseAccess
- ;
- : Target WL 'ME_4AE593970016' '4AA005310028.pas.ms.script' // TdeSearch
- ;
-
-ref; // ME_4AAF574702B7 
-
-FORWARD ME_495504A000F2
-
-: ME_4AAF58D20046
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AAF58000352 // ChangeBaseAccess
- ;
- : Target ME_495504A000F2 // TdsBasesAccess
- ;
-
-ref; // ME_4AAF58D20046 
-
-: ME_4AAF58000352
- CONST UID '4AAF58000352'
- CONST Name 'ChangeBaseAccess'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_493126130280 // TsdsAdmin
- ;
- : Operations
-   Seq: ( ME_4AAF58140359 // DoIt
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_4AAF574702B7 // TdeSearch
- ME_4AAF58D20046 // TdsBasesAccess
- )
- ; // Dependencies
-
-ref; // ME_4AAF58000352 ChangeBaseAccess
-
-: ME_493129250026
- CONST Name 'aNode'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
- ;
-
-ref; // ME_493129250026 aNode
-
-: ME_4931291701BD
- CONST UID '4931291701BD'
- CONST Name 'GetUID'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_493126130280 // TsdsAdmin
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- : Parameters
-   Seq: ( ME_493129250026 // aNode
- )
- ; // Parameters
-
-ref; // ME_4931291701BD GetUID
-
-: ME_49312CA3037C
- CONST Name 'aList'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_483EC24E0308' '457450470167.pas.ms.script' // NodeIdList
- ;
-
-ref; // ME_49312CA3037C aList
-
-: ME_49312C9E0289
- CONST UID '49312C9E0289'
- CONST Name 'PrepareBasesTree'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_493126130280 // TsdsAdmin
- ;
- : Parameters
-   Seq: ( ME_49312CA3037C // aList
- )
- ; // Parameters
-
-ref; // ME_49312C9E0289 PrepareBasesTree
-
-: ME_49339BDA02DC
- CONST Name 'anID'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_45EEC48C01E4' '457450470167.pas.ms.script' // NodeId
- ;
-
-ref; // ME_49339BDA02DC anID
-
-: ME_49339B8A016C
- CONST UID '49339B8A016C'
- CONST Name 'FindNode'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_493126130280 // TsdsAdmin
- ;
- : Target WL 'ME_45EEB95901C5' '457450470167.pas.ms.script' // NodeBase
- ;
- : Parameters
-   Seq: ( ME_49339BDA02DC // anID
- )
- ; // Parameters
-
-ref; // ME_49339B8A016C FindNode
-
-: ME_49339DCF0018
- CONST Name 'aList'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_559E9E3D0263' '491D961C0122.pas.ms.script' // IadminUserNodeList
- ;
-
-ref; // ME_49339DCF0018 aList
-
-: ME_49339DC90212
- CONST UID '49339DC90212'
- CONST Name 'EncodeUIDList'
- CONST Class class_Operation
- %SUMMARY 'В поданном списке лежат ноды, возвращается список их UID' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_493126130280 // TsdsAdmin
- ;
- : Target WL 'ME_4651A5AE00FA' '45EEAA96039C.pas.ms.script' // UidList
- ;
- : Parameters
-   Seq: ( ME_49339DCF0018 // aList
- )
- ; // Parameters
-
-ref; // ME_49339DC90212 EncodeUIDList
-
-: ME_49339E130360
- CONST Name 'aUserTree'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46825CC00249' '4682595B0268.pas.ms.script' // Il3SimpleTree
- ;
-
-ref; // ME_49339E130360 aUserTree
-
-: ME_49339E1303AB
- CONST Name 'aList'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4651A5AE00FA' '45EEAA96039C.pas.ms.script' // UidList
- ;
-
-ref; // ME_49339E1303AB aList
-
-: ME_49339DFE00BD
- CONST UID '49339DFE00BD'
- CONST Name 'DecodeUIDList'
- CONST Class class_Operation
- %SUMMARY 'В поданном списке лежат UID, возвращается список соответствующих нод' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_493126130280 // TsdsAdmin
- ;
- : Target WL 'ME_559E9E3D0263' '491D961C0122.pas.ms.script' // IadminUserNodeList
- ;
- : Parameters
-   Seq: ( ME_49339E130360 // aUserTree
- ME_49339E1303AB // aList
- )
- ; // Parameters
-
-ref; // ME_49339DFE00BD DecodeUIDList
-
-: ME_49EEEBA0026C
- CONST Name 'aNode'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
- ;
-
-ref; // ME_49EEEBA0026C aNode
-
-: ME_49EEEBA002BA
- CONST Name 'aName'
- CONST Class class_Parameter
- : Stereotype st_out ;
- : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
- ;
-
-ref; // ME_49EEEBA002BA aName
-
-: ME_49EEEB1D0215
- CONST UID '49EEEB1D0215'
- CONST Name 'EditGroupName'
- CONST Class class_Operation
- %SUMMARY 'Отредактировать имя группы' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_493126130280 // TsdsAdmin
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- : Parameters
-   Seq: ( ME_49EEEBA0026C // aNode
- ME_49EEEBA002BA // aName
- )
- ; // Parameters
-
-ref; // ME_49EEEB1D0215 EditGroupName
-
-: ME_493126F70204
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_493126130280 // TsdsAdmin
- ;
- : Target ME_49246742002B // TdsUserList
- ;
-
-ref; // ME_493126F70204 
-
-: ME_4931270B0174
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_493126130280 // TsdsAdmin
- ;
- : Target ME_491DA7AB0298 // TdsUserProperty
- ;
-
-ref; // ME_4931270B0174 
-
-: ME_4931271D01CA
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_493126130280 // TsdsAdmin
- ;
- : Target ME_491D945A00C7 // TdsAdmin
- ;
-
-ref; // ME_4931271D01CA 
-
-: ME_4931276601C1
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_493126130280 // TsdsAdmin
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_4931276601C1 
-
-: ME_49312771033B
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_493126130280 // TsdsAdmin
- ;
- : Target WL 'ME_48FF556602BA' '48F747EC0073.pas.ms.script' // DataAdapter
- ;
-
-ref; // ME_49312771033B 
-
-: ME_4931282A01B5
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_493126130280 // TsdsAdmin
- ;
- : Target WL 'ME_45EEB95901C5' '457450470167.pas.ms.script' // NodeBase
- ;
-
-ref; // ME_4931282A01B5 
-
-: ME_4931282D02AA
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_493126130280 // TsdsAdmin
- ;
- : Target WL 'ME_45EEC8A6033C' '457450470167.pas.ms.script' // NodeIterator
- ;
-
-ref; // ME_4931282D02AA 
-
-: ME_49312831011C
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_493126130280 // TsdsAdmin
- ;
- : Target WL 'ME_483EC24E0308' '457450470167.pas.ms.script' // NodeIdList
- ;
-
-ref; // ME_49312831011C 
-
-: ME_493128490271
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_493126130280 // TsdsAdmin
- ;
- : Target WL 'ME_45EED57B0186' '45EEAA96039C.pas.ms.script' // UserManager
- ;
-
-ref; // ME_493128490271 
-
-: ME_493129EF033C
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_493126130280 // TsdsAdmin
- ;
- : Target WL 'ME_4912AB3A01ED' '49006FAB024A.pas.ms.script' // TnsAttributeTreeCacheNew
- ;
-
-ref; // ME_493129EF033C 
-
-: ME_49312AC70284
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_493126130280 // TsdsAdmin
- ;
- : Target WL 'ME_47FB50E4008E' '48F747EC0073.pas.ms.script' // nsConst
- ;
-
-ref; // ME_49312AC70284 
-
-: ME_49312C2702C2
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_493126130280 // TsdsAdmin
- ;
- : Target WL 'ME_48FF569700F6' '47F2170002B2.pas.ms.script' // StringRoutines
- ;
-
-ref; // ME_49312C2702C2 
-
-: ME_49312C8600B3
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_493126130280 // TsdsAdmin
- ;
- : Target WL 'ME_49312C5F0078' '47D0E1500033.pas.ms.script' // vcmFormSetRefreshParams
- ;
-
-ref; // ME_49312C8600B3 
-
-: ME_49312D1A0111
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_493126130280 // TsdsAdmin
- ;
- : Target WL 'ME_47F25BC801DB' '47D0E1500033.pas.ms.script' // vcmBase
- ;
-
-ref; // ME_49312D1A0111 
-
-: ME_49339340013E
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_493126130280 // TsdsAdmin
- ;
- : Target WL 'ME_47F260EC02C7' '521C9DA50125.pas.ms.script' // StdRes
- ;
-
-ref; // ME_49339340013E 
-
-: ME_493394F2001A
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_493126130280 // TsdsAdmin
- ;
- : Target WL 'ME_49243E5C035C' '47F282AE0082.pas.ms.script' // nsLogicOperationToFlags
- ;
-
-ref; // ME_493394F2001A 
-
-: ME_49339CFA0123
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_493126130280 // TsdsAdmin
- ;
- : Target WL 'ME_47F2108E028C' '4683F37902CF.pas.ms.script' // IvcmExecuteParams
- ;
-
-ref; // ME_49339CFA0123 
-
-: ME_49339FF10317
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_493126130280 // TsdsAdmin
- ;
- : Target WL 'ME_47F25741021C' '47E246C90144.pas.ms.script' // l3Nodes
- ;
-
-ref; // ME_49339FF10317 
-
-: ME_4933A05B009D
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_493126130280 // TsdsAdmin
- ;
- : Target WL 'ME_47FE430F0088' '4799D29F033F.pas.ms.script' // TModalResult
- ;
-
-ref; // ME_4933A05B009D 
-
-: ME_49905AC6000F
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_493126130280 // TsdsAdmin
- ;
- : Target WL 'ME_49006BB201CB' '4990510C0026.pas.ms.script' // TLogicOperation
- ;
-
-ref; // ME_49905AC6000F 
-
-FORWARD ME_49EC547C001B
-
-: ME_49EC609C02A4
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_493126130280 // TsdsAdmin
- ;
- : Target ME_49EC547C001B // TdsGroupsList
- ;
-
-ref; // ME_49EC609C02A4 
-
 FORWARD ME_49EEFBA6010A
-
-: ME_49EEFC480045
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_493126130280 // TsdsAdmin
- ;
- : Target ME_49EEFBA6010A // TbsEditGroupName
- ;
-
-ref; // ME_49EEFC480045 
-
-: ME_4AA8ECC4021E
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_493126130280 // TsdsAdmin
- ;
- : Target WL 'ME_4773D64E036C' '47913B47006E.pas.ms.script' // l3Base
- ;
-
-ref; // ME_4AA8ECC4021E 
-
-: ME_52A6CB350368
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_493126130280 // TsdsAdmin
- ;
- : Target WL 'ME_45EED4A10226' '45EEAA96039C.pas.ms.script' // UserActive
- ;
-
-ref; // ME_52A6CB350368 
-
-: ME_559E9F4502BA
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_493126130280 // TsdsAdmin
- ;
- : Target ME_559E9F2B02D6 // TadminUserNodeList
- ;
-
-ref; // ME_559E9F4502BA 
-
-: ME_493121A10045_ME_493126130280
- : Original WL 'ME_493121A10045' '491D961C0122.pas.ms.script' // ChangeUser
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_493121A10045_ME_493126130280 ChangeUser
-
-: ME_4931222C03DE_ME_493126130280
- : Original WL 'ME_4931222C03DE' '491D961C0122.pas.ms.script' // DeleteUser
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4931222C03DE_ME_493126130280 DeleteUser
-
-: ME_493122380020_ME_493126130280
- : Original WL 'ME_493122380020' '491D961C0122.pas.ms.script' // DeleteUsers
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_493122380020_ME_493126130280 DeleteUsers
-
-: ME_49312258036D_ME_493126130280
- : Original WL 'ME_49312258036D' '491D961C0122.pas.ms.script' // SetConsultingPaymentForAll
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_49312258036D_ME_493126130280 SetConsultingPaymentForAll
-
-: ME_4931226101A3_ME_493126130280
- : Original WL 'ME_4931226101A3' '491D961C0122.pas.ms.script' // SetConsultingPayment
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4931226101A3_ME_493126130280 SetConsultingPayment
-
-: ME_493122770111_ME_493126130280
- : Original WL 'ME_493122770111' '491D961C0122.pas.ms.script' // LogoutUser
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_493122770111_ME_493126130280 LogoutUser
-
-: ME_4931229500C5_ME_493126130280
- : Original WL 'ME_4931229500C5' '491D961C0122.pas.ms.script' // LogoutUsers
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4931229500C5_ME_493126130280 LogoutUsers
-
-: ME_493122D301EB_ME_493126130280
- : Original WL 'ME_493122D301EB' '491D961C0122.pas.ms.script' // SetIsPrivileged
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_493122D301EB_ME_493126130280 SetIsPrivileged
-
-: ME_493122E402DC_ME_493126130280
- : Original WL 'ME_493122E402DC' '491D961C0122.pas.ms.script' // SetPrivelegedRights
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_493122E402DC_ME_493126130280 SetPrivelegedRights
-
-: ME_4931230801FC_ME_493126130280
- : Original WL 'ME_4931230801FC' '491D961C0122.pas.ms.script' // ConsultingPaymentForNewbies
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" true
-ref; // ME_4931230801FC_ME_493126130280 ConsultingPaymentForNewbies
-
-: ME_4933A3DE0399_ME_493126130280
- : Original WL 'ME_4933A3DE0399' '491D961C0122.pas.ms.script' // dsUserList
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" true
-ref; // ME_4933A3DE0399_ME_493126130280 dsUserList
-
-: ME_4933A42A000B_ME_493126130280
- : Original WL 'ME_4933A42A000B' '491D961C0122.pas.ms.script' // dsAdmin
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" true
-ref; // ME_4933A42A000B_ME_493126130280 dsAdmin
-
-: ME_4933A4B2026A_ME_493126130280
- : Original WL 'ME_4933A4B2026A' '491D961C0122.pas.ms.script' // dsUserProperty
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" true
-ref; // ME_4933A4B2026A_ME_493126130280 dsUserProperty
-
-: ME_49EC52D1019D_ME_493126130280
- : Original WL 'ME_49EC52D1019D' '491D961C0122.pas.ms.script' // dsGroupsList
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" true
-ref; // ME_49EC52D1019D_ME_493126130280 dsGroupsList
-
-: ME_49EC53DA01C9_ME_493126130280
- : Original WL 'ME_49EC53DA01C9' '491D961C0122.pas.ms.script' // ChangeBaseAccessForGroup
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_49EC53DA01C9_ME_493126130280 ChangeBaseAccessForGroup
-
-: ME_49EC53FE0039_ME_493126130280
- : Original WL 'ME_49EC53FE0039' '491D961C0122.pas.ms.script' // DeleteGroup
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_49EC53FE0039_ME_493126130280 DeleteGroup
-
-: ME_49EC5423006B_ME_493126130280
- : Original WL 'ME_49EC5423006B' '491D961C0122.pas.ms.script' // CreateNewGroup
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_49EC5423006B_ME_493126130280 CreateNewGroup
-
-: ME_49EC5B7D023E_ME_493126130280
- : Original WL 'ME_49EC5B7D023E' '491D961C0122.pas.ms.script' // ChangeBaseAccessForGroup
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_49EC5B7D023E_ME_493126130280 ChangeBaseAccessForGroup
-
-: ME_49EEDC8F02C1_ME_493126130280
- : Original WL 'ME_49EEDC8F02C1' '491D961C0122.pas.ms.script' // ChangeGroup
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_49EEDC8F02C1_ME_493126130280 ChangeGroup
-
-: ME_49EEDEB10042_ME_493126130280
- : Original WL 'ME_49EEDEB10042' '491D961C0122.pas.ms.script' // CurrentGroupUID
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" false
-ref; // ME_49EEDEB10042_ME_493126130280 CurrentGroupUID
-
-: ME_49EEEBD40313_ME_493126130280
- : Original WL 'ME_49EEEBD40313' '491D961C0122.pas.ms.script' // RenameGroup
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_49EEEBD40313_ME_493126130280 RenameGroup
-
-: ME_49F021CE03E6_ME_493126130280
- : Original WL 'ME_49F021CE03E6' '491D961C0122.pas.ms.script' // CreateUserFinished
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_49F021CE03E6_ME_493126130280 CreateUserFinished
-
-: ME_49F6DB7B0165_ME_493126130280
- : Original WL 'ME_49F6DB7B0165' '491D961C0122.pas.ms.script' // CheckUnsavedUserProperty
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_49F6DB7B0165_ME_493126130280 CheckUnsavedUserProperty
-
-: ME_49F6E0E901BA_ME_493126130280
- : Original WL 'ME_49F6E0E901BA' '491D961C0122.pas.ms.script' // RequestUpdateCurrent
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_49F6E0E901BA_ME_493126130280 RequestUpdateCurrent
-
-: ME_4F3BE8370292_ME_493126130280
- : Original WL 'ME_4F3BE8370292' '491D961C0122.pas.ms.script' // SetDontDeleteIdle
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4F3BE8370292_ME_493126130280 SetDontDeleteIdle
-
-: ME_479731C50290_ME_493126130280
- : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_479731C50290_ME_493126130280 Cleanup
-
-: ME_47A042E100E2_ME_493126130280
- : Original WL 'ME_47A042E100E2' '47913B47006E.pas.ms.script' // InitFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_47A042E100E2_ME_493126130280 InitFields
-
-: ME_493126130280
- CONST UID '493126130280'
- CONST Name 'TsdsAdmin'
- CONST Class class_Class
- : Stereotype st_UseCaseControllerImp ;
- CONST Kind kind_NormalClass
- %SUMMARY 'бизнес объект сборки администратор пользователей' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_491D9414002B // Admin
- ;
- : Inherits
-   Seq: ( WL 'ME_49415C640079' '47D0E1500033.pas.ms.script' // vcmFormSetDataSourceWithoutData
- )
- ; // Inherits
- : Implements
-   Seq: ( WL 'ME_491DAB560173' '491D961C0122.pas.ms.script' // IsdsAdmin
- )
- ; // Implements
- : Attributes
-   Seq: ( ME_49EEDCDA0085 // f_CurrentGroupID
- ME_49F0282D02AA // InternalUserList
- ME_49F6E384028E // InternalUserProperty
- ME_493126CC02EE // f_Profile
- ME_4931295B0260 // BaseAccessRootTag
- ME_4931297703B0 // BaseAccessRoot
- ME_4947A57603E2 // InitDataType
- )
- ; // Attributes
- : Operations
-   Seq: ( ME_4AAF58000352 // ChangeBaseAccess
- ME_4931291701BD // GetUID
- ME_49312C9E0289 // PrepareBasesTree
- ME_49339B8A016C // FindNode
- ME_49339DC90212 // EncodeUIDList
- ME_49339DFE00BD // DecodeUIDList
- ME_49EEEB1D0215 // EditGroupName
- )
- ; // Operations
- : Implemented
-   Seq: ( ME_493121A10045_ME_493126130280 // ChangeUser
- ME_4931222C03DE_ME_493126130280 // DeleteUser
- ME_493122380020_ME_493126130280 // DeleteUsers
- ME_49312258036D_ME_493126130280 // SetConsultingPaymentForAll
- ME_4931226101A3_ME_493126130280 // SetConsultingPayment
- ME_493122770111_ME_493126130280 // LogoutUser
- ME_4931229500C5_ME_493126130280 // LogoutUsers
- ME_493122D301EB_ME_493126130280 // SetIsPrivileged
- ME_493122E402DC_ME_493126130280 // SetPrivelegedRights
- ME_4931230801FC_ME_493126130280 // ConsultingPaymentForNewbies
- ME_4933A3DE0399_ME_493126130280 // dsUserList
- ME_4933A42A000B_ME_493126130280 // dsAdmin
- ME_4933A4B2026A_ME_493126130280 // dsUserProperty
- ME_49EC52D1019D_ME_493126130280 // dsGroupsList
- ME_49EC53DA01C9_ME_493126130280 // ChangeBaseAccessForGroup
- ME_49EC53FE0039_ME_493126130280 // DeleteGroup
- ME_49EC5423006B_ME_493126130280 // CreateNewGroup
- ME_49EC5B7D023E_ME_493126130280 // ChangeBaseAccessForGroup
- ME_49EEDC8F02C1_ME_493126130280 // ChangeGroup
- ME_49EEDEB10042_ME_493126130280 // CurrentGroupUID
- ME_49EEEBD40313_ME_493126130280 // RenameGroup
- ME_49F021CE03E6_ME_493126130280 // CreateUserFinished
- ME_49F6DB7B0165_ME_493126130280 // CheckUnsavedUserProperty
- ME_49F6E0E901BA_ME_493126130280 // RequestUpdateCurrent
- ME_4F3BE8370292_ME_493126130280 // SetDontDeleteIdle
- )
- ; // Implemented
- : Overridden
-   Seq: ( ME_479731C50290_ME_493126130280 // Cleanup
- ME_47A042E100E2_ME_493126130280 // InitFields
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_493126F70204 // TdsUserList
- ME_4931270B0174 // TdsUserProperty
- ME_4931271D01CA // TdsAdmin
- ME_4931276601C1 // SysUtils
- ME_49312771033B // DataAdapter
- ME_4931282A01B5 // NodeBase
- ME_4931282D02AA // NodeIterator
- ME_49312831011C // NodeIdList
- ME_493128490271 // UserManager
- ME_493129EF033C // TnsAttributeTreeCacheNew
- ME_49312AC70284 // nsConst
- ME_49312C2702C2 // StringRoutines
- ME_49312C8600B3 // vcmFormSetRefreshParams
- ME_49312D1A0111 // vcmBase
- ME_49339340013E // StdRes
- ME_493394F2001A // nsLogicOperationToFlags
- ME_49339CFA0123 // IvcmExecuteParams
- ME_49339FF10317 // l3Nodes
- ME_4933A05B009D // TModalResult
- ME_49905AC6000F // TLogicOperation
- ME_49EC609C02A4 // TdsGroupsList
- ME_49EEFC480045 // TbsEditGroupName
- ME_4AA8ECC4021E // l3Base
- ME_52A6CB350368 // UserActive
- ME_559E9F4502BA // TadminUserNodeList
- )
- ; // Dependencies
- CONST "author" 'Тучнин Д.А.'
- CONST "no hands" true
- CONST "started" '15.08.2005 20.00'
- CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Admin\sdsAdmin.pas'
- CONST extprop:rc:SelfName 'sdsAdmin'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'sdsAdmin'
-
-ref; // ME_493126130280 TsdsAdmin
-
-: ME_49EC55D50082
- CONST UID '49EC55D50082'
- CONST Name 'InitDataType'
- CONST Class class_Attribute
- : Stereotype st_impurity_value::Attribute ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_abstract
- CONST LinkType lt_agr
- : Parent ME_49EC547C001B // TdsGroupsList
- ;
- : Target WL 'ME_49245E750210' '491D961C0122.pas.ms.script' // IdeNode
- ;
-
-ref; // ME_49EC55D50082 InitDataType
-
-: ME_49EC56E601F8
- CONST UID '49EC56E601F8'
- CONST Name 'f_Root'
- CONST Class class_Attribute
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_49EC547C001B // TdsGroupsList
- ;
- : Target WL 'ME_45EEB95901C5' '457450470167.pas.ms.script' // NodeBase
- ;
-
-ref; // ME_49EC56E601F8 f_Root
-
-: ME_49EC57280353
- CONST UID '49EC57280353'
- CONST Name 'SDS'
- CONST Class class_Attribute
- : Stereotype st_UseCase::Attribute ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- CONST LinkType lt_lnk
- : Parent ME_49EC547C001B // TdsGroupsList
- ;
- : Target WL 'ME_491DAB560173' '491D961C0122.pas.ms.script' // IsdsAdmin
- ;
-
-ref; // ME_49EC57280353 SDS
-
-: ME_49EC54F10191
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_49EC547C001B // TdsGroupsList
- ;
- : Target ME_49246C1F015D // AdminRes
- ;
-
-ref; // ME_49EC54F10191 
-
-: ME_49EC563F01BC
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_49EC547C001B // TdsGroupsList
- ;
- : Target WL 'ME_49F16EE7010F' '4901E79300F5.pas.ms.script' // TnsGroupTreeStructWithDrop
- ;
-
-ref; // ME_49EC563F01BC 
-
-: ME_49EC63B50010
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_49EC547C001B // TdsGroupsList
- ;
- : Target WL 'ME_45EED4D003A9' '45EEAA96039C.pas.ms.script' // ProfileNodeType
- ;
-
-ref; // ME_49EC63B50010 
-
-: ME_47F4C2B9014A_ME_49EC547C001B
- : Original WL 'ME_47F4C2B9014A' '47F282AE0082.pas.ms.script' // MakeSimpleTree
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_47F4C2B9014A_ME_49EC547C001B MakeSimpleTree
-
-: ME_49EC50000093_ME_49EC547C001B
- : Original WL 'ME_49EC50000093' '491D961C0122.pas.ms.script' // GroupsListNodeType
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_49EC50000093_ME_49EC547C001B GroupsListNodeType
-
-: ME_49EC50390132_ME_49EC547C001B
- : Original WL 'ME_49EC50390132' '491D961C0122.pas.ms.script' // DeleteGroup
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_49EC50390132_ME_49EC547C001B DeleteGroup
-
-: ME_49EC51CA014F_ME_49EC547C001B
- : Original WL 'ME_49EC51CA014F' '491D961C0122.pas.ms.script' // CreateNewGroup
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_49EC51CA014F_ME_49EC547C001B CreateNewGroup
-
-: ME_49EC52BD01EC_ME_49EC547C001B
- : Original WL 'ME_49EC52BD01EC' '491D961C0122.pas.ms.script' // ChangeBasesAccessForGroup
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_49EC52BD01EC_ME_49EC547C001B ChangeBasesAccessForGroup
-
-: ME_49EEEBB4002A_ME_49EC547C001B
- : Original WL 'ME_49EEEBB4002A' '491D961C0122.pas.ms.script' // RenameGroup
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_49EEEBB4002A_ME_49EC547C001B RenameGroup
-
-: ME_49F04DCE0166_ME_49EC547C001B
- : Original WL 'ME_49F04DCE0166' '491D961C0122.pas.ms.script' // HasUsers
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_49F04DCE0166_ME_49EC547C001B HasUsers
-
-: ME_49F6DBB30002_ME_49EC547C001B
- : Original WL 'ME_49F6DBB30002' '491D961C0122.pas.ms.script' // CheckUnsavedUserProperty
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_49F6DBB30002_ME_49EC547C001B CheckUnsavedUserProperty
-
-: ME_5492ECBC01A5_ME_49EC547C001B
- : Original WL 'ME_5492ECBC01A5' '491D961C0122.pas.ms.script' // NotifyTreeViewInvalidate
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_5492ECBC01A5_ME_49EC547C001B NotifyTreeViewInvalidate
-
-: ME_479731C50290_ME_49EC547C001B
- : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_479731C50290_ME_49EC547C001B Cleanup
-
-: ME_47F0C1BF0314_ME_49EC547C001B
- : Original WL 'ME_47F0C1BF0314' '47F282AE0082.pas.ms.script' // DoCurrentChanged
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_47F0C1BF0314_ME_49EC547C001B DoCurrentChanged
-
-: ME_47F465F80149_ME_49EC547C001B
- : Original WL 'ME_47F465F80149' '47F282AE0082.pas.ms.script' // MakeImageList
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_47F465F80149_ME_49EC547C001B MakeImageList
-
-: ME_49215CE702B9_ME_49EC547C001B
- : Original WL 'ME_49215CE702B9' '47F282AE0082.pas.ms.script' // DoDataDropped
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_49215CE702B9_ME_49EC547C001B DoDataDropped
-
-: ME_492ACF630072_ME_49EC547C001B
- : Original WL 'ME_492ACF630072' '47D0E1500033.pas.ms.script' // GotData
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_492ACF630072_ME_49EC547C001B GotData
-
-: ME_49EC547C001B
- CONST UID '49EC547C001B'
- CONST Name 'TdsGroupsList'
- CONST Class class_Class
- : Stereotype st_ViewAreaControllerImp ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Группы пользователей' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_491D9414002B // Admin
- ;
- : Inherits
-   Seq: ( WL 'ME_47F0C1410011' '47F282AE0082.pas.ms.script' // dsSimpleTree
- )
- ; // Inherits
- : Implements
-   Seq: ( WL 'ME_49EC4FBC01AC' '491D961C0122.pas.ms.script' // IdsGroupsList
- )
- ; // Implements
- : Attributes
-   Seq: ( ME_49EC55D50082 // InitDataType
- ME_49EC56E601F8 // f_Root
- ME_49EC57280353 // SDS
- )
- ; // Attributes
- : Implemented
-   Seq: ( ME_47F4C2B9014A_ME_49EC547C001B // MakeSimpleTree
- ME_49EC50000093_ME_49EC547C001B // GroupsListNodeType
- ME_49EC50390132_ME_49EC547C001B // DeleteGroup
- ME_49EC51CA014F_ME_49EC547C001B // CreateNewGroup
- ME_49EC52BD01EC_ME_49EC547C001B // ChangeBasesAccessForGroup
- ME_49EEEBB4002A_ME_49EC547C001B // RenameGroup
- ME_49F04DCE0166_ME_49EC547C001B // HasUsers
- ME_49F6DBB30002_ME_49EC547C001B // CheckUnsavedUserProperty
- ME_5492ECBC01A5_ME_49EC547C001B // NotifyTreeViewInvalidate
- )
- ; // Implemented
- : Overridden
-   Seq: ( ME_479731C50290_ME_49EC547C001B // Cleanup
- ME_47F0C1BF0314_ME_49EC547C001B // DoCurrentChanged
- ME_47F465F80149_ME_49EC547C001B // MakeImageList
- ME_49215CE702B9_ME_49EC547C001B // DoDataDropped
- ME_492ACF630072_ME_49EC547C001B // GotData
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_49EC54F10191 // AdminRes
- ME_49EC563F01BC // TnsGroupTreeStructWithDrop
- ME_49EC63B50010 // ProfileNodeType
- )
- ; // Dependencies
- CONST "no hands" true
- CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Admin\dsGroupsList.pas'
- CONST extprop:rc:SelfName 'dsGroupsList'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'dsGroupsList'
- CONST extprop:HasAnyVCMController true
-
-ref; // ME_49EC547C001B TdsGroupsList
 
 : ME_49EEFC0103B3
  CONST UID '49EEFC0103B3'
@@ -2085,7 +45,7 @@ ref; // ME_49EC547C001B TdsGroupsList
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_49EEFBA6010A // TbsEditGroupName
+ : Parent HWL ME_49EEFBA6010A // TbsEditGroupName
  ;
  : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
  ;
@@ -2108,7 +68,7 @@ ref; // ME_49EEFC290306 aName
  : Stereotype st_ctor::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_49EEFBA6010A // TbsEditGroupName
+ : Parent HWL ME_49EEFBA6010A // TbsEditGroupName
  ;
  : Parameters
    Seq: ( ME_49EEFC290306 // aName
@@ -2133,7 +93,7 @@ ref; // ME_49EEFC3D0121 aName
  : Stereotype st_factory::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_49EEFBA6010A // TbsEditGroupName
+ : Parent HWL ME_49EEFBA6010A // TbsEditGroupName
  ;
  : Parameters
    Seq: ( ME_49EEFC3D0121 // aName
@@ -2163,7 +123,7 @@ ref; // ME_479731C50290_ME_49EEFBA6010A Cleanup
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_491D9414002B // Admin
+ : Parent HWL ME_491D9414002B // Admin
  ;
  : Inherits
    Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
@@ -2174,12 +134,12 @@ ref; // ME_479731C50290_ME_49EEFBA6010A Cleanup
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_49EEFC0103B3 // f_Name
+   Seq: ( HWL ME_49EEFC0103B3 // f_Name
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_49EEFC1B007D // Create
- ME_49EEFC3002CC // Make
+   Seq: ( HWL ME_49EEFC1B007D // Create
+ HWL ME_49EEFC3002CC // Make
  )
  ; // Operations
  : Implemented
@@ -2197,40 +157,6 @@ ref; // ME_479731C50290_ME_49EEFBA6010A Cleanup
 
 ref; // ME_49EEFBA6010A TbsEditGroupName
 
-: ME_492406340209_ME_495504A000F2
- : Original WL 'ME_492406340209' '4AA005310028.pas.ms.script' // GetOperations
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_492406340209_ME_495504A000F2 GetOperations
-
-: ME_495504A000F2
- CONST UID '495504A000F2'
- CONST Name 'TdsBasesAccess'
- CONST Class class_Class
- : Stereotype st_ViewAreaControllerImp ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_491D9414002B // Admin
- ;
- : Inherits
-   Seq: ( WL 'ME_492437620004' '4AA005310028.pas.ms.script' // TdsTreeAttributeSelect
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_492406340209_ME_495504A000F2 // GetOperations
- )
- ; // Overridden
- CONST "author" 'Лукьнец Р.В'
- CONST "no hands" true
- CONST "started" '2008/06/23 09:26:00'
- CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Admin\dsBasesAccess.pas'
- CONST extprop:rc:SelfName 'dsBasesAccess'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'dsBasesAccess'
-
-ref; // ME_495504A000F2 TdsBasesAccess
-
 FORWARD ME_4AA50FB0007E
 
 : ME_4AA51105033B
@@ -2240,7 +166,7 @@ FORWARD ME_4AA50FB0007E
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4AA50FB0007E // TdeAdmin
+ : Parent HWL ME_4AA50FB0007E // TdeAdmin
  ;
  : Target WL 'ME_49245E750210' '491D961C0122.pas.ms.script' // IdeNode
  ;
@@ -2254,7 +180,7 @@ ref; // ME_4AA51105033B f_Groups
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4AA50FB0007E // TdeAdmin
+ : Parent HWL ME_4AA50FB0007E // TdeAdmin
  ;
  : Target WL 'ME_49245E750210' '491D961C0122.pas.ms.script' // IdeNode
  ;
@@ -2286,7 +212,7 @@ ref; // ME_4AA51196034A aUsers
  : Stereotype st_ctor::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4AA50FB0007E // TdeAdmin
+ : Parent HWL ME_4AA50FB0007E // TdeAdmin
  ;
  : Parameters
    Seq: ( ME_4AA511960312 // aGroups
@@ -2321,7 +247,7 @@ ref; // ME_4AA511C0036D aUsers
  : Stereotype st_factory::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4AA50FB0007E // TdeAdmin
+ : Parent HWL ME_4AA50FB0007E // TdeAdmin
  ;
  : Parameters
    Seq: ( ME_4AA511C00333 // aGroups
@@ -2360,7 +286,7 @@ ref; // ME_479731C50290_ME_4AA50FB0007E Cleanup
  %SUMMARY 'Интерфейс обмена данными содержащий Node' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_491D9414002B // Admin
+ : Parent HWL ME_491D9414002B // Admin
  ;
  : Inherits
    Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
@@ -2371,13 +297,13 @@ ref; // ME_479731C50290_ME_4AA50FB0007E Cleanup
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_4AA51105033B // f_Groups
- ME_4AA511100096 // f_Users
+   Seq: ( HWL ME_4AA51105033B // f_Groups
+ HWL ME_4AA511100096 // f_Users
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_4AA5118C031E // Create
- ME_4AA511B60036 // Make
+   Seq: ( HWL ME_4AA5118C031E // Create
+ HWL ME_4AA511B60036 // Make
  )
  ; // Operations
  : Implemented
@@ -2399,6 +325,8 @@ ref; // ME_479731C50290_ME_4AA50FB0007E Cleanup
 
 ref; // ME_4AA50FB0007E TdeAdmin
 
+FORWARD ME_492472AC0033
+
 : ME_4AA523B103C4
  CONST UID '4AA523B103C4'
  CONST Name 'f_Node'
@@ -2406,7 +334,7 @@ ref; // ME_4AA50FB0007E TdeAdmin
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_492472AC0033 // TdeNode
+ : Parent HWL ME_492472AC0033 // TdeNode
  ;
  : Target WL 'ME_45EEB95901C5' '457450470167.pas.ms.script' // NodeBase
  ;
@@ -2429,7 +357,7 @@ ref; // ME_4AA523CD03CD aNode
  : Stereotype st_ctor::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_492472AC0033 // TdeNode
+ : Parent HWL ME_492472AC0033 // TdeNode
  ;
  : Parameters
    Seq: ( ME_4AA523CD03CD // aNode
@@ -2454,7 +382,7 @@ ref; // ME_4AA523E102CA aNode
  : Stereotype st_factory::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_492472AC0033 // TdeNode
+ : Parent HWL ME_492472AC0033 // TdeNode
  ;
  : Parameters
    Seq: ( ME_4AA523E102CA // aNode
@@ -2484,7 +412,7 @@ ref; // ME_479731C50290_ME_492472AC0033 Cleanup
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_491D9414002B // Admin
+ : Parent HWL ME_491D9414002B // Admin
  ;
  : Inherits
    Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
@@ -2495,12 +423,12 @@ ref; // ME_479731C50290_ME_492472AC0033 Cleanup
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_4AA523B103C4 // f_Node
+   Seq: ( HWL ME_4AA523B103C4 // f_Node
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_4AA523C701F4 // Create
- ME_4AA523D90186 // Make
+   Seq: ( HWL ME_4AA523C701F4 // Create
+ HWL ME_4AA523D90186 // Make
  )
  ; // Operations
  : Implemented
@@ -2521,6 +449,8 @@ ref; // ME_479731C50290_ME_492472AC0033 Cleanup
 
 ref; // ME_492472AC0033 TdeNode
 
+FORWARD ME_4AA5275401A5
+
 : ME_4AA5277A01A3
  CONST UID '4AA5277A01A3'
  CONST Name 'f_Profile'
@@ -2528,7 +458,7 @@ ref; // ME_492472AC0033 TdeNode
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4AA5275401A5 // TdeProfile
+ : Parent HWL ME_4AA5275401A5 // TdeProfile
  ;
  : Target WL 'ME_45EED78501B5' '45EEAA96039C.pas.ms.script' // UserProfile
  ;
@@ -2542,7 +472,7 @@ ref; // ME_4AA5277A01A3 f_Profile
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4AA5275401A5 // TdeProfile
+ : Parent HWL ME_4AA5275401A5 // TdeProfile
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -2574,7 +504,7 @@ ref; // ME_4AA527A50159 aNew
  : Stereotype st_ctor::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4AA5275401A5 // TdeProfile
+ : Parent HWL ME_4AA5275401A5 // TdeProfile
  ;
  : Parameters
    Seq: ( ME_4AA527A50125 // aProfile
@@ -2613,7 +543,7 @@ ref; // ME_4AA527C802E6 aNew
  : Stereotype st_factory::Operation ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_4AA5275401A5 // TdeProfile
+ : Parent HWL ME_4AA5275401A5 // TdeProfile
  ;
  : Parameters
    Seq: ( ME_4AA527C802AE // aProfile
@@ -2652,7 +582,7 @@ ref; // ME_479731C50290_ME_4AA5275401A5 Cleanup
  %SUMMARY 'Интерфейс обмена данными для формы "efUserProfile"' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_491D9414002B // Admin
+ : Parent HWL ME_491D9414002B // Admin
  ;
  : Inherits
    Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
@@ -2663,13 +593,13 @@ ref; // ME_479731C50290_ME_4AA5275401A5 Cleanup
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_4AA5277A01A3 // f_Profile
- ME_4AA527890269 // f_IsNew
+   Seq: ( HWL ME_4AA5277A01A3 // f_Profile
+ HWL ME_4AA527890269 // f_IsNew
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_4AA5279D0119 // Create
- ME_4AA527C30217 // Make
+   Seq: ( HWL ME_4AA5279D0119 // Create
+ HWL ME_4AA527C30217 // Make
  )
  ; // Operations
  : Implemented
@@ -2688,6 +618,8 @@ ref; // ME_479731C50290_ME_4AA5275401A5 Cleanup
 
 ref; // ME_4AA5275401A5 TdeProfile
 
+FORWARD ME_559E9F2B02D6
+
 : ME_4BB08B8902F2_ME_559E9F2B02D6
  : Original WL 'ME_4BB08B8902F2' '47D810610398.pas.ms.script' // Count
  ;
@@ -2703,7 +635,7 @@ ref; // ME_4BB08B8902F2_ME_559E9F2B02D6 Count
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_491D9414002B // Admin
+ : Parent HWL ME_491D9414002B // Admin
  ;
  : Inherits
    Seq: ( WL 'ME_47E7B92D013D' '47E246C90144.pas.ms.script' // Tl3SimpleNodeList
@@ -2735,19 +667,19 @@ ref; // ME_559E9F2B02D6 TadminUserNodeList
  : Parent WL 'ME_493FBE3E033A' '493FBE3E033A.pas.ms.script' // Admin
  ;
  : Children
-   Seq: ( ME_491D945A00C7 // TdsAdmin
- ME_491D9D81001D // TdsForbidAutoregistration
- ME_491DA7AB0298 // TdsUserProperty
- ME_49246742002B // TdsUserList
- ME_49246C1F015D // AdminRes
- ME_493126130280 // TsdsAdmin
- ME_49EC547C001B // TdsGroupsList
- ME_49EEFBA6010A // TbsEditGroupName
- ME_495504A000F2 // TdsBasesAccess
- ME_4AA50FB0007E // TdeAdmin
- ME_492472AC0033 // TdeNode
- ME_4AA5275401A5 // TdeProfile
- ME_559E9F2B02D6 // TadminUserNodeList
+   Seq: ( WL 'ME_491D945A00C7' '491D945A00C7.pas.ms.script' // TdsAdmin
+ WL 'ME_491D9D81001D' '491D9D81001D.pas.ms.script' // TdsForbidAutoregistration
+ WL 'ME_491DA7AB0298' '491DA7AB0298.pas.ms.script' // TdsUserProperty
+ WL 'ME_49246742002B' '49246742002B.pas.ms.script' // TdsUserList
+ HWL ME_49246C1F015D // AdminRes
+ WL 'ME_493126130280' '493126130280.pas.ms.script' // TsdsAdmin
+ WL 'ME_49EC547C001B' '49EC547C001B.pas.ms.script' // TdsGroupsList
+ HWL ME_49EEFBA6010A // TbsEditGroupName
+ WL 'ME_495504A000F2' '495504A000F2.pas.ms.script' // TdsBasesAccess
+ HWL ME_4AA50FB0007E // TdeAdmin
+ HWL ME_492472AC0033 // TdeNode
+ HWL ME_4AA5275401A5 // TdeProfile
+ HWL ME_559E9F2B02D6 // TadminUserNodeList
  )
  ; // Children
  : Depends

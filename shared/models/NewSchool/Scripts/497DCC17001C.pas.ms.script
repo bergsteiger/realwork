@@ -1,0 +1,1193 @@
+// PrimFilters 497DCC17001C VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_497DCC17001C
+
+FORWARD ME_4D0B649A006B
+
+: ME_4D0B64A301C3
+ CONST UID '4D0B64A301C3'
+ CONST Name 'CreateFilter'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4D0B649A006B // Local
+ ;
+ CONST Value '''Создать фильтр...'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '''Создать фильтр...'''
+
+ref; // ME_4D0B64A301C3 CreateFilter
+
+: ME_4D0B649A006B
+ CONST UID '4D0B649A006B'
+ CONST Name 'Local'
+ CONST Class class_Class
+ : Stereotype st_LocalConst ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+ : Attributes
+   Seq: ( HWL ME_4D0B64A301C3 // CreateFilter
+ )
+ ; // Attributes
+ CONST "Need map interface" false
+ CONST "Need mapping support" false
+ CONST "spell names" false
+
+ref; // ME_4D0B649A006B Local
+
+FORWARD ME_4D0B4E06037B
+
+FORWARD ME_51BB45560286
+
+: ME_51BB45A5037C
+ CONST UID '51BB45A5037C'
+ CONST Name 'Count'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent HWL ME_51BB45560286 // InsSelectedFiltersState
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "pm" true
+
+ref; // ME_51BB45A5037C Count
+
+FORWARD ME_51BB45D703AF
+
+: ME_51BB45E1012C
+ CONST UID '51BB45E1012C'
+ CONST Name 'anIndex'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_51BB45D703AF // Filter
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_51BB45E1012C anIndex
+
+: ME_51BB45D703AF
+ CONST UID '51BB45D703AF'
+ CONST Name 'Filter'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent HWL ME_51BB45560286 // InsSelectedFiltersState
+ ;
+ : Target WL 'ME_4CA499CA03DD' '45EEA48F011F.pas.ms.script' // FilterFromQuery
+ ;
+ : Attributes
+   Seq: ( HWL ME_51BB45E1012C // anIndex
+ )
+ ; // Attributes
+ CONST "pm" false
+
+ref; // ME_51BB45D703AF Filter
+
+: ME_51BB45560286
+ CONST UID '51BB45560286'
+ CONST GUID '71A14889-6D58-434C-BE3C-0D014150A6E2'
+ CONST Name 'InsSelectedFiltersState'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4D0B4E06037B // TnsSelectedFiltersState
+ ;
+ : Attributes
+   Seq: ( HWL ME_51BB45A5037C // Count
+ HWL ME_51BB45D703AF // Filter
+ )
+ ; // Attributes
+ CONST extprop:rc:SelfName 'SelectedFiltersState'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_51BB45560286 InsSelectedFiltersState
+
+: ME_51BB44A601CF
+ CONST UID '51BB44A601CF'
+ CONST Name 'f_List'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4D0B4E06037B // TnsSelectedFiltersState
+ ;
+ : Target WL 'ME_4D0B4D810270' '4CCAA9D8007E.pas.ms.script' // TnsIFilterFromQueryList
+ ;
+
+ref; // ME_51BB44A601CF f_List
+
+FORWARD ME_51BB44F901EC
+
+: ME_51BB450900E4
+ CONST Name 'aTree'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4912DD1102D3' '4912DD020283.pas.ms.script' // IeeTree
+ ;
+
+ref; // ME_51BB450900E4 aTree
+
+: ME_51BB450503E3
+ CONST UID '51BB450503E3'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_51BB44F901EC // Create
+ ;
+ : Parameters
+   Seq: ( ME_51BB450900E4 // aTree
+ )
+ ; // Parameters
+
+ref; // ME_51BB450503E3 DoIt
+
+: ME_51BB44F901EC
+ CONST UID '51BB44F901EC'
+ CONST Name 'Create'
+ CONST Class class_Class
+ : Stereotype st_Constructor ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4D0B4E06037B // TnsSelectedFiltersState
+ ;
+ : Operations
+   Seq: ( HWL ME_51BB450503E3 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_51BB44F901EC Create
+
+FORWARD ME_51BB4B2502A9
+
+: ME_51BB4B3F0223
+ CONST Name 'aTree'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4912DD1102D3' '4912DD020283.pas.ms.script' // IeeTree
+ ;
+
+ref; // ME_51BB4B3F0223 aTree
+
+: ME_51BB4B3803C0
+ CONST UID '51BB4B3803C0'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_51BB4B2502A9 // Make
+ ;
+ : Target WL 'ME_4992FC0C02CA' '4683F37902CF.pas.ms.script' // IvcmBase
+ ;
+ : Parameters
+   Seq: ( ME_51BB4B3F0223 // aTree
+ )
+ ; // Parameters
+
+ref; // ME_51BB4B3803C0 DoIt
+
+: ME_51BB4B2502A9
+ CONST UID '51BB4B2502A9'
+ CONST Name 'Make'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4D0B4E06037B // TnsSelectedFiltersState
+ ;
+ : Operations
+   Seq: ( HWL ME_51BB4B3803C0 // DoIt
+ )
+ ; // Operations
+ CONST "is static" true
+
+ref; // ME_51BB4B2502A9 Make
+
+: ME_51BB45A5037C_ME_4D0B4E06037B
+ : Original HWL ME_51BB45A5037C // Count
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_51BB45A5037C_ME_4D0B4E06037B Count
+
+: ME_51BB45D703AF_ME_4D0B4E06037B
+ : Original HWL ME_51BB45D703AF // Filter
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_51BB45D703AF_ME_4D0B4E06037B Filter
+
+: ME_479731C50290_ME_4D0B4E06037B
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_479731C50290_ME_4D0B4E06037B Cleanup
+
+: ME_4D0B4E06037B
+ CONST UID '4D0B4E06037B'
+ CONST Name 'TnsSelectedFiltersState'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+ : Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4683CEAD00CF' '467BAB7F021E.pas.ms.script' // IvcmBase
+ HWL ME_51BB45560286 // InsSelectedFiltersState
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( HWL ME_51BB44A601CF // f_List
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( HWL ME_51BB44F901EC // Create
+ HWL ME_51BB4B2502A9 // Make
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_51BB45A5037C_ME_4D0B4E06037B // Count
+ ME_51BB45D703AF_ME_4D0B4E06037B // Filter
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_479731C50290_ME_4D0B4E06037B // Cleanup
+ )
+ ; // Overridden
+ : Children
+   Seq: ( HWL ME_51BB45560286 // InsSelectedFiltersState
+ )
+ ; // Children
+ CONST "finished" false
+ CONST extprop:rc:SelfName 'SelectedFiltersState'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4D0B4E06037B TnsSelectedFiltersState
+
+: ME_4AEED6F7020B
+ CONST UID '4AEED6F7020B'
+ CONST Name 'FiltersList'
+ CONST Class class_Class
+ : Stereotype st_Control ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+ CONST "ControlClass" 'TnscTreeViewWithAdapterDragDrop'
+ CONST "pm" true
+ CONST "put to dfm" false
+
+ref; // ME_4AEED6F7020B FiltersList
+
+: ME_497DCCCE00DF
+ CONST UID '497DCCCE00DF'
+ CONST Name 'Filters'
+ CONST Class class_Attribute
+ : Stereotype st_ViewArea::Attribute ;
+ %SUMMARY 'Фильтры' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+ : Target WL 'ME_4922D94500FB' '4922BFA000DD.pas.ms.script' // IdsFilters
+ ;
+
+ref; // ME_497DCCCE00DF Filters
+
+: ME_51BB29500153
+ CONST UID '51BB29500153'
+ CONST Name 'f_LockSelectionChangedEvent'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_51BB29500153 f_LockSelectionChangedEvent
+
+: ME_51BB296F0323
+ CONST UID '51BB296F0323'
+ CONST Name 'f_FiltersLoaded'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_51BB296F0323 f_FiltersLoaded
+
+: ME_51BB121B037C
+ CONST UID '51BB121B037C'
+ CONST Name 'FiltersListSelectChange'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+ : Inherits
+   Seq: ( WL 'ME_514B39850152' '4CFFE3470249.pas.ms.script' // TSelectEvent
+ )
+ ; // Inherits
+
+ref; // ME_51BB121B037C FiltersListSelectChange
+
+: ME_51BB122A0185
+ CONST UID '51BB122A0185'
+ CONST Name 'FiltersListGetItemPickImage'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+ : Inherits
+   Seq: ( WL 'ME_514B344503D3' '4CFFE3470249.pas.ms.script' // TGetPickItemImage
+ )
+ ; // Inherits
+
+ref; // ME_51BB122A0185 FiltersListGetItemPickImage
+
+: ME_51BB123402EB
+ CONST UID '51BB123402EB'
+ CONST Name 'FiltersListGetItemImage'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47D63B6D0157' '47D036150077.pas.ms.script' // Tl3GetItemImage
+ )
+ ; // Inherits
+
+ref; // ME_51BB123402EB FiltersListGetItemImage
+
+: ME_51BB123D03D4
+ CONST UID '51BB123D03D4'
+ CONST Name 'FiltersListActionElement'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+ : Inherits
+   Seq: ( WL 'ME_51432026033F' '4CFFE3470249.pas.ms.script' // TActionElement
+ )
+ ; // Inherits
+
+ref; // ME_51BB123D03D4 FiltersListActionElement
+
+: ME_51BB1245036A
+ CONST UID '51BB1245036A'
+ CONST Name 'FiltersListRootChanged'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4AE825FC019D' '499C0B7B012E.pas.ms.script' // TeeRootChangedEvent
+ )
+ ; // Inherits
+
+ref; // ME_51BB1245036A FiltersListRootChanged
+
+: ME_51BB124D036F
+ CONST UID '51BB124D036F'
+ CONST Name 'FiltersListGetItemFont'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+ : Inherits
+   Seq: ( WL 'ME_514B370503CC' '4CFFE3470249.pas.ms.script' // TGetItemFontEvent
+ )
+ ; // Inherits
+
+ref; // ME_51BB124D036F FiltersListGetItemFont
+
+: ME_51BB12570242
+ CONST UID '51BB12570242'
+ CONST Name 'FiltersListCanBeginDrag'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+ : Inherits
+   Seq: ( WL 'ME_51BB14E6006F' '4B97E8130272.pas.ms.script' // Tl3CanBeginDrag
+ )
+ ; // Inherits
+
+ref; // ME_51BB12570242 FiltersListCanBeginDrag
+
+: ME_51BB126703C9
+ CONST UID '51BB126703C9'
+ CONST Name 'FiltersListCanAcceptData'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+ : Inherits
+   Seq: ( WL 'ME_51BB152A02AD' '4B97E8130272.pas.ms.script' // Tl3CanAcceptData
+ )
+ ; // Inherits
+
+ref; // ME_51BB126703C9 FiltersListCanAcceptData
+
+: ME_51BB1270027A
+ CONST UID '51BB1270027A'
+ CONST Name 'FiltersListDoDrop'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+ : Inherits
+   Seq: ( WL 'ME_51BB15370161' '4B97E8130272.pas.ms.script' // Tl3DoDrop
+ )
+ ; // Inherits
+
+ref; // ME_51BB1270027A FiltersListDoDrop
+
+: ME_51BB29800136
+ CONST UID '51BB29800136'
+ CONST Name 'StartDeselectAll'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+
+ref; // ME_51BB29800136 StartDeselectAll
+
+: ME_51BB2993020C
+ CONST UID '51BB2993020C'
+ CONST Name 'FinishDeselectAll'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+
+ref; // ME_51BB2993020C FinishDeselectAll
+
+FORWARD ME_51BB2A2E0234
+
+: ME_51BB2A4D02AF
+ CONST Name 'aTreeView'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4CFFBEEA0109' '515DA5860015.pas.ms.script' // TvtCustomOutliner
+ ;
+
+ref; // ME_51BB2A4D02AF aTreeView
+
+: ME_51BB2A4D02D1
+ CONST Name 'aNode'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_476BF22B03E1' '476BF10A0280.pas.ms.script' // Il3Node
+ ;
+
+ref; // ME_51BB2A4D02D1 aNode
+
+: ME_51BB2A4D02F3
+ CONST Name 'aNewStatus'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_51BB2A4D02F3 aNewStatus
+
+: ME_51BB2A3B0107
+ CONST UID '51BB2A3B0107'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_51BB2A2E0234 // ChangeActiveStatus
+ ;
+ : Parameters
+   Seq: ( ME_51BB2A4D02AF // aTreeView
+ ME_51BB2A4D02D1 // aNode
+ ME_51BB2A4D02F3 // aNewStatus
+ )
+ ; // Parameters
+
+ref; // ME_51BB2A3B0107 DoIt
+
+: ME_51BB2A2E0234
+ CONST UID '51BB2A2E0234'
+ CONST Name 'ChangeActiveStatus'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+ : Operations
+   Seq: ( HWL ME_51BB2A3B0107 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_51BB2A2E0234 ChangeActiveStatus
+
+FORWARD ME_51BB2A5A028D
+
+: ME_51BB2A7C001C
+ CONST Name 'aNode'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4912DD2C0082' '4912DD020283.pas.ms.script' // IeeNode
+ ;
+
+ref; // ME_51BB2A7C001C aNode
+
+: ME_51BB2A790015
+ CONST UID '51BB2A790015'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_51BB2A5A028D // GetItemImage
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ : Parameters
+   Seq: ( ME_51BB2A7C001C // aNode
+ )
+ ; // Parameters
+
+ref; // ME_51BB2A790015 DoIt
+
+: ME_51BB2A5A028D
+ CONST UID '51BB2A5A028D'
+ CONST Name 'GetItemImage'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+ : Operations
+   Seq: ( HWL ME_51BB2A790015 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_51BB2A5A028D GetItemImage
+
+FORWARD ME_51BB2A9003A0
+
+: ME_51BB2AFF0321
+ CONST Name 'aNode'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4912DD2C0082' '4912DD020283.pas.ms.script' // IeeNode
+ ;
+
+ref; // ME_51BB2AFF0321 aNode
+
+: ME_51BB2AFC0278
+ CONST UID '51BB2AFC0278'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_51BB2A9003A0 // SetActiveFilter
+ ;
+ : Parameters
+   Seq: ( ME_51BB2AFF0321 // aNode
+ )
+ ; // Parameters
+
+ref; // ME_51BB2AFC0278 DoIt
+
+: ME_51BB2A9003A0
+ CONST UID '51BB2A9003A0'
+ CONST Name 'SetActiveFilter'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+ : Operations
+   Seq: ( HWL ME_51BB2AFC0278 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_51BB2A9003A0 SetActiveFilter
+
+: ME_51BB2B0C00F5
+ CONST UID '51BB2B0C00F5'
+ CONST Name 'SetActiveFilters'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+
+ref; // ME_51BB2B0C00F5 SetActiveFilters
+
+: ME_51BB2B1801BE
+ CONST UID '51BB2B1801BE'
+ CONST Name 'ClearFilters'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+
+ref; // ME_51BB2B1801BE ClearFilters
+
+: ME_51BB3A14022C
+ CONST UID '51BB3A14022C'
+ CONST Name 'DeselectAll'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+
+ref; // ME_51BB3A14022C DeselectAll
+
+: ME_4AE9C97200F1
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+ : Target WL 'ME_4AE9C8CC0055' '4AE89F8A004B.pas.ms.script' // Filterable
+ ;
+
+ref; // ME_4AE9C97200F1 
+
+: ME_4AEECE7002E5
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+ : Target WL 'ME_45EEE145027B' '45EEAA8E034E.pas.ms.script' // Query
+ ;
+
+ref; // ME_4AEECE7002E5 
+
+: ME_4AEED51500FD
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+ : Target WL 'ME_456FE63B01D4' '456F02A50196.pas.ms.script' // Node
+ ;
+
+ref; // ME_4AEED51500FD 
+
+: ME_4AEED66A030C
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+ : Target WL 'ME_49902095021B' '4990135D02F1.pas.ms.script' // InsFoldersNode
+ ;
+
+ref; // ME_4AEED66A030C 
+
+: ME_4AEED6B4010C
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+ : Target WL 'ME_456EB4540188' '456EA56002BF.pas.ms.script' // AccessDenied
+ ;
+
+ref; // ME_4AEED6B4010C 
+
+: ME_4AEED8690294
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+ : Target WL 'ME_47723AA10142' '4682595B0268.pas.ms.script' // flags in tree
+ ;
+
+ref; // ME_4AEED8690294 
+
+: ME_4AF2BA150152
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+ : Target WL 'ME_48FF556602BA' '48F747EC0073.pas.ms.script' // DataAdapter
+ ;
+
+ref; // ME_4AF2BA150152 
+
+: ME_4D0B5F27006B
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+ : Target WL 'ME_4BA232B402FF' '491DCA2C00A9.pas.ms.script' // TnsFolderFilterInfo
+ ;
+
+ref; // ME_4D0B5F27006B 
+
+: ME_4D0B609001DB
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+ : Target WL 'ME_496A10E50205' '4990135D02F1.pas.ms.script' // TnsFolderFilter
+ ;
+
+ref; // ME_4D0B609001DB 
+
+: ME_4D0B60980296
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+ : Target WL 'ME_49901002037D' '4990135D02F1.pas.ms.script' // TnsFolderFilterFor
+ ;
+
+ref; // ME_4D0B60980296 
+
+: ME_4D0B6B7A02DB
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+ : Target WL 'ME_4A980B37006B' '4799D29F033F.pas.ms.script' // ModalResults
+ ;
+
+ref; // ME_4D0B6B7A02DB 
+
+: ME_51BB169F00F4
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_51BB169F00F4 
+
+: ME_51BB16A20329
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+ : Target WL 'ME_478CF30500C1' '4AB0997B00A2.pas.ms.script' // Classes
+ ;
+
+ref; // ME_51BB16A20329 
+
+: ME_51BB16A5007A
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+ : Target WL 'ME_47E13C6B0341' '4799D29F033F.pas.ms.script' // Forms
+ ;
+
+ref; // ME_51BB16A5007A 
+
+: ME_51BB16A700B9
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+ : Target WL 'ME_47E11FC3021E' '4799D29F033F.pas.ms.script' // Controls
+ ;
+
+ref; // ME_51BB16A700B9 
+
+: ME_51BB27C401E7
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+ : Target WL 'ME_4991887A031F' '4CAC58E50231.pas.ms.script' // InsFilterNode
+ ;
+
+ref; // ME_51BB27C401E7 
+
+: ME_51BB3142001B
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+ : Target WL 'ME_4EC391C00307' '4EEA0958023A.pas.ms.script' // SearchRes
+ ;
+
+ref; // ME_51BB3142001B 
+
+: ME_51BB35C403DC
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+ : Target WL 'ME_47D15712022D' '55C4AEC801CA.pas.ms.script' // Graphics
+ ;
+
+ref; // ME_51BB35C403DC 
+
+: ME_51BB36D90336
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+ : Target WL 'ME_4C3F3CC20022' '4A7C0BB70162.pas.ms.script' // FoldersRes
+ ;
+
+ref; // ME_51BB36D90336 
+
+: ME_51BB39B00226
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+ : Target WL 'ME_47E9F00100A2' '491B305A0096.pas.ms.script' // IdsList
+ ;
+
+ref; // ME_51BB39B00226 
+
+: ME_51BB3ADB01A8
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+ : Target WL 'ME_4CAEC809015D' '4CAC5A7402DE.pas.ms.script' // TnsFiltersTree
+ ;
+
+ref; // ME_51BB3ADB01A8 
+
+: ME_51BB3F350015
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+ : Target WL 'ME_4912DBE30091' '48FD8B2702F6.pas.ms.script' // nsTreeUtils
+ ;
+
+ref; // ME_51BB3F350015 
+
+: ME_49895A2102E8_ME_497DCC17001C
+ : Original WL 'ME_49895A2102E8' '4AE89F8A004B.pas.ms.script' // Load
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "Needs Broadcast" false
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_49895A2102E8_ME_497DCC17001C Load
+
+: ME_4AEECBA3030B_ME_497DCC17001C
+ : Original WL 'ME_4AEECBA3030B' '4A9807DB01A5.pas.ms.script' // ActivateNode
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "Needs Broadcast" false
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_4AEECBA3030B_ME_497DCC17001C ActivateNode
+
+: ME_4AF2B1AC02F8_ME_497DCC17001C
+ : Original WL 'ME_4AF2B1AC02F8' '4AE89F8A004B.pas.ms.script' // GetSelected
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "Needs Broadcast" false
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_4AF2B1AC02F8_ME_497DCC17001C GetSelected
+
+: ME_4AF81DE902B6_ME_497DCC17001C
+ : Original WL 'ME_4AF81DE902B6' '4AE89F8A004B.pas.ms.script' // SetNewContent
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "Needs Broadcast" false
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_4AF81DE902B6_ME_497DCC17001C SetNewContent
+
+: ME_4AF8598C0277_ME_497DCC17001C
+ : Original WL 'ME_4AF8598C0277' '4A9807DB01A5.pas.ms.script' // DeselectAll
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "Needs Broadcast" false
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_4AF8598C0277_ME_497DCC17001C DeselectAll
+
+: ME_4C7D3A81021B_ME_497DCC17001C
+ : Original WL 'ME_4C7D3A81021B' '4A9807DB01A5.pas.ms.script' // Activate
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "has states" true
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_4C7D3A81021B_ME_497DCC17001C Activate
+
+: ME_4D0B5FBF0310_ME_497DCC17001C
+ : Original WL 'ME_4D0B5FBF0310' '4CCAAA9D00D6.pas.ms.script' // CreateFilter
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" true
+ CONST "ShowInToolbar" false
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_4D0B5FBF0310_ME_497DCC17001C CreateFilter
+
+: ME_497469C90140_ME_497DCC17001C
+ : Original WL 'ME_497469C90140' '5000041101C8.pas.ms.script' // NotifyDataSourceChanged
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_497469C90140_ME_497DCC17001C NotifyDataSourceChanged
+
+: ME_49803F5503AA_ME_497DCC17001C
+ : Original WL 'ME_49803F5503AA' '4AADF9450143.pas.ms.script' // DoInit
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_49803F5503AA_ME_497DCC17001C DoInit
+
+: ME_49806ED503D5_ME_497DCC17001C
+ : Original WL 'ME_49806ED503D5' '4AADF9450143.pas.ms.script' // DoSaveState
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_49806ED503D5_ME_497DCC17001C DoSaveState
+
+: ME_49807428008C_ME_497DCC17001C
+ : Original WL 'ME_49807428008C' '4AADF9450143.pas.ms.script' // DoLoadState
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_49807428008C_ME_497DCC17001C DoLoadState
+
+: ME_4A8E8F2E0195_ME_497DCC17001C
+ : Original WL 'ME_4A8E8F2E0195' '5000041101C8.pas.ms.script' // InitControls
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4A8E8F2E0195_ME_497DCC17001C InitControls
+
+: ME_497DCC17001C
+ CONST UID '497DCC17001C'
+ CONST Name 'PrimFilters'
+ CONST Class class_Class
+ : Stereotype st_VCMForm ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Фильтры' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4CCAA9D8007E' '4CCAA9D8007E.pas.ms.script' // Filters
+ ;
+ : Implements
+   Seq: ( WL 'ME_498959F103C4' '4AE89F8A004B.pas.ms.script' // Loadable
+ WL 'ME_4A82BCFA02EF' '4AADF9450143.pas.ms.script' // MvcmEntityForm
+ WL 'ME_4AEECB2001BB' '4AE89F8A004B.pas.ms.script' // Filters
+ WL 'ME_4AEECB7A0036' '4A9807DB01A5.pas.ms.script' // Filter
+ WL 'ME_4AF81DD60134' '4AE89F8A004B.pas.ms.script' // List
+ WL 'ME_4AF8597D0271' '4A9807DB01A5.pas.ms.script' // Filters
+ WL 'ME_4D0B5FAB0138' '4CCAAA9D00D6.pas.ms.script' // Filter$Factory
+ WL 'ME_4D80D26F0341' '4D80D26F0341.pas.ms.script' // FiltersUserTypes
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( HWL ME_4AEED6F7020B // FiltersList
+ HWL ME_497DCCCE00DF // Filters
+ HWL ME_51BB29500153 // f_LockSelectionChangedEvent
+ HWL ME_51BB296F0323 // f_FiltersLoaded
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( HWL ME_51BB121B037C // FiltersListSelectChange
+ HWL ME_51BB122A0185 // FiltersListGetItemPickImage
+ HWL ME_51BB123402EB // FiltersListGetItemImage
+ HWL ME_51BB123D03D4 // FiltersListActionElement
+ HWL ME_51BB1245036A // FiltersListRootChanged
+ HWL ME_51BB124D036F // FiltersListGetItemFont
+ HWL ME_51BB12570242 // FiltersListCanBeginDrag
+ HWL ME_51BB126703C9 // FiltersListCanAcceptData
+ HWL ME_51BB1270027A // FiltersListDoDrop
+ HWL ME_51BB29800136 // StartDeselectAll
+ HWL ME_51BB2993020C // FinishDeselectAll
+ HWL ME_51BB2A2E0234 // ChangeActiveStatus
+ HWL ME_51BB2A5A028D // GetItemImage
+ HWL ME_51BB2A9003A0 // SetActiveFilter
+ HWL ME_51BB2B0C00F5 // SetActiveFilters
+ HWL ME_51BB2B1801BE // ClearFilters
+ HWL ME_51BB3A14022C // DeselectAll
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_49895A2102E8_ME_497DCC17001C // Load
+ ME_4AEECBA3030B_ME_497DCC17001C // ActivateNode
+ ME_4AF2B1AC02F8_ME_497DCC17001C // GetSelected
+ ME_4AF81DE902B6_ME_497DCC17001C // SetNewContent
+ ME_4AF8598C0277_ME_497DCC17001C // DeselectAll
+ ME_4C7D3A81021B_ME_497DCC17001C // Activate
+ ME_4D0B5FBF0310_ME_497DCC17001C // CreateFilter
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_497469C90140_ME_497DCC17001C // NotifyDataSourceChanged
+ ME_49803F5503AA_ME_497DCC17001C // DoInit
+ ME_49806ED503D5_ME_497DCC17001C // DoSaveState
+ ME_49807428008C_ME_497DCC17001C // DoLoadState
+ ME_4A8E8F2E0195_ME_497DCC17001C // InitControls
+ )
+ ; // Overridden
+ : Children
+   Seq: ( HWL ME_4D0B4E06037B // TnsSelectedFiltersState
+ )
+ ; // Children
+ : Constants
+   Seq: ( HWL ME_4D0B649A006B // Local
+ )
+ ; // Constants
+ : Dependencies
+   Seq: ( ME_4AE9C97200F1 // Filterable
+ ME_4AEECE7002E5 // Query
+ ME_4AEED51500FD // Node
+ ME_4AEED66A030C // InsFoldersNode
+ ME_4AEED6B4010C // AccessDenied
+ ME_4AEED8690294 // flags in tree
+ ME_4AF2BA150152 // DataAdapter
+ ME_4D0B5F27006B // TnsFolderFilterInfo
+ ME_4D0B609001DB // TnsFolderFilter
+ ME_4D0B60980296 // TnsFolderFilterFor
+ ME_4D0B6B7A02DB // ModalResults
+ ME_51BB169F00F4 // SysUtils
+ ME_51BB16A20329 // Classes
+ ME_51BB16A5007A // Forms
+ ME_51BB16A700B9 // Controls
+ ME_51BB27C401E7 // InsFilterNode
+ ME_51BB3142001B // SearchRes
+ ME_51BB35C403DC // Graphics
+ ME_51BB36D90336 // FoldersRes
+ ME_51BB39B00226 // IdsList
+ ME_51BB3ADB01A8 // TnsFiltersTree
+ ME_51BB3F350015 // nsTreeUtils
+ )
+ ; // Dependencies
+ : Injected
+   Seq: ( WL 'ME_571A2DFA0260' '4CCAA9D8007E.pas.ms.script' // InsFilterNodeWordsPack
+ WL 'ME_571E1B040013' '4CCAA9D8007E.pas.ms.script' // FiltersProcessingWordsPack
+ )
+ ; // Injected
+ CONST "NeedsHackRef" false
+ CONST "ZoneType" 'Any'
+ CONST "author" 'Люлин А.В.'
+ CONST "finished dfm" true
+ CONST "no hands" true
+ CONST "resizeable" false
+ CONST "restrict form def" 'undefined'
+ CONST "started" '26.01.2009 17:49'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Filters\Forms\PrimFilters_Form.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Filters\Forms'
+ CONST extprop:pas:TypeName 'TPrimFiltersForm'
+ CONST extprop:rc:SelfName 'PrimFiltersForm'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'PrimFilters_Form'
+ CONST extprop:NeedsInitEntities true
+
+ref; // ME_497DCC17001C PrimFilters

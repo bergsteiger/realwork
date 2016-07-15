@@ -1,0 +1,524 @@
+// Diction$FP 4A9CE5F2036F VCMFormsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A9CE5F2036F
+
+FORWARD ME_4B14CDEA039C
+
+: ME_4B14CE0A001F
+ CONST UID '4B14CE0A001F'
+ CONST Name 'Log'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4B14CDEA039C // TnsOpenDictionaryEvent
+ ;
+
+ref; // ME_4B14CE0A001F Log
+
+: ME_4B14CE3B005D
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4B14CDEA039C // TnsOpenDictionaryEvent
+ ;
+ : Target WL 'ME_45ED58FF0201' '45ED58CF03E6.pas.ms.script' // LogEvent
+ ;
+
+ref; // ME_4B14CE3B005D 
+
+: ME_4B14CDEA039C
+ CONST UID '4B14CDEA039C'
+ CONST Name 'TnsOpenDictionaryEvent'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4A9CE5F2036F // Diction$FP
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4B0A6109010C' '4B0A60DF01F2.pas.ms.script' // TnsLogEvent
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( HWL ME_4B14CE0A001F // Log
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_4B14CE3B005D // LogEvent
+ )
+ ; // Dependencies
+ CONST extprop:rc:SelfName 'OpenDictionaryEvent'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4B14CDEA039C TnsOpenDictionaryEvent
+
+FORWARD ME_4A9CEF360326
+
+: ME_4A9D111302C2
+ CONST UID '4A9D111302C2'
+ CONST Name 'Child'
+ CONST Class class_Attribute
+ : Stereotype st_var::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_4A9CEF360326 // OpenTermByContext
+ ;
+ : Target WL 'ME_45EEB95901C5' '457450470167.pas.ms.script' // NodeBase
+ ;
+ CONST "IsResult" false
+
+ref; // ME_4A9D111302C2 Child
+
+: ME_4A9D11280032
+ CONST UID '4A9D11280032'
+ CONST Name 'Str'
+ CONST Class class_Attribute
+ : Stereotype st_var::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_4A9CEF360326 // OpenTermByContext
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+ CONST "IsResult" false
+
+ref; // ME_4A9D11280032 Str
+
+: ME_4A9D115200E3
+ CONST UID '4A9D115200E3'
+ CONST Name 'Entity'
+ CONST Class class_Attribute
+ : Stereotype st_var::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_4A9CEF360326 // OpenTermByContext
+ ;
+ : Target WL 'ME_456EB3E10177' '456EA56002BF.pas.ms.script' // EntityBase
+ ;
+ CONST "IsResult" false
+
+ref; // ME_4A9D115200E3 Entity
+
+: ME_4A9D117100FA
+ CONST UID '4A9D117100FA'
+ CONST Name 'Doc'
+ CONST Class class_Attribute
+ : Stereotype st_var::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_4A9CEF360326 // OpenTermByContext
+ ;
+ : Target WL 'ME_45EEB6520191' '4570511E038A.pas.ms.script' // Document
+ ;
+ CONST "IsResult" false
+
+ref; // ME_4A9D117100FA Doc
+
+: ME_4A9D11820288
+ CONST UID '4A9D11820288'
+ CONST Name 'DictTree'
+ CONST Class class_Attribute
+ : Stereotype st_var::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_4A9CEF360326 // OpenTermByContext
+ ;
+ : Target WL 'ME_46825CC00249' '4682595B0268.pas.ms.script' // Il3SimpleTree
+ ;
+ CONST "IsResult" false
+
+ref; // ME_4A9D11820288 DictTree
+
+: ME_4A9D11950167
+ CONST UID '4A9D11950167'
+ CONST Name 'FilterTree'
+ CONST Class class_Attribute
+ : Stereotype st_var::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_4A9CEF360326 // OpenTermByContext
+ ;
+ : Target WL 'ME_46835C050374' '4682595B0268.pas.ms.script' // Il3FilterableTree
+ ;
+ CONST "IsResult" false
+
+ref; // ME_4A9D11950167 FilterTree
+
+: ME_4A9D431D01DA
+ CONST Name 'aContext'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_4A9D431D01DA aContext
+
+: ME_4A9D43170137
+ CONST Name 'aLanguage'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47EA082B021A' '47EA07FA02CE.pas.ms.script' // TbsLanguage
+ ;
+
+ref; // ME_4A9D43170137 aLanguage
+
+: ME_4A9CEFBA021F
+ CONST UID '4A9CEFBA021F'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4A9CEF360326 // OpenTermByContext
+ ;
+ : Parameters
+   Seq: ( ME_4A9D431D01DA // aContext
+ ME_4A9D43170137 // aLanguage
+ )
+ ; // Parameters
+
+ref; // ME_4A9CEFBA021F DoIt
+
+: ME_4A9D123C019A
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A9CEF360326 // OpenTermByContext
+ ;
+ : Target WL 'ME_47878E0E0191' '54B90AC6014B.pas.ms.script' // l3String
+ ;
+
+ref; // ME_4A9D123C019A 
+
+: ME_4A9D12D703D7
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A9CEF360326 // OpenTermByContext
+ ;
+ : Target WL 'ME_4A9D129E00FA' '4AADF9450143.pas.ms.script' // Say
+ ;
+
+ref; // ME_4A9D12D703D7 
+
+: ME_4A9D13E0006B
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A9CEF360326 // OpenTermByContext
+ ;
+ : Target WL 'ME_4925538201C4' '491D5B360381.pas.ms.script' // TdeDiction
+ ;
+
+ref; // ME_4A9D13E0006B 
+
+: ME_4A9D15E00050
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A9CEF360326 // OpenTermByContext
+ ;
+ : Target WL 'ME_47A082F101DB' '476BE98C01B8.pas.ms.script' // Ext Chars
+ ;
+
+ref; // ME_4A9D15E00050 
+
+: ME_4A9D1611029B
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A9CEF360326 // OpenTermByContext
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_4A9D1611029B 
+
+: ME_4A9D16460142
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A9CEF360326 // OpenTermByContext
+ ;
+ : Target WL 'ME_46836BA203A1' '4902090401E7.pas.ms.script' // TnsDictionTree
+ ;
+
+ref; // ME_4A9D16460142 
+
+: ME_4A9D16D2036A
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A9CEF360326 // OpenTermByContext
+ ;
+ : Target WL 'ME_4936CB1B0022' '4936CB1B0022.pas.ms.script' // TsdsDiction
+ ;
+
+ref; // ME_4A9D16D2036A 
+
+: ME_4A9CEF360326
+ CONST UID '4A9CEF360326'
+ CONST Name 'OpenTermByContext'
+ CONST Class class_Class
+ : Stereotype st_FormSetFactory ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Открывает термин по подстроке' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4A9CE5F2036F // Diction$FP
+ ;
+ : Attributes
+   Seq: ( HWL ME_4A9D111302C2 // Child
+ HWL ME_4A9D11280032 // Str
+ HWL ME_4A9D115200E3 // Entity
+ HWL ME_4A9D117100FA // Doc
+ HWL ME_4A9D11820288 // DictTree
+ HWL ME_4A9D11950167 // FilterTree
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( HWL ME_4A9CEFBA021F // DoIt
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_4A9D123C019A // l3String
+ ME_4A9D12D703D7 // Say
+ ME_4A9D13E0006B // TdeDiction
+ ME_4A9D15E00050 // Ext Chars
+ ME_4A9D1611029B // SysUtils
+ ME_4A9D16460142 // TnsDictionTree
+ ME_4A9D16D2036A // TsdsDiction
+ )
+ ; // Dependencies
+ CONST "NO_FACTORY_BRACKECTS" false
+
+ref; // ME_4A9CEF360326 OpenTermByContext
+
+FORWARD ME_4A9D1FD20092
+
+: ME_4A9D201803DF
+ CONST Name 'aDocInfo'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47EA0784000D' '4B1FC2FF03CD.pas.ms.script' // IdeDocInfo
+ ;
+
+ref; // ME_4A9D201803DF aDocInfo
+
+: ME_4A9D204B01B4
+ CONST Name 'aContainer'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
+ ;
+
+ref; // ME_4A9D204B01B4 aContainer
+
+: ME_4A9D2002008F
+ CONST UID '4A9D2002008F'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4A9D1FD20092 // OpenDictionary
+ ;
+ : Parameters
+   Seq: ( ME_4A9D201803DF // aDocInfo
+ ME_4A9D204B01B4 // aContainer
+ )
+ ; // Parameters
+
+ref; // ME_4A9D2002008F DoIt
+
+: ME_4A9D1FD20092
+ CONST UID '4A9D1FD20092'
+ CONST Name 'OpenDictionary'
+ CONST Class class_Class
+ : Stereotype st_FormSetFactory ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Открывает толковый словарь' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4A9CE5F2036F // Diction$FP
+ ;
+ : Operations
+   Seq: ( HWL ME_4A9D2002008F // DoIt
+ )
+ ; // Operations
+ CONST "NO_FACTORY_BRACKECTS" false
+
+ref; // ME_4A9D1FD20092 OpenDictionary
+
+FORWARD ME_4A9D55E901D6
+
+: ME_4A9D62CC006B
+ CONST UID '4A9D62CC006B'
+ CONST Name 'Form'
+ CONST Class class_Attribute
+ : Stereotype st_var::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_4A9D55E901D6 // OpenDict
+ ;
+ : Target WL 'ME_4914746C019E' '4683F37902CF.pas.ms.script' // IvcmEntityForm
+ ;
+ CONST "IsResult" false
+
+ref; // ME_4A9D62CC006B Form
+
+: ME_4A9D5613022D
+ CONST UID '4A9D5613022D'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4A9D55E901D6 // OpenDict
+ ;
+
+ref; // ME_4A9D5613022D DoIt
+
+: ME_4A9D656C0361
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A9D55E901D6 // OpenDict
+ ;
+ : Target WL 'ME_48FF556602BA' '48F747EC0073.pas.ms.script' // DataAdapter
+ ;
+
+ref; // ME_4A9D656C0361 
+
+: ME_4A9D55E901D6
+ CONST UID '4A9D55E901D6'
+ CONST Name 'OpenDict'
+ CONST Class class_Class
+ : Stereotype st_ModuleMethod ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Толковый словарь' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4A9CE5F2036F // Diction$FP
+ ;
+ : Attributes
+   Seq: ( HWL ME_4A9D62CC006B // Form
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( HWL ME_4A9D5613022D // DoIt
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_4A9D656C0361 // DataAdapter
+ )
+ ; // Dependencies
+ CONST "ShowInToolbar" 'undefined'
+ CONST "no prefix" false
+ CONST "no test" false
+
+ref; // ME_4A9D55E901D6 OpenDict
+
+: ME_4A9D26D501BE
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A9CE5F2036F // Diction$FP
+ ;
+ : Target WL 'ME_4A9D267100BA' '4A9807DB01A5.pas.ms.script' // Document$ForDiction
+ ;
+
+ref; // ME_4A9D26D501BE 
+
+: ME_4B14D0C90339
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A9CE5F2036F // Diction$FP
+ ;
+ : Target HWL ME_4B14CDEA039C // TnsOpenDictionaryEvent
+ ;
+
+ref; // ME_4B14D0C90339 
+
+: ME_4BD1ED7B0283
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A9CE5F2036F // Diction$FP
+ ;
+ : Target WL 'ME_4B040EB3003F' '4BD1E3DE02FB.pas.ms.script' // dftDictEntry
+ ;
+
+ref; // ME_4BD1ED7B0283 
+
+: ME_4E033CAC034D
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A9CE5F2036F // Diction$FP
+ ;
+ : Target WL 'ME_4E01D696020C' '4AADF9450143.pas.ms.script' // vcmMessagesSupport
+ ;
+
+ref; // ME_4E033CAC034D 
+
+: ME_53C90CAE0153
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A9CE5F2036F // Diction$FP
+ ;
+ : Target WL 'ME_490837B901D4' '4902090401E7.pas.ms.script' // TnsLangToContextMap
+ ;
+
+ref; // ME_53C90CAE0153 
+
+: ME_53C90CFF004F
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A9CE5F2036F // Diction$FP
+ ;
+ : Target WL 'ME_4908462903E0' '49083E150027.pas.ms.script' // TnscContextFilterState
+ ;
+
+ref; // ME_53C90CFF004F 
+
+: ME_4A9CE5F2036F
+ CONST UID '4A9CE5F2036F'
+ CONST Name 'Diction'
+ CONST Class class_Class
+ : Stereotype st_VCMFormsPack ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Толковый словарь' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4979D3B10102' '4979D3B10102.pas.ms.script' // Diction
+ ;
+ : Operations
+   Seq: ( HWL ME_4A9CEF360326 // OpenTermByContext
+ HWL ME_4A9D1FD20092 // OpenDictionary
+ HWL ME_4A9D55E901D6 // OpenDict
+ )
+ ; // Operations
+ : Children
+   Seq: ( WL 'ME_4A9CEA5001CF' '4A9CEA5001CF.pas.ms.script' // Diction
+ WL 'ME_4A9D19450248' '4A9D19450248.pas.ms.script' // Diction$FS
+ HWL ME_4B14CDEA039C // TnsOpenDictionaryEvent
+ WL 'ME_4D7A6A2E00F7' '4D7A6A2E00F7.pas.ms.script' // DictionContainer
+ WL 'ME_4ABBB22002AA' '4ABBB22002AA.pas.ms.script' // CommonDiction
+ )
+ ; // Children
+ : Dependencies
+   Seq: ( ME_4A9D26D501BE // Document$ForDiction
+ ME_4B14D0C90339 // TnsOpenDictionaryEvent
+ ME_4BD1ED7B0283 // dftDictEntry
+ ME_4E033CAC034D // vcmMessagesSupport
+ ME_53C90CAE0153 // TnsLangToContextMap
+ ME_53C90CFF004F // TnscContextFilterState
+ )
+ ; // Dependencies
+ CONST "author" 'Люлин А.В.'
+ CONST "no hands" true
+ CONST "started" '01.09.2009 13:14'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Diction\Diction_Module.pas'
+ CONST extprop:pas:TypeName 'TDictionModule'
+ CONST extprop:rc:SelfName 'DictionModule'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'Diction_Module'
+
+ref; // ME_4A9CE5F2036F Diction$FP
