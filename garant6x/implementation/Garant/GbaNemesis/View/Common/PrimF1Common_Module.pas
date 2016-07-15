@@ -1,282 +1,168 @@
 unit PrimF1Common_Module;
+ {* "Общий" только для F1 }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Common/PrimF1Common_Module.pas"
-// Начат: 24.08.2009 20:35
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMFormsPack::Class>> F1 Core::Common::View::Common::PrimF1Common
-//
-// "Общий" только для F1
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Common\PrimF1Common_Module.pas"
+// Стереотип: "VCMFormsPack"
+// Элемент модели: "PrimF1Common" MUID: (4A92C1380380)
+// Имя типа: "TPrimF1CommonModule"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  BaseTypesUnit,
-  DocumentUnit,
-  DynamicTreeUnit,
-  UnderControlUnit,
-  l3Interfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmExternalInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  l3Tree_TLB,
-  Classes
-  {$If not defined(NoVCL)}
-  ,
-  ExtCtrls
-  {$IfEnd} //not NoVCL
-  ,
-  SearchInterfaces,
-  PresentationInterfaces,
-  ConfigInterfaces,
-  PrimRememberPassword_Form,
-  RememberPassword_Form,
-  PrimProgressIndicator_Form,
-  ProgressIndicator_Form,
-  PrimEULA_Form,
-  EULA_Form,
-  TurnOffTimeMachine_Form,
-  About_Form,
-  Registration_Form,
-  AdapterFacade,
-  vtGroupBox,
-  vtLabel,
-  PrimTasksPanel_Form,
-  Common_FormDefinitions_Controls,
-  PrimNavigatorOptions_Form,
-  PrimTurnOffTimeMachineOptions_Form,
-  PrimCompInfo_Form,
-  vtButton,
-  PrimRegistration_Form,
-  l3PrinterInterfaces,
-  CompInfo_Form,
-  TasksPanel_Form,
-  Navigator_Form,
-  vcmModule {a},
-  vcmBase {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , DynamicTreeUnit
+ , AdapterFacade
+ , SearchInterfaces
+ , l3Interfaces
+ , ConfigInterfaces
+ , l3PrinterInterfaces
+ , BaseTypesUnit
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3Tree_TLB
+ , UnderControlUnit
+ , DocumentUnit
+ , PresentationInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
- TPrimF1CommonModule = {abstract formspack} class(TvcmModule)
+ TPrimF1CommonModule = {abstract} class({$If NOT Defined(NoVCM)}
+ TvcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* "Общий" только для F1 }
- protected
-  procedure Loaded; override;
-  class procedure GetEntityForms(aList : TvcmClassList); override;
- protected
- // protected methods
+  protected
    procedure opComplectInfoTest(const aParams: IvcmTestParamsPrim);
-     {* Информация о комплекте }
-   procedure opComplectInfo(const aParams: IvcmExecuteParamsPrim);
-     {* Информация о комплекте }
-   procedure opPageSetup(const aParams: IvcmExecuteParamsPrim);
-     {* Настройка страницы... }
-   procedure opShowEULA(const aParams: IvcmExecuteParamsPrim);
-     {* Условия использования }
+    {* Информация о комплекте }
+   procedure opComplectInfoExecute(const aParams: IvcmExecuteParamsPrim);
+    {* Информация о комплекте }
+   procedure opPageSetupExecute(const aParams: IvcmExecuteParamsPrim);
+    {* Настройка страницы... }
+   procedure opShowEULAExecute(const aParams: IvcmExecuteParamsPrim);
+    {* Условия использования }
    class function GetMenuTypedItem(aType: TNavigatorMenuItemType): INodeBase;
    class procedure SetParamsForNavigatorElements(const aParams: IvcmTestParamsPrim;
-     aType: TNavigatorMenuItemType);
-   procedure opOpenMainMenuByButton(const aParams: IvcmExecuteParamsPrim);
-     {* Основное меню системы ГАРАНТ }
+    aType: TNavigatorMenuItemType);
+   procedure opOpenMainMenuByButtonExecute(const aParams: IvcmExecuteParamsPrim);
+    {* Основное меню системы ГАРАНТ }
    procedure opOpenMainMenuNewTest(const aParams: IvcmTestParamsPrim);
-     {* Основное меню }
-   procedure opOpenMainMenuNew(const aParams: IvcmExecuteParamsPrim);
-     {* Основное меню }
-   procedure opTasksPanel(const aParams: IvcmExecuteParamsPrim);
-     {* Панель задач }
-   procedure opLetterToDevelopers(const aParams: IvcmExecuteParamsPrim);
-     {* Письмо разработчикам }
+    {* Основное меню }
+   procedure opOpenMainMenuNewExecute(const aParams: IvcmExecuteParamsPrim);
+    {* Основное меню }
+   procedure opTasksPanelExecute(const aParams: IvcmExecuteParamsPrim);
+    {* Панель задач }
+   procedure opLetterToDevelopersExecute(const aParams: IvcmExecuteParamsPrim);
+    {* Письмо разработчикам }
    procedure opOpenRubricatorTest(const aParams: IvcmTestParamsPrim);
-     {* Правовой навигатор }
-   procedure opOpenRubricator(const aParams: IvcmExecuteParamsPrim);
-     {* Правовой навигатор }
+    {* Правовой навигатор }
+   procedure opOpenRubricatorExecute(const aParams: IvcmExecuteParamsPrim);
+    {* Правовой навигатор }
    procedure opOpenInformationTest(const aParams: IvcmTestParamsPrim);
-     {* Справочная информация }
-   procedure opOpenInformation(const aParams: IvcmExecuteParamsPrim);
-     {* Справочная информация }
-   procedure opget_navigator(const aParams: IvcmExecuteParamsPrim);
-     {* Меню (вкладка) }
+    {* Справочная информация }
+   procedure opOpenInformationExecute(const aParams: IvcmExecuteParamsPrim);
+    {* Справочная информация }
+   procedure opget_navigatorExecute(const aParams: IvcmExecuteParamsPrim);
+    {* Меню (вкладка) }
    procedure opOpenIntranetTest(const aParams: IvcmTestParamsPrim);
-   procedure opOpenIntranet(const aParams: IvcmExecuteParamsPrim);
- public
- // public methods
+   procedure opOpenIntranetExecute(const aParams: IvcmExecuteParamsPrim);
+   procedure Loaded; override;
+   {$If NOT Defined(NoVCM)}
+   class procedure GetEntityForms(aList: TvcmClassList); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    class function MakeProgressIndicator(const aProgress: InsProgressIndicator;
-     const aCaption: Il3CString;
-     aMaxCount: Integer): IvcmEntityForm;
+    const aCaption: Il3CString;
+    aMaxCount: Integer): IvcmEntityForm;
    class procedure CloseNavigator(const aContainer: IvcmContainer);
    class procedure CloseTasksPanel(const aContainer: IvcmContainer);
    class procedure FromPrinterSettings(const aPrinter: Il3Printer);
-     {* Считать настройки из принтера }
+    {* Считать настройки из принтера }
    class procedure ToPrinterSettings(const aPrinter: Il3Printer);
-     {* Записать настройки в принтер }
+    {* Записать настройки в принтер }
    class procedure About;
-     {* Выводит диалог "О программе" }
+    {* Выводит диалог "О программе" }
    class procedure ApplicationActivate;
    class procedure OpenRubricatorOnStart(const aContainer: IvcmContainer);
    class procedure OpenNewDocs(const aContainer: IvcmContainer);
    class procedure GetNavigator(const anAggregate: IvcmAggregate;
-     const aContainer: IvcmContainer);
-     {* Меню (вкладка) }
+    const aContainer: IvcmContainer);
+    {* Меню (вкладка) }
    class procedure OpenTasksPanel(const aContainer: IvcmContainer);
    class procedure AddDocumentToControl(const aDocument: IDocument);
-     {* Поставить документ на контроль }
+    {* Поставить документ на контроль }
    class procedure AddToControl(const aControllable: IControllable);
-     {* Поставить объект на контроль }
+    {* Поставить объект на контроль }
    class procedure DeleteDocumentFromControl(const aDocument: IDocument);
-     {* Снять документ с контроля }
+    {* Снять документ с контроля }
    class procedure DeleteFromControl(const aControllable: IControllable);
-     {* Снять объект с контроля }
+    {* Снять объект с контроля }
    class function IsUnderControl(const aDoc: IDocument): Boolean;
-     {* Находится ли документ на контроле }
-   class function IsCurEditionActual(const aState: IDocumentState): Boolean; overload; 
-   class function IsCurEditionActual(const aDocument: IDocument): Boolean; overload; 
+    {* Находится ли документ на контроле }
+   class function IsCurEditionActual(const aState: IDocumentState): Boolean; overload;
+   class function IsCurEditionActual(const aDocument: IDocument): Boolean; overload;
    class function GetCurEditionDate(const aDocument: IDocument): AdapterDate;
    class function OpenTurnOffTimeMachine(const anIntf: InsTurnOffTimeMachine): IvcmEntityForm;
  end;//TPrimF1CommonModule
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  afwFacade,
-  nsPageSetup
-  {$If not defined(NoVCM)}
-  ,
-  StdRes
-  {$IfEnd} //not NoVCM
-  ,
-  StartUnit,
-  l3String,
-  vtVerInf,
-  DataAdapter,
-  ComplectUnit,
-  IOUnit,
-  nsTypes,
-  nsUtils,
-  l3MinMax,
-  vtDialogsRes
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  SecurityUnit
-  {$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
-  ,
-  vcmTabbedContainerFormDispatcher
-  {$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
-  ,
-  nsNewCachableNode,
-  nsNodes,
-  SysUtils,
-  nsExternalObjectPrim,
-  bsUtils,
-  l3Base,
-  nsConst,
-  Search_Strange_Controls,
-  Common_Rubricator_Controls,
-  PrimTasksPanel_tpMain_UserType,
-  NavigatorUtils,
-  GblAdapter
-  {$If not defined(NoVCM)}
-  ,
-  vcmEntityForm
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  kw_Common_opComplectInfo
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  kw_Common_opPageSetup
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  kw_Common_opShowEULA
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  kw_Common_opOpenMainMenuByButton
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  kw_Common_OpenMainMenuNew
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  kw_Common_opTasksPanel
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  kw_Common_LetterToDevelopers
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  kw_Common_opOpenRubricator
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  kw_Common_opOpenInformation
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  kw_Common_get_navigator
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  kw_Common_opOpenIntranet
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  ,
-  vcmFormSetFactory {a},
-  vcmModuleDef {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , Search_Strange_Controls
+ , Common_Rubricator_Controls
+ , PrimTasksPanel_tpMain_UserType
+ , Common_FormDefinitions_Controls
+ , NavigatorUtils
+ , GblAdapter
+ {$If NOT Defined(NoVCM)}
+ , vcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ , afwFacade
+ , nsPageSetup
+ , DataAdapter
+ , nsTypes
+ , nsNewCachableNode
+ , nsNodes
+ , SysUtils
+ , nsExternalObjectPrim
+ , nsUtils
+ , bsUtils
+ , l3Base
+ , nsConst
+ , RememberPassword_Form
+ , ProgressIndicator_Form
+ , EULA_Form
+ , About_Form
+ , CompInfo_Form
+ , Registration_Form
+ , TasksPanel_Form
+ , Navigator_Form
+ , TurnOffTimeMachine_Form
+ //#UC START# *4A92C1380380impl_uses*
+ , StdRes
+ , StartUnit
+ //#UC END# *4A92C1380380impl_uses*
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TPrimF1CommonModule
-
+{$If NOT Defined(NoVCM)}
 class function TPrimF1CommonModule.MakeProgressIndicator(const aProgress: InsProgressIndicator;
-  const aCaption: Il3CString;
-  aMaxCount: Integer): IvcmEntityForm;
+ const aCaption: Il3CString;
+ aMaxCount: Integer): IvcmEntityForm;
 var
  __WasEnter : Boolean;
 //#UC START# *4A93F1F200B0_4A92C1380380_var*
@@ -312,12 +198,11 @@ begin
 end;//TPrimF1CommonModule.MakeProgressIndicator
 
 class procedure TPrimF1CommonModule.CloseNavigator(const aContainer: IvcmContainer);
+var l_Form: IvcmEntityForm;
 var
  __WasEnter : Boolean;
 //#UC START# *4AAFCA2D03D0_4A92C1380380_var*
 //#UC END# *4AAFCA2D03D0_4A92C1380380_var*
-var
- l_Form : IvcmEntityForm;
 begin
  __WasEnter := vcmEnterFactory;
  try
@@ -334,12 +219,11 @@ begin
 end;//TPrimF1CommonModule.CloseNavigator
 
 class procedure TPrimF1CommonModule.CloseTasksPanel(const aContainer: IvcmContainer);
+var l_Form: IvcmEntityForm;
 var
  __WasEnter : Boolean;
 //#UC START# *4AAFCCD00301_4A92C1380380_var*
 //#UC END# *4AAFCCD00301_4A92C1380380_var*
-var
- l_Form : IvcmEntityForm;
 begin
  __WasEnter := vcmEnterFactory;
  try
@@ -356,12 +240,12 @@ begin
 end;//TPrimF1CommonModule.CloseTasksPanel
 
 class procedure TPrimF1CommonModule.FromPrinterSettings(const aPrinter: Il3Printer);
+ {* Считать настройки из принтера }
+var l_PageSetup: InsPageSettingsInfo;
 var
  __WasEnter : Boolean;
 //#UC START# *4ABB68C603CE_4A92C1380380_var*
 //#UC END# *4ABB68C603CE_4A92C1380380_var*
-var
- l_PageSetup : InsPageSettingsInfo;
 begin
  __WasEnter := vcmEnterFactory;
  try
@@ -382,12 +266,12 @@ begin
 end;//TPrimF1CommonModule.FromPrinterSettings
 
 class procedure TPrimF1CommonModule.ToPrinterSettings(const aPrinter: Il3Printer);
+ {* Записать настройки в принтер }
+var l_PageSetup: InsPageSettingsInfo;
 var
  __WasEnter : Boolean;
 //#UC START# *4ABB691803C2_4A92C1380380_var*
 //#UC END# *4ABB691803C2_4A92C1380380_var*
-var
- l_PageSetup : InsPageSettingsInfo;
 begin
  __WasEnter := vcmEnterFactory;
  try
@@ -406,6 +290,7 @@ begin
 end;//TPrimF1CommonModule.ToPrinterSettings
 
 class procedure TPrimF1CommonModule.About;
+ {* Выводит диалог "О программе" }
 var
  __WasEnter : Boolean;
 //#UC START# *4ABB6F5D0397_4A92C1380380_var*
@@ -440,6 +325,7 @@ begin
 end;//TPrimF1CommonModule.ApplicationActivate
 
 procedure TPrimF1CommonModule.opComplectInfoTest(const aParams: IvcmTestParamsPrim);
+ {* Информация о комплекте }
 //#UC START# *4ABB7615007A_4A92C1380380test_var*
 //#UC END# *4ABB7615007A_4A92C1380380test_var*
 begin
@@ -449,7 +335,8 @@ begin
 //#UC END# *4ABB7615007A_4A92C1380380test_impl*
 end;//TPrimF1CommonModule.opComplectInfoTest
 
-procedure TPrimF1CommonModule.opComplectInfo(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimF1CommonModule.opComplectInfoExecute(const aParams: IvcmExecuteParamsPrim);
+ {* Информация о комплекте }
 //#UC START# *4ABB7615007A_4A92C1380380exec_var*
 //#UC END# *4ABB7615007A_4A92C1380380exec_var*
 begin
@@ -457,33 +344,34 @@ begin
  TenCompInfo.Make(vcmCheckAggregate(vcmMakeParams(nil,
                                            CheckContainer(nil))));
 //#UC END# *4ABB7615007A_4A92C1380380exec_impl*
-end;//TPrimF1CommonModule.opComplectInfo
+end;//TPrimF1CommonModule.opComplectInfoExecute
 
-procedure TPrimF1CommonModule.opPageSetup(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimF1CommonModule.opPageSetupExecute(const aParams: IvcmExecuteParamsPrim);
+ {* Настройка страницы... }
 //#UC START# *4ABB76520183_4A92C1380380exec_var*
 //#UC END# *4ABB76520183_4A92C1380380exec_var*
 begin
 //#UC START# *4ABB76520183_4A92C1380380exec_impl*
  TdmStdRes.MakePageSetup(nil);
 //#UC END# *4ABB76520183_4A92C1380380exec_impl*
-end;//TPrimF1CommonModule.opPageSetup
+end;//TPrimF1CommonModule.opPageSetupExecute
 
-procedure TPrimF1CommonModule.opShowEULA(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimF1CommonModule.opShowEULAExecute(const aParams: IvcmExecuteParamsPrim);
+ {* Условия использования }
 //#UC START# *4ABB792C0164_4A92C1380380exec_var*
 //#UC END# *4ABB792C0164_4A92C1380380exec_var*
 begin
 //#UC START# *4ABB792C0164_4A92C1380380exec_impl*
  TefEULA.Make(vcmMakeParams);
 //#UC END# *4ABB792C0164_4A92C1380380exec_impl*
-end;//TPrimF1CommonModule.opShowEULA
+end;//TPrimF1CommonModule.opShowEULAExecute
 
 class function TPrimF1CommonModule.GetMenuTypedItem(aType: TNavigatorMenuItemType): INodeBase;
+var l_Root: INodeBase;
+var l_Child: INodeBase;
+var l_Node: INodeBase;
 //#UC START# *4ABB884103D3_4A92C1380380_var*
 //#UC END# *4ABB884103D3_4A92C1380380_var*
-var
- l_Root : INodeBase;
- l_Child : INodeBase;
- l_Node : INodeBase;
 begin
 //#UC START# *4ABB884103D3_4A92C1380380_impl*
  Result := nil;
@@ -509,13 +397,12 @@ begin
 end;//TPrimF1CommonModule.GetMenuTypedItem
 
 class procedure TPrimF1CommonModule.SetParamsForNavigatorElements(const aParams: IvcmTestParamsPrim;
-  aType: TNavigatorMenuItemType);
+ aType: TNavigatorMenuItemType);
+var l_List: IvcmNodes;
+var l_Node: Il3Node;
+var l_AdapterNode: INodeBase;
 //#UC START# *4ABB8A470126_4A92C1380380_var*
 //#UC END# *4ABB8A470126_4A92C1380380_var*
-var
- l_List : IvcmNodes;
- l_Node : Il3Node;
- l_AdapterNode : INodeBase;
 begin
 //#UC START# *4ABB8A470126_4A92C1380380_impl*
  if not (aType in defDataAdapter.MenuTypeCache) then
@@ -549,13 +436,12 @@ begin
 end;//TPrimF1CommonModule.SetParamsForNavigatorElements
 
 class procedure TPrimF1CommonModule.OpenRubricatorOnStart(const aContainer: IvcmContainer);
+var l_Node: INodeBase;
+var l_Child: INodeBase;
 var
  __WasEnter : Boolean;
 //#UC START# *4ABB8D6B0041_4A92C1380380_var*
 //#UC END# *4ABB8D6B0041_4A92C1380380_var*
-var
- l_Node : INodeBase;
- l_Child : INodeBase;
 begin
  __WasEnter := vcmEnterFactory;
  try
@@ -580,13 +466,12 @@ begin
 end;//TPrimF1CommonModule.OpenRubricatorOnStart
 
 class procedure TPrimF1CommonModule.OpenNewDocs(const aContainer: IvcmContainer);
+var l_Node: INodeBase;
+var l_Child: INodeBase;
 var
  __WasEnter : Boolean;
 //#UC START# *4ABBA74F03DA_4A92C1380380_var*
 //#UC END# *4ABBA74F03DA_4A92C1380380_var*
-var
- l_Node : INodeBase;
- l_Child : INodeBase;
 begin
  __WasEnter := vcmEnterFactory;
  try
@@ -617,16 +502,18 @@ begin
  end;//try..finally
 end;//TPrimF1CommonModule.OpenNewDocs
 
-procedure TPrimF1CommonModule.opOpenMainMenuByButton(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimF1CommonModule.opOpenMainMenuByButtonExecute(const aParams: IvcmExecuteParamsPrim);
+ {* Основное меню системы ГАРАНТ }
 //#UC START# *4ABBAAE40176_4A92C1380380exec_var*
 //#UC END# *4ABBAAE40176_4A92C1380380exec_var*
 begin
 //#UC START# *4ABBAAE40176_4A92C1380380exec_impl*
  TdmStdRes.OpenMainMenuIfNeeded(nil);
 //#UC END# *4ABBAAE40176_4A92C1380380exec_impl*
-end;//TPrimF1CommonModule.opOpenMainMenuByButton
+end;//TPrimF1CommonModule.opOpenMainMenuByButtonExecute
 
 procedure TPrimF1CommonModule.opOpenMainMenuNewTest(const aParams: IvcmTestParamsPrim);
+ {* Основное меню }
 //#UC START# *4ABBAB14034B_4A92C1380380test_var*
 //#UC END# *4ABBAB14034B_4A92C1380380test_var*
 begin
@@ -643,25 +530,28 @@ begin
 //#UC END# *4ABBAB14034B_4A92C1380380test_impl*
 end;//TPrimF1CommonModule.opOpenMainMenuNewTest
 
-procedure TPrimF1CommonModule.opOpenMainMenuNew(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimF1CommonModule.opOpenMainMenuNewExecute(const aParams: IvcmExecuteParamsPrim);
+ {* Основное меню }
 //#UC START# *4ABBAB14034B_4A92C1380380exec_var*
 //#UC END# *4ABBAB14034B_4A92C1380380exec_var*
 begin
 //#UC START# *4ABBAB14034B_4A92C1380380exec_impl*
  TdmStdRes.OpenMainMenuIfNeeded(nil);
 //#UC END# *4ABBAB14034B_4A92C1380380exec_impl*
-end;//TPrimF1CommonModule.opOpenMainMenuNew
+end;//TPrimF1CommonModule.opOpenMainMenuNewExecute
 
-procedure TPrimF1CommonModule.opTasksPanel(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimF1CommonModule.opTasksPanelExecute(const aParams: IvcmExecuteParamsPrim);
+ {* Панель задач }
 //#UC START# *4ABBAC7D003B_4A92C1380380exec_var*
 //#UC END# *4ABBAC7D003B_4A92C1380380exec_var*
 begin
 //#UC START# *4ABBAC7D003B_4A92C1380380exec_impl*
  OpenTasksPanel(nil);
 //#UC END# *4ABBAC7D003B_4A92C1380380exec_impl*
-end;//TPrimF1CommonModule.opTasksPanel
+end;//TPrimF1CommonModule.opTasksPanelExecute
 
-procedure TPrimF1CommonModule.opLetterToDevelopers(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimF1CommonModule.opLetterToDevelopersExecute(const aParams: IvcmExecuteParamsPrim);
+ {* Письмо разработчикам }
 //#UC START# *4ABBB19B030A_4A92C1380380exec_var*
 //#UC END# *4ABBB19B030A_4A92C1380380exec_var*
 begin
@@ -670,9 +560,10 @@ begin
   [bsComplectOwner, bsComplectName, FormatDateTime('dd/mm/yyyy',
    bsBaseDate)])));
 //#UC END# *4ABBB19B030A_4A92C1380380exec_impl*
-end;//TPrimF1CommonModule.opLetterToDevelopers
+end;//TPrimF1CommonModule.opLetterToDevelopersExecute
 
 procedure TPrimF1CommonModule.opOpenRubricatorTest(const aParams: IvcmTestParamsPrim);
+ {* Правовой навигатор }
 //#UC START# *4ABC827B010F_4A92C1380380test_var*
 //#UC END# *4ABC827B010F_4A92C1380380test_var*
 begin
@@ -681,7 +572,8 @@ begin
 //#UC END# *4ABC827B010F_4A92C1380380test_impl*
 end;//TPrimF1CommonModule.opOpenRubricatorTest
 
-procedure TPrimF1CommonModule.opOpenRubricator(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimF1CommonModule.opOpenRubricatorExecute(const aParams: IvcmExecuteParamsPrim);
+ {* Правовой навигатор }
 //#UC START# *4ABC827B010F_4A92C1380380exec_var*
 //#UC END# *4ABC827B010F_4A92C1380380exec_var*
 begin
@@ -690,9 +582,10 @@ begin
  ExecuteNavigatorItem(aParams.CurrentNode, nil, CheckContainer(nil));
 {$IfEnd not (defined(Monitorings) or defined(Admin))}
 //#UC END# *4ABC827B010F_4A92C1380380exec_impl*
-end;//TPrimF1CommonModule.opOpenRubricator
+end;//TPrimF1CommonModule.opOpenRubricatorExecute
 
 procedure TPrimF1CommonModule.opOpenInformationTest(const aParams: IvcmTestParamsPrim);
+ {* Справочная информация }
 //#UC START# *4ABC82A70238_4A92C1380380test_var*
 //#UC END# *4ABC82A70238_4A92C1380380test_var*
 begin
@@ -701,7 +594,8 @@ begin
 //#UC END# *4ABC82A70238_4A92C1380380test_impl*
 end;//TPrimF1CommonModule.opOpenInformationTest
 
-procedure TPrimF1CommonModule.opOpenInformation(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimF1CommonModule.opOpenInformationExecute(const aParams: IvcmExecuteParamsPrim);
+ {* Справочная информация }
 //#UC START# *4ABC82A70238_4A92C1380380exec_var*
 //#UC END# *4ABC82A70238_4A92C1380380exec_var*
 begin
@@ -710,19 +604,19 @@ begin
  ExecuteNavigatorItem(aParams.CurrentNode, nil, CheckContainer(nil));
 {$IfEnd not (defined(Monitorings) or defined(Admin))}
 //#UC END# *4ABC82A70238_4A92C1380380exec_impl*
-end;//TPrimF1CommonModule.opOpenInformation
+end;//TPrimF1CommonModule.opOpenInformationExecute
 
 class procedure TPrimF1CommonModule.GetNavigator(const anAggregate: IvcmAggregate;
-  const aContainer: IvcmContainer);
+ const aContainer: IvcmContainer);
+ {* Меню (вкладка) }
+var l_Navigator: IvcmEntityForm;
+var l_RubList: IvcmEntityForm;
+var l_Aggregate: IvcmAggregate;
+var l_Params: IvcmMakeParams;
 var
  __WasEnter : Boolean;
 //#UC START# *4ABCA68B0155_4A92C1380380_var*
 //#UC END# *4ABCA68B0155_4A92C1380380_var*
-var
- l_Navigator : IvcmEntityForm;
- l_RubList : IvcmEntityForm;
- l_Aggregate : IvcmAggregate;
- l_Params : IvcmMakeParams;
 begin
  __WasEnter := vcmEnterFactory;
  try
@@ -764,14 +658,15 @@ begin
  end;//try..finally
 end;//TPrimF1CommonModule.GetNavigator
 
-procedure TPrimF1CommonModule.opget_navigator(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimF1CommonModule.opget_navigatorExecute(const aParams: IvcmExecuteParamsPrim);
+ {* Меню (вкладка) }
 //#UC START# *4AC0FBFE0095_4A92C1380380exec_var*
 //#UC END# *4AC0FBFE0095_4A92C1380380exec_var*
 begin
 //#UC START# *4AC0FBFE0095_4A92C1380380exec_impl*
  GetNavigator(nil, nil);
 //#UC END# *4AC0FBFE0095_4A92C1380380exec_impl*
-end;//TPrimF1CommonModule.opget_navigator
+end;//TPrimF1CommonModule.opget_navigatorExecute
 
 class procedure TPrimF1CommonModule.OpenTasksPanel(const aContainer: IvcmContainer);
 var
@@ -798,12 +693,12 @@ begin
 end;//TPrimF1CommonModule.OpenTasksPanel
 
 class procedure TPrimF1CommonModule.AddDocumentToControl(const aDocument: IDocument);
+ {* Поставить документ на контроль }
+var l_Controllable: IControllable;
 var
  __WasEnter : Boolean;
 //#UC START# *4AC1F3770062_4A92C1380380_var*
 //#UC END# *4AC1F3770062_4A92C1380380_var*
-var
- l_Controllable : IControllable;
 begin
  __WasEnter := vcmEnterFactory;
  try
@@ -823,6 +718,7 @@ begin
 end;//TPrimF1CommonModule.AddDocumentToControl
 
 class procedure TPrimF1CommonModule.AddToControl(const aControllable: IControllable);
+ {* Поставить объект на контроль }
 var
  __WasEnter : Boolean;
 //#UC START# *4AC1F3A700BE_4A92C1380380_var*
@@ -844,12 +740,12 @@ begin
 end;//TPrimF1CommonModule.AddToControl
 
 class procedure TPrimF1CommonModule.DeleteDocumentFromControl(const aDocument: IDocument);
+ {* Снять документ с контроля }
+var l_Controllable: IControllable;
 var
  __WasEnter : Boolean;
 //#UC START# *4AC1F3D702D2_4A92C1380380_var*
 //#UC END# *4AC1F3D702D2_4A92C1380380_var*
-var
- l_Controllable : IControllable;
 begin
  __WasEnter := vcmEnterFactory;
  try
@@ -868,6 +764,7 @@ begin
 end;//TPrimF1CommonModule.DeleteDocumentFromControl
 
 class procedure TPrimF1CommonModule.DeleteFromControl(const aControllable: IControllable);
+ {* Снять объект с контроля }
 var
  __WasEnter : Boolean;
 //#UC START# *4AC1F40900DE_4A92C1380380_var*
@@ -889,12 +786,12 @@ begin
 end;//TPrimF1CommonModule.DeleteFromControl
 
 class function TPrimF1CommonModule.IsUnderControl(const aDoc: IDocument): Boolean;
+ {* Находится ли документ на контроле }
+var l_Controllable: IControllable;
 var
  __WasEnter : Boolean;
 //#UC START# *4AC1F483035F_4A92C1380380_var*
 //#UC END# *4AC1F483035F_4A92C1380380_var*
-var
- l_Controllable : IControllable;
 begin
  __WasEnter := vcmEnterFactory;
  try
@@ -914,12 +811,11 @@ begin
 end;//TPrimF1CommonModule.IsUnderControl
 
 class function TPrimF1CommonModule.IsCurEditionActual(const aState: IDocumentState): Boolean;
+var l_Info: TRedactionInfo;
 var
  __WasEnter : Boolean;
 //#UC START# *4AC1F6E802E5_4A92C1380380_var*
 //#UC END# *4AC1F6E802E5_4A92C1380380_var*
-var
- l_Info : TRedactionInfo;
 begin
  __WasEnter := vcmEnterFactory;
  try
@@ -941,12 +837,11 @@ begin
 end;//TPrimF1CommonModule.IsCurEditionActual
 
 class function TPrimF1CommonModule.IsCurEditionActual(const aDocument: IDocument): Boolean;
+var l_State: IDocumentState;
 var
  __WasEnter : Boolean;
 //#UC START# *4AC1F71B0366_4A92C1380380_var*
 //#UC END# *4AC1F71B0366_4A92C1380380_var*
-var
- l_State : IDocumentState;
 begin
  __WasEnter := vcmEnterFactory;
  try
@@ -969,13 +864,12 @@ begin
 end;//TPrimF1CommonModule.IsCurEditionActual
 
 class function TPrimF1CommonModule.GetCurEditionDate(const aDocument: IDocument): AdapterDate;
+var l_State: IDocumentState;
+var l_Info: TRedactionInfo;
 var
  __WasEnter : Boolean;
 //#UC START# *4AC203EB01AE_4A92C1380380_var*
 //#UC END# *4AC203EB01AE_4A92C1380380_var*
-var
- l_State : IDocumentState;
- l_Info : TRedactionInfo;
 begin
  __WasEnter := vcmEnterFactory;
  try
@@ -1013,14 +907,14 @@ begin
 //#UC END# *4BD162890088_4A92C1380380test_impl*
 end;//TPrimF1CommonModule.opOpenIntranetTest
 
-procedure TPrimF1CommonModule.opOpenIntranet(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimF1CommonModule.opOpenIntranetExecute(const aParams: IvcmExecuteParamsPrim);
 //#UC START# *4BD162890088_4A92C1380380exec_var*
 //#UC END# *4BD162890088_4A92C1380380exec_var*
 begin
 //#UC START# *4BD162890088_4A92C1380380exec_impl*
  defDataAdapter.OpenIntranet;
 //#UC END# *4BD162890088_4A92C1380380exec_impl*
-end;//TPrimF1CommonModule.opOpenIntranet
+end;//TPrimF1CommonModule.opOpenIntranetExecute
 
 class function TPrimF1CommonModule.OpenTurnOffTimeMachine(const anIntf: InsTurnOffTimeMachine): IvcmEntityForm;
 var
@@ -1042,20 +936,20 @@ end;//TPrimF1CommonModule.OpenTurnOffTimeMachine
 procedure TPrimF1CommonModule.Loaded;
 begin
  inherited;
- PublishOp('opComplectInfo', opComplectInfo, opComplectInfoTest);
- PublishOp('opPageSetup', opPageSetup, nil);
- PublishOp('opShowEULA', opShowEULA, nil);
- PublishOp('opOpenMainMenuByButton', opOpenMainMenuByButton, nil);
- PublishOp('OpenMainMenuNew', opOpenMainMenuNew, opOpenMainMenuNewTest);
- PublishOp('opTasksPanel', opTasksPanel, nil);
- PublishOp('LetterToDevelopers', opLetterToDevelopers, nil);
- PublishOp('opOpenRubricator', opOpenRubricator, opOpenRubricatorTest);
- PublishOp('opOpenInformation', opOpenInformation, opOpenInformationTest);
- PublishOp('get_navigator', opget_navigator, nil);
- PublishOp('opOpenIntranet', opOpenIntranet, opOpenIntranetTest);
-end;
+ PublishOp('opComplectInfo', opComplectInfoExecute, opComplectInfoTest);
+ PublishOp('opPageSetup', opPageSetupExecute, nil);
+ PublishOp('opShowEULA', opShowEULAExecute, nil);
+ PublishOp('opOpenMainMenuByButton', opOpenMainMenuByButtonExecute, nil);
+ PublishOp('OpenMainMenuNew', opOpenMainMenuNewExecute, opOpenMainMenuNewTest);
+ PublishOp('opTasksPanel', opTasksPanelExecute, nil);
+ PublishOp('LetterToDevelopers', opLetterToDevelopersExecute, nil);
+ PublishOp('opOpenRubricator', opOpenRubricatorExecute, opOpenRubricatorTest);
+ PublishOp('opOpenInformation', opOpenInformationExecute, opOpenInformationTest);
+ PublishOp('get_navigator', opget_navigatorExecute, nil);
+ PublishOp('opOpenIntranet', opOpenIntranetExecute, opOpenIntranetTest);
+end;//TPrimF1CommonModule.Loaded
 
-class procedure TPrimF1CommonModule.GetEntityForms(aList : TvcmClassList);
+class procedure TPrimF1CommonModule.GetEntityForms(aList: TvcmClassList);
 begin
  inherited;
  aList.Add(TRememberPasswordForm);
@@ -1067,8 +961,8 @@ begin
  aList.Add(Ten_TasksPanel);
  aList.Add(Ten_Navigator);
  aList.Add(Ten_TurnOffTimeMachine);
-end;
+end;//TPrimF1CommonModule.GetEntityForms
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //not Admin AND not Monitorings
-
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

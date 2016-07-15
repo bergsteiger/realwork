@@ -119,6 +119,9 @@ type
     {* Процедура инициализации контролов. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
+   procedure DoVCMScaleControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
@@ -914,6 +917,54 @@ begin
 //#UC END# *4B0E846D022B_525AE04E0326_impl*
 end;//TPrimRegistrationForm.IsRealInstance
 {$IfEnd} // NOT Defined(NoVCL)
+
+procedure TPrimRegistrationForm.DoVCMScaleControls;
+//#UC START# *57614A330093_525AE04E0326_var*
+ procedure lp_CheckLabels(anLbl: array of TvtLabel);
+ var
+  I: Integer;
+  W: Integer;
+ begin
+  W := 0;
+  for I := Low(anLbl) to High(anLbl) do
+  begin
+   anLbl[I].AutoSize := True;
+   if W < anLbl[I].Width then
+    W := anLbl[I].Width;
+  end;
+  for I := Low(anLbl) to High(anLbl) do
+  begin
+   anLbl[I].AutoSize := False;
+   anLbl[I].Width := W;
+   anLbl[I].Left := 20;
+  end;
+ end;
+
+ procedure lp_CheckEditors(anEdt: array of TnscEdit);
+ var
+  I: Integer;
+  L: Integer;
+ begin
+  L := vtAsteriskLabelLogin.Left + vtAsteriskLabelLogin.Width + 10;
+  for I := Low(anEdt) to High(anEdt) do
+  begin
+   anEdt[I].Width := anEdt[I].Width - (L - anEdt[I].Left);
+   anEdt[I].Left := L;
+  end;
+ end;
+//#UC END# *57614A330093_525AE04E0326_var*
+begin
+//#UC START# *57614A330093_525AE04E0326_impl*
+ inherited;
+
+ lp_CheckLabels([LoginLabel, UserNameLabel, PasswordLabel, ConfirmPasswordLabel, EMailLabel]);
+ with LoginLabel do
+  vtAsteriskLabelLogin.Left := Left + Width;
+ vtAsteriskLabelFIO.Left := vtAsteriskLabelLogin.Left;
+ lp_CheckEditors([edPassword, edUserName, edLogin, edEmail, edConfirm]);
+ ClientWidth := edPassword.Left + edPassword.Width + 10; 
+//#UC END# *57614A330093_525AE04E0326_impl*
+end;//TPrimRegistrationForm.DoVCMScaleControls
 
 procedure TPrimRegistrationForm.MakeControls;
 begin

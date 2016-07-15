@@ -158,7 +158,8 @@ type
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
    function DoLoadState(const aState: IvcmBase;
-    aStateType: TvcmStateType): Boolean; override;
+    aStateType: TvcmStateType;
+    aClone: Boolean): Boolean; override;
     {* Загружает состояние формы. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
@@ -1866,7 +1867,8 @@ end;//TPrimTreeAttributeSelectForm.NotifyDataSourceChanged
 
 {$If NOT Defined(NoVCM)}
 function TPrimTreeAttributeSelectForm.DoLoadState(const aState: IvcmBase;
- aStateType: TvcmStateType): Boolean;
+ aStateType: TvcmStateType;
+ aClone: Boolean): Boolean;
  {* Загружает состояние формы. Для перекрытия в потомках }
 //#UC START# *49807428008C_497ECC0E0325_var*
 {$ifndef admin}
