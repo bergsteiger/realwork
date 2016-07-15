@@ -1,59 +1,44 @@
 unit dsRelatedDoc;
+ {* Справка }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Business"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Business/Document/dsRelatedDoc.pas"
-// Начат: 08.12.2008 19:08
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ViewAreaControllerImp::Class>> F1 Core::Common::Business::DocumentAndList::TdsRelatedDoc
-//
-// Справка
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsRelatedDoc.pas"
+// Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "TdsRelatedDoc" MUID: (495898900070)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  dsChildDocument,
-  afwInterfaces
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , dsChildDocument
+ , afwInterfaces
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
- TdsRelatedDoc = {vac} class(TdsChildDocument)
+ TdsRelatedDoc = class(TdsChildDocument)
   {* Справка }
- protected
- // overridden protected methods
-   function DoGetPreviewCaleeArea: TafwPreviewCaleeArea; override;
+  protected
+   function DoGet_PreviewCaleeArea: TafwPreviewCaleeArea; override;
  end;//TdsRelatedDoc
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+uses
+ l3ImplUses
+;
 
-// start class TdsRelatedDoc
-
-function TdsRelatedDoc.DoGetPreviewCaleeArea: TafwPreviewCaleeArea;
+function TdsRelatedDoc.DoGet_PreviewCaleeArea: TafwPreviewCaleeArea;
 //#UC START# *49589999029F_495898900070_var*
 //#UC END# *49589999029F_495898900070_var*
 begin
 //#UC START# *49589999029F_495898900070_impl*
  Result := afw_pcaReference;
 //#UC END# *49589999029F_495898900070_impl*
-end;//TdsRelatedDoc.DoGetPreviewCaleeArea
-
-{$IfEnd} //not Admin AND not Monitorings
+end;//TdsRelatedDoc.DoGet_PreviewCaleeArea
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

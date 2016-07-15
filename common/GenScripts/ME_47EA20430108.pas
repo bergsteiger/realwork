@@ -20,10 +20,9 @@
    xxx: IbsDataProducer;
    f_LikeStateHolder: InsDocumentLikeStateHolder;
    f_DocInfo: IdeDocInfo;
-    {* Поле для свойства DocInfo }
   protected
-   BaseDocument: IsdsBaseDocument;
-   GotoPointDataMaker: IsdsGotoPointDataMaker;
+   ucc_BaseDocument: IsdsBaseDocument;
+   ucc_GotoPointDataMaker: IsdsGotoPointDataMaker;
   private
    function MakeLikeStateHolder: InsDocumentLikeStateHolder;
   protected
@@ -84,6 +83,14 @@
     {* - данные изменились. }
    {$IfEnd} // NOT Defined(NoVCM)
    procedure ClearFields; override;
+   {$If NOT Defined(NoVCM)}
+   procedure InitRefs(const aDS: IvcmFormSetDataSource); override;
+    {* Инициализирует ссылки на различные представления прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure ClearRefs; override;
+    {* Очищает ссылки на различные представления прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    constructor Create(const aDataSource: _UseCaseControllerType_;
     const aData: _InitDataType_;
@@ -609,8 +616,30 @@ begin
  f_DocInfo := nil;
  inherited;
 end;//_dsBaseDocumentPrim_.ClearFields
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
+{$If NOT Defined(NoVCM)}
+procedure _dsBaseDocumentPrim_.InitRefs(const aDS: IvcmFormSetDataSource);
+ {* Инициализирует ссылки на различные представления прецедента }
+begin
+ inherited;
+ Supports(aDS, IsdsBaseDocument, ucc_BaseDocument);
+ Supports(aDS, IbsDataProducer, xxx);
+ Supports(aDS, IsdsGotoPointDataMaker, ucc_GotoPointDataMaker);
+end;//_dsBaseDocumentPrim_.InitRefs
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure _dsBaseDocumentPrim_.ClearRefs;
+ {* Очищает ссылки на различные представления прецедента }
+begin
+ inherited;
+ ucc_BaseDocument := nil;
+ xxx := nil;
+ ucc_GotoPointDataMaker := nil;
+end;//_dsBaseDocumentPrim_.ClearRefs
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 {$EndIf dsBaseDocumentPrim_imp_impl}
 
 {$EndIf dsBaseDocumentPrim_imp}

@@ -1,37 +1,22 @@
 {$IfNDef dsBaseContents_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Business"
-// Автор: Лукьянец Р.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Business/Document/dsBaseContents.imp.pas"
-// Начат: 2008/04/03 10:35:36
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ViewAreaControllerImp::Class>> F1 Core::Common::Business::BaseDocument::dsBaseContents
-//
-// Простое оглавление
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsBaseContents.imp.pas"
+// Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "dsBaseContents" MUID: (49256B3903E4)
+// Имя типа: "_dsBaseContents_"
 
 {$Define dsBaseContents_imp}
-{$If not defined(Admin) AND not defined(Monitorings)}
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
  _InitDataType_ = IdeSimpleTree;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\Tree\dsSimpleTree.imp.pas}
  _nsContextFilter_Parent_ = _dsSimpleTree_;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\Tree\nsContextFilter.imp.pas}
- _dsBaseContents_ = {abstract vac} class(_nsContextFilter_, IdsBaseContents)
+ _dsBaseContents_ = {abstract} class(_nsContextFilter_, IdsBaseContents)
   {* Простое оглавление }
- private
- // private fields
-   SDS : IsdsBaseDocument;
- protected
-  procedure InitRefs(const aDS: IvcmUseCaseController); override;
-  procedure ClearRefs; override;
- protected
- // realized methods
+  private
+   SDS: IsdsBaseDocument;
+  protected
    function pm_GetDocInfo: IdeDocInfo;
    function Get_Bookmarks: IBookmarkList;
    function Get_Comments: ICommentsParaList;
@@ -41,34 +26,40 @@
    function Get_ContentsListItem(const anIndex: TnsContentsListIndex): TnsStringPair;
    function Get_ContentsListParaID(const anIndex: TnsContentsListIndex): Integer;
    function Get_Empty: Boolean;
- protected
- // overridden protected methods
    function MakeImageList: Il3ImageList; override;
-     {* - создать иконки дерева. }
-   {$If not defined(NoVCM)}
+    {* - создать иконки дерева. }
+   {$If NOT Defined(NoVCM)}
    procedure GotData; override;
-     {* - данные изменились. }
-   {$IfEnd} //not NoVCM
+    {* - данные изменились. }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitRefs(const aDS: IvcmFormSetDataSource); override;
+    {* Инициализирует ссылки на различные представления прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure ClearRefs; override;
+    {* Очищает ссылки на различные представления прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//_dsBaseContents_
-{$Else}
 
- {$Include w:\garant6x\implementation\Garant\GbaNemesis\Tree\dsSimpleTree.imp.pas}
- _nsContextFilter_Parent_ = _dsSimpleTree_;
- {$Include w:\garant6x\implementation\Garant\GbaNemesis\Tree\nsContextFilter.imp.pas}
- _dsBaseContents_ = _nsContextFilter_;
+{$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
 
-{$IfEnd} //not Admin AND not Monitorings
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Tree\dsSimpleTree.imp.pas}
+_nsContextFilter_Parent_ = _dsSimpleTree_;
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Tree\nsContextFilter.imp.pas}
+_dsBaseContents_ = _nsContextFilter_;
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 {$Else dsBaseContents_imp}
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$IfNDef dsBaseContents_imp_impl}
 
+{$Define dsBaseContents_imp_impl}
 
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\Tree\dsSimpleTree.imp.pas}
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\Tree\nsContextFilter.imp.pas}
-
-// start class _dsBaseContents_
 
 function _dsBaseContents_.pm_GetDocInfo: IdeDocInfo;
 //#UC START# *492566F7019F_49256B3903E4get_var*
@@ -245,6 +236,7 @@ begin
 end;//_dsBaseContents_.Get_Empty
 
 function _dsBaseContents_.MakeImageList: Il3ImageList;
+ {* - создать иконки дерева. }
 //#UC START# *47F465F80149_49256B3903E4_var*
 //#UC END# *47F465F80149_49256B3903E4_var*
 begin
@@ -253,8 +245,9 @@ begin
 //#UC END# *47F465F80149_49256B3903E4_impl*
 end;//_dsBaseContents_.MakeImageList
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure _dsBaseContents_.GotData;
+ {* - данные изменились. }
 //#UC START# *492ACF630072_49256B3903E4_var*
 //#UC END# *492ACF630072_49256B3903E4_var*
 begin
@@ -263,20 +256,28 @@ begin
  pm_SetSimpleTree(PartData.Contents);
 //#UC END# *492ACF630072_49256B3903E4_impl*
 end;//_dsBaseContents_.GotData
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-procedure _dsBaseContents_.InitRefs(const aDS: IvcmUseCaseController);
+{$If NOT Defined(NoVCM)}
+procedure _dsBaseContents_.InitRefs(const aDS: IvcmFormSetDataSource);
+ {* Инициализирует ссылки на различные представления прецедента }
 begin
  inherited;
  SDS := aDS As IsdsBaseDocument;
-end;
+end;//_dsBaseContents_.InitRefs
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$If NOT Defined(NoVCM)}
 procedure _dsBaseContents_.ClearRefs;
+ {* Очищает ссылки на различные представления прецедента }
 begin
  inherited;
  SDS := nil;
-end;
+end;//_dsBaseContents_.ClearRefs
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$EndIf dsBaseContents_imp_impl}
 
 {$EndIf dsBaseContents_imp}
+

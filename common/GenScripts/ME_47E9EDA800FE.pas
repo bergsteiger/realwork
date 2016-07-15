@@ -16,29 +16,25 @@
   private
    f_AllDocumentFiltered: Boolean;
    f_IsChanged: Boolean;
-   NodeForPositioningHolder: IucpNodeForPositioningHolder;
+   ucc_NodeForPositioningHolder: IucpNodeForPositioningHolder;
    f_InitialNeedApplyPermanentFilters: Boolean;
    f_Current: Il3SimpleNode;
-    {* Поле для свойства Current }
+    {* текущий узел списка. }
    f_Document: IdeDocInfo;
-    {* Поле для свойства Document }
    f_Preview: IafwComplexDocumentPreview;
-    {* Поле для свойства Preview }
+    {* - предварительный просмотр печати. }
    f_PrintFirstLevel: Boolean;
-    {* Поле для свойства PrintFirstLevel }
    f_CurrentEntryInfo: IListEntryInfo;
-    {* Поле для свойства CurrentEntryInfo }
+    {* - сущность текущего элемента списка. }
    f_ImpList: IDynList;
-    {* Поле для свойства ImpList }
+    {* Список используемый в реализации. }
    f_SearchInfo: IdeSearchInfo;
-    {* Поле для свойства SearchInfo }
+    {* Информация о поиске. }
    f_RootManager: TnsRootManager;
-    {* Поле для свойства RootManager }
    f_ActiveFilters: IFiltersFromQuery;
-    {* Поле для свойства ActiveFilters }
   protected
-   BaseDocumentWithAttributes: IsdsBaseDocumentWithAttributes;
-   BaseDocument: IsdsBaseDocument;
+   ucc_BaseDocumentWithAttributes: IsdsBaseDocumentWithAttributes;
+   ucc_BaseDocument: IsdsBaseDocument;
   private
    function DocumentPreview(aOnlyFirstLevel: Boolean = True): IafwDocumentPreview;
     {* - предварительный просмотр списка. }
@@ -226,6 +222,14 @@
    procedure DoInit; override;
    {$IfEnd} // NOT Defined(NoVCM)
    procedure ClearFields; override;
+   {$If NOT Defined(NoVCM)}
+   procedure InitRefs(const aDS: IvcmFormSetDataSource); override;
+    {* Инициализирует ссылки на различные представления прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure ClearRefs; override;
+    {* Очищает ссылки на различные представления прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
   private
    property PrintFirstLevel: Boolean
     read pm_GetPrintFirstLevel
@@ -2045,8 +2049,30 @@ begin
  f_SearchInfo := nil;
  inherited;
 end;//_dsList_.ClearFields
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
+{$If NOT Defined(NoVCM)}
+procedure _dsList_.InitRefs(const aDS: IvcmFormSetDataSource);
+ {* Инициализирует ссылки на различные представления прецедента }
+begin
+ inherited;
+ Supports(aDS, IucpNodeForPositioningHolder, ucc_NodeForPositioningHolder);
+ Supports(aDS, IsdsBaseDocumentWithAttributes, ucc_BaseDocumentWithAttributes);
+ Supports(aDS, IsdsBaseDocument, ucc_BaseDocument);
+end;//_dsList_.InitRefs
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure _dsList_.ClearRefs;
+ {* Очищает ссылки на различные представления прецедента }
+begin
+ inherited;
+ ucc_NodeForPositioningHolder := nil;
+ ucc_BaseDocumentWithAttributes := nil;
+ ucc_BaseDocument := nil;
+end;//_dsList_.ClearRefs
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 {$EndIf dsList_imp_impl}
 
 {$EndIf dsList_imp}

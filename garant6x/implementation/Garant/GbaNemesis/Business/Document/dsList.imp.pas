@@ -1,70 +1,54 @@
 {$IfNDef dsList_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Business"
-// Автор: Морозов М.А.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Business/Document/dsList.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ViewAreaControllerImp::Class>> F1 Core::Common::Business::Document::dsList
-//
-// Базовый бизнес объект для формы со списком
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsList.imp.pas"
+// Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "dsList" MUID: (47E9EDA800FE)
+// Имя типа: "_dsList_"
 
 {$Define dsList_imp}
-{$If not defined(Admin) AND not defined(Monitorings)}
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\Tree\dsSimpleTree.imp.pas}
  _dsBaseSearchSupportQuery_Parent_ = _dsSimpleTree_;
- {$Include ..\Document\dsBaseSearchSupportQuery.imp.pas}
- _dsList_ = {abstract vac} class(_dsBaseSearchSupportQuery_, Il3ItemNotifyRecipient, IdsList, IucbBaseSearchSupportQuery {from IdsList})
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsBaseSearchSupportQuery.imp.pas}
+ _dsList_ = {abstract} class(_dsBaseSearchSupportQuery_, Il3ItemNotifyRecipient, IdsList, IucbBaseSearchSupportQuery)
   {* Базовый бизнес объект для формы со списком }
- private
- // private fields
-   f_AllDocumentFiltered : Boolean;
-   f_IsChanged : Boolean;
-   ucc_NodeForPositioningHolder : IucpNodeForPositioningHolder;
-   f_InitialNeedApplyPermanentFilters : Boolean;
-   f_Current : Il3SimpleNode;
-    {* Поле для свойства Current}
-   f_Document : IdeDocInfo;
-    {* Поле для свойства Document}
-   f_Preview : IafwComplexDocumentPreview;
-    {* Поле для свойства Preview}
-   f_PrintFirstLevel : Boolean;
-    {* Поле для свойства PrintFirstLevel}
-   f_CurrentEntryInfo : IListEntryInfo;
-    {* Поле для свойства CurrentEntryInfo}
-   f_ImpList : IDynList;
-    {* Поле для свойства ImpList}
-   f_SearchInfo : IdeSearchInfo;
-    {* Поле для свойства SearchInfo}
-   f_RootManager : TnsRootManager;
-    {* Поле для свойства RootManager}
-   f_ActiveFilters : IFiltersFromQuery;
-    {* Поле для свойства ActiveFilters}
- protected
-  procedure InitRefs(const aDS: IvcmUseCaseController); override;
-  procedure ClearRefs; override;
- private
- // private methods
+  private
+   f_AllDocumentFiltered: Boolean;
+   f_IsChanged: Boolean;
+   ucc_NodeForPositioningHolder: IucpNodeForPositioningHolder;
+   f_InitialNeedApplyPermanentFilters: Boolean;
+   f_Current: Il3SimpleNode;
+    {* текущий узел списка. }
+   f_Document: IdeDocInfo;
+   f_Preview: IafwComplexDocumentPreview;
+    {* - предварительный просмотр печати. }
+   f_PrintFirstLevel: Boolean;
+   f_CurrentEntryInfo: IListEntryInfo;
+    {* - сущность текущего элемента списка. }
+   f_ImpList: IDynList;
+    {* Список используемый в реализации. }
+   f_SearchInfo: IdeSearchInfo;
+    {* Информация о поиске. }
+   f_RootManager: TnsRootManager;
+   f_ActiveFilters: IFiltersFromQuery;
+  protected
+   ucc_BaseDocumentWithAttributes: IsdsBaseDocumentWithAttributes;
+   ucc_BaseDocument: IsdsBaseDocument;
+  private
    function DocumentPreview(aOnlyFirstLevel: Boolean = True): IafwDocumentPreview;
-     {* - предварительный просмотр списка. }
+    {* - предварительный просмотр списка. }
    function InfoPreview: IafwDocumentPreview;
-     {* - }
+    {* - }
    function RightListNode: INodeBase;
-     {* - даже если нажали на вхождение, то в качестве узла полжен быть           передан узел первого уровня, чтобы преход к пред\следующему            документу работал в списке, а не в ветке. }
+    {* - даже если нажали на вхождение, то в качестве узла полжен быть           передан узел первого уровня, чтобы преход к пред\следующему            документу работал в списке, а не в ветке. }
    procedure FinishExporting;
-     {* - закончить экспорт. }
+    {* - закончить экспорт. }
    procedure ApplyFilters;
    procedure LoadActiveFilters(const aFilters: IFiltersFromQuery);
    function GetPermanentFilters: IFiltersFromQuery;
    function NeedApplyPermanentFilters: Boolean;
- protected
- // property methods
+  protected
    function pm_GetCurrent: Il3SimpleNode;
    procedure pm_SetCurrent(const aValue: Il3SimpleNode);
    function pm_GetDocument: IdeDocInfo;
@@ -81,241 +65,233 @@
    procedure pm_SetImpList(const aValue: IDynList);
    function pm_GetSearchInfo: IdeSearchInfo;
    function pm_GetRootManager: TnsRootManager;
- protected
- // realized methods
+   function MakeDocInfo(const aNode: INodeBase): IdeDocInfo; virtual;
+    {* создать информацию о документе по узлу. }
+   function NotifyAboutChangeCurrent: Boolean; virtual;
+    {* уведомлять бизнес объект прецедента о смене текущего. }
+   procedure ResetChildrenCount; virtual;
+    {* - очищаем кеши при изменении дерева. }
+   procedure RootIsMaked; virtual;
+    {* - вызывается при получении корня у списка. }
+   function DoOpenDocument(out theDataInfo: IdeDocInfo): Boolean; virtual;
+    {* - возвращает SDS для открытия сборки документ. }
+   function DataForNewList(const aNewList: IDynList;
+    aAllDocumentsFiltered: Boolean = False): IdeList; virtual;
+    {* - данные для открытия списка в новом окне. }
+   function DoIsTimeMachineEnable: Boolean; virtual;
+    {* - доступна ли работа с машиной времени. }
+   function NeedTimeMachineOff: Boolean; virtual;
+    {* - при открытии списка необходимо выключить машину времени. }
+   procedure DoUpdateListInfo; virtual;
+    {* - обновить информацию о списке. }
+   procedure ClearCurrent;
+    {* - очистить информацию о текущем. }
+   procedure DoDeleteNodes; virtual;
+    {* - удалить узлы. Для перекрытия в потомках. }
+   procedure MarkDocumentsForExport(aOnlyFirstLevel: Boolean;
+    aOnlySelection: Boolean);
+    {* - пометить документы для экспорта. }
+   procedure MarkNodeForExport(const aNode: Il3SimpleNode;
+    aOnlyFirstLevel: Boolean); virtual;
+    {* - пометить узел для экспорта. }
+   function DoMakeDocumentPreview(const aDoc: IDocument): IafwComplexDocumentPreview;
+    {* - предварительный просмотр для документа. }
+   function DoListNodeType(const aNode: INodeBase): TbsListNodeType;
+    {* - определить тип узла. }
+   function DoOpenListFromSelectedNodes: IdeList; virtual;
+    {* - открыть список из выделенных элементов. }
+   function DoIsMain: Boolean; virtual;
+    {* - определяет список в основной зоне приложения. }
+   function DoApplyLogicOperation(const aList: IDynList;
+    aOperation: TListLogicOperation): Boolean; virtual;
+    {* - выполнить логическую операцию со списком. }
+   function CanCreateBookmark: Boolean; virtual;
+    {* - можно ли создать закладку на текущий документ }
+   function MakeDocumentFromBookmark: IDocument; virtual;
+    {* - получить документ для создания закладки. }
+   procedure DoSetupNewSimpleTree(const aTree: Il3SimpleTree); virtual;
+   function CheckFullList: Boolean; virtual;
+   function As_IucbBaseSearchSupportQuery: IucbBaseSearchSupportQuery;
+    {* Метод приведения нашего интерфейса к IucbBaseSearchSupportQuery }
    procedure Notify(const aNotifier: Il3ChangeNotifier;
     aOperation: Integer;
     aIndex: Integer);
-     {* прошла операция. }
+    {* прошла операция. }
    function pm_GetIsSaved: Boolean;
    function pm_GetListName: Il3CString;
    function pm_GetShortListName: Il3CString;
    function pm_GetIsChanged: Boolean;
    function pm_GetIsFiltered: Boolean;
    procedure UpdatePreview;
-     {* - обновить предварительный просмотр. }
+    {* - обновить предварительный просмотр. }
    function MakePreview(aOnlyFirstLevel: Boolean = True): IafwComplexDocumentPreview;
-     {* - формирует preview для списка. }
+    {* - формирует preview для списка. }
    function OpenDocument(out theDataInfo: IdeDocInfo): Boolean;
-     {* - возвращает SDS для открытия сборки документ. }
+    {* - возвращает SDS для открытия сборки документ. }
    function NewListFromSelected: IDynList;
-     {* - создать новый список из выделенных. }
+    {* - создать новый список из выделенных. }
    function pm_GetIsListEmpty: Boolean;
    function NewList: IdeList;
-     {* - открыть список в окне. }
+    {* - открыть список в окне. }
    function pm_GetIsTimeMachineEnable: Boolean;
    function pm_GetTimeMachineOff: Boolean;
    procedure UpdateListInfo;
-     {* - обновляет информацию о списке. }
+    {* - обновляет информацию о списке. }
    function MakeSimpleTree: Il3SimpleTree; override;
-     {* Создать данные дерева }
+    {* Создать данные дерева }
    function pm_GetListType: TbsListType;
    function CheckList(const aTree: Il3SimpleTree): Boolean;
-     {* - определяет содержит ли aControl список. }
+    {* - определяет содержит ли aControl список. }
    function ApplyFilter(const aFilter: IFilterFromQuery;
     aAdd: Boolean = False): Boolean;
-     {* - применить\отменить фильтр. }
+    {* - применить\отменить фильтр. }
    function ClearFilters: Boolean;
-     {* - очистить фильтры. }
+    {* - очистить фильтры. }
    procedure DeleteNodes;
-     {* - удаляет выбранные узлы. }
+    {* - удаляет выбранные узлы. }
    procedure ExportDocument(const aDocument: IDocument;
     const aFileName: Il3CString;
     aFormat: TnsFileFormat);
-     {* - сохранить Указанный документ на диск в указанном формате. }
+    {* - сохранить Указанный документ на диск в указанном формате. }
    function ExportDocuments(aOnlyFirstLevel: Boolean;
     aOnlySelection: Boolean;
     const aPath: Il3CString;
     aFormat: TnsFileFormat): Boolean;
-     {* - сохранить выделенные документы на диск в указанном формате.
+    {* - сохранить выделенные документы на диск в указанном формате.
 Возвращает признак того, что чего-то сохранили }
    function ListAsText(aSaveListKind: TbsSaveListKind;
     SaveSelection: Boolean): IStream;
-     {* - получение списка в виде текта.  aOnlyFirstLevel - с\без вхождений. }
+    {* - получение списка в виде текта.  aOnlyFirstLevel - с\без вхождений. }
    function MergeDocuments(aOnlyFirstLevel: Boolean;
     aOnlySelection: Boolean;
     const aFileName: Il3CString;
     aFormat: TnsFileFormat;
     NeedPrintTopic: Boolean = True): Boolean;
-     {* - сохранить выделенные документы в один файл в указанном формате. Разделяя, если указано, их фразой "Топик: <внутренний номер документа>".
+    {* - сохранить выделенные документы в один файл в указанном формате. Разделяя, если указано, их фразой "Топик: <внутренний номер документа>".
 Возвращает признак того, что чего-то сохранили }
    function RefreshFilters: Boolean;
-     {* - переприменить фильтры. }
+    {* - переприменить фильтры. }
    function IsActiveFilter(const aFilter: IFilterFromQuery): Boolean;
-     {* - является ли данный фильтр примененным. }
+    {* - является ли данный фильтр примененным. }
    function NodeId(const aNode: Il3SimpleNode): Integer;
-     {* - получить идентификатор узла. }
+    {* - получить идентификатор узла. }
    function MakeDocumentPreview: IafwComplexDocumentPreview;
-     {* - предварительный просмотр для текущего документа. }
+    {* - предварительный просмотр для текущего документа. }
    function pm_GetList: IDynList;
    function ListNodeType(const aNode: Il3SimpleNode = nil): TbsListNodeType;
-     {* - тип узла списка. }
+    {* - тип узла списка. }
    function OpenListFromSelectedNodes: IdeList;
-     {* - открыть список из выделенных элементов. }
+    {* - открыть список из выделенных элементов. }
    function pm_GetIsMain: Boolean;
    function ApplyLogicOperation(const aList: IDynList;
     aOperation: TListLogicOperation): Boolean;
-     {* - выполнить логическую операцию со списком. }
+    {* - выполнить логическую операцию со списком. }
    function ApplyContextFilter(const aFilter: IContextFilter): INodeBase;
-     {* - применить контекстный фильтр. }
+    {* - применить контекстный фильтр. }
    procedure SaveToFile(const aFileName: Tl3WString;
     aOnlySelected: Boolean);
-     {* - при не успешном завершении возвращает ECannotSave. }
+    {* - при не успешном завершении возвращает ECannotSave. }
    function pm_GetNodeForPositioning: Il3SimpleNode;
    procedure ReleaseNodeForPositioning;
-     {* - }
+    {* - }
    function CreateBookmark: IBookmark;
-     {* - добавить закладку на текущий документ. }
+    {* - добавить закладку на текущий документ. }
    function pm_GetAllDocumentFiltered: Boolean;
    function pm_GetHasAttributes: Boolean;
    function MakeSuperPreview(aOnlyFirstLevel: Boolean = True;
     WithTexts: Boolean = True): InsSuperComplexDocumentPreview;
-     {* Создать суперкомплексное превью }
+    {* Создать суперкомплексное превью }
    function MakeMultiDocumentPreview(aOnlyFirstLevel: Boolean): IafwComplexDocumentPreview;
-     {* Создать превью с текстами документов }
+    {* Создать превью с текстами документов }
    function Get_ActiveFilters: IFiltersFromQuery;
    function ListAsString(aSaveListKind: TbsSaveListKind;
     SaveSelection: Boolean;
     aFormat: TnsFileFormat): Il3CString;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure DoCurrentChanged(const aNode: Il3SimpleNode); override;
-     {* сменился текущий. }
+    {* сменился текущий. }
    procedure UpdateSimpleTree(const aOld: Il3SimpleTree;
     const aNew: Il3SimpleTree); override;
-     {* - обновить данные дерева. }
-   {$If not defined(NoVCM)}
+    {* - обновить данные дерева. }
+   {$If NOT Defined(NoVCM)}
    procedure GotData; override;
-     {* - данные изменились. }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+    {* - данные изменились. }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure DoInit; override;
-   {$IfEnd} //not NoVCM
+   {$IfEnd} // NOT Defined(NoVCM)
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- protected
- // protected fields
-   ucc_BaseDocumentWithAttributes : IsdsBaseDocumentWithAttributes;
-   ucc_BaseDocument : IsdsBaseDocument;
- protected
- // protected methods
-   function MakeDocInfo(const aNode: INodeBase): IdeDocInfo; virtual;
-     {* создать информацию о документе по узлу. }
-   function NotifyAboutChangeCurrent: Boolean; virtual;
-     {* уведомлять бизнес объект прецедента о смене текущего. }
-   procedure ResetChildrenCount; virtual;
-     {* - очищаем кеши при изменении дерева. }
-   procedure RootIsMaked; virtual;
-     {* - вызывается при получении корня у списка. }
-   function DoOpenDocument(out theDataInfo: IdeDocInfo): Boolean; virtual;
-     {* - возвращает SDS для открытия сборки документ. }
-   function DataForNewList(const aNewList: IDynList;
-    aAllDocumentsFiltered: Boolean = False): IdeList; virtual;
-     {* - данные для открытия списка в новом окне. }
-   function DoIsTimeMachineEnable: Boolean; virtual;
-     {* - доступна ли работа с машиной времени. }
-   function NeedTimeMachineOff: Boolean; virtual;
-     {* - при открытии списка необходимо выключить машину времени. }
-   procedure DoUpdateListInfo; virtual;
-     {* - обновить информацию о списке. }
-   procedure ClearCurrent;
-     {* - очистить информацию о текущем. }
-   procedure DoDeleteNodes; virtual;
-     {* - удалить узлы. Для перекрытия в потомках. }
-   procedure MarkDocumentsForExport(aOnlyFirstLevel: Boolean;
-    aOnlySelection: Boolean);
-     {* - пометить документы для экспорта. }
-   procedure MarkNodeForExport(const aNode: Il3SimpleNode;
-    aOnlyFirstLevel: Boolean); virtual;
-     {* - пометить узел для экспорта. }
-   function DoMakeDocumentPreview(const aDoc: IDocument): IafwComplexDocumentPreview;
-     {* - предварительный просмотр для документа. }
-   function DoListNodeType(const aNode: INodeBase): TbsListNodeType;
-     {* - определить тип узла. }
-   function DoOpenListFromSelectedNodes: IdeList; virtual;
-     {* - открыть список из выделенных элементов. }
-   function DoIsMain: Boolean; virtual;
-     {* - определяет список в основной зоне приложения. }
-   function DoApplyLogicOperation(const aList: IDynList;
-    aOperation: TListLogicOperation): Boolean; virtual;
-     {* - выполнить логическую операцию со списком. }
-   function CanCreateBookmark: Boolean; virtual;
-     {* - можно ли создать закладку на текущий документ }
-   function MakeDocumentFromBookmark: IDocument; virtual;
-     {* - получить документ для создания закладки. }
-   procedure DoSetupNewSimpleTree(const aTree: Il3SimpleTree); virtual;
-   function CheckFullList: Boolean; virtual;
- private
- // private properties
+   {$If NOT Defined(NoVCM)}
+   procedure InitRefs(const aDS: IvcmFormSetDataSource); override;
+    {* Инициализирует ссылки на различные представления прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure ClearRefs; override;
+    {* Очищает ссылки на различные представления прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
+  private
    property PrintFirstLevel: Boolean
-     read pm_GetPrintFirstLevel
-     write pm_SetPrintFirstLevel;
- protected
- // protected properties
+    read pm_GetPrintFirstLevel
+    write pm_SetPrintFirstLevel;
+  protected
    property Current: Il3SimpleNode
-     read pm_GetCurrent
-     write pm_SetCurrent;
-     {* текущий узел списка. }
+    read pm_GetCurrent
+    write pm_SetCurrent;
+    {* текущий узел списка. }
    property Document: IdeDocInfo
-     read pm_GetDocument
-     write pm_SetDocument;
+    read pm_GetDocument
+    write pm_SetDocument;
    property Preview: IafwComplexDocumentPreview
-     read pm_GetPreview
-     write pm_SetPreview;
-     {* - предварительный просмотр печати. }
+    read pm_GetPreview
+    write pm_SetPreview;
+    {* - предварительный просмотр печати. }
    property Root: INodeBase
-     read pm_GetRoot;
-     {* - корень дерева списка. }
+    read pm_GetRoot;
+    {* - корень дерева списка. }
    property ListNode: INodeBase
-     read pm_GetListNode;
-     {* Текущий узел списка. }
+    read pm_GetListNode;
+    {* Текущий узел списка. }
    property CurrentEntryInfo: IListEntryInfo
-     read pm_GetCurrentEntryInfo
-     write pm_SetCurrentEntryInfo;
-     {* - сущность текущего элемента списка. }
+    read pm_GetCurrentEntryInfo
+    write pm_SetCurrentEntryInfo;
+    {* - сущность текущего элемента списка. }
    property ImpList: IDynList
-     read pm_GetImpList
-     write pm_SetImpList;
-     {* Список используемый в реализации. }
+    read pm_GetImpList
+    write pm_SetImpList;
+    {* Список используемый в реализации. }
    property SearchInfo: IdeSearchInfo
-     read pm_GetSearchInfo;
-     {* Информация о поиске. }
+    read pm_GetSearchInfo;
+    {* Информация о поиске. }
    property RootManager: TnsRootManager
-     read pm_GetRootManager;
- public
- // public properties
+    read pm_GetRootManager;
+  public
    property ActiveFilters: IFiltersFromQuery
-     read f_ActiveFilters;
- protected
- // Методы преобразования к реализуемым интерфейсам
-   function As_IucbBaseSearchSupportQuery: IucbBaseSearchSupportQuery;
+    read f_ActiveFilters;
  end;//_dsList_
-{$Else}
 
- {$Include w:\garant6x\implementation\Garant\GbaNemesis\Tree\dsSimpleTree.imp.pas}
- _dsBaseSearchSupportQuery_Parent_ = _dsSimpleTree_;
- {$Include ..\Document\dsBaseSearchSupportQuery.imp.pas}
- _dsList_ = _dsBaseSearchSupportQuery_;
+{$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
 
-{$IfEnd} //not Admin AND not Monitorings
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Tree\dsSimpleTree.imp.pas}
+_dsBaseSearchSupportQuery_Parent_ = _dsSimpleTree_;
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsBaseSearchSupportQuery.imp.pas}
+_dsList_ = _dsBaseSearchSupportQuery_;
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 {$Else dsList_imp}
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$IfNDef dsList_imp_impl}
 
+{$Define dsList_imp_impl}
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+const
+ cExportFlag = DynamicTreeUnit.FM_FIRST_USER_FLAG;
+  {* флаг, которым помечаются узлы для экспорта }
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\Tree\dsSimpleTree.imp.pas}
 
-{$Include ..\Document\dsBaseSearchSupportQuery.imp.pas}
-
-const
-   { Flags }
-  cExportFlag = DynamicTreeUnit.FM_FIRST_USER_FLAG;
-   { флаг, которым помечаются узлы для экспорта }
-
-// start class _dsList_
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsBaseSearchSupportQuery.imp.pas}
 
 function _dsList_.pm_GetCurrent: Il3SimpleNode;
 //#UC START# *47F0CE0C02DC_47E9EDA800FEget_var*
@@ -488,6 +464,7 @@ begin
 end;//_dsList_.pm_GetRootManager
 
 function _dsList_.MakeDocInfo(const aNode: INodeBase): IdeDocInfo;
+ {* создать информацию о документе по узлу. }
 //#UC START# *47F0C98F020C_47E9EDA800FE_var*
 //#UC END# *47F0C98F020C_47E9EDA800FE_var*
 begin
@@ -498,6 +475,7 @@ begin
 end;//_dsList_.MakeDocInfo
 
 function _dsList_.NotifyAboutChangeCurrent: Boolean;
+ {* уведомлять бизнес объект прецедента о смене текущего. }
 //#UC START# *47F0D913030D_47E9EDA800FE_var*
 //#UC END# *47F0D913030D_47E9EDA800FE_var*
 begin
@@ -507,6 +485,7 @@ begin
 end;//_dsList_.NotifyAboutChangeCurrent
 
 function _dsList_.DocumentPreview(aOnlyFirstLevel: Boolean = True): IafwDocumentPreview;
+ {* - предварительный просмотр списка. }
 //#UC START# *47F23393016B_47E9EDA800FE_var*
 var
  l_Event: InsEventHolder;
@@ -527,6 +506,7 @@ begin
 end;//_dsList_.DocumentPreview
 
 procedure _dsList_.ResetChildrenCount;
+ {* - очищаем кеши при изменении дерева. }
 //#UC START# *47F2441D01B8_47E9EDA800FE_var*
 //#UC END# *47F2441D01B8_47E9EDA800FE_var*
 begin
@@ -537,6 +517,7 @@ begin
 end;//_dsList_.ResetChildrenCount
 
 function _dsList_.InfoPreview: IafwDocumentPreview;
+ {* - }
 //#UC START# *47F249D10121_47E9EDA800FE_var*
 var
  l_String : IString;
@@ -561,6 +542,7 @@ begin
 end;//_dsList_.InfoPreview
 
 procedure _dsList_.RootIsMaked;
+ {* - вызывается при получении корня у списка. }
 //#UC START# *47F257CF00B6_47E9EDA800FE_var*
 //#UC END# *47F257CF00B6_47E9EDA800FE_var*
 begin
@@ -569,6 +551,7 @@ begin
 end;//_dsList_.RootIsMaked
 
 function _dsList_.DoOpenDocument(out theDataInfo: IdeDocInfo): Boolean;
+ {* - возвращает SDS для открытия сборки документ. }
 //#UC START# *47F2661502C9_47E9EDA800FE_var*
 //#UC END# *47F2661502C9_47E9EDA800FE_var*
 begin
@@ -593,7 +576,8 @@ begin
 end;//_dsList_.DoOpenDocument
 
 function _dsList_.DataForNewList(const aNewList: IDynList;
-  aAllDocumentsFiltered: Boolean = False): IdeList;
+ aAllDocumentsFiltered: Boolean = False): IdeList;
+ {* - данные для открытия списка в новом окне. }
 //#UC START# *47F33B990105_47E9EDA800FE_var*
 //#UC END# *47F33B990105_47E9EDA800FE_var*
 begin
@@ -604,6 +588,7 @@ begin
 end;//_dsList_.DataForNewList
 
 function _dsList_.DoIsTimeMachineEnable: Boolean;
+ {* - доступна ли работа с машиной времени. }
 //#UC START# *47F48E08017C_47E9EDA800FE_var*
 //#UC END# *47F48E08017C_47E9EDA800FE_var*
 begin
@@ -613,6 +598,7 @@ begin
 end;//_dsList_.DoIsTimeMachineEnable
 
 function _dsList_.NeedTimeMachineOff: Boolean;
+ {* - при открытии списка необходимо выключить машину времени. }
 //#UC START# *47F48E3D029F_47E9EDA800FE_var*
 //#UC END# *47F48E3D029F_47E9EDA800FE_var*
 begin
@@ -622,6 +608,7 @@ begin
 end;//_dsList_.NeedTimeMachineOff
 
 procedure _dsList_.DoUpdateListInfo;
+ {* - обновить информацию о списке. }
 //#UC START# *47F4BDDB026E_47E9EDA800FE_var*
 //#UC END# *47F4BDDB026E_47E9EDA800FE_var*
 begin
@@ -632,6 +619,7 @@ begin
 end;//_dsList_.DoUpdateListInfo
 
 function _dsList_.RightListNode: INodeBase;
+ {* - даже если нажали на вхождение, то в качестве узла полжен быть           передан узел первого уровня, чтобы преход к пред\следующему            документу работал в списке, а не в ветке. }
 //#UC START# *47F4E87D0040_47E9EDA800FE_var*
 var
  l_Temp: INodeBase;
@@ -656,6 +644,7 @@ begin
 end;//_dsList_.RightListNode
 
 procedure _dsList_.ClearCurrent;
+ {* - очистить информацию о текущем. }
 //#UC START# *47F4F4140263_47E9EDA800FE_var*
 //#UC END# *47F4F4140263_47E9EDA800FE_var*
 begin
@@ -667,6 +656,7 @@ begin
 end;//_dsList_.ClearCurrent
 
 procedure _dsList_.DoDeleteNodes;
+ {* - удалить узлы. Для перекрытия в потомках. }
 //#UC START# *47F61AD5022A_47E9EDA800FE_var*
 //#UC END# *47F61AD5022A_47E9EDA800FE_var*
 begin
@@ -682,6 +672,7 @@ begin
 end;//_dsList_.DoDeleteNodes
 
 procedure _dsList_.FinishExporting;
+ {* - закончить экспорт. }
 //#UC START# *47F61F910350_47E9EDA800FE_var*
 //#UC END# *47F61F910350_47E9EDA800FE_var*
 begin
@@ -691,7 +682,8 @@ begin
 end;//_dsList_.FinishExporting
 
 procedure _dsList_.MarkDocumentsForExport(aOnlyFirstLevel: Boolean;
-  aOnlySelection: Boolean);
+ aOnlySelection: Boolean);
+ {* - пометить документы для экспорта. }
 //#UC START# *47F620AB0178_47E9EDA800FE_var*
 
   function lpIterator(const aNode: Il3SimpleNode): Boolean;
@@ -725,7 +717,8 @@ begin
 end;//_dsList_.MarkDocumentsForExport
 
 procedure _dsList_.MarkNodeForExport(const aNode: Il3SimpleNode;
-  aOnlyFirstLevel: Boolean);
+ aOnlyFirstLevel: Boolean);
+ {* - пометить узел для экспорта. }
 //#UC START# *47F9BFED004F_47E9EDA800FE_var*
 
   function lp_SelectNode: Il3SimpleNode;
@@ -755,6 +748,7 @@ begin
 end;//_dsList_.MarkNodeForExport
 
 function _dsList_.DoMakeDocumentPreview(const aDoc: IDocument): IafwComplexDocumentPreview;
+ {* - предварительный просмотр для документа. }
 //#UC START# *47FA022002B5_47E9EDA800FE_var*
 //#UC END# *47FA022002B5_47E9EDA800FE_var*
 begin
@@ -765,6 +759,7 @@ begin
 end;//_dsList_.DoMakeDocumentPreview
 
 function _dsList_.DoListNodeType(const aNode: INodeBase): TbsListNodeType;
+ {* - определить тип узла. }
 //#UC START# *47FAF882023E_47E9EDA800FE_var*
 var
  l_Node: INodeBase;
@@ -783,6 +778,7 @@ begin
 end;//_dsList_.DoListNodeType
 
 function _dsList_.DoOpenListFromSelectedNodes: IdeList;
+ {* - открыть список из выделенных элементов. }
 //#UC START# *47FAFE6F010D_47E9EDA800FE_var*
 //#UC END# *47FAFE6F010D_47E9EDA800FE_var*
 begin
@@ -792,6 +788,7 @@ begin
 end;//_dsList_.DoOpenListFromSelectedNodes
 
 function _dsList_.DoIsMain: Boolean;
+ {* - определяет список в основной зоне приложения. }
 //#UC START# *47FB00640212_47E9EDA800FE_var*
 //#UC END# *47FB00640212_47E9EDA800FE_var*
 begin
@@ -801,7 +798,8 @@ begin
 end;//_dsList_.DoIsMain
 
 function _dsList_.DoApplyLogicOperation(const aList: IDynList;
-  aOperation: TListLogicOperation): Boolean;
+ aOperation: TListLogicOperation): Boolean;
+ {* - выполнить логическую операцию со списком. }
 //#UC START# *47FB05B90024_47E9EDA800FE_var*
 //#UC END# *47FB05B90024_47E9EDA800FE_var*
 begin
@@ -834,6 +832,7 @@ begin
 end;//_dsList_.DoApplyLogicOperation
 
 function _dsList_.CanCreateBookmark: Boolean;
+ {* - можно ли создать закладку на текущий документ }
 //#UC START# *48034E6A01DD_47E9EDA800FE_var*
 //#UC END# *48034E6A01DD_47E9EDA800FE_var*
 begin
@@ -843,6 +842,7 @@ begin
 end;//_dsList_.CanCreateBookmark
 
 function _dsList_.MakeDocumentFromBookmark: IDocument;
+ {* - получить документ для создания закладки. }
 //#UC START# *48034E86029A_47E9EDA800FE_var*
 //#UC END# *48034E86029A_47E9EDA800FE_var*
 begin
@@ -965,9 +965,16 @@ begin
 //#UC END# *52AEBF77037F_47E9EDA800FE_impl*
 end;//_dsList_.NeedApplyPermanentFilters
 
+function _dsList_.As_IucbBaseSearchSupportQuery: IucbBaseSearchSupportQuery;
+ {* Метод приведения нашего интерфейса к IucbBaseSearchSupportQuery }
+begin
+ Result := Self;
+end;//_dsList_.As_IucbBaseSearchSupportQuery
+
 procedure _dsList_.Notify(const aNotifier: Il3ChangeNotifier;
-  aOperation: Integer;
-  aIndex: Integer);
+ aOperation: Integer;
+ aIndex: Integer);
+ {* прошла операция. }
 //#UC START# *46A4504B03C4_47E9EDA800FE_var*
 //#UC END# *46A4504B03C4_47E9EDA800FE_var*
 begin
@@ -1026,6 +1033,7 @@ begin
 end;//_dsList_.pm_GetIsFiltered
 
 procedure _dsList_.UpdatePreview;
+ {* - обновить предварительный просмотр. }
 //#UC START# *47F1EDFC0318_47E9EDA800FE_var*
 //#UC END# *47F1EDFC0318_47E9EDA800FE_var*
 begin
@@ -1039,6 +1047,7 @@ begin
 end;//_dsList_.UpdatePreview
 
 function _dsList_.MakePreview(aOnlyFirstLevel: Boolean = True): IafwComplexDocumentPreview;
+ {* - формирует preview для списка. }
 //#UC START# *47F1EE480019_47E9EDA800FE_var*
 var
  l_Selection: IafwDocumentPreview;
@@ -1082,6 +1091,7 @@ begin
 end;//_dsList_.MakePreview
 
 function _dsList_.OpenDocument(out theDataInfo: IdeDocInfo): Boolean;
+ {* - возвращает SDS для открытия сборки документ. }
 //#UC START# *47F1EE960312_47E9EDA800FE_var*
 //#UC END# *47F1EE960312_47E9EDA800FE_var*
 begin
@@ -1091,6 +1101,7 @@ begin
 end;//_dsList_.OpenDocument
 
 function _dsList_.NewListFromSelected: IDynList;
+ {* - создать новый список из выделенных. }
 //#UC START# *47F1EF0403E7_47E9EDA800FE_var*
 var
  l_Nodes : INodesClipboard;
@@ -1129,6 +1140,7 @@ begin
 end;//_dsList_.pm_GetIsListEmpty
 
 function _dsList_.NewList: IdeList;
+ {* - открыть список в окне. }
 //#UC START# *47F32E5D01B0_47E9EDA800FE_var*
 var
  l_NewList: IDynList;
@@ -1175,6 +1187,7 @@ begin
 end;//_dsList_.pm_GetTimeMachineOff
 
 procedure _dsList_.UpdateListInfo;
+ {* - обновляет информацию о списке. }
 //#UC START# *47F4BC8000F0_47E9EDA800FE_var*
 //#UC END# *47F4BC8000F0_47E9EDA800FE_var*
 begin
@@ -1184,6 +1197,7 @@ begin
 end;//_dsList_.UpdateListInfo
 
 function _dsList_.MakeSimpleTree: Il3SimpleTree;
+ {* Создать данные дерева }
 //#UC START# *47F4C2B9014A_47E9EDA800FE_var*
 var
  l_ListTreeStruct: TbsListTreeStruct;
@@ -1231,6 +1245,7 @@ begin
 end;//_dsList_.pm_GetListType
 
 function _dsList_.CheckList(const aTree: Il3SimpleTree): Boolean;
+ {* - определяет содержит ли aControl список. }
 //#UC START# *47F60913013E_47E9EDA800FE_var*
 //#UC END# *47F60913013E_47E9EDA800FE_var*
 begin
@@ -1240,7 +1255,8 @@ begin
 end;//_dsList_.CheckList
 
 function _dsList_.ApplyFilter(const aFilter: IFilterFromQuery;
-  aAdd: Boolean = False): Boolean;
+ aAdd: Boolean = False): Boolean;
+ {* - применить\отменить фильтр. }
 //#UC START# *47F60D510152_47E9EDA800FE_var*
 
   procedure lp_UpdateSimpleTree;
@@ -1338,6 +1354,7 @@ begin
 end;//_dsList_.ApplyFilter
 
 function _dsList_.ClearFilters: Boolean;
+ {* - очистить фильтры. }
 //#UC START# *47F6121700FE_47E9EDA800FE_var*
 var
  l_Filterable    : IFilterable;
@@ -1377,6 +1394,7 @@ begin
 end;//_dsList_.ClearFilters
 
 procedure _dsList_.DeleteNodes;
+ {* - удаляет выбранные узлы. }
 //#UC START# *47F6180E0359_47E9EDA800FE_var*
 //#UC END# *47F6180E0359_47E9EDA800FE_var*
 begin
@@ -1387,8 +1405,9 @@ begin
 end;//_dsList_.DeleteNodes
 
 procedure _dsList_.ExportDocument(const aDocument: IDocument;
-  const aFileName: Il3CString;
-  aFormat: TnsFileFormat);
+ const aFileName: Il3CString;
+ aFormat: TnsFileFormat);
+ {* - сохранить Указанный документ на диск в указанном формате. }
 //#UC START# *47F61C3D03DE_47E9EDA800FE_var*
 var
  l_Name: Il3CString;
@@ -1404,9 +1423,11 @@ begin
 end;//_dsList_.ExportDocument
 
 function _dsList_.ExportDocuments(aOnlyFirstLevel: Boolean;
-  aOnlySelection: Boolean;
-  const aPath: Il3CString;
-  aFormat: TnsFileFormat): Boolean;
+ aOnlySelection: Boolean;
+ const aPath: Il3CString;
+ aFormat: TnsFileFormat): Boolean;
+ {* - сохранить выделенные документы на диск в указанном формате.
+Возвращает признак того, что чего-то сохранили }
 //#UC START# *47F61FC00314_47E9EDA800FE_var*
 var
  l_Result: Boolean absolute Result;
@@ -1463,7 +1484,8 @@ begin
 end;//_dsList_.ExportDocuments
 
 function _dsList_.ListAsText(aSaveListKind: TbsSaveListKind;
-  SaveSelection: Boolean): IStream;
+ SaveSelection: Boolean): IStream;
+ {* - получение списка в виде текта.  aOnlyFirstLevel - с\без вхождений. }
 //#UC START# *47F9CA3103AC_47E9EDA800FE_var*
 var
  l_Selection : INodesClipboard;
@@ -1487,10 +1509,12 @@ begin
 end;//_dsList_.ListAsText
 
 function _dsList_.MergeDocuments(aOnlyFirstLevel: Boolean;
-  aOnlySelection: Boolean;
-  const aFileName: Il3CString;
-  aFormat: TnsFileFormat;
-  NeedPrintTopic: Boolean = True): Boolean;
+ aOnlySelection: Boolean;
+ const aFileName: Il3CString;
+ aFormat: TnsFileFormat;
+ NeedPrintTopic: Boolean = True): Boolean;
+ {* - сохранить выделенные документы в один файл в указанном формате. Разделяя, если указано, их фразой "Топик: <внутренний номер документа>".
+Возвращает признак того, что чего-то сохранили }
 //#UC START# *47F9D29C02D7_47E9EDA800FE_var*
 var
  l_Tree : Il3ExpandedSimpleTree;
@@ -1542,6 +1566,7 @@ begin
 end;//_dsList_.MergeDocuments
 
 function _dsList_.RefreshFilters: Boolean;
+ {* - переприменить фильтры. }
 //#UC START# *47F9F86A0108_47E9EDA800FE_var*
 var
  l_Filterable    : IFilterable;
@@ -1577,6 +1602,7 @@ begin
 end;//_dsList_.RefreshFilters
 
 function _dsList_.IsActiveFilter(const aFilter: IFilterFromQuery): Boolean;
+ {* - является ли данный фильтр примененным. }
 //#UC START# *47F9FABC001D_47E9EDA800FE_var*
 var
  l_Filterable: IFilterable;
@@ -1605,6 +1631,7 @@ begin
 end;//_dsList_.IsActiveFilter
 
 function _dsList_.NodeId(const aNode: Il3SimpleNode): Integer;
+ {* - получить идентификатор узла. }
 //#UC START# *47F9FADF033F_47E9EDA800FE_var*
 var
  lNode : INodeBase;
@@ -1622,6 +1649,7 @@ begin
 end;//_dsList_.NodeId
 
 function _dsList_.MakeDocumentPreview: IafwComplexDocumentPreview;
+ {* - предварительный просмотр для текущего документа. }
 //#UC START# *47FA0191035A_47E9EDA800FE_var*
 //#UC END# *47FA0191035A_47E9EDA800FE_var*
 begin
@@ -1642,6 +1670,7 @@ begin
 end;//_dsList_.pm_GetList
 
 function _dsList_.ListNodeType(const aNode: Il3SimpleNode = nil): TbsListNodeType;
+ {* - тип узла списка. }
 //#UC START# *47FAF80A0182_47E9EDA800FE_var*
 var
  l_Node: INodeBase;
@@ -1658,6 +1687,7 @@ begin
 end;//_dsList_.ListNodeType
 
 function _dsList_.OpenListFromSelectedNodes: IdeList;
+ {* - открыть список из выделенных элементов. }
 //#UC START# *47FAFE3B0226_47E9EDA800FE_var*
 //#UC END# *47FAFE3B0226_47E9EDA800FE_var*
 begin
@@ -1676,7 +1706,8 @@ begin
 end;//_dsList_.pm_GetIsMain
 
 function _dsList_.ApplyLogicOperation(const aList: IDynList;
-  aOperation: TListLogicOperation): Boolean;
+ aOperation: TListLogicOperation): Boolean;
+ {* - выполнить логическую операцию со списком. }
 //#UC START# *47FB059C02A3_47E9EDA800FE_var*
 //#UC END# *47FB059C02A3_47E9EDA800FE_var*
 begin
@@ -1686,6 +1717,7 @@ begin
 end;//_dsList_.ApplyLogicOperation
 
 function _dsList_.ApplyContextFilter(const aFilter: IContextFilter): INodeBase;
+ {* - применить контекстный фильтр. }
 //#UC START# *47FC76D302A2_47E9EDA800FE_var*
 //#UC END# *47FC76D302A2_47E9EDA800FE_var*
 begin
@@ -1701,7 +1733,8 @@ begin
 end;//_dsList_.ApplyContextFilter
 
 procedure _dsList_.SaveToFile(const aFileName: Tl3WString;
-  aOnlySelected: Boolean);
+ aOnlySelected: Boolean);
+ {* - при не успешном завершении возвращает ECannotSave. }
 //#UC START# *47FC90B50037_47E9EDA800FE_var*
 var
  l_Nodes: INodesClipboard;
@@ -1730,6 +1763,7 @@ begin
 end;//_dsList_.pm_GetNodeForPositioning
 
 procedure _dsList_.ReleaseNodeForPositioning;
+ {* - }
 //#UC START# *47FF44F20247_47E9EDA800FE_var*
 //#UC END# *47FF44F20247_47E9EDA800FE_var*
 begin
@@ -1743,6 +1777,7 @@ begin
 end;//_dsList_.ReleaseNodeForPositioning
 
 function _dsList_.CreateBookmark: IBookmark;
+ {* - добавить закладку на текущий документ. }
 //#UC START# *48034EC0013B_47E9EDA800FE_var*
 var
  l_Document: IDocument;
@@ -1784,7 +1819,8 @@ begin
 end;//_dsList_.pm_GetHasAttributes
 
 function _dsList_.MakeSuperPreview(aOnlyFirstLevel: Boolean = True;
-  WithTexts: Boolean = True): InsSuperComplexDocumentPreview;
+ WithTexts: Boolean = True): InsSuperComplexDocumentPreview;
+ {* Создать суперкомплексное превью }
 //#UC START# *489015E10252_47E9EDA800FE_var*
 var
  l_Preview: IafwComplexDocumentPreview;
@@ -1801,6 +1837,7 @@ begin
 end;//_dsList_.MakeSuperPreview
 
 function _dsList_.MakeMultiDocumentPreview(aOnlyFirstLevel: Boolean): IafwComplexDocumentPreview;
+ {* Создать превью с текстами документов }
 //#UC START# *48902C750320_47E9EDA800FE_var*
 var
  l_Tree    : Il3ExpandedSimpleTree;
@@ -1842,8 +1879,8 @@ begin
 end;//_dsList_.Get_ActiveFilters
 
 function _dsList_.ListAsString(aSaveListKind: TbsSaveListKind;
-  SaveSelection: Boolean;
-  aFormat: TnsFileFormat): Il3CString;
+ SaveSelection: Boolean;
+ aFormat: TnsFileFormat): Il3CString;
 //#UC START# *512B22E20169_47E9EDA800FE_var*
 var
  l_Stream: IStream;
@@ -1869,6 +1906,7 @@ begin
 end;//_dsList_.ListAsString
 
 procedure _dsList_.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_47E9EDA800FE_var*
 //#UC END# *479731C50290_47E9EDA800FE_var*
 begin
@@ -1887,6 +1925,7 @@ begin
 end;//_dsList_.Cleanup
 
 procedure _dsList_.DoCurrentChanged(const aNode: Il3SimpleNode);
+ {* сменился текущий. }
 //#UC START# *47F0C1BF0314_47E9EDA800FE_var*
 
   procedure lp_ShowDocument(const aNode: INodeBase);
@@ -1934,7 +1973,8 @@ begin
 end;//_dsList_.DoCurrentChanged
 
 procedure _dsList_.UpdateSimpleTree(const aOld: Il3SimpleTree;
-  const aNew: Il3SimpleTree);
+ const aNew: Il3SimpleTree);
+ {* - обновить данные дерева. }
 //#UC START# *47FC718400FA_47E9EDA800FE_var*
 var
  l_ListTreeStruct: IbsListTreeStruct;
@@ -1949,8 +1989,9 @@ begin
 //#UC END# *47FC718400FA_47E9EDA800FE_impl*
 end;//_dsList_.UpdateSimpleTree
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure _dsList_.GotData;
+ {* - данные изменились. }
 //#UC START# *492ACF630072_47E9EDA800FE_var*
 var
  l_Filterable    : IFilterable;
@@ -1983,9 +2024,9 @@ begin
  // - http://mdp.garant.ru/pages/viewpage.action?pageId=607258441
 //#UC END# *492ACF630072_47E9EDA800FE_impl*
 end;//_dsList_.GotData
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure _dsList_.DoInit;
 //#UC START# *492BF7900310_47E9EDA800FE_var*
 //#UC END# *492BF7900310_47E9EDA800FE_var*
@@ -1997,52 +2038,42 @@ begin
  PrintFirstLevel := True;
 //#UC END# *492BF7900310_47E9EDA800FE_impl*
 end;//_dsList_.DoInit
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 procedure _dsList_.ClearFields;
- {-}
 begin
- {$If not defined(Admin) AND not defined(Monitorings)}
  Current := nil;
- {$IfEnd} //not Admin AND not Monitorings
- {$If not defined(Admin) AND not defined(Monitorings)}
  Document := nil;
- {$IfEnd} //not Admin AND not Monitorings
- {$If not defined(Admin) AND not defined(Monitorings)}
  Preview := nil;
- {$IfEnd} //not Admin AND not Monitorings
- {$If not defined(Admin) AND not defined(Monitorings)}
  ImpList := nil;
- {$IfEnd} //not Admin AND not Monitorings
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_SearchInfo := nil;
- {$IfEnd} //not Admin AND not Monitorings
  inherited;
 end;//_dsList_.ClearFields
 
-procedure _dsList_.InitRefs(const aDS: IvcmUseCaseController);
+{$If NOT Defined(NoVCM)}
+procedure _dsList_.InitRefs(const aDS: IvcmFormSetDataSource);
+ {* Инициализирует ссылки на различные представления прецедента }
 begin
  inherited;
  Supports(aDS, IucpNodeForPositioningHolder, ucc_NodeForPositioningHolder);
  Supports(aDS, IsdsBaseDocumentWithAttributes, ucc_BaseDocumentWithAttributes);
  Supports(aDS, IsdsBaseDocument, ucc_BaseDocument);
-end;
+end;//_dsList_.InitRefs
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$If NOT Defined(NoVCM)}
 procedure _dsList_.ClearRefs;
+ {* Очищает ссылки на различные представления прецедента }
 begin
  inherited;
  ucc_NodeForPositioningHolder := nil;
  ucc_BaseDocumentWithAttributes := nil;
  ucc_BaseDocument := nil;
-end;
+end;//_dsList_.ClearRefs
+{$IfEnd} // NOT Defined(NoVCM)
 
-// Методы преобразования к реализуемым интерфейсам
-
-function _dsList_.As_IucbBaseSearchSupportQuery: IucbBaseSearchSupportQuery;
-begin
- Result := Self;
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$EndIf dsList_imp_impl}
 
 {$EndIf dsList_imp}
+

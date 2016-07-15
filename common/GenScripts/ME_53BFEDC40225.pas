@@ -37,7 +37,6 @@ uses
  , l3StringIDEx
  , nsChronologyDocumentContainer
  , l3String
- , l3MessageID
  , IOUnit
 ;
 

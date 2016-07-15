@@ -28,7 +28,6 @@ uses
 type
  Ik2EVDReaderService = interface
   {* Интерфейс сервиса Tk2EVDReaderService }
-  ['{0D7649DC-496C-4118-A5C9-0D36658FB2DC}']
   function GetReader: Tk2CustomFileReader;
   function MakeReader(const aFileName: AnsiString;
    const aFilter: Ik2TagGenerator): Il3Reader;
@@ -42,9 +41,9 @@ type
    procedure pm_SetAlien(const aValue: Ik2EVDReaderService);
    procedure ClearFields; override;
   public
+   function GetReader: Tk2CustomFileReader;
    function MakeReader(const aFileName: AnsiString;
     const aFilter: Ik2TagGenerator): Il3Reader;
-   function GetReader: Tk2CustomFileReader;
    class function Instance: Tk2EVDReaderService;
     {* Метод получения экземпляра синглетона Tk2EVDReaderService }
    class function Exists: Boolean;
@@ -78,6 +77,18 @@ begin
  f_Alien := aValue;
 end;//Tk2EVDReaderService.pm_SetAlien
 
+function Tk2EVDReaderService.GetReader: Tk2CustomFileReader;
+//#UC START# *9F46A5A9DAF5_555DB43B00BD_var*
+//#UC END# *9F46A5A9DAF5_555DB43B00BD_var*
+begin
+//#UC START# *9F46A5A9DAF5_555DB43B00BD_impl*
+ if (f_Alien <> nil) then
+  Result := f_Alien.GetReader
+ else
+  Result := nil; 
+//#UC END# *9F46A5A9DAF5_555DB43B00BD_impl*
+end;//Tk2EVDReaderService.GetReader
+
 function Tk2EVDReaderService.MakeReader(const aFileName: AnsiString;
  const aFilter: Ik2TagGenerator): Il3Reader;
 //#UC START# *6A9002DE6C1A_555DB43B00BD_var*
@@ -90,18 +101,6 @@ begin
   Result := nil; 
 //#UC END# *6A9002DE6C1A_555DB43B00BD_impl*
 end;//Tk2EVDReaderService.MakeReader
-
-function Tk2EVDReaderService.GetReader: Tk2CustomFileReader;
-//#UC START# *9F46A5A9DAF5_555DB43B00BD_var*
-//#UC END# *9F46A5A9DAF5_555DB43B00BD_var*
-begin
-//#UC START# *9F46A5A9DAF5_555DB43B00BD_impl*
- if (f_Alien <> nil) then
-  Result := f_Alien.GetReader
- else
-  Result := nil; 
-//#UC END# *9F46A5A9DAF5_555DB43B00BD_impl*
-end;//Tk2EVDReaderService.GetReader
 
 class function Tk2EVDReaderService.Instance: Tk2EVDReaderService;
  {* Метод получения экземпляра синглетона Tk2EVDReaderService }

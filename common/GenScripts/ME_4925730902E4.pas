@@ -15,6 +15,9 @@ uses
  , DocumentAndListInterfaces
  , WorkWithDocumentInterfaces
  , l3TreeInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  , DocumentInterfaces
  , DocumentUnit
  , F1TagDataProviderInterface
@@ -28,9 +31,6 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
- , vcmInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
  , l3ProtoObjectWithCOMQI
  {$If NOT Defined(NoVCM)}
  , vcmLocalInterfaces
@@ -43,11 +43,12 @@ uses
 ;
 
 type
+ _FormDataSourceType_ = IdsContents;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsBaseContents.imp.pas}
  TdsContents = {final} class(_dsBaseContents_, IdsContents)
   {* бизнес объект формы ContentsForm }
   private
-   UseCase: IsdsDocument;
+   ucc_IsdsDocument: IsdsDocument;
   protected
    function MakeSimpleTree: Il3SimpleTree; override;
     {* Создать данные дерева }
@@ -56,6 +57,14 @@ type
    function HasSimilarToFragment(anId: Integer): Boolean;
    procedure OpenSimilarDocuments;
    procedure OpenSimilarDocumentsToFragment(aBlockId: Integer);
+   {$If NOT Defined(NoVCM)}
+   procedure InitRefs(const aDS: IvcmFormSetDataSource); override;
+    {* Инициализирует ссылки на различные представления прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure ClearRefs; override;
+    {* Очищает ссылки на различные представления прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//TdsContents
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -144,6 +153,24 @@ begin
  ucc_IsdsDocument.OpenSimilarDocumentsToFragment(aBlockId);
 //#UC END# *5594F4DB0203_4925730902E4_impl*
 end;//TdsContents.OpenSimilarDocumentsToFragment
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
+{$If NOT Defined(NoVCM)}
+procedure TdsContents.InitRefs(const aDS: IvcmFormSetDataSource);
+ {* Инициализирует ссылки на различные представления прецедента }
+begin
+ inherited;
+ ucc_IsdsDocument := aDS As IsdsDocument;
+end;//TdsContents.InitRefs
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TdsContents.ClearRefs;
+ {* Очищает ссылки на различные представления прецедента }
+begin
+ inherited;
+ ucc_IsdsDocument := nil;
+end;//TdsContents.ClearRefs
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

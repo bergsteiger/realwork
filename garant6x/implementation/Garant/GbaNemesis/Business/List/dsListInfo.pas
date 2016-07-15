@@ -1,96 +1,68 @@
 unit dsListInfo;
+ {* Информация о списке. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Business"
-// Автор: Морозов М.А.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Business/List/dsListInfo.pas"
-// Начат: 29.07.2005 17.07
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ViewAreaControllerImp::Class>> F1 Core::Common::Business::ListDataSources::TdsListInfo
-//
-// Информация о списке.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Business\List\dsListInfo.pas"
+// Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "TdsListInfo" MUID: (47FEF9AA00CC)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Interfaces,
-  WorkWithListInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmExternalInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmLocalInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  l3ProtoObjectWithCOMQI,
-  l3NotifyPtrList
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , WorkWithListInterfaces
+ , l3Interfaces
+ , l3ProtoObjectWithCOMQI
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmLocalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3NotifyPtrList
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
- _FormDataSourceType_ = IdsListInfo;
  _InitDataType_ = Il3CString;
  _UseCaseControllerType_ = IsdsListNameHolder;
+ _FormDataSourceType_ = IdsListInfo;
  {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourceWithFlexUseCaseControllerType.imp.pas}
- TdsListInfo = {final vac} class(_vcmFormDataSourceWithFlexUseCaseControllerType_, IdsListInfo)
+ TdsListInfo = {final} class(_vcmFormDataSourceWithFlexUseCaseControllerType_, IdsListInfo)
   {* Информация о списке. }
- private
- // private fields
-   f_Info : Il3CString;
- protected
- // realized methods
+  private
+   f_Info: Il3CString;
+  protected
    function pm_GetInfo: Tl3WString;
    function pm_GetListName: Il3CString;
    function pm_GetShortListName: Il3CString;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   {$If not defined(NoVCM)}
+    {* Функция очистки полей объекта. }
+   {$If NOT Defined(NoVCM)}
    procedure GotData; override;
-     {* - данные изменились. }
-   {$IfEnd} //not NoVCM
+    {* - данные изменились. }
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//TdsListInfo
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3String,
-  SysUtils,
-  l3InterfacesMisc,
-  l3Base
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
+ l3ImplUses
+ , l3String
+ , SysUtils
+ , l3InterfacesMisc
+ , l3Base
+;
 
 type _Instance_R_ = TdsListInfo;
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourceWithFlexUseCaseControllerType.imp.pas}
-
-// start class TdsListInfo
 
 function TdsListInfo.pm_GetInfo: Tl3WString;
 //#UC START# *49005EDD006C_47FEF9AA00CCget_var*
@@ -123,6 +95,7 @@ begin
 end;//TdsListInfo.pm_GetShortListName
 
 procedure TdsListInfo.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_47FEF9AA00CC_var*
 //#UC END# *479731C50290_47FEF9AA00CC_var*
 begin
@@ -132,8 +105,9 @@ begin
 //#UC END# *479731C50290_47FEF9AA00CC_impl*
 end;//TdsListInfo.Cleanup
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TdsListInfo.GotData;
+ {* - данные изменились. }
 //#UC START# *492ACF630072_47FEF9AA00CC_var*
 //#UC END# *492ACF630072_47FEF9AA00CC_var*
 begin
@@ -142,8 +116,7 @@ begin
  f_Info := PartData;
 //#UC END# *492ACF630072_47FEF9AA00CC_impl*
 end;//TdsListInfo.GotData
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //not Admin AND not Monitorings
-
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

@@ -1,186 +1,153 @@
 unit dsDocumentListCR;
+ {* Список корреспондентов/респондентов }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Business"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Business/Document/dsDocumentListCR.pas"
-// Начат: 26.11.2008 18:18
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ViewAreaControllerImp::Class>> F1 Core::Common::Business::DocumentAndList::TdsDocumentListCR
-//
-// Список корреспондентов/респондентов
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsDocumentListCR.pas"
+// Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "TdsDocumentListCR" MUID: (492D687F0214)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  PrimListInterfaces,
-  DynamicTreeUnit,
-  l3TreeInterfaces,
-  l3Tree_TLB,
-  bsTypes,
-  bsInterfaces,
-  DocumentAndListInterfaces,
-  WorkWithListInterfaces,
-  DocInfoInterfaces,
-  DynamicDocListUnit,
-  DocumentUnit,
-  FiltersUnit,
-  l3Interfaces,
-  afwInterfaces,
-  nsRootManager,
-  nsTypes,
-  PrimPrimListInterfaces,
-  DocumentInterfaces,
-  BaseDocumentWithAttributesInterfaces,
-  l3InternalInterfaces
-  {$If not defined(NoVCL)}
-  ,
-  ExtCtrls
-  {$IfEnd} //not NoVCL
-  ,
-  TreeInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmExternalInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmLocalInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  l3ProtoObjectWithCOMQI,
-  l3NotifyPtrList,
-  WorkWithDocumentInterfaces,
-  vcmControllers {a},
-  nsTypesNew,
-  PreviewInterfaces,
-  l3IID
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , PrimListInterfaces
+ , DocumentAndListInterfaces
+ , bsInterfaces
+ , bsTypes
+ , DynamicTreeUnit
+ , l3Tree_TLB
+ , DocInfoInterfaces
+ , WorkWithListInterfaces
+ , l3TreeInterfaces
+ , l3Interfaces
+ , DocumentInterfaces
+ , PrimPrimListInterfaces
+ , l3InternalInterfaces
+ , DocumentUnit
+ , l3IID
+ , DynamicDocListUnit
+ , nsTypes
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , afwInterfaces
+ , nsRootManager
+ , BaseDocumentWithAttributesInterfaces
+ , FiltersUnit
+ , PreviewInterfaces
+ , nsTypesNew
+ , TreeInterfaces
+ {$If NOT Defined(NoVCL)}
+ , ExtCtrls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3ProtoObjectWithCOMQI
+ {$If NOT Defined(NoVCM)}
+ , vcmLocalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3NotifyPtrList
+ , WorkWithDocumentInterfaces
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  _InitDataType_ = IdeDocumentListCR;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\List\dsDocumentList.imp.pas}
- TdsDocumentListCR = {vac} class(_dsDocumentList_)
+ TdsDocumentListCR = class(_dsDocumentList_)
   {* Список корреспондентов/респондентов }
- protected
- // overridden protected methods
-   {$If not defined(NoVCM)}
+  protected
+   {$If NOT Defined(NoVCM)}
    procedure GotData; override;
-     {* - данные изменились. }
-   {$IfEnd} //not NoVCM
+    {* - данные изменились. }
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//TdsDocumentListCR
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  SysUtils,
-  IOUnit,
-  l3Nodes,
-  UnderControlUnit,
-  ListRes,
-  vtUtils,
-  deListSet,
-  DataAdapter,
-  BaseTypesUnit,
-  nsManagers,
-  bsUtils,
-  bsConst,
-  DebugStr
-  {$If not defined(NoVCM)}
-  ,
-  StdRes
-  {$IfEnd} //not NoVCM
-  ,
-  nsContextSearchParams,
-  nsINodeWrap,
-  nsAddToListEvent,
-  nsListSortEvent,
-  nsFindContextInListEvent,
-  afwComplexDocumentPreview,
-  nsINodesClipboardDataObject,
-  nsHAFPainter,
-  nsDocumentPreview,
-  nsIListDataObject
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  ,
-  l3String
-  {$If not defined(NoVCM)}
-  ,
-  vcmForm
-  {$IfEnd} //not NoVCM
-  ,
-  BaseTreeSupportUnit,
-  nsNodes,
-  nsDocumentTools,
-  nsExternalObjectPrim,
-  bsConvert,
-  nsDocumentStreamWrapper,
-  afwFacade,
-  evMultiDocumentPreview,
-  evHTMLDataObject,
-  l3Memory,
-  nsFolders,
-  nsSuperComplexDocumentPreview,
-  bsListTreeStruct,
-  nevBase,
-  nsListHAFMacroReplacer,
-  evFormatHAFMacroReplacer,
-  LoggingInterfaces,
-  nsListPrintEvent,
-  deList,
-  nevInterfaces,
-  bsTypesNew,
-  nsFiltersContainer,
-  nsTreeMultiDocumentPreviewContainer,
-  bsDocumentMissingMessage,
-  nsExternalObjectModelPart,
-  nsDocumentStreamList,
-  nsListExceptions,
-  nsFiltersUtils,
-  nsFiltersInterfaces,
-  nsDocumentWithSnippetList,
-  l3Base,
-  vtStdRes,
-  nsNewCachableNode,
-  Windows,
-  l3InterfacesMisc
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
+ l3ImplUses
+ , SysUtils
+ , IOUnit
+ , l3Nodes
+ , UnderControlUnit
+ , ListRes
+ , vtUtils
+ , deListSet
+ , DataAdapter
+ , BaseTypesUnit
+ , nsManagers
+ , bsUtils
+ , bsConst
+ , DebugStr
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ , nsContextSearchParams
+ , nsINodeWrap
+ , nsAddToListEvent
+ , nsListSortEvent
+ , nsFindContextInListEvent
+ , afwComplexDocumentPreview
+ , nsINodesClipboardDataObject
+ , nsHAFPainter
+ , nsDocumentPreview
+ , nsIListDataObject
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3String
+ {$If NOT Defined(NoVCM)}
+ , vcmForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ , BaseTreeSupportUnit
+ , nsNodes
+ , nsDocumentTools
+ , nsExternalObjectPrim
+ , bsConvert
+ , nsDocumentStreamWrapper
+ , afwFacade
+ , evMultiDocumentPreview
+ , evHTMLDataObject
+ , l3Memory
+ , nsFolders
+ , nsSuperComplexDocumentPreview
+ , bsListTreeStruct
+ , nevBase
+ , nsListHAFMacroReplacer
+ , evFormatHAFMacroReplacer
+ , LoggingInterfaces
+ , nsListPrintEvent
+ , deList
+ , nevInterfaces
+ , bsTypesNew
+ , nsFiltersContainer
+ , nsTreeMultiDocumentPreviewContainer
+ , bsDocumentMissingMessage
+ , nsExternalObjectModelPart
+ , nsDocumentStreamList
+ , nsListExceptions
+ , nsFiltersUtils
+ , nsFiltersInterfaces
+ , nsDocumentWithSnippetList
+ , l3Base
+ , vtStdRes
+ , nsNewCachableNode
+ , Windows
+ , l3InterfacesMisc
+;
 
 type _Instance_R_ = TdsDocumentListCR;
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\List\dsDocumentList.imp.pas}
 
-// start class TdsDocumentListCR
-
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TdsDocumentListCR.GotData;
+ {* - данные изменились. }
 //#UC START# *492ACF630072_492D687F0214_var*
 //#UC END# *492ACF630072_492D687F0214_var*
 begin
@@ -192,8 +159,7 @@ begin
  f_CRTypeNode := PartData.Category;
 //#UC END# *492ACF630072_492D687F0214_impl*
 end;//TdsDocumentListCR.GotData
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //not Admin AND not Monitorings
-
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

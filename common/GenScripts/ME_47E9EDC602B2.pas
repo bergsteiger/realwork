@@ -24,12 +24,12 @@
     {* откуда был открыт список }
    f_TimeMachineOff: Boolean;
    f_DocCount: Integer;
-    {* ѕоле дл€ свойства DocCount }
+    {* количество документов после получени€ Root. Ќеобходимо дл€ ответа на
+           IsListNotFull }
    f_CRTypeCurrent: Il3Node;
-    {* ѕоле дл€ свойства CRTypeCurrent }
   protected
-   DocInfo: IsdsDocInfo;
-   List: IsdsList;
+   ucc_DocInfo: IsdsDocInfo;
+   ucc_List: IsdsList;
   private
    procedure GetSortParams;
    procedure CheckDocumentUseCase;
@@ -133,6 +133,14 @@
     {* –еализаци€ запроса интерфейса }
    function CheckFullList: Boolean; override;
    procedure ClearFields; override;
+   {$If NOT Defined(NoVCM)}
+   procedure InitRefs(const aDS: IvcmFormSetDataSource); override;
+    {* »нициализирует ссылки на различные представлени€ прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure ClearRefs; override;
+    {* ќчищает ссылки на различные представлени€ прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
   protected
    property DocCount: Integer
     read f_DocCount;
@@ -1020,8 +1028,28 @@ begin
  f_CRTypeCurrent := nil;
  inherited;
 end;//_dsDocumentList_.ClearFields
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
+{$If NOT Defined(NoVCM)}
+procedure _dsDocumentList_.InitRefs(const aDS: IvcmFormSetDataSource);
+ {* »нициализирует ссылки на различные представлени€ прецедента }
+begin
+ inherited;
+ Supports(aDS, IsdsDocInfo, ucc_DocInfo);
+ Supports(aDS, IsdsList, ucc_List);
+end;//_dsDocumentList_.InitRefs
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure _dsDocumentList_.ClearRefs;
+ {* ќчищает ссылки на различные представлени€ прецедента }
+begin
+ inherited;
+ ucc_DocInfo := nil;
+ ucc_List := nil;
+end;//_dsDocumentList_.ClearRefs
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 {$EndIf dsDocumentList_imp_impl}
 
 {$EndIf dsDocumentList_imp}

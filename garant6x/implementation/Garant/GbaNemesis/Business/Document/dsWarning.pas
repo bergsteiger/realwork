@@ -1,105 +1,79 @@
 unit dsWarning;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Business"
-// Автор: Тучнин Д.А.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Business/Document/dsWarning.pas"
-// Начат: 21.09.2005 11.30
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ViewAreaControllerImp::Class>> F1 Core::Common::Business::Document::TdsWarning
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsWarning.pas"
+// Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "TdsWarning" MUID: (492189D90209)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  nevBase,
-  DocumentAndListInterfaces,
-  nsTypes,
-  DocumentInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmExternalInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmLocalInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  l3ProtoObjectWithCOMQI,
-  l3Interfaces,
-  l3NotifyPtrList,
-  vcmControllers {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , DocumentAndListInterfaces
+ , nsTypes
+ , DocumentInterfaces
+ , nevBase
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3ProtoObjectWithCOMQI
+ {$If NOT Defined(NoVCM)}
+ , vcmLocalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3Interfaces
+ , l3NotifyPtrList
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  _FormDataSourceType_ = IdsWarning;
  {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourcePrim.imp.pas}
- TdsWarning = {final vac} class(_vcmFormDataSourcePrim_, IdsWarning)
- private
- // private fields
-   f_WarningContent : TWarningTypeSet;
-   WarningGenerator : InsWarningGenerator;
-   ucc_BaseDocument : IsdsBaseDocument;
- protected
-
-  procedure InitRefs(const aDS: IvcmUseCaseController); override;
-  procedure ClearRefs; override;
- protected
- // realized methods
+ TdsWarning = {final} class(_vcmFormDataSourcePrim_, IdsWarning)
+  private
+   f_WarningContent: TWarningTypeSet;
+   WarningGenerator: InsWarningGenerator;
+   ucc_BaseDocument: IsdsBaseDocument;
+  protected
+   function DoGetDocInfo: IdeDocInfo; virtual;
+   function DoGenerateWarning(const aGenerator: InevTagGenerator;
+    aUserType: Integer): TWarningTypeSet; virtual;
+   function GetIsForSynchroView: Boolean; virtual;
    procedure GenerateWarning(const aGenerator: InevTagGenerator;
     aUserType: Integer);
-     {* генерация текста предупреждения }
+    {* генерация текста предупреждения }
    function pm_GetWarningContent: TWarningTypeSet;
    function pm_GetDocInfo: IdeDocInfo;
    function Get_ForSynchroView: Boolean;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- protected
- // protected methods
-   function DoGetDocInfo: IdeDocInfo; virtual;
-   function DoGenerateWarning(const aGenerator: InevTagGenerator;
-     aUserType: Integer): TWarningTypeSet; virtual;
-   function GetIsForSynchroView: Boolean; virtual;
+    {* Функция очистки полей объекта. }
+   {$If NOT Defined(NoVCM)}
+   procedure InitRefs(const aDS: IvcmFormSetDataSource); override;
+    {* Инициализирует ссылки на различные представления прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure ClearRefs; override;
+    {* Очищает ссылки на различные представления прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//TdsWarning
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3InterfacesMisc,
-  SysUtils,
-  l3Base
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
+ l3ImplUses
+ , l3InterfacesMisc
+ , SysUtils
+ , l3Base
+;
 
 type _Instance_R_ = TdsWarning;
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourcePrim.imp.pas}
-
-// start class TdsWarning
 
 function TdsWarning.DoGetDocInfo: IdeDocInfo;
 //#UC START# *4EDCF99301CA_492189D90209_var*
@@ -114,7 +88,7 @@ begin
 end;//TdsWarning.DoGetDocInfo
 
 function TdsWarning.DoGenerateWarning(const aGenerator: InevTagGenerator;
-  aUserType: Integer): TWarningTypeSet;
+ aUserType: Integer): TWarningTypeSet;
 //#UC START# *4EF4849D01C9_492189D90209_var*
 //#UC END# *4EF4849D01C9_492189D90209_var*
 begin
@@ -136,7 +110,8 @@ begin
 end;//TdsWarning.GetIsForSynchroView
 
 procedure TdsWarning.GenerateWarning(const aGenerator: InevTagGenerator;
-  aUserType: Integer);
+ aUserType: Integer);
+ {* генерация текста предупреждения }
 //#UC START# *492186B0008F_492189D90209_var*
 //#UC END# *492186B0008F_492189D90209_var*
 begin
@@ -173,6 +148,7 @@ begin
 end;//TdsWarning.Get_ForSynchroView
 
 procedure TdsWarning.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_492189D90209_var*
 //#UC END# *479731C50290_492189D90209_var*
 begin
@@ -182,20 +158,25 @@ begin
 //#UC END# *479731C50290_492189D90209_impl*
 end;//TdsWarning.Cleanup
 
-procedure TdsWarning.InitRefs(const aDS: IvcmUseCaseController);
+{$If NOT Defined(NoVCM)}
+procedure TdsWarning.InitRefs(const aDS: IvcmFormSetDataSource);
+ {* Инициализирует ссылки на различные представления прецедента }
 begin
  inherited;
  Supports(aDS, InsWarningGenerator, WarningGenerator);
  Supports(aDS, IsdsBaseDocument, ucc_BaseDocument);
-end;
+end;//TdsWarning.InitRefs
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$If NOT Defined(NoVCM)}
 procedure TdsWarning.ClearRefs;
+ {* Очищает ссылки на различные представления прецедента }
 begin
  inherited;
  WarningGenerator := nil;
  ucc_BaseDocument := nil;
-end;
+end;//TdsWarning.ClearRefs
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //not Admin AND not Monitorings
-
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

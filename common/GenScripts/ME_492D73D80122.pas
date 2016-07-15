@@ -29,6 +29,9 @@ uses
  , l3IID
  , DynamicDocListUnit
  , nsTypes
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  , afwInterfaces
  , nsRootManager
  , BaseDocumentWithAttributesInterfaces
@@ -41,9 +44,6 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
- , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
  , l3ProtoObjectWithCOMQI
  {$If NOT Defined(NoVCM)}

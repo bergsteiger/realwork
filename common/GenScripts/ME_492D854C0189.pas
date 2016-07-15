@@ -19,6 +19,9 @@ uses
  , F1TagDataProviderInterface
  , nsTypesNew
  , l3InternalInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  , TreeInterfaces
  , bsInterfaces
  {$If NOT Defined(NoVCL)}
@@ -26,9 +29,6 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
- , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
  , l3ProtoObjectWithCOMQI
  {$If NOT Defined(NoVCM)}

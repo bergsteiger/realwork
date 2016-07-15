@@ -1,46 +1,41 @@
 {$IfNDef dsBaseSearchSupportQuery_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Business"
-// Автор: Лукьянец Р.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Business/Document/dsBaseSearchSupportQuery.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ViewAreaControllerImp::Class>> F1 Core::Common::Business::Document::dsBaseSearchSupportQuery
-//
-// Примесь, реализующая абстрактный интерфейс BaseSearchSupportQuery
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsBaseSearchSupportQuery.imp.pas"
+// Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "dsBaseSearchSupportQuery" MUID: (496F3F2500A8)
+// Имя типа: "_dsBaseSearchSupportQuery_"
 
 {$Define dsBaseSearchSupportQuery_imp}
-{$If not defined(Admin) AND not defined(Monitorings)}
- _dsBaseSearchSupportQuery_ = {abstract vac} class(_dsBaseSearchSupportQuery_Parent_)
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+ _dsBaseSearchSupportQuery_ = {abstract} class(_dsBaseSearchSupportQuery_Parent_)
   {* Примесь, реализующая абстрактный интерфейс BaseSearchSupportQuery }
- private
- // private fields
-   ucc_BaseSearch : IucpBaseSearchSupportQuery;
- protected
-  procedure InitRefs(const aDS: IvcmUseCaseController); override;
-  procedure ClearRefs; override;
- protected
- // realized methods
+  private
+   ucc_BaseSearch: IucpBaseSearchSupportQuery;
+  protected
    function Get_CanRunBaseSearch: Boolean;
+   {$If NOT Defined(NoVCM)}
+   procedure InitRefs(const aDS: IvcmFormSetDataSource); override;
+    {* Инициализирует ссылки на различные представления прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure ClearRefs; override;
+    {* Очищает ссылки на различные представления прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//_dsBaseSearchSupportQuery_
-{$Else}
 
- _dsBaseSearchSupportQuery_ = _dsBaseSearchSupportQuery_Parent_;
+{$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
 
-{$IfEnd} //not Admin AND not Monitorings
+_dsBaseSearchSupportQuery_ = _dsBaseSearchSupportQuery_Parent_;
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 {$Else dsBaseSearchSupportQuery_imp}
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$IfNDef dsBaseSearchSupportQuery_imp_impl}
 
-// start class _dsBaseSearchSupportQuery_
+{$Define dsBaseSearchSupportQuery_imp_impl}
 
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 function _dsBaseSearchSupportQuery_.Get_CanRunBaseSearch: Boolean;
 //#UC START# *496F344101D0_496F3F2500A8get_var*
 //#UC END# *496F344101D0_496F3F2500A8get_var*
@@ -50,18 +45,26 @@ begin
 //#UC END# *496F344101D0_496F3F2500A8get_impl*
 end;//_dsBaseSearchSupportQuery_.Get_CanRunBaseSearch
 
-procedure _dsBaseSearchSupportQuery_.InitRefs(const aDS: IvcmUseCaseController);
+{$If NOT Defined(NoVCM)}
+procedure _dsBaseSearchSupportQuery_.InitRefs(const aDS: IvcmFormSetDataSource);
+ {* Инициализирует ссылки на различные представления прецедента }
 begin
  inherited;
  Supports(aDS, IucpBaseSearchSupportQuery, ucc_BaseSearch);
-end;
+end;//_dsBaseSearchSupportQuery_.InitRefs
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$If NOT Defined(NoVCM)}
 procedure _dsBaseSearchSupportQuery_.ClearRefs;
+ {* Очищает ссылки на различные представления прецедента }
 begin
  inherited;
  ucc_BaseSearch := nil;
-end;
+end;//_dsBaseSearchSupportQuery_.ClearRefs
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$EndIf dsBaseSearchSupportQuery_imp_impl}
 
 {$EndIf dsBaseSearchSupportQuery_imp}
+

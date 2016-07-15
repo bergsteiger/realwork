@@ -32,6 +32,14 @@
    procedure GotData; override;
     {* - данные изменились. }
    {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitRefs(const aDS: IvcmFormSetDataSource); override;
+    {* Инициализирует ссылки на различные представления прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure ClearRefs; override;
+    {* Очищает ссылки на различные представления прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//_dsBaseContents_
 
 {$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
@@ -248,6 +256,24 @@ begin
  pm_SetSimpleTree(PartData.Contents);
 //#UC END# *492ACF630072_49256B3903E4_impl*
 end;//_dsBaseContents_.GotData
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure _dsBaseContents_.InitRefs(const aDS: IvcmFormSetDataSource);
+ {* Инициализирует ссылки на различные представления прецедента }
+begin
+ inherited;
+ SDS := aDS As IsdsBaseDocument;
+end;//_dsBaseContents_.InitRefs
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure _dsBaseContents_.ClearRefs;
+ {* Очищает ссылки на различные представления прецедента }
+begin
+ inherited;
+ SDS := nil;
+end;//_dsBaseContents_.ClearRefs
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)

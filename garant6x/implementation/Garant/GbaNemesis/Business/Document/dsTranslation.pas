@@ -1,59 +1,44 @@
 unit dsTranslation;
+ {* Перевод }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Business"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Business/Document/dsTranslation.pas"
-// Начат: 08.12.2008 19:08
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ViewAreaControllerImp::Class>> F1 Core::Common::Business::DocumentAndList::TdsTranslation
-//
-// Перевод
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsTranslation.pas"
+// Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "TdsTranslation" MUID: (4958986800FE)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  dsChildDocument,
-  afwInterfaces
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , dsChildDocument
+ , afwInterfaces
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
- TdsTranslation = {vac} class(TdsChildDocument)
+ TdsTranslation = class(TdsChildDocument)
   {* Перевод }
- protected
- // overridden protected methods
-   function DoGetPreviewCaleeArea: TafwPreviewCaleeArea; override;
+  protected
+   function DoGet_PreviewCaleeArea: TafwPreviewCaleeArea; override;
  end;//TdsTranslation
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+uses
+ l3ImplUses
+;
 
-// start class TdsTranslation
-
-function TdsTranslation.DoGetPreviewCaleeArea: TafwPreviewCaleeArea;
+function TdsTranslation.DoGet_PreviewCaleeArea: TafwPreviewCaleeArea;
 //#UC START# *49589999029F_4958986800FE_var*
 //#UC END# *49589999029F_4958986800FE_var*
 begin
 //#UC START# *49589999029F_4958986800FE_impl*
  Result := afw_pcaTranslation;
 //#UC END# *49589999029F_4958986800FE_impl*
-end;//TdsTranslation.DoGetPreviewCaleeArea
-
-{$IfEnd} //not Admin AND not Monitorings
+end;//TdsTranslation.DoGet_PreviewCaleeArea
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

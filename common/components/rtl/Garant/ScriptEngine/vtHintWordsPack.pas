@@ -25,6 +25,8 @@ uses
  , l3Interfaces
  , vtHintManager
  , Windows
+ , l3ControlFontService
+ , l3FontInfo
  , SysUtils
  , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
@@ -69,6 +71,20 @@ type
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwApplicationGetLastHint
+
+ TkwApplicationGetHintFontInfo = {final} class(TtfwGlobalKeyWord)
+  {* Слово скрипта application:GetHintFontInfo }
+  private
+   function application_GetHintFontInfo(const aCtx: TtfwContext): Il3FontInfo;
+    {* Реализация слова скрипта application:GetHintFontInfo }
+  protected
+   class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwApplicationGetHintFontInfo
 
 class function TkwApplicationCancelHint.GetWordNameForRegister: AnsiString;
 begin
@@ -176,6 +192,44 @@ begin
  aCtx.rEngine.PushString(application_GetLastHint(aCtx));
 end;//TkwApplicationGetLastHint.DoDoIt
 
+function TkwApplicationGetHintFontInfo.application_GetHintFontInfo(const aCtx: TtfwContext): Il3FontInfo;
+ {* Реализация слова скрипта application:GetHintFontInfo }
+//#UC START# *577E436B026F_577E436B026F_Word_var*
+//#UC END# *577E436B026F_577E436B026F_Word_var*
+begin
+//#UC START# *577E436B026F_577E436B026F_Word_impl*
+ if TvtHintManager.Instance.Count > 0 then
+  Result := Tl3FontInfo.Make(TvtHintManager.Instance.Item[TvtHintManager.Instance.Count - 1].Canvas.Font)
+ else
+  Result := nil;
+//#UC END# *577E436B026F_577E436B026F_Word_impl*
+end;//TkwApplicationGetHintFontInfo.application_GetHintFontInfo
+
+class function TkwApplicationGetHintFontInfo.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'application:GetHintFontInfo';
+end;//TkwApplicationGetHintFontInfo.GetWordNameForRegister
+
+function TkwApplicationGetHintFontInfo.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := TypeInfo(Il3FontInfo);
+end;//TkwApplicationGetHintFontInfo.GetResultTypeInfo
+
+function TkwApplicationGetHintFontInfo.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 0;
+end;//TkwApplicationGetHintFontInfo.GetAllParamsCount
+
+function TkwApplicationGetHintFontInfo.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([]);
+end;//TkwApplicationGetHintFontInfo.ParamsTypes
+
+procedure TkwApplicationGetHintFontInfo.DoDoIt(const aCtx: TtfwContext);
+begin
+ aCtx.rEngine.PushIntf(application_GetHintFontInfo(aCtx), TypeInfo(Il3FontInfo));
+end;//TkwApplicationGetHintFontInfo.DoDoIt
+
 initialization
  TkwApplicationCancelHint.RegisterInEngine;
  {* Регистрация application_CancelHint }
@@ -183,10 +237,14 @@ initialization
  {* Регистрация application_IsHintVisible }
  TkwApplicationGetLastHint.RegisterInEngine;
  {* Регистрация application_GetLastHint }
+ TkwApplicationGetHintFontInfo.RegisterInEngine;
+ {* Регистрация application_GetHintFontInfo }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Boolean));
  {* Регистрация типа Boolean }
  TtfwTypeRegistrator.RegisterType(@tfw_tiString);
  {* Регистрация типа Il3CString }
+ TtfwTypeRegistrator.RegisterType(TypeInfo(Il3FontInfo));
+ {* Регистрация типа Il3FontInfo }
 {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 
 end.

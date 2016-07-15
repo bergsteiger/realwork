@@ -1,88 +1,63 @@
 unit dsEditions;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Business"
-// Автор: Тучнин Д.А.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Business/Document/dsEditions.pas"
-// Начат: 2005/09/23 17:08:24
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ViewAreaControllerImp::Class>> F1 Core::Common::Business::Document::TdsEditions
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsEditions.pas"
+// Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "TdsEditions" MUID: (4921809902CF)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DocumentAndListInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmExternalInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmLocalInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  l3ProtoObjectWithCOMQI,
-  l3Interfaces,
-  l3NotifyPtrList,
-  l3TreeInterfaces
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , DocumentAndListInterfaces
+ , l3TreeInterfaces
+ , l3ProtoObjectWithCOMQI
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmLocalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3Interfaces
+ , l3NotifyPtrList
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
- _FormDataSourceType_ = IdsEditions;
  _UseCaseControllerType_ = IsdsPrimDocument;
+ _FormDataSourceType_ = IdsEditions;
  {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourcePrimWithFlexUseCaseControllerType.imp.pas}
- TdsEditions = {final vac} class(_vcmFormDataSourcePrimWithFlexUseCaseControllerType_, IdsEditions)
- protected
- // realized methods
+ TdsEditions = {final} class(_vcmFormDataSourcePrimWithFlexUseCaseControllerType_, IdsEditions)
+  protected
    function GetEditionsRoot: Il3SimpleRootNode;
-     {* получение списка редакций документа }
- protected
- // overridden protected methods
-   {$If not defined(NoVCM)}
+    {* получение списка редакций документа }
+   {$If NOT Defined(NoVCM)}
    function GetIsSame(const aValue: _FormDataSourceType_): Boolean; override;
-   {$IfEnd} //not NoVCM
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//TdsEditions
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  nsEditionNodes,
-  SysUtils,
-  l3InterfacesMisc,
-  l3Base
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
+ l3ImplUses
+ , nsEditionNodes
+ , SysUtils
+ , l3InterfacesMisc
+ , l3Base
+;
 
 type _Instance_R_ = TdsEditions;
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourcePrimWithFlexUseCaseControllerType.imp.pas}
 
-// start class TdsEditions
-
 function TdsEditions.GetEditionsRoot: Il3SimpleRootNode;
+ {* получение списка редакций документа }
 //#UC START# *49217DB001A7_4921809902CF_var*
 //#UC END# *49217DB001A7_4921809902CF_var*
 begin
@@ -91,7 +66,7 @@ begin
 //#UC END# *49217DB001A7_4921809902CF_impl*
 end;//TdsEditions.GetEditionsRoot
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 function TdsEditions.GetIsSame(const aValue: _FormDataSourceType_): Boolean;
 //#UC START# *49147FB4028C_4921809902CF_var*
 var
@@ -110,8 +85,7 @@ begin
   end;//try..finally
 //#UC END# *49147FB4028C_4921809902CF_impl*
 end;//TdsEditions.GetIsSame
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //not Admin AND not Monitorings
-
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

@@ -1,98 +1,107 @@
 {$IfNDef dsDocument_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Business"
-// Автор: Морозов М.А.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Business/Document/dsDocument.imp.pas"
-// Начат: 29.07.2005 17.07
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ViewAreaControllerImp::Class>> F1 Core::Common::Business::Document::dsDocument
-//
-// Бизнес объект формы "TextForm"
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsDocument.imp.pas"
+// Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "dsDocument" MUID: (491D64430036)
+// Имя типа: "_dsDocument_"
 
 {$Define dsDocument_imp}
-{$If not defined(Admin) AND not defined(Monitorings)}
- {$Include ..\Document\dsBaseDocumentPrim.imp.pas}
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsBaseDocumentPrim.imp.pas}
  _dsDocumentFromList_Parent_ = _dsBaseDocumentPrim_;
- {$Include ..\Document\dsDocumentFromList.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsDocumentFromList.imp.pas}
  _dsBaseSearchSupportQuery_Parent_ = _dsDocumentFromList_;
- {$Include ..\Document\dsBaseSearchSupportQuery.imp.pas}
- _dsDocument_ = {abstract vac} class(_dsBaseSearchSupportQuery_, IdsDocument, IucbDocumentWithContents {from IdsDocument}, IucbDocumentFromList {from IdsDocument}, IucbBaseSearchSupportQuery {from IdsDocument})
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsBaseSearchSupportQuery.imp.pas}
+ _dsDocument_ = {abstract} class(_dsBaseSearchSupportQuery_, IdsDocument, IucbDocumentWithContents, IucbDocumentFromList, IucbBaseSearchSupportQuery)
   {* Бизнес объект формы "TextForm" }
- private
- // private fields
-   ucc_DocumentWithContents : IucpDocumentWithContents;
- protected
-  procedure InitRefs(const aDS: IvcmUseCaseController); override;
-  procedure ClearRefs; override;
- protected
- // realized methods
+  private
+   ucc_DocumentWithContents: IucpDocumentWithContents;
+  protected
+   ucc_Document: IsdsDocument;
+  protected
+   function As_IucbDocumentWithContents: IucbDocumentWithContents;
+    {* Метод приведения нашего интерфейса к IucbDocumentWithContents }
+   function As_IucbDocumentFromList: IucbDocumentFromList;
+    {* Метод приведения нашего интерфейса к IucbDocumentFromList }
+   function As_IucbBaseSearchSupportQuery: IucbBaseSearchSupportQuery;
+    {* Метод приведения нашего интерфейса к IucbBaseSearchSupportQuery }
    procedure DoReturnToList(const aList: IDynList;
     const aNodeForPositioning: Il3SimpleNode); override;
-     {* параметры создания списка }
+    {* параметры создания списка }
    procedure OpenSimilarDocuments;
-     {* открыть список похожих документов }
+    {* открыть список похожих документов }
    function GetSubPosition(aSubID: Integer): IevdHyperlinkInfo;
    function pm_GetHasSimilarDocuments: Boolean;
    function Get_DsContents: IdsBaseContents;
    procedure OpenSimilarDocumentsToFragment(aBlockId: Integer);
- public
- // realized methods
-   procedure OpenContents(const aTree: IdeSimpleTree;
-    anForceOpen: TnsContentsOpenMode;
-    const aContainerOfDocument: InevDocumentContainer);
- protected
- // overridden protected methods
-   {$If not defined(NoVCM)}
+   {$If NOT Defined(NoVCM)}
    function GetIsSame(const aValue: _FormDataSourceType_): Boolean; override;
-   {$IfEnd} //not NoVCM
+   {$IfEnd} // NOT Defined(NoVCM)
    function GetHasPrevRedaction: Boolean; override;
    function GetHasNextRedaction: Boolean; override;
    function GetCanWorkWithRedactions: Boolean; override;
    function COMQueryInterface(const IID: Tl3GUID;
     out Obj): Tl3HResult; override;
-     {* Реализация запроса интерфейса }
- protected
- // protected fields
-   ucc_Document : IsdsDocument;
- protected
- // Методы преобразования к реализуемым интерфейсам
-   function As_IucbDocumentWithContents: IucbDocumentWithContents;
-   function As_IucbDocumentFromList: IucbDocumentFromList;
-   function As_IucbBaseSearchSupportQuery: IucbBaseSearchSupportQuery;
+    {* Реализация запроса интерфейса }
+   {$If NOT Defined(NoVCM)}
+   procedure InitRefs(const aDS: IvcmFormSetDataSource); override;
+    {* Инициализирует ссылки на различные представления прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure ClearRefs; override;
+    {* Очищает ссылки на различные представления прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
+   procedure OpenContents(const aTree: IdeSimpleTree;
+    anForceOpen: TnsContentsOpenMode;
+    const aContainerOfDocument: InevDocumentContainer);
  end;//_dsDocument_
-{$Else}
 
- {$Include ..\Document\dsBaseDocumentPrim.imp.pas}
- _dsDocumentFromList_Parent_ = _dsBaseDocumentPrim_;
- {$Include ..\Document\dsDocumentFromList.imp.pas}
- _dsBaseSearchSupportQuery_Parent_ = _dsDocumentFromList_;
- {$Include ..\Document\dsBaseSearchSupportQuery.imp.pas}
- _dsDocument_ = _dsBaseSearchSupportQuery_;
+{$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
 
-{$IfEnd} //not Admin AND not Monitorings
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsBaseDocumentPrim.imp.pas}
+_dsDocumentFromList_Parent_ = _dsBaseDocumentPrim_;
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsDocumentFromList.imp.pas}
+_dsBaseSearchSupportQuery_Parent_ = _dsDocumentFromList_;
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsBaseSearchSupportQuery.imp.pas}
+_dsDocument_ = _dsBaseSearchSupportQuery_;
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 {$Else dsDocument_imp}
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$IfNDef dsDocument_imp_impl}
 
+{$Define dsDocument_imp_impl}
 
-{$Include ..\Document\dsBaseDocumentPrim.imp.pas}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsBaseDocumentPrim.imp.pas}
 
-{$Include ..\Document\dsDocumentFromList.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsDocumentFromList.imp.pas}
 
-{$Include ..\Document\dsBaseSearchSupportQuery.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsBaseSearchSupportQuery.imp.pas}
 
-// start class _dsDocument_
+function _dsDocument_.As_IucbDocumentWithContents: IucbDocumentWithContents;
+ {* Метод приведения нашего интерфейса к IucbDocumentWithContents }
+begin
+ Result := Self;
+end;//_dsDocument_.As_IucbDocumentWithContents
+
+function _dsDocument_.As_IucbDocumentFromList: IucbDocumentFromList;
+ {* Метод приведения нашего интерфейса к IucbDocumentFromList }
+begin
+ Result := Self;
+end;//_dsDocument_.As_IucbDocumentFromList
+
+function _dsDocument_.As_IucbBaseSearchSupportQuery: IucbBaseSearchSupportQuery;
+ {* Метод приведения нашего интерфейса к IucbBaseSearchSupportQuery }
+begin
+ Result := Self;
+end;//_dsDocument_.As_IucbBaseSearchSupportQuery
 
 procedure _dsDocument_.DoReturnToList(const aList: IDynList;
-  const aNodeForPositioning: Il3SimpleNode);
+ const aNodeForPositioning: Il3SimpleNode);
+ {* параметры создания списка }
 //#UC START# *491465BF0275_491D64430036_var*
 //#UC END# *491465BF0275_491D64430036_var*
 begin
@@ -107,6 +116,7 @@ begin
 end;//_dsDocument_.DoReturnToList
 
 procedure _dsDocument_.OpenSimilarDocuments;
+ {* открыть список похожих документов }
 //#UC START# *491D664C0232_491D64430036_var*
 //#UC END# *491D664C0232_491D64430036_var*
 begin
@@ -140,8 +150,8 @@ begin
 end;//_dsDocument_.pm_GetHasSimilarDocuments
 
 procedure _dsDocument_.OpenContents(const aTree: IdeSimpleTree;
-  anForceOpen: TnsContentsOpenMode;
-  const aContainerOfDocument: InevDocumentContainer);
+ anForceOpen: TnsContentsOpenMode;
+ const aContainerOfDocument: InevDocumentContainer);
 //#UC START# *4953D3B20211_491D64430036_var*
 //#UC END# *4953D3B20211_491D64430036_var*
 begin
@@ -173,7 +183,7 @@ begin
 //#UC END# *5594F4830261_491D64430036_impl*
 end;//_dsDocument_.OpenSimilarDocumentsToFragment
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 function _dsDocument_.GetIsSame(const aValue: _FormDataSourceType_): Boolean;
 //#UC START# *49147FB4028C_491D64430036_var*
 //#UC END# *49147FB4028C_491D64430036_var*
@@ -184,7 +194,7 @@ begin
   Result := DocInfo.IsSame(aValue.DocInfo);
 //#UC END# *49147FB4028C_491D64430036_impl*
 end;//_dsDocument_.GetIsSame
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 function _dsDocument_.GetHasPrevRedaction: Boolean;
 //#UC START# *491C25280247_491D64430036_var*
@@ -214,7 +224,8 @@ begin
 end;//_dsDocument_.GetCanWorkWithRedactions
 
 function _dsDocument_.COMQueryInterface(const IID: Tl3GUID;
-  out Obj): Tl3HResult;
+ out Obj): Tl3HResult;
+ {* Реализация запроса интерфейса }
 //#UC START# *4A60B23E00C3_491D64430036_var*
 //#UC END# *4A60B23E00C3_491D64430036_var*
 begin
@@ -225,37 +236,28 @@ begin
 //#UC END# *4A60B23E00C3_491D64430036_impl*
 end;//_dsDocument_.COMQueryInterface
 
-procedure _dsDocument_.InitRefs(const aDS: IvcmUseCaseController);
+{$If NOT Defined(NoVCM)}
+procedure _dsDocument_.InitRefs(const aDS: IvcmFormSetDataSource);
+ {* Инициализирует ссылки на различные представления прецедента }
 begin
  inherited;
  Supports(aDS, IsdsDocument, ucc_Document);
  Supports(aDS, IucpDocumentWithContents, ucc_DocumentWithContents);
-end;
+end;//_dsDocument_.InitRefs
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$If NOT Defined(NoVCM)}
 procedure _dsDocument_.ClearRefs;
+ {* Очищает ссылки на различные представления прецедента }
 begin
  inherited;
  ucc_Document := nil;
  ucc_DocumentWithContents := nil;
-end;
+end;//_dsDocument_.ClearRefs
+{$IfEnd} // NOT Defined(NoVCM)
 
-// Методы преобразования к реализуемым интерфейсам
-
-function _dsDocument_.As_IucbDocumentWithContents: IucbDocumentWithContents;
-begin
- Result := Self;
-end;
-
-function _dsDocument_.As_IucbDocumentFromList: IucbDocumentFromList;
-begin
- Result := Self;
-end;
-
-function _dsDocument_.As_IucbBaseSearchSupportQuery: IucbBaseSearchSupportQuery;
-begin
- Result := Self;
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$EndIf dsDocument_imp_impl}
 
 {$EndIf dsDocument_imp}
+

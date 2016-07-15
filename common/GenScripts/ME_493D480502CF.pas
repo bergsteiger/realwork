@@ -17,6 +17,9 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  , WorkWithDocumentInterfaces
  , evdInterfaces
  , l3IID
@@ -33,9 +36,6 @@ uses
  , FoldersDomainInterfaces
  , UnderControlUnit
  , bsTypesNew
- {$If NOT Defined(NoVCM)}
- , vcmInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
  , l3ProtoObjectWithCOMQI
  {$If NOT Defined(NoVCM)}
  , vcmLocalInterfaces
@@ -51,10 +51,18 @@ type
  TdsDocumentWithFlash = class(_dsDocument_, IdsDocumentWithFlash)
   {* БОФ документа-схемы }
   private
-   UseCase: IDocument;
+   ucp_IDocument: IDocument;
   protected
    {$If NOT Defined(NoVCM)}
    function MakeDisplayName: IvcmCString; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitRefs(const aDS: IvcmFormSetDataSource); override;
+    {* Инициализирует ссылки на различные представления прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure ClearRefs; override;
+    {* Очищает ссылки на различные представления прецедента }
    {$IfEnd} // NOT Defined(NoVCM)
  end;//TdsDocumentWithFlash
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
@@ -106,6 +114,24 @@ begin
  Result := nsGetDocumentShortName(ucp_IDocument);
 //#UC END# *491476B001D3_493D480502CF_impl*
 end;//TdsDocumentWithFlash.MakeDisplayName
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TdsDocumentWithFlash.InitRefs(const aDS: IvcmFormSetDataSource);
+ {* Инициализирует ссылки на различные представления прецедента }
+begin
+ inherited;
+ ucp_IDocument := aDS As IDocument;
+end;//TdsDocumentWithFlash.InitRefs
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TdsDocumentWithFlash.ClearRefs;
+ {* Очищает ссылки на различные представления прецедента }
+begin
+ inherited;
+ ucp_IDocument := nil;
+end;//TdsDocumentWithFlash.ClearRefs
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)

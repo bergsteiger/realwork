@@ -16,9 +16,9 @@
  _dsDocument_ = {abstract} class(_dsBaseSearchSupportQuery_, IdsDocument, IucbDocumentWithContents, IucbDocumentFromList, IucbBaseSearchSupportQuery)
   {* Бизнес объект формы "TextForm" }
   private
-   DocumentWithContents: IucpDocumentWithContents;
+   ucc_DocumentWithContents: IucpDocumentWithContents;
   protected
-   Document: IsdsDocument;
+   ucc_Document: IsdsDocument;
   protected
    function As_IucbDocumentWithContents: IucbDocumentWithContents;
     {* Метод приведения нашего интерфейса к IucbDocumentWithContents }
@@ -44,6 +44,14 @@
    function COMQueryInterface(const IID: Tl3GUID;
     out Obj): Tl3HResult; override;
     {* Реализация запроса интерфейса }
+   {$If NOT Defined(NoVCM)}
+   procedure InitRefs(const aDS: IvcmFormSetDataSource); override;
+    {* Инициализирует ссылки на различные представления прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure ClearRefs; override;
+    {* Очищает ссылки на различные представления прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    procedure OpenContents(const aTree: IdeSimpleTree;
     anForceOpen: TnsContentsOpenMode;
@@ -227,8 +235,28 @@ begin
   Result := Tl3HResult_C(DocInfo.QueryInterface(IID.IID, Obj));
 //#UC END# *4A60B23E00C3_491D64430036_impl*
 end;//_dsDocument_.COMQueryInterface
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
+{$If NOT Defined(NoVCM)}
+procedure _dsDocument_.InitRefs(const aDS: IvcmFormSetDataSource);
+ {* Инициализирует ссылки на различные представления прецедента }
+begin
+ inherited;
+ Supports(aDS, IsdsDocument, ucc_Document);
+ Supports(aDS, IucpDocumentWithContents, ucc_DocumentWithContents);
+end;//_dsDocument_.InitRefs
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure _dsDocument_.ClearRefs;
+ {* Очищает ссылки на различные представления прецедента }
+begin
+ inherited;
+ ucc_Document := nil;
+ ucc_DocumentWithContents := nil;
+end;//_dsDocument_.ClearRefs
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 {$EndIf dsDocument_imp_impl}
 
 {$EndIf dsDocument_imp}

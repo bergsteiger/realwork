@@ -30,12 +30,13 @@ uses
 ;
 
 type
+ _FormDataSourceType_ = IdsWarning;
  {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourcePrim.imp.pas}
  TdsWarning = {final} class(_vcmFormDataSourcePrim_, IdsWarning)
   private
    f_WarningContent: TWarningTypeSet;
    WarningGenerator: InsWarningGenerator;
-   BaseDocument: IsdsBaseDocument;
+   ucc_BaseDocument: IsdsBaseDocument;
   protected
    function DoGetDocInfo: IdeDocInfo; virtual;
    function DoGenerateWarning(const aGenerator: InevTagGenerator;
@@ -49,6 +50,14 @@ type
    function Get_ForSynchroView: Boolean;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
+   {$If NOT Defined(NoVCM)}
+   procedure InitRefs(const aDS: IvcmFormSetDataSource); override;
+    {* Инициализирует ссылки на различные представления прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure ClearRefs; override;
+    {* Очищает ссылки на различные представления прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//TdsWarning
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -62,7 +71,6 @@ uses
  , l3Base
 ;
 
-{$If NOT Defined(NoVCM)}
 type _Instance_R_ = TdsWarning;
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourcePrim.imp.pas}
@@ -149,6 +157,25 @@ begin
  inherited;
 //#UC END# *479731C50290_492189D90209_impl*
 end;//TdsWarning.Cleanup
+
+{$If NOT Defined(NoVCM)}
+procedure TdsWarning.InitRefs(const aDS: IvcmFormSetDataSource);
+ {* Инициализирует ссылки на различные представления прецедента }
+begin
+ inherited;
+ Supports(aDS, InsWarningGenerator, WarningGenerator);
+ Supports(aDS, IsdsBaseDocument, ucc_BaseDocument);
+end;//TdsWarning.InitRefs
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TdsWarning.ClearRefs;
+ {* Очищает ссылки на различные представления прецедента }
+begin
+ inherited;
+ WarningGenerator := nil;
+ ucc_BaseDocument := nil;
+end;//TdsWarning.ClearRefs
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)

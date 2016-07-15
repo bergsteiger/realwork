@@ -1,111 +1,86 @@
 unit dsSynchroView;
+ {* Бизнес объект формы "fcSynchroView" }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Business"
-// Автор: Морозов М.А
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Business/List/dsSynchroView.pas"
-// Начат: 11.08.2005 14.48
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ViewAreaControllerImp::Class>> F1 Core::Common::Business::ListDataSources::TdsSynchroView
-//
-// Бизнес объект формы "fcSynchroView"
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Business\List\dsSynchroView.pas"
+// Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "TdsSynchroView" MUID: (4922B4F803AC)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  WorkWithListInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmExternalInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmLocalInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  l3ProtoObjectWithCOMQI,
-  l3Interfaces,
-  l3NotifyPtrList,
-  bsTypes,
-  DocumentAndListInterfaces
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , WorkWithListInterfaces
+ , DocumentAndListInterfaces
+ , bsTypes
+ , l3ProtoObjectWithCOMQI
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmLocalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3Interfaces
+ , l3NotifyPtrList
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
- _FormDataSourceType_ = IdsSynchroView;
  _UseCaseControllerType_ = IsdsList;
+ _FormDataSourceType_ = IdsSynchroView;
  {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourcePrimWithFlexUseCaseControllerType.imp.pas}
- TdsSynchroView = {final vac} class(_vcmFormDataSourcePrimWithFlexUseCaseControllerType_, IdsSynchroView)
+ TdsSynchroView = {final} class(_vcmFormDataSourcePrimWithFlexUseCaseControllerType_, IdsSynchroView)
   {* Бизнес объект формы "fcSynchroView" }
- protected
- // realized methods
+  protected
    function pm_GetIsAnnotationActive: Boolean;
    function pm_GetIsRelatedDocActive: Boolean;
    function pm_GetHasAnnotation: Boolean;
    function pm_GetIsSimilarDocumentsActive: Boolean;
    procedure OpenDocument;
-     {* Открыть документ. }
+    {* Открыть документ. }
    function pm_GetHasDocument: Boolean;
    function pm_GetIsDocumentActive: Boolean;
    function pm_GetHasAttributes: Boolean;
    function pm_GetIsAttributesActive: Boolean;
    procedure OpenAttributes;
-     {* Открыть атрибуты. }
+    {* Открыть атрибуты. }
    function pm_GetUserCRListInfo(aId: TnsUserCRListId): IbsUserCRListInfo;
    procedure OpenUserCR2;
-     {* Открывает ViewArea "БОФ пользовательский СКР2" }
+    {* Открывает ViewArea "БОФ пользовательский СКР2" }
    procedure OpenRelatedDoc;
-     {* Открывает ViewArea "справка к документу" }
+    {* Открывает ViewArea "справка к документу" }
    function pm_GetHasUserCR1: Boolean;
    function pm_GetHasRelatedDoc: Boolean;
    function pm_GetIsUserCR2Active: Boolean;
    function pm_GetIsUserCR1Active: Boolean;
    function pm_GetHasSimilarDocuments: Boolean;
    procedure OpenUserCR1;
-     {* Открывает ViewArea "БОФ пользовательский СКР1" }
+    {* Открывает ViewArea "БОФ пользовательский СКР1" }
    procedure OpenAnnotation;
-     {* Открывает ViewArea "аннотация к документу" }
+    {* Открывает ViewArea "аннотация к документу" }
    function pm_GetHasUserCR2: Boolean;
    procedure OpenSimilarDocuments;
-     {* Открывает ViewArea "БОФ похожие документы" }
+    {* Открывает ViewArea "БОФ похожие документы" }
  end;//TdsSynchroView
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  SysUtils,
-  l3InterfacesMisc,
-  l3Base
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
+ l3ImplUses
+ , SysUtils
+ , l3InterfacesMisc
+ , l3Base
+;
 
 type _Instance_R_ = TdsSynchroView;
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourcePrimWithFlexUseCaseControllerType.imp.pas}
-
-// start class TdsSynchroView
 
 function TdsSynchroView.pm_GetIsAnnotationActive: Boolean;
 //#UC START# *29FB34EB69B7_4922B4F803ACget_var*
@@ -144,6 +119,7 @@ begin
 end;//TdsSynchroView.pm_GetIsSimilarDocumentsActive
 
 procedure TdsSynchroView.OpenDocument;
+ {* Открыть документ. }
 //#UC START# *47ECD5280007_4922B4F803AC_var*
 //#UC END# *47ECD5280007_4922B4F803AC_var*
 begin
@@ -189,6 +165,7 @@ begin
 end;//TdsSynchroView.pm_GetIsAttributesActive
 
 procedure TdsSynchroView.OpenAttributes;
+ {* Открыть атрибуты. }
 //#UC START# *47F08A7F0108_4922B4F803AC_var*
 //#UC END# *47F08A7F0108_4922B4F803AC_var*
 begin
@@ -207,6 +184,7 @@ begin
 end;//TdsSynchroView.pm_GetUserCRListInfo
 
 procedure TdsSynchroView.OpenUserCR2;
+ {* Открывает ViewArea "БОФ пользовательский СКР2" }
 //#UC START# *49BAD288AA03_4922B4F803AC_var*
 //#UC END# *49BAD288AA03_4922B4F803AC_var*
 begin
@@ -216,6 +194,7 @@ begin
 end;//TdsSynchroView.OpenUserCR2
 
 procedure TdsSynchroView.OpenRelatedDoc;
+ {* Открывает ViewArea "справка к документу" }
 //#UC START# *75D79769A7B5_4922B4F803AC_var*
 //#UC END# *75D79769A7B5_4922B4F803AC_var*
 begin
@@ -270,6 +249,7 @@ begin
 end;//TdsSynchroView.pm_GetHasSimilarDocuments
 
 procedure TdsSynchroView.OpenUserCR1;
+ {* Открывает ViewArea "БОФ пользовательский СКР1" }
 //#UC START# *B92D4E5C4AF7_4922B4F803AC_var*
 //#UC END# *B92D4E5C4AF7_4922B4F803AC_var*
 begin
@@ -279,6 +259,7 @@ begin
 end;//TdsSynchroView.OpenUserCR1
 
 procedure TdsSynchroView.OpenAnnotation;
+ {* Открывает ViewArea "аннотация к документу" }
 //#UC START# *C90DF8D59396_4922B4F803AC_var*
 //#UC END# *C90DF8D59396_4922B4F803AC_var*
 begin
@@ -297,6 +278,7 @@ begin
 end;//TdsSynchroView.pm_GetHasUserCR2
 
 procedure TdsSynchroView.OpenSimilarDocuments;
+ {* Открывает ViewArea "БОФ похожие документы" }
 //#UC START# *EB3722A70D75_4922B4F803AC_var*
 //#UC END# *EB3722A70D75_4922B4F803AC_var*
 begin
@@ -304,7 +286,6 @@ begin
  UseCaseController.OpenSimilarDocuments;
 //#UC END# *EB3722A70D75_4922B4F803AC_impl*
 end;//TdsSynchroView.OpenSimilarDocuments
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

@@ -26,7 +26,6 @@ uses
 type
  Ik2EVDWriterService = interface
   {* Èםעונפויס סונגטסא Tk2EVDWriterService }
-  ['{B93031D3-1115-441C-B788-BC5802B50265}']
   function GetWriter: Tk2CustomFileGenerator;
   function MakeWriter(const aFileName: AnsiString): Ik2TagGenerator;
  end;//Ik2EVDWriterService

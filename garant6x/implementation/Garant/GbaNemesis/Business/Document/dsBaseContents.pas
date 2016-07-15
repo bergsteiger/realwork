@@ -1,120 +1,87 @@
 unit dsBaseContents;
+ {* Простое оглавление }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Business"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Business/Document/dsBaseContents.pas"
-// Начат: 26.11.2008 20:20
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ViewAreaControllerImp::Class>> F1 Core::Common::Business::BaseDocument::TdsBaseContents
-//
-// Простое оглавление
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsBaseContents.pas"
+// Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "TdsBaseContents" MUID: (492D854C0189)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DocumentAndListInterfaces,
-  l3InternalInterfaces,
-  l3TreeInterfaces,
-  bsInterfaces
-  {$If not defined(NoVCL)}
-  ,
-  ExtCtrls
-  {$IfEnd} //not NoVCL
-  ,
-  TreeInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmExternalInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmLocalInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  l3ProtoObjectWithCOMQI,
-  l3Interfaces,
-  l3NotifyPtrList
-  {$If defined(Nemesis)}
-  ,
-  nscNewInterfaces
-  {$IfEnd} //Nemesis
-  ,
-  DocumentInterfaces,
-  DocumentUnit,
-  F1TagDataProviderInterface,
-  nsTypesNew,
-  vcmControllers {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , DocumentAndListInterfaces
+ , l3TreeInterfaces
+ , DocumentInterfaces
+ , DocumentUnit
+ , F1TagDataProviderInterface
+ , nsTypesNew
+ , l3InternalInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , TreeInterfaces
+ , bsInterfaces
+ {$If NOT Defined(NoVCL)}
+ , ExtCtrls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3ProtoObjectWithCOMQI
+ {$If NOT Defined(NoVCM)}
+ , vcmLocalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3Interfaces
+ , l3NotifyPtrList
+ {$If Defined(Nemesis)}
+ , nscNewInterfaces
+ {$IfEnd} // Defined(Nemesis)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  _FormDataSourceType_ = IdsBaseContents;
- {$Include ..\Document\dsBaseContents.imp.pas}
- TdsBaseContents = {vac} class(_dsBaseContents_)
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsBaseContents.imp.pas}
+ TdsBaseContents = class(_dsBaseContents_)
   {* Простое оглавление }
- protected
- // realized methods
+  protected
    function MakeSimpleTree: Il3SimpleTree; override;
-     {* Создать данные дерева }
+    {* Создать данные дерева }
  end;//TdsBaseContents
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  vtUtils,
-  DocumentRes,
-  l3String
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  ,
-  dsBaseContentsRes,
-  SysUtils,
-  l3Base,
-  vtStdRes,
-  DynamicTreeUnit,
-  nsNewCachableNode,
-  Windows,
-  l3InterfacesMisc
-  {$If defined(Nemesis)}
-  ,
-  nscContextFilterState
-  {$IfEnd} //Nemesis
-  
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
+ l3ImplUses
+ , vtUtils
+ , DocumentRes
+ , l3String
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , dsBaseContentsRes
+ , SysUtils
+ , l3Base
+ , vtStdRes
+ , DynamicTreeUnit
+ , nsNewCachableNode
+ , Windows
+ , l3InterfacesMisc
+ {$If Defined(Nemesis)}
+ , nscContextFilterState
+ {$IfEnd} // Defined(Nemesis)
+;
 
 type _Instance_R_ = TdsBaseContents;
 
-{$Include ..\Document\dsBaseContents.imp.pas}
-
-// start class TdsBaseContents
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsBaseContents.imp.pas}
 
 function TdsBaseContents.MakeSimpleTree: Il3SimpleTree;
+ {* Создать данные дерева }
 //#UC START# *47F4C2B9014A_492D854C0189_var*
 //#UC END# *47F4C2B9014A_492D854C0189_var*
 begin
@@ -133,7 +100,6 @@ begin
 // Если попадём сюда, то читаем http://mdp.garant.ru/pages/viewpage.action?pageId=135605187
 //#UC END# *47F4C2B9014A_492D854C0189_impl*
 end;//TdsBaseContents.MakeSimpleTree
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

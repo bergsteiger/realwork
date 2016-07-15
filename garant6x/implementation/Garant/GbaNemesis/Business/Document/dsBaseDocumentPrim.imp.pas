@@ -1,46 +1,47 @@
 {$IfNDef dsBaseDocumentPrim_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Business"
-// Автор: Морозов М.А.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Business/Document/dsBaseDocumentPrim.imp.pas"
-// Начат: 06.10.2005 14.59
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ViewAreaControllerImp::Class>> F1 Core::Common::Business::BaseDocument::dsBaseDocumentPrim
-//
-// БОФ, базовый для прецедентов с документом. Не определяет конечный интерфейс бизнес-объекта
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsBaseDocumentPrim.imp.pas"
+// Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "dsBaseDocumentPrim" MUID: (47EA20430108)
+// Имя типа: "_dsBaseDocumentPrim_"
 
 {$Define dsBaseDocumentPrim_imp}
-{$If not defined(Admin) AND not defined(Monitorings)}
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
  _InitDataType_ = IdeDocInfo;
  {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSource.imp.pas}
  _UnderControlBehaviour_Parent_ = _vcmFormDataSource_;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\UnderControl\UnderControlBehaviour.imp.pas}
- _dsBaseDocumentPrim_ = {abstract vac} class(_UnderControlBehaviour_, IdsBaseDocument, IucpHAFMacroReplacerFactory {from IdsBaseDocument}, IucpFilterInfoFactory {from IdsBaseDocument})
+ _dsBaseDocumentPrim_ = {abstract} class(_UnderControlBehaviour_, IdsBaseDocument, IucpHAFMacroReplacerFactory, IucpFilterInfoFactory)
   {* БОФ, базовый для прецедентов с документом. Не определяет конечный интерфейс бизнес-объекта }
- private
- // private fields
-   f_HasControlStatus : Tl3Bool;
-   f_DocContainer : InevDocumentContainer;
-   xxx : IbsDataProducer;
-   f_LikeStateHolder : InsDocumentLikeStateHolder;
-   f_DocInfo : IdeDocInfo;
-    {* Поле для свойства DocInfo}
- protected
-
-  procedure InitRefs(const aDS: IvcmUseCaseController); override;
-  procedure ClearRefs; override;
- private
- // private methods
+  private
+   f_HasControlStatus: Tl3Bool;
+   f_DocContainer: InevDocumentContainer;
+   xxx: IbsDataProducer;
+   f_LikeStateHolder: InsDocumentLikeStateHolder;
+   f_DocInfo: IdeDocInfo;
+  protected
+   ucc_BaseDocument: IsdsBaseDocument;
+   ucc_GotoPointDataMaker: IsdsGotoPointDataMaker;
+  private
    function MakeLikeStateHolder: InsDocumentLikeStateHolder;
- protected
- // realized methods
+  protected
+   function DoGetDocumentShortName: Il3CString; virtual;
+   function DoGetDocumentName: Il3CString; virtual;
+   function GetHasPrevRedaction: Boolean; virtual;
+   function GetHasNextRedaction: Boolean; virtual;
+   function GetCanWorkWithRedactions: Boolean; virtual;
+   function GetIsReadOnly: Boolean; virtual;
+   function GetTimeMachineOff: Boolean; virtual;
+    {* при получении источника данных машину времени нужно выключить }
+   function DoGet_PreviewCaleeArea: TafwPreviewCaleeArea; virtual;
+   function DoMakeHAFMacroReplacer: IafwHAFMacroReplacer; virtual;
+   function MakeContainer: InevDocumentContainer; virtual;
+    {* Конструирует контейнер документа }
+   function As_IucpHAFMacroReplacerFactory: IucpHAFMacroReplacerFactory;
+    {* Метод приведения нашего интерфейса к IucpHAFMacroReplacerFactory }
+   function As_IucpFilterInfoFactory: IucpFilterInfoFactory;
+    {* Метод приведения нашего интерфейса к IucpFilterInfoFactory }
    function pm_GetHasDoc: Boolean;
    function pm_GetCanWorkWithRedactions: Boolean;
    function pm_GetHasPrevRedaction: Boolean;
@@ -55,91 +56,71 @@
    function MakeGotoPointData(const aDocument: IDocument;
     aRefType: TDocumentPositionType;
     aPos: Longword): IdeDocInfo;
-     {* открыть ссылку. Если ссылка требует пересоздания сборки, то данные для
+    {* открыть ссылку. Если ссылка требует пересоздания сборки, то данные для
              новой сборки вернуться как результат для вызова операции модуля }
    function NewDocInfo(const aPos: TbsDocPos): IdeDocInfo;
-     {* открыть документ в окне }
+    {* открыть документ в окне }
    function Get_PreviewCaleeArea: TafwPreviewCaleeArea;
    function MakeHAFMacroReplacer: IafwHAFMacroReplacer;
    function MakeFilterInfo(aType: TnsFolderFilter;
-    aShowFolders: TnsShowFolders = sfAll): InsFolderFilterInfo;
+    aShowFolders: TnsShowFolders = FoldersDomainInterfaces.sfAll): InsFolderFilterInfo;
    function DoGetControllable: IControllable; override;
    function Get_LikeState: TdocLikeState;
    procedure Set_LikeState(aValue: TdocLikeState);
    function AsLikeable: ILikeable;
    function GetDocumentShortName: Il3CString;
    function GetDocumentName: Il3CString;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   {$If not defined(NoVCM)}
+    {* Функция очистки полей объекта. }
+   {$If NOT Defined(NoVCM)}
    function MakeDisplayName: IvcmCString; override;
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    function GetIsNeedChangePosition(const aDataSource: _FormDataSourceType_): Boolean; override;
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure GotData; override;
-     {* - данные изменились. }
-   {$IfEnd} //not NoVCM
+    {* - данные изменились. }
+   {$IfEnd} // NOT Defined(NoVCM)
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- protected
- // protected fields
-   ucc_BaseDocument : IsdsBaseDocument;
-   ucc_GotoPointDataMaker : IsdsGotoPointDataMaker;
- protected
- // protected methods
-   function DoGetDocumentShortName: Il3CString; virtual;
-   function DoGetDocumentName: Il3CString; virtual;
-   function GetHasPrevRedaction: Boolean; virtual;
-   function GetHasNextRedaction: Boolean; virtual;
-   function GetCanWorkWithRedactions: Boolean; virtual;
-   function GetIsReadOnly: Boolean; virtual;
-   function GetTimeMachineOff: Boolean; virtual;
-     {* при получении источника данных машину времени нужно выключить }
-   function DoGetPreviewCaleeArea: TafwPreviewCaleeArea; virtual;
-   function DoMakeHAFMacroReplacer: IafwHAFMacroReplacer; virtual;
-   function MakeContainer: InevDocumentContainer; virtual;
-     {* Конструирует контейнер документа }
- public
- // public methods
+   {$If NOT Defined(NoVCM)}
+   procedure InitRefs(const aDS: IvcmFormSetDataSource); override;
+    {* Инициализирует ссылки на различные представления прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure ClearRefs; override;
+    {* Очищает ссылки на различные представления прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    constructor Create(const aDataSource: _UseCaseControllerType_;
-     const aData: _InitDataType_;
-     const aLikeStateHolder: InsDocumentLikeStateHolder = nil); reintroduce;
+    const aData: _InitDataType_;
+    const aLikeStateHolder: InsDocumentLikeStateHolder = nil); reintroduce;
    class function Make(const aDataSource: _UseCaseControllerType_;
-     const aData: _InitDataType_;
-     const aLikeStateHolder: InsDocumentLikeStateHolder = nil): _FormDataSourceType_; reintroduce;
-     {* Сигнатура фабрики dsBaseDocumentPrim.Make }
- protected
- // protected properties
+    const aData: _InitDataType_;
+    const aLikeStateHolder: InsDocumentLikeStateHolder = nil): _FormDataSourceType_; reintroduce;
+  protected
    property DocInfo: IdeDocInfo
-     read f_DocInfo;
- protected
- // Методы преобразования к реализуемым интерфейсам
-   function As_IucpHAFMacroReplacerFactory: IucpHAFMacroReplacerFactory;
-   function As_IucpFilterInfoFactory: IucpFilterInfoFactory;
+    read f_DocInfo;
  end;//_dsBaseDocumentPrim_
-{$Else}
 
- {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSource.imp.pas}
- _UnderControlBehaviour_Parent_ = _vcmFormDataSource_;
- {$Include w:\garant6x\implementation\Garant\GbaNemesis\UnderControl\UnderControlBehaviour.imp.pas}
- _dsBaseDocumentPrim_ = _UnderControlBehaviour_;
+{$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
 
-{$IfEnd} //not Admin AND not Monitorings
+{$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSource.imp.pas}
+_UnderControlBehaviour_Parent_ = _vcmFormDataSource_;
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\UnderControl\UnderControlBehaviour.imp.pas}
+_dsBaseDocumentPrim_ = _UnderControlBehaviour_;
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 {$Else dsBaseDocumentPrim_imp}
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$IfNDef dsBaseDocumentPrim_imp_impl}
 
+{$Define dsBaseDocumentPrim_imp_impl}
 
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSource.imp.pas}
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\UnderControl\UnderControlBehaviour.imp.pas}
-
-// start class _dsBaseDocumentPrim_
 
 function _dsBaseDocumentPrim_.MakeLikeStateHolder: InsDocumentLikeStateHolder;
 //#UC START# *51ED328E0077_47EA20430108_var*
@@ -153,8 +134,8 @@ begin
 end;//_dsBaseDocumentPrim_.MakeLikeStateHolder
 
 constructor _dsBaseDocumentPrim_.Create(const aDataSource: _UseCaseControllerType_;
-  const aData: _InitDataType_;
-  const aLikeStateHolder: InsDocumentLikeStateHolder = nil);
+ const aData: _InitDataType_;
+ const aLikeStateHolder: InsDocumentLikeStateHolder = nil);
 //#UC START# *51ED45D302CE_47EA20430108_var*
 //#UC END# *51ED45D302CE_47EA20430108_var*
 begin
@@ -165,8 +146,8 @@ begin
 end;//_dsBaseDocumentPrim_.Create
 
 class function _dsBaseDocumentPrim_.Make(const aDataSource: _UseCaseControllerType_;
-  const aData: _InitDataType_;
-  const aLikeStateHolder: InsDocumentLikeStateHolder = nil): _FormDataSourceType_;
+ const aData: _InitDataType_;
+ const aLikeStateHolder: InsDocumentLikeStateHolder = nil): _FormDataSourceType_;
 var
  l_Inst : _dsBaseDocumentPrim_;
 begin
@@ -176,7 +157,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//_dsBaseDocumentPrim_.Make
 
 function _dsBaseDocumentPrim_.DoGetDocumentShortName: Il3CString;
 //#UC START# *53D8E620037C_47EA20430108_var*
@@ -248,6 +229,7 @@ begin
 end;//_dsBaseDocumentPrim_.GetIsReadOnly
 
 function _dsBaseDocumentPrim_.GetTimeMachineOff: Boolean;
+ {* при получении источника данных машину времени нужно выключить }
 //#UC START# *491C264C02C2_47EA20430108_var*
 //#UC END# *491C264C02C2_47EA20430108_var*
 begin
@@ -256,14 +238,14 @@ begin
 //#UC END# *491C264C02C2_47EA20430108_impl*
 end;//_dsBaseDocumentPrim_.GetTimeMachineOff
 
-function _dsBaseDocumentPrim_.DoGetPreviewCaleeArea: TafwPreviewCaleeArea;
+function _dsBaseDocumentPrim_.DoGet_PreviewCaleeArea: TafwPreviewCaleeArea;
 //#UC START# *49589999029F_47EA20430108_var*
 //#UC END# *49589999029F_47EA20430108_var*
 begin
 //#UC START# *49589999029F_47EA20430108_impl*
  Result := afw_pcaMain;
 //#UC END# *49589999029F_47EA20430108_impl*
-end;//_dsBaseDocumentPrim_.DoGetPreviewCaleeArea
+end;//_dsBaseDocumentPrim_.DoGet_PreviewCaleeArea
 
 function _dsBaseDocumentPrim_.DoMakeHAFMacroReplacer: IafwHAFMacroReplacer;
 //#UC START# *49589C6203A6_47EA20430108_var*
@@ -275,6 +257,7 @@ begin
 end;//_dsBaseDocumentPrim_.DoMakeHAFMacroReplacer
 
 function _dsBaseDocumentPrim_.MakeContainer: InevDocumentContainer;
+ {* Конструирует контейнер документа }
 //#UC START# *4C6AB38800F3_47EA20430108_var*
 //#UC END# *4C6AB38800F3_47EA20430108_var*
 begin
@@ -283,6 +266,18 @@ begin
  Assert(false);
 //#UC END# *4C6AB38800F3_47EA20430108_impl*
 end;//_dsBaseDocumentPrim_.MakeContainer
+
+function _dsBaseDocumentPrim_.As_IucpHAFMacroReplacerFactory: IucpHAFMacroReplacerFactory;
+ {* Метод приведения нашего интерфейса к IucpHAFMacroReplacerFactory }
+begin
+ Result := Self;
+end;//_dsBaseDocumentPrim_.As_IucpHAFMacroReplacerFactory
+
+function _dsBaseDocumentPrim_.As_IucpFilterInfoFactory: IucpFilterInfoFactory;
+ {* Метод приведения нашего интерфейса к IucpFilterInfoFactory }
+begin
+ Result := Self;
+end;//_dsBaseDocumentPrim_.As_IucpFilterInfoFactory
 
 function _dsBaseDocumentPrim_.pm_GetHasDoc: Boolean;
 //#UC START# *47EA04080292_47EA20430108get_var*
@@ -422,8 +417,10 @@ begin
 end;//_dsBaseDocumentPrim_.pm_GetIsActualRedation
 
 function _dsBaseDocumentPrim_.MakeGotoPointData(const aDocument: IDocument;
-  aRefType: TDocumentPositionType;
-  aPos: Longword): IdeDocInfo;
+ aRefType: TDocumentPositionType;
+ aPos: Longword): IdeDocInfo;
+ {* открыть ссылку. Если ссылка требует пересоздания сборки, то данные для
+             новой сборки вернуться как результат для вызова операции модуля }
 //#UC START# *491B2F63002D_47EA20430108_var*
 //#UC END# *491B2F63002D_47EA20430108_var*
 begin
@@ -436,6 +433,7 @@ begin
 end;//_dsBaseDocumentPrim_.MakeGotoPointData
 
 function _dsBaseDocumentPrim_.NewDocInfo(const aPos: TbsDocPos): IdeDocInfo;
+ {* открыть документ в окне }
 //#UC START# *491B2FE20181_47EA20430108_var*
 //#UC END# *491B2FE20181_47EA20430108_var*
 begin
@@ -464,7 +462,7 @@ begin
 end;//_dsBaseDocumentPrim_.MakeHAFMacroReplacer
 
 function _dsBaseDocumentPrim_.MakeFilterInfo(aType: TnsFolderFilter;
-  aShowFolders: TnsShowFolders = sfAll): InsFolderFilterInfo;
+ aShowFolders: TnsShowFolders = FoldersDomainInterfaces.sfAll): InsFolderFilterInfo;
 //#UC START# *4AE575FA030B_47EA20430108_var*
   
  function nsFilterForDocument(const aDoc: IdeDocInfo): TnsFolderFilterFor;
@@ -553,6 +551,7 @@ begin
 end;//_dsBaseDocumentPrim_.GetDocumentName
 
 procedure _dsBaseDocumentPrim_.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_47EA20430108_var*
 //#UC END# *479731C50290_47EA20430108_var*
 begin
@@ -564,7 +563,7 @@ begin
 //#UC END# *479731C50290_47EA20430108_impl*
 end;//_dsBaseDocumentPrim_.Cleanup
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 function _dsBaseDocumentPrim_.MakeDisplayName: IvcmCString;
 //#UC START# *491476B001D3_47EA20430108_var*
 //#UC END# *491476B001D3_47EA20430108_var*
@@ -576,9 +575,9 @@ begin
   Result := nil;
 //#UC END# *491476B001D3_47EA20430108_impl*
 end;//_dsBaseDocumentPrim_.MakeDisplayName
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 function _dsBaseDocumentPrim_.GetIsNeedChangePosition(const aDataSource: _FormDataSourceType_): Boolean;
 //#UC START# *49147B4602C0_47EA20430108_var*
 //#UC END# *49147B4602C0_47EA20430108_var*
@@ -597,10 +596,11 @@ begin
   end;//if aDataSource.DocInfo.IsSame(f_DocInfo, True, False) and
 //#UC END# *49147B4602C0_47EA20430108_impl*
 end;//_dsBaseDocumentPrim_.GetIsNeedChangePosition
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure _dsBaseDocumentPrim_.GotData;
+ {* - данные изменились. }
 //#UC START# *492ACF630072_47EA20430108_var*
 //#UC END# *492ACF630072_47EA20430108_var*
 begin
@@ -609,45 +609,38 @@ begin
  f_DocInfo := PartData;
 //#UC END# *492ACF630072_47EA20430108_impl*
 end;//_dsBaseDocumentPrim_.GotData
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 procedure _dsBaseDocumentPrim_.ClearFields;
- {-}
 begin
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_DocInfo := nil;
- {$IfEnd} //not Admin AND not Monitorings
  inherited;
 end;//_dsBaseDocumentPrim_.ClearFields
 
-procedure _dsBaseDocumentPrim_.InitRefs(const aDS: IvcmUseCaseController);
+{$If NOT Defined(NoVCM)}
+procedure _dsBaseDocumentPrim_.InitRefs(const aDS: IvcmFormSetDataSource);
+ {* Инициализирует ссылки на различные представления прецедента }
 begin
  inherited;
  Supports(aDS, IsdsBaseDocument, ucc_BaseDocument);
  Supports(aDS, IbsDataProducer, xxx);
  Supports(aDS, IsdsGotoPointDataMaker, ucc_GotoPointDataMaker);
-end;
+end;//_dsBaseDocumentPrim_.InitRefs
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$If NOT Defined(NoVCM)}
 procedure _dsBaseDocumentPrim_.ClearRefs;
+ {* Очищает ссылки на различные представления прецедента }
 begin
  inherited;
  ucc_BaseDocument := nil;
  xxx := nil;
  ucc_GotoPointDataMaker := nil;
-end;
+end;//_dsBaseDocumentPrim_.ClearRefs
+{$IfEnd} // NOT Defined(NoVCM)
 
-// Методы преобразования к реализуемым интерфейсам
-
-function _dsBaseDocumentPrim_.As_IucpHAFMacroReplacerFactory: IucpHAFMacroReplacerFactory;
-begin
- Result := Self;
-end;
-
-function _dsBaseDocumentPrim_.As_IucpFilterInfoFactory: IucpFilterInfoFactory;
-begin
- Result := Self;
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$EndIf dsBaseDocumentPrim_imp_impl}
 
 {$EndIf dsBaseDocumentPrim_imp}
+

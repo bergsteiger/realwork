@@ -11,9 +11,17 @@
  _dsBaseSearchSupportQuery_ = {abstract} class(_dsBaseSearchSupportQuery_Parent_)
   {* ѕримесь, реализующа€ абстрактный интерфейс BaseSearchSupportQuery }
   private
-   BaseSearch: IucpBaseSearchSupportQuery;
+   ucc_BaseSearch: IucpBaseSearchSupportQuery;
   protected
    function Get_CanRunBaseSearch: Boolean;
+   {$If NOT Defined(NoVCM)}
+   procedure InitRefs(const aDS: IvcmFormSetDataSource); override;
+    {* »нициализирует ссылки на различные представлени€ прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure ClearRefs; override;
+    {* ќчищает ссылки на различные представлени€ прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//_dsBaseSearchSupportQuery_
 
 {$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
@@ -36,8 +44,26 @@ begin
  Result := (ucc_BaseSearch <> nil) and ucc_BaseSearch.CanRunBaseSearch;
 //#UC END# *496F344101D0_496F3F2500A8get_impl*
 end;//_dsBaseSearchSupportQuery_.Get_CanRunBaseSearch
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
+{$If NOT Defined(NoVCM)}
+procedure _dsBaseSearchSupportQuery_.InitRefs(const aDS: IvcmFormSetDataSource);
+ {* »нициализирует ссылки на различные представлени€ прецедента }
+begin
+ inherited;
+ Supports(aDS, IucpBaseSearchSupportQuery, ucc_BaseSearch);
+end;//_dsBaseSearchSupportQuery_.InitRefs
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure _dsBaseSearchSupportQuery_.ClearRefs;
+ {* ќчищает ссылки на различные представлени€ прецедента }
+begin
+ inherited;
+ ucc_BaseSearch := nil;
+end;//_dsBaseSearchSupportQuery_.ClearRefs
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 {$EndIf dsBaseSearchSupportQuery_imp_impl}
 
 {$EndIf dsBaseSearchSupportQuery_imp}

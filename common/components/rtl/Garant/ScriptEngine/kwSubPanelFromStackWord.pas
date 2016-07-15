@@ -44,9 +44,9 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
 ;
 
-{$If NOT Defined(NoVCL)}
 {$Include w:\common\components\rtl\Garant\ScriptEngine\kwControlFromStackWord.imp.pas}
 
+{$If NOT Defined(NoVCL)}
 procedure TkwSubPanelFromStackWord.DoControl(aControl: TControl;
  const aCtx: TtfwContext);
 //#UC START# *4F212C3A015A_52D646990049_var*
@@ -56,11 +56,11 @@ begin
  DoWithSubPanel(aControl as TevCustomSubPanel, aCtx);
 //#UC END# *4F212C3A015A_52D646990049_impl*
 end;//TkwSubPanelFromStackWord.DoControl
+{$IfEnd} // NOT Defined(NoVCL)
 
 initialization
  TkwSubPanelFromStackWord.RegisterClass;
  {* Регистрация TkwSubPanelFromStackWord }
-{$IfEnd} // NOT Defined(NoVCL)
-
 {$IfEnd} // NOT Defined(NoScripts)
+
 end.

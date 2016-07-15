@@ -44,9 +44,9 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
 ;
 
-{$If NOT Defined(NoVCL)}
 {$Include w:\common\components\rtl\Garant\ScriptEngine\kwControlFromStackWord.imp.pas}
 
+{$If NOT Defined(NoVCL)}
 procedure TkwEditorFromStackWord.DoControl(aControl: TControl;
  const aCtx: TtfwContext);
 //#UC START# *4F212C3A015A_4F4CB625027A_var*
@@ -56,11 +56,11 @@ begin
  DoWithEditor(aCtx, aControl as TevCustomEditorWindow);
 //#UC END# *4F212C3A015A_4F4CB625027A_impl*
 end;//TkwEditorFromStackWord.DoControl
+{$IfEnd} // NOT Defined(NoVCL)
 
 initialization
  TkwEditorFromStackWord.RegisterClass;
  {* Регистрация TkwEditorFromStackWord }
-{$IfEnd} // NOT Defined(NoVCL)
-
 {$IfEnd} // NOT Defined(NoScripts)
+
 end.

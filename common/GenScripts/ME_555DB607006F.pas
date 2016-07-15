@@ -12,17 +12,17 @@ uses
  l3IntfUses
  , l3ProtoObject
  , k2EVDReaderService
- , l3Interfaces
  , k2CustomFileReader
+ , l3Interfaces
  , l3Variant
 ;
 
 type
  TevdEVDReaderService = {final} class(Tl3ProtoObject, Ik2EVDReaderService)
   public
+   function GetReader: Tk2CustomFileReader;
    function MakeReader(const aFileName: AnsiString;
     const aFilter: Ik2TagGenerator): Il3Reader;
-   function GetReader: Tk2CustomFileReader;
    class function Instance: TevdEVDReaderService;
     {* Метод получения экземпляра синглетона TevdEVDReaderService }
    class function Exists: Boolean;
@@ -47,6 +47,15 @@ begin
  l3Free(g_TevdEVDReaderService);
 end;//TevdEVDReaderServiceFree
 
+function TevdEVDReaderService.GetReader: Tk2CustomFileReader;
+//#UC START# *9F46A5A9DAF5_555DB62E036B_var*
+//#UC END# *9F46A5A9DAF5_555DB62E036B_var*
+begin
+//#UC START# *9F46A5A9DAF5_555DB62E036B_impl*
+ Result := TevdNativeReader.Create;
+//#UC END# *9F46A5A9DAF5_555DB62E036B_impl*
+end;//TevdEVDReaderService.GetReader
+
 function TevdEVDReaderService.MakeReader(const aFileName: AnsiString;
  const aFilter: Ik2TagGenerator): Il3Reader;
 //#UC START# *6A9002DE6C1A_555DB62E036B_var*
@@ -64,15 +73,6 @@ begin
  end;//try..finally
 //#UC END# *6A9002DE6C1A_555DB62E036B_impl*
 end;//TevdEVDReaderService.MakeReader
-
-function TevdEVDReaderService.GetReader: Tk2CustomFileReader;
-//#UC START# *9F46A5A9DAF5_555DB62E036B_var*
-//#UC END# *9F46A5A9DAF5_555DB62E036B_var*
-begin
-//#UC START# *9F46A5A9DAF5_555DB62E036B_impl*
- Result := TevdNativeReader.Create;
-//#UC END# *9F46A5A9DAF5_555DB62E036B_impl*
-end;//TevdEVDReaderService.GetReader
 
 class function TevdEVDReaderService.Instance: TevdEVDReaderService;
  {* Метод получения экземпляра синглетона TevdEVDReaderService }
