@@ -41,6 +41,7 @@ type
    f_Items: TvcmFormSetFormHistoryItemList;
    f_ContainedFormHistoryState: IvcmHistoryState;
    f_ContainerData: IvcmBase;
+   f_FocusedControlName: AnsiString;
   private
    procedure LoadFormsState;
   protected
@@ -54,6 +55,8 @@ type
     out aFormSet: IvcmFormSet): Boolean; virtual; abstract;
    procedure DoLoadFormState(const aForm: IvcmEntityForm;
     const aFormItem: IvcmFormSetFormHistoryItem); virtual;
+   procedure StoreFocusedControl(const aFormSet: IvcmFormSet);
+   procedure RestoreFocusedControl(const aFormSet: IvcmFormSet);
    function pm_GetCaption: IvcmCString;
    function pm_GetItemCount: Integer;
    function GetItem(aIndex: Integer): IvcmFormSetFormHistoryItem;
@@ -362,6 +365,24 @@ begin
  aForm.LoadCloneState(aFormItem.FormData, vcm_stContent);
 //#UC END# *55C9B70700FF_55A4AE43002D_impl*
 end;//TvcmBaseFormSetHistoryItem.DoLoadFormState
+
+procedure TvcmBaseFormSetHistoryItem.StoreFocusedControl(const aFormSet: IvcmFormSet);
+//#UC START# *5763AB73037F_55A4AE43002D_var*
+//#UC END# *5763AB73037F_55A4AE43002D_var*
+begin
+//#UC START# *5763AB73037F_55A4AE43002D_impl*
+// !!! Needs to be implemented !!!
+//#UC END# *5763AB73037F_55A4AE43002D_impl*
+end;//TvcmBaseFormSetHistoryItem.StoreFocusedControl
+
+procedure TvcmBaseFormSetHistoryItem.RestoreFocusedControl(const aFormSet: IvcmFormSet);
+//#UC START# *5763AB910104_55A4AE43002D_var*
+//#UC END# *5763AB910104_55A4AE43002D_var*
+begin
+//#UC START# *5763AB910104_55A4AE43002D_impl*
+// !!! Needs to be implemented !!!
+//#UC END# *5763AB910104_55A4AE43002D_impl*
+end;//TvcmBaseFormSetHistoryItem.RestoreFocusedControl
 
 function TvcmBaseFormSetHistoryItem.pm_GetCaption: IvcmCString;
 //#UC START# *55A4A49C012A_55A4AE43002Dget_var*

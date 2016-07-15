@@ -83,6 +83,9 @@ type
     aGUID: PGUID = nil;
     const aDataSource: IvcmFormDataSource = nil;
     aSubUserType: TvcmUserType = vcm_utAny): IvcmEntityForm; virtual;
+   function IsVCMScalingNeeded: Boolean; virtual;
+   procedure DoVCMScaleControls; virtual;
+   procedure VCMScaleControls;
    procedure DoInit(aFromHistory: Boolean); virtual;
     {* Инициализация формы. Для перекрытия в потомках }
    function DoSaveState(out theState: IvcmBase;
@@ -90,7 +93,8 @@ type
     aForClone: Boolean): Boolean; virtual;
     {* Сохраняет состояние формы. Для перекрытия в потомках }
    function DoLoadState(const aState: IvcmBase;
-    aStateType: TvcmStateType): Boolean; virtual;
+    aStateType: TvcmStateType;
+    aClone: Boolean): Boolean; virtual;
     {* Загружает состояние формы. Для перекрытия в потомках }
    procedure BecomeActive; virtual;
    procedure BecomeInactive; virtual;
@@ -455,6 +459,33 @@ begin
  end;//try..finally
 end;//TvcmEntityForm.MakeSingleChild
 
+function TvcmEntityForm.IsVCMScalingNeeded: Boolean;
+//#UC START# *576149F20025_49525B34022A_var*
+//#UC END# *576149F20025_49525B34022A_var*
+begin
+//#UC START# *576149F20025_49525B34022A_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *576149F20025_49525B34022A_impl*
+end;//TvcmEntityForm.IsVCMScalingNeeded
+
+procedure TvcmEntityForm.DoVCMScaleControls;
+//#UC START# *57614A330093_49525B34022A_var*
+//#UC END# *57614A330093_49525B34022A_var*
+begin
+//#UC START# *57614A330093_49525B34022A_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *57614A330093_49525B34022A_impl*
+end;//TvcmEntityForm.DoVCMScaleControls
+
+procedure TvcmEntityForm.VCMScaleControls;
+//#UC START# *57739A0D034A_49525B34022A_var*
+//#UC END# *57739A0D034A_49525B34022A_var*
+begin
+//#UC START# *57739A0D034A_49525B34022A_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *57739A0D034A_49525B34022A_impl*
+end;//TvcmEntityForm.VCMScaleControls
+
 procedure TvcmEntityForm.DoInit(aFromHistory: Boolean);
  {* Инициализация формы. Для перекрытия в потомках }
 //#UC START# *49803F5503AA_49525B34022A_var*
@@ -478,7 +509,8 @@ begin
 end;//TvcmEntityForm.DoSaveState
 
 function TvcmEntityForm.DoLoadState(const aState: IvcmBase;
- aStateType: TvcmStateType): Boolean;
+ aStateType: TvcmStateType;
+ aClone: Boolean): Boolean;
  {* Загружает состояние формы. Для перекрытия в потомках }
 //#UC START# *49807428008C_49525B34022A_var*
 //#UC END# *49807428008C_49525B34022A_var*

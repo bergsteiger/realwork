@@ -1185,6 +1185,7 @@ uses
  {$If NOT Defined(NoVCL)}
  , vtHintWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\vtHintWordsPack.pas'
  {$IfEnd} // NOT Defined(NoVCL)
+ , l3FontInfo in 'w:\common\components\rtl\Garant\L3\l3FontInfo.pas'
  {$If NOT Defined(NoVCL)}
  , ListerWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\ListerWordsPack.pas'
  {$IfEnd} // NOT Defined(NoVCL)
@@ -1241,6 +1242,8 @@ uses
  , tfwDictionaryListPrim in 'w:\common\components\rtl\Garant\ScriptEngine\tfwDictionaryListPrim.pas'
  , tfwParser in 'w:\common\components\rtl\Garant\ScriptEngine\tfwParser.pas'
  , tfwCachedTokens in 'w:\common\components\rtl\Garant\ScriptEngine\tfwCachedTokens.pas'
+ , tfwParserService in 'w:\common\components\rtl\Garant\ScriptEngine\tfwParserService.pas'
+ , IniFiles in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Common\IniFiles.pas'
  , ItfwParserWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\ItfwParserWordsPack.pas'
  , ItfwParserExWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\ItfwParserExWordsPack.pas'
  , tfwStoredValuesStack in 'w:\common\components\rtl\Garant\ScriptEngine\tfwStoredValuesStack.pas'
@@ -1576,6 +1579,7 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmStringIDExHelper in 'w:\common\components\gui\Garant\VCM\implementation\vcmStringIDExHelper.pas'
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3CClassList in 'w:\common\components\rtl\Garant\L3\l3CClassList.pas'
  {$If NOT Defined(NoVCM)}
  , vcmMakeParams in 'w:\common\components\gui\Garant\VCM\implementation\vcmMakeParams.pas'
  {$IfEnd} // NOT Defined(NoVCM)
@@ -1705,6 +1709,12 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoVCM)}
  , vcmModulesCollection in 'w:\common\components\gui\Garant\VCM\implementation\Components\vcmModulesCollection.pas'
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , tfwModuleOperationWordEx in 'w:\common\components\gui\Garant\VCM\implementation\Scripting\tfwModuleOperationWordEx.pas'
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , tfwModuleOperationWord in 'w:\common\components\gui\Garant\VCM\implementation\Scripting\tfwModuleOperationWord.pas'
  {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoVCM)}
  , vcmFormsCollection in 'w:\common\components\gui\Garant\VCM\implementation\Components\vcmFormsCollection.pas'
@@ -3419,6 +3429,8 @@ uses
  , K622840683 in 'w:\common\components\rtl\Garant\Daily\K622840683.pas'
  , K623067981 in 'w:\common\components\rtl\Garant\Daily\K623067981.pas'
  , EVDtoHTMLwoCSS in 'w:\common\components\rtl\Garant\Daily\EVDtoHTMLwoCSS.pas'
+ , ddProfNewsHTMLWriter in 'w:\common\components\rtl\Garant\dd\ddProfNewsHTMLWriter.pas'
+ , ddStyleSegment in 'w:\common\components\rtl\Garant\dd\ddStyleSegment.pas'
  , K623486769 in 'w:\common\components\rtl\Garant\Daily\K623486769.pas'
  , K623486769_1 in 'w:\common\components\rtl\Garant\Daily\K623486769_1.pas'
  , K623486769_2 in 'w:\common\components\rtl\Garant\Daily\K623486769_2.pas'
@@ -3427,6 +3439,13 @@ uses
  , K623486769_5 in 'w:\common\components\rtl\Garant\Daily\K623486769_5.pas'
  , K623486769_6 in 'w:\common\components\rtl\Garant\Daily\K623486769_6.pas'
  , K623486769_7 in 'w:\common\components\rtl\Garant\Daily\K623486769_7.pas'
+ , K624074743 in 'w:\common\components\rtl\Garant\Daily\K624074743.pas'
+ , K624690924 in 'w:\common\components\rtl\Garant\Daily\K624690924.pas'
+ , K624692225 in 'w:\common\components\rtl\Garant\Daily\K624692225.pas'
+ , K624709249 in 'w:\common\components\rtl\Garant\Daily\K624709249.pas'
+ , K624692225_1 in 'w:\common\components\rtl\Garant\Daily\K624692225_1.pas'
+ , K624853474 in 'w:\common\components\rtl\Garant\Daily\K624853474.pas'
+ , K627006470 in 'w:\common\components\rtl\Garant\Daily\K627006470.pas'
  , Abstract_Tests_TestLibrary in 'w:\common\components\rtl\Garant\Abstract_Tests\Abstract_Tests_TestLibrary.pas'
  , Abstract_Tests_EditorTests_TestUnit in 'w:\common\components\rtl\Garant\Abstract_Tests\Abstract_Tests_EditorTests_TestUnit.pas'
  , Abstract_Tests_RenderEVD_TestUnit in 'w:\common\components\rtl\Garant\Abstract_Tests\Abstract_Tests_RenderEVD_TestUnit.pas'

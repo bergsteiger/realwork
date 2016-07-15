@@ -150,7 +150,6 @@
    end; // propPAP
   propCell, propNestedCell:
    begin
-    l_Table := nil;
     if not Try2CloseNestedTable(aState.PAP.itap) then
      Try2AddTable(aState.PAP.itap); // наследуем оформление от предыдущей строки
     if aState.PAP.ListItem <> propUndefined then
@@ -169,7 +168,7 @@
     end; // if CanAddTable then
     if f_TextBuffer.Len > 0 then
      FlushTextBuffer(aState, True);
-    if CanAddTable and (l_Table <> nil) then
+    if CanAddTable then
      l_Table.CloseCell;
    end; // propCell
   propRow, propNestedRow: // конец строки таблицы

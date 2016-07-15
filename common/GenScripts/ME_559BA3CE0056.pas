@@ -19,11 +19,11 @@ uses
 type
  TvcmTabsHistoryService = {final} class(Tl3ProtoObject, IvcmHistoryService)
   public
-   function Back(const aForm: IvcmEntityForm): Boolean;
-   function GetContainerHistory(const aContainer: IvcmContainer): IvcmHistory;
    function GetFormHistory(const aForm: IvcmEntityForm): IvcmHistory;
    procedure SaveFormState(const aForm: IvcmEntityForm);
+   function GetContainerHistory(const aContainer: IvcmContainer): IvcmHistory;
    function IsInBF(const aForm: IvcmEntityForm): Boolean;
+   function Back(const aForm: IvcmEntityForm): Boolean;
    class function Instance: TvcmTabsHistoryService;
     {* Метод получения экземпляра синглетона TvcmTabsHistoryService }
    class function Exists: Boolean;
@@ -54,43 +54,6 @@ procedure TvcmTabsHistoryServiceFree;
 begin
  l3Free(g_TvcmTabsHistoryService);
 end;//TvcmTabsHistoryServiceFree
-
-function TvcmTabsHistoryService.Back(const aForm: IvcmEntityForm): Boolean;
-//#UC START# *18FC3BA729CF_559BA3E6014C_var*
-var
- l_Tab: Il3FormTab;
- l_TabHistory: IvcmHistory;
-//#UC END# *18FC3BA729CF_559BA3E6014C_var*
-begin
-//#UC START# *18FC3BA729CF_559BA3E6014C_impl*
- if Tl3TabbedContainersDispatcher.Instance.NeedUseTabs then
- begin
-  // Если возвращаться некуда - закрываем вкладке
-  l_Tab := Tl3TabbedContainersDispatcher.Instance.GetFormTab(TForm(aForm.VCLWinControl));
-  Assert(l_Tab <> nil);
-  l_TabHistory := GetFormHistory(aForm);
-  Assert(l_TabHistory <> nil);
-  if l_TabHistory.CanBack then
-   l_TabHistory.Back
-  else
-   Tl3TabbedContainersDispatcher.Instance.GetActiveTabbedContainer.CloseTab(l_Tab);
- end
- else
-   Result := g_Dispatcher.History.Back;
-//#UC END# *18FC3BA729CF_559BA3E6014C_impl*
-end;//TvcmTabsHistoryService.Back
-
-function TvcmTabsHistoryService.GetContainerHistory(const aContainer: IvcmContainer): IvcmHistory;
-//#UC START# *27BEBF0EE9FD_559BA3E6014C_var*
-//#UC END# *27BEBF0EE9FD_559BA3E6014C_var*
-begin
-//#UC START# *27BEBF0EE9FD_559BA3E6014C_impl*
- if Tl3TabbedContainersDispatcher.Instance.NeedUseTabs then
-  Result := GetFormHistory(aContainer.AsForm)
- else
-  Result := g_Dispatcher.History;
-//#UC END# *27BEBF0EE9FD_559BA3E6014C_impl*
-end;//TvcmTabsHistoryService.GetContainerHistory
 
 function TvcmTabsHistoryService.GetFormHistory(const aForm: IvcmEntityForm): IvcmHistory;
 //#UC START# *96E2DB43E67B_559BA3E6014C_var*
@@ -129,6 +92,18 @@ begin
 //#UC END# *975F702287E2_559BA3E6014C_impl*
 end;//TvcmTabsHistoryService.SaveFormState
 
+function TvcmTabsHistoryService.GetContainerHistory(const aContainer: IvcmContainer): IvcmHistory;
+//#UC START# *27BEBF0EE9FD_559BA3E6014C_var*
+//#UC END# *27BEBF0EE9FD_559BA3E6014C_var*
+begin
+//#UC START# *27BEBF0EE9FD_559BA3E6014C_impl*
+ if Tl3TabbedContainersDispatcher.Instance.NeedUseTabs then
+  Result := GetFormHistory(aContainer.AsForm)
+ else
+  Result := g_Dispatcher.History;
+//#UC END# *27BEBF0EE9FD_559BA3E6014C_impl*
+end;//TvcmTabsHistoryService.GetContainerHistory
+
 function TvcmTabsHistoryService.IsInBF(const aForm: IvcmEntityForm): Boolean;
 //#UC START# *A872A2AAB575_559BA3E6014C_var*
 //#UC END# *A872A2AAB575_559BA3E6014C_var*
@@ -137,6 +112,31 @@ begin
  Result := Tl3TabbedContainersDispatcher.Instance.IsInBF(aForm.VCLWinControl as TForm);
 //#UC END# *A872A2AAB575_559BA3E6014C_impl*
 end;//TvcmTabsHistoryService.IsInBF
+
+function TvcmTabsHistoryService.Back(const aForm: IvcmEntityForm): Boolean;
+//#UC START# *18FC3BA729CF_559BA3E6014C_var*
+var
+ l_Tab: Il3FormTab;
+ l_TabHistory: IvcmHistory;
+//#UC END# *18FC3BA729CF_559BA3E6014C_var*
+begin
+//#UC START# *18FC3BA729CF_559BA3E6014C_impl*
+ if Tl3TabbedContainersDispatcher.Instance.NeedUseTabs then
+ begin
+  // Если возвращаться некуда - закрываем вкладке
+  l_Tab := Tl3TabbedContainersDispatcher.Instance.GetFormTab(TForm(aForm.VCLWinControl));
+  Assert(l_Tab <> nil);
+  l_TabHistory := GetFormHistory(aForm);
+  Assert(l_TabHistory <> nil);
+  if l_TabHistory.CanBack then
+   l_TabHistory.Back
+  else
+   Tl3TabbedContainersDispatcher.Instance.GetActiveTabbedContainer.CloseTab(l_Tab);
+ end
+ else
+   Result := g_Dispatcher.History.Back;
+//#UC END# *18FC3BA729CF_559BA3E6014C_impl*
+end;//TvcmTabsHistoryService.Back
 
 class function TvcmTabsHistoryService.Instance: TvcmTabsHistoryService;
  {* Метод получения экземпляра синглетона TvcmTabsHistoryService }

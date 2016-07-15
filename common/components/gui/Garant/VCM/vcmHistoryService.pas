@@ -29,7 +29,6 @@ uses
 type
  IvcmHistoryService = interface
   {* Интерфейс сервиса TvcmHistoryService }
-  ['{CA5C1514-1050-411B-A26C-25710B226DA2}']
   function GetFormHistory(const aForm: IvcmEntityForm): IvcmHistory;
   procedure SaveFormState(const aForm: IvcmEntityForm);
   function GetContainerHistory(const aContainer: IvcmContainer): IvcmHistory;
@@ -45,11 +44,11 @@ type
    procedure pm_SetAlien(const aValue: IvcmHistoryService);
    procedure ClearFields; override;
   public
-   function Back(const aForm: IvcmEntityForm): Boolean;
-   function GetContainerHistory(const aContainer: IvcmContainer): IvcmHistory;
    function GetFormHistory(const aForm: IvcmEntityForm): IvcmHistory;
    procedure SaveFormState(const aForm: IvcmEntityForm);
+   function GetContainerHistory(const aContainer: IvcmContainer): IvcmHistory;
    function IsInBF(const aForm: IvcmEntityForm): Boolean;
+   function Back(const aForm: IvcmEntityForm): Boolean;
    class function Instance: TvcmHistoryService;
     {* Метод получения экземпляра синглетона TvcmHistoryService }
    class function Exists: Boolean;
@@ -87,30 +86,6 @@ begin
  f_Alien := aValue;
 end;//TvcmHistoryService.pm_SetAlien
 
-function TvcmHistoryService.Back(const aForm: IvcmEntityForm): Boolean;
-//#UC START# *18FC3BA729CF_559BA19C0076_var*
-//#UC END# *18FC3BA729CF_559BA19C0076_var*
-begin
-//#UC START# *18FC3BA729CF_559BA19C0076_impl*
- if (f_Alien <> nil) then
-  Result := f_Alien.Back(aForm)
- else
-  Result := g_Dispatcher.History.Back;
-//#UC END# *18FC3BA729CF_559BA19C0076_impl*
-end;//TvcmHistoryService.Back
-
-function TvcmHistoryService.GetContainerHistory(const aContainer: IvcmContainer): IvcmHistory;
-//#UC START# *27BEBF0EE9FD_559BA19C0076_var*
-//#UC END# *27BEBF0EE9FD_559BA19C0076_var*
-begin
-//#UC START# *27BEBF0EE9FD_559BA19C0076_impl*
- if (f_Alien <> nil) then
-  Result := f_Alien.GetContainerHistory(aContainer)
- else
-  Result := g_Dispatcher.History;
-//#UC END# *27BEBF0EE9FD_559BA19C0076_impl*
-end;//TvcmHistoryService.GetContainerHistory
-
 function TvcmHistoryService.GetFormHistory(const aForm: IvcmEntityForm): IvcmHistory;
 //#UC START# *96E2DB43E67B_559BA19C0076_var*
 //#UC END# *96E2DB43E67B_559BA19C0076_var*
@@ -141,6 +116,18 @@ begin
 //#UC END# *975F702287E2_559BA19C0076_impl*
 end;//TvcmHistoryService.SaveFormState
 
+function TvcmHistoryService.GetContainerHistory(const aContainer: IvcmContainer): IvcmHistory;
+//#UC START# *27BEBF0EE9FD_559BA19C0076_var*
+//#UC END# *27BEBF0EE9FD_559BA19C0076_var*
+begin
+//#UC START# *27BEBF0EE9FD_559BA19C0076_impl*
+ if (f_Alien <> nil) then
+  Result := f_Alien.GetContainerHistory(aContainer)
+ else
+  Result := g_Dispatcher.History;
+//#UC END# *27BEBF0EE9FD_559BA19C0076_impl*
+end;//TvcmHistoryService.GetContainerHistory
+
 function TvcmHistoryService.IsInBF(const aForm: IvcmEntityForm): Boolean;
 //#UC START# *A872A2AAB575_559BA19C0076_var*
 var
@@ -157,6 +144,18 @@ begin
  end;
 //#UC END# *A872A2AAB575_559BA19C0076_impl*
 end;//TvcmHistoryService.IsInBF
+
+function TvcmHistoryService.Back(const aForm: IvcmEntityForm): Boolean;
+//#UC START# *18FC3BA729CF_559BA19C0076_var*
+//#UC END# *18FC3BA729CF_559BA19C0076_var*
+begin
+//#UC START# *18FC3BA729CF_559BA19C0076_impl*
+ if (f_Alien <> nil) then
+  Result := f_Alien.Back(aForm)
+ else
+  Result := g_Dispatcher.History.Back;
+//#UC END# *18FC3BA729CF_559BA19C0076_impl*
+end;//TvcmHistoryService.Back
 
 class function TvcmHistoryService.Instance: TvcmHistoryService;
  {* Метод получения экземпляра синглетона TvcmHistoryService }

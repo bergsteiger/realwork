@@ -27,7 +27,6 @@ uses
 type
  IevCustomStyleManager = interface
   {* Èםעונפויס סונגטסא TevCustomStyleManager }
-  ['{3E2B89CD-5B2D-400C-9EC9-FDA3B57A0C23}']
   function IsAbolishedDocumentLink(aSeg: Tl3Variant;
    const aPara: InevPara): Boolean;
   function IsVisitedDocumentLink(aSeg: Tl3Variant): Boolean;

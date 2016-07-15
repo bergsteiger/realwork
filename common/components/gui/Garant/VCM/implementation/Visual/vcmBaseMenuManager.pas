@@ -53,6 +53,8 @@ uses
  {$If NOT Defined(NoVCL)}
  , l3PopupMenuHelper
  {$IfEnd} // NOT Defined(NoVCL)
+ //#UC START# *4AB24EF502BBintf_uses*
+ //#UC END# *4AB24EF502BBintf_uses*
 ;
 
 const
@@ -484,6 +486,11 @@ uses
  , VCMWordsPack
  {$IfEnd} // NOT Defined(NoScripts)
  , vcmEntitiesDefIteratorForContextMenu
+ //#UC START# *4AB24EF502BBimpl_uses*
+ , vcmMessagesCollectionItem
+ , Dialogs
+ , vcmEntities
+ //#UC END# *4AB24EF502BBimpl_uses*
 ;
 
 {$If NOT Defined(NoVCL)}

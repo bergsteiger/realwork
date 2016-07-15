@@ -14,6 +14,7 @@ uses
 
 procedure GetOutputDirName4Test;
 procedure GetWindowsTempFolder;
+procedure ddStyleUndefined;
 
 implementation
 
@@ -38,5 +39,14 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *5511287702D5_5214B1470139_impl*
 end;//GetWindowsTempFolder
+
+procedure ddStyleUndefined;
+//#UC START# *576123D3026F_5214B1470139_var*
+//#UC END# *576123D3026F_5214B1470139_var*
+begin
+//#UC START# *576123D3026F_5214B1470139_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *576123D3026F_5214B1470139_impl*
+end;//ddStyleUndefined
 
 end.

@@ -22,10 +22,10 @@ const
 type
  TddPicturePathService = {final} class(Tl3ProtoObject, Il3PicturePathService)
   public
-   procedure SetTestName(const aName: AnsiString);
-   procedure AddPicturePath(const aPath: AnsiString);
    procedure SetEnableSave(aValue: Boolean);
    procedure SetPDF4Etalon(aValue: Boolean);
+   procedure AddPicturePath(const aPath: AnsiString);
+   procedure SetTestName(const aName: AnsiString);
    class function Instance: TddPicturePathService;
     {* Метод получения экземпляра синглетона TddPicturePathService }
    class function Exists: Boolean;
@@ -102,24 +102,6 @@ begin
  l3Free(g_TddPicturePathListner);
 end;//TddPicturePathListnerFree
 
-procedure TddPicturePathService.SetTestName(const aName: AnsiString);
-//#UC START# *2DCD42915D2E_5524073901EA_var*
-//#UC END# *2DCD42915D2E_5524073901EA_var*
-begin
-//#UC START# *2DCD42915D2E_5524073901EA_impl*
- TddPicturePathListner.Instance.TestName := aName;
-//#UC END# *2DCD42915D2E_5524073901EA_impl*
-end;//TddPicturePathService.SetTestName
-
-procedure TddPicturePathService.AddPicturePath(const aPath: AnsiString);
-//#UC START# *3FB12D269858_5524073901EA_var*
-//#UC END# *3FB12D269858_5524073901EA_var*
-begin
-//#UC START# *3FB12D269858_5524073901EA_impl*
- TddPicturePathListner.Instance.AddPicturePath(aPath);
-//#UC END# *3FB12D269858_5524073901EA_impl*
-end;//TddPicturePathService.AddPicturePath
-
 procedure TddPicturePathService.SetEnableSave(aValue: Boolean);
 //#UC START# *4706AFD6D823_5524073901EA_var*
 //#UC END# *4706AFD6D823_5524073901EA_var*
@@ -137,6 +119,24 @@ begin
  TddPicturePathListner.Instance.PDF4Etalon := aValue;
 //#UC END# *86EACEE128F2_5524073901EA_impl*
 end;//TddPicturePathService.SetPDF4Etalon
+
+procedure TddPicturePathService.AddPicturePath(const aPath: AnsiString);
+//#UC START# *3FB12D269858_5524073901EA_var*
+//#UC END# *3FB12D269858_5524073901EA_var*
+begin
+//#UC START# *3FB12D269858_5524073901EA_impl*
+ TddPicturePathListner.Instance.AddPicturePath(aPath);
+//#UC END# *3FB12D269858_5524073901EA_impl*
+end;//TddPicturePathService.AddPicturePath
+
+procedure TddPicturePathService.SetTestName(const aName: AnsiString);
+//#UC START# *2DCD42915D2E_5524073901EA_var*
+//#UC END# *2DCD42915D2E_5524073901EA_var*
+begin
+//#UC START# *2DCD42915D2E_5524073901EA_impl*
+ TddPicturePathListner.Instance.TestName := aName;
+//#UC END# *2DCD42915D2E_5524073901EA_impl*
+end;//TddPicturePathService.SetTestName
 
 class function TddPicturePathService.Instance: TddPicturePathService;
  {* Метод получения экземпляра синглетона TddPicturePathService }

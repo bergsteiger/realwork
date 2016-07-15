@@ -11,78 +11,67 @@ interface
 {$If NOT Defined(NoVCM)}
 uses
  l3IntfUses
- , Classes
  , vcmExternalInterfaces
  , vcmBaseOperationState
- , vcmMainForm
- , vcmFormSetFactory
  , vcmModule
  , l3StringIDEx
+ //#UC START# *4AB22E140136intf_uses*
+ //#UC END# *4AB22E140136intf_uses*
 ;
 
 type
- RvcmApplication = class of TvcmApplication;
-
- TvcmApplication = class(TDataModule)
+ //#UC START# *4AB22E140136ci*
+ //#UC END# *4AB22E140136ci*
+ //#UC START# *4AB22E140136cit*
+ //#UC END# *4AB22E140136cit*
+ TvcmApplication = class
   protected
    {$If NOT Defined(DesignTimeLibrary)}
-   procedure PublishModule(aModule: RvcmModule;
+   class procedure PublishModule(aModule: RvcmModule;
     const aCap: AnsiString);
    {$IfEnd} // NOT Defined(DesignTimeLibrary)
    {$If NOT Defined(DesignTimeLibrary)}
-   function PublishModuleOperation(aModule: RvcmModule;
+   class function PublishModuleOperation(aModule: RvcmModule;
     const aName: AnsiString;
     const aCap: AnsiString;
     aNoPrefix: Boolean = False): TvcmMOPID;
-   {$IfEnd} // NOT Defined(DesignTimeLibrary)
-   {$If NOT Defined(DesignTimeLibrary)}
-   function PublishOperation(const anEn: AnsiString;
-    const anOp: AnsiString;
-    const anEnCap: AnsiString;
-    const anOpCap: AnsiString;
-    aNoPrefix: Boolean = False): TvcmOPID;
-   {$IfEnd} // NOT Defined(DesignTimeLibrary)
-   {$If NOT Defined(DesignTimeLibrary)}
-   function PublishInternalOperation(const anEn: AnsiString;
-    const anOp: AnsiString;
-    const anEnCap: AnsiString;
-    const anOpCap: AnsiString;
-    aNoPrefix: Boolean = False): TvcmOPID;
    {$IfEnd} // NOT Defined(DesignTimeLibrary)
    class procedure MakeResources; virtual;
    class procedure Runner(const aTitle: Tl3StringIDEx;
     const aHelpFile: AnsiString); virtual;
    class procedure BeforeApplicationRun; virtual;
-   {$If NOT Defined(DesignTimeLibrary)}
-   procedure RegisterFormSetFactories; virtual;
-    {* Регистрирует фабрики сборок }
-   {$IfEnd} // NOT Defined(DesignTimeLibrary)
-   {$If NOT Defined(DesignTimeLibrary)}
-   procedure RegisterFormSetFactory(aFactory: RvcmFormSetFactory);
-   {$IfEnd} // NOT Defined(DesignTimeLibrary)
+   class procedure RegisterOperations;
   public
    {$If NOT Defined(DesignTimeLibrary)}
-   class function Instance: RvcmApplication;
+   class function PublishOperation(const anEn: AnsiString;
+    const anOp: AnsiString;
+    const anEnCap: AnsiString;
+    const anOpCap: AnsiString;
+    aNoPrefix: Boolean = False): TvcmOPID;
    {$IfEnd} // NOT Defined(DesignTimeLibrary)
    {$If NOT Defined(DesignTimeLibrary)}
-   function PublishOperationState(const anEn: AnsiString;
+   class function PublishInternalOperation(const anEn: AnsiString;
+    const anOp: AnsiString;
+    const anEnCap: AnsiString;
+    const anOpCap: AnsiString;
+    aNoPrefix: Boolean = False): TvcmOPID;
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
+   {$If NOT Defined(DesignTimeLibrary)}
+   class function PublishOperationState(const anEn: AnsiString;
     const anOp: AnsiString;
     const aState: AnsiString;
     aNoPrefix: Boolean = False): TvcmBaseOperationState;
    {$IfEnd} // NOT Defined(DesignTimeLibrary)
    {$If NOT Defined(DesignTimeLibrary)}
-   procedure SetOperationImageIndex(const anEn: AnsiString;
+   class procedure SetOperationImageIndex(const anEn: AnsiString;
     const anOp: AnsiString;
     anImageIndex: Integer;
     aNoPrefix: Boolean = False);
    {$IfEnd} // NOT Defined(DesignTimeLibrary)
    class procedure Run(const aTitle: Tl3StringIDEx;
     const aHelpFile: AnsiString);
-   {$If NOT Defined(DesignTimeLibrary)}
-   class procedure RegisterModules(aMain: TvcmMainForm); virtual;
-    {* Регистрирует модули приложения }
-   {$IfEnd} // NOT Defined(DesignTimeLibrary)
-   constructor Create(AOwner: TComponent); override;
+ //#UC START# *4AB22E140136publ*
+ //#UC END# *4AB22E140136publ*
  end;//TvcmApplication
 {$IfEnd} // NOT Defined(NoVCM)
 
@@ -92,6 +81,10 @@ implementation
 uses
  l3ImplUses
  , vcmBaseMenuManager
+ , vcmOperationsForRegister
+ , vcmOperationStatesForRegister
+ , vcmModulesForRegister
+ , vcmModuleOperationsForRegister
  , vcmModulesCollection
  , vcmRepEntitiesCollection
  , l3ConstStrings
@@ -99,28 +92,12 @@ uses
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
  , afwFacade
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4AB22E140136impl_uses*
+ //#UC END# *4AB22E140136impl_uses*
 ;
 
 {$If NOT Defined(DesignTimeLibrary)}
-var g_Instance: RvcmApplication = nil;
-{$IfEnd} // NOT Defined(DesignTimeLibrary)
-
-{$If NOT Defined(DesignTimeLibrary)}
-class function TvcmApplication.Instance: RvcmApplication;
-//#UC START# *4AB23A660050_4AB22E140136_var*
-//#UC END# *4AB23A660050_4AB22E140136_var*
-begin
-//#UC START# *4AB23A660050_4AB22E140136_impl*
- Result := g_Instance;
-//#UC END# *4AB23A660050_4AB22E140136_impl*
-end;//TvcmApplication.Instance
-{$IfEnd} // NOT Defined(DesignTimeLibrary)
-
-{$If NOT Defined(DesignTimeLibrary)}
-procedure TvcmApplication.PublishModule(aModule: RvcmModule;
+class procedure TvcmApplication.PublishModule(aModule: RvcmModule;
  const aCap: AnsiString);
 //#UC START# *4AB33E56019A_4AB22E140136_var*
 //#UC END# *4AB33E56019A_4AB22E140136_var*
@@ -132,7 +109,7 @@ end;//TvcmApplication.PublishModule
 {$IfEnd} // NOT Defined(DesignTimeLibrary)
 
 {$If NOT Defined(DesignTimeLibrary)}
-function TvcmApplication.PublishModuleOperation(aModule: RvcmModule;
+class function TvcmApplication.PublishModuleOperation(aModule: RvcmModule;
  const aName: AnsiString;
  const aCap: AnsiString;
  aNoPrefix: Boolean = False): TvcmMOPID;
@@ -147,7 +124,7 @@ end;//TvcmApplication.PublishModuleOperation
 {$IfEnd} // NOT Defined(DesignTimeLibrary)
 
 {$If NOT Defined(DesignTimeLibrary)}
-function TvcmApplication.PublishOperation(const anEn: AnsiString;
+class function TvcmApplication.PublishOperation(const anEn: AnsiString;
  const anOp: AnsiString;
  const anEnCap: AnsiString;
  const anOpCap: AnsiString;
@@ -163,7 +140,7 @@ end;//TvcmApplication.PublishOperation
 {$IfEnd} // NOT Defined(DesignTimeLibrary)
 
 {$If NOT Defined(DesignTimeLibrary)}
-function TvcmApplication.PublishInternalOperation(const anEn: AnsiString;
+class function TvcmApplication.PublishInternalOperation(const anEn: AnsiString;
  const anOp: AnsiString;
  const anEnCap: AnsiString;
  const anOpCap: AnsiString;
@@ -179,7 +156,7 @@ end;//TvcmApplication.PublishInternalOperation
 {$IfEnd} // NOT Defined(DesignTimeLibrary)
 
 {$If NOT Defined(DesignTimeLibrary)}
-function TvcmApplication.PublishOperationState(const anEn: AnsiString;
+class function TvcmApplication.PublishOperationState(const anEn: AnsiString;
  const anOp: AnsiString;
  const aState: AnsiString;
  aNoPrefix: Boolean = False): TvcmBaseOperationState;
@@ -194,7 +171,7 @@ end;//TvcmApplication.PublishOperationState
 {$IfEnd} // NOT Defined(DesignTimeLibrary)
 
 {$If NOT Defined(DesignTimeLibrary)}
-procedure TvcmApplication.SetOperationImageIndex(const anEn: AnsiString;
+class procedure TvcmApplication.SetOperationImageIndex(const anEn: AnsiString;
  const anOp: AnsiString;
  anImageIndex: Integer;
  aNoPrefix: Boolean = False);
@@ -247,59 +224,92 @@ begin
 //#UC END# *52F2269B0373_4AB22E140136_impl*
 end;//TvcmApplication.BeforeApplicationRun
 
-{$If NOT Defined(DesignTimeLibrary)}
-class procedure TvcmApplication.RegisterModules(aMain: TvcmMainForm);
- {* Регистрирует модули приложения }
-//#UC START# *4AB23CF803E5_4AB22E140136_var*
-//#UC END# *4AB23CF803E5_4AB22E140136_var*
+class procedure TvcmApplication.RegisterOperations;
+//#UC START# *5788BA13039A_4AB22E140136_var*
+{$IfNDef DesignTimeLibrary}
+var
+ l_Index : Integer;
+ l_StateIndex : Integer;
+{$EndIf} 
+//#UC END# *5788BA13039A_4AB22E140136_var*
 begin
-//#UC START# *4AB23CF803E5_4AB22E140136_impl*
-//#UC END# *4AB23CF803E5_4AB22E140136_impl*
-end;//TvcmApplication.RegisterModules
-{$IfEnd} // NOT Defined(DesignTimeLibrary)
+//#UC START# *5788BA13039A_4AB22E140136_impl*
+{$IfNDef DesignTimeLibrary}
+ if TvcmModulesForRegister.Exists then
+ begin
+  with TvcmModulesForRegister.Instance do
+  begin
+   for l_Index := 0 to Pred(Count) do
+   begin
+    with ItemSlot(l_Index)^ do
+     Self.PublishModule(rModule, rModuleCaption);
+   end;//for l_Index
+  end;//with TvcmModulesForRegister.Instance
+ end;//TvcmModulesForRegister.Exists
+ 
+ if TvcmModuleOperationsForRegister.Exists then
+ begin
+  with TvcmModuleOperationsForRegister.Instance do
+  begin
+   for l_Index := 0 to Pred(Count) do
+   begin
+    with ItemSlot(l_Index)^ do
+     rVar^ := Self.PublishModuleOperation(rModule, rOperationName, rOperationCaption, rNoPrefix);
+   end;//for l_Index
+  end;//with TvcmModuleOperationsForRegister.Instance
+ end;//TvcmModuleOperationsForRegister.Exists
 
-{$If NOT Defined(DesignTimeLibrary)}
-procedure TvcmApplication.RegisterFormSetFactories;
- {* Регистрирует фабрики сборок }
-//#UC START# *4AB24E3703E3_4AB22E140136_var*
-//#UC END# *4AB24E3703E3_4AB22E140136_var*
-begin
-//#UC START# *4AB24E3703E3_4AB22E140136_impl*
-//#UC END# *4AB24E3703E3_4AB22E140136_impl*
-end;//TvcmApplication.RegisterFormSetFactories
-{$IfEnd} // NOT Defined(DesignTimeLibrary)
+ if TvcmOperationsForRegister.Exists then
+ begin
+  with TvcmOperationsForRegister.Instance do
+  begin
+   for l_Index := 0 to Pred(Count) do
+   begin
+    with Items[l_Index] do
+    begin
+     with Descr do
+     begin
+      if rInternal then
+       rVar^ := Self.PublishInternalOperation(rEntityName, rOperationName, rEntityCaption, rOperationCaption, rNoPrefix)
+      else
+       rVar^ := Self.PublishOperation(rEntityName, rOperationName, rEntityCaption, rOperationCaption, rNoPrefix);
+      if (rImageIndex >= 0) then
+       SetOperationImageIndex(rEntityName, rOperationName, rImageIndex, rNoPrefix);
+     end;//with Descr
+     if (States <> nil) then
+     begin
+      for l_StateIndex := 0 to Pred(States.Count) do
+      begin
+       with States.ItemSlot(l_StateIndex)^ do
+        with PublishOperationState(Descr.rEntityName, Descr.rOperationName, rStateName, Descr.rNoPrefix) do
+        begin
+         rVar^ := StateIndex;
+         if (rCaption <> '') then
+          Caption := rCaption;
+         if (rHint <> '') then
+          Hint := rHint;
+         if (rImageIndex >= 0) then
+          ImageIndex := rImageIndex;
+         if (rEnabled <> vcm_osfUndefined) then
+          Enabled := rEnabled = vcm_osfTrue;
+         if (rVisible <> vcm_osfUndefined) then
+          Visible := rVisible = vcm_osfTrue;
+         if (rChecked <> vcm_osfUndefined) then
+          Checked := rChecked = vcm_osfTrue;
+        end;//with PublishOperationState
+      end;//for l_StateIndex
+     end;//States <> nil
+    end;//with Items[l_Index]
+   end;//for l_Index 
+  end;//with TvcmOperationsForRegister.Instance
+ end;//TvcmOperationsForRegister.Exists
+ g_MenuManager.RegisterKeywords;
+{$EndIf}
+//#UC END# *5788BA13039A_4AB22E140136_impl*
+end;//TvcmApplication.RegisterOperations
 
-{$If NOT Defined(DesignTimeLibrary)}
-procedure TvcmApplication.RegisterFormSetFactory(aFactory: RvcmFormSetFactory);
-//#UC START# *4AB24E6E0127_4AB22E140136_var*
-//#UC END# *4AB24E6E0127_4AB22E140136_var*
-begin
-//#UC START# *4AB24E6E0127_4AB22E140136_impl*
-// if Assigned(g_MenuManager) then
-//  g_MenuManager.RegisterFormSetFactory(aFactory);
-//#UC END# *4AB24E6E0127_4AB22E140136_impl*
-end;//TvcmApplication.RegisterFormSetFactory
-{$IfEnd} // NOT Defined(DesignTimeLibrary)
-
-constructor TvcmApplication.Create(AOwner: TComponent);
-//#UC START# *47D1602000C6_4AB22E140136_var*
-//#UC END# *47D1602000C6_4AB22E140136_var*
-begin
-//#UC START# *47D1602000C6_4AB22E140136_impl*
- inherited;
- {$If not defined(DesignTimeLibrary)}
- Assert(g_Instance = nil);
- g_Instance := RvcmApplication(ClassType);
- RegisterFormSetFactories;
- {$IfEnd} //not DesignTimeLibrary
-//#UC END# *47D1602000C6_4AB22E140136_impl*
-end;//TvcmApplication.Create
-
-initialization
-{$If NOT Defined(NoScripts)}
- TtfwClassRef.Register(TvcmApplication);
- {* Регистрация TvcmApplication }
-{$IfEnd} // NOT Defined(NoScripts)
+//#UC START# *4AB22E140136impl*
+//#UC END# *4AB22E140136impl*
 {$IfEnd} // NOT Defined(NoVCM)
 
 end.

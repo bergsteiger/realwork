@@ -12,6 +12,7 @@ interface
 uses
  l3IntfUses
  , Classes
+ , vcmBase
  , l3PureMixIns
 ;
 
@@ -21,6 +22,8 @@ type
  _l3Unknown_Parent_ = TComponent;
  {$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}
  TvcmModule = class(_l3Unknown_)
+  protected
+   class procedure GetEntityForms(aList: TvcmClassList); virtual;
  end;//TvcmModule
 {$IfEnd} // NOT Defined(NoVCM)
 
@@ -41,6 +44,15 @@ uses
 ;
 
 {$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}
+
+class procedure TvcmModule.GetEntityForms(aList: TvcmClassList);
+//#UC START# *577A5A440158_4AB33E14004E_var*
+//#UC END# *577A5A440158_4AB33E14004E_var*
+begin
+//#UC START# *577A5A440158_4AB33E14004E_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *577A5A440158_4AB33E14004E_impl*
+end;//TvcmModule.GetEntityForms
 
 initialization
 {$If NOT Defined(NoScripts)}

@@ -60,6 +60,7 @@ uses
  //#UC END# *4D5416AC01D1impl_uses*
 ;
 
+{$If NOT Defined(NoVCL)}
 {$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}
 
 procedure TvgCustomControl.Free(var Dummy: Integer);
@@ -85,6 +86,7 @@ initialization
  TtfwClassRef.Register(TvgCustomControl);
  {* Регистрация TvgCustomControl }
 {$IfEnd} // NOT Defined(NoScripts)
-{$IfEnd} // NOT Defined(NoVGScene)
+{$IfEnd} // NOT Defined(NoVCL)
 
+{$IfEnd} // NOT Defined(NoVGScene)
 end.

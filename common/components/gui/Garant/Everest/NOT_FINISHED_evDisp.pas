@@ -10,10 +10,13 @@ interface
 
 uses
  l3IntfUses
+ , l3ClipboardSpy
 ;
 
 type
- TevOperationDispatcher = class
+ TevOperationDispatcher = class(Il3ClipListner)
+  protected
+   procedure Change;
  end;//TevOperationDispatcher
 
 implementation
@@ -21,6 +24,16 @@ implementation
 uses
  l3ImplUses
  , evOperationDispatcherEx
+ , l3ClipSpyService
 ;
+
+procedure TevOperationDispatcher.Change;
+//#UC START# *57762C1A029F_4DD4F6FB0012_var*
+//#UC END# *57762C1A029F_4DD4F6FB0012_var*
+begin
+//#UC START# *57762C1A029F_4DD4F6FB0012_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *57762C1A029F_4DD4F6FB0012_impl*
+end;//TevOperationDispatcher.Change
 
 end.

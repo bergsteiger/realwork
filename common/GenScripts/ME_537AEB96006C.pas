@@ -76,6 +76,7 @@ type
    f_CloseQueryContainer: TvcmTabbedContainerForm;
    f_DisableAskMayExit: Boolean;
    f_LockedContainers: TvcmContainersLockCountList;
+   f_ClosingTab: Pointer;
    f_ContainerCount: Integer;
    f_FormToContainerMap: TvcmFormToContainerMap;
    f_MenuImages: TCustomImageList;
@@ -196,37 +197,38 @@ type
     const aTabHistoryState: IvcmHistoryState);
    function GetFormTabIcon(aForm: TvcmEntityForm;
     out theIconIndex: Integer): Boolean;
-   function GetTabIcon(const aTab: Il3FormTab): Integer;
-   function IsInBF(aContainedForm: TForm): Boolean;
-   function GetTabCaption(const aTab: Il3FormTab): AnsiString;
-   procedure CloseTab(const aTab: Il3FormTab);
-   procedure Subscribe(const aListener: Il3TabbedContainersListener);
-   procedure Lock;
-   procedure UnlockContainer(const aContainer: Il3TabbedContainer);
-   function GetActiveTabbedContainer: Il3TabbedContainer;
-   procedure StopFlashing;
-   function CanReopenClosedTab(const aContainer: Il3TabbedContainer): Boolean;
-   procedure CascadeWindows;
-   procedure ReopenClosedTab(const aContainer: Il3TabbedContainer);
-   procedure LockContainer(const aContainer: Il3TabbedContainer);
-   procedure Unsubscribe(const aListener: Il3TabbedContainersListener);
    function GetCurrentMainForm: TWinControl;
+   procedure Subscribe(const aListener: Il3TabbedContainersListener);
+   procedure Unsubscribe(const aListener: Il3TabbedContainersListener);
+   function NeedUseTabs: Boolean;
+   procedure StartFlashing;
+   procedure StopFlashing;
+   procedure CloseAll;
+   procedure CascadeWindows;
+   procedure TileWindowsHorizontal;
+   procedure TileWindowsVertical;
    function IsFormInContainer(aForm: TForm;
     aContainer: TForm): Boolean;
-   procedure TileWindowsHorizontal;
-   function IsContainerLocked(const aContainer: Il3TabbedContainer): Boolean;
-   procedure ActivateForm(aForm: TForm);
-   function NeedUseTabs: Boolean;
-   procedure TileWindowsVertical;
-   procedure ContainedFormBecomeActive(aForm: TForm);
-   function IsTabEmpty(const aTab: Il3FormTab): Boolean;
-   function CloneTab(const aTab: Il3FormTab): Il3FormTab;
-   function GetFormTab(aForm: TForm): Il3FormTab;
+   procedure Lock;
    procedure Unlock;
+   procedure ActivateForm(aForm: TForm);
+   function CloneTab(const aTab: Il3FormTab): Il3FormTab;
    function CanCloneTab(const aTab: Il3FormTab): Boolean;
-   procedure StartFlashing;
+   procedure ReopenClosedTab(const aContainer: Il3TabbedContainer);
+   function CanReopenClosedTab(const aContainer: Il3TabbedContainer): Boolean;
    procedure SaveTabToHistory(const aTab: Il3FormTab);
-   procedure CloseAll;
+   procedure LockContainer(const aContainer: Il3TabbedContainer);
+   procedure UnlockContainer(const aContainer: Il3TabbedContainer);
+   function IsContainerLocked(const aContainer: Il3TabbedContainer): Boolean;
+   procedure CloseTab(const aTab: Il3FormTab);
+   function GetFormTab(aForm: TForm): Il3FormTab;
+   function IsTabEmpty(const aTab: Il3FormTab): Boolean;
+   function GetActiveTabbedContainer: Il3TabbedContainer;
+   function IsInBF(aContainedForm: TForm): Boolean;
+   function GetTabIcon(const aTab: Il3FormTab): Integer;
+   procedure ContainedFormBecomeActive(aForm: TForm);
+   function GetTabCaption(const aTab: Il3FormTab): AnsiString;
+   function IsTabClosing(const aTab: Il3FormTab): Boolean;
    class function Instance: TvcmTabbedContainerFormDispatcher;
     {* Метод получения экземпляра синглетона TvcmTabbedContainerFormDispatcher }
    class function Exists: Boolean;
@@ -2030,72 +2032,14 @@ begin
 //#UC END# *5602A5390084_537AEC5E03DD_impl*
 end;//TvcmTabbedContainerFormDispatcher.GetFormTabIcon
 
-function TvcmTabbedContainerFormDispatcher.GetTabIcon(const aTab: Il3FormTab): Integer;
-//#UC START# *02157F96E465_537AEC5E03DD_var*
-//#UC END# *02157F96E465_537AEC5E03DD_var*
+function TvcmTabbedContainerFormDispatcher.GetCurrentMainForm: TWinControl;
+//#UC START# *5538B77B0192_537AEC5E03DD_var*
+//#UC END# *5538B77B0192_537AEC5E03DD_var*
 begin
-//#UC START# *02157F96E465_537AEC5E03DD_impl*
- Result := aTab.CurrentParams.ImageIndex;
-//#UC END# *02157F96E465_537AEC5E03DD_impl*
-end;//TvcmTabbedContainerFormDispatcher.GetTabIcon
-
-function TvcmTabbedContainerFormDispatcher.IsInBF(aContainedForm: TForm): Boolean;
-//#UC START# *06D14140190A_537AEC5E03DD_var*
-var
- l_Container: IvcmContainer;
- l_History: IvcmFormSetHistory;
- l_TabsHistory: IvcmFormSetHistory;
- l_InSimpleBF: Boolean;
- l_InTabsHistoryBF: Boolean;
-//#UC END# *06D14140190A_537AEC5E03DD_var*
-begin
-//#UC START# *06D14140190A_537AEC5E03DD_impl*
- l_History := GetTabHistory(aContainedForm);
- l_InSimpleBF := False;
- if (l_History <> nil) then
-  l_InSimpleBF := l_History.InBF;
- l_InTabsHistoryBf := False;
- if (not l_InSimpleBF) then
- begin
-  l_TabsHistory := GetTabHistory(aContainedForm);
-  if (l_TabsHistory <> nil) then
-  begin
-   l_Container := TvcmEntityForm(aContainedForm).As_IvcmEntityForm.AsContainer;
-   l_InTabsHistoryBf := (l_Container <> nil) and l_TabsHistory.IsContainerInOp(l_Container);
-  end; 
- end;
- Result := l_InSimpleBF or l_InTabsHistoryBf;
-//#UC END# *06D14140190A_537AEC5E03DD_impl*
-end;//TvcmTabbedContainerFormDispatcher.IsInBF
-
-function TvcmTabbedContainerFormDispatcher.GetTabCaption(const aTab: Il3FormTab): AnsiString;
-//#UC START# *086A3DF2665B_537AEC5E03DD_var*
-//#UC END# *086A3DF2665B_537AEC5E03DD_var*
-begin
-//#UC START# *086A3DF2665B_537AEC5E03DD_impl*
- Result := aTab.CurrentParams.Text;
-//#UC END# *086A3DF2665B_537AEC5E03DD_impl*
-end;//TvcmTabbedContainerFormDispatcher.GetTabCaption
-
-procedure TvcmTabbedContainerFormDispatcher.CloseTab(const aTab: Il3FormTab);
-//#UC START# *0E111B36F193_537AEC5E03DD_var*
-var
- l_ContainedForm: IvcmContainedForm;
- l_Container: IvcmContainer;
-//#UC END# *0E111B36F193_537AEC5E03DD_var*
-begin
-//#UC START# *0E111B36F193_537AEC5E03DD_impl*
- if Supports(aTab.TabbedForm, IvcmContainedForm, l_ContainedForm) then
- begin
-  TvcmTabbedContainerForm(aTab.TabbedContainer.AsForm).FormSetHistory.SaveTab(aTab);
-  if Supports(aTab.TabbedForm, IvcmContainer, l_Container) then
-   TvcmFormSetContainerRegistry.Instance.UnregisterContainer(l_Container);
-  l_ContainedForm.CloseContainedForm;
- end
- else
-  Assert(False);
-//#UC END# *0E111B36F193_537AEC5E03DD_impl*
-end;//TvcmTabbedContainerFormDispatcher.CloseTab
+//#UC START# *5538B77B0192_537AEC5E03DD_impl*
+ Result := GetCurrentActiveContainer;
+//#UC END# *5538B77B0192_537AEC5E03DD_impl*
+end;//TvcmTabbedContainerFormDispatcher.GetCurrentMainForm
 
 procedure TvcmTabbedContainerFormDispatcher.Subscribe(const aListener: Il3TabbedContainersListener);
 //#UC START# *1561A6522B5C_537AEC5E03DD_var*
@@ -2106,107 +2050,6 @@ begin
 //#UC END# *1561A6522B5C_537AEC5E03DD_impl*
 end;//TvcmTabbedContainerFormDispatcher.Subscribe
 
-procedure TvcmTabbedContainerFormDispatcher.Lock;
-//#UC START# *185C64EF3184_537AEC5E03DD_var*
-//#UC END# *185C64EF3184_537AEC5E03DD_var*
-begin
-//#UC START# *185C64EF3184_537AEC5E03DD_impl*
- Inc(f_LockCount);
-//#UC END# *185C64EF3184_537AEC5E03DD_impl*
-end;//TvcmTabbedContainerFormDispatcher.Lock
-
-procedure TvcmTabbedContainerFormDispatcher.UnlockContainer(const aContainer: Il3TabbedContainer);
-//#UC START# *1BFA5AA0644C_537AEC5E03DD_var*
-//#UC END# *1BFA5AA0644C_537AEC5E03DD_var*
-begin
-//#UC START# *1BFA5AA0644C_537AEC5E03DD_impl*
- f_LockedContainers.UnlockContainer(aContainer.AsForm as TvcmTabbedContainerForm);
-//#UC END# *1BFA5AA0644C_537AEC5E03DD_impl*
-end;//TvcmTabbedContainerFormDispatcher.UnlockContainer
-
-function TvcmTabbedContainerFormDispatcher.GetActiveTabbedContainer: Il3TabbedContainer;
-//#UC START# *2774A286694A_537AEC5E03DD_var*
-//#UC END# *2774A286694A_537AEC5E03DD_var*
-begin
-//#UC START# *2774A286694A_537AEC5E03DD_impl*
- Result := ActiveContainer as Il3TabbedContainer;
-//#UC END# *2774A286694A_537AEC5E03DD_impl*
-end;//TvcmTabbedContainerFormDispatcher.GetActiveTabbedContainer
-
-procedure TvcmTabbedContainerFormDispatcher.StopFlashing;
-//#UC START# *2A43AA8AA799_537AEC5E03DD_var*
-//#UC END# *2A43AA8AA799_537AEC5E03DD_var*
-begin
-//#UC START# *2A43AA8AA799_537AEC5E03DD_impl*
- if Assigned(ActiveContainer) then
-  (ActiveContainer as IvcmFlashingWindow).StopFlashing;
-//#UC END# *2A43AA8AA799_537AEC5E03DD_impl*
-end;//TvcmTabbedContainerFormDispatcher.StopFlashing
-
-function TvcmTabbedContainerFormDispatcher.CanReopenClosedTab(const aContainer: Il3TabbedContainer): Boolean;
-//#UC START# *2EC8C1E48517_537AEC5E03DD_var*
-//#UC END# *2EC8C1E48517_537AEC5E03DD_var*
-begin
-//#UC START# *2EC8C1E48517_537AEC5E03DD_impl*
- Result := TvcmTabbedContainerForm(aContainer.AsForm).FormSetHistory.CanBack;
-//#UC END# *2EC8C1E48517_537AEC5E03DD_impl*
-end;//TvcmTabbedContainerFormDispatcher.CanReopenClosedTab
-
-procedure TvcmTabbedContainerFormDispatcher.CascadeWindows;
-//#UC START# *3F5E73D5D2B0_537AEC5E03DD_var*
-//#UC END# *3F5E73D5D2B0_537AEC5E03DD_var*
-begin
-//#UC START# *3F5E73D5D2B0_537AEC5E03DD_impl*
- vcmDispatcher.CascadeWindows(MakeContainersList);
-//#UC END# *3F5E73D5D2B0_537AEC5E03DD_impl*
-end;//TvcmTabbedContainerFormDispatcher.CascadeWindows
-
-procedure TvcmTabbedContainerFormDispatcher.ReopenClosedTab(const aContainer: Il3TabbedContainer);
-//#UC START# *424D166E6D0C_537AEC5E03DD_var*
-var
- l_TabbedContainer: TvcmTabbedContainerForm;
- l_ContainerMaker: IvcmContainerMaker;
- l_TabMaker: IvcmContainerMaker;
- l_ContainerToOpen: IvcmContainer;
- l_NewContainer: IvcmContainer;
-//#UC END# *424D166E6D0C_537AEC5E03DD_var*
-begin
-//#UC START# *424D166E6D0C_537AEC5E03DD_impl*
- if Supports(ActiveVCMContainer.AsForm.VCLWinControl, IvcmContainerMaker, l_ContainerMaker) then
- begin
-  f_ReopeningTab := True;
-  try
-   l_TabbedContainer := aContainer.AsForm as TvcmTabbedContainerForm;
-   l_TabMaker := TvcmContainerWithTabMaker.Make(l_ContainerMaker);
-   try
-    l_NewContainer := l_TabMaker.MakeContainer;
-    if (l_NewContainer <> nil) then
-    try
-     l_TabbedContainer.FormSetHistory.Back(l_NewContainer);
-    finally
-     l_NewContainer := nil;
-    end;
-   finally
-    l_TabMaker := nil;
-   end;
-  finally
-   f_ReopeningTab := False;
-  end;
- end
- else
-  Assert(False);
-//#UC END# *424D166E6D0C_537AEC5E03DD_impl*
-end;//TvcmTabbedContainerFormDispatcher.ReopenClosedTab
-
-procedure TvcmTabbedContainerFormDispatcher.LockContainer(const aContainer: Il3TabbedContainer);
-//#UC START# *44A2D9FC0500_537AEC5E03DD_var*
-//#UC END# *44A2D9FC0500_537AEC5E03DD_var*
-begin
-//#UC START# *44A2D9FC0500_537AEC5E03DD_impl*
- f_LockedContainers.LockContainer(aContainer.AsForm as TvcmTabbedContainerForm);
-//#UC END# *44A2D9FC0500_537AEC5E03DD_impl*
-end;//TvcmTabbedContainerFormDispatcher.LockContainer
-
 procedure TvcmTabbedContainerFormDispatcher.Unsubscribe(const aListener: Il3TabbedContainersListener);
 //#UC START# *4526B341C1C6_537AEC5E03DD_var*
 //#UC END# *4526B341C1C6_537AEC5E03DD_var*
@@ -2216,72 +2059,6 @@ begin
 //#UC END# *4526B341C1C6_537AEC5E03DD_impl*
 end;//TvcmTabbedContainerFormDispatcher.Unsubscribe
 
-function TvcmTabbedContainerFormDispatcher.GetCurrentMainForm: TWinControl;
-//#UC START# *5538B77B0192_537AEC5E03DD_var*
-//#UC END# *5538B77B0192_537AEC5E03DD_var*
-begin
-//#UC START# *5538B77B0192_537AEC5E03DD_impl*
- Result := GetCurrentActiveContainer;
-//#UC END# *5538B77B0192_537AEC5E03DD_impl*
-end;//TvcmTabbedContainerFormDispatcher.GetCurrentMainForm
-
-function TvcmTabbedContainerFormDispatcher.IsFormInContainer(aForm: TForm;
- aContainer: TForm): Boolean;
-//#UC START# *5E78F22AF1FF_537AEC5E03DD_var*
-var
- l_FormContainer: TvcmTabbedContainerForm;
-//#UC END# *5E78F22AF1FF_537AEC5E03DD_var*
-begin
-//#UC START# *5E78F22AF1FF_537AEC5E03DD_impl*
- Assert(aForm <> nil);
- Assert(aContainer <> nil);
- if NeedUseTabs then
- begin
-  l_FormContainer := GetFormContainer(aForm);
-  Result := (l_FormContainer <> nil) AND
-            (aContainer is TvcmTabbedContainerForm) AND
-            (TvcmTabbedContainerForm(aContainer) = l_FormContainer);
- end
- else
-  Result := False;
-//#UC END# *5E78F22AF1FF_537AEC5E03DD_impl*
-end;//TvcmTabbedContainerFormDispatcher.IsFormInContainer
-
-procedure TvcmTabbedContainerFormDispatcher.TileWindowsHorizontal;
-//#UC START# *651C515DADEE_537AEC5E03DD_var*
-//#UC END# *651C515DADEE_537AEC5E03DD_var*
-begin
-//#UC START# *651C515DADEE_537AEC5E03DD_impl*
- vcmDispatcher.TileWindowsHorizontal(MakeContainersList);
-//#UC END# *651C515DADEE_537AEC5E03DD_impl*
-end;//TvcmTabbedContainerFormDispatcher.TileWindowsHorizontal
-
-function TvcmTabbedContainerFormDispatcher.IsContainerLocked(const aContainer: Il3TabbedContainer): Boolean;
-//#UC START# *89B204B9A81A_537AEC5E03DD_var*
-//#UC END# *89B204B9A81A_537AEC5E03DD_var*
-begin
-//#UC START# *89B204B9A81A_537AEC5E03DD_impl*
- Result := f_LockedContainers.IsContainerLocked(aContainer.AsForm as TvcmTabbedContainerForm);
-//#UC END# *89B204B9A81A_537AEC5E03DD_impl*
-end;//TvcmTabbedContainerFormDispatcher.IsContainerLocked
-
-procedure TvcmTabbedContainerFormDispatcher.ActivateForm(aForm: TForm);
-//#UC START# *94E9E4364244_537AEC5E03DD_var*
-var
- l_TabbedContainer: TvcmTabbedContainerForm;
- l_VCMContainer: IvcmContainer;
- l_Form: TForm;
-//#UC END# *94E9E4364244_537AEC5E03DD_var*
-begin
-//#UC START# *94E9E4364244_537AEC5E03DD_impl*
- l_VCMContainer := (aForm as TvcmEntityForm).NativeMainForm;
- Assert(l_VCMContainer <> nil);
- l_Form := TForm(l_VCMContainer.AsForm.VCLWinControl);
- l_TabbedContainer := GetFormContainer(l_Form);
- l_TabbedContainer.SetSelected(l_Form);
-//#UC END# *94E9E4364244_537AEC5E03DD_impl*
-end;//TvcmTabbedContainerFormDispatcher.ActivateForm
-
 function TvcmTabbedContainerFormDispatcher.NeedUseTabs: Boolean;
 //#UC START# *9584664239A7_537AEC5E03DD_var*
 //#UC END# *9584664239A7_537AEC5E03DD_var*
@@ -2290,137 +2067,6 @@ begin
  Result  := (afw.Application.TabInterfaceType = afw_titTabs);
 //#UC END# *9584664239A7_537AEC5E03DD_impl*
 end;//TvcmTabbedContainerFormDispatcher.NeedUseTabs
-
-procedure TvcmTabbedContainerFormDispatcher.TileWindowsVertical;
-//#UC START# *9D76EEC368A2_537AEC5E03DD_var*
-//#UC END# *9D76EEC368A2_537AEC5E03DD_var*
-begin
-//#UC START# *9D76EEC368A2_537AEC5E03DD_impl*
- vcmDispatcher.TileWindowsVertical(MakeContainersList);
-//#UC END# *9D76EEC368A2_537AEC5E03DD_impl*
-end;//TvcmTabbedContainerFormDispatcher.TileWindowsVertical
-
-procedure TvcmTabbedContainerFormDispatcher.ContainedFormBecomeActive(aForm: TForm);
-//#UC START# *AEF0183D2054_537AEC5E03DD_var*
-var
- l_Container: TvcmTabbedContainerForm;
-//#UC END# *AEF0183D2054_537AEC5E03DD_var*
-begin
-//#UC START# *AEF0183D2054_537AEC5E03DD_impl*
-if NeedUseTabs then
- begin
-  Assert(aForm <> nil);
-  l_Container := GetFormContainer(aForm);
-  if (l_Container <> nil) then
-  begin
-   f_ActiveContainer := l_Container;
-   if (THackApplication(Application).FMainForm <> l_Container) then
-    THackApplication(Application).FMainForm := l_Container;
-   f_ActiveContainer.UpdateMenu(aForm); 
-  end
-  else
-   THackApplication(Application).FMainForm := aForm;
- end;
-//#UC END# *AEF0183D2054_537AEC5E03DD_impl*
-end;//TvcmTabbedContainerFormDispatcher.ContainedFormBecomeActive
-
-function TvcmTabbedContainerFormDispatcher.IsTabEmpty(const aTab: Il3FormTab): Boolean;
-//#UC START# *BFD6868132D2_537AEC5E03DD_var*
-var
- l_ContainedForm: IvcmContainedForm;
-//#UC END# *BFD6868132D2_537AEC5E03DD_var*
-begin
-//#UC START# *BFD6868132D2_537AEC5E03DD_impl*
- if Supports(aTab.TabbedForm, IvcmContainedForm, l_ContainedForm) then
-  Result := l_ContainedForm.IsEmpty
- else
-  Assert(False);
-//#UC END# *BFD6868132D2_537AEC5E03DD_impl*
-end;//TvcmTabbedContainerFormDispatcher.IsTabEmpty
-
-function TvcmTabbedContainerFormDispatcher.CloneTab(const aTab: Il3FormTab): Il3FormTab;
-//#UC START# *CA81A004E69C_537AEC5E03DD_var*
-var
- l_TabbedContainer: TvcmTabbedContainerForm;
-//#UC END# *CA81A004E69C_537AEC5E03DD_var*
-begin
-//#UC START# *CA81A004E69C_537AEC5E03DD_impl*
- Assert(aTab <> nil);
- f_CloningTab := True;
- try
-  l_TabbedContainer := TvcmTabbedContainerForm(aTab.TabbedContainer.AsForm);
-  Assert(l_TabbedContainer <> nil);
-  l_TabbedContainer.FormSetHistory.CloneTab(aTab);
- finally
-  f_CloningTab := False;
- end;
-//#UC END# *CA81A004E69C_537AEC5E03DD_impl*
-end;//TvcmTabbedContainerFormDispatcher.CloneTab
-
-function TvcmTabbedContainerFormDispatcher.GetFormTab(aForm: TForm): Il3FormTab;
-//#UC START# *E6CFFF63C7BA_537AEC5E03DD_var*
-
- function lp_IsTabbedForm(aChildForm: TForm): Boolean;
- var
-  l_Index: Integer;
- begin
-  Result := False;
-  for l_Index := 0 to Pred(f_FormToContainerMap.Count) do
-  begin
-   Result := (f_FormToContainerMap[l_Index].rForm = aChildForm);
-   if Result then
-    Break;
-  end;
- end;
-
- function lp_GetParentForm(Control: TControl): TForm;
- begin
-   while (Control.Parent <> nil) and
-         (not lp_IsTabbedForm(TForm(Control))) do
-    Control := Control.Parent;
-   if Control is TForm then
-     Result := TForm(Control) else
-     Result := nil;
- end;
-
-var
- l_Form: TForm;
- l_TabbedContainer: Il3TabbedContainer;
-//#UC END# *E6CFFF63C7BA_537AEC5E03DD_var*
-begin
-//#UC START# *E6CFFF63C7BA_537AEC5E03DD_impl*
- if NeedUseTabs then
- begin
-  Assert(aForm <> nil);
-  l_Form := lp_GetParentForm(aForm);
-  if (l_Form <> nil) then
-  begin
-   l_TabbedContainer := GetParentForm(l_Form) as TvcmTabbedContainerForm;
-   Result := l_TabbedContainer.GetFormTab(l_Form);
-  end
-  else
-   Result := nil;
- end; 
-//#UC END# *E6CFFF63C7BA_537AEC5E03DD_impl*
-end;//TvcmTabbedContainerFormDispatcher.GetFormTab
-
-procedure TvcmTabbedContainerFormDispatcher.Unlock;
-//#UC START# *E781A200DBB9_537AEC5E03DD_var*
-//#UC END# *E781A200DBB9_537AEC5E03DD_var*
-begin
-//#UC START# *E781A200DBB9_537AEC5E03DD_impl*
- Dec(f_LockCount);
-//#UC END# *E781A200DBB9_537AEC5E03DD_impl*
-end;//TvcmTabbedContainerFormDispatcher.Unlock
-
-function TvcmTabbedContainerFormDispatcher.CanCloneTab(const aTab: Il3FormTab): Boolean;
-//#UC START# *EE61E6DE4383_537AEC5E03DD_var*
-//#UC END# *EE61E6DE4383_537AEC5E03DD_var*
-begin
-//#UC START# *EE61E6DE4383_537AEC5E03DD_impl*
- Result := True;
-//#UC END# *EE61E6DE4383_537AEC5E03DD_impl*
-end;//TvcmTabbedContainerFormDispatcher.CanCloneTab
 
 procedure TvcmTabbedContainerFormDispatcher.StartFlashing;
 //#UC START# *F09F327B084A_537AEC5E03DD_var*
@@ -2432,17 +2078,15 @@ begin
 //#UC END# *F09F327B084A_537AEC5E03DD_impl*
 end;//TvcmTabbedContainerFormDispatcher.StartFlashing
 
-procedure TvcmTabbedContainerFormDispatcher.SaveTabToHistory(const aTab: Il3FormTab);
-//#UC START# *F2A394FBFE56_537AEC5E03DD_var*
-var
- l_Container: TvcmTabbedContainerForm;
-//#UC END# *F2A394FBFE56_537AEC5E03DD_var*
+procedure TvcmTabbedContainerFormDispatcher.StopFlashing;
+//#UC START# *2A43AA8AA799_537AEC5E03DD_var*
+//#UC END# *2A43AA8AA799_537AEC5E03DD_var*
 begin
-//#UC START# *F2A394FBFE56_537AEC5E03DD_impl*
- l_Container := GetFormContainer(aTab.TabbedForm);
- l_Container.FormSetHistory.SaveTab(aTab);
-//#UC END# *F2A394FBFE56_537AEC5E03DD_impl*
-end;//TvcmTabbedContainerFormDispatcher.SaveTabToHistory
+//#UC START# *2A43AA8AA799_537AEC5E03DD_impl*
+ if Assigned(ActiveContainer) then
+  (ActiveContainer as IvcmFlashingWindow).StopFlashing;
+//#UC END# *2A43AA8AA799_537AEC5E03DD_impl*
+end;//TvcmTabbedContainerFormDispatcher.StopFlashing
 
 procedure TvcmTabbedContainerFormDispatcher.CloseAll;
 //#UC START# *F550802110EC_537AEC5E03DD_var*
@@ -2491,6 +2135,373 @@ begin
   end;//try..finally
 //#UC END# *F550802110EC_537AEC5E03DD_impl*
 end;//TvcmTabbedContainerFormDispatcher.CloseAll
+
+procedure TvcmTabbedContainerFormDispatcher.CascadeWindows;
+//#UC START# *3F5E73D5D2B0_537AEC5E03DD_var*
+//#UC END# *3F5E73D5D2B0_537AEC5E03DD_var*
+begin
+//#UC START# *3F5E73D5D2B0_537AEC5E03DD_impl*
+ vcmDispatcher.CascadeWindows(MakeContainersList);
+//#UC END# *3F5E73D5D2B0_537AEC5E03DD_impl*
+end;//TvcmTabbedContainerFormDispatcher.CascadeWindows
+
+procedure TvcmTabbedContainerFormDispatcher.TileWindowsHorizontal;
+//#UC START# *651C515DADEE_537AEC5E03DD_var*
+//#UC END# *651C515DADEE_537AEC5E03DD_var*
+begin
+//#UC START# *651C515DADEE_537AEC5E03DD_impl*
+ vcmDispatcher.TileWindowsHorizontal(MakeContainersList);
+//#UC END# *651C515DADEE_537AEC5E03DD_impl*
+end;//TvcmTabbedContainerFormDispatcher.TileWindowsHorizontal
+
+procedure TvcmTabbedContainerFormDispatcher.TileWindowsVertical;
+//#UC START# *9D76EEC368A2_537AEC5E03DD_var*
+//#UC END# *9D76EEC368A2_537AEC5E03DD_var*
+begin
+//#UC START# *9D76EEC368A2_537AEC5E03DD_impl*
+ vcmDispatcher.TileWindowsVertical(MakeContainersList);
+//#UC END# *9D76EEC368A2_537AEC5E03DD_impl*
+end;//TvcmTabbedContainerFormDispatcher.TileWindowsVertical
+
+function TvcmTabbedContainerFormDispatcher.IsFormInContainer(aForm: TForm;
+ aContainer: TForm): Boolean;
+//#UC START# *5E78F22AF1FF_537AEC5E03DD_var*
+var
+ l_FormContainer: TvcmTabbedContainerForm;
+//#UC END# *5E78F22AF1FF_537AEC5E03DD_var*
+begin
+//#UC START# *5E78F22AF1FF_537AEC5E03DD_impl*
+ Assert(aForm <> nil);
+ Assert(aContainer <> nil);
+ if NeedUseTabs then
+ begin
+  l_FormContainer := GetFormContainer(aForm);
+  Result := (l_FormContainer <> nil) AND
+            (aContainer is TvcmTabbedContainerForm) AND
+            (TvcmTabbedContainerForm(aContainer) = l_FormContainer);
+ end
+ else
+  Result := False;
+//#UC END# *5E78F22AF1FF_537AEC5E03DD_impl*
+end;//TvcmTabbedContainerFormDispatcher.IsFormInContainer
+
+procedure TvcmTabbedContainerFormDispatcher.Lock;
+//#UC START# *185C64EF3184_537AEC5E03DD_var*
+//#UC END# *185C64EF3184_537AEC5E03DD_var*
+begin
+//#UC START# *185C64EF3184_537AEC5E03DD_impl*
+ Inc(f_LockCount);
+//#UC END# *185C64EF3184_537AEC5E03DD_impl*
+end;//TvcmTabbedContainerFormDispatcher.Lock
+
+procedure TvcmTabbedContainerFormDispatcher.Unlock;
+//#UC START# *E781A200DBB9_537AEC5E03DD_var*
+//#UC END# *E781A200DBB9_537AEC5E03DD_var*
+begin
+//#UC START# *E781A200DBB9_537AEC5E03DD_impl*
+ Dec(f_LockCount);
+//#UC END# *E781A200DBB9_537AEC5E03DD_impl*
+end;//TvcmTabbedContainerFormDispatcher.Unlock
+
+procedure TvcmTabbedContainerFormDispatcher.ActivateForm(aForm: TForm);
+//#UC START# *94E9E4364244_537AEC5E03DD_var*
+var
+ l_TabbedContainer: TvcmTabbedContainerForm;
+ l_VCMContainer: IvcmContainer;
+ l_Form: TForm;
+//#UC END# *94E9E4364244_537AEC5E03DD_var*
+begin
+//#UC START# *94E9E4364244_537AEC5E03DD_impl*
+ l_VCMContainer := (aForm as TvcmEntityForm).NativeMainForm;
+ Assert(l_VCMContainer <> nil);
+ l_Form := TForm(l_VCMContainer.AsForm.VCLWinControl);
+ l_TabbedContainer := GetFormContainer(l_Form);
+ l_TabbedContainer.SetSelected(l_Form);
+//#UC END# *94E9E4364244_537AEC5E03DD_impl*
+end;//TvcmTabbedContainerFormDispatcher.ActivateForm
+
+function TvcmTabbedContainerFormDispatcher.CloneTab(const aTab: Il3FormTab): Il3FormTab;
+//#UC START# *CA81A004E69C_537AEC5E03DD_var*
+var
+ l_TabbedContainer: TvcmTabbedContainerForm;
+//#UC END# *CA81A004E69C_537AEC5E03DD_var*
+begin
+//#UC START# *CA81A004E69C_537AEC5E03DD_impl*
+ Assert(aTab <> nil);
+ f_CloningTab := True;
+ try
+  l_TabbedContainer := TvcmTabbedContainerForm(aTab.TabbedContainer.AsForm);
+  Assert(l_TabbedContainer <> nil);
+  l_TabbedContainer.FormSetHistory.CloneTab(aTab);
+ finally
+  f_CloningTab := False;
+ end;
+//#UC END# *CA81A004E69C_537AEC5E03DD_impl*
+end;//TvcmTabbedContainerFormDispatcher.CloneTab
+
+function TvcmTabbedContainerFormDispatcher.CanCloneTab(const aTab: Il3FormTab): Boolean;
+//#UC START# *EE61E6DE4383_537AEC5E03DD_var*
+//#UC END# *EE61E6DE4383_537AEC5E03DD_var*
+begin
+//#UC START# *EE61E6DE4383_537AEC5E03DD_impl*
+ Result := True;
+//#UC END# *EE61E6DE4383_537AEC5E03DD_impl*
+end;//TvcmTabbedContainerFormDispatcher.CanCloneTab
+
+procedure TvcmTabbedContainerFormDispatcher.ReopenClosedTab(const aContainer: Il3TabbedContainer);
+//#UC START# *424D166E6D0C_537AEC5E03DD_var*
+var
+ l_TabbedContainer: TvcmTabbedContainerForm;
+ l_ContainerMaker: IvcmContainerMaker;
+ l_TabMaker: IvcmContainerMaker;
+ l_ContainerToOpen: IvcmContainer;
+ l_NewContainer: IvcmContainer;
+//#UC END# *424D166E6D0C_537AEC5E03DD_var*
+begin
+//#UC START# *424D166E6D0C_537AEC5E03DD_impl*
+ if Supports(ActiveVCMContainer.AsForm.VCLWinControl, IvcmContainerMaker, l_ContainerMaker) then
+ begin
+  f_ReopeningTab := True;
+  try
+   l_TabbedContainer := aContainer.AsForm as TvcmTabbedContainerForm;
+   l_TabMaker := TvcmContainerWithTabMaker.Make(l_ContainerMaker);
+   try
+    l_NewContainer := l_TabMaker.MakeContainer;
+    if (l_NewContainer <> nil) then
+    try
+     l_TabbedContainer.FormSetHistory.Back(l_NewContainer);
+    finally
+     l_NewContainer := nil;
+    end;
+   finally
+    l_TabMaker := nil;
+   end;
+  finally
+   f_ReopeningTab := False;
+  end;
+ end
+ else
+  Assert(False);
+//#UC END# *424D166E6D0C_537AEC5E03DD_impl*
+end;//TvcmTabbedContainerFormDispatcher.ReopenClosedTab
+
+function TvcmTabbedContainerFormDispatcher.CanReopenClosedTab(const aContainer: Il3TabbedContainer): Boolean;
+//#UC START# *2EC8C1E48517_537AEC5E03DD_var*
+//#UC END# *2EC8C1E48517_537AEC5E03DD_var*
+begin
+//#UC START# *2EC8C1E48517_537AEC5E03DD_impl*
+ Result := TvcmTabbedContainerForm(aContainer.AsForm).FormSetHistory.CanBack;
+//#UC END# *2EC8C1E48517_537AEC5E03DD_impl*
+end;//TvcmTabbedContainerFormDispatcher.CanReopenClosedTab
+
+procedure TvcmTabbedContainerFormDispatcher.SaveTabToHistory(const aTab: Il3FormTab);
+//#UC START# *F2A394FBFE56_537AEC5E03DD_var*
+var
+ l_Container: TvcmTabbedContainerForm;
+//#UC END# *F2A394FBFE56_537AEC5E03DD_var*
+begin
+//#UC START# *F2A394FBFE56_537AEC5E03DD_impl*
+ l_Container := GetFormContainer(aTab.TabbedForm);
+ l_Container.FormSetHistory.SaveTab(aTab);
+//#UC END# *F2A394FBFE56_537AEC5E03DD_impl*
+end;//TvcmTabbedContainerFormDispatcher.SaveTabToHistory
+
+procedure TvcmTabbedContainerFormDispatcher.LockContainer(const aContainer: Il3TabbedContainer);
+//#UC START# *44A2D9FC0500_537AEC5E03DD_var*
+//#UC END# *44A2D9FC0500_537AEC5E03DD_var*
+begin
+//#UC START# *44A2D9FC0500_537AEC5E03DD_impl*
+ f_LockedContainers.LockContainer(aContainer.AsForm as TvcmTabbedContainerForm);
+//#UC END# *44A2D9FC0500_537AEC5E03DD_impl*
+end;//TvcmTabbedContainerFormDispatcher.LockContainer
+
+procedure TvcmTabbedContainerFormDispatcher.UnlockContainer(const aContainer: Il3TabbedContainer);
+//#UC START# *1BFA5AA0644C_537AEC5E03DD_var*
+//#UC END# *1BFA5AA0644C_537AEC5E03DD_var*
+begin
+//#UC START# *1BFA5AA0644C_537AEC5E03DD_impl*
+ f_LockedContainers.UnlockContainer(aContainer.AsForm as TvcmTabbedContainerForm);
+//#UC END# *1BFA5AA0644C_537AEC5E03DD_impl*
+end;//TvcmTabbedContainerFormDispatcher.UnlockContainer
+
+function TvcmTabbedContainerFormDispatcher.IsContainerLocked(const aContainer: Il3TabbedContainer): Boolean;
+//#UC START# *89B204B9A81A_537AEC5E03DD_var*
+//#UC END# *89B204B9A81A_537AEC5E03DD_var*
+begin
+//#UC START# *89B204B9A81A_537AEC5E03DD_impl*
+ Result := f_LockedContainers.IsContainerLocked(aContainer.AsForm as TvcmTabbedContainerForm);
+//#UC END# *89B204B9A81A_537AEC5E03DD_impl*
+end;//TvcmTabbedContainerFormDispatcher.IsContainerLocked
+
+procedure TvcmTabbedContainerFormDispatcher.CloseTab(const aTab: Il3FormTab);
+//#UC START# *0E111B36F193_537AEC5E03DD_var*
+var
+ l_ContainedForm: IvcmContainedForm;
+ l_Container: IvcmContainer;
+//#UC END# *0E111B36F193_537AEC5E03DD_var*
+begin
+//#UC START# *0E111B36F193_537AEC5E03DD_impl*
+ if Supports(aTab.TabbedForm, IvcmContainedForm, l_ContainedForm) then
+ begin
+  TvcmTabbedContainerForm(aTab.TabbedContainer.AsForm).FormSetHistory.SaveTab(aTab);
+  if Supports(aTab.TabbedForm, IvcmContainer, l_Container) then
+   TvcmFormSetContainerRegistry.Instance.UnregisterContainer(l_Container);
+  l_ContainedForm.CloseContainedForm;
+ end
+ else
+  Assert(False);
+//#UC END# *0E111B36F193_537AEC5E03DD_impl*
+end;//TvcmTabbedContainerFormDispatcher.CloseTab
+
+function TvcmTabbedContainerFormDispatcher.GetFormTab(aForm: TForm): Il3FormTab;
+//#UC START# *E6CFFF63C7BA_537AEC5E03DD_var*
+
+ function lp_IsTabbedForm(aChildForm: TForm): Boolean;
+ var
+  l_Index: Integer;
+ begin
+  Result := False;
+  for l_Index := 0 to Pred(f_FormToContainerMap.Count) do
+  begin
+   Result := (f_FormToContainerMap[l_Index].rForm = aChildForm);
+   if Result then
+    Break;
+  end;
+ end;
+
+ function lp_GetParentForm(Control: TControl): TForm;
+ begin
+   while (Control.Parent <> nil) and
+         (not lp_IsTabbedForm(TForm(Control))) do
+    Control := Control.Parent;
+   if Control is TForm then
+     Result := TForm(Control) else
+     Result := nil;
+ end;
+
+var
+ l_Form: TForm;
+ l_TabbedContainer: Il3TabbedContainer;
+//#UC END# *E6CFFF63C7BA_537AEC5E03DD_var*
+begin
+//#UC START# *E6CFFF63C7BA_537AEC5E03DD_impl*
+ if NeedUseTabs then
+ begin
+  Assert(aForm <> nil);
+  l_Form := lp_GetParentForm(aForm);
+  if (l_Form <> nil) then
+  begin
+   l_TabbedContainer := GetParentForm(l_Form) as TvcmTabbedContainerForm;
+   Result := l_TabbedContainer.GetFormTab(l_Form);
+  end
+  else
+   Result := nil;
+ end; 
+//#UC END# *E6CFFF63C7BA_537AEC5E03DD_impl*
+end;//TvcmTabbedContainerFormDispatcher.GetFormTab
+
+function TvcmTabbedContainerFormDispatcher.IsTabEmpty(const aTab: Il3FormTab): Boolean;
+//#UC START# *BFD6868132D2_537AEC5E03DD_var*
+var
+ l_ContainedForm: IvcmContainedForm;
+//#UC END# *BFD6868132D2_537AEC5E03DD_var*
+begin
+//#UC START# *BFD6868132D2_537AEC5E03DD_impl*
+ if Supports(aTab.TabbedForm, IvcmContainedForm, l_ContainedForm) then
+  Result := l_ContainedForm.IsEmpty
+ else
+  Assert(False);
+//#UC END# *BFD6868132D2_537AEC5E03DD_impl*
+end;//TvcmTabbedContainerFormDispatcher.IsTabEmpty
+
+function TvcmTabbedContainerFormDispatcher.GetActiveTabbedContainer: Il3TabbedContainer;
+//#UC START# *2774A286694A_537AEC5E03DD_var*
+//#UC END# *2774A286694A_537AEC5E03DD_var*
+begin
+//#UC START# *2774A286694A_537AEC5E03DD_impl*
+ Result := ActiveContainer as Il3TabbedContainer;
+//#UC END# *2774A286694A_537AEC5E03DD_impl*
+end;//TvcmTabbedContainerFormDispatcher.GetActiveTabbedContainer
+
+function TvcmTabbedContainerFormDispatcher.IsInBF(aContainedForm: TForm): Boolean;
+//#UC START# *06D14140190A_537AEC5E03DD_var*
+var
+ l_Container: IvcmContainer;
+ l_History: IvcmFormSetHistory;
+ l_TabsHistory: IvcmFormSetHistory;
+ l_InSimpleBF: Boolean;
+ l_InTabsHistoryBF: Boolean;
+//#UC END# *06D14140190A_537AEC5E03DD_var*
+begin
+//#UC START# *06D14140190A_537AEC5E03DD_impl*
+ l_History := GetTabHistory(aContainedForm);
+ l_InSimpleBF := False;
+ if (l_History <> nil) then
+  l_InSimpleBF := l_History.InBF;
+ l_InTabsHistoryBf := False;
+ if (not l_InSimpleBF) then
+ begin
+  l_TabsHistory := GetTabHistory(aContainedForm);
+  if (l_TabsHistory <> nil) then
+  begin
+   l_Container := TvcmEntityForm(aContainedForm).As_IvcmEntityForm.AsContainer;
+   l_InTabsHistoryBf := (l_Container <> nil) and l_TabsHistory.IsContainerInOp(l_Container);
+  end; 
+ end;
+ Result := l_InSimpleBF or l_InTabsHistoryBf;
+//#UC END# *06D14140190A_537AEC5E03DD_impl*
+end;//TvcmTabbedContainerFormDispatcher.IsInBF
+
+function TvcmTabbedContainerFormDispatcher.GetTabIcon(const aTab: Il3FormTab): Integer;
+//#UC START# *02157F96E465_537AEC5E03DD_var*
+//#UC END# *02157F96E465_537AEC5E03DD_var*
+begin
+//#UC START# *02157F96E465_537AEC5E03DD_impl*
+ Result := aTab.CurrentParams.ImageIndex;
+//#UC END# *02157F96E465_537AEC5E03DD_impl*
+end;//TvcmTabbedContainerFormDispatcher.GetTabIcon
+
+procedure TvcmTabbedContainerFormDispatcher.ContainedFormBecomeActive(aForm: TForm);
+//#UC START# *AEF0183D2054_537AEC5E03DD_var*
+var
+ l_Container: TvcmTabbedContainerForm;
+//#UC END# *AEF0183D2054_537AEC5E03DD_var*
+begin
+//#UC START# *AEF0183D2054_537AEC5E03DD_impl*
+if NeedUseTabs then
+ begin
+  Assert(aForm <> nil);
+  l_Container := GetFormContainer(aForm);
+  if (l_Container <> nil) then
+  begin
+   f_ActiveContainer := l_Container;
+   if (THackApplication(Application).FMainForm <> l_Container) then
+    THackApplication(Application).FMainForm := l_Container;
+   f_ActiveContainer.UpdateMenu(aForm); 
+  end
+  else
+   THackApplication(Application).FMainForm := aForm;
+ end;
+//#UC END# *AEF0183D2054_537AEC5E03DD_impl*
+end;//TvcmTabbedContainerFormDispatcher.ContainedFormBecomeActive
+
+function TvcmTabbedContainerFormDispatcher.GetTabCaption(const aTab: Il3FormTab): AnsiString;
+//#UC START# *086A3DF2665B_537AEC5E03DD_var*
+//#UC END# *086A3DF2665B_537AEC5E03DD_var*
+begin
+//#UC START# *086A3DF2665B_537AEC5E03DD_impl*
+ Result := aTab.CurrentParams.Text;
+//#UC END# *086A3DF2665B_537AEC5E03DD_impl*
+end;//TvcmTabbedContainerFormDispatcher.GetTabCaption
+
+function TvcmTabbedContainerFormDispatcher.IsTabClosing(const aTab: Il3FormTab): Boolean;
+//#UC START# *27138C52AC0C_537AEC5E03DD_var*
+//#UC END# *27138C52AC0C_537AEC5E03DD_var*
+begin
+//#UC START# *27138C52AC0C_537AEC5E03DD_impl*
+ Result := (Pointer(aTab) = f_ClosingTab);
+//#UC END# *27138C52AC0C_537AEC5E03DD_impl*
+end;//TvcmTabbedContainerFormDispatcher.IsTabClosing
 
 class function TvcmTabbedContainerFormDispatcher.Instance: TvcmTabbedContainerFormDispatcher;
  {* Метод получения экземпляра синглетона TvcmTabbedContainerFormDispatcher }

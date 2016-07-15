@@ -56,12 +56,12 @@ type
     aClickCallback: Tl3WikiLinkClicked);
    {$IfEnd} // NOT Defined(NoVCL)
    {$If NOT Defined(NoVCL)}
-   function FormatCloak(const aCaption: AnsiString;
-    const aText: AnsiString): AnsiString;
-   {$IfEnd} // NOT Defined(NoVCL)
-   {$If NOT Defined(NoVCL)}
    function FormatLink(const aLinkText: AnsiString;
     const aLinkData: AnsiString): AnsiString;
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoVCL)}
+   function FormatCloak(const aCaption: AnsiString;
+    const aText: AnsiString): AnsiString;
    {$IfEnd} // NOT Defined(NoVCL)
    {$If NOT Defined(NoVCL)}
    function CanUseWiki: Boolean;
@@ -694,18 +694,6 @@ end;//TvcmHugeMessageDlgWithWikiImpl.Say
 {$IfEnd} // NOT Defined(NoVCL)
 
 {$If NOT Defined(NoVCL)}
-function TvcmHugeMessageDlgWithWikiImpl.FormatCloak(const aCaption: AnsiString;
- const aText: AnsiString): AnsiString;
-//#UC START# *3CDB8D32C712_5515501B009E_var*
-//#UC END# *3CDB8D32C712_5515501B009E_var*
-begin
-//#UC START# *3CDB8D32C712_5515501B009E_impl*
- Result := '{cloak}'#13#10 + aCaption + #13#10 + aText + #13#10'{/cloak}'#13#10;
-//#UC END# *3CDB8D32C712_5515501B009E_impl*
-end;//TvcmHugeMessageDlgWithWikiImpl.FormatCloak
-{$IfEnd} // NOT Defined(NoVCL)
-
-{$If NOT Defined(NoVCL)}
 function TvcmHugeMessageDlgWithWikiImpl.FormatLink(const aLinkText: AnsiString;
  const aLinkData: AnsiString): AnsiString;
 //#UC START# *5AFFFDE1F6AB_5515501B009E_var*
@@ -715,6 +703,18 @@ begin
  Result := '[' + aLinkText + '|' + aLinkData + ']';
 //#UC END# *5AFFFDE1F6AB_5515501B009E_impl*
 end;//TvcmHugeMessageDlgWithWikiImpl.FormatLink
+{$IfEnd} // NOT Defined(NoVCL)
+
+{$If NOT Defined(NoVCL)}
+function TvcmHugeMessageDlgWithWikiImpl.FormatCloak(const aCaption: AnsiString;
+ const aText: AnsiString): AnsiString;
+//#UC START# *3CDB8D32C712_5515501B009E_var*
+//#UC END# *3CDB8D32C712_5515501B009E_var*
+begin
+//#UC START# *3CDB8D32C712_5515501B009E_impl*
+ Result := '{cloak}'#13#10 + aCaption + #13#10 + aText + #13#10'{/cloak}'#13#10;
+//#UC END# *3CDB8D32C712_5515501B009E_impl*
+end;//TvcmHugeMessageDlgWithWikiImpl.FormatCloak
 {$IfEnd} // NOT Defined(NoVCL)
 
 {$If NOT Defined(NoVCL)}

@@ -48,8 +48,6 @@ type
   , dtFlash
  );//TDocType
 
- TFamilyID = Word;
-
  TDiapasonRec = record
  end;//TDiapasonRec
 
@@ -108,12 +106,8 @@ type
  TOperActionType = (
  );//TOperActionType
 
- TPriority = ;
-
  TStageType = (
  );//TStageType
-
- TUserGrID = ;
 
 implementation
 

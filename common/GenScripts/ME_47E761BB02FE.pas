@@ -45,6 +45,7 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoVCL)}
 {$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}
 
 procedure TvcmAction.DoUpdate;
@@ -61,6 +62,7 @@ initialization
  TtfwClassRef.Register(TvcmAction);
  {* Регистрация TvcmAction }
 {$IfEnd} // NOT Defined(NoScripts)
-{$IfEnd} // NOT Defined(NoVCM)
+{$IfEnd} // NOT Defined(NoVCL)
 
+{$IfEnd} // NOT Defined(NoVCM)
 end.

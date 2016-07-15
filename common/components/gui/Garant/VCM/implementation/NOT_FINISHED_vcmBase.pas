@@ -16,6 +16,7 @@ uses
  , l3ProtoObject
  , l3ProtoObjectWithCOMQI
  , vcmInterfaces
+ , l3CClassList
 ;
 
 type
@@ -33,6 +34,9 @@ type
 
  TvcmLongintList = class
  end;//TvcmLongintList
+
+ TvcmClassList = class(Tl3CClassList)
+ end;//TvcmClassList
 
 procedure vcmFmt;
 procedure vcmParams;

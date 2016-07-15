@@ -19,9 +19,9 @@ uses
 type
  TvcmStringIDExHelper = {final} class(Tl3ProtoObject, Il3StringIDExHelper)
   public
-   procedure Init(var theStr: Tl3StringIDEx);
    function AsCStr(const aStr: Tl3StringIDEx): Il3CString;
    function AsStr(const aStr: Tl3StringIDEx): AnsiString;
+   procedure Init(var theStr: Tl3StringIDEx);
    class function Instance: TvcmStringIDExHelper;
     {* Метод получения экземпляра синглетона TvcmStringIDExHelper }
    class function Exists: Boolean;
@@ -47,21 +47,6 @@ procedure TvcmStringIDExHelperFree;
 begin
  l3Free(g_TvcmStringIDExHelper);
 end;//TvcmStringIDExHelperFree
-
-procedure TvcmStringIDExHelper.Init(var theStr: Tl3StringIDEx);
-//#UC START# *071573E75439_4B98D9FD038B_var*
-//#UC END# *071573E75439_4B98D9FD038B_var*
-begin
-//#UC START# *071573E75439_4B98D9FD038B_impl*
- {$If Defined(IsVCMProject) OR Defined(DesignTimeLibrary)}
- inherited;
- if (theStr.rValue <> '') then
-  vcmInitConstString(theStr);
- {$Else}
- theStr.rS := -1;
- {$IfEnd}
-//#UC END# *071573E75439_4B98D9FD038B_impl*
-end;//TvcmStringIDExHelper.Init
 
 function TvcmStringIDExHelper.AsCStr(const aStr: Tl3StringIDEx): Il3CString;
 //#UC START# *201B50E5979A_4B98D9FD038B_var*
@@ -94,6 +79,21 @@ begin
  {$IfEnd}
 //#UC END# *74E80608E1B4_4B98D9FD038B_impl*
 end;//TvcmStringIDExHelper.AsStr
+
+procedure TvcmStringIDExHelper.Init(var theStr: Tl3StringIDEx);
+//#UC START# *071573E75439_4B98D9FD038B_var*
+//#UC END# *071573E75439_4B98D9FD038B_var*
+begin
+//#UC START# *071573E75439_4B98D9FD038B_impl*
+ {$If Defined(IsVCMProject) OR Defined(DesignTimeLibrary)}
+ inherited;
+ if (theStr.rValue <> '') then
+  vcmInitConstString(theStr);
+ {$Else}
+ theStr.rS := -1;
+ {$IfEnd}
+//#UC END# *071573E75439_4B98D9FD038B_impl*
+end;//TvcmStringIDExHelper.Init
 
 class function TvcmStringIDExHelper.Instance: TvcmStringIDExHelper;
  {* Метод получения экземпляра синглетона TvcmStringIDExHelper }

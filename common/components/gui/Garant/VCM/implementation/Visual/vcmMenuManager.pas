@@ -230,7 +230,6 @@ type
 
  IvcmToolbarGlyphService = interface
   {* Интерфейс сервиса TvcmToolbarGlyphService }
-  ['{684F830B-0EE2-4428-A605-4D14D3FB3A2E}']
   procedure SetGlyphSize(aValue: TvcmGlyphSize);
   function GetGlyphSize: TvcmGlyphSize;
   function GetGlyphColorDepth: TvcmGlyphColordepth;
@@ -245,10 +244,10 @@ type
    procedure pm_SetAlien(const aValue: IvcmToolbarGlyphService);
    procedure ClearFields; override;
   public
-   function GetGlyphSize: TvcmGlyphSize;
-   procedure SetGlyphColorDepth(aValue: TvcmGlyphColordepth);
-   function GetGlyphColorDepth: TvcmGlyphColordepth;
    procedure SetGlyphSize(aValue: TvcmGlyphSize);
+   function GetGlyphSize: TvcmGlyphSize;
+   function GetGlyphColorDepth: TvcmGlyphColordepth;
+   procedure SetGlyphColorDepth(aValue: TvcmGlyphColordepth);
    class function Instance: TvcmToolbarGlyphService;
     {* Метод получения экземпляра синглетона TvcmToolbarGlyphService }
    class function Exists: Boolean;
@@ -1087,6 +1086,21 @@ begin
  f_Alien := aValue;
 end;//TvcmToolbarGlyphService.pm_SetAlien
 
+procedure TvcmToolbarGlyphService.SetGlyphSize(aValue: TvcmGlyphSize);
+//#UC START# *E8ADA32D143E_552BADA90096_var*
+//#UC END# *E8ADA32D143E_552BADA90096_var*
+begin
+//#UC START# *E8ADA32D143E_552BADA90096_impl*
+ if (f_Alien <> nil) then
+  f_Alien.SetGlyphSize(aValue)
+ else
+ begin
+  (g_MenuManager as TvcmCustomMenuManager).GlyphSize := aValue;
+  (g_MenuManager as TvcmCustomMenuManager).StoreGlyphSize;
+ end;//f_Alien <> nil
+//#UC END# *E8ADA32D143E_552BADA90096_impl*
+end;//TvcmToolbarGlyphService.SetGlyphSize
+
 function TvcmToolbarGlyphService.GetGlyphSize: TvcmGlyphSize;
 //#UC START# *9DEC90563B75_552BADA90096_var*
 //#UC END# *9DEC90563B75_552BADA90096_var*
@@ -1098,6 +1112,18 @@ begin
   Result := (g_MenuManager as TvcmCustomMenuManager).GlyphSize;
 //#UC END# *9DEC90563B75_552BADA90096_impl*
 end;//TvcmToolbarGlyphService.GetGlyphSize
+
+function TvcmToolbarGlyphService.GetGlyphColorDepth: TvcmGlyphColordepth;
+//#UC START# *BC663849408C_552BADA90096_var*
+//#UC END# *BC663849408C_552BADA90096_var*
+begin
+//#UC START# *BC663849408C_552BADA90096_impl*
+ if (f_Alien <> nil) then
+  Result := f_Alien.GetGlyphColordepth
+ else
+  Result := (g_MenuManager as TvcmCustomMenuManager).GlyphColordepth;
+//#UC END# *BC663849408C_552BADA90096_impl*
+end;//TvcmToolbarGlyphService.GetGlyphColorDepth
 
 procedure TvcmToolbarGlyphService.SetGlyphColorDepth(aValue: TvcmGlyphColordepth);
 //#UC START# *B8089BE16F42_552BADA90096_var*
@@ -1113,33 +1139,6 @@ begin
  end;//f_Alien <> nil
 //#UC END# *B8089BE16F42_552BADA90096_impl*
 end;//TvcmToolbarGlyphService.SetGlyphColorDepth
-
-function TvcmToolbarGlyphService.GetGlyphColorDepth: TvcmGlyphColordepth;
-//#UC START# *BC663849408C_552BADA90096_var*
-//#UC END# *BC663849408C_552BADA90096_var*
-begin
-//#UC START# *BC663849408C_552BADA90096_impl*
- if (f_Alien <> nil) then
-  Result := f_Alien.GetGlyphColordepth
- else
-  Result := (g_MenuManager as TvcmCustomMenuManager).GlyphColordepth;
-//#UC END# *BC663849408C_552BADA90096_impl*
-end;//TvcmToolbarGlyphService.GetGlyphColorDepth
-
-procedure TvcmToolbarGlyphService.SetGlyphSize(aValue: TvcmGlyphSize);
-//#UC START# *E8ADA32D143E_552BADA90096_var*
-//#UC END# *E8ADA32D143E_552BADA90096_var*
-begin
-//#UC START# *E8ADA32D143E_552BADA90096_impl*
- if (f_Alien <> nil) then
-  f_Alien.SetGlyphSize(aValue)
- else
- begin
-  (g_MenuManager as TvcmCustomMenuManager).GlyphSize := aValue;
-  (g_MenuManager as TvcmCustomMenuManager).StoreGlyphSize;
- end;//f_Alien <> nil
-//#UC END# *E8ADA32D143E_552BADA90096_impl*
-end;//TvcmToolbarGlyphService.SetGlyphSize
 
 class function TvcmToolbarGlyphService.Instance: TvcmToolbarGlyphService;
  {* Метод получения экземпляра синглетона TvcmToolbarGlyphService }

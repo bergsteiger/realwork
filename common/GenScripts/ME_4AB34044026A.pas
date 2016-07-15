@@ -25,6 +25,9 @@ implementation
 {$If NOT Defined(NoVCM)}
 uses
  l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , tfwModuleOperationWordEx
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 {$IfEnd} // NOT Defined(NoVCM)
 
