@@ -68,10 +68,10 @@ type
 {$If NOT Defined(NoVCL)}
  TafwFormsService = {final} class(Tl3ProtoObject, Il3FormsService)
   public
-   function GetAnotherParentForm(Component: TPersistent): TCustomForm;
-   function GetMainForm(Component: TPersistent): TCustomForm;
    function GetParentForm(Component: TPersistent): TCustomForm;
+   function GetAnotherParentForm(Component: TPersistent): TCustomForm;
    function GetTopParentForm(Component: TPersistent): TCustomForm;
+   function GetMainForm(Component: TPersistent): TCustomForm;
    class function Instance: TafwFormsService;
     {* Метод получения экземпляра синглетона TafwFormsService }
    class function Exists: Boolean;
@@ -240,24 +240,6 @@ begin
 end;//TafwMessagesService.Exists
 
 {$If NOT Defined(NoVCL)}
-function TafwFormsService.GetAnotherParentForm(Component: TPersistent): TCustomForm;
-//#UC START# *1077E9580F6F_5506D5FB0019_var*
-//#UC END# *1077E9580F6F_5506D5FB0019_var*
-begin
-//#UC START# *1077E9580F6F_5506D5FB0019_impl*
- Result := afw.GetAnotherParentForm(Component);
-//#UC END# *1077E9580F6F_5506D5FB0019_impl*
-end;//TafwFormsService.GetAnotherParentForm
-
-function TafwFormsService.GetMainForm(Component: TPersistent): TCustomForm;
-//#UC START# *207716257CFB_5506D5FB0019_var*
-//#UC END# *207716257CFB_5506D5FB0019_var*
-begin
-//#UC START# *207716257CFB_5506D5FB0019_impl*
- Result := afw.GetMainForm(Component);
-//#UC END# *207716257CFB_5506D5FB0019_impl*
-end;//TafwFormsService.GetMainForm
-
 function TafwFormsService.GetParentForm(Component: TPersistent): TCustomForm;
 //#UC START# *32D6965B86E7_5506D5FB0019_var*
 //#UC END# *32D6965B86E7_5506D5FB0019_var*
@@ -267,6 +249,15 @@ begin
 //#UC END# *32D6965B86E7_5506D5FB0019_impl*
 end;//TafwFormsService.GetParentForm
 
+function TafwFormsService.GetAnotherParentForm(Component: TPersistent): TCustomForm;
+//#UC START# *1077E9580F6F_5506D5FB0019_var*
+//#UC END# *1077E9580F6F_5506D5FB0019_var*
+begin
+//#UC START# *1077E9580F6F_5506D5FB0019_impl*
+ Result := afw.GetAnotherParentForm(Component);
+//#UC END# *1077E9580F6F_5506D5FB0019_impl*
+end;//TafwFormsService.GetAnotherParentForm
+
 function TafwFormsService.GetTopParentForm(Component: TPersistent): TCustomForm;
 //#UC START# *D9663D6CD433_5506D5FB0019_var*
 //#UC END# *D9663D6CD433_5506D5FB0019_var*
@@ -275,6 +266,15 @@ begin
  Result := afw.GetTopParentForm(Component);
 //#UC END# *D9663D6CD433_5506D5FB0019_impl*
 end;//TafwFormsService.GetTopParentForm
+
+function TafwFormsService.GetMainForm(Component: TPersistent): TCustomForm;
+//#UC START# *207716257CFB_5506D5FB0019_var*
+//#UC END# *207716257CFB_5506D5FB0019_var*
+begin
+//#UC START# *207716257CFB_5506D5FB0019_impl*
+ Result := afw.GetMainForm(Component);
+//#UC END# *207716257CFB_5506D5FB0019_impl*
+end;//TafwFormsService.GetMainForm
 
 class function TafwFormsService.Instance: TafwFormsService;
  {* Метод получения экземпляра синглетона TafwFormsService }

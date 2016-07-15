@@ -25,7 +25,6 @@ uses
 type
  Im3StorageService = interface
   {* Èםעונפויס סונגטסא Tm3StorageService }
-  ['{1743FF3C-E36C-4C66-BDD4-9CA1C4601983}']
   function UseSplitted: Boolean;
   function SetUseSplitted(aValue: Boolean): Boolean;
  end;//Im3StorageService
