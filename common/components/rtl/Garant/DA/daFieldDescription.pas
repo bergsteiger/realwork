@@ -25,6 +25,7 @@ type
    f_DataType: TdaDataType;
    f_Index: Integer;
    f_Size: Integer;
+   f_IsPrimaryKey: Boolean;
   protected
    function Get_SQLName: AnsiString;
    function Get_Description: AnsiString;
@@ -35,17 +36,20 @@ type
    procedure BindToTable(const aTable: IdaTableDescription = nil;
     anIndex: Integer = -1);
    function Get_Size: Integer;
+   function Get_IsPrimaryKey: Boolean;
   public
    constructor Create(const aSQLName: AnsiString;
     const aDesc: AnsiString;
     aRequired: Boolean;
     aType: TdaDataType;
-    aSize: Integer = 0); reintroduce;
+    aSize: Integer = 0;
+    anIsPrimaryKey: Boolean = False); reintroduce;
    class function Make(const aSQLName: AnsiString;
     const aDesc: AnsiString;
     aRequired: Boolean;
     aType: TdaDataType;
-    aSize: Integer = 0): IdaFieldDescription; reintroduce;
+    aSize: Integer = 0;
+    anIsPrimaryKey: Boolean = False): IdaFieldDescription; reintroduce;
  end;//TdaFieldDescription
 
 implementation
@@ -58,7 +62,8 @@ constructor TdaFieldDescription.Create(const aSQLName: AnsiString;
  const aDesc: AnsiString;
  aRequired: Boolean;
  aType: TdaDataType;
- aSize: Integer = 0);
+ aSize: Integer = 0;
+ anIsPrimaryKey: Boolean = False);
 //#UC START# *5538D15A03E5_5538D0A902AF_var*
 //#UC END# *5538D15A03E5_5538D0A902AF_var*
 begin
@@ -76,11 +81,12 @@ class function TdaFieldDescription.Make(const aSQLName: AnsiString;
  const aDesc: AnsiString;
  aRequired: Boolean;
  aType: TdaDataType;
- aSize: Integer = 0): IdaFieldDescription;
+ aSize: Integer = 0;
+ anIsPrimaryKey: Boolean = False): IdaFieldDescription;
 var
  l_Inst : TdaFieldDescription;
 begin
- l_Inst := Create(aSQLName, aDesc, aRequired, aType, aSize);
+ l_Inst := Create(aSQLName, aDesc, aRequired, aType, aSize, anIsPrimaryKey);
  try
   Result := l_Inst;
  finally
@@ -161,5 +167,14 @@ begin
  Result := f_Size;
 //#UC END# *553A064A03B1_5538D0A902AFget_impl*
 end;//TdaFieldDescription.Get_Size
+
+function TdaFieldDescription.Get_IsPrimaryKey: Boolean;
+//#UC START# *5763DAB80335_5538D0A902AFget_var*
+//#UC END# *5763DAB80335_5538D0A902AFget_var*
+begin
+//#UC START# *5763DAB80335_5538D0A902AFget_impl*
+ Result := f_IsPrimaryKey;
+//#UC END# *5763DAB80335_5538D0A902AFget_impl*
+end;//TdaFieldDescription.Get_IsPrimaryKey
 
 end.

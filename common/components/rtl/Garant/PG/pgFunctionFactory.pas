@@ -12,6 +12,7 @@ interface
 uses
  l3IntfUses
  , l3ProtoObject
+ , pgInterfaces
  , pgConnection
  , daInterfaces
  , daTypes
@@ -24,7 +25,7 @@ type
   rType: TdaDataType;
  end;//TTypeMapRec
 
- TpgFunctionFactory = class(Tl3ProtoObject)
+ TpgFunctionFactory = class(Tl3ProtoObject, IpgConnectionListener)
   private
    f_Connection: TpgConnection;
    f_TypesQueryName: AnsiString;
@@ -43,6 +44,8 @@ type
    function ExtractDataType(const aDataType: AnsiString): TdaDataType;
    function ExtractParamType(const aParamType: AnsiString): TdaParamType;
   protected
+   procedure AfterConnect;
+   procedure BeforeDisconnect;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
   public
@@ -61,7 +64,6 @@ uses
  , LibPQ
  , SysUtils
  , daScheme
- , pgInterfaces
  , Classes
  , pgUtils
  , pgFunctionParamDescription
@@ -383,6 +385,26 @@ begin
  end;
 //#UC END# *56616E9800EA_56613507012C_impl*
 end;//TpgFunctionFactory.MakeFunction
+
+procedure TpgFunctionFactory.AfterConnect;
+//#UC START# *5769243F0191_56613507012C_var*
+//#UC END# *5769243F0191_56613507012C_var*
+begin
+//#UC START# *5769243F0191_56613507012C_impl*
+ InitTypesQuery;
+ InitFuctionsQuery;
+//#UC END# *5769243F0191_56613507012C_impl*
+end;//TpgFunctionFactory.AfterConnect
+
+procedure TpgFunctionFactory.BeforeDisconnect;
+//#UC START# *5769244F01F5_56613507012C_var*
+//#UC END# *5769244F01F5_56613507012C_var*
+begin
+//#UC START# *5769244F01F5_56613507012C_impl*
+ DoneTypesQuery;
+ DoneFuctionsQuery;
+//#UC END# *5769244F01F5_56613507012C_impl*
+end;//TpgFunctionFactory.BeforeDisconnect
 
 procedure TpgFunctionFactory.Cleanup;
  {* Функция очистки полей объекта. }

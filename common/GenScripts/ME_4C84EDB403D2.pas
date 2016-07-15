@@ -52,6 +52,13 @@ const
  en_capSearchSupport = '';
  op_ActivatePostingsListForm = 'ActivatePostingsListForm';
  op_capActivatePostingsListForm = '';
+
+var opcode_PostingToolBar_ptNewTheme: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_PostingToolBar_ptEditPosting: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_PostingToolBar_ptDeletePosting: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_PostingToolBar_SavePostList: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_PostingToolBar_ExportSelected: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_SearchSupport_ActivatePostingsListForm: TvcmOPID = (rEnID : -1; rOpID : -1);
 {$IfEnd} // NOT Defined(Admin)
 
 implementation
@@ -59,12 +66,15 @@ implementation
 {$If NOT Defined(Admin)}
 uses
  l3ImplUses
+ {$If NOT Defined(NoVCM)}
+ , vcmOperationsForRegister
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmOperationStatesForRegister
+ {$IfEnd} // NOT Defined(NoVCM)
  , l3Base
  {$If NOT Defined(NoVCM)}
  , vcmBase
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
- , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
 ;
 
@@ -77,7 +87,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := vcmParams;
-  aTarget.Operation(TdmStdRes.opcode_SearchSupport_ActivatePostingsListForm, l_Params);
+  aTarget.Operation(opcode_SearchSupport_ActivatePostingsListForm, l_Params);
   with l_Params do
   begin
    if Done then
@@ -97,7 +107,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := vcmParams;
-  aTarget.Operation(TdmStdRes.opcode_SearchSupport_ActivatePostingsListForm, l_Params);
+  aTarget.Operation(opcode_SearchSupport_ActivatePostingsListForm, l_Params);
   with l_Params do
   begin
    if Done then
@@ -132,9 +142,30 @@ begin
  if (vcmDispatcher <> nil) then
  begin
   l_Params := vcmParams;
-  vcmDispatcher.EntityOperationBroadcast(TdmStdRes.opcode_SearchSupport_ActivatePostingsListForm, l_Params);
+  vcmDispatcher.EntityOperationBroadcast(opcode_SearchSupport_ActivatePostingsListForm, l_Params);
  end//vcmDispatcher <> nil
 end;//Op_SearchSupport_ActivatePostingsListForm.Broadcast
+
+initialization
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_PostingToolBar, op_ptNewTheme, en_capPostingToolBar, op_capptNewTheme, False, True, opcode_PostingToolBar_ptNewTheme)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_PostingToolBar, op_ptEditPosting, en_capPostingToolBar, op_capptEditPosting, False, True, opcode_PostingToolBar_ptEditPosting)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_PostingToolBar, op_ptDeletePosting, en_capPostingToolBar, op_capptDeletePosting, False, True, opcode_PostingToolBar_ptDeletePosting)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_PostingToolBar, op_SavePostList, en_capPostingToolBar, op_capSavePostList, False, False, opcode_PostingToolBar_SavePostList)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_PostingToolBar, op_ExportSelected, en_capPostingToolBar, op_capExportSelected, False, False, opcode_PostingToolBar_ExportSelected)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_SearchSupport, op_ActivatePostingsListForm, en_capSearchSupport, op_capActivatePostingsListForm, True, False, opcode_SearchSupport_ActivatePostingsListForm)) do
+ begin
+ end;
+
 {$IfEnd} // NOT Defined(Admin)
 
 end.

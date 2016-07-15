@@ -14,7 +14,7 @@
  _dsEdition_ = {abstract} class(_VScroll_, IdsEdition, InsVScrollListener)
   {* Базовая область ввода, для работы с редакциями }
   protected
-   CompareEditions: IsdsCompareEditions;
+   ucc_CompareEditions: IsdsCompareEditions;
     {* Прецедент Сравнение редакций }
   protected
    function As_InsVScrollListener: InsVScrollListener;
@@ -22,6 +22,14 @@
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
    procedure InitFields; override;
+   {$If NOT Defined(NoVCM)}
+   procedure InitRefs(const aDS: IvcmFormSetDataSource); override;
+    {* Инициализирует ссылки на различные представления прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure ClearRefs; override;
+    {* Очищает ссылки на различные представления прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//_dsEdition_
 
 {$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
@@ -69,8 +77,26 @@ begin
  UseCaseController.As_Il3ChangeNotifier.Subscribe(InsVScrollListener(Self));
 //#UC END# *47A042E100E2_4A71859C0249_impl*
 end;//_dsEdition_.InitFields
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
+{$If NOT Defined(NoVCM)}
+procedure _dsEdition_.InitRefs(const aDS: IvcmFormSetDataSource);
+ {* Инициализирует ссылки на различные представления прецедента }
+begin
+ inherited;
+ Supports(aDS, IsdsCompareEditions, ucc_CompareEditions);
+end;//_dsEdition_.InitRefs
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure _dsEdition_.ClearRefs;
+ {* Очищает ссылки на различные представления прецедента }
+begin
+ inherited;
+ ucc_CompareEditions := nil;
+end;//_dsEdition_.ClearRefs
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 {$EndIf dsEdition_imp_impl}
 
 {$EndIf dsEdition_imp}

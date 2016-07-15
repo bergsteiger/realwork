@@ -30,7 +30,6 @@ uses
 type
  Il3GetComponentFromPointHelper = interface
   {* Èםעונפויס סונגטסא Tl3GetComponentFromPointHelper }
-  ['{8A45EBEB-1919-4ED9-AE29-39A44F9B3F6E}']
   procedure GetComponent(const aPoint: TPoint;
    out aComponent: TComponent;
    out aBindedControl: TControl);

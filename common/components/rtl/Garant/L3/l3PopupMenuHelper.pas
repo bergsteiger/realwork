@@ -33,7 +33,6 @@ type
 
  Il3PopupMenuHelper = interface
   {* Èםעונפויס סונגטסא Tl3PopupMenuHelper }
-  ['{0FC02FC0-1297-4100-A3A7-8D342CAD75B2}']
   function GetPopupMenu(aControl: TComponent;
    const aPoint: TPoint): TMenuItem;
   procedure GetPopupMenuForComponentInfo(aControl: TComponent;

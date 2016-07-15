@@ -1,54 +1,39 @@
 unit dsSynchroViewDocument;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "List"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/List/dsSynchroViewDocument.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ViewAreaControllerImp::Class>> F1 Работа с документом и списком документов::WorkWithList::List::List::TdsSynchroViewDocument
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\List\dsSynchroViewDocument.pas"
+// Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "TdsSynchroViewDocument" MUID: (5024E60F00A6)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  dsDocument,
-  nevTools
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , dsDocument
+ , nevTools
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
- TdsSynchroViewDocument = {vac} class(TdsDocument)
- protected
- // overridden protected methods
+ TdsSynchroViewDocument = class(TdsDocument)
+  protected
    function MakeContainer: InevDocumentContainer; override;
-     {* Конструирует контейнер документа }
+    {* Конструирует контейнер документа }
  end;//TdsSynchroViewDocument
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  nsAACDocumentSynchroViewContainer,
-  DocumentUnit
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TdsSynchroViewDocument
+ l3ImplUses
+ , nsAACDocumentSynchroViewContainer
+ , DocumentUnit
+;
 
 function TdsSynchroViewDocument.MakeContainer: InevDocumentContainer;
+ {* Конструирует контейнер документа }
 //#UC START# *4C6AB38800F3_5024E60F00A6_var*
 //#UC END# *4C6AB38800F3_5024E60F00A6_var*
 begin
@@ -62,7 +47,6 @@ begin
  end;//Case DocInfo.DocType
 //#UC END# *4C6AB38800F3_5024E60F00A6_impl*
 end;//TdsSynchroViewDocument.MakeContainer
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

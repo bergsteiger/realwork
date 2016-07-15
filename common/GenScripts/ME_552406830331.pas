@@ -26,7 +26,6 @@ uses
 type
  Il3PicturePathService = interface
   {* Интерфейс сервиса Tl3PicturePathService }
-  ['{24FE9416-AB0D-4F8E-94A1-DCBC9F50CD65}']
   procedure SetEnableSave(aValue: Boolean);
   procedure SetPDF4Etalon(aValue: Boolean);
   procedure AddPicturePath(const aPath: AnsiString);
@@ -41,10 +40,10 @@ type
    procedure pm_SetAlien(const aValue: Il3PicturePathService);
    procedure ClearFields; override;
   public
-   procedure SetTestName(const aName: AnsiString);
-   procedure AddPicturePath(const aPath: AnsiString);
    procedure SetEnableSave(aValue: Boolean);
    procedure SetPDF4Etalon(aValue: Boolean);
+   procedure AddPicturePath(const aPath: AnsiString);
+   procedure SetTestName(const aName: AnsiString);
    class function Instance: Tl3PicturePathService;
     {* Метод получения экземпляра синглетона Tl3PicturePathService }
    class function Exists: Boolean;
@@ -81,26 +80,6 @@ begin
  f_Alien := aValue;
 end;//Tl3PicturePathService.pm_SetAlien
 
-procedure Tl3PicturePathService.SetTestName(const aName: AnsiString);
-//#UC START# *2DCD42915D2E_552406830331_var*
-//#UC END# *2DCD42915D2E_552406830331_var*
-begin
-//#UC START# *2DCD42915D2E_552406830331_impl*
- if (f_Alien <> nil) then
-  f_Alien.SetTestName(aName); 
-//#UC END# *2DCD42915D2E_552406830331_impl*
-end;//Tl3PicturePathService.SetTestName
-
-procedure Tl3PicturePathService.AddPicturePath(const aPath: AnsiString);
-//#UC START# *3FB12D269858_552406830331_var*
-//#UC END# *3FB12D269858_552406830331_var*
-begin
-//#UC START# *3FB12D269858_552406830331_impl*
- if (f_Alien <> nil) then
-  f_Alien.AddPicturePath(aPath); 
-//#UC END# *3FB12D269858_552406830331_impl*
-end;//Tl3PicturePathService.AddPicturePath
-
 procedure Tl3PicturePathService.SetEnableSave(aValue: Boolean);
 //#UC START# *4706AFD6D823_552406830331_var*
 //#UC END# *4706AFD6D823_552406830331_var*
@@ -120,6 +99,26 @@ begin
   f_Alien.SetPDF4Etalon(aValue); 
 //#UC END# *86EACEE128F2_552406830331_impl*
 end;//Tl3PicturePathService.SetPDF4Etalon
+
+procedure Tl3PicturePathService.AddPicturePath(const aPath: AnsiString);
+//#UC START# *3FB12D269858_552406830331_var*
+//#UC END# *3FB12D269858_552406830331_var*
+begin
+//#UC START# *3FB12D269858_552406830331_impl*
+ if (f_Alien <> nil) then
+  f_Alien.AddPicturePath(aPath); 
+//#UC END# *3FB12D269858_552406830331_impl*
+end;//Tl3PicturePathService.AddPicturePath
+
+procedure Tl3PicturePathService.SetTestName(const aName: AnsiString);
+//#UC START# *2DCD42915D2E_552406830331_var*
+//#UC END# *2DCD42915D2E_552406830331_var*
+begin
+//#UC START# *2DCD42915D2E_552406830331_impl*
+ if (f_Alien <> nil) then
+  f_Alien.SetTestName(aName); 
+//#UC END# *2DCD42915D2E_552406830331_impl*
+end;//Tl3PicturePathService.SetTestName
 
 class function Tl3PicturePathService.Instance: Tl3PicturePathService;
  {* Метод получения экземпляра синглетона Tl3PicturePathService }

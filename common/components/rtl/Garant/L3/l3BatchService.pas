@@ -51,7 +51,6 @@ type
 
  Il3BatchService = interface
   {* Интерфейс сервиса Tl3BatchService }
-  ['{F011DB29-11CB-4024-B2FC-89B3245D418D}']
   function IsBatchMode: Boolean;
   procedure EnterBatchMode;
   procedure LeaveBatchMode;
@@ -70,16 +69,16 @@ type
    procedure pm_SetAlien(const aValue: Il3BatchService);
    procedure ClearFields; override;
   public
-   procedure PushAnswer(aValue: Integer);
-   function CheckWasDialog: Boolean;
-   procedure SignalWasDialog;
-   procedure ClearAnswers;
-   procedure EnterBatchMode;
    function HasModalWorker: Boolean;
    function ExecuteCurrentModalWorker(aModalExecute: TseModalExecute = se_meUsual): Boolean;
    function IsBatchMode: Boolean;
-   function PopAnswer: Integer;
+   procedure EnterBatchMode;
    procedure LeaveBatchMode;
+   procedure PushAnswer(aValue: Integer);
+   function PopAnswer: Integer;
+   procedure SignalWasDialog;
+   function CheckWasDialog: Boolean;
+   procedure ClearAnswers;
    class function Instance: Tl3BatchService;
     {* Метод получения экземпляра синглетона Tl3BatchService }
    class function Exists: Boolean;
@@ -166,58 +165,6 @@ begin
  f_Alien := aValue;
 end;//Tl3BatchService.pm_SetAlien
 
-procedure Tl3BatchService.PushAnswer(aValue: Integer);
-//#UC START# *194C97B8A2DF_5507FDD203E1_var*
-//#UC END# *194C97B8A2DF_5507FDD203E1_var*
-begin
-//#UC START# *194C97B8A2DF_5507FDD203E1_impl*
- if (f_Alien <> nil) then
-  f_Alien.PushAnswer(aValue);
-//#UC END# *194C97B8A2DF_5507FDD203E1_impl*
-end;//Tl3BatchService.PushAnswer
-
-function Tl3BatchService.CheckWasDialog: Boolean;
-//#UC START# *217998C234EE_5507FDD203E1_var*
-//#UC END# *217998C234EE_5507FDD203E1_var*
-begin
-//#UC START# *217998C234EE_5507FDD203E1_impl*
- if (f_Alien <> nil) then
-  Result := f_Alien.CheckWasDialog
- else
-  Result := false; 
-//#UC END# *217998C234EE_5507FDD203E1_impl*
-end;//Tl3BatchService.CheckWasDialog
-
-procedure Tl3BatchService.SignalWasDialog;
-//#UC START# *23858A465AF6_5507FDD203E1_var*
-//#UC END# *23858A465AF6_5507FDD203E1_var*
-begin
-//#UC START# *23858A465AF6_5507FDD203E1_impl*
- if (f_Alien <> nil) then
-  f_Alien.SignalWasDialog;
-//#UC END# *23858A465AF6_5507FDD203E1_impl*
-end;//Tl3BatchService.SignalWasDialog
-
-procedure Tl3BatchService.ClearAnswers;
-//#UC START# *37CC2CF2A1FF_5507FDD203E1_var*
-//#UC END# *37CC2CF2A1FF_5507FDD203E1_var*
-begin
-//#UC START# *37CC2CF2A1FF_5507FDD203E1_impl*
- if (f_Alien <> nil) then
-  f_Alien.ClearAnswers;
-//#UC END# *37CC2CF2A1FF_5507FDD203E1_impl*
-end;//Tl3BatchService.ClearAnswers
-
-procedure Tl3BatchService.EnterBatchMode;
-//#UC START# *3E2DB431FD1A_5507FDD203E1_var*
-//#UC END# *3E2DB431FD1A_5507FDD203E1_var*
-begin
-//#UC START# *3E2DB431FD1A_5507FDD203E1_impl*
- if (f_Alien <> nil) then
-  f_Alien.EnterBatchMode;
-//#UC END# *3E2DB431FD1A_5507FDD203E1_impl*
-end;//Tl3BatchService.EnterBatchMode
-
 function Tl3BatchService.HasModalWorker: Boolean;
 //#UC START# *553F7345032E_5507FDD203E1_var*
 //#UC END# *553F7345032E_5507FDD203E1_var*
@@ -248,6 +195,36 @@ begin
 //#UC END# *8A081B195E08_5507FDD203E1_impl*
 end;//Tl3BatchService.IsBatchMode
 
+procedure Tl3BatchService.EnterBatchMode;
+//#UC START# *3E2DB431FD1A_5507FDD203E1_var*
+//#UC END# *3E2DB431FD1A_5507FDD203E1_var*
+begin
+//#UC START# *3E2DB431FD1A_5507FDD203E1_impl*
+ if (f_Alien <> nil) then
+  f_Alien.EnterBatchMode;
+//#UC END# *3E2DB431FD1A_5507FDD203E1_impl*
+end;//Tl3BatchService.EnterBatchMode
+
+procedure Tl3BatchService.LeaveBatchMode;
+//#UC START# *FE46A80B1DA3_5507FDD203E1_var*
+//#UC END# *FE46A80B1DA3_5507FDD203E1_var*
+begin
+//#UC START# *FE46A80B1DA3_5507FDD203E1_impl*
+ if (f_Alien <> nil) then
+  f_Alien.LeaveBatchMode;
+//#UC END# *FE46A80B1DA3_5507FDD203E1_impl*
+end;//Tl3BatchService.LeaveBatchMode
+
+procedure Tl3BatchService.PushAnswer(aValue: Integer);
+//#UC START# *194C97B8A2DF_5507FDD203E1_var*
+//#UC END# *194C97B8A2DF_5507FDD203E1_var*
+begin
+//#UC START# *194C97B8A2DF_5507FDD203E1_impl*
+ if (f_Alien <> nil) then
+  f_Alien.PushAnswer(aValue);
+//#UC END# *194C97B8A2DF_5507FDD203E1_impl*
+end;//Tl3BatchService.PushAnswer
+
 function Tl3BatchService.PopAnswer: Integer;
 //#UC START# *FE26372CAD8B_5507FDD203E1_var*
 //#UC END# *FE26372CAD8B_5507FDD203E1_var*
@@ -264,15 +241,37 @@ begin
 //#UC END# *FE26372CAD8B_5507FDD203E1_impl*
 end;//Tl3BatchService.PopAnswer
 
-procedure Tl3BatchService.LeaveBatchMode;
-//#UC START# *FE46A80B1DA3_5507FDD203E1_var*
-//#UC END# *FE46A80B1DA3_5507FDD203E1_var*
+procedure Tl3BatchService.SignalWasDialog;
+//#UC START# *23858A465AF6_5507FDD203E1_var*
+//#UC END# *23858A465AF6_5507FDD203E1_var*
 begin
-//#UC START# *FE46A80B1DA3_5507FDD203E1_impl*
+//#UC START# *23858A465AF6_5507FDD203E1_impl*
  if (f_Alien <> nil) then
-  f_Alien.LeaveBatchMode;
-//#UC END# *FE46A80B1DA3_5507FDD203E1_impl*
-end;//Tl3BatchService.LeaveBatchMode
+  f_Alien.SignalWasDialog;
+//#UC END# *23858A465AF6_5507FDD203E1_impl*
+end;//Tl3BatchService.SignalWasDialog
+
+function Tl3BatchService.CheckWasDialog: Boolean;
+//#UC START# *217998C234EE_5507FDD203E1_var*
+//#UC END# *217998C234EE_5507FDD203E1_var*
+begin
+//#UC START# *217998C234EE_5507FDD203E1_impl*
+ if (f_Alien <> nil) then
+  Result := f_Alien.CheckWasDialog
+ else
+  Result := false; 
+//#UC END# *217998C234EE_5507FDD203E1_impl*
+end;//Tl3BatchService.CheckWasDialog
+
+procedure Tl3BatchService.ClearAnswers;
+//#UC START# *37CC2CF2A1FF_5507FDD203E1_var*
+//#UC END# *37CC2CF2A1FF_5507FDD203E1_var*
+begin
+//#UC START# *37CC2CF2A1FF_5507FDD203E1_impl*
+ if (f_Alien <> nil) then
+  f_Alien.ClearAnswers;
+//#UC END# *37CC2CF2A1FF_5507FDD203E1_impl*
+end;//Tl3BatchService.ClearAnswers
 
 class function Tl3BatchService.Instance: Tl3BatchService;
  {* Метод получения экземпляра синглетона Tl3BatchService }

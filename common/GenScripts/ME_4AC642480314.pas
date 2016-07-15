@@ -201,6 +201,9 @@ type
    procedure InitControls; override;
     {* Процедура инициализации контролов. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   function IsVCMScalingNeeded: Boolean; override;
+   {$IfEnd} // NOT Defined(NoVCM)
    procedure ClearFields; override;
    {$If NOT Defined(NoVCM)}
    procedure InitEntities; override;
@@ -2258,6 +2261,15 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_4AC642480314_impl*
 end;//TPrimStyleEditorFontForm.InitControls
+
+function TPrimStyleEditorFontForm.IsVCMScalingNeeded: Boolean;
+//#UC START# *576149F20025_4AC642480314_var*
+//#UC END# *576149F20025_4AC642480314_var*
+begin
+//#UC START# *576149F20025_4AC642480314_impl*
+ Result := True; 
+//#UC END# *576149F20025_4AC642480314_impl*
+end;//TPrimStyleEditorFontForm.IsVCMScalingNeeded
 
 procedure TPrimStyleEditorFontForm.ClearFields;
 begin

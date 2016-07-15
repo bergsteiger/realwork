@@ -1,217 +1,115 @@
 unit BaseEditions_Module;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Editions/BaseEditions_Module.pas"
-// Начат: 27.07.2009 12:03
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMFormsPack::Class>> F1 Пользовательские сервисы::CompareEditions::View::Editions::BaseEditions
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Editions\BaseEditions_Module.pas"
+// Стереотип: "VCMFormsPack"
+// Элемент модели: "BaseEditions" MUID: (4A6D5F3D03A9)
+// Имя типа: "TBaseEditionsModule"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DocumentUnit
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmFormSetFactory
-  {$IfEnd} //not NoVCM
-  ,
-  eeInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  ,
-  EditionsInterfaces,
-  PrimLeftEdition_Form,
-  PrimRightEdition_Form,
-  LeftEdition_Form,
-  RightEdition_Form,
-  EditionsContainer_Form,
-  PrimEditionsContainer_Form,
-  l3StringIDEx,
-  bsTypesNew,
-  PrimLeftEdition_utLeftEdition_UserType,
-  PrimRightEdition_utRightEdition_UserType,
-  PrimEditionsContainer_utEditionsContainer_UserType
-  {$If not defined(NoVCM)}
-  ,
-  vcmFormSetFormsCollectionItemPrim
-  {$IfEnd} //not NoVCM
-  ,
-  CompareEditions_FormDefinitions_Controls,
-  fsCompareEditions,
-  vcmExternalInterfaces {a},
-  vcmModule {a},
-  vcmBase {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , DocumentUnit
+ , eeInterfaces
+ , EditionsInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , bsTypesNew
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
- TBaseEditionsModule = {abstract formspack} class(TvcmModule)
- protected
-  class procedure GetEntityForms(aList : TvcmClassList); override;
- public
- // public methods
+ TBaseEditionsModule = {abstract} class({$If NOT Defined(NoVCM)}
+ TvcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
+  protected
+   {$If NOT Defined(NoVCM)}
+   class procedure GetEntityForms(aList: TvcmClassList); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    class procedure MakeCompareEditions(const aDoc: IDocument;
-     const aPara: IeeLeafPara;
-     aEditionForCompare: Integer;
-     const aDocumentForReturn: TnsDocumentForReturnInfo;
-     const aContainer: IvcmContainer = nil); overload; 
-     {* Создаёт представление прецедента "Сравнение редакций" }
+    const aPara: IeeLeafPara;
+    aEditionForCompare: Integer;
+    const aDocumentForReturn: TnsDocumentForReturnInfo;
+    const aContainer: IvcmContainer = nil); overload;
+    {* Создаёт представление прецедента "Сравнение редакций" }
    class procedure MakeCompareEditions(const aDoc: IDocument;
-     const aPara: IeeLeafPara;
-     const aContainer: IvcmContainer = nil); overload; 
+    const aPara: IeeLeafPara;
+    const aContainer: IvcmContainer = nil); overload;
    class procedure MakeCompareEditions(const aLeft: IDocument;
-     const aRight: IDocument;
-     const aPara: IeeLeafPara;
-     const aContainer: IvcmContainer = nil); overload; 
+    const aRight: IDocument;
+    const aPara: IeeLeafPara;
+    const aContainer: IvcmContainer = nil); overload;
    class procedure MakeCompareEditions(const aDoc: IDocument;
-     const aPara: IeeLeafPara;
-     aEditionForCompare: Integer;
-     const aContainer: IvcmContainer = nil); overload; 
+    const aPara: IeeLeafPara;
+    aEditionForCompare: Integer;
+    const aContainer: IvcmContainer = nil); overload;
    class procedure MakeCompareEditions(const aLeft: IDocument;
-     const aRight: IDocument;
-     const aParaForPositionning: IeeLeafPara;
-     const aDocumentForReturn: IDocument;
-     const aParaForReturn: IeeLeafPara;
-     const aContainer: IvcmContainer = nil); overload; 
+    const aRight: IDocument;
+    const aParaForPositionning: IeeLeafPara;
+    const aDocumentForReturn: IDocument;
+    const aParaForReturn: IeeLeafPara;
+    const aContainer: IvcmContainer = nil); overload;
    class procedure MakeCompareEditions(const aLeft: IDocument;
-     const aRight: IDocument;
-     const aPosition: TbsDocPos;
-     const aDocumentForReturn: IDocument;
-     const aParaForReturn: IeeLeafPara;
-     const aContainer: IvcmContainer = nil); overload; 
+    const aRight: IDocument;
+    const aPosition: TbsDocPos;
+    const aDocumentForReturn: IDocument;
+    const aParaForReturn: IeeLeafPara;
+    const aContainer: IvcmContainer = nil); overload;
  end;//TBaseEditionsModule
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  StdRes
-  {$IfEnd} //not NoVCM
-  ,
-  DataAdapter,
-  Base_Operations_View_Controls,
-  DocumentRes,
-  vtUtils,
-  evdStyles,
-  k2Tags,
-  BitmapPara_Const,
-  BaseSearchInterfaces,
-  SysUtils,
-  l3Base,
-  l3InterfacesMisc,
-  nsBaseSearchService,
-  evdBlockNameAdder,
-  l3Variant,
-  nsDocumentTools,
-  Windows,
-  PresentationInterfaces,
-  nsExternalObjectPrim,
-  bsUtils,
-  l3Stream,
-  l3Types,
-  nsToMSWordOp,
-  l3String,
-  nsTrialSupport,
-  FoldersDomainInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmMessagesSupport
-  {$IfEnd} //not NoVCM
-  ,
-  Printers,
-  nsExportToFileEvent,
-  nsExportToWordEvent,
-  nsSendDocumentByEMailEvent,
-  nsDocumentPrintPreviewEvent,
-  nsBaseTextOperationsConst,
-  f1MultilinkResolver,
-  l3Interfaces,
-  evTypes,
-  afwFacade
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  nsConst,
-  nsQuestions,
-  nsExternalObjectModelPart,
-  nsSaveDialogExecutor,
-  l3BatchService,
-  bsDocumentContextSearcher,
-  nsSearchInDocumentEvent,
-  BaseTypesUnit,
-  nsSearchInDocumentDoneEvent,
-  nsSearchInDocumentNextEvent,
-  nsSearchInDocumentPrevEvent,
-  nsSearchWindowManager,
-  Base_Operations_Strange_Controls,
-  Base_Operations_Editions_Controls,
-  Common_FormDefinitions_Controls,
-  evOp
-  {$If defined(Nemesis)}
-  ,
-  f1TextStyle_Const
-  {$IfEnd} //Nemesis
-  ,
-  TextSegment_Const,
-  StyledLeafPara_Const,
-  evCustomEditorWindow
-  {$If defined(k2ForEditor)}
-  ,
-  evSegLst
-  {$IfEnd} //k2ForEditor
-  ,
-  evdTypes,
-  nevNavigation,
-  nevTools,
-  evCustomEditor,
-  evEditorWithOperations,
-  sdsCompareEditions,
-  nsCompareEditionsInfo,
-  l3MessageID
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , l3StringIDEx
+ {$If NOT Defined(NoVCM)}
+ , vcmMessagesSupport
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmFormSetFactory
+ {$IfEnd} // NOT Defined(NoVCM)
+ , sdsCompareEditions
+ , nsCompareEditionsInfo
+ , LeftEdition_Form
+ , RightEdition_Form
+ , EditionsContainer_Form
+ , fsCompareEditions
+ , CompareEditions_FormDefinitions_Controls
+ //#UC START# *4A6D5F3D03A9impl_uses*
+ //#UC END# *4A6D5F3D03A9impl_uses*
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-var
-   { Локализуемые строки Local }
-  str_NoPrevEdition : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'NoPrevEdition'; rValue : 'Нет редакции для сравнения. У изучаемого Вами документа нет более ранних действовавших когда-либо редакций.');
-   { 'Нет редакции для сравнения. У изучаемого Вами документа нет более ранних действовавших когда-либо редакций.' }
-
-// start class TBaseEditionsModule
+{$If NOT Defined(NoVCM)}
+const
+ {* Локализуемые строки Local }
+ str_NoPrevEdition: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'NoPrevEdition'; rValue : 'Нет редакции для сравнения. У изучаемого Вами документа нет более ранних действовавших когда-либо редакций.');
+  {* 'Нет редакции для сравнения. У изучаемого Вами документа нет более ранних действовавших когда-либо редакций.' }
 
 class procedure TBaseEditionsModule.MakeCompareEditions(const aDoc: IDocument;
-  const aPara: IeeLeafPara;
-  aEditionForCompare: Integer;
-  const aDocumentForReturn: TnsDocumentForReturnInfo;
-  const aContainer: IvcmContainer = nil);
+ const aPara: IeeLeafPara;
+ aEditionForCompare: Integer;
+ const aDocumentForReturn: TnsDocumentForReturnInfo;
+ const aContainer: IvcmContainer = nil);
+ {* Создаёт представление прецедента "Сравнение редакций" }
 var
  __WasEnter : Boolean;
 //#UC START# *4A71ADFC00B4_4A6D5F3D03A9_var*
@@ -240,8 +138,8 @@ begin
 end;//TBaseEditionsModule.MakeCompareEditions
 
 class procedure TBaseEditionsModule.MakeCompareEditions(const aDoc: IDocument;
-  const aPara: IeeLeafPara;
-  const aContainer: IvcmContainer = nil);
+ const aPara: IeeLeafPara;
+ const aContainer: IvcmContainer = nil);
 var
  __WasEnter : Boolean;
 //#UC START# *4B60761E0096_4A6D5F3D03A9_var*
@@ -259,9 +157,9 @@ begin
 end;//TBaseEditionsModule.MakeCompareEditions
 
 class procedure TBaseEditionsModule.MakeCompareEditions(const aLeft: IDocument;
-  const aRight: IDocument;
-  const aPara: IeeLeafPara;
-  const aContainer: IvcmContainer = nil);
+ const aRight: IDocument;
+ const aPara: IeeLeafPara;
+ const aContainer: IvcmContainer = nil);
 var
  __WasEnter : Boolean;
 //#UC START# *4EC4FB3002FF_4A6D5F3D03A9_var*
@@ -285,9 +183,9 @@ begin
 end;//TBaseEditionsModule.MakeCompareEditions
 
 class procedure TBaseEditionsModule.MakeCompareEditions(const aDoc: IDocument;
-  const aPara: IeeLeafPara;
-  aEditionForCompare: Integer;
-  const aContainer: IvcmContainer = nil);
+ const aPara: IeeLeafPara;
+ aEditionForCompare: Integer;
+ const aContainer: IvcmContainer = nil);
 var
  __WasEnter : Boolean;
 //#UC START# *4F2BEE7302EB_4A6D5F3D03A9_var*
@@ -307,11 +205,11 @@ begin
 end;//TBaseEditionsModule.MakeCompareEditions
 
 class procedure TBaseEditionsModule.MakeCompareEditions(const aLeft: IDocument;
-  const aRight: IDocument;
-  const aParaForPositionning: IeeLeafPara;
-  const aDocumentForReturn: IDocument;
-  const aParaForReturn: IeeLeafPara;
-  const aContainer: IvcmContainer = nil);
+ const aRight: IDocument;
+ const aParaForPositionning: IeeLeafPara;
+ const aDocumentForReturn: IDocument;
+ const aParaForReturn: IeeLeafPara;
+ const aContainer: IvcmContainer = nil);
 var
  __WasEnter : Boolean;
 //#UC START# *5211D23D038A_4A6D5F3D03A9_var*
@@ -335,11 +233,11 @@ begin
 end;//TBaseEditionsModule.MakeCompareEditions
 
 class procedure TBaseEditionsModule.MakeCompareEditions(const aLeft: IDocument;
-  const aRight: IDocument;
-  const aPosition: TbsDocPos;
-  const aDocumentForReturn: IDocument;
-  const aParaForReturn: IeeLeafPara;
-  const aContainer: IvcmContainer = nil);
+ const aRight: IDocument;
+ const aPosition: TbsDocPos;
+ const aDocumentForReturn: IDocument;
+ const aParaForReturn: IeeLeafPara;
+ const aContainer: IvcmContainer = nil);
 var
  __WasEnter : Boolean;
 //#UC START# *5214A1820193_4A6D5F3D03A9_var*
@@ -377,20 +275,18 @@ begin
  end;//try..finally
 end;//TBaseEditionsModule.MakeCompareEditions
 
-class procedure TBaseEditionsModule.GetEntityForms(aList : TvcmClassList);
+class procedure TBaseEditionsModule.GetEntityForms(aList: TvcmClassList);
 begin
  inherited;
  aList.Add(TLeftEditionForm);
  aList.Add(TRightEditionForm);
  aList.Add(TEditionsContainerForm);
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+end;//TBaseEditionsModule.GetEntityForms
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_NoPrevEdition
  str_NoPrevEdition.Init;
-{$IfEnd} //not Admin AND not Monitorings
+ {* Инициализация str_NoPrevEdition }
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

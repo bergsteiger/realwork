@@ -1,206 +1,145 @@
 unit PrimMonitorings_Module;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Search/PrimMonitorings_Module.pas"
-// Начат: 21.08.2009 20:46
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMFormsPack::Class>> F1 Пользовательские сервисы::Autoreferat::View::Search::PrimMonitorings
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\PrimMonitorings_Module.pas"
+// Стереотип: "VCMFormsPack"
+// Элемент модели: "PrimMonitorings" MUID: (4A8ECF3001D2)
+// Имя типа: "TPrimMonitoringsModule"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DocumentUnit,
-  MonitoringUnit
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmFormSetFactory
-  {$IfEnd} //not NoVCM
-  ,
-  AutoreferatInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  ,
-  l3ProtoObject,
-  DocumentUserTypes_dftAutoreferatAfterSearch_UserType,
-  DocumentUserTypes_dftAutoreferat_UserType,
-  nsLogEvent,
-  l3StringIDEx,
-  PrimNewsLine_nltMain_UserType,
-  Common_FormDefinitions_Controls,
-  PrimNewsLineOptions_Form,
-  l3MessageID
-  {$If not defined(NoVCM)}
-  ,
-  vcmFormSetFormsCollectionItemPrim
-  {$IfEnd} //not NoVCM
-  ,
-  f1StartupCompletedService,
-  NewsLine_Form,
-  fsAutoreferat,
-  fsAutoreferatAfterSearch,
-  vcmExternalInterfaces {a},
-  vcmModule {a},
-  vcmBase {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , DocumentUnit
+ , MonitoringUnit
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , nsLogEvent
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TnsOpenNewsLineEvent = class(TnsLogEvent)
- public
- // public methods
+  public
    class procedure Log;
  end;//TnsOpenNewsLineEvent
 
- Tf1StartupCompletedServiceImpl = {final} class(Tl3ProtoObject, If1StartupCompletedService)
- public
- // realized methods
-   procedure StartupComplete;
- public
- // public methods
-   class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
-   class function Instance: Tf1StartupCompletedServiceImpl;
-    {- возвращает экземпляр синглетона. }
- end;//Tf1StartupCompletedServiceImpl
-
- TPrimMonitoringsModule = {abstract formspack} class(TvcmModule)
- protected
-  procedure Loaded; override;
-  class procedure GetEntityForms(aList : TvcmClassList); override;
- protected
- // protected methods
+ TPrimMonitoringsModule = {abstract} class({$If NOT Defined(NoVCM)}
+ TvcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
+  protected
    procedure opOpenNewsLineTest(const aParams: IvcmTestParamsPrim);
-     {* Новостная лента }
-   procedure opOpenNewsLine(const aParams: IvcmExecuteParamsPrim);
-     {* Новостная лента }
+    {* Новостная лента }
+   procedure opOpenNewsLineExecute(const aParams: IvcmExecuteParamsPrim);
+    {* Новостная лента }
    procedure opOpenLegislationReviewTest(const aParams: IvcmTestParamsPrim);
-     {* Обзор изменений законодательства }
-   procedure opOpenLegislationReview(const aParams: IvcmExecuteParamsPrim);
-     {* Обзор изменений законодательства }
- public
- // public methods
+    {* Обзор изменений законодательства }
+   procedure opOpenLegislationReviewExecute(const aParams: IvcmExecuteParamsPrim);
+    {* Обзор изменений законодательства }
+   procedure Loaded; override;
+   {$If NOT Defined(NoVCM)}
+   class procedure GetEntityForms(aList: TvcmClassList); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    class procedure OpenAutoreferat(const aDoc: IDocument;
-     const aContainer: IvcmContainer);
-     {* Открывает автореферат }
+    const aContainer: IvcmContainer);
    class procedure OpenAutoreferatAfterSearch(const aList: IMonitoringList;
-     const aContainer: IvcmContainer);
+    const aContainer: IvcmContainer);
    class function OpenNewsLine(aDenyNewTab: Boolean): IvcmEntityForm;
    class procedure OpenNewsLinePrim;
-     {* Сигнатура метода OpenNewsLinePrim }
  end;//TPrimMonitoringsModule
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Base {a},
-  SysUtils,
-  sdsAutoreferat,
-  deDocInfo,
-  DataAdapter
-  {$If not defined(NoVCM)}
-  ,
-  vcmMessagesSupport
-  {$IfEnd} //not NoVCM
-  ,
-  PrimNewsLine_Form,
-  CommonPost_Module
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  Windows,
-  LoggingUnit,
-  nsLogEventData,
-  nsLogManager,
-  LoggingWrapperInterfaces,
-  Autoreferat_InternalOperations_Controls,
-  nsOpenUtils,
-  nsConst,
-  afwFacade
-  {$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
-  ,
-  vcmTabbedContainerFormDispatcher
-  {$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
-  ,
-  nsPostingsTreeSingle,
-  PostingOrder_Strange_Controls
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  kw_Monitorings_opOpenNewsLine
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  kw_Monitorings_opOpenLegislationReview
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  
-  {$If not defined(NoVCL)}
-  ,
-  Dialogs
-  {$IfEnd} //not NoVCL
-  ,
-  StdRes {a},
-  vcmModuleDef {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , tfwAxiomaticsResNameGetter
+ {$IfEnd} // NOT Defined(NoScripts)
+ , Autoreferat_InternalOperations_Controls
+ , nsOpenUtils
+ , nsConst
+ , afwFacade
+ {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
+ , vcmTabbedContainerFormDispatcher
+ {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+ , nsPostingsTreeSingle
+ , PostingOrder_Strange_Controls
+ , f1StartupCompletedServiceImpl
+ , sdsAutoreferat
+ , deDocInfo
+ , DataAdapter
+ {$If NOT Defined(NoVCM)}
+ , vcmMessagesSupport
+ {$IfEnd} // NOT Defined(NoVCM)
+ , PrimNewsLine_Form
+ , CommonPost_Module
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Windows
+ , LoggingUnit
+ , PrimNewsLine_nltMain_UserType
+ , NewsLine_Form
+ , fsAutoreferat
+ , fsAutoreferatAfterSearch
+ , Common_FormDefinitions_Controls
+ //#UC START# *4A8ECF3001D2impl_uses*
+ , SysUtils
+ , StdRes
+ //#UC END# *4A8ECF3001D2impl_uses*
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(NoVCM)}
+type
+ TPrimMonitorings_ModuleResNameGetter = {final} class({$If NOT Defined(NoScripts)}
+ TtfwAxiomaticsResNameGetter
+ {$IfEnd} // NOT Defined(NoScripts)
+ )
+  {* Регистрация скриптованой аксиоматики }
+  public
+   {$If NOT Defined(NoScripts)}
+   class function ResName: AnsiString; override;
+   {$IfEnd} // NOT Defined(NoScripts)
+ end;//TPrimMonitorings_ModuleResNameGetter
 
-var
-   { Варианты выбора для диалога StartupInitPrime }
-  str_StartupInitPrime_Choice_Init : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'StartupInitPrime_Choice_Init'; rValue : 'Настроить ленту ПРАЙМ');
-   { 'Настроить ленту ПРАЙМ' }
-  str_StartupInitPrime_Choice_NoThanks : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'StartupInitPrime_Choice_NoThanks'; rValue : 'Начать работу с системой');
-   { 'Начать работу с системой' }
+class procedure TnsOpenNewsLineEvent.Log;
+//#UC START# *4B14ED2F033E_4B14ED130233_var*
+//#UC END# *4B14ED2F033E_4B14ED130233_var*
+begin
+//#UC START# *4B14ED2F033E_4B14ED130233_impl*
+ GetLogger.AddEvent(LE_OPEN_NEWS_LINE, MakeParamsList);
+//#UC END# *4B14ED2F033E_4B14ED130233_impl*
+end;//TnsOpenNewsLineEvent.Log
 
-var
-   { Локализуемые строки Messages For User }
-  str_StartupInitPrime : Tl3MessageID = (rS : -1; rLocalized : false; rKey : 'StartupInitPrime'; rValue : 'Уважаемый пользователь!'#13#10 + 
-'В новой версии системы ГАРАНТ вы можете самостоятельно настраивать и редактировать индивидуальную новостную ленту ПРАЙМ.' + 
-' Потратив несколько минут на настройку, вы всегда будете в курсе последних новостей законодательства, касающихся ваших профессиональных интересов.');
-   { 'Уважаемый пользователь!'#13#10 + 
-'В новой версии системы ГАРАНТ вы можете самостоятельно настраивать и редактировать индивидуальную новостную ленту ПРАЙМ.' + 
-' Потратив несколько минут на настройку, вы всегда будете в курсе последних новостей законодательства, касающихся ваших профессиональных интересов.' }
-  str_DefaultSetttingsWereChanged : Tl3MessageID = (rS : -1; rLocalized : false; rKey : 'DefaultSetttingsWereChanged'; rValue : 'В новой версии изменена используемая по умолчанию конфигурация пользовательского интерфейса. Новые настройки упрощают работу с системой, организуя ее более удобным образом.'#13#10 + 
-'Конфигурация, с которой Вы работали раньше, сохранена. Для обращения к ней выберите в разделе командного меню «Файл» пункт «Выбор конфигурации».');
-   { 'В новой версии изменена используемая по умолчанию конфигурация пользовательского интерфейса. Новые настройки упрощают работу с системой, организуя ее более удобным образом.'#13#10 + 
-'Конфигурация, с которой Вы работали раньше, сохранена. Для обращения к ней выберите в разделе командного меню «Файл» пункт «Выбор конфигурации».' }
+{$If NOT Defined(NoScripts)}
+class function TPrimMonitorings_ModuleResNameGetter.ResName: AnsiString;
+begin
+ Result := 'PrimMonitorings_Module';
+end;//TPrimMonitorings_ModuleResNameGetter.ResName
+{$IfEnd} // NOT Defined(NoScripts)
 
-// start class TPrimMonitoringsModule
+{$R PrimMonitorings_Module.res}
 
 class procedure TPrimMonitoringsModule.OpenAutoreferat(const aDoc: IDocument;
-  const aContainer: IvcmContainer);
+ const aContainer: IvcmContainer);
 var
  __WasEnter : Boolean;
 //#UC START# *4AA4B45E0101_4A8ECF3001D2_var*
@@ -222,13 +161,12 @@ begin
 end;//TPrimMonitoringsModule.OpenAutoreferat
 
 class procedure TPrimMonitoringsModule.OpenAutoreferatAfterSearch(const aList: IMonitoringList;
-  const aContainer: IvcmContainer);
+ const aContainer: IvcmContainer);
+var l_Document: IDocument;
 var
  __WasEnter : Boolean;
 //#UC START# *4AA4C0C500AA_4A8ECF3001D2_var*
 //#UC END# *4AA4C0C500AA_4A8ECF3001D2_var*
-var
- l_Document : IDocument;
 begin
  __WasEnter := vcmEnterFactory;
  try
@@ -374,6 +312,7 @@ begin
 end;//TPrimMonitoringsModule.OpenNewsLine
 
 procedure TPrimMonitoringsModule.opOpenNewsLineTest(const aParams: IvcmTestParamsPrim);
+ {* Новостная лента }
 //#UC START# *4AB775AA0314_4A8ECF3001D2test_var*
 //#UC END# *4AB775AA0314_4A8ECF3001D2test_var*
 begin
@@ -384,7 +323,8 @@ begin
 //#UC END# *4AB775AA0314_4A8ECF3001D2test_impl*
 end;//TPrimMonitoringsModule.opOpenNewsLineTest
 
-procedure TPrimMonitoringsModule.opOpenNewsLine(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimMonitoringsModule.opOpenNewsLineExecute(const aParams: IvcmExecuteParamsPrim);
+ {* Новостная лента }
 //#UC START# *4AB775AA0314_4A8ECF3001D2exec_var*
 //#UC END# *4AB775AA0314_4A8ECF3001D2exec_var*
 begin
@@ -392,9 +332,10 @@ begin
  OpenNewsLine(False);
  TnsOpenNewsLineEvent.Log;
 //#UC END# *4AB775AA0314_4A8ECF3001D2exec_impl*
-end;//TPrimMonitoringsModule.opOpenNewsLine
+end;//TPrimMonitoringsModule.opOpenNewsLineExecute
 
 procedure TPrimMonitoringsModule.opOpenLegislationReviewTest(const aParams: IvcmTestParamsPrim);
+ {* Обзор изменений законодательства }
 //#UC START# *4AB77A0E0276_4A8ECF3001D2test_var*
 //#UC END# *4AB77A0E0276_4A8ECF3001D2test_var*
 begin
@@ -404,7 +345,8 @@ begin
 //#UC END# *4AB77A0E0276_4A8ECF3001D2test_impl*
 end;//TPrimMonitoringsModule.opOpenLegislationReviewTest
 
-procedure TPrimMonitoringsModule.opOpenLegislationReview(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimMonitoringsModule.opOpenLegislationReviewExecute(const aParams: IvcmExecuteParamsPrim);
+ {* Обзор изменений законодательства }
 //#UC START# *4AB77A0E0276_4A8ECF3001D2exec_var*
 //#UC END# *4AB77A0E0276_4A8ECF3001D2exec_var*
 begin
@@ -412,7 +354,7 @@ begin
  // Построение обзора законодателоьства
  TdmStdRes.OpenLegislationReview(nil);
 //#UC END# *4AB77A0E0276_4A8ECF3001D2exec_impl*
-end;//TPrimMonitoringsModule.opOpenLegislationReview
+end;//TPrimMonitoringsModule.opOpenLegislationReviewExecute
 
 class procedure TPrimMonitoringsModule.OpenNewsLinePrim;
 //#UC START# *542950E801C0_4A8ECF3001D2_var*
@@ -463,103 +405,24 @@ begin
  end;//try..finally
 //#UC END# *542950E801C0_4A8ECF3001D2_impl*
 end;//TPrimMonitoringsModule.OpenNewsLinePrim
-// start class TnsOpenNewsLineEvent
-
-class procedure TnsOpenNewsLineEvent.Log;
-//#UC START# *4B14ED2F033E_4B14ED130233_var*
-//#UC END# *4B14ED2F033E_4B14ED130233_var*
-begin
-//#UC START# *4B14ED2F033E_4B14ED130233_impl*
- GetLogger.AddEvent(LE_OPEN_NEWS_LINE, MakeParamsList);
-//#UC END# *4B14ED2F033E_4B14ED130233_impl*
-end;//TnsOpenNewsLineEvent.Log
-
-// start class Tf1StartupCompletedServiceImpl
-
-var g_Tf1StartupCompletedServiceImpl : Tf1StartupCompletedServiceImpl = nil;
-
-procedure Tf1StartupCompletedServiceImplFree;
-begin
- l3Free(g_Tf1StartupCompletedServiceImpl);
-end;
-
-class function Tf1StartupCompletedServiceImpl.Instance: Tf1StartupCompletedServiceImpl;
-begin
- if (g_Tf1StartupCompletedServiceImpl = nil) then
- begin
-  l3System.AddExitProc(Tf1StartupCompletedServiceImplFree);
-  g_Tf1StartupCompletedServiceImpl := Create;
- end;
- Result := g_Tf1StartupCompletedServiceImpl;
-end;
-
-
-class function Tf1StartupCompletedServiceImpl.Exists: Boolean;
- {-}
-begin
- Result := g_Tf1StartupCompletedServiceImpl <> nil;
-end;//Tf1StartupCompletedServiceImpl.Exists
-
-procedure Tf1StartupCompletedServiceImpl.StartupComplete;
-//#UC START# *2627E933260B_55B0CF2803D7_var*
-//#UC END# *2627E933260B_55B0CF2803D7_var*
-begin
-//#UC START# *2627E933260B_55B0CF2803D7_impl*
- if dmStdRes.NeedAskToFillPrimeAtStartup then
- begin
-  dmStdRes.NeedAskToFillPrimeAtStartup := False;
-  if vcmAsk(str_StartupInitPrime, []) then
-   TPrimMonitoringsModule.OpenNewsLinePrim;
- end;
-
- if dmStdRes.NeedShowSettingsDialog then
- begin
-  dmStdRes.NeedShowSettingsDialog := False;
-  vcmAsk(str_DefaultSetttingsWereChanged, []);
- end;
-//#UC END# *2627E933260B_55B0CF2803D7_impl*
-end;//Tf1StartupCompletedServiceImpl.StartupComplete
 
 procedure TPrimMonitoringsModule.Loaded;
 begin
  inherited;
- PublishOp('opOpenNewsLine', opOpenNewsLine, opOpenNewsLineTest);
- PublishOp('opOpenLegislationReview', opOpenLegislationReview, opOpenLegislationReviewTest);
-end;
+ PublishOp('opOpenNewsLine', opOpenNewsLineExecute, opOpenNewsLineTest);
+ PublishOp('opOpenLegislationReview', opOpenLegislationReviewExecute, opOpenLegislationReviewTest);
+end;//TPrimMonitoringsModule.Loaded
 
-class procedure TPrimMonitoringsModule.GetEntityForms(aList : TvcmClassList);
+class procedure TPrimMonitoringsModule.GetEntityForms(aList: TvcmClassList);
 begin
  inherited;
  aList.Add(TenNewsLine);
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+end;//TPrimMonitoringsModule.GetEntityForms
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Регистрация Tf1StartupCompletedServiceImpl
- Tf1StartupCompletedService.Instance.Alien := Tf1StartupCompletedServiceImpl.Instance;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_StartupInitPrime_Choice_Init
- str_StartupInitPrime_Choice_Init.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_StartupInitPrime_Choice_NoThanks
- str_StartupInitPrime_Choice_NoThanks.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_StartupInitPrime
- str_StartupInitPrime.Init;
- str_StartupInitPrime.AddChoice(str_StartupInitPrime_Choice_Init);
- str_StartupInitPrime.AddChoice(str_StartupInitPrime_Choice_NoThanks);
- str_StartupInitPrime.AddDefaultChoice(str_StartupInitPrime_Choice_Init);
- str_StartupInitPrime.SetDlgType(mtInformation);
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_DefaultSetttingsWereChanged
- str_DefaultSetttingsWereChanged.Init;
- str_DefaultSetttingsWereChanged.SetDlgType(mtInformation);
-{$IfEnd} //not Admin AND not Monitorings
+ TPrimMonitorings_ModuleResNameGetter.Register;
+ {* Регистрация скриптованой аксиоматики }
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

@@ -25,7 +25,6 @@ uses
 type
  Il3GetCaptureHelper = interface
   {* Èםעונפויס סונגטסא Tl3GetCaptureHelper }
-  ['{37325DBC-4527-4860-8B30-E4FA121B0FC5}']
   function GetCapture: TComponent;
  end;//Il3GetCaptureHelper
 

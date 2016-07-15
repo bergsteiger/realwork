@@ -48,6 +48,9 @@ const
  NameDictExternalNumber = 'DictExtN';
  MainTblsFamily = 0;
  CurrentFamily = 1;
+ cGroupIDSize = 2;
+ cUserIDSize = 4;
+ cInvalidDictID = -1;
 
 implementation
 

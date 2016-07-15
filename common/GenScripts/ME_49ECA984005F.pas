@@ -63,7 +63,6 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
 ;
 
-{$If NOT Defined(NoVCM)}
 type _Instance_R_ = TsdsInternetAgent;
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormSetDataSourceWithoutData.imp.pas}
@@ -103,6 +102,7 @@ begin
  inherited;
 end;//TsdsInternetAgent.ClearFields
 
+{$If NOT Defined(NoVCM)}
 procedure TsdsInternetAgent.ClearAreas;
  {* Очищает ссылки на области ввода }
 begin

@@ -29,7 +29,6 @@ type
 
  Il3IterateComponentParents = interface
   {* Èםעונפויס סונגטסא Tl3IterateComponentParents }
-  ['{5A7F04AD-BABF-4265-8160-3A5BDA277D22}']
   procedure IterateF(anAction: Ml3IterateComponentParents_IterateF_Action;
    aComponent: TComponent);
  end;//Il3IterateComponentParents

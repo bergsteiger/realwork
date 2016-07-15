@@ -1,58 +1,40 @@
 unit dsCRWarning;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Document"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Document/dsCRWarning.pas"
-// Начат: 23.12.2011 17:41
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ViewAreaControllerImp::Class>> F1 Контроллер работы с документом и абстрактная фабрика документа::F1 Document Processing::Document::Document::TdsCRWarning
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Document\dsCRWarning.pas"
+// Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "TdsCRWarning" MUID: (4EF485030376)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  dsWarning,
-  nevBase,
-  nsTypes
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , dsWarning
+ , nsTypes
+ , nevBase
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
- TdsCRWarning = {vac} class(TdsWarning)
- protected
- // overridden protected methods
+ TdsCRWarning = class(TdsWarning)
+  protected
    function DoGenerateWarning(const aGenerator: InevTagGenerator;
-     aUserType: Integer): TWarningTypeSet; override;
+    aUserType: Integer): TWarningTypeSet; override;
  end;//TdsCRWarning
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  BaloonWarningUserTypes_remListModified_UserType,
-  nsListWarningGenerator
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TdsCRWarning
+ l3ImplUses
+ , BaloonWarningUserTypes_remListModified_UserType
+ , nsListWarningGenerator
+;
 
 function TdsCRWarning.DoGenerateWarning(const aGenerator: InevTagGenerator;
-  aUserType: Integer): TWarningTypeSet;
+ aUserType: Integer): TWarningTypeSet;
 //#UC START# *4EF4849D01C9_4EF485030376_var*
 //#UC END# *4EF4849D01C9_4EF485030376_var*
 begin
@@ -67,7 +49,6 @@ begin
   Result := inherited DoGenerateWarning(aGenerator, aUserType);
 //#UC END# *4EF4849D01C9_4EF485030376_impl*
 end;//TdsCRWarning.DoGenerateWarning
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

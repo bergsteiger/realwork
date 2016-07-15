@@ -23,10 +23,10 @@ uses
 
 type
  _ItemType_ = IdaParamDescription;
- _l3InterfacePtrList_Parent_ = Tl3ProtoDataContainer;
+ _l3InterfaceRefList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include w:\common\components\rtl\Garant\L3\l3InterfacePtrList.imp.pas}
- TpgParamDecsriptionList = class(_l3InterfacePtrList_)
+ {$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefList.imp.pas}
+ TpgParamDecsriptionList = class(_l3InterfaceRefList_)
  end;//TpgParamDecsriptionList
 {$IfEnd} // Defined(UsePostgres)
 
@@ -43,7 +43,7 @@ uses
 
 type _Instance_R_ = TpgParamDecsriptionList;
 
-{$Include w:\common\components\rtl\Garant\L3\l3InterfacePtrList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefList.imp.pas}
 {$IfEnd} // Defined(UsePostgres)
 
 end.

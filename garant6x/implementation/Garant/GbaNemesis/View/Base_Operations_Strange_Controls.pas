@@ -867,18 +867,81 @@ const
  op_GotoPara = 'GotoPara';
  op_capGotoPara = '';
 
+var opcode_Switcher_BecomeActive: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Document_FindExplanation: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_SynchroView_BecomeActive: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_List_GetDeList: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_List_SetCurrentVisible: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_List_SwitchToFullList: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_List_GetDsList: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Form_RequestClose: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_ControlCenter_Refresh: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_ListInfo_BecomeActive: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Filters_DeselectAll: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_LocalList_SearchInList: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_LocalList_PublishSourceSearchInList: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_LocalList_Open: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_LocalList_SearchDrugInList: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_LocalList_OpenNewWindow: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_TimeMachine_TimeMachineOnOffNew: TvcmOPID = (rEnID : -1; rOpID : -1);
 var st_user_TimeMachine_TimeMachineOnOffNew_MachineOn: TvcmOperationStateIndex = (rID : -1);
  {*  -> Включить Машину времени <->  }
 var st_user_TimeMachine_TimeMachineOnOffNew_MachineOff: TvcmOperationStateIndex = (rID : -1);
  {*  -> Включить Машину времени <-> Выключить Машину времени/Изменить дату }
+var opcode_TimeMachine_TimeMachineOnOff: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_TimeMachine_TimeMachineOffAndReset: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Filter_Activate: TvcmOPID = (rEnID : -1; rOpID : -1);
 var st_user_Filter_Activate_Deactivate: TvcmOperationStateIndex = (rID : -1);
  {*  -> Применить фильтр <-> Отменить фильтр }
+var opcode_Filter_ActivateNode: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Document_GetAnnotationDocFrmAct: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Document_SimilarDocuments: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Document_DocumentIsUseful: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Document_DocumentIsUseless: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Document_PrevDocumentInList: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Document_NextDocumentInList: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Document_ReturnToList: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Document_AddToControl: TvcmOPID = (rEnID : -1; rOpID : -1);
 var st_user_Document_AddToControl_RemoveFromControl: TvcmOperationStateIndex = (rID : -1);
  {* Документ -> Поставить на контроль <-> Снять с контроля }
+var opcode_Document_UserCR1: TvcmOPID = (rEnID : -1; rOpID : -1);
 var st_user_Document_UserCR1_Corr: TvcmOperationStateIndex = (rID : -1);
  {* Документ -> Пользовательские ссылки на документ (ссылки из документа) 1 <->  }
+var opcode_Document_UserCR2: TvcmOPID = (rEnID : -1; rOpID : -1);
 var st_user_Document_UserCR2_Corr: TvcmOperationStateIndex = (rID : -1);
  {* Документ -> Пользовательские ссылки на документ (ссылки из документа) 2 <->  }
+var opcode_Document_AddBookmark: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Document_GetGraphicImage: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_FoldersControl_EditElement: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_FoldersControl_DeleteElement: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_SavedQuery_OpenQuery: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_SavedQuery_ExecuteQuery: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Filters_FiltersList: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Filters_Clear: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Filters_InternalClear: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Openable_OpenInNewWindow: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_HyperLink_Open: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_HyperLink_OpenNewWindow: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_HyperLink_NextHyperLink: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_HyperLink_PrevHyperLink: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_HyperLink_OpenInNewTab: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_HyperLink_OpenScriptHyperLink: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_HyperLink_NavigateInternetHyperlink: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_HyperLink_Delete: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Document_SetActive: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Document_ExportBlock: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Document_GetCurrentPosition: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Document_SelectBlock: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Document_CopyBlock: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Document_PrintBlock: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Document_PrintDialogBlock: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Document_PreviewBlock: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Document_ShowRespondentListToPart: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Document_ShowCorrespondentListToPart: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Document_ModifyBookmarkNotify: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Document_AddBookmarkFromContents: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Document_OpenNotSureTopic: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Document_GotoPara: TvcmOPID = (rEnID : -1; rOpID : -1);
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
@@ -887,12 +950,15 @@ implementation
 uses
  l3ImplUses
  , l3CProtoObject
+ {$If NOT Defined(NoVCM)}
+ , vcmOperationsForRegister
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmOperationStatesForRegister
+ {$IfEnd} // NOT Defined(NoVCM)
  , l3Base
  {$If NOT Defined(NoVCM)}
  , vcmBase
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
- , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
 ;
 
@@ -1188,7 +1254,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := vcmParams;
-  aTarget.Operation(TdmStdRes.opcode_Switcher_BecomeActive, l_Params);
+  aTarget.Operation(opcode_Switcher_BecomeActive, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1208,7 +1274,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := vcmParams;
-  aTarget.Operation(TdmStdRes.opcode_Switcher_BecomeActive, l_Params);
+  aTarget.Operation(opcode_Switcher_BecomeActive, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1266,7 +1332,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TDocument_FindExplanation_Params.Make);
-  aTarget.Operation(TdmStdRes.opcode_Document_FindExplanation, l_Params);
+  aTarget.Operation(opcode_Document_FindExplanation, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1286,7 +1352,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TDocument_FindExplanation_Params.Make);
-  aTarget.Operation(TdmStdRes.opcode_Document_FindExplanation, l_Params);
+  aTarget.Operation(opcode_Document_FindExplanation, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1346,7 +1412,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TSynchroView_BecomeActive_Params.Make(aFormType));
-  aTarget.Operation(TdmStdRes.opcode_SynchroView_BecomeActive, l_Params);
+  aTarget.Operation(opcode_SynchroView_BecomeActive, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1367,7 +1433,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TSynchroView_BecomeActive_Params.Make(aFormType));
-  aTarget.Operation(TdmStdRes.opcode_SynchroView_BecomeActive, l_Params);
+  aTarget.Operation(opcode_SynchroView_BecomeActive, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1433,7 +1499,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TList_GetDeList_Params.Make);
-  aTarget.Operation(TdmStdRes.opcode_List_GetDeList, l_Params);
+  aTarget.Operation(opcode_List_GetDeList, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1453,7 +1519,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TList_GetDeList_Params.Make);
-  aTarget.Operation(TdmStdRes.opcode_List_GetDeList, l_Params);
+  aTarget.Operation(opcode_List_GetDeList, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1489,7 +1555,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := vcmParams;
-  aTarget.Operation(TdmStdRes.opcode_List_SetCurrentVisible, l_Params);
+  aTarget.Operation(opcode_List_SetCurrentVisible, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1509,7 +1575,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := vcmParams;
-  aTarget.Operation(TdmStdRes.opcode_List_SetCurrentVisible, l_Params);
+  aTarget.Operation(opcode_List_SetCurrentVisible, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1573,7 +1639,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TList_GetDsList_Params.Make);
-  aTarget.Operation(TdmStdRes.opcode_List_GetDsList, l_Params);
+  aTarget.Operation(opcode_List_GetDsList, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1593,7 +1659,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TList_GetDsList_Params.Make);
-  aTarget.Operation(TdmStdRes.opcode_List_GetDsList, l_Params);
+  aTarget.Operation(opcode_List_GetDsList, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1629,7 +1695,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := vcmParams;
-  aTarget.Operation(TdmStdRes.opcode_Form_RequestClose, l_Params);
+  aTarget.Operation(opcode_Form_RequestClose, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1649,7 +1715,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := vcmParams;
-  aTarget.Operation(TdmStdRes.opcode_Form_RequestClose, l_Params);
+  aTarget.Operation(opcode_Form_RequestClose, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1685,7 +1751,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := vcmParams;
-  aTarget.Operation(TdmStdRes.opcode_ControlCenter_Refresh, l_Params);
+  aTarget.Operation(opcode_ControlCenter_Refresh, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1705,7 +1771,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := vcmParams;
-  aTarget.Operation(TdmStdRes.opcode_ControlCenter_Refresh, l_Params);
+  aTarget.Operation(opcode_ControlCenter_Refresh, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1741,7 +1807,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := vcmParams;
-  aTarget.Operation(TdmStdRes.opcode_ListInfo_BecomeActive, l_Params);
+  aTarget.Operation(opcode_ListInfo_BecomeActive, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1761,7 +1827,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := vcmParams;
-  aTarget.Operation(TdmStdRes.opcode_ListInfo_BecomeActive, l_Params);
+  aTarget.Operation(opcode_ListInfo_BecomeActive, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1797,7 +1863,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := vcmParams;
-  aTarget.Operation(TdmStdRes.opcode_Filters_DeselectAll, l_Params);
+  aTarget.Operation(opcode_Filters_DeselectAll, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1817,7 +1883,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := vcmParams;
-  aTarget.Operation(TdmStdRes.opcode_Filters_DeselectAll, l_Params);
+  aTarget.Operation(opcode_Filters_DeselectAll, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1853,7 +1919,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := vcmParams;
-  aTarget.Operation(TdmStdRes.opcode_TimeMachine_TimeMachineOnOff, l_Params);
+  aTarget.Operation(opcode_TimeMachine_TimeMachineOnOff, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1873,7 +1939,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := vcmParams;
-  aTarget.Operation(TdmStdRes.opcode_TimeMachine_TimeMachineOnOff, l_Params);
+  aTarget.Operation(opcode_TimeMachine_TimeMachineOnOff, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1909,7 +1975,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := vcmParams;
-  aTarget.Operation(TdmStdRes.opcode_TimeMachine_TimeMachineOffAndReset, l_Params);
+  aTarget.Operation(opcode_TimeMachine_TimeMachineOffAndReset, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1929,7 +1995,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := vcmParams;
-  aTarget.Operation(TdmStdRes.opcode_TimeMachine_TimeMachineOffAndReset, l_Params);
+  aTarget.Operation(opcode_TimeMachine_TimeMachineOffAndReset, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1995,7 +2061,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TFilter_ActivateNode_Params.Make(aNode));
-  aTarget.Operation(TdmStdRes.opcode_Filter_ActivateNode, l_Params);
+  aTarget.Operation(opcode_Filter_ActivateNode, l_Params);
   with l_Params do
   begin
    if Done then
@@ -2016,7 +2082,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TFilter_ActivateNode_Params.Make(aNode));
-  aTarget.Operation(TdmStdRes.opcode_Filter_ActivateNode, l_Params);
+  aTarget.Operation(opcode_Filter_ActivateNode, l_Params);
   with l_Params do
   begin
    if Done then
@@ -2084,7 +2150,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TFoldersControl_EditElement_Params.Make(aNode));
-  aTarget.Operation(TdmStdRes.opcode_FoldersControl_EditElement, l_Params);
+  aTarget.Operation(opcode_FoldersControl_EditElement, l_Params);
   with l_Params do
   begin
    if Done then
@@ -2105,7 +2171,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TFoldersControl_EditElement_Params.Make(aNode));
-  aTarget.Operation(TdmStdRes.opcode_FoldersControl_EditElement, l_Params);
+  aTarget.Operation(opcode_FoldersControl_EditElement, l_Params);
   with l_Params do
   begin
    if Done then
@@ -2183,7 +2249,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TFoldersControl_DeleteElement_Params.Make(aNode));
-  aTarget.Operation(TdmStdRes.opcode_FoldersControl_DeleteElement, l_Params);
+  aTarget.Operation(opcode_FoldersControl_DeleteElement, l_Params);
   with l_Params do
   begin
    if Done then
@@ -2204,7 +2270,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TFoldersControl_DeleteElement_Params.Make(aNode));
-  aTarget.Operation(TdmStdRes.opcode_FoldersControl_DeleteElement, l_Params);
+  aTarget.Operation(opcode_FoldersControl_DeleteElement, l_Params);
   with l_Params do
   begin
    if Done then
@@ -2242,7 +2308,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := vcmParams;
-  aTarget.Operation(TdmStdRes.opcode_Filters_InternalClear, l_Params);
+  aTarget.Operation(opcode_Filters_InternalClear, l_Params);
   with l_Params do
   begin
    if Done then
@@ -2262,7 +2328,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := vcmParams;
-  aTarget.Operation(TdmStdRes.opcode_Filters_InternalClear, l_Params);
+  aTarget.Operation(opcode_Filters_InternalClear, l_Params);
   with l_Params do
   begin
    if Done then
@@ -2322,7 +2388,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TDocument_SetActive_Params.Make(aUserType));
-  aTarget.Operation(TdmStdRes.opcode_Document_SetActive, l_Params);
+  aTarget.Operation(opcode_Document_SetActive, l_Params);
   with l_Params do
   begin
    if Done then
@@ -2343,7 +2409,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TDocument_SetActive_Params.Make(aUserType));
-  aTarget.Operation(TdmStdRes.opcode_Document_SetActive, l_Params);
+  aTarget.Operation(opcode_Document_SetActive, l_Params);
   with l_Params do
   begin
    if Done then
@@ -2429,7 +2495,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TDocument_ExportBlock_Params.Make(aData, aUserType, aToActiveWindow));
-  aTarget.Operation(TdmStdRes.opcode_Document_ExportBlock, l_Params);
+  aTarget.Operation(opcode_Document_ExportBlock, l_Params);
   with l_Params do
   begin
    if Done then
@@ -2452,7 +2518,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TDocument_ExportBlock_Params.Make(aData, aUserType, aToActiveWindow));
-  aTarget.Operation(TdmStdRes.opcode_Document_ExportBlock, l_Params);
+  aTarget.Operation(opcode_Document_ExportBlock, l_Params);
   with l_Params do
   begin
    if Done then
@@ -2516,7 +2582,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TDocument_GetCurrentPosition_Params.Make);
-  aTarget.Operation(TdmStdRes.opcode_Document_GetCurrentPosition, l_Params);
+  aTarget.Operation(opcode_Document_GetCurrentPosition, l_Params);
   with l_Params do
   begin
    if Done then
@@ -2536,7 +2602,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TDocument_GetCurrentPosition_Params.Make);
-  aTarget.Operation(TdmStdRes.opcode_Document_GetCurrentPosition, l_Params);
+  aTarget.Operation(opcode_Document_GetCurrentPosition, l_Params);
   with l_Params do
   begin
    if Done then
@@ -2611,7 +2677,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TDocument_SelectBlock_Params.Make(aData, aUserType));
-  aTarget.Operation(TdmStdRes.opcode_Document_SelectBlock, l_Params);
+  aTarget.Operation(opcode_Document_SelectBlock, l_Params);
   with l_Params do
   begin
    if Done then
@@ -2633,7 +2699,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TDocument_SelectBlock_Params.Make(aData, aUserType));
-  aTarget.Operation(TdmStdRes.opcode_Document_SelectBlock, l_Params);
+  aTarget.Operation(opcode_Document_SelectBlock, l_Params);
   with l_Params do
   begin
    if Done then
@@ -2712,7 +2778,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TDocument_CopyBlock_Params.Make(aData, aUserType));
-  aTarget.Operation(TdmStdRes.opcode_Document_CopyBlock, l_Params);
+  aTarget.Operation(opcode_Document_CopyBlock, l_Params);
   with l_Params do
   begin
    if Done then
@@ -2734,7 +2800,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TDocument_CopyBlock_Params.Make(aData, aUserType));
-  aTarget.Operation(TdmStdRes.opcode_Document_CopyBlock, l_Params);
+  aTarget.Operation(opcode_Document_CopyBlock, l_Params);
   with l_Params do
   begin
    if Done then
@@ -2813,7 +2879,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TDocument_PrintBlock_Params.Make(aData, aUserType));
-  aTarget.Operation(TdmStdRes.opcode_Document_PrintBlock, l_Params);
+  aTarget.Operation(opcode_Document_PrintBlock, l_Params);
   with l_Params do
   begin
    if Done then
@@ -2835,7 +2901,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TDocument_PrintBlock_Params.Make(aData, aUserType));
-  aTarget.Operation(TdmStdRes.opcode_Document_PrintBlock, l_Params);
+  aTarget.Operation(opcode_Document_PrintBlock, l_Params);
   with l_Params do
   begin
    if Done then
@@ -2914,7 +2980,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TDocument_PrintDialogBlock_Params.Make(aData, aUserType));
-  aTarget.Operation(TdmStdRes.opcode_Document_PrintDialogBlock, l_Params);
+  aTarget.Operation(opcode_Document_PrintDialogBlock, l_Params);
   with l_Params do
   begin
    if Done then
@@ -2936,7 +3002,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TDocument_PrintDialogBlock_Params.Make(aData, aUserType));
-  aTarget.Operation(TdmStdRes.opcode_Document_PrintDialogBlock, l_Params);
+  aTarget.Operation(opcode_Document_PrintDialogBlock, l_Params);
   with l_Params do
   begin
    if Done then
@@ -3015,7 +3081,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TDocument_PreviewBlock_Params.Make(aData, aUserType));
-  aTarget.Operation(TdmStdRes.opcode_Document_PreviewBlock, l_Params);
+  aTarget.Operation(opcode_Document_PreviewBlock, l_Params);
   with l_Params do
   begin
    if Done then
@@ -3037,7 +3103,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TDocument_PreviewBlock_Params.Make(aData, aUserType));
-  aTarget.Operation(TdmStdRes.opcode_Document_PreviewBlock, l_Params);
+  aTarget.Operation(opcode_Document_PreviewBlock, l_Params);
   with l_Params do
   begin
    if Done then
@@ -3117,7 +3183,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TDocument_ShowRespondentListToPart_Params.Make(aList, aCurrent));
-  aTarget.Operation(TdmStdRes.opcode_Document_ShowRespondentListToPart, l_Params);
+  aTarget.Operation(opcode_Document_ShowRespondentListToPart, l_Params);
   with l_Params do
   begin
    if Done then
@@ -3139,7 +3205,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TDocument_ShowRespondentListToPart_Params.Make(aList, aCurrent));
-  aTarget.Operation(TdmStdRes.opcode_Document_ShowRespondentListToPart, l_Params);
+  aTarget.Operation(opcode_Document_ShowRespondentListToPart, l_Params);
   with l_Params do
   begin
    if Done then
@@ -3219,7 +3285,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TDocument_ShowCorrespondentListToPart_Params.Make(aList, aCurrent));
-  aTarget.Operation(TdmStdRes.opcode_Document_ShowCorrespondentListToPart, l_Params);
+  aTarget.Operation(opcode_Document_ShowCorrespondentListToPart, l_Params);
   with l_Params do
   begin
    if Done then
@@ -3241,7 +3307,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TDocument_ShowCorrespondentListToPart_Params.Make(aList, aCurrent));
-  aTarget.Operation(TdmStdRes.opcode_Document_ShowCorrespondentListToPart, l_Params);
+  aTarget.Operation(opcode_Document_ShowCorrespondentListToPart, l_Params);
   with l_Params do
   begin
    if Done then
@@ -3311,7 +3377,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TDocument_ModifyBookmarkNotify_Params.Make(anEntity));
-  aTarget.Operation(TdmStdRes.opcode_Document_ModifyBookmarkNotify, l_Params);
+  aTarget.Operation(opcode_Document_ModifyBookmarkNotify, l_Params);
   with l_Params do
   begin
    if Done then
@@ -3332,7 +3398,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TDocument_ModifyBookmarkNotify_Params.Make(anEntity));
-  aTarget.Operation(TdmStdRes.opcode_Document_ModifyBookmarkNotify, l_Params);
+  aTarget.Operation(opcode_Document_ModifyBookmarkNotify, l_Params);
   with l_Params do
   begin
    if Done then
@@ -3369,7 +3435,7 @@ begin
  if (vcmDispatcher <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TDocument_ModifyBookmarkNotify_Params.Make(anEntity));
-  vcmDispatcher.EntityOperationBroadcast(TdmStdRes.opcode_Document_ModifyBookmarkNotify, l_Params);
+  vcmDispatcher.EntityOperationBroadcast(opcode_Document_ModifyBookmarkNotify, l_Params);
  end//vcmDispatcher <> nil
 end;//Op_Document_ModifyBookmarkNotify.Broadcast
 
@@ -3412,7 +3478,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TDocument_AddBookmarkFromContents_Params.Make(aTag));
-  aTarget.Operation(TdmStdRes.opcode_Document_AddBookmarkFromContents, l_Params);
+  aTarget.Operation(opcode_Document_AddBookmarkFromContents, l_Params);
   with l_Params do
   begin
    if Done then
@@ -3433,7 +3499,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TDocument_AddBookmarkFromContents_Params.Make(aTag));
-  aTarget.Operation(TdmStdRes.opcode_Document_AddBookmarkFromContents, l_Params);
+  aTarget.Operation(opcode_Document_AddBookmarkFromContents, l_Params);
   with l_Params do
   begin
    if Done then
@@ -3471,7 +3537,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := vcmParams;
-  aTarget.Operation(TdmStdRes.opcode_Document_OpenNotSureTopic, l_Params);
+  aTarget.Operation(opcode_Document_OpenNotSureTopic, l_Params);
   with l_Params do
   begin
    if Done then
@@ -3491,7 +3557,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := vcmParams;
-  aTarget.Operation(TdmStdRes.opcode_Document_OpenNotSureTopic, l_Params);
+  aTarget.Operation(opcode_Document_OpenNotSureTopic, l_Params);
   with l_Params do
   begin
    if Done then
@@ -3576,7 +3642,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TDocument_GotoPara_Params.Make(aPara, aUserType));
-  aTarget.Operation(TdmStdRes.opcode_Document_GotoPara, l_Params);
+  aTarget.Operation(opcode_Document_GotoPara, l_Params);
   with l_Params do
   begin
    if Done then
@@ -3598,7 +3664,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TDocument_GotoPara_Params.Make(aPara, aUserType));
-  aTarget.Operation(TdmStdRes.opcode_Document_GotoPara, l_Params);
+  aTarget.Operation(opcode_Document_GotoPara, l_Params);
   with l_Params do
   begin
    if Done then
@@ -3628,6 +3694,236 @@ begin
  if (aTarget <> nil) then
   Result := Call(aTarget.AsForm, aPara, aUserType);
 end;//Op_Document_GotoPara.Call
+
+initialization
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Switcher, op_BecomeActive, en_capSwitcher, op_capBecomeActive, True, False, opcode_Switcher_BecomeActive)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Document, op_FindExplanation, en_capDocument, op_capFindExplanation, True, False, opcode_Document_FindExplanation)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_SynchroView, op_BecomeActive, en_capSynchroView, op_capBecomeActive, True, False, opcode_SynchroView_BecomeActive)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_List, op_GetDeList, en_capList, op_capGetDeList, True, False, opcode_List_GetDeList)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_List, op_SetCurrentVisible, en_capList, op_capSetCurrentVisible, True, False, opcode_List_SetCurrentVisible)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_List, op_SwitchToFullList, en_capList, op_capSwitchToFullList, False, False, opcode_List_SwitchToFullList)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_List, op_GetDsList, en_capList, op_capGetDsList, True, False, opcode_List_GetDsList)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Form, op_RequestClose, en_capForm, op_capRequestClose, True, False, opcode_Form_RequestClose)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_ControlCenter, op_Refresh, en_capControlCenter, op_capRefresh, True, False, opcode_ControlCenter_Refresh)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_ListInfo, op_BecomeActive, en_capListInfo, op_capBecomeActive, True, False, opcode_ListInfo_BecomeActive)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Filters, op_DeselectAll, en_capFilters, op_capDeselectAll, True, False, opcode_Filters_DeselectAll)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_LocalList, op_SearchInList, en_capLocalList, op_capSearchInList, False, False, opcode_LocalList_SearchInList)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_LocalList, op_PublishSourceSearchInList, en_capLocalList, op_capPublishSourceSearchInList, False, False, opcode_LocalList_PublishSourceSearchInList)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_LocalList, op_Open, en_capLocalList, op_capOpen, False, False, opcode_LocalList_Open)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_LocalList, op_SearchDrugInList, en_capLocalList, op_capSearchDrugInList, False, False, opcode_LocalList_SearchDrugInList)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_LocalList, op_OpenNewWindow, en_capLocalList, op_capOpenNewWindow, False, False, opcode_LocalList_OpenNewWindow)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_TimeMachine, op_TimeMachineOnOffNew, en_capTimeMachine, op_capTimeMachineOnOffNew, False, False, opcode_TimeMachine_TimeMachineOnOffNew)) do
+ begin
+  with AddState(TvcmOperationStateForRegister_C('MachineOn', st_user_TimeMachine_TimeMachineOnOffNew_MachineOn))^ do
+  begin
+  end;
+  with AddState(TvcmOperationStateForRegister_C('MachineOff', st_user_TimeMachine_TimeMachineOnOffNew_MachineOff))^ do
+  begin
+   rCaption := 'Выключить Машину времени/Изменить дату';
+   rImageIndex := 110;
+  end;
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_TimeMachine, op_TimeMachineOnOff, en_capTimeMachine, op_capTimeMachineOnOff, True, False, opcode_TimeMachine_TimeMachineOnOff)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_TimeMachine, op_TimeMachineOffAndReset, en_capTimeMachine, op_capTimeMachineOffAndReset, True, False, opcode_TimeMachine_TimeMachineOffAndReset)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_TimeMachine, op_TimeMachineOnOffNew, en_capTimeMachine, op_capTimeMachineOnOffNew, False, False, opcode_TimeMachine_TimeMachineOnOffNew)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Filter, op_Activate, en_capFilter, op_capActivate, False, False, opcode_Filter_Activate)) do
+ begin
+  with AddState(TvcmOperationStateForRegister_C('Deactivate', st_user_Filter_Activate_Deactivate))^ do
+  begin
+   rCaption := 'Отменить фильтр';
+   rChecked := vcm_osfTrue;
+  end;
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Filter, op_ActivateNode, en_capFilter, op_capActivateNode, True, False, opcode_Filter_ActivateNode)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Document, op_GetAnnotationDocFrmAct, en_capDocument, op_capGetAnnotationDocFrmAct, False, False, opcode_Document_GetAnnotationDocFrmAct)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Document, op_SimilarDocuments, en_capDocument, op_capSimilarDocuments, False, False, opcode_Document_SimilarDocuments)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Document, op_DocumentIsUseful, en_capDocument, op_capDocumentIsUseful, False, False, opcode_Document_DocumentIsUseful)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Document, op_DocumentIsUseless, en_capDocument, op_capDocumentIsUseless, False, False, opcode_Document_DocumentIsUseless)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Document, op_PrevDocumentInList, en_capDocument, op_capPrevDocumentInList, False, False, opcode_Document_PrevDocumentInList)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Document, op_NextDocumentInList, en_capDocument, op_capNextDocumentInList, False, False, opcode_Document_NextDocumentInList)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Document, op_ReturnToList, en_capDocument, op_capReturnToList, False, False, opcode_Document_ReturnToList)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Document, op_AddToControl, en_capDocument, op_capAddToControl, False, False, opcode_Document_AddToControl)) do
+ begin
+  with AddState(TvcmOperationStateForRegister_C('RemoveFromControl', st_user_Document_AddToControl_RemoveFromControl))^ do
+  begin
+   rCaption := 'Снять с контроля';
+   rChecked := vcm_osfTrue;
+  end;
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Document, op_UserCR1, en_capDocument, op_capUserCR1, False, False, opcode_Document_UserCR1)) do
+ begin
+  with AddState(TvcmOperationStateForRegister_C('Corr', st_user_Document_UserCR1_Corr))^ do
+  begin
+   rImageIndex := 18;
+  end;
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Document, op_UserCR2, en_capDocument, op_capUserCR2, False, False, opcode_Document_UserCR2)) do
+ begin
+  with AddState(TvcmOperationStateForRegister_C('Corr', st_user_Document_UserCR2_Corr))^ do
+  begin
+   rImageIndex := 18;
+  end;
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Document, op_AddToControl, en_capDocument, op_capAddToControl, False, False, opcode_Document_AddToControl)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Document, op_UserCR1, en_capDocument, op_capUserCR1, False, False, opcode_Document_UserCR1)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Document, op_UserCR2, en_capDocument, op_capUserCR2, False, False, opcode_Document_UserCR2)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Document, op_AddBookmark, en_capDocument, op_capAddBookmark, False, False, opcode_Document_AddBookmark)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Document, op_GetGraphicImage, en_capDocument, op_capGetGraphicImage, False, False, opcode_Document_GetGraphicImage)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_FoldersControl, op_EditElement, en_capFoldersControl, op_capEditElement, True, False, opcode_FoldersControl_EditElement)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_FoldersControl, op_DeleteElement, en_capFoldersControl, op_capDeleteElement, True, False, opcode_FoldersControl_DeleteElement)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_SavedQuery, op_OpenQuery, en_capSavedQuery, op_capOpenQuery, False, False, opcode_SavedQuery_OpenQuery)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_SavedQuery, op_ExecuteQuery, en_capSavedQuery, op_capExecuteQuery, False, False, opcode_SavedQuery_ExecuteQuery)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Filters, op_FiltersList, en_capFilters, op_capFiltersList, False, False, opcode_Filters_FiltersList)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Filters, op_Clear, en_capFilters, op_capClear, False, False, opcode_Filters_Clear)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Filters, op_InternalClear, en_capFilters, op_capInternalClear, True, False, opcode_Filters_InternalClear)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Openable, op_OpenInNewWindow, en_capOpenable, op_capOpenInNewWindow, False, False, opcode_Openable_OpenInNewWindow)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_HyperLink, op_Open, en_capHyperLink, op_capOpen, False, False, opcode_HyperLink_Open)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_HyperLink, op_OpenNewWindow, en_capHyperLink, op_capOpenNewWindow, False, False, opcode_HyperLink_OpenNewWindow)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_HyperLink, op_NextHyperLink, en_capHyperLink, op_capNextHyperLink, False, False, opcode_HyperLink_NextHyperLink)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_HyperLink, op_PrevHyperLink, en_capHyperLink, op_capPrevHyperLink, False, False, opcode_HyperLink_PrevHyperLink)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_HyperLink, op_OpenInNewTab, en_capHyperLink, op_capOpenInNewTab, False, False, opcode_HyperLink_OpenInNewTab)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_HyperLink, op_OpenScriptHyperLink, en_capHyperLink, op_capOpenScriptHyperLink, False, False, opcode_HyperLink_OpenScriptHyperLink)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_HyperLink, op_NavigateInternetHyperlink, en_capHyperLink, op_capNavigateInternetHyperlink, False, False, opcode_HyperLink_NavigateInternetHyperlink)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_HyperLink, op_Delete, en_capHyperLink, op_capDelete, False, True, opcode_HyperLink_Delete)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Document, op_SetActive, en_capDocument, op_capSetActive, True, False, opcode_Document_SetActive)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Document, op_ExportBlock, en_capDocument, op_capExportBlock, True, False, opcode_Document_ExportBlock)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Document, op_GetCurrentPosition, en_capDocument, op_capGetCurrentPosition, True, False, opcode_Document_GetCurrentPosition)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Document, op_SelectBlock, en_capDocument, op_capSelectBlock, True, False, opcode_Document_SelectBlock)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Document, op_CopyBlock, en_capDocument, op_capCopyBlock, True, False, opcode_Document_CopyBlock)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Document, op_PrintBlock, en_capDocument, op_capPrintBlock, True, False, opcode_Document_PrintBlock)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Document, op_PrintDialogBlock, en_capDocument, op_capPrintDialogBlock, True, False, opcode_Document_PrintDialogBlock)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Document, op_PreviewBlock, en_capDocument, op_capPreviewBlock, True, False, opcode_Document_PreviewBlock)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Document, op_ShowRespondentListToPart, en_capDocument, op_capShowRespondentListToPart, True, False, opcode_Document_ShowRespondentListToPart)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Document, op_ShowCorrespondentListToPart, en_capDocument, op_capShowCorrespondentListToPart, True, False, opcode_Document_ShowCorrespondentListToPart)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Document, op_ModifyBookmarkNotify, en_capDocument, op_capModifyBookmarkNotify, True, False, opcode_Document_ModifyBookmarkNotify)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Document, op_AddBookmarkFromContents, en_capDocument, op_capAddBookmarkFromContents, True, False, opcode_Document_AddBookmarkFromContents)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Document, op_OpenNotSureTopic, en_capDocument, op_capOpenNotSureTopic, True, False, opcode_Document_OpenNotSureTopic)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Document, op_GotoPara, en_capDocument, op_capGotoPara, True, False, opcode_Document_GotoPara)) do
+ begin
+ end;
+
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

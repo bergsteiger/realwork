@@ -1,38 +1,51 @@
 unit moInternetAgent;
+ {* Интернет-агент }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/moInternetAgent.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMUseCaseRealization::Class>> F1 Встроенные продукты::InternetAgent::InternetAgent$UC
-//
-// Интернет-агент
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\moInternetAgent.pas"
+// Стереотип: "VCMUseCaseRealization"
+// Элемент модели: "InternetAgent" MUID: (49F6E8F90153)
+// Имя типа: "Tmo_InternetAgent"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  PrimInternetAgent_Module
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , PrimInternetAgent_Module
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
-Tmo_InternetAgent = {final formspack} class(TPrimInternetAgentModule)
- {* Интернет-агент }
-end;//Tmo_InternetAgent
-{$IfEnd} //not Admin AND not Monitorings
+ Tmo_InternetAgent = {final} class(TPrimInternetAgentModule)
+  {* Интернет-агент }
+ end;//Tmo_InternetAgent
+
+var g_module_opcode_InternetAgent_InternetAgent: TvcmMOPID = (rMoID : -1; rOpID : -1);
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+uses
+ l3ImplUses
+ {$If NOT Defined(NoVCM)}
+ , vcmModulesForRegister
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmModuleOperationsForRegister
+ {$IfEnd} // NOT Defined(NoVCM)
+;
+
+initialization
+ TvcmModulesForRegister.AddModule(TvcmModuleForRegister_C(Tmo_InternetAgent, 'Интернет-агент'));
+ TvcmModuleOperationsForRegister.AddOperation(TvcmModuleOperationForRegister_C(Tmo_InternetAgent, 'InternetAgent', 'Новости онлайн', False, g_module_opcode_InternetAgent_InternetAgent));
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

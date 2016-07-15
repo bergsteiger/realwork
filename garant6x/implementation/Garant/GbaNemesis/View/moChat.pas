@@ -1,37 +1,51 @@
 unit moChat;
+ {* Чат }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/moChat.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMUseCaseRealization::Class>> F1 Встроенные продукты::Chat::Chat$UC
-//
-// Чат
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\moChat.pas"
+// Стереотип: "VCMUseCaseRealization"
+// Элемент модели: "Chat" MUID: (4A697E4303C9)
+// Имя типа: "Tmo_Chat"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  BaseChat_Module
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , BaseChat_Module
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
-Tmo_Chat = {final formspack} class(TBaseChatModule)
- {* Чат }
-end;//Tmo_Chat
-{$IfEnd} //not Admin AND not Monitorings
+ Tmo_Chat = {final} class(TBaseChatModule)
+  {* Чат }
+ end;//Tmo_Chat
+
+var g_module_opcode_Chat_OpenContactList: TvcmMOPID = (rMoID : -1; rOpID : -1);
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+uses
+ l3ImplUses
+ {$If NOT Defined(NoVCM)}
+ , vcmModulesForRegister
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmModuleOperationsForRegister
+ {$IfEnd} // NOT Defined(NoVCM)
+;
+
+initialization
+ TvcmModulesForRegister.AddModule(TvcmModuleForRegister_C(Tmo_Chat, 'Чат'));
+ TvcmModuleOperationsForRegister.AddOperation(TvcmModuleOperationForRegister_C(Tmo_Chat, 'OpenContactList', '', False, g_module_opcode_Chat_OpenContactList));
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

@@ -30,8 +30,6 @@ uses
 ;
 
 type
- // InternetAgent
-
  Tfs_InternetAgent = {final} class({$If NOT Defined(NoVCM)}
  TvcmFormSetFactory
  {$IfEnd} // NOT Defined(NoVCM)
@@ -43,14 +41,14 @@ type
    class function GetInstance: TvcmFormSetFactoryPrim; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   function InternetAgent_Parent_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+   function InternetAgentParentNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
     out aNew: IvcmFormDataSource;
     aSubUserType: TvcmUserType): Boolean;
     {* Обработчик OnNeedMakeForm для InternetAgent }
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: Tfs_InternetAgent;
     {* Метод получения экземпляра синглетона Tfs_InternetAgent }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//Tfs_InternetAgent
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -60,7 +58,6 @@ implementation
 uses
  l3ImplUses
  , l3StringIDEx
- , l3MessageID
  , SysUtils
  , l3Base
 ;
@@ -80,23 +77,21 @@ begin
  l3Free(g_Tfs_InternetAgent);
 end;//Tfs_InternetAgentFree
 
-function Tfs_InternetAgent.InternetAgent_Parent_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+function Tfs_InternetAgent.InternetAgentParentNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
  out aNew: IvcmFormDataSource;
  aSubUserType: TvcmUserType): Boolean;
  {* Обработчик OnNeedMakeForm для InternetAgent }
-//#UC START# *4C922F4CC339_49F586610347_var*
-//#UC END# *4C922F4CC339_49F586610347_var*
+var
+ l_UseCase : IsdsInternetAgent;
 begin
-//#UC START# *4C922F4CC339_49F586610347_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C922F4CC339_49F586610347_impl*
-end;//Tfs_InternetAgent.InternetAgent_Parent_NeedMakeForm
-
-class function Tfs_InternetAgent.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_Tfs_InternetAgent <> nil;
-end;//Tfs_InternetAgent.Exists
+ if Supports(aDataSource, IsdsInternetAgent, l_UseCase) then
+  try
+   aNew := l_UseCase.MainViewArea;
+  finally
+   l_UseCase := nil;
+  end;//try..finally
+ Result := (aNew <> nil);
+end;//Tfs_InternetAgent.InternetAgentParentNeedMakeForm
 
 class function Tfs_InternetAgent.Instance: Tfs_InternetAgent;
  {* Метод получения экземпляра синглетона Tfs_InternetAgent }
@@ -109,22 +104,27 @@ begin
  Result := g_Tfs_InternetAgent;
 end;//Tfs_InternetAgent.Instance
 
-procedure Tfs_InternetAgent.InitFields;
-//#UC START# *47A042E100E2_49F586610347_var*
-//#UC END# *47A042E100E2_49F586610347_var*
+class function Tfs_InternetAgent.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
-//#UC START# *47A042E100E2_49F586610347_impl*
- !!! Needs to be implemented !!!
-//#UC END# *47A042E100E2_49F586610347_impl*
+ Result := g_Tfs_InternetAgent <> nil;
+end;//Tfs_InternetAgent.Exists
+
+procedure Tfs_InternetAgent.InitFields;
+begin
+ inherited;
+ with AddZone('InternetAgent', vcm_ztParent, fm_InternetAgentForm) do
+ begin
+  UserType := 0;
+  OnNeedMakeForm := InternetAgentParentNeedMakeForm;
+ end;
+ Caption := str_fsInternetAgentCaption.AsCStr;
+ OwnerForm := 0;
 end;//Tfs_InternetAgent.InitFields
 
 class function Tfs_InternetAgent.GetInstance: TvcmFormSetFactoryPrim;
-//#UC START# *4FFE854A009B_49F586610347_var*
-//#UC END# *4FFE854A009B_49F586610347_var*
 begin
-//#UC START# *4FFE854A009B_49F586610347_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4FFE854A009B_49F586610347_impl*
+ Result := Self.Instance;
 end;//Tfs_InternetAgent.GetInstance
 
 initialization

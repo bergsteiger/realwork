@@ -1,72 +1,60 @@
 unit BaseWorkJournal_Module;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/WorkJournal/BaseWorkJournal_Module.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMFormsPack::Class>> F1 Основные прецеденты::WorkJournal::View::WorkJournal::BaseWorkJournal
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\WorkJournal\BaseWorkJournal_Module.pas"
+// Стереотип: "VCMFormsPack"
+// Элемент модели: "BaseWorkJournal" MUID: (4A811C1A0293)
+// Имя типа: "TBaseWorkJournalModule"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  WorkJournal_Form,
-  WorkJournalInterfaces,
-  PrimWorkJournalOptions_Form,
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a},
-  vcmModule {a},
-  vcmBase {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , WorkJournalInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
- TBaseWorkJournalModule = {formspack} class(TvcmModule)
- protected
-  procedure Loaded; override;
-  class procedure GetEntityForms(aList : TvcmClassList); override;
- protected
- // protected methods
+ TBaseWorkJournalModule = class({$If NOT Defined(NoVCM)}
+ TvcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
+  protected
    procedure opOpenJournalTest(const aParams: IvcmTestParamsPrim);
-   procedure opOpenJournal(const aParams: IvcmExecuteParamsPrim);
- public
- // public methods
+   procedure opOpenJournalExecute(const aParams: IvcmExecuteParamsPrim);
+   procedure Loaded; override;
+   {$If NOT Defined(NoVCM)}
+   class procedure GetEntityForms(aList: TvcmClassList); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    class function MakeWorkJournal: IbsWorkJournal;
  end;//TBaseWorkJournalModule
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  bsWorkJournal,
-  PrimWorkJournal_utWorkJournal_UserType
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  kw_WorkJournal_opOpenJournal
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  ,
-  vcmFormSetFactory {a},
-  StdRes {a},
-  vcmModuleDef {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , PrimWorkJournal_utWorkJournal_UserType
+ , bsWorkJournal
+ , WorkJournal_Form
+ //#UC START# *4A811C1A0293impl_uses*
+ , vcmInterfaces
+ //#UC END# *4A811C1A0293impl_uses*
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TBaseWorkJournalModule
-
+{$If NOT Defined(NoVCM)}
 class function TBaseWorkJournalModule.MakeWorkJournal: IbsWorkJournal;
 var
  __WasEnter : Boolean;
@@ -93,7 +81,7 @@ begin
 //#UC END# *4A97C7C0019C_4A811C1A0293test_impl*
 end;//TBaseWorkJournalModule.opOpenJournalTest
 
-procedure TBaseWorkJournalModule.opOpenJournal(const aParams: IvcmExecuteParamsPrim);
+procedure TBaseWorkJournalModule.opOpenJournalExecute(const aParams: IvcmExecuteParamsPrim);
 //#UC START# *4A97C7C0019C_4A811C1A0293exec_var*
 var
  l_Window: IvcmEntityForm;
@@ -106,20 +94,20 @@ begin
                                Ord(utWorkJournal));
  l_Window.SetActiveInParent;
 //#UC END# *4A97C7C0019C_4A811C1A0293exec_impl*
-end;//TBaseWorkJournalModule.opOpenJournal
+end;//TBaseWorkJournalModule.opOpenJournalExecute
 
 procedure TBaseWorkJournalModule.Loaded;
 begin
  inherited;
- PublishOp('opOpenJournal', opOpenJournal, opOpenJournalTest);
-end;
+ PublishOp('opOpenJournal', opOpenJournalExecute, opOpenJournalTest);
+end;//TBaseWorkJournalModule.Loaded
 
-class procedure TBaseWorkJournalModule.GetEntityForms(aList : TvcmClassList);
+class procedure TBaseWorkJournalModule.GetEntityForms(aList: TvcmClassList);
 begin
  inherited;
  aList.Add(TWorkJournalForm);
-end;
+end;//TBaseWorkJournalModule.GetEntityForms
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //not Admin AND not Monitorings
-
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

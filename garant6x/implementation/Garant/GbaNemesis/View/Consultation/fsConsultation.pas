@@ -1,151 +1,109 @@
 unit fsConsultation;
+ {* Сборка для показа консультации }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Consultation/fsConsultation.pas"
-// Начат: 25.09.2009 21:19
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMFormSetFactory::Class>> F1 Пользовательские сервисы::Consultation::View::Consultation::Consultation$FP::Consultation
-//
-// Сборка для показа консультации
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Consultation\fsConsultation.pas"
+// Стереотип: "VCMFormSetFactory"
+// Элемент модели: "Consultation" MUID: (4AA5360E0197)
+// Имя типа: "Tfs_Consultation"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmFormSetFactory
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  ,
-  ConsultationDomainInterfaces,
-  DocumentUserTypes_dftConsultation_UserType,
-  l3StringIDEx,
-  ListUserTypes_lftConsultation_UserType,
-  Common_FormDefinitions_Controls,
-  PrimConsultationMark_utcmMain_UserType
-  {$If not defined(NoVCM)}
-  ,
-  vcmFormSetFormsCollectionItemPrim
-  {$IfEnd} //not NoVCM
-  ,
-  DocumentAndListInterfaces {a},
-  DocumentUnit,
-  DocumentInterfaces,
-  bsTypesNew
-  {$If not defined(NoVCM)}
-  ,
-  vcmFormSetFactoryPrim
-  {$IfEnd} //not NoVCM
-  
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmFormSetFactory
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmUserControls
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmFormSetFactoryPrim
+ {$IfEnd} // NOT Defined(NoVCM)
+ , DocumentUserTypes_dftConsultation_UserType
+ , Common_FormDefinitions_Controls
+ , ConsultationDomainInterfaces
+ , DocumentInterfaces
+ , DocumentAndListInterfaces
+ , DocumentUnit
+ , bsTypesNew
+ , ListUserTypes_lftConsultation_UserType
+ , PrimConsultationMark_utcmMain_UserType
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
-  Tfs_Consultation = {final fsf} class(TvcmFormSetFactory)
-   {* Сборка для показа консультации }
+ Tfs_Consultation = {final} class({$If NOT Defined(NoVCM)}
+ TvcmFormSetFactory
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
+  {* Сборка для показа консультации }
   protected
-  // overridden protected methods
    procedure InitFields; override;
-    {$If not defined(NoVCM)}
+   {$If NOT Defined(NoVCM)}
    class function GetInstance: TvcmFormSetFactoryPrim; override;
-    {$IfEnd} //not NoVCM
+   {$IfEnd} // NOT Defined(NoVCM)
   public
-  // public methods
    function TextParentDftConsultationNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-      out aNew: IvcmFormDataSource;
-      aSubUserType: TvcmUserType): Boolean;
-     {* Обработчик OnNeedMakeForm для Text }
+    out aNew: IvcmFormDataSource;
+    aSubUserType: TvcmUserType): Boolean;
+    {* Обработчик OnNeedMakeForm для Text }
    function ListChildLftConsultationNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-      out aNew: IvcmFormDataSource;
-      aSubUserType: TvcmUserType): Boolean;
-     {* Обработчик OnNeedMakeForm для List }
+    out aNew: IvcmFormDataSource;
+    aSubUserType: TvcmUserType): Boolean;
+    {* Обработчик OnNeedMakeForm для List }
    function MarkModalUtcmMainNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-      out aNew: IvcmFormDataSource;
-      aSubUserType: TvcmUserType): Boolean;
-     {* Обработчик OnNeedMakeForm для Mark }
+    out aNew: IvcmFormDataSource;
+    aSubUserType: TvcmUserType): Boolean;
+    {* Обработчик OnNeedMakeForm для Mark }
+   class function Instance: Tfs_Consultation;
+    {* Метод получения экземпляра синглетона Tfs_Consultation }
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
-  public
-  // singleton factory method
-    class function Instance: Tfs_Consultation;
-     {- возвращает экземпляр синглетона. }
-  end;//Tfs_Consultation
-{$IfEnd} //not Admin AND not Monitorings
+    {* Проверяет создан экземпляр синглетона или нет }
+ end;//Tfs_Consultation
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Base {a},
-  l3MessageID,
-  SysUtils
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , l3StringIDEx
+ , SysUtils
+ , l3Base
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(NoVCM)}
+var g_Tfs_Consultation: Tfs_Consultation = nil;
+ {* Экземпляр синглетона Tfs_Consultation }
 
-
-// start class Tfs_Consultation
-
-var g_Tfs_Consultation : Tfs_Consultation = nil;
+const
+ {* Локализуемые строки ConsultationCaptionLocalConstants }
+ str_fsConsultationCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'fsConsultationCaption'; rValue : 'Консультация');
+  {* Заголовок фабрики сборки форм "Consultation" }
 
 procedure Tfs_ConsultationFree;
+ {* Метод освобождения экземпляра синглетона Tfs_Consultation }
 begin
  l3Free(g_Tfs_Consultation);
-end;
-
-class function Tfs_Consultation.Instance: Tfs_Consultation;
-begin
- if (g_Tfs_Consultation = nil) then
- begin
-  l3System.AddExitProc(Tfs_ConsultationFree);
-  g_Tfs_Consultation := Create;
- end;
- Result := g_Tfs_Consultation;
-end;
-
-var
-    { Локализуемые строки ConsultationCaptionLocalConstants }
-   str_fsConsultationCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'fsConsultationCaption'; rValue : 'Консультация');
-    { Заголовок фабрики сборки форм "Consultation" }
-
-// start class Tfs_Consultation
+end;//Tfs_ConsultationFree
 
 function Tfs_Consultation.TextParentDftConsultationNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-  out aNew: IvcmFormDataSource;
-  aSubUserType: TvcmUserType): Boolean;
+ out aNew: IvcmFormDataSource;
+ aSubUserType: TvcmUserType): Boolean;
+ {* Обработчик OnNeedMakeForm для Text }
 var
  l_UseCase : IsdsConsultation;
 begin
  if Supports(aDataSource, IsdsConsultation, l_UseCase) then
   try
-//#UC START# *4FFADAFD02F1NeedMake_impl*
+  //#UC START# *4FFADAFD02F1NeedMake_impl*
    aNew := l_UseCase.dsConsultation;
-//#UC END# *4FFADAFD02F1NeedMake_impl*
+  //#UC END# *4FFADAFD02F1NeedMake_impl*
   finally
    l_UseCase := nil;
   end;//try..finally
@@ -153,16 +111,17 @@ begin
 end;//Tfs_Consultation.TextParentDftConsultationNeedMakeForm
 
 function Tfs_Consultation.ListChildLftConsultationNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-  out aNew: IvcmFormDataSource;
-  aSubUserType: TvcmUserType): Boolean;
+ out aNew: IvcmFormDataSource;
+ aSubUserType: TvcmUserType): Boolean;
+ {* Обработчик OnNeedMakeForm для List }
 var
  l_UseCase : IsdsConsultation;
 begin
  if Supports(aDataSource, IsdsConsultation, l_UseCase) then
   try
-//#UC START# *4FFADCDA016FNeedMake_impl*
+  //#UC START# *4FFADCDA016FNeedMake_impl*
    aNew := l_UseCase.dsList;
-//#UC END# *4FFADCDA016FNeedMake_impl*
+  //#UC END# *4FFADCDA016FNeedMake_impl*
   finally
    l_UseCase := nil;
   end;//try..finally
@@ -170,30 +129,41 @@ begin
 end;//Tfs_Consultation.ListChildLftConsultationNeedMakeForm
 
 function Tfs_Consultation.MarkModalUtcmMainNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-  out aNew: IvcmFormDataSource;
-  aSubUserType: TvcmUserType): Boolean;
+ out aNew: IvcmFormDataSource;
+ aSubUserType: TvcmUserType): Boolean;
+ {* Обработчик OnNeedMakeForm для Mark }
 var
  l_UseCase : IsdsConsultation;
 begin
  if Supports(aDataSource, IsdsConsultation, l_UseCase) then
   try
-//#UC START# *4FFADD000158NeedMake_impl*
+  //#UC START# *4FFADD000158NeedMake_impl*
    aNew := l_UseCase.dsConsultationMark[false];
-//#UC END# *4FFADD000158NeedMake_impl*
+  //#UC END# *4FFADD000158NeedMake_impl*
   finally
    l_UseCase := nil;
   end;//try..finally
  Result := (aNew <> nil);
 end;//Tfs_Consultation.MarkModalUtcmMainNeedMakeForm
 
+class function Tfs_Consultation.Instance: Tfs_Consultation;
+ {* Метод получения экземпляра синглетона Tfs_Consultation }
+begin
+ if (g_Tfs_Consultation = nil) then
+ begin
+  l3System.AddExitProc(Tfs_ConsultationFree);
+  g_Tfs_Consultation := Create;
+ end;
+ Result := g_Tfs_Consultation;
+end;//Tfs_Consultation.Instance
+
 class function Tfs_Consultation.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_Tfs_Consultation <> nil;
 end;//Tfs_Consultation.Exists
 
 procedure Tfs_Consultation.InitFields;
- {-}
 begin
  inherited;
  with AddZone('Text', vcm_ztParent, fm_TextForm) do
@@ -215,20 +185,15 @@ begin
  OwnerForm := 0;
 end;//Tfs_Consultation.InitFields
 
-{$If not defined(NoVCM)}
 class function Tfs_Consultation.GetInstance: TvcmFormSetFactoryPrim;
- {-}
 begin
  Result := Self.Instance;
 end;//Tfs_Consultation.GetInstance
-{$IfEnd} //not NoVCM
-
-{$IfEnd} //not Admin AND not Monitorings
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_fsConsultationCaption
  str_fsConsultationCaption.Init;
-{$IfEnd} //not Admin AND not Monitorings
+ {* Инициализация str_fsConsultationCaption }
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

@@ -1,43 +1,48 @@
 unit moCompareEditions;
+ {* Сравнение редакций }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/moCompareEditions.pas"
-// Начат: 27.07.2009 11:42
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMUseCaseRealization::Class>> F1 Пользовательские сервисы::CompareEditions::CompareEditions
-//
-// Сравнение редакций
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\moCompareEditions.pas"
+// Стереотип: "VCMUseCaseRealization"
+// Элемент модели: "CompareEditions" MUID: (4A6D5A4902D8)
+// Имя типа: "Tmo_CompareEditions"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  BaseEditions_Module
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , BaseEditions_Module
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
-Tmo_CompareEditions = {final formspack} class(TBaseEditionsModule)
- {* Сравнение редакций }
-end;//Tmo_CompareEditions
-{$IfEnd} //not Admin AND not Monitorings
+ Tmo_CompareEditions = {final} class(TBaseEditionsModule)
+  {* Сравнение редакций }
+ end;//Tmo_CompareEditions
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+uses
+ l3ImplUses
+ {$If NOT Defined(NoVCM)}
+ , vcmModulesForRegister
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmModuleOperationsForRegister
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
+initialization
+ TvcmModulesForRegister.AddModule(TvcmModuleForRegister_C(Tmo_CompareEditions, 'Сравнение редакций'));
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
-{$IfEnd} //not Admin AND not Monitorings
 end.

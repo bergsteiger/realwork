@@ -30,6 +30,7 @@ uses
 
 type
  _InitDataType_ = InsEditionsContainerData;
+ _FormDataSourceType_ = IdsEditionsContainerData;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\Editions\dsEdition.imp.pas}
  TdsEditionsContainerData = {final} class(_dsEdition_, IdsEditionsContainerData)
   {* Контейнер для сравниваемых редакций }

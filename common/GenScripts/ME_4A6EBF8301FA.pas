@@ -43,12 +43,6 @@ uses
 ;
 
 type
- // Left
-
- // Right
-
- // EditionsContainer
-
  Tfs_CompareEditions = {final} class({$If NOT Defined(NoVCM)}
  TvcmFormSetFactory
  {$IfEnd} // NOT Defined(NoVCM)
@@ -60,22 +54,22 @@ type
    class function GetInstance: TvcmFormSetFactoryPrim; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   function EditionsContainer_Parent_utEditionsContainer_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+   function EditionsContainerParentUtEditionsContainerNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
     out aNew: IvcmFormDataSource;
     aSubUserType: TvcmUserType): Boolean;
     {* Обработчик OnNeedMakeForm для EditionsContainer }
-   function Left_Child_utLeftEdition_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+   function LeftChildUtLeftEditionNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
     out aNew: IvcmFormDataSource;
     aSubUserType: TvcmUserType): Boolean;
     {* Обработчик OnNeedMakeForm для Left }
-   function Right_Main_utRightEdition_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+   function RightMainUtRightEditionNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
     out aNew: IvcmFormDataSource;
     aSubUserType: TvcmUserType): Boolean;
     {* Обработчик OnNeedMakeForm для Right }
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: Tfs_CompareEditions;
     {* Метод получения экземпляра синглетона Tfs_CompareEditions }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//Tfs_CompareEditions
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -85,7 +79,6 @@ implementation
 uses
  l3ImplUses
  , l3StringIDEx
- , l3MessageID
  , SysUtils
  , l3Base
  , CompareEditions_FormDefinitions_Controls
@@ -106,47 +99,53 @@ begin
  l3Free(g_Tfs_CompareEditions);
 end;//Tfs_CompareEditionsFree
 
-function Tfs_CompareEditions.EditionsContainer_Parent_utEditionsContainer_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+function Tfs_CompareEditions.EditionsContainerParentUtEditionsContainerNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
  out aNew: IvcmFormDataSource;
  aSubUserType: TvcmUserType): Boolean;
  {* Обработчик OnNeedMakeForm для EditionsContainer }
-//#UC START# *220564C38BDB_4A6EBF8301FA_var*
-//#UC END# *220564C38BDB_4A6EBF8301FA_var*
+var
+ l_UseCase : IsdsCompareEditions;
 begin
-//#UC START# *220564C38BDB_4A6EBF8301FA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *220564C38BDB_4A6EBF8301FA_impl*
-end;//Tfs_CompareEditions.EditionsContainer_Parent_utEditionsContainer_NeedMakeForm
+ if Supports(aDataSource, IsdsCompareEditions, l_UseCase) then
+  try
+   aNew := l_UseCase.EditionsContainerData;
+  finally
+   l_UseCase := nil;
+  end;//try..finally
+ Result := (aNew <> nil);
+end;//Tfs_CompareEditions.EditionsContainerParentUtEditionsContainerNeedMakeForm
 
-function Tfs_CompareEditions.Left_Child_utLeftEdition_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+function Tfs_CompareEditions.LeftChildUtLeftEditionNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
  out aNew: IvcmFormDataSource;
  aSubUserType: TvcmUserType): Boolean;
  {* Обработчик OnNeedMakeForm для Left }
-//#UC START# *2F2577A83E0B_4A6EBF8301FA_var*
-//#UC END# *2F2577A83E0B_4A6EBF8301FA_var*
+var
+ l_UseCase : IsdsCompareEditions;
 begin
-//#UC START# *2F2577A83E0B_4A6EBF8301FA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *2F2577A83E0B_4A6EBF8301FA_impl*
-end;//Tfs_CompareEditions.Left_Child_utLeftEdition_NeedMakeForm
+ if Supports(aDataSource, IsdsCompareEditions, l_UseCase) then
+  try
+   aNew := l_UseCase.Left;
+  finally
+   l_UseCase := nil;
+  end;//try..finally
+ Result := (aNew <> nil);
+end;//Tfs_CompareEditions.LeftChildUtLeftEditionNeedMakeForm
 
-function Tfs_CompareEditions.Right_Main_utRightEdition_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+function Tfs_CompareEditions.RightMainUtRightEditionNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
  out aNew: IvcmFormDataSource;
  aSubUserType: TvcmUserType): Boolean;
  {* Обработчик OnNeedMakeForm для Right }
-//#UC START# *B8C95E6B157E_4A6EBF8301FA_var*
-//#UC END# *B8C95E6B157E_4A6EBF8301FA_var*
+var
+ l_UseCase : IsdsCompareEditions;
 begin
-//#UC START# *B8C95E6B157E_4A6EBF8301FA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *B8C95E6B157E_4A6EBF8301FA_impl*
-end;//Tfs_CompareEditions.Right_Main_utRightEdition_NeedMakeForm
-
-class function Tfs_CompareEditions.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_Tfs_CompareEditions <> nil;
-end;//Tfs_CompareEditions.Exists
+ if Supports(aDataSource, IsdsCompareEditions, l_UseCase) then
+  try
+   aNew := l_UseCase.Right;
+  finally
+   l_UseCase := nil;
+  end;//try..finally
+ Result := (aNew <> nil);
+end;//Tfs_CompareEditions.RightMainUtRightEditionNeedMakeForm
 
 class function Tfs_CompareEditions.Instance: Tfs_CompareEditions;
  {* Метод получения экземпляра синглетона Tfs_CompareEditions }
@@ -159,22 +158,37 @@ begin
  Result := g_Tfs_CompareEditions;
 end;//Tfs_CompareEditions.Instance
 
-procedure Tfs_CompareEditions.InitFields;
-//#UC START# *47A042E100E2_4A6EBF8301FA_var*
-//#UC END# *47A042E100E2_4A6EBF8301FA_var*
+class function Tfs_CompareEditions.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
-//#UC START# *47A042E100E2_4A6EBF8301FA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *47A042E100E2_4A6EBF8301FA_impl*
+ Result := g_Tfs_CompareEditions <> nil;
+end;//Tfs_CompareEditions.Exists
+
+procedure Tfs_CompareEditions.InitFields;
+begin
+ inherited;
+ with AddZone('EditionsContainer', vcm_ztParent, fm_EditionsContainerForm) do
+ begin
+  UserType := utEditionsContainer;
+  with AddZone('Left', vcm_ztChild, fm_LeftEditionForm) do
+  begin
+   UserType := utLeftEdition;
+   OnNeedMakeForm := LeftChildUtLeftEditionNeedMakeForm;
+  end;
+  with AddZone('Right', vcm_ztMain, fm_RightEditionForm) do
+  begin
+   UserType := utRightEdition;
+   OnNeedMakeForm := RightMainUtRightEditionNeedMakeForm;
+  end;
+  OnNeedMakeForm := EditionsContainerParentUtEditionsContainerNeedMakeForm;
+ end;
+ Caption := str_fsCompareEditionsCaption.AsCStr;
+ OwnerForm := 0;
 end;//Tfs_CompareEditions.InitFields
 
 class function Tfs_CompareEditions.GetInstance: TvcmFormSetFactoryPrim;
-//#UC START# *4FFE854A009B_4A6EBF8301FA_var*
-//#UC END# *4FFE854A009B_4A6EBF8301FA_var*
 begin
-//#UC START# *4FFE854A009B_4A6EBF8301FA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4FFE854A009B_4A6EBF8301FA_impl*
+ Result := Self.Instance;
 end;//Tfs_CompareEditions.GetInstance
 
 initialization

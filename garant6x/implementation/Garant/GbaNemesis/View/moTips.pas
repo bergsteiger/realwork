@@ -1,39 +1,51 @@
 unit moTips;
+ {* Совет дня }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Автор: Лукьянец Р.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/moTips.pas"
-// Начат: 2008/02/20 11:00:21
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMUseCaseRealization::Class>> F1 Интерфейсные элементы::DayTips::Tips
-//
-// Совет дня
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\moTips.pas"
+// Стереотип: "VCMUseCaseRealization"
+// Элемент модели: "Tips" MUID: (4AA0D56B027A)
+// Имя типа: "Tmo_Tips"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DayTips_Module
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , DayTips_Module
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
-Tmo_Tips = {final formspack} class(TDayTipsModule)
- {* Совет дня }
-end;//Tmo_Tips
-{$IfEnd} //not Admin AND not Monitorings
+ Tmo_Tips = {final} class(TDayTipsModule)
+  {* Совет дня }
+ end;//Tmo_Tips
+
+var g_module_opcode_Tips_ShowDayTips: TvcmMOPID = (rMoID : -1; rOpID : -1);
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+uses
+ l3ImplUses
+ {$If NOT Defined(NoVCM)}
+ , vcmModulesForRegister
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmModuleOperationsForRegister
+ {$IfEnd} // NOT Defined(NoVCM)
+;
+
+initialization
+ TvcmModulesForRegister.AddModule(TvcmModuleForRegister_C(Tmo_Tips, 'Совет дня'));
+ TvcmModuleOperationsForRegister.AddOperation(TvcmModuleOperationForRegister_C(Tmo_Tips, 'ShowDayTips', '', False, g_module_opcode_Tips_ShowDayTips));
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

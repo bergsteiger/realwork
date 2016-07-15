@@ -20,10 +20,10 @@ uses
  , pgConnection
  , daTypes
  , l3Languages
- , pgFamilyHelper
  , pgRenumerator
- , pgFreeIDHelper
  , pgFunctionFactory
+ , pgFreeIDHelperHolder
+ , pgFamilyHelper
  , l3DatLst
 ;
 
@@ -48,17 +48,16 @@ type
    f_UserManager: IdaUserManager;
    f_IsStarted: Boolean;
    f_RegionQuery: IdaTabledQuery;
-   f_FamilyHelper: TpgFamilyHelper;
    f_CurHomePath: AnsiString;
    f_LockCounter: Integer;
    f_Renum: TpgRenumerator;
-   f_MainFreeIDHelper: TpgFreeIDHelper;
-   f_CurrentFreeIDHelper: TpgFreeIDHelper;
    f_FunctionFactory: TpgFunctionFactory;
    f_SetGlobalDataProvider: Boolean;
    f_HasAdminRights: Boolean;
    f_AlienSessionID: TdaSessionID;
    f_ImpersonateCounter: Integer;
+   f_FamilyHelper: TpgFamilyHelper;
+   f_FreeIDHelperHolder: TpgFreeIDHelperHolder;
   private
    procedure ReadIniFile;
    function RegionQuery: IdaTabledQuery;
@@ -70,7 +69,6 @@ type
    function CheckFreeResource(aFamilyID: TdaFamilyID;
     const aKey: AnsiString): Boolean;
   protected
-   function pm_GetFreeIDHelper(aFamilyID: TdaFamilyID): TpgFreeIDHelper;
    function Get_UserID: TdaUserID;
    function Get_RegionID: TdaRegionID;
    function CheckLogin(const aLogin: AnsiString;
@@ -128,9 +126,9 @@ type
     ForCheckLogin: Boolean;
     AllowClearLocks: Boolean;
     SetGlobalDataProvider: Boolean = True): IdaDataProvider; reintroduce;
-  private
-   property FreeIDHelper[aFamilyID: TdaFamilyID]: TpgFreeIDHelper
-    read pm_GetFreeIDHelper;
+  protected
+   property FreeIDHelperHolder: TpgFreeIDHelperHolder
+    read f_FreeIDHelperHolder;
  end;//TpgDataProvider
 {$IfEnd} // Defined(UsePostgres)
 
@@ -156,33 +154,6 @@ uses
  , StrUtils
  , daSchemeConsts
 ;
-
-function TpgDataProvider.pm_GetFreeIDHelper(aFamilyID: TdaFamilyID): TpgFreeIDHelper;
-//#UC START# *56556F42021A_55D6DA9E00BFget_var*
-//#UC END# *56556F42021A_55D6DA9E00BFget_var*
-begin
-//#UC START# *56556F42021A_55D6DA9E00BFget_impl*
- case aFamilyID of
-  MainTblsFamily:
-   begin
-    if f_MainFreeIDHelper = nil then
-     f_MainFreeIDHelper := TpgFreeIDHelper.Create(f_Connection, f_Factory, f_FunctionFactory, aFamilyID);
-    Result := f_MainFreeIDHelper;
-   end;
-  CurrentFamily:
-   begin
-    if f_CurrentFreeIDHelper = nil then
-     f_CurrentFreeIDHelper := TpgFreeIDHelper.Create(f_Connection, f_Factory, f_FunctionFactory, aFamilyID);
-    Result := f_CurrentFreeIDHelper;
-   end;
-  else
-  begin
-   Result := nil;
-   Assert(False);
-  end; 
- end;
-//#UC END# *56556F42021A_55D6DA9E00BFget_impl*
-end;//TpgDataProvider.pm_GetFreeIDHelper
 
 constructor TpgDataProvider.Create(aParams: TpgDataProviderParams;
  ForCheckLogin: Boolean;

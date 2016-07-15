@@ -14,14 +14,14 @@ uses
  , ddServerTask
  , CsDataPipe
  , k2Base
- , dt_Types
+ , daTypes
 ;
 
 type
  TddRequestTask = class(TddTaskItem)
   public
    procedure SaveRequestToPipe(aPipe: TCsDataPipe); virtual;
-   constructor Create(aUserID: TUserID); override;
+   constructor Create(aUserID: TdaUserID); override;
    class function GetTaggedDataType: Tk2Type; override;
  end;//TddRequestTask
 
@@ -51,7 +51,7 @@ begin
 //#UC END# *54C0FDAD028B_52FA4AD90122_impl*
 end;//TddRequestTask.SaveRequestToPipe
 
-constructor TddRequestTask.Create(aUserID: TUserID);
+constructor TddRequestTask.Create(aUserID: TdaUserID);
 //#UC START# *53B3D8A8011F_52FA4AD90122_var*
 //#UC END# *53B3D8A8011F_52FA4AD90122_var*
 begin

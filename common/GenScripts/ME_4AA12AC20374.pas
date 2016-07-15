@@ -48,12 +48,6 @@ uses
 ;
 
 type
- // TextForm
-
- // Attributes
-
- // CommonDiction
-
  Tfs_Tips = {final} class({$If NOT Defined(NoVCM)}
  TvcmFormSetFactory
  {$IfEnd} // NOT Defined(NoVCM)
@@ -65,22 +59,22 @@ type
    class function GetInstance: TvcmFormSetFactoryPrim; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   function TextForm_Parent_dftTips_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+   function TextFormParentDftTipsNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
     out aNew: IvcmFormDataSource;
     aSubUserType: TvcmUserType): Boolean;
     {* Обработчик OnNeedMakeForm для TextForm }
-   function Attributes_Child_fDocAttribute_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+   function AttributesChildFDocAttributeNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
     out aNew: IvcmFormDataSource;
     aSubUserType: TvcmUserType): Boolean;
     {* Обработчик OnNeedMakeForm для Attributes }
-   function CommonDiction_Navigator_utTips_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+   function CommonDictionNavigatorUtTipsNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
     out aNew: IvcmFormDataSource;
     aSubUserType: TvcmUserType): Boolean;
     {* Обработчик OnNeedMakeForm для CommonDiction }
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: Tfs_Tips;
     {* Метод получения экземпляра синглетона Tfs_Tips }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//Tfs_Tips
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -90,7 +84,6 @@ implementation
 uses
  l3ImplUses
  , l3StringIDEx
- , l3MessageID
  , SysUtils
  , l3Base
 ;
@@ -110,47 +103,53 @@ begin
  l3Free(g_Tfs_Tips);
 end;//Tfs_TipsFree
 
-function Tfs_Tips.TextForm_Parent_dftTips_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+function Tfs_Tips.TextFormParentDftTipsNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
  out aNew: IvcmFormDataSource;
  aSubUserType: TvcmUserType): Boolean;
  {* Обработчик OnNeedMakeForm для TextForm }
-//#UC START# *0BF256C9E281_4AA12AC20374_var*
-//#UC END# *0BF256C9E281_4AA12AC20374_var*
+var
+ l_UseCase : IsdsBaseDocument;
 begin
-//#UC START# *0BF256C9E281_4AA12AC20374_impl*
- !!! Needs to be implemented !!!
-//#UC END# *0BF256C9E281_4AA12AC20374_impl*
-end;//Tfs_Tips.TextForm_Parent_dftTips_NeedMakeForm
+ if Supports(aDataSource, IsdsBaseDocument, l_UseCase) then
+  try
+   aNew := l_UseCase.dsDocument;
+  finally
+   l_UseCase := nil;
+  end;//try..finally
+ Result := (aNew <> nil);
+end;//Tfs_Tips.TextFormParentDftTipsNeedMakeForm
 
-function Tfs_Tips.Attributes_Child_fDocAttribute_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+function Tfs_Tips.AttributesChildFDocAttributeNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
  out aNew: IvcmFormDataSource;
  aSubUserType: TvcmUserType): Boolean;
  {* Обработчик OnNeedMakeForm для Attributes }
-//#UC START# *1AA136DA5D1F_4AA12AC20374_var*
-//#UC END# *1AA136DA5D1F_4AA12AC20374_var*
+var
+ l_UseCase : IsdsBaseDocumentWithAttributes;
 begin
-//#UC START# *1AA136DA5D1F_4AA12AC20374_impl*
- !!! Needs to be implemented !!!
-//#UC END# *1AA136DA5D1F_4AA12AC20374_impl*
-end;//Tfs_Tips.Attributes_Child_fDocAttribute_NeedMakeForm
+ if Supports(aDataSource, IsdsBaseDocumentWithAttributes, l_UseCase) then
+  try
+   aNew := l_UseCase.dsAttributes;
+  finally
+   l_UseCase := nil;
+  end;//try..finally
+ Result := (aNew <> nil);
+end;//Tfs_Tips.AttributesChildFDocAttributeNeedMakeForm
 
-function Tfs_Tips.CommonDiction_Navigator_utTips_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+function Tfs_Tips.CommonDictionNavigatorUtTipsNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
  out aNew: IvcmFormDataSource;
  aSubUserType: TvcmUserType): Boolean;
  {* Обработчик OnNeedMakeForm для CommonDiction }
-//#UC START# *EE98F6F4F387_4AA12AC20374_var*
-//#UC END# *EE98F6F4F387_4AA12AC20374_var*
+var
+ l_UseCase : IsdsCommonDiction;
 begin
-//#UC START# *EE98F6F4F387_4AA12AC20374_impl*
- !!! Needs to be implemented !!!
-//#UC END# *EE98F6F4F387_4AA12AC20374_impl*
-end;//Tfs_Tips.CommonDiction_Navigator_utTips_NeedMakeForm
-
-class function Tfs_Tips.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_Tfs_Tips <> nil;
-end;//Tfs_Tips.Exists
+ if Supports(aDataSource, IsdsCommonDiction, l_UseCase) then
+  try
+   aNew := l_UseCase.dsContents;
+  finally
+   l_UseCase := nil;
+  end;//try..finally
+ Result := (aNew <> nil);
+end;//Tfs_Tips.CommonDictionNavigatorUtTipsNeedMakeForm
 
 class function Tfs_Tips.Instance: Tfs_Tips;
  {* Метод получения экземпляра синглетона Tfs_Tips }
@@ -163,22 +162,38 @@ begin
  Result := g_Tfs_Tips;
 end;//Tfs_Tips.Instance
 
-procedure Tfs_Tips.InitFields;
-//#UC START# *47A042E100E2_4AA12AC20374_var*
-//#UC END# *47A042E100E2_4AA12AC20374_var*
+class function Tfs_Tips.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
-//#UC START# *47A042E100E2_4AA12AC20374_impl*
- !!! Needs to be implemented !!!
-//#UC END# *47A042E100E2_4AA12AC20374_impl*
+ Result := g_Tfs_Tips <> nil;
+end;//Tfs_Tips.Exists
+
+procedure Tfs_Tips.InitFields;
+begin
+ inherited;
+ with AddZone('TextForm', vcm_ztParent, fm_TextForm) do
+ begin
+  UserType := dftTips;
+  OnNeedMakeForm := TextFormParentDftTipsNeedMakeForm;
+ end;
+ with AddZone('Attributes', vcm_ztChild, fm_AttributesForm) do
+ begin
+  UserType := fDocAttribute;
+  OnNeedMakeForm := AttributesChildFDocAttributeNeedMakeForm;
+ end;
+ with AddZone('CommonDiction', vcm_ztNavigator, fm_en_CommonDiction) do
+ begin
+  UserType := utTips;
+  ActivateIfUpdate := wafAlways;
+  OnNeedMakeForm := CommonDictionNavigatorUtTipsNeedMakeForm;
+ end;
+ Caption := str_fsTipsCaption.AsCStr;
+ OwnerForm := 0;
 end;//Tfs_Tips.InitFields
 
 class function Tfs_Tips.GetInstance: TvcmFormSetFactoryPrim;
-//#UC START# *4FFE854A009B_4AA12AC20374_var*
-//#UC END# *4FFE854A009B_4AA12AC20374_var*
 begin
-//#UC START# *4FFE854A009B_4AA12AC20374_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4FFE854A009B_4AA12AC20374_impl*
+ Result := Self.Instance;
 end;//Tfs_Tips.GetInstance
 
 initialization

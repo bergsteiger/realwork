@@ -32,6 +32,7 @@ type
    procedure RegisterField(const aField: IdaField);
    procedure UnregisterField(const aField: IdaField);
    function FieldBufferPtr(FieldIndex: Integer): Pointer;
+   function CalcRecordCount: Integer;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
   public
@@ -160,6 +161,16 @@ begin
  Assert(False, 'Никогда не должны попасть сюда');
 //#UC END# *55C8996702B1_56DFD1470338_impl*
 end;//TcaResultSet.FieldBufferPtr
+
+function TcaResultSet.CalcRecordCount: Integer;
+//#UC START# *576278A800EA_56DFD1470338_var*
+//#UC END# *576278A800EA_56DFD1470338_var*
+begin
+//#UC START# *576278A800EA_56DFD1470338_impl*
+ Result := f_HTResultSet.CalcRecordCount;
+ Assert(Result = f_PGResultSet.CalcRecordCount);
+//#UC END# *576278A800EA_56DFD1470338_impl*
+end;//TcaResultSet.CalcRecordCount
 
 procedure TcaResultSet.Cleanup;
  {* Функция очистки полей объекта. }

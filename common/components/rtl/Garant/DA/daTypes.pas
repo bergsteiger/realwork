@@ -26,7 +26,15 @@ type
 
  PLargeInt = ^LargeInt;
 
- TdaUserID = TUserID;
+ PdaUserID = ^TdaUserID;
+
+ PdaFamilyID = ^TdaFamilyID;
+
+ PdaUserGroupID = ^TdaUserGroupID;
+
+ PdaGlobalCoordinateRec = ^TdaGlobalCoordinateRec;
+
+ TdaUserID = LongWord;
 
  TGetLoginPasswordProc = function(var aLogin: AnsiString;
   var aPassword: AnsiString): Boolean;
@@ -50,7 +58,7 @@ type
 
  TdaDocID = TDocID;
 
- TdaFamilyID = TFamilyID;
+ TdaFamilyID = Word;
 
  TdaPathStr = TPathStr;
 
@@ -338,7 +346,25 @@ type
   , da_aopSum
  );//TdaAggregateOperation
 
- TdaUserGroupID = TUserGrID;
+ TdaUserGroupID = Word;
+
+ TdaUserIDArray = array of TdaUserID;
+
+ TdaUserGroupIDArray = array of TdaUserGroupID;
+
+ TdaSubID = TSubID;
+
+ TdaGlobalCoordinateRec = record
+  Family: TdaFamilyID;
+  Doc: TdaDocID;
+  Sub: TdaSubID;
+ end;//TdaGlobalCoordinateRec
+
+ TdaUserEditMask = record
+  LoginName: Boolean;
+  Name: Boolean;
+  ActivFlag: Boolean;
+ end;//TdaUserEditMask
 
 const
  cDeprecatedDicts: TdaDictionaryTypeSet = [da_dlNewClasses_Deprecated];

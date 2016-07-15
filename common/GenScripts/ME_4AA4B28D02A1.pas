@@ -34,8 +34,6 @@ uses
 ;
 
 type
- // TextForm
-
  Tfs_AutoreferatAfterSearch = {final} class({$If NOT Defined(NoVCM)}
  TvcmFormSetFactory
  {$IfEnd} // NOT Defined(NoVCM)
@@ -46,14 +44,14 @@ type
    class function GetInstance: TvcmFormSetFactoryPrim; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   function TextForm_Parent_dftAutoreferatAfterSearch_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+   function TextFormParentDftAutoreferatAfterSearchNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
     out aNew: IvcmFormDataSource;
     aSubUserType: TvcmUserType): Boolean;
     {* Обработчик OnNeedMakeForm для TextForm }
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: Tfs_AutoreferatAfterSearch;
     {* Метод получения экземпляра синглетона Tfs_AutoreferatAfterSearch }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//Tfs_AutoreferatAfterSearch
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -63,7 +61,6 @@ implementation
 uses
  l3ImplUses
  , l3StringIDEx
- , l3MessageID
  , SysUtils
  , l3Base
 ;
@@ -83,23 +80,23 @@ begin
  l3Free(g_Tfs_AutoreferatAfterSearch);
 end;//Tfs_AutoreferatAfterSearchFree
 
-function Tfs_AutoreferatAfterSearch.TextForm_Parent_dftAutoreferatAfterSearch_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+function Tfs_AutoreferatAfterSearch.TextFormParentDftAutoreferatAfterSearchNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
  out aNew: IvcmFormDataSource;
  aSubUserType: TvcmUserType): Boolean;
  {* Обработчик OnNeedMakeForm для TextForm }
-//#UC START# *CAF00B32945C_4AA4B28D02A1_var*
-//#UC END# *CAF00B32945C_4AA4B28D02A1_var*
+var
+ l_UseCase : IsdsAutoreferat;
 begin
-//#UC START# *CAF00B32945C_4AA4B28D02A1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *CAF00B32945C_4AA4B28D02A1_impl*
-end;//Tfs_AutoreferatAfterSearch.TextForm_Parent_dftAutoreferatAfterSearch_NeedMakeForm
-
-class function Tfs_AutoreferatAfterSearch.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_Tfs_AutoreferatAfterSearch <> nil;
-end;//Tfs_AutoreferatAfterSearch.Exists
+ if Supports(aDataSource, IsdsAutoreferat, l_UseCase) then
+  try
+  //#UC START# *4FFA92850358NeedMake_impl*
+   aNew := l_UseCase.dsDocument;
+  //#UC END# *4FFA92850358NeedMake_impl*
+  finally
+   l_UseCase := nil;
+  end;//try..finally
+ Result := (aNew <> nil);
+end;//Tfs_AutoreferatAfterSearch.TextFormParentDftAutoreferatAfterSearchNeedMakeForm
 
 class function Tfs_AutoreferatAfterSearch.Instance: Tfs_AutoreferatAfterSearch;
  {* Метод получения экземпляра синглетона Tfs_AutoreferatAfterSearch }
@@ -112,22 +109,27 @@ begin
  Result := g_Tfs_AutoreferatAfterSearch;
 end;//Tfs_AutoreferatAfterSearch.Instance
 
-procedure Tfs_AutoreferatAfterSearch.InitFields;
-//#UC START# *47A042E100E2_4AA4B28D02A1_var*
-//#UC END# *47A042E100E2_4AA4B28D02A1_var*
+class function Tfs_AutoreferatAfterSearch.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
-//#UC START# *47A042E100E2_4AA4B28D02A1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *47A042E100E2_4AA4B28D02A1_impl*
+ Result := g_Tfs_AutoreferatAfterSearch <> nil;
+end;//Tfs_AutoreferatAfterSearch.Exists
+
+procedure Tfs_AutoreferatAfterSearch.InitFields;
+begin
+ inherited;
+ with AddZone('TextForm', vcm_ztParent, fm_TextForm) do
+ begin
+  UserType := dftAutoreferatAfterSearch;
+  OnNeedMakeForm := TextFormParentDftAutoreferatAfterSearchNeedMakeForm;
+ end;
+ Caption := str_fsAutoreferatAfterSearchCaption.AsCStr;
+ OwnerForm := 0;
 end;//Tfs_AutoreferatAfterSearch.InitFields
 
 class function Tfs_AutoreferatAfterSearch.GetInstance: TvcmFormSetFactoryPrim;
-//#UC START# *4FFE854A009B_4AA4B28D02A1_var*
-//#UC END# *4FFE854A009B_4AA4B28D02A1_var*
 begin
-//#UC START# *4FFE854A009B_4AA4B28D02A1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4FFE854A009B_4AA4B28D02A1_impl*
+ Result := Self.Instance;
 end;//Tfs_AutoreferatAfterSearch.GetInstance
 
 initialization

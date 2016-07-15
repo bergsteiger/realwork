@@ -15,12 +15,15 @@ uses
  , vcmToolbarsInterfaces
  , vcmBaseMenuManager
  , Classes
+ , vcmBase
  , l3ProtoDataContainer
  , l3Memory
  , l3Types
  , l3Interfaces
  , l3Core
  , l3Except
+ , vcmExternalInterfaces
+ , vcmModule
 ;
 
 type
@@ -35,21 +38,30 @@ type
  TPrimToolbarMenuModule = {abstract} class(TvcmModule, IvcmToolbarsCustomizeNotify, IvcmToolbarsCustomize)
   private
    f_MenuManager: TvcmBaseMenuManager;
-    {* Поле для свойства MenuManager }
   protected
    f_CustomizeVisible: Boolean;
    f_LargeIconsVisible: Boolean;
    f_Listeners: TIvcmToolbarsCustomizeListenerPtrList;
   private
-   procedure Customize;
+   procedure opCustomizeTest(const aParams: IvcmTestParamsPrim);
+    {* Настройка... }
+   procedure opCustomizeExecute(const aParams: IvcmExecuteParamsPrim);
     {* Настройка... }
    {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
-   procedure AvailableOperations;
+   procedure opAvailableOperationsTest(const aParams: IvcmTestParamsPrim);
     {* Доступные операции... }
    {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
-   procedure IconsSize;
+   {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+   procedure opAvailableOperationsExecute(const aParams: IvcmExecuteParamsPrim);
+    {* Доступные операции... }
+   {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+   procedure opIconsSizeTest(const aParams: IvcmTestParamsPrim);
     {* Размер кнопок }
-   procedure Fasten;
+   procedure opIconsSizeExecute(const aParams: IvcmExecuteParamsPrim);
+    {* Размер кнопок }
+   procedure opFastenTest(const aParams: IvcmTestParamsPrim);
+    {* Закрепить панели инструментов }
+   procedure opFastenExecute(const aParams: IvcmExecuteParamsPrim);
     {* Закрепить панели инструментов }
   protected
    procedure DoNotify;
@@ -59,6 +71,8 @@ type
    function pm_GetNotify: IvcmToolbarsCustomizeNotify;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
+   procedure Loaded; override;
+   class procedure GetEntityForms(aList: TvcmClassList); override;
   public
    constructor Create(AOwner: TComponent); override;
   public
@@ -75,7 +89,6 @@ uses
  l3ImplUses
  , afwFacade
  , vcmToolbarMenuRes
- , vcmExternalInterfaces
  , vcmMenuManager
  , vcmInterfaces
  {$If NOT Defined(NoVCL)}
@@ -86,70 +99,147 @@ uses
  , vcmUserControls
  , vcmMenus
  , vcmToolbar
- {$If NOT Defined(NoScripts)}
- , kw_ToolbarMenu_opCustomize
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kw_ToolbarMenu_opAvailableOperations
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kw_ToolbarMenu_opIconsSize
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kw_ToolbarMenu_opFasten
- {$IfEnd} // NOT Defined(NoScripts)
  , l3Base
  , l3MinMax
  , RTLConsts
  , SysUtils
  , CustomizeTools_Form
+ //#UC START# *4C8E340C0148impl_uses*
+ , StdRes
+ //#UC END# *4C8E340C0148impl_uses*
 ;
 
 type _Instance_R_ = TIvcmToolbarsCustomizeListenerPtrList;
 
 {$Include w:\common\components\rtl\Garant\L3\l3InterfacePtrList.imp.pas}
 
-procedure TPrimToolbarMenuModule.Customize;
+procedure TPrimToolbarMenuModule.opCustomizeTest(const aParams: IvcmTestParamsPrim);
  {* Настройка... }
-//#UC START# *4C8E3A170399_4C8E340C0148_var*
-//#UC END# *4C8E3A170399_4C8E340C0148_var*
+//#UC START# *4C8E3A170399_4C8E340C0148test_var*
+//#UC END# *4C8E3A170399_4C8E340C0148test_var*
 begin
-//#UC START# *4C8E3A170399_4C8E340C0148_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C8E3A170399_4C8E340C0148_impl*
-end;//TPrimToolbarMenuModule.Customize
+//#UC START# *4C8E3A170399_4C8E340C0148test_impl*
+ aParams.Op.Flag[vcm_ofVisible] := f_CustomizeVisible;
+//#UC END# *4C8E3A170399_4C8E340C0148test_impl*
+end;//TPrimToolbarMenuModule.opCustomizeTest
+
+procedure TPrimToolbarMenuModule.opCustomizeExecute(const aParams: IvcmExecuteParamsPrim);
+ {* Настройка... }
+//#UC START# *4C8E3A170399_4C8E340C0148exec_var*
+//#UC END# *4C8E3A170399_4C8E340C0148exec_var*
+begin
+//#UC START# *4C8E3A170399_4C8E340C0148exec_impl*
+ DoNotify;
+ {$IfNDef DesignTimeLibrary}
+ TCustomizeToolsForm.Execute(MenuManager, MenuManager.ToolbarPopup.PopupComponent);
+ {$EndIf DesignTimeLibrary}
+//#UC END# *4C8E3A170399_4C8E340C0148exec_impl*
+end;//TPrimToolbarMenuModule.opCustomizeExecute
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
-procedure TPrimToolbarMenuModule.AvailableOperations;
+procedure TPrimToolbarMenuModule.opAvailableOperationsTest(const aParams: IvcmTestParamsPrim);
  {* Доступные операции... }
-//#UC START# *4C8E3A290341_4C8E340C0148_var*
-//#UC END# *4C8E3A290341_4C8E340C0148_var*
+//#UC START# *4C8E3A290341_4C8E340C0148test_var*
+//#UC END# *4C8E3A290341_4C8E340C0148test_var*
 begin
-//#UC START# *4C8E3A290341_4C8E340C0148_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C8E3A290341_4C8E340C0148_impl*
-end;//TPrimToolbarMenuModule.AvailableOperations
+//#UC START# *4C8E3A290341_4C8E340C0148test_impl*
+ aParams.Op.Flag[vcm_ofVisible] := f_CustomizeVisible
+  {$If not Defined(Nemesis) OR Defined(NewGen)}
+  and
+  afw.Application.IsInternal
+  {$IfEnd}
+  ;
+//#UC END# *4C8E3A290341_4C8E340C0148test_impl*
+end;//TPrimToolbarMenuModule.opAvailableOperationsTest
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
-procedure TPrimToolbarMenuModule.IconsSize;
- {* Размер кнопок }
-//#UC START# *4C8E3A3E011D_4C8E340C0148_var*
-//#UC END# *4C8E3A3E011D_4C8E340C0148_var*
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+procedure TPrimToolbarMenuModule.opAvailableOperationsExecute(const aParams: IvcmExecuteParamsPrim);
+ {* Доступные операции... }
+//#UC START# *4C8E3A290341_4C8E340C0148exec_var*
+{$IfNDef Admin}
+{$IfNDef Monitorings}
+var
+ l_Toolbar : TComponent;
+ l_Form    : IvcmEntityForm;
+{$EndIf Monitorings}
+{$EndIf Admin}
+//#UC END# *4C8E3A290341_4C8E340C0148exec_var*
 begin
-//#UC START# *4C8E3A3E011D_4C8E340C0148_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C8E3A3E011D_4C8E340C0148_impl*
-end;//TPrimToolbarMenuModule.IconsSize
+//#UC START# *4C8E3A290341_4C8E340C0148exec_impl*
+ {$IfNDef Admin}
+ {$IfNDef Monitorings}
+ l_Toolbar := MenuManager.ToolbarPopup.PopupComponent;
+ while (l_Toolbar <> nil) and not (l_Toolbar is TvcmToolbarDef) do
+  l_Toolbar := TControl(l_Toolbar).Parent;
+ if (l_Toolbar <> nil) then
+ begin
+  Assert(l_Toolbar.Owner is TvcmEntityForm);
+  if not Supports(l_Toolbar.Owner, IvcmEntityForm, l_Form) then
+   Assert(False);
+  {$IfDef Nemesis}
+  TdmStdRes.CustomizePanel(TvcmCustAvailableToolbarOps.Make(l_Form));
+  {$Else}
+  Assert(false);
+  {$EndIf Nemesis}
+ end;//l_Toolbar <> nil
+ {$EndIf Monitorings}
+ {$EndIf Admin}
+//#UC END# *4C8E3A290341_4C8E340C0148exec_impl*
+end;//TPrimToolbarMenuModule.opAvailableOperationsExecute
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
-procedure TPrimToolbarMenuModule.Fasten;
- {* Закрепить панели инструментов }
-//#UC START# *4C8E3A5002FF_4C8E340C0148_var*
-//#UC END# *4C8E3A5002FF_4C8E340C0148_var*
+procedure TPrimToolbarMenuModule.opIconsSizeTest(const aParams: IvcmTestParamsPrim);
+ {* Размер кнопок }
+//#UC START# *4C8E3A3E011D_4C8E340C0148test_var*
+var
+ l_Strings: IvcmItems;
+//#UC END# *4C8E3A3E011D_4C8E340C0148test_var*
 begin
-//#UC START# *4C8E3A5002FF_4C8E340C0148_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C8E3A5002FF_4C8E340C0148_impl*
-end;//TPrimToolbarMenuModule.Fasten
+//#UC START# *4C8E3A3E011D_4C8E340C0148test_impl*
+ with aParams do
+ begin
+  Op.Flag[vcm_ofEnabled] := true;
+  Op.Flag[vcm_ofVisible] := f_LargeIconsVisible;
+  l_Strings := Op.SubItems;
+  if (l_Strings <> nil) and
+     (l_Strings.Count = 0) then
+   vcmIconSizeMapHelper.FillStrings(l_Strings);
+  Op.SelectedString := vcmIconSizeMap[(g_MenuManager as TvcmCustomMenuManager).GlyphSize].AsCStr;
+ end;
+//#UC END# *4C8E3A3E011D_4C8E340C0148test_impl*
+end;//TPrimToolbarMenuModule.opIconsSizeTest
+
+procedure TPrimToolbarMenuModule.opIconsSizeExecute(const aParams: IvcmExecuteParamsPrim);
+ {* Размер кнопок }
+//#UC START# *4C8E3A3E011D_4C8E340C0148exec_var*
+//#UC END# *4C8E3A3E011D_4C8E340C0148exec_var*
+begin
+//#UC START# *4C8E3A3E011D_4C8E340C0148exec_impl*
+ TvcmToolbarGlyphService.Instance.SetGlyphSize(vcmIconSizeMapHelper.DisplayNameToValue(aParams.SelectedString));
+//#UC END# *4C8E3A3E011D_4C8E340C0148exec_impl*
+end;//TPrimToolbarMenuModule.opIconsSizeExecute
+
+procedure TPrimToolbarMenuModule.opFastenTest(const aParams: IvcmTestParamsPrim);
+ {* Закрепить панели инструментов }
+//#UC START# *4C8E3A5002FF_4C8E340C0148test_var*
+//#UC END# *4C8E3A5002FF_4C8E340C0148test_var*
+begin
+//#UC START# *4C8E3A5002FF_4C8E340C0148test_impl*
+ aParams.Op.Flag[vcm_ofChecked] := (g_MenuManager as TvcmCustomMenuManager).
+  GetFastenMode;
+//#UC END# *4C8E3A5002FF_4C8E340C0148test_impl*
+end;//TPrimToolbarMenuModule.opFastenTest
+
+procedure TPrimToolbarMenuModule.opFastenExecute(const aParams: IvcmExecuteParamsPrim);
+ {* Закрепить панели инструментов }
+//#UC START# *4C8E3A5002FF_4C8E340C0148exec_var*
+//#UC END# *4C8E3A5002FF_4C8E340C0148exec_var*
+begin
+//#UC START# *4C8E3A5002FF_4C8E340C0148exec_impl*
+ g_MenuManager.FastenToolbars;
+//#UC END# *4C8E3A5002FF_4C8E340C0148exec_impl*
+end;//TPrimToolbarMenuModule.opFastenExecute
 
 procedure TPrimToolbarMenuModule.DoNotify;
 //#UC START# *4C90B2F500F9_4C8E340C0148_var*
@@ -315,6 +405,28 @@ begin
                    False);
 //#UC END# *47D1602000C6_4C8E340C0148_impl*
 end;//TPrimToolbarMenuModule.Create
+
+procedure TPrimToolbarMenuModule.Loaded;
+begin
+ inherited;
+ PublishOp('opCustomize', opCustomizeExecute, opCustomizeTest);
+ ShowInToolbar('opCustomize', False);
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+ PublishOp('opAvailableOperations', opAvailableOperationsExecute, opAvailableOperationsTest);
+ ShowInToolbar('opAvailableOperations', False);
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+
+ PublishOp('opIconsSize', opIconsSizeExecute, opIconsSizeTest);
+ ShowInToolbar('opIconsSize', False);
+ PublishOp('opFasten', opFastenExecute, opFastenTest);
+ ShowInToolbar('opFasten', False);
+end;//TPrimToolbarMenuModule.Loaded
+
+class procedure TPrimToolbarMenuModule.GetEntityForms(aList: TvcmClassList);
+begin
+ inherited;
+ aList.Add(TCustomizeToolsForm);
+end;//TPrimToolbarMenuModule.GetEntityForms
 {$IfEnd} // NOT Defined(NoVCM)
 
 end.

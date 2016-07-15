@@ -13,8 +13,20 @@ interface
 uses
  l3IntfUses
  , ChatInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  , ChatTypes
  , l3Interfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
@@ -23,15 +35,19 @@ type
  {$IfEnd} // NOT Defined(NoVCM)
  )
   protected
-   procedure BaseChat_OpenContactList_Test(const aParams: IvcmTestParamsPrim);
-   procedure BaseChat_OpenContactList_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure opOpenContactListTest(const aParams: IvcmTestParamsPrim);
+   procedure opOpenContactListExecute(const aParams: IvcmExecuteParamsPrim);
+   procedure Loaded; override;
+   {$If NOT Defined(NoVCM)}
+   class procedure GetEntityForms(aList: TvcmClassList); override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
-   function MakeChatDispatcher: IbsChatDispatcher;
-   procedure OpenChatWindow(anUID: TbsUserID;
-    const aName: Il3CString);
-   procedure OpenAddUserDialog;
-   procedure OpenHistoryWindow(anUID: TbsUserID;
-    const aName: Il3CString);
+   class function MakeChatDispatcher: IbsChatDispatcher;
+   class function OpenChatWindow(anUID: TbsUserID;
+    const aName: Il3CString): IvcmEntityForm;
+   class function OpenAddUserDialog: IvcmEntityForm;
+   class function OpenHistoryWindow(anUID: TbsUserID;
+    const aName: Il3CString): IvcmEntityForm;
  end;//TBaseChatModule
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -41,79 +57,104 @@ implementation
 uses
  l3ImplUses
  {$If NOT Defined(NoVCM)}
- , vcmBase
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
  , SysUtils
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
- {$If NOT Defined(NoVCM)}
- , vcmExternalInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
  , PrimContactList_chatAddContact_UserType
  , PrimContactList_chatContacts_UserType
  , BaseHistoryWindow_utChatHistory_UserType
  , BaseChatWindow_cwChat_UserType
- {$If NOT Defined(NoScripts)}
- , kw_Chat_opOpenContactList
- {$IfEnd} // NOT Defined(NoScripts)
  , bsChatDispatcher
  , ContactList_Form
  , ChatWindow_Form
  , ChatHistory_Form
+ //#UC START# *4A6971B802A6impl_uses*
+ //#UC END# *4A6971B802A6impl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
-function TBaseChatModule.MakeChatDispatcher: IbsChatDispatcher;
+class function TBaseChatModule.MakeChatDispatcher: IbsChatDispatcher;
+var
+ __WasEnter : Boolean;
 //#UC START# *4A82A0A603BF_4A6971B802A6_var*
 //#UC END# *4A82A0A603BF_4A6971B802A6_var*
 begin
+ __WasEnter := vcmEnterFactory;
+ try
 //#UC START# *4A82A0A603BF_4A6971B802A6_impl*
  Result := TbsChatDispatcher.Make;
 //#UC END# *4A82A0A603BF_4A6971B802A6_impl*
+ finally
+  if __WasEnter then
+   vcmLeaveFactory;
+ end;//try..finally
 end;//TBaseChatModule.MakeChatDispatcher
 
-procedure TBaseChatModule.OpenChatWindow(anUID: TbsUserID;
- const aName: Il3CString);
+class function TBaseChatModule.OpenChatWindow(anUID: TbsUserID;
+ const aName: Il3CString): IvcmEntityForm;
+var
+ __WasEnter : Boolean;
 //#UC START# *4AAFC1E00279_4A6971B802A6_var*
 //#UC END# *4AAFC1E00279_4A6971B802A6_var*
 begin
+ __WasEnter := vcmEnterFactory;
+ try
 //#UC START# *4AAFC1E00279_4A6971B802A6_impl*
  Result := TChatWindowForm.MakeSingleChild(anUID, aName,
                               CheckContainer(nil).NativeMainForm,
                               vcm_ztSimpleFloat,
                               Ord(cwChat));
 //#UC END# *4AAFC1E00279_4A6971B802A6_impl*
+ finally
+  if __WasEnter then
+   vcmLeaveFactory;
+ end;//try..finally
 end;//TBaseChatModule.OpenChatWindow
 
-procedure TBaseChatModule.OpenAddUserDialog;
+class function TBaseChatModule.OpenAddUserDialog: IvcmEntityForm;
+var
+ __WasEnter : Boolean;
 //#UC START# *4AAFC50002E0_4A6971B802A6_var*
 //#UC END# *4AAFC50002E0_4A6971B802A6_var*
 begin
+ __WasEnter := vcmEnterFactory;
+ try
 //#UC START# *4AAFC50002E0_4A6971B802A6_impl*
  Result := TContactListForm.MakeSingleChild(CheckContainer(nil).NativeMainForm,
                               vcm_ztModal,
                               Ord(chatAddContact));
 //#UC END# *4AAFC50002E0_4A6971B802A6_impl*
+ finally
+  if __WasEnter then
+   vcmLeaveFactory;
+ end;//try..finally
 end;//TBaseChatModule.OpenAddUserDialog
 
-procedure TBaseChatModule.OpenHistoryWindow(anUID: TbsUserID;
- const aName: Il3CString);
+class function TBaseChatModule.OpenHistoryWindow(anUID: TbsUserID;
+ const aName: Il3CString): IvcmEntityForm;
+var
+ __WasEnter : Boolean;
 //#UC START# *4AAFC77602D8_4A6971B802A6_var*
 //#UC END# *4AAFC77602D8_4A6971B802A6_var*
 begin
+ __WasEnter := vcmEnterFactory;
+ try
 //#UC START# *4AAFC77602D8_4A6971B802A6_impl*
  Result :=TChatHistoryForm.MakeSingleChild(anUID, aName,
                               CheckContainer(nil).NativeMainForm,
                               vcm_ztSimpleFloat,
                               Ord(utChatHistory));
 //#UC END# *4AAFC77602D8_4A6971B802A6_impl*
+ finally
+  if __WasEnter then
+   vcmLeaveFactory;
+ end;//try..finally
 end;//TBaseChatModule.OpenHistoryWindow
 
-procedure TBaseChatModule.BaseChat_OpenContactList_Test(const aParams: IvcmTestParamsPrim);
+procedure TBaseChatModule.opOpenContactListTest(const aParams: IvcmTestParamsPrim);
 //#UC START# *4A97C2460052_4A6971B802A6test_var*
 //#UC END# *4A97C2460052_4A6971B802A6test_var*
 begin
@@ -121,9 +162,9 @@ begin
  aParams.Op.Flag[vcm_ofEnabled] := MakeChatDispatcher.ChatSupported;
  aParams.Op.Flag[vcm_ofVisible] := aParams.Op.Flag[vcm_ofEnabled];
 //#UC END# *4A97C2460052_4A6971B802A6test_impl*
-end;//TBaseChatModule.BaseChat_OpenContactList_Test
+end;//TBaseChatModule.opOpenContactListTest
 
-procedure TBaseChatModule.BaseChat_OpenContactList_Execute(const aParams: IvcmExecuteParamsPrim);
+procedure TBaseChatModule.opOpenContactListExecute(const aParams: IvcmExecuteParamsPrim);
 //#UC START# *4A97C2460052_4A6971B802A6exec_var*
 var
  l_Chat: IvcmEntityForm;
@@ -135,7 +176,21 @@ begin
                              Ord(chatContacts));
  l_Chat.SetActiveInParent;
 //#UC END# *4A97C2460052_4A6971B802A6exec_impl*
-end;//TBaseChatModule.BaseChat_OpenContactList_Execute
+end;//TBaseChatModule.opOpenContactListExecute
+
+procedure TBaseChatModule.Loaded;
+begin
+ inherited;
+ PublishOp('opOpenContactList', opOpenContactListExecute, opOpenContactListTest);
+end;//TBaseChatModule.Loaded
+
+class procedure TBaseChatModule.GetEntityForms(aList: TvcmClassList);
+begin
+ inherited;
+ aList.Add(TContactListForm);
+ aList.Add(TChatWindowForm);
+ aList.Add(TChatHistoryForm);
+end;//TBaseChatModule.GetEntityForms
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)

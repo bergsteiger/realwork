@@ -145,6 +145,11 @@ const
  op_capSynchronize = '';
  op_GetRoot = 'GetRoot';
  op_capGetRoot = '';
+
+var opcode_Rubricator_SetListRoot: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Rubricator_InitListRoot: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Rubricator_Synchronize: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Rubricator_GetRoot: TvcmOPID = (rEnID : -1; rOpID : -1);
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
@@ -153,12 +158,15 @@ implementation
 uses
  l3ImplUses
  , l3CProtoObject
+ {$If NOT Defined(NoVCM)}
+ , vcmOperationsForRegister
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmOperationStatesForRegister
+ {$IfEnd} // NOT Defined(NoVCM)
  , l3Base
  {$If NOT Defined(NoVCM)}
  , vcmBase
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
- , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
 ;
 
@@ -274,7 +282,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TRubricator_SetListRoot_Params.Make(aNode, aRootToKeep, aMenuSectionItemToKeep));
-  aTarget.Operation(TdmStdRes.opcode_Rubricator_SetListRoot, l_Params);
+  aTarget.Operation(opcode_Rubricator_SetListRoot, l_Params);
   with l_Params do
   begin
    if Done then
@@ -297,7 +305,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TRubricator_SetListRoot_Params.Make(aNode, aRootToKeep, aMenuSectionItemToKeep));
-  aTarget.Operation(TdmStdRes.opcode_Rubricator_SetListRoot, l_Params);
+  aTarget.Operation(opcode_Rubricator_SetListRoot, l_Params);
   with l_Params do
   begin
    if Done then
@@ -389,7 +397,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TRubricator_InitListRoot_Params.Make(aNode, aRootToKeep, aMenuSectionItemToKeep));
-  aTarget.Operation(TdmStdRes.opcode_Rubricator_InitListRoot, l_Params);
+  aTarget.Operation(opcode_Rubricator_InitListRoot, l_Params);
   with l_Params do
   begin
    if Done then
@@ -412,7 +420,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TRubricator_InitListRoot_Params.Make(aNode, aRootToKeep, aMenuSectionItemToKeep));
-  aTarget.Operation(TdmStdRes.opcode_Rubricator_InitListRoot, l_Params);
+  aTarget.Operation(opcode_Rubricator_InitListRoot, l_Params);
   with l_Params do
   begin
    if Done then
@@ -454,7 +462,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := vcmParams;
-  aTarget.Operation(TdmStdRes.opcode_Rubricator_Synchronize, l_Params);
+  aTarget.Operation(opcode_Rubricator_Synchronize, l_Params);
   with l_Params do
   begin
    if Done then
@@ -474,7 +482,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := vcmParams;
-  aTarget.Operation(TdmStdRes.opcode_Rubricator_Synchronize, l_Params);
+  aTarget.Operation(opcode_Rubricator_Synchronize, l_Params);
   with l_Params do
   begin
    if Done then
@@ -538,7 +546,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TRubricator_GetRoot_Params.Make);
-  aTarget.Operation(TdmStdRes.opcode_Rubricator_GetRoot, l_Params);
+  aTarget.Operation(opcode_Rubricator_GetRoot, l_Params);
   with l_Params do
   begin
    if Done then
@@ -558,7 +566,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TRubricator_GetRoot_Params.Make);
-  aTarget.Operation(TdmStdRes.opcode_Rubricator_GetRoot, l_Params);
+  aTarget.Operation(opcode_Rubricator_GetRoot, l_Params);
   with l_Params do
   begin
    if Done then
@@ -584,6 +592,21 @@ begin
  if (aTarget <> nil) then
   Result := Call(aTarget.AsForm);
 end;//Op_Rubricator_GetRoot.Call
+
+initialization
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Rubricator, op_SetListRoot, en_capRubricator, op_capSetListRoot, True, False, opcode_Rubricator_SetListRoot)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Rubricator, op_InitListRoot, en_capRubricator, op_capInitListRoot, True, False, opcode_Rubricator_InitListRoot)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Rubricator, op_Synchronize, en_capRubricator, op_capSynchronize, True, False, opcode_Rubricator_Synchronize)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Rubricator, op_GetRoot, en_capRubricator, op_capGetRoot, True, False, opcode_Rubricator_GetRoot)) do
+ begin
+ end;
+
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

@@ -20,12 +20,17 @@ function ConcatRegionAndUserNames(const aRegionName: AnsiString;
 function ConcatRegionAndUserNames(anID: TdaUserID;
  const aUserName: AnsiString): AnsiString; overload;
 function GetUserRegion(anUserID: TdaUserID): TdaRegionID;
+function GetLocalUserID(anUserID: TdaUserID): TdaUserID;
+ {* Отрезать ID региона от полного ID пользователя }
+function CalcGlobalUserID(anUserID: TdaUserID;
+ aRegionID: TdaRegionID): TdaUserID;
 
 implementation
 
 uses
  l3ImplUses
  , daDataProvider
+ , daInterfaces
 ;
 
 function GetRegionStringFromUserID(anID: TdaUserID;
@@ -75,5 +80,26 @@ begin
  Result := anUserID shr 24;
 //#UC END# *5715FBBC0249_5714CBFE00FA_impl*
 end;//GetUserRegion
+
+function GetLocalUserID(anUserID: TdaUserID): TdaUserID;
+ {* Отрезать ID региона от полного ID пользователя }
+//#UC START# *5785F6D00275_5714CBFE00FA_var*
+//#UC END# *5785F6D00275_5714CBFE00FA_var*
+begin
+//#UC START# *5785F6D00275_5714CBFE00FA_impl*
+ Result := anUserID and cMaxUserID;
+//#UC END# *5785F6D00275_5714CBFE00FA_impl*
+end;//GetLocalUserID
+
+function CalcGlobalUserID(anUserID: TdaUserID;
+ aRegionID: TdaRegionID): TdaUserID;
+//#UC START# *578617D303D9_5714CBFE00FA_var*
+//#UC END# *578617D303D9_5714CBFE00FA_var*
+begin
+//#UC START# *578617D303D9_5714CBFE00FA_impl*
+ Assert(GetUserRegion(anUserID) = 0);
+ Result := anUserID or (aRegionID shl 24);
+//#UC END# *578617D303D9_5714CBFE00FA_impl*
+end;//CalcGlobalUserID
 
 end.

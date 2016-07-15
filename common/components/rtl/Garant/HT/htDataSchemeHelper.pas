@@ -23,7 +23,6 @@ type
   protected
    function TableFullPath(aTable: TdaTables): AnsiString;
    function TablePassword(aTable: TdaTables): AnsiString;
-   function TableFamily(aTable: TdaTables): TdaFamilyID;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
   public
@@ -37,6 +36,8 @@ uses
  l3ImplUses
  , SysUtils
  , l3FileUtils
+ , daScheme
+ , daSchemeConsts
 ;
 
 constructor ThtDataSchemeHelper.Create(aParams: ThtDataProviderParams);
@@ -117,22 +118,6 @@ begin
  Result := cPasswordMap[cIndexMap[aTable]];
 //#UC END# *555EF81A03BF_555F0C89007D_impl*
 end;//ThtDataSchemeHelper.TablePassword
-
-function ThtDataSchemeHelper.TableFamily(aTable: TdaTables): TdaFamilyID;
-//#UC START# *555EF83803BE_555F0C89007D_var*
-const
- cMap: array [TdaTables] of TdaFamilyID = (
-  0,0,0,0,0,0,0,0,0,0,
-  1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-  1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-  1,1,1,1
- );
-//#UC END# *555EF83803BE_555F0C89007D_var*
-begin
-//#UC START# *555EF83803BE_555F0C89007D_impl*
- Result := cMap[aTable];
-//#UC END# *555EF83803BE_555F0C89007D_impl*
-end;//ThtDataSchemeHelper.TableFamily
 
 procedure ThtDataSchemeHelper.Cleanup;
  {* Функция очистки полей объекта. }

@@ -1,0 +1,2 @@
+MakeCo PrimMonitorings_Module.rc.script
+brcc32 PrimMonitorings_Module.rc

@@ -106,8 +106,14 @@ const
  op_GetParaForPositionning = 'GetParaForPositionning';
  op_capGetParaForPositionning = '';
 
+var opcode_Document_CompareEditions: TvcmOPID = (rEnID : -1; rOpID : -1);
 var st_user_Document_CompareEditions_ShowChanges: TvcmOperationStateIndex = (rID : -1);
  {* Документ -> Сравнение редакций <-> Показать изменения }
+var opcode_Document_ShowChanges: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Document_ViewChangedFragments: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Document_SetPosition: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Edition_ReturnToDocument: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Document_GetParaForPositionning: TvcmOPID = (rEnID : -1; rOpID : -1);
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
@@ -116,12 +122,15 @@ implementation
 uses
  l3ImplUses
  , l3CProtoObject
+ {$If NOT Defined(NoVCM)}
+ , vcmOperationsForRegister
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmOperationStatesForRegister
+ {$IfEnd} // NOT Defined(NoVCM)
  , l3Base
  {$If NOT Defined(NoVCM)}
  , vcmBase
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
- , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
 ;
 
@@ -221,7 +230,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TDocument_SetPosition_Params.Make(aPointID, aPointType, aUserType));
-  aTarget.Operation(TdmStdRes.opcode_Document_SetPosition, l_Params);
+  aTarget.Operation(opcode_Document_SetPosition, l_Params);
   with l_Params do
   begin
    if Done then
@@ -244,7 +253,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TDocument_SetPosition_Params.Make(aPointID, aPointType, aUserType));
-  aTarget.Operation(TdmStdRes.opcode_Document_SetPosition, l_Params);
+  aTarget.Operation(opcode_Document_SetPosition, l_Params);
   with l_Params do
   begin
    if Done then
@@ -314,7 +323,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TDocument_GetParaForPositionning_Params.Make);
-  aTarget.Operation(TdmStdRes.opcode_Document_GetParaForPositionning, l_Params);
+  aTarget.Operation(opcode_Document_GetParaForPositionning, l_Params);
   with l_Params do
   begin
    if Done then
@@ -334,7 +343,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TDocument_GetParaForPositionning_Params.Make);
-  aTarget.Operation(TdmStdRes.opcode_Document_GetParaForPositionning, l_Params);
+  aTarget.Operation(opcode_Document_GetParaForPositionning, l_Params);
   with l_Params do
   begin
    if Done then
@@ -360,6 +369,31 @@ begin
  if (aTarget <> nil) then
   Result := Call(aTarget.AsForm);
 end;//Op_Document_GetParaForPositionning.Call
+
+initialization
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Document, op_CompareEditions, en_capDocument, op_capCompareEditions, False, False, opcode_Document_CompareEditions)) do
+ begin
+  with AddState(TvcmOperationStateForRegister_C('ShowChanges', st_user_Document_CompareEditions_ShowChanges))^ do
+  begin
+   rCaption := 'Показать изменения';
+  end;
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Document, op_ShowChanges, en_capDocument, op_capShowChanges, False, False, opcode_Document_ShowChanges)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Document, op_ViewChangedFragments, en_capDocument, op_capViewChangedFragments, False, False, opcode_Document_ViewChangedFragments)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Document, op_SetPosition, en_capDocument, op_capSetPosition, True, False, opcode_Document_SetPosition)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Edition, op_ReturnToDocument, en_capEdition, op_capReturnToDocument, False, False, opcode_Edition_ReturnToDocument)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Document, op_GetParaForPositionning, en_capDocument, op_capGetParaForPositionning, True, False, opcode_Document_GetParaForPositionning)) do
+ begin
+ end;
+
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

@@ -1,8 +1,8 @@
 unit htDataProvider;
 
 // Модуль: "w:\common\components\rtl\Garant\HT\htDataProvider.pas"
-// Стереотип: "SimpleClass"
-// Элемент модели: "ThtDataProvider" MUID: (5519351D01BE)
+// Стереотип: "UtilityPack"
+// Элемент модели: "htDataProvider" MUID: (5774C7050265)
 
 {$Include w:\common\components\rtl\Garant\HT\htDefineDA.inc}
 
@@ -10,8 +10,8 @@ interface
 
 uses
  l3IntfUses
- , l3ProtoObject
  , daInterfaces
+ , l3ProtoObject
  , htDataProviderParams
  , daLongProcessSubscriberList
  , daProgressSubscriberList
@@ -97,6 +97,8 @@ type
     SetGlobalDataProvider: Boolean = True): IdaDataProvider; reintroduce;
  end;//ThtDataProvider
 
+function GlobalHTDataProvider: IdaDataProvider;
+
 implementation
 
 uses
@@ -113,6 +115,17 @@ uses
  , l3Base
  , htUserManager
 ;
+
+var g_HTDataProvider: Pointer;
+
+function GlobalHTDataProvider: IdaDataProvider;
+//#UC START# *5774C79D0090_5774C7050265_var*
+//#UC END# *5774C79D0090_5774C7050265_var*
+begin
+//#UC START# *5774C79D0090_5774C7050265_impl*
+ Result := IdaDataProvider(g_HTDataProvider);
+//#UC END# *5774C79D0090_5774C7050265_impl*
+end;//GlobalHTDataProvider
 
 constructor ThtDataProvider.Create(aParams: ThtDataProviderParams;
  ForCheckLogin: Boolean;

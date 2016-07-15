@@ -1,108 +1,78 @@
 unit dsRightEdition;
+ {* Текущая редакция }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Editions"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Editions/dsRightEdition.pas"
-// Начат: 30.07.2009 15:51
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ViewAreaControllerImp::Class>> F1 Пользовательские сервисы::CompareEditions::Editions::Editions::TdsRightEdition
-//
-// Текущая редакция
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Editions\dsRightEdition.pas"
+// Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "TdsRightEdition" MUID: (4A717FA60328)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Tree_TLB,
-  EditionsInterfaces,
-  DocumentUnit,
-  nevTools
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmExternalInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmLocalInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  l3ProtoObjectWithCOMQI,
-  l3Interfaces,
-  l3NotifyPtrList,
-  vcmControllers {a},
-  UnderControlUnit,
-  l3Types,
-  UnderControlInterfaces,
-  afwInterfaces,
-  DocumentAndListInterfaces,
-  DocumentInterfaces,
-  eeInterfaces,
-  FoldersDomainInterfaces
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , EditionsInterfaces
+ , l3Tree_TLB
+ , nevTools
+ , DocumentUnit
+ , eeInterfaces
+ , l3Interfaces
+ , FoldersDomainInterfaces
+ , UnderControlUnit
+ , DocumentAndListInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3ProtoObjectWithCOMQI
+ {$If NOT Defined(NoVCM)}
+ , vcmLocalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3NotifyPtrList
+ , UnderControlInterfaces
+ , l3Types
+ , afwInterfaces
+ , DocumentInterfaces
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  _FormDataSourceType_ = IdsRightEdition;
- {$Include ..\Editions\dsEditionDiff.imp.pas}
- TdsRightEdition = {final vac} class(_dsEditionDiff_, IdsRightEdition)
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Editions\dsEditionDiff.imp.pas}
+ TdsRightEdition = {final} class(_dsEditionDiff_, IdsRightEdition)
   {* Текущая редакция }
- private
- // private fields
-   f_NextEditions : Il3Node;
- protected
- // realized methods
+  private
+   f_NextEditions: Il3Node;
+  protected
    function IsLeft: Boolean; override;
    function Get_NextEditions: Il3Node;
- protected
- // overridden protected methods
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
  end;//TdsRightEdition
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  nsEditionNodes,
-  nsTypes,
-  deDocInfo,
-  nsDocInfoHAFMacroReplacer,
-  nsFolderFilterInfo,
-  nsEditionFromDTPDocumentContainer,
-  l3InterfacesMisc,
-  SysUtils,
-  l3Base,
-  l3Utils,
-  afwFacade
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
+ l3ImplUses
+ , nsEditionNodes
+ , nsTypes
+ , deDocInfo
+ , nsDocInfoHAFMacroReplacer
+ , nsFolderFilterInfo
+ , nsEditionFromDTPDocumentContainer
+ , l3InterfacesMisc
+ , SysUtils
+ , l3Base
+ , l3Utils
+ , afwFacade
+;
 
 type _Instance_R_ = TdsRightEdition;
 
-{$Include ..\Editions\dsEditionDiff.imp.pas}
-
-// start class TdsRightEdition
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Editions\dsEditionDiff.imp.pas}
 
 function TdsRightEdition.IsLeft: Boolean;
 //#UC START# *4A8443C30125_4A717FA60328_var*
@@ -125,14 +95,10 @@ begin
 end;//TdsRightEdition.Get_NextEditions
 
 procedure TdsRightEdition.ClearFields;
- {-}
 begin
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_NextEditions := nil;
- {$IfEnd} //not Admin AND not Monitorings
  inherited;
 end;//TdsRightEdition.ClearFields
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

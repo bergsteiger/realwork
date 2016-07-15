@@ -105,7 +105,6 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
 ;
 
-{$If NOT Defined(NoVCM)}
 const
  {* Локализуемые строки Local }
  str_mwUnreadConsultations: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'mwUnreadConsultations'; rValue : 'Получены ответы или уведомления от службы Правовой поддержки онлайн. Перейти к тексту ответа.');
@@ -247,12 +246,14 @@ begin
  inherited;
 end;//TsdsMainWindow.ClearFields
 
+{$If NOT Defined(NoVCM)}
 procedure TsdsMainWindow.ClearAreas;
  {* Очищает ссылки на области ввода }
 begin
  if (f_dsBaloonWarning <> nil) then f_dsBaloonWarning.Referred := nil;
  inherited;
 end;//TsdsMainWindow.ClearAreas
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
  str_mwUnreadConsultations.Init;
@@ -265,7 +266,6 @@ initialization
  {* Инициализация str_mwTrialModeWarning }
  str_mwControlledChangingWarning.Init;
  {* Инициализация str_mwControlledChangingWarning }
-{$IfEnd} // NOT Defined(NoVCM)
-
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+
 end.

@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_PrimNemesisRes;
+unit PrimNemesisRes;
  {* Приложение Nemesis }
 
-// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\NOT_COMPLETED_PrimNemesisRes.pas"
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\PrimNemesisRes.pas"
 // Стереотип: "VCMApplication"
 // Элемент модели: "PrimNemesis" MUID: (4A925AFF01BA)
 // Имя типа: "TPrimNemesisRes"
@@ -34,7 +34,6 @@ type
    class function DoGlobalInit(aLogo: TCustomForm;
     var theSplash: IUnknown): Boolean; override;
    class procedure DoRun(var theSplash: IUnknown); override;
-   procedure Loaded; override;
   public
    class procedure OpenQuery(aQueryType: TlgQueryType;
     const aQuery: IQuery;
@@ -80,14 +79,17 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmEntityForm
  {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
  , NemesisMain_Form
  , MainOptions_Form
  , Main_Form
  , MainWithReminders_Form
  , evExtFormat
+ //#UC START# *4A925AFF01BAimpl_uses*
+ , afwFacade
+ , vcmTabbedContainerFormDispatcher
+ , DataAdapter
+ , nsUtils
+ //#UC END# *4A925AFF01BAimpl_uses*
 ;
 
 class procedure TPrimNemesisRes.BeforeCorrectDate(const aDate: AnsiString);
@@ -327,17 +329,6 @@ begin
  end;//case aQueryType
 //#UC END# *4AC4A69D03B7_4A925AFF01BA_impl*
 end;//TPrimNemesisRes.OpenQuery
-
-procedure TPrimNemesisRes.Loaded;
-begin
- inherited;
-end;//TPrimNemesisRes.Loaded
-
-initialization
-{$If NOT Defined(NoScripts)}
- TtfwClassRef.Register(TPrimNemesisRes);
- {* Регистрация PrimNemesis }
-{$IfEnd} // NOT Defined(NoScripts)
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

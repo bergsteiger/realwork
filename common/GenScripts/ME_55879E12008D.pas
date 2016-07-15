@@ -24,7 +24,6 @@ uses
 type
  Il3PopupControlService = interface
   {* Èםעונפויס סונגטסא Tl3PopupControlService }
-  ['{C4427BB1-962C-43A9-82FB-9DC18D0EB557}']
   function IsPopupControlWindow(aControlWnd: HWND): Boolean;
  end;//Il3PopupControlService
 

@@ -13,6 +13,15 @@ interface
 uses
  l3IntfUses
  , WorkJournalInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
@@ -21,10 +30,14 @@ type
  {$IfEnd} // NOT Defined(NoVCM)
  )
   protected
-   procedure BaseWorkJournal_OpenJournal_Test(const aParams: IvcmTestParamsPrim);
-   procedure BaseWorkJournal_OpenJournal_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure opOpenJournalTest(const aParams: IvcmTestParamsPrim);
+   procedure opOpenJournalExecute(const aParams: IvcmExecuteParamsPrim);
+   procedure Loaded; override;
+   {$If NOT Defined(NoVCM)}
+   class procedure GetEntityForms(aList: TvcmClassList); override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
-   function MakeWorkJournal: IbsWorkJournal;
+   class function MakeWorkJournal: IbsWorkJournal;
  end;//TBaseWorkJournalModule
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -34,36 +47,41 @@ implementation
 uses
  l3ImplUses
  , PrimWorkJournal_utWorkJournal_UserType
- {$If NOT Defined(NoVCM)}
- , vcmBase
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoScripts)}
- , kw_WorkJournal_opOpenJournal
- {$IfEnd} // NOT Defined(NoScripts)
  , bsWorkJournal
  , WorkJournal_Form
+ //#UC START# *4A811C1A0293impl_uses*
+ , vcmInterfaces
+ //#UC END# *4A811C1A0293impl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
-function TBaseWorkJournalModule.MakeWorkJournal: IbsWorkJournal;
+class function TBaseWorkJournalModule.MakeWorkJournal: IbsWorkJournal;
+var
+ __WasEnter : Boolean;
 //#UC START# *4A827E40004E_4A811C1A0293_var*
 //#UC END# *4A827E40004E_4A811C1A0293_var*
 begin
+ __WasEnter := vcmEnterFactory;
+ try
 //#UC START# *4A827E40004E_4A811C1A0293_impl*
  Result := TbsWorkJournal.Make;
 //#UC END# *4A827E40004E_4A811C1A0293_impl*
+ finally
+  if __WasEnter then
+   vcmLeaveFactory;
+ end;//try..finally
 end;//TBaseWorkJournalModule.MakeWorkJournal
 
-procedure TBaseWorkJournalModule.BaseWorkJournal_OpenJournal_Test(const aParams: IvcmTestParamsPrim);
+procedure TBaseWorkJournalModule.opOpenJournalTest(const aParams: IvcmTestParamsPrim);
 //#UC START# *4A97C7C0019C_4A811C1A0293test_var*
 //#UC END# *4A97C7C0019C_4A811C1A0293test_var*
 begin
 //#UC START# *4A97C7C0019C_4A811C1A0293test_impl*
 // Do nothing
 //#UC END# *4A97C7C0019C_4A811C1A0293test_impl*
-end;//TBaseWorkJournalModule.BaseWorkJournal_OpenJournal_Test
+end;//TBaseWorkJournalModule.opOpenJournalTest
 
-procedure TBaseWorkJournalModule.BaseWorkJournal_OpenJournal_Execute(const aParams: IvcmExecuteParamsPrim);
+procedure TBaseWorkJournalModule.opOpenJournalExecute(const aParams: IvcmExecuteParamsPrim);
 //#UC START# *4A97C7C0019C_4A811C1A0293exec_var*
 var
  l_Window: IvcmEntityForm;
@@ -76,7 +94,19 @@ begin
                                Ord(utWorkJournal));
  l_Window.SetActiveInParent;
 //#UC END# *4A97C7C0019C_4A811C1A0293exec_impl*
-end;//TBaseWorkJournalModule.BaseWorkJournal_OpenJournal_Execute
+end;//TBaseWorkJournalModule.opOpenJournalExecute
+
+procedure TBaseWorkJournalModule.Loaded;
+begin
+ inherited;
+ PublishOp('opOpenJournal', opOpenJournalExecute, opOpenJournalTest);
+end;//TBaseWorkJournalModule.Loaded
+
+class procedure TBaseWorkJournalModule.GetEntityForms(aList: TvcmClassList);
+begin
+ inherited;
+ aList.Add(TWorkJournalForm);
+end;//TBaseWorkJournalModule.GetEntityForms
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)

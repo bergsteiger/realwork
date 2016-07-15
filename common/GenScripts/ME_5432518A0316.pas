@@ -18,6 +18,7 @@ uses
  , l3Date
  , Classes
  , l3DatLst
+ , l3LongintList
  , l3Languages
 ;
 
@@ -39,6 +40,8 @@ const
   {* не отвечает на запросы }
  usNone = 0;
  c_SupervisorUserName = 'supervisor';
+ cBadRegion = 255;
+ cMaxUserID = $00FFFFFF;
  usActive = 1;
  usAdmin = 2;
  usDeleted = 4;
@@ -126,6 +129,8 @@ type
   function Get_FieldsCount: Integer;
   function Get_FieldsCountWithoutTree: Integer;
   function Get_IsTree: Boolean;
+  function Get_Code: AnsiString;
+  function Get_FamilyID: TdaFamilyID;
   function Get_Field(const FIeldName: AnsiString): IdaFieldDescription;
   function FieldByIndex(anIndex: Integer): IdaFieldDescription;
   procedure IterateFieldsF(anAction: daTableDescriptionIterator_IterateFieldsF_Action);
@@ -149,6 +154,12 @@ type
    read Get_FieldsCountWithoutTree;
   property IsTree: Boolean
    read Get_IsTree;
+  property Code: AnsiString
+   read Get_Code;
+   {* Код таблицы в таблице Free.
+Он же имя таблицы в HyTech }
+  property FamilyID: TdaFamilyID
+   read Get_FamilyID;
   property Field[const FIeldName: AnsiString]: IdaFieldDescription
    read Get_Field;
    default;
@@ -214,6 +225,7 @@ type
   function Get_Table: IdaTableDescription;
   function Get_Index: Integer;
   function Get_Size: Integer;
+  function Get_IsPrimaryKey: Boolean;
   procedure BindToTable(const aTable: IdaTableDescription = nil;
    anIndex: Integer = -1);
   property SQLName: AnsiString
@@ -231,6 +243,8 @@ type
    read Get_Index;
   property Size: Integer
    read Get_Size;
+  property IsPrimaryKey: Boolean
+   read Get_IsPrimaryKey;
  end;//IdaFieldDescription
 
  IdaParamListHelper = interface
@@ -284,6 +298,8 @@ type
   function Get_AsStTime: TStTime;
   procedure Set_AsStTime(const aValue: TStTime);
   function Get_ParamType: TdaParamType;
+  function Get_AsByte: Byte;
+  procedure Set_AsByte(aValue: Byte);
   function IsSameType(const aDesc: IdaParamDescription): Boolean;
   property Name: AnsiString
    read Get_Name;
@@ -306,6 +322,9 @@ type
    write Set_AsStTime;
   property ParamType: TdaParamType
    read Get_ParamType;
+  property AsByte: Byte
+   read Get_AsByte
+   write Set_AsByte;
  end;//IdaParam
 
  IdaFromTable = interface
@@ -364,6 +383,7 @@ type
   function EOF: Boolean;
   procedure Next;
   function IsEmpty: Boolean;
+  function CalcRecordCount: Integer;
   property Field[const anAlias: AnsiString]: IdaField
    read Get_Field;
  end;//IdaResultSet
@@ -513,7 +533,10 @@ type
 
  IdaFunction = interface(IdaQuery)
   ['{6EA115C8-7CB5-491C-B44C-F9D45EE48050}']
+  function Get_Name: AnsiString;
   procedure Execute;
+  property Name: AnsiString
+   read Get_Name;
  end;//IdaFunction
 
  ArchiUsersIterator_IterateArchiUsersF_Action = function(const anItem: IdaArchiUser): Boolean;
@@ -654,8 +677,47 @@ type
    var aUserName: AnsiString;
    var aLoginName: AnsiString;
    var aActFlag: Byte);
-  function IsMemberOfGroup(const aUserGroupID: TdaUserGroupID;
+  function IsMemberOfGroup(aUserGroupID: TdaUserGroupID;
    aUserID: TdaUserID): Boolean;
+  function GetUserGroups(aUserID: TdaUserID): TdaUserGroupIDArray;
+  procedure GetUserGroupsList(aUser: TdaUserID;
+   aList: Tl3StringDataList); overload;
+  procedure GetUserGroupsList(aUser: TdaUserID;
+   aList: Tl3LongintList); overload;
+  procedure SetUserGroupsList(aUser: TdaUserID;
+   aList: Tl3StringDataList);
+  function AddUserGroup(const aName: AnsiString): TdaUserGroupID;
+  procedure EditUserGroup(aGroupID: TdaUserGroupID;
+   const aName: AnsiString;
+   aImportPriority: TdaPriority;
+   aExportPriority: TdaPriority);
+  procedure DelUserGroup(aGroupID: TdaUserGroupID);
+  procedure RemoveUserFromAllGroups(aUser: TdaUserID);
+  procedure SetUserGroup(aUser: TdaUserID;
+   aGroup: TdaUserGroupID;
+   Add: Boolean = True);
+  procedure AdminChangePassWord(aUser: TdaUserID;
+   const NewPass: AnsiString);
+  procedure GetHostUserListOnGroup(aGroupID: TdaUserGroupID;
+   aList: Tl3StringDataList;
+   NeedSort: Boolean = False);
+  procedure SetHostUserListOnGroup(aGroupID: TdaUserGroupID;
+   aList: Tl3StringDataList);
+  function AddUser(const aUserName: AnsiString;
+   const aLoginName: AnsiString;
+   const aPassword: AnsiString;
+   ActFlag: Byte): TdaUserID;
+  function AddUserID(anID: TdaUserID;
+   const aUserName: AnsiString;
+   const aLoginName: AnsiString;
+   const aPassword: AnsiString;
+   ActFlag: Byte): TdaUserID;
+  procedure EditUser(aUser: TdaUserID;
+   const aUserName: AnsiString;
+   const aLoginName: AnsiString;
+   ActFlag: Byte;
+   const EditMask: TdaUserEditMask);
+  procedure DelUser(aUser: TdaUserID);
   procedure IterateArchiUsersF(anAction: ArchiUsersIterator_IterateArchiUsersF_Action);
   procedure IterateUserGroupsF(anAction: ArchiUsersIterator_IterateUserGroupsF_Action);
   property AllUsers: Tl3StringDataList
@@ -794,6 +856,12 @@ type
   property TextBase[aFamily: TdaFamilyID]: AnsiString
    read Get_TextBase;
  end;//IdaDataProvider
+
+ IdaComboAccessUserManagerHelper = interface
+  ['{32E6E545-E98D-40FF-A790-0058AC31A714}']
+  procedure AddUserGroupShadow(anID: TdaUserGroupID;
+   const aName: AnsiString);
+ end;//IdaComboAccessUserManagerHelper
 
 function L2daTableDescriptionIteratorIterateFieldsFAction(anAction: Pointer): daTableDescriptionIterator_IterateFieldsF_Action;
  {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для daTableDescriptionIterator.IterateFieldsF }

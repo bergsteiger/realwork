@@ -16,6 +16,7 @@ uses
  , daInterfaces
  , pgConnection
  , daTypes
+ , LibPQ
 ;
 
 type
@@ -26,14 +27,27 @@ type
    f_InsertName: AnsiString;
    f_Connection: TpgConnection;
    f_TableID: TdaTables;
+   f_UpdateName: AnsiString;
+   f_DeleteName: AnsiString;
+   f_OldParams: TdaParamList;
   private
    procedure BuildSQLAndFillParams(aTableID: TdaTables;
-    out anSQL: AnsiString;
-    aParams: TdaParamList);
+    out anInsertSQL: AnsiString;
+    out anUpdateSQL: AnsiString;
+    out aDeleteSQL: AnsiString;
+    aParams: TdaParamList;
+    anOldParams: TdaParamList;
+    out anUpdateParamTypes: TPQOIDArray);
    procedure PrepareSQL(aTableID: TdaTables);
    procedure UnPrepareSQL;
+   procedure PrepareSubQuery(const aName: AnsiString;
+    const aSQL: AnsiString;
+    aParamsCount: Integer;
+    const anOIDArray: TPQOIDArray = nil);
+   procedure UnPrepareSubQuery(var aName: AnsiString);
   protected
    function pm_GetParams(const Name: AnsiString): IdaParam;
+   function pm_GetOldParams(const aName: AnsiString): IdaParam; virtual;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
   public
@@ -44,9 +58,13 @@ type
    function BeginTransaction: Boolean;
    procedure CommitTransaction;
    procedure RollBackTransaction;
+   procedure Update;
+   procedure Delete;
   public
    property Params[const Name: AnsiString]: IdaParam
     read pm_GetParams;
+   property OldParams[const aName: AnsiString]: IdaParam
+    read pm_GetOldParams;
  end;//TpgTableModifier
 {$IfEnd} // Defined(UsePostgres)
 
@@ -56,12 +74,12 @@ implementation
 uses
  l3ImplUses
  , SysUtils
- , LibPQ
  , pgUtils
  , pgInterfaces
  , daScheme
  , daParam
  , daFieldParamDescription
+ , l3MinMax
 ;
 
 function TpgTableModifier.pm_GetParams(const Name: AnsiString): IdaParam;
@@ -77,6 +95,20 @@ begin
   Result := nil;
 //#UC END# *564C2778019B_564B212F02DAget_impl*
 end;//TpgTableModifier.pm_GetParams
+
+function TpgTableModifier.pm_GetOldParams(const aName: AnsiString): IdaParam;
+//#UC START# *5774E56501BB_564B212F02DAget_var*
+var
+ l_IDX: Integer;
+//#UC END# *5774E56501BB_564B212F02DAget_var*
+begin
+//#UC START# *5774E56501BB_564B212F02DAget_impl*
+ if f_OldParams.FindData(aName, l_IDX) then
+  Result := f_OldParams[l_IDX]
+ else
+  Result := nil;
+//#UC END# *5774E56501BB_564B212F02DAget_impl*
+end;//TpgTableModifier.pm_GetOldParams
 
 constructor TpgTableModifier.Create(aTableID: TdaTables;
  aConnection: TpgConnection;
@@ -95,8 +127,12 @@ begin
 end;//TpgTableModifier.Create
 
 procedure TpgTableModifier.BuildSQLAndFillParams(aTableID: TdaTables;
- out anSQL: AnsiString;
- aParams: TdaParamList);
+ out anInsertSQL: AnsiString;
+ out anUpdateSQL: AnsiString;
+ out aDeleteSQL: AnsiString;
+ aParams: TdaParamList;
+ anOldParams: TdaParamList;
+ out anUpdateParamTypes: TPQOIDArray);
 //#UC START# *564C664702D3_564B212F02DA_var*
 var
  l_Table: IdaTableDescription;
@@ -166,6 +202,46 @@ begin
 //#UC END# *564C66BE013F_564B212F02DA_impl*
 end;//TpgTableModifier.UnPrepareSQL
 
+procedure TpgTableModifier.PrepareSubQuery(const aName: AnsiString;
+ const aSQL: AnsiString;
+ aParamsCount: Integer;
+ const anOIDArray: TPQOIDArray = nil);
+//#UC START# *5774E86500B0_564B212F02DA_var*
+var
+ l_Result: PPGResult;
+//#UC END# *5774E86500B0_564B212F02DA_var*
+begin
+//#UC START# *5774E86500B0_564B212F02DA_impl*
+ if anOIDArray = nil then
+  l_Result := PQprepare(f_Connection.Handle, PAnsiChar(aName),  PAnsiChar(aSQL), aParamsCount, nil)
+ else
+  l_Result := PQprepare(f_Connection.Handle, PAnsiChar(aName),  PAnsiChar(aSQL), aParamsCount, @anOIDArray[0]);
+ try
+  pgCheckStatus(l_Result);
+ finally
+  PQclear(l_Result);
+ end;
+//#UC END# *5774E86500B0_564B212F02DA_impl*
+end;//TpgTableModifier.PrepareSubQuery
+
+procedure TpgTableModifier.UnPrepareSubQuery(var aName: AnsiString);
+//#UC START# *5774E8C20370_564B212F02DA_var*
+var
+ l_Result: PPGResult;
+//#UC END# *5774E8C20370_564B212F02DA_var*
+begin
+//#UC START# *5774E8C20370_564B212F02DA_impl*
+ Assert(aName <> '');
+ l_Result := PQExec(f_Connection.Handle, PAnsiChar(Format('DEALLOCATE PREPARE "%s"', [aName])));
+ try
+  aName := '';
+  pgCheckStatus(l_Result);
+ finally
+  PQClear(l_Result);
+ end;
+//#UC END# *5774E8C20370_564B212F02DA_impl*
+end;//TpgTableModifier.UnPrepareSubQuery
+
 procedure TpgTableModifier.Insert;
 //#UC START# *564C58CD016F_564B212F02DA_var*
 var
@@ -219,6 +295,66 @@ begin
  f_Connection.RollBackTransaction;
 //#UC END# *565C36CE0339_564B212F02DA_impl*
 end;//TpgTableModifier.RollBackTransaction
+
+procedure TpgTableModifier.Update;
+//#UC START# *5774E4090377_564B212F02DA_var*
+var
+ l_ParamsValue: array of AnsiString;
+ l_ParamsValuePtr: TPQparamValues;
+ l_Result: PPGResult;
+ l_IDX: Integer;
+//#UC END# *5774E4090377_564B212F02DA_var*
+begin
+//#UC START# *5774E4090377_564B212F02DA_impl*
+ Assert(f_UpdateName <> '');
+ SetLength(l_ParamsValue, f_Params.Count + f_OldParams.Count);
+ SetLength(l_ParamsValuePtr, f_Params.Count + f_OldParams.Count);
+ for l_IDX := 0 to f_Params.Count - 1 do
+ begin
+  l_ParamsValue[l_IDX] := f_Params[l_IDX].AsString;
+  l_ParamsValuePtr[l_IDX] := PAnsiChar(l_ParamsValue[l_IDX]);
+ end;
+ for l_IDX := 0 to f_OldParams.Count - 1 do
+ begin
+  l_ParamsValue[f_Params.Count + l_IDX] := f_OldParams[l_IDX].AsString;
+  l_ParamsValuePtr[f_Params.Count + l_IDX] := PAnsiChar(l_ParamsValue[f_Params.Count + l_IDX]);
+ end;
+ l_Result := PQexecPrepared(f_Connection.Handle, PAnsiChar(f_UpdateName), f_Params.Count + f_OldParams.Count, l_ParamsValuePtr, nil, 0, 0);
+ try
+  if not (PQresultStatus(l_Result) in [PGRES_COMMAND_OK]) then
+   raise EpgError.Create(PQresultErrorMessage(l_Result));
+ finally
+  PQclear(l_Result);
+ end;
+//#UC END# *5774E4090377_564B212F02DA_impl*
+end;//TpgTableModifier.Update
+
+procedure TpgTableModifier.Delete;
+//#UC START# *5774E4160259_564B212F02DA_var*
+var
+ l_ParamsValue: array of AnsiString;
+ l_ParamsValuePtr: TPQparamValues;
+ l_Result: PPGResult;
+ l_IDX: Integer;
+//#UC END# *5774E4160259_564B212F02DA_var*
+begin
+//#UC START# *5774E4160259_564B212F02DA_impl*
+ SetLength(l_ParamsValue, f_OldParams.Count);
+ SetLength(l_ParamsValuePtr, f_OldParams.Count);
+ for l_IDX := 0 to f_OldParams.Count - 1 do
+ begin
+  l_ParamsValue[l_IDX] := f_OldParams[l_IDX].AsString;
+  l_ParamsValuePtr[l_IDX] := PAnsiChar(l_ParamsValue[l_IDX]);
+ end;
+ l_Result := PQexecPrepared(f_Connection.Handle, PAnsiChar(f_DeleteName), f_OldParams.Count, l_ParamsValuePtr, nil, 0, 0);
+ try
+  if not (PQresultStatus(l_Result) in [PGRES_COMMAND_OK]) then
+   raise EpgError.Create(PQresultErrorMessage(l_Result));
+ finally
+  PQclear(l_Result);
+ end;
+//#UC END# *5774E4160259_564B212F02DA_impl*
+end;//TpgTableModifier.Delete
 
 procedure TpgTableModifier.Cleanup;
  {* Функция очистки полей объекта. }

@@ -1,128 +1,86 @@
 unit fsInternetAgent;
+ {* Сборка форм для прецедента Интернет-агент }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/InternetAgent/fsInternetAgent.pas"
-// Начат: 27.04.2009 14:19
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMFormSetFactory::Class>> F1 Встроенные продукты::InternetAgent::View::InternetAgent::PrimInternetAgent$FP::InternetAgent
-//
-// Сборка форм для прецедента Интернет-агент
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\InternetAgent\fsInternetAgent.pas"
+// Стереотип: "VCMFormSetFactory"
+// Элемент модели: "InternetAgent" MUID: (49F586610347)
+// Имя типа: "Tfs_InternetAgent"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmFormSetFactory
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  ,
-  InternetAgentInterfaces,
-  InternetAgent_Form,
-  l3StringIDEx
-  {$If not defined(NoVCM)}
-  ,
-  vcmFormSetFormsCollectionItemPrim
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmFormSetFactoryPrim
-  {$IfEnd} //not NoVCM
-  
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmFormSetFactory
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmUserControls
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmFormSetFactoryPrim
+ {$IfEnd} // NOT Defined(NoVCM)
+ , InternetAgent_Form
+ , InternetAgentInterfaces
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
-  Tfs_InternetAgent = {final fsf} class(TvcmFormSetFactory)
-   {* Сборка форм для прецедента Интернет-агент }
+ Tfs_InternetAgent = {final} class({$If NOT Defined(NoVCM)}
+ TvcmFormSetFactory
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
+  {* Сборка форм для прецедента Интернет-агент }
   protected
-  // overridden protected methods
    procedure InitFields; override;
-    {$If not defined(NoVCM)}
+   {$If NOT Defined(NoVCM)}
    class function GetInstance: TvcmFormSetFactoryPrim; override;
-    {$IfEnd} //not NoVCM
+   {$IfEnd} // NOT Defined(NoVCM)
   public
-  // public methods
    function InternetAgentParentNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-      out aNew: IvcmFormDataSource;
-      aSubUserType: TvcmUserType): Boolean;
-     {* Обработчик OnNeedMakeForm для InternetAgent }
+    out aNew: IvcmFormDataSource;
+    aSubUserType: TvcmUserType): Boolean;
+    {* Обработчик OnNeedMakeForm для InternetAgent }
+   class function Instance: Tfs_InternetAgent;
+    {* Метод получения экземпляра синглетона Tfs_InternetAgent }
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
-  public
-  // singleton factory method
-    class function Instance: Tfs_InternetAgent;
-     {- возвращает экземпляр синглетона. }
-  end;//Tfs_InternetAgent
-{$IfEnd} //not Admin AND not Monitorings
+    {* Проверяет создан экземпляр синглетона или нет }
+ end;//Tfs_InternetAgent
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Base {a},
-  l3MessageID,
-  SysUtils
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , l3StringIDEx
+ , SysUtils
+ , l3Base
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(NoVCM)}
+var g_Tfs_InternetAgent: Tfs_InternetAgent = nil;
+ {* Экземпляр синглетона Tfs_InternetAgent }
 
-
-// start class Tfs_InternetAgent
-
-var g_Tfs_InternetAgent : Tfs_InternetAgent = nil;
+const
+ {* Локализуемые строки InternetAgentCaptionLocalConstants }
+ str_fsInternetAgentCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'fsInternetAgentCaption'; rValue : 'Интернет-агент');
+  {* Заголовок фабрики сборки форм "InternetAgent" }
 
 procedure Tfs_InternetAgentFree;
+ {* Метод освобождения экземпляра синглетона Tfs_InternetAgent }
 begin
  l3Free(g_Tfs_InternetAgent);
-end;
-
-class function Tfs_InternetAgent.Instance: Tfs_InternetAgent;
-begin
- if (g_Tfs_InternetAgent = nil) then
- begin
-  l3System.AddExitProc(Tfs_InternetAgentFree);
-  g_Tfs_InternetAgent := Create;
- end;
- Result := g_Tfs_InternetAgent;
-end;
-
-var
-    { Локализуемые строки InternetAgentCaptionLocalConstants }
-   str_fsInternetAgentCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'fsInternetAgentCaption'; rValue : 'Интернет-агент');
-    { Заголовок фабрики сборки форм "InternetAgent" }
-
-// start class Tfs_InternetAgent
+end;//Tfs_InternetAgentFree
 
 function Tfs_InternetAgent.InternetAgentParentNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-  out aNew: IvcmFormDataSource;
-  aSubUserType: TvcmUserType): Boolean;
+ out aNew: IvcmFormDataSource;
+ aSubUserType: TvcmUserType): Boolean;
+ {* Обработчик OnNeedMakeForm для InternetAgent }
 var
  l_UseCase : IsdsInternetAgent;
 begin
@@ -135,14 +93,24 @@ begin
  Result := (aNew <> nil);
 end;//Tfs_InternetAgent.InternetAgentParentNeedMakeForm
 
+class function Tfs_InternetAgent.Instance: Tfs_InternetAgent;
+ {* Метод получения экземпляра синглетона Tfs_InternetAgent }
+begin
+ if (g_Tfs_InternetAgent = nil) then
+ begin
+  l3System.AddExitProc(Tfs_InternetAgentFree);
+  g_Tfs_InternetAgent := Create;
+ end;
+ Result := g_Tfs_InternetAgent;
+end;//Tfs_InternetAgent.Instance
+
 class function Tfs_InternetAgent.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_Tfs_InternetAgent <> nil;
 end;//Tfs_InternetAgent.Exists
 
 procedure Tfs_InternetAgent.InitFields;
- {-}
 begin
  inherited;
  with AddZone('InternetAgent', vcm_ztParent, fm_InternetAgentForm) do
@@ -154,20 +122,15 @@ begin
  OwnerForm := 0;
 end;//Tfs_InternetAgent.InitFields
 
-{$If not defined(NoVCM)}
 class function Tfs_InternetAgent.GetInstance: TvcmFormSetFactoryPrim;
- {-}
 begin
  Result := Self.Instance;
 end;//Tfs_InternetAgent.GetInstance
-{$IfEnd} //not NoVCM
-
-{$IfEnd} //not Admin AND not Monitorings
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_fsInternetAgentCaption
  str_fsInternetAgentCaption.Init;
-{$IfEnd} //not Admin AND not Monitorings
+ {* Инициализация str_fsInternetAgentCaption }
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

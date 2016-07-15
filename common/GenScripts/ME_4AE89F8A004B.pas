@@ -489,6 +489,58 @@ const
  op_capShow = 'Показывать метки';
  op_ShowByShortCut = 'ShowByShortCut';
  op_capShowByShortCut = '';
+
+var opcode_Query_ClearAll: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Query_SetList: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Query_GetList: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Filterable_Add: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Filterable_Delete: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Filterable_ClearAll: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Filterable_Refresh: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Filterable_GetListType: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Loadable_Load: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Filters_GetSelected: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_SearchParameter_QueryNotSaved: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_SearchParameter_ClearMistakes: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_SearchParameter_QuerySaved: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_PrintParams_UpdatePrinter: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_List_SetNewContent: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_CardOperation_ExpandCollapse: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_CardOperation_DeleteAll: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_CardOperation_CreateAttr: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_CardOperation_OpenTreeSelection: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_File_SaveToFolder: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_File_LoadFromFolder: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Query_GetOldQuery: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Query_SearchType: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_LogicOperation_LogicOr: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_LogicOperation_LogicAnd: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_LogicOperation_LogicNot: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Filters_FiltersListOpen: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Preview_ZoomIn: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Preview_ZoomOut: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Preview_ZoomWidth: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Preview_ZoomPage: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Document_FullSelectedSwitch: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Document_RGBGrayscaleSwitch: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Document_PrintInfoSwitch: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_SubPanelSettings_ShowSpecial: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_SubPanelSettings_ShowInfo: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Result_Restore: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Result_SaveAsDefault: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_ColontitulMacro_AppTitle: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_ColontitulMacro_DocName: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_ColontitulMacro_DocFullName: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_ColontitulMacro_DocRedactionDate: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_ColontitulMacro_DocCurrentPage: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_ColontitulMacro_DocPagesCount: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_ColontitulMacro_CurrentDate: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_ColontitulMacro_CurrentTime: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_ColontitulMacro_InternalDocNumber: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_ColontitulMacro_DocumentSIze: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_ColontitulMacro_FilePosition: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_SubPanelSettings_Show: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_SubPanelSettings_ShowByShortCut: TvcmOPID = (rEnID : -1; rOpID : -1);
 {$IfEnd} // NOT Defined(Admin)
 
 implementation
@@ -497,12 +549,15 @@ implementation
 uses
  l3ImplUses
  , l3CProtoObject
+ {$If NOT Defined(NoVCM)}
+ , vcmOperationsForRegister
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmOperationStatesForRegister
+ {$IfEnd} // NOT Defined(NoVCM)
  , l3Base
  {$If NOT Defined(NoVCM)}
  , vcmBase
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
- , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
 ;
 
@@ -668,7 +723,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TQuery_ClearAll_Params.Make(aNotClearRange));
-  aTarget.Operation(TdmStdRes.opcode_Query_ClearAll, l_Params);
+  aTarget.Operation(opcode_Query_ClearAll, l_Params);
   with l_Params do
   begin
    if Done then
@@ -689,7 +744,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TQuery_ClearAll_Params.Make(aNotClearRange));
-  aTarget.Operation(TdmStdRes.opcode_Query_ClearAll, l_Params);
+  aTarget.Operation(opcode_Query_ClearAll, l_Params);
   with l_Params do
   begin
    if Done then
@@ -766,7 +821,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TQuery_SetList_Params.Make(aList, aInList));
-  aTarget.Operation(TdmStdRes.opcode_Query_SetList, l_Params);
+  aTarget.Operation(opcode_Query_SetList, l_Params);
   with l_Params do
   begin
    if Done then
@@ -788,7 +843,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TQuery_SetList_Params.Make(aList, aInList));
-  aTarget.Operation(TdmStdRes.opcode_Query_SetList, l_Params);
+  aTarget.Operation(opcode_Query_SetList, l_Params);
   with l_Params do
   begin
    if Done then
@@ -856,7 +911,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TQuery_GetList_Params.Make);
-  aTarget.Operation(TdmStdRes.opcode_Query_GetList, l_Params);
+  aTarget.Operation(opcode_Query_GetList, l_Params);
   with l_Params do
   begin
    if Done then
@@ -876,7 +931,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TQuery_GetList_Params.Make);
-  aTarget.Operation(TdmStdRes.opcode_Query_GetList, l_Params);
+  aTarget.Operation(opcode_Query_GetList, l_Params);
   with l_Params do
   begin
    if Done then
@@ -952,7 +1007,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TFilterable_Add_Params.Make(aFilter));
-  aTarget.Operation(TdmStdRes.opcode_Filterable_Add, l_Params);
+  aTarget.Operation(opcode_Filterable_Add, l_Params);
   with l_Params do
   begin
    if Done then
@@ -973,7 +1028,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TFilterable_Add_Params.Make(aFilter));
-  aTarget.Operation(TdmStdRes.opcode_Filterable_Add, l_Params);
+  aTarget.Operation(opcode_Filterable_Add, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1051,7 +1106,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TFilterable_Delete_Params.Make(aFilter));
-  aTarget.Operation(TdmStdRes.opcode_Filterable_Delete, l_Params);
+  aTarget.Operation(opcode_Filterable_Delete, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1072,7 +1127,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TFilterable_Delete_Params.Make(aFilter));
-  aTarget.Operation(TdmStdRes.opcode_Filterable_Delete, l_Params);
+  aTarget.Operation(opcode_Filterable_Delete, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1110,7 +1165,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := vcmParams;
-  aTarget.Operation(TdmStdRes.opcode_Filterable_ClearAll, l_Params);
+  aTarget.Operation(opcode_Filterable_ClearAll, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1130,7 +1185,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := vcmParams;
-  aTarget.Operation(TdmStdRes.opcode_Filterable_ClearAll, l_Params);
+  aTarget.Operation(opcode_Filterable_ClearAll, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1188,7 +1243,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TFilterable_Refresh_Params.Make);
-  aTarget.Operation(TdmStdRes.opcode_Filterable_Refresh, l_Params);
+  aTarget.Operation(opcode_Filterable_Refresh, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1208,7 +1263,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TFilterable_Refresh_Params.Make);
-  aTarget.Operation(TdmStdRes.opcode_Filterable_Refresh, l_Params);
+  aTarget.Operation(opcode_Filterable_Refresh, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1266,7 +1321,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TFilterable_GetListType_Params.Make);
-  aTarget.Operation(TdmStdRes.opcode_Filterable_GetListType, l_Params);
+  aTarget.Operation(opcode_Filterable_GetListType, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1286,7 +1341,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TFilterable_GetListType_Params.Make);
-  aTarget.Operation(TdmStdRes.opcode_Filterable_GetListType, l_Params);
+  aTarget.Operation(opcode_Filterable_GetListType, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1381,7 +1436,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TLoadable_Load_Params.Make(aNode, aData, anOp));
-  aTarget.Operation(TdmStdRes.opcode_Loadable_Load, l_Params);
+  aTarget.Operation(opcode_Loadable_Load, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1404,7 +1459,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TLoadable_Load_Params.Make(aNode, aData, anOp));
-  aTarget.Operation(TdmStdRes.opcode_Loadable_Load, l_Params);
+  aTarget.Operation(opcode_Loadable_Load, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1477,7 +1532,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TFilters_GetSelected_Params.Make);
-  aTarget.Operation(TdmStdRes.opcode_Filters_GetSelected, l_Params);
+  aTarget.Operation(opcode_Filters_GetSelected, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1497,7 +1552,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TFilters_GetSelected_Params.Make);
-  aTarget.Operation(TdmStdRes.opcode_Filters_GetSelected, l_Params);
+  aTarget.Operation(opcode_Filters_GetSelected, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1534,7 +1589,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := vcmParams;
-  aTarget.Operation(TdmStdRes.opcode_SearchParameter_QueryNotSaved, l_Params);
+  aTarget.Operation(opcode_SearchParameter_QueryNotSaved, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1554,7 +1609,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := vcmParams;
-  aTarget.Operation(TdmStdRes.opcode_SearchParameter_QueryNotSaved, l_Params);
+  aTarget.Operation(opcode_SearchParameter_QueryNotSaved, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1590,7 +1645,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := vcmParams;
-  aTarget.Operation(TdmStdRes.opcode_SearchParameter_ClearMistakes, l_Params);
+  aTarget.Operation(opcode_SearchParameter_ClearMistakes, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1610,7 +1665,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := vcmParams;
-  aTarget.Operation(TdmStdRes.opcode_SearchParameter_ClearMistakes, l_Params);
+  aTarget.Operation(opcode_SearchParameter_ClearMistakes, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1646,7 +1701,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := vcmParams;
-  aTarget.Operation(TdmStdRes.opcode_SearchParameter_QuerySaved, l_Params);
+  aTarget.Operation(opcode_SearchParameter_QuerySaved, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1666,7 +1721,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := vcmParams;
-  aTarget.Operation(TdmStdRes.opcode_SearchParameter_QuerySaved, l_Params);
+  aTarget.Operation(opcode_SearchParameter_QuerySaved, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1702,7 +1757,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := vcmParams;
-  aTarget.Operation(TdmStdRes.opcode_PrintParams_UpdatePrinter, l_Params);
+  aTarget.Operation(opcode_PrintParams_UpdatePrinter, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1722,7 +1777,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := vcmParams;
-  aTarget.Operation(TdmStdRes.opcode_PrintParams_UpdatePrinter, l_Params);
+  aTarget.Operation(opcode_PrintParams_UpdatePrinter, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1757,7 +1812,7 @@ begin
  if (vcmDispatcher <> nil) then
  begin
   l_Params := vcmParams;
-  vcmDispatcher.EntityOperationBroadcast(TdmStdRes.opcode_PrintParams_UpdatePrinter, l_Params);
+  vcmDispatcher.EntityOperationBroadcast(opcode_PrintParams_UpdatePrinter, l_Params);
  end//vcmDispatcher <> nil
 end;//Op_PrintParams_UpdatePrinter.Broadcast
 
@@ -1770,7 +1825,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := vcmParams;
-  aTarget.Operation(TdmStdRes.opcode_List_SetNewContent, l_Params);
+  aTarget.Operation(opcode_List_SetNewContent, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1790,7 +1845,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := vcmParams;
-  aTarget.Operation(TdmStdRes.opcode_List_SetNewContent, l_Params);
+  aTarget.Operation(opcode_List_SetNewContent, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1816,6 +1871,162 @@ begin
  if (aTarget <> nil) then
   Result := Call(aTarget.AsForm);
 end;//Op_List_SetNewContent.Call
+
+initialization
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Query, op_ClearAll, en_capQuery, op_capClearAll, True, False, opcode_Query_ClearAll)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Query, op_SetList, en_capQuery, op_capSetList, True, False, opcode_Query_SetList)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Query, op_GetList, en_capQuery, op_capGetList, True, False, opcode_Query_GetList)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Filterable, op_Add, en_capFilterable, op_capAdd, True, False, opcode_Filterable_Add)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Filterable, op_Delete, en_capFilterable, op_capDelete, True, False, opcode_Filterable_Delete)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Filterable, op_ClearAll, en_capFilterable, op_capClearAll, True, False, opcode_Filterable_ClearAll)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Filterable, op_Refresh, en_capFilterable, op_capRefresh, True, False, opcode_Filterable_Refresh)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Filterable, op_GetListType, en_capFilterable, op_capGetListType, True, False, opcode_Filterable_GetListType)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Loadable, op_Load, en_capLoadable, op_capLoad, True, False, opcode_Loadable_Load)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Filters, op_GetSelected, en_capFilters, op_capGetSelected, True, False, opcode_Filters_GetSelected)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_SearchParameter, op_QueryNotSaved, en_capSearchParameter, op_capQueryNotSaved, True, False, opcode_SearchParameter_QueryNotSaved)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_SearchParameter, op_ClearMistakes, en_capSearchParameter, op_capClearMistakes, True, False, opcode_SearchParameter_ClearMistakes)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_SearchParameter, op_QuerySaved, en_capSearchParameter, op_capQuerySaved, True, False, opcode_SearchParameter_QuerySaved)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_PrintParams, op_UpdatePrinter, en_capPrintParams, op_capUpdatePrinter, True, False, opcode_PrintParams_UpdatePrinter)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_List, op_SetNewContent, en_capList, op_capSetNewContent, True, False, opcode_List_SetNewContent)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_CardOperation, op_ExpandCollapse, en_capCardOperation, op_capExpandCollapse, False, False, opcode_CardOperation_ExpandCollapse)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_CardOperation, op_DeleteAll, en_capCardOperation, op_capDeleteAll, False, False, opcode_CardOperation_DeleteAll)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_CardOperation, op_CreateAttr, en_capCardOperation, op_capCreateAttr, False, False, opcode_CardOperation_CreateAttr)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_CardOperation, op_OpenTreeSelection, en_capCardOperation, op_capOpenTreeSelection, False, False, opcode_CardOperation_OpenTreeSelection)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_File, op_SaveToFolder, en_capFile, op_capSaveToFolder, False, False, opcode_File_SaveToFolder)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_File, op_LoadFromFolder, en_capFile, op_capLoadFromFolder, False, False, opcode_File_LoadFromFolder)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Query, op_GetOldQuery, en_capQuery, op_capGetOldQuery, False, False, opcode_Query_GetOldQuery)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Query, op_SearchType, en_capQuery, op_capSearchType, False, False, opcode_Query_SearchType)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_LogicOperation, op_LogicOr, en_capLogicOperation, op_capLogicOr, False, False, opcode_LogicOperation_LogicOr)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_LogicOperation, op_LogicAnd, en_capLogicOperation, op_capLogicAnd, False, False, opcode_LogicOperation_LogicAnd)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_LogicOperation, op_LogicNot, en_capLogicOperation, op_capLogicNot, False, False, opcode_LogicOperation_LogicNot)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Filters, op_FiltersListOpen, en_capFilters, op_capFiltersListOpen, False, False, opcode_Filters_FiltersListOpen)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Preview, op_ZoomIn, en_capPreview, op_capZoomIn, False, False, opcode_Preview_ZoomIn)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Preview, op_ZoomOut, en_capPreview, op_capZoomOut, False, False, opcode_Preview_ZoomOut)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Preview, op_ZoomWidth, en_capPreview, op_capZoomWidth, False, False, opcode_Preview_ZoomWidth)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Preview, op_ZoomPage, en_capPreview, op_capZoomPage, False, False, opcode_Preview_ZoomPage)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Document, op_FullSelectedSwitch, en_capDocument, op_capFullSelectedSwitch, False, False, opcode_Document_FullSelectedSwitch)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Document, op_RGBGrayscaleSwitch, en_capDocument, op_capRGBGrayscaleSwitch, False, False, opcode_Document_RGBGrayscaleSwitch)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Document, op_PrintInfoSwitch, en_capDocument, op_capPrintInfoSwitch, False, False, opcode_Document_PrintInfoSwitch)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_SubPanelSettings, op_ShowSpecial, en_capSubPanelSettings, op_capShowSpecial, False, False, opcode_SubPanelSettings_ShowSpecial)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_SubPanelSettings, op_ShowInfo, en_capSubPanelSettings, op_capShowInfo, False, False, opcode_SubPanelSettings_ShowInfo)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Result, op_Restore, en_capResult, op_capRestore, False, False, opcode_Result_Restore)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Result, op_SaveAsDefault, en_capResult, op_capSaveAsDefault, False, False, opcode_Result_SaveAsDefault)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_ColontitulMacro, op_AppTitle, en_capColontitulMacro, op_capAppTitle, False, False, opcode_ColontitulMacro_AppTitle)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_ColontitulMacro, op_DocName, en_capColontitulMacro, op_capDocName, False, False, opcode_ColontitulMacro_DocName)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_ColontitulMacro, op_DocFullName, en_capColontitulMacro, op_capDocFullName, False, False, opcode_ColontitulMacro_DocFullName)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_ColontitulMacro, op_DocRedactionDate, en_capColontitulMacro, op_capDocRedactionDate, False, False, opcode_ColontitulMacro_DocRedactionDate)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_ColontitulMacro, op_DocCurrentPage, en_capColontitulMacro, op_capDocCurrentPage, False, False, opcode_ColontitulMacro_DocCurrentPage)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_ColontitulMacro, op_DocPagesCount, en_capColontitulMacro, op_capDocPagesCount, False, False, opcode_ColontitulMacro_DocPagesCount)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_ColontitulMacro, op_CurrentDate, en_capColontitulMacro, op_capCurrentDate, False, False, opcode_ColontitulMacro_CurrentDate)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_ColontitulMacro, op_CurrentTime, en_capColontitulMacro, op_capCurrentTime, False, False, opcode_ColontitulMacro_CurrentTime)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_ColontitulMacro, op_InternalDocNumber, en_capColontitulMacro, op_capInternalDocNumber, False, False, opcode_ColontitulMacro_InternalDocNumber)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_ColontitulMacro, op_DocumentSIze, en_capColontitulMacro, op_capDocumentSIze, False, False, opcode_ColontitulMacro_DocumentSIze)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_ColontitulMacro, op_FilePosition, en_capColontitulMacro, op_capFilePosition, False, False, opcode_ColontitulMacro_FilePosition)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_SubPanelSettings, op_Show, en_capSubPanelSettings, op_capShow, False, False, opcode_SubPanelSettings_Show)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_SubPanelSettings, op_ShowByShortCut, en_capSubPanelSettings, op_capShowByShortCut, False, False, opcode_SubPanelSettings_ShowByShortCut)) do
+ begin
+ end;
+
 {$IfEnd} // NOT Defined(Admin)
 
 end.

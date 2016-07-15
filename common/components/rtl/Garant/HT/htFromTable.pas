@@ -25,7 +25,7 @@ type
    function Get_Handle: ThtTblHandle;
    procedure Prepare(const aHelper: IhtDataSchemeHelper;
     RequireNewHandle: Boolean);
-   procedure Unprepare(const aHelper: IhtDataSchemeHelper);
+   procedure Unprepare;
  end;//ThtFromTable
 
 implementation
@@ -74,7 +74,7 @@ begin
 //#UC END# *555C91AF003A_55530BB9007A_impl*
 end;//ThtFromTable.Prepare
 
-procedure ThtFromTable.Unprepare(const aHelper: IhtDataSchemeHelper);
+procedure ThtFromTable.Unprepare;
 //#UC START# *555C91D8022C_55530BB9007A_var*
 //#UC END# *555C91D8022C_55530BB9007A_var*
 begin

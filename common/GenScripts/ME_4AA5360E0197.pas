@@ -37,12 +37,6 @@ uses
 ;
 
 type
- // Text
-
- // List
-
- // Mark
-
  Tfs_Consultation = {final} class({$If NOT Defined(NoVCM)}
  TvcmFormSetFactory
  {$IfEnd} // NOT Defined(NoVCM)
@@ -54,22 +48,22 @@ type
    class function GetInstance: TvcmFormSetFactoryPrim; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   function Text_Parent_dftConsultation_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+   function TextParentDftConsultationNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
     out aNew: IvcmFormDataSource;
     aSubUserType: TvcmUserType): Boolean;
     {* Обработчик OnNeedMakeForm для Text }
-   function List_Child_lftConsultation_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+   function ListChildLftConsultationNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
     out aNew: IvcmFormDataSource;
     aSubUserType: TvcmUserType): Boolean;
     {* Обработчик OnNeedMakeForm для List }
-   function Mark_Modal_utcmMain_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+   function MarkModalUtcmMainNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
     out aNew: IvcmFormDataSource;
     aSubUserType: TvcmUserType): Boolean;
     {* Обработчик OnNeedMakeForm для Mark }
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: Tfs_Consultation;
     {* Метод получения экземпляра синглетона Tfs_Consultation }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//Tfs_Consultation
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -79,7 +73,6 @@ implementation
 uses
  l3ImplUses
  , l3StringIDEx
- , l3MessageID
  , SysUtils
  , l3Base
 ;
@@ -99,47 +92,59 @@ begin
  l3Free(g_Tfs_Consultation);
 end;//Tfs_ConsultationFree
 
-function Tfs_Consultation.Text_Parent_dftConsultation_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+function Tfs_Consultation.TextParentDftConsultationNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
  out aNew: IvcmFormDataSource;
  aSubUserType: TvcmUserType): Boolean;
  {* Обработчик OnNeedMakeForm для Text }
-//#UC START# *C368BAC18740_4AA5360E0197_var*
-//#UC END# *C368BAC18740_4AA5360E0197_var*
+var
+ l_UseCase : IsdsConsultation;
 begin
-//#UC START# *C368BAC18740_4AA5360E0197_impl*
- !!! Needs to be implemented !!!
-//#UC END# *C368BAC18740_4AA5360E0197_impl*
-end;//Tfs_Consultation.Text_Parent_dftConsultation_NeedMakeForm
+ if Supports(aDataSource, IsdsConsultation, l_UseCase) then
+  try
+  //#UC START# *4FFADAFD02F1NeedMake_impl*
+   aNew := l_UseCase.dsConsultation;
+  //#UC END# *4FFADAFD02F1NeedMake_impl*
+  finally
+   l_UseCase := nil;
+  end;//try..finally
+ Result := (aNew <> nil);
+end;//Tfs_Consultation.TextParentDftConsultationNeedMakeForm
 
-function Tfs_Consultation.List_Child_lftConsultation_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+function Tfs_Consultation.ListChildLftConsultationNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
  out aNew: IvcmFormDataSource;
  aSubUserType: TvcmUserType): Boolean;
  {* Обработчик OnNeedMakeForm для List }
-//#UC START# *E34153DD0D14_4AA5360E0197_var*
-//#UC END# *E34153DD0D14_4AA5360E0197_var*
+var
+ l_UseCase : IsdsConsultation;
 begin
-//#UC START# *E34153DD0D14_4AA5360E0197_impl*
- !!! Needs to be implemented !!!
-//#UC END# *E34153DD0D14_4AA5360E0197_impl*
-end;//Tfs_Consultation.List_Child_lftConsultation_NeedMakeForm
+ if Supports(aDataSource, IsdsConsultation, l_UseCase) then
+  try
+  //#UC START# *4FFADCDA016FNeedMake_impl*
+   aNew := l_UseCase.dsList;
+  //#UC END# *4FFADCDA016FNeedMake_impl*
+  finally
+   l_UseCase := nil;
+  end;//try..finally
+ Result := (aNew <> nil);
+end;//Tfs_Consultation.ListChildLftConsultationNeedMakeForm
 
-function Tfs_Consultation.Mark_Modal_utcmMain_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+function Tfs_Consultation.MarkModalUtcmMainNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
  out aNew: IvcmFormDataSource;
  aSubUserType: TvcmUserType): Boolean;
  {* Обработчик OnNeedMakeForm для Mark }
-//#UC START# *3B88C8040506_4AA5360E0197_var*
-//#UC END# *3B88C8040506_4AA5360E0197_var*
+var
+ l_UseCase : IsdsConsultation;
 begin
-//#UC START# *3B88C8040506_4AA5360E0197_impl*
- !!! Needs to be implemented !!!
-//#UC END# *3B88C8040506_4AA5360E0197_impl*
-end;//Tfs_Consultation.Mark_Modal_utcmMain_NeedMakeForm
-
-class function Tfs_Consultation.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_Tfs_Consultation <> nil;
-end;//Tfs_Consultation.Exists
+ if Supports(aDataSource, IsdsConsultation, l_UseCase) then
+  try
+  //#UC START# *4FFADD000158NeedMake_impl*
+   aNew := l_UseCase.dsConsultationMark[false];
+  //#UC END# *4FFADD000158NeedMake_impl*
+  finally
+   l_UseCase := nil;
+  end;//try..finally
+ Result := (aNew <> nil);
+end;//Tfs_Consultation.MarkModalUtcmMainNeedMakeForm
 
 class function Tfs_Consultation.Instance: Tfs_Consultation;
  {* Метод получения экземпляра синглетона Tfs_Consultation }
@@ -152,22 +157,37 @@ begin
  Result := g_Tfs_Consultation;
 end;//Tfs_Consultation.Instance
 
-procedure Tfs_Consultation.InitFields;
-//#UC START# *47A042E100E2_4AA5360E0197_var*
-//#UC END# *47A042E100E2_4AA5360E0197_var*
+class function Tfs_Consultation.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
-//#UC START# *47A042E100E2_4AA5360E0197_impl*
- !!! Needs to be implemented !!!
-//#UC END# *47A042E100E2_4AA5360E0197_impl*
+ Result := g_Tfs_Consultation <> nil;
+end;//Tfs_Consultation.Exists
+
+procedure Tfs_Consultation.InitFields;
+begin
+ inherited;
+ with AddZone('Text', vcm_ztParent, fm_TextForm) do
+ begin
+  UserType := dftConsultation;
+  OnNeedMakeForm := TextParentDftConsultationNeedMakeForm;
+ end;
+ with AddZone('List', vcm_ztChild, fm_efList) do
+ begin
+  UserType := lftConsultation;
+  OnNeedMakeForm := ListChildLftConsultationNeedMakeForm;
+ end;
+ with AddZone('Mark', vcm_ztModal, fm_en_ConsultationMark) do
+ begin
+  UserType := utcmMain;
+  OnNeedMakeForm := MarkModalUtcmMainNeedMakeForm;
+ end;
+ Caption := str_fsConsultationCaption.AsCStr;
+ OwnerForm := 0;
 end;//Tfs_Consultation.InitFields
 
 class function Tfs_Consultation.GetInstance: TvcmFormSetFactoryPrim;
-//#UC START# *4FFE854A009B_4AA5360E0197_var*
-//#UC END# *4FFE854A009B_4AA5360E0197_var*
 begin
-//#UC START# *4FFE854A009B_4AA5360E0197_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4FFE854A009B_4AA5360E0197_impl*
+ Result := Self.Instance;
 end;//Tfs_Consultation.GetInstance
 
 initialization

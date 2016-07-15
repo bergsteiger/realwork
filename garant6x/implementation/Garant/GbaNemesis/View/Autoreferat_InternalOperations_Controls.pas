@@ -44,6 +44,10 @@ const
  op_capSelectCurrent = '';
  op_Open = 'Open';
  op_capOpen = '';
+
+var opcode_DateInterval_OpenInt: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_NewsThemes_SelectCurrent: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_DateInterval_Open: TvcmOPID = (rEnID : -1; rOpID : -1);
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
@@ -51,12 +55,15 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ {$If NOT Defined(NoVCM)}
+ , vcmOperationsForRegister
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmOperationStatesForRegister
+ {$IfEnd} // NOT Defined(NoVCM)
  , l3Base
  {$If NOT Defined(NoVCM)}
  , vcmBase
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
- , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
 ;
 
@@ -69,7 +76,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := vcmParams;
-  aTarget.Operation(TdmStdRes.opcode_DateInterval_OpenInt, l_Params);
+  aTarget.Operation(opcode_DateInterval_OpenInt, l_Params);
   with l_Params do
   begin
    if Done then
@@ -89,7 +96,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := vcmParams;
-  aTarget.Operation(TdmStdRes.opcode_DateInterval_OpenInt, l_Params);
+  aTarget.Operation(opcode_DateInterval_OpenInt, l_Params);
   with l_Params do
   begin
    if Done then
@@ -115,6 +122,18 @@ begin
  if (aTarget <> nil) then
   Result := Call(aTarget.AsForm);
 end;//Op_DateInterval_OpenInt.Call
+
+initialization
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_DateInterval, op_OpenInt, en_capDateInterval, op_capOpenInt, True, False, opcode_DateInterval_OpenInt)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_NewsThemes, op_SelectCurrent, en_capNewsThemes, op_capSelectCurrent, False, False, opcode_NewsThemes_SelectCurrent)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_DateInterval, op_Open, en_capDateInterval, op_capOpen, False, False, opcode_DateInterval_Open)) do
+ begin
+ end;
+
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

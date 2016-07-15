@@ -51,6 +51,12 @@ type
 
  EpgLockError = class(EPgError)
  end;//EpgLockError
+
+ IpgConnectionListener = interface
+  ['{5011A29E-C541-42EA-9245-83926F9FCA72}']
+  procedure AfterConnect;
+  procedure BeforeDisconnect;
+ end;//IpgConnectionListener
 {$IfEnd} // Defined(UsePostgres)
 
 implementation

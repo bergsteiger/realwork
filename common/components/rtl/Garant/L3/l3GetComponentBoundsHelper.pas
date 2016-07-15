@@ -26,7 +26,6 @@ uses
 type
  Il3GetComponentBoundsHelper = interface
   {* Èםעונפויס סונגטסא Tl3GetComponentBoundsHelper }
-  ['{B081F2FC-089F-4E17-A5BC-DE28732B26EB}']
   function GetBounds(aComponent: TComponent): TRect;
  end;//Il3GetComponentBoundsHelper
 

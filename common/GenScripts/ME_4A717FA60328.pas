@@ -39,6 +39,7 @@ uses
 ;
 
 type
+ _FormDataSourceType_ = IdsRightEdition;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\Editions\dsEditionDiff.imp.pas}
  TdsRightEdition = {final} class(_dsEditionDiff_, IdsRightEdition)
   {* Текущая редакция }

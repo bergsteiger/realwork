@@ -14,12 +14,20 @@ interface
 uses
  l3IntfUses
  , CommonPost_Module
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
  Tmo_CommonPost = {final} class(TCommonPostModule)
   {* ‘айл }
  end;//Tmo_CommonPost
+
+var g_module_opcode_CommonPost_SavePostList: TvcmMOPID = (rMoID : -1; rOpID : -1);
 {$IfEnd} // NOT Defined(Admin)
 
 implementation
@@ -27,7 +35,17 @@ implementation
 {$If NOT Defined(Admin)}
 uses
  l3ImplUses
+ {$If NOT Defined(NoVCM)}
+ , vcmModulesForRegister
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmModuleOperationsForRegister
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
+
+initialization
+ TvcmModulesForRegister.AddModule(TvcmModuleForRegister_C(Tmo_CommonPost, '‘айл'));
+ TvcmModuleOperationsForRegister.AddOperation(TvcmModuleOperationForRegister_C(Tmo_CommonPost, 'SavePostList', 'Ёкспортировать все индивидуальные ленты в файл', False, g_module_opcode_CommonPost_SavePostList));
 {$IfEnd} // NOT Defined(Admin)
 
 end.

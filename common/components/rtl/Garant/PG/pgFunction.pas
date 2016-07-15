@@ -38,6 +38,7 @@ type
    procedure UnprepareQuery; override;
    procedure Execute;
    function DoBuildSQLValue(const aHelper: IdaParamListHelper): AnsiString; override;
+   function Get_Name: AnsiString;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
   public
@@ -215,6 +216,15 @@ begin
  Result := Format('select * from %s.%s%s', [TdaScheme.Instance.CheckScheme(f_SchemeName), f_FunctionName, BuildParamList]);
 //#UC END# *566A850001E5_56616E840213_impl*
 end;//TpgFunction.DoBuildSQLValue
+
+function TpgFunction.Get_Name: AnsiString;
+//#UC START# *57726BB403C3_56616E840213get_var*
+//#UC END# *57726BB403C3_56616E840213get_var*
+begin
+//#UC START# *57726BB403C3_56616E840213get_impl*
+ Result := f_FunctionName;
+//#UC END# *57726BB403C3_56616E840213get_impl*
+end;//TpgFunction.Get_Name
 
 procedure TpgFunction.Cleanup;
  {* Функция очистки полей объекта. }

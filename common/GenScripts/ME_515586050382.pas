@@ -1623,6 +1623,7 @@ uses
  {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
  , vtHintWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\vtHintWordsPack.pas'
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
+ , l3FontInfo in 'w:\common\components\rtl\Garant\L3\l3FontInfo.pas'
  {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
  , ListerWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\ListerWordsPack.pas'
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)

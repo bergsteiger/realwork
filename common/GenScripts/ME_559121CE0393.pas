@@ -42,6 +42,7 @@ type
    procedure RegisterField(const aField: IdaField);
    procedure UnregisterField(const aField: IdaField);
    function FieldBufferPtr(FieldIndex: Integer): Pointer;
+   function CalcRecordCount: Integer;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
   public
@@ -211,6 +212,15 @@ begin
  Result := Pointer(PAnsiChar(f_Data.GetItem(f_CurrentPos - 1)) + f_SabDescription[FieldIndex].wOff);
 //#UC END# *55C8996702B1_559121CE0393_impl*
 end;//ThtResultSet.FieldBufferPtr
+
+function ThtResultSet.CalcRecordCount: Integer;
+//#UC START# *576278A800EA_559121CE0393_var*
+//#UC END# *576278A800EA_559121CE0393_var*
+begin
+//#UC START# *576278A800EA_559121CE0393_impl*
+ Result := f_Sab.gFoundCnt;
+//#UC END# *576278A800EA_559121CE0393_impl*
+end;//ThtResultSet.CalcRecordCount
 
 procedure ThtResultSet.Cleanup;
  {* Функция очистки полей объекта. }

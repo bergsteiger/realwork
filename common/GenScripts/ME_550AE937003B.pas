@@ -23,7 +23,6 @@ uses
 type
  Il3TabService = interface
   {* Èםעונפויס סונגטסא Tl3TabService }
-  ['{D4A2A5A2-FB9C-4ECA-B050-7914DC032822}']
   function HasTabs: Boolean;
  end;//Il3TabService
 

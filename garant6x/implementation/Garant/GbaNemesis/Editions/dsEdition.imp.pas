@@ -1,66 +1,64 @@
 {$IfNDef dsEdition_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Editions"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Editions/dsEdition.imp.pas"
-// Начат: 30.07.2009 15:51
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ViewAreaControllerImp::Class>> F1 Пользовательские сервисы::CompareEditions::Editions::Editions::dsEdition
-//
-// Базовая область ввода, для работы с редакциями
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Editions\dsEdition.imp.pas"
+// Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "dsEdition" MUID: (4A71859C0249)
+// Имя типа: "_dsEdition_"
 
 {$Define dsEdition_imp}
-{$If not defined(Admin) AND not defined(Monitorings)}
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
  {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSource.imp.pas}
  _VScroll_Parent_ = _vcmFormDataSource_;
- {$Include ..\Editions\VScroll.imp.pas}
- _dsEdition_ = {abstract vac} class(_VScroll_, IdsEdition, InsVScrollListener {from IdsEdition})
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Editions\VScroll.imp.pas}
+ _dsEdition_ = {abstract} class(_VScroll_, IdsEdition, InsVScrollListener)
   {* Базовая область ввода, для работы с редакциями }
- protected
-
-  procedure InitRefs(const aDS: IvcmUseCaseController); override;
-  procedure ClearRefs; override;
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   procedure InitFields; override;
- protected
- // protected fields
-   ucc_CompareEditions : IsdsCompareEditions;
-    {* Прецедент Сравнение редакций}
- protected
- // Методы преобразования к реализуемым интерфейсам
+  protected
+   ucc_CompareEditions: IsdsCompareEditions;
+    {* Прецедент Сравнение редакций }
+  protected
    function As_InsVScrollListener: InsVScrollListener;
+    {* Метод приведения нашего интерфейса к InsVScrollListener }
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   procedure InitFields; override;
+   {$If NOT Defined(NoVCM)}
+   procedure InitRefs(const aDS: IvcmFormSetDataSource); override;
+    {* Инициализирует ссылки на различные представления прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure ClearRefs; override;
+    {* Очищает ссылки на различные представления прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//_dsEdition_
-{$Else}
 
- {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSource.imp.pas}
- _VScroll_Parent_ = _vcmFormDataSource_;
- {$Include ..\Editions\VScroll.imp.pas}
- _dsEdition_ = _VScroll_;
-
-{$IfEnd} //not Admin AND not Monitorings
-
-{$Else dsEdition_imp}
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
+{$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSource.imp.pas}
+_VScroll_Parent_ = _vcmFormDataSource_;
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Editions\VScroll.imp.pas}
+_dsEdition_ = _VScroll_;
 
-{$Include ..\Editions\VScroll.imp.pas}
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$Else dsEdition_imp}
 
-// start class _dsEdition_
+{$IfNDef dsEdition_imp_impl}
+
+{$Define dsEdition_imp_impl}
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+{$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSource.imp.pas}
+
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Editions\VScroll.imp.pas}
+
+function _dsEdition_.As_InsVScrollListener: InsVScrollListener;
+ {* Метод приведения нашего интерфейса к InsVScrollListener }
+begin
+ Result := Self;
+end;//_dsEdition_.As_InsVScrollListener
 
 procedure _dsEdition_.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4A71859C0249_var*
 //#UC END# *479731C50290_4A71859C0249_var*
 begin
@@ -80,25 +78,26 @@ begin
 //#UC END# *47A042E100E2_4A71859C0249_impl*
 end;//_dsEdition_.InitFields
 
-procedure _dsEdition_.InitRefs(const aDS: IvcmUseCaseController);
+{$If NOT Defined(NoVCM)}
+procedure _dsEdition_.InitRefs(const aDS: IvcmFormSetDataSource);
+ {* Инициализирует ссылки на различные представления прецедента }
 begin
  inherited;
  Supports(aDS, IsdsCompareEditions, ucc_CompareEditions);
-end;
+end;//_dsEdition_.InitRefs
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$If NOT Defined(NoVCM)}
 procedure _dsEdition_.ClearRefs;
+ {* Очищает ссылки на различные представления прецедента }
 begin
  inherited;
  ucc_CompareEditions := nil;
-end;
+end;//_dsEdition_.ClearRefs
+{$IfEnd} // NOT Defined(NoVCM)
 
-// Методы преобразования к реализуемым интерфейсам
-
-function _dsEdition_.As_InsVScrollListener: InsVScrollListener;
-begin
- Result := Self;
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$EndIf dsEdition_imp_impl}
 
 {$EndIf dsEdition_imp}
+

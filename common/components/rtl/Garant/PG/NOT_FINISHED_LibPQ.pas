@@ -62,6 +62,10 @@ PGresult contains the result tuples }
   , PGRES_NONFATAL_ERROR
   , PGRES_FATAL_ERROR
  );//TpgExecStatusType
+
+ OID = ;
+
+ TPQOIDArray = array of OID;
 {$IfEnd} // Defined(UsePostgres)
 
 implementation

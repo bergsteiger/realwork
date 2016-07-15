@@ -104,7 +104,6 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
-{$If NOT Defined(DesignTimeLibrary)}
 {$Include w:\common\components\gui\Garant\AFW\implementation\afwShortcutsHandler.imp.pas}
 
 {$Include w:\common\components\gui\Garant\Everest\evStyleTableListener.imp.pas}
@@ -282,6 +281,7 @@ begin
 //#UC END# *4E9574530051_49ECB8E002B0_impl*
 end;//TnsWebBrowser.WMSize
 
+{$If NOT Defined(DesignTimeLibrary)}
 procedure TnsWebBrowser.DoStyleTableChanged;
 //#UC START# *4A485B710126_49ECB8E002B0_var*
 //#UC END# *4A485B710126_49ECB8E002B0_var*
@@ -290,6 +290,7 @@ begin
  ApplyZoom;
 //#UC END# *4A485B710126_49ECB8E002B0_impl*
 end;//TnsWebBrowser.DoStyleTableChanged
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
 constructor TnsWebBrowser.Create(AOwner: TComponent);
 //#UC START# *47D1602000C6_49ECB8E002B0_var*
@@ -391,7 +392,6 @@ initialization
  TtfwClassRef.Register(TnsWebBrowser);
  {* Регистрация TnsWebBrowser }
 {$IfEnd} // NOT Defined(NoScripts)
-{$IfEnd} // NOT Defined(DesignTimeLibrary)
-
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+
 end.

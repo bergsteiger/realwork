@@ -26,6 +26,7 @@
    function NeedJumpTo(const aHyperlink: IevHyperlink): Boolean; virtual;
    function GetBehaviourFromEffects(anEffects: TafwJumpToEffects): TbsProcessHyperLinkBehaviour; virtual;
    function MakeContainerForBehaviour(aBehaviour: TbsProcessHyperLinkBehaviour): IvcmContainer;
+   procedure BeforeJumpTo(const aHyperlink: IevHyperlink); virtual;
    function DoProcessExternalOperation(const anOperation: IExternalOperation): Boolean; virtual; abstract;
     {* Обработчик внешней операции }
    function DoMakeLinkDocInfo(const aDocument: IDocument;
@@ -247,6 +248,15 @@ begin
  end;//case aBehaviour
 //#UC END# *54D3144F0227_4A815C200111_impl*
 end;//_HyperlinkProcessor_.MakeContainerForBehaviour
+
+procedure _HyperlinkProcessor_.BeforeJumpTo(const aHyperlink: IevHyperlink);
+//#UC START# *5767DF4D033E_4A815C200111_var*
+//#UC END# *5767DF4D033E_4A815C200111_var*
+begin
+//#UC START# *5767DF4D033E_4A815C200111_impl*
+ // для перекрытия в потомках 
+//#UC END# *5767DF4D033E_4A815C200111_impl*
+end;//_HyperlinkProcessor_.BeforeJumpTo
 
 function _HyperlinkProcessor_.DoMakeLinkDocInfo(const aDocument: IDocument;
  aPointType: TDocumentPositionType;

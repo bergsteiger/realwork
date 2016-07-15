@@ -49,7 +49,6 @@ type
   ['{49B4A6A6-2FE1-4E28-BCD6-101B2639CC07}']
   function TableFullPath(aTable: TdaTables): AnsiString;
   function TablePassword(aTable: TdaTables): AnsiString;
-  function TableFamily(aTable: TdaTables): TdaFamilyID;
  end;//IhtDataSchemeHelper
 
  IhtFromTable = interface(IdaFromTable)
@@ -57,7 +56,7 @@ type
   function Get_Handle: ThtTblHandle;
   procedure Prepare(const aHelper: IhtDataSchemeHelper;
    RequireNewHandle: Boolean);
-  procedure Unprepare(const aHelper: IhtDataSchemeHelper);
+  procedure Unprepare;
   property Handle: ThtTblHandle
    read Get_Handle;
  end;//IhtFromTable

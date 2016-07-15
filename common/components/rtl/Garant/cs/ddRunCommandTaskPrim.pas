@@ -13,13 +13,13 @@ uses
  l3IntfUses
  , csProcessTask
  , k2Base
- , dt_Types
+ , daTypes
 ;
 
 type
  TddRunCommandTaskPrim = class(TddProcessTask)
   public
-   constructor Create(aUserID: TUserID); override;
+   constructor Create(aUserID: TdaUserID); override;
    class function GetTaggedDataType: Tk2Type; override;
  end;//TddRunCommandTaskPrim
 {$IfEnd} // NOT Defined(Nemesis)
@@ -33,7 +33,7 @@ uses
  , RunCommandTask_Const
 ;
 
-constructor TddRunCommandTaskPrim.Create(aUserID: TUserID);
+constructor TddRunCommandTaskPrim.Create(aUserID: TdaUserID);
 //#UC START# *53B3D8A8011F_53B6A75A024C_var*
 //#UC END# *53B3D8A8011F_53B6A75A024C_var*
 begin

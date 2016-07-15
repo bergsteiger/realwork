@@ -42,7 +42,6 @@ aLast - как раз и показывает, что диалог уже финальный.
 
  Il3ModalService = interface
   {* Интерфейс сервиса Tl3ModalService }
-  ['{138EC31E-59DE-4996-A7C2-234E73119E5C}']
   function HasModalWorker: Boolean;
   function ExecuteCurrentModalWorker(aModalExecute: TseModalExecute = se_meUsual): Boolean;
  end;//Il3ModalService

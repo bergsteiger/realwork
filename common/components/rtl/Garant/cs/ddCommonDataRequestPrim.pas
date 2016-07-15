@@ -13,13 +13,13 @@ uses
  l3IntfUses
  , csRequestTask
  , k2Base
- , dt_Types
+ , daTypes
 ;
 
 type
  TddCommonDataRequestPrim = class(TddRequestTask)
   public
-   constructor Create(aUserID: TUserID); override;
+   constructor Create(aUserID: TdaUserID); override;
    class function GetTaggedDataType: Tk2Type; override;
  end;//TddCommonDataRequestPrim
 {$IfEnd} // NOT Defined(Nemesis)
@@ -33,7 +33,7 @@ uses
  , CommonDataRequest_Const
 ;
 
-constructor TddCommonDataRequestPrim.Create(aUserID: TUserID);
+constructor TddCommonDataRequestPrim.Create(aUserID: TdaUserID);
 //#UC START# *53B3D8A8011F_53B6834C0385_var*
 //#UC END# *53B3D8A8011F_53B6834C0385_var*
 begin

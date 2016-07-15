@@ -1,123 +1,91 @@
 unit dsLeftEdition;
+ {* Предыдущая редакция }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Editions"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Editions/dsLeftEdition.pas"
-// Начат: 30.07.2009 15:52
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ViewAreaControllerImp::Class>> F1 Пользовательские сервисы::CompareEditions::Editions::Editions::TdsLeftEdition
-//
-// Предыдущая редакция
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Editions\dsLeftEdition.pas"
+// Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "TdsLeftEdition" MUID: (4A717F9600F4)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DocumentUnit,
-  l3Tree_TLB,
-  EditionsInterfaces,
-  nevTools
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmExternalInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmLocalInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  l3ProtoObjectWithCOMQI,
-  l3Interfaces,
-  l3NotifyPtrList,
-  vcmControllers {a},
-  UnderControlUnit,
-  l3Types,
-  UnderControlInterfaces,
-  afwInterfaces,
-  DocumentAndListInterfaces,
-  DocumentInterfaces,
-  eeInterfaces,
-  FoldersDomainInterfaces
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , EditionsInterfaces
+ , DocumentUnit
+ , l3Tree_TLB
+ , nevTools
+ , eeInterfaces
+ , l3Interfaces
+ , FoldersDomainInterfaces
+ , UnderControlUnit
+ , DocumentAndListInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3ProtoObjectWithCOMQI
+ {$If NOT Defined(NoVCM)}
+ , vcmLocalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3NotifyPtrList
+ , UnderControlInterfaces
+ , l3Types
+ , afwInterfaces
+ , DocumentInterfaces
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  _FormDataSourceType_ = IdsLeftEdition;
- {$Include ..\Editions\dsEditionDiff.imp.pas}
- TdsLeftEdition = {final vac} class(_dsEditionDiff_, IdsLeftEdition)
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Editions\dsEditionDiff.imp.pas}
+ TdsLeftEdition = {final} class(_dsEditionDiff_, IdsLeftEdition)
   {* Предыдущая редакция }
- private
- // private fields
-   f_OwnDocument : IDocument;
-    {* Собственный документ предыдущей редакции. Чтобы правильно работала обработка гиперссылок}
-   f_PrevEditions : Il3Node;
- protected
- // property methods
+  private
+   f_OwnDocument: IDocument;
+    {* Собственный документ предыдущей редакции. Чтобы правильно работала обработка гиперссылок }
+   f_PrevEditions: Il3Node;
+  protected
    function pm_GetOriginalDocument: IDocument;
- protected
- // realized methods
    function Get_PrevEditions: Il3Node;
    function IsLeft: Boolean; override;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    function DoGetDocument: IDocument; override;
-     {* Возвращает документ сответствующий данной редакции }
+    {* Возвращает документ сответствующий данной редакции }
    procedure SignalEditionChanged; override;
-     {* Сообщение о смене редакции }
- protected
- // protected properties
+    {* Сообщение о смене редакции }
+  protected
    property OriginalDocument: IDocument
-     read pm_GetOriginalDocument;
-     {* Документ из которого производится сравнение }
+    read pm_GetOriginalDocument;
+    {* Документ из которого производится сравнение }
  end;//TdsLeftEdition
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DataAdapter,
-  nsEditionNodes,
-  nsTypes,
-  deDocInfo,
-  nsDocInfoHAFMacroReplacer,
-  nsFolderFilterInfo,
-  nsEditionFromDTPDocumentContainer,
-  l3InterfacesMisc,
-  SysUtils,
-  l3Base,
-  l3Utils,
-  afwFacade
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
+ l3ImplUses
+ , DataAdapter
+ , nsEditionNodes
+ , nsTypes
+ , deDocInfo
+ , nsDocInfoHAFMacroReplacer
+ , nsFolderFilterInfo
+ , nsEditionFromDTPDocumentContainer
+ , l3InterfacesMisc
+ , SysUtils
+ , l3Base
+ , l3Utils
+ , afwFacade
+;
 
 type _Instance_R_ = TdsLeftEdition;
 
-{$Include ..\Editions\dsEditionDiff.imp.pas}
-
-// start class TdsLeftEdition
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Editions\dsEditionDiff.imp.pas}
 
 function TdsLeftEdition.pm_GetOriginalDocument: IDocument;
 //#UC START# *4A83D53600CD_4A717F9600F4get_var*
@@ -149,6 +117,7 @@ begin
 end;//TdsLeftEdition.IsLeft
 
 procedure TdsLeftEdition.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4A717F9600F4_var*
 //#UC END# *479731C50290_4A717F9600F4_var*
 begin
@@ -160,6 +129,7 @@ begin
 end;//TdsLeftEdition.Cleanup
 
 function TdsLeftEdition.DoGetDocument: IDocument;
+ {* Возвращает документ сответствующий данной редакции }
 //#UC START# *4A80573D03A7_4A717F9600F4_var*
 var
  l_Doc       : IDocument;
@@ -208,6 +178,7 @@ begin
 end;//TdsLeftEdition.DoGetDocument
 
 procedure TdsLeftEdition.SignalEditionChanged;
+ {* Сообщение о смене редакции }
 //#UC START# *4A8426C0002A_4A717F9600F4_var*
 //#UC END# *4A8426C0002A_4A717F9600F4_var*
 begin
@@ -216,7 +187,6 @@ begin
  f_OwnDocument := nil;
 //#UC END# *4A8426C0002A_4A717F9600F4_impl*
 end;//TdsLeftEdition.SignalEditionChanged
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

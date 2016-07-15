@@ -38,6 +38,7 @@ type
    procedure RegisterField(const aField: IdaField);
    procedure UnregisterField(const aField: IdaField);
    function FieldBufferPtr(FieldIndex: Integer): Pointer;
+   function CalcRecordCount: Integer;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
   public
@@ -208,6 +209,15 @@ begin
  Result := PQgetvalue(f_Result, f_CurrentPos, FieldIndex);
 //#UC END# *55C8996702B1_560B961401E4_impl*
 end;//TpgResultSet.FieldBufferPtr
+
+function TpgResultSet.CalcRecordCount: Integer;
+//#UC START# *576278A800EA_560B961401E4_var*
+//#UC END# *576278A800EA_560B961401E4_var*
+begin
+//#UC START# *576278A800EA_560B961401E4_impl*
+ Result := PQntuples(f_Result);
+//#UC END# *576278A800EA_560B961401E4_impl*
+end;//TpgResultSet.CalcRecordCount
 
 procedure TpgResultSet.Cleanup;
  {* Функция очистки полей объекта. }

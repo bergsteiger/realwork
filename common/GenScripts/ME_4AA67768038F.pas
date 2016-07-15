@@ -18,6 +18,15 @@ uses
  , l3TreeInterfaces
  , DynamicTreeUnit
  , MainMenuUnit
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
@@ -25,13 +34,17 @@ type
  TvcmModule
  {$IfEnd} // NOT Defined(NoVCM)
  )
+  protected
+   {$If NOT Defined(NoVCM)}
+   class procedure GetEntityForms(aList: TvcmClassList); override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
-   procedure OpenRubricator(const aNode: Il3SimpleNode;
+   class function OpenRubricator(const aNode: Il3SimpleNode;
     const aRootToKeep: INodeBase;
     const aMenuSectionItemToKeep: ISectionItem;
     aNeedsSheet: Boolean;
     const anAggregate: IvcmAggregate;
-    const aContainer: IvcmContainer);
+    const aContainer: IvcmContainer): IvcmEntityForm;
  end;//TRubricatorModule
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -42,27 +55,32 @@ uses
  l3ImplUses
  , Common_Rubricator_Controls
  , Base_Operations_Strange_Controls
- {$If NOT Defined(NoVCM)}
- , vcmBase
- {$IfEnd} // NOT Defined(NoVCM)
  , Rubricator_Form
+ , Common_FormDefinitions_Controls
+ //#UC START# *4AA67768038Fimpl_uses*
+ , StdRes
+ //#UC END# *4AA67768038Fimpl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
-procedure TRubricatorModule.OpenRubricator(const aNode: Il3SimpleNode;
+class function TRubricatorModule.OpenRubricator(const aNode: Il3SimpleNode;
  const aRootToKeep: INodeBase;
  const aMenuSectionItemToKeep: ISectionItem;
  aNeedsSheet: Boolean;
  const anAggregate: IvcmAggregate;
- const aContainer: IvcmContainer);
+ const aContainer: IvcmContainer): IvcmEntityForm;
 var l_Container: IvcmEntityForm;
 var l_Navigator: IvcmEntityForm;
 var l_Aggregate: IvcmAggregate;
 var l_Params: IvcmMakeParams;
 var l_RubrExists: Boolean;
+var
+ __WasEnter : Boolean;
 //#UC START# *4AA691690389_4AA67768038F_var*
 //#UC END# *4AA691690389_4AA67768038F_var*
 begin
+ __WasEnter := vcmEnterFactory;
+ try
 //#UC START# *4AA691690389_4AA67768038F_impl*
  l_Params := vcmMakeParams(anAggregate, aContainer);
 
@@ -117,7 +135,17 @@ begin
   l_Container := nil;
  end;//try..finally
 //#UC END# *4AA691690389_4AA67768038F_impl*
+ finally
+  if __WasEnter then
+   vcmLeaveFactory;
+ end;//try..finally
 end;//TRubricatorModule.OpenRubricator
+
+class procedure TRubricatorModule.GetEntityForms(aList: TvcmClassList);
+begin
+ inherited;
+ aList.Add(TefRubricator);
+end;//TRubricatorModule.GetEntityForms
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)

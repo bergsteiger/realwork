@@ -20,6 +20,7 @@ type
  TEVDtoHTMLwoCSS = {abstract} class(TEVDtoHTMLTest)
   protected
    procedure TuningHTMLGenerator(aHTMLReader: TddHTMLGenerator); override;
+   function GetHTMLWriter: TddHTMLGenerator; override;
    function GetFolder: AnsiString; override;
     {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
@@ -32,6 +33,7 @@ implementation
 {$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , ddProfNewsHTMLWriter
  , TestFrameWork
 ;
 
@@ -43,6 +45,15 @@ begin
  aHTMLReader.HTMLOptions := aHTMLReader.HTMLOptions + [dd_hwoWriteGarantCSSLink];
 //#UC END# *56D9300D018D_573591C90195_impl*
 end;//TEVDtoHTMLwoCSS.TuningHTMLGenerator
+
+function TEVDtoHTMLwoCSS.GetHTMLWriter: TddHTMLGenerator;
+//#UC START# *57613C5F000C_573591C90195_var*
+//#UC END# *57613C5F000C_573591C90195_var*
+begin
+//#UC START# *57613C5F000C_573591C90195_impl*
+ Result := TddProfNewsHTMLWriter.Create;
+//#UC END# *57613C5F000C_573591C90195_impl*
+end;//TEVDtoHTMLwoCSS.GetHTMLWriter
 
 function TEVDtoHTMLwoCSS.GetFolder: AnsiString;
  {* Папка в которую входит тест }

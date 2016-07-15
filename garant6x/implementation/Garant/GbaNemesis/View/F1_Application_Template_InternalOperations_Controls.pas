@@ -62,17 +62,23 @@ const
  op_HelpTopics = 'HelpTopics';
  op_capHelpTopics = '';
 
+var opcode_System_InitShutdown: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Help_HelpTopics: TvcmOPID = (rEnID : -1; rOpID : -1);
+
 implementation
 
 uses
  l3ImplUses
  , l3CProtoObject
+ {$If NOT Defined(NoVCM)}
+ , vcmOperationsForRegister
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmOperationStatesForRegister
+ {$IfEnd} // NOT Defined(NoVCM)
  , l3Base
  {$If NOT Defined(NoVCM)}
  , vcmBase
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
- , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
 ;
 
@@ -134,7 +140,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TSystem_InitShutdown_Params.Make(aShotdown, aCloseInterval));
-  aTarget.Operation(TdmStdRes.opcode_System_InitShutdown, l_Params);
+  aTarget.Operation(opcode_System_InitShutdown, l_Params);
   with l_Params do
   begin
    if Done then
@@ -156,7 +162,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TSystem_InitShutdown_Params.Make(aShotdown, aCloseInterval));
-  aTarget.Operation(TdmStdRes.opcode_System_InitShutdown, l_Params);
+  aTarget.Operation(opcode_System_InitShutdown, l_Params);
   with l_Params do
   begin
    if Done then
@@ -186,5 +192,14 @@ begin
  if (aTarget <> nil) then
   Result := Call(aTarget.AsForm, aShotdown, aCloseInterval);
 end;//Op_System_InitShutdown.Call
+
+initialization
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_System, op_InitShutdown, en_capSystem, op_capInitShutdown, True, False, opcode_System_InitShutdown)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Help, op_HelpTopics, en_capHelp, op_capHelpTopics, False, False, opcode_Help_HelpTopics)) do
+ begin
+ end;
+
 
 end.

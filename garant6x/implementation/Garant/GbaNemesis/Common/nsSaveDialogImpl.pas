@@ -24,8 +24,8 @@ type
    f_FileName: AnsiString;
   public
    function Call(aDialog: TnsSaveDialog): Boolean;
-   procedure SetFileFormat(aFileFormat: TnsFileFormat);
    function GetFileName: AnsiString;
+   procedure SetFileFormat(aFileFormat: TnsFileFormat);
    class function Instance: TnsSaveDialogImpl;
     {* Метод получения экземпляра синглетона TnsSaveDialogImpl }
    class function Exists: Boolean;
@@ -84,15 +84,6 @@ begin
 //#UC END# *52B375B038DC_573B090C02C5_impl*
 end;//TnsSaveDialogImpl.Call
 
-procedure TnsSaveDialogImpl.SetFileFormat(aFileFormat: TnsFileFormat);
-//#UC START# *593F1F6D46A5_573B090C02C5_var*
-//#UC END# *593F1F6D46A5_573B090C02C5_var*
-begin
-//#UC START# *593F1F6D46A5_573B090C02C5_impl*
- f_FileFormat := aFileFormat;
-//#UC END# *593F1F6D46A5_573B090C02C5_impl*
-end;//TnsSaveDialogImpl.SetFileFormat
-
 function TnsSaveDialogImpl.GetFileName: AnsiString;
 //#UC START# *D50DF667C759_573B090C02C5_var*
 //#UC END# *D50DF667C759_573B090C02C5_var*
@@ -101,6 +92,15 @@ begin
  Result := f_FileName;
 //#UC END# *D50DF667C759_573B090C02C5_impl*
 end;//TnsSaveDialogImpl.GetFileName
+
+procedure TnsSaveDialogImpl.SetFileFormat(aFileFormat: TnsFileFormat);
+//#UC START# *593F1F6D46A5_573B090C02C5_var*
+//#UC END# *593F1F6D46A5_573B090C02C5_var*
+begin
+//#UC START# *593F1F6D46A5_573B090C02C5_impl*
+ f_FileFormat := aFileFormat;
+//#UC END# *593F1F6D46A5_573B090C02C5_impl*
+end;//TnsSaveDialogImpl.SetFileFormat
 
 class function TnsSaveDialogImpl.Instance: TnsSaveDialogImpl;
  {* Метод получения экземпляра синглетона TnsSaveDialogImpl }

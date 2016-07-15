@@ -27,6 +27,7 @@ uses
 ;
 
 type
+ _FormDataSourceType_ = IdsListAnalize;
  {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourcePrim.imp.pas}
  TdsListAnalize = {final} class(_vcmFormDataSourcePrim_, IdsListAnalize)
  end;//TdsListAnalize
@@ -42,11 +43,9 @@ uses
  , l3Base
 ;
 
-{$If NOT Defined(NoVCM)}
 type _Instance_R_ = TdsListAnalize;
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourcePrim.imp.pas}
-{$IfEnd} // NOT Defined(NoVCM)
-
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+
 end.

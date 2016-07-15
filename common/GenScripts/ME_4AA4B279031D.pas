@@ -35,10 +35,6 @@ uses
 ;
 
 type
- // TextForm
-
- // NewsLine
-
  Tfs_Autoreferat = {final} class({$If NOT Defined(NoVCM)}
  TvcmFormSetFactory
  {$IfEnd} // NOT Defined(NoVCM)
@@ -49,18 +45,18 @@ type
    class function GetInstance: TvcmFormSetFactoryPrim; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   function TextForm_Parent_dftAutoreferat_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+   function TextFormParentDftAutoreferatNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
     out aNew: IvcmFormDataSource;
     aSubUserType: TvcmUserType): Boolean;
     {* Обработчик OnNeedMakeForm для TextForm }
-   function NewsLine_Navigator_nltMain_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+   function NewsLineNavigatorNltMainNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
     out aNew: IvcmFormDataSource;
     aSubUserType: TvcmUserType): Boolean;
     {* Обработчик OnNeedMakeForm для NewsLine }
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: Tfs_Autoreferat;
     {* Метод получения экземпляра синглетона Tfs_Autoreferat }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//Tfs_Autoreferat
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -70,7 +66,6 @@ implementation
 uses
  l3ImplUses
  , l3StringIDEx
- , l3MessageID
  , SysUtils
  , l3Base
 ;
@@ -90,35 +85,41 @@ begin
  l3Free(g_Tfs_Autoreferat);
 end;//Tfs_AutoreferatFree
 
-function Tfs_Autoreferat.TextForm_Parent_dftAutoreferat_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+function Tfs_Autoreferat.TextFormParentDftAutoreferatNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
  out aNew: IvcmFormDataSource;
  aSubUserType: TvcmUserType): Boolean;
  {* Обработчик OnNeedMakeForm для TextForm }
-//#UC START# *FDD93F11843B_4AA4B279031D_var*
-//#UC END# *FDD93F11843B_4AA4B279031D_var*
+var
+ l_UseCase : IsdsAutoreferat;
 begin
-//#UC START# *FDD93F11843B_4AA4B279031D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *FDD93F11843B_4AA4B279031D_impl*
-end;//Tfs_Autoreferat.TextForm_Parent_dftAutoreferat_NeedMakeForm
+ if Supports(aDataSource, IsdsAutoreferat, l_UseCase) then
+  try
+  //#UC START# *4FFA8808003ENeedMake_impl*
+   aNew := l_UseCase.dsDocument;
+  //#UC END# *4FFA8808003ENeedMake_impl*
+  finally
+   l_UseCase := nil;
+  end;//try..finally
+ Result := (aNew <> nil);
+end;//Tfs_Autoreferat.TextFormParentDftAutoreferatNeedMakeForm
 
-function Tfs_Autoreferat.NewsLine_Navigator_nltMain_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+function Tfs_Autoreferat.NewsLineNavigatorNltMainNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
  out aNew: IvcmFormDataSource;
  aSubUserType: TvcmUserType): Boolean;
  {* Обработчик OnNeedMakeForm для NewsLine }
-//#UC START# *28B4B9654C1B_4AA4B279031D_var*
-//#UC END# *28B4B9654C1B_4AA4B279031D_var*
+var
+ l_UseCase : IsdsAutoreferat;
 begin
-//#UC START# *28B4B9654C1B_4AA4B279031D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *28B4B9654C1B_4AA4B279031D_impl*
-end;//Tfs_Autoreferat.NewsLine_Navigator_nltMain_NeedMakeForm
-
-class function Tfs_Autoreferat.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_Tfs_Autoreferat <> nil;
-end;//Tfs_Autoreferat.Exists
+ if Supports(aDataSource, IsdsAutoreferat, l_UseCase) then
+  try
+  //#UC START# *4FFA88E3034ENeedMake_impl*
+   aNew := l_UseCase.MakeNewsLineFakeDS;
+  //#UC END# *4FFA88E3034ENeedMake_impl*
+  finally
+   l_UseCase := nil;
+  end;//try..finally
+ Result := (aNew <> nil);
+end;//Tfs_Autoreferat.NewsLineNavigatorNltMainNeedMakeForm
 
 class function Tfs_Autoreferat.Instance: Tfs_Autoreferat;
  {* Метод получения экземпляра синглетона Tfs_Autoreferat }
@@ -131,22 +132,33 @@ begin
  Result := g_Tfs_Autoreferat;
 end;//Tfs_Autoreferat.Instance
 
-procedure Tfs_Autoreferat.InitFields;
-//#UC START# *47A042E100E2_4AA4B279031D_var*
-//#UC END# *47A042E100E2_4AA4B279031D_var*
+class function Tfs_Autoreferat.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
-//#UC START# *47A042E100E2_4AA4B279031D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *47A042E100E2_4AA4B279031D_impl*
+ Result := g_Tfs_Autoreferat <> nil;
+end;//Tfs_Autoreferat.Exists
+
+procedure Tfs_Autoreferat.InitFields;
+begin
+ inherited;
+ with AddZone('TextForm', vcm_ztParent, fm_TextForm) do
+ begin
+  UserType := dftAutoreferat;
+  OnNeedMakeForm := TextFormParentDftAutoreferatNeedMakeForm;
+ end;
+ with AddZone('NewsLine', vcm_ztNavigator, fm_enNewsLine) do
+ begin
+  UserType := nltMain;
+  ActivateIfUpdate := wafIfNotActivated;
+  OnNeedMakeForm := NewsLineNavigatorNltMainNeedMakeForm;
+ end;
+ Caption := str_fsAutoreferatCaption.AsCStr;
+ OwnerForm := 0;
 end;//Tfs_Autoreferat.InitFields
 
 class function Tfs_Autoreferat.GetInstance: TvcmFormSetFactoryPrim;
-//#UC START# *4FFE854A009B_4AA4B279031D_var*
-//#UC END# *4FFE854A009B_4AA4B279031D_var*
 begin
-//#UC START# *4FFE854A009B_4AA4B279031D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4FFE854A009B_4AA4B279031D_impl*
+ Result := Self.Instance;
 end;//Tfs_Autoreferat.GetInstance
 
 initialization

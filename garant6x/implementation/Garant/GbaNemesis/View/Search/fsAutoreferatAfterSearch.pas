@@ -1,116 +1,105 @@
 unit fsAutoreferatAfterSearch;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Search/fsAutoreferatAfterSearch.pas"
-// Начат: 21.08.2009 20:46
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMFormSetFactory::Class>> F1 Пользовательские сервисы::Autoreferat::View::Search::PrimMonitorings::AutoreferatAfterSearch
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\fsAutoreferatAfterSearch.pas"
+// Стереотип: "VCMFormSetFactory"
+// Элемент модели: "AutoreferatAfterSearch" MUID: (4AA4B28D02A1)
+// Имя типа: "Tfs_AutoreferatAfterSearch"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmFormSetFactory
-  {$IfEnd} //not NoVCM
-  ,
-  AutoreferatInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  ,
-  DocumentUserTypes_dftAutoreferatAfterSearch_UserType,
-  l3StringIDEx,
-  Common_FormDefinitions_Controls
-  {$If not defined(NoVCM)}
-  ,
-  vcmFormSetFormsCollectionItemPrim
-  {$IfEnd} //not NoVCM
-  ,
-  DocumentInterfaces,
-  DocumentUnit,
-  bsTypesNew,
-  DocumentAndListInterfaces,
-  nevTools,
-  bsTypes,
-  afwInterfaces,
-  FoldersDomainInterfaces,
-  l3Interfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmFormSetFactoryPrim
-  {$IfEnd} //not NoVCM
-  
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmFormSetFactory
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmUserControls
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmFormSetFactoryPrim
+ {$IfEnd} // NOT Defined(NoVCM)
+ , DocumentUserTypes_dftAutoreferatAfterSearch_UserType
+ , Common_FormDefinitions_Controls
+ , AutoreferatInterfaces
+ , DocumentInterfaces
+ , DocumentAndListInterfaces
+ , DocumentUnit
+ , bsTypesNew
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
-  Tfs_AutoreferatAfterSearch = {final fsf} class(TvcmFormSetFactory)
+ Tfs_AutoreferatAfterSearch = {final} class({$If NOT Defined(NoVCM)}
+ TvcmFormSetFactory
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   protected
-  // overridden protected methods
    procedure InitFields; override;
-    {$If not defined(NoVCM)}
+   {$If NOT Defined(NoVCM)}
    class function GetInstance: TvcmFormSetFactoryPrim; override;
-    {$IfEnd} //not NoVCM
+   {$IfEnd} // NOT Defined(NoVCM)
   public
-  // public methods
    function TextFormParentDftAutoreferatAfterSearchNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-      out aNew: IvcmFormDataSource;
-      aSubUserType: TvcmUserType): Boolean;
-     {* Обработчик OnNeedMakeForm для TextForm }
+    out aNew: IvcmFormDataSource;
+    aSubUserType: TvcmUserType): Boolean;
+    {* Обработчик OnNeedMakeForm для TextForm }
+   class function Instance: Tfs_AutoreferatAfterSearch;
+    {* Метод получения экземпляра синглетона Tfs_AutoreferatAfterSearch }
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
-  public
-  // singleton factory method
-    class function Instance: Tfs_AutoreferatAfterSearch;
-     {- возвращает экземпляр синглетона. }
-  end;//Tfs_AutoreferatAfterSearch
-{$IfEnd} //not Admin AND not Monitorings
+    {* Проверяет создан экземпляр синглетона или нет }
+ end;//Tfs_AutoreferatAfterSearch
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Base {a},
-  l3MessageID,
-  SysUtils
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , l3StringIDEx
+ , SysUtils
+ , l3Base
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(NoVCM)}
+var g_Tfs_AutoreferatAfterSearch: Tfs_AutoreferatAfterSearch = nil;
+ {* Экземпляр синглетона Tfs_AutoreferatAfterSearch }
 
-
-// start class Tfs_AutoreferatAfterSearch
-
-var g_Tfs_AutoreferatAfterSearch : Tfs_AutoreferatAfterSearch = nil;
+const
+ {* Локализуемые строки AutoreferatAfterSearchCaptionLocalConstants }
+ str_fsAutoreferatAfterSearchCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'fsAutoreferatAfterSearchCaption'; rValue : '#1040#1074#1090#1086#1088#1077#1092#1077#1088#1072#1090 #1087#1086#1089#1083#1077 #1087#1086#1080#1089#1082#1072');
+  {* Заголовок фабрики сборки форм "AutoreferatAfterSearch" }
 
 procedure Tfs_AutoreferatAfterSearchFree;
+ {* Метод освобождения экземпляра синглетона Tfs_AutoreferatAfterSearch }
 begin
  l3Free(g_Tfs_AutoreferatAfterSearch);
-end;
+end;//Tfs_AutoreferatAfterSearchFree
+
+function Tfs_AutoreferatAfterSearch.TextFormParentDftAutoreferatAfterSearchNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+ out aNew: IvcmFormDataSource;
+ aSubUserType: TvcmUserType): Boolean;
+ {* Обработчик OnNeedMakeForm для TextForm }
+var
+ l_UseCase : IsdsAutoreferat;
+begin
+ if Supports(aDataSource, IsdsAutoreferat, l_UseCase) then
+  try
+  //#UC START# *4FFA92850358NeedMake_impl*
+   aNew := l_UseCase.dsDocument;
+  //#UC END# *4FFA92850358NeedMake_impl*
+  finally
+   l_UseCase := nil;
+  end;//try..finally
+ Result := (aNew <> nil);
+end;//Tfs_AutoreferatAfterSearch.TextFormParentDftAutoreferatAfterSearchNeedMakeForm
 
 class function Tfs_AutoreferatAfterSearch.Instance: Tfs_AutoreferatAfterSearch;
+ {* Метод получения экземпляра синглетона Tfs_AutoreferatAfterSearch }
 begin
  if (g_Tfs_AutoreferatAfterSearch = nil) then
  begin
@@ -118,40 +107,15 @@ begin
   g_Tfs_AutoreferatAfterSearch := Create;
  end;
  Result := g_Tfs_AutoreferatAfterSearch;
-end;
-
-var
-    { Локализуемые строки AutoreferatAfterSearchCaptionLocalConstants }
-   str_fsAutoreferatAfterSearchCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'fsAutoreferatAfterSearchCaption'; rValue : '#1040#1074#1090#1086#1088#1077#1092#1077#1088#1072#1090 #1087#1086#1089#1083#1077 #1087#1086#1080#1089#1082#1072');
-    { Заголовок фабрики сборки форм "AutoreferatAfterSearch" }
-
-// start class Tfs_AutoreferatAfterSearch
-
-function Tfs_AutoreferatAfterSearch.TextFormParentDftAutoreferatAfterSearchNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-  out aNew: IvcmFormDataSource;
-  aSubUserType: TvcmUserType): Boolean;
-var
- l_UseCase : IsdsAutoreferat;
-begin
- if Supports(aDataSource, IsdsAutoreferat, l_UseCase) then
-  try
-//#UC START# *4FFA92850358NeedMake_impl*
-   aNew := l_UseCase.dsDocument;
-//#UC END# *4FFA92850358NeedMake_impl*
-  finally
-   l_UseCase := nil;
-  end;//try..finally
- Result := (aNew <> nil);
-end;//Tfs_AutoreferatAfterSearch.TextFormParentDftAutoreferatAfterSearchNeedMakeForm
+end;//Tfs_AutoreferatAfterSearch.Instance
 
 class function Tfs_AutoreferatAfterSearch.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_Tfs_AutoreferatAfterSearch <> nil;
 end;//Tfs_AutoreferatAfterSearch.Exists
 
 procedure Tfs_AutoreferatAfterSearch.InitFields;
- {-}
 begin
  inherited;
  with AddZone('TextForm', vcm_ztParent, fm_TextForm) do
@@ -163,20 +127,15 @@ begin
  OwnerForm := 0;
 end;//Tfs_AutoreferatAfterSearch.InitFields
 
-{$If not defined(NoVCM)}
 class function Tfs_AutoreferatAfterSearch.GetInstance: TvcmFormSetFactoryPrim;
- {-}
 begin
  Result := Self.Instance;
 end;//Tfs_AutoreferatAfterSearch.GetInstance
-{$IfEnd} //not NoVCM
-
-{$IfEnd} //not Admin AND not Monitorings
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_fsAutoreferatAfterSearchCaption
  str_fsAutoreferatAfterSearchCaption.Init;
-{$IfEnd} //not Admin AND not Monitorings
+ {* Инициализация str_fsAutoreferatAfterSearchCaption }
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

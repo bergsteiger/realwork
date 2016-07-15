@@ -24,7 +24,6 @@ uses
 type
  IcsTaskChangeHelper = interface
   {* Èםעונפויס סונגטסא TcsTaskChangeHelper }
-  ['{9337EC2E-743E-421E-994C-15DEC812DC61}']
   procedure TaskGotErrorStatus;
  end;//IcsTaskChangeHelper
 

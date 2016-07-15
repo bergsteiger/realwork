@@ -188,7 +188,8 @@ type
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
    function DoLoadState(const aState: IvcmBase;
-    aStateType: TvcmStateType): Boolean; override;
+    aStateType: TvcmStateType;
+    aClone: Boolean): Boolean; override;
     {* Загружает состояние формы. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
    function NeedsStatusBarItems: Boolean; override;
@@ -392,6 +393,7 @@ uses
  //#UC END# *497EDE780363impl_uses*
 ;
 
+{$If NOT Defined(NoVCM)}
 const
  c_FSCommandOpen = 'open';
  c_FSCommandOpenTab = 'open_tab';
@@ -754,7 +756,6 @@ begin
 //#UC END# *5449221E001D_497EDE780363_impl*
 end;//TPrimDocumentWithFlashForm.WMSetFocus
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimDocumentWithFlashForm.File_Save_Test(const aParams: IvcmTestParamsPrim);
  {* Сохранить }
 //#UC START# *495235F401C0_497EDE780363test_var*
@@ -764,9 +765,7 @@ begin
  aParams.Op.Flag[vcm_ofEnabled] := false;
 //#UC END# *495235F401C0_497EDE780363test_impl*
 end;//TPrimDocumentWithFlashForm.File_Save_Test
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimDocumentWithFlashForm.File_Save_Execute(const aParams: IvcmExecuteParamsPrim);
  {* Сохранить }
 //#UC START# *495235F401C0_497EDE780363exec_var*
@@ -776,7 +775,6 @@ begin
  Assert(false);
 //#UC END# *495235F401C0_497EDE780363exec_impl*
 end;//TPrimDocumentWithFlashForm.File_Save_Execute
-{$IfEnd} // NOT Defined(NoVCM)
 
 procedure TPrimDocumentWithFlashForm.File_SaveToFolder_Test(const aParams: IvcmTestParamsPrim);
  {* Сохранить в папки }
@@ -1226,7 +1224,6 @@ begin
 end;//TPrimDocumentWithFlashForm.WndProc
 {$IfEnd} // NOT Defined(NoVCL)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimDocumentWithFlashForm.NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
  const aNew: IvcmViewAreaController);
  {* Изменился источник данных. Для перекрытия в потомках }
@@ -1298,9 +1295,7 @@ begin
  g_Dispatcher.UnlockActionUpdate;
 //#UC END# *497469C90140_497EDE780363_impl*
 end;//TPrimDocumentWithFlashForm.NotifyDataSourceChanged
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimDocumentWithFlashForm.DoInit(aFromHistory: Boolean);
  {* Инициализация формы. Для перекрытия в потомках }
 //#UC START# *49803F5503AA_497EDE780363_var*
@@ -1313,9 +1308,7 @@ begin
  inherited;
 //#UC END# *49803F5503AA_497EDE780363_impl*
 end;//TPrimDocumentWithFlashForm.DoInit
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 function TPrimDocumentWithFlashForm.CallCloseQuery(aCaller: TCustomForm): Boolean;
 //#UC START# *4980407F0076_497EDE780363_var*
 //#UC END# *4980407F0076_497EDE780363_var*
@@ -1325,9 +1318,7 @@ begin
  AddToWorkJournal;
 //#UC END# *4980407F0076_497EDE780363_impl*
 end;//TPrimDocumentWithFlashForm.CallCloseQuery
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 function TPrimDocumentWithFlashForm.DoSaveState(out theState: IvcmBase;
  aStateType: TvcmStateType;
  aForClone: Boolean): Boolean;
@@ -1346,11 +1337,10 @@ begin
   Result := inherited DoSaveState(theState, aStateType, aForClone);
 //#UC END# *49806ED503D5_497EDE780363_impl*
 end;//TPrimDocumentWithFlashForm.DoSaveState
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 function TPrimDocumentWithFlashForm.DoLoadState(const aState: IvcmBase;
- aStateType: TvcmStateType): Boolean;
+ aStateType: TvcmStateType;
+ aClone: Boolean): Boolean;
  {* Загружает состояние формы. Для перекрытия в потомках }
 //#UC START# *49807428008C_497EDE780363_var*
 //#UC END# *49807428008C_497EDE780363_var*
@@ -1366,9 +1356,7 @@ begin
   Result := inherited DoLoadState(aState, aStateType);
 //#UC END# *49807428008C_497EDE780363_impl*
 end;//TPrimDocumentWithFlashForm.DoLoadState
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimDocumentWithFlashForm.SetPositionByDS;
  {* Вызывается когда нужно изменить позицию используя источник данных. [$136258455] }
 //#UC START# *498953170108_497EDE780363_var*
@@ -1391,7 +1379,6 @@ begin
  end;//dsDocument <> nil
 //#UC END# *498953170108_497EDE780363_impl*
 end;//TPrimDocumentWithFlashForm.SetPositionByDS
-{$IfEnd} // NOT Defined(NoVCM)
 
 function TPrimDocumentWithFlashForm.NeedsStatusBarItems: Boolean;
  {* Определяет, что операции в статусной строке таки надо публиковать }
@@ -1403,7 +1390,6 @@ begin
 //#UC END# *4A8E5CEC021F_497EDE780363_impl*
 end;//TPrimDocumentWithFlashForm.NeedsStatusBarItems
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimDocumentWithFlashForm.InitControls;
  {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_497EDE780363_var*
@@ -1417,9 +1403,7 @@ begin
  Tl3TabbedContainersDispatcher.Instance.Subscribe(Self);
 //#UC END# *4A8E8F2E0195_497EDE780363_impl*
 end;//TPrimDocumentWithFlashForm.InitControls
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimDocumentWithFlashForm.PageActive;
 //#UC START# *4C52E8030278_497EDE780363_var*
 //#UC END# *4C52E8030278_497EDE780363_var*
@@ -1430,7 +1414,6 @@ begin
   TnscDocumentHistory.Instance.AddDocument(Document.GetInternalId);
 //#UC END# *4C52E8030278_497EDE780363_impl*
 end;//TPrimDocumentWithFlashForm.PageActive
-{$IfEnd} // NOT Defined(NoVCM)
 
 procedure TPrimDocumentWithFlashForm.DoPrintExecute(const aParams: IvcmExecuteParamsPrim);
 //#UC START# *51A45199015E_497EDE780363_var*
@@ -1474,7 +1457,7 @@ begin
 //#UC END# *5301CBFE023E_497EDE780363_impl*
 end;//TPrimDocumentWithFlashForm.MakePreview
 
-{$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
+{$If NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
 function TPrimDocumentWithFlashForm.DoGetTabImageIndex: Integer;
 //#UC START# *543E3AA801D0_497EDE780363_var*
 //#UC END# *543E3AA801D0_497EDE780363_var*
@@ -1486,9 +1469,9 @@ begin
   Result := 0;
 //#UC END# *543E3AA801D0_497EDE780363_impl*
 end;//TPrimDocumentWithFlashForm.DoGetTabImageIndex
-{$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+{$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
 
-{$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
+{$If NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
 function TPrimDocumentWithFlashForm.DoGetCanDefineFormSetIcon: Boolean;
 //#UC START# *544609B9032D_497EDE780363_var*
 //#UC END# *544609B9032D_497EDE780363_var*
@@ -1497,7 +1480,7 @@ begin
  Result := (UserType <> dwftSynchro);
 //#UC END# *544609B9032D_497EDE780363_impl*
 end;//TPrimDocumentWithFlashForm.DoGetCanDefineFormSetIcon
-{$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+{$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
 
 procedure TPrimDocumentWithFlashForm.ClearFields;
 begin
@@ -1505,7 +1488,6 @@ begin
  inherited;
 end;//TPrimDocumentWithFlashForm.ClearFields
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimDocumentWithFlashForm.SignalDataSourceChanged(const anOld: IvcmFormDataSource;
  const aNew: IvcmFormDataSource);
 begin
@@ -1521,9 +1503,7 @@ begin
   Supports(aNew, IdsBaseDocument, dsBaseDocument);
  end;//aNew = nil
 end;//TPrimDocumentWithFlashForm.SignalDataSourceChanged
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimDocumentWithFlashForm.InitEntities;
  {* инициализирует сущности не из dfm.
              Нужно для перекрытия потомками при переносе VCM на модель }
@@ -1565,13 +1545,13 @@ begin
  AddUserTypeExclude(dwftSynchroName, en_Document, op_DocumentIsUseful, False);
  AddUserTypeExclude(dwftSynchroName, en_Document, op_DocumentIsUseless, False);
 end;//TPrimDocumentWithFlashForm.InitEntities
-{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimDocumentWithFlashForm);
  {* Регистрация PrimDocumentWithFlash }
 {$IfEnd} // NOT Defined(NoScripts)
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

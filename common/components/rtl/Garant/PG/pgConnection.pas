@@ -15,7 +15,9 @@ uses
  , LibPQ
  , daTypes
  , daLongProcessSubscriberList
+ , pgConnectionListenerList
  , pgDataProviderParams
+ , pgInterfaces
 ;
 
 type
@@ -34,6 +36,7 @@ type
    f_InTransaction: Boolean;
    f_TransactionTables: TdaTablesSet;
    f_LongProcessList: TdaLongProcessSubscriberList;
+   f_Listeners: TpgConnectionListenerList;
    f_Handle: PPGconn;
   private
    function BuildConnectString(const anUser: AnsiString;
@@ -48,6 +51,8 @@ type
    procedure UnlockAllTransactionTables;
    procedure ExecSQLCommand(const anSQL: AnsiString);
    procedure DoBeginTransaction(aTables: TdaTablesSet);
+   procedure NotifyAfterConnect;
+   procedure NotifyBeforeDisconnect;
   protected
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
@@ -59,6 +64,8 @@ type
     const aPassword: AnsiString;
     const aDatabase: AnsiString;
     aParams: TpgDataProviderParams);
+   procedure RegisterListener(const aListener: IpgConnectionListener);
+   procedure UnRegisterListener(const aListener: IpgConnectionListener);
    procedure Connect(aParams: TpgDataProviderParams);
    procedure Disconnect;
    function Connected: Boolean;
@@ -76,7 +83,6 @@ implementation
 {$If Defined(UsePostgres)}
 uses
  l3ImplUses
- , pgInterfaces
  , TypInfo
  , SysUtils
 ;
@@ -253,6 +259,49 @@ begin
   EPgError.Create('Не удалось захватить базу');
 //#UC END# *569636A400D9_55F6875803A8_impl*
 end;//TpgConnection.ConnectAs
+
+procedure TpgConnection.RegisterListener(const aListener: IpgConnectionListener);
+//#UC START# *5769250A0041_55F6875803A8_var*
+//#UC END# *5769250A0041_55F6875803A8_var*
+begin
+//#UC START# *5769250A0041_55F6875803A8_impl*
+ if f_Listeners.IndexOf(aListener) = -1 then
+  f_Listeners.Add(aListener);
+//#UC END# *5769250A0041_55F6875803A8_impl*
+end;//TpgConnection.RegisterListener
+
+procedure TpgConnection.UnRegisterListener(const aListener: IpgConnectionListener);
+//#UC START# *576925380066_55F6875803A8_var*
+//#UC END# *576925380066_55F6875803A8_var*
+begin
+//#UC START# *576925380066_55F6875803A8_impl*
+ f_Listeners.Remove(aListener);
+//#UC END# *576925380066_55F6875803A8_impl*
+end;//TpgConnection.UnRegisterListener
+
+procedure TpgConnection.NotifyAfterConnect;
+//#UC START# *57692617007C_55F6875803A8_var*
+var
+ l_IDX: Integer;
+//#UC END# *57692617007C_55F6875803A8_var*
+begin
+//#UC START# *57692617007C_55F6875803A8_impl*
+ for l_IDX := 0 to f_Listeners.Count - 1 do
+  f_Listeners[l_IDX].AfterConnect;
+//#UC END# *57692617007C_55F6875803A8_impl*
+end;//TpgConnection.NotifyAfterConnect
+
+procedure TpgConnection.NotifyBeforeDisconnect;
+//#UC START# *5769262501D9_55F6875803A8_var*
+var
+ l_IDX: Integer;
+//#UC END# *5769262501D9_55F6875803A8_var*
+begin
+//#UC START# *5769262501D9_55F6875803A8_impl*
+ for l_IDX := 0 to f_Listeners.Count - 1 do
+  f_Listeners[l_IDX].BeforeDisconnect;
+//#UC END# *5769262501D9_55F6875803A8_impl*
+end;//TpgConnection.NotifyBeforeDisconnect
 
 procedure TpgConnection.Connect(aParams: TpgDataProviderParams);
 //#UC START# *55F68CE401CB_55F6875803A8_var*

@@ -25,7 +25,6 @@ uses
 type
  Il3CloseFormHelper = interface
   {* Èםעונפויס סונגטסא Tl3CloseFormHelper }
-  ['{A031440F-1B01-4D9B-A86B-5F4E065BE1E9}']
   function Close(aControl: TWinControl): Boolean;
  end;//Il3CloseFormHelper
 

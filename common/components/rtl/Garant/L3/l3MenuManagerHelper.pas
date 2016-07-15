@@ -24,7 +24,6 @@ uses
 type
  Il3MenuManagerHelper = interface
   {* Èםעונפויס סונגטסא Tl3MenuManagerHelper }
-  ['{ECC961D9-9F47-4CCE-87B8-CBDE8D5ABCDA}']
   function CreateManager: Boolean;
   procedure FreeManager;
  end;//Il3MenuManagerHelper

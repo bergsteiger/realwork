@@ -1,40 +1,49 @@
 unit moToolbarMenu;
+ {* Настройка системы }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Морозов М.А.
-// Модуль: "w:/common/components/gui/Garant/VCM/View/ToolbarMenu/moToolbarMenu.pas"
-// Начат: 2006/12/27 14:44:57
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMFormsPack::Class>> Shared Delphi Operations::VCMCustomization::View::ToolbarMenu::ToolbarMenu
-//
-// Настройка системы
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\VCM\View\ToolbarMenu\moToolbarMenu.pas"
+// Стереотип: "VCMFormsPack"
+// Элемент модели: "ToolbarMenu" MUID: (4C8E34280227)
+// Имя типа: "Tmo_ToolbarMenu"
 
 {$Include w:\common\components\gui\sdoDefine.inc}
 
 interface
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  PrimToolbarMenu_Module
-  ;
-{$IfEnd} //not NoVCM
+ l3IntfUses
+ , PrimToolbarMenu_Module
+ , vcmExternalInterfaces
+ , vcmModule
+;
 
-{$If not defined(NoVCM)}
 type
- Tmo_ToolbarMenu = {final formspack} class(TPrimToolbarMenuModule)
+ Tmo_ToolbarMenu = {final} class(TPrimToolbarMenuModule)
   {* Настройка системы }
  end;//Tmo_ToolbarMenu
-{$IfEnd} //not NoVCM
+
+var g_module_opcode_ToolbarMenu_Customize: TvcmMOPID = (rMoID : -1; rOpID : -1);
+var g_module_opcode_ToolbarMenu_AvailableOperations: TvcmMOPID = (rMoID : -1; rOpID : -1);
+var g_module_opcode_ToolbarMenu_IconsSize: TvcmMOPID = (rMoID : -1; rOpID : -1);
+var g_module_opcode_ToolbarMenu_Fasten: TvcmMOPID = (rMoID : -1; rOpID : -1);
+{$IfEnd} // NOT Defined(NoVCM)
 
 implementation
+
+{$If NOT Defined(NoVCM)}
+uses
+ l3ImplUses
+ , vcmModulesForRegister
+ , vcmModuleOperationsForRegister
+;
+
+initialization
+ TvcmModulesForRegister.AddModule(TvcmModuleForRegister_C(Tmo_ToolbarMenu, 'Настройка системы'));
+ TvcmModuleOperationsForRegister.AddOperation(TvcmModuleOperationForRegister_C(Tmo_ToolbarMenu, 'Customize', 'Настройка...', False, g_module_opcode_ToolbarMenu_Customize));
+ TvcmModuleOperationsForRegister.AddOperation(TvcmModuleOperationForRegister_C(Tmo_ToolbarMenu, 'AvailableOperations', 'Доступные операции...', False, g_module_opcode_ToolbarMenu_AvailableOperations));
+ TvcmModuleOperationsForRegister.AddOperation(TvcmModuleOperationForRegister_C(Tmo_ToolbarMenu, 'IconsSize', 'Размер кнопок', False, g_module_opcode_ToolbarMenu_IconsSize));
+ TvcmModuleOperationsForRegister.AddOperation(TvcmModuleOperationForRegister_C(Tmo_ToolbarMenu, 'Fasten', 'Закрепить панели инструментов', False, g_module_opcode_ToolbarMenu_Fasten));
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

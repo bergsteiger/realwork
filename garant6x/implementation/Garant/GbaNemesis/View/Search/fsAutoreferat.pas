@@ -1,148 +1,102 @@
 unit fsAutoreferat;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Search/fsAutoreferat.pas"
-// Начат: 21.08.2009 20:46
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMFormSetFactory::Class>> F1 Пользовательские сервисы::Autoreferat::View::Search::PrimMonitorings::Autoreferat
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\fsAutoreferat.pas"
+// Стереотип: "VCMFormSetFactory"
+// Элемент модели: "Autoreferat" MUID: (4AA4B279031D)
+// Имя типа: "Tfs_Autoreferat"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmFormSetFactory
-  {$IfEnd} //not NoVCM
-  ,
-  AutoreferatInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  ,
-  DocumentUserTypes_dftAutoreferat_UserType,
-  l3StringIDEx,
-  PrimNewsLine_nltMain_UserType,
-  Common_FormDefinitions_Controls
-  {$If not defined(NoVCM)}
-  ,
-  vcmFormSetFormsCollectionItemPrim
-  {$IfEnd} //not NoVCM
-  ,
-  DocumentInterfaces,
-  DocumentUnit,
-  bsTypesNew,
-  DocumentAndListInterfaces,
-  nevTools,
-  bsTypes,
-  afwInterfaces,
-  FoldersDomainInterfaces,
-  l3Interfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmFormSetFactoryPrim
-  {$IfEnd} //not NoVCM
-  
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmFormSetFactory
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmUserControls
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmFormSetFactoryPrim
+ {$IfEnd} // NOT Defined(NoVCM)
+ , DocumentUserTypes_dftAutoreferat_UserType
+ , Common_FormDefinitions_Controls
+ , AutoreferatInterfaces
+ , DocumentInterfaces
+ , DocumentAndListInterfaces
+ , DocumentUnit
+ , bsTypesNew
+ , PrimNewsLine_nltMain_UserType
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
-  Tfs_Autoreferat = {final fsf} class(TvcmFormSetFactory)
+ Tfs_Autoreferat = {final} class({$If NOT Defined(NoVCM)}
+ TvcmFormSetFactory
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   protected
-  // overridden protected methods
    procedure InitFields; override;
-    {$If not defined(NoVCM)}
+   {$If NOT Defined(NoVCM)}
    class function GetInstance: TvcmFormSetFactoryPrim; override;
-    {$IfEnd} //not NoVCM
+   {$IfEnd} // NOT Defined(NoVCM)
   public
-  // public methods
    function TextFormParentDftAutoreferatNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-      out aNew: IvcmFormDataSource;
-      aSubUserType: TvcmUserType): Boolean;
-     {* Обработчик OnNeedMakeForm для TextForm }
+    out aNew: IvcmFormDataSource;
+    aSubUserType: TvcmUserType): Boolean;
+    {* Обработчик OnNeedMakeForm для TextForm }
    function NewsLineNavigatorNltMainNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-      out aNew: IvcmFormDataSource;
-      aSubUserType: TvcmUserType): Boolean;
-     {* Обработчик OnNeedMakeForm для NewsLine }
+    out aNew: IvcmFormDataSource;
+    aSubUserType: TvcmUserType): Boolean;
+    {* Обработчик OnNeedMakeForm для NewsLine }
+   class function Instance: Tfs_Autoreferat;
+    {* Метод получения экземпляра синглетона Tfs_Autoreferat }
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
-  public
-  // singleton factory method
-    class function Instance: Tfs_Autoreferat;
-     {- возвращает экземпляр синглетона. }
-  end;//Tfs_Autoreferat
-{$IfEnd} //not Admin AND not Monitorings
+    {* Проверяет создан экземпляр синглетона или нет }
+ end;//Tfs_Autoreferat
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Base {a},
-  l3MessageID,
-  SysUtils
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , l3StringIDEx
+ , SysUtils
+ , l3Base
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(NoVCM)}
+var g_Tfs_Autoreferat: Tfs_Autoreferat = nil;
+ {* Экземпляр синглетона Tfs_Autoreferat }
 
-
-// start class Tfs_Autoreferat
-
-var g_Tfs_Autoreferat : Tfs_Autoreferat = nil;
+const
+ {* Локализуемые строки AutoreferatCaptionLocalConstants }
+ str_fsAutoreferatCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'fsAutoreferatCaption'; rValue : '#1044#1086#1082#1091#1084#1077#1085#1090');
+  {* Заголовок фабрики сборки форм "Autoreferat" }
 
 procedure Tfs_AutoreferatFree;
+ {* Метод освобождения экземпляра синглетона Tfs_Autoreferat }
 begin
  l3Free(g_Tfs_Autoreferat);
-end;
-
-class function Tfs_Autoreferat.Instance: Tfs_Autoreferat;
-begin
- if (g_Tfs_Autoreferat = nil) then
- begin
-  l3System.AddExitProc(Tfs_AutoreferatFree);
-  g_Tfs_Autoreferat := Create;
- end;
- Result := g_Tfs_Autoreferat;
-end;
-
-var
-    { Локализуемые строки AutoreferatCaptionLocalConstants }
-   str_fsAutoreferatCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'fsAutoreferatCaption'; rValue : '#1044#1086#1082#1091#1084#1077#1085#1090');
-    { Заголовок фабрики сборки форм "Autoreferat" }
-
-// start class Tfs_Autoreferat
+end;//Tfs_AutoreferatFree
 
 function Tfs_Autoreferat.TextFormParentDftAutoreferatNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-  out aNew: IvcmFormDataSource;
-  aSubUserType: TvcmUserType): Boolean;
+ out aNew: IvcmFormDataSource;
+ aSubUserType: TvcmUserType): Boolean;
+ {* Обработчик OnNeedMakeForm для TextForm }
 var
  l_UseCase : IsdsAutoreferat;
 begin
  if Supports(aDataSource, IsdsAutoreferat, l_UseCase) then
   try
-//#UC START# *4FFA8808003ENeedMake_impl*
+  //#UC START# *4FFA8808003ENeedMake_impl*
    aNew := l_UseCase.dsDocument;
-//#UC END# *4FFA8808003ENeedMake_impl*
+  //#UC END# *4FFA8808003ENeedMake_impl*
   finally
    l_UseCase := nil;
   end;//try..finally
@@ -150,30 +104,41 @@ begin
 end;//Tfs_Autoreferat.TextFormParentDftAutoreferatNeedMakeForm
 
 function Tfs_Autoreferat.NewsLineNavigatorNltMainNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-  out aNew: IvcmFormDataSource;
-  aSubUserType: TvcmUserType): Boolean;
+ out aNew: IvcmFormDataSource;
+ aSubUserType: TvcmUserType): Boolean;
+ {* Обработчик OnNeedMakeForm для NewsLine }
 var
  l_UseCase : IsdsAutoreferat;
 begin
  if Supports(aDataSource, IsdsAutoreferat, l_UseCase) then
   try
-//#UC START# *4FFA88E3034ENeedMake_impl*
+  //#UC START# *4FFA88E3034ENeedMake_impl*
    aNew := l_UseCase.MakeNewsLineFakeDS;
-//#UC END# *4FFA88E3034ENeedMake_impl*
+  //#UC END# *4FFA88E3034ENeedMake_impl*
   finally
    l_UseCase := nil;
   end;//try..finally
  Result := (aNew <> nil);
 end;//Tfs_Autoreferat.NewsLineNavigatorNltMainNeedMakeForm
 
+class function Tfs_Autoreferat.Instance: Tfs_Autoreferat;
+ {* Метод получения экземпляра синглетона Tfs_Autoreferat }
+begin
+ if (g_Tfs_Autoreferat = nil) then
+ begin
+  l3System.AddExitProc(Tfs_AutoreferatFree);
+  g_Tfs_Autoreferat := Create;
+ end;
+ Result := g_Tfs_Autoreferat;
+end;//Tfs_Autoreferat.Instance
+
 class function Tfs_Autoreferat.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_Tfs_Autoreferat <> nil;
 end;//Tfs_Autoreferat.Exists
 
 procedure Tfs_Autoreferat.InitFields;
- {-}
 begin
  inherited;
  with AddZone('TextForm', vcm_ztParent, fm_TextForm) do
@@ -191,20 +156,15 @@ begin
  OwnerForm := 0;
 end;//Tfs_Autoreferat.InitFields
 
-{$If not defined(NoVCM)}
 class function Tfs_Autoreferat.GetInstance: TvcmFormSetFactoryPrim;
- {-}
 begin
  Result := Self.Instance;
 end;//Tfs_Autoreferat.GetInstance
-{$IfEnd} //not NoVCM
-
-{$IfEnd} //not Admin AND not Monitorings
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_fsAutoreferatCaption
  str_fsAutoreferatCaption.Init;
-{$IfEnd} //not Admin AND not Monitorings
+ {* Инициализация str_fsAutoreferatCaption }
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

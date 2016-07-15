@@ -23,7 +23,6 @@ uses
 type
  Il3KeyboardLayoutService = interface
   {* Èםעונפויס סונגטסא Tl3KeyboardLayoutService }
-  ['{B81FD1FC-A13C-4F60-A0D1-0D1F2E636216}']
   procedure TryActivateKeyboardLayout;
  end;//Il3KeyboardLayoutService
 

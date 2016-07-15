@@ -1,89 +1,81 @@
 unit LiteSearch_Module;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/LiteSearch/LiteSearch_Module.pas"
-// Начат: 04.09.2009 14:23
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMFormsPack::Class>> F1 Базовые определения предметной области::SearchLite::View::LiteSearch::LiteSearch
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\LiteSearch_Module.pas"
+// Стереотип: "VCMFormsPack"
+// Элемент модели: "LiteSearch" MUID: (4AA0EA76017F)
+// Имя типа: "TLiteSearchModule"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  l3Interfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  SearchInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  ,
-  nsTypes,
-  PrimTreeAttributeSelectOptions_Form,
-  PrimSelectedAttributesOptions_Form,
-  PrimAttributeSelectOptions_Form,
-  SearchLite_FormDefinitions_Controls,
-  TreeAttributeSelect_Form,
-  AttributeSelect_Form,
-  SelectedAttributes_Form,
-  vcmExternalInterfaces {a},
-  vcmModule {a},
-  vcmBase {a}
-  ;
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmUserControls
+ {$IfEnd} // NOT Defined(NoVCM)
+ , nsTypes
+ , l3Interfaces
+ , SearchInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
 type
- TLiteSearchModule = {formspack} class(TvcmModule)
- protected
-  class procedure GetEntityForms(aList : TvcmClassList); override;
- public
- // public methods
+ TLiteSearchModule = class({$If NOT Defined(NoVCM)}
+ TvcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
+  protected
+   {$If NOT Defined(NoVCM)}
+   class procedure GetEntityForms(aList: TvcmClassList); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    class function MakeTreeAttributeSelect(const aParams: IvcmMakeParams;
-     aZoneType: TvcmZoneType;
-     aRecursive: Boolean;
-     aUserType: TvcmUserType): IvcmEntityForm;
+    aZoneType: TvcmZoneType;
+    aRecursive: Boolean;
+    aUserType: TvcmUserType): IvcmEntityForm;
    class function MakeAttributeSelect(const aParams: IvcmMakeParams;
-     aZoneType: TvcmZoneType;
-     aRecursive: Boolean;
-     aUserType: TvcmUserType): IvcmEntityForm;
+    aZoneType: TvcmZoneType;
+    aRecursive: Boolean;
+    aUserType: TvcmUserType): IvcmEntityForm;
    class function MakeSelectedAttributes(const aParams: IvcmMakeParams;
-     aZoneType: TvcmZoneType;
-     aRecursive: Boolean): IvcmEntityForm;
+    aZoneType: TvcmZoneType;
+    aRecursive: Boolean): IvcmEntityForm;
    class function OpenTreeSelection(const aTag: Il3CString;
-     anAdditionalFilter: TnsFilterType;
-     const aFormData: IdsTreeAttributeSelect): Integer;
+    anAdditionalFilter: TnsFilterType;
+    const aFormData: IdsTreeAttributeSelect): Integer;
  end;//TLiteSearchModule
 
 implementation
 
 uses
-  l3String,
-  SearchLite_Strange_Controls,
-  PrimAttributeSelect_utAttributeSelect_UserType,
-  vcmFormSetFactory {a},
-  StdRes {a}
-  ;
+ l3ImplUses
+ , SearchLite_Strange_Controls
+ , PrimAttributeSelect_utAttributeSelect_UserType
+ , TreeAttributeSelect_Form
+ , AttributeSelect_Form
+ , SelectedAttributes_Form
+ , SearchLite_FormDefinitions_Controls
+ //#UC START# *4AA0EA76017Fimpl_uses*
+ //#UC END# *4AA0EA76017Fimpl_uses*
+;
 
-// start class TLiteSearchModule
-
+{$If NOT Defined(NoVCM)}
 class function TLiteSearchModule.MakeTreeAttributeSelect(const aParams: IvcmMakeParams;
-  aZoneType: TvcmZoneType;
-  aRecursive: Boolean;
-  aUserType: TvcmUserType): IvcmEntityForm;
+ aZoneType: TvcmZoneType;
+ aRecursive: Boolean;
+ aUserType: TvcmUserType): IvcmEntityForm;
 var
  __WasEnter : Boolean;
 //#UC START# *4AAF48F502E7_4AA0EA76017F_var*
@@ -105,9 +97,9 @@ begin
 end;//TLiteSearchModule.MakeTreeAttributeSelect
 
 class function TLiteSearchModule.MakeAttributeSelect(const aParams: IvcmMakeParams;
-  aZoneType: TvcmZoneType;
-  aRecursive: Boolean;
-  aUserType: TvcmUserType): IvcmEntityForm;
+ aZoneType: TvcmZoneType;
+ aRecursive: Boolean;
+ aUserType: TvcmUserType): IvcmEntityForm;
 var
  __WasEnter : Boolean;
 //#UC START# *4AAF4FC80387_4AA0EA76017F_var*
@@ -129,8 +121,8 @@ begin
 end;//TLiteSearchModule.MakeAttributeSelect
 
 class function TLiteSearchModule.MakeSelectedAttributes(const aParams: IvcmMakeParams;
-  aZoneType: TvcmZoneType;
-  aRecursive: Boolean): IvcmEntityForm;
+ aZoneType: TvcmZoneType;
+ aRecursive: Boolean): IvcmEntityForm;
 var
  __WasEnter : Boolean;
 //#UC START# *4AAF52280022_4AA0EA76017F_var*
@@ -152,17 +144,16 @@ begin
 end;//TLiteSearchModule.MakeSelectedAttributes
 
 class function TLiteSearchModule.OpenTreeSelection(const aTag: Il3CString;
-  anAdditionalFilter: TnsFilterType;
-  const aFormData: IdsTreeAttributeSelect): Integer;
+ anAdditionalFilter: TnsFilterType;
+ const aFormData: IdsTreeAttributeSelect): Integer;
+var l_Params: IvcmMakeParams;
+var l_Container: IvcmEntityForm;
+var l_Form: IvcmEntityForm;
+var l_FilterType: TnsFilterType;
 var
  __WasEnter : Boolean;
 //#UC START# *4AAF590401AC_4AA0EA76017F_var*
 //#UC END# *4AAF590401AC_4AA0EA76017F_var*
-var
- l_Params : IvcmMakeParams;
- l_Container : IvcmEntityForm;
- l_Form : IvcmEntityForm;
- l_FilterType : TnsFilterType;
 begin
  __WasEnter := vcmEnterFactory;
  try
@@ -212,12 +203,13 @@ begin
  end;//try..finally
 end;//TLiteSearchModule.OpenTreeSelection
 
-class procedure TLiteSearchModule.GetEntityForms(aList : TvcmClassList);
+class procedure TLiteSearchModule.GetEntityForms(aList: TvcmClassList);
 begin
  inherited;
  aList.Add(TefTreeAttributeSelect);
  aList.Add(TcfAttributeSelect);
  aList.Add(TenSelectedAttributes);
-end;
+end;//TLiteSearchModule.GetEntityForms
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

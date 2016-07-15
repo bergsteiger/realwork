@@ -25,7 +25,6 @@ uses
 type
  Il3ScriptService = interface
   {* Èםעונפויס סונגטסא Tl3ScriptService }
-  ['{79BCFA6B-F105-4BC6-93DB-DE19B787DEE3}']
   procedure EnterScript;
   procedure LeaveScript;
  end;//Il3ScriptService

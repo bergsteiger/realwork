@@ -119,6 +119,7 @@ uses
  , l3Variant
  , l3String
  , l3_String
+ , tfwParserService
  {$If NOT Defined(NoScripts)}
  , ItfwParserWordsPack
  {$IfEnd} // NOT Defined(NoScripts)

@@ -18,7 +18,8 @@ uses
 
 const
  da_TreeTableKinds = [da_ftSources, da_ftTypes, da_ftClasses, da_ftKeywords, da_ftBelongs, da_ftWarnings, da_ftCoSources, da_ftPrefixes, da_ftTerritories, da_ftNorms, da_ftAccessGroups, da_ftAnnoClasses, da_ftServiceInfo];
- cStoredProcCount = 4;
+ cStoredProcCount = 8;
+ cDefaultSchemeName = 'archi';
 
 type
  TFamilyDescriptions = array [TdaTables] of IdaTableDescription;
@@ -112,6 +113,7 @@ implementation
 
 uses
  l3ImplUses
+ , daSchemeConsts
  , SysUtils
  , daFieldDescription
  , l3Base

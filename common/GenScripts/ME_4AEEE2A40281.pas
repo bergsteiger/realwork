@@ -269,10 +269,37 @@ const
  op_NextRedaction = 'NextRedaction';
  op_capNextRedaction = '';
 
+var opcode_Navigator_SetCurrent: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Document_GetAttributesFrmAct: TvcmOPID = (rEnID : -1; rOpID : -1);
 var st_user_Document_GetAttributesFrmAct_Picture: TvcmOperationStateIndex = (rID : -1);
  {* Документ -> Информация о документе <-> Информация о картинке }
+var opcode_Document_OpenCorrespondentList: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Document_OpenRespondentList: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Document_GetRelatedDocFrmAct: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Document_GetCorrespondentList: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Document_GetRespondentList: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Document_AttributesCanBeClosed: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Document_CommonDocumentOpenNewWindow: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Document_GetCorrespondentListExFrmAct: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Document_GetRespondentListExFrmAct: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Document_CommonDocumentOpenNewTab: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Document_Open: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Document_OpenInNewTab: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Document_OpenNewWindow: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Document_PrintDialog: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Document_PrintPreview: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Document_Save: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Document_Print: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_NavigatorElement_Info: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_NavigatorElement_Execute: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Fake_Fake: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Redactions_OpenRedactionListFrmAct: TvcmOPID = (rEnID : -1; rOpID : -1);
 var st_user_Redactions_OpenRedactionListFrmAct_ChooseAnotherEditions: TvcmOperationStateIndex = (rID : -1);
  {*  -> Список редакций <-> Выбрать другие редакции }
+var opcode_Redactions_RedactionOnID: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Redactions_ActualRedaction: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Redactions_PrevRedaction: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Redactions_NextRedaction: TvcmOPID = (rEnID : -1; rOpID : -1);
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
@@ -281,12 +308,15 @@ implementation
 uses
  l3ImplUses
  , l3CProtoObject
+ {$If NOT Defined(NoVCM)}
+ , vcmOperationsForRegister
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmOperationStatesForRegister
+ {$IfEnd} // NOT Defined(NoVCM)
  , l3Base
  {$If NOT Defined(NoVCM)}
  , vcmBase
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
- , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
 ;
 
@@ -418,7 +448,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TNavigator_SetCurrent_Params.Make(aNode));
-  aTarget.Operation(TdmStdRes.opcode_Navigator_SetCurrent, l_Params);
+  aTarget.Operation(opcode_Navigator_SetCurrent, l_Params);
   with l_Params do
   begin
    if Done then
@@ -439,7 +469,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TNavigator_SetCurrent_Params.Make(aNode));
-  aTarget.Operation(TdmStdRes.opcode_Navigator_SetCurrent, l_Params);
+  aTarget.Operation(opcode_Navigator_SetCurrent, l_Params);
   with l_Params do
   begin
    if Done then
@@ -516,7 +546,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TDocument_OpenCorrespondentList_Params.Make(aKind, aCRType));
-  aTarget.Operation(TdmStdRes.opcode_Document_OpenCorrespondentList, l_Params);
+  aTarget.Operation(opcode_Document_OpenCorrespondentList, l_Params);
   with l_Params do
   begin
    if Done then
@@ -538,7 +568,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TDocument_OpenCorrespondentList_Params.Make(aKind, aCRType));
-  aTarget.Operation(TdmStdRes.opcode_Document_OpenCorrespondentList, l_Params);
+  aTarget.Operation(opcode_Document_OpenCorrespondentList, l_Params);
   with l_Params do
   begin
    if Done then
@@ -617,7 +647,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TDocument_OpenRespondentList_Params.Make(aKind, aCRType));
-  aTarget.Operation(TdmStdRes.opcode_Document_OpenRespondentList, l_Params);
+  aTarget.Operation(opcode_Document_OpenRespondentList, l_Params);
   with l_Params do
   begin
    if Done then
@@ -639,7 +669,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TDocument_OpenRespondentList_Params.Make(aKind, aCRType));
-  aTarget.Operation(TdmStdRes.opcode_Document_OpenRespondentList, l_Params);
+  aTarget.Operation(opcode_Document_OpenRespondentList, l_Params);
   with l_Params do
   begin
    if Done then
@@ -701,7 +731,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TDocument_AttributesCanBeClosed_Params.Make);
-  aTarget.Operation(TdmStdRes.opcode_Document_AttributesCanBeClosed, l_Params);
+  aTarget.Operation(opcode_Document_AttributesCanBeClosed, l_Params);
   with l_Params do
   begin
    if Done then
@@ -721,7 +751,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TDocument_AttributesCanBeClosed_Params.Make);
-  aTarget.Operation(TdmStdRes.opcode_Document_AttributesCanBeClosed, l_Params);
+  aTarget.Operation(opcode_Document_AttributesCanBeClosed, l_Params);
   with l_Params do
   begin
    if Done then
@@ -781,7 +811,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TDocument_CommonDocumentOpenNewWindow_Params.Make(aUserType));
-  aTarget.Operation(TdmStdRes.opcode_Document_CommonDocumentOpenNewWindow, l_Params);
+  aTarget.Operation(opcode_Document_CommonDocumentOpenNewWindow, l_Params);
   with l_Params do
   begin
    if Done then
@@ -802,7 +832,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TDocument_CommonDocumentOpenNewWindow_Params.Make(aUserType));
-  aTarget.Operation(TdmStdRes.opcode_Document_CommonDocumentOpenNewWindow, l_Params);
+  aTarget.Operation(opcode_Document_CommonDocumentOpenNewWindow, l_Params);
   with l_Params do
   begin
    if Done then
@@ -864,7 +894,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TDocument_CommonDocumentOpenNewTab_Params.Make(aUserType));
-  aTarget.Operation(TdmStdRes.opcode_Document_CommonDocumentOpenNewTab, l_Params);
+  aTarget.Operation(opcode_Document_CommonDocumentOpenNewTab, l_Params);
   with l_Params do
   begin
    if Done then
@@ -885,7 +915,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TDocument_CommonDocumentOpenNewTab_Params.Make(aUserType));
-  aTarget.Operation(TdmStdRes.opcode_Document_CommonDocumentOpenNewTab, l_Params);
+  aTarget.Operation(opcode_Document_CommonDocumentOpenNewTab, l_Params);
   with l_Params do
   begin
    if Done then
@@ -947,7 +977,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TRedactions_RedactionOnID_Params.Make(aRedactionID));
-  aTarget.Operation(TdmStdRes.opcode_Redactions_RedactionOnID, l_Params);
+  aTarget.Operation(opcode_Redactions_RedactionOnID, l_Params);
   with l_Params do
   begin
    if Done then
@@ -968,7 +998,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TRedactions_RedactionOnID_Params.Make(aRedactionID));
-  aTarget.Operation(TdmStdRes.opcode_Redactions_RedactionOnID, l_Params);
+  aTarget.Operation(opcode_Redactions_RedactionOnID, l_Params);
   with l_Params do
   begin
    if Done then
@@ -996,6 +1026,104 @@ begin
  if (aTarget <> nil) then
   Result := Call(aTarget.AsForm, aRedactionID);
 end;//Op_Redactions_RedactionOnID.Call
+
+initialization
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Navigator, op_SetCurrent, en_capNavigator, op_capSetCurrent, True, False, opcode_Navigator_SetCurrent)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Document, op_GetAttributesFrmAct, en_capDocument, op_capGetAttributesFrmAct, False, False, opcode_Document_GetAttributesFrmAct)) do
+ begin
+  with AddState(TvcmOperationStateForRegister_C('Picture', st_user_Document_GetAttributesFrmAct_Picture))^ do
+  begin
+   rCaption := 'Информация о картинке';
+  end;
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Document, op_OpenCorrespondentList, en_capDocument, op_capOpenCorrespondentList, True, False, opcode_Document_OpenCorrespondentList)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Document, op_OpenRespondentList, en_capDocument, op_capOpenRespondentList, True, False, opcode_Document_OpenRespondentList)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Document, op_GetAttributesFrmAct, en_capDocument, op_capGetAttributesFrmAct, False, False, opcode_Document_GetAttributesFrmAct)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Document, op_GetRelatedDocFrmAct, en_capDocument, op_capGetRelatedDocFrmAct, False, False, opcode_Document_GetRelatedDocFrmAct)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Document, op_GetCorrespondentList, en_capDocument, op_capGetCorrespondentList, False, False, opcode_Document_GetCorrespondentList)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Document, op_GetRespondentList, en_capDocument, op_capGetRespondentList, False, False, opcode_Document_GetRespondentList)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Document, op_AttributesCanBeClosed, en_capDocument, op_capAttributesCanBeClosed, True, False, opcode_Document_AttributesCanBeClosed)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Document, op_CommonDocumentOpenNewWindow, en_capDocument, op_capCommonDocumentOpenNewWindow, True, False, opcode_Document_CommonDocumentOpenNewWindow)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Document, op_GetCorrespondentListExFrmAct, en_capDocument, op_capGetCorrespondentListExFrmAct, False, False, opcode_Document_GetCorrespondentListExFrmAct)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Document, op_GetRespondentListExFrmAct, en_capDocument, op_capGetRespondentListExFrmAct, False, False, opcode_Document_GetRespondentListExFrmAct)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Document, op_CommonDocumentOpenNewTab, en_capDocument, op_capCommonDocumentOpenNewTab, True, False, opcode_Document_CommonDocumentOpenNewTab)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Document, op_Open, en_capDocument, op_capOpen, False, False, opcode_Document_Open)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Document, op_OpenInNewTab, en_capDocument, op_capOpenInNewTab, False, False, opcode_Document_OpenInNewTab)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Document, op_OpenNewWindow, en_capDocument, op_capOpenNewWindow, False, False, opcode_Document_OpenNewWindow)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Document, op_PrintDialog, en_capDocument, op_capPrintDialog, False, False, opcode_Document_PrintDialog)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Document, op_PrintPreview, en_capDocument, op_capPrintPreview, False, False, opcode_Document_PrintPreview)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Document, op_Save, en_capDocument, op_capSave, False, False, opcode_Document_Save)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Document, op_Print, en_capDocument, op_capPrint, False, False, opcode_Document_Print)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_NavigatorElement, op_Info, en_capNavigatorElement, op_capInfo, False, False, opcode_NavigatorElement_Info)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_NavigatorElement, op_Execute, en_capNavigatorElement, op_capExecute, False, False, opcode_NavigatorElement_Execute)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Fake, op_Fake, en_capFake, op_capFake, False, False, opcode_Fake_Fake)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Redactions, op_OpenRedactionListFrmAct, en_capRedactions, op_capOpenRedactionListFrmAct, False, False, opcode_Redactions_OpenRedactionListFrmAct)) do
+ begin
+  with AddState(TvcmOperationStateForRegister_C('ChooseAnotherEditions', st_user_Redactions_OpenRedactionListFrmAct_ChooseAnotherEditions))^ do
+  begin
+   rCaption := 'Выбрать другие редакции';
+  end;
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Redactions, op_RedactionOnID, en_capRedactions, op_capRedactionOnID, True, False, opcode_Redactions_RedactionOnID)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Redactions, op_ActualRedaction, en_capRedactions, op_capActualRedaction, False, False, opcode_Redactions_ActualRedaction)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Redactions, op_OpenRedactionListFrmAct, en_capRedactions, op_capOpenRedactionListFrmAct, False, False, opcode_Redactions_OpenRedactionListFrmAct)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Redactions, op_PrevRedaction, en_capRedactions, op_capPrevRedaction, False, False, opcode_Redactions_PrevRedaction)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Redactions, op_NextRedaction, en_capRedactions, op_capNextRedaction, False, False, opcode_Redactions_NextRedaction)) do
+ begin
+ end;
+
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

@@ -13,7 +13,7 @@ uses
  l3IntfUses
  , csProcessTask
  , k2Base
- , dt_Types
+ , daTypes
 ;
 
 type
@@ -30,7 +30,7 @@ type
    function pm_GeteMailNotifyList: AnsiString;
    procedure pm_SeteMailNotifyList(const aValue: AnsiString);
   public
-   constructor Create(aUserID: TUserID); override;
+   constructor Create(aUserID: TdaUserID); override;
    class function GetTaggedDataType: Tk2Type; override;
   public
    property BuilderFileName: AnsiString
@@ -119,7 +119,7 @@ begin
  TaggedData.StrW[k2_attreMailNotifyList, nil] := (aValue);
 end;//TcsAutoClassTask.pm_SeteMailNotifyList
 
-constructor TcsAutoClassTask.Create(aUserID: TUserID);
+constructor TcsAutoClassTask.Create(aUserID: TdaUserID);
 //#UC START# *53B3D8A8011F_53F46C710363_var*
 //#UC END# *53B3D8A8011F_53F46C710363_var*
 begin

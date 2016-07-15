@@ -37,6 +37,8 @@ type
    function Get_AsStTime: TStTime;
    procedure Set_AsStTime(const aValue: TStTime);
    function Get_ParamType: TdaParamType;
+   function Get_AsByte: Byte;
+   procedure Set_AsByte(aValue: Byte);
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
   public
@@ -203,6 +205,24 @@ begin
  Result := f_Description.ParamType;
 //#UC END# *5666822101CA_5555AD2A0004get_impl*
 end;//TdaParam.Get_ParamType
+
+function TdaParam.Get_AsByte: Byte;
+//#UC START# *578625FB03A1_5555AD2A0004get_var*
+//#UC END# *578625FB03A1_5555AD2A0004get_var*
+begin
+//#UC START# *578625FB03A1_5555AD2A0004get_impl*
+ f_Converter.ParamFromDataBase(f_Description, da_dtByte, f_Buffer, @Result);
+//#UC END# *578625FB03A1_5555AD2A0004get_impl*
+end;//TdaParam.Get_AsByte
+
+procedure TdaParam.Set_AsByte(aValue: Byte);
+//#UC START# *578625FB03A1_5555AD2A0004set_var*
+//#UC END# *578625FB03A1_5555AD2A0004set_var*
+begin
+//#UC START# *578625FB03A1_5555AD2A0004set_impl*
+ f_Converter.ParamToDataBase(f_Description, da_dtByte, @aValue, f_Buffer);
+//#UC END# *578625FB03A1_5555AD2A0004set_impl*
+end;//TdaParam.Set_AsByte
 
 procedure TdaParam.Cleanup;
  {* Функция очистки полей объекта. }

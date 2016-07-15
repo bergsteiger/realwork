@@ -28,7 +28,6 @@ uses
 type
  InsSaveDialogExecutor = interface
   {* Интерфейс сервиса TnsSaveDialogExecutor }
-  ['{707E704B-202F-4512-90B2-070DD76980A2}']
   function Call(aDialog: TnsSaveDialog): Boolean;
   function GetFileName: AnsiString;
   procedure SetFileFormat(aFileFormat: TnsFileFormat);
@@ -43,8 +42,8 @@ type
    procedure ClearFields; override;
   public
    function Call(aDialog: TnsSaveDialog): Boolean;
-   procedure SetFileFormat(aFileFormat: TnsFileFormat);
    function GetFileName: AnsiString;
+   procedure SetFileFormat(aFileFormat: TnsFileFormat);
    class function Instance: TnsSaveDialogExecutor;
     {* Метод получения экземпляра синглетона TnsSaveDialogExecutor }
    class function Exists: Boolean;
@@ -98,18 +97,6 @@ begin
 //#UC END# *52B375B038DC_573A0A7E0387_impl*
 end;//TnsSaveDialogExecutor.Call
 
-procedure TnsSaveDialogExecutor.SetFileFormat(aFileFormat: TnsFileFormat);
-//#UC START# *593F1F6D46A5_573A0A7E0387_var*
-//#UC END# *593F1F6D46A5_573A0A7E0387_var*
-begin
-//#UC START# *593F1F6D46A5_573A0A7E0387_impl*
- if Assigned(f_Alien) then
-  f_Alien.SetFileFormat(aFileFormat)
- else
-  Assert(False);
-//#UC END# *593F1F6D46A5_573A0A7E0387_impl*
-end;//TnsSaveDialogExecutor.SetFileFormat
-
 function TnsSaveDialogExecutor.GetFileName: AnsiString;
 //#UC START# *D50DF667C759_573A0A7E0387_var*
 //#UC END# *D50DF667C759_573A0A7E0387_var*
@@ -121,6 +108,18 @@ begin
   Assert(False);
 //#UC END# *D50DF667C759_573A0A7E0387_impl*
 end;//TnsSaveDialogExecutor.GetFileName
+
+procedure TnsSaveDialogExecutor.SetFileFormat(aFileFormat: TnsFileFormat);
+//#UC START# *593F1F6D46A5_573A0A7E0387_var*
+//#UC END# *593F1F6D46A5_573A0A7E0387_var*
+begin
+//#UC START# *593F1F6D46A5_573A0A7E0387_impl*
+ if Assigned(f_Alien) then
+  f_Alien.SetFileFormat(aFileFormat)
+ else
+  Assert(False);
+//#UC END# *593F1F6D46A5_573A0A7E0387_impl*
+end;//TnsSaveDialogExecutor.SetFileFormat
 
 class function TnsSaveDialogExecutor.Instance: TnsSaveDialogExecutor;
  {* Метод получения экземпляра синглетона TnsSaveDialogExecutor }

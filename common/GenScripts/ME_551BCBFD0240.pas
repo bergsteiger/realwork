@@ -27,7 +27,6 @@ uses
 type
  Il3FormatObjectInfoHelper = interface
   {* Èםעונפויס סונגטסא Tl3FormatObjectInfoHelper }
-  ['{ABD71A64-8BB2-4F31-9E8A-D6E19C4EB16A}']
   function Format(anObject: TObject;
    aShortInfo: Boolean;
    anObjectPropFound: TRTTIInfoObjectPropertyFoundCallBack): AnsiString;

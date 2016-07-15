@@ -14,7 +14,7 @@ uses
  , csRequestTask
  , evdTaskTypes
  , k2Base
- , dt_Types
+ , daTypes
 ;
 
 type
@@ -27,7 +27,7 @@ type
    function pm_GetText: AnsiString;
    procedure pm_SetText(const aValue: AnsiString);
   public
-   constructor Create(aUserID: TUserID); override;
+   constructor Create(aUserID: TdaUserID); override;
    class function GetTaggedDataType: Tk2Type; override;
   public
    property NotifyType: TCsNotificationType
@@ -86,7 +86,7 @@ begin
  TaggedData.StrW[k2_attrText, nil] := (aValue);
 end;//TddClientMessagePrim.pm_SetText
 
-constructor TddClientMessagePrim.Create(aUserID: TUserID);
+constructor TddClientMessagePrim.Create(aUserID: TdaUserID);
 //#UC START# *53B3D8A8011F_53B24355031B_var*
 //#UC END# *53B3D8A8011F_53B24355031B_var*
 begin

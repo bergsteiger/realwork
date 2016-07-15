@@ -1,39 +1,48 @@
 unit moRubricator;
+ {* Правовой навигатор }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/moRubricator.pas"
-// Начат: 09.09.2009 14:55
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMUseCaseRealization::Class>> F1 Основные прецеденты::Rubricator::Rubricator$UC
-//
-// Правовой навигатор
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\moRubricator.pas"
+// Стереотип: "VCMUseCaseRealization"
+// Элемент модели: "Rubricator" MUID: (4AA6778D0357)
+// Имя типа: "Tmo_Rubricator"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Rubricator_Module
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , Rubricator_Module
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
-Tmo_Rubricator = {final formspack} class(TRubricatorModule)
- {* Правовой навигатор }
-end;//Tmo_Rubricator
-{$IfEnd} //not Admin AND not Monitorings
+ Tmo_Rubricator = {final} class(TRubricatorModule)
+  {* Правовой навигатор }
+ end;//Tmo_Rubricator
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+uses
+ l3ImplUses
+ {$If NOT Defined(NoVCM)}
+ , vcmModulesForRegister
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmModuleOperationsForRegister
+ {$IfEnd} // NOT Defined(NoVCM)
+;
+
+initialization
+ TvcmModulesForRegister.AddModule(TvcmModuleForRegister_C(Tmo_Rubricator, 'Правовой навигатор'));
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

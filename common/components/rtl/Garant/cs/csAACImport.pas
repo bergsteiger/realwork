@@ -15,7 +15,7 @@ uses
  , evdTasksHelpers
  , l3Variant
  , k2Base
- , dt_Types
+ , daTypes
  , Classes
 ;
 
@@ -65,7 +65,7 @@ type
    procedure DoLoadFrom(aStream: TStream;
     aIsPipe: Boolean); override;
   public
-   constructor Create(aUserID: TUserID); override;
+   constructor Create(aUserID: TdaUserID); override;
    procedure DoSaveTo(aStream: TStream;
     aIsPipe: Boolean); override;
    class function GetTaggedDataType: Tk2Type; override;
@@ -390,7 +390,7 @@ begin
  TaggedData.IntW[k2_attrTaskCountBeforeRun, nil] := (aValue);
 end;//TcsAACImport.pm_SetTaskCountBeforeRun
 
-constructor TcsAACImport.Create(aUserID: TUserID);
+constructor TcsAACImport.Create(aUserID: TdaUserID);
 //#UC START# *53B3D8A8011F_5317040F0257_var*
 //#UC END# *53B3D8A8011F_5317040F0257_var*
 begin

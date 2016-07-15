@@ -72,6 +72,7 @@ type
   private
    procedure CorrectStartupTipsPosition;
    procedure NotifyBaseSearcherFormClosing;
+   procedure ActivateFormIfNeeded;
    procedure WMActivate(var Message: TWMActivate); message WM_ACTIVATE;
    procedure WMActivateApp(var Message: TWMActivateApp); message WM_ACTIVATEAPP;
    procedure WMCopyData(var aMessage: TWMCopyData); message WM_COPYDATA;
@@ -136,7 +137,8 @@ type
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
    function DoLoadState(const aState: IvcmBase;
-    aStateType: TvcmStateType): Boolean; override;
+    aStateType: TvcmStateType;
+    aClone: Boolean): Boolean; override;
     {* Загружает состояние формы. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
@@ -225,6 +227,7 @@ uses
  , vcmTabbedContainerFormDispatcher
  {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
  , nsBaseSearchService
+ , f1StartupCompletedServiceImpl
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
@@ -617,6 +620,23 @@ begin
   f_BaseSearcher.ContainerIsClosing;
 //#UC END# *55CC2C9101F8_4A952BA3006D_impl*
 end;//TMainForm.NotifyBaseSearcherFormClosing
+
+procedure TMainForm.ActivateFormIfNeeded;
+//#UC START# *576A792F01D9_4A952BA3006D_var*
+var
+ l_FormToActivate: TCustomForm; 
+//#UC END# *576A792F01D9_4A952BA3006D_var*
+begin
+//#UC START# *576A792F01D9_4A952BA3006D_impl*
+ l_FormToActivate := GetParentForm(Self);
+ if (l_FormToActivate = nil) then
+  l_FormToActivate := Self;
+ if (l_FormToActivate.WindowState = wsMinimized) then
+  SendMessage(l_FormToActivate.Handle, WM_SYSCOMMAND, SC_RESTORE, 0);
+ SetActiveWindow(l_FormToActivate.Handle);
+ SetForegroundWindow(l_FormToActivate.Handle);
+//#UC END# *576A792F01D9_4A952BA3006D_impl*
+end;//TMainForm.ActivateFormIfNeeded
 
 procedure TMainForm.WMActivate(var Message: TWMActivate);
 //#UC START# *4F882B3402EB_4A952BA3006D_var*
@@ -1326,7 +1346,8 @@ end;//TMainForm.DoSaveState
 
 {$If NOT Defined(NoVCM)}
 function TMainForm.DoLoadState(const aState: IvcmBase;
- aStateType: TvcmStateType): Boolean;
+ aStateType: TvcmStateType;
+ aClone: Boolean): Boolean;
  {* Загружает состояние формы. Для перекрытия в потомках }
 //#UC START# *49807428008C_4A952BA3006D_var*
 var

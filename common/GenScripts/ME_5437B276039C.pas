@@ -20,6 +20,7 @@ function UserIDBelongsToRegion(aUserID: TdaUserID;
  aRegion: TdaRegionID): Boolean;
 function UserIsService(aUserID: TdaUserID): Boolean;
 function IsUserRequireReports(aUserID: TdaUserID): Boolean;
+function IsWrongUser(anUserID: TdaUserID): Boolean;
 
 implementation
 
@@ -87,5 +88,17 @@ begin
  Result := (aUserID <> GlobalDataProvider.UserID) and not UserIsService(aUserID);
 //#UC END# *55228DAB0064_5437B276039C_impl*
 end;//IsUserRequireReports
+
+function IsWrongUser(anUserID: TdaUserID): Boolean;
+//#UC START# *5784E79A015A_5437B276039C_var*
+//#UC END# *5784E79A015A_5437B276039C_var*
+begin
+//#UC START# *5784E79A015A_5437B276039C_impl*
+ Result := (anUserID = 0) or
+   (anUserID = usWrongClient) or
+   (anUserID = usDuplicateClient) or
+   (anUserID = usDeadClient)
+//#UC END# *5784E79A015A_5437B276039C_impl*
+end;//IsWrongUser
 
 end.

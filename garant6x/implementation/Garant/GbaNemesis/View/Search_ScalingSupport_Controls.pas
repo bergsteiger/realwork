@@ -92,6 +92,9 @@ const
  op_capChangeScale = 'Изменить масштаб';
  op_CanChangeScale = 'CanChangeScale';
  op_capCanChangeScale = 'Масштабирование запрещено';
+
+var opcode_Scalable_ChangeScale: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Scalable_CanChangeScale: TvcmOPID = (rEnID : -1; rOpID : -1);
 {$IfEnd} // NOT Defined(Admin)
 
 implementation
@@ -100,12 +103,15 @@ implementation
 uses
  l3ImplUses
  , l3CProtoObject
+ {$If NOT Defined(NoVCM)}
+ , vcmOperationsForRegister
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmOperationStatesForRegister
+ {$IfEnd} // NOT Defined(NoVCM)
  , l3Base
  {$If NOT Defined(NoVCM)}
  , vcmBase
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
- , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
 ;
 
@@ -181,7 +187,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TScalable_ChangeScale_Params.Make(aInc));
-  aTarget.Operation(TdmStdRes.opcode_Scalable_ChangeScale, l_Params);
+  aTarget.Operation(opcode_Scalable_ChangeScale, l_Params);
   with l_Params do
   begin
    if Done then
@@ -202,7 +208,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TScalable_ChangeScale_Params.Make(aInc));
-  aTarget.Operation(TdmStdRes.opcode_Scalable_ChangeScale, l_Params);
+  aTarget.Operation(opcode_Scalable_ChangeScale, l_Params);
   with l_Params do
   begin
    if Done then
@@ -274,7 +280,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TScalable_CanChangeScale_Params.Make(anInc));
-  aTarget.Operation(TdmStdRes.opcode_Scalable_CanChangeScale, l_Params);
+  aTarget.Operation(opcode_Scalable_CanChangeScale, l_Params);
   with l_Params do
   begin
    if Done then
@@ -295,7 +301,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TScalable_CanChangeScale_Params.Make(anInc));
-  aTarget.Operation(TdmStdRes.opcode_Scalable_CanChangeScale, l_Params);
+  aTarget.Operation(opcode_Scalable_CanChangeScale, l_Params);
   with l_Params do
   begin
    if Done then
@@ -323,6 +329,15 @@ begin
  if (aTarget <> nil) then
   Result := Call(aTarget.AsForm, anInc);
 end;//Op_Scalable_CanChangeScale.Call
+
+initialization
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Scalable, op_ChangeScale, en_capScalable, op_capChangeScale, True, False, opcode_Scalable_ChangeScale)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Scalable, op_CanChangeScale, en_capScalable, op_capCanChangeScale, True, False, opcode_Scalable_CanChangeScale)) do
+ begin
+ end;
+
 {$IfEnd} // NOT Defined(Admin)
 
 end.

@@ -1,80 +1,57 @@
 unit dsInternetAgent;
+ {* Реализация области вывода Интернет-агента }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "InternetAgent"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/InternetAgent/dsInternetAgent.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ViewAreaControllerImp::Class>> F1 Встроенные продукты::InternetAgent::InternetAgent::InternetAgent::TdsInternetAgent
-//
-// Реализация области вывода Интернет-агента
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\InternetAgent\dsInternetAgent.pas"
+// Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "TdsInternetAgent" MUID: (49ECA9AA0000)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Interfaces,
-  InternetAgentInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmExternalInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmLocalInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  l3ProtoObjectWithCOMQI,
-  l3NotifyPtrList
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , InternetAgentInterfaces
+ , l3Interfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3ProtoObjectWithCOMQI
+ {$If NOT Defined(NoVCM)}
+ , vcmLocalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3NotifyPtrList
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
- _FormDataSourceType_ = IdsInternetAgent;
  _InitDataType_ = Il3CString;
+ _FormDataSourceType_ = IdsInternetAgent;
  {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSource.imp.pas}
- TdsInternetAgent = {final vac} class(_vcmFormDataSource_, IdsInternetAgent)
+ TdsInternetAgent = {final} class(_vcmFormDataSource_, IdsInternetAgent)
   {* Реализация области вывода Интернет-агента }
- protected
- // realized methods
+  protected
    function Get_URL: WideString;
  end;//TdsInternetAgent
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3String,
-  l3InterfacesMisc,
-  SysUtils,
-  l3Base
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
+ l3ImplUses
+ , l3String
+ , l3InterfacesMisc
+ , SysUtils
+ , l3Base
+;
 
 type _Instance_R_ = TdsInternetAgent;
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSource.imp.pas}
-
-// start class TdsInternetAgent
 
 function TdsInternetAgent.Get_URL: WideString;
 //#UC START# *49EDE45A02EB_49ECA9AA0000get_var*
@@ -84,7 +61,6 @@ begin
  Result := l3WideString(PartData);
 //#UC END# *49EDE45A02EB_49ECA9AA0000get_impl*
 end;//TdsInternetAgent.Get_URL
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

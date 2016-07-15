@@ -25,7 +25,6 @@ uses
 type
  Il3AutolinkService = interface
   {* Èםעונפויס סונגטסא Tl3AutolinkService }
-  ['{6E9C4C64-C96E-4FC1-958E-50CF81CED3E9}']
   function GetAutolinkFilter: Ik2TagGenerator;
   procedure CleanAutolinkFilter;
  end;//Il3AutolinkService

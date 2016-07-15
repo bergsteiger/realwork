@@ -27,6 +27,7 @@ uses
 ;
 
 type
+ _FormDataSourceType_ = IdsInpharmMainMenu;
  {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourcePrim.imp.pas}
  TdsInpharmMainMenu = {final} class(_vcmFormDataSourcePrim_, IdsInpharmMainMenu)
   protected
@@ -48,11 +49,11 @@ uses
  , l3Base
 ;
 
-{$If NOT Defined(NoVCM)}
 type _Instance_R_ = TdsInpharmMainMenu;
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourcePrim.imp.pas}
 
+{$If NOT Defined(NoVCM)}
 function TdsInpharmMainMenu.GetIsDataAvailable: Boolean;
  {* существуют ли данные }
 //#UC START# *55097FF5008E_550C0DA5022E_var*

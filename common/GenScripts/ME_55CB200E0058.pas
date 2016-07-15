@@ -26,6 +26,8 @@ type
    f_SQLName: AnsiString;
    f_Scheme: AnsiString;
    f_IsTree: Boolean;
+   f_Code: AnsiString;
+   f_FamilyID: TdaFamilyID;
    f_Kind: TdaTables;
   protected
    function Get_Description: AnsiString;
@@ -39,6 +41,8 @@ type
    function Get_FieldsCount: Integer;
    function Get_FieldsCountWithoutTree: Integer;
    function Get_IsTree: Boolean;
+   function Get_Code: AnsiString;
+   function Get_FamilyID: TdaFamilyID;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
    procedure InitFields; override;
@@ -46,6 +50,8 @@ type
    constructor Create(aKind: TdaTables;
     const aSQLName: AnsiString;
     const aDescription: AnsiString;
+    const aCode: AnsiString;
+    aFamilyID: TdaFamilyID;
     const aScheme: AnsiString = '';
     aDublicate: Boolean = False;
     aFake: Boolean = False;
@@ -80,6 +86,8 @@ end;//CompareFields
 constructor TdaTableDescription.Create(aKind: TdaTables;
  const aSQLName: AnsiString;
  const aDescription: AnsiString;
+ const aCode: AnsiString;
+ aFamilyID: TdaFamilyID;
  const aScheme: AnsiString = '';
  aDublicate: Boolean = False;
  aFake: Boolean = False;
@@ -260,6 +268,24 @@ begin
  Result := f_IsTree;
 //#UC END# *56A1FDB80282_55360B420250get_impl*
 end;//TdaTableDescription.Get_IsTree
+
+function TdaTableDescription.Get_Code: AnsiString;
+//#UC START# *576D062600B3_55360B420250get_var*
+//#UC END# *576D062600B3_55360B420250get_var*
+begin
+//#UC START# *576D062600B3_55360B420250get_impl*
+ Result := f_Code;
+//#UC END# *576D062600B3_55360B420250get_impl*
+end;//TdaTableDescription.Get_Code
+
+function TdaTableDescription.Get_FamilyID: TdaFamilyID;
+//#UC START# *577223F80158_55360B420250get_var*
+//#UC END# *577223F80158_55360B420250get_var*
+begin
+//#UC START# *577223F80158_55360B420250get_impl*
+ Result := f_FamilyID;
+//#UC END# *577223F80158_55360B420250get_impl*
+end;//TdaTableDescription.Get_FamilyID
 
 procedure TdaTableDescription.Cleanup;
  {* Функция очистки полей объекта. }

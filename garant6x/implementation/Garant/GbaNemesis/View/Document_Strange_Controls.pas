@@ -592,30 +592,84 @@ const
  op_SelectPara = 'SelectPara';
  op_capSelectPara = '';
 
+var opcode_Editions_SetCurrent: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_System_TimeMachineStateChange: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Selection_InsertHyperlink: TvcmOPID = (rEnID : -1; rOpID : -1);
 var st_user_Selection_InsertHyperlink_ModifyLink: TvcmOperationStateIndex = (rID : -1);
  {* Выделенные элементы -> Поставить ссылку... <-> Изменить ссылку... }
+var opcode_Selection_FindInDict: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Contents_SetCurrent: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Contents_MoveCurrent: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Contents_HasUserComments: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Contents_HasBookmarks: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Contents_ToggleContentsVisibility: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Contents_IsContentsVisible: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Warning_BecomeActive: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Warning_SwitchActive: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Picture_InitNewContent: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_DocumentBlock_GetTypedCorrespondentList: TvcmOPID = (rEnID : -1; rOpID : -1);
 var st_user_DocumentBlock_GetTypedCorrespondentList_InText: TvcmOperationStateIndex = (rID : -1);
  {* Пункт оглавления -> Ссылки на фрагмент (вид информации) <-> Ссылки на фрагмент: }
+var opcode_DocumentBlock_PrintPreview: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_DocumentBlock_Select: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_DocumentBlock_GetSimilarDocsToBlock: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_DocumentBlock_GetCorrespondentList: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_DocumentBlock_GetRespondentList: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_DocumentBlock_GetTypedRespondentList: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_DocumentBlock_ToMSWord: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_DocumentBlock_PrintDialog: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_DocumentBlock_Copy: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_DocumentBlock_Print: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_DocumentBlockHeader_UserCR1: TvcmOPID = (rEnID : -1; rOpID : -1);
 var st_user_DocumentBlockHeader_UserCR1_Corr: TvcmOperationStateIndex = (rID : -1);
  {* Пункт оглавления - Заголовок документ -> Пользовательские ссылки на документ (ссылки из документа) 1 <->  }
+var opcode_DocumentBlockHeader_UserCR2: TvcmOPID = (rEnID : -1; rOpID : -1);
 var st_user_DocumentBlockHeader_UserCR2_Corr: TvcmOperationStateIndex = (rID : -1);
  {* Пункт оглавления - Заголовок документ -> Пользовательские ссылки на документ (ссылки из документа) 2 <->  }
+var opcode_DocumentBlockHeader_GetTypedCorrespondentList: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_DocumentBlockHeader_AddBookmark: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_DocumentBlockHeader_ToMSWord: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_DocumentBlockHeader_Print: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_DocumentBlockHeader_PrintDialog: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_WarnOnControl_ClearStatusSettings: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_WarnOnControl_ShowChanges: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_WarnOnControl_ClearStatus: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_TasksPanel_TimeMachineOnOff: TvcmOPID = (rEnID : -1; rOpID : -1);
 var st_user_TasksPanel_TimeMachineOnOff_On: TvcmOperationStateIndex = (rID : -1);
  {*  -> Включить Машину времени с календарной даты\Выключить Машину времени <-> Включить Машину времени }
 var st_user_TasksPanel_TimeMachineOnOff_Off: TvcmOperationStateIndex = (rID : -1);
  {*  -> Включить Машину времени с календарной даты\Выключить Машину времени <-> Выключить Машину времени }
+var opcode_Document_OpenContentsFrmAct: TvcmOPID = (rEnID : -1; rOpID : -1);
 var st_user_Document_OpenContentsFrmAct_Drug: TvcmOperationStateIndex = (rID : -1);
  {*  -> Структура документа <-> Структура препарата }
+var opcode_Document_ShowDocumentPicture: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Document_DocumentSynchroOpenWindow: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Document_DocumentSynchroOpenNewWindow: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Document_DictListOpenFrmAct: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Document_GotoBookmark: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Document_LiteratureListForDictionary: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Document_OpenProducedDrugList: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Document_OpenSimilarDrugList: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_ExternalObject_Open: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_ExternalObject_Save: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_WarnRedaction_ShowInfo: TvcmOPID = (rEnID : -1; rOpID : -1);
 var st_user_WarnRedaction_ShowInfo_Hide: TvcmOperationStateIndex = (rID : -1);
  {* Предупреждение о неактуальной редакции -> Показать текст предупреждения <-> Скрыть текст предупреждения }
+var opcode_WarnRedaction_OpenActualRedaction: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_WarnTimeMachine_ShowInfo: TvcmOPID = (rEnID : -1; rOpID : -1);
 var st_user_WarnTimeMachine_ShowInfo_Hide: TvcmOperationStateIndex = (rID : -1);
  {* Предупреждение для Машины времени -> Показать текст предупреждения <-> Скрыть текст предупреждения }
+var opcode_WarnTimeMachine_TimeMachineOnOffNew: TvcmOPID = (rEnID : -1; rOpID : -1);
 var st_user_WarnTimeMachine_TimeMachineOnOffNew_MachineOn: TvcmOperationStateIndex = (rID : -1);
  {* Предупреждение для Машины времени -> Включить/Выключить Машину времени <-> Включить Машину времени }
 var st_user_WarnTimeMachine_TimeMachineOnOffNew_MachineOff: TvcmOperationStateIndex = (rID : -1);
  {* Предупреждение для Машины времени -> Включить/Выключить Машину времени <-> Выключить Машину времени/Изменить дату }
+var opcode_WarnJuror_ShowInfo: TvcmOPID = (rEnID : -1; rOpID : -1);
 var st_user_WarnJuror_ShowInfo_Hide: TvcmOperationStateIndex = (rID : -1);
  {* Предупреждение (юридическое) -> Показать текст предупреждения <-> Скрыть текст предупреждения }
+var opcode_BookmarkIcon_Delete: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_BookmarkIcon_Edit: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_UserCommentIcon_HideShow: TvcmOPID = (rEnID : -1; rOpID : -1);
 var st_user_UserCommentIcon_HideShow_GarantHidden: TvcmOperationStateIndex = (rID : -1);
  {*  -> Скрыть/Показать <-> Показать комментарии ГАРАНТа }
 var st_user_UserCommentIcon_HideShow_GarantShown: TvcmOperationStateIndex = (rID : -1);
@@ -630,6 +684,54 @@ var st_user_UserCommentIcon_HideShow_VersionShown: TvcmOperationStateIndex = (rI
  {*  -> Скрыть/Показать <-> Выключить информацию об изменениях документа }
 var st_user_UserCommentIcon_HideShow_VersionHidden: TvcmOperationStateIndex = (rID : -1);
  {*  -> Скрыть/Показать <-> Включить информацию об изменениях документа }
+var opcode_UserCommentIcon_Delete: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_UserComment_Delete: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Text_AddUserComment: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Text_DeleteBookmark: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Text_EditBookmark: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Text_AddBookmark: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Text_OpenNewWindow: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Warning_TimeMachineOffAndReset: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Warning_ActualRedaction: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Warning_TimeMachineOff: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Reminder_RemWarnJuror: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Reminder_RemWarnTimeMachineOn: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Reminder_RemWarnRedaction: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Reminder_RemWarnOnControl: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Reminder_RemWarnIsAbolished: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Reminder_RemWarnTimeMachineException: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Reminder_RemWarnPreActive: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Reminder_RemWarnTimeMachineWarning: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Reminder_ViewInactualDocument: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_SynchroView_ShowText: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_SynchroView_Annotation: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_SynchroView_ShowAttributes: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_SynchroView_ShowRelated: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_SynchroView_ShowUserCRList1: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_SynchroView_ShowUserCRList2: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_SynchroView_SimilarDocuments: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Edition_OpenNewWindow: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Edition_OpenNewTab: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Attribute_Copy: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Picture_Resize: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Picture_Enlarge: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Picture_Shrink: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Picture_ActualSize: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Picture_FitInWIndow: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_ContentsValidator_IsDocumentAdornmentsChanged: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_DocumentSubPanel_UpdateSubPanel: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Editions_DoCompareEditions: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Editions_BuildChangedFragments: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_DocumentBlockBookmarks_AddBookmark: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_IntranetSourcePoint_GoToIntranet: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Picture_Open: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Picture_OpenNewWindow: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Picture_OpenNewTab: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Document_ChangesButton: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_SubsPanel_CopySubNumber: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_BaseSearchPresentationHolder_GetBaseSearchPresentation: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Text_SelectWord: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Text_SelectPara: TvcmOPID = (rEnID : -1; rOpID : -1);
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
@@ -638,12 +740,15 @@ implementation
 uses
  l3ImplUses
  , l3CProtoObject
+ {$If NOT Defined(NoVCM)}
+ , vcmOperationsForRegister
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmOperationStatesForRegister
+ {$IfEnd} // NOT Defined(NoVCM)
  , l3Base
  {$If NOT Defined(NoVCM)}
  , vcmBase
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
- , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
 ;
 
@@ -841,7 +946,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TEditions_SetCurrent_Params.Make(aDocument));
-  aTarget.Operation(TdmStdRes.opcode_Editions_SetCurrent, l_Params);
+  aTarget.Operation(opcode_Editions_SetCurrent, l_Params);
   with l_Params do
   begin
    if Done then
@@ -862,7 +967,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TEditions_SetCurrent_Params.Make(aDocument));
-  aTarget.Operation(TdmStdRes.opcode_Editions_SetCurrent, l_Params);
+  aTarget.Operation(opcode_Editions_SetCurrent, l_Params);
   with l_Params do
   begin
    if Done then
@@ -924,7 +1029,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TSystem_TimeMachineStateChange_Params.Make(aStayInCurrentRedaction));
-  aTarget.Operation(TdmStdRes.opcode_System_TimeMachineStateChange, l_Params);
+  aTarget.Operation(opcode_System_TimeMachineStateChange, l_Params);
   with l_Params do
   begin
    if Done then
@@ -945,7 +1050,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TSystem_TimeMachineStateChange_Params.Make(aStayInCurrentRedaction));
-  aTarget.Operation(TdmStdRes.opcode_System_TimeMachineStateChange, l_Params);
+  aTarget.Operation(opcode_System_TimeMachineStateChange, l_Params);
   with l_Params do
   begin
    if Done then
@@ -982,7 +1087,7 @@ begin
  if (vcmDispatcher <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TSystem_TimeMachineStateChange_Params.Make(aStayInCurrentRedaction));
-  vcmDispatcher.EntityOperationBroadcast(TdmStdRes.opcode_System_TimeMachineStateChange, l_Params);
+  vcmDispatcher.EntityOperationBroadcast(opcode_System_TimeMachineStateChange, l_Params);
  end//vcmDispatcher <> nil
 end;//Op_System_TimeMachineStateChange.Broadcast
 
@@ -1019,7 +1124,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TContents_SetCurrent_Params.Make(aSub));
-  aTarget.Operation(TdmStdRes.opcode_Contents_SetCurrent, l_Params);
+  aTarget.Operation(opcode_Contents_SetCurrent, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1040,7 +1145,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TContents_SetCurrent_Params.Make(aSub));
-  aTarget.Operation(TdmStdRes.opcode_Contents_SetCurrent, l_Params);
+  aTarget.Operation(opcode_Contents_SetCurrent, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1111,7 +1216,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TContents_MoveCurrent_Params.Make(aSub, aDown));
-  aTarget.Operation(TdmStdRes.opcode_Contents_MoveCurrent, l_Params);
+  aTarget.Operation(opcode_Contents_MoveCurrent, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1133,7 +1238,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TContents_MoveCurrent_Params.Make(aSub, aDown));
-  aTarget.Operation(TdmStdRes.opcode_Contents_MoveCurrent, l_Params);
+  aTarget.Operation(opcode_Contents_MoveCurrent, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1195,7 +1300,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TContents_HasUserComments_Params.Make);
-  aTarget.Operation(TdmStdRes.opcode_Contents_HasUserComments, l_Params);
+  aTarget.Operation(opcode_Contents_HasUserComments, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1215,7 +1320,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TContents_HasUserComments_Params.Make);
-  aTarget.Operation(TdmStdRes.opcode_Contents_HasUserComments, l_Params);
+  aTarget.Operation(opcode_Contents_HasUserComments, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1273,7 +1378,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TContents_HasBookmarks_Params.Make);
-  aTarget.Operation(TdmStdRes.opcode_Contents_HasBookmarks, l_Params);
+  aTarget.Operation(opcode_Contents_HasBookmarks, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1293,7 +1398,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TContents_HasBookmarks_Params.Make);
-  aTarget.Operation(TdmStdRes.opcode_Contents_HasBookmarks, l_Params);
+  aTarget.Operation(opcode_Contents_HasBookmarks, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1351,7 +1456,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TContents_ToggleContentsVisibility_Params.Make);
-  aTarget.Operation(TdmStdRes.opcode_Contents_ToggleContentsVisibility, l_Params);
+  aTarget.Operation(opcode_Contents_ToggleContentsVisibility, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1371,7 +1476,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TContents_ToggleContentsVisibility_Params.Make);
-  aTarget.Operation(TdmStdRes.opcode_Contents_ToggleContentsVisibility, l_Params);
+  aTarget.Operation(opcode_Contents_ToggleContentsVisibility, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1429,7 +1534,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TContents_IsContentsVisible_Params.Make);
-  aTarget.Operation(TdmStdRes.opcode_Contents_IsContentsVisible, l_Params);
+  aTarget.Operation(opcode_Contents_IsContentsVisible, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1449,7 +1554,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TContents_IsContentsVisible_Params.Make);
-  aTarget.Operation(TdmStdRes.opcode_Contents_IsContentsVisible, l_Params);
+  aTarget.Operation(opcode_Contents_IsContentsVisible, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1509,7 +1614,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TWarning_BecomeActive_Params.Make(aSubID));
-  aTarget.Operation(TdmStdRes.opcode_Warning_BecomeActive, l_Params);
+  aTarget.Operation(opcode_Warning_BecomeActive, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1530,7 +1635,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TWarning_BecomeActive_Params.Make(aSubID));
-  aTarget.Operation(TdmStdRes.opcode_Warning_BecomeActive, l_Params);
+  aTarget.Operation(opcode_Warning_BecomeActive, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1592,7 +1697,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TWarning_SwitchActive_Params.Make(aSubID));
-  aTarget.Operation(TdmStdRes.opcode_Warning_SwitchActive, l_Params);
+  aTarget.Operation(opcode_Warning_SwitchActive, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1613,7 +1718,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TWarning_SwitchActive_Params.Make(aSubID));
-  aTarget.Operation(TdmStdRes.opcode_Warning_SwitchActive, l_Params);
+  aTarget.Operation(opcode_Warning_SwitchActive, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1681,7 +1786,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TPicture_InitNewContent_Params.Make(aData));
-  aTarget.Operation(TdmStdRes.opcode_Picture_InitNewContent, l_Params);
+  aTarget.Operation(opcode_Picture_InitNewContent, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1702,7 +1807,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TPicture_InitNewContent_Params.Make(aData));
-  aTarget.Operation(TdmStdRes.opcode_Picture_InitNewContent, l_Params);
+  aTarget.Operation(opcode_Picture_InitNewContent, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1780,7 +1885,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TContentsValidator_IsDocumentAdornmentsChanged_Params.Make(aNew));
-  aTarget.Operation(TdmStdRes.opcode_ContentsValidator_IsDocumentAdornmentsChanged, l_Params);
+  aTarget.Operation(opcode_ContentsValidator_IsDocumentAdornmentsChanged, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1801,7 +1906,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TContentsValidator_IsDocumentAdornmentsChanged_Params.Make(aNew));
-  aTarget.Operation(TdmStdRes.opcode_ContentsValidator_IsDocumentAdornmentsChanged, l_Params);
+  aTarget.Operation(opcode_ContentsValidator_IsDocumentAdornmentsChanged, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1839,7 +1944,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := vcmParams;
-  aTarget.Operation(TdmStdRes.opcode_DocumentSubPanel_UpdateSubPanel, l_Params);
+  aTarget.Operation(opcode_DocumentSubPanel_UpdateSubPanel, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1859,7 +1964,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := vcmParams;
-  aTarget.Operation(TdmStdRes.opcode_DocumentSubPanel_UpdateSubPanel, l_Params);
+  aTarget.Operation(opcode_DocumentSubPanel_UpdateSubPanel, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1923,7 +2028,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TBaseSearchPresentationHolder_GetBaseSearchPresentation_Params.Make);
-  aTarget.Operation(TdmStdRes.opcode_BaseSearchPresentationHolder_GetBaseSearchPresentation, l_Params);
+  aTarget.Operation(opcode_BaseSearchPresentationHolder_GetBaseSearchPresentation, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1943,7 +2048,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TBaseSearchPresentationHolder_GetBaseSearchPresentation_Params.Make);
-  aTarget.Operation(TdmStdRes.opcode_BaseSearchPresentationHolder_GetBaseSearchPresentation, l_Params);
+  aTarget.Operation(opcode_BaseSearchPresentationHolder_GetBaseSearchPresentation, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1969,6 +2074,428 @@ begin
  if (aTarget <> nil) then
   Result := Call(aTarget.AsForm);
 end;//Op_BaseSearchPresentationHolder_GetBaseSearchPresentation.Call
+
+initialization
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Editions, op_SetCurrent, en_capEditions, op_capSetCurrent, True, False, opcode_Editions_SetCurrent)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_System, op_TimeMachineStateChange, en_capSystem, op_capTimeMachineStateChange, True, True, opcode_System_TimeMachineStateChange)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Selection, op_InsertHyperlink, en_capSelection, op_capInsertHyperlink, False, True, opcode_Selection_InsertHyperlink)) do
+ begin
+  with AddState(TvcmOperationStateForRegister_C('ModifyLink', st_user_Selection_InsertHyperlink_ModifyLink))^ do
+  begin
+   rCaption := 'Изменить ссылку...';
+  end;
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Selection, op_FindInDict, en_capSelection, op_capFindInDict, False, False, opcode_Selection_FindInDict)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Contents, op_SetCurrent, en_capContents, op_capSetCurrent, True, False, opcode_Contents_SetCurrent)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Contents, op_MoveCurrent, en_capContents, op_capMoveCurrent, True, False, opcode_Contents_MoveCurrent)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Contents, op_HasUserComments, en_capContents, op_capHasUserComments, True, False, opcode_Contents_HasUserComments)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Contents, op_HasBookmarks, en_capContents, op_capHasBookmarks, True, False, opcode_Contents_HasBookmarks)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Contents, op_ToggleContentsVisibility, en_capContents, op_capToggleContentsVisibility, True, False, opcode_Contents_ToggleContentsVisibility)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Contents, op_IsContentsVisible, en_capContents, op_capIsContentsVisible, True, False, opcode_Contents_IsContentsVisible)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Warning, op_BecomeActive, en_capWarning, op_capBecomeActive, True, False, opcode_Warning_BecomeActive)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Warning, op_SwitchActive, en_capWarning, op_capSwitchActive, True, False, opcode_Warning_SwitchActive)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Picture, op_InitNewContent, en_capPicture, op_capInitNewContent, True, False, opcode_Picture_InitNewContent)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_DocumentBlock, op_GetTypedCorrespondentList, en_capDocumentBlock, op_capGetTypedCorrespondentList, False, False, opcode_DocumentBlock_GetTypedCorrespondentList)) do
+ begin
+  with AddState(TvcmOperationStateForRegister_C('InText', st_user_DocumentBlock_GetTypedCorrespondentList_InText))^ do
+  begin
+   rCaption := 'Ссылки на фрагмент:';
+  end;
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_DocumentBlock, op_PrintPreview, en_capDocumentBlock, op_capPrintPreview, False, False, opcode_DocumentBlock_PrintPreview)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_DocumentBlock, op_Select, en_capDocumentBlock, op_capSelect, False, False, opcode_DocumentBlock_Select)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_DocumentBlock, op_GetSimilarDocsToBlock, en_capDocumentBlock, op_capGetSimilarDocsToBlock, False, False, opcode_DocumentBlock_GetSimilarDocsToBlock)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_DocumentBlock, op_GetCorrespondentList, en_capDocumentBlock, op_capGetCorrespondentList, False, False, opcode_DocumentBlock_GetCorrespondentList)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_DocumentBlock, op_GetRespondentList, en_capDocumentBlock, op_capGetRespondentList, False, False, opcode_DocumentBlock_GetRespondentList)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_DocumentBlock, op_GetTypedCorrespondentList, en_capDocumentBlock, op_capGetTypedCorrespondentList, False, False, opcode_DocumentBlock_GetTypedCorrespondentList)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_DocumentBlock, op_GetTypedRespondentList, en_capDocumentBlock, op_capGetTypedRespondentList, False, False, opcode_DocumentBlock_GetTypedRespondentList)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_DocumentBlock, op_ToMSWord, en_capDocumentBlock, op_capToMSWord, False, False, opcode_DocumentBlock_ToMSWord)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_DocumentBlock, op_PrintDialog, en_capDocumentBlock, op_capPrintDialog, False, False, opcode_DocumentBlock_PrintDialog)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_DocumentBlock, op_Copy, en_capDocumentBlock, op_capCopy, False, False, opcode_DocumentBlock_Copy)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_DocumentBlock, op_Print, en_capDocumentBlock, op_capPrint, False, False, opcode_DocumentBlock_Print)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_DocumentBlockHeader, op_UserCR1, en_capDocumentBlockHeader, op_capUserCR1, False, False, opcode_DocumentBlockHeader_UserCR1)) do
+ begin
+  with AddState(TvcmOperationStateForRegister_C('Corr', st_user_DocumentBlockHeader_UserCR1_Corr))^ do
+  begin
+   rImageIndex := 18;
+  end;
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_DocumentBlockHeader, op_UserCR2, en_capDocumentBlockHeader, op_capUserCR2, False, False, opcode_DocumentBlockHeader_UserCR2)) do
+ begin
+  with AddState(TvcmOperationStateForRegister_C('Corr', st_user_DocumentBlockHeader_UserCR2_Corr))^ do
+  begin
+   rImageIndex := 18;
+  end;
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_DocumentBlockHeader, op_UserCR1, en_capDocumentBlockHeader, op_capUserCR1, False, False, opcode_DocumentBlockHeader_UserCR1)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_DocumentBlockHeader, op_UserCR2, en_capDocumentBlockHeader, op_capUserCR2, False, False, opcode_DocumentBlockHeader_UserCR2)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_DocumentBlockHeader, op_GetTypedCorrespondentList, en_capDocumentBlockHeader, op_capGetTypedCorrespondentList, False, False, opcode_DocumentBlockHeader_GetTypedCorrespondentList)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_DocumentBlockHeader, op_AddBookmark, en_capDocumentBlockHeader, op_capAddBookmark, False, False, opcode_DocumentBlockHeader_AddBookmark)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_DocumentBlockHeader, op_ToMSWord, en_capDocumentBlockHeader, op_capToMSWord, False, False, opcode_DocumentBlockHeader_ToMSWord)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_DocumentBlockHeader, op_Print, en_capDocumentBlockHeader, op_capPrint, False, False, opcode_DocumentBlockHeader_Print)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_DocumentBlockHeader, op_PrintDialog, en_capDocumentBlockHeader, op_capPrintDialog, False, False, opcode_DocumentBlockHeader_PrintDialog)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_WarnOnControl, op_ClearStatusSettings, en_capWarnOnControl, op_capClearStatusSettings, False, False, opcode_WarnOnControl_ClearStatusSettings)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_WarnOnControl, op_ShowChanges, en_capWarnOnControl, op_capShowChanges, False, False, opcode_WarnOnControl_ShowChanges)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_WarnOnControl, op_ClearStatus, en_capWarnOnControl, op_capClearStatus, False, False, opcode_WarnOnControl_ClearStatus)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_TasksPanel, op_TimeMachineOnOff, en_capTasksPanel, op_capTimeMachineOnOff, False, False, opcode_TasksPanel_TimeMachineOnOff)) do
+ begin
+  with AddState(TvcmOperationStateForRegister_C('On', st_user_TasksPanel_TimeMachineOnOff_On))^ do
+  begin
+   rCaption := 'Включить Машину времени';
+   rImageIndex := 111;
+  end;
+  with AddState(TvcmOperationStateForRegister_C('Off', st_user_TasksPanel_TimeMachineOnOff_Off))^ do
+  begin
+   rCaption := 'Выключить Машину времени';
+  end;
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_TasksPanel, op_TimeMachineOnOff, en_capTasksPanel, op_capTimeMachineOnOff, False, False, opcode_TasksPanel_TimeMachineOnOff)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Document, op_OpenContentsFrmAct, en_capDocument, op_capOpenContentsFrmAct, False, False, opcode_Document_OpenContentsFrmAct)) do
+ begin
+  with AddState(TvcmOperationStateForRegister_C('Drug', st_user_Document_OpenContentsFrmAct_Drug))^ do
+  begin
+   rCaption := 'Структура препарата';
+  end;
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Document, op_OpenContentsFrmAct, en_capDocument, op_capOpenContentsFrmAct, False, False, opcode_Document_OpenContentsFrmAct)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Document, op_ShowDocumentPicture, en_capDocument, op_capShowDocumentPicture, False, False, opcode_Document_ShowDocumentPicture)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Document, op_DocumentSynchroOpenWindow, en_capDocument, op_capDocumentSynchroOpenWindow, False, True, opcode_Document_DocumentSynchroOpenWindow)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Document, op_DocumentSynchroOpenNewWindow, en_capDocument, op_capDocumentSynchroOpenNewWindow, False, True, opcode_Document_DocumentSynchroOpenNewWindow)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Document, op_DictListOpenFrmAct, en_capDocument, op_capDictListOpenFrmAct, False, False, opcode_Document_DictListOpenFrmAct)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Document, op_GotoBookmark, en_capDocument, op_capGotoBookmark, False, False, opcode_Document_GotoBookmark)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Document, op_LiteratureListForDictionary, en_capDocument, op_capLiteratureListForDictionary, False, False, opcode_Document_LiteratureListForDictionary)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Document, op_OpenProducedDrugList, en_capDocument, op_capOpenProducedDrugList, False, False, opcode_Document_OpenProducedDrugList)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Document, op_OpenSimilarDrugList, en_capDocument, op_capOpenSimilarDrugList, False, False, opcode_Document_OpenSimilarDrugList)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_ExternalObject, op_Open, en_capExternalObject, op_capOpen, False, False, opcode_ExternalObject_Open)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_ExternalObject, op_Save, en_capExternalObject, op_capSave, False, False, opcode_ExternalObject_Save)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_WarnRedaction, op_ShowInfo, en_capWarnRedaction, op_capShowInfo, False, True, opcode_WarnRedaction_ShowInfo)) do
+ begin
+  with AddState(TvcmOperationStateForRegister_C('Hide', st_user_WarnRedaction_ShowInfo_Hide))^ do
+  begin
+   rCaption := 'Скрыть текст предупреждения';
+  end;
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_WarnRedaction, op_OpenActualRedaction, en_capWarnRedaction, op_capOpenActualRedaction, False, True, opcode_WarnRedaction_OpenActualRedaction)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_WarnTimeMachine, op_ShowInfo, en_capWarnTimeMachine, op_capShowInfo, False, False, opcode_WarnTimeMachine_ShowInfo)) do
+ begin
+  with AddState(TvcmOperationStateForRegister_C('Hide', st_user_WarnTimeMachine_ShowInfo_Hide))^ do
+  begin
+   rCaption := 'Скрыть текст предупреждения';
+  end;
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_WarnTimeMachine, op_TimeMachineOnOffNew, en_capWarnTimeMachine, op_capTimeMachineOnOffNew, False, False, opcode_WarnTimeMachine_TimeMachineOnOffNew)) do
+ begin
+  with AddState(TvcmOperationStateForRegister_C('MachineOn', st_user_WarnTimeMachine_TimeMachineOnOffNew_MachineOn))^ do
+  begin
+   rCaption := 'Включить Машину времени';
+   rImageIndex := 111;
+  end;
+  with AddState(TvcmOperationStateForRegister_C('MachineOff', st_user_WarnTimeMachine_TimeMachineOnOffNew_MachineOff))^ do
+  begin
+   rCaption := 'Выключить Машину времени/Изменить дату';
+  end;
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_WarnTimeMachine, op_ShowInfo, en_capWarnTimeMachine, op_capShowInfo, False, False, opcode_WarnTimeMachine_ShowInfo)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_WarnTimeMachine, op_TimeMachineOnOffNew, en_capWarnTimeMachine, op_capTimeMachineOnOffNew, False, False, opcode_WarnTimeMachine_TimeMachineOnOffNew)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_WarnJuror, op_ShowInfo, en_capWarnJuror, op_capShowInfo, False, True, opcode_WarnJuror_ShowInfo)) do
+ begin
+  with AddState(TvcmOperationStateForRegister_C('Hide', st_user_WarnJuror_ShowInfo_Hide))^ do
+  begin
+   rCaption := 'Скрыть текст предупреждения';
+  end;
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_WarnJuror, op_ShowInfo, en_capWarnJuror, op_capShowInfo, False, True, opcode_WarnJuror_ShowInfo)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_BookmarkIcon, op_Delete, en_capBookmarkIcon, op_capDelete, False, False, opcode_BookmarkIcon_Delete)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_BookmarkIcon, op_Edit, en_capBookmarkIcon, op_capEdit, False, False, opcode_BookmarkIcon_Edit)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_UserCommentIcon, op_HideShow, en_capUserCommentIcon, op_capHideShow, False, False, opcode_UserCommentIcon_HideShow)) do
+ begin
+  with AddState(TvcmOperationStateForRegister_C('GarantHidden', st_user_UserCommentIcon_HideShow_GarantHidden))^ do
+  begin
+   rCaption := 'Показать комментарии ГАРАНТа';
+   rImageIndex := 207;
+  end;
+  with AddState(TvcmOperationStateForRegister_C('GarantShown', st_user_UserCommentIcon_HideShow_GarantShown))^ do
+  begin
+   rCaption := 'Скрыть комментарии ГАРАНТа';
+   rImageIndex := 207;
+  end;
+  with AddState(TvcmOperationStateForRegister_C('UserShown', st_user_UserCommentIcon_HideShow_UserShown))^ do
+  begin
+   rCaption := 'Скрыть мои комментарии';
+   rImageIndex := 50;
+  end;
+  with AddState(TvcmOperationStateForRegister_C('UserHidden', st_user_UserCommentIcon_HideShow_UserHidden))^ do
+  begin
+   rCaption := 'Показать мои комментарии';
+   rImageIndex := 50;
+  end;
+  with AddState(TvcmOperationStateForRegister_C('Invisible', st_user_UserCommentIcon_HideShow_Invisible))^ do
+  begin
+   rVisible := vcm_osfFalse;
+  end;
+  with AddState(TvcmOperationStateForRegister_C('VersionShown', st_user_UserCommentIcon_HideShow_VersionShown))^ do
+  begin
+   rCaption := 'Выключить информацию об изменениях документа';
+   rImageIndex := 206;
+  end;
+  with AddState(TvcmOperationStateForRegister_C('VersionHidden', st_user_UserCommentIcon_HideShow_VersionHidden))^ do
+  begin
+   rCaption := 'Включить информацию об изменениях документа';
+   rImageIndex := 206;
+  end;
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_UserCommentIcon, op_Delete, en_capUserCommentIcon, op_capDelete, False, False, opcode_UserCommentIcon_Delete)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_UserCommentIcon, op_HideShow, en_capUserCommentIcon, op_capHideShow, False, False, opcode_UserCommentIcon_HideShow)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_UserComment, op_Delete, en_capUserComment, op_capDelete, False, False, opcode_UserComment_Delete)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Text, op_AddUserComment, en_capText, op_capAddUserComment, False, False, opcode_Text_AddUserComment)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Text, op_DeleteBookmark, en_capText, op_capDeleteBookmark, False, False, opcode_Text_DeleteBookmark)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Text, op_EditBookmark, en_capText, op_capEditBookmark, False, False, opcode_Text_EditBookmark)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Text, op_AddBookmark, en_capText, op_capAddBookmark, False, False, opcode_Text_AddBookmark)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Text, op_OpenNewWindow, en_capText, op_capOpenNewWindow, False, False, opcode_Text_OpenNewWindow)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Warning, op_TimeMachineOffAndReset, en_capWarning, op_capTimeMachineOffAndReset, False, False, opcode_Warning_TimeMachineOffAndReset)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Warning, op_ActualRedaction, en_capWarning, op_capActualRedaction, False, False, opcode_Warning_ActualRedaction)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Warning, op_TimeMachineOff, en_capWarning, op_capTimeMachineOff, False, False, opcode_Warning_TimeMachineOff)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Reminder, op_RemWarnJuror, en_capReminder, op_capRemWarnJuror, False, False, opcode_Reminder_RemWarnJuror)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Reminder, op_RemWarnTimeMachineOn, en_capReminder, op_capRemWarnTimeMachineOn, False, False, opcode_Reminder_RemWarnTimeMachineOn)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Reminder, op_RemWarnRedaction, en_capReminder, op_capRemWarnRedaction, False, False, opcode_Reminder_RemWarnRedaction)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Reminder, op_RemWarnOnControl, en_capReminder, op_capRemWarnOnControl, False, False, opcode_Reminder_RemWarnOnControl)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Reminder, op_RemWarnIsAbolished, en_capReminder, op_capRemWarnIsAbolished, False, False, opcode_Reminder_RemWarnIsAbolished)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Reminder, op_RemWarnTimeMachineException, en_capReminder, op_capRemWarnTimeMachineException, False, False, opcode_Reminder_RemWarnTimeMachineException)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Reminder, op_RemWarnPreActive, en_capReminder, op_capRemWarnPreActive, False, False, opcode_Reminder_RemWarnPreActive)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Reminder, op_RemWarnTimeMachineWarning, en_capReminder, op_capRemWarnTimeMachineWarning, False, False, opcode_Reminder_RemWarnTimeMachineWarning)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Reminder, op_ViewInactualDocument, en_capReminder, op_capViewInactualDocument, False, False, opcode_Reminder_ViewInactualDocument)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_SynchroView, op_ShowText, en_capSynchroView, op_capShowText, False, True, opcode_SynchroView_ShowText)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_SynchroView, op_Annotation, en_capSynchroView, op_capAnnotation, False, False, opcode_SynchroView_Annotation)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_SynchroView, op_ShowAttributes, en_capSynchroView, op_capShowAttributes, False, True, opcode_SynchroView_ShowAttributes)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_SynchroView, op_ShowRelated, en_capSynchroView, op_capShowRelated, False, True, opcode_SynchroView_ShowRelated)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_SynchroView, op_ShowUserCRList1, en_capSynchroView, op_capShowUserCRList1, False, True, opcode_SynchroView_ShowUserCRList1)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_SynchroView, op_ShowUserCRList2, en_capSynchroView, op_capShowUserCRList2, False, True, opcode_SynchroView_ShowUserCRList2)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_SynchroView, op_SimilarDocuments, en_capSynchroView, op_capSimilarDocuments, False, False, opcode_SynchroView_SimilarDocuments)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Edition, op_OpenNewWindow, en_capEdition, op_capOpenNewWindow, False, False, opcode_Edition_OpenNewWindow)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Edition, op_OpenNewTab, en_capEdition, op_capOpenNewTab, False, False, opcode_Edition_OpenNewTab)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Attribute, op_Copy, en_capAttribute, op_capCopy, False, False, opcode_Attribute_Copy)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Picture, op_Resize, en_capPicture, op_capResize, False, False, opcode_Picture_Resize)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Picture, op_Enlarge, en_capPicture, op_capEnlarge, False, False, opcode_Picture_Enlarge)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Picture, op_Shrink, en_capPicture, op_capShrink, False, False, opcode_Picture_Shrink)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Picture, op_ActualSize, en_capPicture, op_capActualSize, False, False, opcode_Picture_ActualSize)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Picture, op_FitInWIndow, en_capPicture, op_capFitInWIndow, False, False, opcode_Picture_FitInWIndow)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_ContentsValidator, op_IsDocumentAdornmentsChanged, en_capContentsValidator, op_capIsDocumentAdornmentsChanged, True, False, opcode_ContentsValidator_IsDocumentAdornmentsChanged)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_DocumentSubPanel, op_UpdateSubPanel, en_capDocumentSubPanel, op_capUpdateSubPanel, True, False, opcode_DocumentSubPanel_UpdateSubPanel)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Editions, op_DoCompareEditions, en_capEditions, op_capDoCompareEditions, False, False, opcode_Editions_DoCompareEditions)) do
+ begin
+  SetImageIndex(200);
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Editions, op_BuildChangedFragments, en_capEditions, op_capBuildChangedFragments, False, False, opcode_Editions_BuildChangedFragments)) do
+ begin
+  SetImageIndex(205);
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_DocumentBlockBookmarks, op_AddBookmark, en_capDocumentBlockBookmarks, op_capAddBookmark, False, False, opcode_DocumentBlockBookmarks_AddBookmark)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_IntranetSourcePoint, op_GoToIntranet, en_capIntranetSourcePoint, op_capGoToIntranet, False, False, opcode_IntranetSourcePoint_GoToIntranet)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Picture, op_Open, en_capPicture, op_capOpen, False, False, opcode_Picture_Open)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Picture, op_OpenNewWindow, en_capPicture, op_capOpenNewWindow, False, False, opcode_Picture_OpenNewWindow)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Picture, op_OpenNewTab, en_capPicture, op_capOpenNewTab, False, False, opcode_Picture_OpenNewTab)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Document, op_ChangesButton, en_capDocument, op_capChangesButton, False, False, opcode_Document_ChangesButton)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_SubsPanel, op_CopySubNumber, en_capSubsPanel, op_capCopySubNumber, False, False, opcode_SubsPanel_CopySubNumber)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_BaseSearchPresentationHolder, op_GetBaseSearchPresentation, en_capBaseSearchPresentationHolder, op_capGetBaseSearchPresentation, True, False, opcode_BaseSearchPresentationHolder_GetBaseSearchPresentation)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Text, op_SelectWord, en_capText, op_capSelectWord, False, False, opcode_Text_SelectWord)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Text, op_SelectPara, en_capText, op_capSelectPara, False, False, opcode_Text_SelectPara)) do
+ begin
+ end;
+
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

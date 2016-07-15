@@ -41,18 +41,6 @@ uses
 ;
 
 type
- // TreeAttributeSelect
-
- // SelectedAttributes
-
- // AttributeSelect
-
- // SaveLoad
-
- // Filters
-
- // TreeAttributeFirstLevel
-
  Tfs_SituationSearch = {final} class({$If NOT Defined(NoVCM)}
  TvcmFormSetFactory
  {$IfEnd} // NOT Defined(NoVCM)
@@ -64,34 +52,34 @@ type
    class function GetInstance: TvcmFormSetFactoryPrim; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   function SaveLoad_Parent_slqtKW_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+   function SaveLoadParentSlqtKWNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
     out aNew: IvcmFormDataSource;
     aSubUserType: TvcmUserType): Boolean;
     {* Обработчик OnNeedMakeForm для SaveLoad }
-   function AttributeSelect_Parent_utSingleSearch_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+   function AttributeSelectParentUtSingleSearchNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
     out aNew: IvcmFormDataSource;
     aSubUserType: TvcmUserType): Boolean;
     {* Обработчик OnNeedMakeForm для AttributeSelect }
-   function TreeAttributeSelect_Parent_astNone_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+   function TreeAttributeSelectParentAstNoneNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
     out aNew: IvcmFormDataSource;
     aSubUserType: TvcmUserType): Boolean;
     {* Обработчик OnNeedMakeForm для TreeAttributeSelect }
-   function SelectedAttributes_Child_utSelectedAttributes_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+   function SelectedAttributesChildUtSelectedAttributesNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
     out aNew: IvcmFormDataSource;
     aSubUserType: TvcmUserType): Boolean;
     {* Обработчик OnNeedMakeForm для SelectedAttributes }
-   function Filters_Navigator_utFilters_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+   function FiltersNavigatorUtFiltersNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
     out aNew: IvcmFormDataSource;
     aSubUserType: TvcmUserType): Boolean;
     {* Обработчик OnNeedMakeForm для Filters }
-   function TreeAttributeFirstLevel_Navigator_flSituation_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+   function TreeAttributeFirstLevelNavigatorFlSituationNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
     out aNew: IvcmFormDataSource;
     aSubUserType: TvcmUserType): Boolean;
     {* Обработчик OnNeedMakeForm для TreeAttributeFirstLevel }
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: Tfs_SituationSearch;
     {* Метод получения экземпляра синглетона Tfs_SituationSearch }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//Tfs_SituationSearch
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -101,7 +89,6 @@ implementation
 uses
  l3ImplUses
  , l3StringIDEx
- , l3MessageID
  , SysUtils
  , l3Base
 ;
@@ -121,83 +108,113 @@ begin
  l3Free(g_Tfs_SituationSearch);
 end;//Tfs_SituationSearchFree
 
-function Tfs_SituationSearch.SaveLoad_Parent_slqtKW_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+function Tfs_SituationSearch.SaveLoadParentSlqtKWNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
  out aNew: IvcmFormDataSource;
  aSubUserType: TvcmUserType): Boolean;
  {* Обработчик OnNeedMakeForm для SaveLoad }
-//#UC START# *7A6AB8EF02DB_4AA7A4D603C1_var*
-//#UC END# *7A6AB8EF02DB_4AA7A4D603C1_var*
+var
+ l_UseCase : IsdsSituation;
 begin
-//#UC START# *7A6AB8EF02DB_4AA7A4D603C1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *7A6AB8EF02DB_4AA7A4D603C1_impl*
-end;//Tfs_SituationSearch.SaveLoad_Parent_slqtKW_NeedMakeForm
+ if Supports(aDataSource, IsdsSituation, l_UseCase) then
+  try
+  //#UC START# *4D80CC1002D6NeedMake_impl*
+   aNew := l_UseCase.dsSaveLoad;
+  //#UC END# *4D80CC1002D6NeedMake_impl*
+  finally
+   l_UseCase := nil;
+  end;//try..finally
+ Result := (aNew <> nil);
+end;//Tfs_SituationSearch.SaveLoadParentSlqtKWNeedMakeForm
 
-function Tfs_SituationSearch.AttributeSelect_Parent_utSingleSearch_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+function Tfs_SituationSearch.AttributeSelectParentUtSingleSearchNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
  out aNew: IvcmFormDataSource;
  aSubUserType: TvcmUserType): Boolean;
  {* Обработчик OnNeedMakeForm для AttributeSelect }
-//#UC START# *2A5749137FD5_4AA7A4D603C1_var*
-//#UC END# *2A5749137FD5_4AA7A4D603C1_var*
+var
+ l_UseCase : IsdsSituation;
 begin
-//#UC START# *2A5749137FD5_4AA7A4D603C1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *2A5749137FD5_4AA7A4D603C1_impl*
-end;//Tfs_SituationSearch.AttributeSelect_Parent_utSingleSearch_NeedMakeForm
+ if Supports(aDataSource, IsdsSituation, l_UseCase) then
+  try
+  //#UC START# *4D80CC820003NeedMake_impl*
+   aNew := l_UseCase.dsAttributeSelect;
+  //#UC END# *4D80CC820003NeedMake_impl*
+  finally
+   l_UseCase := nil;
+  end;//try..finally
+ Result := (aNew <> nil);
+end;//Tfs_SituationSearch.AttributeSelectParentUtSingleSearchNeedMakeForm
 
-function Tfs_SituationSearch.TreeAttributeSelect_Parent_astNone_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+function Tfs_SituationSearch.TreeAttributeSelectParentAstNoneNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
  out aNew: IvcmFormDataSource;
  aSubUserType: TvcmUserType): Boolean;
  {* Обработчик OnNeedMakeForm для TreeAttributeSelect }
-//#UC START# *48E96E731318_4AA7A4D603C1_var*
-//#UC END# *48E96E731318_4AA7A4D603C1_var*
+var
+ l_UseCase : IsdsSituation;
 begin
-//#UC START# *48E96E731318_4AA7A4D603C1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *48E96E731318_4AA7A4D603C1_impl*
-end;//Tfs_SituationSearch.TreeAttributeSelect_Parent_astNone_NeedMakeForm
+ if Supports(aDataSource, IsdsSituation, l_UseCase) then
+  try
+  //#UC START# *4D80CCDD0117NeedMake_impl*
+   aNew := l_UseCase.dsTreeAttributeSelect;
+  //#UC END# *4D80CCDD0117NeedMake_impl*
+  finally
+   l_UseCase := nil;
+  end;//try..finally
+ Result := (aNew <> nil);
+end;//Tfs_SituationSearch.TreeAttributeSelectParentAstNoneNeedMakeForm
 
-function Tfs_SituationSearch.SelectedAttributes_Child_utSelectedAttributes_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+function Tfs_SituationSearch.SelectedAttributesChildUtSelectedAttributesNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
  out aNew: IvcmFormDataSource;
  aSubUserType: TvcmUserType): Boolean;
  {* Обработчик OnNeedMakeForm для SelectedAttributes }
-//#UC START# *F8D574D4A3A6_4AA7A4D603C1_var*
-//#UC END# *F8D574D4A3A6_4AA7A4D603C1_var*
+var
+ l_UseCase : IsdsSituation;
 begin
-//#UC START# *F8D574D4A3A6_4AA7A4D603C1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *F8D574D4A3A6_4AA7A4D603C1_impl*
-end;//Tfs_SituationSearch.SelectedAttributes_Child_utSelectedAttributes_NeedMakeForm
+ if Supports(aDataSource, IsdsSituation, l_UseCase) then
+  try
+  //#UC START# *4D80CCF40025NeedMake_impl*
+   aNew := l_UseCase.dsSelectedAttributes;
+  //#UC END# *4D80CCF40025NeedMake_impl*
+  finally
+   l_UseCase := nil;
+  end;//try..finally
+ Result := (aNew <> nil);
+end;//Tfs_SituationSearch.SelectedAttributesChildUtSelectedAttributesNeedMakeForm
 
-function Tfs_SituationSearch.Filters_Navigator_utFilters_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+function Tfs_SituationSearch.FiltersNavigatorUtFiltersNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
  out aNew: IvcmFormDataSource;
  aSubUserType: TvcmUserType): Boolean;
  {* Обработчик OnNeedMakeForm для Filters }
-//#UC START# *11B9DE933AA8_4AA7A4D603C1_var*
-//#UC END# *11B9DE933AA8_4AA7A4D603C1_var*
+var
+ l_UseCase : IsdsSituation;
 begin
-//#UC START# *11B9DE933AA8_4AA7A4D603C1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *11B9DE933AA8_4AA7A4D603C1_impl*
-end;//Tfs_SituationSearch.Filters_Navigator_utFilters_NeedMakeForm
+ if Supports(aDataSource, IsdsSituation, l_UseCase) then
+  try
+  //#UC START# *4D80CC20008BNeedMake_impl*
+   aNew := l_UseCase.dsFilters;
+  //#UC END# *4D80CC20008BNeedMake_impl*
+  finally
+   l_UseCase := nil;
+  end;//try..finally
+ Result := (aNew <> nil);
+end;//Tfs_SituationSearch.FiltersNavigatorUtFiltersNeedMakeForm
 
-function Tfs_SituationSearch.TreeAttributeFirstLevel_Navigator_flSituation_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+function Tfs_SituationSearch.TreeAttributeFirstLevelNavigatorFlSituationNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
  out aNew: IvcmFormDataSource;
  aSubUserType: TvcmUserType): Boolean;
  {* Обработчик OnNeedMakeForm для TreeAttributeFirstLevel }
-//#UC START# *DCED9C04F161_4AA7A4D603C1_var*
-//#UC END# *DCED9C04F161_4AA7A4D603C1_var*
+var
+ l_UseCase : IsdsSituation;
 begin
-//#UC START# *DCED9C04F161_4AA7A4D603C1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *DCED9C04F161_4AA7A4D603C1_impl*
-end;//Tfs_SituationSearch.TreeAttributeFirstLevel_Navigator_flSituation_NeedMakeForm
-
-class function Tfs_SituationSearch.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_Tfs_SituationSearch <> nil;
-end;//Tfs_SituationSearch.Exists
+ if Supports(aDataSource, IsdsSituation, l_UseCase) then
+  try
+  //#UC START# *4D80CC2E03BCNeedMake_impl*
+   aNew := l_UseCase.dsTreeAttributeFirstLevel;
+  //#UC END# *4D80CC2E03BCNeedMake_impl*
+  finally
+   l_UseCase := nil;
+  end;//try..finally
+ Result := (aNew <> nil);
+end;//Tfs_SituationSearch.TreeAttributeFirstLevelNavigatorFlSituationNeedMakeForm
 
 class function Tfs_SituationSearch.Instance: Tfs_SituationSearch;
  {* Метод получения экземпляра синглетона Tfs_SituationSearch }
@@ -210,22 +227,53 @@ begin
  Result := g_Tfs_SituationSearch;
 end;//Tfs_SituationSearch.Instance
 
-procedure Tfs_SituationSearch.InitFields;
-//#UC START# *47A042E100E2_4AA7A4D603C1_var*
-//#UC END# *47A042E100E2_4AA7A4D603C1_var*
+class function Tfs_SituationSearch.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
-//#UC START# *47A042E100E2_4AA7A4D603C1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *47A042E100E2_4AA7A4D603C1_impl*
+ Result := g_Tfs_SituationSearch <> nil;
+end;//Tfs_SituationSearch.Exists
+
+procedure Tfs_SituationSearch.InitFields;
+begin
+ inherited;
+ with AddZone('SaveLoad', vcm_ztParent, fm_cfSaveLoad) do
+ begin
+  UserType := slqtKW;
+  with AddZone('AttributeSelect', vcm_ztParent, fm_cfAttributeSelect) do
+  begin
+   UserType := utSingleSearch;
+   with AddZone('TreeAttributeSelect', vcm_ztParent, fm_efTreeAttributeSelect) do
+   begin
+    UserType := astNone;
+    OnNeedMakeForm := TreeAttributeSelectParentAstNoneNeedMakeForm;
+   end;
+   with AddZone('SelectedAttributes', vcm_ztChild, fm_enSelectedAttributes) do
+   begin
+    UserType := utSelectedAttributes;
+    OnNeedMakeForm := SelectedAttributesChildUtSelectedAttributesNeedMakeForm;
+   end;
+   OnNeedMakeForm := AttributeSelectParentUtSingleSearchNeedMakeForm;
+  end;
+  OnNeedMakeForm := SaveLoadParentSlqtKWNeedMakeForm;
+ end;
+ with AddZone('Filters', vcm_ztNavigator, fm_enFilters) do
+ begin
+  UserType := utFilters;
+  OnNeedMakeForm := FiltersNavigatorUtFiltersNeedMakeForm;
+ end;
+ with AddZone('TreeAttributeFirstLevel', vcm_ztNavigator, fm_efTreeAttributeFirstLevel) do
+ begin
+  UserType := flSituation;
+  ActivateIfUpdate := wafAlways;
+  OnNeedMakeForm := TreeAttributeFirstLevelNavigatorFlSituationNeedMakeForm;
+ end;
+ Caption := str_fsSituationSearchCaption.AsCStr;
+ OwnerForm := 0;
 end;//Tfs_SituationSearch.InitFields
 
 class function Tfs_SituationSearch.GetInstance: TvcmFormSetFactoryPrim;
-//#UC START# *4FFE854A009B_4AA7A4D603C1_var*
-//#UC END# *4FFE854A009B_4AA7A4D603C1_var*
 begin
-//#UC START# *4FFE854A009B_4AA7A4D603C1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4FFE854A009B_4AA7A4D603C1_impl*
+ Result := Self.Instance;
 end;//Tfs_SituationSearch.GetInstance
 
 initialization

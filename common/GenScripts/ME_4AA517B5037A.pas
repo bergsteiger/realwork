@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_AdminAppRes;
+unit AdminAppRes;
  {* Оболочка Admin }
 
-// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\NOT_COMPLETED_AdminAppRes.pas"
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\AdminAppRes.pas"
 // Стереотип: "VCMApplication"
 // Элемент модели: "AdminApp" MUID: (4AA517B5037A)
 // Имя типа: "TAdminAppRes"
@@ -14,6 +14,10 @@ interface
 uses
  l3IntfUses
  , PrimF1Res
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , AdminInterfaces
  , l3StringIDEx
 ;
 
@@ -27,11 +31,10 @@ type
   {* Оболочка Admin }
   protected
    class procedure DoRun(var theSplash: IUnknown); override;
-   procedure Loaded; override;
+  public
+   class procedure OpenUserList(const aContainer: IvcmContainer);
+   class function ShowRenameGroupDialog(const aData: IbsEditGroupName): Integer;
  end;//TAdminAppRes
-
- TvcmApplicationRef = TAdminAppRes;
-  {* Ссылка на приложение для DesignTime редакторов }
 {$IfEnd} // Defined(Admin)
 
 implementation
@@ -41,16 +44,30 @@ uses
  l3ImplUses
  , moAdmin
  , nsStartupSupport
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
+ , Admin_Module
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
  , PrimAdminMain_Form
  , AdminMain_Form
  , evExtFormat
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4AA517B5037Aimpl_uses*
+ , Forms
+ //#UC END# *4AA517B5037Aimpl_uses*
 ;
+
+class procedure TAdminAppRes.OpenUserList(const aContainer: IvcmContainer);
+begin
+ TAdminModule.OpenUserList(aContainer);
+end;//TAdminAppRes.OpenUserList
+
+class function TAdminAppRes.ShowRenameGroupDialog(const aData: IbsEditGroupName): Integer;
+begin
+ Result := TAdminModule.ShowRenameGroupDialog(aData);
+end;//TAdminAppRes.ShowRenameGroupDialog
 
 class procedure TAdminAppRes.DoRun(var theSplash: IUnknown);
 //#UC START# *4AA7E4DC0047_4AA517B5037A_var*
@@ -64,18 +81,9 @@ begin
 //#UC END# *4AA7E4DC0047_4AA517B5037A_impl*
 end;//TAdminAppRes.DoRun
 
-procedure TAdminAppRes.Loaded;
-begin
- inherited;
-end;//TAdminAppRes.Loaded
-
 initialization
  str_AdminTitle.Init;
  {* Инициализация str_AdminTitle }
-{$If NOT Defined(NoScripts)}
- TtfwClassRef.Register(TAdminAppRes);
- {* Регистрация AdminApp }
-{$IfEnd} // NOT Defined(NoScripts)
 {$IfEnd} // Defined(Admin)
 
 end.

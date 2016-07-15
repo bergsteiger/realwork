@@ -1,39 +1,51 @@
 unit moCommonPost;
+ {* Файл }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/moCommonPost.pas"
-// Начат: 15.09.2009 19:19
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMUseCaseRealization::Class>> F1 Common For Shell And Monitoring::PostingOrder::CommonPost
-//
-// Файл
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\moCommonPost.pas"
+// Стереотип: "VCMUseCaseRealization"
+// Элемент модели: "CommonPost" MUID: (4AA919DA010C)
+// Имя типа: "Tmo_CommonPost"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin)}
+{$If NOT Defined(Admin)}
 uses
-  CommonPost_Module
-  ;
-{$IfEnd} //not Admin
+ l3IntfUses
+ , CommonPost_Module
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin)}
 type
-Tmo_CommonPost = {final formspack} class(TCommonPostModule)
- {* Файл }
-end;//Tmo_CommonPost
-{$IfEnd} //not Admin
+ Tmo_CommonPost = {final} class(TCommonPostModule)
+  {* Файл }
+ end;//Tmo_CommonPost
+
+var g_module_opcode_CommonPost_SavePostList: TvcmMOPID = (rMoID : -1; rOpID : -1);
+{$IfEnd} // NOT Defined(Admin)
 
 implementation
+
+{$If NOT Defined(Admin)}
+uses
+ l3ImplUses
+ {$If NOT Defined(NoVCM)}
+ , vcmModulesForRegister
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmModuleOperationsForRegister
+ {$IfEnd} // NOT Defined(NoVCM)
+;
+
+initialization
+ TvcmModulesForRegister.AddModule(TvcmModuleForRegister_C(Tmo_CommonPost, 'Файл'));
+ TvcmModuleOperationsForRegister.AddOperation(TvcmModuleOperationForRegister_C(Tmo_CommonPost, 'SavePostList', 'Экспортировать все индивидуальные ленты в файл', False, g_module_opcode_CommonPost_SavePostList));
+{$IfEnd} // NOT Defined(Admin)
 
 end.

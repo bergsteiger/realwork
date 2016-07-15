@@ -32,10 +32,6 @@ uses
 ;
 
 type
- // QueryCard
-
- // SaveLoad
-
  Tfs_SendConsultation = {final} class({$If NOT Defined(NoVCM)}
  TvcmFormSetFactory
  {$IfEnd} // NOT Defined(NoVCM)
@@ -46,18 +42,18 @@ type
    class function GetInstance: TvcmFormSetFactoryPrim; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   function SaveLoad_Parent_slqtConsult_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+   function SaveLoadParentSlqtConsultNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
     out aNew: IvcmFormDataSource;
     aSubUserType: TvcmUserType): Boolean;
     {* Обработчик OnNeedMakeForm для SaveLoad }
-   function QueryCard_Parent_utqcSendConsultation_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+   function QueryCardParentUtqcSendConsultationNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
     out aNew: IvcmFormDataSource;
     aSubUserType: TvcmUserType): Boolean;
     {* Обработчик OnNeedMakeForm для QueryCard }
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: Tfs_SendConsultation;
     {* Метод получения экземпляра синглетона Tfs_SendConsultation }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//Tfs_SendConsultation
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -67,7 +63,6 @@ implementation
 uses
  l3ImplUses
  , l3StringIDEx
- , l3MessageID
  , SysUtils
  , l3Base
 ;
@@ -90,35 +85,41 @@ begin
  l3Free(g_Tfs_SendConsultation);
 end;//Tfs_SendConsultationFree
 
-function Tfs_SendConsultation.SaveLoad_Parent_slqtConsult_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+function Tfs_SendConsultation.SaveLoadParentSlqtConsultNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
  out aNew: IvcmFormDataSource;
  aSubUserType: TvcmUserType): Boolean;
  {* Обработчик OnNeedMakeForm для SaveLoad }
-//#UC START# *CAD3716E6F7B_4AA53D3A002B_var*
-//#UC END# *CAD3716E6F7B_4AA53D3A002B_var*
+var
+ l_UseCase : IsdsQuery;
 begin
-//#UC START# *CAD3716E6F7B_4AA53D3A002B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *CAD3716E6F7B_4AA53D3A002B_impl*
-end;//Tfs_SendConsultation.SaveLoad_Parent_slqtConsult_NeedMakeForm
+ if Supports(aDataSource, IsdsQuery, l_UseCase) then
+  try
+  //#UC START# *4FFAE62E0209NeedMake_impl*
+   aNew := l_UseCase.dsSaveLoad;
+  //#UC END# *4FFAE62E0209NeedMake_impl*
+  finally
+   l_UseCase := nil;
+  end;//try..finally
+ Result := (aNew <> nil);
+end;//Tfs_SendConsultation.SaveLoadParentSlqtConsultNeedMakeForm
 
-function Tfs_SendConsultation.QueryCard_Parent_utqcSendConsultation_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+function Tfs_SendConsultation.QueryCardParentUtqcSendConsultationNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
  out aNew: IvcmFormDataSource;
  aSubUserType: TvcmUserType): Boolean;
  {* Обработчик OnNeedMakeForm для QueryCard }
-//#UC START# *0BD7FE614FE1_4AA53D3A002B_var*
-//#UC END# *0BD7FE614FE1_4AA53D3A002B_var*
+var
+ l_UseCase : IsdsQuery;
 begin
-//#UC START# *0BD7FE614FE1_4AA53D3A002B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *0BD7FE614FE1_4AA53D3A002B_impl*
-end;//Tfs_SendConsultation.QueryCard_Parent_utqcSendConsultation_NeedMakeForm
-
-class function Tfs_SendConsultation.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_Tfs_SendConsultation <> nil;
-end;//Tfs_SendConsultation.Exists
+ if Supports(aDataSource, IsdsQuery, l_UseCase) then
+  try
+  //#UC START# *4FFAE7500345NeedMake_impl*
+   aNew := l_UseCase.dsQuery;
+  //#UC END# *4FFAE7500345NeedMake_impl*
+  finally
+   l_UseCase := nil;
+  end;//try..finally
+ Result := (aNew <> nil);
+end;//Tfs_SendConsultation.QueryCardParentUtqcSendConsultationNeedMakeForm
 
 class function Tfs_SendConsultation.Instance: Tfs_SendConsultation;
  {* Метод получения экземпляра синглетона Tfs_SendConsultation }
@@ -131,22 +132,33 @@ begin
  Result := g_Tfs_SendConsultation;
 end;//Tfs_SendConsultation.Instance
 
-procedure Tfs_SendConsultation.InitFields;
-//#UC START# *47A042E100E2_4AA53D3A002B_var*
-//#UC END# *47A042E100E2_4AA53D3A002B_var*
+class function Tfs_SendConsultation.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
-//#UC START# *47A042E100E2_4AA53D3A002B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *47A042E100E2_4AA53D3A002B_impl*
+ Result := g_Tfs_SendConsultation <> nil;
+end;//Tfs_SendConsultation.Exists
+
+procedure Tfs_SendConsultation.InitFields;
+begin
+ inherited;
+ with AddZone('SaveLoad', vcm_ztParent, fm_cfSaveLoad) do
+ begin
+  UserType := slqtConsult;
+  with AddZone('QueryCard', vcm_ztParent, fm_enQueryCard) do
+  begin
+   Caption := str_fszQueryCard_Parent_utqcSendConsultationCaption.AsCStr;
+   UserType := utqcSendConsultation;
+   OnNeedMakeForm := QueryCardParentUtqcSendConsultationNeedMakeForm;
+  end;
+  OnNeedMakeForm := SaveLoadParentSlqtConsultNeedMakeForm;
+ end;
+ Caption := str_fsSendConsultationCaption.AsCStr;
+ OwnerForm := 0;
 end;//Tfs_SendConsultation.InitFields
 
 class function Tfs_SendConsultation.GetInstance: TvcmFormSetFactoryPrim;
-//#UC START# *4FFE854A009B_4AA53D3A002B_var*
-//#UC END# *4FFE854A009B_4AA53D3A002B_var*
 begin
-//#UC START# *4FFE854A009B_4AA53D3A002B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4FFE854A009B_4AA53D3A002B_impl*
+ Result := Self.Instance;
 end;//Tfs_SendConsultation.GetInstance
 
 initialization

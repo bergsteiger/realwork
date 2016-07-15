@@ -65,7 +65,6 @@ uses
  , BaseTypesUnit
 ;
 
-{$If NOT Defined(NoVCM)}
 type _Instance_R_ = TsdsCompareEditionsState;
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\vcmData.imp.pas}
@@ -168,6 +167,7 @@ begin
 //#UC END# *47EA4E9002C6_4B69588202EA_impl*
 end;//TsdsCompareEditionsState.FinishDataUpdate
 
+{$If NOT Defined(NoVCM)}
 procedure TsdsCompareEditionsState.AssignData(const aData: _IvcmRealData_);
 //#UC START# *4B16B8CF0307_4B69588202EA_var*
 //#UC END# *4B16B8CF0307_4B69588202EA_var*
@@ -180,13 +180,13 @@ begin
  f_Compared := true;
 //#UC END# *4B16B8CF0307_4B69588202EA_impl*
 end;//TsdsCompareEditionsState.AssignData
+{$IfEnd} // NOT Defined(NoVCM)
 
 procedure TsdsCompareEditionsState.ClearFields;
 begin
  f_UseCaseData := nil;
  inherited;
 end;//TsdsCompareEditionsState.ClearFields
-{$IfEnd} // NOT Defined(NoVCM)
-
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+
 end.

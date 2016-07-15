@@ -692,17 +692,51 @@ const
  op_DropSelection = 'DropSelection';
  op_capDropSelection = '';
 
+var opcode_AttributeTree_ExternalCharPressed: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_AttributeTree_SetCurrent: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_AttributeTree_DropAllLogicSelection: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_AttributeTree_Invalidate: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_AttributeTree_DropLogicSelection: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_AttributeTree_LoadQuery: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_AttributeTree_SetOneLevelCurrent: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_AttributeTree_AddNodeIfEmpty: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_SearchParameters_IsQueryEmpty: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_SearchParameters_GetQuery: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_SearchParameters_IsQuerySaved: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_SearchParameters_SetQuery: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_SearchParameters_ClearQuery: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_AttributeTree_SaveToQuery: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Attribute_DefaultAction: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Attribute_LogicOr: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Attribute_LogicAnd: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Attribute_LogicNot: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Attribute_LogicOrShortcut: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Context_SetContext: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Context_SyncContextParams: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_AttributeTree_SetParent: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_AttributeTree_ExtSetRoot: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_AttributeTree_SetRoot: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_AttributeTree_ChangeRoot: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_ContextParams_ContextChanged: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_SelectedList_RefreshValues: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Folder_FindFirstSelected: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Result_ClearAll: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Selection_DropSelection: TvcmOPID = (rEnID : -1; rOpID : -1);
+
 implementation
 
 uses
  l3ImplUses
  , l3CProtoObject
+ {$If NOT Defined(NoVCM)}
+ , vcmOperationsForRegister
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmOperationStatesForRegister
+ {$IfEnd} // NOT Defined(NoVCM)
  , l3Base
  {$If NOT Defined(NoVCM)}
  , vcmBase
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
- , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
 ;
 
@@ -1019,7 +1053,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TAttributeTree_ExternalCharPressed_Params.Make(aChar));
-  aTarget.Operation(TdmStdRes.opcode_AttributeTree_ExternalCharPressed, l_Params);
+  aTarget.Operation(opcode_AttributeTree_ExternalCharPressed, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1040,7 +1074,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TAttributeTree_ExternalCharPressed_Params.Make(aChar));
-  aTarget.Operation(TdmStdRes.opcode_AttributeTree_ExternalCharPressed, l_Params);
+  aTarget.Operation(opcode_AttributeTree_ExternalCharPressed, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1117,7 +1151,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TAttributeTree_SetCurrent_Params.Make(aNode, aExpand));
-  aTarget.Operation(TdmStdRes.opcode_AttributeTree_SetCurrent, l_Params);
+  aTarget.Operation(opcode_AttributeTree_SetCurrent, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1139,7 +1173,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TAttributeTree_SetCurrent_Params.Make(aNode, aExpand));
-  aTarget.Operation(TdmStdRes.opcode_AttributeTree_SetCurrent, l_Params);
+  aTarget.Operation(opcode_AttributeTree_SetCurrent, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1221,7 +1255,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TAttributeTree_DropAllLogicSelection_Params.Make(aDropSelection, aNotifyMultipleChanges, SetToTop));
-  aTarget.Operation(TdmStdRes.opcode_AttributeTree_DropAllLogicSelection, l_Params);
+  aTarget.Operation(opcode_AttributeTree_DropAllLogicSelection, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1244,7 +1278,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TAttributeTree_DropAllLogicSelection_Params.Make(aDropSelection, aNotifyMultipleChanges, SetToTop));
-  aTarget.Operation(TdmStdRes.opcode_AttributeTree_DropAllLogicSelection, l_Params);
+  aTarget.Operation(opcode_AttributeTree_DropAllLogicSelection, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1310,7 +1344,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TAttributeTree_Invalidate_Params.Make(aUserType));
-  aTarget.Operation(TdmStdRes.opcode_AttributeTree_Invalidate, l_Params);
+  aTarget.Operation(opcode_AttributeTree_Invalidate, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1331,7 +1365,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TAttributeTree_Invalidate_Params.Make(aUserType));
-  aTarget.Operation(TdmStdRes.opcode_AttributeTree_Invalidate, l_Params);
+  aTarget.Operation(opcode_AttributeTree_Invalidate, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1399,7 +1433,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TAttributeTree_DropLogicSelection_Params.Make(aNode));
-  aTarget.Operation(TdmStdRes.opcode_AttributeTree_DropLogicSelection, l_Params);
+  aTarget.Operation(opcode_AttributeTree_DropLogicSelection, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1420,7 +1454,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TAttributeTree_DropLogicSelection_Params.Make(aNode));
-  aTarget.Operation(TdmStdRes.opcode_AttributeTree_DropLogicSelection, l_Params);
+  aTarget.Operation(opcode_AttributeTree_DropLogicSelection, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1488,7 +1522,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TAttributeTree_LoadQuery_Params.Make(aQuery));
-  aTarget.Operation(TdmStdRes.opcode_AttributeTree_LoadQuery, l_Params);
+  aTarget.Operation(opcode_AttributeTree_LoadQuery, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1509,7 +1543,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TAttributeTree_LoadQuery_Params.Make(aQuery));
-  aTarget.Operation(TdmStdRes.opcode_AttributeTree_LoadQuery, l_Params);
+  aTarget.Operation(opcode_AttributeTree_LoadQuery, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1577,7 +1611,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TAttributeTree_SetOneLevelCurrent_Params.Make(aNode));
-  aTarget.Operation(TdmStdRes.opcode_AttributeTree_SetOneLevelCurrent, l_Params);
+  aTarget.Operation(opcode_AttributeTree_SetOneLevelCurrent, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1598,7 +1632,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TAttributeTree_SetOneLevelCurrent_Params.Make(aNode));
-  aTarget.Operation(TdmStdRes.opcode_AttributeTree_SetOneLevelCurrent, l_Params);
+  aTarget.Operation(opcode_AttributeTree_SetOneLevelCurrent, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1636,7 +1670,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := vcmParams;
-  aTarget.Operation(TdmStdRes.opcode_AttributeTree_AddNodeIfEmpty, l_Params);
+  aTarget.Operation(opcode_AttributeTree_AddNodeIfEmpty, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1656,7 +1690,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := vcmParams;
-  aTarget.Operation(TdmStdRes.opcode_AttributeTree_AddNodeIfEmpty, l_Params);
+  aTarget.Operation(opcode_AttributeTree_AddNodeIfEmpty, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1714,7 +1748,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TSearchParameters_IsQueryEmpty_Params.Make);
-  aTarget.Operation(TdmStdRes.opcode_SearchParameters_IsQueryEmpty, l_Params);
+  aTarget.Operation(opcode_SearchParameters_IsQueryEmpty, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1734,7 +1768,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TSearchParameters_IsQueryEmpty_Params.Make);
-  aTarget.Operation(TdmStdRes.opcode_SearchParameters_IsQueryEmpty, l_Params);
+  aTarget.Operation(opcode_SearchParameters_IsQueryEmpty, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1810,7 +1844,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TSearchParameters_GetQuery_Params.Make(aIgnoreError));
-  aTarget.Operation(TdmStdRes.opcode_SearchParameters_GetQuery, l_Params);
+  aTarget.Operation(opcode_SearchParameters_GetQuery, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1831,7 +1865,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TSearchParameters_GetQuery_Params.Make(aIgnoreError));
-  aTarget.Operation(TdmStdRes.opcode_SearchParameters_GetQuery, l_Params);
+  aTarget.Operation(opcode_SearchParameters_GetQuery, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1891,7 +1925,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TSearchParameters_IsQuerySaved_Params.Make);
-  aTarget.Operation(TdmStdRes.opcode_SearchParameters_IsQuerySaved, l_Params);
+  aTarget.Operation(opcode_SearchParameters_IsQuerySaved, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1911,7 +1945,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TSearchParameters_IsQuerySaved_Params.Make);
-  aTarget.Operation(TdmStdRes.opcode_SearchParameters_IsQuerySaved, l_Params);
+  aTarget.Operation(opcode_SearchParameters_IsQuerySaved, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1977,7 +2011,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TSearchParameters_SetQuery_Params.Make(aQuery));
-  aTarget.Operation(TdmStdRes.opcode_SearchParameters_SetQuery, l_Params);
+  aTarget.Operation(opcode_SearchParameters_SetQuery, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1998,7 +2032,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TSearchParameters_SetQuery_Params.Make(aQuery));
-  aTarget.Operation(TdmStdRes.opcode_SearchParameters_SetQuery, l_Params);
+  aTarget.Operation(opcode_SearchParameters_SetQuery, l_Params);
   with l_Params do
   begin
    if Done then
@@ -2036,7 +2070,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := vcmParams;
-  aTarget.Operation(TdmStdRes.opcode_SearchParameters_ClearQuery, l_Params);
+  aTarget.Operation(opcode_SearchParameters_ClearQuery, l_Params);
   with l_Params do
   begin
    if Done then
@@ -2056,7 +2090,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := vcmParams;
-  aTarget.Operation(TdmStdRes.opcode_SearchParameters_ClearQuery, l_Params);
+  aTarget.Operation(opcode_SearchParameters_ClearQuery, l_Params);
   with l_Params do
   begin
    if Done then
@@ -2122,7 +2156,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TAttributeTree_SaveToQuery_Params.Make(aQuery));
-  aTarget.Operation(TdmStdRes.opcode_AttributeTree_SaveToQuery, l_Params);
+  aTarget.Operation(opcode_AttributeTree_SaveToQuery, l_Params);
   with l_Params do
   begin
    if Done then
@@ -2143,7 +2177,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TAttributeTree_SaveToQuery_Params.Make(aQuery));
-  aTarget.Operation(TdmStdRes.opcode_AttributeTree_SaveToQuery, l_Params);
+  aTarget.Operation(opcode_AttributeTree_SaveToQuery, l_Params);
   with l_Params do
   begin
    if Done then
@@ -2205,7 +2239,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TAttribute_DefaultAction_Params.Make(anIndex));
-  aTarget.Operation(TdmStdRes.opcode_Attribute_DefaultAction, l_Params);
+  aTarget.Operation(opcode_Attribute_DefaultAction, l_Params);
   with l_Params do
   begin
    if Done then
@@ -2226,7 +2260,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TAttribute_DefaultAction_Params.Make(anIndex));
-  aTarget.Operation(TdmStdRes.opcode_Attribute_DefaultAction, l_Params);
+  aTarget.Operation(opcode_Attribute_DefaultAction, l_Params);
   with l_Params do
   begin
    if Done then
@@ -2294,7 +2328,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TContext_SetContext_Params.Make(aState));
-  aTarget.Operation(TdmStdRes.opcode_Context_SetContext, l_Params);
+  aTarget.Operation(opcode_Context_SetContext, l_Params);
   with l_Params do
   begin
    if Done then
@@ -2315,7 +2349,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TContext_SetContext_Params.Make(aState));
-  aTarget.Operation(TdmStdRes.opcode_Context_SetContext, l_Params);
+  aTarget.Operation(opcode_Context_SetContext, l_Params);
   with l_Params do
   begin
    if Done then
@@ -2377,7 +2411,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TContext_SyncContextParams_Params.Make(aAdditionalFilter));
-  aTarget.Operation(TdmStdRes.opcode_Context_SyncContextParams, l_Params);
+  aTarget.Operation(opcode_Context_SyncContextParams, l_Params);
   with l_Params do
   begin
    if Done then
@@ -2398,7 +2432,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TContext_SyncContextParams_Params.Make(aAdditionalFilter));
-  aTarget.Operation(TdmStdRes.opcode_Context_SyncContextParams, l_Params);
+  aTarget.Operation(opcode_Context_SyncContextParams, l_Params);
   with l_Params do
   begin
    if Done then
@@ -2466,7 +2500,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TAttributeTree_SetParent_Params.Make(aParent));
-  aTarget.Operation(TdmStdRes.opcode_AttributeTree_SetParent, l_Params);
+  aTarget.Operation(opcode_AttributeTree_SetParent, l_Params);
   with l_Params do
   begin
    if Done then
@@ -2487,7 +2521,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TAttributeTree_SetParent_Params.Make(aParent));
-  aTarget.Operation(TdmStdRes.opcode_AttributeTree_SetParent, l_Params);
+  aTarget.Operation(opcode_AttributeTree_SetParent, l_Params);
   with l_Params do
   begin
    if Done then
@@ -2555,7 +2589,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TAttributeTree_ExtSetRoot_Params.Make(aRoot));
-  aTarget.Operation(TdmStdRes.opcode_AttributeTree_ExtSetRoot, l_Params);
+  aTarget.Operation(opcode_AttributeTree_ExtSetRoot, l_Params);
   with l_Params do
   begin
    if Done then
@@ -2576,7 +2610,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TAttributeTree_ExtSetRoot_Params.Make(aRoot));
-  aTarget.Operation(TdmStdRes.opcode_AttributeTree_ExtSetRoot, l_Params);
+  aTarget.Operation(opcode_AttributeTree_ExtSetRoot, l_Params);
   with l_Params do
   begin
    if Done then
@@ -2644,7 +2678,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TAttributeTree_SetRoot_Params.Make(aTag));
-  aTarget.Operation(TdmStdRes.opcode_AttributeTree_SetRoot, l_Params);
+  aTarget.Operation(opcode_AttributeTree_SetRoot, l_Params);
   with l_Params do
   begin
    if Done then
@@ -2665,7 +2699,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TAttributeTree_SetRoot_Params.Make(aTag));
-  aTarget.Operation(TdmStdRes.opcode_AttributeTree_SetRoot, l_Params);
+  aTarget.Operation(opcode_AttributeTree_SetRoot, l_Params);
   with l_Params do
   begin
    if Done then
@@ -2753,7 +2787,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TAttributeTree_ChangeRoot_Params.Make(aTag, aRoot, aCurrent));
-  aTarget.Operation(TdmStdRes.opcode_AttributeTree_ChangeRoot, l_Params);
+  aTarget.Operation(opcode_AttributeTree_ChangeRoot, l_Params);
   with l_Params do
   begin
    if Done then
@@ -2776,7 +2810,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TAttributeTree_ChangeRoot_Params.Make(aTag, aRoot, aCurrent));
-  aTarget.Operation(TdmStdRes.opcode_AttributeTree_ChangeRoot, l_Params);
+  aTarget.Operation(opcode_AttributeTree_ChangeRoot, l_Params);
   with l_Params do
   begin
    if Done then
@@ -2858,7 +2892,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TContextParams_ContextChanged_Params.Make(aContextState, aContextTarget));
-  aTarget.Operation(TdmStdRes.opcode_ContextParams_ContextChanged, l_Params);
+  aTarget.Operation(opcode_ContextParams_ContextChanged, l_Params);
   with l_Params do
   begin
    if Done then
@@ -2880,7 +2914,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TContextParams_ContextChanged_Params.Make(aContextState, aContextTarget));
-  aTarget.Operation(TdmStdRes.opcode_ContextParams_ContextChanged, l_Params);
+  aTarget.Operation(opcode_ContextParams_ContextChanged, l_Params);
   with l_Params do
   begin
    if Done then
@@ -2950,7 +2984,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TSelectedList_RefreshValues_Params.Make(aData));
-  aTarget.Operation(TdmStdRes.opcode_SelectedList_RefreshValues, l_Params);
+  aTarget.Operation(opcode_SelectedList_RefreshValues, l_Params);
   with l_Params do
   begin
    if Done then
@@ -2971,7 +3005,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TSelectedList_RefreshValues_Params.Make(aData));
-  aTarget.Operation(TdmStdRes.opcode_SelectedList_RefreshValues, l_Params);
+  aTarget.Operation(opcode_SelectedList_RefreshValues, l_Params);
   with l_Params do
   begin
    if Done then
@@ -2999,5 +3033,98 @@ begin
  if (aTarget <> nil) then
   Result := Call(aTarget.AsForm, aData);
 end;//Op_SelectedList_RefreshValues.Call
+
+initialization
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_AttributeTree, op_ExternalCharPressed, en_capAttributeTree, op_capExternalCharPressed, True, False, opcode_AttributeTree_ExternalCharPressed)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_AttributeTree, op_SetCurrent, en_capAttributeTree, op_capSetCurrent, True, False, opcode_AttributeTree_SetCurrent)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_AttributeTree, op_DropAllLogicSelection, en_capAttributeTree, op_capDropAllLogicSelection, True, False, opcode_AttributeTree_DropAllLogicSelection)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_AttributeTree, op_Invalidate, en_capAttributeTree, op_capInvalidate, True, False, opcode_AttributeTree_Invalidate)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_AttributeTree, op_DropLogicSelection, en_capAttributeTree, op_capDropLogicSelection, True, False, opcode_AttributeTree_DropLogicSelection)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_AttributeTree, op_LoadQuery, en_capAttributeTree, op_capLoadQuery, True, False, opcode_AttributeTree_LoadQuery)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_AttributeTree, op_SetOneLevelCurrent, en_capAttributeTree, op_capSetOneLevelCurrent, True, False, opcode_AttributeTree_SetOneLevelCurrent)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_AttributeTree, op_AddNodeIfEmpty, en_capAttributeTree, op_capAddNodeIfEmpty, True, False, opcode_AttributeTree_AddNodeIfEmpty)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_SearchParameters, op_IsQueryEmpty, en_capSearchParameters, op_capIsQueryEmpty, True, False, opcode_SearchParameters_IsQueryEmpty)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_SearchParameters, op_GetQuery, en_capSearchParameters, op_capGetQuery, True, False, opcode_SearchParameters_GetQuery)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_SearchParameters, op_IsQuerySaved, en_capSearchParameters, op_capIsQuerySaved, True, False, opcode_SearchParameters_IsQuerySaved)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_SearchParameters, op_SetQuery, en_capSearchParameters, op_capSetQuery, True, False, opcode_SearchParameters_SetQuery)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_SearchParameters, op_ClearQuery, en_capSearchParameters, op_capClearQuery, True, False, opcode_SearchParameters_ClearQuery)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_AttributeTree, op_SaveToQuery, en_capAttributeTree, op_capSaveToQuery, True, False, opcode_AttributeTree_SaveToQuery)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Attribute, op_DefaultAction, en_capAttribute, op_capDefaultAction, True, False, opcode_Attribute_DefaultAction)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Attribute, op_LogicOr, en_capAttribute, op_capLogicOr, False, False, opcode_Attribute_LogicOr)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Attribute, op_LogicAnd, en_capAttribute, op_capLogicAnd, False, False, opcode_Attribute_LogicAnd)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Attribute, op_LogicNot, en_capAttribute, op_capLogicNot, False, False, opcode_Attribute_LogicNot)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Attribute, op_LogicOrShortcut, en_capAttribute, op_capLogicOrShortcut, False, False, opcode_Attribute_LogicOrShortcut)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Context, op_SetContext, en_capContext, op_capSetContext, True, False, opcode_Context_SetContext)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Context, op_SyncContextParams, en_capContext, op_capSyncContextParams, True, False, opcode_Context_SyncContextParams)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_AttributeTree, op_SetParent, en_capAttributeTree, op_capSetParent, True, False, opcode_AttributeTree_SetParent)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_AttributeTree, op_ExtSetRoot, en_capAttributeTree, op_capExtSetRoot, True, False, opcode_AttributeTree_ExtSetRoot)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_AttributeTree, op_SetRoot, en_capAttributeTree, op_capSetRoot, True, False, opcode_AttributeTree_SetRoot)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_AttributeTree, op_ChangeRoot, en_capAttributeTree, op_capChangeRoot, True, False, opcode_AttributeTree_ChangeRoot)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_ContextParams, op_ContextChanged, en_capContextParams, op_capContextChanged, True, False, opcode_ContextParams_ContextChanged)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_SelectedList, op_RefreshValues, en_capSelectedList, op_capRefreshValues, True, False, opcode_SelectedList_RefreshValues)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Folder, op_FindFirstSelected, en_capFolder, op_capFindFirstSelected, False, False, opcode_Folder_FindFirstSelected)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Result, op_ClearAll, en_capResult, op_capClearAll, False, False, opcode_Result_ClearAll)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Selection, op_DropSelection, en_capSelection, op_capDropSelection, False, False, opcode_Selection_DropSelection)) do
+ begin
+ end;
+
 
 end.

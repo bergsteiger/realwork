@@ -1,120 +1,79 @@
 unit DayTips_Module;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/DayTips/DayTips_Module.pas"
-// Начат: 04.09.2009 12:52
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMFormsPack::Class>> F1 Интерфейсные элементы::DayTips::View::DayTips::DayTips
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\DayTips\DayTips_Module.pas"
+// Стереотип: "VCMFormsPack"
+// Элемент модели: "DayTips" MUID: (4AA0D5380056)
+// Имя типа: "TDayTipsModule"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmFormSetFactory
-  {$IfEnd} //not NoVCM
-  ,
-  DocumentAndListInterfaces,
-  CommonDictionInterfaces,
-  DayTipsInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  ,
-  StartupTips_Form,
-  PrimStartupTips_Form,
-  DocumentUserTypes_dftTips_UserType,
-  DocumentInterfaces,
-  l3StringIDEx,
-  AttributesUserTypes_fDocAttribute_UserType,
-  PrimCommonDiction_utTips_UserType,
-  Common_FormDefinitions_Controls,
-  BaseDocumentWithAttributesInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmFormSetFormsCollectionItemPrim
-  {$IfEnd} //not NoVCM
-  ,
-  fsTips,
-  vcmExternalInterfaces {a},
-  vcmModule {a},
-  vcmBase {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , DocumentInterfaces
+ , CommonDictionInterfaces
+ , DayTipsInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
- TDayTipsModule = {formspack} class(TvcmModule)
- protected
-  procedure Loaded; override;
-  class procedure GetEntityForms(aList : TvcmClassList); override;
- protected
- // protected methods
+ TDayTipsModule = class({$If NOT Defined(NoVCM)}
+ TvcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
+  protected
    class procedure OpenTipsPrim(const aSDS: IsdsCommonDiction;
-     const aContainer: IvcmContainer);
+    const aContainer: IvcmContainer);
    procedure opShowDayTipsTest(const aParams: IvcmTestParamsPrim);
-   procedure opShowDayTips(const aParams: IvcmExecuteParamsPrim);
- public
- // public methods
+   procedure opShowDayTipsExecute(const aParams: IvcmExecuteParamsPrim);
+   procedure Loaded; override;
+   {$If NOT Defined(NoVCM)}
+   class procedure GetEntityForms(aList: TvcmClassList); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    class procedure OpenTip(const aDocInfo: IdeDocInfo;
-     const aContainer: IvcmContainer);
-     {* Открывает совет дня }
+    const aContainer: IvcmContainer);
+    {* Открывает совет дня }
    class function ShowDayTipsAtStartup: IvcmEntityForm;
  end;//TDayTipsModule
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  sdsTips,
-  l3Base {a},
-  DocumentUnit,
-  l3MessageID,
-  SysUtils,
-  nsStartupTips
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  DataAdapter
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  kw_Tips_opShowDayTips
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  ,
-  StdRes {a},
-  vcmModuleDef {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , PrimCommonDiction_utTips_UserType
+ , Common_FormDefinitions_Controls
+ , sdsTips
+ , nsStartupTips
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , DataAdapter
+ , fsTips
+ , StartupTips_Form
+ //#UC START# *4AA0D5380056impl_uses*
+ //#UC END# *4AA0D5380056impl_uses*
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TDayTipsModule
-
+{$If NOT Defined(NoVCM)}
 class procedure TDayTipsModule.OpenTip(const aDocInfo: IdeDocInfo;
-  const aContainer: IvcmContainer);
+ const aContainer: IvcmContainer);
+ {* Открывает совет дня }
 var
  __WasEnter : Boolean;
 //#UC START# *4AA11A2E0144_4AA0D5380056_var*
@@ -132,7 +91,7 @@ begin
 end;//TDayTipsModule.OpenTip
 
 class procedure TDayTipsModule.OpenTipsPrim(const aSDS: IsdsCommonDiction;
-  const aContainer: IvcmContainer);
+ const aContainer: IvcmContainer);
 //#UC START# *4AA52EC603DC_4AA0D5380056_var*
 //#UC END# *4AA52EC603DC_4AA0D5380056_var*
 begin
@@ -142,12 +101,11 @@ begin
 end;//TDayTipsModule.OpenTipsPrim
 
 class function TDayTipsModule.ShowDayTipsAtStartup: IvcmEntityForm;
+var l_Data: InsStartupTips;
 var
  __WasEnter : Boolean;
 //#UC START# *4AB9DAAC00AC_4AA0D5380056_var*
 //#UC END# *4AB9DAAC00AC_4AA0D5380056_var*
-var
- l_Data : InsStartupTips;
 begin
  __WasEnter := vcmEnterFactory;
  try
@@ -175,7 +133,7 @@ begin
 //#UC END# *4AB9DBA1038E_4AA0D5380056test_impl*
 end;//TDayTipsModule.opShowDayTipsTest
 
-procedure TDayTipsModule.opShowDayTips(const aParams: IvcmExecuteParamsPrim);
+procedure TDayTipsModule.opShowDayTipsExecute(const aParams: IvcmExecuteParamsPrim);
 //#UC START# *4AB9DBA1038E_4AA0D5380056exec_var*
 
  function lp_HasTipsForm: Boolean;
@@ -198,20 +156,20 @@ begin
  if {(l_SDS = nil) AND} not lp_HasTipsForm {or Assigned(l_SDS)} then
   OpenTip(nil, CheckContainer(nil));
 //#UC END# *4AB9DBA1038E_4AA0D5380056exec_impl*
-end;//TDayTipsModule.opShowDayTips
+end;//TDayTipsModule.opShowDayTipsExecute
 
 procedure TDayTipsModule.Loaded;
 begin
  inherited;
- PublishOp('opShowDayTips', opShowDayTips, opShowDayTipsTest);
-end;
+ PublishOp('opShowDayTips', opShowDayTipsExecute, opShowDayTipsTest);
+end;//TDayTipsModule.Loaded
 
-class procedure TDayTipsModule.GetEntityForms(aList : TvcmClassList);
+class procedure TDayTipsModule.GetEntityForms(aList: TvcmClassList);
 begin
  inherited;
  aList.Add(TefStartupTips);
-end;
+end;//TDayTipsModule.GetEntityForms
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //not Admin AND not Monitorings
-
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

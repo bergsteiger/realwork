@@ -23,6 +23,9 @@ const
  op_capAnalize = 'Анализ списка...';
  op_CopyToNewList = 'CopyToNewList';
  op_capCopyToNewList = '';
+
+var opcode_Selection_Analize: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Selection_CopyToNewList: TvcmOPID = (rEnID : -1; rOpID : -1);
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
@@ -30,7 +33,22 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ {$If NOT Defined(NoVCM)}
+ , vcmOperationsForRegister
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmOperationStatesForRegister
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
+
+initialization
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Selection, op_Analize, en_capSelection, op_capAnalize, False, False, opcode_Selection_Analize)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Selection, op_CopyToNewList, en_capSelection, op_capCopyToNewList, False, False, opcode_Selection_CopyToNewList)) do
+ begin
+ end;
+
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

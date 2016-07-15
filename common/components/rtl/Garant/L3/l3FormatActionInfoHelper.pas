@@ -25,7 +25,6 @@ uses
 type
  Il3FormatActionInfoHelper = interface
   {* Èםעונפויס סונגטסא Tl3FormatActionInfoHelper }
-  ['{CBBE7B8C-EED1-4A7B-ADB2-361BE86A2A05}']
   function Format(anAction: TCustomAction): AnsiString;
  end;//Il3FormatActionInfoHelper
 

@@ -194,6 +194,15 @@ const
  op_capGotoPara = 'Перейти к параграфу по номеру';
  op_DisableForceDrawFocusRect = 'DisableForceDrawFocusRect';
  op_capDisableForceDrawFocusRect = 'Запрещает рисование фокусной рамки';
+
+var opcode_Edition_PrevChange: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Edition_NextChange: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Document_OpenEditionLocalLink: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_RightEdition_ReturnToDocument: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_RightEdition_SetFocusToText: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_RightEdition_IsCurrentPara: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Finder_GotoPara: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Finder_DisableForceDrawFocusRect: TvcmOPID = (rEnID : -1; rOpID : -1);
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
@@ -202,12 +211,15 @@ implementation
 uses
  l3ImplUses
  , l3CProtoObject
+ {$If NOT Defined(NoVCM)}
+ , vcmOperationsForRegister
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmOperationStatesForRegister
+ {$IfEnd} // NOT Defined(NoVCM)
  , l3Base
  {$If NOT Defined(NoVCM)}
  , vcmBase
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
- , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
 ;
 
@@ -317,7 +329,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TDocument_OpenEditionLocalLink_Params.Make(aDocument, aSub, aBehaviour));
-  aTarget.Operation(TdmStdRes.opcode_Document_OpenEditionLocalLink, l_Params);
+  aTarget.Operation(opcode_Document_OpenEditionLocalLink, l_Params);
   with l_Params do
   begin
    if Done then
@@ -340,7 +352,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TDocument_OpenEditionLocalLink_Params.Make(aDocument, aSub, aBehaviour));
-  aTarget.Operation(TdmStdRes.opcode_Document_OpenEditionLocalLink, l_Params);
+  aTarget.Operation(opcode_Document_OpenEditionLocalLink, l_Params);
   with l_Params do
   begin
    if Done then
@@ -382,7 +394,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := vcmParams;
-  aTarget.Operation(TdmStdRes.opcode_RightEdition_ReturnToDocument, l_Params);
+  aTarget.Operation(opcode_RightEdition_ReturnToDocument, l_Params);
   with l_Params do
   begin
    if Done then
@@ -402,7 +414,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := vcmParams;
-  aTarget.Operation(TdmStdRes.opcode_RightEdition_ReturnToDocument, l_Params);
+  aTarget.Operation(opcode_RightEdition_ReturnToDocument, l_Params);
   with l_Params do
   begin
    if Done then
@@ -438,7 +450,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := vcmParams;
-  aTarget.Operation(TdmStdRes.opcode_RightEdition_SetFocusToText, l_Params);
+  aTarget.Operation(opcode_RightEdition_SetFocusToText, l_Params);
   with l_Params do
   begin
    if Done then
@@ -458,7 +470,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := vcmParams;
-  aTarget.Operation(TdmStdRes.opcode_RightEdition_SetFocusToText, l_Params);
+  aTarget.Operation(opcode_RightEdition_SetFocusToText, l_Params);
   with l_Params do
   begin
    if Done then
@@ -528,7 +540,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TRightEdition_IsCurrentPara_Params.Make(aPara));
-  aTarget.Operation(TdmStdRes.opcode_RightEdition_IsCurrentPara, l_Params);
+  aTarget.Operation(opcode_RightEdition_IsCurrentPara, l_Params);
   with l_Params do
   begin
    if Done then
@@ -549,7 +561,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TRightEdition_IsCurrentPara_Params.Make(aPara));
-  aTarget.Operation(TdmStdRes.opcode_RightEdition_IsCurrentPara, l_Params);
+  aTarget.Operation(opcode_RightEdition_IsCurrentPara, l_Params);
   with l_Params do
   begin
    if Done then
@@ -621,7 +633,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TFinder_GotoPara_Params.Make(aPara));
-  aTarget.Operation(TdmStdRes.opcode_Finder_GotoPara, l_Params);
+  aTarget.Operation(opcode_Finder_GotoPara, l_Params);
   with l_Params do
   begin
    if Done then
@@ -642,7 +654,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TFinder_GotoPara_Params.Make(aPara));
-  aTarget.Operation(TdmStdRes.opcode_Finder_GotoPara, l_Params);
+  aTarget.Operation(opcode_Finder_GotoPara, l_Params);
   with l_Params do
   begin
    if Done then
@@ -680,7 +692,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := vcmParams;
-  aTarget.Operation(TdmStdRes.opcode_Finder_DisableForceDrawFocusRect, l_Params);
+  aTarget.Operation(opcode_Finder_DisableForceDrawFocusRect, l_Params);
   with l_Params do
   begin
    if Done then
@@ -700,7 +712,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := vcmParams;
-  aTarget.Operation(TdmStdRes.opcode_Finder_DisableForceDrawFocusRect, l_Params);
+  aTarget.Operation(opcode_Finder_DisableForceDrawFocusRect, l_Params);
   with l_Params do
   begin
    if Done then
@@ -726,6 +738,33 @@ begin
  if (aTarget <> nil) then
   Result := Call(aTarget.AsForm);
 end;//Op_Finder_DisableForceDrawFocusRect.Call
+
+initialization
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Edition, op_PrevChange, en_capEdition, op_capPrevChange, False, False, opcode_Edition_PrevChange)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Edition, op_NextChange, en_capEdition, op_capNextChange, False, False, opcode_Edition_NextChange)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Document, op_OpenEditionLocalLink, en_capDocument, op_capOpenEditionLocalLink, True, False, opcode_Document_OpenEditionLocalLink)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_RightEdition, op_ReturnToDocument, en_capRightEdition, op_capReturnToDocument, True, False, opcode_RightEdition_ReturnToDocument)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_RightEdition, op_SetFocusToText, en_capRightEdition, op_capSetFocusToText, True, False, opcode_RightEdition_SetFocusToText)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_RightEdition, op_IsCurrentPara, en_capRightEdition, op_capIsCurrentPara, True, False, opcode_RightEdition_IsCurrentPara)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Finder, op_GotoPara, en_capFinder, op_capGotoPara, True, False, opcode_Finder_GotoPara)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Finder, op_DisableForceDrawFocusRect, en_capFinder, op_capDisableForceDrawFocusRect, True, False, opcode_Finder_DisableForceDrawFocusRect)) do
+ begin
+ end;
+
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

@@ -1,90 +1,76 @@
 {$IfNDef dsEditionDiff_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Editions"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Editions/dsEditionDiff.imp.pas"
-// Начат: 30.07.2009 15:50
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ViewAreaControllerImp::Class>> F1 Пользовательские сервисы::CompareEditions::Editions::Editions::dsEditionDiff
-//
-// Разница редакций
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Editions\dsEditionDiff.imp.pas"
+// Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "dsEditionDiff" MUID: (4A7188E40294)
+// Имя типа: "_dsEditionDiff_"
 
 {$Define dsEditionDiff_imp}
-{$If not defined(Admin) AND not defined(Monitorings)}
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
  _InitDataType_ = InsEditionDiffData;
- {$Include ..\Editions\dsEdition.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Editions\dsEdition.imp.pas}
  _UnderControlBehaviour_Parent_ = _dsEdition_;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\UnderControl\UnderControlBehaviour.imp.pas}
  _ucpHAFMacroReplacerFactory_Parent_ = _UnderControlBehaviour_;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\Presentation\ucpHAFMacroReplacerFactory.imp.pas}
- _dsEditionDiff_ = {abstract vac} class(_ucpHAFMacroReplacerFactory_, IdsEditionDiff, InsEditionListener {from IdsEditionDiff}, IucpFilterInfoFactory {from IdsEditionDiff})
+ _dsEditionDiff_ = {abstract} class(_ucpHAFMacroReplacerFactory_, IdsEditionDiff, InsEditionListener, IucpFilterInfoFactory)
   {* Разница редакций }
- private
- // private fields
-   f_Cont : InevDocumentContainer;
-    {* Контейнер документа}
- protected
- // realized methods
+  private
+   f_Cont: InevDocumentContainer;
+    {* Контейнер документа }
+  protected
+   function DoGetDocument: IDocument; virtual;
+    {* Возвращает документ сответствующий данной редакции }
+   procedure SignalEditionChanged; virtual;
+    {* Сообщение о смене редакции }
+   function IsLeft: Boolean; virtual; abstract;
+   function As_InsEditionListener: InsEditionListener;
+    {* Метод приведения нашего интерфейса к InsEditionListener }
+   function As_IucpHAFMacroReplacerFactory: IucpHAFMacroReplacerFactory;
+    {* Метод приведения нашего интерфейса к IucpHAFMacroReplacerFactory }
+   function As_IucpFilterInfoFactory: IucpFilterInfoFactory;
+    {* Метод приведения нашего интерфейса к IucpFilterInfoFactory }
    function Get_DocumentContainer: InevDocumentContainer;
    function Get_RedactionCurrentPara: IeeLeafPara;
    function Get_Document: IDocument;
    function Get_RedactionName: Il3CString;
    procedure EditionChanged;
    function MakeFilterInfo(aType: TnsFolderFilter;
-    aShowFolders: TnsShowFolders = sfAll): InsFolderFilterInfo;
+    aShowFolders: TnsShowFolders = FoldersDomainInterfaces.sfAll): InsFolderFilterInfo;
    function Get_DocumentForReturn: TnsDocumentForReturnInfo;
    function DoGetControllable: IControllable; override;
    function DocumentForDocInfoProvider: IDocument; override;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure InitFields; override;
- protected
- // protected methods
-   function DoGetDocument: IDocument; virtual;
-     {* Возвращает документ сответствующий данной редакции }
-   procedure SignalEditionChanged; virtual;
-     {* Сообщение о смене редакции }
-   function IsLeft: Boolean; virtual; abstract;
- protected
- // Методы преобразования к реализуемым интерфейсам
-   function As_InsEditionListener: InsEditionListener;
-   function As_IucpHAFMacroReplacerFactory: IucpHAFMacroReplacerFactory;
-   function As_IucpFilterInfoFactory: IucpFilterInfoFactory;
  end;//_dsEditionDiff_
-{$Else}
 
- {$Include ..\Editions\dsEdition.imp.pas}
- _UnderControlBehaviour_Parent_ = _dsEdition_;
- {$Include w:\garant6x\implementation\Garant\GbaNemesis\UnderControl\UnderControlBehaviour.imp.pas}
- _ucpHAFMacroReplacerFactory_Parent_ = _UnderControlBehaviour_;
- {$Include w:\garant6x\implementation\Garant\GbaNemesis\Presentation\ucpHAFMacroReplacerFactory.imp.pas}
- _dsEditionDiff_ = _ucpHAFMacroReplacerFactory_;
+{$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
 
-{$IfEnd} //not Admin AND not Monitorings
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Editions\dsEdition.imp.pas}
+_UnderControlBehaviour_Parent_ = _dsEdition_;
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\UnderControl\UnderControlBehaviour.imp.pas}
+_ucpHAFMacroReplacerFactory_Parent_ = _UnderControlBehaviour_;
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Presentation\ucpHAFMacroReplacerFactory.imp.pas}
+_dsEditionDiff_ = _ucpHAFMacroReplacerFactory_;
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 {$Else dsEditionDiff_imp}
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$IfNDef dsEditionDiff_imp_impl}
 
+{$Define dsEditionDiff_imp_impl}
 
-{$Include ..\Editions\dsEdition.imp.pas}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Editions\dsEdition.imp.pas}
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\UnderControl\UnderControlBehaviour.imp.pas}
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\Presentation\ucpHAFMacroReplacerFactory.imp.pas}
 
-// start class _dsEditionDiff_
-
 function _dsEditionDiff_.DoGetDocument: IDocument;
+ {* Возвращает документ сответствующий данной редакции }
 //#UC START# *4A80573D03A7_4A7188E40294_var*
 //#UC END# *4A80573D03A7_4A7188E40294_var*
 begin
@@ -94,6 +80,7 @@ begin
 end;//_dsEditionDiff_.DoGetDocument
 
 procedure _dsEditionDiff_.SignalEditionChanged;
+ {* Сообщение о смене редакции }
 //#UC START# *4A8426C0002A_4A7188E40294_var*
 //#UC END# *4A8426C0002A_4A7188E40294_var*
 begin
@@ -101,6 +88,24 @@ begin
  // - ничего не делаем
 //#UC END# *4A8426C0002A_4A7188E40294_impl*
 end;//_dsEditionDiff_.SignalEditionChanged
+
+function _dsEditionDiff_.As_InsEditionListener: InsEditionListener;
+ {* Метод приведения нашего интерфейса к InsEditionListener }
+begin
+ Result := Self;
+end;//_dsEditionDiff_.As_InsEditionListener
+
+function _dsEditionDiff_.As_IucpHAFMacroReplacerFactory: IucpHAFMacroReplacerFactory;
+ {* Метод приведения нашего интерфейса к IucpHAFMacroReplacerFactory }
+begin
+ Result := Self;
+end;//_dsEditionDiff_.As_IucpHAFMacroReplacerFactory
+
+function _dsEditionDiff_.As_IucpFilterInfoFactory: IucpFilterInfoFactory;
+ {* Метод приведения нашего интерфейса к IucpFilterInfoFactory }
+begin
+ Result := Self;
+end;//_dsEditionDiff_.As_IucpFilterInfoFactory
 
 function _dsEditionDiff_.Get_DocumentContainer: InevDocumentContainer;
 //#UC START# *4A786E2A00A2_4A7188E40294get_var*
@@ -175,7 +180,7 @@ begin
 end;//_dsEditionDiff_.EditionChanged
 
 function _dsEditionDiff_.MakeFilterInfo(aType: TnsFolderFilter;
-  aShowFolders: TnsShowFolders = sfAll): InsFolderFilterInfo;
+ aShowFolders: TnsShowFolders = FoldersDomainInterfaces.sfAll): InsFolderFilterInfo;
 //#UC START# *4AE575FA030B_4A7188E40294_var*
 //#UC END# *4AE575FA030B_4A7188E40294_var*
 begin
@@ -212,6 +217,7 @@ begin
 end;//_dsEditionDiff_.DocumentForDocInfoProvider
 
 procedure _dsEditionDiff_.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4A7188E40294_var*
 //#UC END# *479731C50290_4A7188E40294_var*
 begin
@@ -231,24 +237,9 @@ begin
  UseCaseController.As_Il3ChangeNotifier.Subscribe(InsEditionListener(Self));
 //#UC END# *47A042E100E2_4A7188E40294_impl*
 end;//_dsEditionDiff_.InitFields
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
-// Методы преобразования к реализуемым интерфейсам
-
-function _dsEditionDiff_.As_InsEditionListener: InsEditionListener;
-begin
- Result := Self;
-end;
-
-function _dsEditionDiff_.As_IucpHAFMacroReplacerFactory: IucpHAFMacroReplacerFactory;
-begin
- Result := Self;
-end;
-
-function _dsEditionDiff_.As_IucpFilterInfoFactory: IucpFilterInfoFactory;
-begin
- Result := Self;
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+{$EndIf dsEditionDiff_imp_impl}
 
 {$EndIf dsEditionDiff_imp}
+

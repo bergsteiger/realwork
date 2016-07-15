@@ -1,96 +1,81 @@
 unit BaseChat_Module;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Chat/BaseChat_Module.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMFormsPack::Class>> F1 Встроенные продукты::Chat::View::Chat::BaseChat
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Chat\BaseChat_Module.pas"
+// Стереотип: "VCMFormsPack"
+// Элемент модели: "BaseChat" MUID: (4A6971B802A6)
+// Имя типа: "TBaseChatModule"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Interfaces,
-  ChatTypes,
-  ChatInterfaces,
-  ContactList_Form,
-  ChatWindow_Form,
-  ChatHistory_Form,
-  BaseHistoryWindow_Form,
-  BaseChatWindowOptions_Form,
-  PrimContactListOptions_Form,
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a},
-  vcmModule {a},
-  vcmBase {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , ChatInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , ChatTypes
+ , l3Interfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
- TBaseChatModule = {formspack} class(TvcmModule)
- protected
-  procedure Loaded; override;
-  class procedure GetEntityForms(aList : TvcmClassList); override;
- protected
- // protected methods
+ TBaseChatModule = class({$If NOT Defined(NoVCM)}
+ TvcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
+  protected
    procedure opOpenContactListTest(const aParams: IvcmTestParamsPrim);
-   procedure opOpenContactList(const aParams: IvcmExecuteParamsPrim);
- public
- // public methods
+   procedure opOpenContactListExecute(const aParams: IvcmExecuteParamsPrim);
+   procedure Loaded; override;
+   {$If NOT Defined(NoVCM)}
+   class procedure GetEntityForms(aList: TvcmClassList); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    class function MakeChatDispatcher: IbsChatDispatcher;
    class function OpenChatWindow(anUID: TbsUserID;
-     const aName: Il3CString): IvcmEntityForm;
+    const aName: Il3CString): IvcmEntityForm;
    class function OpenAddUserDialog: IvcmEntityForm;
    class function OpenHistoryWindow(anUID: TbsUserID;
-     const aName: Il3CString): IvcmEntityForm;
+    const aName: Il3CString): IvcmEntityForm;
  end;//TBaseChatModule
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  bsChatDispatcher
-  {$If not defined(NoVCM)}
-  ,
-  StdRes
-  {$IfEnd} //not NoVCM
-  ,
-  SysUtils
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  PrimContactList_chatAddContact_UserType,
-  PrimContactList_chatContacts_UserType,
-  BaseHistoryWindow_utChatHistory_UserType,
-  BaseChatWindow_cwChat_UserType
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  kw_Chat_opOpenContactList
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  ,
-  vcmFormSetFactory {a},
-  vcmModuleDef {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ , SysUtils
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , PrimContactList_chatAddContact_UserType
+ , PrimContactList_chatContacts_UserType
+ , BaseHistoryWindow_utChatHistory_UserType
+ , BaseChatWindow_cwChat_UserType
+ , bsChatDispatcher
+ , ContactList_Form
+ , ChatWindow_Form
+ , ChatHistory_Form
+ //#UC START# *4A6971B802A6impl_uses*
+ //#UC END# *4A6971B802A6impl_uses*
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TBaseChatModule
-
+{$If NOT Defined(NoVCM)}
 class function TBaseChatModule.MakeChatDispatcher: IbsChatDispatcher;
 var
  __WasEnter : Boolean;
@@ -109,7 +94,7 @@ begin
 end;//TBaseChatModule.MakeChatDispatcher
 
 class function TBaseChatModule.OpenChatWindow(anUID: TbsUserID;
-  const aName: Il3CString): IvcmEntityForm;
+ const aName: Il3CString): IvcmEntityForm;
 var
  __WasEnter : Boolean;
 //#UC START# *4AAFC1E00279_4A6971B802A6_var*
@@ -149,7 +134,7 @@ begin
 end;//TBaseChatModule.OpenAddUserDialog
 
 class function TBaseChatModule.OpenHistoryWindow(anUID: TbsUserID;
-  const aName: Il3CString): IvcmEntityForm;
+ const aName: Il3CString): IvcmEntityForm;
 var
  __WasEnter : Boolean;
 //#UC START# *4AAFC77602D8_4A6971B802A6_var*
@@ -179,7 +164,7 @@ begin
 //#UC END# *4A97C2460052_4A6971B802A6test_impl*
 end;//TBaseChatModule.opOpenContactListTest
 
-procedure TBaseChatModule.opOpenContactList(const aParams: IvcmExecuteParamsPrim);
+procedure TBaseChatModule.opOpenContactListExecute(const aParams: IvcmExecuteParamsPrim);
 //#UC START# *4A97C2460052_4A6971B802A6exec_var*
 var
  l_Chat: IvcmEntityForm;
@@ -191,22 +176,22 @@ begin
                              Ord(chatContacts));
  l_Chat.SetActiveInParent;
 //#UC END# *4A97C2460052_4A6971B802A6exec_impl*
-end;//TBaseChatModule.opOpenContactList
+end;//TBaseChatModule.opOpenContactListExecute
 
 procedure TBaseChatModule.Loaded;
 begin
  inherited;
- PublishOp('opOpenContactList', opOpenContactList, opOpenContactListTest);
-end;
+ PublishOp('opOpenContactList', opOpenContactListExecute, opOpenContactListTest);
+end;//TBaseChatModule.Loaded
 
-class procedure TBaseChatModule.GetEntityForms(aList : TvcmClassList);
+class procedure TBaseChatModule.GetEntityForms(aList: TvcmClassList);
 begin
  inherited;
  aList.Add(TContactListForm);
  aList.Add(TChatWindowForm);
  aList.Add(TChatHistoryForm);
-end;
+end;//TBaseChatModule.GetEntityForms
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //not Admin AND not Monitorings
-
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

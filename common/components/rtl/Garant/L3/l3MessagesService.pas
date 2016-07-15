@@ -23,7 +23,6 @@ uses
 type
  Il3MessagesService = interface
   {* Èםעונפויס סונגטסא Tl3MessagesService }
-  ['{8169CB3B-D3C5-412F-82E9-1473799C89FD}']
   procedure ProcessMessages;
  end;//Il3MessagesService
 

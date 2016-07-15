@@ -22,7 +22,6 @@ uses
 type
  Il3EtalonsService = interface
   {* Èםעונפויס סונגטסא Tl3EtalonsService }
-  ['{61640207-46D1-41DC-A087-0DC7D620B901}']
  end;//Il3EtalonsService
 
  Tl3EtalonsService = {final} class(Tl3ProtoObject)

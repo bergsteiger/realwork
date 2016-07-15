@@ -23,12 +23,6 @@
     {* Изменился источник данных. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   function DoSaveState(out theState: IvcmBase;
-    aStateType: TvcmStateType;
-    aForClone: Boolean): Boolean; override;
-    {* Сохраняет состояние формы. Для перекрытия в потомках }
-   {$IfEnd} // NOT Defined(NoVCM)
-   {$If NOT Defined(NoVCM)}
    procedure SignalDataSourceChanged(const anOld: IvcmFormDataSource;
     const aNew: IvcmFormDataSource); override;
    {$IfEnd} // NOT Defined(NoVCM)
@@ -114,22 +108,6 @@ begin
  CheckControllableState([dcsExitFromSystem]);
 //#UC END# *497469C90140_4BA0A2CC0305_impl*
 end;//_UnderControlResetter_.NotifyDataSourceChanged
-{$IfEnd} // NOT Defined(NoVCM)
-
-{$If NOT Defined(NoVCM)}
-function _UnderControlResetter_.DoSaveState(out theState: IvcmBase;
- aStateType: TvcmStateType;
- aForClone: Boolean): Boolean;
- {* Сохраняет состояние формы. Для перекрытия в потомках }
-//#UC START# *49806ED503D5_4BA0A2CC0305_var*
-//#UC END# *49806ED503D5_4BA0A2CC0305_var*
-begin
-//#UC START# *49806ED503D5_4BA0A2CC0305_impl*
- Result := inherited DoSaveState(theState, aStateType, aForClone);
- if (aStateType = vcm_stContent) then
-  CheckControllableState([dcsAfterReview]);
-//#UC END# *49806ED503D5_4BA0A2CC0305_impl*
-end;//_UnderControlResetter_.DoSaveState
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCM)}

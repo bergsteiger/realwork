@@ -1,40 +1,43 @@
 unit moTasksPanelMenu;
+ {* Настройка панели задач }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/VCM/View/TasksPanel/moTasksPanelMenu.pas"
-// Начат: 13.09.2010 13:01
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMFormsPack::Class>> Shared Delphi Operations::VCMCustomization::View::TasksPanel::TasksPanelMenu
-//
-// Настройка панели задач
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\VCM\View\TasksPanel\moTasksPanelMenu.pas"
+// Стереотип: "VCMFormsPack"
+// Элемент модели: "TasksPanelMenu" MUID: (4C8DE85601C4)
+// Имя типа: "Tmo_TasksPanelMenu"
 
 {$Include w:\common\components\gui\sdoDefine.inc}
 
 interface
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  PrimTasksPanelMenu_Module
-  ;
-{$IfEnd} //not NoVCM
+ l3IntfUses
+ , PrimTasksPanelMenu_Module
+ , vcmExternalInterfaces
+ , vcmModule
+;
 
-{$If not defined(NoVCM)}
 type
- Tmo_TasksPanelMenu = {final formspack} class(TPrimTasksPanelMenuModule)
+ Tmo_TasksPanelMenu = {final} class(TPrimTasksPanelMenuModule)
   {* Настройка панели задач }
  end;//Tmo_TasksPanelMenu
-{$IfEnd} //not NoVCM
+
+var g_module_opcode_TasksPanelMenu_Customize: TvcmMOPID = (rMoID : -1; rOpID : -1);
+{$IfEnd} // NOT Defined(NoVCM)
 
 implementation
+
+{$If NOT Defined(NoVCM)}
+uses
+ l3ImplUses
+ , vcmModulesForRegister
+ , vcmModuleOperationsForRegister
+;
+
+initialization
+ TvcmModulesForRegister.AddModule(TvcmModuleForRegister_C(Tmo_TasksPanelMenu, 'Настройка панели задач'));
+ TvcmModuleOperationsForRegister.AddOperation(TvcmModuleOperationForRegister_C(Tmo_TasksPanelMenu, 'Customize', 'Настройка...', False, g_module_opcode_TasksPanelMenu_Customize));
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

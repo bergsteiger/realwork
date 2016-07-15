@@ -32,7 +32,6 @@ type
 
  Il3HugeMessageDlgWithWikiHelper = interface
   {* Интерфейс сервиса Tl3HugeMessageDlgWithWikiHelper }
-  ['{E19F61CE-9AEF-409B-814C-B75941D1010E}']
   procedure Say(const aText: AnsiString;
    aClickCallback: Tl3WikiLinkClicked);
   function FormatLink(const aLinkText: AnsiString;
@@ -52,10 +51,10 @@ type
   public
    procedure Say(const aText: AnsiString;
     aClickCallback: Tl3WikiLinkClicked);
-   function FormatCloak(const aCaption: AnsiString;
-    const aText: AnsiString): AnsiString;
    function FormatLink(const aLinkText: AnsiString;
     const aLinkData: AnsiString): AnsiString;
+   function FormatCloak(const aCaption: AnsiString;
+    const aText: AnsiString): AnsiString;
    function CanUseWiki: Boolean;
    class function Instance: Tl3HugeMessageDlgWithWikiHelper;
     {* Метод получения экземпляра синглетона Tl3HugeMessageDlgWithWikiHelper }
@@ -161,19 +160,6 @@ begin
 //#UC END# *03211FE23BF3_551542E902F5_impl*
 end;//Tl3HugeMessageDlgWithWikiHelper.Say
 
-function Tl3HugeMessageDlgWithWikiHelper.FormatCloak(const aCaption: AnsiString;
- const aText: AnsiString): AnsiString;
-//#UC START# *3CDB8D32C712_551542E902F5_var*
-//#UC END# *3CDB8D32C712_551542E902F5_var*
-begin
-//#UC START# *3CDB8D32C712_551542E902F5_impl*
- if Assigned(f_Alien) then
-  Result := f_Alien.FormatCloak(aCaption, aText)
- else
-  Result := aCaption + #13#10 + aText + #13#10;
-//#UC END# *3CDB8D32C712_551542E902F5_impl*
-end;//Tl3HugeMessageDlgWithWikiHelper.FormatCloak
-
 function Tl3HugeMessageDlgWithWikiHelper.FormatLink(const aLinkText: AnsiString;
  const aLinkData: AnsiString): AnsiString;
 //#UC START# *5AFFFDE1F6AB_551542E902F5_var*
@@ -186,6 +172,19 @@ begin
   Result := aLinkText;
 //#UC END# *5AFFFDE1F6AB_551542E902F5_impl*
 end;//Tl3HugeMessageDlgWithWikiHelper.FormatLink
+
+function Tl3HugeMessageDlgWithWikiHelper.FormatCloak(const aCaption: AnsiString;
+ const aText: AnsiString): AnsiString;
+//#UC START# *3CDB8D32C712_551542E902F5_var*
+//#UC END# *3CDB8D32C712_551542E902F5_var*
+begin
+//#UC START# *3CDB8D32C712_551542E902F5_impl*
+ if Assigned(f_Alien) then
+  Result := f_Alien.FormatCloak(aCaption, aText)
+ else
+  Result := aCaption + #13#10 + aText + #13#10;
+//#UC END# *3CDB8D32C712_551542E902F5_impl*
+end;//Tl3HugeMessageDlgWithWikiHelper.FormatCloak
 
 function Tl3HugeMessageDlgWithWikiHelper.CanUseWiki: Boolean;
 //#UC START# *CDCC556698E5_551542E902F5_var*

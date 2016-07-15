@@ -17,7 +17,16 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
  , nsLogEvent
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
@@ -32,12 +41,16 @@ type
  )
   {* Модуль для [Интернет-агента|$144575249] }
   protected
-   procedure PrimInternetAgent_InternetAgent_Test(const aParams: IvcmTestParamsPrim);
+   procedure opInternetAgentTest(const aParams: IvcmTestParamsPrim);
     {* Новости онлайн }
-   procedure PrimInternetAgent_InternetAgent_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure opInternetAgentExecute(const aParams: IvcmExecuteParamsPrim);
     {* Новости онлайн }
+   procedure Loaded; override;
+   {$If NOT Defined(NoVCM)}
+   class procedure GetEntityForms(aList: TvcmClassList); override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
-   procedure MakeInternetAgent(const anURL: Il3CString;
+   class procedure MakeInternetAgent(const anURL: Il3CString;
     const aContainer: IvcmContainer);
     {* Создаёт область вывода Интернет-агента }
  end;//TPrimInternetAgentModule
@@ -54,12 +67,6 @@ uses
  , afwFacade
  , afwInterfaces
  , nsConst
- {$If NOT Defined(NoVCM)}
- , vcmBase
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoScripts)}
- , kw_InternetAgent_opInternetAgent
- {$IfEnd} // NOT Defined(NoScripts)
  , sdsInternetAgent
  {$If NOT Defined(NoVCM)}
  , StdRes
@@ -70,6 +77,8 @@ uses
  , LoggingUnit
  , InternetAgent_Form
  , fsInternetAgent
+ //#UC START# *49EC739C0100impl_uses*
+ //#UC END# *49EC739C0100impl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -82,14 +91,18 @@ begin
 //#UC END# *4B14DF4201A3_4B14DF1F0101_impl*
 end;//TnsOpenInternetAgentEvent.Log
 
-procedure TPrimInternetAgentModule.MakeInternetAgent(const anURL: Il3CString;
+class procedure TPrimInternetAgentModule.MakeInternetAgent(const anURL: Il3CString;
  const aContainer: IvcmContainer);
  {* Создаёт область вывода Интернет-агента }
+var
+ __WasEnter : Boolean;
 //#UC START# *49ECAADA03C7_49EC739C0100_var*
 var
  l_Cont: IvcmContainer;
 //#UC END# *49ECAADA03C7_49EC739C0100_var*
 begin
+ __WasEnter := vcmEnterFactory;
+ try
 //#UC START# *49ECAADA03C7_49EC739C0100_impl*
  if Assigned(aContainer) then
   l_Cont := aContainer
@@ -98,9 +111,13 @@ begin
 
  Tfs_InternetAgent.Make(TsdsInternetAgent.Make(anURL), l_Cont);
 //#UC END# *49ECAADA03C7_49EC739C0100_impl*
+ finally
+  if __WasEnter then
+   vcmLeaveFactory;
+ end;//try..finally
 end;//TPrimInternetAgentModule.MakeInternetAgent
 
-procedure TPrimInternetAgentModule.PrimInternetAgent_InternetAgent_Test(const aParams: IvcmTestParamsPrim);
+procedure TPrimInternetAgentModule.opInternetAgentTest(const aParams: IvcmTestParamsPrim);
  {* Новости онлайн }
 //#UC START# *4A979E9B0245_49EC739C0100test_var*
 //#UC END# *4A979E9B0245_49EC739C0100test_var*
@@ -109,9 +126,9 @@ begin
  aParams.Op.Flag[vcm_ofEnabled] := defDataAdapter.IsInternetAgentEnabled;
  aParams.Op.Flag[vcm_ofVisible] := aParams.Op.Flag[vcm_ofEnabled];
 //#UC END# *4A979E9B0245_49EC739C0100test_impl*
-end;//TPrimInternetAgentModule.PrimInternetAgent_InternetAgent_Test
+end;//TPrimInternetAgentModule.opInternetAgentTest
 
-procedure TPrimInternetAgentModule.PrimInternetAgent_InternetAgent_Execute(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimInternetAgentModule.opInternetAgentExecute(const aParams: IvcmExecuteParamsPrim);
  {* Новости онлайн }
 //#UC START# *4A979E9B0245_49EC739C0100exec_var*
 //#UC END# *4A979E9B0245_49EC739C0100exec_var*
@@ -123,7 +140,19 @@ begin
   MakeInternetAgent(l3CStr(ciitGarant), DefaultContainer);
  TnsOpenInternetAgentEvent.Log;
 //#UC END# *4A979E9B0245_49EC739C0100exec_impl*
-end;//TPrimInternetAgentModule.PrimInternetAgent_InternetAgent_Execute
+end;//TPrimInternetAgentModule.opInternetAgentExecute
+
+procedure TPrimInternetAgentModule.Loaded;
+begin
+ inherited;
+ PublishOp('opInternetAgent', opInternetAgentExecute, opInternetAgentTest);
+end;//TPrimInternetAgentModule.Loaded
+
+class procedure TPrimInternetAgentModule.GetEntityForms(aList: TvcmClassList);
+begin
+ inherited;
+ aList.Add(TInternetAgentForm);
+end;//TPrimInternetAgentModule.GetEntityForms
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)

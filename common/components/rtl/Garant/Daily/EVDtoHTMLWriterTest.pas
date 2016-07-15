@@ -13,8 +13,8 @@ interface
 uses
  l3IntfUses
  , WriterTest
- , l3Filer
  , ddHTMLWriter
+ , l3Filer
  , k2CustomFileReader
 ;
 
@@ -24,6 +24,7 @@ type
    procedure EVDtoHTML(const aFileName: AnsiString);
    procedure SomeFormatToHTML(aReader: Tk2CustomFileReader);
    procedure TuningHTMLGenerator(aHTMLReader: TddHTMLGenerator); virtual;
+   function GetHTMLWriter: TddHTMLGenerator; virtual;
    function GetFolder: AnsiString; override;
     {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
@@ -89,6 +90,15 @@ begin
  
 //#UC END# *56D9300D018D_516E72CA0386_impl*
 end;//TEVDtoHTMLWriterTest.TuningHTMLGenerator
+
+function TEVDtoHTMLWriterTest.GetHTMLWriter: TddHTMLGenerator;
+//#UC START# *57613C5F000C_516E72CA0386_var*
+//#UC END# *57613C5F000C_516E72CA0386_var*
+begin
+//#UC START# *57613C5F000C_516E72CA0386_impl*
+ Result := TddHTMLGenerator.Create;
+//#UC END# *57613C5F000C_516E72CA0386_impl*
+end;//TEVDtoHTMLWriterTest.GetHTMLWriter
 
 function TEVDtoHTMLWriterTest.GetFolder: AnsiString;
  {* Папка в которую входит тест }

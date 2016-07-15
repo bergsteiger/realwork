@@ -1,162 +1,123 @@
 unit CommonPost_Module;
+ {* Новостная лента }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Monitorings/CommonPost_Module.pas"
-// Начат: 10.09.2009 19:22
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMFormsPack::Class>> F1 Common For Shell And Monitoring::PostingOrder::View::Monitorings::CommonPost
-//
-// Новостная лента
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Monitorings\CommonPost_Module.pas"
+// Стереотип: "VCMFormsPack"
+// Элемент модели: "CommonPost" MUID: (4AA919B200AB)
+// Имя типа: "TCommonPostModule"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin)}
+{$If NOT Defined(Admin)}
 uses
-  SearchUnit
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  Messages,
-  Classes,
-  PostingOrder_FormDefinitions_Controls,
-  PrimPostingsListOptions_Form,
-  PostingsList_Form,
-  vcmExternalInterfaces {a},
-  vcmModule {a},
-  vcmBase {a}
-  ;
-{$IfEnd} //not Admin
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , SearchUnit
+ , Messages
+ , Classes
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin)}
 type
- TCommonPostModule = {formspack} class(TvcmModule)
+ TCommonPostModule = class({$If NOT Defined(NoVCM)}
+ TvcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* Новостная лента }
- protected
-  procedure Loaded; override;
-  class procedure GetEntityForms(aList : TvcmClassList); override;
- private
- // private methods
+  private
    class function MessageHook(var Msg: TMessage): Boolean;
- protected
- // protected methods
+  protected
    class function OpenPostingOrderForm(const anAggregate: IvcmAggregate;
-     const aContainer: IvcmContainer;
-     const aQuery: IQuery): IvcmEntityForm;
+    const aContainer: IvcmContainer;
+    const aQuery: IQuery): IvcmEntityForm;
    class function OpenPostingOrderList(const anAggregate: IvcmAggregate;
-     const aContainer: IvcmContainer;
-     anActive: Boolean;
-     aOwner: TComponent): IvcmEntityForm;
+    const aContainer: IvcmContainer;
+    anActive: Boolean;
+    aOwner: TComponent): IvcmEntityForm;
    procedure opSavePostListTest(const aParams: IvcmTestParamsPrim);
-     {* Экспортировать все индивидуальные ленты в файл }
-   procedure opSavePostList(const aParams: IvcmExecuteParamsPrim);
-     {* Экспортировать все индивидуальные ленты в файл }
- public
- // public methods
+    {* Экспортировать все индивидуальные ленты в файл }
+   procedure opSavePostListExecute(const aParams: IvcmExecuteParamsPrim);
+    {* Экспортировать все индивидуальные ленты в файл }
+   procedure Loaded; override;
+   {$If NOT Defined(NoVCM)}
+   class procedure GetEntityForms(aList: TvcmClassList); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    class function OpenPostingOrder(const aQuery: IQuery;
-     const aContainer: IvcmContainer = nil): IvcmEntityForm;
+    const aContainer: IvcmContainer = nil): IvcmEntityForm;
    class procedure SavePostingList;
    class procedure CheckHistory;
-     {* пробуем возвратиться по истории, если активна форма предварительного просмотра }
+    {* пробуем возвратиться по истории, если активна форма предварительного просмотра }
    class function StartOpen(const aContainer: IvcmContainer;
-     aNewTab: Boolean): IvcmEntityForm;
+    aNewTab: Boolean): IvcmEntityForm;
    class procedure SavePostList;
-     {* Сохранить индивидуальные ленты в файл }
+    {* Сохранить индивидуальные ленты в файл }
    class function CanSavePostList: Boolean;
-     {* Можно ли сохранить индивидуальные ленты в файл }
+    {* Можно ли сохранить индивидуальные ленты в файл }
  end;//TCommonPostModule
-{$IfEnd} //not Admin
+{$IfEnd} // NOT Defined(Admin)
 
 implementation
 
-{$If not defined(Admin)}
+{$If NOT Defined(Admin)}
 uses
-  SysUtils
-  {$If not defined(NoVCM)}
-  ,
-  vcmUtils
-  {$IfEnd} //not NoVCM
-  ,
-  Search_Strange_Controls,
-  nsPostingsTreeSingle
-  {$If not defined(NoVCM)}
-  ,
-  vcmMessagesSupport
-  {$IfEnd} //not NoVCM
-  ,
-  l3String
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  FileCtrl
-  {$IfEnd} //not NoVCL
-  ,
-  DataAdapter,
-  PrimeUnit,
-  nsTypes,
-  Windows,
-  nsFindSelectDialog,
-  PostingOrder_Strange_Controls
-  {$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
-  ,
-  vcmTabbedContainerFormDispatcher
-  {$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
-  ,
-  nsOpenUtils,
-  SearchLite_Strange_Controls,
-  PrimSaveLoadUserTypes_slqtPostingOrder_UserType,
-  PrimQueryCard_utqcPostingOrder_UserType,
-  Search_FormDefinitions_Controls
-  {$If not defined(Admin) AND not defined(NoScripts)}
-  ,
-  kw_CommonPost_opSavePostList
-  {$IfEnd} //not Admin AND not NoScripts
-  ,
-  vcmFormSetFactory {a},
-  StdRes {a},
-  vcmModuleDef {a}
-  ;
-{$IfEnd} //not Admin
+ l3ImplUses
+ , SearchLite_Strange_Controls
+ , PrimSaveLoadUserTypes_slqtPostingOrder_UserType
+ , PrimQueryCard_utqcPostingOrder_UserType
+ , Search_FormDefinitions_Controls
+ , PostingOrder_FormDefinitions_Controls
+ {$If NOT Defined(NoVCM)}
+ , vcmMessagesSupport
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmUtils
+ {$IfEnd} // NOT Defined(NoVCM)
+ , SysUtils
+ , Search_Strange_Controls
+ , nsPostingsTreeSingle
+ , l3String
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , FileCtrl
+ {$IfEnd} // NOT Defined(NoVCL)
+ , DataAdapter
+ , PrimeUnit
+ , nsTypes
+ , Windows
+ , nsFindSelectDialog
+ , PostingOrder_Strange_Controls
+ {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
+ , vcmTabbedContainerFormDispatcher
+ {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+ , nsOpenUtils
+ , PostingsList_Form
+ //#UC START# *4AA919B200ABimpl_uses*
+ , StdRes
+ //#UC END# *4AA919B200ABimpl_uses*
+;
 
-{$If not defined(Admin)}
-
-// start class TCommonPostModule
-
-class function TCommonPostModule.MessageHook(var Msg: TMessage): Boolean;
-//#UC START# *4AAF94F8009A_4AA919B200AB_var*
-//#UC END# *4AAF94F8009A_4AA919B200AB_var*
-begin
-//#UC START# *4AAF94F8009A_4AA919B200AB_impl*
- Result := False;
- if (Msg.Msg = WM_ACTIVATEAPP) and TWMActivateApp(Msg).Active then
-  EnumWindows(@FindSelectDialog, LongInt(@Msg));
-//#UC END# *4AAF94F8009A_4AA919B200AB_impl*
-end;//TCommonPostModule.MessageHook
-
+{$If NOT Defined(NoVCM)}
 class function TCommonPostModule.OpenPostingOrderForm(const anAggregate: IvcmAggregate;
-  const aContainer: IvcmContainer;
-  const aQuery: IQuery): IvcmEntityForm;
+ const aContainer: IvcmContainer;
+ const aQuery: IQuery): IvcmEntityForm;
+var l_Container: IvcmEntityForm;
 //#UC START# *4AA9304801B8_4AA919B200AB_var*
 //#UC END# *4AA9304801B8_4AA919B200AB_var*
-var
- l_Container : IvcmEntityForm;
 begin
 //#UC START# *4AA9304801B8_4AA919B200AB_impl*
  // Создание базового контейнера для КЗ
@@ -191,14 +152,13 @@ begin
 end;//TCommonPostModule.OpenPostingOrderForm
 
 class function TCommonPostModule.OpenPostingOrder(const aQuery: IQuery;
-  const aContainer: IvcmContainer = nil): IvcmEntityForm;
+ const aContainer: IvcmContainer = nil): IvcmEntityForm;
+var l_Form: IvcmEntityForm;
+var l_Cont: IvcmContainer;
 var
  __WasEnter : Boolean;
 //#UC START# *4AA93C87000C_4AA919B200AB_var*
 //#UC END# *4AA93C87000C_4AA919B200AB_var*
-var
- l_Form : IvcmEntityForm;
- l_Cont : IvcmContainer;
 begin
  __WasEnter := vcmEnterFactory;
  try
@@ -220,14 +180,13 @@ begin
 end;//TCommonPostModule.OpenPostingOrder
 
 class procedure TCommonPostModule.SavePostingList;
+var l_PathName: AnsiString;
+var l_MayExit: Boolean;
+var l_Result: Boolean;
 var
  __WasEnter : Boolean;
 //#UC START# *4AAF935E01A7_4AA919B200AB_var*
 //#UC END# *4AAF935E01A7_4AA919B200AB_var*
-var
- l_PathName : AnsiString;
- l_MayExit : Boolean;
- l_Result : Boolean;
 begin
  __WasEnter := vcmEnterFactory;
  try
@@ -281,7 +240,19 @@ begin
  end;//try..finally
 end;//TCommonPostModule.SavePostingList
 
+class function TCommonPostModule.MessageHook(var Msg: TMessage): Boolean;
+//#UC START# *4AAF94F8009A_4AA919B200AB_var*
+//#UC END# *4AAF94F8009A_4AA919B200AB_var*
+begin
+//#UC START# *4AAF94F8009A_4AA919B200AB_impl*
+ Result := False;
+ if (Msg.Msg = WM_ACTIVATEAPP) and TWMActivateApp(Msg).Active then
+  EnumWindows(@FindSelectDialog, LongInt(@Msg));
+//#UC END# *4AAF94F8009A_4AA919B200AB_impl*
+end;//TCommonPostModule.MessageHook
+
 class procedure TCommonPostModule.CheckHistory;
+ {* пробуем возвратиться по истории, если активна форма предварительного просмотра }
 var
  __WasEnter : Boolean;
 //#UC START# *4AAF9E650070_4AA919B200AB_var*
@@ -301,9 +272,9 @@ begin
 end;//TCommonPostModule.CheckHistory
 
 class function TCommonPostModule.OpenPostingOrderList(const anAggregate: IvcmAggregate;
-  const aContainer: IvcmContainer;
-  anActive: Boolean;
-  aOwner: TComponent): IvcmEntityForm;
+ const aContainer: IvcmContainer;
+ anActive: Boolean;
+ aOwner: TComponent): IvcmEntityForm;
 //#UC START# *4AAFA0B10356_4AA919B200AB_var*
 //#UC END# *4AAFA0B10356_4AA919B200AB_var*
 begin
@@ -322,7 +293,8 @@ begin
 end;//TCommonPostModule.OpenPostingOrderList
 
 class function TCommonPostModule.StartOpen(const aContainer: IvcmContainer;
-  aNewTab: Boolean): IvcmEntityForm;
+ aNewTab: Boolean): IvcmEntityForm;
+var l_Aggregate: IvcmAggregate;
 var
  __WasEnter : Boolean;
 //#UC START# *4AAFA52603B7_4AA919B200AB_var*
@@ -352,8 +324,6 @@ var
  l_Owner: TComponent;
  l_Cont: IvcmContainer;
 //#UC END# *4AAFA52603B7_4AA919B200AB_var*
-var
- l_Aggregate : IvcmAggregate;
 begin
  __WasEnter := vcmEnterFactory;
  try
@@ -380,6 +350,7 @@ begin
 end;//TCommonPostModule.StartOpen
 
 class procedure TCommonPostModule.SavePostList;
+ {* Сохранить индивидуальные ленты в файл }
 var
  __WasEnter : Boolean;
 //#UC START# *4B71840A00D2_4AA919B200AB_var*
@@ -403,6 +374,7 @@ begin
 end;//TCommonPostModule.SavePostList
 
 class function TCommonPostModule.CanSavePostList: Boolean;
+ {* Можно ли сохранить индивидуальные ленты в файл }
 var
  __WasEnter : Boolean;
 //#UC START# *4B7184370035_4AA919B200AB_var*
@@ -420,6 +392,7 @@ begin
 end;//TCommonPostModule.CanSavePostList
 
 procedure TCommonPostModule.opSavePostListTest(const aParams: IvcmTestParamsPrim);
+ {* Экспортировать все индивидуальные ленты в файл }
 //#UC START# *4B71847503BF_4AA919B200ABtest_var*
 //#UC END# *4B71847503BF_4AA919B200ABtest_var*
 begin
@@ -432,27 +405,28 @@ begin
 //#UC END# *4B71847503BF_4AA919B200ABtest_impl*
 end;//TCommonPostModule.opSavePostListTest
 
-procedure TCommonPostModule.opSavePostList(const aParams: IvcmExecuteParamsPrim);
+procedure TCommonPostModule.opSavePostListExecute(const aParams: IvcmExecuteParamsPrim);
+ {* Экспортировать все индивидуальные ленты в файл }
 //#UC START# *4B71847503BF_4AA919B200ABexec_var*
 //#UC END# *4B71847503BF_4AA919B200ABexec_var*
 begin
 //#UC START# *4B71847503BF_4AA919B200ABexec_impl*
  SavePostList;
 //#UC END# *4B71847503BF_4AA919B200ABexec_impl*
-end;//TCommonPostModule.opSavePostList
+end;//TCommonPostModule.opSavePostListExecute
 
 procedure TCommonPostModule.Loaded;
 begin
  inherited;
- PublishOp('opSavePostList', opSavePostList, opSavePostListTest);
-end;
+ PublishOp('opSavePostList', opSavePostListExecute, opSavePostListTest);
+end;//TCommonPostModule.Loaded
 
-class procedure TCommonPostModule.GetEntityForms(aList : TvcmClassList);
+class procedure TCommonPostModule.GetEntityForms(aList: TvcmClassList);
 begin
  inherited;
  aList.Add(TenPostingsList);
-end;
+end;//TCommonPostModule.GetEntityForms
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //not Admin
-
+{$IfEnd} // NOT Defined(Admin)
 end.

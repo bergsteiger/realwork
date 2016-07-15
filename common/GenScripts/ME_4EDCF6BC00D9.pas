@@ -15,15 +15,26 @@ uses
  , dsWarning
  , DocInfoInterfaces
  , DocumentInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
  TdsTranslationWarning = class(TdsWarning)
   {* Предупреждение к переводу документа }
   private
-   DocInfo: IsdsDocInfo;
+   ucc_DocInfo: IsdsDocInfo;
   protected
    function DoGetDocInfo: IdeDocInfo; override;
+   {$If NOT Defined(NoVCM)}
+   procedure InitRefs(const aDS: IvcmFormSetDataSource); override;
+    {* Инициализирует ссылки на различные представления прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure ClearRefs; override;
+    {* Очищает ссылки на различные представления прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//TdsTranslationWarning
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -32,6 +43,7 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ , SysUtils
 ;
 
 function TdsTranslationWarning.DoGetDocInfo: IdeDocInfo;
@@ -46,6 +58,24 @@ begin
   Result := nil;
 //#UC END# *4EDCF99301CA_4EDCF6BC00D9_impl*
 end;//TdsTranslationWarning.DoGetDocInfo
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
+{$If NOT Defined(NoVCM)}
+procedure TdsTranslationWarning.InitRefs(const aDS: IvcmFormSetDataSource);
+ {* Инициализирует ссылки на различные представления прецедента }
+begin
+ inherited;
+ Supports(aDS, IsdsDocInfo, ucc_DocInfo);
+end;//TdsTranslationWarning.InitRefs
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TdsTranslationWarning.ClearRefs;
+ {* Очищает ссылки на различные представления прецедента }
+begin
+ inherited;
+ ucc_DocInfo := nil;
+end;//TdsTranslationWarning.ClearRefs
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

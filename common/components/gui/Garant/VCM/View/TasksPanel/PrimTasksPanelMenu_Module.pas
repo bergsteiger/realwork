@@ -1,111 +1,92 @@
 unit PrimTasksPanelMenu_Module;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/VCM/View/TasksPanel/PrimTasksPanelMenu_Module.pas"
-// Начат: 13.09.2010 11:55
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMFormsPack::Class>> Shared Delphi Operations::VCMCustomization::View::TasksPanel::PrimTasksPanelMenu
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\VCM\View\TasksPanel\PrimTasksPanelMenu_Module.pas"
+// Стереотип: "VCMFormsPack"
+// Элемент модели: "PrimTasksPanelMenu" MUID: (4C8DD8C602D3)
+// Имя типа: "TPrimTasksPanelMenuModule"
 
 {$Include w:\common\components\gui\sdoDefine.inc}
 
 interface
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  Classes
-  {$If not defined(NoVCL)}
-  ,
-  Menus
-  {$IfEnd} //not NoVCL
-  ,
-  vcmTaskPanelInterfaces,
-  vcmPopupMenuPrim,
-  PrimCustomizeTasksPanel_Form,
-  CustomizeTasksPanel_Form,
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a},
-  vcmModule {a},
-  vcmBase {a}
-  ;
-{$IfEnd} //not NoVCM
+ l3IntfUses
+ , vcmPopupMenuPrim
+ {$If NOT Defined(NoVCL)}
+ , Menus
+ {$IfEnd} // NOT Defined(NoVCL)
+ , vcmTaskPanelInterfaces
+ , Classes
+ , vcmBase
+ , vcmExternalInterfaces
+ , vcmModule
+;
 
-{$If not defined(NoVCM)}
 type
- TPrimTasksPanelMenuModule = {abstract formspack} class(TvcmModule)
- private
- // private fields
-   f_PopupMenu : TvcmPopupMenuPrim;
-    {* Поле для свойства PopupMenu}
- protected
-  procedure Loaded; override;
-  class procedure GetEntityForms(aList : TvcmClassList); override;
- private
- // private methods
-   procedure opCustomize(const aParams: IvcmExecuteParamsPrim);
-     {* Настройка... }
- protected
- // property methods
+ TPrimTasksPanelMenuModule = {abstract} class(TvcmModule)
+  private
+   f_PopupMenu: TvcmPopupMenuPrim;
+  private
+   procedure opCustomizeExecute(const aParams: IvcmExecuteParamsPrim);
+    {* Настройка... }
+  protected
    function pm_GetPopupMenu: TvcmPopupMenuPrim;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // overridden public methods
-   constructor Create(AOwner: TComponent); override;
- public
- // public methods
+    {* Функция очистки полей объекта. }
+   procedure Loaded; override;
+   class procedure GetEntityForms(aList: TvcmClassList); override;
+  public
    class procedure CustomizePanel(const aPanel: IvcmCustOps);
-     {* Настроить панель иструментов }
+    {* Настроить панель иструментов }
    class function TasksPanelPopupMenu: TPopupMenu;
- protected
- // protected properties
+   constructor Create(AOwner: TComponent); override;
+  protected
    property PopupMenu: TvcmPopupMenuPrim
-     read pm_GetPopupMenu;
+    read pm_GetPopupMenu;
  end;//TPrimTasksPanelMenuModule
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 implementation
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  vcmCustOpsRepGroupList,
-  SysUtils,
-  vcmMenus
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoScripts) AND not defined(NoVCM)}
-  ,
-  kw_TasksPanelMenu_opCustomize
-  {$IfEnd} //not NoScripts AND not NoVCM
-  ,
-  vcmFormSetFactory {a},
-  StdRes {a},
-  vcmModuleDef {a}
-  ;
-{$IfEnd} //not NoVCM
+ l3ImplUses
+ , vcmInterfaces
+ , SysUtils
+ , vcmMenus
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , CustomizeTasksPanel_Form
+ //#UC START# *4C8DD8C602D3impl_uses*
+ //#UC END# *4C8DD8C602D3impl_uses*
+;
 
-{$If not defined(NoVCM)}
+var g_dmTasksPanelMenu: TPrimTasksPanelMenuModule = nil;
 
-var
-   g_dmTasksPanelMenu : TPrimTasksPanelMenuModule = nil;
+function TPrimTasksPanelMenuModule.pm_GetPopupMenu: TvcmPopupMenuPrim;
+//#UC START# *4C8F78BC0331_4C8DD8C602D3get_var*
+//#UC END# *4C8F78BC0331_4C8DD8C602D3get_var*
+begin
+//#UC START# *4C8F78BC0331_4C8DD8C602D3get_impl*
+ if not Assigned(f_PopupMenu) then
+ begin
+  f_PopupMenu := TvcmPopupMenuPrim.Create(Self);
+  // Это нужно чтобы был найден группирующий элемент
+  f_PopupMenu.Items.Caption := vcmStr(ModuleDef.ModuleDef.Caption);
+  // Контекстные операции модуля
+  vcmMakeModuleMenu(f_PopupMenu.Items,
+                    ModuleDef.ModuleDef,
+                    [{vcm_ooShowInContextMenu}],
+                    False);
+ end;//if not Assigned(f_PopupMenu) then
+ Result := f_PopupMenu;
+//#UC END# *4C8F78BC0331_4C8DD8C602D3get_impl*
+end;//TPrimTasksPanelMenuModule.pm_GetPopupMenu
 
-// start class TPrimTasksPanelMenuModule
-
-procedure TPrimTasksPanelMenuModule.opCustomize(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimTasksPanelMenuModule.opCustomizeExecute(const aParams: IvcmExecuteParamsPrim);
+ {* Настройка... }
 //#UC START# *4C8DD91901C8_4C8DD8C602D3exec_var*
 var
  l_MainForm: IvcmMainForm;
@@ -117,9 +98,10 @@ begin
  else
   Assert(False);
 //#UC END# *4C8DD91901C8_4C8DD8C602D3exec_impl*
-end;//TPrimTasksPanelMenuModule.opCustomize
+end;//TPrimTasksPanelMenuModule.opCustomizeExecute
 
 class procedure TPrimTasksPanelMenuModule.CustomizePanel(const aPanel: IvcmCustOps);
+ {* Настроить панель иструментов }
 var
  __WasEnter : Boolean;
 //#UC START# *4C8E59B80380_4C8DD8C602D3_var*
@@ -154,27 +136,8 @@ begin
  end;//try..finally
 end;//TPrimTasksPanelMenuModule.TasksPanelPopupMenu
 
-function TPrimTasksPanelMenuModule.pm_GetPopupMenu: TvcmPopupMenuPrim;
-//#UC START# *4C8F78BC0331_4C8DD8C602D3get_var*
-//#UC END# *4C8F78BC0331_4C8DD8C602D3get_var*
-begin
-//#UC START# *4C8F78BC0331_4C8DD8C602D3get_impl*
- if not Assigned(f_PopupMenu) then
- begin
-  f_PopupMenu := TvcmPopupMenuPrim.Create(Self);
-  // Это нужно чтобы был найден группирующий элемент
-  f_PopupMenu.Items.Caption := vcmStr(ModuleDef.ModuleDef.Caption);
-  // Контекстные операции модуля
-  vcmMakeModuleMenu(f_PopupMenu.Items,
-                    ModuleDef.ModuleDef,
-                    [{vcm_ooShowInContextMenu}],
-                    False);
- end;//if not Assigned(f_PopupMenu) then
- Result := f_PopupMenu;
-//#UC END# *4C8F78BC0331_4C8DD8C602D3get_impl*
-end;//TPrimTasksPanelMenuModule.pm_GetPopupMenu
-
 procedure TPrimTasksPanelMenuModule.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4C8DD8C602D3_var*
 //#UC END# *479731C50290_4C8DD8C602D3_var*
 begin
@@ -199,16 +162,15 @@ end;//TPrimTasksPanelMenuModule.Create
 procedure TPrimTasksPanelMenuModule.Loaded;
 begin
  inherited;
- PublishOp('opCustomize', opCustomize, nil);
- ShowInToolbar('opCustomize', false);
-end;
+ PublishOp('opCustomize', opCustomizeExecute, nil);
+ ShowInToolbar('opCustomize', False);
+end;//TPrimTasksPanelMenuModule.Loaded
 
-class procedure TPrimTasksPanelMenuModule.GetEntityForms(aList : TvcmClassList);
+class procedure TPrimTasksPanelMenuModule.GetEntityForms(aList: TvcmClassList);
 begin
  inherited;
  aList.Add(TCustomizeTasksPanelForm);
-end;
-
-{$IfEnd} //not NoVCM
+end;//TPrimTasksPanelMenuModule.GetEntityForms
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

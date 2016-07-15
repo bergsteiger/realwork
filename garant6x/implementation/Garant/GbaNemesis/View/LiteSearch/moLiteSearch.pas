@@ -1,33 +1,42 @@
 unit moLiteSearch;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/LiteSearch/moLiteSearch.pas"
-// Начат: 15.09.2009 13:35
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMFormsPack::Class>> F1 Базовые определения предметной области::SearchLite::View::LiteSearch::LiteSearch$FP
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\moLiteSearch.pas"
+// Стереотип: "VCMFormsPack"
+// Элемент модели: "LiteSearch" MUID: (4AA0EAA5019F)
+// Имя типа: "Tmo_LiteSearch"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  LiteSearch_Module
-  ;
+ l3IntfUses
+ , LiteSearch_Module
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
 type
- Tmo_LiteSearch = {final formspack} class(TLiteSearchModule)
+ Tmo_LiteSearch = {final} class(TLiteSearchModule)
  end;//Tmo_LiteSearch
 
 implementation
+
+uses
+ l3ImplUses
+ {$If NOT Defined(NoVCM)}
+ , vcmModulesForRegister
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmModuleOperationsForRegister
+ {$IfEnd} // NOT Defined(NoVCM)
+;
+
+initialization
+ TvcmModulesForRegister.AddModule(TvcmModuleForRegister_C(Tmo_LiteSearch, ''));
 
 end.

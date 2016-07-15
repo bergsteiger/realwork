@@ -23,7 +23,6 @@ uses
 type
  Il3DispatcherHelper = interface
   {* Èםעונפויס סונגטסא Tl3DispatcherHelper }
-  ['{BF29E5DD-DC50-4752-800C-CA9E91242A15}']
   procedure ClearHistory;
  end;//Il3DispatcherHelper
 

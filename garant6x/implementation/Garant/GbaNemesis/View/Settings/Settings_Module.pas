@@ -1,168 +1,111 @@
 unit Settings_Module;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Settings/Settings_Module.pas"
-// Начат: 09.09.2009 16:29
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMFormsPack::Class>> F1 Основные прецеденты::Settings::View::Settings::Settings
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Settings\Settings_Module.pas"
+// Стереотип: "VCMFormsPack"
+// Элемент модели: "Settings" MUID: (4AA79F72010A)
+// Имя типа: "TSettingsModule"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  ConfigInterfaces,
-  StyleEditorContainer_Form,
-  StyleEditorFont_Form,
-  StyleEditorNavigator_Form,
-  Settings_Form,
-  StyleEditorExample_Form,
-  PrimSettings_Form,
-  PrimStyleEditorFont_Form,
-  PrimStyleEditorNavigator_Form,
-  PrimStyleEditorExample_Form,
-  PrimSelfInfo_Form,
-  SelfInfo_Form,
-  PrimConfigurationList_Form,
-  Common_FormDefinitions_Controls,
-  PrimStyleEditorContainerOptions_Form,
-  ConfigurationList_Form,
-  vcmExternalInterfaces {a},
-  vcmModule {a},
-  vcmBase {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , ConfigInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
- TSettingsModule = {formspack} class(TvcmModule)
- protected
-  procedure Loaded; override;
-  class procedure GetEntityForms(aList : TvcmClassList); override;
- protected
- // protected methods
-   procedure opOpenStyleEditorAsModal(const aParams: IvcmExecuteParamsPrim);
-     {* Редактор стилей... }
+ TSettingsModule = class({$If NOT Defined(NoVCM)}
+ TvcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
+  protected
+   procedure opOpenStyleEditorAsModalExecute(const aParams: IvcmExecuteParamsPrim);
+    {* Редактор стилей... }
    procedure opAutoLoginTest(const aParams: IvcmTestParamsPrim);
-     {* Автоматический вход в систему }
-   procedure opAutoLogin(const aParams: IvcmExecuteParamsPrim);
-     {* Автоматический вход в систему }
+    {* Автоматический вход в систему }
+   procedure opAutoLoginExecute(const aParams: IvcmExecuteParamsPrim);
+    {* Автоматический вход в систему }
    procedure opSelectConfigTest(const aParams: IvcmTestParamsPrim);
-     {* Выбор конфигурации }
-   procedure opSelectConfig(const aParams: IvcmExecuteParamsPrim);
-     {* Выбор конфигурации }
-   procedure opOpenConfList(const aParams: IvcmExecuteParamsPrim);
-     {* Список конфигураций }
-   procedure opLoadActiveSettings(const aParams: IvcmExecuteParamsPrim);
-     {* Настройка конфигурации... }
+    {* Выбор конфигурации }
+   procedure opSelectConfigExecute(const aParams: IvcmExecuteParamsPrim);
+    {* Выбор конфигурации }
+   procedure opOpenConfListExecute(const aParams: IvcmExecuteParamsPrim);
+    {* Список конфигураций }
+   procedure opLoadActiveSettingsExecute(const aParams: IvcmExecuteParamsPrim);
+    {* Настройка конфигурации... }
    procedure opUserPropertiesTest(const aParams: IvcmTestParamsPrim);
-     {* Изменить мои регистрационные данные... }
-   procedure opUserProperties(const aParams: IvcmExecuteParamsPrim);
-     {* Изменить мои регистрационные данные... }
- public
- // public methods
+    {* Изменить мои регистрационные данные... }
+   procedure opUserPropertiesExecute(const aParams: IvcmExecuteParamsPrim);
+    {* Изменить мои регистрационные данные... }
+   procedure Loaded; override;
+   {$If NOT Defined(NoVCM)}
+   class procedure GetEntityForms(aList: TvcmClassList); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    class function OpenStyleEditorAsModal(const aData: InsStyleTableSettingsInfo): Integer;
    class procedure CloseConfList(const aContainer: IvcmContainer);
-     {* Закрыть список конфигураций }
+    {* Закрыть список конфигураций }
    class function LoadSettings(const anAggregate: IvcmAggregate;
-     const aData: InsConfigSettingsInfo): IvcmEntityForm;
-     {* Открыть настройки }
+    const aData: InsConfigSettingsInfo): IvcmEntityForm;
+    {* Открыть настройки }
    class procedure OpenConfList(const aContainer: IvcmContainer);
  end;//TSettingsModule
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  nsStyleEditor,
-  evStyleInterface
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  nsSettingsUtils
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Result_Controls
-  {$IfEnd} //not NoVCM
-  ,
-  DataAdapter,
-  SysUtils,
-  nsConfigurationList
-  {$If not defined(NoVCM)}
-  ,
-  vcmEntityForm
-  {$IfEnd} //not NoVCM
-  ,
-  PrimStyleEditorExample_utStyleEditorExample_UserType
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  kw_Settings_opOpenStyleEditorAsModal
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  kw_Settings_opAutoLogin
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  kw_Settings_opSelectConfig
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  kw_Settings_opOpenConfList
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  kw_Settings_opLoadActiveSettings
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  kw_Settings_opUserProperties
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  ,
-  vcmFormSetFactory {a},
-  StdRes {a},
-  vcmModuleDef {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , PrimStyleEditorExample_utStyleEditorExample_UserType
+ , Common_FormDefinitions_Controls
+ , nsStyleEditor
+ , evStyleInterface
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , nsSettingsUtils
+ , DataAdapter
+ , SysUtils
+ , nsConfigurationList
+ {$If NOT Defined(NoVCM)}
+ , vcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ , SelfInfo_Form
+ , SelfInfo_ut_SelfInfo_UserType
+ , StyleEditorContainer_Form
+ , StyleEditorFont_Form
+ , StyleEditorNavigator_Form
+ , ConfigurationList_Form
+ , Settings_Form
+ , StyleEditorExample_Form
+ //#UC START# *4AA79F72010Aimpl_uses*
+ //#UC END# *4AA79F72010Aimpl_uses*
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TSettingsModule
-
+{$If NOT Defined(NoVCM)}
 class function TSettingsModule.OpenStyleEditorAsModal(const aData: InsStyleTableSettingsInfo): Integer;
+var l_SettingsData: InsStyleTableSettingsInfo;
+var l_Container: IvcmEntityForm;
+var l_Params: IvcmMakeParams;
 var
  __WasEnter : Boolean;
 //#UC START# *4ABA122E00AE_4AA79F72010A_var*
 //#UC END# *4ABA122E00AE_4AA79F72010A_var*
-var
- l_SettingsData : InsStyleTableSettingsInfo;
- l_Container : IvcmEntityForm;
- l_Params : IvcmMakeParams;
 begin
  __WasEnter := vcmEnterFactory;
  try
@@ -211,7 +154,8 @@ begin
  end;//try..finally
 end;//TSettingsModule.OpenStyleEditorAsModal
 
-procedure TSettingsModule.opOpenStyleEditorAsModal(const aParams: IvcmExecuteParamsPrim);
+procedure TSettingsModule.opOpenStyleEditorAsModalExecute(const aParams: IvcmExecuteParamsPrim);
+ {* Редактор стилей... }
 //#UC START# *4ABB46310087_4AA79F72010Aexec_var*
 //#UC END# *4ABB46310087_4AA79F72010Aexec_var*
 begin
@@ -220,9 +164,10 @@ begin
         'Пользуйтесь фабриками');
  OpenStyleEditorAsModal(nil);
 //#UC END# *4ABB46310087_4AA79F72010Aexec_impl*
-end;//TSettingsModule.opOpenStyleEditorAsModal
+end;//TSettingsModule.opOpenStyleEditorAsModalExecute
 
 procedure TSettingsModule.opAutoLoginTest(const aParams: IvcmTestParamsPrim);
+ {* Автоматический вход в систему }
 //#UC START# *4ABB49400064_4AA79F72010Atest_var*
 //#UC END# *4ABB49400064_4AA79F72010Atest_var*
 begin
@@ -235,7 +180,8 @@ begin
 //#UC END# *4ABB49400064_4AA79F72010Atest_impl*
 end;//TSettingsModule.opAutoLoginTest
 
-procedure TSettingsModule.opAutoLogin(const aParams: IvcmExecuteParamsPrim);
+procedure TSettingsModule.opAutoLoginExecute(const aParams: IvcmExecuteParamsPrim);
+ {* Автоматический вход в систему }
 //#UC START# *4ABB49400064_4AA79F72010Aexec_var*
 //#UC END# *4ABB49400064_4AA79F72010Aexec_var*
 begin
@@ -243,9 +189,10 @@ begin
   with DefDataAdapter do
    RegistryIsAutoLogin := not(RegistryIsAutoLogin);
 //#UC END# *4ABB49400064_4AA79F72010Aexec_impl*
-end;//TSettingsModule.opAutoLogin
+end;//TSettingsModule.opAutoLoginExecute
 
 procedure TSettingsModule.opSelectConfigTest(const aParams: IvcmTestParamsPrim);
+ {* Выбор конфигурации }
 //#UC START# *4ABB4BB100C0_4AA79F72010Atest_var*
 var
  l_List : IvcmNodes;
@@ -271,7 +218,8 @@ begin
 //#UC END# *4ABB4BB100C0_4AA79F72010Atest_impl*
 end;//TSettingsModule.opSelectConfigTest
 
-procedure TSettingsModule.opSelectConfig(const aParams: IvcmExecuteParamsPrim);
+procedure TSettingsModule.opSelectConfigExecute(const aParams: IvcmExecuteParamsPrim);
+ {* Выбор конфигурации }
 //#UC START# *4ABB4BB100C0_4AA79F72010Aexec_var*
 var
  l_Node: InsConfigNode;
@@ -285,9 +233,10 @@ begin
   l_Node := nil;
  end;
 //#UC END# *4ABB4BB100C0_4AA79F72010Aexec_impl*
-end;//TSettingsModule.opSelectConfig
+end;//TSettingsModule.opSelectConfigExecute
 
-procedure TSettingsModule.opOpenConfList(const aParams: IvcmExecuteParamsPrim);
+procedure TSettingsModule.opOpenConfListExecute(const aParams: IvcmExecuteParamsPrim);
+ {* Список конфигураций }
 //#UC START# *4ABB4E9A0064_4AA79F72010Aexec_var*
 //#UC END# *4ABB4E9A0064_4AA79F72010Aexec_var*
 begin
@@ -296,9 +245,10 @@ begin
         'Пользуйтесь фабриками');
  OpenConfList(nil);
 //#UC END# *4ABB4E9A0064_4AA79F72010Aexec_impl*
-end;//TSettingsModule.opOpenConfList
+end;//TSettingsModule.opOpenConfListExecute
 
 class procedure TSettingsModule.CloseConfList(const aContainer: IvcmContainer);
+ {* Закрыть список конфигураций }
 var
  __WasEnter : Boolean;
 //#UC START# *4ABB51300045_4AA79F72010A_var*
@@ -324,7 +274,8 @@ begin
 end;//TSettingsModule.CloseConfList
 
 class function TSettingsModule.LoadSettings(const anAggregate: IvcmAggregate;
-  const aData: InsConfigSettingsInfo): IvcmEntityForm;
+ const aData: InsConfigSettingsInfo): IvcmEntityForm;
+ {* Открыть настройки }
 var
  __WasEnter : Boolean;
 //#UC START# *4ABB5496029E_4AA79F72010A_var*
@@ -343,7 +294,8 @@ begin
  end;//try..finally
 end;//TSettingsModule.LoadSettings
 
-procedure TSettingsModule.opLoadActiveSettings(const aParams: IvcmExecuteParamsPrim);
+procedure TSettingsModule.opLoadActiveSettingsExecute(const aParams: IvcmExecuteParamsPrim);
+ {* Настройка конфигурации... }
 //#UC START# *4ABB5926039A_4AA79F72010Aexec_var*
 var
  l_Form       : IvcmEntityForm;
@@ -371,7 +323,7 @@ begin
   l_Params := vcmMakeParams(nil, CheckContainer(nil));
  Tcf_Settings.Make(ConfigurationList.ActiveConfig, l_Params, vcm_ztModal);
 //#UC END# *4ABB5926039A_4AA79F72010Aexec_impl*
-end;//TSettingsModule.opLoadActiveSettings
+end;//TSettingsModule.opLoadActiveSettingsExecute
 
 class procedure TSettingsModule.OpenConfList(const aContainer: IvcmContainer);
 var
@@ -400,6 +352,7 @@ begin
 end;//TSettingsModule.OpenConfList
 
 procedure TSettingsModule.opUserPropertiesTest(const aParams: IvcmTestParamsPrim);
+ {* Изменить мои регистрационные данные... }
 //#UC START# *4B506F0902B5_4AA79F72010Atest_var*
 //#UC END# *4B506F0902B5_4AA79F72010Atest_var*
 begin
@@ -408,27 +361,28 @@ begin
 //#UC END# *4B506F0902B5_4AA79F72010Atest_impl*
 end;//TSettingsModule.opUserPropertiesTest
 
-procedure TSettingsModule.opUserProperties(const aParams: IvcmExecuteParamsPrim);
+procedure TSettingsModule.opUserPropertiesExecute(const aParams: IvcmExecuteParamsPrim);
+ {* Изменить мои регистрационные данные... }
 //#UC START# *4B506F0902B5_4AA79F72010Aexec_var*
 //#UC END# *4B506F0902B5_4AA79F72010Aexec_var*
 begin
 //#UC START# *4B506F0902B5_4AA79F72010Aexec_impl*
  TSelfInfoForm.Make(vcmMakeParams);
 //#UC END# *4B506F0902B5_4AA79F72010Aexec_impl*
-end;//TSettingsModule.opUserProperties
+end;//TSettingsModule.opUserPropertiesExecute
 
 procedure TSettingsModule.Loaded;
 begin
  inherited;
- PublishOp('opOpenStyleEditorAsModal', opOpenStyleEditorAsModal, nil);
- PublishOp('opAutoLogin', opAutoLogin, opAutoLoginTest);
- PublishOp('opSelectConfig', opSelectConfig, opSelectConfigTest);
- PublishOp('opOpenConfList', opOpenConfList, nil);
- PublishOp('opLoadActiveSettings', opLoadActiveSettings, nil);
- PublishOp('opUserProperties', opUserProperties, opUserPropertiesTest);
-end;
+ PublishOp('opOpenStyleEditorAsModal', opOpenStyleEditorAsModalExecute, nil);
+ PublishOp('opAutoLogin', opAutoLoginExecute, opAutoLoginTest);
+ PublishOp('opSelectConfig', opSelectConfigExecute, opSelectConfigTest);
+ PublishOp('opOpenConfList', opOpenConfListExecute, nil);
+ PublishOp('opLoadActiveSettings', opLoadActiveSettingsExecute, nil);
+ PublishOp('opUserProperties', opUserPropertiesExecute, opUserPropertiesTest);
+end;//TSettingsModule.Loaded
 
-class procedure TSettingsModule.GetEntityForms(aList : TvcmClassList);
+class procedure TSettingsModule.GetEntityForms(aList: TvcmClassList);
 begin
  inherited;
  aList.Add(TStyleEditorContainerForm);
@@ -438,8 +392,8 @@ begin
  aList.Add(Tcf_Settings);
  aList.Add(TStyleEditorExampleForm);
  aList.Add(TSelfInfoForm);
-end;
+end;//TSettingsModule.GetEntityForms
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //not Admin AND not Monitorings
-
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

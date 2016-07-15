@@ -13,7 +13,7 @@ uses
  l3IntfUses
  , ddProcessTaskPrim
  , csTaskResult
- , dt_Types
+ , daTypes
 ;
 
 type
@@ -42,7 +42,7 @@ type
  IcsRunTaskServices = interface
   ['{38851828-B75C-4B6B-8017-90CA9E1ADC3E}']
   procedure AddActiveTask(const aTask: TddProcessTask);
-  procedure SendTextMessage(anUserID: TUserID;
+  procedure SendTextMessage(anUserID: TdaUserID;
    const aMessage: AnsiString);
  end;//IcsRunTaskServices
 

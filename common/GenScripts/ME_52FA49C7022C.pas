@@ -12,7 +12,7 @@ interface
 uses
  l3IntfUses
  , ddTaskItemPrim
- , dt_Types
+ , daTypes
  , Classes
 ;
 
@@ -26,7 +26,7 @@ type
    function GetDescription: AnsiString; virtual;
   public
    procedure AssignFrom(P: TddTaskItem);
-   constructor Create(aUserID: TUserID); reintroduce; virtual;
+   constructor Create(aUserID: TdaUserID); reintroduce; virtual;
    procedure DoSaveTo(aStream: TStream;
     aIsPipe: Boolean); virtual;
  end;//TddTaskItem
@@ -61,7 +61,7 @@ begin
 //#UC END# *52FA510700F0_52FA49DF00EF_impl*
 end;//TddTaskItem.AssignFrom
 
-constructor TddTaskItem.Create(aUserID: TUserID);
+constructor TddTaskItem.Create(aUserID: TdaUserID);
 //#UC START# *53B3D8A8011F_52FA49DF00EF_var*
 //#UC END# *53B3D8A8011F_52FA49DF00EF_var*
 begin

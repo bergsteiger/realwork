@@ -1,61 +1,64 @@
 unit moFolders;
+ {* Папки }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Автор: Тучнин Д.А.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/moFolders.pas"
-// Начат: 2003/08/06 08:30:27
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMUseCaseRealization::Class>> F1 Основные прецеденты::Folders::Folders$UC
-//
-// Папки
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\moFolders.pas"
+// Стереотип: "VCMUseCaseRealization"
+// Элемент модели: "Folders" MUID: (4A96B6E00382)
+// Имя типа: "Tmo_Folders"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  PrimFolders_Module
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , PrimFolders_Module
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
-Tmo_Folders = {final formspack} class(TPrimFoldersModule)
- {* Папки }
-end;//Tmo_Folders
-{$IfEnd} //not Admin AND not Monitorings
+ Tmo_Folders = {final} class(TPrimFoldersModule)
+  {* Папки }
+ end;//Tmo_Folders
+
+var g_module_opcode_Folders_MyInformation: TvcmMOPID = (rMoID : -1; rOpID : -1);
+var g_module_opcode_Folders_MyConsultations: TvcmMOPID = (rMoID : -1; rOpID : -1);
+var g_module_opcode_Folders_UnderControlOpenFrmAct: TvcmMOPID = (rMoID : -1; rOpID : -1);
+var g_module_opcode_Folders_OpenFrmAct: TvcmMOPID = (rMoID : -1; rOpID : -1);
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , vcmModulesForRegister
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmModuleOperationsForRegister
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация Folders$UC
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(Tmo_Folders);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация Folders }
+{$IfEnd} // NOT Defined(NoScripts)
+ TvcmModulesForRegister.AddModule(TvcmModuleForRegister_C(Tmo_Folders, 'Папки'));
+ TvcmModuleOperationsForRegister.AddOperation(TvcmModuleOperationForRegister_C(Tmo_Folders, 'MyInformation', 'Моя информация', False, g_module_opcode_Folders_MyInformation));
+ TvcmModuleOperationsForRegister.AddOperation(TvcmModuleOperationForRegister_C(Tmo_Folders, 'MyConsultations', 'Мои консультации', False, g_module_opcode_Folders_MyConsultations));
+ TvcmModuleOperationsForRegister.AddOperation(TvcmModuleOperationForRegister_C(Tmo_Folders, 'UnderControlOpenFrmAct', 'Документы на контроле', False, g_module_opcode_Folders_UnderControlOpenFrmAct));
+ TvcmModuleOperationsForRegister.AddOperation(TvcmModuleOperationForRegister_C(Tmo_Folders, 'OpenFrmAct', 'Мои документы', False, g_module_opcode_Folders_OpenFrmAct));
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

@@ -23,7 +23,6 @@ uses
 type
  If1StartupCompletedService = interface
   {* Èםעונפויס סונגטסא Tf1StartupCompletedService }
-  ['{FAEEA483-9C56-4BF2-93C7-FD7927F8D287}']
   procedure StartupComplete;
  end;//If1StartupCompletedService
 

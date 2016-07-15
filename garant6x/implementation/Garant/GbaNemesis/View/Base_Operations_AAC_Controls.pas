@@ -82,6 +82,9 @@ const
  op_capGetVScrollBar = '';
  op_SetJumpTo = 'SetJumpTo';
  op_capSetJumpTo = '';
+
+var opcode_AACTextContainer_GetVScrollBar: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_AACTextContainer_SetJumpTo: TvcmOPID = (rEnID : -1; rOpID : -1);
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
@@ -90,12 +93,15 @@ implementation
 uses
  l3ImplUses
  , l3CProtoObject
+ {$If NOT Defined(NoVCM)}
+ , vcmOperationsForRegister
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmOperationStatesForRegister
+ {$IfEnd} // NOT Defined(NoVCM)
  , l3Base
  {$If NOT Defined(NoVCM)}
  , vcmBase
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
- , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
 ;
 
@@ -168,7 +174,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TAACTextContainer_GetVScrollBar_Params.Make(aLeft));
-  aTarget.Operation(TdmStdRes.opcode_AACTextContainer_GetVScrollBar, l_Params);
+  aTarget.Operation(opcode_AACTextContainer_GetVScrollBar, l_Params);
   with l_Params do
   begin
    if Done then
@@ -189,7 +195,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TAACTextContainer_GetVScrollBar_Params.Make(aLeft));
-  aTarget.Operation(TdmStdRes.opcode_AACTextContainer_GetVScrollBar, l_Params);
+  aTarget.Operation(opcode_AACTextContainer_GetVScrollBar, l_Params);
   with l_Params do
   begin
    if Done then
@@ -251,7 +257,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TAACTextContainer_SetJumpTo_Params.Make(aJumpTo));
-  aTarget.Operation(TdmStdRes.opcode_AACTextContainer_SetJumpTo, l_Params);
+  aTarget.Operation(opcode_AACTextContainer_SetJumpTo, l_Params);
   with l_Params do
   begin
    if Done then
@@ -272,7 +278,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TAACTextContainer_SetJumpTo_Params.Make(aJumpTo));
-  aTarget.Operation(TdmStdRes.opcode_AACTextContainer_SetJumpTo, l_Params);
+  aTarget.Operation(opcode_AACTextContainer_SetJumpTo, l_Params);
   with l_Params do
   begin
    if Done then
@@ -300,6 +306,15 @@ begin
  if (aTarget <> nil) then
   Result := Call(aTarget.AsForm, aJumpTo);
 end;//Op_AACTextContainer_SetJumpTo.Call
+
+initialization
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_AACTextContainer, op_GetVScrollBar, en_capAACTextContainer, op_capGetVScrollBar, True, False, opcode_AACTextContainer_GetVScrollBar)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_AACTextContainer, op_SetJumpTo, en_capAACTextContainer, op_capSetJumpTo, True, False, opcode_AACTextContainer_SetJumpTo)) do
+ begin
+ end;
+
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

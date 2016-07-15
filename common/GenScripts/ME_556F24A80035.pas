@@ -48,7 +48,6 @@ type
 
  Il3ControlFontService = interface
   {* Èםעונפויס סונגטסא Tl3ControlFontService }
-  ['{04DBC214-58B9-46AE-ADC2-A02B5FFF1CE1}']
   function GetFont(aControl: TControl): Il3FontInfo;
  end;//Il3ControlFontService
 

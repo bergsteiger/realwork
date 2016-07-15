@@ -161,6 +161,22 @@ const
  op_capCopyConfig = '';
  op_ConfInfo = 'ConfInfo';
  op_capConfInfo = '';
+
+var opcode_StyleEditor_ReloadStylesTree: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_StyleEditor_RestoreStyleTable: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_StyleEditor_SaveStyleTable: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_StyleEditor_SetNewContent: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_StyleEditor_ReloadStyleTable: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Result_RestoreConf: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Result_SaveAsDefaultConf: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Result_RestoreAllSettings: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_PopupMenu_DoActive: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_PopupMenu_Modify: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_PopupMenu_CopyConfig: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_PopupMenu_ConfInfo: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_PopupMenu_RestoreAllSettings: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_PopupMenu_RestoreConf: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_PopupMenu_SaveAsDefaultConf: TvcmOPID = (rEnID : -1; rOpID : -1);
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
@@ -169,12 +185,15 @@ implementation
 uses
  l3ImplUses
  , l3CProtoObject
+ {$If NOT Defined(NoVCM)}
+ , vcmOperationsForRegister
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmOperationStatesForRegister
+ {$IfEnd} // NOT Defined(NoVCM)
  , l3Base
  {$If NOT Defined(NoVCM)}
  , vcmBase
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
- , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
 ;
 
@@ -263,7 +282,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TStyleEditor_ReloadStylesTree_Params.Make(aStyleName));
-  aTarget.Operation(TdmStdRes.opcode_StyleEditor_ReloadStylesTree, l_Params);
+  aTarget.Operation(opcode_StyleEditor_ReloadStylesTree, l_Params);
   with l_Params do
   begin
    if Done then
@@ -284,7 +303,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TStyleEditor_ReloadStylesTree_Params.Make(aStyleName));
-  aTarget.Operation(TdmStdRes.opcode_StyleEditor_ReloadStylesTree, l_Params);
+  aTarget.Operation(opcode_StyleEditor_ReloadStylesTree, l_Params);
   with l_Params do
   begin
    if Done then
@@ -346,7 +365,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TStyleEditor_RestoreStyleTable_Params.Make(aRestoreDefault));
-  aTarget.Operation(TdmStdRes.opcode_StyleEditor_RestoreStyleTable, l_Params);
+  aTarget.Operation(opcode_StyleEditor_RestoreStyleTable, l_Params);
   with l_Params do
   begin
    if Done then
@@ -367,7 +386,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TStyleEditor_RestoreStyleTable_Params.Make(aRestoreDefault));
-  aTarget.Operation(TdmStdRes.opcode_StyleEditor_RestoreStyleTable, l_Params);
+  aTarget.Operation(opcode_StyleEditor_RestoreStyleTable, l_Params);
   with l_Params do
   begin
    if Done then
@@ -429,7 +448,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TStyleEditor_SaveStyleTable_Params.Make(aSaveAsDefault));
-  aTarget.Operation(TdmStdRes.opcode_StyleEditor_SaveStyleTable, l_Params);
+  aTarget.Operation(opcode_StyleEditor_SaveStyleTable, l_Params);
   with l_Params do
   begin
    if Done then
@@ -450,7 +469,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TStyleEditor_SaveStyleTable_Params.Make(aSaveAsDefault));
-  aTarget.Operation(TdmStdRes.opcode_StyleEditor_SaveStyleTable, l_Params);
+  aTarget.Operation(opcode_StyleEditor_SaveStyleTable, l_Params);
   with l_Params do
   begin
    if Done then
@@ -512,7 +531,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TStyleEditor_SetNewContent_Params.Make(aStyleID));
-  aTarget.Operation(TdmStdRes.opcode_StyleEditor_SetNewContent, l_Params);
+  aTarget.Operation(opcode_StyleEditor_SetNewContent, l_Params);
   with l_Params do
   begin
    if Done then
@@ -533,7 +552,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TStyleEditor_SetNewContent_Params.Make(aStyleID));
-  aTarget.Operation(TdmStdRes.opcode_StyleEditor_SetNewContent, l_Params);
+  aTarget.Operation(opcode_StyleEditor_SetNewContent, l_Params);
   with l_Params do
   begin
    if Done then
@@ -571,7 +590,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := vcmParams;
-  aTarget.Operation(TdmStdRes.opcode_StyleEditor_ReloadStyleTable, l_Params);
+  aTarget.Operation(opcode_StyleEditor_ReloadStyleTable, l_Params);
   with l_Params do
   begin
    if Done then
@@ -591,7 +610,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := vcmParams;
-  aTarget.Operation(TdmStdRes.opcode_StyleEditor_ReloadStyleTable, l_Params);
+  aTarget.Operation(opcode_StyleEditor_ReloadStyleTable, l_Params);
   with l_Params do
   begin
    if Done then
@@ -617,6 +636,54 @@ begin
  if (aTarget <> nil) then
   Result := Call(aTarget.AsForm);
 end;//Op_StyleEditor_ReloadStyleTable.Call
+
+initialization
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_StyleEditor, op_ReloadStylesTree, en_capStyleEditor, op_capReloadStylesTree, True, False, opcode_StyleEditor_ReloadStylesTree)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_StyleEditor, op_RestoreStyleTable, en_capStyleEditor, op_capRestoreStyleTable, True, False, opcode_StyleEditor_RestoreStyleTable)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_StyleEditor, op_SaveStyleTable, en_capStyleEditor, op_capSaveStyleTable, True, False, opcode_StyleEditor_SaveStyleTable)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_StyleEditor, op_SetNewContent, en_capStyleEditor, op_capSetNewContent, True, False, opcode_StyleEditor_SetNewContent)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_StyleEditor, op_ReloadStyleTable, en_capStyleEditor, op_capReloadStyleTable, True, False, opcode_StyleEditor_ReloadStyleTable)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Result, op_RestoreConf, en_capResult, op_capRestoreConf, False, False, opcode_Result_RestoreConf)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Result, op_SaveAsDefaultConf, en_capResult, op_capSaveAsDefaultConf, False, False, opcode_Result_SaveAsDefaultConf)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Result, op_RestoreAllSettings, en_capResult, op_capRestoreAllSettings, False, False, opcode_Result_RestoreAllSettings)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_PopupMenu, op_DoActive, en_capPopupMenu, op_capDoActive, False, False, opcode_PopupMenu_DoActive)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_PopupMenu, op_Modify, en_capPopupMenu, op_capModify, False, False, opcode_PopupMenu_Modify)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_PopupMenu, op_CopyConfig, en_capPopupMenu, op_capCopyConfig, False, False, opcode_PopupMenu_CopyConfig)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_PopupMenu, op_ConfInfo, en_capPopupMenu, op_capConfInfo, False, False, opcode_PopupMenu_ConfInfo)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_PopupMenu, op_RestoreAllSettings, en_capPopupMenu, op_capRestoreAllSettings, False, False, opcode_PopupMenu_RestoreAllSettings)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_PopupMenu, op_RestoreConf, en_capPopupMenu, op_capRestoreConf, False, False, opcode_PopupMenu_RestoreConf)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_PopupMenu, op_SaveAsDefaultConf, en_capPopupMenu, op_capSaveAsDefaultConf, False, False, opcode_PopupMenu_SaveAsDefaultConf)) do
+ begin
+ end;
+
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

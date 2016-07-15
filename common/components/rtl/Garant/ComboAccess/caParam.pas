@@ -37,6 +37,8 @@ type
    function Get_AsStTime: TStTime;
    procedure Set_AsStTime(const aValue: TStTime);
    function Get_ParamType: TdaParamType;
+   function Get_AsByte: Byte;
+   procedure Set_AsByte(aValue: Byte);
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
   public
@@ -223,6 +225,27 @@ begin
  Assert(Result = f_PGParam.ParamType);
 //#UC END# *5666822101CA_56E14CE0012Eget_impl*
 end;//TcaParam.Get_ParamType
+
+function TcaParam.Get_AsByte: Byte;
+//#UC START# *578625FB03A1_56E14CE0012Eget_var*
+//#UC END# *578625FB03A1_56E14CE0012Eget_var*
+begin
+//#UC START# *578625FB03A1_56E14CE0012Eget_impl*
+ Result := f_HTParam.AsByte;
+ Assert(Result = f_PGParam.AsByte);
+//#UC END# *578625FB03A1_56E14CE0012Eget_impl*
+end;//TcaParam.Get_AsByte
+
+procedure TcaParam.Set_AsByte(aValue: Byte);
+//#UC START# *578625FB03A1_56E14CE0012Eset_var*
+//#UC END# *578625FB03A1_56E14CE0012Eset_var*
+begin
+//#UC START# *578625FB03A1_56E14CE0012Eset_impl*
+ f_HTParam.AsByte := aValue;
+ f_PGParam.AsByte := aValue;
+ Assert(f_HTParam.AsByte = f_PGParam.AsByte);
+//#UC END# *578625FB03A1_56E14CE0012Eset_impl*
+end;//TcaParam.Set_AsByte
 
 procedure TcaParam.Cleanup;
  {* Функция очистки полей объекта. }

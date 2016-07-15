@@ -1,33 +1,42 @@
 unit moRealCommon;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/PrimCommon/moRealCommon.pas"
-// Начат: 24.08.2009 20:33
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMFormsPack::Class>> F1 Базовые определения предметной области::F1 Application Template::View::PrimCommon::RealCommon
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\moRealCommon.pas"
+// Стереотип: "VCMFormsPack"
+// Элемент модели: "RealCommon" MUID: (4A92C0AB0155)
+// Имя типа: "Tmo_RealCommon"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  PrimCommon_Module
-  ;
+ l3IntfUses
+ , PrimCommon_Module
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
 type
- Tmo_RealCommon = {final formspack} class(TPrimCommonModule)
+ Tmo_RealCommon = {final} class(TPrimCommonModule)
  end;//Tmo_RealCommon
 
 implementation
+
+uses
+ l3ImplUses
+ {$If NOT Defined(NoVCM)}
+ , vcmModulesForRegister
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmModuleOperationsForRegister
+ {$IfEnd} // NOT Defined(NoVCM)
+;
+
+initialization
+ TvcmModulesForRegister.AddModule(TvcmModuleForRegister_C(Tmo_RealCommon, ''));
 
 end.

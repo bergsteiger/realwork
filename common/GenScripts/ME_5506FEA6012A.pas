@@ -23,7 +23,6 @@ uses
 type
  Il3DocumentsCacheService = interface
   {* Èםעונפויס סונגטסא Tl3DocumentsCacheService }
-  ['{A7573672-88C4-4CF0-8F63-F2AD42FA8794}']
   procedure Clear;
  end;//Il3DocumentsCacheService
 

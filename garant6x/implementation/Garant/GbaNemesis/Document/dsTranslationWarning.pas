@@ -1,65 +1,50 @@
 unit dsTranslationWarning;
+ {* Предупреждение к переводу документа }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Document"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Document/dsTranslationWarning.pas"
-// Начат: 05.12.2011 20:52
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ViewAreaControllerImp::Class>> F1 Контроллер работы с документом и абстрактная фабрика документа::F1 Document Processing::Document::Document::TdsTranslationWarning
-//
-// Предупреждение к переводу документа
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Document\dsTranslationWarning.pas"
+// Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "TdsTranslationWarning" MUID: (4EDCF6BC00D9)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  dsWarning,
-  DocInfoInterfaces,
-  DocumentInterfaces,
-  vcmInterfaces {a},
-  vcmControllers {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , dsWarning
+ , DocInfoInterfaces
+ , DocumentInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
- TdsTranslationWarning = {vac} class(TdsWarning)
+ TdsTranslationWarning = class(TdsWarning)
   {* Предупреждение к переводу документа }
- private
- // private fields
-   ucc_DocInfo : IsdsDocInfo;
- protected
-
-  procedure InitRefs(const aDS: IvcmUseCaseController); override;
-  procedure ClearRefs; override;
- protected
- // overridden protected methods
+  private
+   ucc_DocInfo: IsdsDocInfo;
+  protected
    function DoGetDocInfo: IdeDocInfo; override;
+   {$If NOT Defined(NoVCM)}
+   procedure InitRefs(const aDS: IvcmFormSetDataSource); override;
+    {* Инициализирует ссылки на различные представления прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure ClearRefs; override;
+    {* Очищает ссылки на различные представления прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//TdsTranslationWarning
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  SysUtils {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TdsTranslationWarning
+ l3ImplUses
+ , SysUtils
+;
 
 function TdsTranslationWarning.DoGetDocInfo: IdeDocInfo;
 //#UC START# *4EDCF99301CA_4EDCF6BC00D9_var*
@@ -74,18 +59,23 @@ begin
 //#UC END# *4EDCF99301CA_4EDCF6BC00D9_impl*
 end;//TdsTranslationWarning.DoGetDocInfo
 
-procedure TdsTranslationWarning.InitRefs(const aDS: IvcmUseCaseController);
+{$If NOT Defined(NoVCM)}
+procedure TdsTranslationWarning.InitRefs(const aDS: IvcmFormSetDataSource);
+ {* Инициализирует ссылки на различные представления прецедента }
 begin
  inherited;
  Supports(aDS, IsdsDocInfo, ucc_DocInfo);
-end;
+end;//TdsTranslationWarning.InitRefs
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$If NOT Defined(NoVCM)}
 procedure TdsTranslationWarning.ClearRefs;
+ {* Очищает ссылки на различные представления прецедента }
 begin
  inherited;
  ucc_DocInfo := nil;
-end;
+end;//TdsTranslationWarning.ClearRefs
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //not Admin AND not Monitorings
-
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

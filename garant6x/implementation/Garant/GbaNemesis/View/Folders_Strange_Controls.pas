@@ -725,6 +725,51 @@ const
  op_capShowConsultationInfo = '';
  op_ImportConsultation = 'ImportConsultation';
  op_capImportConsultation = '';
+
+var opcode_AdditionInfo_Close: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_FolderElement_InternalEditByFoldersNode: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_FolderElement_InternalDelete: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_FolderElement_InternalEdit: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_FolderElement_DisableFilter: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_FolderElement_SetState: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_AdditionInfo_Show: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_AdditionInfo_Hide: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_AdditionInfo_SetCaption: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_FolderElement_GetState: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_FolderElement_SetLoadInfo: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_FolderElement_SetContent: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_FolderElement_SetSaveInfo: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_FolderElement_ResetModificationOnDelete: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_FolderElement_SetFocus: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_FolderElement_Redraw: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_FolderElement_DisableSecurityPage: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_SavedQuery_SetFilterState: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Folders_SetCurrent: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Folders_FiltrateByFilterInfo: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Folders_TryOpenConsultationAnswer: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Folders_OpenMyConsultations: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Folders_SetInfoContent: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_UsersRights_UpdateRights: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_UsersRights_FolderShareChanged: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Result_ExternalOk: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Folders_Filtrate: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Folder_New: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Folder_AddToControl: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Folder_DelFromControl: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Folder_SetShare: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Folder_ExportToXML: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Folder_ImportFromXML: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_FolderElement_Edit: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_FolderElement_EditExt: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_FolderElement_Open: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_FolderElement_OpenNewWindow: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_FolderElement_ControlStatus: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_FolderElement_ExportForIntegration: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_SavedQuery_CreateFilter: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Consultation_Open: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Consultation_GiveMark: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Consultation_ShowConsultationInfo: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Consultation_ImportConsultation: TvcmOPID = (rEnID : -1; rOpID : -1);
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
@@ -733,12 +778,15 @@ implementation
 uses
  l3ImplUses
  , l3CProtoObject
+ {$If NOT Defined(NoVCM)}
+ , vcmOperationsForRegister
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmOperationStatesForRegister
+ {$IfEnd} // NOT Defined(NoVCM)
  , l3Base
  {$If NOT Defined(NoVCM)}
  , vcmBase
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
- , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
 ;
 
@@ -1004,7 +1052,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TAdditionInfo_Close_Params.Make(aModalResult));
-  aTarget.Operation(TdmStdRes.opcode_AdditionInfo_Close, l_Params);
+  aTarget.Operation(opcode_AdditionInfo_Close, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1025,7 +1073,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TAdditionInfo_Close_Params.Make(aModalResult));
-  aTarget.Operation(TdmStdRes.opcode_AdditionInfo_Close, l_Params);
+  aTarget.Operation(opcode_AdditionInfo_Close, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1102,7 +1150,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TFolderElement_InternalEditByFoldersNode_Params.Make(aNode, aInternalCall));
-  aTarget.Operation(TdmStdRes.opcode_FolderElement_InternalEditByFoldersNode, l_Params);
+  aTarget.Operation(opcode_FolderElement_InternalEditByFoldersNode, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1124,7 +1172,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TFolderElement_InternalEditByFoldersNode_Params.Make(aNode, aInternalCall));
-  aTarget.Operation(TdmStdRes.opcode_FolderElement_InternalEditByFoldersNode, l_Params);
+  aTarget.Operation(opcode_FolderElement_InternalEditByFoldersNode, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1213,7 +1261,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TFolderElement_InternalDelete_Params.Make(aNode, aAsk));
-  aTarget.Operation(TdmStdRes.opcode_FolderElement_InternalDelete, l_Params);
+  aTarget.Operation(opcode_FolderElement_InternalDelete, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1235,7 +1283,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TFolderElement_InternalDelete_Params.Make(aNode, aAsk));
-  aTarget.Operation(TdmStdRes.opcode_FolderElement_InternalDelete, l_Params);
+  aTarget.Operation(opcode_FolderElement_InternalDelete, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1314,7 +1362,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TFolderElement_InternalEdit_Params.Make(aNode, aInternalCall));
-  aTarget.Operation(TdmStdRes.opcode_FolderElement_InternalEdit, l_Params);
+  aTarget.Operation(opcode_FolderElement_InternalEdit, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1336,7 +1384,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TFolderElement_InternalEdit_Params.Make(aNode, aInternalCall));
-  aTarget.Operation(TdmStdRes.opcode_FolderElement_InternalEdit, l_Params);
+  aTarget.Operation(opcode_FolderElement_InternalEdit, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1376,7 +1424,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := vcmParams;
-  aTarget.Operation(TdmStdRes.opcode_FolderElement_DisableFilter, l_Params);
+  aTarget.Operation(opcode_FolderElement_DisableFilter, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1396,7 +1444,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := vcmParams;
-  aTarget.Operation(TdmStdRes.opcode_FolderElement_DisableFilter, l_Params);
+  aTarget.Operation(opcode_FolderElement_DisableFilter, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1456,7 +1504,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TFolderElement_SetState_Params.Make(aInfoType));
-  aTarget.Operation(TdmStdRes.opcode_FolderElement_SetState, l_Params);
+  aTarget.Operation(opcode_FolderElement_SetState, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1477,7 +1525,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TFolderElement_SetState_Params.Make(aInfoType));
-  aTarget.Operation(TdmStdRes.opcode_FolderElement_SetState, l_Params);
+  aTarget.Operation(opcode_FolderElement_SetState, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1515,7 +1563,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := vcmParams;
-  aTarget.Operation(TdmStdRes.opcode_AdditionInfo_Show, l_Params);
+  aTarget.Operation(opcode_AdditionInfo_Show, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1535,7 +1583,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := vcmParams;
-  aTarget.Operation(TdmStdRes.opcode_AdditionInfo_Show, l_Params);
+  aTarget.Operation(opcode_AdditionInfo_Show, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1571,7 +1619,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := vcmParams;
-  aTarget.Operation(TdmStdRes.opcode_AdditionInfo_Hide, l_Params);
+  aTarget.Operation(opcode_AdditionInfo_Hide, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1591,7 +1639,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := vcmParams;
-  aTarget.Operation(TdmStdRes.opcode_AdditionInfo_Hide, l_Params);
+  aTarget.Operation(opcode_AdditionInfo_Hide, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1657,7 +1705,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TAdditionInfo_SetCaption_Params.Make(aCaption));
-  aTarget.Operation(TdmStdRes.opcode_AdditionInfo_SetCaption, l_Params);
+  aTarget.Operation(opcode_AdditionInfo_SetCaption, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1678,7 +1726,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TAdditionInfo_SetCaption_Params.Make(aCaption));
-  aTarget.Operation(TdmStdRes.opcode_AdditionInfo_SetCaption, l_Params);
+  aTarget.Operation(opcode_AdditionInfo_SetCaption, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1738,7 +1786,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TFolderElement_GetState_Params.Make);
-  aTarget.Operation(TdmStdRes.opcode_FolderElement_GetState, l_Params);
+  aTarget.Operation(opcode_FolderElement_GetState, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1758,7 +1806,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TFolderElement_GetState_Params.Make);
-  aTarget.Operation(TdmStdRes.opcode_FolderElement_GetState, l_Params);
+  aTarget.Operation(opcode_FolderElement_GetState, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1863,7 +1911,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TFolderElement_SetLoadInfo_Params.Make(aForm, aFolderFilterInfo, aCaption, aData, anOp));
-  aTarget.Operation(TdmStdRes.opcode_FolderElement_SetLoadInfo, l_Params);
+  aTarget.Operation(opcode_FolderElement_SetLoadInfo, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1888,7 +1936,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TFolderElement_SetLoadInfo_Params.Make(aForm, aFolderFilterInfo, aCaption, aData, anOp));
-  aTarget.Operation(TdmStdRes.opcode_FolderElement_SetLoadInfo, l_Params);
+  aTarget.Operation(opcode_FolderElement_SetLoadInfo, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1973,7 +2021,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TFolderElement_SetContent_Params.Make(aNode, aIsNewFolder));
-  aTarget.Operation(TdmStdRes.opcode_FolderElement_SetContent, l_Params);
+  aTarget.Operation(opcode_FolderElement_SetContent, l_Params);
   with l_Params do
   begin
    if Done then
@@ -1995,7 +2043,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TFolderElement_SetContent_Params.Make(aNode, aIsNewFolder));
-  aTarget.Operation(TdmStdRes.opcode_FolderElement_SetContent, l_Params);
+  aTarget.Operation(opcode_FolderElement_SetContent, l_Params);
   with l_Params do
   begin
    if Done then
@@ -2103,7 +2151,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TFolderElement_SetSaveInfo_Params.Make(aForm, aFilterInfo, anElementType, anEntity, aSaveAs));
-  aTarget.Operation(TdmStdRes.opcode_FolderElement_SetSaveInfo, l_Params);
+  aTarget.Operation(opcode_FolderElement_SetSaveInfo, l_Params);
   with l_Params do
   begin
    if Done then
@@ -2128,7 +2176,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TFolderElement_SetSaveInfo_Params.Make(aForm, aFilterInfo, anElementType, anEntity, aSaveAs));
-  aTarget.Operation(TdmStdRes.opcode_FolderElement_SetSaveInfo, l_Params);
+  aTarget.Operation(opcode_FolderElement_SetSaveInfo, l_Params);
   with l_Params do
   begin
    if Done then
@@ -2204,7 +2252,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TFolderElement_ResetModificationOnDelete_Params.Make(aNode));
-  aTarget.Operation(TdmStdRes.opcode_FolderElement_ResetModificationOnDelete, l_Params);
+  aTarget.Operation(opcode_FolderElement_ResetModificationOnDelete, l_Params);
   with l_Params do
   begin
    if Done then
@@ -2225,7 +2273,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TFolderElement_ResetModificationOnDelete_Params.Make(aNode));
-  aTarget.Operation(TdmStdRes.opcode_FolderElement_ResetModificationOnDelete, l_Params);
+  aTarget.Operation(opcode_FolderElement_ResetModificationOnDelete, l_Params);
   with l_Params do
   begin
    if Done then
@@ -2263,7 +2311,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := vcmParams;
-  aTarget.Operation(TdmStdRes.opcode_FolderElement_SetFocus, l_Params);
+  aTarget.Operation(opcode_FolderElement_SetFocus, l_Params);
   with l_Params do
   begin
    if Done then
@@ -2283,7 +2331,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := vcmParams;
-  aTarget.Operation(TdmStdRes.opcode_FolderElement_SetFocus, l_Params);
+  aTarget.Operation(opcode_FolderElement_SetFocus, l_Params);
   with l_Params do
   begin
    if Done then
@@ -2319,7 +2367,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := vcmParams;
-  aTarget.Operation(TdmStdRes.opcode_FolderElement_Redraw, l_Params);
+  aTarget.Operation(opcode_FolderElement_Redraw, l_Params);
   with l_Params do
   begin
    if Done then
@@ -2339,7 +2387,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := vcmParams;
-  aTarget.Operation(TdmStdRes.opcode_FolderElement_Redraw, l_Params);
+  aTarget.Operation(opcode_FolderElement_Redraw, l_Params);
   with l_Params do
   begin
    if Done then
@@ -2375,7 +2423,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := vcmParams;
-  aTarget.Operation(TdmStdRes.opcode_FolderElement_DisableSecurityPage, l_Params);
+  aTarget.Operation(opcode_FolderElement_DisableSecurityPage, l_Params);
   with l_Params do
   begin
    if Done then
@@ -2395,7 +2443,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := vcmParams;
-  aTarget.Operation(TdmStdRes.opcode_FolderElement_DisableSecurityPage, l_Params);
+  aTarget.Operation(opcode_FolderElement_DisableSecurityPage, l_Params);
   with l_Params do
   begin
    if Done then
@@ -2461,7 +2509,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TSavedQuery_SetFilterState_Params.Make(aNode));
-  aTarget.Operation(TdmStdRes.opcode_SavedQuery_SetFilterState, l_Params);
+  aTarget.Operation(opcode_SavedQuery_SetFilterState, l_Params);
   with l_Params do
   begin
    if Done then
@@ -2482,7 +2530,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TSavedQuery_SetFilterState_Params.Make(aNode));
-  aTarget.Operation(TdmStdRes.opcode_SavedQuery_SetFilterState, l_Params);
+  aTarget.Operation(opcode_SavedQuery_SetFilterState, l_Params);
   with l_Params do
   begin
    if Done then
@@ -2550,7 +2598,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TFolders_SetCurrent_Params.Make(aNode));
-  aTarget.Operation(TdmStdRes.opcode_Folders_SetCurrent, l_Params);
+  aTarget.Operation(opcode_Folders_SetCurrent, l_Params);
   with l_Params do
   begin
    if Done then
@@ -2571,7 +2619,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TFolders_SetCurrent_Params.Make(aNode));
-  aTarget.Operation(TdmStdRes.opcode_Folders_SetCurrent, l_Params);
+  aTarget.Operation(opcode_Folders_SetCurrent, l_Params);
   with l_Params do
   begin
    if Done then
@@ -2639,7 +2687,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TFolders_FiltrateByFilterInfo_Params.Make(anInfo));
-  aTarget.Operation(TdmStdRes.opcode_Folders_FiltrateByFilterInfo, l_Params);
+  aTarget.Operation(opcode_Folders_FiltrateByFilterInfo, l_Params);
   with l_Params do
   begin
    if Done then
@@ -2660,7 +2708,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TFolders_FiltrateByFilterInfo_Params.Make(anInfo));
-  aTarget.Operation(TdmStdRes.opcode_Folders_FiltrateByFilterInfo, l_Params);
+  aTarget.Operation(opcode_Folders_FiltrateByFilterInfo, l_Params);
   with l_Params do
   begin
    if Done then
@@ -2698,7 +2746,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := vcmParams;
-  aTarget.Operation(TdmStdRes.opcode_Folders_TryOpenConsultationAnswer, l_Params);
+  aTarget.Operation(opcode_Folders_TryOpenConsultationAnswer, l_Params);
   with l_Params do
   begin
    if Done then
@@ -2718,7 +2766,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := vcmParams;
-  aTarget.Operation(TdmStdRes.opcode_Folders_TryOpenConsultationAnswer, l_Params);
+  aTarget.Operation(opcode_Folders_TryOpenConsultationAnswer, l_Params);
   with l_Params do
   begin
    if Done then
@@ -2754,7 +2802,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := vcmParams;
-  aTarget.Operation(TdmStdRes.opcode_Folders_OpenMyConsultations, l_Params);
+  aTarget.Operation(opcode_Folders_OpenMyConsultations, l_Params);
   with l_Params do
   begin
    if Done then
@@ -2774,7 +2822,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := vcmParams;
-  aTarget.Operation(TdmStdRes.opcode_Folders_OpenMyConsultations, l_Params);
+  aTarget.Operation(opcode_Folders_OpenMyConsultations, l_Params);
   with l_Params do
   begin
    if Done then
@@ -2810,7 +2858,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := vcmParams;
-  aTarget.Operation(TdmStdRes.opcode_Folders_SetInfoContent, l_Params);
+  aTarget.Operation(opcode_Folders_SetInfoContent, l_Params);
   with l_Params do
   begin
    if Done then
@@ -2830,7 +2878,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := vcmParams;
-  aTarget.Operation(TdmStdRes.opcode_Folders_SetInfoContent, l_Params);
+  aTarget.Operation(opcode_Folders_SetInfoContent, l_Params);
   with l_Params do
   begin
    if Done then
@@ -2896,7 +2944,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TUsersRights_UpdateRights_Params.Make(aNode));
-  aTarget.Operation(TdmStdRes.opcode_UsersRights_UpdateRights, l_Params);
+  aTarget.Operation(opcode_UsersRights_UpdateRights, l_Params);
   with l_Params do
   begin
    if Done then
@@ -2917,7 +2965,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TUsersRights_UpdateRights_Params.Make(aNode));
-  aTarget.Operation(TdmStdRes.opcode_UsersRights_UpdateRights, l_Params);
+  aTarget.Operation(opcode_UsersRights_UpdateRights, l_Params);
   with l_Params do
   begin
    if Done then
@@ -2955,7 +3003,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := vcmParams;
-  aTarget.Operation(TdmStdRes.opcode_UsersRights_FolderShareChanged, l_Params);
+  aTarget.Operation(opcode_UsersRights_FolderShareChanged, l_Params);
   with l_Params do
   begin
    if Done then
@@ -2975,7 +3023,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := vcmParams;
-  aTarget.Operation(TdmStdRes.opcode_UsersRights_FolderShareChanged, l_Params);
+  aTarget.Operation(opcode_UsersRights_FolderShareChanged, l_Params);
   with l_Params do
   begin
    if Done then
@@ -3011,7 +3059,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := vcmParams;
-  aTarget.Operation(TdmStdRes.opcode_Result_ExternalOk, l_Params);
+  aTarget.Operation(opcode_Result_ExternalOk, l_Params);
   with l_Params do
   begin
    if Done then
@@ -3031,7 +3079,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := vcmParams;
-  aTarget.Operation(TdmStdRes.opcode_Result_ExternalOk, l_Params);
+  aTarget.Operation(opcode_Result_ExternalOk, l_Params);
   with l_Params do
   begin
    if Done then
@@ -3057,6 +3105,141 @@ begin
  if (aTarget <> nil) then
   Result := Call(aTarget.AsForm);
 end;//Op_Result_ExternalOk.Call
+
+initialization
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_AdditionInfo, op_Close, en_capAdditionInfo, op_capClose, True, False, opcode_AdditionInfo_Close)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_FolderElement, op_InternalEditByFoldersNode, en_capFolderElement, op_capInternalEditByFoldersNode, True, False, opcode_FolderElement_InternalEditByFoldersNode)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_FolderElement, op_InternalDelete, en_capFolderElement, op_capInternalDelete, True, False, opcode_FolderElement_InternalDelete)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_FolderElement, op_InternalEdit, en_capFolderElement, op_capInternalEdit, True, False, opcode_FolderElement_InternalEdit)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_FolderElement, op_DisableFilter, en_capFolderElement, op_capDisableFilter, True, False, opcode_FolderElement_DisableFilter)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_FolderElement, op_SetState, en_capFolderElement, op_capSetState, True, False, opcode_FolderElement_SetState)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_AdditionInfo, op_Show, en_capAdditionInfo, op_capShow, True, False, opcode_AdditionInfo_Show)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_AdditionInfo, op_Hide, en_capAdditionInfo, op_capHide, True, False, opcode_AdditionInfo_Hide)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_AdditionInfo, op_SetCaption, en_capAdditionInfo, op_capSetCaption, True, False, opcode_AdditionInfo_SetCaption)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_FolderElement, op_GetState, en_capFolderElement, op_capGetState, True, False, opcode_FolderElement_GetState)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_FolderElement, op_SetLoadInfo, en_capFolderElement, op_capSetLoadInfo, True, False, opcode_FolderElement_SetLoadInfo)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_FolderElement, op_SetContent, en_capFolderElement, op_capSetContent, True, False, opcode_FolderElement_SetContent)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_FolderElement, op_SetSaveInfo, en_capFolderElement, op_capSetSaveInfo, True, False, opcode_FolderElement_SetSaveInfo)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_FolderElement, op_ResetModificationOnDelete, en_capFolderElement, op_capResetModificationOnDelete, True, False, opcode_FolderElement_ResetModificationOnDelete)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_FolderElement, op_SetFocus, en_capFolderElement, op_capSetFocus, True, False, opcode_FolderElement_SetFocus)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_FolderElement, op_Redraw, en_capFolderElement, op_capRedraw, True, False, opcode_FolderElement_Redraw)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_FolderElement, op_DisableSecurityPage, en_capFolderElement, op_capDisableSecurityPage, True, False, opcode_FolderElement_DisableSecurityPage)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_SavedQuery, op_SetFilterState, en_capSavedQuery, op_capSetFilterState, True, False, opcode_SavedQuery_SetFilterState)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Folders, op_SetCurrent, en_capFolders, op_capSetCurrent, True, False, opcode_Folders_SetCurrent)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Folders, op_FiltrateByFilterInfo, en_capFolders, op_capFiltrateByFilterInfo, True, False, opcode_Folders_FiltrateByFilterInfo)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Folders, op_TryOpenConsultationAnswer, en_capFolders, op_capTryOpenConsultationAnswer, True, False, opcode_Folders_TryOpenConsultationAnswer)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Folders, op_OpenMyConsultations, en_capFolders, op_capOpenMyConsultations, True, False, opcode_Folders_OpenMyConsultations)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Folders, op_SetInfoContent, en_capFolders, op_capSetInfoContent, True, False, opcode_Folders_SetInfoContent)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_UsersRights, op_UpdateRights, en_capUsersRights, op_capUpdateRights, True, False, opcode_UsersRights_UpdateRights)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_UsersRights, op_FolderShareChanged, en_capUsersRights, op_capFolderShareChanged, True, False, opcode_UsersRights_FolderShareChanged)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Result, op_ExternalOk, en_capResult, op_capExternalOk, True, False, opcode_Result_ExternalOk)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Folders, op_Filtrate, en_capFolders, op_capFiltrate, False, False, opcode_Folders_Filtrate)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Folder, op_New, en_capFolder, op_capNew, False, False, opcode_Folder_New)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Folder, op_AddToControl, en_capFolder, op_capAddToControl, False, False, opcode_Folder_AddToControl)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Folder, op_DelFromControl, en_capFolder, op_capDelFromControl, False, False, opcode_Folder_DelFromControl)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Folder, op_SetShare, en_capFolder, op_capSetShare, False, False, opcode_Folder_SetShare)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Folder, op_ExportToXML, en_capFolder, op_capExportToXML, False, False, opcode_Folder_ExportToXML)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Folder, op_ImportFromXML, en_capFolder, op_capImportFromXML, False, False, opcode_Folder_ImportFromXML)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_FolderElement, op_Edit, en_capFolderElement, op_capEdit, False, False, opcode_FolderElement_Edit)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_FolderElement, op_EditExt, en_capFolderElement, op_capEditExt, False, False, opcode_FolderElement_EditExt)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_FolderElement, op_Open, en_capFolderElement, op_capOpen, False, False, opcode_FolderElement_Open)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_FolderElement, op_OpenNewWindow, en_capFolderElement, op_capOpenNewWindow, False, False, opcode_FolderElement_OpenNewWindow)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_FolderElement, op_ControlStatus, en_capFolderElement, op_capControlStatus, False, False, opcode_FolderElement_ControlStatus)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_FolderElement, op_ExportForIntegration, en_capFolderElement, op_capExportForIntegration, False, False, opcode_FolderElement_ExportForIntegration)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_SavedQuery, op_CreateFilter, en_capSavedQuery, op_capCreateFilter, False, False, opcode_SavedQuery_CreateFilter)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Consultation, op_Open, en_capConsultation, op_capOpen, False, False, opcode_Consultation_Open)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Consultation, op_GiveMark, en_capConsultation, op_capGiveMark, False, False, opcode_Consultation_GiveMark)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Consultation, op_ShowConsultationInfo, en_capConsultation, op_capShowConsultationInfo, False, False, opcode_Consultation_ShowConsultationInfo)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Consultation, op_ImportConsultation, en_capConsultation, op_capImportConsultation, False, False, opcode_Consultation_ImportConsultation)) do
+ begin
+ end;
+
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

@@ -36,6 +36,9 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmFormSetFactory
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
@@ -47,92 +50,110 @@ type
   private
    f_SearchTypeList: IvcmItems;
   protected
-   function DefineFilterForm(const aQuery: IQuery): TnsFilterForm;
+   class function DefineFilterForm(const aQuery: IQuery): TnsFilterForm;
     {* определить тип формы фильтры }
-   procedure ShowList(aType: TnsSearchListType);
+   class procedure ShowList(aType: TnsSearchListType);
    class function CreateSearchContainer(const anAggregate: IvcmAggregate;
     const aContainer: IvcmContainer;
     aSearchType: TvcmUserType;
     aSearchInList: Boolean;
     const aList: IdeList;
     aZoneType: TvcmZoneType): IvcmEntityForm;
-   procedure OpenInpharm(anIndex: Integer;
+   class procedure OpenInpharm(anIndex: Integer;
     aZoneType: TvcmZoneType;
     aUserType: TvcmUserType;
     const aQuery: IQuery;
     const aList: IDynList;
     const aContainer: IvcmContainer);
-   procedure OpenPublishSource(anIndex: Integer;
+   class procedure OpenPublishSource(anIndex: Integer;
     aZoneType: TvcmZoneType;
     aUserType: TvcmUserType;
     const aQuery: IQuery;
     const aList: IDynList;
     const aPublishSearchTag: Il3CString);
     {* Открывает карточку поиска по источнику опубликования }
-   procedure PublishSourceSearch; overload;
-   procedure FillAllBaseListParams(const aParams: IvcmTestParamsPrim);
-   procedure InpharmSearch; overload;
+   procedure opPublishSourceSearchTest(const aParams: IvcmTestParamsPrim);
+   procedure opPublishSourceSearchExecute(const aParams: IvcmExecuteParamsPrim);
+   class procedure FillAllBaseListParams(const aParams: IvcmTestParamsPrim);
+   procedure opInpharmSearchTest(const aParams: IvcmTestParamsPrim);
     {* Поиск лекарственных средств }
-   procedure StartENO;
-   procedure DocumentsWithoutClass;
-   procedure DocumentsWithoutIncluded;
-   procedure DocumentsWithoutKey;
-   procedure BaseSearch;
-   procedure OpenConsult;
-   procedure AllSearch;
+   procedure opInpharmSearchExecute(const aParams: IvcmExecuteParamsPrim);
+    {* Поиск лекарственных средств }
+   procedure opStartENOTest(const aParams: IvcmTestParamsPrim);
+   procedure opStartENOExecute(const aParams: IvcmExecuteParamsPrim);
+   procedure opDocumentsWithoutClassTest(const aParams: IvcmTestParamsPrim);
+   procedure opDocumentsWithoutClassExecute(const aParams: IvcmExecuteParamsPrim);
+   procedure opDocumentsWithoutIncludedTest(const aParams: IvcmTestParamsPrim);
+   procedure opDocumentsWithoutIncludedExecute(const aParams: IvcmExecuteParamsPrim);
+   procedure opDocumentsWithoutKeyTest(const aParams: IvcmTestParamsPrim);
+   procedure opDocumentsWithoutKeyExecute(const aParams: IvcmExecuteParamsPrim);
+   procedure opBaseSearchExecute(const aParams: IvcmExecuteParamsPrim);
+   procedure opOpenConsultTest(const aParams: IvcmTestParamsPrim);
+   procedure opOpenConsultExecute(const aParams: IvcmExecuteParamsPrim);
+   procedure opAllSearchTest(const aParams: IvcmTestParamsPrim);
     {* Поиск }
-   procedure OpenSituation(aFormSetId: RvcmFormSetFactory;
+   procedure opAllSearchExecute(const aParams: IvcmExecuteParamsPrim);
+    {* Поиск }
+   class procedure OpenSituation(aFormSetId: RvcmFormSetFactory;
     const aQuery: IQuery);
-   procedure OpenOldSituation(aZoneType: TvcmZoneType;
+   class procedure OpenOldSituation(aZoneType: TvcmZoneType;
     aUserType: TvcmUserType;
     const aQuery: IQuery;
     const aContainer: IvcmContainer);
-   procedure OpenKeyWordSearch;
+   procedure opOpenKeyWordSearchTest(const aParams: IvcmTestParamsPrim);
     {* Поиск по ситуации }
-   procedure OpenAttribute(anIndex: Integer;
+   procedure opOpenKeyWordSearchExecute(const aParams: IvcmExecuteParamsPrim);
+    {* Поиск по ситуации }
+   class procedure OpenAttribute(anIndex: Integer;
     aZoneType: TvcmZoneType;
     aUserType: TvcmUserType;
     const aQuery: IQuery;
     const aList: IDynList;
     const aContainer: IvcmContainer);
     {* открыть ППР }
-   procedure AttributeSearch; overload;
+   procedure opAttributeSearchTest(const aParams: IvcmTestParamsPrim);
+    {* Поиск по реквизитам }
+   procedure opAttributeSearchExecute(const aParams: IvcmExecuteParamsPrim);
     {* Поиск по реквизитам }
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
+   procedure Loaded; override;
+   {$If NOT Defined(NoVCM)}
+   class procedure GetEntityForms(aList: TvcmClassList); override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
-   procedure OpenLegislationReview(const aQuery: IQuery);
+   class function OpenLegislationReview(const aQuery: IQuery): IvcmEntityForm;
     {* открыть Обзор изменений законодательства }
-   procedure OpenFiltersForm(const aData: IdeFilter);
+   class function OpenFiltersForm(const aData: IdeFilter): IvcmEntityForm;
     {* Открывает форму фильтров }
-   procedure MakeNewFilter(aListType: TbsListType);
+   class procedure MakeNewFilter(aListType: TbsListType);
     {* Вызывает форму создания нового фильтра }
-   procedure InpharmSearch(const aQuery: IQuery;
+   class procedure InpharmSearch(const aQuery: IQuery;
     const aList: IDynList;
-    const aContainer: IvcmContainer); overload;
+    const aContainer: IvcmContainer);
     {* Поиск лекарственных средств }
-   procedure PublishSourceSearch(const aQuery: IQuery;
-    const aList: IDynList); overload;
-   procedure DateQuery(const aCaller: IvcmEntityForm;
-    const aData: IqaDateReqDataHolder);
-   procedure OpenKeyWord(const aQuery: IQuery;
+   class procedure PublishSourceSearch(const aQuery: IQuery;
+    const aList: IDynList);
+   class function DateQuery(const aCaller: IvcmEntityForm;
+    const aData: IqaDateReqDataHolder): IvcmEntityForm;
+   class procedure OpenKeyWord(const aQuery: IQuery;
     const aContainer: IvcmContainer);
     {* открыть ППС }
-   procedure EditFilter(const aFilter: IdeFilter;
+   class procedure EditFilter(const aFilter: IdeFilter;
     anItemIndex: Integer);
     {* Редактироваить фильтр }
-   procedure AttributeSearch(const aQuery: IQuery;
+   class procedure AttributeSearch(const aQuery: IQuery;
     const aList: IDynList;
-    const aContainer: IvcmContainer); overload;
-   procedure OpenTaxesPublishSearch(const aPublishSearchTag: Il3CString);
+    const aContainer: IvcmContainer);
+   class procedure OpenTaxesPublishSearch(const aPublishSearchTag: Il3CString);
     {* СМИ по налогам и бухучёту }
-   procedure OpenSituationCard(const aQuery: IQuery);
+   class procedure OpenSituationCard(const aQuery: IQuery);
     {* открыть ППС 6.х }
-   procedure OpenOldSituationCard(const aQuery: IQuery;
+   class procedure OpenOldSituationCard(const aQuery: IQuery;
     const aContainer: IvcmContainer);
     {* открыть ППС 5.х }
-   procedure OpenPharmPublishSearch;
-   procedure OpenPharmLegislationReview;
+   class procedure OpenPharmPublishSearch;
+   class procedure OpenPharmLegislationReview;
  end;//TSearchModule
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -164,45 +185,6 @@ uses
  , BaseSearchInterfaces
  , PrimSaveLoadUserTypes_slqtLegislationReview_UserType
  , PrimTreeAttributeSelect_astPharmPublishSearch_UserType
- {$If NOT Defined(NoVCM)}
- , vcmBase
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoScripts)}
- , kw_Search_opPublishSourceSearch
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kw_Search_opInpharmSearch
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kw_Search_opStartENO
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kw_Search_opDocumentsWithoutClass
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kw_Search_opDocumentsWithoutIncluded
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kw_Search_opDocumentsWithoutKey
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kw_Search_opBaseSearch
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kw_Search_opOpenConsult
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kw_Search_opAllSearch
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kw_Search_opOpenKeyWordSearch
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kw_Search_opAttributeSearch
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
  , SearchModuleWordsPack
  {$IfEnd} // NOT Defined(NoScripts)
@@ -227,15 +209,22 @@ uses
  , afwAnswer
  {$IfEnd} // NOT Defined(NoScripts)
  , Base_Operations_Strange_Controls
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
  , fsSituationSearch
  , fsSituationFilter
  , DefineSearchDate_Form
  , OldSituationSearch_Form
  , TreeAttributeFirstLevel_Form
+ //#UC START# *4AA641A3036Cimpl_uses*
+ , StdRes
+ , SysUtils
+ //#UC END# *4AA641A3036Cimpl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
-function TSearchModule.DefineFilterForm(const aQuery: IQuery): TnsFilterForm;
+class function TSearchModule.DefineFilterForm(const aQuery: IQuery): TnsFilterForm;
  {* определить тип формы фильтры }
 //#UC START# *4AA64AFA0360_4AA641A3036C_var*
 
@@ -288,7 +277,7 @@ begin
 //#UC END# *4AA64AFA0360_4AA641A3036C_impl*
 end;//TSearchModule.DefineFilterForm
 
-procedure TSearchModule.ShowList(aType: TnsSearchListType);
+class procedure TSearchModule.ShowList(aType: TnsSearchListType);
 var l_List: IDynList;
 //#UC START# *4AA65AA9011E_4AA641A3036C_var*
 //#UC END# *4AA65AA9011E_4AA641A3036C_var*
@@ -315,12 +304,16 @@ begin
 //#UC END# *4AA65AA9011E_4AA641A3036C_impl*
 end;//TSearchModule.ShowList
 
-procedure TSearchModule.OpenLegislationReview(const aQuery: IQuery);
+class function TSearchModule.OpenLegislationReview(const aQuery: IQuery): IvcmEntityForm;
  {* открыть Обзор изменений законодательства }
 var l_Container: IvcmEntityForm;
+var
+ __WasEnter : Boolean;
 //#UC START# *4AB77FFF008F_4AA641A3036C_var*
 //#UC END# *4AB77FFF008F_4AA641A3036C_var*
 begin
+ __WasEnter := vcmEnterFactory;
+ try
 //#UC START# *4AB77FFF008F_4AA641A3036C_impl*
  // Создание базового контейнера для КЗ
  l_Container := TdmStdRes.MakeSaveLoadForm(vcmCheckAggregate(
@@ -343,14 +336,22 @@ begin
  else
   Op_Query_ClearAll.Call(l_Container.Aggregate, True);
 //#UC END# *4AB77FFF008F_4AA641A3036C_impl*
+ finally
+  if __WasEnter then
+   vcmLeaveFactory;
+ end;//try..finally
 end;//TSearchModule.OpenLegislationReview
 
-procedure TSearchModule.OpenFiltersForm(const aData: IdeFilter);
+class function TSearchModule.OpenFiltersForm(const aData: IdeFilter): IvcmEntityForm;
  {* Открывает форму фильтров }
 var l_MainContainer: IvcmEntityForm;
+var
+ __WasEnter : Boolean;
 //#UC START# *4AB7B8D30345_4AA641A3036C_var*
 //#UC END# *4AB7B8D30345_4AA641A3036C_var*
 begin
+ __WasEnter := vcmEnterFactory;
+ try
 //#UC START# *4AB7B8D30345_4AA641A3036C_impl*
  vcmDispatcher.FormDispatcher.Lock;
  try
@@ -379,13 +380,21 @@ begin
   l_MainContainer := nil;
  end;//Result <> nil
 //#UC END# *4AB7B8D30345_4AA641A3036C_impl*
+ finally
+  if __WasEnter then
+   vcmLeaveFactory;
+ end;//try..finally
 end;//TSearchModule.OpenFiltersForm
 
-procedure TSearchModule.MakeNewFilter(aListType: TbsListType);
+class procedure TSearchModule.MakeNewFilter(aListType: TbsListType);
  {* Вызывает форму создания нового фильтра }
+var
+ __WasEnter : Boolean;
 //#UC START# *4AB7BFE700D2_4AA641A3036C_var*
 //#UC END# *4AB7BFE700D2_4AA641A3036C_var*
 begin
+ __WasEnter := vcmEnterFactory;
+ try
 //#UC START# *4AB7BFE700D2_4AA641A3036C_impl*
  Case aListType of
   bs_ltNone:
@@ -403,6 +412,10 @@ begin
    Assert(false);
  end;//Case aListType
 //#UC END# *4AB7BFE700D2_4AA641A3036C_impl*
+ finally
+  if __WasEnter then
+   vcmLeaveFactory;
+ end;//try..finally
 end;//TSearchModule.MakeNewFilter
 
 class function TSearchModule.CreateSearchContainer(const anAggregate: IvcmAggregate;
@@ -449,7 +462,7 @@ begin
 //#UC END# *4AB7C62D0091_4AA641A3036C_impl*
 end;//TSearchModule.CreateSearchContainer
 
-procedure TSearchModule.OpenInpharm(anIndex: Integer;
+class procedure TSearchModule.OpenInpharm(anIndex: Integer;
  aZoneType: TvcmZoneType;
  aUserType: TvcmUserType;
  const aQuery: IQuery;
@@ -532,13 +545,17 @@ begin
 //#UC END# *4AB7CC92001F_4AA641A3036C_impl*
 end;//TSearchModule.OpenInpharm
 
-procedure TSearchModule.InpharmSearch(const aQuery: IQuery;
+class procedure TSearchModule.InpharmSearch(const aQuery: IQuery;
  const aList: IDynList;
  const aContainer: IvcmContainer);
  {* Поиск лекарственных средств }
+var
+ __WasEnter : Boolean;
 //#UC START# *4AB7D4340301_4AA641A3036C_var*
 //#UC END# *4AB7D4340301_4AA641A3036C_var*
 begin
+ __WasEnter := vcmEnterFactory;
+ try
 //#UC START# *4AB7D4340301_4AA641A3036C_impl*
  OpenInpharm(0,
              vcm_ztParent,
@@ -547,9 +564,13 @@ begin
              aList,
              aContainer);
 //#UC END# *4AB7D4340301_4AA641A3036C_impl*
+ finally
+  if __WasEnter then
+   vcmLeaveFactory;
+ end;//try..finally
 end;//TSearchModule.InpharmSearch
 
-procedure TSearchModule.OpenPublishSource(anIndex: Integer;
+class procedure TSearchModule.OpenPublishSource(anIndex: Integer;
  aZoneType: TvcmZoneType;
  aUserType: TvcmUserType;
  const aQuery: IQuery;
@@ -648,11 +669,15 @@ begin
 //#UC END# *4AB87D3603B7_4AA641A3036C_impl*
 end;//TSearchModule.OpenPublishSource
 
-procedure TSearchModule.PublishSourceSearch(const aQuery: IQuery;
+class procedure TSearchModule.PublishSourceSearch(const aQuery: IQuery;
  const aList: IDynList);
+var
+ __WasEnter : Boolean;
 //#UC START# *4AB8A68700C7_4AA641A3036C_var*
 //#UC END# *4AB8A68700C7_4AA641A3036C_var*
 begin
+ __WasEnter := vcmEnterFactory;
+ try
 //#UC START# *4AB8A68700C7_4AA641A3036C_impl*
  OpenPublishSource(0,
                    vcm_ztParent,
@@ -661,18 +686,35 @@ begin
                    aList,
                    nil);
 //#UC END# *4AB8A68700C7_4AA641A3036C_impl*
+ finally
+  if __WasEnter then
+   vcmLeaveFactory;
+ end;//try..finally
 end;//TSearchModule.PublishSourceSearch
 
-procedure TSearchModule.PublishSourceSearch;
-//#UC START# *4AB8A97D01BF_4AA641A3036C_var*
-//#UC END# *4AB8A97D01BF_4AA641A3036C_var*
+procedure TSearchModule.opPublishSourceSearchTest(const aParams: IvcmTestParamsPrim);
+//#UC START# *4AB8A97D01BF_4AA641A3036Ctest_var*
+//#UC END# *4AB8A97D01BF_4AA641A3036Ctest_var*
 begin
-//#UC START# *4AB8A97D01BF_4AA641A3036C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AB8A97D01BF_4AA641A3036C_impl*
-end;//TSearchModule.PublishSourceSearch
+//#UC START# *4AB8A97D01BF_4AA641A3036Ctest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := defDataAdapter.IsExists_PublishSourceTag;
+ aParams.Op.Flag[vcm_ofVisible] := aParams.Op.Flag[vcm_ofEnabled];
+ FillAllBaseListParams(aParams);
+//#UC END# *4AB8A97D01BF_4AA641A3036Ctest_impl*
+end;//TSearchModule.opPublishSourceSearchTest
 
-procedure TSearchModule.FillAllBaseListParams(const aParams: IvcmTestParamsPrim);
+procedure TSearchModule.opPublishSourceSearchExecute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4AB8A97D01BF_4AA641A3036Cexec_var*
+//#UC END# *4AB8A97D01BF_4AA641A3036Cexec_var*
+begin
+//#UC START# *4AB8A97D01BF_4AA641A3036Cexec_impl*
+ with (aParams As IvcmExecuteParams) do
+  Assert((Data = nil));
+ OpenPublishSource(aParams.ItemIndex, vcm_ztParent, vcm_utAny, nil, nil, nil);
+//#UC END# *4AB8A97D01BF_4AA641A3036Cexec_impl*
+end;//TSearchModule.opPublishSourceSearchExecute
+
+class procedure TSearchModule.FillAllBaseListParams(const aParams: IvcmTestParamsPrim);
 //#UC START# *4AB8ABF801D5_4AA641A3036C_var*
 
  function IsCurrentObjectList : Boolean;
@@ -702,91 +744,204 @@ begin
 //#UC END# *4AB8ABF801D5_4AA641A3036C_impl*
 end;//TSearchModule.FillAllBaseListParams
 
-procedure TSearchModule.InpharmSearch;
+procedure TSearchModule.opInpharmSearchTest(const aParams: IvcmTestParamsPrim);
  {* Поиск лекарственных средств }
-//#UC START# *4AB8AF2002B4_4AA641A3036C_var*
-//#UC END# *4AB8AF2002B4_4AA641A3036C_var*
+//#UC START# *4AB8AF2002B4_4AA641A3036Ctest_var*
+//#UC END# *4AB8AF2002B4_4AA641A3036Ctest_var*
 begin
-//#UC START# *4AB8AF2002B4_4AA641A3036C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AB8AF2002B4_4AA641A3036C_impl*
-end;//TSearchModule.InpharmSearch
+//#UC START# *4AB8AF2002B4_4AA641A3036Ctest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := defDataAdapter.IsInpharmExists;
+ FillAllBaseListParams(aParams);
+//#UC END# *4AB8AF2002B4_4AA641A3036Ctest_impl*
+end;//TSearchModule.opInpharmSearchTest
 
-procedure TSearchModule.StartENO;
-//#UC START# *4AB8B29F0256_4AA641A3036C_var*
-//#UC END# *4AB8B29F0256_4AA641A3036C_var*
+procedure TSearchModule.opInpharmSearchExecute(const aParams: IvcmExecuteParamsPrim);
+ {* Поиск лекарственных средств }
+//#UC START# *4AB8AF2002B4_4AA641A3036Cexec_var*
+//#UC END# *4AB8AF2002B4_4AA641A3036Cexec_var*
 begin
-//#UC START# *4AB8B29F0256_4AA641A3036C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AB8B29F0256_4AA641A3036C_impl*
-end;//TSearchModule.StartENO
+//#UC START# *4AB8AF2002B4_4AA641A3036Cexec_impl*
+ with (aParams As IvcmExecuteParams) do
+  Assert((Data = nil));
+ OpenInpharm(aParams.ItemIndex,
+             vcm_ztParent,
+             vcm_utAny,
+             nil,
+             nil,
+             nil);
+//#UC END# *4AB8AF2002B4_4AA641A3036Cexec_impl*
+end;//TSearchModule.opInpharmSearchExecute
 
-procedure TSearchModule.DocumentsWithoutClass;
-//#UC START# *4AB8B7D100EA_4AA641A3036C_var*
-//#UC END# *4AB8B7D100EA_4AA641A3036C_var*
+procedure TSearchModule.opStartENOTest(const aParams: IvcmTestParamsPrim);
+//#UC START# *4AB8B29F0256_4AA641A3036Ctest_var*
+//#UC END# *4AB8B29F0256_4AA641A3036Ctest_var*
 begin
-//#UC START# *4AB8B7D100EA_4AA641A3036C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AB8B7D100EA_4AA641A3036C_impl*
-end;//TSearchModule.DocumentsWithoutClass
+//#UC START# *4AB8B29F0256_4AA641A3036Ctest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := defDataAdapter.IsENOEnabled;
+ aParams.Op.Flag[vcm_ofVisible] := aParams.Op.Flag[vcm_ofEnabled];
+//#UC END# *4AB8B29F0256_4AA641A3036Ctest_impl*
+end;//TSearchModule.opStartENOTest
 
-procedure TSearchModule.DocumentsWithoutIncluded;
-//#UC START# *4AB8B7E501F3_4AA641A3036C_var*
-//#UC END# *4AB8B7E501F3_4AA641A3036C_var*
+procedure TSearchModule.opStartENOExecute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4AB8B29F0256_4AA641A3036Cexec_var*
+const
+ c_StartEnoLink = 'Start.ger';
+//#UC END# *4AB8B29F0256_4AA641A3036Cexec_var*
 begin
-//#UC START# *4AB8B7E501F3_4AA641A3036C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AB8B7E501F3_4AA641A3036C_impl*
-end;//TSearchModule.DocumentsWithoutIncluded
+//#UC START# *4AB8B29F0256_4AA641A3036Cexec_impl*
+ nsProcessENOLink(nsCStr(c_StartEnoLink));
+//#UC END# *4AB8B29F0256_4AA641A3036Cexec_impl*
+end;//TSearchModule.opStartENOExecute
 
-procedure TSearchModule.DocumentsWithoutKey;
-//#UC START# *4AB8B7F8006D_4AA641A3036C_var*
-//#UC END# *4AB8B7F8006D_4AA641A3036C_var*
+procedure TSearchModule.opDocumentsWithoutClassTest(const aParams: IvcmTestParamsPrim);
+//#UC START# *4AB8B7D100EA_4AA641A3036Ctest_var*
+//#UC END# *4AB8B7D100EA_4AA641A3036Ctest_var*
 begin
-//#UC START# *4AB8B7F8006D_4AA641A3036C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AB8B7F8006D_4AA641A3036C_impl*
-end;//TSearchModule.DocumentsWithoutKey
+//#UC START# *4AB8B7D100EA_4AA641A3036Ctest_impl*
+ aParams.Op.Flag[vcm_ofVisible] := afw.Application.IsInternal;
+ aParams.Op.Flag[vcm_ofEnabled] := afw.Application.IsInternal;
+//#UC END# *4AB8B7D100EA_4AA641A3036Ctest_impl*
+end;//TSearchModule.opDocumentsWithoutClassTest
 
-procedure TSearchModule.BaseSearch;
-//#UC START# *4AB8B9530325_4AA641A3036C_var*
-//#UC END# *4AB8B9530325_4AA641A3036C_var*
+procedure TSearchModule.opDocumentsWithoutClassExecute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4AB8B7D100EA_4AA641A3036Cexec_var*
+//#UC END# *4AB8B7D100EA_4AA641A3036Cexec_var*
 begin
-//#UC START# *4AB8B9530325_4AA641A3036C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AB8B9530325_4AA641A3036C_impl*
-end;//TSearchModule.BaseSearch
+//#UC START# *4AB8B7D100EA_4AA641A3036Cexec_impl*
+ ShowList(ns_sltWithoutClass);
+//#UC END# *4AB8B7D100EA_4AA641A3036Cexec_impl*
+end;//TSearchModule.opDocumentsWithoutClassExecute
 
-procedure TSearchModule.OpenConsult;
-//#UC START# *4AB8BA8302A8_4AA641A3036C_var*
-//#UC END# *4AB8BA8302A8_4AA641A3036C_var*
+procedure TSearchModule.opDocumentsWithoutIncludedTest(const aParams: IvcmTestParamsPrim);
+//#UC START# *4AB8B7E501F3_4AA641A3036Ctest_var*
+//#UC END# *4AB8B7E501F3_4AA641A3036Ctest_var*
 begin
-//#UC START# *4AB8BA8302A8_4AA641A3036C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AB8BA8302A8_4AA641A3036C_impl*
-end;//TSearchModule.OpenConsult
+//#UC START# *4AB8B7E501F3_4AA641A3036Ctest_impl*
+ aParams.Op.Flag[vcm_ofVisible] := afw.Application.IsInternal;
+ aParams.Op.Flag[vcm_ofEnabled] := afw.Application.IsInternal;
+//#UC END# *4AB8B7E501F3_4AA641A3036Ctest_impl*
+end;//TSearchModule.opDocumentsWithoutIncludedTest
 
-procedure TSearchModule.AllSearch;
+procedure TSearchModule.opDocumentsWithoutIncludedExecute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4AB8B7E501F3_4AA641A3036Cexec_var*
+//#UC END# *4AB8B7E501F3_4AA641A3036Cexec_var*
+begin
+//#UC START# *4AB8B7E501F3_4AA641A3036Cexec_impl*
+ ShowList(ns_sltWithoutInluded);
+//#UC END# *4AB8B7E501F3_4AA641A3036Cexec_impl*
+end;//TSearchModule.opDocumentsWithoutIncludedExecute
+
+procedure TSearchModule.opDocumentsWithoutKeyTest(const aParams: IvcmTestParamsPrim);
+//#UC START# *4AB8B7F8006D_4AA641A3036Ctest_var*
+//#UC END# *4AB8B7F8006D_4AA641A3036Ctest_var*
+begin
+//#UC START# *4AB8B7F8006D_4AA641A3036Ctest_impl*
+ aParams.Op.Flag[vcm_ofVisible] := afw.Application.IsInternal;
+ aParams.Op.Flag[vcm_ofEnabled] := afw.Application.IsInternal;
+//#UC END# *4AB8B7F8006D_4AA641A3036Ctest_impl*
+end;//TSearchModule.opDocumentsWithoutKeyTest
+
+procedure TSearchModule.opDocumentsWithoutKeyExecute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4AB8B7F8006D_4AA641A3036Cexec_var*
+//#UC END# *4AB8B7F8006D_4AA641A3036Cexec_var*
+begin
+//#UC START# *4AB8B7F8006D_4AA641A3036Cexec_impl*
+ ShowList(ns_sltWithoutKey);
+//#UC END# *4AB8B7F8006D_4AA641A3036Cexec_impl*
+end;//TSearchModule.opDocumentsWithoutKeyExecute
+
+procedure TSearchModule.opBaseSearchExecute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4AB8B9530325_4AA641A3036Cexec_var*
+//#UC END# *4AB8B9530325_4AA641A3036Cexec_var*
+begin
+//#UC START# *4AB8B9530325_4AA641A3036Cexec_impl*
+ Assert((aParams As IvcmExecuteParams).Data = nil);
+ TdmStdRes.OpenBaseSearch(ns_bsokGlobal, nil);
+//#UC END# *4AB8B9530325_4AA641A3036Cexec_impl*
+end;//TSearchModule.opBaseSearchExecute
+
+procedure TSearchModule.opOpenConsultTest(const aParams: IvcmTestParamsPrim);
+//#UC START# *4AB8BA8302A8_4AA641A3036Ctest_var*
+//#UC END# *4AB8BA8302A8_4AA641A3036Ctest_var*
+begin
+//#UC START# *4AB8BA8302A8_4AA641A3036Ctest_impl*
+ aParams.Op.Flag[vcm_ofVisible] := DefDataAdapter.HasConsultations;
+ aParams.Op.Flag[vcm_ofEnabled] := aParams.Op.Flag[vcm_ofVisible];
+//#UC END# *4AB8BA8302A8_4AA641A3036Ctest_impl*
+end;//TSearchModule.opOpenConsultTest
+
+procedure TSearchModule.opOpenConsultExecute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4AB8BA8302A8_4AA641A3036Cexec_var*
+//#UC END# *4AB8BA8302A8_4AA641A3036Cexec_var*
+begin
+//#UC START# *4AB8BA8302A8_4AA641A3036Cexec_impl*
+ TdmStdRes.OpenSendConsultation(nil);
+//#UC END# *4AB8BA8302A8_4AA641A3036Cexec_impl*
+end;//TSearchModule.opOpenConsultExecute
+
+procedure TSearchModule.opAllSearchTest(const aParams: IvcmTestParamsPrim);
  {* Поиск }
-//#UC START# *4AB8C9EB0166_4AA641A3036C_var*
-//#UC END# *4AB8C9EB0166_4AA641A3036C_var*
-begin
-//#UC START# *4AB8C9EB0166_4AA641A3036C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AB8C9EB0166_4AA641A3036C_impl*
-end;//TSearchModule.AllSearch
+//#UC START# *4AB8C9EB0166_4AA641A3036Ctest_var*
 
-procedure TSearchModule.DateQuery(const aCaller: IvcmEntityForm;
- const aData: IqaDateReqDataHolder);
+ function MakeAvailableSearches: IvcmItems;
+   {-}
+ begin//MakeAvailableSearches
+  if (f_SearchTypeList = nil) then
+  begin
+   f_SearchTypeList := TvcmItems.Make;
+   f_SearchTypeList.AddOp(TdmStdRes.mod_opcode_Search_BaseSearch);
+   f_SearchTypeList.Add('-');
+   f_SearchTypeList.AddOp(TdmStdRes.mod_opcode_Search_AttributeSearch);
+   f_SearchTypeList.AddOp(TdmStdRes.mod_opcode_Search_OpenKeyWordSearch);
+   f_SearchTypeList.AddOp(TdmStdRes.mod_opcode_Search_PublishSourceSearch);
+   f_SearchTypeList.AddOp(TdmStdRes.mod_opcode_Monitorings_OpenLegislationReview);
+   f_SearchTypeList.AddOp(TdmStdRes.mod_opcode_Diction_OpenDict);
+   f_SearchTypeList.Add('-');
+   f_SearchTypeList.AddOp(TdmStdRes.mod_opcode_Search_StartENO);
+  end;//f_SearchTypeList = nil
+  Result := f_SearchTypeList;
+ end;//MakeAvailableSearches
+
+var
+ l_List : IvcmItems;
+//#UC END# *4AB8C9EB0166_4AA641A3036Ctest_var*
+begin
+//#UC START# *4AB8C9EB0166_4AA641A3036Ctest_impl*
+ l_List := MakeAvailableSearches;
+ aParams.Op.SubItems := l_List;
+ aParams.Op.Flag[vcm_ofEnabled] := (l_List <> nil) AND (l_List.Count > 0);
+//#UC END# *4AB8C9EB0166_4AA641A3036Ctest_impl*
+end;//TSearchModule.opAllSearchTest
+
+procedure TSearchModule.opAllSearchExecute(const aParams: IvcmExecuteParamsPrim);
+ {* Поиск }
+//#UC START# *4AB8C9EB0166_4AA641A3036Cexec_var*
+//#UC END# *4AB8C9EB0166_4AA641A3036Cexec_var*
+begin
+//#UC START# *4AB8C9EB0166_4AA641A3036Cexec_impl*
+ // - ничего не делаем
+//#UC END# *4AB8C9EB0166_4AA641A3036Cexec_impl*
+end;//TSearchModule.opAllSearchExecute
+
+class function TSearchModule.DateQuery(const aCaller: IvcmEntityForm;
+ const aData: IqaDateReqDataHolder): IvcmEntityForm;
+var
+ __WasEnter : Boolean;
 //#UC START# *4AB8CC830075_4AA641A3036C_var*
 //#UC END# *4AB8CC830075_4AA641A3036C_var*
 begin
+ __WasEnter := vcmEnterFactory;
+ try
 //#UC START# *4AB8CC830075_4AA641A3036C_impl*
  Result := Ten_DefineSearchDate.Make(aData, vcmMakeParams(nil, nil, aCaller.VCLWinControl));
 //#UC END# *4AB8CC830075_4AA641A3036C_impl*
+ finally
+  if __WasEnter then
+   vcmLeaveFactory;
+ end;//try..finally
 end;//TSearchModule.DateQuery
 
-procedure TSearchModule.OpenSituation(aFormSetId: RvcmFormSetFactory;
+class procedure TSearchModule.OpenSituation(aFormSetId: RvcmFormSetFactory;
  const aQuery: IQuery);
 //#UC START# *4AB8E3B301CA_4AA641A3036C_var*
 var
@@ -807,7 +962,7 @@ begin
 //#UC END# *4AB8E3B301CA_4AA641A3036C_impl*
 end;//TSearchModule.OpenSituation
 
-procedure TSearchModule.OpenOldSituation(aZoneType: TvcmZoneType;
+class procedure TSearchModule.OpenOldSituation(aZoneType: TvcmZoneType;
  aUserType: TvcmUserType;
  const aQuery: IQuery;
  const aContainer: IvcmContainer);
@@ -881,12 +1036,16 @@ begin
 //#UC END# *4AB8EA610164_4AA641A3036C_impl*
 end;//TSearchModule.OpenOldSituation
 
-procedure TSearchModule.OpenKeyWord(const aQuery: IQuery;
+class procedure TSearchModule.OpenKeyWord(const aQuery: IQuery;
  const aContainer: IvcmContainer);
  {* открыть ППС }
+var
+ __WasEnter : Boolean;
 //#UC START# *4AB8EF3B0310_4AA641A3036C_var*
 //#UC END# *4AB8EF3B0310_4AA641A3036C_var*
 begin
+ __WasEnter := vcmEnterFactory;
+ try
 //#UC START# *4AB8EF3B0310_4AA641A3036C_impl*
  // ППС 6.х
  if l3Same(afw.Settings.LoadString(pi_Search_SituationType,
@@ -897,24 +1056,45 @@ begin
  else
   OpenOldSituationCard(aQuery, aContainer);
 //#UC END# *4AB8EF3B0310_4AA641A3036C_impl*
+ finally
+  if __WasEnter then
+   vcmLeaveFactory;
+ end;//try..finally
 end;//TSearchModule.OpenKeyWord
 
-procedure TSearchModule.OpenKeyWordSearch;
+procedure TSearchModule.opOpenKeyWordSearchTest(const aParams: IvcmTestParamsPrim);
  {* Поиск по ситуации }
-//#UC START# *4AB8F0B00149_4AA641A3036C_var*
-//#UC END# *4AB8F0B00149_4AA641A3036C_var*
+//#UC START# *4AB8F0B00149_4AA641A3036Ctest_var*
+//#UC END# *4AB8F0B00149_4AA641A3036Ctest_var*
 begin
-//#UC START# *4AB8F0B00149_4AA641A3036C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AB8F0B00149_4AA641A3036C_impl*
-end;//TSearchModule.OpenKeyWordSearch
+//#UC START# *4AB8F0B00149_4AA641A3036Ctest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := defDataAdapter.IsExists_KeyWordTag;
+ aParams.Op.Flag[vcm_ofVisible] := aParams.Op.Flag[vcm_ofEnabled];
+//#UC END# *4AB8F0B00149_4AA641A3036Ctest_impl*
+end;//TSearchModule.opOpenKeyWordSearchTest
 
-procedure TSearchModule.EditFilter(const aFilter: IdeFilter;
+procedure TSearchModule.opOpenKeyWordSearchExecute(const aParams: IvcmExecuteParamsPrim);
+ {* Поиск по ситуации }
+//#UC START# *4AB8F0B00149_4AA641A3036Cexec_var*
+//#UC END# *4AB8F0B00149_4AA641A3036Cexec_var*
+begin
+//#UC START# *4AB8F0B00149_4AA641A3036Cexec_impl*
+ Assert(((aParams As IvcmExecuteParams).Data = nil),
+        'Пользуйтесь фабрикой TdmStdRes.OpenKeyWord');
+ OpenKeyWord(nil, nil);
+//#UC END# *4AB8F0B00149_4AA641A3036Cexec_impl*
+end;//TSearchModule.opOpenKeyWordSearchExecute
+
+class procedure TSearchModule.EditFilter(const aFilter: IdeFilter;
  anItemIndex: Integer);
  {* Редактироваить фильтр }
+var
+ __WasEnter : Boolean;
 //#UC START# *4AB8F2DC01A3_4AA641A3036C_var*
 //#UC END# *4AB8F2DC01A3_4AA641A3036C_var*
 begin
+ __WasEnter := vcmEnterFactory;
+ try
 //#UC START# *4AB8F2DC01A3_4AA641A3036C_impl*
  // Редактироваить фильтр
  if (aFilter <> nil) AND (aFilter.Query <> nil) then
@@ -954,9 +1134,13 @@ begin
  else
   Assert(false, 'Пользуйтесь фабрикой TdmStdRes.MakeNewFilter');
 //#UC END# *4AB8F2DC01A3_4AA641A3036C_impl*
+ finally
+  if __WasEnter then
+   vcmLeaveFactory;
+ end;//try..finally
 end;//TSearchModule.EditFilter
 
-procedure TSearchModule.OpenAttribute(anIndex: Integer;
+class procedure TSearchModule.OpenAttribute(anIndex: Integer;
  aZoneType: TvcmZoneType;
  aUserType: TvcmUserType;
  const aQuery: IQuery;
@@ -1037,12 +1221,16 @@ begin
 //#UC END# *4AB8FB72017D_4AA641A3036C_impl*
 end;//TSearchModule.OpenAttribute
 
-procedure TSearchModule.AttributeSearch(const aQuery: IQuery;
+class procedure TSearchModule.AttributeSearch(const aQuery: IQuery;
  const aList: IDynList;
  const aContainer: IvcmContainer);
+var
+ __WasEnter : Boolean;
 //#UC START# *4AB8FBBA016C_4AA641A3036C_var*
 //#UC END# *4AB8FBBA016C_4AA641A3036C_var*
 begin
+ __WasEnter := vcmEnterFactory;
+ try
 //#UC START# *4AB8FBBA016C_4AA641A3036C_impl*
  OpenAttribute(0,
                vcm_ztParent,
@@ -1051,23 +1239,43 @@ begin
                aList,
                aContainer);
 //#UC END# *4AB8FBBA016C_4AA641A3036C_impl*
+ finally
+  if __WasEnter then
+   vcmLeaveFactory;
+ end;//try..finally
 end;//TSearchModule.AttributeSearch
 
-procedure TSearchModule.AttributeSearch;
+procedure TSearchModule.opAttributeSearchTest(const aParams: IvcmTestParamsPrim);
  {* Поиск по реквизитам }
-//#UC START# *4AB8FF1C0353_4AA641A3036C_var*
-//#UC END# *4AB8FF1C0353_4AA641A3036C_var*
+//#UC START# *4AB8FF1C0353_4AA641A3036Ctest_var*
+//#UC END# *4AB8FF1C0353_4AA641A3036Ctest_var*
 begin
-//#UC START# *4AB8FF1C0353_4AA641A3036C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AB8FF1C0353_4AA641A3036C_impl*
-end;//TSearchModule.AttributeSearch
+//#UC START# *4AB8FF1C0353_4AA641A3036Ctest_impl*
+ FillAllBaseListParams(aParams);
+//#UC END# *4AB8FF1C0353_4AA641A3036Ctest_impl*
+end;//TSearchModule.opAttributeSearchTest
 
-procedure TSearchModule.OpenTaxesPublishSearch(const aPublishSearchTag: Il3CString);
+procedure TSearchModule.opAttributeSearchExecute(const aParams: IvcmExecuteParamsPrim);
+ {* Поиск по реквизитам }
+//#UC START# *4AB8FF1C0353_4AA641A3036Cexec_var*
+//#UC END# *4AB8FF1C0353_4AA641A3036Cexec_var*
+begin
+//#UC START# *4AB8FF1C0353_4AA641A3036Cexec_impl*
+ Assert(((aParams As IvcmExecuteParams).Data = nil),
+        'Пользуйтесь фабрикой TdmStsRes.AttributeSearch');
+ OpenAttribute(aParams.ItemIndex, vcm_ztParent, vcm_utAny, nil, nil, nil);
+//#UC END# *4AB8FF1C0353_4AA641A3036Cexec_impl*
+end;//TSearchModule.opAttributeSearchExecute
+
+class procedure TSearchModule.OpenTaxesPublishSearch(const aPublishSearchTag: Il3CString);
  {* СМИ по налогам и бухучёту }
+var
+ __WasEnter : Boolean;
 //#UC START# *4ACDF7FB02FB_4AA641A3036C_var*
 //#UC END# *4ACDF7FB02FB_4AA641A3036C_var*
 begin
+ __WasEnter := vcmEnterFactory;
+ try
 //#UC START# *4ACDF7FB02FB_4AA641A3036C_impl*
  if (aPublishSearchTag = nil) then
   OpenPublishSource(0,
@@ -1084,33 +1292,57 @@ begin
                     nil,
                     aPublishSearchTag);
 //#UC END# *4ACDF7FB02FB_4AA641A3036C_impl*
+ finally
+  if __WasEnter then
+   vcmLeaveFactory;
+ end;//try..finally
 end;//TSearchModule.OpenTaxesPublishSearch
 
-procedure TSearchModule.OpenSituationCard(const aQuery: IQuery);
+class procedure TSearchModule.OpenSituationCard(const aQuery: IQuery);
  {* открыть ППС 6.х }
+var
+ __WasEnter : Boolean;
 //#UC START# *4F27EA7D0011_4AA641A3036C_var*
 //#UC END# *4F27EA7D0011_4AA641A3036C_var*
 begin
+ __WasEnter := vcmEnterFactory;
+ try
 //#UC START# *4F27EA7D0011_4AA641A3036C_impl*
  OpenSituation(Tfs_SituationSearch, aQuery);
 //#UC END# *4F27EA7D0011_4AA641A3036C_impl*
+ finally
+  if __WasEnter then
+   vcmLeaveFactory;
+ end;//try..finally
 end;//TSearchModule.OpenSituationCard
 
-procedure TSearchModule.OpenOldSituationCard(const aQuery: IQuery;
+class procedure TSearchModule.OpenOldSituationCard(const aQuery: IQuery;
  const aContainer: IvcmContainer);
  {* открыть ППС 5.х }
+var
+ __WasEnter : Boolean;
 //#UC START# *4F27EAB1039F_4AA641A3036C_var*
 //#UC END# *4F27EAB1039F_4AA641A3036C_var*
 begin
+ __WasEnter := vcmEnterFactory;
+ try
 //#UC START# *4F27EAB1039F_4AA641A3036C_impl*
  OpenOldSituation(vcm_ztParent, vcm_utAny, aQuery, aContainer);
 //#UC END# *4F27EAB1039F_4AA641A3036C_impl*
+ finally
+  if __WasEnter then
+   vcmLeaveFactory;
+ end;//try..finally
 end;//TSearchModule.OpenOldSituationCard
 
-procedure TSearchModule.OpenPharmPublishSearch;
+class procedure TSearchModule.OpenPharmPublishSearch;
+var
+ __WasEnter : Boolean;
 //#UC START# *53A7FE780201_4AA641A3036C_var*
 //#UC END# *53A7FE780201_4AA641A3036C_var*
 begin
+ __WasEnter := vcmEnterFactory;
+ try
 //#UC START# *53A7FE780201_4AA641A3036C_impl*
   OpenPublishSource(0,
                     vcm_ztParent,
@@ -1119,9 +1351,15 @@ begin
                     nil,
                     nsCStr(AT_PUBLISH_SOURCE_PHARM))
 //#UC END# *53A7FE780201_4AA641A3036C_impl*
+ finally
+  if __WasEnter then
+   vcmLeaveFactory;
+ end;//try..finally
 end;//TSearchModule.OpenPharmPublishSearch
 
-procedure TSearchModule.OpenPharmLegislationReview;
+class procedure TSearchModule.OpenPharmLegislationReview;
+var
+ __WasEnter : Boolean;
 //#UC START# *53D771310272_4AA641A3036C_var*
 const
  c_Script = ': Fill'#13#10 +
@@ -1137,10 +1375,16 @@ var
  l_Date: AnsiString;
 //#UC END# *53D771310272_4AA641A3036C_var*
 begin
+ __WasEnter := vcmEnterFactory;
+ try
 //#UC START# *53D771310272_4AA641A3036C_impl*
   l_Date := '''' + DateToStr(IncMonth(Now, -2)) + '''';
   TbsHyperLinkProcessorPrim.RunScript(Format(c_Script, [c_Class, l_Date]));
 //#UC END# *53D771310272_4AA641A3036C_impl*
+ finally
+  if __WasEnter then
+   vcmLeaveFactory;
+ end;//try..finally
 end;//TSearchModule.OpenPharmLegislationReview
 
 procedure TSearchModule.Cleanup;
@@ -1153,6 +1397,30 @@ begin
  inherited;
 //#UC END# *479731C50290_4AA641A3036C_impl*
 end;//TSearchModule.Cleanup
+
+procedure TSearchModule.Loaded;
+begin
+ inherited;
+ PublishOp('opPublishSourceSearch', opPublishSourceSearchExecute, opPublishSourceSearchTest);
+ PublishOp('opInpharmSearch', opInpharmSearchExecute, opInpharmSearchTest);
+ PublishOp('opStartENO', opStartENOExecute, opStartENOTest);
+ PublishOp('opDocumentsWithoutClass', opDocumentsWithoutClassExecute, opDocumentsWithoutClassTest);
+ PublishOp('opDocumentsWithoutIncluded', opDocumentsWithoutIncludedExecute, opDocumentsWithoutIncludedTest);
+ PublishOp('opDocumentsWithoutKey', opDocumentsWithoutKeyExecute, opDocumentsWithoutKeyTest);
+ PublishOp('opBaseSearch', opBaseSearchExecute, nil);
+ PublishOp('opOpenConsult', opOpenConsultExecute, opOpenConsultTest);
+ PublishOp('opAllSearch', opAllSearchExecute, opAllSearchTest);
+ PublishOp('opOpenKeyWordSearch', opOpenKeyWordSearchExecute, opOpenKeyWordSearchTest);
+ PublishOp('opAttributeSearch', opAttributeSearchExecute, opAttributeSearchTest);
+end;//TSearchModule.Loaded
+
+class procedure TSearchModule.GetEntityForms(aList: TvcmClassList);
+begin
+ inherited;
+ aList.Add(Ten_DefineSearchDate);
+ aList.Add(TcfOldSituationSearch);
+ aList.Add(TefTreeAttributeFirstLevel);
+end;//TSearchModule.GetEntityForms
 
 initialization
 {$If NOT Defined(NoScripts)}

@@ -18,24 +18,28 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , vcmTaskPanelInterfaces
  , Classes
+ , vcmBase
+ , vcmExternalInterfaces
+ , vcmModule
 ;
 
 type
  TPrimTasksPanelMenuModule = {abstract} class(TvcmModule)
   private
    f_PopupMenu: TvcmPopupMenuPrim;
-    {* Поле для свойства PopupMenu }
   private
-   procedure Customize;
+   procedure opCustomizeExecute(const aParams: IvcmExecuteParamsPrim);
     {* Настройка... }
   protected
    function pm_GetPopupMenu: TvcmPopupMenuPrim;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
+   procedure Loaded; override;
+   class procedure GetEntityForms(aList: TvcmClassList); override;
   public
-   procedure CustomizePanel(const aPanel: IvcmCustOps);
+   class procedure CustomizePanel(const aPanel: IvcmCustOps);
     {* Настроить панель иструментов }
-   function TasksPanelPopupMenu: TPopupMenu;
+   class function TasksPanelPopupMenu: TPopupMenu;
    constructor Create(AOwner: TComponent); override;
   protected
    property PopupMenu: TvcmPopupMenuPrim
@@ -49,16 +53,14 @@ implementation
 uses
  l3ImplUses
  , vcmInterfaces
- , vcmBase
  , SysUtils
  , vcmMenus
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
- {$If NOT Defined(NoScripts)}
- , kw_TasksPanelMenu_opCustomize
- {$IfEnd} // NOT Defined(NoScripts)
  , CustomizeTasksPanel_Form
+ //#UC START# *4C8DD8C602D3impl_uses*
+ //#UC END# *4C8DD8C602D3impl_uses*
 ;
 
 var g_dmTasksPanelMenu: TPrimTasksPanelMenuModule = nil;
@@ -83,34 +85,55 @@ begin
 //#UC END# *4C8F78BC0331_4C8DD8C602D3get_impl*
 end;//TPrimTasksPanelMenuModule.pm_GetPopupMenu
 
-procedure TPrimTasksPanelMenuModule.Customize;
+procedure TPrimTasksPanelMenuModule.opCustomizeExecute(const aParams: IvcmExecuteParamsPrim);
  {* Настройка... }
-//#UC START# *4C8DD91901C8_4C8DD8C602D3_var*
-//#UC END# *4C8DD91901C8_4C8DD8C602D3_var*
+//#UC START# *4C8DD91901C8_4C8DD8C602D3exec_var*
+var
+ l_MainForm: IvcmMainForm;
+//#UC END# *4C8DD91901C8_4C8DD8C602D3exec_var*
 begin
-//#UC START# *4C8DD91901C8_4C8DD8C602D3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C8DD91901C8_4C8DD8C602D3_impl*
-end;//TPrimTasksPanelMenuModule.Customize
+//#UC START# *4C8DD91901C8_4C8DD8C602D3exec_impl*
+ if Supports((aParams As IvcmExecuteParams).Container.NativeMainForm, IvcmMainForm, l_MainForm) then
+  CustomizePanel(l_MainForm.TasksPanel)
+ else
+  Assert(False);
+//#UC END# *4C8DD91901C8_4C8DD8C602D3exec_impl*
+end;//TPrimTasksPanelMenuModule.opCustomizeExecute
 
-procedure TPrimTasksPanelMenuModule.CustomizePanel(const aPanel: IvcmCustOps);
+class procedure TPrimTasksPanelMenuModule.CustomizePanel(const aPanel: IvcmCustOps);
  {* Настроить панель иструментов }
+var
+ __WasEnter : Boolean;
 //#UC START# *4C8E59B80380_4C8DD8C602D3_var*
 //#UC END# *4C8E59B80380_4C8DD8C602D3_var*
 begin
+ __WasEnter := vcmEnterFactory;
+ try
 //#UC START# *4C8E59B80380_4C8DD8C602D3_impl*
   (TCustomizeTasksPanelForm.Make(aPanel, vcmMakeParams, vcm_ztAny).
     VCLWinControl As TCustomForm).ShowModal;
 //#UC END# *4C8E59B80380_4C8DD8C602D3_impl*
+ finally
+  if __WasEnter then
+   vcmLeaveFactory;
+ end;//try..finally
 end;//TPrimTasksPanelMenuModule.CustomizePanel
 
-function TPrimTasksPanelMenuModule.TasksPanelPopupMenu: TPopupMenu;
+class function TPrimTasksPanelMenuModule.TasksPanelPopupMenu: TPopupMenu;
+var
+ __WasEnter : Boolean;
 //#UC START# *4C8F777E02AD_4C8DD8C602D3_var*
 //#UC END# *4C8F777E02AD_4C8DD8C602D3_var*
 begin
+ __WasEnter := vcmEnterFactory;
+ try
 //#UC START# *4C8F777E02AD_4C8DD8C602D3_impl*
  Result := g_dmTasksPanelMenu.PopupMenu;
 //#UC END# *4C8F777E02AD_4C8DD8C602D3_impl*
+ finally
+  if __WasEnter then
+   vcmLeaveFactory;
+ end;//try..finally
 end;//TPrimTasksPanelMenuModule.TasksPanelPopupMenu
 
 procedure TPrimTasksPanelMenuModule.Cleanup;
@@ -135,6 +158,19 @@ begin
  g_dmTasksPanelMenu := Self;
 //#UC END# *47D1602000C6_4C8DD8C602D3_impl*
 end;//TPrimTasksPanelMenuModule.Create
+
+procedure TPrimTasksPanelMenuModule.Loaded;
+begin
+ inherited;
+ PublishOp('opCustomize', opCustomizeExecute, nil);
+ ShowInToolbar('opCustomize', False);
+end;//TPrimTasksPanelMenuModule.Loaded
+
+class procedure TPrimTasksPanelMenuModule.GetEntityForms(aList: TvcmClassList);
+begin
+ inherited;
+ aList.Add(TCustomizeTasksPanelForm);
+end;//TPrimTasksPanelMenuModule.GetEntityForms
 {$IfEnd} // NOT Defined(NoVCM)
 
 end.
