@@ -24,7 +24,6 @@ uses
 type
  Il3ScreenService = interface
   {* Èםעונפויס סונגטסא Tl3ScreenService }
-  ['{2ADD24A4-6629-417A-9825-E326572364B7}']
   function IC: Il3InfoCanvas;
  end;//Il3ScreenService
 

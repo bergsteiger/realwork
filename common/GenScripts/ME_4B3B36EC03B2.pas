@@ -70,7 +70,6 @@ type
 
  Il3StringIDExHelper = interface
   {* Интерфейс сервиса Tl3StringIDExHelper }
-  ['{8AB76DA9-7B40-4325-8F71-3EAA5DB9E047}']
   function AsCStr(const aStr: Tl3StringIDEx): Il3CString;
   function AsStr(const aStr: Tl3StringIDEx): AnsiString;
   procedure Init(var theStr: Tl3StringIDEx);
@@ -84,9 +83,9 @@ type
    procedure pm_SetAlien(const aValue: Il3StringIDExHelper);
    procedure ClearFields; override;
   public
-   procedure Init(var theStr: Tl3StringIDEx);
    function AsCStr(const aStr: Tl3StringIDEx): Il3CString;
    function AsStr(const aStr: Tl3StringIDEx): AnsiString;
+   procedure Init(var theStr: Tl3StringIDEx);
    class function Instance: Tl3StringIDExHelper;
     {* Метод получения экземпляра синглетона Tl3StringIDExHelper }
    class function Exists: Boolean;
@@ -213,26 +212,6 @@ begin
  f_Alien := aValue;
 end;//Tl3StringIDExHelper.pm_SetAlien
 
-procedure Tl3StringIDExHelper.Init(var theStr: Tl3StringIDEx);
-//#UC START# *071573E75439_4B98D6C201AD_var*
-//#UC END# *071573E75439_4B98D6C201AD_var*
-begin
-//#UC START# *071573E75439_4B98D6C201AD_impl*
- {$IfDef Nemesis}
-  {$IfNDef NoVCM}
-   Assert(not g_l3ConstStringsSealed);
-  {$EndIf  NoVCM}
- {$EndIf Nemesis}
- {$IfNDef DesignTimeLibrary}
- if (theStr.rValue <> '') then
-  Tl3ConstStrings.Instance.Add(@theStr);
- {$EndIf  DesignTimeLibrary}
- theStr.rS := -1;
- if (f_Alien <> nil) then
-  f_Alien.Init(theStr);
-//#UC END# *071573E75439_4B98D6C201AD_impl*
-end;//Tl3StringIDExHelper.Init
-
 function Tl3StringIDExHelper.AsCStr(const aStr: Tl3StringIDEx): Il3CString;
 //#UC START# *201B50E5979A_4B98D6C201AD_var*
 //#UC END# *201B50E5979A_4B98D6C201AD_var*
@@ -256,6 +235,26 @@ begin
   Result := aStr.rValue;
 //#UC END# *74E80608E1B4_4B98D6C201AD_impl*
 end;//Tl3StringIDExHelper.AsStr
+
+procedure Tl3StringIDExHelper.Init(var theStr: Tl3StringIDEx);
+//#UC START# *071573E75439_4B98D6C201AD_var*
+//#UC END# *071573E75439_4B98D6C201AD_var*
+begin
+//#UC START# *071573E75439_4B98D6C201AD_impl*
+ {$IfDef Nemesis}
+  {$IfNDef NoVCM}
+   Assert(not g_l3ConstStringsSealed);
+  {$EndIf  NoVCM}
+ {$EndIf Nemesis}
+ {$IfNDef DesignTimeLibrary}
+ if (theStr.rValue <> '') then
+  Tl3ConstStrings.Instance.Add(@theStr);
+ {$EndIf  DesignTimeLibrary}
+ theStr.rS := -1;
+ if (f_Alien <> nil) then
+  f_Alien.Init(theStr);
+//#UC END# *071573E75439_4B98D6C201AD_impl*
+end;//Tl3StringIDExHelper.Init
 
 class function Tl3StringIDExHelper.Instance: Tl3StringIDExHelper;
  {* Метод получения экземпляра синглетона Tl3StringIDExHelper }

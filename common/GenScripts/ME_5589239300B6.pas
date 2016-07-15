@@ -23,7 +23,6 @@ uses
 type
  Il3ExceptionHandler = interface
   {* Èםעונפויס סונגטסא Tl3ExceptionHandler }
-  ['{85F70758-7234-4849-BCCC-261AAAA9117F}']
   procedure HandleException(Sender: TObject);
  end;//Il3ExceptionHandler
 

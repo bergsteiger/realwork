@@ -23,7 +23,6 @@ uses
 type
  Il3VersionInfoService = interface
   {* Èםעונפויס סונגטסא Tl3VersionInfoService }
-  ['{FC342D5B-DACB-416A-AC66-742EECFB5B6A}']
   function VersionInfo: AnsiString;
  end;//Il3VersionInfoService
 

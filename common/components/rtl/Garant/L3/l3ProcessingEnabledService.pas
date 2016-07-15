@@ -23,7 +23,6 @@ uses
 type
  Il3ProcessingEnabledService = interface
   {* Èםעונפויס סונגטסא Tl3ProcessingEnabledService }
-  ['{8EE372F2-5B4D-4BC3-8E60-D2DD5148EE09}']
   function Enabled: Boolean;
  end;//Il3ProcessingEnabledService
 
