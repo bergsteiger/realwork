@@ -28,6 +28,7 @@ uses
 ;
 
 type
+ _FormDataSourceType_ = IdsFilters;
  {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourcePrim.imp.pas}
  TdsFilters = {final} class(_vcmFormDataSourcePrim_, IdsFilters)
   {* БОФ формы фильтры }
@@ -46,7 +47,6 @@ uses
  , l3Base
 ;
 
-{$If NOT Defined(NoVCM)}
 type _Instance_R_ = TdsFilters;
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourcePrim.imp.pas}
@@ -60,6 +60,5 @@ begin
  Result := TdeFilter.Make(aNode);
 //#UC END# *4922D96003C8_47F5BC100329_impl*
 end;//TdsFilters.OpenFilter
-{$IfEnd} // NOT Defined(NoVCM)
 
 end.

@@ -12,11 +12,11 @@
  _dsCommonDiction_ = {abstract} class(_dsSimpleTree_, IdsCommonDiction)
   {* ќбобщенный словарь }
   private
-   BaseDocument: IsdsBaseDocument;
-   CommonDiction: IsdsCommonDiction;
+   ucc_BaseDocument: IsdsBaseDocument;
+   ucc_CommonDiction: IsdsCommonDiction;
    f_ContextFilterState: InscContextFilterState;
    f_Current: INodeBase;
-    {* ѕоле дл€ свойства Current }
+    {* текущий €зык списка толкований }
   protected
    function pm_GetDictionKind: TnsDictionKind; virtual; abstract;
    function MakeDocInfoForCurrentChanged(const aDoc: IDocument): IdeDocInfo; virtual; abstract;
@@ -36,6 +36,14 @@
    procedure FormSetDataChanged; override;
    {$IfEnd} // NOT Defined(NoVCM)
    procedure ClearFields; override;
+   {$If NOT Defined(NoVCM)}
+   procedure InitRefs(const aDS: IvcmFormSetDataSource); override;
+    {* »нициализирует ссылки на различные представлени€ прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure ClearRefs; override;
+    {* ќчищает ссылки на различные представлени€ прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
   private
    property Current: INodeBase
     read f_Current
@@ -260,8 +268,28 @@ begin
  Current := nil;
  inherited;
 end;//_dsCommonDiction_.ClearFields
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
+{$If NOT Defined(NoVCM)}
+procedure _dsCommonDiction_.InitRefs(const aDS: IvcmFormSetDataSource);
+ {* »нициализирует ссылки на различные представлени€ прецедента }
+begin
+ inherited;
+ Supports(aDS, IsdsBaseDocument, ucc_BaseDocument);
+ Supports(aDS, IsdsCommonDiction, ucc_CommonDiction);
+end;//_dsCommonDiction_.InitRefs
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure _dsCommonDiction_.ClearRefs;
+ {* ќчищает ссылки на различные представлени€ прецедента }
+begin
+ inherited;
+ ucc_BaseDocument := nil;
+ ucc_CommonDiction := nil;
+end;//_dsCommonDiction_.ClearRefs
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 {$EndIf dsCommonDiction_imp_impl}
 
 {$EndIf dsCommonDiction_imp}

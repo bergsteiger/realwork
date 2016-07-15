@@ -132,7 +132,6 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
 ;
 
-{$If NOT Defined(NoVCM)}
 type _Instance_R_ = TsdsConsultation;
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormSetDataSourceWithoutData.imp.pas}
@@ -410,6 +409,7 @@ begin
 //#UC END# *47A042E100E2_49228CA903BA_impl*
 end;//TsdsConsultation.InitFields
 
+{$If NOT Defined(NoVCM)}
 procedure TsdsConsultation.DataExchange;
  {* - вызывается после получения данных инициализации. }
 //#UC START# *47F37DF001FE_49228CA903BA_var*
@@ -437,7 +437,9 @@ begin
   f_NeedMark := Consultation.Status * c_bsNeedMarkForConsultations <> [];
 //#UC END# *47F37DF001FE_49228CA903BA_impl*
 end;//TsdsConsultation.DataExchange
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$If NOT Defined(NoVCM)}
 function TsdsConsultation.GetIsNeedChangePosition(const aDataSource: _SetType_): Boolean;
 //#UC START# *491B02D80112_49228CA903BA_var*
 var
@@ -465,6 +467,7 @@ begin
  end;//Result
 //#UC END# *491B02D80112_49228CA903BA_impl*
 end;//TsdsConsultation.GetIsNeedChangePosition
+{$IfEnd} // NOT Defined(NoVCM)
 
 function TsdsConsultation.COMQueryInterface(const IID: Tl3GUID;
  out Obj): Tl3HResult;
@@ -493,6 +496,7 @@ begin
  inherited;
 end;//TsdsConsultation.ClearFields
 
+{$If NOT Defined(NoVCM)}
 procedure TsdsConsultation.ClearAreas;
  {* Очищает ссылки на области ввода }
 begin

@@ -1,128 +1,101 @@
 unit dsConsultation;
+ {* БОС запроса на консультацию }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Consultation"
-// Автор: Морозов М.А
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Consultation/dsConsultation.pas"
-// Начат: 06.04.2006 17.27
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ViewAreaControllerImp::Class>> F1 Пользовательские сервисы::Consultation::Consultation::Consultation::TdsConsultation
-//
-// БОС запроса на консультацию
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Consultation\dsConsultation.pas"
+// Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "TdsConsultation" MUID: (491C3E97009F)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  bsTypes,
-  ConsultationDomainInterfaces,
-  l3Interfaces,
-  l3Types,
-  afwInterfaces,
-  nevTools,
-  DocumentAndListInterfaces,
-  DocumentInterfaces,
-  WorkWithListInterfaces,
-  nsDocumentLikeStateHolder
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmExternalInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmLocalInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  l3ProtoObjectWithCOMQI,
-  l3NotifyPtrList,
-  UnderControlUnit,
-  UnderControlInterfaces,
-  DocumentUnit,
-  bsTypesNew,
-  FoldersDomainInterfaces,
-  vcmControllers {a},
-  l3IID
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , ConsultationDomainInterfaces
+ , bsTypes
+ , l3IID
+ , nevTools
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , DocumentAndListInterfaces
+ , l3Types
+ , DocumentInterfaces
+ , WorkWithListInterfaces
+ , nsDocumentLikeStateHolder
+ , afwInterfaces
+ , l3Interfaces
+ , FoldersDomainInterfaces
+ , UnderControlUnit
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , DocumentUnit
+ , bsTypesNew
+ , l3ProtoObjectWithCOMQI
+ {$If NOT Defined(NoVCM)}
+ , vcmLocalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3NotifyPtrList
+ , UnderControlInterfaces
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  _FormDataSourceType_ = IdsConsultation;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsBaseDocumentPrim.imp.pas}
- TdsConsultation = {vac} class(_dsBaseDocumentPrim_, IdsConsultation)
+ TdsConsultation = class(_dsBaseDocumentPrim_, IdsConsultation)
   {* БОС запроса на консультацию }
- private
- // private fields
-   f_ShowingStatus : TbsConsultationStatuses;
-   ucc_Consultation : IsdsConsultation;
- protected
-
-  procedure InitRefs(const aDS: IvcmUseCaseController); override;
-  procedure ClearRefs; override;
- protected
- // realized methods
+  private
+   f_ShowingStatus: TbsConsultationStatuses;
+   ucc_Consultation: IsdsConsultation;
+  protected
    function pm_GetShowingStatus: TbsConsultationStatuses;
- protected
- // overridden protected methods
    procedure InitFields; override;
    function COMQueryInterface(const IID: Tl3GUID;
     out Obj): Tl3HResult; override;
-     {* Реализация запроса интерфейса }
+    {* Реализация запроса интерфейса }
    function MakeContainer: InevDocumentContainer; override;
-     {* Конструирует контейнер документа }
+    {* Конструирует контейнер документа }
+   {$If NOT Defined(NoVCM)}
+   procedure InitRefs(const aDS: IvcmFormSetDataSource); override;
+    {* Инициализирует ссылки на различные представления прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure ClearRefs; override;
+    {* Очищает ссылки на различные представления прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//TdsConsultation
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Base,
-  SysUtils,
-  ConsultingUnit,
-  nsConsultationDocumentContainerNew,
-  IOUnit,
-  bsUtils,
-  BaseTypesUnit,
-  bsConvert,
-  l3Utils,
-  deDocInfo,
-  nsTypes,
-  nsDocInfoHAFMacroReplacer
-  {$If not defined(NoVCM)}
-  ,
-  StdRes
-  {$IfEnd} //not NoVCM
-  ,
-  nsFolderFilterInfo,
-  l3InterfacesMisc,
-  afwFacade
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
+ l3ImplUses
+ , l3Base
+ , SysUtils
+ , ConsultingUnit
+ , nsConsultationDocumentContainerNew
+ , bsUtils
+ , BaseTypesUnit
+ , bsConvert
+ , l3Utils
+ , deDocInfo
+ , nsTypes
+ , nsDocInfoHAFMacroReplacer
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ , nsFolderFilterInfo
+ , l3InterfacesMisc
+ , afwFacade
+ , IOUnit
+;
 
 type _Instance_R_ = TdsConsultation;
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsBaseDocumentPrim.imp.pas}
-
-// start class TdsConsultation
 
 function TdsConsultation.pm_GetShowingStatus: TbsConsultationStatuses;
 //#UC START# *491C3FAA009D_491C3E97009Fget_var*
@@ -144,7 +117,8 @@ begin
 end;//TdsConsultation.InitFields
 
 function TdsConsultation.COMQueryInterface(const IID: Tl3GUID;
-  out Obj): Tl3HResult;
+ out Obj): Tl3HResult;
+ {* Реализация запроса интерфейса }
 //#UC START# *4A60B23E00C3_491C3E97009F_var*
 //#UC END# *4A60B23E00C3_491C3E97009F_var*
 begin
@@ -162,6 +136,7 @@ begin
 end;//TdsConsultation.COMQueryInterface
 
 function TdsConsultation.MakeContainer: InevDocumentContainer;
+ {* Конструирует контейнер документа }
 //#UC START# *4C6AB38800F3_491C3E97009F_var*
 //#UC END# *4C6AB38800F3_491C3E97009F_var*
 begin
@@ -173,18 +148,23 @@ begin
 //#UC END# *4C6AB38800F3_491C3E97009F_impl*
 end;//TdsConsultation.MakeContainer
 
-procedure TdsConsultation.InitRefs(const aDS: IvcmUseCaseController);
+{$If NOT Defined(NoVCM)}
+procedure TdsConsultation.InitRefs(const aDS: IvcmFormSetDataSource);
+ {* Инициализирует ссылки на различные представления прецедента }
 begin
  inherited;
  Supports(aDS, IsdsConsultation, ucc_Consultation);
-end;
+end;//TdsConsultation.InitRefs
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$If NOT Defined(NoVCM)}
 procedure TdsConsultation.ClearRefs;
+ {* Очищает ссылки на различные представления прецедента }
 begin
  inherited;
  ucc_Consultation := nil;
-end;
+end;//TdsConsultation.ClearRefs
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //not Admin AND not Monitorings
-
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

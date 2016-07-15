@@ -1,132 +1,106 @@
 unit dsDictionDocument;
+ {* Документ толкового словаря }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Diction"
-// Автор: Морозов М.А.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Diction/dsDictionDocument.pas"
-// Начат: 07.10.2005 17.02
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ViewAreaControllerImp::Class>> F1 Встроенные продукты::Diction::Diction::Diction::TdsDictionDocument
-//
-// Документ толкового словаря
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Diction\dsDictionDocument.pas"
+// Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "TdsDictionDocument" MUID: (491D5BE30111)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DictionInterfaces,
-  DictionInterfacesPrim,
-  l3Interfaces,
-  l3Types,
-  afwInterfaces,
-  nevTools,
-  DocumentAndListInterfaces,
-  DocumentInterfaces,
-  WorkWithListInterfaces,
-  nsDocumentLikeStateHolder
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmExternalInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmLocalInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  l3ProtoObjectWithCOMQI,
-  l3NotifyPtrList,
-  UnderControlUnit,
-  UnderControlInterfaces,
-  bsTypes,
-  DocumentUnit,
-  bsTypesNew,
-  FoldersDomainInterfaces,
-  vcmControllers {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , DictionInterfacesPrim
+ , DictionInterfaces
+ , nevTools
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , DocumentAndListInterfaces
+ , l3Types
+ , DocumentInterfaces
+ , WorkWithListInterfaces
+ , nsDocumentLikeStateHolder
+ , afwInterfaces
+ , l3Interfaces
+ , bsTypes
+ , FoldersDomainInterfaces
+ , UnderControlUnit
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , DocumentUnit
+ , bsTypesNew
+ , l3ProtoObjectWithCOMQI
+ {$If NOT Defined(NoVCM)}
+ , vcmLocalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3NotifyPtrList
+ , UnderControlInterfaces
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  _FormDataSourceType_ = IdsDictionDocument;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsBaseDocumentPrim.imp.pas}
- TdsDictionDocument = {final vac} class(_dsBaseDocumentPrim_, IdsDictionDocument)
+ TdsDictionDocument = {final} class(_dsBaseDocumentPrim_, IdsDictionDocument)
   {* Документ толкового словаря }
- private
- // private fields
-   ucc_Diction : IsdsDiction;
- protected
-
-  procedure InitRefs(const aDS: IvcmUseCaseController); override;
-  procedure ClearRefs; override;
- protected
- // realized methods
+  private
+   ucc_Diction: IsdsDiction;
+  protected
    procedure OpenLiteratureList;
-     {* открыть список литературы для толкового словаря }
+    {* открыть список литературы для толкового словаря }
    function pm_GetIsMainDiction: Boolean;
- protected
- // overridden protected methods
    function GetTimeMachineOff: Boolean; override;
-     {* при получении источника данных машину времени нужно выключить }
+    {* при получении источника данных машину времени нужно выключить }
    function MakeContainer: InevDocumentContainer; override;
-     {* Конструирует контейнер документа }
+    {* Конструирует контейнер документа }
+   {$If NOT Defined(NoVCM)}
+   procedure InitRefs(const aDS: IvcmFormSetDataSource); override;
+    {* Инициализирует ссылки на различные представления прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure ClearRefs; override;
+    {* Очищает ссылки на различные представления прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//TdsDictionDocument
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DataAdapter,
-  nsDictionDocumentContainer,
-  bsConst,
-  nsConst,
-  nsF1DocumentContainer,
-  IOUnit,
-  l3Base,
-  bsUtils,
-  BaseTypesUnit,
-  bsConvert,
-  l3Utils,
-  deDocInfo,
-  nsTypes,
-  nsDocInfoHAFMacroReplacer
-  {$If not defined(NoVCM)}
-  ,
-  StdRes
-  {$IfEnd} //not NoVCM
-  ,
-  nsFolderFilterInfo,
-  l3InterfacesMisc,
-  SysUtils,
-  afwFacade
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
+ l3ImplUses
+ , DataAdapter
+ , nsDictionDocumentContainer
+ , bsConst
+ , nsConst
+ , nsF1DocumentContainer
+ , l3Base
+ , bsUtils
+ , BaseTypesUnit
+ , bsConvert
+ , l3Utils
+ , deDocInfo
+ , nsTypes
+ , nsDocInfoHAFMacroReplacer
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ , nsFolderFilterInfo
+ , l3InterfacesMisc
+ , SysUtils
+ , afwFacade
+ , IOUnit
+;
 
 type _Instance_R_ = TdsDictionDocument;
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsBaseDocumentPrim.imp.pas}
 
-// start class TdsDictionDocument
-
 procedure TdsDictionDocument.OpenLiteratureList;
+ {* открыть список литературы для толкового словаря }
 //#UC START# *491D58670154_491D5BE30111_var*
 //#UC END# *491D58670154_491D5BE30111_var*
 begin
@@ -147,6 +121,7 @@ begin
 end;//TdsDictionDocument.pm_GetIsMainDiction
 
 function TdsDictionDocument.GetTimeMachineOff: Boolean;
+ {* при получении источника данных машину времени нужно выключить }
 //#UC START# *491C264C02C2_491D5BE30111_var*
 //#UC END# *491C264C02C2_491D5BE30111_var*
 begin
@@ -156,6 +131,7 @@ begin
 end;//TdsDictionDocument.GetTimeMachineOff
 
 function TdsDictionDocument.MakeContainer: InevDocumentContainer;
+ {* Конструирует контейнер документа }
 //#UC START# *4C6AB38800F3_491D5BE30111_var*
 //#UC END# *4C6AB38800F3_491D5BE30111_var*
 begin
@@ -168,18 +144,23 @@ begin
 //#UC END# *4C6AB38800F3_491D5BE30111_impl*
 end;//TdsDictionDocument.MakeContainer
 
-procedure TdsDictionDocument.InitRefs(const aDS: IvcmUseCaseController);
+{$If NOT Defined(NoVCM)}
+procedure TdsDictionDocument.InitRefs(const aDS: IvcmFormSetDataSource);
+ {* Инициализирует ссылки на различные представления прецедента }
 begin
  inherited;
  Supports(aDS, IsdsDiction, ucc_Diction);
-end;
+end;//TdsDictionDocument.InitRefs
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$If NOT Defined(NoVCM)}
 procedure TdsDictionDocument.ClearRefs;
+ {* Очищает ссылки на различные представления прецедента }
 begin
  inherited;
  ucc_Diction := nil;
-end;
+end;//TdsDictionDocument.ClearRefs
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //not Admin AND not Monitorings
-
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

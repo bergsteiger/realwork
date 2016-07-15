@@ -12,7 +12,6 @@
   {* Бизнес объекта для словарных атрибутов }
   private
    f_Operations: TLogicOperationSet;
-    {* Поле для свойства Operations }
   private
    procedure UpdateOperations;
   protected

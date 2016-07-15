@@ -1,136 +1,91 @@
 unit fsDocumentWithFlash;
+ {* Схема }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Document/fsDocumentWithFlash.pas"
-// Начат: 05.02.2009 19:28
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMFormSetFactory::Class>> F1 Работа с документом и списком документов::Document::View::Document::Document::DocumentWithFlash$FSF
-//
-// Схема
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Document\fsDocumentWithFlash.pas"
+// Стереотип: "VCMFormSetFactory"
+// Элемент модели: "DocumentWithFlash" MUID: (4AA126F9032A)
+// Имя типа: "Tfs_DocumentWithFlash"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  ,
-  l3StringIDEx,
-  DocumentWithFlashUserTypes_dwftMain_UserType,
-  Common_FormDefinitions_Controls,
-  DocInfoInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmFormSetFormsCollectionItemPrim
-  {$IfEnd} //not NoVCM
-  ,
-  fsAbstractDocument,
-  DocumentInterfaces,
-  nevTools,
-  bsTypes,
-  DocumentUnit,
-  bsTypesNew,
-  evdInterfaces,
-  DocumentAndListInterfaces,
-  afwInterfaces,
-  FoldersDomainInterfaces,
-  l3Interfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmFormSetFactoryPrim
-  {$IfEnd} //not NoVCM
-  ,
-  vcmFormSetFactory {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , fsAbstractDocument
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmUserControls
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmFormSetFactoryPrim
+ {$IfEnd} // NOT Defined(NoVCM)
+ , DocumentWithFlashUserTypes_dwftMain_UserType
+ , Common_FormDefinitions_Controls
+ , DocInfoInterfaces
+ , DocumentInterfaces
+ , nevTools
+ , bsTypes
+ , evdInterfaces
+ , afwInterfaces
+ , FoldersDomainInterfaces
+ , DocumentAndListInterfaces
+ , DocumentUnit
+ , l3Interfaces
+ , bsTypesNew
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
-  Tfs_DocumentWithFlash = {final fsf} class(Tfs_AbstractDocument)
-   {* Схема }
+ Tfs_DocumentWithFlash = {final} class(Tfs_AbstractDocument)
+  {* Схема }
   protected
-  // overridden protected methods
    procedure InitFields; override;
-    {$If not defined(NoVCM)}
+   {$If NOT Defined(NoVCM)}
    class function GetInstance: TvcmFormSetFactoryPrim; override;
-    {$IfEnd} //not NoVCM
+   {$IfEnd} // NOT Defined(NoVCM)
   public
-  // public methods
    function TextParentDwftMainNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-      out aNew: IvcmFormDataSource;
-      aSubUserType: TvcmUserType): Boolean;
-     {* Обработчик OnNeedMakeForm для Text }
+    out aNew: IvcmFormDataSource;
+    aSubUserType: TvcmUserType): Boolean;
+    {* Обработчик OnNeedMakeForm для Text }
+   class function Instance: Tfs_DocumentWithFlash;
+    {* Метод получения экземпляра синглетона Tfs_DocumentWithFlash }
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
-  public
-  // singleton factory method
-    class function Instance: Tfs_DocumentWithFlash;
-     {- возвращает экземпляр синглетона. }
-  end;//Tfs_DocumentWithFlash
-{$IfEnd} //not Admin AND not Monitorings
+    {* Проверяет создан экземпляр синглетона или нет }
+ end;//Tfs_DocumentWithFlash
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Base {a},
-  l3MessageID,
-  SysUtils
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , l3StringIDEx
+ , SysUtils
+ , l3Base
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+var g_Tfs_DocumentWithFlash: Tfs_DocumentWithFlash = nil;
+ {* Экземпляр синглетона Tfs_DocumentWithFlash }
 
-
-// start class Tfs_DocumentWithFlash
-
-var g_Tfs_DocumentWithFlash : Tfs_DocumentWithFlash = nil;
+const
+ {* Локализуемые строки DocumentWithFlash }
+ str_fsDocumentWithFlashCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'fsDocumentWithFlashCaption'; rValue : 'Схема');
+  {* Заголовок фабрики сборки форм "DocumentWithFlash$FSF" }
 
 procedure Tfs_DocumentWithFlashFree;
+ {* Метод освобождения экземпляра синглетона Tfs_DocumentWithFlash }
 begin
  l3Free(g_Tfs_DocumentWithFlash);
-end;
-
-class function Tfs_DocumentWithFlash.Instance: Tfs_DocumentWithFlash;
-begin
- if (g_Tfs_DocumentWithFlash = nil) then
- begin
-  l3System.AddExitProc(Tfs_DocumentWithFlashFree);
-  g_Tfs_DocumentWithFlash := Create;
- end;
- Result := g_Tfs_DocumentWithFlash;
-end;
-
-var
-    { Локализуемые строки DocumentWithFlash$FSFCaptionLocalConstants }
-   str_fsDocumentWithFlashCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'fsDocumentWithFlashCaption'; rValue : 'Схема');
-    { Заголовок фабрики сборки форм "DocumentWithFlash$FSF" }
-
-// start class Tfs_DocumentWithFlash
+end;//Tfs_DocumentWithFlashFree
 
 function Tfs_DocumentWithFlash.TextParentDwftMainNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-  out aNew: IvcmFormDataSource;
-  aSubUserType: TvcmUserType): Boolean;
+ out aNew: IvcmFormDataSource;
+ aSubUserType: TvcmUserType): Boolean;
+ {* Обработчик OnNeedMakeForm для Text }
 var
  l_UseCase : IsdsDocInfo;
 begin
@@ -143,14 +98,24 @@ begin
  Result := (aNew <> nil);
 end;//Tfs_DocumentWithFlash.TextParentDwftMainNeedMakeForm
 
+class function Tfs_DocumentWithFlash.Instance: Tfs_DocumentWithFlash;
+ {* Метод получения экземпляра синглетона Tfs_DocumentWithFlash }
+begin
+ if (g_Tfs_DocumentWithFlash = nil) then
+ begin
+  l3System.AddExitProc(Tfs_DocumentWithFlashFree);
+  g_Tfs_DocumentWithFlash := Create;
+ end;
+ Result := g_Tfs_DocumentWithFlash;
+end;//Tfs_DocumentWithFlash.Instance
+
 class function Tfs_DocumentWithFlash.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_Tfs_DocumentWithFlash <> nil;
 end;//Tfs_DocumentWithFlash.Exists
 
 procedure Tfs_DocumentWithFlash.InitFields;
- {-}
 begin
  inherited;
  with AddZone('Text', vcm_ztParent, fm_DocumentWithFlashForm) do
@@ -162,20 +127,16 @@ begin
  OwnerForm := 16;
 end;//Tfs_DocumentWithFlash.InitFields
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 class function Tfs_DocumentWithFlash.GetInstance: TvcmFormSetFactoryPrim;
- {-}
 begin
  Result := Self.Instance;
 end;//Tfs_DocumentWithFlash.GetInstance
-{$IfEnd} //not NoVCM
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_fsDocumentWithFlashCaption
  str_fsDocumentWithFlashCaption.Init;
-{$IfEnd} //not Admin AND not Monitorings
+ {* Инициализация str_fsDocumentWithFlashCaption }
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

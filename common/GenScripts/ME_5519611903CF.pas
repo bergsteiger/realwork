@@ -28,7 +28,6 @@ type
 
  IIterateableService = interface
   {* Èםעונפויס סונגטסא TIterateableService }
-  ['{9584416D-CD11-42E9-A82D-87DFA5441AA3}']
   procedure IterateF(anAction: MIterateableService_IterateF_Action;
    anOwner: TComponent);
  end;//IIterateableService

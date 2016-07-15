@@ -1,70 +1,44 @@
 unit dsUserProperty;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Admin"
-// Автор: Тучнин Д.А.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Admin/dsUserProperty.pas"
-// Начат: 15.08.2005 20.30
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ViewAreaControllerImp::Class>> F1 Администратор::Admin::Admin::Admin::TdsUserProperty
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Admin\dsUserProperty.pas"
+// Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "TdsUserProperty" MUID: (491DA7AB0298)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If defined(Admin)}
+{$If Defined(Admin)}
 uses
-  AdminInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmExternalInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmLocalInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  l3ProtoObjectWithCOMQI,
-  l3Interfaces,
-  l3NotifyPtrList,
-  SecurityUnit,
-  AdminDomainInterfaces,
-  vcmControllers {a}
-  ;
-{$IfEnd} //Admin
+ l3IntfUses
+ , AdminInterfaces
+ , l3Interfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3ProtoObjectWithCOMQI
+ {$If NOT Defined(NoVCM)}
+ , vcmLocalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3NotifyPtrList
+ , AdminDomainInterfaces
+ , SecurityUnit
+;
 
-{$If defined(Admin)}
 type
- _FormDataSourceType_ = IdsUserProperty;
  _InitDataType_ = IdeProfile;
+ _FormDataSourceType_ = IdsUserProperty;
  {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSource.imp.pas}
  _nsUserPropertyImpl_Parent_ = _vcmFormDataSource_;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\Data\Users\nsUserPropertyImpl.imp.pas}
- TdsUserProperty = {final vac} class(_nsUserPropertyImpl_, IdsUserProperty)
- private
- // private fields
-   SDS : IsdsAdmin;
-   f_IsReadOnlyFor268342582 : Boolean;
- protected
-
-  procedure InitRefs(const aDS: IvcmUseCaseController); override;
-  procedure ClearRefs; override;
- protected
- // realized methods
+ TdsUserProperty = {final} class(_nsUserPropertyImpl_, IdsUserProperty)
+  private
+   SDS: IsdsAdmin;
+   f_IsReadOnlyFor268342582: Boolean;
+  protected
    procedure CreateUserProfile(const aLogin: Tl3WString;
     const aName: Tl3WString;
     const aMail: Tl3WString;
@@ -73,38 +47,42 @@ type
     aIsPrivileged: Boolean;
     aGroupUID: Integer);
    procedure CreateUserFinished(Successfull: Boolean);
-     {* Нотификация об отскзе создания пользователя }
+    {* Нотификация об отскзе создания пользователя }
    procedure CheckUnsavedUserProperty;
    function DefaultGroupID: Integer; override;
    function Get_IsReadOnlyFor268342582: Boolean;
    procedure Set_IsReadOnlyFor268342582(aValue: Boolean);
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   {$If not defined(NoVCM)}
+    {* Функция очистки полей объекта. }
+   {$If NOT Defined(NoVCM)}
    procedure GotData; override;
-     {* - данные изменились. }
-   {$IfEnd} //not NoVCM
+    {* - данные изменились. }
+   {$IfEnd} // NOT Defined(NoVCM)
    procedure ClearNewUser; override;
+   {$If NOT Defined(NoVCM)}
+   procedure InitRefs(const aDS: IvcmFormSetDataSource); override;
+    {* Инициализирует ссылки на различные представления прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure ClearRefs; override;
+    {* Очищает ссылки на различные представления прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//TdsUserProperty
-{$IfEnd} //Admin
+{$IfEnd} // Defined(Admin)
 
 implementation
 
-{$If defined(Admin)}
+{$If Defined(Admin)}
 uses
-  SysUtils,
-  DataAdapter,
-  nsTypes,
-  IOUnit,
-  nsConst,
-  l3InterfacesMisc,
-  l3Base
-  ;
-{$IfEnd} //Admin
-
-{$If defined(Admin)}
+ l3ImplUses
+ , SysUtils
+ , DataAdapter
+ , nsTypes
+ , IOUnit
+ , nsConst
+ , l3InterfacesMisc
+ , l3Base
+;
 
 type _Instance_R_ = TdsUserProperty;
 
@@ -112,15 +90,13 @@ type _Instance_R_ = TdsUserProperty;
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\Data\Users\nsUserPropertyImpl.imp.pas}
 
-// start class TdsUserProperty
-
 procedure TdsUserProperty.CreateUserProfile(const aLogin: Tl3WString;
-  const aName: Tl3WString;
-  const aMail: Tl3WString;
-  const aPassword: Tl3WString;
-  aCanBuyConsulting: Boolean;
-  aIsPrivileged: Boolean;
-  aGroupUID: Integer);
+ const aName: Tl3WString;
+ const aMail: Tl3WString;
+ const aPassword: Tl3WString;
+ aCanBuyConsulting: Boolean;
+ aIsPrivileged: Boolean;
+ aGroupUID: Integer);
 //#UC START# *491DA41B00E4_491DA7AB0298_var*
 var
  l_UserManager: IUserManager;
@@ -141,6 +117,7 @@ begin
 end;//TdsUserProperty.CreateUserProfile
 
 procedure TdsUserProperty.CreateUserFinished(Successfull: Boolean);
+ {* Нотификация об отскзе создания пользователя }
 //#UC START# *49E5B86D002D_491DA7AB0298_var*
 //#UC END# *49E5B86D002D_491DA7AB0298_var*
 begin
@@ -197,6 +174,7 @@ begin
 end;//TdsUserProperty.Set_IsReadOnlyFor268342582
 
 procedure TdsUserProperty.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_491DA7AB0298_var*
 //#UC END# *479731C50290_491DA7AB0298_var*
 begin
@@ -206,8 +184,9 @@ begin
 //#UC END# *479731C50290_491DA7AB0298_impl*
 end;//TdsUserProperty.Cleanup
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TdsUserProperty.GotData;
+ {* - данные изменились. }
 //#UC START# *492ACF630072_491DA7AB0298_var*
 //#UC END# *492ACF630072_491DA7AB0298_var*
 begin
@@ -216,7 +195,7 @@ begin
  SetProfileData(PartData.UserProfile, False, PartData.IsNewProfile);
 //#UC END# *492ACF630072_491DA7AB0298_impl*
 end;//TdsUserProperty.GotData
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 procedure TdsUserProperty.ClearNewUser;
 //#UC START# *4B5049D901A9_491DA7AB0298_var*
@@ -228,18 +207,23 @@ begin
 //#UC END# *4B5049D901A9_491DA7AB0298_impl*
 end;//TdsUserProperty.ClearNewUser
 
-procedure TdsUserProperty.InitRefs(const aDS: IvcmUseCaseController);
+{$If NOT Defined(NoVCM)}
+procedure TdsUserProperty.InitRefs(const aDS: IvcmFormSetDataSource);
+ {* Инициализирует ссылки на различные представления прецедента }
 begin
  inherited;
  SDS := aDS As IsdsAdmin;
-end;
+end;//TdsUserProperty.InitRefs
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$If NOT Defined(NoVCM)}
 procedure TdsUserProperty.ClearRefs;
+ {* Очищает ссылки на различные представления прецедента }
 begin
  inherited;
  SDS := nil;
-end;
+end;//TdsUserProperty.ClearRefs
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //Admin
-
+{$IfEnd} // Defined(Admin)
 end.

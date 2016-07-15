@@ -16,7 +16,6 @@
   private
    CurrentChangedListener: IbsCurrentChangedListener;
    f_BlockNotification: Integer;
-    {* ѕоле дл€ свойства BlockNotification }
   protected
    function As_IbsCurrentChangedListener: IbsCurrentChangedListener;
     {* ћетод приведени€ нашего интерфейса к IbsCurrentChangedListener }
@@ -26,6 +25,14 @@
    procedure DoCurrentChanged(const aNode: Il3SimpleNode); override;
     {* сменилс€ текущий. }
    procedure CurrentChangedNotification(const aNode: Il3SimpleNode); override;
+   {$If NOT Defined(NoVCM)}
+   procedure InitRefs(const aDS: IvcmFormSetDataSource); override;
+    {* »нициализирует ссылки на различные представлени€ прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure ClearRefs; override;
+    {* ќчищает ссылки на различные представлени€ прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
   private
    property BlockNotification: Integer
     read f_BlockNotification
@@ -100,6 +107,24 @@ begin
   inherited;
 //#UC END# *49242A4E0252_49242CB201D0_impl*
 end;//_dsSituation_.CurrentChangedNotification
+
+{$If NOT Defined(NoVCM)}
+procedure _dsSituation_.InitRefs(const aDS: IvcmFormSetDataSource);
+ {* »нициализирует ссылки на различные представлени€ прецедента }
+begin
+ inherited;
+ Supports(aDS, IbsCurrentChangedListener, CurrentChangedListener);
+end;//_dsSituation_.InitRefs
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure _dsSituation_.ClearRefs;
+ {* ќчищает ссылки на различные представлени€ прецедента }
+begin
+ inherited;
+ CurrentChangedListener := nil;
+end;//_dsSituation_.ClearRefs
+{$IfEnd} // NOT Defined(NoVCM)
 
 {$EndIf dsSituation_imp_impl}
 

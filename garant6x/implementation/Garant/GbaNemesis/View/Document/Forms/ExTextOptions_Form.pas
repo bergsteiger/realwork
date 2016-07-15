@@ -334,6 +334,7 @@ uses
  , BaloonWarningUserTypes_WarnInactualDocument_UserType
  , nsUseDocumentSubPanelOperationEvent
  , bsUtilsConst
+ , l3TabbedContainersDispatcher
  , l3Memory
  , k2DocumentBuffer
  , evCustomWikiReader

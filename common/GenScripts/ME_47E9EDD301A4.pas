@@ -18,6 +18,9 @@ uses
  , l3InternalInterfaces
  , DynamicTreeUnit
  , l3TreeInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  , l3Interfaces
  , DocumentAndListInterfaces
  , afwInterfaces
@@ -39,9 +42,6 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
- , vcmInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
  , l3ProtoObjectWithCOMQI
  {$If NOT Defined(NoVCM)}
  , vcmLocalInterfaces
@@ -52,11 +52,12 @@ uses
 
 type
  _InitDataType_ = IdeList;
+ _FormDataSourceType_ = IdsDrugList;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsList.imp.pas}
  TdsDrugList = {final} class(_dsList_, IdsDrugList)
   {* Список лекарственных препаратов }
   private
-   DrugList: IsdsDrugList;
+   ucc_DrugList: IsdsDrugList;
   protected
    function MakeDocInfo(const aNode: INodeBase): IdeDocInfo; override;
     {* создать информацию о документе по узлу. }
@@ -70,6 +71,14 @@ type
    {$If NOT Defined(NoVCM)}
    function GetIsDataAvailable: Boolean; override;
     {* существуют ли данные }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitRefs(const aDS: IvcmFormSetDataSource); override;
+    {* Инициализирует ссылки на различные представления прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure ClearRefs; override;
+    {* Очищает ссылки на различные представления прецедента }
    {$IfEnd} // NOT Defined(NoVCM)
  end;//TdsDrugList
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
@@ -202,6 +211,24 @@ begin
  Result := DefDataAdapter.IsInpharmExists;
 //#UC END# *55097FF5008E_47E9EDD301A4_impl*
 end;//TdsDrugList.GetIsDataAvailable
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TdsDrugList.InitRefs(const aDS: IvcmFormSetDataSource);
+ {* Инициализирует ссылки на различные представления прецедента }
+begin
+ inherited;
+ Supports(aDS, IsdsDrugList, ucc_DrugList);
+end;//TdsDrugList.InitRefs
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TdsDrugList.ClearRefs;
+ {* Очищает ссылки на различные представления прецедента }
+begin
+ inherited;
+ ucc_DrugList := nil;
+end;//TdsDrugList.ClearRefs
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)

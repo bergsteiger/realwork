@@ -53,6 +53,14 @@ type
    function pm_GetHasDrugInternationalNameSynonims: Boolean;
    procedure OpenDrugInternationalNameSynonims;
     {* Открывает ViewArea "Бизнес объект "Синонимы по международному названию"" }
+   {$If NOT Defined(NoVCM)}
+   procedure InitRefs(const aDS: IvcmFormSetDataSource); override;
+    {* Инициализирует ссылки на различные представления прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure ClearRefs; override;
+    {* Очищает ссылки на различные представления прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//TdsDrugListSynchroView
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -66,7 +74,6 @@ uses
  , l3Base
 ;
 
-{$If NOT Defined(NoVCM)}
 type _Instance_R_ = TdsDrugListSynchroView;
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourcePrim.imp.pas}
@@ -182,6 +189,23 @@ begin
  SDS.OpenDrugInternationalNameSynonims;
 //#UC END# *FED42B6D17CA_47ECD5A6015A_impl*
 end;//TdsDrugListSynchroView.OpenDrugInternationalNameSynonims
+
+{$If NOT Defined(NoVCM)}
+procedure TdsDrugListSynchroView.InitRefs(const aDS: IvcmFormSetDataSource);
+ {* Инициализирует ссылки на различные представления прецедента }
+begin
+ inherited;
+ SDS := aDS As IsdsDrugList;
+end;//TdsDrugListSynchroView.InitRefs
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TdsDrugListSynchroView.ClearRefs;
+ {* Очищает ссылки на различные представления прецедента }
+begin
+ inherited;
+ SDS := nil;
+end;//TdsDrugListSynchroView.ClearRefs
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)

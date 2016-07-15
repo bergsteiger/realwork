@@ -1,119 +1,88 @@
 unit dsMedicDiction;
+ {* Список медицинских терминов }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Medic"
-// Автор: Лукьянец Р.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Medic/dsMedicDiction.pas"
-// Начат: 2008/03/06 10:02:57
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ViewAreaControllerImp::Class>> F1 Встроенные продукты::Inpharm::Medic::Medic::TdsMedicDiction
-//
-// Список медицинских терминов
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Medic\dsMedicDiction.pas"
+// Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "TdsMedicDiction" MUID: (4925595900C8)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DocumentInterfaces,
-  DocumentUnit,
-  DynamicTreeUnit,
-  l3TreeInterfaces
-  {$If defined(Nemesis)}
-  ,
-  nscNewInterfaces
-  {$IfEnd} //Nemesis
-  ,
-  DocumentAndListInterfaces,
-  CommonDictionInterfaces,
-  l3InternalInterfaces,
-  bsInterfaces
-  {$If not defined(NoVCL)}
-  ,
-  ExtCtrls
-  {$IfEnd} //not NoVCL
-  ,
-  TreeInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmExternalInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmLocalInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  l3ProtoObjectWithCOMQI,
-  l3Interfaces,
-  l3NotifyPtrList,
-  vcmControllers {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , DocumentInterfaces
+ , l3TreeInterfaces
+ , CommonDictionInterfaces
+ , DocumentUnit
+ , DynamicTreeUnit
+ , DocumentAndListInterfaces
+ {$If Defined(Nemesis)}
+ , nscNewInterfaces
+ {$IfEnd} // Defined(Nemesis)
+ , l3Interfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , TreeInterfaces
+ , bsInterfaces
+ {$If NOT Defined(NoVCL)}
+ , ExtCtrls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3InternalInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3ProtoObjectWithCOMQI
+ {$If NOT Defined(NoVCM)}
+ , vcmLocalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3NotifyPtrList
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
- _FormDataSourceType_ = IdsCommonDiction;
  _InitDataType_ = IdeDocInfo;
+ _FormDataSourceType_ = IdsCommonDiction;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\CommonDiction\dsCommonDiction.imp.pas}
- TdsMedicDiction = {final vac} class(_dsCommonDiction_)
+ TdsMedicDiction = {final} class(_dsCommonDiction_)
   {* Список медицинских терминов }
- protected
- // realized methods
+  protected
    function MakeSimpleTree: Il3SimpleTree; override;
-     {* Создать данные дерева }
+    {* Создать данные дерева }
    function MakeDocInfoForCurrentChanged(const aDoc: IDocument): IdeDocInfo; override;
    function pm_GetDictionKind: TnsDictionKind; override;
- protected
- // overridden protected methods
-    {$If not defined(NoVCM)}
+   {$If NOT Defined(NoVCM)}
    function GetIsDataAvailable: Boolean; override;
-     {* существуют ли данные }
-    {$IfEnd} //not NoVCM
+    {* существуют ли данные }
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//TdsMedicDiction
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  deMedicDiction,
-  nsMedicDictionTree,
-  DataAdapter,
-  BaseTypesUnit,
-  SysUtils,
-  l3Base,
-  vtUtils,
-  vtStdRes,
-  nsNewCachableNode,
-  Windows,
-  l3InterfacesMisc
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
+ l3ImplUses
+ , deMedicDiction
+ , nsMedicDictionTree
+ , DataAdapter
+ , BaseTypesUnit
+ , SysUtils
+ , l3Base
+ , vtUtils
+ , vtStdRes
+ , nsNewCachableNode
+ , Windows
+ , l3InterfacesMisc
+;
 
 type _Instance_R_ = TdsMedicDiction;
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\CommonDiction\dsCommonDiction.imp.pas}
 
-// start class TdsMedicDiction
-
 function TdsMedicDiction.MakeSimpleTree: Il3SimpleTree;
+ {* Создать данные дерева }
 //#UC START# *47F4C2B9014A_4925595900C8_var*
 //#UC END# *47F4C2B9014A_4925595900C8_var*
 begin
@@ -140,8 +109,9 @@ begin
 //#UC END# *5571EB84007F_4925595900C8get_impl*
 end;//TdsMedicDiction.pm_GetDictionKind
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 function TdsMedicDiction.GetIsDataAvailable: Boolean;
+ {* существуют ли данные }
 //#UC START# *55097FF5008E_4925595900C8_var*
 //#UC END# *55097FF5008E_4925595900C8_var*
 begin
@@ -149,8 +119,7 @@ begin
  Result := DefDataAdapter.IsInpharmExists;
 //#UC END# *55097FF5008E_4925595900C8_impl*
 end;//TdsMedicDiction.GetIsDataAvailable
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //not Admin AND not Monitorings
-
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

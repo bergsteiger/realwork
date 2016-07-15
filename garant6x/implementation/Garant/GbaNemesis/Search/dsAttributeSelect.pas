@@ -1,81 +1,56 @@
 unit dsAttributeSelect;
+ {* бизнес объект формы выбранные атрибуты дерева }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Search"
-// Автор: Морозов М.А.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Search/dsAttributeSelect.pas"
-// Начат: 29.07.2005 17.07
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ViewAreaControllerImp::Class>> F1 Common For Shell And Monitoring::Search::Search::Search::TdsAttributeSelect
-//
-// бизнес объект формы выбранные атрибуты дерева
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Search\dsAttributeSelect.pas"
+// Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "TdsAttributeSelect" MUID: (4922D2780153)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin)}
+{$If NOT Defined(Admin)}
 uses
-  SearchInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmExternalInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmLocalInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  l3ProtoObjectWithCOMQI,
-  l3Interfaces,
-  l3NotifyPtrList
-  ;
-{$IfEnd} //not Admin
+ l3IntfUses
+ , SearchInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3ProtoObjectWithCOMQI
+ {$If NOT Defined(NoVCM)}
+ , vcmLocalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3Interfaces
+ , l3NotifyPtrList
+;
 
-{$If not defined(Admin)}
 type
  _FormDataSourceType_ = IdsAttributeSelect;
  _InitDataType_ = IdeSearch;
  {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSource.imp.pas}
- TdsAttributeSelect = {vac} class(_vcmFormDataSource_, IdsAttributeSelect)
+ TdsAttributeSelect = class(_vcmFormDataSource_, IdsAttributeSelect)
   {* бизнес объект формы выбранные атрибуты дерева }
- protected
- // realized methods
+  protected
    function pm_GetSearch: IdeSearch;
  end;//TdsAttributeSelect
-{$IfEnd} //not Admin
+{$IfEnd} // NOT Defined(Admin)
 
 implementation
 
-{$If not defined(Admin)}
+{$If NOT Defined(Admin)}
 uses
-  l3InterfacesMisc,
-  SysUtils,
-  l3Base
-  ;
-{$IfEnd} //not Admin
-
-{$If not defined(Admin)}
+ l3ImplUses
+ , l3InterfacesMisc
+ , SysUtils
+ , l3Base
+;
 
 type _Instance_R_ = TdsAttributeSelect;
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSource.imp.pas}
-
-// start class TdsAttributeSelect
 
 function TdsAttributeSelect.pm_GetSearch: IdeSearch;
 //#UC START# *4922D0440266_4922D2780153get_var*
@@ -85,7 +60,6 @@ begin
  Result := PartData;
 //#UC END# *4922D0440266_4922D2780153get_impl*
 end;//TdsAttributeSelect.pm_GetSearch
-
-{$IfEnd} //not Admin
+{$IfEnd} // NOT Defined(Admin)
 
 end.

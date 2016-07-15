@@ -51,7 +51,6 @@ uses
  , l3Base
 ;
 
-{$If NOT Defined(NoVCM)}
 type _Instance_R_ = TdsFolderElement;
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourcePrim.imp.pas}
@@ -77,7 +76,6 @@ begin
  inherited;
 //#UC END# *479731C50290_492195FE01B3_impl*
 end;//TdsFolderElement.Cleanup
-{$IfEnd} // NOT Defined(NoVCM)
-
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+
 end.

@@ -193,6 +193,7 @@ type
    f_TabCaption: IvcmCString;
    f_DocumentLoaded: Boolean;
    f_eeSubIdForTypedCorrespondentList: Integer;
+   f_LockAnnoingCheck: Boolean;
    {$If Defined(nsTest)}
    f_NeedShowIntranetWarningHack: Boolean;
     {* Хак для эмуляции включения МГО медали }
@@ -417,7 +418,8 @@ type
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
    function DoLoadState(const aState: IvcmBase;
-    aStateType: TvcmStateType): Boolean; override;
+    aStateType: TvcmStateType;
+    aClone: Boolean): Boolean; override;
     {* Загружает состояние формы. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
    function CanAddToControl: Boolean; override;
@@ -468,6 +470,7 @@ type
    {$If NOT Defined(NoVCM)}
    function DoGetNeedAddFormToTasksPanel: Boolean; override;
    {$IfEnd} // NOT Defined(NoVCM)
+   procedure BeforeJumpTo(const aHyperlink: IevHyperlink); override;
    procedure ClearFields; override;
    {$If NOT Defined(NoVCM)}
    procedure SignalDataSourceChanged(const anOld: IvcmFormDataSource;
@@ -1016,6 +1019,7 @@ uses
  //#UC END# *49539DBA029Dimpl_uses*
 ;
 
+{$If NOT Defined(NoVCM)}
 type
  TnsDocumentPointWaiter = class(TevSubWaiter)
   {* Класс для ожидания перехода на указанную точку документа }
@@ -6533,7 +6537,6 @@ begin
 //#UC END# *4958BE910345_49539DBA029D_impl*
 end;//TExTextForm.UserSettingsChanged
 
-{$If NOT Defined(NoVCM)}
 procedure TExTextForm.NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
  const aNew: IvcmViewAreaController);
  {* Изменился источник данных. Для перекрытия в потомках }
@@ -6583,9 +6586,7 @@ begin
                                             // http://mdp.garant.ru/pages/viewpage.action?pageId=401506914
 //#UC END# *497469C90140_49539DBA029D_impl*
 end;//TExTextForm.NotifyDataSourceChanged
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TExTextForm.DoInit(aFromHistory: Boolean);
  {* Инициализация формы. Для перекрытия в потомках }
 //#UC START# *49803F5503AA_49539DBA029D_var*
@@ -6610,9 +6611,7 @@ begin
  // http://mdp.garant.ru/pages/viewpage.action?pageId=290953654
 //#UC END# *49803F5503AA_49539DBA029D_impl*
 end;//TExTextForm.DoInit
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 function TExTextForm.DoSaveState(out theState: IvcmBase;
  aStateType: TvcmStateType;
  aForClone: Boolean): Boolean;
@@ -6633,11 +6632,10 @@ begin
  theState := l_State;
 //#UC END# *49806ED503D5_49539DBA029D_impl*
 end;//TExTextForm.DoSaveState
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 function TExTextForm.DoLoadState(const aState: IvcmBase;
- aStateType: TvcmStateType): Boolean;
+ aStateType: TvcmStateType;
+ aClone: Boolean): Boolean;
  {* Загружает состояние формы. Для перекрытия в потомках }
 //#UC START# *49807428008C_49539DBA029D_var*
 var
@@ -6668,7 +6666,6 @@ begin
  end;
 //#UC END# *49807428008C_49539DBA029D_impl*
 end;//TExTextForm.DoLoadState
-{$IfEnd} // NOT Defined(NoVCM)
 
 function TExTextForm.CanAddToControl: Boolean;
  {* Можно ли поставить на контроль }
@@ -6680,7 +6677,6 @@ begin
 //#UC END# *4988675A0308_49539DBA029D_impl*
 end;//TExTextForm.CanAddToControl
 
-{$If NOT Defined(NoVCM)}
 procedure TExTextForm.SetPositionByDS;
  {* Вызывается когда нужно изменить позицию используя источник данных. [$136258455] }
 //#UC START# *498953170108_49539DBA029D_var*
@@ -6691,7 +6687,6 @@ begin
  ChangePositionByDataSource;
 //#UC END# *498953170108_49539DBA029D_impl*
 end;//TExTextForm.SetPositionByDS
-{$IfEnd} // NOT Defined(NoVCM)
 
 function TExTextForm.DoMakeLinkDocInfo(const aDocument: IDocument;
  aPointType: TDocumentPositionType;
@@ -6733,7 +6728,6 @@ begin
 //#UC END# *4A8160720125_49539DBA029D_impl*
 end;//TExTextForm.DoProcessLocalLink
 
-{$If NOT Defined(NoVCM)}
 function TExTextForm.NeedDrawCaption: Boolean;
  {* Нужно ли рисовать заголовок зоны }
 //#UC START# *4A84183701B9_49539DBA029D_var*
@@ -6746,7 +6740,6 @@ begin
                              dftAACContentsRight]);
 //#UC END# *4A84183701B9_49539DBA029D_impl*
 end;//TExTextForm.NeedDrawCaption
-{$IfEnd} // NOT Defined(NoVCM)
 
 function TExTextForm.NeedsStatusBarItems: Boolean;
  {* Определяет, что операции в статусной строке таки надо публиковать }
@@ -6758,7 +6751,6 @@ begin
 //#UC END# *4A8E5CEC021F_49539DBA029D_impl*
 end;//TExTextForm.NeedsStatusBarItems
 
-{$If NOT Defined(NoVCM)}
 procedure TExTextForm.InitControls;
  {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_49539DBA029D_var*
@@ -6779,7 +6771,6 @@ begin
  Text.OnZOrderChanging := Self.DoTextZOrderChanging;
 //#UC END# *4A8E8F2E0195_49539DBA029D_impl*
 end;//TExTextForm.InitControls
-{$IfEnd} // NOT Defined(NoVCM)
 
 procedure TExTextForm.VersionCommentsVisibleInvertedByUser(NewState: Boolean);
 //#UC START# *4AAA150A0244_49539DBA029D_var*
@@ -6790,7 +6781,6 @@ begin
 //#UC END# *4AAA150A0244_49539DBA029D_impl*
 end;//TExTextForm.VersionCommentsVisibleInvertedByUser
 
-{$If NOT Defined(NoVCM)}
 function TExTextForm.DoGetTabInfo(out theCaption: Il3CString;
  out theItemIndex: Integer): Boolean;
  {* Информация о закладке, в которую вставляется форма. Для перекрытия в потомках }
@@ -6823,9 +6813,7 @@ begin
  end;//UserType in..
 //#UC END# *4AC497FD00A2_49539DBA029D_impl*
 end;//TExTextForm.DoGetTabInfo
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 function TExTextForm.NeedSetMyFocus: Boolean;
 //#UC START# *4B4F13E80365_49539DBA029D_var*
 //#UC END# *4B4F13E80365_49539DBA029D_var*
@@ -6845,7 +6833,6 @@ begin
  end;//Case UserType
 //#UC END# *4B4F13E80365_49539DBA029D_impl*
 end;//TExTextForm.NeedSetMyFocus
-{$IfEnd} // NOT Defined(NoVCM)
 
 procedure TExTextForm.DoDocumentShowTechCommentsExecute;
 //#UC START# *4C8DCD3B015C_49539DBA029D_var*
@@ -6899,7 +6886,6 @@ begin
 //#UC END# *4CE41B300315_49539DBA029Dget_impl*
 end;//TExTextForm.pm_GetHyperlinkSubID
 
-{$If NOT Defined(NoVCM)}
 procedure TExTextForm.NotifyUserTypeSet;
 //#UC START# *4D78E2BB0211_49539DBA029D_var*
 const
@@ -6949,7 +6935,6 @@ begin
  end;
 //#UC END# *4D78E2BB0211_49539DBA029D_impl*
 end;//TExTextForm.NotifyUserTypeSet
-{$IfEnd} // NOT Defined(NoVCM)
 
 procedure TExTextForm.DoSetHyperlinkCallStatus(aValue: Boolean);
  {* Выставляет флаг, определяющий произведенный переход по ссылке }
@@ -6961,7 +6946,6 @@ begin
 //#UC END# *4F382E2D01C1_49539DBA029D_impl*
 end;//TExTextForm.DoSetHyperlinkCallStatus
 
-{$If NOT Defined(NoVCM)}
 procedure TExTextForm.FormInsertedIntoContainer;
 //#UC START# *4F7C65380244_49539DBA029D_var*
 var
@@ -6981,9 +6965,7 @@ begin
  end;//UserType in [dftAACRight, dftAACLeft]
 //#UC END# *4F7C65380244_49539DBA029D_impl*
 end;//TExTextForm.FormInsertedIntoContainer
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TExTextForm.BecomeVisible;
 //#UC START# *4F7C808A0349_49539DBA029D_var*
 //#UC END# *4F7C808A0349_49539DBA029D_var*
@@ -6993,9 +6975,7 @@ begin
  SetFocusToTextInAAC;
 //#UC END# *4F7C808A0349_49539DBA029D_impl*
 end;//TExTextForm.BecomeVisible
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 function TExTextForm.GetIsMainObjectForm: Boolean;
 //#UC START# *501174B10018_49539DBA029D_var*
 //#UC END# *501174B10018_49539DBA029D_var*
@@ -7013,7 +6993,6 @@ begin
  end;//Case UserType
 //#UC END# *501174B10018_49539DBA029D_impl*
 end;//TExTextForm.GetIsMainObjectForm
-{$IfEnd} // NOT Defined(NoVCM)
 
 function TExTextForm.GetBehaviourFromEffects(anEffects: TafwJumpToEffects): TbsProcessHyperLinkBehaviour;
 //#UC START# *53A95A1A0073_49539DBA029D_var*
@@ -7043,7 +7022,6 @@ begin
 //#UC END# *53D8E4B702E4_49539DBA029D_impl*
 end;//TExTextForm.GetDocumentShortName
 
-{$If NOT Defined(NoVCM)}
 function TExTextForm.DoGetTabCaption: IvcmCString;
 //#UC START# *53F1C6EF02C9_49539DBA029D_var*
 //#UC END# *53F1C6EF02C9_49539DBA029D_var*
@@ -7052,9 +7030,8 @@ begin
  Result := f_TabCaption;
 //#UC END# *53F1C6EF02C9_49539DBA029D_impl*
 end;//TExTextForm.DoGetTabCaption
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
+{$If NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
 function TExTextForm.DoGetFormSetTabCaption: IvcmCString;
 //#UC START# *54058CBC0182_49539DBA029D_var*
 //#UC END# *54058CBC0182_49539DBA029D_var*
@@ -7063,9 +7040,9 @@ begin
  Result := DoGetTabCaption
 //#UC END# *54058CBC0182_49539DBA029D_impl*
 end;//TExTextForm.DoGetFormSetTabCaption
-{$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+{$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
 
-{$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
+{$If NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
 function TExTextForm.DoGetTabImageIndex: Integer;
 //#UC START# *543E3AA801D0_49539DBA029D_var*
 //#UC END# *543E3AA801D0_49539DBA029D_var*
@@ -7087,9 +7064,9 @@ begin
   Result := NsTabIconIndex(titDocumentNormal);
 //#UC END# *543E3AA801D0_49539DBA029D_impl*
 end;//TExTextForm.DoGetTabImageIndex
-{$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+{$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
 
-{$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
+{$If NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
 function TExTextForm.DoGetCanDefineFormSetIcon: Boolean;
 //#UC START# *544609B9032D_49539DBA029D_var*
 //#UC END# *544609B9032D_49539DBA029D_var*
@@ -7098,7 +7075,7 @@ begin
  Result := (UserType <> dftMedicFirmSynchroView);
 //#UC END# *544609B9032D_49539DBA029D_impl*
 end;//TExTextForm.DoGetCanDefineFormSetIcon
-{$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+{$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
 
 procedure TExTextForm.AfterOpenHyperlinkInNewTab;
 //#UC START# *544E049F00F7_49539DBA029D_var*
@@ -7144,7 +7121,6 @@ begin
 //#UC END# *54EED7DF0249_49539DBA029D_impl*
 end;//TExTextForm.NeedSaveInWorkJournal
 
-{$If NOT Defined(NoVCM)}
 function TExTextForm.DoGetNeedAddFormToTasksPanel: Boolean;
 //#UC START# *54F458DD01CE_49539DBA029D_var*
 //#UC END# *54F458DD01CE_49539DBA029D_var*
@@ -7154,7 +7130,17 @@ begin
  // - http://mdp.garant.ru/pages/viewpage.action?pageId=588809860
 //#UC END# *54F458DD01CE_49539DBA029D_impl*
 end;//TExTextForm.DoGetNeedAddFormToTasksPanel
-{$IfEnd} // NOT Defined(NoVCM)
+
+procedure TExTextForm.BeforeJumpTo(const aHyperlink: IevHyperlink);
+//#UC START# *5767DF4D033E_49539DBA029D_var*
+//#UC END# *5767DF4D033E_49539DBA029D_var*
+begin
+//#UC START# *5767DF4D033E_49539DBA029D_impl*
+ if (UserType in [dftAACContentsLeft, dftAACLeft]) then
+  if (aHyperlink.Address.DocID = 0) then // внутренняя ссылка
+    f_LockAnnoingCheck := True;
+//#UC END# *5767DF4D033E_49539DBA029D_impl*
+end;//TExTextForm.BeforeJumpTo
 
 procedure TExTextForm.ClearFields;
 begin
@@ -7163,7 +7149,6 @@ begin
  inherited;
 end;//TExTextForm.ClearFields
 
-{$If NOT Defined(NoVCM)}
 procedure TExTextForm.SignalDataSourceChanged(const anOld: IvcmFormDataSource;
  const aNew: IvcmFormDataSource);
 begin
@@ -7189,9 +7174,7 @@ begin
   aNew.CastUCC(IsdsAAC, AAC);
  end;//aNew = nil
 end;//TExTextForm.SignalDataSourceChanged
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TExTextForm.InitEntities;
  {* инициализирует сущности не из dfm.
              Нужно для перекрытия потомками при переносе VCM на модель }
@@ -8413,15 +8396,12 @@ begin
  AddUserTypeExclude(dftAACContentsRightName, en_BaseSearchPresentationHolder, op_GetBaseSearchPresentation, False);
  AddUserTypeExclude(dftChronologyName, en_BaseSearchPresentationHolder, op_GetBaseSearchPresentation, False);
 end;//TExTextForm.InitEntities
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TExTextForm.MakeControls;
 begin
  inherited;
  Text.Parent := Self;
 end;//TExTextForm.MakeControls
-{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
  str_ViewChangesOpName.Init;
@@ -8433,6 +8413,7 @@ initialization
  TtfwClassRef.Register(TExTextForm);
  {* Регистрация ExText }
 {$IfEnd} // NOT Defined(NoScripts)
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

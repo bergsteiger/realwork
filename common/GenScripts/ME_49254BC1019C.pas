@@ -22,6 +22,9 @@ uses
  , nscNewInterfaces
  {$IfEnd} // Defined(Nemesis)
  , l3Interfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  , TreeInterfaces
  , bsInterfaces
  {$If NOT Defined(NoVCL)}
@@ -30,9 +33,6 @@ uses
  , l3InternalInterfaces
  {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
- , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
  , l3ProtoObjectWithCOMQI
  {$If NOT Defined(NoVCM)}
@@ -43,6 +43,7 @@ uses
 
 type
  _InitDataType_ = IdeDocInfo;
+ _FormDataSourceType_ = IdsCommonDiction;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\CommonDiction\dsCommonDiction.imp.pas}
  TdsTips = {final} class(_dsCommonDiction_)
   {* Список советов дня }

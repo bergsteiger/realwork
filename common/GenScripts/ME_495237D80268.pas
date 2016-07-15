@@ -27,6 +27,9 @@ const
  op_capToMSWord = 'Экспорт в Word';
  op_SendMailAsAttachment = 'SendMailAsAttachment';
  op_capSendMailAsAttachment = 'Послать по e-mail';
+
+var opcode_File_ToMSWord: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_File_SendMailAsAttachment: TvcmOPID = (rEnID : -1; rOpID : -1);
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
@@ -34,7 +37,22 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ {$If NOT Defined(NoVCM)}
+ , vcmOperationsForRegister
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmOperationStatesForRegister
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
+
+initialization
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_File, op_ToMSWord, en_capFile, op_capToMSWord, False, False, opcode_File_ToMSWord)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_File, op_SendMailAsAttachment, en_capFile, op_capSendMailAsAttachment, False, True, opcode_File_SendMailAsAttachment)) do
+ begin
+ end;
+
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

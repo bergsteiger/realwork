@@ -30,13 +30,14 @@ uses
 ;
 
 type
+ _FormDataSourceType_ = IdsConsultationMark;
  {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourcePrim.imp.pas}
  TdsConsultationMark = {final} class(_vcmFormDataSourcePrim_, IdsConsultationMark)
   {* БОС оценки консультации }
   private
    f_Comment: Tl3_String;
    f_Mark: TbsConsultationMark;
-   Consultation: IsdsConsultation;
+   ucc_Consultation: IsdsConsultation;
   protected
    procedure Send;
     {* послать оценку }
@@ -48,6 +49,14 @@ type
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
    procedure InitFields; override;
+   {$If NOT Defined(NoVCM)}
+   procedure InitRefs(const aDS: IvcmFormSetDataSource); override;
+    {* Инициализирует ссылки на различные представления прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure ClearRefs; override;
+    {* Очищает ссылки на различные представления прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//TdsConsultationMark
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -65,7 +74,6 @@ uses
  , SysUtils
 ;
 
-{$If NOT Defined(NoVCM)}
 type _Instance_R_ = TdsConsultationMark;
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourcePrim.imp.pas}
@@ -165,6 +173,23 @@ begin
  f_Mark := bs_cmNone;
 //#UC END# *47A042E100E2_49216B3C02E8_impl*
 end;//TdsConsultationMark.InitFields
+
+{$If NOT Defined(NoVCM)}
+procedure TdsConsultationMark.InitRefs(const aDS: IvcmFormSetDataSource);
+ {* Инициализирует ссылки на различные представления прецедента }
+begin
+ inherited;
+ Supports(aDS, IsdsConsultation, ucc_Consultation);
+end;//TdsConsultationMark.InitRefs
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TdsConsultationMark.ClearRefs;
+ {* Очищает ссылки на различные представления прецедента }
+begin
+ inherited;
+ ucc_Consultation := nil;
+end;//TdsConsultationMark.ClearRefs
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)

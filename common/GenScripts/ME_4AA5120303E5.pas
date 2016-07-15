@@ -16,6 +16,15 @@ uses
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
  , AdminInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
@@ -23,9 +32,13 @@ type
  TvcmModule
  {$IfEnd} // NOT Defined(NoVCM)
  )
+  protected
+   {$If NOT Defined(NoVCM)}
+   class procedure GetEntityForms(aList: TvcmClassList); override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
-   procedure OpenUserList(const aContainer: IvcmContainer);
-   function ShowRenameGroupDialog(const aData: IbsEditGroupName): Integer;
+   class procedure OpenUserList(const aContainer: IvcmContainer);
+   class function ShowRenameGroupDialog(const aData: IbsEditGroupName): Integer;
  end;//TAdminModule
 {$IfEnd} // Defined(Admin)
 
@@ -36,9 +49,6 @@ uses
  l3ImplUses
  , PrimGroupProperty_admCreateGroup_UserType
  , PrimGroupProperty_admRenameGroup_UserType
- {$If NOT Defined(NoVCM)}
- , vcmBase
- {$IfEnd} // NOT Defined(NoVCM)
  , deAdmin
  , sdsAdmin
  , DataAdapter
@@ -54,13 +64,20 @@ uses
  , UserProperty_Form
  , GroupList_Form
  , Admin_Form
+ , Admin_FormDefinitions_Controls
+ //#UC START# *4AA5120303E5impl_uses*
+ //#UC END# *4AA5120303E5impl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
-procedure TAdminModule.OpenUserList(const aContainer: IvcmContainer);
+class procedure TAdminModule.OpenUserList(const aContainer: IvcmContainer);
+var
+ __WasEnter : Boolean;
 //#UC START# *4AA512AA00C5_4AA5120303E5_var*
 //#UC END# *4AA512AA00C5_4AA5120303E5_var*
 begin
+ __WasEnter := vcmEnterFactory;
+ try
 //#UC START# *4AA512AA00C5_4AA5120303E5_impl*
  // Данные для инициализации сборки администратор
  if DefDataAdapter.AdministratorLogin then
@@ -71,15 +88,23 @@ begin
                   )
                  ), aContainer);
 //#UC END# *4AA512AA00C5_4AA5120303E5_impl*
+ finally
+  if __WasEnter then
+   vcmLeaveFactory;
+ end;//try..finally
 end;//TAdminModule.OpenUserList
 
-function TAdminModule.ShowRenameGroupDialog(const aData: IbsEditGroupName): Integer;
+class function TAdminModule.ShowRenameGroupDialog(const aData: IbsEditGroupName): Integer;
 var l_Form: IvcmEntityForm;
+var
+ __WasEnter : Boolean;
 //#UC START# *4AA8E2C60357_4AA5120303E5_var*
 const
  cUserType: array [Boolean] of TvcmUserType = (Ord(admCreateGroup), Ord(admRenameGroup));
 //#UC END# *4AA8E2C60357_4AA5120303E5_var*
 begin
+ __WasEnter := vcmEnterFactory;
+ try
 //#UC START# *4AA8E2C60357_4AA5120303E5_impl*
  l_Form := TefGroupProperty.Make(aData,
                                    nil,
@@ -87,7 +112,22 @@ begin
                                    cUserType[not l3IsNil(aData.Name)]);
  Result := l_Form.ShowModal;
 //#UC END# *4AA8E2C60357_4AA5120303E5_impl*
+ finally
+  if __WasEnter then
+   vcmLeaveFactory;
+ end;//try..finally
 end;//TAdminModule.ShowRenameGroupDialog
+
+class procedure TAdminModule.GetEntityForms(aList: TvcmClassList);
+begin
+ inherited;
+ aList.Add(TefGroupProperty);
+ aList.Add(TefForbidAutoregistration);
+ aList.Add(TefUserList);
+ aList.Add(TefUserProperty);
+ aList.Add(TefGroupList);
+ aList.Add(TcfAdminForm);
+end;//TAdminModule.GetEntityForms
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$IfEnd} // Defined(Admin)

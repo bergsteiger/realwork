@@ -1,48 +1,34 @@
 unit dsDocumentListCRToPart;
+ {* СКР к фрагменту }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Document"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Document/dsDocumentListCRToPart.pas"
-// Начат: 26.11.2008 19:25
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ViewAreaControllerImp::Class>> F1 Контроллер работы с документом и абстрактная фабрика документа::F1 Document Processing::Document::Document::TdsDocumentListCRToPart
-//
-// СКР к фрагменту
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Document\dsDocumentListCRToPart.pas"
+// Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "TdsDocumentListCRToPart" MUID: (492D78650003)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  dsDocumentListCR
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , dsDocumentListCR
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
- TdsDocumentListCRToPart = {vac} class(TdsDocumentListCR)
+ TdsDocumentListCRToPart = class(TdsDocumentListCR)
   {* СКР к фрагменту }
- protected
- // overridden protected methods
+  protected
    function ToPart: Boolean; override;
  end;//TdsDocumentListCRToPart
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TdsDocumentListCRToPart
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+uses
+ l3ImplUses
+;
 
 function TdsDocumentListCRToPart.ToPart: Boolean;
 //#UC START# *492D797E007F_492D78650003_var*
@@ -52,7 +38,6 @@ begin
  Result := true;
 //#UC END# *492D797E007F_492D78650003_impl*
 end;//TdsDocumentListCRToPart.ToPart
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

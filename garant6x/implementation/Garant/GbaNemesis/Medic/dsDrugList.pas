@@ -1,188 +1,160 @@
 unit dsDrugList;
+ {* Список лекарственных препаратов }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Medic"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Medic/dsDrugList.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ViewAreaControllerImp::Class>> F1 Встроенные продукты::Inpharm::Medic::Medic::TdsDrugList
-//
-// Список лекарственных препаратов
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Medic\dsDrugList.pas"
+// Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "TdsDrugList" MUID: (47E9EDD301A4)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  MedicInterfaces,
-  PrimPrimListInterfaces,
-  DynamicDocListUnit,
-  DocumentUnit,
-  DynamicTreeUnit,
-  FiltersUnit,
-  l3Interfaces,
-  afwInterfaces,
-  l3TreeInterfaces,
-  nsRootManager,
-  bsTypes,
-  DocumentAndListInterfaces,
-  nsTypes,
-  DocumentInterfaces,
-  WorkWithListInterfaces,
-  BaseDocumentWithAttributesInterfaces,
-  l3InternalInterfaces,
-  bsInterfaces
-  {$If not defined(NoVCL)}
-  ,
-  ExtCtrls
-  {$IfEnd} //not NoVCL
-  ,
-  TreeInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmExternalInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmLocalInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  l3ProtoObjectWithCOMQI,
-  l3NotifyPtrList,
-  WorkWithDocumentInterfaces,
-  vcmControllers {a},
-  nsTypesNew,
-  PreviewInterfaces
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , MedicInterfaces
+ , PrimPrimListInterfaces
+ , DocumentInterfaces
+ , l3InternalInterfaces
+ , DynamicTreeUnit
+ , l3TreeInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3Interfaces
+ , DocumentAndListInterfaces
+ , afwInterfaces
+ , DynamicDocListUnit
+ , nsRootManager
+ , WorkWithListInterfaces
+ , BaseDocumentWithAttributesInterfaces
+ , FiltersUnit
+ , bsTypes
+ , DocumentUnit
+ , nsTypes
+ , PreviewInterfaces
+ , nsTypesNew
+ , TreeInterfaces
+ , bsInterfaces
+ {$If NOT Defined(NoVCL)}
+ , ExtCtrls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3ProtoObjectWithCOMQI
+ {$If NOT Defined(NoVCM)}
+ , vcmLocalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3NotifyPtrList
+ , WorkWithDocumentInterfaces
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
- _FormDataSourceType_ = IdsDrugList;
  _InitDataType_ = IdeList;
+ _FormDataSourceType_ = IdsDrugList;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsList.imp.pas}
- TdsDrugList = {final vac} class(_dsList_, IdsDrugList)
+ TdsDrugList = {final} class(_dsList_, IdsDrugList)
   {* Список лекарственных препаратов }
- private
- // private fields
-   ucc_DrugList : IsdsDrugList;
- protected
-
-  procedure InitRefs(const aDS: IvcmUseCaseController); override;
-  procedure ClearRefs; override;
- protected
- // overridden protected methods
+  private
+   ucc_DrugList: IsdsDrugList;
+  protected
    function MakeDocInfo(const aNode: INodeBase): IdeDocInfo; override;
-     {* создать информацию о документе по узлу. }
+    {* создать информацию о документе по узлу. }
    function MakeImageList: Il3ImageList; override;
-     {* - создать иконки дерева. }
+    {* - создать иконки дерева. }
    procedure DoUpdateListInfo; override;
-     {* - обновить информацию о списке. }
+    {* - обновить информацию о списке. }
    procedure MarkNodeForExport(const aNode: Il3SimpleNode;
     aOnlyFirstLevel: Boolean); override;
-     {* - пометить узел для экспорта. }
-    {$If not defined(NoVCM)}
+    {* - пометить узел для экспорта. }
+   {$If NOT Defined(NoVCM)}
    function GetIsDataAvailable: Boolean; override;
-     {* существуют ли данные }
-    {$IfEnd} //not NoVCM
+    {* существуют ли данные }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitRefs(const aDS: IvcmFormSetDataSource); override;
+    {* Инициализирует ссылки на различные представления прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure ClearRefs; override;
+    {* Очищает ссылки на различные представления прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//TdsDrugList
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  SysUtils,
-  bsUtils,
-  BaseTypesUnit,
-  vtUtils,
-  ListRes,
-  DataAdapter,
-  afwComplexDocumentPreview,
-  nsINodesClipboardDataObject,
-  nsHAFPainter,
-  nsDocumentPreview,
-  nsIListDataObject,
-  IOUnit
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  StdRes
-  {$IfEnd} //not NoVCM
-  ,
-  l3String
-  {$If not defined(NoVCM)}
-  ,
-  vcmForm
-  {$IfEnd} //not NoVCM
-  ,
-  BaseTreeSupportUnit,
-  nsNodes,
-  nsDocumentTools,
-  l3Nodes,
-  nsExternalObjectPrim,
-  bsConvert,
-  nsDocumentStreamWrapper,
-  afwFacade,
-  evMultiDocumentPreview,
-  bsConst,
-  evHTMLDataObject,
-  l3Memory,
-  nsFolders,
-  nsSuperComplexDocumentPreview,
-  bsListTreeStruct,
-  nevBase,
-  nsListHAFMacroReplacer,
-  evFormatHAFMacroReplacer,
-  LoggingInterfaces,
-  nsListPrintEvent,
-  deList,
-  nevInterfaces,
-  bsTypesNew,
-  nsFiltersContainer,
-  nsTreeMultiDocumentPreviewContainer,
-  bsDocumentMissingMessage,
-  nsExternalObjectModelPart,
-  nsDocumentStreamList,
-  nsListExceptions,
-  nsFiltersUtils,
-  nsFiltersInterfaces,
-  nsDocumentWithSnippetList,
-  l3Base,
-  vtStdRes,
-  nsNewCachableNode,
-  Windows,
-  l3InterfacesMisc
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
+ l3ImplUses
+ , SysUtils
+ , bsUtils
+ , BaseTypesUnit
+ , vtUtils
+ , ListRes
+ , DataAdapter
+ , afwComplexDocumentPreview
+ , nsINodesClipboardDataObject
+ , nsHAFPainter
+ , nsDocumentPreview
+ , nsIListDataObject
+ , IOUnit
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3String
+ {$If NOT Defined(NoVCM)}
+ , vcmForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ , BaseTreeSupportUnit
+ , nsNodes
+ , nsDocumentTools
+ , l3Nodes
+ , nsExternalObjectPrim
+ , bsConvert
+ , nsDocumentStreamWrapper
+ , afwFacade
+ , evMultiDocumentPreview
+ , bsConst
+ , evHTMLDataObject
+ , l3Memory
+ , nsFolders
+ , nsSuperComplexDocumentPreview
+ , bsListTreeStruct
+ , nevBase
+ , nsListHAFMacroReplacer
+ , evFormatHAFMacroReplacer
+ , LoggingInterfaces
+ , nsListPrintEvent
+ , deList
+ , nevInterfaces
+ , bsTypesNew
+ , nsFiltersContainer
+ , nsTreeMultiDocumentPreviewContainer
+ , bsDocumentMissingMessage
+ , nsExternalObjectModelPart
+ , nsDocumentStreamList
+ , nsListExceptions
+ , nsFiltersUtils
+ , nsFiltersInterfaces
+ , nsDocumentWithSnippetList
+ , l3Base
+ , vtStdRes
+ , nsNewCachableNode
+ , Windows
+ , l3InterfacesMisc
+;
 
 type _Instance_R_ = TdsDrugList;
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsList.imp.pas}
 
-// start class TdsDrugList
-
 function TdsDrugList.MakeDocInfo(const aNode: INodeBase): IdeDocInfo;
+ {* создать информацию о документе по узлу. }
 //#UC START# *47F0C98F020C_47E9EDD301A4_var*
 //#UC END# *47F0C98F020C_47E9EDD301A4_var*
 begin
@@ -197,6 +169,7 @@ begin
 end;//TdsDrugList.MakeDocInfo
 
 function TdsDrugList.MakeImageList: Il3ImageList;
+ {* - создать иконки дерева. }
 //#UC START# *47F465F80149_47E9EDD301A4_var*
 //#UC END# *47F465F80149_47E9EDD301A4_var*
 begin
@@ -206,6 +179,7 @@ begin
 end;//TdsDrugList.MakeImageList
 
 procedure TdsDrugList.DoUpdateListInfo;
+ {* - обновить информацию о списке. }
 //#UC START# *47F4BDDB026E_47E9EDD301A4_var*
 //#UC END# *47F4BDDB026E_47E9EDD301A4_var*
 begin
@@ -216,7 +190,8 @@ begin
 end;//TdsDrugList.DoUpdateListInfo
 
 procedure TdsDrugList.MarkNodeForExport(const aNode: Il3SimpleNode;
-  aOnlyFirstLevel: Boolean);
+ aOnlyFirstLevel: Boolean);
+ {* - пометить узел для экспорта. }
 //#UC START# *47F9BFED004F_47E9EDD301A4_var*
 //#UC END# *47F9BFED004F_47E9EDD301A4_var*
 begin
@@ -226,8 +201,9 @@ begin
 //#UC END# *47F9BFED004F_47E9EDD301A4_impl*
 end;//TdsDrugList.MarkNodeForExport
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 function TdsDrugList.GetIsDataAvailable: Boolean;
+ {* существуют ли данные }
 //#UC START# *55097FF5008E_47E9EDD301A4_var*
 //#UC END# *55097FF5008E_47E9EDD301A4_var*
 begin
@@ -235,20 +211,25 @@ begin
  Result := DefDataAdapter.IsInpharmExists;
 //#UC END# *55097FF5008E_47E9EDD301A4_impl*
 end;//TdsDrugList.GetIsDataAvailable
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-procedure TdsDrugList.InitRefs(const aDS: IvcmUseCaseController);
+{$If NOT Defined(NoVCM)}
+procedure TdsDrugList.InitRefs(const aDS: IvcmFormSetDataSource);
+ {* Инициализирует ссылки на различные представления прецедента }
 begin
  inherited;
  Supports(aDS, IsdsDrugList, ucc_DrugList);
-end;
+end;//TdsDrugList.InitRefs
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$If NOT Defined(NoVCM)}
 procedure TdsDrugList.ClearRefs;
+ {* Очищает ссылки на различные представления прецедента }
 begin
  inherited;
  ucc_DrugList := nil;
-end;
+end;//TdsDrugList.ClearRefs
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //not Admin AND not Monitorings
-
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

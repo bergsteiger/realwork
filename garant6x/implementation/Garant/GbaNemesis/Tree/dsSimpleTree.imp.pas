@@ -1,127 +1,106 @@
 {$IfNDef dsSimpleTree_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Tree"
-// Автор: Морозов М.А.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Tree/dsSimpleTree.imp.pas"
-// Начат: 2005/8/3 13:49:6
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ViewAreaControllerImp::Class>> F1 Базовые определения предметной области::LegalDomain::Tree::Tree::dsSimpleTree
-//
-// Бизнес объект формы с деревом
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Tree\dsSimpleTree.imp.pas"
+// Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "dsSimpleTree" MUID: (47F0C1410011)
+// Имя типа: "_dsSimpleTree_"
 
 {$Define dsSimpleTree_imp}
+
  {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSource.imp.pas}
- _dsSimpleTree_ = {abstract vac} class(_vcmFormDataSource_, IdsSimpleTree, InsDropListener)
+ _dsSimpleTree_ = {abstract} class(_vcmFormDataSource_, IdsSimpleTree, InsDropListener)
   {* Бизнес объект формы с деревом }
- private
- // private fields
-   f_SimpleTree : Il3SimpleTree;
-   f_IsFirstMake : Boolean;
-    {* Поле для свойства IsFirstMake}
-   f_MovingCurrent : Il3SimpleNode;
-    {* Поле для свойства MovingCurrent}
-   f_PrevMovingCurrent : Il3SimpleNode;
-    {* Поле для свойства PrevMovingCurrent}
-   f_ChangeCurrentTime : Cardinal;
-    {* Поле для свойства ChangeCurrentTime}
-   f_UpdateCurrentTimer : TTimer;
-    {* Поле для свойства UpdateCurrentTimer}
-   f_Current : Il3SimpleNode;
-    {* Поле для свойства Current}
- private
- // private methods
+  private
+   f_SimpleTree: Il3SimpleTree;
+   f_IsFirstMake: Boolean;
+   f_MovingCurrent: Il3SimpleNode;
+    {* текущий перемещаемый в дереве, которым ещё не было обновлено связанное
+           представление }
+   f_PrevMovingCurrent: Il3SimpleNode;
+    {* предыдущий текущий узел в дереве, используется для определения конца
+          перемещения }
+   f_ChangeCurrentTime: Cardinal;
+    {* время последнего обновления текущего }
+   f_UpdateCurrentTimer: TTimer;
+   f_Current: Il3SimpleNode;
+    {* текущий узел, данные которого показываются в связанном представлении
+           (например список и зона синхронного просмотра) }
+  private
    procedure OnUpdateCurrent(aSender: TObject);
    procedure MovingFinished;
-     {* перемещение закончено }
- protected
- // property methods
+    {* перемещение закончено }
+  protected
    function pm_GetUpdateCurrentTimer: TTimer;
- protected
- // realized methods
+   procedure DoCurrentChanged(const aNode: Il3SimpleNode); virtual;
+    {* сменился текущий. }
+   function MakeImageList: Il3ImageList; virtual;
+    {* - создать иконки дерева. }
+   function MakeSimpleTree: Il3SimpleTree; virtual; abstract;
+    {* Создать данные дерева }
+   procedure UpdateSimpleTree(const aOld: Il3SimpleTree;
+    const aNew: Il3SimpleTree); virtual;
+    {* - обновить данные дерева. }
+   procedure DoDataDropped; virtual;
+   function RefreshSimpleTree: Il3SimpleTree;
+    {* обнуляет SimpleTree и получает его заново }
    procedure DataDropped;
-     {* данные приняты объектом }
+    {* данные приняты объектом }
    function pm_GetImageList: Il3ImageList;
    function pm_GetSimpleTree: Il3SimpleTree;
    procedure pm_SetSimpleTree(const aValue: Il3SimpleTree);
    procedure CurrentChanged(const aNode: Il3SimpleNode;
     aUpdateWithDelay: Boolean = True);
-     {* изменился текущий узел дерева. По умолчанию включён режим отложенного
+    {* изменился текущий узел дерева. По умолчанию включён режим отложенного
            обновления текущего, чтобы не обновлялось свзянное представление при
            быстром перемещении. Когда пользователь в дереве открывает элемент
            отложенное обновление нужно выключать }
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   {$If not defined(NoVCM)}
+    {* Функция очистки полей объекта. }
+   {$If NOT Defined(NoVCM)}
    function MakeDisplayName: IvcmCString; override;
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure DoInit; override;
-   {$IfEnd} //not NoVCM
+   {$IfEnd} // NOT Defined(NoVCM)
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- protected
- // protected methods
-   procedure DoCurrentChanged(const aNode: Il3SimpleNode); virtual;
-     {* сменился текущий. }
-   function MakeImageList: Il3ImageList; virtual;
-     {* - создать иконки дерева. }
-   function MakeSimpleTree: Il3SimpleTree; virtual; abstract;
-     {* Создать данные дерева }
-   procedure UpdateSimpleTree(const aOld: Il3SimpleTree;
-    const aNew: Il3SimpleTree); virtual;
-     {* - обновить данные дерева. }
-   procedure DoDataDropped; virtual;
-   function RefreshSimpleTree: Il3SimpleTree;
-     {* обнуляет SimpleTree и получает его заново }
- private
- // private properties
+  private
    property MovingCurrent: Il3SimpleNode
-     read f_MovingCurrent
-     write f_MovingCurrent;
-     {* текущий перемещаемый в дереве, которым ещё не было обновлено связанное
+    read f_MovingCurrent
+    write f_MovingCurrent;
+    {* текущий перемещаемый в дереве, которым ещё не было обновлено связанное
            представление }
    property PrevMovingCurrent: Il3SimpleNode
-     read f_PrevMovingCurrent
-     write f_PrevMovingCurrent;
-     {* предыдущий текущий узел в дереве, используется для определения конца
+    read f_PrevMovingCurrent
+    write f_PrevMovingCurrent;
+    {* предыдущий текущий узел в дереве, используется для определения конца
           перемещения }
    property ChangeCurrentTime: Cardinal
-     read f_ChangeCurrentTime
-     write f_ChangeCurrentTime;
-     {* время последнего обновления текущего }
+    read f_ChangeCurrentTime
+    write f_ChangeCurrentTime;
+    {* время последнего обновления текущего }
    property UpdateCurrentTimer: TTimer
-     read pm_GetUpdateCurrentTimer;
+    read pm_GetUpdateCurrentTimer;
    property Current: Il3SimpleNode
-     read f_Current
-     write f_Current;
-     {* текущий узел, данные которого показываются в связанном представлении
+    read f_Current
+    write f_Current;
+    {* текущий узел, данные которого показываются в связанном представлении
            (например список и зона синхронного просмотра) }
- protected
- // protected properties
+  protected
    property IsFirstMake: Boolean
-     read f_IsFirstMake;
+    read f_IsFirstMake;
  end;//_dsSimpleTree_
 
 {$Else dsSimpleTree_imp}
 
+{$IfNDef dsSimpleTree_imp_impl}
 
-{$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSource.imp.pas}
+{$Define dsSimpleTree_imp_impl}
 
 const
-   { Times }
-  ns_UpdateTime = 100;
-   { время с момента обновления текущего после которого можно снова обновлять связанное представление }
+ ns_UpdateTime = 100;
+  {* время с момента обновления текущего после которого можно снова обновлять связанное представление }
 
-// start class _dsSimpleTree_
+{$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSource.imp.pas}
 
 function _dsSimpleTree_.pm_GetUpdateCurrentTimer: TTimer;
 //#UC START# *492152570031_47F0C1410011get_var*
@@ -143,6 +122,7 @@ begin
 end;//_dsSimpleTree_.pm_GetUpdateCurrentTimer
 
 procedure _dsSimpleTree_.DoCurrentChanged(const aNode: Il3SimpleNode);
+ {* сменился текущий. }
 //#UC START# *47F0C1BF0314_47F0C1410011_var*
 //#UC END# *47F0C1BF0314_47F0C1410011_var*
 begin
@@ -152,6 +132,7 @@ begin
 end;//_dsSimpleTree_.DoCurrentChanged
 
 function _dsSimpleTree_.MakeImageList: Il3ImageList;
+ {* - создать иконки дерева. }
 //#UC START# *47F465F80149_47F0C1410011_var*
 //#UC END# *47F465F80149_47F0C1410011_var*
 begin
@@ -161,7 +142,8 @@ begin
 end;//_dsSimpleTree_.MakeImageList
 
 procedure _dsSimpleTree_.UpdateSimpleTree(const aOld: Il3SimpleTree;
-  const aNew: Il3SimpleTree);
+ const aNew: Il3SimpleTree);
+ {* - обновить данные дерева. }
 //#UC START# *47FC718400FA_47F0C1410011_var*
 //#UC END# *47FC718400FA_47F0C1410011_var*
 begin
@@ -190,6 +172,7 @@ begin
 end;//_dsSimpleTree_.OnUpdateCurrent
 
 procedure _dsSimpleTree_.MovingFinished;
+ {* перемещение закончено }
 //#UC START# *49214097027A_47F0C1410011_var*
 var
  l_Node: INodeBase;
@@ -225,6 +208,7 @@ begin
 end;//_dsSimpleTree_.DoDataDropped
 
 function _dsSimpleTree_.RefreshSimpleTree: Il3SimpleTree;
+ {* обнуляет SimpleTree и получает его заново }
 //#UC START# *4978163E03A0_47F0C1410011_var*
 //#UC END# *4978163E03A0_47F0C1410011_var*
 begin
@@ -235,6 +219,7 @@ begin
 end;//_dsSimpleTree_.RefreshSimpleTree
 
 procedure _dsSimpleTree_.DataDropped;
+ {* данные приняты объектом }
 //#UC START# *48FEE96D03AD_47F0C1410011_var*
 //#UC END# *48FEE96D03AD_47F0C1410011_var*
 begin
@@ -285,7 +270,11 @@ begin
 end;//_dsSimpleTree_.pm_SetSimpleTree
 
 procedure _dsSimpleTree_.CurrentChanged(const aNode: Il3SimpleNode;
-  aUpdateWithDelay: Boolean = True);
+ aUpdateWithDelay: Boolean = True);
+ {* изменился текущий узел дерева. По умолчанию включён режим отложенного
+           обновления текущего, чтобы не обновлялось свзянное представление при
+           быстром перемещении. Когда пользователь в дереве открывает элемент
+           отложенное обновление нужно выключать }
 //#UC START# *491DD5C90095_47F0C1410011_var*
 
  procedure lp_UpdateMovingCurrent;
@@ -336,6 +325,7 @@ begin
 end;//_dsSimpleTree_.CurrentChanged
 
 procedure _dsSimpleTree_.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_47F0C1410011_var*
 //#UC END# *479731C50290_47F0C1410011_var*
 begin
@@ -346,7 +336,7 @@ begin
 //#UC END# *479731C50290_47F0C1410011_impl*
 end;//_dsSimpleTree_.Cleanup
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 function _dsSimpleTree_.MakeDisplayName: IvcmCString;
 //#UC START# *491476B001D3_47F0C1410011_var*
 var
@@ -361,9 +351,9 @@ begin
   Result := nil;
 //#UC END# *491476B001D3_47F0C1410011_impl*
 end;//_dsSimpleTree_.MakeDisplayName
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure _dsSimpleTree_.DoInit;
 //#UC START# *492BF7900310_47F0C1410011_var*
 //#UC END# *492BF7900310_47F0C1410011_var*
@@ -373,10 +363,9 @@ begin
  f_IsFirstMake := True;
 //#UC END# *492BF7900310_47F0C1410011_impl*
 end;//_dsSimpleTree_.DoInit
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 procedure _dsSimpleTree_.ClearFields;
- {-}
 begin
  MovingCurrent := nil;
  PrevMovingCurrent := nil;
@@ -384,4 +373,7 @@ begin
  inherited;
 end;//_dsSimpleTree_.ClearFields
 
+{$EndIf dsSimpleTree_imp_impl}
+
 {$EndIf dsSimpleTree_imp}
+

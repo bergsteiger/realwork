@@ -1,48 +1,38 @@
 {$IfNDef dsBaseDrugDocument_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Medic"
-// Автор: Лукьянец Р.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Medic/dsBaseDrugDocument.imp.pas"
-// Начат: 2008/04/03 13:44:46
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ViewAreaControllerImp::Class>> F1 Встроенные продукты::Inpharm::Medic::Medic::dsBaseDrugDocument
-//
-// Документ-препарат
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Medic\dsBaseDrugDocument.imp.pas"
+// Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "dsBaseDrugDocument" MUID: (491D846C0297)
+// Имя типа: "_dsBaseDrugDocument_"
 
 {$Define dsBaseDrugDocument_imp}
-{$If not defined(Admin) AND not defined(Monitorings)}
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsBaseDocumentPrim.imp.pas}
- _dsBaseDrugDocument_ = {abstract vac} class(_dsBaseDocumentPrim_)
+ _dsBaseDrugDocument_ = {abstract} class(_dsBaseDocumentPrim_)
   {* Документ-препарат }
- protected
- // overridden protected methods
+  protected
    function GetTimeMachineOff: Boolean; override;
-     {* при получении источника данных машину времени нужно выключить }
+    {* при получении источника данных машину времени нужно выключить }
  end;//_dsBaseDrugDocument_
-{$Else}
 
- {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsBaseDocumentPrim.imp.pas}
- _dsBaseDrugDocument_ = _dsBaseDocumentPrim_;
-
-{$IfEnd} //not Admin AND not Monitorings
-
-{$Else dsBaseDrugDocument_imp}
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
+{$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsBaseDocumentPrim.imp.pas}
+_dsBaseDrugDocument_ = _dsBaseDocumentPrim_;
 
-// start class _dsBaseDrugDocument_
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$Else dsBaseDrugDocument_imp}
+
+{$IfNDef dsBaseDrugDocument_imp_impl}
+
+{$Define dsBaseDrugDocument_imp_impl}
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsBaseDocumentPrim.imp.pas}
 
 function _dsBaseDrugDocument_.GetTimeMachineOff: Boolean;
+ {* при получении источника данных машину времени нужно выключить }
 //#UC START# *491C264C02C2_491D846C0297_var*
 //#UC END# *491C264C02C2_491D846C0297_var*
 begin
@@ -50,7 +40,9 @@ begin
  Result := true;
 //#UC END# *491C264C02C2_491D846C0297_impl*
 end;//_dsBaseDrugDocument_.GetTimeMachineOff
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
-{$IfEnd} //not Admin AND not Monitorings
+{$EndIf dsBaseDrugDocument_imp_impl}
 
 {$EndIf dsBaseDrugDocument_imp}
+

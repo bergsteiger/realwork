@@ -42,6 +42,7 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoVCL)}
 {$Include w:\common\components\rtl\Garant\L3\RefCounted.imp.pas}
 
 {$Include w:\common\components\SandBox\RoundedControl.imp.pas}
@@ -51,5 +52,6 @@ initialization
  TtfwClassRef.Register(TRoundedEdit);
  {* Регистрация TRoundedEdit }
 {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCL)
 
 end.

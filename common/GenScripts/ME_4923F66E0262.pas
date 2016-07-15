@@ -27,6 +27,7 @@ uses
 ;
 
 type
+ _FormDataSourceType_ = IdsSaveLoad;
  {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourcePrim.imp.pas}
  TdsSaveLoad = {final} class(_vcmFormDataSourcePrim_, IdsSaveLoad)
  end;//TdsSaveLoad
@@ -42,11 +43,9 @@ uses
  , l3Base
 ;
 
-{$If NOT Defined(NoVCM)}
 type _Instance_R_ = TdsSaveLoad;
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourcePrim.imp.pas}
-{$IfEnd} // NOT Defined(NoVCM)
-
 {$IfEnd} // NOT Defined(Admin)
+
 end.

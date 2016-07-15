@@ -16,6 +16,9 @@ uses
  , DynamicTreeUnit
  , l3TreeInterfaces
  , l3InternalInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  , TreeInterfaces
  , bsInterfaces
  {$If NOT Defined(NoVCL)}
@@ -23,9 +26,6 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
- , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
  , l3ProtoObjectWithCOMQI
  {$If NOT Defined(NoVCM)}
@@ -37,6 +37,7 @@ uses
 
 type
  _InitDataType_ = IdeNode;
+ _FormDataSourceType_ = IdsGroupsList;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\Tree\dsSimpleTree.imp.pas}
  TdsGroupsList = {final} class(_dsSimpleTree_, IdsGroupsList)
   {* √руппы пользователей }
@@ -70,6 +71,14 @@ type
    {$If NOT Defined(NoVCM)}
    procedure GotData; override;
     {* - данные изменились. }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitRefs(const aDS: IvcmFormSetDataSource); override;
+    {* »нициализирует ссылки на различные представлени€ прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure ClearRefs; override;
+    {* ќчищает ссылки на различные представлени€ прецедента }
    {$IfEnd} // NOT Defined(NoVCM)
  end;//TdsGroupsList
 {$IfEnd} // Defined(Admin)
@@ -260,6 +269,24 @@ begin
  f_Root := PartData.Node;
 //#UC END# *492ACF630072_49EC547C001B_impl*
 end;//TdsGroupsList.GotData
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TdsGroupsList.InitRefs(const aDS: IvcmFormSetDataSource);
+ {* »нициализирует ссылки на различные представлени€ прецедента }
+begin
+ inherited;
+ SDS := aDS As IsdsAdmin;
+end;//TdsGroupsList.InitRefs
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TdsGroupsList.ClearRefs;
+ {* ќчищает ссылки на различные представлени€ прецедента }
+begin
+ inherited;
+ SDS := nil;
+end;//TdsGroupsList.ClearRefs
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$IfEnd} // Defined(Admin)

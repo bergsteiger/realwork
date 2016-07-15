@@ -15,6 +15,9 @@ uses
  , QueryCardInterfaces
  , l3TreeInterfaces
  , SearchInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  , SearchDomainInterfaces
  , TreeInterfaces
  , bsInterfaces
@@ -24,9 +27,6 @@ uses
  , l3InternalInterfaces
  {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
- , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
  , l3ProtoObjectWithCOMQI
  {$If NOT Defined(NoVCM)}

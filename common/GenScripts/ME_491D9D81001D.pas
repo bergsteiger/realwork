@@ -29,6 +29,7 @@ uses
 ;
 
 type
+ _FormDataSourceType_ = IdsForbidAutoregistration;
  {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourcePrim.imp.pas}
  TdsForbidAutoregistration = {final} class(_vcmFormDataSourcePrim_, IdsForbidAutoregistration)
   {* Запрет авторегистрации }
@@ -57,7 +58,6 @@ uses
  , l3Base
 ;
 
-{$If NOT Defined(NoVCM)}
 const
  c_MaxLength = 50;
 
@@ -132,7 +132,6 @@ begin
  f_NeedForbid := false;
 //#UC END# *47A042E100E2_491D9D81001D_impl*
 end;//TdsForbidAutoregistration.InitFields
-{$IfEnd} // NOT Defined(NoVCM)
-
 {$IfEnd} // Defined(Admin)
+
 end.

@@ -1,127 +1,101 @@
 unit dsMedicFirmDocument;
+ {* Документ описания фирмы-производителя }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Medic"
-// Автор: Лукьянец Р.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Medic/dsMedicFirmDocument.pas"
-// Начат: 2008/03/26 14:05:01
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ViewAreaControllerImp::Class>> F1 Встроенные продукты::Inpharm::Medic::Medic::TdsMedicFirmDocument
-//
-// Документ описания фирмы-производителя
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Medic\dsMedicFirmDocument.pas"
+// Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "TdsMedicFirmDocument" MUID: (491D7D660107)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  MedicInterfaces,
-  InpharmInterfaces,
-  l3Interfaces,
-  l3Types,
-  afwInterfaces,
-  nevTools,
-  DocumentAndListInterfaces,
-  DocumentInterfaces,
-  WorkWithListInterfaces,
-  nsDocumentLikeStateHolder
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmExternalInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmLocalInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  l3ProtoObjectWithCOMQI,
-  l3NotifyPtrList,
-  UnderControlUnit,
-  UnderControlInterfaces,
-  bsTypes,
-  DocumentUnit,
-  bsTypesNew,
-  FoldersDomainInterfaces,
-  vcmControllers {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , InpharmInterfaces
+ , MedicInterfaces
+ , nevTools
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , DocumentAndListInterfaces
+ , l3Types
+ , DocumentInterfaces
+ , WorkWithListInterfaces
+ , nsDocumentLikeStateHolder
+ , afwInterfaces
+ , l3Interfaces
+ , bsTypes
+ , FoldersDomainInterfaces
+ , UnderControlUnit
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , DocumentUnit
+ , bsTypesNew
+ , l3ProtoObjectWithCOMQI
+ {$If NOT Defined(NoVCM)}
+ , vcmLocalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3NotifyPtrList
+ , UnderControlInterfaces
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  _FormDataSourceType_ = IdsMedicFirmDocument;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsBaseDocumentPrim.imp.pas}
- TdsMedicFirmDocument = {vac} class(_dsBaseDocumentPrim_, IdsMedicFirmDocument)
+ TdsMedicFirmDocument = class(_dsBaseDocumentPrim_, IdsMedicFirmDocument)
   {* Документ описания фирмы-производителя }
- private
- // private fields
-   ucc_MedicFirmDocument : IsdsMedicFirmDocumentPrim;
- protected
-
-  procedure InitRefs(const aDS: IvcmUseCaseController); override;
-  procedure ClearRefs; override;
- protected
- // realized methods
+  private
+   ucc_MedicFirmDocument: IsdsMedicFirmDocumentPrim;
+  protected
    procedure OpenDrugList;
-     {* открыть список выпускаемых препаратов }
- protected
- // overridden protected methods
+    {* открыть список выпускаемых препаратов }
    function GetTimeMachineOff: Boolean; override;
-     {* при получении источника данных машину времени нужно выключить }
+    {* при получении источника данных машину времени нужно выключить }
    function MakeContainer: InevDocumentContainer; override;
-     {* Конструирует контейнер документа }
+    {* Конструирует контейнер документа }
+   {$If NOT Defined(NoVCM)}
+   procedure InitRefs(const aDS: IvcmFormSetDataSource); override;
+    {* Инициализирует ссылки на различные представления прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure ClearRefs; override;
+    {* Очищает ссылки на различные представления прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//TdsMedicFirmDocument
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  nsF1DocumentContainer,
-  IOUnit,
-  l3Base,
-  bsUtils,
-  BaseTypesUnit,
-  bsConvert,
-  l3Utils,
-  deDocInfo,
-  nsTypes,
-  nsDocInfoHAFMacroReplacer
-  {$If not defined(NoVCM)}
-  ,
-  StdRes
-  {$IfEnd} //not NoVCM
-  ,
-  nsFolderFilterInfo,
-  l3InterfacesMisc,
-  SysUtils,
-  afwFacade
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
+ l3ImplUses
+ , nsF1DocumentContainer
+ , l3Base
+ , bsUtils
+ , BaseTypesUnit
+ , bsConvert
+ , l3Utils
+ , deDocInfo
+ , nsTypes
+ , nsDocInfoHAFMacroReplacer
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ , nsFolderFilterInfo
+ , l3InterfacesMisc
+ , SysUtils
+ , afwFacade
+ , IOUnit
+;
 
 type _Instance_R_ = TdsMedicFirmDocument;
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsBaseDocumentPrim.imp.pas}
 
-// start class TdsMedicFirmDocument
-
 procedure TdsMedicFirmDocument.OpenDrugList;
+ {* открыть список выпускаемых препаратов }
 //#UC START# *491D7D2A02E0_491D7D660107_var*
 //#UC END# *491D7D2A02E0_491D7D660107_var*
 begin
@@ -132,6 +106,7 @@ begin
 end;//TdsMedicFirmDocument.OpenDrugList
 
 function TdsMedicFirmDocument.GetTimeMachineOff: Boolean;
+ {* при получении источника данных машину времени нужно выключить }
 //#UC START# *491C264C02C2_491D7D660107_var*
 //#UC END# *491C264C02C2_491D7D660107_var*
 begin
@@ -141,6 +116,7 @@ begin
 end;//TdsMedicFirmDocument.GetTimeMachineOff
 
 function TdsMedicFirmDocument.MakeContainer: InevDocumentContainer;
+ {* Конструирует контейнер документа }
 //#UC START# *4C6AB38800F3_491D7D660107_var*
 //#UC END# *4C6AB38800F3_491D7D660107_var*
 begin
@@ -149,18 +125,23 @@ begin
 //#UC END# *4C6AB38800F3_491D7D660107_impl*
 end;//TdsMedicFirmDocument.MakeContainer
 
-procedure TdsMedicFirmDocument.InitRefs(const aDS: IvcmUseCaseController);
+{$If NOT Defined(NoVCM)}
+procedure TdsMedicFirmDocument.InitRefs(const aDS: IvcmFormSetDataSource);
+ {* Инициализирует ссылки на различные представления прецедента }
 begin
  inherited;
  Supports(aDS, IsdsMedicFirmDocumentPrim, ucc_MedicFirmDocument);
-end;
+end;//TdsMedicFirmDocument.InitRefs
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$If NOT Defined(NoVCM)}
 procedure TdsMedicFirmDocument.ClearRefs;
+ {* Очищает ссылки на различные представления прецедента }
 begin
  inherited;
  ucc_MedicFirmDocument := nil;
-end;
+end;//TdsMedicFirmDocument.ClearRefs
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //not Admin AND not Monitorings
-
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

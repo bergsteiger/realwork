@@ -72,7 +72,6 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
 ;
 
-{$If NOT Defined(NoVCM)}
 type _Instance_R_ = TsdsFolders;
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\vcmTinyUseCaseController.imp.pas}
@@ -172,6 +171,7 @@ begin
  inherited;
 end;//TsdsFolders.ClearFields
 
+{$If NOT Defined(NoVCM)}
 procedure TsdsFolders.ClearAreas;
  {* Очищает ссылки на области ввода }
 begin

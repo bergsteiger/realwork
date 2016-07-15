@@ -18,6 +18,9 @@ uses
  , DocumentInterfaces
  , CommonDictionInterfaces
  , DocumentUnit
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  , DynamicTreeUnit
  , DocumentAndListInterfaces
  {$If Defined(Nemesis)}
@@ -33,9 +36,6 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
- , vcmInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
  , l3ProtoObjectWithCOMQI
  {$If NOT Defined(NoVCM)}
  , vcmLocalInterfaces
@@ -45,15 +45,15 @@ uses
 
 type
  _InitDataType_ = IdeDiction;
+ _FormDataSourceType_ = IdsDiction;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\CommonDiction\dsCommonDiction.imp.pas}
  TdsDiction = {final} class(_dsCommonDiction_, IdsDiction)
   {* перевод толкового словар€ на сборку }
   private
    dDiction: IdDiction;
    f_ContextMap: InsLangToContextMap;
-   Diction: IsdsDiction;
+   ucc_Diction: IsdsDiction;
    f_Language: TbsLanguage;
-    {* ѕоле дл€ свойства Language }
   protected
    function MakeSimpleTree: Il3SimpleTree; override;
     {* —оздать данные дерева }
@@ -77,6 +77,14 @@ type
    {$If NOT Defined(NoVCM)}
    function GetIsDataAvailable: Boolean; override;
     {* существуют ли данные }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitRefs(const aDS: IvcmFormSetDataSource); override;
+    {* »нициализирует ссылки на различные представлени€ прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure ClearRefs; override;
+    {* ќчищает ссылки на различные представлени€ прецедента }
    {$IfEnd} // NOT Defined(NoVCM)
   private
    property Language: TbsLanguage
@@ -266,6 +274,26 @@ begin
  Result := DefDataAdapter.IsExplanatoryExists;
 //#UC END# *55097FF5008E_4925526600D0_impl*
 end;//TdsDiction.GetIsDataAvailable
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TdsDiction.InitRefs(const aDS: IvcmFormSetDataSource);
+ {* »нициализирует ссылки на различные представлени€ прецедента }
+begin
+ inherited;
+ Supports(aDS, IdDiction, dDiction);
+ Supports(aDS, IsdsDiction, ucc_Diction);
+end;//TdsDiction.InitRefs
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TdsDiction.ClearRefs;
+ {* ќчищает ссылки на различные представлени€ прецедента }
+begin
+ inherited;
+ dDiction := nil;
+ ucc_Diction := nil;
+end;//TdsDiction.ClearRefs
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)

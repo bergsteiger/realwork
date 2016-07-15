@@ -19,6 +19,9 @@ uses
  , nevTools
  , DynamicDocListUnit
  , l3TreeInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  , l3Types
  , DocumentInterfaces
  , WorkWithListInterfaces
@@ -33,9 +36,6 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  , DocumentUnit
  , bsTypesNew
- {$If NOT Defined(NoVCM)}
- , vcmInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
  , l3ProtoObjectWithCOMQI
  {$If NOT Defined(NoVCM)}
  , vcmLocalInterfaces
@@ -46,14 +46,15 @@ uses
 ;
 
 type
+ _FormDataSourceType_ = IdsDrugDocument;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\Medic\dsBaseDrugDocument.imp.pas}
  _dsDocumentFromList_Parent_ = _dsBaseDrugDocument_;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsDocumentFromList.imp.pas}
  TdsDrugDocument = {final} class(_dsDocumentFromList_, IdsDrugDocument, IucbDocumentWithContents, IucbDocumentFromList)
   {* ќписание лекарственного препарата }
   private
-   BaseDrugDocument: IsdsDrugDocument;
-   DocumentWithContents: IucpDocumentWithContents;
+   ucc_BaseDrugDocument: IsdsDrugDocument;
+   ucc_DocumentWithContents: IucpDocumentWithContents;
   protected
    function As_IucbDocumentWithContents: IucbDocumentWithContents;
     {* ћетод приведени€ нашего интерфейса к IucbDocumentWithContents }
@@ -67,6 +68,14 @@ type
    function Get_DsContents: IdsBaseContents;
    function MakeContainer: InevDocumentContainer; override;
     {*  онструирует контейнер документа }
+   {$If NOT Defined(NoVCM)}
+   procedure InitRefs(const aDS: IvcmFormSetDataSource); override;
+    {* »нициализирует ссылки на различные представлени€ прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure ClearRefs; override;
+    {* ќчищает ссылки на различные представлени€ прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    procedure OpenContents(const aTree: IdeSimpleTree;
     anForceOpen: TnsContentsOpenMode;
@@ -181,6 +190,26 @@ begin
  Result := TnsF1DocumentContainer.Make(DocInfo);
 //#UC END# *4C6AB38800F3_491D89A001A9_impl*
 end;//TdsDrugDocument.MakeContainer
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
+{$If NOT Defined(NoVCM)}
+procedure TdsDrugDocument.InitRefs(const aDS: IvcmFormSetDataSource);
+ {* »нициализирует ссылки на различные представлени€ прецедента }
+begin
+ inherited;
+ Supports(aDS, IsdsDrugDocument, ucc_BaseDrugDocument);
+ Supports(aDS, IucpDocumentWithContents, ucc_DocumentWithContents);
+end;//TdsDrugDocument.InitRefs
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TdsDrugDocument.ClearRefs;
+ {* ќчищает ссылки на различные представлени€ прецедента }
+begin
+ inherited;
+ ucc_BaseDrugDocument := nil;
+ ucc_DocumentWithContents := nil;
+end;//TdsDrugDocument.ClearRefs
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

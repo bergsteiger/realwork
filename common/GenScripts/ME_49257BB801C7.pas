@@ -23,6 +23,9 @@ uses
  , DocumentInterfaces
  , PreviewInterfaces
  , nsTypesNew
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  , TreeInterfaces
  {$If NOT Defined(NoVCL)}
  , ExtCtrls
@@ -30,9 +33,6 @@ uses
  , l3InternalInterfaces
  {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
- , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
  , l3ProtoObjectWithCOMQI
  {$If NOT Defined(NoVCM)}
@@ -46,6 +46,7 @@ uses
 
 type
  _InitDataType_ = IdeMedicFirmList;
+ _FormDataSourceType_ = IdsMedicFirmList;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\Tree\dsSimpleTree.imp.pas}
  _nsContextFilter_Parent_ = _dsSimpleTree_;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\Tree\nsContextFilter.imp.pas}
@@ -54,9 +55,8 @@ type
   private
    f_CurrentCountryFilter: Il3SimpleNode;
    f_CountryFilterTree: Il3SimpleTree;
-   BaseDocument: IsdsBaseDocument;
+   ucc_BaseDocument: IsdsBaseDocument;
    f_Current: INodeBase;
-    {* Поле для свойства Current }
   private
    function MakePreview(const aTree: Il3SimpleTree): IafwComplexDocumentPreview;
     {* формирует preview для списка }
@@ -103,10 +103,18 @@ type
    {$If NOT Defined(NoVCM)}
    procedure DoInit; override;
    {$IfEnd} // NOT Defined(NoVCM)
-   procedure ClearFields; override;
    {$If NOT Defined(NoVCM)}
    function GetIsDataAvailable: Boolean; override;
     {* существуют ли данные }
+   {$IfEnd} // NOT Defined(NoVCM)
+   procedure ClearFields; override;
+   {$If NOT Defined(NoVCM)}
+   procedure InitRefs(const aDS: IvcmFormSetDataSource); override;
+    {* Инициализирует ссылки на различные представления прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure ClearRefs; override;
+    {* Очищает ссылки на различные представления прецедента }
    {$IfEnd} // NOT Defined(NoVCM)
   private
    property Current: INodeBase
@@ -636,12 +644,6 @@ begin
 end;//TdsMedicFirmList.DoInit
 {$IfEnd} // NOT Defined(NoVCM)
 
-procedure TdsMedicFirmList.ClearFields;
-begin
- Current := nil;
- inherited;
-end;//TdsMedicFirmList.ClearFields
-
 {$If NOT Defined(NoVCM)}
 function TdsMedicFirmList.GetIsDataAvailable: Boolean;
  {* существуют ли данные }
@@ -652,6 +654,30 @@ begin
  Result := DefDataAdapter.IsInpharmExists;
 //#UC END# *55097FF5008E_49257BB801C7_impl*
 end;//TdsMedicFirmList.GetIsDataAvailable
+{$IfEnd} // NOT Defined(NoVCM)
+
+procedure TdsMedicFirmList.ClearFields;
+begin
+ Current := nil;
+ inherited;
+end;//TdsMedicFirmList.ClearFields
+
+{$If NOT Defined(NoVCM)}
+procedure TdsMedicFirmList.InitRefs(const aDS: IvcmFormSetDataSource);
+ {* Инициализирует ссылки на различные представления прецедента }
+begin
+ inherited;
+ Supports(aDS, IsdsBaseDocument, ucc_BaseDocument);
+end;//TdsMedicFirmList.InitRefs
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TdsMedicFirmList.ClearRefs;
+ {* Очищает ссылки на различные представления прецедента }
+begin
+ inherited;
+ ucc_BaseDocument := nil;
+end;//TdsMedicFirmList.ClearRefs
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)

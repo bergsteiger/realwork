@@ -28,6 +28,7 @@ uses
 ;
 
 type
+ _FormDataSourceType_ = IdsAdmin;
  {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourcePrim.imp.pas}
  TdsAdmin = {final} class(_vcmFormDataSourcePrim_, IdsAdmin)
   {* бизнес объект контейнера cfAdmin }
@@ -44,11 +45,9 @@ uses
  , l3Base
 ;
 
-{$If NOT Defined(NoVCM)}
 type _Instance_R_ = TdsAdmin;
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourcePrim.imp.pas}
-{$IfEnd} // NOT Defined(NoVCM)
-
 {$IfEnd} // Defined(Admin)
+
 end.

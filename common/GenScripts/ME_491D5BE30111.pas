@@ -15,6 +15,9 @@ uses
  , DictionInterfacesPrim
  , DictionInterfaces
  , nevTools
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  , DocumentAndListInterfaces
  , l3Types
  , DocumentInterfaces
@@ -30,9 +33,6 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  , DocumentUnit
  , bsTypesNew
- {$If NOT Defined(NoVCM)}
- , vcmInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
  , l3ProtoObjectWithCOMQI
  {$If NOT Defined(NoVCM)}
  , vcmLocalInterfaces
@@ -42,11 +42,12 @@ uses
 ;
 
 type
+ _FormDataSourceType_ = IdsDictionDocument;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsBaseDocumentPrim.imp.pas}
  TdsDictionDocument = {final} class(_dsBaseDocumentPrim_, IdsDictionDocument)
   {* Документ толкового словаря }
   private
-   Diction: IsdsDiction;
+   ucc_Diction: IsdsDiction;
   protected
    procedure OpenLiteratureList;
     {* открыть список литературы для толкового словаря }
@@ -55,6 +56,14 @@ type
     {* при получении источника данных машину времени нужно выключить }
    function MakeContainer: InevDocumentContainer; override;
     {* Конструирует контейнер документа }
+   {$If NOT Defined(NoVCM)}
+   procedure InitRefs(const aDS: IvcmFormSetDataSource); override;
+    {* Инициализирует ссылки на различные представления прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure ClearRefs; override;
+    {* Очищает ссылки на различные представления прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//TdsDictionDocument
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -134,6 +143,24 @@ begin
   Result := TnsDictionDocumentContainer.Make(DocInfo);
 //#UC END# *4C6AB38800F3_491D5BE30111_impl*
 end;//TdsDictionDocument.MakeContainer
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
+{$If NOT Defined(NoVCM)}
+procedure TdsDictionDocument.InitRefs(const aDS: IvcmFormSetDataSource);
+ {* Инициализирует ссылки на различные представления прецедента }
+begin
+ inherited;
+ Supports(aDS, IsdsDiction, ucc_Diction);
+end;//TdsDictionDocument.InitRefs
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TdsDictionDocument.ClearRefs;
+ {* Очищает ссылки на различные представления прецедента }
+begin
+ inherited;
+ ucc_Diction := nil;
+end;//TdsDictionDocument.ClearRefs
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

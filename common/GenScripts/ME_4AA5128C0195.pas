@@ -34,14 +34,6 @@ uses
 ;
 
 type
- // UserList
-
- // UserProperty
-
- // cfAdmin
-
- // Group
-
  Tfs_Admin = {final} class({$If NOT Defined(NoVCM)}
  TvcmFormSetFactory
  {$IfEnd} // NOT Defined(NoVCM)
@@ -52,26 +44,26 @@ type
    class function GetInstance: TvcmFormSetFactoryPrim; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   function cfAdmin_Parent_utAdmin_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+   function CfAdminParentUtAdminNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
     out aNew: IvcmFormDataSource;
     aSubUserType: TvcmUserType): Boolean;
     {* Обработчик OnNeedMakeForm для cfAdmin }
-   function UserList_Parent_admUserList_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+   function UserListParentAdmUserListNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
     out aNew: IvcmFormDataSource;
     aSubUserType: TvcmUserType): Boolean;
     {* Обработчик OnNeedMakeForm для UserList }
-   function UserProperty_Child_admUseProperties_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+   function UserPropertyChildAdmUsePropertiesNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
     out aNew: IvcmFormDataSource;
     aSubUserType: TvcmUserType): Boolean;
     {* Обработчик OnNeedMakeForm для UserProperty }
-   function Group_Navigator_admGroupList_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+   function GroupNavigatorAdmGroupListNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
     out aNew: IvcmFormDataSource;
     aSubUserType: TvcmUserType): Boolean;
     {* Обработчик OnNeedMakeForm для Group }
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: Tfs_Admin;
     {* Метод получения экземпляра синглетона Tfs_Admin }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//Tfs_Admin
 {$IfEnd} // Defined(Admin)
 
@@ -81,7 +73,6 @@ implementation
 uses
  l3ImplUses
  , l3StringIDEx
- , l3MessageID
  , SysUtils
  , l3Base
 ;
@@ -94,7 +85,7 @@ const
  {* Локализуемые строки GroupCaptionLocalConstants }
  str_fszGroup_Navigator_admGroupListCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'fszGroup_Navigator_admGroupListCaption'; rValue : 'Группы пользователей');
   {* Заголовок зоны "Group" фабрики сборки форм "Admin$FSF" }
- {* Локализуемые строки Admin$FSFCaptionLocalConstants }
+ {* Локализуемые строки Admin }
  str_fsAdminCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'fsAdminCaption'; rValue : '#1040#1076#1084#1080#1085#1080#1089#1090#1088#1072#1090#1086#1088');
   {* Заголовок фабрики сборки форм "Admin$FSF" }
 
@@ -104,59 +95,77 @@ begin
  l3Free(g_Tfs_Admin);
 end;//Tfs_AdminFree
 
-function Tfs_Admin.cfAdmin_Parent_utAdmin_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+function Tfs_Admin.CfAdminParentUtAdminNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
  out aNew: IvcmFormDataSource;
  aSubUserType: TvcmUserType): Boolean;
  {* Обработчик OnNeedMakeForm для cfAdmin }
-//#UC START# *1007F0CF991F_4AA5128C0195_var*
-//#UC END# *1007F0CF991F_4AA5128C0195_var*
+var
+ l_UseCase : IsdsAdmin;
 begin
-//#UC START# *1007F0CF991F_4AA5128C0195_impl*
- !!! Needs to be implemented !!!
-//#UC END# *1007F0CF991F_4AA5128C0195_impl*
-end;//Tfs_Admin.cfAdmin_Parent_utAdmin_NeedMakeForm
+ if Supports(aDataSource, IsdsAdmin, l_UseCase) then
+  try
+  //#UC START# *4FFBFE3800EENeedMake_impl*
+   aNew := l_UseCase.dsAdmin;
+  //#UC END# *4FFBFE3800EENeedMake_impl*
+  finally
+   l_UseCase := nil;
+  end;//try..finally
+ Result := (aNew <> nil);
+end;//Tfs_Admin.CfAdminParentUtAdminNeedMakeForm
 
-function Tfs_Admin.UserList_Parent_admUserList_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+function Tfs_Admin.UserListParentAdmUserListNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
  out aNew: IvcmFormDataSource;
  aSubUserType: TvcmUserType): Boolean;
  {* Обработчик OnNeedMakeForm для UserList }
-//#UC START# *720A775B67FA_4AA5128C0195_var*
-//#UC END# *720A775B67FA_4AA5128C0195_var*
+var
+ l_UseCase : IsdsAdmin;
 begin
-//#UC START# *720A775B67FA_4AA5128C0195_impl*
- !!! Needs to be implemented !!!
-//#UC END# *720A775B67FA_4AA5128C0195_impl*
-end;//Tfs_Admin.UserList_Parent_admUserList_NeedMakeForm
+ if Supports(aDataSource, IsdsAdmin, l_UseCase) then
+  try
+  //#UC START# *4FFBFFD7007BNeedMake_impl*
+   aNew := l_UseCase.dsUserList;
+  //#UC END# *4FFBFFD7007BNeedMake_impl*
+  finally
+   l_UseCase := nil;
+  end;//try..finally
+ Result := (aNew <> nil);
+end;//Tfs_Admin.UserListParentAdmUserListNeedMakeForm
 
-function Tfs_Admin.UserProperty_Child_admUseProperties_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+function Tfs_Admin.UserPropertyChildAdmUsePropertiesNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
  out aNew: IvcmFormDataSource;
  aSubUserType: TvcmUserType): Boolean;
  {* Обработчик OnNeedMakeForm для UserProperty }
-//#UC START# *8649E2AD1CE7_4AA5128C0195_var*
-//#UC END# *8649E2AD1CE7_4AA5128C0195_var*
+var
+ l_UseCase : IsdsAdmin;
 begin
-//#UC START# *8649E2AD1CE7_4AA5128C0195_impl*
- !!! Needs to be implemented !!!
-//#UC END# *8649E2AD1CE7_4AA5128C0195_impl*
-end;//Tfs_Admin.UserProperty_Child_admUseProperties_NeedMakeForm
+ if Supports(aDataSource, IsdsAdmin, l_UseCase) then
+  try
+  //#UC START# *4FFC005400EENeedMake_impl*
+   aNew := l_UseCase.dsUserProperty;
+  //#UC END# *4FFC005400EENeedMake_impl*
+  finally
+   l_UseCase := nil;
+  end;//try..finally
+ Result := (aNew <> nil);
+end;//Tfs_Admin.UserPropertyChildAdmUsePropertiesNeedMakeForm
 
-function Tfs_Admin.Group_Navigator_admGroupList_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+function Tfs_Admin.GroupNavigatorAdmGroupListNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
  out aNew: IvcmFormDataSource;
  aSubUserType: TvcmUserType): Boolean;
  {* Обработчик OnNeedMakeForm для Group }
-//#UC START# *40E91BB8FEEC_4AA5128C0195_var*
-//#UC END# *40E91BB8FEEC_4AA5128C0195_var*
+var
+ l_UseCase : IsdsAdmin;
 begin
-//#UC START# *40E91BB8FEEC_4AA5128C0195_impl*
- !!! Needs to be implemented !!!
-//#UC END# *40E91BB8FEEC_4AA5128C0195_impl*
-end;//Tfs_Admin.Group_Navigator_admGroupList_NeedMakeForm
-
-class function Tfs_Admin.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_Tfs_Admin <> nil;
-end;//Tfs_Admin.Exists
+ if Supports(aDataSource, IsdsAdmin, l_UseCase) then
+  try
+  //#UC START# *4FFBFF43018BNeedMake_impl*
+   aNew := l_UseCase.dsGroupsList;
+  //#UC END# *4FFBFF43018BNeedMake_impl*
+  finally
+   l_UseCase := nil;
+  end;//try..finally
+ Result := (aNew <> nil);
+end;//Tfs_Admin.GroupNavigatorAdmGroupListNeedMakeForm
 
 class function Tfs_Admin.Instance: Tfs_Admin;
  {* Метод получения экземпляра синглетона Tfs_Admin }
@@ -169,22 +178,43 @@ begin
  Result := g_Tfs_Admin;
 end;//Tfs_Admin.Instance
 
-procedure Tfs_Admin.InitFields;
-//#UC START# *47A042E100E2_4AA5128C0195_var*
-//#UC END# *47A042E100E2_4AA5128C0195_var*
+class function Tfs_Admin.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
-//#UC START# *47A042E100E2_4AA5128C0195_impl*
- !!! Needs to be implemented !!!
-//#UC END# *47A042E100E2_4AA5128C0195_impl*
+ Result := g_Tfs_Admin <> nil;
+end;//Tfs_Admin.Exists
+
+procedure Tfs_Admin.InitFields;
+begin
+ inherited;
+ with AddZone('cfAdmin', vcm_ztParent, fm_cfAdminForm) do
+ begin
+  UserType := utAdmin;
+  with AddZone('UserList', vcm_ztParent, fm_efUserList) do
+  begin
+   UserType := admUserList;
+   OnNeedMakeForm := UserListParentAdmUserListNeedMakeForm;
+  end;
+  with AddZone('UserProperty', vcm_ztChild, fm_efUserProperty) do
+  begin
+   UserType := admUseProperties;
+   OnNeedMakeForm := UserPropertyChildAdmUsePropertiesNeedMakeForm;
+  end;
+  OnNeedMakeForm := CfAdminParentUtAdminNeedMakeForm;
+ end;
+ with AddZone('Group', vcm_ztNavigator, fm_efGroupList) do
+ begin
+  Caption := str_fszGroup_Navigator_admGroupListCaption.AsCStr;
+  UserType := admGroupList;
+  OnNeedMakeForm := GroupNavigatorAdmGroupListNeedMakeForm;
+ end;
+ Caption := str_fsAdminCaption.AsCStr;
+ OwnerForm := 0;
 end;//Tfs_Admin.InitFields
 
 class function Tfs_Admin.GetInstance: TvcmFormSetFactoryPrim;
-//#UC START# *4FFE854A009B_4AA5128C0195_var*
-//#UC END# *4FFE854A009B_4AA5128C0195_var*
 begin
-//#UC START# *4FFE854A009B_4AA5128C0195_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4FFE854A009B_4AA5128C0195_impl*
+ Result := Self.Instance;
 end;//Tfs_Admin.GetInstance
 
 initialization

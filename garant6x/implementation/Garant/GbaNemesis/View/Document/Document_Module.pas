@@ -1,206 +1,141 @@
 unit Document_Module;
+ {* Работа с документом }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Document/Document_Module.pas"
-// Начат: 05.02.2009 19:28
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMFormsPack::Class>> F1 Работа с документом и списком документов::Document::View::Document::Document
-//
-// Работа с документом
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Document\Document_Module.pas"
+// Стереотип: "VCMFormsPack"
+// Элемент модели: "Document" MUID: (498B135601B6)
+// Имя типа: "TDocumentModule"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DocumentUnit
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  DocumentAndListInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmContainerForm
-  {$IfEnd} //not NoVCM
-  ,
-  PresentationInterfaces,
-  DocumentDomainInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  ,
-  Picture_Form,
-  DocNumberQuery_Form,
-  TurnOnTimeMachine_Form,
-  NavigationInterfaces,
-  DocumentUserTypes_dftDocument_UserType,
-  nsLogEvent,
-  DocumentInterfaces,
-  l3StringIDEx,
-  DocumentWithFlashUserTypes_dwftMain_UserType,
-  Common_FormDefinitions_Controls,
-  ExTextOptions_Form,
-  PrimSynchroViewOptions_Form,
-  PrimRedactionsOptions_Form,
-  PrimPictureInfoOptions_Form,
-  PrimDocNumberQueryOptions_Form,
-  PrimAttributesOptions_Form,
-  PrimPictureOptions_Form,
-  PrimDocumentWithFlashOptions_Form,
-  PrimContentsOptions_Form,
-  PrimTurnOnTimeMachineOptions_Form,
-  WorkWithDocumentInterfaces,
-  DocInfoInterfaces,
-  BaloonWarningUserTypes_WarnJuror_UserType,
-  BaloonWarningUserTypes_WarnPreActive_UserType,
-  BaloonWarningUserTypes_WarnIsAbolished_UserType,
-  BaloonWarningUserTypes_WarnOnControl_UserType,
-  BaloonWarningUserTypes_WarnInactualDocument_UserType,
-  BaloonWarningUserTypes_WarnTimeMachineOn_UserType,
-  BaloonWarningUserTypes_WarnRedaction_UserType,
-  BaloonWarningUserTypes_WarnTimeMachineWarning_UserType,
-  BaloonWarningUserTypes_WarnTimeMachineException_UserType,
-  PrimWarningBaloonOptions_Form,
-  PrimDockedWarning_Form
-  {$If not defined(NoVCM)}
-  ,
-  vcmFormSetFormsCollectionItemPrim
-  {$IfEnd} //not NoVCM
-  ,
-  fsAbstractDocument,
-  DocumentWithFlash_Form,
-  Text_Form,
-  Redactions_Form,
-  Contents_Form,
-  fsDocument,
-  fsDocumentWithFlash,
-  PictureInfo_Form,
-  Warning_Form,
-  Attributes_Form,
-  SynchroView_Form,
-  WarningBaloon_Form,
-  SynchroView_WarningBaloon_Form,
-  Translation_WarningBaloon_Form,
-  UserCR1_WarningBaloon_Form,
-  UserCR2_WarningBaloon_Form,
-  vcmExternalInterfaces {a},
-  vcmModule {a},
-  vcmBase {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , DocumentUnit
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , DocumentInterfaces
+ , DocumentDomainInterfaces
+ , NavigationInterfaces
+ , PresentationInterfaces
+ , DocumentAndListInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmContainerForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
- TDocumentModule = {formspack} class(TvcmModule)
+ TDocumentModule = class({$If NOT Defined(NoVCM)}
+ TvcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* Работа с документом }
- protected
-  procedure Loaded; override;
-  class procedure GetEntityForms(aList : TvcmClassList); override;
- protected
- // protected methods
+  protected
    procedure opOpenDocOnNumberTest(const aParams: IvcmTestParamsPrim);
-     {* Открыть документ по номеру }
-   procedure opOpenDocOnNumber(const aParams: IvcmExecuteParamsPrim);
-     {* Открыть документ по номеру }
- public
- // public methods
+    {* Открыть документ по номеру }
+   procedure opOpenDocOnNumberExecute(const aParams: IvcmExecuteParamsPrim);
+    {* Открыть документ по номеру }
+   procedure Loaded; override;
+   {$If NOT Defined(NoVCM)}
+   class procedure GetEntityForms(aList: TvcmClassList); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    class procedure OpenDocument(const aDocInfo: IdeDocInfo;
-     const aContainer: IvcmContainer);
-     {* Открывает документ }
+    const aContainer: IvcmContainer);
+    {* Открывает документ }
    class function OpenEntityAsDocument(const anEntity: IUnknown;
-     const aContainer: IvcmContainer): IDocument;
+    const aContainer: IvcmContainer): IDocument;
    class function SafeOpenDocument(const aBaseEntity: IUnknown): IDocument;
    class procedure OpenDocumentWithCheck(const aDocInfo: IdeDocInfo;
-     const aContainer: IvcmContainer);
+    const aContainer: IvcmContainer);
    class function OpenExternalObject(const aContainer: IvcmContainer;
-     const aData: InsLinkedObjectData): IvcmEntityForm;
+    const aData: InsLinkedObjectData): IvcmEntityForm;
    class function OpenPicture(const aContainer: IvcmContainer;
-     const aData: InsLinkedObjectData): IvcmEntityForm;
+    const aData: InsLinkedObjectData): IvcmEntityForm;
    class function OpenPictureInfo(const aContainer: IvcmContainer;
-     const aData: InsLinkedObjectDescription): IvcmEntityForm;
+    const aData: InsLinkedObjectDescription): IvcmEntityForm;
    class function OpenTurnOnTimeMachine(const anIntf: InsTurnOnTimeMachine): IvcmEntityForm;
    class function OpenEditionsListModal(const anEditionsHolder: IsdsEditionsHolder;
-     const anAggregate: IvcmAggregate): IvcmEntityForm;
+    const anAggregate: IvcmAggregate): IvcmEntityForm;
    class function MakeBaloonForm(aCaller: TvcmContainerForm;
-     aUserType: TvcmEffectiveUserType;
-     const aWarning: IdsWarning): IvcmEntityForm;
+    aUserType: TvcmEffectiveUserType;
+    const aWarning: IdsWarning): IvcmEntityForm;
    class function DocumentShowChangesInfoSetting: Boolean;
-     {* Метод для получения значения настройки "Показывать историю изменений в документе" }
+    {* Метод для получения значения настройки "Показывать историю изменений в документе" }
    class procedure WriteDocumentShowChangesInfoSetting(aValue: Boolean);
-     {* Метод для записи значения настройки "Показывать историю изменений в документе" }
+    {* Метод для записи значения настройки "Показывать историю изменений в документе" }
  end;//TDocumentModule
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  nsTypes,
-  nsManagers,
-  sdsDocument,
-  sdsDocumentWithFlash,
-  l3Base {a},
-  bsUtils,
-  l3MessageID,
-  SysUtils,
-  BaseTypesUnit,
-  deDocInfo,
-  bsTypesNew
-  {$If not defined(NoVCM)}
-  ,
-  vcmMessagesSupport
-  {$IfEnd} //not NoVCM
-  ,
-  nsExternalObjectPrim,
-  ExternalObjectUnit,
-  nsConst,
-  nsUtils,
-  afwFacade,
-  nsOpenDocOnNumberData,
-  WarningConst,
-  LoggingUnit,
-  nsLogEventData,
-  nsLogManager,
-  LoggingWrapperInterfaces,
-  Document_Strange_Controls,
-  Base_Operations_Editions_Controls,
-  DocumentShowChangesInfoSettingRes,
-  stDocumentShowChangesInfoItem
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  kw_Document_opOpenDocOnNumber
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  ,
-  vcmFormSetFactory {a},
-  StdRes {a},
-  vcmModuleDef {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , nsLogEvent
+ , Document_Strange_Controls
+ {$If NOT Defined(NoVCM)}
+ , vcmMessagesSupport
+ {$IfEnd} // NOT Defined(NoVCM)
+ , DocumentShowChangesInfoSettingRes
+ , stDocumentShowChangesInfoItem
+ , nsManagers
+ , sdsDocument
+ , sdsDocumentWithFlash
+ , BaseTypesUnit
+ , deDocInfo
+ , SysUtils
+ , bsTypesNew
+ , nsExternalObjectPrim
+ , ExternalObjectUnit
+ , nsConst
+ , nsUtils
+ , afwFacade
+ , nsOpenDocOnNumberData
+ , nsTypes
+ , LoggingUnit
+ , DocumentWithFlash_Form
+ , Text_Form
+ , Redactions_Form
+ , Contents_Form
+ , fsDocument
+ , fsDocumentWithFlash
+ , Picture_Form
+ , PictureInfo_Form
+ , DocNumberQuery_Form
+ , Warning_Form
+ , Attributes_Form
+ , SynchroView_Form
+ , TurnOnTimeMachine_Form
+ , WarningBaloon_Form
+ , SynchroView_WarningBaloon_Form
+ , Translation_WarningBaloon_Form
+ , UserCR1_WarningBaloon_Form
+ , UserCR2_WarningBaloon_Form
+ , Common_FormDefinitions_Controls
+ //#UC START# *498B135601B6impl_uses*
+ , StdRes
+ //#UC END# *498B135601B6impl_uses*
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
+{$If NOT Defined(NoVCM)}
 type
-  TnsOpenDocumentByNumber = {final} class(TnsLogEvent)
+ TnsOpenDocumentByNumber = {final} class(TnsLogEvent)
   public
-  // public methods
    class procedure Log(aDocID: Integer);
-  end;//TnsOpenDocumentByNumber
-
-// start class TnsOpenDocumentByNumber
+ end;//TnsOpenDocumentByNumber
 
 class procedure TnsOpenDocumentByNumber.Log(aDocID: Integer);
 //#UC START# *4B150AAA0334_4B150A890212_var*
@@ -216,11 +151,12 @@ begin
 end;//TnsOpenDocumentByNumber.Log
 
 class procedure TDocumentModule.OpenDocument(const aDocInfo: IdeDocInfo;
-  const aContainer: IvcmContainer);
+ const aContainer: IvcmContainer);
+ {* Открывает документ }
 
  procedure CheckAlive;
  //#UC START# *4AA118F20394__var*
-//#UC END# *4AA118F20394__var*
+ //#UC END# *4AA118F20394__var*
  begin
  //#UC START# *4AA118F20394__impl*
   if Assigned(aDocInfo.Doc) and not aDocInfo.Doc.IsAlive then
@@ -292,17 +228,16 @@ begin
 end;//TDocumentModule.OpenDocument
 
 class function TDocumentModule.OpenEntityAsDocument(const anEntity: IUnknown;
-  const aContainer: IvcmContainer): IDocument;
+ const aContainer: IvcmContainer): IDocument;
+var l_Bookmark: IBookmark;
+var l_JBookmark: IJournalBookmark;
+var l_DocInfo: IdeDocInfo;
 var
  __WasEnter : Boolean;
 //#UC START# *4AA1327E0334_498B135601B6_var*
 var
  l_Para : TParaId;
 //#UC END# *4AA1327E0334_498B135601B6_var*
-var
- l_Bookmark : IBookmark;
- l_JBookmark : IJournalBookmark;
- l_DocInfo : IdeDocInfo;
 begin
  __WasEnter := vcmEnterFactory;
  try
@@ -371,7 +306,7 @@ begin
 end;//TDocumentModule.SafeOpenDocument
 
 class procedure TDocumentModule.OpenDocumentWithCheck(const aDocInfo: IdeDocInfo;
-  const aContainer: IvcmContainer);
+ const aContainer: IvcmContainer);
 var
  __WasEnter : Boolean;
 //#UC START# *4AA4C6090157_498B135601B6_var*
@@ -390,7 +325,7 @@ begin
 end;//TDocumentModule.OpenDocumentWithCheck
 
 class function TDocumentModule.OpenExternalObject(const aContainer: IvcmContainer;
-  const aData: InsLinkedObjectData): IvcmEntityForm;
+ const aData: InsLinkedObjectData): IvcmEntityForm;
 var
  __WasEnter : Boolean;
 //#UC START# *4AAFCF8001A8_498B135601B6_var*
@@ -422,7 +357,7 @@ begin
 end;//TDocumentModule.OpenExternalObject
 
 class function TDocumentModule.OpenPicture(const aContainer: IvcmContainer;
-  const aData: InsLinkedObjectData): IvcmEntityForm;
+ const aData: InsLinkedObjectData): IvcmEntityForm;
 var
  __WasEnter : Boolean;
 //#UC START# *4AB12B14001A_498B135601B6_var*
@@ -446,7 +381,7 @@ begin
 end;//TDocumentModule.OpenPicture
 
 class function TDocumentModule.OpenPictureInfo(const aContainer: IvcmContainer;
-  const aData: InsLinkedObjectDescription): IvcmEntityForm;
+ const aData: InsLinkedObjectDescription): IvcmEntityForm;
 var
  __WasEnter : Boolean;
 //#UC START# *4AB12F3700CB_498B135601B6_var*
@@ -464,21 +399,21 @@ begin
 end;//TDocumentModule.OpenPictureInfo
 
 procedure TDocumentModule.opOpenDocOnNumberTest(const aParams: IvcmTestParamsPrim);
+ {* Открыть документ по номеру }
+var l_Data: InsOpenDocOnNumberData;
 //#UC START# *4AB133720122_498B135601B6test_var*
 //#UC END# *4AB133720122_498B135601B6test_var*
-var
- l_Data : InsOpenDocOnNumberData;
 begin
 //#UC START# *4AB133720122_498B135601B6test_impl*
  aParams.Op.Flag[vcm_ofVisible] := False;
 //#UC END# *4AB133720122_498B135601B6test_impl*
 end;//TDocumentModule.opOpenDocOnNumberTest
 
-procedure TDocumentModule.opOpenDocOnNumber(const aParams: IvcmExecuteParamsPrim);
+procedure TDocumentModule.opOpenDocOnNumberExecute(const aParams: IvcmExecuteParamsPrim);
+ {* Открыть документ по номеру }
+var l_Data: InsOpenDocOnNumberData;
 //#UC START# *4AB133720122_498B135601B6exec_var*
 //#UC END# *4AB133720122_498B135601B6exec_var*
-var
- l_Data : InsOpenDocOnNumberData;
 begin
 //#UC START# *4AB133720122_498B135601B6exec_impl*
  { Чтение настроек }
@@ -519,7 +454,7 @@ begin
   l_Data := nil;
  end;//try..finally
 //#UC END# *4AB133720122_498B135601B6exec_impl*
-end;//TDocumentModule.opOpenDocOnNumber
+end;//TDocumentModule.opOpenDocOnNumberExecute
 
 class function TDocumentModule.OpenTurnOnTimeMachine(const anIntf: InsTurnOnTimeMachine): IvcmEntityForm;
 var
@@ -539,7 +474,7 @@ begin
 end;//TDocumentModule.OpenTurnOnTimeMachine
 
 class function TDocumentModule.OpenEditionsListModal(const anEditionsHolder: IsdsEditionsHolder;
-  const anAggregate: IvcmAggregate): IvcmEntityForm;
+ const anAggregate: IvcmAggregate): IvcmEntityForm;
 var
  __WasEnter : Boolean;
 //#UC START# *4ED90DDC00A5_498B135601B6_var*
@@ -561,8 +496,8 @@ begin
 end;//TDocumentModule.OpenEditionsListModal
 
 class function TDocumentModule.MakeBaloonForm(aCaller: TvcmContainerForm;
-  aUserType: TvcmEffectiveUserType;
-  const aWarning: IdsWarning): IvcmEntityForm;
+ aUserType: TvcmEffectiveUserType;
+ const aWarning: IdsWarning): IvcmEntityForm;
 var
  __WasEnter : Boolean;
 //#UC START# *4F7D90530076_498B135601B6_var*
@@ -584,28 +519,36 @@ begin
 end;//TDocumentModule.MakeBaloonForm
 
 class function TDocumentModule.DocumentShowChangesInfoSetting: Boolean;
- {-}
+ {* Метод для получения значения настройки "Показывать историю изменений в документе" }
+//#UC START# *F439A1EC5B50_498B135601B6_var*
+//#UC END# *F439A1EC5B50_498B135601B6_var*
 begin
+//#UC START# *F439A1EC5B50_498B135601B6_impl*
  if (afw.Settings = nil) then
   Result := dv_Document_ShowChangesInfo
  else
   Result := afw.Settings.LoadBoolean(pi_Document_ShowChangesInfo, dv_Document_ShowChangesInfo);
+//#UC END# *F439A1EC5B50_498B135601B6_impl*
 end;//TDocumentModule.DocumentShowChangesInfoSetting
 
 class procedure TDocumentModule.WriteDocumentShowChangesInfoSetting(aValue: Boolean);
- {-}
+ {* Метод для записи значения настройки "Показывать историю изменений в документе" }
+//#UC START# *81ECFA778427_498B135601B6_var*
+//#UC END# *81ECFA778427_498B135601B6_var*
 begin
+//#UC START# *81ECFA778427_498B135601B6_impl*
  if (afw.Settings <> nil) then
   afw.Settings.SaveBoolean(pi_Document_ShowChangesInfo, aValue);
+//#UC END# *81ECFA778427_498B135601B6_impl*
 end;//TDocumentModule.WriteDocumentShowChangesInfoSetting
 
 procedure TDocumentModule.Loaded;
 begin
  inherited;
- PublishOp('opOpenDocOnNumber', opOpenDocOnNumber, opOpenDocOnNumberTest);
-end;
+ PublishOp('opOpenDocOnNumber', opOpenDocOnNumberExecute, opOpenDocOnNumberTest);
+end;//TDocumentModule.Loaded
 
-class procedure TDocumentModule.GetEntityForms(aList : TvcmClassList);
+class procedure TDocumentModule.GetEntityForms(aList: TvcmClassList);
 begin
  inherited;
  aList.Add(TDocumentWithFlashForm);
@@ -624,8 +567,8 @@ begin
  aList.Add(TTranslation_WarningBaloonForm);
  aList.Add(TUserCR1_WarningBaloonForm);
  aList.Add(TUserCR2_WarningBaloonForm);
-end;
+end;//TDocumentModule.GetEntityForms
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //not Admin AND not Monitorings
-
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

@@ -72,7 +72,6 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
 ;
 
-{$If NOT Defined(NoVCM)}
 type _Instance_R_ = TsdsQuery;
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormSetDataSourceWithoutData.imp.pas}
@@ -151,6 +150,7 @@ begin
  inherited;
 end;//TsdsQuery.ClearFields
 
+{$If NOT Defined(NoVCM)}
 procedure TsdsQuery.ClearAreas;
  {* Очищает ссылки на области ввода }
 begin

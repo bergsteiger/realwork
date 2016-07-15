@@ -1,67 +1,53 @@
 unit dsConsultationList;
+ {* список консультации }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Consultation"
-// Автор: Морозов М.А.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Consultation/dsConsultationList.pas"
-// Начат: 2006/10/06 13:46:49
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ViewAreaControllerImp::Class>> F1 Пользовательские сервисы::Consultation::Consultation::Consultation::TdsConsultationList
-//
-// список консультации
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Consultation\dsConsultationList.pas"
+// Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "TdsConsultationList" MUID: (4926BD6800C8)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  dsDocumentList,
-  ConsultationDomainInterfaces,
-  vcmInterfaces {a},
-  vcmControllers {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , dsDocumentList
+ , ConsultationDomainInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
- TdsConsultationList = {vac} class(TdsDocumentList)
+ TdsConsultationList = class(TdsDocumentList)
   {* список консультации }
- private
- // private fields
-   ucc_Consultation : IsdsConsultation;
- protected
-
-  procedure InitRefs(const aDS: IvcmUseCaseController); override;
-  procedure ClearRefs; override;
- protected
- // overridden protected methods
+  private
+   ucc_Consultation: IsdsConsultation;
+  protected
    procedure DoDeleteNodes; override;
-     {* - удалить узлы. Для перекрытия в потомках. }
+    {* - удалить узлы. Для перекрытия в потомках. }
+   {$If NOT Defined(NoVCM)}
+   procedure InitRefs(const aDS: IvcmFormSetDataSource); override;
+    {* Инициализирует ссылки на различные представления прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure ClearRefs; override;
+    {* Очищает ссылки на различные представления прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//TdsConsultationList
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  SysUtils {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TdsConsultationList
+ l3ImplUses
+ , SysUtils
+;
 
 procedure TdsConsultationList.DoDeleteNodes;
+ {* - удалить узлы. Для перекрытия в потомках. }
 //#UC START# *47F61AD5022A_4926BD6800C8_var*
 //#UC END# *47F61AD5022A_4926BD6800C8_var*
 begin
@@ -72,18 +58,23 @@ begin
 //#UC END# *47F61AD5022A_4926BD6800C8_impl*
 end;//TdsConsultationList.DoDeleteNodes
 
-procedure TdsConsultationList.InitRefs(const aDS: IvcmUseCaseController);
+{$If NOT Defined(NoVCM)}
+procedure TdsConsultationList.InitRefs(const aDS: IvcmFormSetDataSource);
+ {* Инициализирует ссылки на различные представления прецедента }
 begin
  inherited;
  Supports(aDS, IsdsConsultation, ucc_Consultation);
-end;
+end;//TdsConsultationList.InitRefs
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$If NOT Defined(NoVCM)}
 procedure TdsConsultationList.ClearRefs;
+ {* Очищает ссылки на различные представления прецедента }
 begin
  inherited;
  ucc_Consultation := nil;
-end;
+end;//TdsConsultationList.ClearRefs
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //not Admin AND not Monitorings
-
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

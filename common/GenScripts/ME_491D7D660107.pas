@@ -15,6 +15,9 @@ uses
  , InpharmInterfaces
  , MedicInterfaces
  , nevTools
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  , DocumentAndListInterfaces
  , l3Types
  , DocumentInterfaces
@@ -30,9 +33,6 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  , DocumentUnit
  , bsTypesNew
- {$If NOT Defined(NoVCM)}
- , vcmInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
  , l3ProtoObjectWithCOMQI
  {$If NOT Defined(NoVCM)}
  , vcmLocalInterfaces
@@ -47,7 +47,7 @@ type
  TdsMedicFirmDocument = class(_dsBaseDocumentPrim_, IdsMedicFirmDocument)
   {* Документ описания фирмы-производителя }
   private
-   MedicFirmDocument: IsdsMedicFirmDocumentPrim;
+   ucc_MedicFirmDocument: IsdsMedicFirmDocumentPrim;
   protected
    procedure OpenDrugList;
     {* открыть список выпускаемых препаратов }
@@ -55,6 +55,14 @@ type
     {* при получении источника данных машину времени нужно выключить }
    function MakeContainer: InevDocumentContainer; override;
     {* Конструирует контейнер документа }
+   {$If NOT Defined(NoVCM)}
+   procedure InitRefs(const aDS: IvcmFormSetDataSource); override;
+    {* Инициализирует ссылки на различные представления прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure ClearRefs; override;
+    {* Очищает ссылки на различные представления прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//TdsMedicFirmDocument
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -116,6 +124,24 @@ begin
  Result := TnsF1DocumentContainer.Make(DocInfo);
 //#UC END# *4C6AB38800F3_491D7D660107_impl*
 end;//TdsMedicFirmDocument.MakeContainer
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
+{$If NOT Defined(NoVCM)}
+procedure TdsMedicFirmDocument.InitRefs(const aDS: IvcmFormSetDataSource);
+ {* Инициализирует ссылки на различные представления прецедента }
+begin
+ inherited;
+ Supports(aDS, IsdsMedicFirmDocumentPrim, ucc_MedicFirmDocument);
+end;//TdsMedicFirmDocument.InitRefs
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TdsMedicFirmDocument.ClearRefs;
+ {* Очищает ссылки на различные представления прецедента }
+begin
+ inherited;
+ ucc_MedicFirmDocument := nil;
+end;//TdsMedicFirmDocument.ClearRefs
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

@@ -53,6 +53,14 @@ type
     {* Открывает ViewArea "список производимых препаратов" }
    function pm_GetIsDrugListActive: Boolean;
    function pm_GetHasDrugList: Boolean;
+   {$If NOT Defined(NoVCM)}
+   procedure InitRefs(const aDS: IvcmFormSetDataSource); override;
+    {* Инициализирует ссылки на различные представления прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure ClearRefs; override;
+    {* Очищает ссылки на различные представления прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//TdsMedicFirmSynchroView
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -66,7 +74,6 @@ uses
  , l3Base
 ;
 
-{$If NOT Defined(NoVCM)}
 type _Instance_R_ = TdsMedicFirmSynchroView;
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourcePrim.imp.pas}
@@ -182,6 +189,23 @@ begin
  Result := True;
 //#UC END# *F5E686C6B9A6_4922C66D0013get_impl*
 end;//TdsMedicFirmSynchroView.pm_GetHasDrugList
+
+{$If NOT Defined(NoVCM)}
+procedure TdsMedicFirmSynchroView.InitRefs(const aDS: IvcmFormSetDataSource);
+ {* Инициализирует ссылки на различные представления прецедента }
+begin
+ inherited;
+ SDS := aDS As IsdsMedicFirmList;
+end;//TdsMedicFirmSynchroView.InitRefs
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TdsMedicFirmSynchroView.ClearRefs;
+ {* Очищает ссылки на различные представления прецедента }
+begin
+ inherited;
+ SDS := nil;
+end;//TdsMedicFirmSynchroView.ClearRefs
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)

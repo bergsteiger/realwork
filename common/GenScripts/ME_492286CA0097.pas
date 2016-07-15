@@ -103,7 +103,6 @@ uses
  , l3Base
 ;
 
-{$If NOT Defined(NoVCM)}
 type _Instance_R_ = TdsFoldersTree;
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourcePrim.imp.pas}
@@ -307,7 +306,6 @@ begin
  bsImportNodeFromXML(aNode, aFileName);
 //#UC END# *49219C0C0077_492286CA0097_impl*
 end;//TdsFoldersTree.ImportFromXML
-{$IfEnd} // NOT Defined(NoVCM)
-
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+
 end.

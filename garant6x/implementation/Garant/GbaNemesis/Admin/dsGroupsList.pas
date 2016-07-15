@@ -1,136 +1,111 @@
 unit dsGroupsList;
+ {* Группы пользователей }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Admin"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Admin/dsGroupsList.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ViewAreaControllerImp::Class>> F1 Администратор::Admin::Admin::Admin::TdsGroupsList
-//
-// Группы пользователей
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Admin\dsGroupsList.pas"
+// Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "TdsGroupsList" MUID: (49EC547C001B)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If defined(Admin)}
+{$If Defined(Admin)}
 uses
-  DynamicTreeUnit,
-  AdminInterfaces,
-  l3InternalInterfaces,
-  l3TreeInterfaces,
-  bsInterfaces
-  {$If not defined(NoVCL)}
-  ,
-  ExtCtrls
-  {$IfEnd} //not NoVCL
-  ,
-  TreeInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmExternalInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmLocalInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  l3ProtoObjectWithCOMQI,
-  l3Interfaces,
-  l3NotifyPtrList,
-  vcmControllers {a}
-  ;
-{$IfEnd} //Admin
+ l3IntfUses
+ , AdminInterfaces
+ , DynamicTreeUnit
+ , l3TreeInterfaces
+ , l3InternalInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , TreeInterfaces
+ , bsInterfaces
+ {$If NOT Defined(NoVCL)}
+ , ExtCtrls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3ProtoObjectWithCOMQI
+ {$If NOT Defined(NoVCM)}
+ , vcmLocalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3Interfaces
+ , l3NotifyPtrList
+;
 
-{$If defined(Admin)}
 type
- _FormDataSourceType_ = IdsGroupsList;
  _InitDataType_ = IdeNode;
+ _FormDataSourceType_ = IdsGroupsList;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\Tree\dsSimpleTree.imp.pas}
- TdsGroupsList = {final vac} class(_dsSimpleTree_, IdsGroupsList)
+ TdsGroupsList = {final} class(_dsSimpleTree_, IdsGroupsList)
   {* Группы пользователей }
- private
- // private fields
-   f_Root : INodeBase;
-   SDS : IsdsAdmin;
- protected
-
-  procedure InitRefs(const aDS: IvcmUseCaseController); override;
-  procedure ClearRefs; override;
- protected
- // realized methods
+  private
+   f_Root: INodeBase;
+   SDS: IsdsAdmin;
+  protected
    function MakeSimpleTree: Il3SimpleTree; override;
-     {* Создать данные дерева }
+    {* Создать данные дерева }
    function GroupsListNodeType(const aNode: Il3SimpleNode): TbsGroupNodeType;
-     {* Тип ноды }
+    {* Тип ноды }
    procedure DeleteGroup(const aNode: Il3SimpleNode);
-     {* Удалить группу }
+    {* Удалить группу }
    procedure CreateNewGroup;
-     {* Создать группу }
+    {* Создать группу }
    function ChangeBasesAccessForGroup(const aNode: Il3SimpleNode): Boolean;
    procedure RenameGroup(const aNode: Il3SimpleNode);
-     {* Переименовать группу }
+    {* Переименовать группу }
    function HasUsers(const aNode: Il3SimpleNode): Boolean;
-     {* Есть ли пользователи в группе }
+    {* Есть ли пользователи в группе }
    procedure CheckUnsavedUserProperty;
-     {* Если свойства не сохранены - спросить об этом }
+    {* Если свойства не сохранены - спросить об этом }
    procedure NotifyTreeViewInvalidate;
-     {* Сигнатура метода NotifyTreeViewInvalidate }
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure DoCurrentChanged(const aNode: Il3SimpleNode); override;
-     {* сменился текущий. }
+    {* сменился текущий. }
    function MakeImageList: Il3ImageList; override;
-     {* - создать иконки дерева. }
+    {* - создать иконки дерева. }
    procedure DoDataDropped; override;
-   {$If not defined(NoVCM)}
+   {$If NOT Defined(NoVCM)}
    procedure GotData; override;
-     {* - данные изменились. }
-   {$IfEnd} //not NoVCM
+    {* - данные изменились. }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitRefs(const aDS: IvcmFormSetDataSource); override;
+    {* Инициализирует ссылки на различные представления прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure ClearRefs; override;
+    {* Очищает ссылки на различные представления прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//TdsGroupsList
-{$IfEnd} //Admin
+{$IfEnd} // Defined(Admin)
 
 implementation
 
-{$If defined(Admin)}
+{$If Defined(Admin)}
 uses
-  AdminRes,
-  nsGroupTreeStructWithDrop,
-  SecurityUnit,
-  SysUtils,
-  l3Base,
-  vtUtils,
-  vtStdRes,
-  nsNewCachableNode,
-  Windows,
-  l3InterfacesMisc
-  ;
-{$IfEnd} //Admin
-
-{$If defined(Admin)}
+ l3ImplUses
+ , AdminRes
+ , nsGroupTreeStructWithDrop
+ , SecurityUnit
+ , SysUtils
+ , l3Base
+ , vtUtils
+ , vtStdRes
+ , nsNewCachableNode
+ , Windows
+ , l3InterfacesMisc
+;
 
 type _Instance_R_ = TdsGroupsList;
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\Tree\dsSimpleTree.imp.pas}
 
-// start class TdsGroupsList
-
 function TdsGroupsList.MakeSimpleTree: Il3SimpleTree;
+ {* Создать данные дерева }
 //#UC START# *47F4C2B9014A_49EC547C001B_var*
 //#UC END# *47F4C2B9014A_49EC547C001B_var*
 begin
@@ -143,6 +118,7 @@ begin
 end;//TdsGroupsList.MakeSimpleTree
 
 function TdsGroupsList.GroupsListNodeType(const aNode: Il3SimpleNode): TbsGroupNodeType;
+ {* Тип ноды }
 //#UC START# *49EC50000093_49EC547C001B_var*
 var
  l_Node: INodeBase;
@@ -164,6 +140,7 @@ begin
 end;//TdsGroupsList.GroupsListNodeType
 
 procedure TdsGroupsList.DeleteGroup(const aNode: Il3SimpleNode);
+ {* Удалить группу }
 //#UC START# *49EC50390132_49EC547C001B_var*
 //#UC END# *49EC50390132_49EC547C001B_var*
 begin
@@ -173,6 +150,7 @@ begin
 end;//TdsGroupsList.DeleteGroup
 
 procedure TdsGroupsList.CreateNewGroup;
+ {* Создать группу }
 //#UC START# *49EC51CA014F_49EC547C001B_var*
 //#UC END# *49EC51CA014F_49EC547C001B_var*
 begin
@@ -191,6 +169,7 @@ begin
 end;//TdsGroupsList.ChangeBasesAccessForGroup
 
 procedure TdsGroupsList.RenameGroup(const aNode: Il3SimpleNode);
+ {* Переименовать группу }
 //#UC START# *49EEEBB4002A_49EC547C001B_var*
 //#UC END# *49EEEBB4002A_49EC547C001B_var*
 begin
@@ -200,6 +179,7 @@ begin
 end;//TdsGroupsList.RenameGroup
 
 function TdsGroupsList.HasUsers(const aNode: Il3SimpleNode): Boolean;
+ {* Есть ли пользователи в группе }
 //#UC START# *49F04DCE0166_49EC547C001B_var*
 var
  l_Node: IGroupNode;
@@ -211,6 +191,7 @@ begin
 end;//TdsGroupsList.HasUsers
 
 procedure TdsGroupsList.CheckUnsavedUserProperty;
+ {* Если свойства не сохранены - спросить об этом }
 //#UC START# *49F6DBB30002_49EC547C001B_var*
 //#UC END# *49F6DBB30002_49EC547C001B_var*
 begin
@@ -237,6 +218,7 @@ begin
 end;//TdsGroupsList.NotifyTreeViewInvalidate
 
 procedure TdsGroupsList.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_49EC547C001B_var*
 //#UC END# *479731C50290_49EC547C001B_var*
 begin
@@ -247,6 +229,7 @@ begin
 end;//TdsGroupsList.Cleanup
 
 procedure TdsGroupsList.DoCurrentChanged(const aNode: Il3SimpleNode);
+ {* сменился текущий. }
 //#UC START# *47F0C1BF0314_49EC547C001B_var*
 //#UC END# *47F0C1BF0314_49EC547C001B_var*
 begin
@@ -256,6 +239,7 @@ begin
 end;//TdsGroupsList.DoCurrentChanged
 
 function TdsGroupsList.MakeImageList: Il3ImageList;
+ {* - создать иконки дерева. }
 //#UC START# *47F465F80149_49EC547C001B_var*
 //#UC END# *47F465F80149_49EC547C001B_var*
 begin
@@ -274,8 +258,9 @@ begin
 //#UC END# *49215CE702B9_49EC547C001B_impl*
 end;//TdsGroupsList.DoDataDropped
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TdsGroupsList.GotData;
+ {* - данные изменились. }
 //#UC START# *492ACF630072_49EC547C001B_var*
 //#UC END# *492ACF630072_49EC547C001B_var*
 begin
@@ -284,20 +269,25 @@ begin
  f_Root := PartData.Node;
 //#UC END# *492ACF630072_49EC547C001B_impl*
 end;//TdsGroupsList.GotData
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-procedure TdsGroupsList.InitRefs(const aDS: IvcmUseCaseController);
+{$If NOT Defined(NoVCM)}
+procedure TdsGroupsList.InitRefs(const aDS: IvcmFormSetDataSource);
+ {* Инициализирует ссылки на различные представления прецедента }
 begin
  inherited;
  SDS := aDS As IsdsAdmin;
-end;
+end;//TdsGroupsList.InitRefs
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$If NOT Defined(NoVCM)}
 procedure TdsGroupsList.ClearRefs;
+ {* Очищает ссылки на различные представления прецедента }
 begin
  inherited;
  SDS := nil;
-end;
+end;//TdsGroupsList.ClearRefs
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //Admin
-
+{$IfEnd} // Defined(Admin)
 end.

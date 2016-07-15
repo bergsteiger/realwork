@@ -16,6 +16,9 @@ uses
  , bsTypes
  , l3IID
  , nevTools
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  , DocumentAndListInterfaces
  , l3Types
  , DocumentInterfaces
@@ -30,9 +33,6 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  , DocumentUnit
  , bsTypesNew
- {$If NOT Defined(NoVCM)}
- , vcmInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
  , l3ProtoObjectWithCOMQI
  {$If NOT Defined(NoVCM)}
  , vcmLocalInterfaces
@@ -48,7 +48,7 @@ type
   {* БОС запроса на консультацию }
   private
    f_ShowingStatus: TbsConsultationStatuses;
-   Consultation: IsdsConsultation;
+   ucc_Consultation: IsdsConsultation;
   protected
    function pm_GetShowingStatus: TbsConsultationStatuses;
    procedure InitFields; override;
@@ -57,6 +57,14 @@ type
     {* Реализация запроса интерфейса }
    function MakeContainer: InevDocumentContainer; override;
     {* Конструирует контейнер документа }
+   {$If NOT Defined(NoVCM)}
+   procedure InitRefs(const aDS: IvcmFormSetDataSource); override;
+    {* Инициализирует ссылки на различные представления прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure ClearRefs; override;
+    {* Очищает ссылки на различные представления прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//TdsConsultation
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -139,6 +147,24 @@ begin
   Result := TnsConsultationDocumentContainerNew.Make(DocInfo, ucc_Consultation.bsConsultation.Data);
 //#UC END# *4C6AB38800F3_491C3E97009F_impl*
 end;//TdsConsultation.MakeContainer
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
+{$If NOT Defined(NoVCM)}
+procedure TdsConsultation.InitRefs(const aDS: IvcmFormSetDataSource);
+ {* Инициализирует ссылки на различные представления прецедента }
+begin
+ inherited;
+ Supports(aDS, IsdsConsultation, ucc_Consultation);
+end;//TdsConsultation.InitRefs
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TdsConsultation.ClearRefs;
+ {* Очищает ссылки на различные представления прецедента }
+begin
+ inherited;
+ ucc_Consultation := nil;
+end;//TdsConsultation.ClearRefs
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

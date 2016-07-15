@@ -1,110 +1,75 @@
 unit dsMedicFirmList;
+ {* Список фирм-производителей }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Medic"
-// Автор: Лукьянец Р.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Medic/dsMedicFirmList.pas"
-// Начат: 2008/03/31 10:23:14
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ViewAreaControllerImp::Class>> F1 Встроенные продукты::Inpharm::Medic::Medic::TdsMedicFirmList
-//
-// Список фирм-производителей
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Medic\dsMedicFirmList.pas"
+// Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "TdsMedicFirmList" MUID: (49257BB801C7)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DocumentUnit,
-  DynamicTreeUnit,
-  l3Interfaces,
-  afwInterfaces,
-  l3TreeInterfaces,
-  bsInterfaces,
-  DocumentAndListInterfaces,
-  MedicInterfaces,
-  l3InternalInterfaces
-  {$If not defined(NoVCL)}
-  ,
-  ExtCtrls
-  {$IfEnd} //not NoVCL
-  ,
-  TreeInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmExternalInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmLocalInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  l3ProtoObjectWithCOMQI,
-  l3NotifyPtrList
-  {$If defined(Nemesis)}
-  ,
-  nscNewInterfaces
-  {$IfEnd} //Nemesis
-  ,
-  DocumentInterfaces,
-  PreviewInterfaces,
-  nsTypesNew,
-  vcmControllers {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , bsInterfaces
+ , MedicInterfaces
+ , l3TreeInterfaces
+ , DynamicTreeUnit
+ , l3Interfaces
+ , DocumentAndListInterfaces
+ , afwInterfaces
+ , DocumentUnit
+ , DocumentInterfaces
+ , PreviewInterfaces
+ , nsTypesNew
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , TreeInterfaces
+ {$If NOT Defined(NoVCL)}
+ , ExtCtrls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3InternalInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3ProtoObjectWithCOMQI
+ {$If NOT Defined(NoVCM)}
+ , vcmLocalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3NotifyPtrList
+ {$If Defined(Nemesis)}
+ , nscNewInterfaces
+ {$IfEnd} // Defined(Nemesis)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
- _FormDataSourceType_ = IdsMedicFirmList;
  _InitDataType_ = IdeMedicFirmList;
+ _FormDataSourceType_ = IdsMedicFirmList;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\Tree\dsSimpleTree.imp.pas}
  _nsContextFilter_Parent_ = _dsSimpleTree_;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\Tree\nsContextFilter.imp.pas}
- TdsMedicFirmList = {final vac} class(_nsContextFilter_, InsMedicFirmsTreeNotifyRecipient, IdsMedicFirmList)
+ TdsMedicFirmList = {final} class(_nsContextFilter_, InsMedicFirmsTreeNotifyRecipient, IdsMedicFirmList)
   {* Список фирм-производителей }
- private
- // private fields
-   f_CurrentCountryFilter : Il3SimpleNode;
-   f_CountryFilterTree : Il3SimpleTree;
-   ucc_BaseDocument : IsdsBaseDocument;
-   f_Current : INodeBase;
-    {* Поле для свойства Current}
- protected
-
-  procedure InitRefs(const aDS: IvcmUseCaseController); override;
-  procedure ClearRefs; override;
- private
- // private methods
+  private
+   f_CurrentCountryFilter: Il3SimpleNode;
+   f_CountryFilterTree: Il3SimpleTree;
+   ucc_BaseDocument: IsdsBaseDocument;
+   f_Current: INodeBase;
+  private
    function MakePreview(const aTree: Il3SimpleTree): IafwComplexDocumentPreview;
-     {* формирует preview для списка }
+    {* формирует preview для списка }
    function MakeMultiDocumentPreview(const aTree: Il3SimpleTree): IafwComplexDocumentPreview;
-     {* Создать превью с текстами документов }
+    {* Создать превью с текстами документов }
    function CreateBookmark: IBookmark;
-     {* создать закладку для текущего документа }
+    {* создать закладку для текущего документа }
    procedure ChangeCurrent(const aNode: Il3SimpleNode);
-     {* текущий поменялся }
- protected
- // property methods
+    {* текущий поменялся }
+  protected
    function pm_GetShortName: Il3CString;
- protected
- // realized methods
    function MakeSimpleTree: Il3SimpleTree; override;
-     {* Создать данные дерева }
+    {* Создать данные дерева }
    procedure CountryFilterResetted;
    function FiltrateByCountry(const aTreeSource: Il3SimpleTree;
     const aCurrentNode: Il3SimpleNode;
@@ -112,118 +77,111 @@ type
     out aCurrent: Integer): Il3SimpleTree;
    function MakeNewDocInfo: IdeDocInfo;
    procedure AddBookmark;
-     {* добавить закладку на текущий документ }
+    {* добавить закладку на текущий документ }
    function GetNodeID(const aNode: Il3SimpleNode): Integer;
    function MakeSuperPreview(const aTree: Il3SimpleTree;
     WithTexts: Boolean = True): InsSuperComplexDocumentPreview;
-     {* Создать суперкомплексное превью }
+    {* Создать суперкомплексное превью }
    function FullName: Il3CString;
    function ExportDocuments(const aTree: Il3SimpleTree;
     aOnlySelection: Boolean;
     const aPath: Il3CString;
     aFormat: TnsFileFormat): Boolean;
-     {* сохранить выделенные документы на диск в указанном формате. Возвращает признак того, что чего-то сохранили }
+    {* сохранить выделенные документы на диск в указанном формате. Возвращает признак того, что чего-то сохранили }
    function MergeDocuments(const aTree: Il3SimpleTree;
     aOnlySelection: Boolean;
     const aFileName: Il3CString;
     aFormat: TnsFileFormat;
     NeedPrintTopic: Boolean = True): Boolean;
-     {* сохранить выделенные документы в один файл в указанном формате. Разделяя, если указано, их фразой "Топик: <внутренний номер документа>". Возвращает признак того, что чего-то сохранили }
+    {* сохранить выделенные документы в один файл в указанном формате. Разделяя, если указано, их фразой "Топик: <внутренний номер документа>". Возвращает признак того, что чего-то сохранили }
    function pm_GetCurrentCountryFilter: Il3SimpleNode;
    function pm_GetCountryFilterTree: Il3SimpleTree;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure DoCurrentChanged(const aNode: Il3SimpleNode); override;
-     {* сменился текущий. }
-   {$If not defined(NoVCM)}
+    {* сменился текущий. }
+   {$If NOT Defined(NoVCM)}
    procedure DoInit; override;
-   {$IfEnd} //not NoVCM
-   procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
-    {$If not defined(NoVCM)}
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    function GetIsDataAvailable: Boolean; override;
-     {* существуют ли данные }
-    {$IfEnd} //not NoVCM
- private
- // private properties
+    {* существуют ли данные }
+   {$IfEnd} // NOT Defined(NoVCM)
+   procedure ClearFields; override;
+   {$If NOT Defined(NoVCM)}
+   procedure InitRefs(const aDS: IvcmFormSetDataSource); override;
+    {* Инициализирует ссылки на различные представления прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure ClearRefs; override;
+    {* Очищает ссылки на различные представления прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
+  private
    property Current: INodeBase
-     read f_Current
-     write f_Current;
+    read f_Current
+    write f_Current;
    property ShortName: Il3CString
-     read pm_GetShortName;
+    read pm_GetShortName;
  end;//TdsMedicFirmList
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  ,
-  SysUtils
-  {$If not defined(NoVCM)}
-  ,
-  StdRes
-  {$IfEnd} //not NoVCM
-  ,
-  afwComplexDocumentPreview,
-  nsDocumentPreview,
-  nsHAFPainter,
-  evTreeStorable,
-  nsTreeMultiDocumentPreviewContainer,
-  nsDocumentTools,
-  nsSuperComplexDocumentPreview,
-  nsDocumentStreamWrapper,
-  nsMedicFirmsTree,
-  k2Const,
-  bsTypesNew,
-  nsCountryFilter,
-  bsUtils,
-  l3String,
-  nsExternalObjectPrim,
-  l3Nodes,
-  BaseTypesUnit,
-  PharmFirmListUnit,
-  deDocInfo,
-  nsMedicFirmsCountryFilterTree,
-  bsDataContainer,
-  nevBase,
-  nsFixedHAFMacroReplacer,
-  evFormatHAFMacroReplacer,
-  FoldersDomainInterfaces,
-  nsFolderFilterInfo,
-  nsDocumentStreamList,
-  DataAdapter,
-  deMedicFirmList,
-  l3Base,
-  vtUtils,
-  vtStdRes,
-  nsNewCachableNode,
-  Windows,
-  l3InterfacesMisc
-  {$If defined(Nemesis)}
-  ,
-  nscContextFilterState
-  {$IfEnd} //Nemesis
-  
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
+ l3ImplUses
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , SysUtils
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ , afwComplexDocumentPreview
+ , nsDocumentPreview
+ , nsHAFPainter
+ , evTreeStorable
+ , nsTreeMultiDocumentPreviewContainer
+ , nsDocumentTools
+ , nsSuperComplexDocumentPreview
+ , nsDocumentStreamWrapper
+ , nsMedicFirmsTree
+ , k2Const
+ , bsTypesNew
+ , nsCountryFilter
+ , bsUtils
+ , l3String
+ , nsExternalObjectPrim
+ , l3Nodes
+ , BaseTypesUnit
+ , PharmFirmListUnit
+ , deDocInfo
+ , nsMedicFirmsCountryFilterTree
+ , bsDataContainer
+ , nevBase
+ , nsFixedHAFMacroReplacer
+ , evFormatHAFMacroReplacer
+ , FoldersDomainInterfaces
+ , nsFolderFilterInfo
+ , nsDocumentStreamList
+ , DataAdapter
+ , deMedicFirmList
+ , l3Base
+ , vtUtils
+ , vtStdRes
+ , nsNewCachableNode
+ , Windows
+ , l3InterfacesMisc
+ {$If Defined(Nemesis)}
+ , nscContextFilterState
+ {$IfEnd} // Defined(Nemesis)
+;
 
 type _Instance_R_ = TdsMedicFirmList;
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\Tree\dsSimpleTree.imp.pas}
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\Tree\nsContextFilter.imp.pas}
-
-// start class TdsMedicFirmList
 
 function TdsMedicFirmList.pm_GetShortName: Il3CString;
 //#UC START# *49257D6C02A5_49257BB801C7get_var*
@@ -235,6 +193,7 @@ begin
 end;//TdsMedicFirmList.pm_GetShortName
 
 function TdsMedicFirmList.MakePreview(const aTree: Il3SimpleTree): IafwComplexDocumentPreview;
+ {* формирует preview для списка }
 //#UC START# *49257D0D020D_49257BB801C7_var*
 var
  l_Selection: IafwDocumentPreview;
@@ -263,6 +222,7 @@ begin
 end;//TdsMedicFirmList.MakePreview
 
 function TdsMedicFirmList.MakeMultiDocumentPreview(const aTree: Il3SimpleTree): IafwComplexDocumentPreview;
+ {* Создать превью с текстами документов }
 //#UC START# *49257D2E030B_49257BB801C7_var*
 var
  l_Tree    : Il3ExpandedSimpleTree;
@@ -293,6 +253,7 @@ begin
 end;//TdsMedicFirmList.MakeMultiDocumentPreview
 
 function TdsMedicFirmList.CreateBookmark: IBookmark;
+ {* создать закладку для текущего документа }
 //#UC START# *49257D9201BF_49257BB801C7_var*
 var
  l_Document : IDocument;
@@ -323,6 +284,7 @@ begin
 end;//TdsMedicFirmList.CreateBookmark
 
 procedure TdsMedicFirmList.ChangeCurrent(const aNode: Il3SimpleNode);
+ {* текущий поменялся }
 //#UC START# *4925898100FE_49257BB801C7_var*
 var
  l_Node: INodeBase;
@@ -340,6 +302,7 @@ begin
 end;//TdsMedicFirmList.ChangeCurrent
 
 function TdsMedicFirmList.MakeSimpleTree: Il3SimpleTree;
+ {* Создать данные дерева }
 //#UC START# *47F4C2B9014A_49257BB801C7_var*
 //#UC END# *47F4C2B9014A_49257BB801C7_var*
 begin
@@ -358,9 +321,9 @@ begin
 end;//TdsMedicFirmList.CountryFilterResetted
 
 function TdsMedicFirmList.FiltrateByCountry(const aTreeSource: Il3SimpleTree;
-  const aCurrentNode: Il3SimpleNode;
-  const aFilter: Il3SimpleNode;
-  out aCurrent: Integer): Il3SimpleTree;
+ const aCurrentNode: Il3SimpleNode;
+ const aFilter: Il3SimpleNode;
+ out aCurrent: Integer): Il3SimpleTree;
 //#UC START# *492576530326_49257BB801C7_var*
 var
  l_FilterableTree: Il3FilterableTree;
@@ -399,6 +362,7 @@ begin
 end;//TdsMedicFirmList.MakeNewDocInfo
 
 procedure TdsMedicFirmList.AddBookmark;
+ {* добавить закладку на текущий документ }
 //#UC START# *492576E30362_49257BB801C7_var*
 var
  l_Bookmark : IBookmark;
@@ -437,7 +401,8 @@ begin
 end;//TdsMedicFirmList.GetNodeID
 
 function TdsMedicFirmList.MakeSuperPreview(const aTree: Il3SimpleTree;
-  WithTexts: Boolean = True): InsSuperComplexDocumentPreview;
+ WithTexts: Boolean = True): InsSuperComplexDocumentPreview;
+ {* Создать суперкомплексное превью }
 //#UC START# *492577250399_49257BB801C7_var*
 var
  l_Preview: IafwComplexDocumentPreview;
@@ -463,9 +428,10 @@ begin
 end;//TdsMedicFirmList.FullName
 
 function TdsMedicFirmList.ExportDocuments(const aTree: Il3SimpleTree;
-  aOnlySelection: Boolean;
-  const aPath: Il3CString;
-  aFormat: TnsFileFormat): Boolean;
+ aOnlySelection: Boolean;
+ const aPath: Il3CString;
+ aFormat: TnsFileFormat): Boolean;
+ {* сохранить выделенные документы на диск в указанном формате. Возвращает признак того, что чего-то сохранили }
 //#UC START# *4925778D0078_49257BB801C7_var*
 var
  l_Result: Boolean absolute Result;
@@ -522,10 +488,11 @@ begin
 end;//TdsMedicFirmList.ExportDocuments
 
 function TdsMedicFirmList.MergeDocuments(const aTree: Il3SimpleTree;
-  aOnlySelection: Boolean;
-  const aFileName: Il3CString;
-  aFormat: TnsFileFormat;
-  NeedPrintTopic: Boolean = True): Boolean;
+ aOnlySelection: Boolean;
+ const aFileName: Il3CString;
+ aFormat: TnsFileFormat;
+ NeedPrintTopic: Boolean = True): Boolean;
+ {* сохранить выделенные документы в один файл в указанном формате. Разделяя, если указано, их фразой "Топик: <внутренний номер документа>". Возвращает признак того, что чего-то сохранили }
 //#UC START# *492577CF0184_49257BB801C7_var*
 var
  l_Tree : Il3ExpandedSimpleTree;
@@ -609,6 +576,7 @@ begin
 end;//TdsMedicFirmList.pm_GetCountryFilterTree
 
 procedure TdsMedicFirmList.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_49257BB801C7_var*
 var
  l_Source: InsMedicFirmsTreeNotificationSource;
@@ -625,6 +593,7 @@ begin
 end;//TdsMedicFirmList.Cleanup
 
 procedure TdsMedicFirmList.DoCurrentChanged(const aNode: Il3SimpleNode);
+ {* сменился текущий. }
 //#UC START# *47F0C1BF0314_49257BB801C7_var*
 var
  l_Node   : INodeBase;
@@ -654,7 +623,7 @@ begin
 //#UC END# *47F0C1BF0314_49257BB801C7_impl*
 end;//TdsMedicFirmList.DoCurrentChanged
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TdsMedicFirmList.DoInit;
 //#UC START# *492BF7900310_49257BB801C7_var*
 var
@@ -673,19 +642,11 @@ begin
  end;
 //#UC END# *492BF7900310_49257BB801C7_impl*
 end;//TdsMedicFirmList.DoInit
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-procedure TdsMedicFirmList.ClearFields;
- {-}
-begin
- {$If not defined(Admin) AND not defined(Monitorings)}
- Current := nil;
- {$IfEnd} //not Admin AND not Monitorings
- inherited;
-end;//TdsMedicFirmList.ClearFields
-
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 function TdsMedicFirmList.GetIsDataAvailable: Boolean;
+ {* существуют ли данные }
 //#UC START# *55097FF5008E_49257BB801C7_var*
 //#UC END# *55097FF5008E_49257BB801C7_var*
 begin
@@ -693,20 +654,31 @@ begin
  Result := DefDataAdapter.IsInpharmExists;
 //#UC END# *55097FF5008E_49257BB801C7_impl*
 end;//TdsMedicFirmList.GetIsDataAvailable
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-procedure TdsMedicFirmList.InitRefs(const aDS: IvcmUseCaseController);
+procedure TdsMedicFirmList.ClearFields;
+begin
+ Current := nil;
+ inherited;
+end;//TdsMedicFirmList.ClearFields
+
+{$If NOT Defined(NoVCM)}
+procedure TdsMedicFirmList.InitRefs(const aDS: IvcmFormSetDataSource);
+ {* Инициализирует ссылки на различные представления прецедента }
 begin
  inherited;
  Supports(aDS, IsdsBaseDocument, ucc_BaseDocument);
-end;
+end;//TdsMedicFirmList.InitRefs
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$If NOT Defined(NoVCM)}
 procedure TdsMedicFirmList.ClearRefs;
+ {* Очищает ссылки на различные представления прецедента }
 begin
  inherited;
  ucc_BaseDocument := nil;
-end;
+end;//TdsMedicFirmList.ClearRefs
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //not Admin AND not Monitorings
-
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

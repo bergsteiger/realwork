@@ -13,17 +13,18 @@
   private
    f_SimpleTree: Il3SimpleTree;
    f_IsFirstMake: Boolean;
-    {* ѕоле дл€ свойства IsFirstMake }
    f_MovingCurrent: Il3SimpleNode;
-    {* ѕоле дл€ свойства MovingCurrent }
+    {* текущий перемещаемый в дереве, которым ещЄ не было обновлено св€занное
+           представление }
    f_PrevMovingCurrent: Il3SimpleNode;
-    {* ѕоле дл€ свойства PrevMovingCurrent }
+    {* предыдущий текущий узел в дереве, используетс€ дл€ определени€ конца
+          перемещени€ }
    f_ChangeCurrentTime: Cardinal;
-    {* ѕоле дл€ свойства ChangeCurrentTime }
+    {* врем€ последнего обновлени€ текущего }
    f_UpdateCurrentTimer: TTimer;
-    {* ѕоле дл€ свойства UpdateCurrentTimer }
    f_Current: Il3SimpleNode;
-    {* ѕоле дл€ свойства Current }
+    {* текущий узел, данные которого показываютс€ в св€занном представлении
+           (например список и зона синхронного просмотра) }
   private
    procedure OnUpdateCurrent(aSender: TObject);
    procedure MovingFinished;

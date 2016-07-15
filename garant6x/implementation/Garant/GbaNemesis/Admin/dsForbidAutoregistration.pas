@@ -1,98 +1,69 @@
 unit dsForbidAutoregistration;
+ {* Запрет авторегистрации }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Admin"
-// Автор: Морозов М.А.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Admin/dsForbidAutoregistration.pas"
-// Начат: 20.05.2007
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ViewAreaControllerImp::Class>> F1 Администратор::Admin::Admin::Admin::TdsForbidAutoregistration
-//
-// Запрет авторегистрации
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Admin\dsForbidAutoregistration.pas"
+// Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "TdsForbidAutoregistration" MUID: (491D9D81001D)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If defined(Admin)}
+{$If Defined(Admin)}
 uses
-  AdminInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmExternalInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmLocalInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  l3ProtoObjectWithCOMQI,
-  l3Interfaces,
-  l3NotifyPtrList,
-  AdminDomainInterfaces
-  ;
-{$IfEnd} //Admin
+ l3IntfUses
+ , AdminInterfaces
+ , l3Interfaces
+ , AdminDomainInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3ProtoObjectWithCOMQI
+ {$If NOT Defined(NoVCM)}
+ , vcmLocalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3NotifyPtrList
+;
 
-{$If defined(Admin)}
 type
  _FormDataSourceType_ = IdsForbidAutoregistration;
  {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourcePrim.imp.pas}
- TdsForbidAutoregistration = {final vac} class(_vcmFormDataSourcePrim_, IdsForbidAutoregistration)
+ TdsForbidAutoregistration = {final} class(_vcmFormDataSourcePrim_, IdsForbidAutoregistration)
   {* Запрет авторегистрации }
- private
- // private fields
-   f_NeedForbid : Boolean;
- protected
- // realized methods
+  private
+   f_NeedForbid: Boolean;
+  protected
    function pm_GetPhone: Il3CString;
-   procedure pm_SetPhone(const aValue: Il3CString);
+   procedure pm_SetPhone(const aValue: Il3CString); { can raise EdsMaxLengthExceed }
    function pm_GetEmail: Il3CString;
-   procedure pm_SetEmail(const aValue: Il3CString);
+   procedure pm_SetEmail(const aValue: Il3CString); { can raise EdsMaxLengthExceed }
    function Get_NeedForbid: Boolean;
    procedure Set_NeedForbid(aValue: Boolean);
- protected
- // overridden protected methods
    procedure InitFields; override;
  end;//TdsForbidAutoregistration
-{$IfEnd} //Admin
+{$IfEnd} // Defined(Admin)
 
 implementation
 
-{$If defined(Admin)}
+{$If Defined(Admin)}
 uses
-  DataAdapter,
-  l3String,
-  l3InterfacesMisc,
-  SysUtils,
-  l3Base
-  ;
-{$IfEnd} //Admin
+ l3ImplUses
+ , DataAdapter
+ , l3String
+ , l3InterfacesMisc
+ , SysUtils
+ , l3Base
+;
 
-{$If defined(Admin)}
+const
+ c_MaxLength = 50;
 
 type _Instance_R_ = TdsForbidAutoregistration;
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourcePrim.imp.pas}
-
-const
-   { Limits }
-  c_MaxLength = 50;
-
-// start class TdsForbidAutoregistration
 
 function TdsForbidAutoregistration.pm_GetPhone: Il3CString;
 //#UC START# *491D96B9006E_491D9D81001Dget_var*
@@ -103,7 +74,7 @@ begin
 //#UC END# *491D96B9006E_491D9D81001Dget_impl*
 end;//TdsForbidAutoregistration.pm_GetPhone
 
-procedure TdsForbidAutoregistration.pm_SetPhone(const aValue: Il3CString);
+procedure TdsForbidAutoregistration.pm_SetPhone(const aValue: Il3CString); { can raise EdsMaxLengthExceed }
 //#UC START# *491D96B9006E_491D9D81001Dset_var*
 //#UC END# *491D96B9006E_491D9D81001Dset_var*
 begin
@@ -123,7 +94,7 @@ begin
 //#UC END# *491D96D0039F_491D9D81001Dget_impl*
 end;//TdsForbidAutoregistration.pm_GetEmail
 
-procedure TdsForbidAutoregistration.pm_SetEmail(const aValue: Il3CString);
+procedure TdsForbidAutoregistration.pm_SetEmail(const aValue: Il3CString); { can raise EdsMaxLengthExceed }
 //#UC START# *491D96D0039F_491D9D81001Dset_var*
 //#UC END# *491D96D0039F_491D9D81001Dset_var*
 begin
@@ -161,7 +132,6 @@ begin
  f_NeedForbid := false;
 //#UC END# *47A042E100E2_491D9D81001D_impl*
 end;//TdsForbidAutoregistration.InitFields
-
-{$IfEnd} //Admin
+{$IfEnd} // Defined(Admin)
 
 end.

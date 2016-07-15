@@ -1,130 +1,104 @@
 unit dsTreeAttributeSelect;
+ {* бизнес объект формы выбранные атрибуты дерева }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Search"
-// Автор: Морозов М.А.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Search/dsTreeAttributeSelect.pas"
-// Начат: 2005/07/29 15:27:38
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ViewAreaControllerImp::Class>> F1 Базовые определения предметной области::SearchLite::Search::Search::TdsTreeAttributeSelect
-//
-// бизнес объект формы выбранные атрибуты дерева
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Search\dsTreeAttributeSelect.pas"
+// Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "TdsTreeAttributeSelect" MUID: (492437620004)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  SearchInterfaces,
-  L10nInterfaces,
-  SearchDomainInterfaces,
-  l3InternalInterfaces,
-  l3TreeInterfaces,
-  bsInterfaces
-  {$If not defined(NoVCL)}
-  ,
-  ExtCtrls
-  {$IfEnd} //not NoVCL
-  ,
-  TreeInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmExternalInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmLocalInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  l3ProtoObjectWithCOMQI,
-  l3Interfaces,
-  l3NotifyPtrList,
-  vcmControllers {a}
-  ;
+ l3IntfUses
+ , SearchInterfaces
+ , L10nInterfaces
+ , l3TreeInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , SearchDomainInterfaces
+ , TreeInterfaces
+ , bsInterfaces
+ {$If NOT Defined(NoVCL)}
+ , ExtCtrls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3InternalInterfaces
+ , l3ProtoObjectWithCOMQI
+ {$If NOT Defined(NoVCM)}
+ , vcmLocalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3Interfaces
+ , l3NotifyPtrList
+;
 
 type
  _FormDataSourceType_ = IdsTreeAttributeSelect;
- {$Include ..\Search\dsSituation.imp.pas}
- TdsTreeAttributeSelect = {vac} class(_dsSituation_, IdsTreeAttributeSelect)
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Search\dsSituation.imp.pas}
+ TdsTreeAttributeSelect = class(_dsSituation_, IdsTreeAttributeSelect)
   {* бизнес объект формы выбранные атрибуты дерева }
- private
- // private fields
-   SelectedAttributes : IbsSelectedAttributes;
-   f_CaptionMap : InsStringValueMap;
- protected
-
-  procedure InitRefs(const aDS: IvcmUseCaseController); override;
-  procedure ClearRefs; override;
- protected
- // realized methods
+  private
+   SelectedAttributes: IbsSelectedAttributes;
+   f_CaptionMap: InsStringValueMap;
+  protected
    function MakeSimpleTree: Il3SimpleTree; override;
-     {* Создать данные дерева }
+    {* Создать данные дерева }
    function pm_GetRefreshValues: InsSelectedAttributesIterators;
- public
- // realized methods
-   procedure UpdateSelectedAttributes;
-     {* обновить данные в форме выбранных атрибутов }
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   {$If not defined(NoVCM)}
+    {* Функция очистки полей объекта. }
+   {$If NOT Defined(NoVCM)}
    function MakeDisplayName: IvcmCString; override;
-   {$IfEnd} //not NoVCM
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitRefs(const aDS: IvcmFormSetDataSource); override;
+    {* Инициализирует ссылки на различные представления прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure ClearRefs; override;
+    {* Очищает ссылки на различные представления прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
+   procedure UpdateSelectedAttributes;
+    {* обновить данные в форме выбранных атрибутов }
  end;//TdsTreeAttributeSelect
 
 implementation
 
 uses
-  SysUtils,
-  l3String
-  {$If not defined(NoVCM)}
-  ,
-  StdRes
-  {$IfEnd} //not NoVCM
-  ,
-  DynamicTreeUnit
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  ,
-  nsLogicOperationToFlags,
-  nsConst,
-  nsAttributeTreeStruct,
-  nsValueMaps,
-  nsValueMapsIDs,
-  nsSelectedAttributesIterators,
-  bsUtils,
-  l3Base,
-  vtUtils,
-  vtStdRes,
-  nsNewCachableNode,
-  Windows,
-  l3InterfacesMisc
-  ;
+ l3ImplUses
+ , SysUtils
+ , l3String
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ , DynamicTreeUnit
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , nsLogicOperationToFlags
+ , nsConst
+ , nsAttributeTreeStruct
+ , nsValueMaps
+ , nsValueMapsIDs
+ , nsSelectedAttributesIterators
+ , bsUtils
+ , l3Base
+ , vtUtils
+ , vtStdRes
+ , nsNewCachableNode
+ , Windows
+ , l3InterfacesMisc
+;
 
 type _Instance_R_ = TdsTreeAttributeSelect;
 
-{$Include ..\Search\dsSituation.imp.pas}
-
-// start class TdsTreeAttributeSelect
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Search\dsSituation.imp.pas}
 
 function TdsTreeAttributeSelect.MakeSimpleTree: Il3SimpleTree;
+ {* Создать данные дерева }
 //#UC START# *47F4C2B9014A_492437620004_var*
 var
  lRoot : INodeBase;
@@ -161,6 +135,7 @@ begin
 end;//TdsTreeAttributeSelect.pm_GetRefreshValues
 
 procedure TdsTreeAttributeSelect.UpdateSelectedAttributes;
+ {* обновить данные в форме выбранных атрибутов }
 //#UC START# *4959149300F9_492437620004_var*
 //#UC END# *4959149300F9_492437620004_var*
 begin
@@ -171,6 +146,7 @@ begin
 end;//TdsTreeAttributeSelect.UpdateSelectedAttributes
 
 procedure TdsTreeAttributeSelect.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_492437620004_var*
 //#UC END# *479731C50290_492437620004_var*
 begin
@@ -180,7 +156,7 @@ begin
 //#UC END# *479731C50290_492437620004_impl*
 end;//TdsTreeAttributeSelect.Cleanup
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 function TdsTreeAttributeSelect.MakeDisplayName: IvcmCString;
 //#UC START# *491476B001D3_492437620004_var*
 //#UC END# *491476B001D3_492437620004_var*
@@ -197,18 +173,24 @@ begin
   Result := inherited MakeDisplayName;
 //#UC END# *491476B001D3_492437620004_impl*
 end;//TdsTreeAttributeSelect.MakeDisplayName
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-procedure TdsTreeAttributeSelect.InitRefs(const aDS: IvcmUseCaseController);
+{$If NOT Defined(NoVCM)}
+procedure TdsTreeAttributeSelect.InitRefs(const aDS: IvcmFormSetDataSource);
+ {* Инициализирует ссылки на различные представления прецедента }
 begin
  inherited;
  Supports(aDS, IbsSelectedAttributes, SelectedAttributes);
-end;
+end;//TdsTreeAttributeSelect.InitRefs
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$If NOT Defined(NoVCM)}
 procedure TdsTreeAttributeSelect.ClearRefs;
+ {* Очищает ссылки на различные представления прецедента }
 begin
  inherited;
  SelectedAttributes := nil;
-end;
+end;//TdsTreeAttributeSelect.ClearRefs
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

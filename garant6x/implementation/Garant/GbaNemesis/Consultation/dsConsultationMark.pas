@@ -1,109 +1,85 @@
 unit dsConsultationMark;
+ {* БОС оценки консультации }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Consultation"
-// Автор: Морозов М.А.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Consultation/dsConsultationMark.pas"
-// Начат: 2006/04/07 08:16:08
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ViewAreaControllerImp::Class>> F1 Пользовательские сервисы::Consultation::Consultation::Consultation::TdsConsultationMark
-//
-// БОС оценки консультации
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Consultation\dsConsultationMark.pas"
+// Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "TdsConsultationMark" MUID: (49216B3C02E8)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3_String,
-  bsTypes,
-  ConsultationDomainInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmExternalInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmLocalInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  l3ProtoObjectWithCOMQI,
-  l3Interfaces,
-  l3NotifyPtrList,
-  vcmControllers {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , ConsultationDomainInterfaces
+ , l3_String
+ , bsTypes
+ , l3Interfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3ProtoObjectWithCOMQI
+ {$If NOT Defined(NoVCM)}
+ , vcmLocalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3NotifyPtrList
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  _FormDataSourceType_ = IdsConsultationMark;
  {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourcePrim.imp.pas}
- TdsConsultationMark = {final vac} class(_vcmFormDataSourcePrim_, IdsConsultationMark)
+ TdsConsultationMark = {final} class(_vcmFormDataSourcePrim_, IdsConsultationMark)
   {* БОС оценки консультации }
- private
- // private fields
-   f_Comment : Tl3_String;
-   f_Mark : TbsConsultationMark;
-   ucc_Consultation : IsdsConsultation;
- protected
-
-  procedure InitRefs(const aDS: IvcmUseCaseController); override;
-  procedure ClearRefs; override;
- protected
- // realized methods
+  private
+   f_Comment: Tl3_String;
+   f_Mark: TbsConsultationMark;
+   ucc_Consultation: IsdsConsultation;
+  protected
    procedure Send;
-     {* послать оценку }
+    {* послать оценку }
    function pm_GetMark: TbsConsultationMark;
    procedure pm_SetMark(aValue: TbsConsultationMark);
    function pm_GetComment: Tl3WString;
    procedure pm_SetComment(const aValue: Tl3WString);
    function pm_GetCanSend: Boolean;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure InitFields; override;
+   {$If NOT Defined(NoVCM)}
+   procedure InitRefs(const aDS: IvcmFormSetDataSource); override;
+    {* Инициализирует ссылки на различные представления прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure ClearRefs; override;
+    {* Очищает ссылки на различные представления прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//TdsConsultationMark
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Base,
-  ConsultingUnit,
-  bsConvert,
-  DataAdapter,
-  nsTypes,
-  l3InterfacesMisc,
-  SysUtils
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
+ l3ImplUses
+ , l3Base
+ , ConsultingUnit
+ , bsConvert
+ , DataAdapter
+ , nsTypes
+ , l3InterfacesMisc
+ , SysUtils
+;
 
 type _Instance_R_ = TdsConsultationMark;
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourcePrim.imp.pas}
 
-// start class TdsConsultationMark
-
 procedure TdsConsultationMark.Send;
+ {* послать оценку }
 //#UC START# *49216508016D_49216B3C02E8_var*
 var
  l_Estimation : IEstimation;
@@ -178,6 +154,7 @@ begin
 end;//TdsConsultationMark.pm_GetCanSend
 
 procedure TdsConsultationMark.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_49216B3C02E8_var*
 //#UC END# *479731C50290_49216B3C02E8_var*
 begin
@@ -197,18 +174,23 @@ begin
 //#UC END# *47A042E100E2_49216B3C02E8_impl*
 end;//TdsConsultationMark.InitFields
 
-procedure TdsConsultationMark.InitRefs(const aDS: IvcmUseCaseController);
+{$If NOT Defined(NoVCM)}
+procedure TdsConsultationMark.InitRefs(const aDS: IvcmFormSetDataSource);
+ {* Инициализирует ссылки на различные представления прецедента }
 begin
  inherited;
  Supports(aDS, IsdsConsultation, ucc_Consultation);
-end;
+end;//TdsConsultationMark.InitRefs
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$If NOT Defined(NoVCM)}
 procedure TdsConsultationMark.ClearRefs;
+ {* Очищает ссылки на различные представления прецедента }
 begin
  inherited;
  ucc_Consultation := nil;
-end;
+end;//TdsConsultationMark.ClearRefs
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //not Admin AND not Monitorings
-
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

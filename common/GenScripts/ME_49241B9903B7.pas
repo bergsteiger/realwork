@@ -37,6 +37,7 @@ uses
 
 type
  _InitDataType_ = IdeSelectedAttributes;
+ _FormDataSourceType_ = IdsSelectedAttributes;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\Search\dsTagSimpleTree.imp.pas}
  TdsSelectedAttributes = {final} class(_dsTagSimpleTree_, IdsSelectedAttributes)
   {* бизнес объект формы "выбранные атрибуты дерева" }

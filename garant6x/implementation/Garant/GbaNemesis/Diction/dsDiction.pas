@@ -1,152 +1,122 @@
 unit dsDiction;
+ {* перевод толкового словаря на сборку }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Diction"
-// Автор: Морозов М.А.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Diction/dsDiction.pas"
-// Начат: 2005/10/07 17:03:27
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ViewAreaControllerImp::Class>> F1 Встроенные продукты::Diction::Diction::Diction::TdsDiction
-//
-// перевод толкового словаря на сборку
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Diction\dsDiction.pas"
+// Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "TdsDiction" MUID: (4925526600D0)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  bsTypes,
-  DictionInterfaces,
-  DocumentUnit,
-  DynamicTreeUnit,
-  l3TreeInterfaces
-  {$If defined(Nemesis)}
-  ,
-  nscNewInterfaces
-  {$IfEnd} //Nemesis
-  ,
-  DocumentAndListInterfaces,
-  CommonDictionInterfaces,
-  DocumentInterfaces,
-  l3InternalInterfaces,
-  bsInterfaces
-  {$If not defined(NoVCL)}
-  ,
-  ExtCtrls
-  {$IfEnd} //not NoVCL
-  ,
-  TreeInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmExternalInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmLocalInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  l3ProtoObjectWithCOMQI,
-  l3Interfaces,
-  l3NotifyPtrList,
-  vcmControllers {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , DictionInterfaces
+ , bsTypes
+ , l3TreeInterfaces
+ , DocumentInterfaces
+ , CommonDictionInterfaces
+ , DocumentUnit
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , DynamicTreeUnit
+ , DocumentAndListInterfaces
+ {$If Defined(Nemesis)}
+ , nscNewInterfaces
+ {$IfEnd} // Defined(Nemesis)
+ , l3Interfaces
+ , TreeInterfaces
+ , bsInterfaces
+ {$If NOT Defined(NoVCL)}
+ , ExtCtrls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3InternalInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3ProtoObjectWithCOMQI
+ {$If NOT Defined(NoVCM)}
+ , vcmLocalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3NotifyPtrList
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
- _FormDataSourceType_ = IdsDiction;
  _InitDataType_ = IdeDiction;
+ _FormDataSourceType_ = IdsDiction;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\CommonDiction\dsCommonDiction.imp.pas}
- TdsDiction = {final vac} class(_dsCommonDiction_, IdsDiction)
+ TdsDiction = {final} class(_dsCommonDiction_, IdsDiction)
   {* перевод толкового словаря на сборку }
- private
- // private fields
-   dDiction : IdDiction;
-   f_ContextMap : InsLangToContextMap;
-   ucc_Diction : IsdsDiction;
-   f_Language : TbsLanguage;
-    {* Поле для свойства Language}
- protected
-
-  procedure InitRefs(const aDS: IvcmUseCaseController); override;
-  procedure ClearRefs; override;
- protected
- // realized methods
+  private
+   dDiction: IdDiction;
+   f_ContextMap: InsLangToContextMap;
+   ucc_Diction: IsdsDiction;
+   f_Language: TbsLanguage;
+  protected
    function MakeSimpleTree: Il3SimpleTree; override;
-     {* Создать данные дерева }
+    {* Создать данные дерева }
    function MakeDocInfoForCurrentChanged(const aDoc: IDocument): IdeDocInfo; override;
    function pm_GetLanguage: TbsLanguage;
    procedure pm_SetLanguage(aValue: TbsLanguage);
    function pm_GetContextMap: InsLangToContextMap;
    procedure pm_SetContextMap(const aValue: InsLangToContextMap);
    function pm_GetDictionKind: TnsDictionKind; override;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   {$If not defined(NoVCM)}
+    {* Функция очистки полей объекта. }
+   {$If NOT Defined(NoVCM)}
    procedure FormSetDataChanged; override;
-   {$IfEnd} //not NoVCM
+   {$IfEnd} // NOT Defined(NoVCM)
    procedure AfterChangeCurrent; override;
-   {$If not defined(NoVCM)}
+   {$If NOT Defined(NoVCM)}
    procedure GotData; override;
-     {* - данные изменились. }
-   {$IfEnd} //not NoVCM
+    {* - данные изменились. }
+   {$IfEnd} // NOT Defined(NoVCM)
    function ForceChangeInCurrentChanged: Boolean; override;
-    {$If not defined(NoVCM)}
+   {$If NOT Defined(NoVCM)}
    function GetIsDataAvailable: Boolean; override;
-     {* существуют ли данные }
-    {$IfEnd} //not NoVCM
- private
- // private properties
+    {* существуют ли данные }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitRefs(const aDS: IvcmFormSetDataSource); override;
+    {* Инициализирует ссылки на различные представления прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure ClearRefs; override;
+    {* Очищает ссылки на различные представления прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
+  private
    property Language: TbsLanguage
-     read f_Language
-     write f_Language;
+    read f_Language
+    write f_Language;
  end;//TdsDiction
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  SysUtils,
-  deDiction,
-  nsLangToContextMap,
-  DataAdapter,
-  BaseTypesUnit,
-  l3Base,
-  vtUtils,
-  vtStdRes,
-  nsNewCachableNode,
-  Windows,
-  l3InterfacesMisc
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
+ l3ImplUses
+ , SysUtils
+ , deDiction
+ , nsLangToContextMap
+ , DataAdapter
+ , BaseTypesUnit
+ , l3Base
+ , vtUtils
+ , vtStdRes
+ , nsNewCachableNode
+ , Windows
+ , l3InterfacesMisc
+;
 
 type _Instance_R_ = TdsDiction;
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\CommonDiction\dsCommonDiction.imp.pas}
 
-// start class TdsDiction
-
 function TdsDiction.MakeSimpleTree: Il3SimpleTree;
+ {* Создать данные дерева }
 //#UC START# *47F4C2B9014A_4925526600D0_var*
 //#UC END# *47F4C2B9014A_4925526600D0_var*
 begin
@@ -213,6 +183,7 @@ begin
 end;//TdsDiction.pm_GetDictionKind
 
 procedure TdsDiction.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4925526600D0_var*
 //#UC END# *479731C50290_4925526600D0_var*
 begin
@@ -222,7 +193,7 @@ begin
 //#UC END# *479731C50290_4925526600D0_impl*
 end;//TdsDiction.Cleanup
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TdsDiction.FormSetDataChanged;
 //#UC START# *491482DC0216_4925526600D0_var*
 
@@ -253,7 +224,7 @@ begin
  lp_NotifyCurrentChanged;
 //#UC END# *491482DC0216_4925526600D0_impl*
 end;//TdsDiction.FormSetDataChanged
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 procedure TdsDiction.AfterChangeCurrent;
 //#UC START# *492546330316_4925526600D0_var*
@@ -270,8 +241,9 @@ begin
 //#UC END# *492546330316_4925526600D0_impl*
 end;//TdsDiction.AfterChangeCurrent
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TdsDiction.GotData;
+ {* - данные изменились. }
 //#UC START# *492ACF630072_4925526600D0_var*
 //#UC END# *492ACF630072_4925526600D0_var*
 begin
@@ -281,7 +253,7 @@ begin
  f_ContextMap := PartData.ContextMap;
 //#UC END# *492ACF630072_4925526600D0_impl*
 end;//TdsDiction.GotData
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 function TdsDiction.ForceChangeInCurrentChanged: Boolean;
 //#UC START# *4A9E6599035A_4925526600D0_var*
@@ -292,8 +264,9 @@ begin
 //#UC END# *4A9E6599035A_4925526600D0_impl*
 end;//TdsDiction.ForceChangeInCurrentChanged
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 function TdsDiction.GetIsDataAvailable: Boolean;
+ {* существуют ли данные }
 //#UC START# *55097FF5008E_4925526600D0_var*
 //#UC END# *55097FF5008E_4925526600D0_var*
 begin
@@ -301,22 +274,27 @@ begin
  Result := DefDataAdapter.IsExplanatoryExists;
 //#UC END# *55097FF5008E_4925526600D0_impl*
 end;//TdsDiction.GetIsDataAvailable
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-procedure TdsDiction.InitRefs(const aDS: IvcmUseCaseController);
+{$If NOT Defined(NoVCM)}
+procedure TdsDiction.InitRefs(const aDS: IvcmFormSetDataSource);
+ {* Инициализирует ссылки на различные представления прецедента }
 begin
  inherited;
  Supports(aDS, IdDiction, dDiction);
  Supports(aDS, IsdsDiction, ucc_Diction);
-end;
+end;//TdsDiction.InitRefs
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$If NOT Defined(NoVCM)}
 procedure TdsDiction.ClearRefs;
+ {* Очищает ссылки на различные представления прецедента }
 begin
  inherited;
  dDiction := nil;
  ucc_Diction := nil;
-end;
+end;//TdsDiction.ClearRefs
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //not Admin AND not Monitorings
-
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

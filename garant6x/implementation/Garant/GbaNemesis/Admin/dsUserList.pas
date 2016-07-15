@@ -1,97 +1,63 @@
 unit dsUserList;
+ {* бизнес объект формы efUserList }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Admin"
-// Автор: Тучнин Д.А.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Admin/dsUserList.pas"
-// Начат: 15.08.2005 20.30
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ViewAreaControllerImp::Class>> F1 Администратор::Admin::Admin::Admin::TdsUserList
-//
-// бизнес объект формы efUserList
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Admin\dsUserList.pas"
+// Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "TdsUserList" MUID: (49246742002B)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If defined(Admin)}
+{$If Defined(Admin)}
 uses
-  DynamicTreeUnit,
-  l3TreeInterfaces,
-  AdminInterfaces,
-  l3InternalInterfaces,
-  bsInterfaces
-  {$If not defined(NoVCL)}
-  ,
-  ExtCtrls
-  {$IfEnd} //not NoVCL
-  ,
-  TreeInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmExternalInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmLocalInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  l3ProtoObjectWithCOMQI,
-  l3Interfaces,
-  l3NotifyPtrList
-  {$If defined(Nemesis)}
-  ,
-  nscNewInterfaces
-  {$IfEnd} //Nemesis
-  ,
-  bsTypes,
-  vcmControllers {a}
-  ;
-{$IfEnd} //Admin
+ l3IntfUses
+ , AdminInterfaces
+ , DynamicTreeUnit
+ , l3TreeInterfaces
+ , bsTypes
+ , l3InternalInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , TreeInterfaces
+ , bsInterfaces
+ {$If NOT Defined(NoVCL)}
+ , ExtCtrls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3ProtoObjectWithCOMQI
+ {$If NOT Defined(NoVCM)}
+ , vcmLocalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3Interfaces
+ , l3NotifyPtrList
+ {$If Defined(Nemesis)}
+ , nscNewInterfaces
+ {$IfEnd} // Defined(Nemesis)
+;
 
-{$If defined(Admin)}
 type
- _FormDataSourceType_ = IdsUserList;
  _InitDataType_ = IdeNode;
+ _FormDataSourceType_ = IdsUserList;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\Tree\dsSimpleTree.imp.pas}
  _nsContextFilter_Parent_ = _dsSimpleTree_;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\Tree\nsContextFilter.imp.pas}
- TdsUserList = {final vac} class(_nsContextFilter_, IdsUserList)
+ TdsUserList = {final} class(_nsContextFilter_, IdsUserList)
   {* бизнес объект формы efUserList }
- private
- // private fields
-   f_Root : INodeBase;
-   SDS : IsdsAdmin;
-    {* Прецедент Администрирование}
-   f_CurrentFlagFilter : TUserListFilterTypes;
-    {* Поле для свойства CurrentFlagFilter}
-   f_CurrentGroupFilter : Integer;
-    {* Поле для свойства CurrentGroupFilter}
- protected
-
-  procedure InitRefs(const aDS: IvcmUseCaseController); override;
-  procedure ClearRefs; override;
- private
- // private methods
+  private
+   f_Root: INodeBase;
+   SDS: IsdsAdmin;
+    {* Прецедент Администрирование }
+   f_CurrentFlagFilter: TUserListFilterTypes;
+   f_CurrentGroupFilter: Integer;
+  private
    function MakeSelectedList(const aTree: Il3SimpleTree): IadminUserNodeList;
- protected
- // realized methods
+  protected
    function MakeSimpleTree: Il3SimpleTree; override;
-     {* Создать данные дерева }
+    {* Создать данные дерева }
    function UserListNodeType(const aNode: Il3SimpleNode): TbsUserNodeType;
    function GetFrosenNode(const aNode: Il3SimpleNode): IdeNode;
    function FindFrosenNode(const aNode: IdeNode;
@@ -100,12 +66,12 @@ type
     out aFailed: Boolean);
    procedure DeleteUsers(const aUserTree: Il3SimpleTree;
     out aFailed: IadminUserNodeList);
-     {* Удалить выделенных на дереве пользователей, вернуть список нод которые не удалось удалить }
+    {* Удалить выделенных на дереве пользователей, вернуть список нод которые не удалось удалить }
    procedure CreateNewUser;
    function GetUserState(const aNode: Il3SimpleNode): TUserStates;
    procedure LogoutUser(const aNode: Il3SimpleNode);
    procedure LogoutUsers(const aUserTree: Il3SimpleTree);
-     {* Отключить выделенных на дереве пользователей }
+    {* Отключить выделенных на дереве пользователей }
    function FiltrateByType(const aTreeSource: Il3SimpleTree;
     const aCurrentNode: Il3SimpleNode;
     aFilter: TUserListFilterTypes;
@@ -113,90 +79,89 @@ type
    procedure SetConsultingPaymentForAll(IsAllowed: Boolean);
    procedure SetConsultingPayment(const aUserTree: Il3SimpleTree;
     IsAllowed: Boolean);
-     {* Изменить возможность консалтинга для выделенных на дереве пользователей }
+    {* Изменить возможность консалтинга для выделенных на дереве пользователей }
    procedure SetIsPrivileged(const aNode: Il3SimpleNode;
     IsPrivileged: Boolean);
    procedure SetPrivelegedRights(const aUserTree: Il3SimpleTree;
     IsPrivileged: Boolean);
-     {* Изменить привилегированность для выделенных на дереве пользователей }
+    {* Изменить привилегированность для выделенных на дереве пользователей }
    procedure SelectNodes(const aUserTree: Il3SimpleTree;
     const aList: IadminUserNodeList);
-     {* Выделить ноды по списку (Il3SimpleNode) }
+    {* Выделить ноды по списку (Il3SimpleNode) }
    function pm_GetCurrentFlagFilter: TUserListFilterTypes;
    function pm_GetConsultingPaymentForNewbies: Boolean;
    procedure pm_SetConsultingPaymentForNewbies(aValue: Boolean);
    procedure NotifyCreateUserFinished(Successfull: Boolean);
-     {* Нотификация об отскзе создания пользователя }
+    {* Нотификация об отскзе создания пользователя }
    procedure NotifyGroupChanged(aGroupUID: Integer);
-     {* Сменилась группа }
+    {* Сменилась группа }
    function FiltrateByGroup(const aTreeSource: Il3SimpleTree;
     const aCurrentNode: Il3SimpleNode;
     aFilter: Integer;
     out aCurrent: Integer): Il3SimpleTree;
    procedure CheckUnsavedUserProperty;
-     {* Если свойства не сохранены - спросить об этом }
+    {* Если свойства не сохранены - спросить об этом }
    procedure RequestUpdateCureent;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure DoCurrentChanged(const aNode: Il3SimpleNode); override;
-     {* сменился текущий. }
+    {* сменился текущий. }
    function MakeImageList: Il3ImageList; override;
-     {* - создать иконки дерева. }
-   {$If not defined(NoVCM)}
+    {* - создать иконки дерева. }
+   {$If NOT Defined(NoVCM)}
    procedure GotData; override;
-     {* - данные изменились. }
-   {$IfEnd} //not NoVCM
- protected
- // protected properties
+    {* - данные изменились. }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitRefs(const aDS: IvcmFormSetDataSource); override;
+    {* Инициализирует ссылки на различные представления прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure ClearRefs; override;
+    {* Очищает ссылки на различные представления прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
+  protected
    property CurrentFlagFilter: TUserListFilterTypes
-     read f_CurrentFlagFilter;
+    read f_CurrentFlagFilter;
    property CurrentGroupFilter: Integer
-     read f_CurrentGroupFilter;
+    read f_CurrentGroupFilter;
  end;//TdsUserList
-{$IfEnd} //Admin
+{$IfEnd} // Defined(Admin)
 
 implementation
 
-{$If defined(Admin)}
+{$If Defined(Admin)}
 uses
-  SysUtils,
-  SecurityUnit,
-  vtUtils,
-  AdminRes,
-  l3InterfacedInterfaceList,
-  l3Nodes,
-  deNode,
-  nsUserFlagsFilter,
-  BaseTypesUnit,
-  nsUserTreeStructWithDrag,
-  nsGroupFilter,
-  nsConst,
-  deProfile,
-  adminUserNodeList,
-  l3Base,
-  vtStdRes,
-  nsNewCachableNode,
-  Windows,
-  l3InterfacesMisc
-  {$If defined(Nemesis)}
-  ,
-  nscContextFilterState
-  {$IfEnd} //Nemesis
-  
-  ;
-{$IfEnd} //Admin
-
-{$If defined(Admin)}
+ l3ImplUses
+ , SysUtils
+ , SecurityUnit
+ , vtUtils
+ , AdminRes
+ , l3InterfacedInterfaceList
+ , l3Nodes
+ , deNode
+ , nsUserFlagsFilter
+ , BaseTypesUnit
+ , nsUserTreeStructWithDrag
+ , nsGroupFilter
+ , nsConst
+ , deProfile
+ , adminUserNodeList
+ , l3Base
+ , vtStdRes
+ , nsNewCachableNode
+ , Windows
+ , l3InterfacesMisc
+ {$If Defined(Nemesis)}
+ , nscContextFilterState
+ {$IfEnd} // Defined(Nemesis)
+;
 
 type _Instance_R_ = TdsUserList;
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\Tree\dsSimpleTree.imp.pas}
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\Tree\nsContextFilter.imp.pas}
-
-// start class TdsUserList
 
 function TdsUserList.MakeSelectedList(const aTree: Il3SimpleTree): IadminUserNodeList;
 //#UC START# *49246C70028F_49246742002B_var*
@@ -227,6 +192,7 @@ begin
 end;//TdsUserList.MakeSelectedList
 
 function TdsUserList.MakeSimpleTree: Il3SimpleTree;
+ {* Создать данные дерева }
 //#UC START# *47F4C2B9014A_49246742002B_var*
 //#UC END# *47F4C2B9014A_49246742002B_var*
 begin
@@ -301,7 +267,7 @@ begin
 end;//TdsUserList.GetFrosenNode
 
 function TdsUserList.FindFrosenNode(const aNode: IdeNode;
-  aShowRootFlag: Boolean): Integer;
+ aShowRootFlag: Boolean): Integer;
 //#UC START# *49245ECB01E9_49246742002B_var*
 var
  l_Node: INodeBase;
@@ -327,7 +293,7 @@ begin
 end;//TdsUserList.FindFrosenNode
 
 procedure TdsUserList.DeleteUser(const aNode: Il3SimpleNode;
-  out aFailed: Boolean);
+ out aFailed: Boolean);
 //#UC START# *49245EDB0225_49246742002B_var*
 //#UC END# *49245EDB0225_49246742002B_var*
 begin
@@ -337,7 +303,8 @@ begin
 end;//TdsUserList.DeleteUser
 
 procedure TdsUserList.DeleteUsers(const aUserTree: Il3SimpleTree;
-  out aFailed: IadminUserNodeList);
+ out aFailed: IadminUserNodeList);
+ {* Удалить выделенных на дереве пользователей, вернуть список нод которые не удалось удалить }
 //#UC START# *49245EE602A0_49246742002B_var*
 //#UC END# *49245EE602A0_49246742002B_var*
 begin
@@ -388,6 +355,7 @@ begin
 end;//TdsUserList.LogoutUser
 
 procedure TdsUserList.LogoutUsers(const aUserTree: Il3SimpleTree);
+ {* Отключить выделенных на дереве пользователей }
 //#UC START# *49245FC30050_49246742002B_var*
 //#UC END# *49245FC30050_49246742002B_var*
 begin
@@ -397,9 +365,9 @@ begin
 end;//TdsUserList.LogoutUsers
 
 function TdsUserList.FiltrateByType(const aTreeSource: Il3SimpleTree;
-  const aCurrentNode: Il3SimpleNode;
-  aFilter: TUserListFilterTypes;
-  out aCurrent: Integer): Il3SimpleTree;
+ const aCurrentNode: Il3SimpleNode;
+ aFilter: TUserListFilterTypes;
+ out aCurrent: Integer): Il3SimpleTree;
 //#UC START# *49246092009E_49246742002B_var*
 var
  l_FilterableTree: Il3FilterableTree;
@@ -467,7 +435,8 @@ begin
 end;//TdsUserList.SetConsultingPaymentForAll
 
 procedure TdsUserList.SetConsultingPayment(const aUserTree: Il3SimpleTree;
-  IsAllowed: Boolean);
+ IsAllowed: Boolean);
+ {* Изменить возможность консалтинга для выделенных на дереве пользователей }
 //#UC START# *4924612E0296_49246742002B_var*
 //#UC END# *4924612E0296_49246742002B_var*
 begin
@@ -477,7 +446,7 @@ begin
 end;//TdsUserList.SetConsultingPayment
 
 procedure TdsUserList.SetIsPrivileged(const aNode: Il3SimpleNode;
-  IsPrivileged: Boolean);
+ IsPrivileged: Boolean);
 //#UC START# *4924614D0345_49246742002B_var*
 //#UC END# *4924614D0345_49246742002B_var*
 begin
@@ -487,7 +456,8 @@ begin
 end;//TdsUserList.SetIsPrivileged
 
 procedure TdsUserList.SetPrivelegedRights(const aUserTree: Il3SimpleTree;
-  IsPrivileged: Boolean);
+ IsPrivileged: Boolean);
+ {* Изменить привилегированность для выделенных на дереве пользователей }
 //#UC START# *4924615E0279_49246742002B_var*
 //#UC END# *4924615E0279_49246742002B_var*
 begin
@@ -497,7 +467,8 @@ begin
 end;//TdsUserList.SetPrivelegedRights
 
 procedure TdsUserList.SelectNodes(const aUserTree: Il3SimpleTree;
-  const aList: IadminUserNodeList);
+ const aList: IadminUserNodeList);
+ {* Выделить ноды по списку (Il3SimpleNode) }
 //#UC START# *492461970357_49246742002B_var*
 var
  l_IDX: Integer;
@@ -541,6 +512,7 @@ begin
 end;//TdsUserList.pm_SetConsultingPaymentForNewbies
 
 procedure TdsUserList.NotifyCreateUserFinished(Successfull: Boolean);
+ {* Нотификация об отскзе создания пользователя }
 //#UC START# *49E5B8C7024C_49246742002B_var*
 var
  l_Index    : Integer;
@@ -561,6 +533,7 @@ begin
 end;//TdsUserList.NotifyCreateUserFinished
 
 procedure TdsUserList.NotifyGroupChanged(aGroupUID: Integer);
+ {* Сменилась группа }
 //#UC START# *49F02BA70361_49246742002B_var*
 var
  l_Index    : Integer;
@@ -581,9 +554,9 @@ begin
 end;//TdsUserList.NotifyGroupChanged
 
 function TdsUserList.FiltrateByGroup(const aTreeSource: Il3SimpleTree;
-  const aCurrentNode: Il3SimpleNode;
-  aFilter: Integer;
-  out aCurrent: Integer): Il3SimpleTree;
+ const aCurrentNode: Il3SimpleNode;
+ aFilter: Integer;
+ out aCurrent: Integer): Il3SimpleTree;
 //#UC START# *49F02C0400AA_49246742002B_var*
 var
  l_FilterableTree: Il3FilterableTree;
@@ -620,6 +593,7 @@ begin
 end;//TdsUserList.FiltrateByGroup
 
 procedure TdsUserList.CheckUnsavedUserProperty;
+ {* Если свойства не сохранены - спросить об этом }
 //#UC START# *49F6DB9B02A8_49246742002B_var*
 //#UC END# *49F6DB9B02A8_49246742002B_var*
 begin
@@ -649,6 +623,7 @@ begin
 end;//TdsUserList.RequestUpdateCureent
 
 procedure TdsUserList.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_49246742002B_var*
 //#UC END# *479731C50290_49246742002B_var*
 begin
@@ -660,6 +635,7 @@ begin
 end;//TdsUserList.Cleanup
 
 procedure TdsUserList.DoCurrentChanged(const aNode: Il3SimpleNode);
+ {* сменился текущий. }
 //#UC START# *47F0C1BF0314_49246742002B_var*
 var
  l_Node: INodeBase;
@@ -685,6 +661,7 @@ begin
 end;//TdsUserList.DoCurrentChanged
 
 function TdsUserList.MakeImageList: Il3ImageList;
+ {* - создать иконки дерева. }
 //#UC START# *47F465F80149_49246742002B_var*
 //#UC END# *47F465F80149_49246742002B_var*
 begin
@@ -693,8 +670,9 @@ begin
 //#UC END# *47F465F80149_49246742002B_impl*
 end;//TdsUserList.MakeImageList
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TdsUserList.GotData;
+ {* - данные изменились. }
 //#UC START# *492ACF630072_49246742002B_var*
 //#UC END# *492ACF630072_49246742002B_var*
 begin
@@ -703,20 +681,25 @@ begin
  f_Root := PartData.Node;
 //#UC END# *492ACF630072_49246742002B_impl*
 end;//TdsUserList.GotData
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-procedure TdsUserList.InitRefs(const aDS: IvcmUseCaseController);
+{$If NOT Defined(NoVCM)}
+procedure TdsUserList.InitRefs(const aDS: IvcmFormSetDataSource);
+ {* Инициализирует ссылки на различные представления прецедента }
 begin
  inherited;
  SDS := aDS As IsdsAdmin;
-end;
+end;//TdsUserList.InitRefs
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$If NOT Defined(NoVCM)}
 procedure TdsUserList.ClearRefs;
+ {* Очищает ссылки на различные представления прецедента }
 begin
  inherited;
  SDS := nil;
-end;
+end;//TdsUserList.ClearRefs
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //Admin
-
+{$IfEnd} // Defined(Admin)
 end.

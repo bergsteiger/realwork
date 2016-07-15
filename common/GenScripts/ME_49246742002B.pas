@@ -17,6 +17,9 @@ uses
  , l3TreeInterfaces
  , bsTypes
  , l3InternalInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  , TreeInterfaces
  , bsInterfaces
  {$If NOT Defined(NoVCL)}
@@ -24,9 +27,6 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
- , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
  , l3ProtoObjectWithCOMQI
  {$If NOT Defined(NoVCM)}
@@ -41,6 +41,7 @@ uses
 
 type
  _InitDataType_ = IdeNode;
+ _FormDataSourceType_ = IdsUserList;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\Tree\dsSimpleTree.imp.pas}
  _nsContextFilter_Parent_ = _dsSimpleTree_;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\Tree\nsContextFilter.imp.pas}
@@ -51,9 +52,7 @@ type
    SDS: IsdsAdmin;
     {* ѕрецедент јдминистрирование }
    f_CurrentFlagFilter: TUserListFilterTypes;
-    {* ѕоле дл€ свойства CurrentFlagFilter }
    f_CurrentGroupFilter: Integer;
-    {* ѕоле дл€ свойства CurrentGroupFilter }
   private
    function MakeSelectedList(const aTree: Il3SimpleTree): IadminUserNodeList;
   protected
@@ -112,6 +111,14 @@ type
    {$If NOT Defined(NoVCM)}
    procedure GotData; override;
     {* - данные изменились. }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitRefs(const aDS: IvcmFormSetDataSource); override;
+    {* »нициализирует ссылки на различные представлени€ прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure ClearRefs; override;
+    {* ќчищает ссылки на различные представлени€ прецедента }
    {$IfEnd} // NOT Defined(NoVCM)
   protected
    property CurrentFlagFilter: TUserListFilterTypes
@@ -674,6 +681,24 @@ begin
  f_Root := PartData.Node;
 //#UC END# *492ACF630072_49246742002B_impl*
 end;//TdsUserList.GotData
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TdsUserList.InitRefs(const aDS: IvcmFormSetDataSource);
+ {* »нициализирует ссылки на различные представлени€ прецедента }
+begin
+ inherited;
+ SDS := aDS As IsdsAdmin;
+end;//TdsUserList.InitRefs
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TdsUserList.ClearRefs;
+ {* ќчищает ссылки на различные представлени€ прецедента }
+begin
+ inherited;
+ SDS := nil;
+end;//TdsUserList.ClearRefs
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$IfEnd} // Defined(Admin)

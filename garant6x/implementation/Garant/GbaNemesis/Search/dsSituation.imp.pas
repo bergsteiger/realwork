@@ -1,64 +1,62 @@
 {$IfNDef dsSituation_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Search"
-// Автор: Морозов М.А.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Search/dsSituation.imp.pas"
-// Начат: 2008/01/30 08:25:26 
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ViewAreaControllerImp::Class>> F1 Базовые определения предметной области::SearchLite::Search::Search::dsSituation
-//
-// отложенное обновление представлений при перемещении по деревьям ППС 6.х (CQ: OIT5-28303)
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Search\dsSituation.imp.pas"
+// Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "dsSituation" MUID: (49242CB201D0)
+// Имя типа: "_dsSituation_"
 
 {$Define dsSituation_imp}
+
  _InitDataType_ = IdeSearch;
- {$Include ..\Search\dsTagSimpleTree.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Search\dsTagSimpleTree.imp.pas}
  _CurrentChangedListener_Parent_ = _dsTagSimpleTree_;
- {$Include ..\Search\CurrentChangedListener.imp.pas}
- _dsSituation_ = {abstract vac} class(_CurrentChangedListener_, IdsSituation, IbsCurrentChangedListener {from IdsSituation})
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Search\CurrentChangedListener.imp.pas}
+ _dsSituation_ = {abstract} class(_CurrentChangedListener_, IdsSituation, IbsCurrentChangedListener)
   {* отложенное обновление представлений при перемещении по деревьям ППС 6.х (CQ: OIT5-28303) }
- private
- // private fields
-   CurrentChangedListener : IbsCurrentChangedListener;
-   f_BlockNotification : Integer;
-    {* Поле для свойства BlockNotification}
- protected
-  procedure InitRefs(const aDS: IvcmUseCaseController); override;
-  procedure ClearRefs; override;
- protected
- // overridden protected methods
+  private
+   CurrentChangedListener: IbsCurrentChangedListener;
+   f_BlockNotification: Integer;
+  protected
+   function As_IbsCurrentChangedListener: IbsCurrentChangedListener;
+    {* Метод приведения нашего интерфейса к IbsCurrentChangedListener }
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure InitFields; override;
    procedure DoCurrentChanged(const aNode: Il3SimpleNode); override;
-     {* сменился текущий. }
+    {* сменился текущий. }
    procedure CurrentChangedNotification(const aNode: Il3SimpleNode); override;
- private
- // private properties
+   {$If NOT Defined(NoVCM)}
+   procedure InitRefs(const aDS: IvcmFormSetDataSource); override;
+    {* Инициализирует ссылки на различные представления прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure ClearRefs; override;
+    {* Очищает ссылки на различные представления прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
+  private
    property BlockNotification: Integer
-     read f_BlockNotification
-     write f_BlockNotification;
- protected
- // Методы преобразования к реализуемым интерфейсам
-   function As_IbsCurrentChangedListener: IbsCurrentChangedListener;
+    read f_BlockNotification
+    write f_BlockNotification;
  end;//_dsSituation_
 
 {$Else dsSituation_imp}
 
+{$IfNDef dsSituation_imp_impl}
 
-{$Include ..\Search\dsTagSimpleTree.imp.pas}
+{$Define dsSituation_imp_impl}
 
-{$Include ..\Search\CurrentChangedListener.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Search\dsTagSimpleTree.imp.pas}
 
-// start class _dsSituation_
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Search\CurrentChangedListener.imp.pas}
+
+function _dsSituation_.As_IbsCurrentChangedListener: IbsCurrentChangedListener;
+ {* Метод приведения нашего интерфейса к IbsCurrentChangedListener }
+begin
+ Result := Self;
+end;//_dsSituation_.As_IbsCurrentChangedListener
 
 procedure _dsSituation_.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_49242CB201D0_var*
 //#UC END# *479731C50290_49242CB201D0_var*
 begin
@@ -82,6 +80,7 @@ begin
 end;//_dsSituation_.InitFields
 
 procedure _dsSituation_.DoCurrentChanged(const aNode: Il3SimpleNode);
+ {* сменился текущий. }
 //#UC START# *47F0C1BF0314_49242CB201D0_var*
 //#UC END# *47F0C1BF0314_49242CB201D0_var*
 begin
@@ -109,23 +108,25 @@ begin
 //#UC END# *49242A4E0252_49242CB201D0_impl*
 end;//_dsSituation_.CurrentChangedNotification
 
-procedure _dsSituation_.InitRefs(const aDS: IvcmUseCaseController);
+{$If NOT Defined(NoVCM)}
+procedure _dsSituation_.InitRefs(const aDS: IvcmFormSetDataSource);
+ {* Инициализирует ссылки на различные представления прецедента }
 begin
  inherited;
  Supports(aDS, IbsCurrentChangedListener, CurrentChangedListener);
-end;
+end;//_dsSituation_.InitRefs
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$If NOT Defined(NoVCM)}
 procedure _dsSituation_.ClearRefs;
+ {* Очищает ссылки на различные представления прецедента }
 begin
  inherited;
  CurrentChangedListener := nil;
-end;
+end;//_dsSituation_.ClearRefs
+{$IfEnd} // NOT Defined(NoVCM)
 
-// Методы преобразования к реализуемым интерфейсам
-
-function _dsSituation_.As_IbsCurrentChangedListener: IbsCurrentChangedListener;
-begin
- Result := Self;
-end;
+{$EndIf dsSituation_imp_impl}
 
 {$EndIf dsSituation_imp}
+

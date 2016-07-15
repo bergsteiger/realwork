@@ -40,16 +40,21 @@ const
  op_Changed = 'Changed';
  op_capChanged = '';
 
+var opcode_Comment_Changed: TvcmOPID = (rEnID : -1; rOpID : -1);
+
 implementation
 
 uses
  l3ImplUses
+ {$If NOT Defined(NoVCM)}
+ , vcmOperationsForRegister
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmOperationStatesForRegister
+ {$IfEnd} // NOT Defined(NoVCM)
  , l3Base
  {$If NOT Defined(NoVCM)}
  , vcmBase
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
- , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
 ;
 
@@ -62,7 +67,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := vcmParams;
-  aTarget.Operation(TdmStdRes.opcode_Comment_Changed, l_Params);
+  aTarget.Operation(opcode_Comment_Changed, l_Params);
   with l_Params do
   begin
    if Done then
@@ -82,7 +87,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := vcmParams;
-  aTarget.Operation(TdmStdRes.opcode_Comment_Changed, l_Params);
+  aTarget.Operation(opcode_Comment_Changed, l_Params);
   with l_Params do
   begin
    if Done then
@@ -117,8 +122,14 @@ begin
  if (vcmDispatcher <> nil) then
  begin
   l_Params := vcmParams;
-  vcmDispatcher.EntityOperationBroadcast(TdmStdRes.opcode_Comment_Changed, l_Params);
+  vcmDispatcher.EntityOperationBroadcast(opcode_Comment_Changed, l_Params);
  end//vcmDispatcher <> nil
 end;//Op_Comment_Changed.Broadcast
+
+initialization
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Comment, op_Changed, en_capComment, op_capChanged, True, False, opcode_Comment_Changed)) do
+ begin
+ end;
+
 
 end.

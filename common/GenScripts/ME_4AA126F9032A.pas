@@ -39,8 +39,6 @@ uses
 ;
 
 type
- // Text
-
  Tfs_DocumentWithFlash = {final} class(Tfs_AbstractDocument)
   {* Схема }
   protected
@@ -49,14 +47,14 @@ type
    class function GetInstance: TvcmFormSetFactoryPrim; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   function Text_Parent_dwftMain_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+   function TextParentDwftMainNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
     out aNew: IvcmFormDataSource;
     aSubUserType: TvcmUserType): Boolean;
     {* Обработчик OnNeedMakeForm для Text }
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: Tfs_DocumentWithFlash;
     {* Метод получения экземпляра синглетона Tfs_DocumentWithFlash }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//Tfs_DocumentWithFlash
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -66,7 +64,6 @@ implementation
 uses
  l3ImplUses
  , l3StringIDEx
- , l3MessageID
  , SysUtils
  , l3Base
 ;
@@ -75,7 +72,7 @@ var g_Tfs_DocumentWithFlash: Tfs_DocumentWithFlash = nil;
  {* Экземпляр синглетона Tfs_DocumentWithFlash }
 
 const
- {* Локализуемые строки DocumentWithFlash$FSFCaptionLocalConstants }
+ {* Локализуемые строки DocumentWithFlash }
  str_fsDocumentWithFlashCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'fsDocumentWithFlashCaption'; rValue : 'Схема');
   {* Заголовок фабрики сборки форм "DocumentWithFlash$FSF" }
 
@@ -85,23 +82,21 @@ begin
  l3Free(g_Tfs_DocumentWithFlash);
 end;//Tfs_DocumentWithFlashFree
 
-function Tfs_DocumentWithFlash.Text_Parent_dwftMain_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+function Tfs_DocumentWithFlash.TextParentDwftMainNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
  out aNew: IvcmFormDataSource;
  aSubUserType: TvcmUserType): Boolean;
  {* Обработчик OnNeedMakeForm для Text }
-//#UC START# *7296B8CF664D_4AA126F9032A_var*
-//#UC END# *7296B8CF664D_4AA126F9032A_var*
+var
+ l_UseCase : IsdsDocInfo;
 begin
-//#UC START# *7296B8CF664D_4AA126F9032A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *7296B8CF664D_4AA126F9032A_impl*
-end;//Tfs_DocumentWithFlash.Text_Parent_dwftMain_NeedMakeForm
-
-class function Tfs_DocumentWithFlash.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_Tfs_DocumentWithFlash <> nil;
-end;//Tfs_DocumentWithFlash.Exists
+ if Supports(aDataSource, IsdsDocInfo, l_UseCase) then
+  try
+   aNew := l_UseCase.dsDocumentWithFlash;
+  finally
+   l_UseCase := nil;
+  end;//try..finally
+ Result := (aNew <> nil);
+end;//Tfs_DocumentWithFlash.TextParentDwftMainNeedMakeForm
 
 class function Tfs_DocumentWithFlash.Instance: Tfs_DocumentWithFlash;
  {* Метод получения экземпляра синглетона Tfs_DocumentWithFlash }
@@ -114,23 +109,28 @@ begin
  Result := g_Tfs_DocumentWithFlash;
 end;//Tfs_DocumentWithFlash.Instance
 
-procedure Tfs_DocumentWithFlash.InitFields;
-//#UC START# *47A042E100E2_4AA126F9032A_var*
-//#UC END# *47A042E100E2_4AA126F9032A_var*
+class function Tfs_DocumentWithFlash.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
-//#UC START# *47A042E100E2_4AA126F9032A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *47A042E100E2_4AA126F9032A_impl*
+ Result := g_Tfs_DocumentWithFlash <> nil;
+end;//Tfs_DocumentWithFlash.Exists
+
+procedure Tfs_DocumentWithFlash.InitFields;
+begin
+ inherited;
+ with AddZone('Text', vcm_ztParent, fm_DocumentWithFlashForm) do
+ begin
+  UserType := dwftMain;
+  OnNeedMakeForm := TextParentDwftMainNeedMakeForm;
+ end;
+ Caption := str_fsDocumentWithFlashCaption.AsCStr;
+ OwnerForm := 16;
 end;//Tfs_DocumentWithFlash.InitFields
 
 {$If NOT Defined(NoVCM)}
 class function Tfs_DocumentWithFlash.GetInstance: TvcmFormSetFactoryPrim;
-//#UC START# *4FFE854A009B_4AA126F9032A_var*
-//#UC END# *4FFE854A009B_4AA126F9032A_var*
 begin
-//#UC START# *4FFE854A009B_4AA126F9032A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4FFE854A009B_4AA126F9032A_impl*
+ Result := Self.Instance;
 end;//Tfs_DocumentWithFlash.GetInstance
 {$IfEnd} // NOT Defined(NoVCM)
 

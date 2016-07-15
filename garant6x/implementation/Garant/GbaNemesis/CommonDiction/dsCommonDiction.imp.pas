@@ -1,89 +1,73 @@
 {$IfNDef dsCommonDiction_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "CommonDiction"
-// Автор: Лукьянец Р.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/CommonDiction/dsCommonDiction.imp.pas"
-// Начат: 2008/03/05 08:04:14
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ViewAreaControllerImp::Class>> F1 Core::Common::CommonDiction::CommonDiction::dsCommonDiction
-//
-// Обобщенный словарь
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\CommonDiction\dsCommonDiction.imp.pas"
+// Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "dsCommonDiction" MUID: (4925449A0296)
+// Имя типа: "_dsCommonDiction_"
 
 {$Define dsCommonDiction_imp}
-{$If not defined(Admin) AND not defined(Monitorings)}
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\Tree\dsSimpleTree.imp.pas}
- _dsCommonDiction_ = {abstract vac} class(_dsSimpleTree_, IdsCommonDiction)
+ _dsCommonDiction_ = {abstract} class(_dsSimpleTree_, IdsCommonDiction)
   {* Обобщенный словарь }
- private
- // private fields
-   ucc_BaseDocument : IsdsBaseDocument;
-   ucc_CommonDiction : IsdsCommonDiction;
-   f_ContextFilterState : InscContextFilterState;
-   f_Current : INodeBase;
-    {* Поле для свойства Current}
- protected
-  procedure InitRefs(const aDS: IvcmUseCaseController); override;
-  procedure ClearRefs; override;
- protected
- // property methods
+  private
+   ucc_BaseDocument: IsdsBaseDocument;
+   ucc_CommonDiction: IsdsCommonDiction;
+   f_ContextFilterState: InscContextFilterState;
+   f_Current: INodeBase;
+    {* текущий язык списка толкований }
+  protected
    function pm_GetDictionKind: TnsDictionKind; virtual; abstract;
- protected
- // realized methods
-   function pm_GetContext: Il3CString;
-   function MakeCurrentIndex(const aTree: Il3SimpleTree): Integer;
-     {* получить текущий узел. Коллеги, это правильная документация? }
-   function Get_ContextFilterState: InscContextFilterState;
-   procedure Set_ContextFilterState(const aValue: InscContextFilterState);
-   function Get_DictionKind: TnsDictionKind;
- protected
- // overridden protected methods
-   procedure DoCurrentChanged(const aNode: Il3SimpleNode); override;
-     {* сменился текущий. }
-   {$If not defined(NoVCM)}
-   procedure FormSetDataChanged; override;
-   {$IfEnd} //not NoVCM
-   procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- protected
- // protected methods
    function MakeDocInfoForCurrentChanged(const aDoc: IDocument): IdeDocInfo; virtual; abstract;
    procedure DictionNotify(const aNotifier: IbsCommonDictionListener);
    procedure AfterChangeCurrent; virtual;
    procedure ChangeCurrent(const aNode: Il3SimpleNode);
    function ForceChangeInCurrentChanged: Boolean; virtual;
- private
- // private properties
+   function pm_GetContext: Il3CString;
+   function MakeCurrentIndex(const aTree: Il3SimpleTree): Integer;
+    {* получить текущий узел. Коллеги, это правильная документация? }
+   function Get_ContextFilterState: InscContextFilterState;
+   procedure Set_ContextFilterState(const aValue: InscContextFilterState);
+   function Get_DictionKind: TnsDictionKind;
+   procedure DoCurrentChanged(const aNode: Il3SimpleNode); override;
+    {* сменился текущий. }
+   {$If NOT Defined(NoVCM)}
+   procedure FormSetDataChanged; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   procedure ClearFields; override;
+   {$If NOT Defined(NoVCM)}
+   procedure InitRefs(const aDS: IvcmFormSetDataSource); override;
+    {* Инициализирует ссылки на различные представления прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure ClearRefs; override;
+    {* Очищает ссылки на различные представления прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
+  private
    property Current: INodeBase
-     read f_Current
-     write f_Current;
-     {* текущий язык списка толкований }
- public
- // public properties
+    read f_Current
+    write f_Current;
+    {* текущий язык списка толкований }
+  public
    property DictionKind: TnsDictionKind
-     read pm_GetDictionKind;
+    read pm_GetDictionKind;
  end;//_dsCommonDiction_
-{$Else}
 
- {$Include w:\garant6x\implementation\Garant\GbaNemesis\Tree\dsSimpleTree.imp.pas}
- _dsCommonDiction_ = _dsSimpleTree_;
-
-{$IfEnd} //not Admin AND not Monitorings
-
-{$Else dsCommonDiction_imp}
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
+{$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\Tree\dsSimpleTree.imp.pas}
+_dsCommonDiction_ = _dsSimpleTree_;
 
-// start class _dsCommonDiction_
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$Else dsCommonDiction_imp}
+
+{$IfNDef dsCommonDiction_imp_impl}
+
+{$Define dsCommonDiction_imp_impl}
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Tree\dsSimpleTree.imp.pas}
 
 procedure _dsCommonDiction_.DictionNotify(const aNotifier: IbsCommonDictionListener);
 //#UC START# *492545420326_4925449A0296_var*
@@ -149,6 +133,7 @@ begin
 end;//_dsCommonDiction_.pm_GetContext
 
 function _dsCommonDiction_.MakeCurrentIndex(const aTree: Il3SimpleTree): Integer;
+ {* получить текущий узел. Коллеги, это правильная документация? }
 //#UC START# *492541BD01F3_4925449A0296_var*
 var
  l_Doc        : IDocument;
@@ -218,6 +203,7 @@ begin
 end;//_dsCommonDiction_.Get_DictionKind
 
 procedure _dsCommonDiction_.DoCurrentChanged(const aNode: Il3SimpleNode);
+ {* сменился текущий. }
 //#UC START# *47F0C1BF0314_4925449A0296_var*
 var
  l_Node   : INodeBase;
@@ -247,7 +233,7 @@ begin
 //#UC END# *47F0C1BF0314_4925449A0296_impl*
 end;//_dsCommonDiction_.DoCurrentChanged
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure _dsCommonDiction_.FormSetDataChanged;
 //#UC START# *491482DC0216_4925449A0296_var*
 
@@ -274,34 +260,37 @@ begin
  lp_NotifyCurrentChanged;
 //#UC END# *491482DC0216_4925449A0296_impl*
 end;//_dsCommonDiction_.FormSetDataChanged
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 procedure _dsCommonDiction_.ClearFields;
- {-}
 begin
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_ContextFilterState := nil;
- {$IfEnd} //not Admin AND not Monitorings
- {$If not defined(Admin) AND not defined(Monitorings)}
  Current := nil;
- {$IfEnd} //not Admin AND not Monitorings
  inherited;
 end;//_dsCommonDiction_.ClearFields
 
-procedure _dsCommonDiction_.InitRefs(const aDS: IvcmUseCaseController);
+{$If NOT Defined(NoVCM)}
+procedure _dsCommonDiction_.InitRefs(const aDS: IvcmFormSetDataSource);
+ {* Инициализирует ссылки на различные представления прецедента }
 begin
  inherited;
  Supports(aDS, IsdsBaseDocument, ucc_BaseDocument);
  Supports(aDS, IsdsCommonDiction, ucc_CommonDiction);
-end;
+end;//_dsCommonDiction_.InitRefs
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$If NOT Defined(NoVCM)}
 procedure _dsCommonDiction_.ClearRefs;
+ {* Очищает ссылки на различные представления прецедента }
 begin
  inherited;
  ucc_BaseDocument := nil;
  ucc_CommonDiction := nil;
-end;
+end;//_dsCommonDiction_.ClearRefs
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$EndIf dsCommonDiction_imp_impl}
 
 {$EndIf dsCommonDiction_imp}
+

@@ -49,26 +49,6 @@ uses
 ;
 
 type
- // WarnJuror
-
- // WarnPreActive
-
- // WarnIsAbolished
-
- // WarnOnControl
-
- // WarnInactualDocument
-
- // WarnTimeMachineOn
-
- // WarnRedaction
-
- // WarnTimeMachineWarning
-
- // WarnTimeMachineException
-
- // Text
-
  Tfs_Document = {final} class(Tfs_AbstractDocument)
   {* Документ }
   protected
@@ -77,50 +57,50 @@ type
    class function GetInstance: TvcmFormSetFactoryPrim; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   function Text_Parent_dftDocument_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+   function TextParentDftDocumentNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
     out aNew: IvcmFormDataSource;
     aSubUserType: TvcmUserType): Boolean;
     {* Обработчик OnNeedMakeForm для Text }
-   function WarnJuror_Child_WarnJuror_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+   function WarnJurorChildWarnJurorNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
     out aNew: IvcmFormDataSource;
     aSubUserType: TvcmUserType): Boolean;
     {* Обработчик OnNeedMakeForm для WarnJuror }
-   function WarnPreActive_Child_WarnPreActive_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+   function WarnPreActiveChildWarnPreActiveNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
     out aNew: IvcmFormDataSource;
     aSubUserType: TvcmUserType): Boolean;
     {* Обработчик OnNeedMakeForm для WarnPreActive }
-   function WarnIsAbolished_Child_WarnIsAbolished_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+   function WarnIsAbolishedChildWarnIsAbolishedNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
     out aNew: IvcmFormDataSource;
     aSubUserType: TvcmUserType): Boolean;
     {* Обработчик OnNeedMakeForm для WarnIsAbolished }
-   function WarnOnControl_Child_WarnOnControl_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+   function WarnOnControlChildWarnOnControlNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
     out aNew: IvcmFormDataSource;
     aSubUserType: TvcmUserType): Boolean;
     {* Обработчик OnNeedMakeForm для WarnOnControl }
-   function WarnInactualDocument_Child_WarnInactualDocument_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+   function WarnInactualDocumentChildWarnInactualDocumentNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
     out aNew: IvcmFormDataSource;
     aSubUserType: TvcmUserType): Boolean;
     {* Обработчик OnNeedMakeForm для WarnInactualDocument }
-   function WarnTimeMachineOn_Child_WarnTimeMachineOn_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+   function WarnTimeMachineOnChildWarnTimeMachineOnNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
     out aNew: IvcmFormDataSource;
     aSubUserType: TvcmUserType): Boolean;
     {* Обработчик OnNeedMakeForm для WarnTimeMachineOn }
-   function WarnRedaction_Child_WarnRedaction_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+   function WarnRedactionChildWarnRedactionNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
     out aNew: IvcmFormDataSource;
     aSubUserType: TvcmUserType): Boolean;
     {* Обработчик OnNeedMakeForm для WarnRedaction }
-   function WarnTimeMachineWarning_Child_WarnTimeMachineWarning_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+   function WarnTimeMachineWarningChildWarnTimeMachineWarningNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
     out aNew: IvcmFormDataSource;
     aSubUserType: TvcmUserType): Boolean;
     {* Обработчик OnNeedMakeForm для WarnTimeMachineWarning }
-   function WarnTimeMachineException_Child_WarnTimeMachineException_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+   function WarnTimeMachineExceptionChildWarnTimeMachineExceptionNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
     out aNew: IvcmFormDataSource;
     aSubUserType: TvcmUserType): Boolean;
     {* Обработчик OnNeedMakeForm для WarnTimeMachineException }
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: Tfs_Document;
     {* Метод получения экземпляра синглетона Tfs_Document }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//Tfs_Document
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -131,7 +111,6 @@ uses
  l3ImplUses
  , l3StringIDEx
  , bsUtils
- , l3MessageID
  , SysUtils
  , l3Base
 ;
@@ -150,131 +129,165 @@ begin
  l3Free(g_Tfs_Document);
 end;//Tfs_DocumentFree
 
-function Tfs_Document.Text_Parent_dftDocument_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+function Tfs_Document.TextParentDftDocumentNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
  out aNew: IvcmFormDataSource;
  aSubUserType: TvcmUserType): Boolean;
  {* Обработчик OnNeedMakeForm для Text }
-//#UC START# *DF28287EBCC9_4AA126C401AD_var*
-//#UC END# *DF28287EBCC9_4AA126C401AD_var*
+var
+ l_UseCase : IsdsBaseDocument;
 begin
-//#UC START# *DF28287EBCC9_4AA126C401AD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *DF28287EBCC9_4AA126C401AD_impl*
-end;//Tfs_Document.Text_Parent_dftDocument_NeedMakeForm
+ if Supports(aDataSource, IsdsBaseDocument, l_UseCase) then
+  try
+   aNew := l_UseCase.dsDocument;
+  finally
+   l_UseCase := nil;
+  end;//try..finally
+ Result := (aNew <> nil);
+end;//Tfs_Document.TextParentDftDocumentNeedMakeForm
 
-function Tfs_Document.WarnJuror_Child_WarnJuror_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+function Tfs_Document.WarnJurorChildWarnJurorNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
  out aNew: IvcmFormDataSource;
  aSubUserType: TvcmUserType): Boolean;
  {* Обработчик OnNeedMakeForm для WarnJuror }
-//#UC START# *25A9BEF142E9_4AA126C401AD_var*
-//#UC END# *25A9BEF142E9_4AA126C401AD_var*
+var
+ l_UseCase : IsdsDocument;
 begin
-//#UC START# *25A9BEF142E9_4AA126C401AD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *25A9BEF142E9_4AA126C401AD_impl*
-end;//Tfs_Document.WarnJuror_Child_WarnJuror_NeedMakeForm
+ if Supports(aDataSource, IsdsDocument, l_UseCase) then
+  try
+   aNew := l_UseCase.dsBaloonWarning;
+  finally
+   l_UseCase := nil;
+  end;//try..finally
+ Result := (aNew <> nil);
+end;//Tfs_Document.WarnJurorChildWarnJurorNeedMakeForm
 
-function Tfs_Document.WarnPreActive_Child_WarnPreActive_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+function Tfs_Document.WarnPreActiveChildWarnPreActiveNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
  out aNew: IvcmFormDataSource;
  aSubUserType: TvcmUserType): Boolean;
  {* Обработчик OnNeedMakeForm для WarnPreActive }
-//#UC START# *3D661BE47244_4AA126C401AD_var*
-//#UC END# *3D661BE47244_4AA126C401AD_var*
+var
+ l_UseCase : IsdsDocument;
 begin
-//#UC START# *3D661BE47244_4AA126C401AD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *3D661BE47244_4AA126C401AD_impl*
-end;//Tfs_Document.WarnPreActive_Child_WarnPreActive_NeedMakeForm
+ if Supports(aDataSource, IsdsDocument, l_UseCase) then
+  try
+   aNew := l_UseCase.dsBaloonWarning;
+  finally
+   l_UseCase := nil;
+  end;//try..finally
+ Result := (aNew <> nil);
+end;//Tfs_Document.WarnPreActiveChildWarnPreActiveNeedMakeForm
 
-function Tfs_Document.WarnIsAbolished_Child_WarnIsAbolished_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+function Tfs_Document.WarnIsAbolishedChildWarnIsAbolishedNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
  out aNew: IvcmFormDataSource;
  aSubUserType: TvcmUserType): Boolean;
  {* Обработчик OnNeedMakeForm для WarnIsAbolished }
-//#UC START# *DC9C49363B56_4AA126C401AD_var*
-//#UC END# *DC9C49363B56_4AA126C401AD_var*
+var
+ l_UseCase : IsdsDocument;
 begin
-//#UC START# *DC9C49363B56_4AA126C401AD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *DC9C49363B56_4AA126C401AD_impl*
-end;//Tfs_Document.WarnIsAbolished_Child_WarnIsAbolished_NeedMakeForm
+ if Supports(aDataSource, IsdsDocument, l_UseCase) then
+  try
+   aNew := l_UseCase.dsBaloonWarning;
+  finally
+   l_UseCase := nil;
+  end;//try..finally
+ Result := (aNew <> nil);
+end;//Tfs_Document.WarnIsAbolishedChildWarnIsAbolishedNeedMakeForm
 
-function Tfs_Document.WarnOnControl_Child_WarnOnControl_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+function Tfs_Document.WarnOnControlChildWarnOnControlNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
  out aNew: IvcmFormDataSource;
  aSubUserType: TvcmUserType): Boolean;
  {* Обработчик OnNeedMakeForm для WarnOnControl }
-//#UC START# *ADB5561ABC86_4AA126C401AD_var*
-//#UC END# *ADB5561ABC86_4AA126C401AD_var*
+var
+ l_UseCase : IsdsDocument;
 begin
-//#UC START# *ADB5561ABC86_4AA126C401AD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *ADB5561ABC86_4AA126C401AD_impl*
-end;//Tfs_Document.WarnOnControl_Child_WarnOnControl_NeedMakeForm
+ if Supports(aDataSource, IsdsDocument, l_UseCase) then
+  try
+   aNew := l_UseCase.dsBaloonWarning;
+  finally
+   l_UseCase := nil;
+  end;//try..finally
+ Result := (aNew <> nil);
+end;//Tfs_Document.WarnOnControlChildWarnOnControlNeedMakeForm
 
-function Tfs_Document.WarnInactualDocument_Child_WarnInactualDocument_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+function Tfs_Document.WarnInactualDocumentChildWarnInactualDocumentNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
  out aNew: IvcmFormDataSource;
  aSubUserType: TvcmUserType): Boolean;
  {* Обработчик OnNeedMakeForm для WarnInactualDocument }
-//#UC START# *A0E6E9A93B48_4AA126C401AD_var*
-//#UC END# *A0E6E9A93B48_4AA126C401AD_var*
+var
+ l_UseCase : IsdsDocument;
 begin
-//#UC START# *A0E6E9A93B48_4AA126C401AD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *A0E6E9A93B48_4AA126C401AD_impl*
-end;//Tfs_Document.WarnInactualDocument_Child_WarnInactualDocument_NeedMakeForm
+ if Supports(aDataSource, IsdsDocument, l_UseCase) then
+  try
+   aNew := l_UseCase.dsBaloonWarning;
+  finally
+   l_UseCase := nil;
+  end;//try..finally
+ Result := (aNew <> nil);
+end;//Tfs_Document.WarnInactualDocumentChildWarnInactualDocumentNeedMakeForm
 
-function Tfs_Document.WarnTimeMachineOn_Child_WarnTimeMachineOn_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+function Tfs_Document.WarnTimeMachineOnChildWarnTimeMachineOnNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
  out aNew: IvcmFormDataSource;
  aSubUserType: TvcmUserType): Boolean;
  {* Обработчик OnNeedMakeForm для WarnTimeMachineOn }
-//#UC START# *354A37DBC5E2_4AA126C401AD_var*
-//#UC END# *354A37DBC5E2_4AA126C401AD_var*
+var
+ l_UseCase : IsdsDocument;
 begin
-//#UC START# *354A37DBC5E2_4AA126C401AD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *354A37DBC5E2_4AA126C401AD_impl*
-end;//Tfs_Document.WarnTimeMachineOn_Child_WarnTimeMachineOn_NeedMakeForm
+ if Supports(aDataSource, IsdsDocument, l_UseCase) then
+  try
+   aNew := l_UseCase.dsTimeMachineWarning;
+  finally
+   l_UseCase := nil;
+  end;//try..finally
+ Result := (aNew <> nil);
+end;//Tfs_Document.WarnTimeMachineOnChildWarnTimeMachineOnNeedMakeForm
 
-function Tfs_Document.WarnRedaction_Child_WarnRedaction_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+function Tfs_Document.WarnRedactionChildWarnRedactionNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
  out aNew: IvcmFormDataSource;
  aSubUserType: TvcmUserType): Boolean;
  {* Обработчик OnNeedMakeForm для WarnRedaction }
-//#UC START# *36AE71BFE5A8_4AA126C401AD_var*
-//#UC END# *36AE71BFE5A8_4AA126C401AD_var*
+var
+ l_UseCase : IsdsDocument;
 begin
-//#UC START# *36AE71BFE5A8_4AA126C401AD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *36AE71BFE5A8_4AA126C401AD_impl*
-end;//Tfs_Document.WarnRedaction_Child_WarnRedaction_NeedMakeForm
+ if Supports(aDataSource, IsdsDocument, l_UseCase) then
+  try
+   aNew := l_UseCase.dsBaloonWarning;
+  finally
+   l_UseCase := nil;
+  end;//try..finally
+ Result := (aNew <> nil);
+end;//Tfs_Document.WarnRedactionChildWarnRedactionNeedMakeForm
 
-function Tfs_Document.WarnTimeMachineWarning_Child_WarnTimeMachineWarning_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+function Tfs_Document.WarnTimeMachineWarningChildWarnTimeMachineWarningNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
  out aNew: IvcmFormDataSource;
  aSubUserType: TvcmUserType): Boolean;
  {* Обработчик OnNeedMakeForm для WarnTimeMachineWarning }
-//#UC START# *8676CCD264AD_4AA126C401AD_var*
-//#UC END# *8676CCD264AD_4AA126C401AD_var*
+var
+ l_UseCase : IsdsDocument;
 begin
-//#UC START# *8676CCD264AD_4AA126C401AD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *8676CCD264AD_4AA126C401AD_impl*
-end;//Tfs_Document.WarnTimeMachineWarning_Child_WarnTimeMachineWarning_NeedMakeForm
+ if Supports(aDataSource, IsdsDocument, l_UseCase) then
+  try
+   aNew := l_UseCase.dsTimeMachineWarning;
+  finally
+   l_UseCase := nil;
+  end;//try..finally
+ Result := (aNew <> nil);
+end;//Tfs_Document.WarnTimeMachineWarningChildWarnTimeMachineWarningNeedMakeForm
 
-function Tfs_Document.WarnTimeMachineException_Child_WarnTimeMachineException_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+function Tfs_Document.WarnTimeMachineExceptionChildWarnTimeMachineExceptionNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
  out aNew: IvcmFormDataSource;
  aSubUserType: TvcmUserType): Boolean;
  {* Обработчик OnNeedMakeForm для WarnTimeMachineException }
-//#UC START# *37EF13598A94_4AA126C401AD_var*
-//#UC END# *37EF13598A94_4AA126C401AD_var*
+var
+ l_UseCase : IsdsDocument;
 begin
-//#UC START# *37EF13598A94_4AA126C401AD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *37EF13598A94_4AA126C401AD_impl*
-end;//Tfs_Document.WarnTimeMachineException_Child_WarnTimeMachineException_NeedMakeForm
-
-class function Tfs_Document.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_Tfs_Document <> nil;
-end;//Tfs_Document.Exists
+ if Supports(aDataSource, IsdsDocument, l_UseCase) then
+  try
+   aNew := l_UseCase.dsTimeMachineWarning;
+  finally
+   l_UseCase := nil;
+  end;//try..finally
+ Result := (aNew <> nil);
+end;//Tfs_Document.WarnTimeMachineExceptionChildWarnTimeMachineExceptionNeedMakeForm
 
 class function Tfs_Document.Instance: Tfs_Document;
  {* Метод получения экземпляра синглетона Tfs_Document }
@@ -287,23 +300,73 @@ begin
  Result := g_Tfs_Document;
 end;//Tfs_Document.Instance
 
-procedure Tfs_Document.InitFields;
-//#UC START# *47A042E100E2_4AA126C401AD_var*
-//#UC END# *47A042E100E2_4AA126C401AD_var*
+class function Tfs_Document.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
-//#UC START# *47A042E100E2_4AA126C401AD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *47A042E100E2_4AA126C401AD_impl*
+ Result := g_Tfs_Document <> nil;
+end;//Tfs_Document.Exists
+
+procedure Tfs_Document.InitFields;
+begin
+ inherited;
+ with AddZone('Text', vcm_ztParent, fm_TextForm) do
+ begin
+  UserType := dftDocument;
+  with AddZone('WarnJuror', vcm_ztChild, fm_WarningBaloonForm) do
+  begin
+   UserType := WarnJuror;
+   OnNeedMakeForm := WarnJurorChildWarnJurorNeedMakeForm;
+  end;
+  with AddZone('WarnPreActive', vcm_ztChild, fm_WarningBaloonForm) do
+  begin
+   UserType := WarnPreActive;
+   OnNeedMakeForm := WarnPreActiveChildWarnPreActiveNeedMakeForm;
+  end;
+  with AddZone('WarnIsAbolished', vcm_ztChild, fm_WarningBaloonForm) do
+  begin
+   UserType := WarnIsAbolished;
+   OnNeedMakeForm := WarnIsAbolishedChildWarnIsAbolishedNeedMakeForm;
+  end;
+  with AddZone('WarnOnControl', vcm_ztChild, fm_WarningBaloonForm) do
+  begin
+   UserType := WarnOnControl;
+   OnNeedMakeForm := WarnOnControlChildWarnOnControlNeedMakeForm;
+  end;
+  with AddZone('WarnInactualDocument', vcm_ztChild, fm_WarningBaloonForm) do
+  begin
+   UserType := WarnInactualDocument;
+   OnNeedMakeForm := WarnInactualDocumentChildWarnInactualDocumentNeedMakeForm;
+  end;
+  with AddZone('WarnTimeMachineOn', vcm_ztChild, fm_WarningBaloonForm) do
+  begin
+   UserType := WarnTimeMachineOn;
+   OnNeedMakeForm := WarnTimeMachineOnChildWarnTimeMachineOnNeedMakeForm;
+  end;
+  with AddZone('WarnRedaction', vcm_ztChild, fm_WarningBaloonForm) do
+  begin
+   UserType := WarnRedaction;
+   OnNeedMakeForm := WarnRedactionChildWarnRedactionNeedMakeForm;
+  end;
+  with AddZone('WarnTimeMachineWarning', vcm_ztChild, fm_WarningBaloonForm) do
+  begin
+   UserType := WarnTimeMachineWarning;
+   OnNeedMakeForm := WarnTimeMachineWarningChildWarnTimeMachineWarningNeedMakeForm;
+  end;
+  with AddZone('WarnTimeMachineException', vcm_ztChild, fm_WarningBaloonForm) do
+  begin
+   UserType := WarnTimeMachineException;
+   OnNeedMakeForm := WarnTimeMachineExceptionChildWarnTimeMachineExceptionNeedMakeForm;
+  end;
+  OnNeedMakeForm := TextParentDftDocumentNeedMakeForm;
+ end;
+ Caption := str_fsDocumentCaption.AsCStr;
+ OwnerForm := 16;
 end;//Tfs_Document.InitFields
 
 {$If NOT Defined(NoVCM)}
 class function Tfs_Document.GetInstance: TvcmFormSetFactoryPrim;
-//#UC START# *4FFE854A009B_4AA126C401AD_var*
-//#UC END# *4FFE854A009B_4AA126C401AD_var*
 begin
-//#UC START# *4FFE854A009B_4AA126C401AD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4FFE854A009B_4AA126C401AD_impl*
+ Result := Self.Instance;
 end;//Tfs_Document.GetInstance
 {$IfEnd} // NOT Defined(NoVCM)
 

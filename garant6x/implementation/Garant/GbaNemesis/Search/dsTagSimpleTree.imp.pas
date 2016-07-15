@@ -1,58 +1,40 @@
 {$IfNDef dsTagSimpleTree_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Search"
-// Автор: Морозов М.А.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Search/dsTagSimpleTree.imp.pas"
-// Начат: 02.08.2005 11.17
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ViewAreaControllerImp::Class>> F1 Базовые определения предметной области::SearchLite::Search::Search::dsTagSimpleTree
-//
-// Бизнес объекта для словарных атрибутов
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Search\dsTagSimpleTree.imp.pas"
+// Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "dsTagSimpleTree" MUID: (4924015202CD)
+// Имя типа: "_dsTagSimpleTree_"
 
 {$Define dsTagSimpleTree_imp}
+
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\Tree\dsSimpleTree.imp.pas}
- _dsTagSimpleTree_ = {abstract vac} class(_dsSimpleTree_, IdsTagSimpleTree)
+ _dsTagSimpleTree_ = {abstract} class(_dsSimpleTree_, IdsTagSimpleTree)
   {* Бизнес объекта для словарных атрибутов }
- private
- // private fields
-   f_Operations : TLogicOperationSet;
-    {* Поле для свойства Operations}
- private
- // private methods
+  private
+   f_Operations: TLogicOperationSet;
+  private
    procedure UpdateOperations;
- protected
- // realized methods
+  protected
+   function GetOperations: TLogicOperationSet; virtual;
    function pm_GetSearch: IdeSearch;
    function pm_GetOperations: TLogicOperationSet;
    function pm_GetIsOneOperation: Boolean;
- protected
- // overridden protected methods
-   {$If not defined(NoVCM)}
+   {$If NOT Defined(NoVCM)}
    procedure GotData; override;
-     {* - данные изменились. }
-   {$IfEnd} //not NoVCM
- protected
- // protected methods
-   function GetOperations: TLogicOperationSet; virtual;
- protected
- // protected properties
+    {* - данные изменились. }
+   {$IfEnd} // NOT Defined(NoVCM)
+  protected
    property Operations: TLogicOperationSet
-     read f_Operations;
+    read f_Operations;
  end;//_dsTagSimpleTree_
 
 {$Else dsTagSimpleTree_imp}
 
+{$IfNDef dsTagSimpleTree_imp_impl}
+
+{$Define dsTagSimpleTree_imp_impl}
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\Tree\dsSimpleTree.imp.pas}
-
-// start class _dsTagSimpleTree_
 
 procedure _dsTagSimpleTree_.UpdateOperations;
 //#UC START# *492404C20046_4924015202CD_var*
@@ -99,8 +81,9 @@ begin
 //#UC END# *4923FDFA00F7_4924015202CDget_impl*
 end;//_dsTagSimpleTree_.pm_GetIsOneOperation
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure _dsTagSimpleTree_.GotData;
+ {* - данные изменились. }
 //#UC START# *492ACF630072_4924015202CD_var*
 //#UC END# *492ACF630072_4924015202CD_var*
 begin
@@ -109,6 +92,9 @@ begin
  UpdateOperations;
 //#UC END# *492ACF630072_4924015202CD_impl*
 end;//_dsTagSimpleTree_.GotData
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$EndIf dsTagSimpleTree_imp_impl}
 
 {$EndIf dsTagSimpleTree_imp}
+

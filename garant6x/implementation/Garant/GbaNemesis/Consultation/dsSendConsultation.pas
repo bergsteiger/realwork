@@ -1,40 +1,32 @@
 unit dsSendConsultation;
+ {* Бизнес объект "Запрос на консультацию" }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Consultation"
-// Автор: Морозов М.А
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Consultation/dsSendConsultation.pas"
-// Начат: 06.04.2006 17.27
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ViewAreaControllerImp::Class>> F1 Пользовательские сервисы::Consultation::Consultation::Consultation::TdsSendConsultation
-//
-// Бизнес объект "Запрос на консультацию"
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Consultation\dsSendConsultation.pas"
+// Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "TdsSendConsultation" MUID: (491DD030014A)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  dsQuery
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , dsQuery
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
- TdsSendConsultation = {vac} class(TdsQuery)
+ TdsSendConsultation = class(TdsQuery)
   {* Бизнес объект "Запрос на консультацию" }
  end;//TdsSendConsultation
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+uses
+ l3ImplUses
+;
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

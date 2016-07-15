@@ -1,138 +1,117 @@
 unit dsFoldersTree;
+ {* файлы для прецедента Папки }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Folders"
-// Автор: Морозов М.А.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Folders/dsFoldersTree.pas"
-// Начат: 03.05.2006
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ViewAreaControllerImp::Class>> F1 Основные прецеденты::Folders::Folders::Folders::TdsFoldersTree
-//
-// файлы для прецедента Папки
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Folders\dsFoldersTree.pas"
+// Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "TdsFoldersTree" MUID: (492286CA0097)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  FoldersInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmExternalInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmLocalInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  l3ProtoObjectWithCOMQI,
-  l3Interfaces,
-  l3NotifyPtrList,
-  l3TreeInterfaces
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , FoldersInterfaces
+ , l3TreeInterfaces
+ , l3Interfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3ProtoObjectWithCOMQI
+ {$If NOT Defined(NoVCM)}
+ , vcmLocalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3NotifyPtrList
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  _FormDataSourceType_ = IdsFoldersTree;
  {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourcePrim.imp.pas}
- TdsFoldersTree = {vac} class(_vcmFormDataSourcePrim_, IdsFoldersTree)
+ TdsFoldersTree = class(_vcmFormDataSourcePrim_, IdsFoldersTree)
   {* файлы для прецедента Папки }
- protected
- // realized methods
-   procedure CanBeOpen(const aNode: Il3SimpleNode); // can raise EdsConsultationInProcess, EdsConsultationSending, EdsOldRefusalConsultationFormat
-     {* можно ли открыть элемент.
+  protected
+   procedure CanBeOpen(const aNode: Il3SimpleNode); { can raise EdsConsultationInProcess, EdsConsultationSending, EdsOldRefusalConsultationFormat }
+    {* можно ли открыть элемент.
            Возможные исключения:
              - EdsConsultationInProcess;
              - EdsConsultationSending; }
    function CanBeOpenAsConsultation(const aNode: Il3SimpleNode): Boolean;
-     {* определяет возможность открытия объекта без типизации }
+    {* определяет возможность открытия объекта без типизации }
    function CanGiveMarkOnConsultation(const aNode: Il3SimpleNode): Boolean;
-     {* определяет возможность оценки на консультацию }
+    {* определяет возможность оценки на консультацию }
    function CanDelete(const aNode: Il3SimpleNode): Boolean;
-     {* можено удалить }
+    {* можено удалить }
    function IsConsultation(const aNode: Il3SimpleNode): Boolean;
-     {* узел является консультацией }
+    {* узел является консультацией }
    procedure DeleteConsultation(const aNode: Il3SimpleNode);
-     {* удалить консультацию }
+    {* удалить консультацию }
    function CanImportConsultation(const aNode: Il3SimpleNode): Boolean;
-     {* можно ли импортировать консультацию. Возможно только если aNode =
+    {* можно ли импортировать консультацию. Возможно только если aNode =
            "Мои консультации" }
    procedure ImportConsultation(const aFileName: Tl3WString);
-     {* испортировать консультацию.
+    {* испортировать консультацию.
            Исключения:
            - EAccessDenied;
            - EInvalidXMLType; }
    function CanExportForIntegration(const aNode: Il3SimpleNode): Boolean;
-     {* можно ли экспортировать полученный ответ на консультацию }
+    {* можно ли экспортировать полученный ответ на консультацию }
    procedure ExportForIntegration(const aNode: Il3SimpleNode);
-     {* экспортировать консультацию.
+    {* экспортировать консультацию.
            Исключения:
            - EInvalidEntityType; }
    function CanExportToXML(const aNode: Il3SimpleNode): Boolean;
-     {* можно ли экспортировать ноду из папок }
+    {* можно ли экспортировать ноду из папок }
    procedure ExportToXML(const aNode: Il3SimpleNode;
     const aFileName: Tl3WString);
-     {* экспортировать ноду из папок.
+    {* экспортировать ноду из папок.
            Исключения:
            - EAccessDenied;
            - EInvalidEntityType; }
    function CanImportFromXML(const aNode: Il3SimpleNode): Boolean;
-     {* можно ли импортировать ноду в папки }
+    {* можно ли импортировать ноду в папки }
    procedure ImportFromXML(const aNode: Il3SimpleNode;
     const aFileName: Tl3WString);
-     {* импортировать ноду в папки.
+    {* импортировать ноду в папки.
            Исключения:
            - EAccessDenied;
            - EInvalidEntityType; }
  end;//TdsFoldersTree
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  SysUtils,
-  DataAdapter,
-  bsUtils,
-  ConsultationDomainInterfaces,
-  FoldersUnit,
-  bsConsultation,
-  bsTypes,
-  nsFolders,
-  FoldersDomainInterfaces,
-  ConsultingUnit,
-  nsManagers,
-  nsTypes,
-  l3InterfacesMisc,
-  l3Base
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
+ l3ImplUses
+ , SysUtils
+ , DataAdapter
+ , bsUtils
+ , ConsultationDomainInterfaces
+ , FoldersUnit
+ , bsConsultation
+ , bsTypes
+ , nsFolders
+ , FoldersDomainInterfaces
+ , ConsultingUnit
+ , nsManagers
+ , nsTypes
+ , l3InterfacesMisc
+ , l3Base
+;
 
 type _Instance_R_ = TdsFoldersTree;
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourcePrim.imp.pas}
 
-// start class TdsFoldersTree
-
-procedure TdsFoldersTree.CanBeOpen(const aNode: Il3SimpleNode); // can raise EdsConsultationInProcess, EdsConsultationSending, EdsOldRefusalConsultationFormat
+procedure TdsFoldersTree.CanBeOpen(const aNode: Il3SimpleNode); { can raise EdsConsultationInProcess, EdsConsultationSending, EdsOldRefusalConsultationFormat }
+ {* можно ли открыть элемент.
+           Возможные исключения:
+             - EdsConsultationInProcess;
+             - EdsConsultationSending; }
 //#UC START# *49219AE20118_492286CA0097_var*
 
   procedure lp_CheckConsultation;
@@ -163,6 +142,7 @@ begin
 end;//TdsFoldersTree.CanBeOpen
 
 function TdsFoldersTree.CanBeOpenAsConsultation(const aNode: Il3SimpleNode): Boolean;
+ {* определяет возможность открытия объекта без типизации }
 //#UC START# *49219B0B0108_492286CA0097_var*
 //#UC END# *49219B0B0108_492286CA0097_var*
 begin
@@ -174,6 +154,7 @@ begin
 end;//TdsFoldersTree.CanBeOpenAsConsultation
 
 function TdsFoldersTree.CanGiveMarkOnConsultation(const aNode: Il3SimpleNode): Boolean;
+ {* определяет возможность оценки на консультацию }
 //#UC START# *49219B1D02A0_492286CA0097_var*
 //#UC END# *49219B1D02A0_492286CA0097_var*
 begin
@@ -186,6 +167,7 @@ begin
 end;//TdsFoldersTree.CanGiveMarkOnConsultation
 
 function TdsFoldersTree.CanDelete(const aNode: Il3SimpleNode): Boolean;
+ {* можено удалить }
 //#UC START# *49219B4D029C_492286CA0097_var*
 //#UC END# *49219B4D029C_492286CA0097_var*
 begin
@@ -203,6 +185,7 @@ begin
 end;//TdsFoldersTree.CanDelete
 
 function TdsFoldersTree.IsConsultation(const aNode: Il3SimpleNode): Boolean;
+ {* узел является консультацией }
 //#UC START# *49219B5E0026_492286CA0097_var*
 //#UC END# *49219B5E0026_492286CA0097_var*
 begin
@@ -212,6 +195,7 @@ begin
 end;//TdsFoldersTree.IsConsultation
 
 procedure TdsFoldersTree.DeleteConsultation(const aNode: Il3SimpleNode);
+ {* удалить консультацию }
 //#UC START# *49219B6D00F7_492286CA0097_var*
 var
  l_Consultation: IConsultation;
@@ -230,6 +214,8 @@ begin
 end;//TdsFoldersTree.DeleteConsultation
 
 function TdsFoldersTree.CanImportConsultation(const aNode: Il3SimpleNode): Boolean;
+ {* можно ли импортировать консультацию. Возможно только если aNode =
+           "Мои консультации" }
 //#UC START# *49219B7D0122_492286CA0097_var*
 //#UC END# *49219B7D0122_492286CA0097_var*
 begin
@@ -239,6 +225,10 @@ begin
 end;//TdsFoldersTree.CanImportConsultation
 
 procedure TdsFoldersTree.ImportConsultation(const aFileName: Tl3WString);
+ {* испортировать консультацию.
+           Исключения:
+           - EAccessDenied;
+           - EInvalidXMLType; }
 //#UC START# *49219B9101C6_492286CA0097_var*
 //#UC END# *49219B9101C6_492286CA0097_var*
 begin
@@ -248,6 +238,7 @@ begin
 end;//TdsFoldersTree.ImportConsultation
 
 function TdsFoldersTree.CanExportForIntegration(const aNode: Il3SimpleNode): Boolean;
+ {* можно ли экспортировать полученный ответ на консультацию }
 //#UC START# *49219BAA0308_492286CA0097_var*
 //#UC END# *49219BAA0308_492286CA0097_var*
 begin
@@ -257,6 +248,9 @@ begin
 end;//TdsFoldersTree.CanExportForIntegration
 
 procedure TdsFoldersTree.ExportForIntegration(const aNode: Il3SimpleNode);
+ {* экспортировать консультацию.
+           Исключения:
+           - EInvalidEntityType; }
 //#UC START# *49219BBE035D_492286CA0097_var*
 //#UC END# *49219BBE035D_492286CA0097_var*
 begin
@@ -266,6 +260,7 @@ begin
 end;//TdsFoldersTree.ExportForIntegration
 
 function TdsFoldersTree.CanExportToXML(const aNode: Il3SimpleNode): Boolean;
+ {* можно ли экспортировать ноду из папок }
 //#UC START# *49219BD0007C_492286CA0097_var*
 //#UC END# *49219BD0007C_492286CA0097_var*
 begin
@@ -275,7 +270,11 @@ begin
 end;//TdsFoldersTree.CanExportToXML
 
 procedure TdsFoldersTree.ExportToXML(const aNode: Il3SimpleNode;
-  const aFileName: Tl3WString);
+ const aFileName: Tl3WString);
+ {* экспортировать ноду из папок.
+           Исключения:
+           - EAccessDenied;
+           - EInvalidEntityType; }
 //#UC START# *49219BE201A9_492286CA0097_var*
 //#UC END# *49219BE201A9_492286CA0097_var*
 begin
@@ -285,6 +284,7 @@ begin
 end;//TdsFoldersTree.ExportToXML
 
 function TdsFoldersTree.CanImportFromXML(const aNode: Il3SimpleNode): Boolean;
+ {* можно ли импортировать ноду в папки }
 //#UC START# *49219BFC01FD_492286CA0097_var*
 //#UC END# *49219BFC01FD_492286CA0097_var*
 begin
@@ -294,7 +294,11 @@ begin
 end;//TdsFoldersTree.CanImportFromXML
 
 procedure TdsFoldersTree.ImportFromXML(const aNode: Il3SimpleNode;
-  const aFileName: Tl3WString);
+ const aFileName: Tl3WString);
+ {* импортировать ноду в папки.
+           Исключения:
+           - EAccessDenied;
+           - EInvalidEntityType; }
 //#UC START# *49219C0C0077_492286CA0097_var*
 //#UC END# *49219C0C0077_492286CA0097_var*
 begin
@@ -302,7 +306,6 @@ begin
  bsImportNodeFromXML(aNode, aFileName);
 //#UC END# *49219C0C0077_492286CA0097_impl*
 end;//TdsFoldersTree.ImportFromXML
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

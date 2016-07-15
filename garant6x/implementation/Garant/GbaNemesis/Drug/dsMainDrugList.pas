@@ -1,51 +1,40 @@
 unit dsMainDrugList;
+ {* БОФ списка препаратов в главной зоне }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Drug"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Drug/dsMainDrugList.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ViewAreaControllerImp::Class>> F1 Встроенные продукты::Inpharm::Drug::sdsDrugList::TdsMainDrugList
-//
-// БОФ списка препаратов в главной зоне
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Drug\dsMainDrugList.pas"
+// Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "TdsMainDrugList" MUID: (47F5D70E03AB)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  dsDrugList
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , dsDrugList
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
- TdsMainDrugList = {vac} class(TdsDrugList)
+ TdsMainDrugList = class(TdsDrugList)
   {* БОФ списка препаратов в главной зоне }
- protected
- // overridden protected methods
+  protected
    function NotifyAboutChangeCurrent: Boolean; override;
-     {* уведомлять бизнес объект прецедента о смене текущего. }
+    {* уведомлять бизнес объект прецедента о смене текущего. }
    function DoIsMain: Boolean; override;
-     {* - определяет список в основной зоне приложения. }
+    {* - определяет список в основной зоне приложения. }
  end;//TdsMainDrugList
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TdsMainDrugList
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+uses
+ l3ImplUses
+;
 
 function TdsMainDrugList.NotifyAboutChangeCurrent: Boolean;
+ {* уведомлять бизнес объект прецедента о смене текущего. }
 //#UC START# *47F0D913030D_47F5D70E03AB_var*
 //#UC END# *47F0D913030D_47F5D70E03AB_var*
 begin
@@ -55,6 +44,7 @@ begin
 end;//TdsMainDrugList.NotifyAboutChangeCurrent
 
 function TdsMainDrugList.DoIsMain: Boolean;
+ {* - определяет список в основной зоне приложения. }
 //#UC START# *47FB00640212_47F5D70E03AB_var*
 //#UC END# *47FB00640212_47F5D70E03AB_var*
 begin
@@ -62,7 +52,6 @@ begin
  Result := True;
 //#UC END# *47FB00640212_47F5D70E03AB_impl*
 end;//TdsMainDrugList.DoIsMain
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

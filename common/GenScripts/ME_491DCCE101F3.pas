@@ -28,6 +28,7 @@ uses
 
 type
  _InitDataType_ = IdeQuery;
+ _FormDataSourceType_ = IdsQuery;
  {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSource.imp.pas}
  TdsQuery = {final} class(_vcmFormDataSource_, IdsQuery)
   private
@@ -51,7 +52,6 @@ uses
  , l3Base
 ;
 
-{$If NOT Defined(NoVCM)}
 type _Instance_R_ = TdsQuery;
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSource.imp.pas}
@@ -93,7 +93,6 @@ begin
  inherited;
 //#UC END# *479731C50290_491DCCE101F3_impl*
 end;//TdsQuery.Cleanup
-{$IfEnd} // NOT Defined(NoVCM)
-
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+
 end.

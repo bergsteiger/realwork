@@ -1,108 +1,75 @@
 unit Admin_Module;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Admin/Admin_Module.pas"
-// Начат: 07.09.2009 18:00
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMFormsPack::Class>> F1 Администратор::Admin::View::Admin::Admin
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Admin\Admin_Module.pas"
+// Стереотип: "VCMFormsPack"
+// Элемент модели: "Admin" MUID: (4AA5120303E5)
+// Имя типа: "TAdminModule"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If defined(Admin)}
+{$If Defined(Admin)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmFormSetFactory
-  {$IfEnd} //not NoVCM
-  ,
-  AdminInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  ,
-  GroupProperty_Form,
-  ForbidAutoregistration_Form,
-  l3StringIDEx,
-  PrimUserProperty_admUseProperties_UserType,
-  PrimGroupList_admGroupList_UserType,
-  PrimUserList_admUserList_UserType,
-  PrimUserListOptions_Form,
-  PrimAdminOptions_Form,
-  PrimAdmin_utAdmin_UserType,
-  PrimForbidAutoregistrationOptions_Form,
-  PrimGroupListOptions_Form,
-  PrimGroupPropertyOptions_Form,
-  PrimUserPropertyOptions_Form,
-  Admin_FormDefinitions_Controls
-  {$If not defined(NoVCM)}
-  ,
-  vcmFormSetFormsCollectionItemPrim
-  {$IfEnd} //not NoVCM
-  ,
-  fsAdmin,
-  UserList_Form,
-  UserProperty_Form,
-  GroupList_Form,
-  Admin_Form,
-  vcmExternalInterfaces {a},
-  vcmModule {a},
-  vcmBase {a}
-  ;
-{$IfEnd} //Admin
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , AdminInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If defined(Admin)}
 type
- TAdminModule = {formspack} class(TvcmModule)
- protected
-  class procedure GetEntityForms(aList : TvcmClassList); override;
- public
- // public methods
+ TAdminModule = class({$If NOT Defined(NoVCM)}
+ TvcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
+  protected
+   {$If NOT Defined(NoVCM)}
+   class procedure GetEntityForms(aList: TvcmClassList); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    class procedure OpenUserList(const aContainer: IvcmContainer);
    class function ShowRenameGroupDialog(const aData: IbsEditGroupName): Integer;
  end;//TAdminModule
-{$IfEnd} //Admin
+{$IfEnd} // Defined(Admin)
 
 implementation
 
-{$If defined(Admin)}
+{$If Defined(Admin)}
 uses
-  l3Base {a},
-  l3MessageID,
-  SysUtils,
-  deAdmin,
-  sdsAdmin,
-  DataAdapter,
-  deNode,
-  l3String,
-  PrimGroupProperty_admCreateGroup_UserType,
-  PrimGroupProperty_admRenameGroup_UserType,
-  StdRes {a}
-  ;
-{$IfEnd} //Admin
+ l3ImplUses
+ , PrimGroupProperty_admCreateGroup_UserType
+ , PrimGroupProperty_admRenameGroup_UserType
+ , deAdmin
+ , sdsAdmin
+ , DataAdapter
+ , deNode
+ {$If NOT Defined(NoVCM)}
+ , vcmUserControls
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3String
+ , fsAdmin
+ , GroupProperty_Form
+ , ForbidAutoregistration_Form
+ , UserList_Form
+ , UserProperty_Form
+ , GroupList_Form
+ , Admin_Form
+ , Admin_FormDefinitions_Controls
+ //#UC START# *4AA5120303E5impl_uses*
+ //#UC END# *4AA5120303E5impl_uses*
+;
 
-{$If defined(Admin)}
-
-// start class TAdminModule
-
+{$If NOT Defined(NoVCM)}
 class procedure TAdminModule.OpenUserList(const aContainer: IvcmContainer);
 var
  __WasEnter : Boolean;
@@ -128,14 +95,13 @@ begin
 end;//TAdminModule.OpenUserList
 
 class function TAdminModule.ShowRenameGroupDialog(const aData: IbsEditGroupName): Integer;
+var l_Form: IvcmEntityForm;
 var
  __WasEnter : Boolean;
 //#UC START# *4AA8E2C60357_4AA5120303E5_var*
 const
  cUserType: array [Boolean] of TvcmUserType = (Ord(admCreateGroup), Ord(admRenameGroup));
 //#UC END# *4AA8E2C60357_4AA5120303E5_var*
-var
- l_Form : IvcmEntityForm;
 begin
  __WasEnter := vcmEnterFactory;
  try
@@ -152,7 +118,7 @@ begin
  end;//try..finally
 end;//TAdminModule.ShowRenameGroupDialog
 
-class procedure TAdminModule.GetEntityForms(aList : TvcmClassList);
+class procedure TAdminModule.GetEntityForms(aList: TvcmClassList);
 begin
  inherited;
  aList.Add(TefGroupProperty);
@@ -161,8 +127,8 @@ begin
  aList.Add(TefUserProperty);
  aList.Add(TefGroupList);
  aList.Add(TcfAdminForm);
-end;
+end;//TAdminModule.GetEntityForms
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //Admin
-
+{$IfEnd} // Defined(Admin)
 end.

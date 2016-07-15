@@ -30,6 +30,7 @@ uses
 
 type
  _InitDataType_ = IdeProfile;
+ _FormDataSourceType_ = IdsUserProperty;
  {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSource.imp.pas}
  _nsUserPropertyImpl_Parent_ = _vcmFormDataSource_;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\Data\Users\nsUserPropertyImpl.imp.pas}
@@ -58,6 +59,14 @@ type
     {* - данные изменились. }
    {$IfEnd} // NOT Defined(NoVCM)
    procedure ClearNewUser; override;
+   {$If NOT Defined(NoVCM)}
+   procedure InitRefs(const aDS: IvcmFormSetDataSource); override;
+    {* Инициализирует ссылки на различные представления прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure ClearRefs; override;
+    {* Очищает ссылки на различные представления прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//TdsUserProperty
 {$IfEnd} // Defined(Admin)
 
@@ -75,7 +84,6 @@ uses
  , l3Base
 ;
 
-{$If NOT Defined(NoVCM)}
 type _Instance_R_ = TdsUserProperty;
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSource.imp.pas}
@@ -176,6 +184,7 @@ begin
 //#UC END# *479731C50290_491DA7AB0298_impl*
 end;//TdsUserProperty.Cleanup
 
+{$If NOT Defined(NoVCM)}
 procedure TdsUserProperty.GotData;
  {* - данные изменились. }
 //#UC START# *492ACF630072_491DA7AB0298_var*
@@ -186,6 +195,7 @@ begin
  SetProfileData(PartData.UserProfile, False, PartData.IsNewProfile);
 //#UC END# *492ACF630072_491DA7AB0298_impl*
 end;//TdsUserProperty.GotData
+{$IfEnd} // NOT Defined(NoVCM)
 
 procedure TdsUserProperty.ClearNewUser;
 //#UC START# *4B5049D901A9_491DA7AB0298_var*
@@ -196,6 +206,23 @@ begin
  f_IsReadOnlyFor268342582 := False;
 //#UC END# *4B5049D901A9_491DA7AB0298_impl*
 end;//TdsUserProperty.ClearNewUser
+
+{$If NOT Defined(NoVCM)}
+procedure TdsUserProperty.InitRefs(const aDS: IvcmFormSetDataSource);
+ {* Инициализирует ссылки на различные представления прецедента }
+begin
+ inherited;
+ SDS := aDS As IsdsAdmin;
+end;//TdsUserProperty.InitRefs
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TdsUserProperty.ClearRefs;
+ {* Очищает ссылки на различные представления прецедента }
+begin
+ inherited;
+ SDS := nil;
+end;//TdsUserProperty.ClearRefs
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$IfEnd} // Defined(Admin)

@@ -17,6 +17,9 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  , SearchDomainInterfaces
  , TreeInterfaces
  , bsInterfaces
@@ -24,9 +27,6 @@ uses
  , ExtCtrls
  {$IfEnd} // NOT Defined(NoVCL)
  , l3InternalInterfaces
- {$If NOT Defined(NoVCM)}
- , vcmInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
  , l3ProtoObjectWithCOMQI
  {$If NOT Defined(NoVCM)}
  , vcmLocalInterfaces
@@ -51,6 +51,14 @@ type
     {* Функция очистки полей объекта. }
    {$If NOT Defined(NoVCM)}
    function MakeDisplayName: IvcmCString; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitRefs(const aDS: IvcmFormSetDataSource); override;
+    {* Инициализирует ссылки на различные представления прецедента }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure ClearRefs; override;
+    {* Очищает ссылки на различные представления прецедента }
    {$IfEnd} // NOT Defined(NoVCM)
   public
    procedure UpdateSelectedAttributes;
@@ -165,6 +173,24 @@ begin
   Result := inherited MakeDisplayName;
 //#UC END# *491476B001D3_492437620004_impl*
 end;//TdsTreeAttributeSelect.MakeDisplayName
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TdsTreeAttributeSelect.InitRefs(const aDS: IvcmFormSetDataSource);
+ {* Инициализирует ссылки на различные представления прецедента }
+begin
+ inherited;
+ Supports(aDS, IbsSelectedAttributes, SelectedAttributes);
+end;//TdsTreeAttributeSelect.InitRefs
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TdsTreeAttributeSelect.ClearRefs;
+ {* Очищает ссылки на различные представления прецедента }
+begin
+ inherited;
+ SelectedAttributes := nil;
+end;//TdsTreeAttributeSelect.ClearRefs
 {$IfEnd} // NOT Defined(NoVCM)
 
 end.

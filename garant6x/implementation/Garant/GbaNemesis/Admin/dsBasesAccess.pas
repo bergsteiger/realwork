@@ -1,46 +1,33 @@
 unit dsBasesAccess;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Admin"
-// Автор: Лукьнец Р.В
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Admin/dsBasesAccess.pas"
-// Начат: 2008/06/23 09:26:00
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ViewAreaControllerImp::Class>> F1 Администратор::Admin::Admin::Admin::TdsBasesAccess
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Admin\dsBasesAccess.pas"
+// Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "TdsBasesAccess" MUID: (495504A000F2)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If defined(Admin)}
+{$If Defined(Admin)}
 uses
-  dsTreeAttributeSelect,
-  SearchDomainInterfaces
-  ;
-{$IfEnd} //Admin
+ l3IntfUses
+ , dsTreeAttributeSelect
+ , SearchDomainInterfaces
+;
 
-{$If defined(Admin)}
 type
- TdsBasesAccess = {vac} class(TdsTreeAttributeSelect)
- protected
- // overridden protected methods
+ TdsBasesAccess = class(TdsTreeAttributeSelect)
+  protected
    function GetOperations: TLogicOperationSet; override;
  end;//TdsBasesAccess
-{$IfEnd} //Admin
+{$IfEnd} // Defined(Admin)
 
 implementation
 
-{$If defined(Admin)}
-
-// start class TdsBasesAccess
+{$If Defined(Admin)}
+uses
+ l3ImplUses
+;
 
 function TdsBasesAccess.GetOperations: TLogicOperationSet;
 //#UC START# *492406340209_495504A000F2_var*
@@ -50,7 +37,6 @@ begin
  Result := [loNot];
 //#UC END# *492406340209_495504A000F2_impl*
 end;//TdsBasesAccess.GetOperations
-
-{$IfEnd} //Admin
+{$IfEnd} // Defined(Admin)
 
 end.

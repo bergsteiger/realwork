@@ -119,6 +119,9 @@ type
     {* Тут можно настроить внешний вид формы }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
+   function IsVCMScalingNeeded: Boolean; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure SignalDataSourceChanged(const anOld: IvcmFormDataSource;
     const aNew: IvcmFormDataSource); override;
    {$IfEnd} // NOT Defined(NoVCM)
@@ -899,6 +902,15 @@ begin
  Height := 276;
 //#UC END# *529332B40230_497F02D20216_impl*
 end;//TPrimUserPropertyForm.SetupFormLayout
+
+function TPrimUserPropertyForm.IsVCMScalingNeeded: Boolean;
+//#UC START# *576149F20025_497F02D20216_var*
+//#UC END# *576149F20025_497F02D20216_var*
+begin
+//#UC START# *576149F20025_497F02D20216_impl*
+ Result := True;
+//#UC END# *576149F20025_497F02D20216_impl*
+end;//TPrimUserPropertyForm.IsVCMScalingNeeded
 
 procedure TPrimUserPropertyForm.SignalDataSourceChanged(const anOld: IvcmFormDataSource;
  const aNew: IvcmFormDataSource);
