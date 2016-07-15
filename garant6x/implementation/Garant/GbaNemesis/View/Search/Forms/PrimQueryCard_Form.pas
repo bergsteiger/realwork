@@ -119,7 +119,8 @@ http://mdp.garant.ru/pages/viewpage.action?pageId=349114873&focusedCommentId=349
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
    function DoLoadState(const aState: IvcmBase;
-    aStateType: TvcmStateType): Boolean; override;
+    aStateType: TvcmStateType;
+    aClone: Boolean): Boolean; override;
     {* Загружает состояние формы. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
@@ -1469,7 +1470,8 @@ begin
 end;//TPrimQueryCardForm.DoInit
 
 function TPrimQueryCardForm.DoLoadState(const aState: IvcmBase;
- aStateType: TvcmStateType): Boolean;
+ aStateType: TvcmStateType;
+ aClone: Boolean): Boolean;
  {* Загружает состояние формы. Для перекрытия в потомках }
 //#UC START# *49807428008C_497EBA4301CA_var*
 var

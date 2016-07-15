@@ -14,6 +14,12 @@ interface
 uses
  l3IntfUses
  , Admin_Module
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
@@ -27,7 +33,16 @@ implementation
 {$If Defined(Admin)}
 uses
  l3ImplUses
+ {$If NOT Defined(NoVCM)}
+ , vcmModulesForRegister
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmModuleOperationsForRegister
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
+
+initialization
+ TvcmModulesForRegister.AddModule(TvcmModuleForRegister_C(Tmo_Admin, 'Администрирование пользователей'));
 {$IfEnd} // Defined(Admin)
 
 end.

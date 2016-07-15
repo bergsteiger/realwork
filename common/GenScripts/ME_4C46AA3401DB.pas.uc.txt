@@ -94,7 +94,7 @@ var
  l_Preview := MakePreview(False);
  if dsList <> nil then
   TnsListPrintPreviewEvent.Log(dsList.List, ApproxExportCount(l_Preview.ContentKind =  afw_pckSelection), l_Preview.ContentKind =  afw_pckSelection);
- TvcmModulesFactories.MakePreview(l_Preview);
+ TdmStdRes.MakePreview(l_Preview);
 //#UC END# *495220F2033A_4C46AA3401DBexec_impl*
 //#UC START# *495220F2033A_4C46AA3401DBexec_var*
 var
@@ -314,7 +314,7 @@ var
  begin
   l_Bookmark := dsList.CreateBookmark;
   if (l_Bookmark <> nil) then
-   TvcmModulesFactories.SaveOpen(Self.As_IvcmEntityForm,
+   TdmStdRes.SaveOpen(Self.As_IvcmEntityForm,
                       MakeFilterInfo(ffBookmark),
                       lp_FolderElementType,
                       l_Bookmark,
@@ -630,7 +630,7 @@ var
   end;
 
  begin
-  TvcmModulesFactories.SaveOpen(Self.As_IvcmEntityForm,
+  TdmStdRes.SaveOpen(Self.As_IvcmEntityForm,
                      MakeFilterInfo(ffListAndBookMarks),
                      lp_FolderElementType,
                      l_CurEntity,
@@ -669,7 +669,7 @@ var
  , Document_F1Lite_Controls
 //#UC END# *4C46AA3401DBimpl_uses*
 //#UC START# *4C46E1A20174_4C46AA3401DBexec_impl*
- TvcmModulesFactories.SelectOpenWithOperation(Self.as_IvcmEntityForm,
+ TdmStdRes.SelectOpenWithOperation(Self.as_IvcmEntityForm,
                                    MakeFilterInfo(ffList),
                                    str_ListAppend,
                                    LLO_OR);
@@ -684,7 +684,7 @@ var
 //#UC START# *4C46E1A20174_4C46AA3401DBtest_var*
 //#UC END# *4C46E1A20174_4C46AA3401DBtest_var*
 //#UC START# *4C46E1BD0315_4C46AA3401DBexec_impl*
- TvcmModulesFactories.SelectOpenWithOperation(Self.as_IvcmEntityForm,
+ TdmStdRes.SelectOpenWithOperation(Self.as_IvcmEntityForm,
                                    MakeFilterInfo(ffList),
                                    str_ListIntersect,
                                    LLO_AND);
@@ -699,7 +699,7 @@ var
 //#UC START# *4C46E1BD0315_4C46AA3401DBtest_var*
 //#UC END# *4C46E1BD0315_4C46AA3401DBtest_var*
 //#UC START# *4C46E1E302A8_4C46AA3401DBexec_impl*
- TvcmModulesFactories.SelectOpenWithOperation(Self.as_IvcmEntityForm,
+ TdmStdRes.SelectOpenWithOperation(Self.as_IvcmEntityForm,
                                    MakeFilterInfo(ffList),
                                    str_ListSubtract,
                                    LLO_AND_NOT);
@@ -768,7 +768,7 @@ var
 //#UC END# *4C5285F5004B_4C46AA3401DBtest_var*
 //#UC START# *4C52860A017C_4C46AA3401DBexec_impl*
  if Assigned(dsList) then
-  TvcmModulesFactories.MakePreview(dsList.MakeDocumentPreview);
+  TdmStdRes.MakePreview(dsList.MakeDocumentPreview);
 //#UC END# *4C52860A017C_4C46AA3401DBexec_impl*
 //#UC START# *4C52860A017C_4C46AA3401DBexec_var*
 //#UC END# *4C52860A017C_4C46AA3401DBexec_var*
@@ -1119,11 +1119,11 @@ var
    f_ListOpsList := TvcmItems.Make;
   if (f_ListOpsList.Count = 0) then
   begin
-   f_ListOpsList.AddOp(opcode_Selection_Analize);
-   f_ListOpsList.AddOp(opcode_List_SwitchToFullList);
-   f_ListOpsList.AddOp(opcode_Filters_FiltersListOpen, vcmCStr(str_ApplyFilters));
-   f_ListOpsList.AddOp(opcode_LocalList_SearchInList);
-   f_ListOpsList.AddOp(opcode_List_Sort);
+   f_ListOpsList.AddOp(TdmStdRes.opcode_Selection_Analize);
+   f_ListOpsList.AddOp(TdmStdRes.opcode_List_SwitchToFullList);
+   f_ListOpsList.AddOp(TdmStdRes.opcode_Filters_FiltersListOpen, vcmCStr(str_ApplyFilters));
+   f_ListOpsList.AddOp(TdmStdRes.opcode_LocalList_SearchInList);
+   f_ListOpsList.AddOp(TdmStdRes.opcode_List_Sort);
   end;//f_ListOpsList.Count = 0
   Result := f_ListOpsList;
  end;//lp_MakeAvailableOps

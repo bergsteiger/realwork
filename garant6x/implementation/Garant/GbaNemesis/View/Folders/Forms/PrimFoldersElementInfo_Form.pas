@@ -129,6 +129,12 @@ type
    procedure InitControls; override;
     {* Процедура инициализации контролов. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   function IsVCMScalingNeeded: Boolean; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure DoVCMScaleControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
    procedure ClearFields; override;
    {$If NOT Defined(NoVCM)}
    procedure InitEntities; override;
@@ -1453,6 +1459,31 @@ begin
  Windows.SetFocus(ElementName.Handle);
 //#UC END# *4AC3803A03CD_4AE706BB029F_impl*
 end;//TPrimFoldersElementInfoForm.SetActiveControl
+
+function TPrimFoldersElementInfoForm.IsVCMScalingNeeded: Boolean;
+//#UC START# *576149F20025_4AE706BB029F_var*
+//#UC END# *576149F20025_4AE706BB029F_var*
+begin
+//#UC START# *576149F20025_4AE706BB029F_impl*
+ Result := True;
+//#UC END# *576149F20025_4AE706BB029F_impl*
+end;//TPrimFoldersElementInfoForm.IsVCMScalingNeeded
+
+procedure TPrimFoldersElementInfoForm.DoVCMScaleControls;
+//#UC START# *57614A330093_4AE706BB029F_var*
+//#UC END# *57614A330093_4AE706BB029F_var*
+begin
+//#UC START# *57614A330093_4AE706BB029F_impl*
+ inherited;
+ with TopPanel do
+ begin
+  Height := ElementName.Top + ElementName.Height + 10;
+  Align := alTop;
+  BevelOuter := bvNone;
+  TabOrder := 0;
+ end;
+//#UC END# *57614A330093_4AE706BB029F_impl*
+end;//TPrimFoldersElementInfoForm.DoVCMScaleControls
 
 procedure TPrimFoldersElementInfoForm.ClearFields;
 begin

@@ -31,6 +31,13 @@ const
  op_capItalian = '';
  op_Spanish = 'Spanish';
  op_capSpanish = '';
+
+var opcode_Lang_Russian: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Lang_English: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Lang_French: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Lang_Deutch: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Lang_Italian: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Lang_Spanish: TvcmOPID = (rEnID : -1; rOpID : -1);
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
@@ -38,7 +45,34 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ {$If NOT Defined(NoVCM)}
+ , vcmOperationsForRegister
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmOperationStatesForRegister
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
+
+initialization
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Lang, op_Russian, en_capLang, op_capRussian, False, False, opcode_Lang_Russian)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Lang, op_English, en_capLang, op_capEnglish, False, False, opcode_Lang_English)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Lang, op_French, en_capLang, op_capFrench, False, False, opcode_Lang_French)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Lang, op_Deutch, en_capLang, op_capDeutch, False, False, opcode_Lang_Deutch)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Lang, op_Italian, en_capLang, op_capItalian, False, False, opcode_Lang_Italian)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Lang, op_Spanish, en_capLang, op_capSpanish, False, False, opcode_Lang_Spanish)) do
+ begin
+ end;
+
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

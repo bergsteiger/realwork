@@ -22,6 +22,15 @@ uses
  , ConfigInterfaces
  , l3Interfaces
  , Classes
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
@@ -38,19 +47,22 @@ type
    procedure ShowPreview(const aPreview: IafwDocumentPreview);
     {* показывает предварительный просмотр печати. }
    function pm_GetPageSetup: IafwPageSetup;
+   {$If NOT Defined(NoVCM)}
+   class procedure GetEntityForms(aList: TvcmClassList); override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
-   procedure MakeSaveLoadForm(const aParams: IvcmMakeParams;
+   class function MakeSaveLoadForm(const aParams: IvcmMakeParams;
     aZoneType: TvcmZoneType;
     aRecursive: Boolean;
-    aUserType: TvcmUserType);
-   procedure MakeQueryCardForm(aFilter: Boolean;
+    aUserType: TvcmUserType): IvcmEntityForm;
+   class function MakeQueryCardForm(aFilter: Boolean;
     const aParams: IvcmMakeParams;
     aZoneType: TvcmZoneType;
     aRecursive: Boolean;
-    aUserType: TvcmUserType);
-   procedure MakePreview(const aPreview: IafwDocumentPreview);
-   function MakePageSetup(const aData: InsPageSettingsInfo): Integer;
-   procedure MakePrintDialog(const aPreview: IafwDocumentPreview);
+    aUserType: TvcmUserType): IvcmEntityForm;
+   class function MakePreview(const aPreview: IafwDocumentPreview): IvcmEntityForm;
+   class function MakePageSetup(const aData: InsPageSettingsInfo): Integer;
+   class function MakePrintDialog(const aPreview: IafwDocumentPreview): IvcmEntityForm;
    constructor Create(AOwner: TComponent); override;
  end;//TCommonSearchModule
 {$IfEnd} // NOT Defined(Admin)
@@ -67,24 +79,28 @@ uses
  , Windows
  , afwFacade
  , SysUtils
- {$If NOT Defined(NoVCM)}
- , vcmBase
- {$IfEnd} // NOT Defined(NoVCM)
  , SaveLoad_Form
  , QueryCard_Form
  , Preview_Form
  , PageSetup_Form
  , PrintDialog_Form
+ , Search_FormDefinitions_Controls
+ //#UC START# *4AA931390118impl_uses*
+ //#UC END# *4AA931390118impl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
-procedure TCommonSearchModule.MakeSaveLoadForm(const aParams: IvcmMakeParams;
+class function TCommonSearchModule.MakeSaveLoadForm(const aParams: IvcmMakeParams;
  aZoneType: TvcmZoneType;
  aRecursive: Boolean;
- aUserType: TvcmUserType);
+ aUserType: TvcmUserType): IvcmEntityForm;
+var
+ __WasEnter : Boolean;
 //#UC START# *4AA93293002B_4AA931390118_var*
 //#UC END# *4AA93293002B_4AA931390118_var*
 begin
+ __WasEnter := vcmEnterFactory;
+ try
 //#UC START# *4AA93293002B_4AA931390118_impl*
  Assert(aRecursive);
  Result := TcfSaveLoad.MakeSingleChild(aParams.Container,
@@ -92,16 +108,24 @@ begin
                                              aZoneType,
                                              aUserType);
 //#UC END# *4AA93293002B_4AA931390118_impl*
+ finally
+  if __WasEnter then
+   vcmLeaveFactory;
+ end;//try..finally
 end;//TCommonSearchModule.MakeSaveLoadForm
 
-procedure TCommonSearchModule.MakeQueryCardForm(aFilter: Boolean;
+class function TCommonSearchModule.MakeQueryCardForm(aFilter: Boolean;
  const aParams: IvcmMakeParams;
  aZoneType: TvcmZoneType;
  aRecursive: Boolean;
- aUserType: TvcmUserType);
+ aUserType: TvcmUserType): IvcmEntityForm;
+var
+ __WasEnter : Boolean;
 //#UC START# *4AA9396E02B8_4AA931390118_var*
 //#UC END# *4AA9396E02B8_4AA931390118_var*
 begin
+ __WasEnter := vcmEnterFactory;
+ try
 //#UC START# *4AA9396E02B8_4AA931390118_impl*
  Assert(aRecursive);
  Result := TenQueryCard.MakeSingleChild(aFilter,
@@ -110,25 +134,41 @@ begin
                                         aZoneType,
                                         aUserType);
 //#UC END# *4AA9396E02B8_4AA931390118_impl*
+ finally
+  if __WasEnter then
+   vcmLeaveFactory;
+ end;//try..finally
 end;//TCommonSearchModule.MakeQueryCardForm
 
-procedure TCommonSearchModule.MakePreview(const aPreview: IafwDocumentPreview);
+class function TCommonSearchModule.MakePreview(const aPreview: IafwDocumentPreview): IvcmEntityForm;
+var
+ __WasEnter : Boolean;
 //#UC START# *4AAF73E6039E_4AA931390118_var*
  l_Params: IvcmMakeParams;
 //#UC END# *4AAF73E6039E_4AA931390118_var*
 begin
+ __WasEnter := vcmEnterFactory;
+ try
 //#UC START# *4AAF73E6039E_4AA931390118_impl*
  l_Params := vcmCheckAggregate(vcmMakeParams(nil, CheckContainer(nil)));
  // - http://mdp.garant.ru/pages/viewpage.action?pageId=606808801
  Result := TefPreviewForm.Make(aPreview, l_Params);
 //#UC END# *4AAF73E6039E_4AA931390118_impl*
+ finally
+  if __WasEnter then
+   vcmLeaveFactory;
+ end;//try..finally
 end;//TCommonSearchModule.MakePreview
 
-function TCommonSearchModule.MakePageSetup(const aData: InsPageSettingsInfo): Integer;
+class function TCommonSearchModule.MakePageSetup(const aData: InsPageSettingsInfo): Integer;
 var l_Form: IvcmEntityForm;
+var
+ __WasEnter : Boolean;
 //#UC START# *4AAF85DA01D1_4AA931390118_var*
 //#UC END# *4AAF85DA01D1_4AA931390118_var*
 begin
+ __WasEnter := vcmEnterFactory;
+ try
 //#UC START# *4AAF85DA01D1_4AA931390118_impl*
  l_Form := Ten_PageSetup.Make(aData);
  try
@@ -138,12 +178,20 @@ begin
   l_Form := nil;
  end;//try..finally
 //#UC END# *4AAF85DA01D1_4AA931390118_impl*
+ finally
+  if __WasEnter then
+   vcmLeaveFactory;
+ end;//try..finally
 end;//TCommonSearchModule.MakePageSetup
 
-procedure TCommonSearchModule.MakePrintDialog(const aPreview: IafwDocumentPreview);
+class function TCommonSearchModule.MakePrintDialog(const aPreview: IafwDocumentPreview): IvcmEntityForm;
+var
+ __WasEnter : Boolean;
 //#UC START# *4AAF8EE1019C_4AA931390118_var*
 //#UC END# *4AAF8EE1019C_4AA931390118_var*
 begin
+ __WasEnter := vcmEnterFactory;
+ try
 //#UC START# *4AAF8EE1019C_4AA931390118_impl*
  Result := Ten_PrintDialog.Make(aPreview);
  if (Result <> nil) AND (Result.ZoneType <> vcm_ztModal) then
@@ -152,6 +200,10 @@ begin
   Result := nil;
  end;//Result <> nil
 //#UC END# *4AAF8EE1019C_4AA931390118_impl*
+ finally
+  if __WasEnter then
+   vcmLeaveFactory;
+ end;//try..finally
 end;//TCommonSearchModule.MakePrintDialog
 
 function TCommonSearchModule.pm_GetMargins: TafwRect;
@@ -234,6 +286,16 @@ begin
   afw.Application.PrintManager := Self;
 //#UC END# *47D1602000C6_4AA931390118_impl*
 end;//TCommonSearchModule.Create
+
+class procedure TCommonSearchModule.GetEntityForms(aList: TvcmClassList);
+begin
+ inherited;
+ aList.Add(TcfSaveLoad);
+ aList.Add(TenQueryCard);
+ aList.Add(TefPreviewForm);
+ aList.Add(Ten_PageSetup);
+ aList.Add(Ten_PrintDialog);
+end;//TCommonSearchModule.GetEntityForms
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$IfEnd} // NOT Defined(Admin)

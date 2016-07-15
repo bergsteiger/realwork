@@ -51,12 +51,6 @@ uses
 ;
 
 type
- // Text
-
- // List
-
- // Attributes
-
  Tfs_MedicFirmDocument = {final} class({$If NOT Defined(NoVCM)}
  TvcmFormSetFactory
  {$IfEnd} // NOT Defined(NoVCM)
@@ -67,22 +61,22 @@ type
    class function GetInstance: TvcmFormSetFactoryPrim; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   function Text_Parent_dftMedicFirm_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+   function TextParentDftMedicFirmNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
     out aNew: IvcmFormDataSource;
     aSubUserType: TvcmUserType): Boolean;
     {* Обработчик OnNeedMakeForm для Text }
-   function List_Child_lftProducedDrugs_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+   function ListChildLftProducedDrugsNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
     out aNew: IvcmFormDataSource;
     aSubUserType: TvcmUserType): Boolean;
     {* Обработчик OnNeedMakeForm для List }
-   function Attributes_Child_fDocAttribute_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+   function AttributesChildFDocAttributeNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
     out aNew: IvcmFormDataSource;
     aSubUserType: TvcmUserType): Boolean;
     {* Обработчик OnNeedMakeForm для Attributes }
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: Tfs_MedicFirmDocument;
     {* Метод получения экземпляра синглетона Tfs_MedicFirmDocument }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//Tfs_MedicFirmDocument
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -92,7 +86,6 @@ implementation
 uses
  l3ImplUses
  , l3StringIDEx
- , l3MessageID
  , SysUtils
  , l3Base
 ;
@@ -112,47 +105,53 @@ begin
  l3Free(g_Tfs_MedicFirmDocument);
 end;//Tfs_MedicFirmDocumentFree
 
-function Tfs_MedicFirmDocument.Text_Parent_dftMedicFirm_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+function Tfs_MedicFirmDocument.TextParentDftMedicFirmNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
  out aNew: IvcmFormDataSource;
  aSubUserType: TvcmUserType): Boolean;
  {* Обработчик OnNeedMakeForm для Text }
-//#UC START# *D85D66FEA6B3_4AA12BC400A6_var*
-//#UC END# *D85D66FEA6B3_4AA12BC400A6_var*
+var
+ l_UseCase : IsdsBaseDocument;
 begin
-//#UC START# *D85D66FEA6B3_4AA12BC400A6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *D85D66FEA6B3_4AA12BC400A6_impl*
-end;//Tfs_MedicFirmDocument.Text_Parent_dftMedicFirm_NeedMakeForm
+ if Supports(aDataSource, IsdsBaseDocument, l_UseCase) then
+  try
+   aNew := l_UseCase.dsDocument;
+  finally
+   l_UseCase := nil;
+  end;//try..finally
+ Result := (aNew <> nil);
+end;//Tfs_MedicFirmDocument.TextParentDftMedicFirmNeedMakeForm
 
-function Tfs_MedicFirmDocument.List_Child_lftProducedDrugs_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+function Tfs_MedicFirmDocument.ListChildLftProducedDrugsNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
  out aNew: IvcmFormDataSource;
  aSubUserType: TvcmUserType): Boolean;
  {* Обработчик OnNeedMakeForm для List }
-//#UC START# *994991B7C174_4AA12BC400A6_var*
-//#UC END# *994991B7C174_4AA12BC400A6_var*
+var
+ l_UseCase : IsdsMedicFirmDocumentPrim;
 begin
-//#UC START# *994991B7C174_4AA12BC400A6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *994991B7C174_4AA12BC400A6_impl*
-end;//Tfs_MedicFirmDocument.List_Child_lftProducedDrugs_NeedMakeForm
+ if Supports(aDataSource, IsdsMedicFirmDocumentPrim, l_UseCase) then
+  try
+   aNew := l_UseCase.dsDrugList;
+  finally
+   l_UseCase := nil;
+  end;//try..finally
+ Result := (aNew <> nil);
+end;//Tfs_MedicFirmDocument.ListChildLftProducedDrugsNeedMakeForm
 
-function Tfs_MedicFirmDocument.Attributes_Child_fDocAttribute_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+function Tfs_MedicFirmDocument.AttributesChildFDocAttributeNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
  out aNew: IvcmFormDataSource;
  aSubUserType: TvcmUserType): Boolean;
  {* Обработчик OnNeedMakeForm для Attributes }
-//#UC START# *7DB1333E9147_4AA12BC400A6_var*
-//#UC END# *7DB1333E9147_4AA12BC400A6_var*
+var
+ l_UseCase : IsdsBaseDocumentWithAttributes;
 begin
-//#UC START# *7DB1333E9147_4AA12BC400A6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *7DB1333E9147_4AA12BC400A6_impl*
-end;//Tfs_MedicFirmDocument.Attributes_Child_fDocAttribute_NeedMakeForm
-
-class function Tfs_MedicFirmDocument.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_Tfs_MedicFirmDocument <> nil;
-end;//Tfs_MedicFirmDocument.Exists
+ if Supports(aDataSource, IsdsBaseDocumentWithAttributes, l_UseCase) then
+  try
+   aNew := l_UseCase.dsAttributes;
+  finally
+   l_UseCase := nil;
+  end;//try..finally
+ Result := (aNew <> nil);
+end;//Tfs_MedicFirmDocument.AttributesChildFDocAttributeNeedMakeForm
 
 class function Tfs_MedicFirmDocument.Instance: Tfs_MedicFirmDocument;
  {* Метод получения экземпляра синглетона Tfs_MedicFirmDocument }
@@ -165,22 +164,37 @@ begin
  Result := g_Tfs_MedicFirmDocument;
 end;//Tfs_MedicFirmDocument.Instance
 
-procedure Tfs_MedicFirmDocument.InitFields;
-//#UC START# *47A042E100E2_4AA12BC400A6_var*
-//#UC END# *47A042E100E2_4AA12BC400A6_var*
+class function Tfs_MedicFirmDocument.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
-//#UC START# *47A042E100E2_4AA12BC400A6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *47A042E100E2_4AA12BC400A6_impl*
+ Result := g_Tfs_MedicFirmDocument <> nil;
+end;//Tfs_MedicFirmDocument.Exists
+
+procedure Tfs_MedicFirmDocument.InitFields;
+begin
+ inherited;
+ with AddZone('Text', vcm_ztParent, fm_TextForm) do
+ begin
+  UserType := dftMedicFirm;
+  OnNeedMakeForm := TextParentDftMedicFirmNeedMakeForm;
+ end;
+ with AddZone('List', vcm_ztChild, fm_efList) do
+ begin
+  UserType := lftProducedDrugs;
+  OnNeedMakeForm := ListChildLftProducedDrugsNeedMakeForm;
+ end;
+ with AddZone('Attributes', vcm_ztChild, fm_AttributesForm) do
+ begin
+  UserType := fDocAttribute;
+  OnNeedMakeForm := AttributesChildFDocAttributeNeedMakeForm;
+ end;
+ Caption := str_fsMedicFirmDocumentCaption.AsCStr;
+ OwnerForm := 0;
 end;//Tfs_MedicFirmDocument.InitFields
 
 class function Tfs_MedicFirmDocument.GetInstance: TvcmFormSetFactoryPrim;
-//#UC START# *4FFE854A009B_4AA12BC400A6_var*
-//#UC END# *4FFE854A009B_4AA12BC400A6_var*
 begin
-//#UC START# *4FFE854A009B_4AA12BC400A6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4FFE854A009B_4AA12BC400A6_impl*
+ Result := Self.Instance;
 end;//Tfs_MedicFirmDocument.GetInstance
 
 initialization

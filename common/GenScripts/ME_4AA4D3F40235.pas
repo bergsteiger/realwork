@@ -60,26 +60,6 @@ uses
 ;
 
 type
- // Text
-
- // Synonyms
-
- // Attributes
-
- // Synchro
-
- // remListModified
-
- // remListFiltered
-
- // remTimeMachineWarning
-
- // List
-
- // Filters
-
- // ListInfo
-
  Tfs_DrugList = {final} class({$If NOT Defined(NoVCM)}
  TvcmFormSetFactory
  {$IfEnd} // NOT Defined(NoVCM)
@@ -90,50 +70,50 @@ type
    class function GetInstance: TvcmFormSetFactoryPrim; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   function Synchro_Child_mlsfDrugList_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+   function SynchroChildMlsfDrugListNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
     out aNew: IvcmFormDataSource;
     aSubUserType: TvcmUserType): Boolean;
     {* Обработчик OnNeedMakeForm для Synchro }
-   function Text_Child_dftDrugSynchroView_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+   function TextChildDftDrugSynchroViewNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
     out aNew: IvcmFormDataSource;
     aSubUserType: TvcmUserType): Boolean;
     {* Обработчик OnNeedMakeForm для Text }
-   function Synonyms_Child_lftDrugInternationalNameSynonymsSynchroForm_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+   function SynonymsChildLftDrugInternationalNameSynonymsSynchroFormNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
     out aNew: IvcmFormDataSource;
     aSubUserType: TvcmUserType): Boolean;
     {* Обработчик OnNeedMakeForm для Synonyms }
-   function Attributes_Child_fAttributeSynchroView_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+   function AttributesChildFAttributeSynchroViewNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
     out aNew: IvcmFormDataSource;
     aSubUserType: TvcmUserType): Boolean;
     {* Обработчик OnNeedMakeForm для Attributes }
-   function List_Parent_lftDrugList_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+   function ListParentLftDrugListNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
     out aNew: IvcmFormDataSource;
     aSubUserType: TvcmUserType): Boolean;
     {* Обработчик OnNeedMakeForm для List }
-   function remListModified_Child_remListModified_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+   function RemListModifiedChildRemListModifiedNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
     out aNew: IvcmFormDataSource;
     aSubUserType: TvcmUserType): Boolean;
     {* Обработчик OnNeedMakeForm для remListModified }
-   function remListFiltered_Child_remListFiltered_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+   function RemListFilteredChildRemListFilteredNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
     out aNew: IvcmFormDataSource;
     aSubUserType: TvcmUserType): Boolean;
     {* Обработчик OnNeedMakeForm для remListFiltered }
-   function remTimeMachineWarning_Child_remTimeMachineWarning_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+   function RemTimeMachineWarningChildRemTimeMachineWarningNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
     out aNew: IvcmFormDataSource;
     aSubUserType: TvcmUserType): Boolean;
     {* Обработчик OnNeedMakeForm для remTimeMachineWarning }
-   function Filters_Navigator_utFilters_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+   function FiltersNavigatorUtFiltersNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
     out aNew: IvcmFormDataSource;
     aSubUserType: TvcmUserType): Boolean;
     {* Обработчик OnNeedMakeForm для Filters }
-   function ListInfo_Child_liListInfo_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+   function ListInfoChildLiListInfoNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
     out aNew: IvcmFormDataSource;
     aSubUserType: TvcmUserType): Boolean;
     {* Обработчик OnNeedMakeForm для ListInfo }
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: Tfs_DrugList;
     {* Метод получения экземпляра синглетона Tfs_DrugList }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//Tfs_DrugList
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -143,7 +123,6 @@ implementation
 uses
  l3ImplUses
  , l3StringIDEx
- , l3MessageID
  , SysUtils
  , l3Base
 ;
@@ -163,131 +142,165 @@ begin
  l3Free(g_Tfs_DrugList);
 end;//Tfs_DrugListFree
 
-function Tfs_DrugList.Synchro_Child_mlsfDrugList_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+function Tfs_DrugList.SynchroChildMlsfDrugListNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
  out aNew: IvcmFormDataSource;
  aSubUserType: TvcmUserType): Boolean;
  {* Обработчик OnNeedMakeForm для Synchro }
-//#UC START# *F74313583E52_4AA4D3F40235_var*
-//#UC END# *F74313583E52_4AA4D3F40235_var*
+var
+ l_UseCase : IsdsDrugList;
 begin
-//#UC START# *F74313583E52_4AA4D3F40235_impl*
- !!! Needs to be implemented !!!
-//#UC END# *F74313583E52_4AA4D3F40235_impl*
-end;//Tfs_DrugList.Synchro_Child_mlsfDrugList_NeedMakeForm
+ if Supports(aDataSource, IsdsDrugList, l_UseCase) then
+  try
+   aNew := l_UseCase.dsSynchroView;
+  finally
+   l_UseCase := nil;
+  end;//try..finally
+ Result := (aNew <> nil);
+end;//Tfs_DrugList.SynchroChildMlsfDrugListNeedMakeForm
 
-function Tfs_DrugList.Text_Child_dftDrugSynchroView_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+function Tfs_DrugList.TextChildDftDrugSynchroViewNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
  out aNew: IvcmFormDataSource;
  aSubUserType: TvcmUserType): Boolean;
  {* Обработчик OnNeedMakeForm для Text }
-//#UC START# *82BC769FEF20_4AA4D3F40235_var*
-//#UC END# *82BC769FEF20_4AA4D3F40235_var*
+var
+ l_UseCase : IsdsBaseDocument;
 begin
-//#UC START# *82BC769FEF20_4AA4D3F40235_impl*
- !!! Needs to be implemented !!!
-//#UC END# *82BC769FEF20_4AA4D3F40235_impl*
-end;//Tfs_DrugList.Text_Child_dftDrugSynchroView_NeedMakeForm
+ if Supports(aDataSource, IsdsBaseDocument, l_UseCase) then
+  try
+   aNew := l_UseCase.dsDocument;
+  finally
+   l_UseCase := nil;
+  end;//try..finally
+ Result := (aNew <> nil);
+end;//Tfs_DrugList.TextChildDftDrugSynchroViewNeedMakeForm
 
-function Tfs_DrugList.Synonyms_Child_lftDrugInternationalNameSynonymsSynchroForm_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+function Tfs_DrugList.SynonymsChildLftDrugInternationalNameSynonymsSynchroFormNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
  out aNew: IvcmFormDataSource;
  aSubUserType: TvcmUserType): Boolean;
  {* Обработчик OnNeedMakeForm для Synonyms }
-//#UC START# *FC30801875B9_4AA4D3F40235_var*
-//#UC END# *FC30801875B9_4AA4D3F40235_var*
+var
+ l_UseCase : IsdsBaseDrugDocument;
 begin
-//#UC START# *FC30801875B9_4AA4D3F40235_impl*
- !!! Needs to be implemented !!!
-//#UC END# *FC30801875B9_4AA4D3F40235_impl*
-end;//Tfs_DrugList.Synonyms_Child_lftDrugInternationalNameSynonymsSynchroForm_NeedMakeForm
+ if Supports(aDataSource, IsdsBaseDrugDocument, l_UseCase) then
+  try
+   aNew := l_UseCase.dsDrugInternationalNameSynonims;
+  finally
+   l_UseCase := nil;
+  end;//try..finally
+ Result := (aNew <> nil);
+end;//Tfs_DrugList.SynonymsChildLftDrugInternationalNameSynonymsSynchroFormNeedMakeForm
 
-function Tfs_DrugList.Attributes_Child_fAttributeSynchroView_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+function Tfs_DrugList.AttributesChildFAttributeSynchroViewNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
  out aNew: IvcmFormDataSource;
  aSubUserType: TvcmUserType): Boolean;
  {* Обработчик OnNeedMakeForm для Attributes }
-//#UC START# *2A0F78DEE328_4AA4D3F40235_var*
-//#UC END# *2A0F78DEE328_4AA4D3F40235_var*
+var
+ l_UseCase : IsdsBaseDocumentWithAttributes;
 begin
-//#UC START# *2A0F78DEE328_4AA4D3F40235_impl*
- !!! Needs to be implemented !!!
-//#UC END# *2A0F78DEE328_4AA4D3F40235_impl*
-end;//Tfs_DrugList.Attributes_Child_fAttributeSynchroView_NeedMakeForm
+ if Supports(aDataSource, IsdsBaseDocumentWithAttributes, l_UseCase) then
+  try
+   aNew := l_UseCase.dsAttributes;
+  finally
+   l_UseCase := nil;
+  end;//try..finally
+ Result := (aNew <> nil);
+end;//Tfs_DrugList.AttributesChildFAttributeSynchroViewNeedMakeForm
 
-function Tfs_DrugList.List_Parent_lftDrugList_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+function Tfs_DrugList.ListParentLftDrugListNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
  out aNew: IvcmFormDataSource;
  aSubUserType: TvcmUserType): Boolean;
  {* Обработчик OnNeedMakeForm для List }
-//#UC START# *A0D8C5BC4D60_4AA4D3F40235_var*
-//#UC END# *A0D8C5BC4D60_4AA4D3F40235_var*
+var
+ l_UseCase : IsdsDrugList;
 begin
-//#UC START# *A0D8C5BC4D60_4AA4D3F40235_impl*
- !!! Needs to be implemented !!!
-//#UC END# *A0D8C5BC4D60_4AA4D3F40235_impl*
-end;//Tfs_DrugList.List_Parent_lftDrugList_NeedMakeForm
+ if Supports(aDataSource, IsdsDrugList, l_UseCase) then
+  try
+   aNew := l_UseCase.dsDrugList;
+  finally
+   l_UseCase := nil;
+  end;//try..finally
+ Result := (aNew <> nil);
+end;//Tfs_DrugList.ListParentLftDrugListNeedMakeForm
 
-function Tfs_DrugList.remListModified_Child_remListModified_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+function Tfs_DrugList.RemListModifiedChildRemListModifiedNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
  out aNew: IvcmFormDataSource;
  aSubUserType: TvcmUserType): Boolean;
  {* Обработчик OnNeedMakeForm для remListModified }
-//#UC START# *63FC0435D388_4AA4D3F40235_var*
-//#UC END# *63FC0435D388_4AA4D3F40235_var*
+var
+ l_UseCase : IsdsDrugList;
 begin
-//#UC START# *63FC0435D388_4AA4D3F40235_impl*
- !!! Needs to be implemented !!!
-//#UC END# *63FC0435D388_4AA4D3F40235_impl*
-end;//Tfs_DrugList.remListModified_Child_remListModified_NeedMakeForm
+ if Supports(aDataSource, IsdsDrugList, l_UseCase) then
+  try
+   aNew := l_UseCase.dsBaloonWarning;
+  finally
+   l_UseCase := nil;
+  end;//try..finally
+ Result := (aNew <> nil);
+end;//Tfs_DrugList.RemListModifiedChildRemListModifiedNeedMakeForm
 
-function Tfs_DrugList.remListFiltered_Child_remListFiltered_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+function Tfs_DrugList.RemListFilteredChildRemListFilteredNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
  out aNew: IvcmFormDataSource;
  aSubUserType: TvcmUserType): Boolean;
  {* Обработчик OnNeedMakeForm для remListFiltered }
-//#UC START# *47E604BA2AE1_4AA4D3F40235_var*
-//#UC END# *47E604BA2AE1_4AA4D3F40235_var*
+var
+ l_UseCase : IsdsDrugList;
 begin
-//#UC START# *47E604BA2AE1_4AA4D3F40235_impl*
- !!! Needs to be implemented !!!
-//#UC END# *47E604BA2AE1_4AA4D3F40235_impl*
-end;//Tfs_DrugList.remListFiltered_Child_remListFiltered_NeedMakeForm
+ if Supports(aDataSource, IsdsDrugList, l_UseCase) then
+  try
+   aNew := l_UseCase.dsBaloonWarning;
+  finally
+   l_UseCase := nil;
+  end;//try..finally
+ Result := (aNew <> nil);
+end;//Tfs_DrugList.RemListFilteredChildRemListFilteredNeedMakeForm
 
-function Tfs_DrugList.remTimeMachineWarning_Child_remTimeMachineWarning_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+function Tfs_DrugList.RemTimeMachineWarningChildRemTimeMachineWarningNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
  out aNew: IvcmFormDataSource;
  aSubUserType: TvcmUserType): Boolean;
  {* Обработчик OnNeedMakeForm для remTimeMachineWarning }
-//#UC START# *8E8F30B9521E_4AA4D3F40235_var*
-//#UC END# *8E8F30B9521E_4AA4D3F40235_var*
+var
+ l_UseCase : IsdsDrugList;
 begin
-//#UC START# *8E8F30B9521E_4AA4D3F40235_impl*
- !!! Needs to be implemented !!!
-//#UC END# *8E8F30B9521E_4AA4D3F40235_impl*
-end;//Tfs_DrugList.remTimeMachineWarning_Child_remTimeMachineWarning_NeedMakeForm
+ if Supports(aDataSource, IsdsDrugList, l_UseCase) then
+  try
+   aNew := l_UseCase.dsBaloonWarning;
+  finally
+   l_UseCase := nil;
+  end;//try..finally
+ Result := (aNew <> nil);
+end;//Tfs_DrugList.RemTimeMachineWarningChildRemTimeMachineWarningNeedMakeForm
 
-function Tfs_DrugList.Filters_Navigator_utFilters_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+function Tfs_DrugList.FiltersNavigatorUtFiltersNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
  out aNew: IvcmFormDataSource;
  aSubUserType: TvcmUserType): Boolean;
  {* Обработчик OnNeedMakeForm для Filters }
-//#UC START# *43735BF854EE_4AA4D3F40235_var*
-//#UC END# *43735BF854EE_4AA4D3F40235_var*
+var
+ l_UseCase : IsdsDrugList;
 begin
-//#UC START# *43735BF854EE_4AA4D3F40235_impl*
- !!! Needs to be implemented !!!
-//#UC END# *43735BF854EE_4AA4D3F40235_impl*
-end;//Tfs_DrugList.Filters_Navigator_utFilters_NeedMakeForm
+ if Supports(aDataSource, IsdsDrugList, l_UseCase) then
+  try
+   aNew := l_UseCase.dsFilters;
+  finally
+   l_UseCase := nil;
+  end;//try..finally
+ Result := (aNew <> nil);
+end;//Tfs_DrugList.FiltersNavigatorUtFiltersNeedMakeForm
 
-function Tfs_DrugList.ListInfo_Child_liListInfo_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+function Tfs_DrugList.ListInfoChildLiListInfoNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
  out aNew: IvcmFormDataSource;
  aSubUserType: TvcmUserType): Boolean;
  {* Обработчик OnNeedMakeForm для ListInfo }
-//#UC START# *A104A12AB6B7_4AA4D3F40235_var*
-//#UC END# *A104A12AB6B7_4AA4D3F40235_var*
+var
+ l_UseCase : IsdsDrugList;
 begin
-//#UC START# *A104A12AB6B7_4AA4D3F40235_impl*
- !!! Needs to be implemented !!!
-//#UC END# *A104A12AB6B7_4AA4D3F40235_impl*
-end;//Tfs_DrugList.ListInfo_Child_liListInfo_NeedMakeForm
-
-class function Tfs_DrugList.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_Tfs_DrugList <> nil;
-end;//Tfs_DrugList.Exists
+ if Supports(aDataSource, IsdsDrugList, l_UseCase) then
+  try
+   aNew := l_UseCase.dsListInfo;
+  finally
+   l_UseCase := nil;
+  end;//try..finally
+ Result := (aNew <> nil);
+end;//Tfs_DrugList.ListInfoChildLiListInfoNeedMakeForm
 
 class function Tfs_DrugList.Instance: Tfs_DrugList;
  {* Метод получения экземпляра синглетона Tfs_DrugList }
@@ -300,22 +313,73 @@ begin
  Result := g_Tfs_DrugList;
 end;//Tfs_DrugList.Instance
 
-procedure Tfs_DrugList.InitFields;
-//#UC START# *47A042E100E2_4AA4D3F40235_var*
-//#UC END# *47A042E100E2_4AA4D3F40235_var*
+class function Tfs_DrugList.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
-//#UC START# *47A042E100E2_4AA4D3F40235_impl*
- !!! Needs to be implemented !!!
-//#UC END# *47A042E100E2_4AA4D3F40235_impl*
+ Result := g_Tfs_DrugList <> nil;
+end;//Tfs_DrugList.Exists
+
+procedure Tfs_DrugList.InitFields;
+begin
+ inherited;
+ with AddZone('Synchro', vcm_ztChild, fm_en_MedicListSynchroView) do
+ begin
+  UserType := mlsfDrugList;
+  with AddZone('Text', vcm_ztChild, fm_TextForm) do
+  begin
+   UserType := dftDrugSynchroView;
+   OnNeedMakeForm := TextChildDftDrugSynchroViewNeedMakeForm;
+  end;
+  with AddZone('Synonyms', vcm_ztChild, fm_efList) do
+  begin
+   UserType := lftDrugInternationalNameSynonymsSynchroForm;
+   OnNeedMakeForm := SynonymsChildLftDrugInternationalNameSynonymsSynchroFormNeedMakeForm;
+  end;
+  with AddZone('Attributes', vcm_ztChild, fm_AttributesForm) do
+  begin
+   UserType := fAttributeSynchroView;
+   OnNeedMakeForm := AttributesChildFAttributeSynchroViewNeedMakeForm;
+  end;
+  OnNeedMakeForm := SynchroChildMlsfDrugListNeedMakeForm;
+ end;
+ with AddZone('List', vcm_ztParent, fm_efList) do
+ begin
+  UserType := lftDrugList;
+  with AddZone('remListModified', vcm_ztChild, fm_WarningBaloonForm) do
+  begin
+   UserType := remListModified;
+   OnNeedMakeForm := RemListModifiedChildRemListModifiedNeedMakeForm;
+  end;
+  with AddZone('remListFiltered', vcm_ztChild, fm_WarningBaloonForm) do
+  begin
+   UserType := remListFiltered;
+   OnNeedMakeForm := RemListFilteredChildRemListFilteredNeedMakeForm;
+  end;
+  with AddZone('remTimeMachineWarning', vcm_ztChild, fm_WarningBaloonForm) do
+  begin
+   UserType := remTimeMachineWarning;
+   OnNeedMakeForm := RemTimeMachineWarningChildRemTimeMachineWarningNeedMakeForm;
+  end;
+  OnNeedMakeForm := ListParentLftDrugListNeedMakeForm;
+ end;
+ with AddZone('Filters', vcm_ztNavigator, fm_enFilters) do
+ begin
+  UserType := utFilters;
+  ActivateIfUpdate := wafAlways;
+  OnNeedMakeForm := FiltersNavigatorUtFiltersNeedMakeForm;
+ end;
+ with AddZone('ListInfo', vcm_ztChild, fm_efListInfo) do
+ begin
+  UserType := liListInfo;
+  OnNeedMakeForm := ListInfoChildLiListInfoNeedMakeForm;
+ end;
+ Caption := str_fsDrugListCaption.AsCStr;
+ OwnerForm := 1;
 end;//Tfs_DrugList.InitFields
 
 class function Tfs_DrugList.GetInstance: TvcmFormSetFactoryPrim;
-//#UC START# *4FFE854A009B_4AA4D3F40235_var*
-//#UC END# *4FFE854A009B_4AA4D3F40235_var*
 begin
-//#UC START# *4FFE854A009B_4AA4D3F40235_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4FFE854A009B_4AA4D3F40235_impl*
+ Result := Self.Instance;
 end;//Tfs_DrugList.GetInstance
 
 initialization

@@ -56,16 +56,6 @@ uses
 ;
 
 type
- // MedicFirmList
-
- // Text
-
- // List
-
- // Attributes
-
- // MedicListSynchroView
-
  Tfs_MedicFirmList = {final} class({$If NOT Defined(NoVCM)}
  TvcmFormSetFactory
  {$IfEnd} // NOT Defined(NoVCM)
@@ -76,30 +66,30 @@ type
    class function GetInstance: TvcmFormSetFactoryPrim; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   function MedicFirmList_Parent_mflMain_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+   function MedicFirmListParentMflMainNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
     out aNew: IvcmFormDataSource;
     aSubUserType: TvcmUserType): Boolean;
     {* Обработчик OnNeedMakeForm для MedicFirmList }
-   function MedicListSynchroView_Child_mlsfMedicFirm_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+   function MedicListSynchroViewChildMlsfMedicFirmNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
     out aNew: IvcmFormDataSource;
     aSubUserType: TvcmUserType): Boolean;
     {* Обработчик OnNeedMakeForm для MedicListSynchroView }
-   function Text_Child_dftMedicFirmSynchroView_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+   function TextChildDftMedicFirmSynchroViewNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
     out aNew: IvcmFormDataSource;
     aSubUserType: TvcmUserType): Boolean;
     {* Обработчик OnNeedMakeForm для Text }
-   function List_Child_lftProducedDrugsSynchroForm_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+   function ListChildLftProducedDrugsSynchroFormNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
     out aNew: IvcmFormDataSource;
     aSubUserType: TvcmUserType): Boolean;
     {* Обработчик OnNeedMakeForm для List }
-   function Attributes_Child_fAttributeSynchroView_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+   function AttributesChildFAttributeSynchroViewNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
     out aNew: IvcmFormDataSource;
     aSubUserType: TvcmUserType): Boolean;
     {* Обработчик OnNeedMakeForm для Attributes }
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: Tfs_MedicFirmList;
     {* Метод получения экземпляра синглетона Tfs_MedicFirmList }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//Tfs_MedicFirmList
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -109,7 +99,6 @@ implementation
 uses
  l3ImplUses
  , l3StringIDEx
- , l3MessageID
  , SysUtils
  , l3Base
 ;
@@ -129,71 +118,85 @@ begin
  l3Free(g_Tfs_MedicFirmList);
 end;//Tfs_MedicFirmListFree
 
-function Tfs_MedicFirmList.MedicFirmList_Parent_mflMain_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+function Tfs_MedicFirmList.MedicFirmListParentMflMainNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
  out aNew: IvcmFormDataSource;
  aSubUserType: TvcmUserType): Boolean;
  {* Обработчик OnNeedMakeForm для MedicFirmList }
-//#UC START# *4F700CE0EF53_4AA7A19E01D0_var*
-//#UC END# *4F700CE0EF53_4AA7A19E01D0_var*
+var
+ l_UseCase : IsdsMedicFirmList;
 begin
-//#UC START# *4F700CE0EF53_4AA7A19E01D0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4F700CE0EF53_4AA7A19E01D0_impl*
-end;//Tfs_MedicFirmList.MedicFirmList_Parent_mflMain_NeedMakeForm
+ if Supports(aDataSource, IsdsMedicFirmList, l_UseCase) then
+  try
+   aNew := l_UseCase.dsFirmList;
+  finally
+   l_UseCase := nil;
+  end;//try..finally
+ Result := (aNew <> nil);
+end;//Tfs_MedicFirmList.MedicFirmListParentMflMainNeedMakeForm
 
-function Tfs_MedicFirmList.MedicListSynchroView_Child_mlsfMedicFirm_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+function Tfs_MedicFirmList.MedicListSynchroViewChildMlsfMedicFirmNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
  out aNew: IvcmFormDataSource;
  aSubUserType: TvcmUserType): Boolean;
  {* Обработчик OnNeedMakeForm для MedicListSynchroView }
-//#UC START# *F68008EDD490_4AA7A19E01D0_var*
-//#UC END# *F68008EDD490_4AA7A19E01D0_var*
+var
+ l_UseCase : IsdsMedicFirmList;
 begin
-//#UC START# *F68008EDD490_4AA7A19E01D0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *F68008EDD490_4AA7A19E01D0_impl*
-end;//Tfs_MedicFirmList.MedicListSynchroView_Child_mlsfMedicFirm_NeedMakeForm
+ if Supports(aDataSource, IsdsMedicFirmList, l_UseCase) then
+  try
+   aNew := l_UseCase.dsSynchroView;
+  finally
+   l_UseCase := nil;
+  end;//try..finally
+ Result := (aNew <> nil);
+end;//Tfs_MedicFirmList.MedicListSynchroViewChildMlsfMedicFirmNeedMakeForm
 
-function Tfs_MedicFirmList.Text_Child_dftMedicFirmSynchroView_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+function Tfs_MedicFirmList.TextChildDftMedicFirmSynchroViewNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
  out aNew: IvcmFormDataSource;
  aSubUserType: TvcmUserType): Boolean;
  {* Обработчик OnNeedMakeForm для Text }
-//#UC START# *53493DB7D7CB_4AA7A19E01D0_var*
-//#UC END# *53493DB7D7CB_4AA7A19E01D0_var*
+var
+ l_UseCase : IsdsBaseDocument;
 begin
-//#UC START# *53493DB7D7CB_4AA7A19E01D0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *53493DB7D7CB_4AA7A19E01D0_impl*
-end;//Tfs_MedicFirmList.Text_Child_dftMedicFirmSynchroView_NeedMakeForm
+ if Supports(aDataSource, IsdsBaseDocument, l_UseCase) then
+  try
+   aNew := l_UseCase.dsDocument;
+  finally
+   l_UseCase := nil;
+  end;//try..finally
+ Result := (aNew <> nil);
+end;//Tfs_MedicFirmList.TextChildDftMedicFirmSynchroViewNeedMakeForm
 
-function Tfs_MedicFirmList.List_Child_lftProducedDrugsSynchroForm_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+function Tfs_MedicFirmList.ListChildLftProducedDrugsSynchroFormNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
  out aNew: IvcmFormDataSource;
  aSubUserType: TvcmUserType): Boolean;
  {* Обработчик OnNeedMakeForm для List }
-//#UC START# *EC9F1705DC7B_4AA7A19E01D0_var*
-//#UC END# *EC9F1705DC7B_4AA7A19E01D0_var*
+var
+ l_UseCase : IsdsMedicFirmDocumentPrim;
 begin
-//#UC START# *EC9F1705DC7B_4AA7A19E01D0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *EC9F1705DC7B_4AA7A19E01D0_impl*
-end;//Tfs_MedicFirmList.List_Child_lftProducedDrugsSynchroForm_NeedMakeForm
+ if Supports(aDataSource, IsdsMedicFirmDocumentPrim, l_UseCase) then
+  try
+   aNew := l_UseCase.dsDrugList;
+  finally
+   l_UseCase := nil;
+  end;//try..finally
+ Result := (aNew <> nil);
+end;//Tfs_MedicFirmList.ListChildLftProducedDrugsSynchroFormNeedMakeForm
 
-function Tfs_MedicFirmList.Attributes_Child_fAttributeSynchroView_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+function Tfs_MedicFirmList.AttributesChildFAttributeSynchroViewNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
  out aNew: IvcmFormDataSource;
  aSubUserType: TvcmUserType): Boolean;
  {* Обработчик OnNeedMakeForm для Attributes }
-//#UC START# *3A3C5FCF6C93_4AA7A19E01D0_var*
-//#UC END# *3A3C5FCF6C93_4AA7A19E01D0_var*
+var
+ l_UseCase : IsdsBaseDocumentWithAttributes;
 begin
-//#UC START# *3A3C5FCF6C93_4AA7A19E01D0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *3A3C5FCF6C93_4AA7A19E01D0_impl*
-end;//Tfs_MedicFirmList.Attributes_Child_fAttributeSynchroView_NeedMakeForm
-
-class function Tfs_MedicFirmList.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_Tfs_MedicFirmList <> nil;
-end;//Tfs_MedicFirmList.Exists
+ if Supports(aDataSource, IsdsBaseDocumentWithAttributes, l_UseCase) then
+  try
+   aNew := l_UseCase.dsAttributes;
+  finally
+   l_UseCase := nil;
+  end;//try..finally
+ Result := (aNew <> nil);
+end;//Tfs_MedicFirmList.AttributesChildFAttributeSynchroViewNeedMakeForm
 
 class function Tfs_MedicFirmList.Instance: Tfs_MedicFirmList;
  {* Метод получения экземпляра синглетона Tfs_MedicFirmList }
@@ -206,22 +209,47 @@ begin
  Result := g_Tfs_MedicFirmList;
 end;//Tfs_MedicFirmList.Instance
 
-procedure Tfs_MedicFirmList.InitFields;
-//#UC START# *47A042E100E2_4AA7A19E01D0_var*
-//#UC END# *47A042E100E2_4AA7A19E01D0_var*
+class function Tfs_MedicFirmList.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
-//#UC START# *47A042E100E2_4AA7A19E01D0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *47A042E100E2_4AA7A19E01D0_impl*
+ Result := g_Tfs_MedicFirmList <> nil;
+end;//Tfs_MedicFirmList.Exists
+
+procedure Tfs_MedicFirmList.InitFields;
+begin
+ inherited;
+ with AddZone('MedicFirmList', vcm_ztParent, fm_en_MedicFirmList) do
+ begin
+  UserType := mflMain;
+  OnNeedMakeForm := MedicFirmListParentMflMainNeedMakeForm;
+ end;
+ with AddZone('MedicListSynchroView', vcm_ztChild, fm_en_MedicListSynchroView) do
+ begin
+  UserType := mlsfMedicFirm;
+  with AddZone('Text', vcm_ztChild, fm_TextForm) do
+  begin
+   UserType := dftMedicFirmSynchroView;
+   OnNeedMakeForm := TextChildDftMedicFirmSynchroViewNeedMakeForm;
+  end;
+  with AddZone('List', vcm_ztChild, fm_efList) do
+  begin
+   UserType := lftProducedDrugsSynchroForm;
+   OnNeedMakeForm := ListChildLftProducedDrugsSynchroFormNeedMakeForm;
+  end;
+  with AddZone('Attributes', vcm_ztChild, fm_AttributesForm) do
+  begin
+   UserType := fAttributeSynchroView;
+   OnNeedMakeForm := AttributesChildFAttributeSynchroViewNeedMakeForm;
+  end;
+  OnNeedMakeForm := MedicListSynchroViewChildMlsfMedicFirmNeedMakeForm;
+ end;
+ Caption := str_fsMedicFirmListCaption.AsCStr;
+ OwnerForm := 0;
 end;//Tfs_MedicFirmList.InitFields
 
 class function Tfs_MedicFirmList.GetInstance: TvcmFormSetFactoryPrim;
-//#UC START# *4FFE854A009B_4AA7A19E01D0_var*
-//#UC END# *4FFE854A009B_4AA7A19E01D0_var*
 begin
-//#UC START# *4FFE854A009B_4AA7A19E01D0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4FFE854A009B_4AA7A19E01D0_impl*
+ Result := Self.Instance;
 end;//Tfs_MedicFirmList.GetInstance
 
 initialization

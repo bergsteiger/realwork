@@ -1,39 +1,57 @@
 unit moInpharm;
+ {* Инфарм }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Автор: Лукьянец Р.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/moInpharm.pas"
-// Начат: 2008/03/12 11:01:35
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMUseCaseRealization::Class>> F1 Встроенные продукты::Inpharm::Inpharm
-//
-// Инфарм
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\moInpharm.pas"
+// Стереотип: "VCMUseCaseRealization"
+// Элемент модели: "Inpharm" MUID: (4AA0D69601AB)
+// Имя типа: "Tmo_Inpharm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Inpharm_Module
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , Inpharm_Module
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
-Tmo_Inpharm = {final formspack} class(TInpharmModule)
- {* Инфарм }
-end;//Tmo_Inpharm
-{$IfEnd} //not Admin AND not Monitorings
+ Tmo_Inpharm = {final} class(TInpharmModule)
+  {* Инфарм }
+ end;//Tmo_Inpharm
+
+var g_module_opcode_Inpharm_MedicDiction: TvcmMOPID = (rMoID : -1; rOpID : -1);
+var g_module_opcode_Inpharm_MedicFirms: TvcmMOPID = (rMoID : -1; rOpID : -1);
+var g_module_opcode_Inpharm_DrugList: TvcmMOPID = (rMoID : -1; rOpID : -1);
+var g_module_opcode_Inpharm_MedicMainMenu: TvcmMOPID = (rMoID : -1; rOpID : -1);
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+uses
+ l3ImplUses
+ {$If NOT Defined(NoVCM)}
+ , vcmModulesForRegister
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmModuleOperationsForRegister
+ {$IfEnd} // NOT Defined(NoVCM)
+;
+
+initialization
+ TvcmModulesForRegister.AddModule(TvcmModuleForRegister_C(Tmo_Inpharm, 'Инфарм'));
+ TvcmModuleOperationsForRegister.AddOperation(TvcmModuleOperationForRegister_C(Tmo_Inpharm, 'MedicDiction', 'Словарь медицинских терминов', False, g_module_opcode_Inpharm_MedicDiction));
+ TvcmModuleOperationsForRegister.AddOperation(TvcmModuleOperationForRegister_C(Tmo_Inpharm, 'MedicFirms', 'Фармацевтические фирмы', False, g_module_opcode_Inpharm_MedicFirms));
+ TvcmModuleOperationsForRegister.AddOperation(TvcmModuleOperationForRegister_C(Tmo_Inpharm, 'DrugList', 'Список выпускаемых препаратов', False, g_module_opcode_Inpharm_DrugList));
+ TvcmModuleOperationsForRegister.AddOperation(TvcmModuleOperationForRegister_C(Tmo_Inpharm, 'MedicMainMenu', 'Основное меню ИнФарм', False, g_module_opcode_Inpharm_MedicMainMenu));
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

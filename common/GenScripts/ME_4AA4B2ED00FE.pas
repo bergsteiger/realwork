@@ -32,12 +32,6 @@ uses
 ;
 
 type
- // enFoldersTree_utFoldersTree
-
- // enFoldersElementInfo_utFoldersProperty
-
- // cfFolders
-
  Tfs_Folders = {final} class({$If NOT Defined(NoVCM)}
  TvcmFormSetFactory
  {$IfEnd} // NOT Defined(NoVCM)
@@ -51,22 +45,22 @@ type
    function DoGetCanSaveFormSetToHistory(const aFormSet: IvcmFormSet): Boolean; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   function cfFolders_Navigator_utFolders_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+   function CfFoldersNavigatorUtFoldersNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
     out aNew: IvcmFormDataSource;
     aSubUserType: TvcmUserType): Boolean;
     {* Обработчик OnNeedMakeForm для cfFolders }
-   function enFoldersTree_utFoldersTree_Parent_utFoldersTree_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+   function EnFoldersTreeUtFoldersTreeParentUtFoldersTreeNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
     out aNew: IvcmFormDataSource;
     aSubUserType: TvcmUserType): Boolean;
     {* Обработчик OnNeedMakeForm для enFoldersTree_utFoldersTree }
-   function enFoldersElementInfo_utFoldersProperty_Child_utFoldersProperty_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+   function EnFoldersElementInfoUtFoldersPropertyChildUtFoldersPropertyNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
     out aNew: IvcmFormDataSource;
     aSubUserType: TvcmUserType): Boolean;
     {* Обработчик OnNeedMakeForm для enFoldersElementInfo_utFoldersProperty }
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: Tfs_Folders;
     {* Метод получения экземпляра синглетона Tfs_Folders }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//Tfs_Folders
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -76,7 +70,6 @@ implementation
 uses
  l3ImplUses
  , l3StringIDEx
- , l3MessageID
  , SysUtils
  , l3Base
 ;
@@ -86,7 +79,7 @@ var g_Tfs_Folders: Tfs_Folders = nil;
  {* Экземпляр синглетона Tfs_Folders }
 
 const
- {* Локализуемые строки Folders$FSFCaptionLocalConstants }
+ {* Локализуемые строки Folders }
  str_fsFoldersCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'fsFoldersCaption'; rValue : 'Папки');
   {* Заголовок фабрики сборки форм "Folders$FSF" }
 
@@ -96,47 +89,59 @@ begin
  l3Free(g_Tfs_Folders);
 end;//Tfs_FoldersFree
 
-function Tfs_Folders.cfFolders_Navigator_utFolders_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+function Tfs_Folders.CfFoldersNavigatorUtFoldersNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
  out aNew: IvcmFormDataSource;
  aSubUserType: TvcmUserType): Boolean;
  {* Обработчик OnNeedMakeForm для cfFolders }
-//#UC START# *C0B08AD85726_4AA4B2ED00FE_var*
-//#UC END# *C0B08AD85726_4AA4B2ED00FE_var*
+var
+ l_UseCase : IsdsFolders;
 begin
-//#UC START# *C0B08AD85726_4AA4B2ED00FE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *C0B08AD85726_4AA4B2ED00FE_impl*
-end;//Tfs_Folders.cfFolders_Navigator_utFolders_NeedMakeForm
+ if Supports(aDataSource, IsdsFolders, l_UseCase) then
+  try
+  //#UC START# *4FFAA4A801DDNeedMake_impl*
+   aNew := l_UseCase.dsFolders;
+  //#UC END# *4FFAA4A801DDNeedMake_impl*
+  finally
+   l_UseCase := nil;
+  end;//try..finally
+ Result := (aNew <> nil);
+end;//Tfs_Folders.CfFoldersNavigatorUtFoldersNeedMakeForm
 
-function Tfs_Folders.enFoldersTree_utFoldersTree_Parent_utFoldersTree_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+function Tfs_Folders.EnFoldersTreeUtFoldersTreeParentUtFoldersTreeNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
  out aNew: IvcmFormDataSource;
  aSubUserType: TvcmUserType): Boolean;
  {* Обработчик OnNeedMakeForm для enFoldersTree_utFoldersTree }
-//#UC START# *49E15BACC408_4AA4B2ED00FE_var*
-//#UC END# *49E15BACC408_4AA4B2ED00FE_var*
+var
+ l_UseCase : IsdsFolders;
 begin
-//#UC START# *49E15BACC408_4AA4B2ED00FE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *49E15BACC408_4AA4B2ED00FE_impl*
-end;//Tfs_Folders.enFoldersTree_utFoldersTree_Parent_utFoldersTree_NeedMakeForm
+ if Supports(aDataSource, IsdsFolders, l_UseCase) then
+  try
+  //#UC START# *4FFAA5950031NeedMake_impl*
+   aNew := l_UseCase.dsFoldersTree;
+  //#UC END# *4FFAA5950031NeedMake_impl*
+  finally
+   l_UseCase := nil;
+  end;//try..finally
+ Result := (aNew <> nil);
+end;//Tfs_Folders.EnFoldersTreeUtFoldersTreeParentUtFoldersTreeNeedMakeForm
 
-function Tfs_Folders.enFoldersElementInfo_utFoldersProperty_Child_utFoldersProperty_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+function Tfs_Folders.EnFoldersElementInfoUtFoldersPropertyChildUtFoldersPropertyNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
  out aNew: IvcmFormDataSource;
  aSubUserType: TvcmUserType): Boolean;
  {* Обработчик OnNeedMakeForm для enFoldersElementInfo_utFoldersProperty }
-//#UC START# *60EE3E3C50F2_4AA4B2ED00FE_var*
-//#UC END# *60EE3E3C50F2_4AA4B2ED00FE_var*
+var
+ l_UseCase : IsdsFolders;
 begin
-//#UC START# *60EE3E3C50F2_4AA4B2ED00FE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *60EE3E3C50F2_4AA4B2ED00FE_impl*
-end;//Tfs_Folders.enFoldersElementInfo_utFoldersProperty_Child_utFoldersProperty_NeedMakeForm
-
-class function Tfs_Folders.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_Tfs_Folders <> nil;
-end;//Tfs_Folders.Exists
+ if Supports(aDataSource, IsdsFolders, l_UseCase) then
+  try
+  //#UC START# *4FFAA604019FNeedMake_impl*
+   aNew := l_UseCase.dsFolderElement;
+  //#UC END# *4FFAA604019FNeedMake_impl*
+  finally
+   l_UseCase := nil;
+  end;//try..finally
+ Result := (aNew <> nil);
+end;//Tfs_Folders.EnFoldersElementInfoUtFoldersPropertyChildUtFoldersPropertyNeedMakeForm
 
 class function Tfs_Folders.Instance: Tfs_Folders;
  {* Метод получения экземпляра синглетона Tfs_Folders }
@@ -149,22 +154,37 @@ begin
  Result := g_Tfs_Folders;
 end;//Tfs_Folders.Instance
 
-procedure Tfs_Folders.InitFields;
-//#UC START# *47A042E100E2_4AA4B2ED00FE_var*
-//#UC END# *47A042E100E2_4AA4B2ED00FE_var*
+class function Tfs_Folders.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
-//#UC START# *47A042E100E2_4AA4B2ED00FE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *47A042E100E2_4AA4B2ED00FE_impl*
+ Result := g_Tfs_Folders <> nil;
+end;//Tfs_Folders.Exists
+
+procedure Tfs_Folders.InitFields;
+begin
+ inherited;
+ with AddZone('cfFolders', vcm_ztNavigator, fm_cfFolders) do
+ begin
+  UserType := utFolders;
+  with AddZone('enFoldersTree_utFoldersTree', vcm_ztParent, fm_enFoldersTree) do
+  begin
+   UserType := utFoldersTree;
+   OnNeedMakeForm := EnFoldersTreeUtFoldersTreeParentUtFoldersTreeNeedMakeForm;
+  end;
+  with AddZone('enFoldersElementInfo_utFoldersProperty', vcm_ztChild, fm_enFoldersElementInfo) do
+  begin
+   UserType := utFoldersProperty;
+   OnNeedMakeForm := EnFoldersElementInfoUtFoldersPropertyChildUtFoldersPropertyNeedMakeForm;
+  end;
+  OnNeedMakeForm := CfFoldersNavigatorUtFoldersNeedMakeForm;
+ end;
+ Caption := str_fsFoldersCaption.AsCStr;
+ OwnerForm := 0;
 end;//Tfs_Folders.InitFields
 
 class function Tfs_Folders.GetInstance: TvcmFormSetFactoryPrim;
-//#UC START# *4FFE854A009B_4AA4B2ED00FE_var*
-//#UC END# *4FFE854A009B_4AA4B2ED00FE_var*
 begin
-//#UC START# *4FFE854A009B_4AA4B2ED00FE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4FFE854A009B_4AA4B2ED00FE_impl*
+ Result := Self.Instance;
 end;//Tfs_Folders.GetInstance
 
 function Tfs_Folders.DoGetCanSaveFormSetToHistory(const aFormSet: IvcmFormSet): Boolean;

@@ -66,6 +66,9 @@ type
    procedure SetParent(AParent: TWinControl); override;
    {$IfEnd} // NOT Defined(NoVCL)
    {$If NOT Defined(NoVCM)}
+   function IsVCMScalingNeeded: Boolean; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure InitEntities; override;
     {* инициализирует сущности не из dfm.
              Нужно для перекрытия потомками при переносе VCM на модель }
@@ -480,6 +483,15 @@ begin
 //#UC END# *4A97E78202FC_4A96B6AE0071_impl*
 end;//TPrimFoldersForm.SetParent
 {$IfEnd} // NOT Defined(NoVCL)
+
+function TPrimFoldersForm.IsVCMScalingNeeded: Boolean;
+//#UC START# *576149F20025_4A96B6AE0071_var*
+//#UC END# *576149F20025_4A96B6AE0071_var*
+begin
+//#UC START# *576149F20025_4A96B6AE0071_impl*
+ Result := False;
+//#UC END# *576149F20025_4A96B6AE0071_impl*
+end;//TPrimFoldersForm.IsVCMScalingNeeded
 
 procedure TPrimFoldersForm.InitEntities;
  {* инициализирует сущности не из dfm.

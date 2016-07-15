@@ -3,7 +3,7 @@
  f_TabTable := nil;
  FreeAndNil(f_LastOpenDocsManager);
  FreeAndNil(f_TreeStyle);
- TvcmModulesFactories.MakeWorkJournal.UnRegisterListener(Self);
+ TdmStdRes.MakeWorkJournal.UnRegisterListener(Self);
  inherited;
 //#UC END# *479731C50290_4958DD7002B6_impl*
 //#UC START# *479731C50290_4958DD7002B6_var*
@@ -27,7 +27,7 @@
 //#UC START# *49803F5503AA_4958DD7002B6_var*
 //#UC END# *49803F5503AA_4958DD7002B6_var*
 //#UC START# *49807428008C_4958DD7002B6_impl*
- Result := inherited DoLoadState(aState, aStateType, aClone);
+ Result := inherited DoLoadState(aState, aStateType);
  if (aStateType = vcm_stContent) then
   LoadLastOpenDocs;
 //#UC END# *49807428008C_4958DD7002B6_impl*
@@ -55,7 +55,7 @@
 //#UC START# *4A8E8F2E0195_4958DD7002B6_impl*
  inherited;
  pnlMain.OnResize := pnlMainResize;
- TvcmModulesFactories.MakeWorkJournal.RegisterListener(Self);
+ TdmStdRes.MakeWorkJournal.RegisterListener(Self);
  TreeStyle;
  f_LastOpenDocsManager := TnsLastOpenDocsManager.Create(c_MainMenuColor,
                                                         tvLastOpenDocs,
@@ -161,14 +161,14 @@ var
 (* case TnsSimpleMainMenuItem(aNode.NodeType) of
   // Задать вопрос (Правовая поддержка):
   ns_siMakeConsultation:
-   Dispatcher.ModuleOperation(TvcmModulesOperations.mod_opcode_Search_OpenConsult);
+   Dispatcher.ModuleOperation(TdmStdRes.mod_opcode_Search_OpenConsult);
   // Посмотреть ответы (Правовая поддержка)
   ns_siShowAnswers:
-   Dispatcher.ModuleOperation(TvcmModulesOperations.mod_opcode_Folders_MyConsultations);
+   Dispatcher.ModuleOperation(TdmStdRes.mod_opcode_Folders_MyConsultations);
   ns_siLawSupportHelp:
    Application.HelpSystem.ShowTopicHelp(cHelpConsultingRules, '');
   ns_siTaxesPublishSearch:
-   TvcmModulesFactories.OpenTaxesPublishSearch(nil);
+   TdmStdRes.OpenTaxesPublishSearch(nil);
    // - здесь вообще-то надо звать усечённую карточку
   else*)
    nsOpenNavigatorItem(aNode, NativeMainForm);

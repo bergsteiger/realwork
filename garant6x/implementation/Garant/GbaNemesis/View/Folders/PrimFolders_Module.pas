@@ -1,300 +1,163 @@
 unit PrimFolders_Module;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Folders/PrimFolders_Module.pas"
-// Начат: 27.08.2009 20:37
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMFormsPack::Class>> F1 Основные прецеденты::Folders::View::Folders::PrimFolders$UC
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Folders\PrimFolders_Module.pas"
+// Стереотип: "VCMFormsPack"
+// Элемент модели: "PrimFolders" MUID: (4A96B68A03B1)
+// Имя типа: "TPrimFoldersModule"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  BaseTypesUnit,
-  BaseTreeSupportUnit,
-  FoldersUnit,
-  l3Interfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmExternalInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmFormSetFactory
-  {$IfEnd} //not NoVCM
-  ,
-  eeInterfaces,
-  FoldersInterfaces,
-  FoldersDomainInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  ,
-  nsTypes
-  {$If not defined(NoVCM)}
-  ,
-  vcmModule
-  {$IfEnd} //not NoVCM
-  ,
-  FoldersInfo_Form,
-  nsFormCoordinates,
-  nsLogEvent,
-  l3StringIDEx,
-  PrimFolders_utFolders_UserType,
-  PrimFoldersTree_utFoldersTree_UserType,
-  Common_FormDefinitions_Controls,
-  PrimFoldersElementInfo_utFoldersProperty_UserType,
-  PrimFoldersOptions_Form,
-  PrimFoldersTreeOptions_Form,
-  PrimFoldersInfoOptions_Form,
-  PrimFoldersElementInfoOptions_Form
-  {$If not defined(NoVCM)}
-  ,
-  vcmFormSetFormsCollectionItemPrim
-  {$IfEnd} //not NoVCM
-  ,
-  Folders_Form,
-  fsFolders,
-  FoldersTree_Form,
-  FoldersElementInfo_Form,
-  vcmBase {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , BaseTreeSupportUnit
+ , FoldersUnit
+ , eeInterfaces
+ , nsFormCoordinates
+ , FoldersDomainInterfaces
+ , FoldersInterfaces
+ , l3Interfaces
+ , nsTypes
+ , BaseTypesUnit
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , nsLogEvent
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TnsOpenConsultationEvent = class(TnsLogEvent)
- public
- // public methods
+  public
    class procedure Log;
  end;//TnsOpenConsultationEvent
 
- TPrimFoldersModule = {abstract formspack} class(TvcmModule)
- private
- // private fields
-   f_InfoTypeList : IvcmItems;
- protected
-  procedure Loaded; override;
-  class procedure GetEntityForms(aList : TvcmClassList); override;
- private
- // private methods
+ TPrimFoldersModule = {abstract} class({$If NOT Defined(NoVCM)}
+ TvcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
+  private
+   f_InfoTypeList: IvcmItems;
+  private
    class function OpenFoldersForSelect(const aContainer: IvcmContainer;
-     const aForm: IvcmEntityForm;
-     const aFilterInfo: InsFolderFilterInfo;
-     const aCaption: Il3CString;
-     const aUserData: IUnknown;
-     anOpenType: TFoldersInfoType;
-     anOp: TListLogicOperation = LLO_NONE): Integer;
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- protected
- // protected methods
+    const aForm: IvcmEntityForm;
+    const aFilterInfo: InsFolderFilterInfo;
+    const aCaption: Il3CString;
+    const aUserData: IUnknown;
+    anOpenType: TFoldersInfoType;
+    anOp: TListLogicOperation = LLO_NONE): Integer;
+  protected
    class procedure OpenFoldersPrim(const aContainer: IvcmContainer);
    class function FindFoldersForm(const aContainer: IvcmContainer): IvcmEntityForm;
    class function Open(const aContainer: IvcmContainer;
-     aCanCreate: Boolean): IvcmEntityForm;
+    aCanCreate: Boolean): IvcmEntityForm;
    procedure opMyInformationTest(const aParams: IvcmTestParamsPrim);
-     {* Моя информация }
-   procedure opMyInformation(const aParams: IvcmExecuteParamsPrim);
-     {* Моя информация }
+    {* Моя информация }
+   procedure opMyInformationExecute(const aParams: IvcmExecuteParamsPrim);
+    {* Моя информация }
    procedure opMyConsultationsTest(const aParams: IvcmTestParamsPrim);
-     {* Мои консультации }
-   procedure opMyConsultations(const aParams: IvcmExecuteParamsPrim);
-     {* Мои консультации }
-   procedure opUnderControlOpenFrmAct(const aParams: IvcmExecuteParamsPrim);
-     {* Документы на контроле }
-   procedure opOpenFrmAct(const aParams: IvcmExecuteParamsPrim);
-     {* Мои документы }
- public
- // public methods
+    {* Мои консультации }
+   procedure opMyConsultationsExecute(const aParams: IvcmExecuteParamsPrim);
+    {* Мои консультации }
+   procedure opUnderControlOpenFrmActExecute(const aParams: IvcmExecuteParamsPrim);
+    {* Документы на контроле }
+   procedure opOpenFrmActExecute(const aParams: IvcmExecuteParamsPrim);
+    {* Мои документы }
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   procedure Loaded; override;
+   {$If NOT Defined(NoVCM)}
+   class procedure GetEntityForms(aList: TvcmClassList); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    class function OpenFolders(const aContainer: IvcmContainer;
-     aCanCreate: Boolean): IvcmEntityForm;
+    aCanCreate: Boolean): IvcmEntityForm;
    class procedure CloseFolders(const aContainer: IvcmContainer);
    class procedure TryOpenConsultationAnswer(const aContainer: IvcmContainer);
    class procedure RefreshStructure(const aNode: INode;
-     aStatus: TNotifyStatus);
+    aStatus: TNotifyStatus);
    class function EditInfoOpen(aIsNewFolder: Boolean;
-     const aNode: IeeNode;
-     const aCoords: InsFormCoordinates): Integer;
+    const aNode: IeeNode;
+    const aCoords: InsFormCoordinates): Integer;
    class procedure LoadOpen(const aForm: IvcmEntityForm;
-     const aData: InsFolderFilterInfo);
+    const aData: InsFolderFilterInfo);
    class procedure SelectOpen(const aForm: IvcmEntityForm;
-     const aFilterInfo: InsFolderFilterInfo;
-     const aCaption: TvcmStringID);
+    const aFilterInfo: InsFolderFilterInfo;
+    const aCaption: TvcmStringID);
    class procedure SelectOpenWithOperation(const aForm: IvcmEntityForm;
-     const aFilterInfo: InsFolderFilterInfo;
-     const aCaption: TvcmStringID;
-     anOp: TListLogicOperation);
+    const aFilterInfo: InsFolderFilterInfo;
+    const aCaption: TvcmStringID;
+    anOp: TListLogicOperation);
    class procedure SelectOpenWithUserData(const aForm: IvcmEntityForm;
-     const aFilterInfo: InsFolderFilterInfo;
-     const aCaption: TvcmStringID;
-     const aUserData: IUnknown);
+    const aFilterInfo: InsFolderFilterInfo;
+    const aCaption: TvcmStringID;
+    const aUserData: IUnknown);
    class function SaveOpen(const aForm: IvcmEntityForm;
-     const aFilterInfo: InsFolderFilterInfo;
-     anElementType: TFoldersElementType;
-     const anEntity: IEntityBase;
-     aSaveAs: Boolean): Integer;
+    const aFilterInfo: InsFolderFilterInfo;
+    anElementType: TFoldersElementType;
+    const anEntity: IEntityBase;
+    aSaveAs: Boolean): Integer;
  end;//TPrimFoldersModule
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Base {a},
-  l3MessageID,
-  SysUtils,
-  sdsFolders,
-  DataAdapter
-  {$If not defined(NoVCM)}
-  ,
-  vcmItems
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmMessagesSupport
-  {$IfEnd} //not NoVCM
-  ,
-  nsFolders,
-  vtCtrls
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  Folders_Strange_Controls
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  LoggingUnit,
-  nsLogEventData,
-  nsLogManager,
-  LoggingWrapperInterfaces,
-  Search_Strange_Controls,
-  PrimFoldersTree_utSaveOpen_UserType
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  kw_Folders_opMyInformation
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  kw_Folders_opMyConsultations
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  kw_Folders_opUnderControlOpenFrmAct
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  kw_Folders_opOpenFrmAct
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  StdRes {a},
-  vcmModuleDef {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , Search_Strange_Controls
+ , PrimFoldersTree_utSaveOpen_UserType
+ , sdsFolders
+ , DataAdapter
+ {$If NOT Defined(NoVCM)}
+ , vcmItems
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmMessagesSupport
+ {$IfEnd} // NOT Defined(NoVCM)
+ , nsFolders
+ , vtCtrls
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Folders_Strange_Controls
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ , LoggingUnit
+ , Folders_Form
+ , fsFolders
+ , FoldersInfo_Form
+ , FoldersTree_Form
+ , FoldersElementInfo_Form
+ , Common_FormDefinitions_Controls
+ //#UC START# *4A96B68A03B1impl_uses*
+ , StdRes
+ //#UC END# *4A96B68A03B1impl_uses*
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TPrimFoldersModule
-
-class function TPrimFoldersModule.OpenFoldersForSelect(const aContainer: IvcmContainer;
-  const aForm: IvcmEntityForm;
-  const aFilterInfo: InsFolderFilterInfo;
-  const aCaption: Il3CString;
-  const aUserData: IUnknown;
-  anOpenType: TFoldersInfoType;
-  anOp: TListLogicOperation = LLO_NONE): Integer;
-//#UC START# *4AC0B80702DE_4A96B68A03B1_var*
-//#UC END# *4AC0B80702DE_4A96B68A03B1_var*
-var
- l_Params : IvcmMakeParams;
- l_Container : IvcmEntityForm;
- l_Folders : IsdsFolders;
+{$If NOT Defined(NoVCM)}
+class procedure TnsOpenConsultationEvent.Log;
+//#UC START# *4B14D5A203B1_4B14D5890031_var*
+//#UC END# *4B14D5A203B1_4B14D5890031_var*
 begin
-//#UC START# *4AC0B80702DE_4A96B68A03B1_impl*
- if not defDataAdapter.AdministratorLogin then
- begin
-  vcmDispatcher.FormDispatcher.Lock;
-  try
-   l_Params := vcmCheckAggregate(vcmMakeParams(nil, aContainer));
-   l_Folders := TsdsFolders.Make;
-   try
-    l_Container := TcfFolders.Make(l_Params,
-                                   vcm_ztManualModal,
-                                   0,
-                                   nil,
-                                   l_Folders.dsFolders);
-    TenFoldersTree.Make(vcmMakeParams(l_Params.Aggregate,
-                                  l_Container.AsContainer,
-                                  l_Params.Owner),
-                        vcm_ztAny,
-                        0,
-                        nil,
-                        l_Folders.dsFoldersTree);
-    TenFoldersElementInfo.Make(vcmMakeParams(l_Params.Aggregate,
-                                         l_Container.AsContainer,
-                                         l_Params.Owner),
-                               vcm_ztAny,
-                               0,
-                               nil,
-                               l_Folders.dsFolderElement);
-   finally
-    l_Folders := nil;
-   end;//try..finally
-   op_FolderElement_DisableSecurityPage.Call(l_Params.Aggregate);
-   Op_FolderElement_SetLoadInfo.Call(l_Params.Aggregate,
-                                     aForm,
-                                     aFilterInfo,
-                                     aCaption,
-                                     aUserData,
-                                     anOp);
-   Op_FolderElement_SetState.Call(l_Params.Aggregate, anOpenType);
-   Op_AdditionInfo_Show.Call(l_Params.Aggregate);
-  finally
-   vcmDispatcher.FormDispatcher.UnLock;
-  end;//try..finally
-  Result := l_Container.ShowModal;
- end//not defDataAdapter.AdministratorLogin
- else
- begin
-  vcmSay(war_SystemLogin);
-  Result := mrCancel;
- end;//not defDataAdapter.AdministratorLogin
-//#UC END# *4AC0B80702DE_4A96B68A03B1_impl*
-end;//TPrimFoldersModule.OpenFoldersForSelect
+//#UC START# *4B14D5A203B1_4B14D5890031_impl*
+ GetLogger.AddEvent(LE_OPEN_CONSULTATION, MakeParamsList);
+//#UC END# *4B14D5A203B1_4B14D5890031_impl*
+end;//TnsOpenConsultationEvent.Log
 
 class procedure TPrimFoldersModule.OpenFoldersPrim(const aContainer: IvcmContainer);
 //#UC START# *4AA532E202C1_4A96B68A03B1_var*
@@ -317,7 +180,7 @@ begin
 end;//TPrimFoldersModule.FindFoldersForm
 
 class function TPrimFoldersModule.Open(const aContainer: IvcmContainer;
-  aCanCreate: Boolean): IvcmEntityForm;
+ aCanCreate: Boolean): IvcmEntityForm;
 //#UC START# *4ABCDB5D034C_4A96B68A03B1_var*
 //#UC END# *4ABCDB5D034C_4A96B68A03B1_var*
 begin
@@ -334,7 +197,7 @@ begin
 end;//TPrimFoldersModule.Open
 
 class function TPrimFoldersModule.OpenFolders(const aContainer: IvcmContainer;
-  aCanCreate: Boolean): IvcmEntityForm;
+ aCanCreate: Boolean): IvcmEntityForm;
 var
  __WasEnter : Boolean;
 //#UC START# *4ABCDBC0002F_4A96B68A03B1_var*
@@ -400,6 +263,7 @@ begin
 end;//TPrimFoldersModule.TryOpenConsultationAnswer
 
 procedure TPrimFoldersModule.opMyInformationTest(const aParams: IvcmTestParamsPrim);
+ {* Моя информация }
 //#UC START# *4ABCE463038F_4A96B68A03B1test_var*
 
  function MakeAvailableInformation: IvcmItems;
@@ -431,16 +295,18 @@ begin
 //#UC END# *4ABCE463038F_4A96B68A03B1test_impl*
 end;//TPrimFoldersModule.opMyInformationTest
 
-procedure TPrimFoldersModule.opMyInformation(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimFoldersModule.opMyInformationExecute(const aParams: IvcmExecuteParamsPrim);
+ {* Моя информация }
 //#UC START# *4ABCE463038F_4A96B68A03B1exec_var*
 //#UC END# *4ABCE463038F_4A96B68A03B1exec_var*
 begin
 //#UC START# *4ABCE463038F_4A96B68A03B1exec_impl*
  // - ничео не делаем, всё сделает кнопка
 //#UC END# *4ABCE463038F_4A96B68A03B1exec_impl*
-end;//TPrimFoldersModule.opMyInformation
+end;//TPrimFoldersModule.opMyInformationExecute
 
 procedure TPrimFoldersModule.opMyConsultationsTest(const aParams: IvcmTestParamsPrim);
+ {* Мои консультации }
 //#UC START# *4ABCE5070362_4A96B68A03B1test_var*
 //#UC END# *4ABCE5070362_4A96B68A03B1test_var*
 begin
@@ -449,7 +315,8 @@ begin
 //#UC END# *4ABCE5070362_4A96B68A03B1test_impl*
 end;//TPrimFoldersModule.opMyConsultationsTest
 
-procedure TPrimFoldersModule.opMyConsultations(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimFoldersModule.opMyConsultationsExecute(const aParams: IvcmExecuteParamsPrim);
+ {* Мои консультации }
 //#UC START# *4ABCE5070362_4A96B68A03B1exec_var*
 var
  l_Container: IvcmEntityForm;
@@ -465,19 +332,20 @@ begin
  else
   vcmSay(war_SystemLogin);
 //#UC END# *4ABCE5070362_4A96B68A03B1exec_impl*
-end;//TPrimFoldersModule.opMyConsultations
+end;//TPrimFoldersModule.opMyConsultationsExecute
 
-procedure TPrimFoldersModule.opUnderControlOpenFrmAct(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimFoldersModule.opUnderControlOpenFrmActExecute(const aParams: IvcmExecuteParamsPrim);
+ {* Документы на контроле }
 //#UC START# *4AC093B801EE_4A96B68A03B1exec_var*
 //#UC END# *4AC093B801EE_4A96B68A03B1exec_var*
 begin
 //#UC START# *4AC093B801EE_4A96B68A03B1exec_impl*
  TdmStdRes.OpenUnderControl(nil);
 //#UC END# *4AC093B801EE_4A96B68A03B1exec_impl*
-end;//TPrimFoldersModule.opUnderControlOpenFrmAct
+end;//TPrimFoldersModule.opUnderControlOpenFrmActExecute
 
 class procedure TPrimFoldersModule.RefreshStructure(const aNode: INode;
-  aStatus: TNotifyStatus);
+ aStatus: TNotifyStatus);
 var
  __WasEnter : Boolean;
 //#UC START# *4AC09777035C_4A96B68A03B1_var*
@@ -500,7 +368,8 @@ begin
  end;//try..finally
 end;//TPrimFoldersModule.RefreshStructure
 
-procedure TPrimFoldersModule.opOpenFrmAct(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimFoldersModule.opOpenFrmActExecute(const aParams: IvcmExecuteParamsPrim);
+ {* Мои документы }
 //#UC START# *4AC0A2D30078_4A96B68A03B1exec_var*
 //#UC END# *4AC0A2D30078_4A96B68A03B1exec_var*
 begin
@@ -510,18 +379,17 @@ begin
  else
   vcmSay(war_SystemLogin);
 //#UC END# *4AC0A2D30078_4A96B68A03B1exec_impl*
-end;//TPrimFoldersModule.opOpenFrmAct
+end;//TPrimFoldersModule.opOpenFrmActExecute
 
 class function TPrimFoldersModule.EditInfoOpen(aIsNewFolder: Boolean;
-  const aNode: IeeNode;
-  const aCoords: InsFormCoordinates): Integer;
+ const aNode: IeeNode;
+ const aCoords: InsFormCoordinates): Integer;
+var l_Form: IvcmEntityForm;
+var l_Container: IvcmEntityForm;
 var
  __WasEnter : Boolean;
 //#UC START# *4AC0AB11030C_4A96B68A03B1_var*
 //#UC END# *4AC0AB11030C_4A96B68A03B1_var*
-var
- l_Form : IvcmEntityForm;
- l_Container : IvcmEntityForm;
 begin
  __WasEnter := vcmEnterFactory;
  try
@@ -550,7 +418,7 @@ begin
 end;//TPrimFoldersModule.EditInfoOpen
 
 class procedure TPrimFoldersModule.LoadOpen(const aForm: IvcmEntityForm;
-  const aData: InsFolderFilterInfo);
+ const aData: InsFolderFilterInfo);
 var
  __WasEnter : Boolean;
 //#UC START# *4AC0B7BA003B_4A96B68A03B1_var*
@@ -572,9 +440,74 @@ begin
  end;//try..finally
 end;//TPrimFoldersModule.LoadOpen
 
+class function TPrimFoldersModule.OpenFoldersForSelect(const aContainer: IvcmContainer;
+ const aForm: IvcmEntityForm;
+ const aFilterInfo: InsFolderFilterInfo;
+ const aCaption: Il3CString;
+ const aUserData: IUnknown;
+ anOpenType: TFoldersInfoType;
+ anOp: TListLogicOperation = LLO_NONE): Integer;
+var l_Params: IvcmMakeParams;
+var l_Container: IvcmEntityForm;
+var l_Folders: IsdsFolders;
+//#UC START# *4AC0B80702DE_4A96B68A03B1_var*
+//#UC END# *4AC0B80702DE_4A96B68A03B1_var*
+begin
+//#UC START# *4AC0B80702DE_4A96B68A03B1_impl*
+ if not defDataAdapter.AdministratorLogin then
+ begin
+  vcmDispatcher.FormDispatcher.Lock;
+  try
+   l_Params := vcmCheckAggregate(vcmMakeParams(nil, aContainer));
+   l_Folders := TsdsFolders.Make;
+   try
+    l_Container := TcfFolders.Make(l_Params,
+                                   vcm_ztManualModal,
+                                   0,
+                                   nil,
+                                   l_Folders.dsFolders);
+    TenFoldersTree.Make(vcmMakeParams(l_Params.Aggregate,
+                                  l_Container.AsContainer,
+                                  l_Params.Owner),
+                        vcm_ztAny,
+                        0,
+                        nil,
+                        l_Folders.dsFoldersTree);
+    TenFoldersElementInfo.Make(vcmMakeParams(l_Params.Aggregate,
+                                         l_Container.AsContainer,
+                                         l_Params.Owner),
+                               vcm_ztAny,
+                               0,
+                               nil,
+                               l_Folders.dsFolderElement);
+   finally
+    l_Folders := nil;
+   end;//try..finally
+   op_FolderElement_DisableSecurityPage.Call(l_Params.Aggregate);
+   Op_FolderElement_SetLoadInfo.Call(l_Params.Aggregate,
+                                     aForm,
+                                     aFilterInfo,
+                                     aCaption,
+                                     aUserData,
+                                     anOp);
+   Op_FolderElement_SetState.Call(l_Params.Aggregate, anOpenType);
+   Op_AdditionInfo_Show.Call(l_Params.Aggregate);
+  finally
+   vcmDispatcher.FormDispatcher.UnLock;
+  end;//try..finally
+  Result := l_Container.ShowModal;
+ end//not defDataAdapter.AdministratorLogin
+ else
+ begin
+  vcmSay(war_SystemLogin);
+  Result := mrCancel;
+ end;//not defDataAdapter.AdministratorLogin
+//#UC END# *4AC0B80702DE_4A96B68A03B1_impl*
+end;//TPrimFoldersModule.OpenFoldersForSelect
+
 class procedure TPrimFoldersModule.SelectOpen(const aForm: IvcmEntityForm;
-  const aFilterInfo: InsFolderFilterInfo;
-  const aCaption: TvcmStringID);
+ const aFilterInfo: InsFolderFilterInfo;
+ const aCaption: TvcmStringID);
 var
  __WasEnter : Boolean;
 //#UC START# *4AC0B94902C7_4A96B68A03B1_var*
@@ -597,9 +530,9 @@ begin
 end;//TPrimFoldersModule.SelectOpen
 
 class procedure TPrimFoldersModule.SelectOpenWithOperation(const aForm: IvcmEntityForm;
-  const aFilterInfo: InsFolderFilterInfo;
-  const aCaption: TvcmStringID;
-  anOp: TListLogicOperation);
+ const aFilterInfo: InsFolderFilterInfo;
+ const aCaption: TvcmStringID;
+ anOp: TListLogicOperation);
 var
  __WasEnter : Boolean;
 //#UC START# *4AC0BA2301AC_4A96B68A03B1_var*
@@ -623,9 +556,9 @@ begin
 end;//TPrimFoldersModule.SelectOpenWithOperation
 
 class procedure TPrimFoldersModule.SelectOpenWithUserData(const aForm: IvcmEntityForm;
-  const aFilterInfo: InsFolderFilterInfo;
-  const aCaption: TvcmStringID;
-  const aUserData: IUnknown);
+ const aFilterInfo: InsFolderFilterInfo;
+ const aCaption: TvcmStringID;
+ const aUserData: IUnknown);
 var
  __WasEnter : Boolean;
 //#UC START# *4AC0BAEB012F_4A96B68A03B1_var*
@@ -648,19 +581,18 @@ begin
 end;//TPrimFoldersModule.SelectOpenWithUserData
 
 class function TPrimFoldersModule.SaveOpen(const aForm: IvcmEntityForm;
-  const aFilterInfo: InsFolderFilterInfo;
-  anElementType: TFoldersElementType;
-  const anEntity: IEntityBase;
-  aSaveAs: Boolean): Integer;
+ const aFilterInfo: InsFolderFilterInfo;
+ anElementType: TFoldersElementType;
+ const anEntity: IEntityBase;
+ aSaveAs: Boolean): Integer;
+var l_Folders: IsdsFolders;
+var l_Container: IvcmEntityForm;
+var l_Params: IvcmMakeParams;
+var l_Form: IvcmEntityForm;
 var
  __WasEnter : Boolean;
 //#UC START# *4AC0CBE300FC_4A96B68A03B1_var*
 //#UC END# *4AC0CBE300FC_4A96B68A03B1_var*
-var
- l_Folders : IsdsFolders;
- l_Container : IvcmEntityForm;
- l_Params : IvcmMakeParams;
- l_Form : IvcmEntityForm;
 begin
  __WasEnter := vcmEnterFactory;
  try
@@ -713,18 +645,9 @@ begin
    vcmLeaveFactory;
  end;//try..finally
 end;//TPrimFoldersModule.SaveOpen
-// start class TnsOpenConsultationEvent
-
-class procedure TnsOpenConsultationEvent.Log;
-//#UC START# *4B14D5A203B1_4B14D5890031_var*
-//#UC END# *4B14D5A203B1_4B14D5890031_var*
-begin
-//#UC START# *4B14D5A203B1_4B14D5890031_impl*
- GetLogger.AddEvent(LE_OPEN_CONSULTATION, MakeParamsList);
-//#UC END# *4B14D5A203B1_4B14D5890031_impl*
-end;//TnsOpenConsultationEvent.Log
 
 procedure TPrimFoldersModule.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4A96B68A03B1_var*
 //#UC END# *479731C50290_4A96B68A03B1_var*
 begin
@@ -737,27 +660,27 @@ end;//TPrimFoldersModule.Cleanup
 procedure TPrimFoldersModule.Loaded;
 begin
  inherited;
- PublishOp('opMyInformation', opMyInformation, opMyInformationTest);
- PublishOp('opMyConsultations', opMyConsultations, opMyConsultationsTest);
- PublishOp('opUnderControlOpenFrmAct', opUnderControlOpenFrmAct, nil);
- PublishOp('opOpenFrmAct', opOpenFrmAct, nil);
-end;
+ PublishOp('opMyInformation', opMyInformationExecute, opMyInformationTest);
+ PublishOp('opMyConsultations', opMyConsultationsExecute, opMyConsultationsTest);
+ PublishOp('opUnderControlOpenFrmAct', opUnderControlOpenFrmActExecute, nil);
+ PublishOp('opOpenFrmAct', opOpenFrmActExecute, nil);
+end;//TPrimFoldersModule.Loaded
 
-class procedure TPrimFoldersModule.GetEntityForms(aList : TvcmClassList);
+class procedure TPrimFoldersModule.GetEntityForms(aList: TvcmClassList);
 begin
  inherited;
  aList.Add(TcfFolders);
  aList.Add(TcfFoldersInfo);
  aList.Add(TenFoldersTree);
  aList.Add(TenFoldersElementInfo);
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+end;//TPrimFoldersModule.GetEntityForms
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация PrimFolders$UC
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimFoldersModule);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация PrimFolders }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

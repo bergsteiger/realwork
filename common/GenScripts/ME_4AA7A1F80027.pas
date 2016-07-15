@@ -15,6 +15,15 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
@@ -22,8 +31,12 @@ type
  TvcmModule
  {$IfEnd} // NOT Defined(NoVCM)
  )
+  protected
+   {$If NOT Defined(NoVCM)}
+   class procedure GetEntityForms(aList: TvcmClassList); override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
-   procedure OpenMainMenuIfNeeded(const aContainer: IvcmContainer);
+   class procedure OpenMainMenuIfNeeded(const aContainer: IvcmContainer);
    class function MainMenuChangeableMainMenuTypeSetting: Integer;
     {* Метод для получения значения настройки "Тип изменяемой части основного меню" }
    class procedure WriteMainMenuChangeableMainMenuTypeSetting(aValue: Integer);
@@ -39,9 +52,6 @@ uses
  , nsLogEvent
  , MainMenuChangeableMainMenuTypeSettingRes
  , stMainMenuChangeableMainMenuTypeItem
- {$If NOT Defined(NoVCM)}
- , vcmBase
- {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoScripts)}
  , MainMenuProcessingWordsPack
  {$IfEnd} // NOT Defined(NoScripts)
@@ -57,6 +67,8 @@ uses
  , LoggingUnit
  , MainMenuNew_Form
  , MainMenuWithProfNews_Form
+ //#UC START# *4AA7A1F80027impl_uses*
+ //#UC END# *4AA7A1F80027impl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -75,7 +87,9 @@ begin
 //#UC END# *4B151A5B0057_4B151A2302D2_impl*
 end;//TnsOpenMainMenuEvent.Log
 
-procedure TMainMenuModule.OpenMainMenuIfNeeded(const aContainer: IvcmContainer);
+class procedure TMainMenuModule.OpenMainMenuIfNeeded(const aContainer: IvcmContainer);
+var
+ __WasEnter : Boolean;
 //#UC START# *4ABB94DE033F_4AA7A1F80027_var*
  l_Params: IvcmMakeParams;
  l_MainMenuKind: TnsMainMenuKind;
@@ -83,6 +97,8 @@ procedure TMainMenuModule.OpenMainMenuIfNeeded(const aContainer: IvcmContainer);
  l_FormClass: RvcmEntityForm;
 //#UC END# *4ABB94DE033F_4AA7A1F80027_var*
 begin
+ __WasEnter := vcmEnterFactory;
+ try
 //#UC START# *4ABB94DE033F_4AA7A1F80027_impl*
  l_MainMenuKind := TnsMainMenuKind(afw.Settings.LoadInteger(pi_MainMenuKind, dv_MainMenuKind));
  case l_MainMenuKind of
@@ -116,6 +132,10 @@ begin
 {$IfEnd not (defined(Monitorings) or defined(Admin))}
  TnsOpenMainMenuEvent.Log;
 //#UC END# *4ABB94DE033F_4AA7A1F80027_impl*
+ finally
+  if __WasEnter then
+   vcmLeaveFactory;
+ end;//try..finally
 end;//TMainMenuModule.OpenMainMenuIfNeeded
 
 class function TMainMenuModule.MainMenuChangeableMainMenuTypeSetting: Integer;
@@ -124,7 +144,10 @@ class function TMainMenuModule.MainMenuChangeableMainMenuTypeSetting: Integer;
 //#UC END# *AD718804750F_4AA7A1F80027_var*
 begin
 //#UC START# *AD718804750F_4AA7A1F80027_impl*
- !!! Needs to be implemented !!!
+ if (afw.Settings = nil) then
+  Result := dv_MainMenu_ChangeableMainMenuType
+ else
+  Result := afw.Settings.LoadInteger(pi_MainMenu_ChangeableMainMenuType, dv_MainMenu_ChangeableMainMenuType);
 //#UC END# *AD718804750F_4AA7A1F80027_impl*
 end;//TMainMenuModule.MainMenuChangeableMainMenuTypeSetting
 
@@ -134,9 +157,17 @@ class procedure TMainMenuModule.WriteMainMenuChangeableMainMenuTypeSetting(aValu
 //#UC END# *F62C297CC387_4AA7A1F80027_var*
 begin
 //#UC START# *F62C297CC387_4AA7A1F80027_impl*
- !!! Needs to be implemented !!!
+ if (afw.Settings <> nil) then
+  afw.Settings.SaveInteger(pi_MainMenu_ChangeableMainMenuType, aValue);
 //#UC END# *F62C297CC387_4AA7A1F80027_impl*
 end;//TMainMenuModule.WriteMainMenuChangeableMainMenuTypeSetting
+
+class procedure TMainMenuModule.GetEntityForms(aList: TvcmClassList);
+begin
+ inherited;
+ aList.Add(Ten_MainMenuNew);
+ aList.Add(Ten_MainMenuWithProfNews);
+end;//TMainMenuModule.GetEntityForms
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)

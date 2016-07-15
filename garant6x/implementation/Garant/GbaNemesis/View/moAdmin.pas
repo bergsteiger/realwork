@@ -1,39 +1,48 @@
 unit moAdmin;
+ {* Администрирование пользователей }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/moAdmin.pas"
-// Начат: 10.09.2009 16:00
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMUseCaseRealization::Class>> F1 Администратор::Admin::Admin$UC
-//
-// Администрирование пользователей
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\moAdmin.pas"
+// Стереотип: "VCMUseCaseRealization"
+// Элемент модели: "Admin" MUID: (4AA5122E03B2)
+// Имя типа: "Tmo_Admin"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If defined(Admin)}
+{$If Defined(Admin)}
 uses
-  Admin_Module
-  ;
-{$IfEnd} //Admin
+ l3IntfUses
+ , Admin_Module
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If defined(Admin)}
 type
-Tmo_Admin = {final formspack} class(TAdminModule)
- {* Администрирование пользователей }
-end;//Tmo_Admin
-{$IfEnd} //Admin
+ Tmo_Admin = {final} class(TAdminModule)
+  {* Администрирование пользователей }
+ end;//Tmo_Admin
+{$IfEnd} // Defined(Admin)
 
 implementation
+
+{$If Defined(Admin)}
+uses
+ l3ImplUses
+ {$If NOT Defined(NoVCM)}
+ , vcmModulesForRegister
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmModuleOperationsForRegister
+ {$IfEnd} // NOT Defined(NoVCM)
+;
+
+initialization
+ TvcmModulesForRegister.AddModule(TvcmModuleForRegister_C(Tmo_Admin, 'Администрирование пользователей'));
+{$IfEnd} // Defined(Admin)
 
 end.

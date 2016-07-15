@@ -30,8 +30,6 @@ uses
 ;
 
 type
- // Main
-
  Tfs_InpharmMainMenu = {final} class({$If NOT Defined(NoVCM)}
  TvcmFormSetFactory
  {$IfEnd} // NOT Defined(NoVCM)
@@ -42,14 +40,14 @@ type
    class function GetInstance: TvcmFormSetFactoryPrim; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   function Main_Parent_ut_mmmMain_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+   function MainParentUtMmmMainNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
     out aNew: IvcmFormDataSource;
     aSubUserType: TvcmUserType): Boolean;
     {* Обработчик OnNeedMakeForm для Main }
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: Tfs_InpharmMainMenu;
     {* Метод получения экземпляра синглетона Tfs_InpharmMainMenu }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//Tfs_InpharmMainMenu
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -72,23 +70,21 @@ begin
  l3Free(g_Tfs_InpharmMainMenu);
 end;//Tfs_InpharmMainMenuFree
 
-function Tfs_InpharmMainMenu.Main_Parent_ut_mmmMain_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+function Tfs_InpharmMainMenu.MainParentUtMmmMainNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
  out aNew: IvcmFormDataSource;
  aSubUserType: TvcmUserType): Boolean;
  {* Обработчик OnNeedMakeForm для Main }
-//#UC START# *C1D9743E0694_550C0EE00301_var*
-//#UC END# *C1D9743E0694_550C0EE00301_var*
+var
+ l_UseCase : IsdsInpharmMainMenu;
 begin
-//#UC START# *C1D9743E0694_550C0EE00301_impl*
- !!! Needs to be implemented !!!
-//#UC END# *C1D9743E0694_550C0EE00301_impl*
-end;//Tfs_InpharmMainMenu.Main_Parent_ut_mmmMain_NeedMakeForm
-
-class function Tfs_InpharmMainMenu.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_Tfs_InpharmMainMenu <> nil;
-end;//Tfs_InpharmMainMenu.Exists
+ if Supports(aDataSource, IsdsInpharmMainMenu, l_UseCase) then
+  try
+   aNew := l_UseCase.dsInpharmMainMenuData;
+  finally
+   l_UseCase := nil;
+  end;//try..finally
+ Result := (aNew <> nil);
+end;//Tfs_InpharmMainMenu.MainParentUtMmmMainNeedMakeForm
 
 class function Tfs_InpharmMainMenu.Instance: Tfs_InpharmMainMenu;
  {* Метод получения экземпляра синглетона Tfs_InpharmMainMenu }
@@ -101,22 +97,26 @@ begin
  Result := g_Tfs_InpharmMainMenu;
 end;//Tfs_InpharmMainMenu.Instance
 
-procedure Tfs_InpharmMainMenu.InitFields;
-//#UC START# *47A042E100E2_550C0EE00301_var*
-//#UC END# *47A042E100E2_550C0EE00301_var*
+class function Tfs_InpharmMainMenu.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
-//#UC START# *47A042E100E2_550C0EE00301_impl*
- !!! Needs to be implemented !!!
-//#UC END# *47A042E100E2_550C0EE00301_impl*
+ Result := g_Tfs_InpharmMainMenu <> nil;
+end;//Tfs_InpharmMainMenu.Exists
+
+procedure Tfs_InpharmMainMenu.InitFields;
+begin
+ inherited;
+ with AddZone('Main', vcm_ztParent, fm_en_MedicMainMenu) do
+ begin
+  UserType := ut_mmmMain;
+  OnNeedMakeForm := MainParentUtMmmMainNeedMakeForm;
+ end;
+ OwnerForm := 0;
 end;//Tfs_InpharmMainMenu.InitFields
 
 class function Tfs_InpharmMainMenu.GetInstance: TvcmFormSetFactoryPrim;
-//#UC START# *4FFE854A009B_550C0EE00301_var*
-//#UC END# *4FFE854A009B_550C0EE00301_var*
 begin
-//#UC START# *4FFE854A009B_550C0EE00301_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4FFE854A009B_550C0EE00301_impl*
+ Result := Self.Instance;
 end;//Tfs_InpharmMainMenu.GetInstance
 {$IfEnd} // NOT Defined(NoVCM)
 

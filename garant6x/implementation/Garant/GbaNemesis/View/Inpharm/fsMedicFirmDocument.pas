@@ -1,155 +1,114 @@
 unit fsMedicFirmDocument;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Inpharm/fsMedicFirmDocument.pas"
-// Начат: 04.09.2009 12:57
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMFormSetFactory::Class>> F1 Встроенные продукты::Inpharm::View::Inpharm::Inpharm::MedicFirmDocument
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Inpharm\fsMedicFirmDocument.pas"
+// Стереотип: "VCMFormSetFactory"
+// Элемент модели: "MedicFirmDocument" MUID: (4AA12BC400A6)
+// Имя типа: "Tfs_MedicFirmDocument"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmFormSetFactory
-  {$IfEnd} //not NoVCM
-  ,
-  DocumentAndListInterfaces,
-  MedicInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  ,
-  DocumentUserTypes_dftMedicFirm_UserType,
-  l3StringIDEx,
-  ListUserTypes_lftProducedDrugs_UserType,
-  AttributesUserTypes_fDocAttribute_UserType,
-  Common_FormDefinitions_Controls,
-  BaseDocumentWithAttributesInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmFormSetFormsCollectionItemPrim
-  {$IfEnd} //not NoVCM
-  ,
-  nevTools,
-  DocumentInterfaces,
-  bsTypes,
-  DocumentUnit,
-  bsTypesNew,
-  afwInterfaces,
-  FoldersDomainInterfaces,
-  l3Interfaces,
-  DynamicDocListUnit,
-  PrimPrimListInterfaces,
-  l3TreeInterfaces,
-  FiltersUnit,
-  nsTypesNew,
-  nsTypes,
-  DynamicTreeUnit,
-  PreviewInterfaces,
-  l3InternalInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmFormSetFactoryPrim
-  {$IfEnd} //not NoVCM
-  
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmFormSetFactory
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmUserControls
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmFormSetFactoryPrim
+ {$IfEnd} // NOT Defined(NoVCM)
+ , DocumentUserTypes_dftMedicFirm_UserType
+ , Common_FormDefinitions_Controls
+ , DocumentAndListInterfaces
+ , nevTools
+ , DocumentInterfaces
+ , bsTypes
+ , afwInterfaces
+ , FoldersDomainInterfaces
+ , DocumentUnit
+ , l3Interfaces
+ , bsTypesNew
+ , ListUserTypes_lftProducedDrugs_UserType
+ , MedicInterfaces
+ , DynamicDocListUnit
+ , PrimPrimListInterfaces
+ , DynamicTreeUnit
+ , l3TreeInterfaces
+ , PreviewInterfaces
+ , l3InternalInterfaces
+ , FiltersUnit
+ , nsTypesNew
+ , nsTypes
+ , AttributesUserTypes_fDocAttribute_UserType
+ , BaseDocumentWithAttributesInterfaces
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
-  Tfs_MedicFirmDocument = {final fsf} class(TvcmFormSetFactory)
+ Tfs_MedicFirmDocument = {final} class({$If NOT Defined(NoVCM)}
+ TvcmFormSetFactory
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   protected
-  // overridden protected methods
    procedure InitFields; override;
-    {$If not defined(NoVCM)}
+   {$If NOT Defined(NoVCM)}
    class function GetInstance: TvcmFormSetFactoryPrim; override;
-    {$IfEnd} //not NoVCM
+   {$IfEnd} // NOT Defined(NoVCM)
   public
-  // public methods
    function TextParentDftMedicFirmNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-      out aNew: IvcmFormDataSource;
-      aSubUserType: TvcmUserType): Boolean;
-     {* Обработчик OnNeedMakeForm для Text }
+    out aNew: IvcmFormDataSource;
+    aSubUserType: TvcmUserType): Boolean;
+    {* Обработчик OnNeedMakeForm для Text }
    function ListChildLftProducedDrugsNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-      out aNew: IvcmFormDataSource;
-      aSubUserType: TvcmUserType): Boolean;
-     {* Обработчик OnNeedMakeForm для List }
+    out aNew: IvcmFormDataSource;
+    aSubUserType: TvcmUserType): Boolean;
+    {* Обработчик OnNeedMakeForm для List }
    function AttributesChildFDocAttributeNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-      out aNew: IvcmFormDataSource;
-      aSubUserType: TvcmUserType): Boolean;
-     {* Обработчик OnNeedMakeForm для Attributes }
+    out aNew: IvcmFormDataSource;
+    aSubUserType: TvcmUserType): Boolean;
+    {* Обработчик OnNeedMakeForm для Attributes }
+   class function Instance: Tfs_MedicFirmDocument;
+    {* Метод получения экземпляра синглетона Tfs_MedicFirmDocument }
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
-  public
-  // singleton factory method
-    class function Instance: Tfs_MedicFirmDocument;
-     {- возвращает экземпляр синглетона. }
-  end;//Tfs_MedicFirmDocument
-{$IfEnd} //not Admin AND not Monitorings
+    {* Проверяет создан экземпляр синглетона или нет }
+ end;//Tfs_MedicFirmDocument
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Base {a},
-  l3MessageID,
-  SysUtils
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , l3StringIDEx
+ , SysUtils
+ , l3Base
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(NoVCM)}
+var g_Tfs_MedicFirmDocument: Tfs_MedicFirmDocument = nil;
+ {* Экземпляр синглетона Tfs_MedicFirmDocument }
 
-
-// start class Tfs_MedicFirmDocument
-
-var g_Tfs_MedicFirmDocument : Tfs_MedicFirmDocument = nil;
+const
+ {* Локализуемые строки MedicFirmDocumentCaptionLocalConstants }
+ str_fsMedicFirmDocumentCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'fsMedicFirmDocumentCaption'; rValue : 'Описание фирмы');
+  {* Заголовок фабрики сборки форм "MedicFirmDocument" }
 
 procedure Tfs_MedicFirmDocumentFree;
+ {* Метод освобождения экземпляра синглетона Tfs_MedicFirmDocument }
 begin
  l3Free(g_Tfs_MedicFirmDocument);
-end;
-
-class function Tfs_MedicFirmDocument.Instance: Tfs_MedicFirmDocument;
-begin
- if (g_Tfs_MedicFirmDocument = nil) then
- begin
-  l3System.AddExitProc(Tfs_MedicFirmDocumentFree);
-  g_Tfs_MedicFirmDocument := Create;
- end;
- Result := g_Tfs_MedicFirmDocument;
-end;
-
-var
-    { Локализуемые строки MedicFirmDocumentCaptionLocalConstants }
-   str_fsMedicFirmDocumentCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'fsMedicFirmDocumentCaption'; rValue : 'Описание фирмы');
-    { Заголовок фабрики сборки форм "MedicFirmDocument" }
-
-// start class Tfs_MedicFirmDocument
+end;//Tfs_MedicFirmDocumentFree
 
 function Tfs_MedicFirmDocument.TextParentDftMedicFirmNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-  out aNew: IvcmFormDataSource;
-  aSubUserType: TvcmUserType): Boolean;
+ out aNew: IvcmFormDataSource;
+ aSubUserType: TvcmUserType): Boolean;
+ {* Обработчик OnNeedMakeForm для Text }
 var
  l_UseCase : IsdsBaseDocument;
 begin
@@ -163,8 +122,9 @@ begin
 end;//Tfs_MedicFirmDocument.TextParentDftMedicFirmNeedMakeForm
 
 function Tfs_MedicFirmDocument.ListChildLftProducedDrugsNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-  out aNew: IvcmFormDataSource;
-  aSubUserType: TvcmUserType): Boolean;
+ out aNew: IvcmFormDataSource;
+ aSubUserType: TvcmUserType): Boolean;
+ {* Обработчик OnNeedMakeForm для List }
 var
  l_UseCase : IsdsMedicFirmDocumentPrim;
 begin
@@ -178,8 +138,9 @@ begin
 end;//Tfs_MedicFirmDocument.ListChildLftProducedDrugsNeedMakeForm
 
 function Tfs_MedicFirmDocument.AttributesChildFDocAttributeNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-  out aNew: IvcmFormDataSource;
-  aSubUserType: TvcmUserType): Boolean;
+ out aNew: IvcmFormDataSource;
+ aSubUserType: TvcmUserType): Boolean;
+ {* Обработчик OnNeedMakeForm для Attributes }
 var
  l_UseCase : IsdsBaseDocumentWithAttributes;
 begin
@@ -192,14 +153,24 @@ begin
  Result := (aNew <> nil);
 end;//Tfs_MedicFirmDocument.AttributesChildFDocAttributeNeedMakeForm
 
+class function Tfs_MedicFirmDocument.Instance: Tfs_MedicFirmDocument;
+ {* Метод получения экземпляра синглетона Tfs_MedicFirmDocument }
+begin
+ if (g_Tfs_MedicFirmDocument = nil) then
+ begin
+  l3System.AddExitProc(Tfs_MedicFirmDocumentFree);
+  g_Tfs_MedicFirmDocument := Create;
+ end;
+ Result := g_Tfs_MedicFirmDocument;
+end;//Tfs_MedicFirmDocument.Instance
+
 class function Tfs_MedicFirmDocument.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_Tfs_MedicFirmDocument <> nil;
 end;//Tfs_MedicFirmDocument.Exists
 
 procedure Tfs_MedicFirmDocument.InitFields;
- {-}
 begin
  inherited;
  with AddZone('Text', vcm_ztParent, fm_TextForm) do
@@ -221,20 +192,15 @@ begin
  OwnerForm := 0;
 end;//Tfs_MedicFirmDocument.InitFields
 
-{$If not defined(NoVCM)}
 class function Tfs_MedicFirmDocument.GetInstance: TvcmFormSetFactoryPrim;
- {-}
 begin
  Result := Self.Instance;
 end;//Tfs_MedicFirmDocument.GetInstance
-{$IfEnd} //not NoVCM
-
-{$IfEnd} //not Admin AND not Monitorings
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_fsMedicFirmDocumentCaption
  str_fsMedicFirmDocumentCaption.Init;
-{$IfEnd} //not Admin AND not Monitorings
+ {* Инициализация str_fsMedicFirmDocumentCaption }
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

@@ -20,6 +20,15 @@ uses
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
  , l3TreeInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
@@ -29,14 +38,17 @@ type
  )
   {* Работа со списком документов }
   protected
-   function TryOpenDocument(const aList: IdeList;
+   class function TryOpenDocument(const aList: IdeList;
     const aContainer: IvcmContainer): Boolean;
+   {$If NOT Defined(NoVCM)}
+   class procedure GetEntityForms(aList: TvcmClassList); override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
-   procedure MakeListAnalizer(const aTree: Il3SimpleTree);
-   procedure OpenList(const aList: IdeList;
+   class procedure MakeListAnalizer(const aTree: Il3SimpleTree);
+   class procedure OpenList(const aList: IdeList;
     const aContainer: IvcmContainer);
     {* Открывает список в указанном контейнере }
-   procedure OpenListWithReplace(const aList: IdeList;
+   class procedure OpenListWithReplace(const aList: IdeList;
     const aContainer: IvcmContainer);
     {* Открывает список в указанном контейнере. БЕЗ сохранения в историю. [$164601301] }
  end;//TListModule
@@ -57,9 +69,6 @@ uses
  , Dialogs
  {$IfEnd} // NOT Defined(NoVCL)
  , nsListEvents
- {$If NOT Defined(NoVCM)}
- , vcmBase
- {$IfEnd} // NOT Defined(NoVCM)
  , SysUtils
  {$If NOT Defined(NoVCL)}
  , Forms
@@ -73,10 +82,13 @@ uses
  , ListAnalizer_Form
  , fsList
  , ListAnalize_Form
+ //#UC START# *4A9BF42601A9impl_uses*
+ , StdRes
+ //#UC END# *4A9BF42601A9impl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
-function TListModule.TryOpenDocument(const aList: IdeList;
+class function TListModule.TryOpenDocument(const aList: IdeList;
  const aContainer: IvcmContainer): Boolean;
 var l_Info: TbsOpenListInfo;
 var l_DocInfo: IdeDocInfo;
@@ -116,26 +128,38 @@ begin
 //#UC END# *4AA4D7EA0094_4A9BF42601A9_impl*
 end;//TListModule.TryOpenDocument
 
-procedure TListModule.MakeListAnalizer(const aTree: Il3SimpleTree);
+class procedure TListModule.MakeListAnalizer(const aTree: Il3SimpleTree);
+var
+ __WasEnter : Boolean;
 //#UC START# *4AA4DB140235_4A9BF42601A9_var*
 //#UC END# *4AA4DB140235_4A9BF42601A9_var*
 begin
+ __WasEnter := vcmEnterFactory;
+ try
 //#UC START# *4AA4DB140235_4A9BF42601A9_impl*
  if (aTree = nil) then
   vcmSay(str_MissingAnalisisTree, [DefDataAdapter.GetDealerInfo], mtInformation)
  else
   TListAnalizerForm.Make(aTree, vcmMakeParams(nil, DefaultContainer), vcm_ztModal);
 //#UC END# *4AA4DB140235_4A9BF42601A9_impl*
+ finally
+  if __WasEnter then
+   vcmLeaveFactory;
+ end;//try..finally
 end;//TListModule.MakeListAnalizer
 
-procedure TListModule.OpenList(const aList: IdeList;
+class procedure TListModule.OpenList(const aList: IdeList;
  const aContainer: IvcmContainer);
  {* Открывает список в указанном контейнере }
 var l_Form: IvcmEntityForm;
 var l_Cont: IvcmContainer;
+var
+ __WasEnter : Boolean;
 //#UC START# *4AA4DB5100EF_4A9BF42601A9_var*
 //#UC END# *4AA4DB5100EF_4A9BF42601A9_var*
 begin
+ __WasEnter := vcmEnterFactory;
+ try
 //#UC START# *4AA4DB5100EF_4A9BF42601A9_impl*
  if not TryOpenDocument(aList, aContainer) then
   case aList.List.GetContentType of
@@ -157,21 +181,42 @@ begin
    end;
   end;//case aList.List.GetContentType of
 //#UC END# *4AA4DB5100EF_4A9BF42601A9_impl*
+ finally
+  if __WasEnter then
+   vcmLeaveFactory;
+ end;//try..finally
 end;//TListModule.OpenList
 
-procedure TListModule.OpenListWithReplace(const aList: IdeList;
+class procedure TListModule.OpenListWithReplace(const aList: IdeList;
  const aContainer: IvcmContainer);
  {* Открывает список в указанном контейнере. БЕЗ сохранения в историю. [$164601301] }
+var
+ __WasEnter : Boolean;
 //#UC START# *4AA4EF7803A4_4A9BF42601A9_var*
 //#UC END# *4AA4EF7803A4_4A9BF42601A9_var*
 begin
+ __WasEnter := vcmEnterFactory;
+ try
 //#UC START# *4AA4EF7803A4_4A9BF42601A9_impl*
  if not TryOpenDocument(aList, aContainer) then
   Tfs_List.Make(TsdsList.Make(aList As IdeDocumentList),
                 aContainer,
                 false);
 //#UC END# *4AA4EF7803A4_4A9BF42601A9_impl*
+ finally
+  if __WasEnter then
+   vcmLeaveFactory;
+ end;//try..finally
 end;//TListModule.OpenListWithReplace
+
+class procedure TListModule.GetEntityForms(aList: TvcmClassList);
+begin
+ inherited;
+ aList.Add(TefList);
+ aList.Add(TefListInfo);
+ aList.Add(TListAnalizerForm);
+ aList.Add(TListAnalizeForm);
+end;//TListModule.GetEntityForms
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)

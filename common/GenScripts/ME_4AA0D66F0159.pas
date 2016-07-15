@@ -18,8 +18,17 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  , PrimPrimListInterfaces
  , CommonDictionInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
  , nsLogEvent
  , DocumentUnit
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
@@ -48,28 +57,38 @@ type
  {$IfEnd} // NOT Defined(NoVCM)
  )
   protected
-   procedure OpenMedicDictionPrim(const aSDS: IsdsCommonDiction;
+   class procedure OpenMedicDictionPrim(const aSDS: IsdsCommonDiction;
     const aContainer: IvcmContainer);
-   procedure MedicDiction;
+   procedure opMedicDictionTest(const aParams: IvcmTestParamsPrim);
     {* Словарь медицинских терминов }
-   procedure MedicFirms; overload;
+   procedure opMedicDictionExecute(const aParams: IvcmExecuteParamsPrim);
+    {* Словарь медицинских терминов }
+   procedure opMedicFirmsTest(const aParams: IvcmTestParamsPrim);
     {* Фармацевтические фирмы }
-   procedure DrugList;
+   procedure opMedicFirmsExecute(const aParams: IvcmExecuteParamsPrim);
+    {* Фармацевтические фирмы }
+   procedure opDrugListTest(const aParams: IvcmTestParamsPrim);
     {* Список выпускаемых препаратов }
-   procedure MedicMainMenu;
+   procedure opDrugListExecute(const aParams: IvcmExecuteParamsPrim);
+    {* Список выпускаемых препаратов }
+   procedure opMedicMainMenuExecute(const aParams: IvcmExecuteParamsPrim);
     {* Основное меню ИнФарм }
+   procedure Loaded; override;
+   {$If NOT Defined(NoVCM)}
+   class procedure GetEntityForms(aList: TvcmClassList); override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
-   procedure OpenMedicDiction(const aDocInfo: IdeDocInfo;
+   class procedure OpenMedicDiction(const aDocInfo: IdeDocInfo;
     const aContainer: IvcmContainer);
-   procedure OpenMedicFirmDocument(const aDocInfo: IdeDocInfo;
+   class procedure OpenMedicFirmDocument(const aDocInfo: IdeDocInfo;
     const aContainer: IvcmContainer);
-   procedure OpenDrugDocument(const aDocInfo: IdeDocInfo;
+   class procedure OpenDrugDocument(const aDocInfo: IdeDocInfo;
     const aContainer: IvcmContainer);
-   procedure OpenDrugList(const aList: IdeList;
+   class procedure OpenDrugList(const aList: IdeList;
     const aContainer: IvcmContainer);
-   procedure MedicFirms(const aContainer: IvcmContainer); overload;
-   procedure OpenInpharmMainMenu(const aContainer: IvcmContainer);
-   procedure OpenDrugListIfNeeded(const aContainer: IvcmContainer);
+   class procedure MedicFirms(const aContainer: IvcmContainer);
+   class procedure OpenInpharmMainMenu(const aContainer: IvcmContainer);
+   class procedure OpenDrugListIfNeeded(const aContainer: IvcmContainer);
  end;//TInpharmModule
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -83,21 +102,6 @@ uses
  , PrimCommonDiction_utMedicDiction_UserType
  , Common_FormDefinitions_Controls
  , sdsInpharmMainMenu
- {$If NOT Defined(NoVCM)}
- , vcmBase
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoScripts)}
- , kw_Inpharm_opMedicDiction
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kw_Inpharm_opMedicFirms
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kw_Inpharm_opDrugList
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kw_Inpharm_opMedicMainMenu
- {$IfEnd} // NOT Defined(NoScripts)
  , sdsMedicDiction
  , sdsMedicFirmDocument
  , sdsDrugDocument
@@ -116,6 +120,9 @@ uses
  , MedicFirmList_Form
  , MedicListSynchroView_Form
  , fsInpharmMainMenu
+ //#UC START# *4AA0D66F0159impl_uses*
+ , StdRes
+ //#UC END# *4AA0D66F0159impl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -163,50 +170,82 @@ begin
 //#UC END# *4B14DA6B00F9_4B14DA6101E3_impl*
 end;//TnsOpenMedicFirmsEvent.Log
 
-procedure TInpharmModule.OpenMedicDiction(const aDocInfo: IdeDocInfo;
+class procedure TInpharmModule.OpenMedicDiction(const aDocInfo: IdeDocInfo;
  const aContainer: IvcmContainer);
+var
+ __WasEnter : Boolean;
 //#UC START# *4AA11B7A0009_4AA0D66F0159_var*
 //#UC END# *4AA11B7A0009_4AA0D66F0159_var*
 begin
+ __WasEnter := vcmEnterFactory;
+ try
 //#UC START# *4AA11B7A0009_4AA0D66F0159_impl*
  OpenMedicDictionPrim(TsdsMedicDiction.Make(aDocInfo), aContainer);
 //#UC END# *4AA11B7A0009_4AA0D66F0159_impl*
+ finally
+  if __WasEnter then
+   vcmLeaveFactory;
+ end;//try..finally
 end;//TInpharmModule.OpenMedicDiction
 
-procedure TInpharmModule.OpenMedicFirmDocument(const aDocInfo: IdeDocInfo;
+class procedure TInpharmModule.OpenMedicFirmDocument(const aDocInfo: IdeDocInfo;
  const aContainer: IvcmContainer);
+var
+ __WasEnter : Boolean;
 //#UC START# *4AA11BE70139_4AA0D66F0159_var*
 //#UC END# *4AA11BE70139_4AA0D66F0159_var*
 begin
+ __WasEnter := vcmEnterFactory;
+ try
 //#UC START# *4AA11BE70139_4AA0D66F0159_impl*
  TnsOpenPharmFirmDocumentEvent.Log(aDocInfo.Doc);
  Tfs_MedicFirmDocument.Make(TsdsMedicFirmDocument.Make(aDocInfo),
                             aContainer);
 //#UC END# *4AA11BE70139_4AA0D66F0159_impl*
+ finally
+  if __WasEnter then
+   vcmLeaveFactory;
+ end;//try..finally
 end;//TInpharmModule.OpenMedicFirmDocument
 
-procedure TInpharmModule.OpenDrugDocument(const aDocInfo: IdeDocInfo;
+class procedure TInpharmModule.OpenDrugDocument(const aDocInfo: IdeDocInfo;
  const aContainer: IvcmContainer);
+var
+ __WasEnter : Boolean;
 //#UC START# *4AA11CE70112_4AA0D66F0159_var*
 //#UC END# *4AA11CE70112_4AA0D66F0159_var*
 begin
+ __WasEnter := vcmEnterFactory;
+ try
 //#UC START# *4AA11CE70112_4AA0D66F0159_impl*
  TnsOpenPharmDocumentEvent.Log(aDocInfo.Doc);
  Tfs_DrugDocument.Make(TsdsDrugDocument.Make(aDocInfo), aContainer);
 //#UC END# *4AA11CE70112_4AA0D66F0159_impl*
+ finally
+  if __WasEnter then
+   vcmLeaveFactory;
+ end;//try..finally
 end;//TInpharmModule.OpenDrugDocument
 
-procedure TInpharmModule.OpenDrugList(const aList: IdeList;
+class procedure TInpharmModule.OpenDrugList(const aList: IdeList;
  const aContainer: IvcmContainer);
+var
+ __WasEnter : Boolean;
 //#UC START# *4AA4D413008C_4AA0D66F0159_var*
 //#UC END# *4AA4D413008C_4AA0D66F0159_var*
 begin
+ __WasEnter := vcmEnterFactory;
+ try
 //#UC START# *4AA4D413008C_4AA0D66F0159_impl*
  Tfs_DrugList.Make(TsdsDrugList.Make(aList), aContainer);
 //#UC END# *4AA4D413008C_4AA0D66F0159_impl*
+ finally
+  if __WasEnter then
+   vcmLeaveFactory;
+ end;//try..finally
 end;//TInpharmModule.OpenDrugList
 
-procedure TInpharmModule.OpenMedicDictionPrim(const aSDS: IsdsCommonDiction;
+class procedure TInpharmModule.OpenMedicDictionPrim(const aSDS: IsdsCommonDiction;
  const aContainer: IvcmContainer);
 //#UC START# *4AA52C670101_4AA0D66F0159_var*
 //#UC END# *4AA52C670101_4AA0D66F0159_var*
@@ -217,50 +256,102 @@ begin
 //#UC END# *4AA52C670101_4AA0D66F0159_impl*
 end;//TInpharmModule.OpenMedicDictionPrim
 
-procedure TInpharmModule.MedicDiction;
+procedure TInpharmModule.opMedicDictionTest(const aParams: IvcmTestParamsPrim);
  {* Словарь медицинских терминов }
-//#UC START# *4AB9FC8F027A_4AA0D66F0159_var*
-//#UC END# *4AB9FC8F027A_4AA0D66F0159_var*
+//#UC START# *4AB9FC8F027A_4AA0D66F0159test_var*
+//#UC END# *4AB9FC8F027A_4AA0D66F0159test_var*
 begin
-//#UC START# *4AB9FC8F027A_4AA0D66F0159_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AB9FC8F027A_4AA0D66F0159_impl*
-end;//TInpharmModule.MedicDiction
+//#UC START# *4AB9FC8F027A_4AA0D66F0159test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := defDataAdapter.IsInpharmExists;
+//#UC END# *4AB9FC8F027A_4AA0D66F0159test_impl*
+end;//TInpharmModule.opMedicDictionTest
 
-procedure TInpharmModule.MedicFirms;
+procedure TInpharmModule.opMedicDictionExecute(const aParams: IvcmExecuteParamsPrim);
+ {* Словарь медицинских терминов }
+//#UC START# *4AB9FC8F027A_4AA0D66F0159exec_var*
+  
+ function lp_HasDictionForm: Boolean;
+ begin
+  Result := CheckContainer(nil).HasForm(fm_en_CommonDiction.rFormID,
+                                        vcm_ztNavigator,
+                                        True, nil, Ord(utMedicDiction));
+ end;//lp_HasTipsForm
+
+(*var
+ l_SDS: IsdsCommonDiction;*)
+//#UC END# *4AB9FC8F027A_4AA0D66F0159exec_var*
+begin
+//#UC START# *4AB9FC8F027A_4AA0D66F0159exec_impl*
+ Assert(((aParams As IvcmExecuteParams).Data = nil),
+        'Пользуйтесь фабрикой OpenMedicDictionPrim');
+(* if Supports(aParams.Data, IsdsCommonDiction, l_SDS) AND (l_SDS <> nil) then
+  OpenMedicDictionPrim(l_SDS, aParams.Container)
+ else*)
+ if {(l_SDS = nil) AND} not lp_HasDictionForm {or Assigned(l_SDS)} then
+  OpenMedicDiction(nil, CheckContainer(nil));
+//#UC END# *4AB9FC8F027A_4AA0D66F0159exec_impl*
+end;//TInpharmModule.opMedicDictionExecute
+
+procedure TInpharmModule.opMedicFirmsTest(const aParams: IvcmTestParamsPrim);
  {* Фармацевтические фирмы }
-//#UC START# *4AB9FCE902EC_4AA0D66F0159_var*
-//#UC END# *4AB9FCE902EC_4AA0D66F0159_var*
+//#UC START# *4AB9FCE902EC_4AA0D66F0159test_var*
+//#UC END# *4AB9FCE902EC_4AA0D66F0159test_var*
 begin
-//#UC START# *4AB9FCE902EC_4AA0D66F0159_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AB9FCE902EC_4AA0D66F0159_impl*
-end;//TInpharmModule.MedicFirms
+//#UC START# *4AB9FCE902EC_4AA0D66F0159test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := defDataAdapter.IsInpharmExists;
+//#UC END# *4AB9FCE902EC_4AA0D66F0159test_impl*
+end;//TInpharmModule.opMedicFirmsTest
 
-procedure TInpharmModule.DrugList;
+procedure TInpharmModule.opMedicFirmsExecute(const aParams: IvcmExecuteParamsPrim);
+ {* Фармацевтические фирмы }
+//#UC START# *4AB9FCE902EC_4AA0D66F0159exec_var*
+//#UC END# *4AB9FCE902EC_4AA0D66F0159exec_var*
+begin
+//#UC START# *4AB9FCE902EC_4AA0D66F0159exec_impl*
+ MedicFirms(nil);
+//#UC END# *4AB9FCE902EC_4AA0D66F0159exec_impl*
+end;//TInpharmModule.opMedicFirmsExecute
+
+procedure TInpharmModule.opDrugListTest(const aParams: IvcmTestParamsPrim);
  {* Список выпускаемых препаратов }
-//#UC START# *4AB9FD0601CF_4AA0D66F0159_var*
-//#UC END# *4AB9FD0601CF_4AA0D66F0159_var*
+//#UC START# *4AB9FD0601CF_4AA0D66F0159test_var*
+//#UC END# *4AB9FD0601CF_4AA0D66F0159test_var*
 begin
-//#UC START# *4AB9FD0601CF_4AA0D66F0159_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AB9FD0601CF_4AA0D66F0159_impl*
-end;//TInpharmModule.DrugList
+//#UC START# *4AB9FD0601CF_4AA0D66F0159test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := defDataAdapter.IsInpharmExists;
+//#UC END# *4AB9FD0601CF_4AA0D66F0159test_impl*
+end;//TInpharmModule.opDrugListTest
 
-procedure TInpharmModule.MedicMainMenu;
+procedure TInpharmModule.opDrugListExecute(const aParams: IvcmExecuteParamsPrim);
+ {* Список выпускаемых препаратов }
+//#UC START# *4AB9FD0601CF_4AA0D66F0159exec_var*
+//#UC END# *4AB9FD0601CF_4AA0D66F0159exec_var*
+begin
+//#UC START# *4AB9FD0601CF_4AA0D66F0159exec_impl*
+ TdmStdRes.OpenList(
+  TdeListSet.Make(
+   defDataAdapter.NativeAdapter.MakeDynList(SLK_ALL_ALLOWED_DRUGS)), nil);
+//#UC END# *4AB9FD0601CF_4AA0D66F0159exec_impl*
+end;//TInpharmModule.opDrugListExecute
+
+procedure TInpharmModule.opMedicMainMenuExecute(const aParams: IvcmExecuteParamsPrim);
  {* Основное меню ИнФарм }
-//#UC START# *4AB9FD6F017A_4AA0D66F0159_var*
-//#UC END# *4AB9FD6F017A_4AA0D66F0159_var*
+//#UC START# *4AB9FD6F017A_4AA0D66F0159exec_var*
+//#UC END# *4AB9FD6F017A_4AA0D66F0159exec_var*
 begin
-//#UC START# *4AB9FD6F017A_4AA0D66F0159_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AB9FD6F017A_4AA0D66F0159_impl*
-end;//TInpharmModule.MedicMainMenu
+//#UC START# *4AB9FD6F017A_4AA0D66F0159exec_impl*
+ OpenInpharmMainMenu(nil);
+//#UC END# *4AB9FD6F017A_4AA0D66F0159exec_impl*
+end;//TInpharmModule.opMedicMainMenuExecute
 
-procedure TInpharmModule.MedicFirms(const aContainer: IvcmContainer);
+class procedure TInpharmModule.MedicFirms(const aContainer: IvcmContainer);
+var
+ __WasEnter : Boolean;
 //#UC START# *4AC0F93D01AB_4AA0D66F0159_var*
 //#UC END# *4AC0F93D01AB_4AA0D66F0159_var*
 begin
+ __WasEnter := vcmEnterFactory;
+ try
 //#UC START# *4AC0F93D01AB_4AA0D66F0159_impl*
  if defDataAdapter.IsInpharmExists AND
     not CheckContainer(aContainer).HasForm(fm_en_MedicFirmList.rFormID,
@@ -274,13 +365,21 @@ begin
                          CheckContainer(aContainer));
  end;//not lp_HasListForm
 //#UC END# *4AC0F93D01AB_4AA0D66F0159_impl*
+ finally
+  if __WasEnter then
+   vcmLeaveFactory;
+ end;//try..finally
 end;//TInpharmModule.MedicFirms
 
-procedure TInpharmModule.OpenInpharmMainMenu(const aContainer: IvcmContainer);
+class procedure TInpharmModule.OpenInpharmMainMenu(const aContainer: IvcmContainer);
 var l_FormId: TvcmFormID;
+var
+ __WasEnter : Boolean;
 //#UC START# *530340E702A3_4AA0D66F0159_var*
 //#UC END# *530340E702A3_4AA0D66F0159_var*
 begin
+ __WasEnter := vcmEnterFactory;
+ try
 //#UC START# *530340E702A3_4AA0D66F0159_impl*
   if defDataAdapter.IsInpharmExists then
   begin
@@ -291,16 +390,45 @@ begin
    Tfs_InpharmMainMenu.Make(TsdsInpharmMainMenu.Make, CheckContainer(aContainer));
   end;//defDataAdapter.IsInpharmExists
 //#UC END# *530340E702A3_4AA0D66F0159_impl*
+ finally
+  if __WasEnter then
+   vcmLeaveFactory;
+ end;//try..finally
 end;//TInpharmModule.OpenInpharmMainMenu
 
-procedure TInpharmModule.OpenDrugListIfNeeded(const aContainer: IvcmContainer);
+class procedure TInpharmModule.OpenDrugListIfNeeded(const aContainer: IvcmContainer);
+var
+ __WasEnter : Boolean;
 //#UC START# *530513060354_4AA0D66F0159_var*
 //#UC END# *530513060354_4AA0D66F0159_var*
 begin
+ __WasEnter := vcmEnterFactory;
+ try
 //#UC START# *530513060354_4AA0D66F0159_impl*
  TdmStdRes.OpenList(TdeListSet.Make(defDataAdapter.NativeAdapter.MakeDynList(SLK_ALL_ALLOWED_DRUGS)), aContainer);
 //#UC END# *530513060354_4AA0D66F0159_impl*
+ finally
+  if __WasEnter then
+   vcmLeaveFactory;
+ end;//try..finally
 end;//TInpharmModule.OpenDrugListIfNeeded
+
+procedure TInpharmModule.Loaded;
+begin
+ inherited;
+ PublishOp('opMedicDiction', opMedicDictionExecute, opMedicDictionTest);
+ PublishOp('opMedicFirms', opMedicFirmsExecute, opMedicFirmsTest);
+ PublishOp('opDrugList', opDrugListExecute, opDrugListTest);
+ PublishOp('opMedicMainMenu', opMedicMainMenuExecute, nil);
+end;//TInpharmModule.Loaded
+
+class procedure TInpharmModule.GetEntityForms(aList: TvcmClassList);
+begin
+ inherited;
+ aList.Add(Ten_MedicMainMenu);
+ aList.Add(Ten_MedicFirmList);
+ aList.Add(Ten_MedicListSynchroView);
+end;//TInpharmModule.GetEntityForms
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)

@@ -42,16 +42,6 @@ uses
 ;
 
 type
- // en_CommonDiction_utMedicDiction
-
- // TextForm_dftMedDictEntry
-
- // AttributesForm_fDocAttribute
-
- // Child
-
- // DictionContainer
-
  Tfs_MedicDiction = {final} class({$If NOT Defined(NoVCM)}
  TvcmFormSetFactory
  {$IfEnd} // NOT Defined(NoVCM)
@@ -63,30 +53,30 @@ type
    class function GetInstance: TvcmFormSetFactoryPrim; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   function DictionContainer_Parent_slqtMedicDiction_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+   function DictionContainerParentSlqtMedicDictionNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
     out aNew: IvcmFormDataSource;
     aSubUserType: TvcmUserType): Boolean;
     {* Обработчик OnNeedMakeForm для DictionContainer }
-   function en_CommonDiction_utMedicDiction_Navigator_utMedicDiction_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+   function EnCommonDictionUtMedicDictionNavigatorUtMedicDictionNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
     out aNew: IvcmFormDataSource;
     aSubUserType: TvcmUserType): Boolean;
     {* Обработчик OnNeedMakeForm для en_CommonDiction_utMedicDiction }
-   function TextForm_dftMedDictEntry_Parent_dftMedDictEntry_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+   function TextFormDftMedDictEntryParentDftMedDictEntryNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
     out aNew: IvcmFormDataSource;
     aSubUserType: TvcmUserType): Boolean;
     {* Обработчик OnNeedMakeForm для TextForm_dftMedDictEntry }
-   function Child_Child_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+   function ChildChildNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
     out aNew: IvcmFormDataSource;
     aSubUserType: TvcmUserType): Boolean;
     {* Обработчик OnNeedMakeForm для Child }
-   function AttributesForm_fDocAttribute_Child_fDocAttribute_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+   function AttributesFormFDocAttributeChildFDocAttributeNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
     out aNew: IvcmFormDataSource;
     aSubUserType: TvcmUserType): Boolean;
     {* Обработчик OnNeedMakeForm для AttributesForm_fDocAttribute }
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: Tfs_MedicDiction;
     {* Метод получения экземпляра синглетона Tfs_MedicDiction }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//Tfs_MedicDiction
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -96,7 +86,6 @@ implementation
 uses
  l3ImplUses
  , l3StringIDEx
- , l3MessageID
  , SysUtils
  , l3Base
 ;
@@ -116,71 +105,91 @@ begin
  l3Free(g_Tfs_MedicDiction);
 end;//Tfs_MedicDictionFree
 
-function Tfs_MedicDiction.DictionContainer_Parent_slqtMedicDiction_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+function Tfs_MedicDiction.DictionContainerParentSlqtMedicDictionNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
  out aNew: IvcmFormDataSource;
  aSubUserType: TvcmUserType): Boolean;
  {* Обработчик OnNeedMakeForm для DictionContainer }
-//#UC START# *2E79C71E8DBE_4AA12BA501E4_var*
-//#UC END# *2E79C71E8DBE_4AA12BA501E4_var*
+var
+ l_UseCase : IsdsCommonDiction;
 begin
-//#UC START# *2E79C71E8DBE_4AA12BA501E4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *2E79C71E8DBE_4AA12BA501E4_impl*
-end;//Tfs_MedicDiction.DictionContainer_Parent_slqtMedicDiction_NeedMakeForm
+ if Supports(aDataSource, IsdsCommonDiction, l_UseCase) then
+  try
+   aNew := l_UseCase.dsSaveLoad;
+  finally
+   l_UseCase := nil;
+  end;//try..finally
+ Result := (aNew <> nil);
+end;//Tfs_MedicDiction.DictionContainerParentSlqtMedicDictionNeedMakeForm
 
-function Tfs_MedicDiction.en_CommonDiction_utMedicDiction_Navigator_utMedicDiction_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+function Tfs_MedicDiction.EnCommonDictionUtMedicDictionNavigatorUtMedicDictionNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
  out aNew: IvcmFormDataSource;
  aSubUserType: TvcmUserType): Boolean;
  {* Обработчик OnNeedMakeForm для en_CommonDiction_utMedicDiction }
-//#UC START# *05BB4AF4B2B3_4AA12BA501E4_var*
-//#UC END# *05BB4AF4B2B3_4AA12BA501E4_var*
+var
+ l_UseCase : IsdsCommonDiction;
 begin
-//#UC START# *05BB4AF4B2B3_4AA12BA501E4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *05BB4AF4B2B3_4AA12BA501E4_impl*
-end;//Tfs_MedicDiction.en_CommonDiction_utMedicDiction_Navigator_utMedicDiction_NeedMakeForm
+ if Supports(aDataSource, IsdsCommonDiction, l_UseCase) then
+  try
+  //#UC START# *4D81DA3B0293NeedMake_impl*
+   aNew := l_UseCase.dsContents;
+  //#UC END# *4D81DA3B0293NeedMake_impl*
+  finally
+   l_UseCase := nil;
+  end;//try..finally
+ Result := (aNew <> nil);
+end;//Tfs_MedicDiction.EnCommonDictionUtMedicDictionNavigatorUtMedicDictionNeedMakeForm
 
-function Tfs_MedicDiction.TextForm_dftMedDictEntry_Parent_dftMedDictEntry_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+function Tfs_MedicDiction.TextFormDftMedDictEntryParentDftMedDictEntryNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
  out aNew: IvcmFormDataSource;
  aSubUserType: TvcmUserType): Boolean;
  {* Обработчик OnNeedMakeForm для TextForm_dftMedDictEntry }
-//#UC START# *9CD5DFE766E3_4AA12BA501E4_var*
-//#UC END# *9CD5DFE766E3_4AA12BA501E4_var*
+var
+ l_UseCase : IsdsBaseDocument;
 begin
-//#UC START# *9CD5DFE766E3_4AA12BA501E4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *9CD5DFE766E3_4AA12BA501E4_impl*
-end;//Tfs_MedicDiction.TextForm_dftMedDictEntry_Parent_dftMedDictEntry_NeedMakeForm
+ if Supports(aDataSource, IsdsBaseDocument, l_UseCase) then
+  try
+  //#UC START# *4D81D98202EBNeedMake_impl*
+   aNew := l_UseCase.dsDocument;
+  //#UC END# *4D81D98202EBNeedMake_impl*
+  finally
+   l_UseCase := nil;
+  end;//try..finally
+ Result := (aNew <> nil);
+end;//Tfs_MedicDiction.TextFormDftMedDictEntryParentDftMedDictEntryNeedMakeForm
 
-function Tfs_MedicDiction.Child_Child_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+function Tfs_MedicDiction.ChildChildNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
  out aNew: IvcmFormDataSource;
  aSubUserType: TvcmUserType): Boolean;
  {* Обработчик OnNeedMakeForm для Child }
-//#UC START# *C55392708AE7_4AA12BA501E4_var*
-//#UC END# *C55392708AE7_4AA12BA501E4_var*
+var
+ l_UseCase : IsdsCommonDiction;
 begin
-//#UC START# *C55392708AE7_4AA12BA501E4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *C55392708AE7_4AA12BA501E4_impl*
-end;//Tfs_MedicDiction.Child_Child_NeedMakeForm
+ if Supports(aDataSource, IsdsCommonDiction, l_UseCase) then
+  try
+   aNew := l_UseCase.dsChild;
+  finally
+   l_UseCase := nil;
+  end;//try..finally
+ Result := (aNew <> nil);
+end;//Tfs_MedicDiction.ChildChildNeedMakeForm
 
-function Tfs_MedicDiction.AttributesForm_fDocAttribute_Child_fDocAttribute_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+function Tfs_MedicDiction.AttributesFormFDocAttributeChildFDocAttributeNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
  out aNew: IvcmFormDataSource;
  aSubUserType: TvcmUserType): Boolean;
  {* Обработчик OnNeedMakeForm для AttributesForm_fDocAttribute }
-//#UC START# *7A8349EDE74B_4AA12BA501E4_var*
-//#UC END# *7A8349EDE74B_4AA12BA501E4_var*
+var
+ l_UseCase : IsdsBaseDocumentWithAttributes;
 begin
-//#UC START# *7A8349EDE74B_4AA12BA501E4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *7A8349EDE74B_4AA12BA501E4_impl*
-end;//Tfs_MedicDiction.AttributesForm_fDocAttribute_Child_fDocAttribute_NeedMakeForm
-
-class function Tfs_MedicDiction.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_Tfs_MedicDiction <> nil;
-end;//Tfs_MedicDiction.Exists
+ if Supports(aDataSource, IsdsBaseDocumentWithAttributes, l_UseCase) then
+  try
+  //#UC START# *4D81DAB70277NeedMake_impl*
+   aNew := l_UseCase.dsAttributes;
+  //#UC END# *4D81DAB70277NeedMake_impl*
+  finally
+   l_UseCase := nil;
+  end;//try..finally
+ Result := (aNew <> nil);
+end;//Tfs_MedicDiction.AttributesFormFDocAttributeChildFDocAttributeNeedMakeForm
 
 class function Tfs_MedicDiction.Instance: Tfs_MedicDiction;
  {* Метод получения экземпляра синглетона Tfs_MedicDiction }
@@ -193,22 +202,49 @@ begin
  Result := g_Tfs_MedicDiction;
 end;//Tfs_MedicDiction.Instance
 
-procedure Tfs_MedicDiction.InitFields;
-//#UC START# *47A042E100E2_4AA12BA501E4_var*
-//#UC END# *47A042E100E2_4AA12BA501E4_var*
+class function Tfs_MedicDiction.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
-//#UC START# *47A042E100E2_4AA12BA501E4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *47A042E100E2_4AA12BA501E4_impl*
+ Result := g_Tfs_MedicDiction <> nil;
+end;//Tfs_MedicDiction.Exists
+
+procedure Tfs_MedicDiction.InitFields;
+begin
+ inherited;
+ with AddZone('DictionContainer', vcm_ztParent, fm_DictionContainerForm) do
+ begin
+  UserType := slqtMedicDiction;
+  with AddZone('en_CommonDiction_utMedicDiction', vcm_ztNavigator, fm_en_CommonDiction) do
+  begin
+   UserType := utMedicDiction;
+   ActivateIfUpdate := wafAlways;
+   OnNeedMakeForm := EnCommonDictionUtMedicDictionNavigatorUtMedicDictionNeedMakeForm;
+  end;
+  with AddZone('TextForm_dftMedDictEntry', vcm_ztParent, fm_TextForm) do
+  begin
+   UserType := dftMedDictEntry;
+   OnNeedMakeForm := TextFormDftMedDictEntryParentDftMedDictEntryNeedMakeForm;
+  end;
+  with AddZone('Child', vcm_ztChild, fm_ChildForm) do
+  begin
+   UserType := 0;
+   with AddZone('AttributesForm_fDocAttribute', vcm_ztChild, fm_AttributesForm) do
+   begin
+    UserType := fDocAttribute;
+    OnNeedMakeForm := AttributesFormFDocAttributeChildFDocAttributeNeedMakeForm;
+   end;
+   OnNeedMakeForm := ChildChildNeedMakeForm;
+  end;
+  OnNeedMakeForm := DictionContainerParentSlqtMedicDictionNeedMakeForm;
+ end;
+ Caption := str_fsMedicDictionCaption.AsCStr;
+ OwnerForm := 0;
+ DefaultStatusForm := 1;
 end;//Tfs_MedicDiction.InitFields
 
 class function Tfs_MedicDiction.GetInstance: TvcmFormSetFactoryPrim;
-//#UC START# *4FFE854A009B_4AA12BA501E4_var*
-//#UC END# *4FFE854A009B_4AA12BA501E4_var*
 begin
-//#UC START# *4FFE854A009B_4AA12BA501E4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4FFE854A009B_4AA12BA501E4_impl*
+ Result := Self.Instance;
 end;//Tfs_MedicDiction.GetInstance
 
 initialization

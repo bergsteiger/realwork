@@ -221,6 +221,7 @@ uses
  //#UC END# *497A12850078impl_uses*
 ;
 
+{$If NOT Defined(NoVCM)}
 class procedure TnsViewDocumentEditionListEvent.Log(const aDoc: IDocument);
 //#UC START# *4B0D11FB00CC_4B0D11B20334_var*
 var
@@ -691,7 +692,6 @@ begin
 //#UC END# *E2975B7BD13F_497A12850078_impl*
 end;//TPrimRedactionsForm.UtRedactionQueryClose
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimRedactionsForm.NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
  const aNew: IvcmViewAreaController);
  {* Изменился источник данных. Для перекрытия в потомках }
@@ -722,9 +722,7 @@ begin
   PostMessage(RedactionTree.Handle, msg_vtInvalidateNCArea, 0, 0);
 //#UC END# *497469C90140_497A12850078_impl*
 end;//TPrimRedactionsForm.NotifyDataSourceChanged
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimRedactionsForm.DoInit(aFromHistory: Boolean);
  {* Инициализация формы. Для перекрытия в потомках }
 //#UC START# *49803F5503AA_497A12850078_var*
@@ -736,9 +734,7 @@ begin
   UpdateStatusInfo;
 //#UC END# *49803F5503AA_497A12850078_impl*
 end;//TPrimRedactionsForm.DoInit
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimRedactionsForm.InitControls;
  {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_497A12850078_var*
@@ -778,7 +774,6 @@ begin
  RedactionTree.OnToggleSelection := Self.RedactionTreeToggleSelection;
 //#UC END# *4A8E8F2E0195_497A12850078_impl*
 end;//TPrimRedactionsForm.InitControls
-{$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCL)}
 procedure TPrimRedactionsForm.SetParent(AParent: TWinControl);
@@ -803,7 +798,6 @@ begin
 //#UC END# *4EF354C8018B_497A12850078_impl*
 end;//TPrimRedactionsForm.CaneHaveDocumentCompareEditionsOperation
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimRedactionsForm.SignalDataSourceChanged(const anOld: IvcmFormDataSource;
  const aNew: IvcmFormDataSource);
 begin
@@ -817,9 +811,7 @@ begin
   Supports(aNew, IdsEditions, dsEditions);
  end;//aNew = nil
 end;//TPrimRedactionsForm.SignalDataSourceChanged
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimRedactionsForm.InitEntities;
  {* инициализирует сущности не из dfm.
              Нужно для перекрытия потомками при переносе VCM на модель }
@@ -837,9 +829,7 @@ begin
   ShowInToolbar(en_Editions, op_BuildChangedFragments, True);
  end;//with Entities.Entities
 end;//TPrimRedactionsForm.InitEntities
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimRedactionsForm.MakeControls;
 begin
  inherited;
@@ -847,13 +837,13 @@ begin
  f_RedactionTree.Name := 'RedactionTree';
  f_RedactionTree.Parent := Self;
 end;//TPrimRedactionsForm.MakeControls
-{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimRedactionsForm);
  {* Регистрация PrimRedactions }
 {$IfEnd} // NOT Defined(NoScripts)
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

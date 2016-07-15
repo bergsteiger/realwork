@@ -123,7 +123,8 @@ type
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
    function DoLoadState(const aState: IvcmBase;
-    aStateType: TvcmStateType): Boolean; override;
+    aStateType: TvcmStateType;
+    aClone: Boolean): Boolean; override;
     {* Загружает состояние формы. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
@@ -783,7 +784,8 @@ end;//TPrimMainMenuNewForm.DoInit
 
 {$If NOT Defined(NoVCM)}
 function TPrimMainMenuNewForm.DoLoadState(const aState: IvcmBase;
- aStateType: TvcmStateType): Boolean;
+ aStateType: TvcmStateType;
+ aClone: Boolean): Boolean;
  {* Загружает состояние формы. Для перекрытия в потомках }
 //#UC START# *49807428008C_4958E1F700C0_var*
 //#UC END# *49807428008C_4958E1F700C0_var*

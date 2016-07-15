@@ -1,208 +1,161 @@
 unit fsDiction;
+ {* Сборка форм толкового словаря }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Морозов М.А.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Diction/fsDiction.pas"
-// Начат: 2005/10/05 14:28:37
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMFormSetFactory::Class>> F1 Встроенные продукты::Diction::View::Diction::Diction$FP::Diction$FS
-//
-// Сборка форм толкового словаря
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Diction\fsDiction.pas"
+// Стереотип: "VCMFormSetFactory"
+// Элемент модели: "Diction" MUID: (4A9D19450248)
+// Имя типа: "Tfs_Diction"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Interfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmFormSetFactory
-  {$IfEnd} //not NoVCM
-  ,
-  DocumentAndListInterfaces,
-  DictionInterfaces,
-  CommonDictionInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  ,
-  DocumentUserTypes_dftDictEntry_UserType,
-  DocumentUserTypes_dftDictSubEntry_UserType,
-  l3StringIDEx,
-  AttributesUserTypes_fDocAttribute_UserType,
-  PrimDiction_utDiction_UserType,
-  Common_FormDefinitions_Controls,
-  BaseDocumentWithAttributesInterfaces,
-  DictionContainerUserTypes_slqtDiction_UserType,
-  PrimChild_cutForDiction_UserType,
-  F1Like_FormDefinitions_Controls
-  {$If not defined(NoVCM)}
-  ,
-  vcmFormSetFormsCollectionItemPrim
-  {$IfEnd} //not NoVCM
-  ,
-  nevTools,
-  DocumentInterfaces,
-  bsTypes,
-  DocumentUnit,
-  bsTypesNew,
-  afwInterfaces,
-  FoldersDomainInterfaces,
-  l3InternalInterfaces,
-  l3TreeInterfaces
-  {$If defined(Nemesis)}
-  ,
-  nscNewInterfaces
-  {$IfEnd} //Nemesis
-  ,
-  DictionInterfacesPrim,
-  DynamicTreeUnit,
-  QueryCardInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmFormSetFactoryPrim
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmExternalInterfaces
-  {$IfEnd} //not NoVCM
-  
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmFormSetFactory
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3Interfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmUserControls
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmFormSetFactoryPrim
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , DictionContainerUserTypes_slqtDiction_UserType
+ , Common_FormDefinitions_Controls
+ , CommonDictionInterfaces
+ , DocumentUserTypes_dftDictEntry_UserType
+ , DocumentAndListInterfaces
+ , nevTools
+ , DocumentInterfaces
+ , bsTypes
+ , afwInterfaces
+ , FoldersDomainInterfaces
+ , DocumentUnit
+ , bsTypesNew
+ , PrimDiction_utDiction_UserType
+ , l3InternalInterfaces
+ , l3TreeInterfaces
+ {$If Defined(Nemesis)}
+ , nscNewInterfaces
+ {$IfEnd} // Defined(Nemesis)
+ , PrimChild_cutForDiction_UserType
+ , F1Like_FormDefinitions_Controls
+ , DocumentUserTypes_dftDictSubEntry_UserType
+ , DictionInterfaces
+ , DictionInterfacesPrim
+ , DynamicTreeUnit
+ , QueryCardInterfaces
+ , AttributesUserTypes_fDocAttribute_UserType
+ , BaseDocumentWithAttributesInterfaces
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
-  Tfs_Diction = {final fsf} class(TvcmFormSetFactory)
-   {* Сборка форм толкового словаря }
+ Tfs_Diction = {final} class({$If NOT Defined(NoVCM)}
+ TvcmFormSetFactory
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
+  {* Сборка форм толкового словаря }
   protected
-  // overridden protected methods
    procedure InitFields; override;
-    {$If not defined(NoVCM)}
+   {$If NOT Defined(NoVCM)}
    class function GetInstance: TvcmFormSetFactoryPrim; override;
-    {$IfEnd} //not NoVCM
-    {$If not defined(NoVCM)}
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    function DoMakeFormSetCaption(const aDataSource: IvcmFormSetDataSource): IvcmCString; override;
-    {$IfEnd} //not NoVCM
-    {$If not defined(NoVCM)}
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    function DoMakeFormSetTabCaption(const aDataSource: IvcmFormSetDataSource): IvcmCString; override;
-    {$IfEnd} //not NoVCM
-    {$If not defined(NoVCM)}
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    function DoMakeFormSetTabHint(const aDataSource: IvcmFormSetDataSource): IvcmCString; override;
-    {$IfEnd} //not NoVCM
+   {$IfEnd} // NOT Defined(NoVCM)
   public
-  // public methods
    function DictionContainerParentSlqtDictionNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-      out aNew: IvcmFormDataSource;
-      aSubUserType: TvcmUserType): Boolean;
-     {* Обработчик OnNeedMakeForm для DictionContainer }
+    out aNew: IvcmFormDataSource;
+    aSubUserType: TvcmUserType): Boolean;
+    {* Обработчик OnNeedMakeForm для DictionContainer }
    function DictEntryParentDftDictEntryNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-      out aNew: IvcmFormDataSource;
-      aSubUserType: TvcmUserType): Boolean;
-     {* Обработчик OnNeedMakeForm для DictEntry }
+    out aNew: IvcmFormDataSource;
+    aSubUserType: TvcmUserType): Boolean;
+    {* Обработчик OnNeedMakeForm для DictEntry }
    function DictionNavigatorUtDictionNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-      out aNew: IvcmFormDataSource;
-      aSubUserType: TvcmUserType): Boolean;
-     {* Обработчик OnNeedMakeForm для Diction }
+    out aNew: IvcmFormDataSource;
+    aSubUserType: TvcmUserType): Boolean;
+    {* Обработчик OnNeedMakeForm для Diction }
    function ChildChildCutForDictionNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-      out aNew: IvcmFormDataSource;
-      aSubUserType: TvcmUserType): Boolean;
-     {* Обработчик OnNeedMakeForm для Child }
+    out aNew: IvcmFormDataSource;
+    aSubUserType: TvcmUserType): Boolean;
+    {* Обработчик OnNeedMakeForm для Child }
    function DictSubEntryChildDftDictSubEntryNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-      out aNew: IvcmFormDataSource;
-      aSubUserType: TvcmUserType): Boolean;
-     {* Обработчик OnNeedMakeForm для DictSubEntry }
+    out aNew: IvcmFormDataSource;
+    aSubUserType: TvcmUserType): Boolean;
+    {* Обработчик OnNeedMakeForm для DictSubEntry }
    procedure DictSubEntryChildDftDictSubEntryGetFormCount(const aDataSource: IvcmFormSetDataSource;
-      out aCount: Integer);
-     {* Обработчик OnFormCount для DictSubEntry }
+    out aCount: Integer);
+    {* Обработчик OnFormCount для DictSubEntry }
    function AttributeChildFDocAttributeNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-      out aNew: IvcmFormDataSource;
-      aSubUserType: TvcmUserType): Boolean;
-     {* Обработчик OnNeedMakeForm для Attribute }
-   class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
+    out aNew: IvcmFormDataSource;
+    aSubUserType: TvcmUserType): Boolean;
+    {* Обработчик OnNeedMakeForm для Attribute }
    procedure DoGetMainImageIndex(aSender: TObject;
-     const aDataSource: IvcmFormSetDataSource;
-     var aImageIndex: Integer);
-     {* Обработчик OnGetMainImageIndex для Diction$FS }
+    const aDataSource: IvcmFormSetDataSource;
+    var aImageIndex: Integer);
+    {* Обработчик OnGetMainImageIndex для Diction$FS }
    procedure DoGetMainCaption(aSender: TObject;
-     const aDataSource: IvcmFormSetDataSource;
-     var aCaption: Il3CString);
-     {* Обработчик GetMainCaption для Diction$FS }
-  public
-  // singleton factory method
-    class function Instance: Tfs_Diction;
-     {- возвращает экземпляр синглетона. }
-  end;//Tfs_Diction
-{$IfEnd} //not Admin AND not Monitorings
+    const aDataSource: IvcmFormSetDataSource;
+    var aCaption: Il3CString);
+    {* Обработчик GetMainCaption для Diction$FS }
+   class function Instance: Tfs_Diction;
+    {* Метод получения экземпляра синглетона Tfs_Diction }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
+ end;//Tfs_Diction
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Base {a},
-  bsUtils,
-  SysUtils,
-  nsDocumentTools,
-  l3String,
-  l3MessageID
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , l3StringIDEx
+ , bsUtils
+ , SysUtils
+ , nsDocumentTools
+ , l3String
+ , l3Base
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(NoVCM)}
+var g_Tfs_Diction: Tfs_Diction = nil;
+ {* Экземпляр синглетона Tfs_Diction }
 
-
-// start class Tfs_Diction
-
-var g_Tfs_Diction : Tfs_Diction = nil;
+const
+ {* Локализуемые строки Tab consts }
+ str_DictionFormSetCaptionPrefix: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'DictionFormSetCaptionPrefix'; rValue : 'Текст словарной статьи');
+  {* 'Текст словарной статьи' }
+ {* Локализуемые строки Diction }
+ str_fsDictionCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'fsDictionCaption'; rValue : 'Толковый словарь');
+  {* Заголовок фабрики сборки форм "Diction$FS" }
 
 procedure Tfs_DictionFree;
+ {* Метод освобождения экземпляра синглетона Tfs_Diction }
 begin
  l3Free(g_Tfs_Diction);
-end;
-
-class function Tfs_Diction.Instance: Tfs_Diction;
-begin
- if (g_Tfs_Diction = nil) then
- begin
-  l3System.AddExitProc(Tfs_DictionFree);
-  g_Tfs_Diction := Create;
- end;
- Result := g_Tfs_Diction;
-end;
-
-var
-    { Локализуемые строки Tab consts }
-   str_DictionFormSetCaptionPrefix : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'DictionFormSetCaptionPrefix'; rValue : 'Текст словарной статьи');
-    { 'Текст словарной статьи' }
-
-var
-    { Локализуемые строки Diction$FSCaptionLocalConstants }
-   str_fsDictionCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'fsDictionCaption'; rValue : 'Толковый словарь');
-    { Заголовок фабрики сборки форм "Diction$FS" }
-
-// start class Tfs_Diction
+end;//Tfs_DictionFree
 
 function Tfs_Diction.DictionContainerParentSlqtDictionNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-  out aNew: IvcmFormDataSource;
-  aSubUserType: TvcmUserType): Boolean;
+ out aNew: IvcmFormDataSource;
+ aSubUserType: TvcmUserType): Boolean;
+ {* Обработчик OnNeedMakeForm для DictionContainer }
 var
  l_UseCase : IsdsCommonDiction;
 begin
@@ -216,8 +169,9 @@ begin
 end;//Tfs_Diction.DictionContainerParentSlqtDictionNeedMakeForm
 
 function Tfs_Diction.DictEntryParentDftDictEntryNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-  out aNew: IvcmFormDataSource;
-  aSubUserType: TvcmUserType): Boolean;
+ out aNew: IvcmFormDataSource;
+ aSubUserType: TvcmUserType): Boolean;
+ {* Обработчик OnNeedMakeForm для DictEntry }
 var
  l_UseCase : IsdsBaseDocument;
 begin
@@ -231,8 +185,9 @@ begin
 end;//Tfs_Diction.DictEntryParentDftDictEntryNeedMakeForm
 
 function Tfs_Diction.DictionNavigatorUtDictionNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-  out aNew: IvcmFormDataSource;
-  aSubUserType: TvcmUserType): Boolean;
+ out aNew: IvcmFormDataSource;
+ aSubUserType: TvcmUserType): Boolean;
+ {* Обработчик OnNeedMakeForm для Diction }
 var
  l_UseCase : IsdsCommonDiction;
 begin
@@ -246,8 +201,9 @@ begin
 end;//Tfs_Diction.DictionNavigatorUtDictionNeedMakeForm
 
 function Tfs_Diction.ChildChildCutForDictionNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-  out aNew: IvcmFormDataSource;
-  aSubUserType: TvcmUserType): Boolean;
+ out aNew: IvcmFormDataSource;
+ aSubUserType: TvcmUserType): Boolean;
+ {* Обработчик OnNeedMakeForm для Child }
 var
  l_UseCase : IsdsCommonDiction;
 begin
@@ -261,16 +217,17 @@ begin
 end;//Tfs_Diction.ChildChildCutForDictionNeedMakeForm
 
 function Tfs_Diction.DictSubEntryChildDftDictSubEntryNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-  out aNew: IvcmFormDataSource;
-  aSubUserType: TvcmUserType): Boolean;
+ out aNew: IvcmFormDataSource;
+ aSubUserType: TvcmUserType): Boolean;
+ {* Обработчик OnNeedMakeForm для DictSubEntry }
 var
  l_UseCase : IsdsDiction;
 begin
  if Supports(aDataSource, IsdsDiction, l_UseCase) then
   try
-//#UC START# *4D776BFF024FNeedMake_impl*
+  //#UC START# *4D776BFF024FNeedMake_impl*
    aNew := l_UseCase.dsTranslate[aSubUserType];
-//#UC END# *4D776BFF024FNeedMake_impl*
+  //#UC END# *4D776BFF024FNeedMake_impl*
   finally
    l_UseCase := nil;
   end;//try..finally
@@ -278,7 +235,8 @@ begin
 end;//Tfs_Diction.DictSubEntryChildDftDictSubEntryNeedMakeForm
 
 procedure Tfs_Diction.DictSubEntryChildDftDictSubEntryGetFormCount(const aDataSource: IvcmFormSetDataSource;
-  out aCount: Integer);
+ out aCount: Integer);
+ {* Обработчик OnFormCount для DictSubEntry }
 //#UC START# *CF6948E21F14_4A9D19450248_var*
 var
  l_SDS: IsdsDiction;
@@ -296,8 +254,9 @@ begin
 end;//Tfs_Diction.DictSubEntryChildDftDictSubEntryGetFormCount
 
 function Tfs_Diction.AttributeChildFDocAttributeNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-  out aNew: IvcmFormDataSource;
-  aSubUserType: TvcmUserType): Boolean;
+ out aNew: IvcmFormDataSource;
+ aSubUserType: TvcmUserType): Boolean;
+ {* Обработчик OnNeedMakeForm для Attribute }
 var
  l_UseCase : IsdsBaseDocumentWithAttributes;
 begin
@@ -310,15 +269,10 @@ begin
  Result := (aNew <> nil);
 end;//Tfs_Diction.AttributeChildFDocAttributeNeedMakeForm
 
-class function Tfs_Diction.Exists: Boolean;
- {-}
-begin
- Result := g_Tfs_Diction <> nil;
-end;//Tfs_Diction.Exists
-
 procedure Tfs_Diction.DoGetMainImageIndex(aSender: TObject;
-  const aDataSource: IvcmFormSetDataSource;
-  var aImageIndex: Integer);
+ const aDataSource: IvcmFormSetDataSource;
+ var aImageIndex: Integer);
+ {* Обработчик OnGetMainImageIndex для Diction$FS }
 //#UC START# *C82B5B254974_4A9D19450248_var*
 var
  l_SDS: IsdsDiction;
@@ -331,8 +285,9 @@ begin
 end;//Tfs_Diction.DoGetMainImageIndex
 
 procedure Tfs_Diction.DoGetMainCaption(aSender: TObject;
-  const aDataSource: IvcmFormSetDataSource;
-  var aCaption: Il3CString);
+ const aDataSource: IvcmFormSetDataSource;
+ var aCaption: Il3CString);
+ {* Обработчик GetMainCaption для Diction$FS }
 //#UC START# *616F19145E64_4A9D19450248_var*
 var
  l_SDS: IsdsDiction;
@@ -344,8 +299,24 @@ begin
 //#UC END# *616F19145E64_4A9D19450248_impl*
 end;//Tfs_Diction.DoGetMainCaption
 
+class function Tfs_Diction.Instance: Tfs_Diction;
+ {* Метод получения экземпляра синглетона Tfs_Diction }
+begin
+ if (g_Tfs_Diction = nil) then
+ begin
+  l3System.AddExitProc(Tfs_DictionFree);
+  g_Tfs_Diction := Create;
+ end;
+ Result := g_Tfs_Diction;
+end;//Tfs_Diction.Instance
+
+class function Tfs_Diction.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_Tfs_Diction <> nil;
+end;//Tfs_Diction.Exists
+
 procedure Tfs_Diction.InitFields;
- {-}
 begin
  inherited;
  with AddZone('DictionContainer', vcm_ztParent, fm_DictionContainerForm) do
@@ -388,15 +359,11 @@ begin
  OnGetMainCaption := DoGetMainCaption;
 end;//Tfs_Diction.InitFields
 
-{$If not defined(NoVCM)}
 class function Tfs_Diction.GetInstance: TvcmFormSetFactoryPrim;
- {-}
 begin
  Result := Self.Instance;
 end;//Tfs_Diction.GetInstance
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 function Tfs_Diction.DoMakeFormSetCaption(const aDataSource: IvcmFormSetDataSource): IvcmCString;
 //#UC START# *54B352A903E5_4A9D19450248_var*
 var
@@ -408,9 +375,7 @@ begin
  Result := l3Cat([str_DictionFormSetCaptionPrefix.AsCStr, l3CStr(' : '), l_TabCaption]);
 //#UC END# *54B352A903E5_4A9D19450248_impl*
 end;//Tfs_Diction.DoMakeFormSetCaption
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 function Tfs_Diction.DoMakeFormSetTabCaption(const aDataSource: IvcmFormSetDataSource): IvcmCString;
 //#UC START# *54B352D401E5_4A9D19450248_var*
 var
@@ -426,9 +391,7 @@ begin
   Result := nil;
 //#UC END# *54B352D401E5_4A9D19450248_impl*
 end;//Tfs_Diction.DoMakeFormSetTabCaption
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 function Tfs_Diction.DoMakeFormSetTabHint(const aDataSource: IvcmFormSetDataSource): IvcmCString;
 //#UC START# *54B352FB03A1_4A9D19450248_var*
 //#UC END# *54B352FB03A1_4A9D19450248_var*
@@ -437,18 +400,13 @@ begin
  Result := DoMakeFormSetCaption(aDataSource);
 //#UC END# *54B352FB03A1_4A9D19450248_impl*
 end;//Tfs_Diction.DoMakeFormSetTabHint
-{$IfEnd} //not NoVCM
-
-{$IfEnd} //not Admin AND not Monitorings
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_DictionFormSetCaptionPrefix
  str_DictionFormSetCaptionPrefix.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_fsDictionCaption
+ {* Инициализация str_DictionFormSetCaptionPrefix }
  str_fsDictionCaption.Init;
-{$IfEnd} //not Admin AND not Monitorings
+ {* Инициализация str_fsDictionCaption }
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

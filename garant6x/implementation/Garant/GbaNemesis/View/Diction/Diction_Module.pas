@@ -1,174 +1,129 @@
 unit Diction_Module;
+ {* Толковый словарь }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Diction/Diction_Module.pas"
-// Начат: 01.09.2009 13:14
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMFormsPack::Class>> F1 Встроенные продукты::Diction::View::Diction::Diction$FP
-//
-// Толковый словарь
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Diction\Diction_Module.pas"
+// Стереотип: "VCMFormsPack"
+// Элемент модели: "Diction" MUID: (4A9CE5F2036F)
+// Имя типа: "TDictionModule"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  BaseTypesUnit,
-  DocumentUnit,
-  DynamicTreeUnit,
-  l3Interfaces,
-  l3TreeInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmFormSetFactory
-  {$IfEnd} //not NoVCM
-  ,
-  bsTypes,
-  DocumentAndListInterfaces,
-  DictionInterfaces,
-  CommonDictionInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  ,
-  DocumentUserTypes_dftDictEntry_UserType,
-  DocumentUserTypes_dftDictSubEntry_UserType,
-  nsLogEvent,
-  DocumentInterfaces,
-  l3StringIDEx,
-  AttributesUserTypes_fDocAttribute_UserType,
-  PrimDiction_utDiction_UserType,
-  Common_FormDefinitions_Controls,
-  PrimCommonDictionOptions_Form,
-  BaseDocumentWithAttributesInterfaces,
-  DictionContainerUserTypes_slqtDiction_UserType,
-  PrimDictionContainer_Form,
-  PrimChild_cutForDiction_UserType,
-  F1Like_FormDefinitions_Controls
-  {$If not defined(NoVCM)}
-  ,
-  vcmFormSetFormsCollectionItemPrim
-  {$IfEnd} //not NoVCM
-  ,
-  PrimDictionOptions_Form,
-  Diction_Form,
-  fsDiction,
-  DictionContainer_Form,
-  CommonDiction_Form,
-  vcmExternalInterfaces {a},
-  vcmModule {a},
-  vcmBase {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , DynamicTreeUnit
+ , l3Interfaces
+ , BaseTypesUnit
+ , DocumentUnit
+ , l3TreeInterfaces
+ , bsTypes
+ , DocumentInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , nsLogEvent
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TnsOpenDictionaryEvent = class(TnsLogEvent)
- public
- // public methods
+  public
    class procedure Log;
  end;//TnsOpenDictionaryEvent
 
- TDictionModule = {formspack} class(TvcmModule)
+ TDictionModule = class({$If NOT Defined(NoVCM)}
+ TvcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* Толковый словарь }
- protected
-  procedure Loaded; override;
-  class procedure GetEntityForms(aList : TvcmClassList); override;
- protected
- // protected methods
+  protected
    procedure opOpenDictTest(const aParams: IvcmTestParamsPrim);
-     {* Толковый словарь }
-   procedure opOpenDict(const aParams: IvcmExecuteParamsPrim);
-     {* Толковый словарь }
- public
- // public methods
+    {* Толковый словарь }
+   procedure opOpenDictExecute(const aParams: IvcmExecuteParamsPrim);
+    {* Толковый словарь }
+   procedure Loaded; override;
+   {$If NOT Defined(NoVCM)}
+   class procedure GetEntityForms(aList: TvcmClassList); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    class procedure OpenTermByContext(const aContext: Il3CString;
-     aLanguage: TbsLanguage);
-     {* Открывает термин по подстроке }
+    aLanguage: TbsLanguage);
+    {* Открывает термин по подстроке }
    class procedure OpenDictionary(const aDocInfo: IdeDocInfo;
-     const aContainer: IvcmContainer);
-     {* Открывает толковый словарь }
+    const aContainer: IvcmContainer);
+    {* Открывает толковый словарь }
  end;//TDictionModule
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3String
-  {$If not defined(NoVCM)}
-  ,
-  vcmMessagesSupport
-  {$IfEnd} //not NoVCM
-  ,
-  deDiction,
-  l3Chars,
-  SysUtils,
-  nsDictionTree,
-  sdsDiction,
-  l3Base {a},
-  bsUtils,
-  nsDocumentTools,
-  l3MessageID,
-  DataAdapter,
-  LoggingUnit,
-  nsLogEventData,
-  nsLogManager,
-  LoggingWrapperInterfaces,
-  Base_Operations_Strange_Controls,
-  Base_Operations_Editions_Controls,
-  nsLangToContextMap
-  {$If defined(Nemesis)}
-  ,
-  nscContextFilterState
-  {$IfEnd} //Nemesis
-  
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  kw_Diction_opOpenDict
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  ,
-  StdRes {a},
-  vcmModuleDef {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , Base_Operations_Strange_Controls
+ , DocumentUserTypes_dftDictEntry_UserType
+ {$If NOT Defined(NoVCM)}
+ , vcmMessagesSupport
+ {$IfEnd} // NOT Defined(NoVCM)
+ , nsLangToContextMap
+ {$If Defined(Nemesis)}
+ , nscContextFilterState
+ {$IfEnd} // Defined(Nemesis)
+ , l3String
+ , deDiction
+ , l3Chars
+ , SysUtils
+ , nsDictionTree
+ , sdsDiction
+ , DataAdapter
+ , LoggingUnit
+ , Diction_Form
+ , fsDiction
+ , DictionContainer_Form
+ , CommonDiction_Form
+ , Common_FormDefinitions_Controls
+ //#UC START# *4A9CE5F2036Fimpl_uses*
+ , CommonDictionInterfaces
+ , DictionInterfaces
+ , StdRes
+ //#UC END# *4A9CE5F2036Fimpl_uses*
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TDictionModule
+{$If NOT Defined(NoVCM)}
+class procedure TnsOpenDictionaryEvent.Log;
+//#UC START# *4B14CE0A001F_4B14CDEA039C_var*
+//#UC END# *4B14CE0A001F_4B14CDEA039C_var*
+begin
+//#UC START# *4B14CE0A001F_4B14CDEA039C_impl*
+ GetLogger.AddEvent(LE_OPEN_DICTIONARY, MakeParamsList);
+//#UC END# *4B14CE0A001F_4B14CDEA039C_impl*
+end;//TnsOpenDictionaryEvent.Log
 
 class procedure TDictionModule.OpenTermByContext(const aContext: Il3CString;
-  aLanguage: TbsLanguage);
+ aLanguage: TbsLanguage);
+ {* Открывает термин по подстроке }
+var l_Child: INodeBase;
+var l_Str: Il3CString;
+var l_Entity: IEntityBase;
+var l_Doc: IDocument;
+var l_DictTree: Il3SimpleTree;
+var l_FilterTree: Il3FilterableTree;
 var
  __WasEnter : Boolean;
 //#UC START# *4A9CEF360326_4A9CE5F2036F_var*
 var
  l_Map: InsLangToContextMap;
 //#UC END# *4A9CEF360326_4A9CE5F2036F_var*
-var
- l_Child : INodeBase;
- l_Str : Il3CString;
- l_Entity : IEntityBase;
- l_Doc : IDocument;
- l_DictTree : Il3SimpleTree;
- l_FilterTree : Il3FilterableTree;
 begin
  __WasEnter := vcmEnterFactory;
  try
@@ -218,7 +173,8 @@ begin
 end;//TDictionModule.OpenTermByContext
 
 class procedure TDictionModule.OpenDictionary(const aDocInfo: IdeDocInfo;
-  const aContainer: IvcmContainer);
+ const aContainer: IvcmContainer);
+ {* Открывает толковый словарь }
 var
  __WasEnter : Boolean;
 //#UC START# *4A9D1FD20092_4A9CE5F2036F_var*
@@ -237,10 +193,10 @@ begin
 end;//TDictionModule.OpenDictionary
 
 procedure TDictionModule.opOpenDictTest(const aParams: IvcmTestParamsPrim);
+ {* Толковый словарь }
+var l_Form: IvcmEntityForm;
 //#UC START# *4A9D55E901D6_4A9CE5F2036Ftest_var*
 //#UC END# *4A9D55E901D6_4A9CE5F2036Ftest_var*
-var
- l_Form : IvcmEntityForm;
 begin
 //#UC START# *4A9D55E901D6_4A9CE5F2036Ftest_impl*
  with (aParams As IvcmTestParams) do
@@ -275,7 +231,9 @@ begin
 //#UC END# *4A9D55E901D6_4A9CE5F2036Ftest_impl*
 end;//TDictionModule.opOpenDictTest
 
-procedure TDictionModule.opOpenDict(const aParams: IvcmExecuteParamsPrim);
+procedure TDictionModule.opOpenDictExecute(const aParams: IvcmExecuteParamsPrim);
+ {* Толковый словарь }
+var l_Form: IvcmEntityForm;
 //#UC START# *4A9D55E901D6_4A9CE5F2036Fexec_var*
 
 var
@@ -290,8 +248,6 @@ var
 var
  l_CurOpIndex : Integer;
 //#UC END# *4A9D55E901D6_4A9CE5F2036Fexec_var*
-var
- l_Form : IvcmEntityForm;
 begin
 //#UC START# *4A9D55E901D6_4A9CE5F2036Fexec_impl*
  l_CurOpIndex := aParams.ItemIndex;
@@ -317,32 +273,22 @@ begin
  if not lp_HasDictionForm then
   OpenDictionary(nil, l_Cont);
 //#UC END# *4A9D55E901D6_4A9CE5F2036Fexec_impl*
-end;//TDictionModule.opOpenDict
-// start class TnsOpenDictionaryEvent
-
-class procedure TnsOpenDictionaryEvent.Log;
-//#UC START# *4B14CE0A001F_4B14CDEA039C_var*
-//#UC END# *4B14CE0A001F_4B14CDEA039C_var*
-begin
-//#UC START# *4B14CE0A001F_4B14CDEA039C_impl*
- GetLogger.AddEvent(LE_OPEN_DICTIONARY, MakeParamsList);
-//#UC END# *4B14CE0A001F_4B14CDEA039C_impl*
-end;//TnsOpenDictionaryEvent.Log
+end;//TDictionModule.opOpenDictExecute
 
 procedure TDictionModule.Loaded;
 begin
  inherited;
- PublishOp('opOpenDict', opOpenDict, opOpenDictTest);
-end;
+ PublishOp('opOpenDict', opOpenDictExecute, opOpenDictTest);
+end;//TDictionModule.Loaded
 
-class procedure TDictionModule.GetEntityForms(aList : TvcmClassList);
+class procedure TDictionModule.GetEntityForms(aList: TvcmClassList);
 begin
  inherited;
  aList.Add(TenDiction);
  aList.Add(TDictionContainerForm);
  aList.Add(Ten_CommonDiction);
-end;
+end;//TDictionModule.GetEntityForms
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //not Admin AND not Monitorings
-
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

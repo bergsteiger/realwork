@@ -40,14 +40,6 @@ uses
 ;
 
 type
- // Text
-
- // Attributes
-
- // Contents
-
- // Synonyms
-
  Tfs_DrugDocument = {final} class({$If NOT Defined(NoVCM)}
  TvcmFormSetFactory
  {$IfEnd} // NOT Defined(NoVCM)
@@ -58,26 +50,26 @@ type
    class function GetInstance: TvcmFormSetFactoryPrim; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   function Text_Parent_dftDrug_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+   function TextParentDftDrugNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
     out aNew: IvcmFormDataSource;
     aSubUserType: TvcmUserType): Boolean;
     {* Обработчик OnNeedMakeForm для Text }
-   function Attributes_Child_fDocAttribute_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+   function AttributesChildFDocAttributeNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
     out aNew: IvcmFormDataSource;
     aSubUserType: TvcmUserType): Boolean;
     {* Обработчик OnNeedMakeForm для Attributes }
-   function Contents_Navigator_utDrugContents_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+   function ContentsNavigatorUtDrugContentsNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
     out aNew: IvcmFormDataSource;
     aSubUserType: TvcmUserType): Boolean;
     {* Обработчик OnNeedMakeForm для Contents }
-   function Synonyms_Child_lftDrugInternationalNameSynonyms_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+   function SynonymsChildLftDrugInternationalNameSynonymsNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
     out aNew: IvcmFormDataSource;
     aSubUserType: TvcmUserType): Boolean;
     {* Обработчик OnNeedMakeForm для Synonyms }
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: Tfs_DrugDocument;
     {* Метод получения экземпляра синглетона Tfs_DrugDocument }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//Tfs_DrugDocument
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -87,7 +79,6 @@ implementation
 uses
  l3ImplUses
  , l3StringIDEx
- , l3MessageID
  , SysUtils
  , l3Base
 ;
@@ -107,59 +98,77 @@ begin
  l3Free(g_Tfs_DrugDocument);
 end;//Tfs_DrugDocumentFree
 
-function Tfs_DrugDocument.Text_Parent_dftDrug_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+function Tfs_DrugDocument.TextParentDftDrugNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
  out aNew: IvcmFormDataSource;
  aSubUserType: TvcmUserType): Boolean;
  {* Обработчик OnNeedMakeForm для Text }
-//#UC START# *3DC42139205B_4AA12BE1014F_var*
-//#UC END# *3DC42139205B_4AA12BE1014F_var*
+var
+ l_UseCase : IsdsBaseDocument;
 begin
-//#UC START# *3DC42139205B_4AA12BE1014F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *3DC42139205B_4AA12BE1014F_impl*
-end;//Tfs_DrugDocument.Text_Parent_dftDrug_NeedMakeForm
+ if Supports(aDataSource, IsdsBaseDocument, l_UseCase) then
+  try
+  //#UC START# *4FFB02470382NeedMake_impl*
+ aNew := l_UseCase.dsDocument;
+  //#UC END# *4FFB02470382NeedMake_impl*
+  finally
+   l_UseCase := nil;
+  end;//try..finally
+ Result := (aNew <> nil);
+end;//Tfs_DrugDocument.TextParentDftDrugNeedMakeForm
 
-function Tfs_DrugDocument.Attributes_Child_fDocAttribute_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+function Tfs_DrugDocument.AttributesChildFDocAttributeNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
  out aNew: IvcmFormDataSource;
  aSubUserType: TvcmUserType): Boolean;
  {* Обработчик OnNeedMakeForm для Attributes }
-//#UC START# *E2D36E154285_4AA12BE1014F_var*
-//#UC END# *E2D36E154285_4AA12BE1014F_var*
+var
+ l_UseCase : IsdsBaseDocumentWithAttributes;
 begin
-//#UC START# *E2D36E154285_4AA12BE1014F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *E2D36E154285_4AA12BE1014F_impl*
-end;//Tfs_DrugDocument.Attributes_Child_fDocAttribute_NeedMakeForm
+ if Supports(aDataSource, IsdsBaseDocumentWithAttributes, l_UseCase) then
+  try
+  //#UC START# *4FFB028A009FNeedMake_impl*
+ aNew := l_UseCase.dsAttributes;
+  //#UC END# *4FFB028A009FNeedMake_impl*
+  finally
+   l_UseCase := nil;
+  end;//try..finally
+ Result := (aNew <> nil);
+end;//Tfs_DrugDocument.AttributesChildFDocAttributeNeedMakeForm
 
-function Tfs_DrugDocument.Contents_Navigator_utDrugContents_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+function Tfs_DrugDocument.ContentsNavigatorUtDrugContentsNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
  out aNew: IvcmFormDataSource;
  aSubUserType: TvcmUserType): Boolean;
  {* Обработчик OnNeedMakeForm для Contents }
-//#UC START# *D6D6612D957E_4AA12BE1014F_var*
-//#UC END# *D6D6612D957E_4AA12BE1014F_var*
+var
+ l_UseCase : IucpDocumentWithContents;
 begin
-//#UC START# *D6D6612D957E_4AA12BE1014F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *D6D6612D957E_4AA12BE1014F_impl*
-end;//Tfs_DrugDocument.Contents_Navigator_utDrugContents_NeedMakeForm
+ if Supports(aDataSource, IucpDocumentWithContents, l_UseCase) then
+  try
+  //#UC START# *4FFB02B80287NeedMake_impl*
+ aNew := l_UseCase.dsContents;
+  //#UC END# *4FFB02B80287NeedMake_impl*
+  finally
+   l_UseCase := nil;
+  end;//try..finally
+ Result := (aNew <> nil);
+end;//Tfs_DrugDocument.ContentsNavigatorUtDrugContentsNeedMakeForm
 
-function Tfs_DrugDocument.Synonyms_Child_lftDrugInternationalNameSynonyms_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+function Tfs_DrugDocument.SynonymsChildLftDrugInternationalNameSynonymsNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
  out aNew: IvcmFormDataSource;
  aSubUserType: TvcmUserType): Boolean;
  {* Обработчик OnNeedMakeForm для Synonyms }
-//#UC START# *2B6BF0B8EC3B_4AA12BE1014F_var*
-//#UC END# *2B6BF0B8EC3B_4AA12BE1014F_var*
+var
+ l_UseCase : IsdsBaseDrugDocument;
 begin
-//#UC START# *2B6BF0B8EC3B_4AA12BE1014F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *2B6BF0B8EC3B_4AA12BE1014F_impl*
-end;//Tfs_DrugDocument.Synonyms_Child_lftDrugInternationalNameSynonyms_NeedMakeForm
-
-class function Tfs_DrugDocument.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_Tfs_DrugDocument <> nil;
-end;//Tfs_DrugDocument.Exists
+ if Supports(aDataSource, IsdsBaseDrugDocument, l_UseCase) then
+  try
+  //#UC START# *4FFB033F01E9NeedMake_impl*
+ aNew := l_UseCase.dsDrugInternationalNameSynonims;
+  //#UC END# *4FFB033F01E9NeedMake_impl*
+  finally
+   l_UseCase := nil;
+  end;//try..finally
+ Result := (aNew <> nil);
+end;//Tfs_DrugDocument.SynonymsChildLftDrugInternationalNameSynonymsNeedMakeForm
 
 class function Tfs_DrugDocument.Instance: Tfs_DrugDocument;
  {* Метод получения экземпляра синглетона Tfs_DrugDocument }
@@ -172,22 +181,43 @@ begin
  Result := g_Tfs_DrugDocument;
 end;//Tfs_DrugDocument.Instance
 
-procedure Tfs_DrugDocument.InitFields;
-//#UC START# *47A042E100E2_4AA12BE1014F_var*
-//#UC END# *47A042E100E2_4AA12BE1014F_var*
+class function Tfs_DrugDocument.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
-//#UC START# *47A042E100E2_4AA12BE1014F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *47A042E100E2_4AA12BE1014F_impl*
+ Result := g_Tfs_DrugDocument <> nil;
+end;//Tfs_DrugDocument.Exists
+
+procedure Tfs_DrugDocument.InitFields;
+begin
+ inherited;
+ with AddZone('Text', vcm_ztParent, fm_TextForm) do
+ begin
+  UserType := dftDrug;
+  OnNeedMakeForm := TextParentDftDrugNeedMakeForm;
+ end;
+ with AddZone('Attributes', vcm_ztChild, fm_AttributesForm) do
+ begin
+  UserType := fDocAttribute;
+  OnNeedMakeForm := AttributesChildFDocAttributeNeedMakeForm;
+ end;
+ with AddZone('Contents', vcm_ztNavigator, fm_ContentsForm) do
+ begin
+  UserType := utDrugContents;
+  ActivateIfUpdate := wafIfNotActivated;
+  OnNeedMakeForm := ContentsNavigatorUtDrugContentsNeedMakeForm;
+ end;
+ with AddZone('Synonyms', vcm_ztChild, fm_efList) do
+ begin
+  UserType := lftDrugInternationalNameSynonyms;
+  OnNeedMakeForm := SynonymsChildLftDrugInternationalNameSynonymsNeedMakeForm;
+ end;
+ Caption := str_fsDrugDocumentCaption.AsCStr;
+ OwnerForm := 0;
 end;//Tfs_DrugDocument.InitFields
 
 class function Tfs_DrugDocument.GetInstance: TvcmFormSetFactoryPrim;
-//#UC START# *4FFE854A009B_4AA12BE1014F_var*
-//#UC END# *4FFE854A009B_4AA12BE1014F_var*
 begin
-//#UC START# *4FFE854A009B_4AA12BE1014F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4FFE854A009B_4AA12BE1014F_impl*
+ Result := Self.Instance;
 end;//Tfs_DrugDocument.GetInstance
 
 initialization

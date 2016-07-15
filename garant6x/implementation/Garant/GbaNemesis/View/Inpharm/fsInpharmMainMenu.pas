@@ -1,118 +1,79 @@
 unit fsInpharmMainMenu;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Inpharm/fsInpharmMainMenu.pas"
-// Начат: 04.09.2009 12:57
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMFormSetFactory::Class>> F1 Встроенные продукты::Inpharm::View::Inpharm::Inpharm::InpharmMainMenu
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Inpharm\fsInpharmMainMenu.pas"
+// Стереотип: "VCMFormSetFactory"
+// Элемент модели: "InpharmMainMenu" MUID: (550C0EE00301)
+// Имя типа: "Tfs_InpharmMainMenu"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmFormSetFactory
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  ,
-  InpharmInterfaces,
-  InpharmMainMenu_ut_mmmMain_UserType,
-  Common_FormDefinitions_Controls
-  {$If not defined(NoVCM)}
-  ,
-  vcmFormSetFormsCollectionItemPrim
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmFormSetFactoryPrim
-  {$IfEnd} //not NoVCM
-  
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmFormSetFactory
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmUserControls
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmFormSetFactoryPrim
+ {$IfEnd} // NOT Defined(NoVCM)
+ , InpharmMainMenu_ut_mmmMain_UserType
+ , Common_FormDefinitions_Controls
+ , InpharmInterfaces
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
-  Tfs_InpharmMainMenu = {final fsf} class(TvcmFormSetFactory)
+ Tfs_InpharmMainMenu = {final} class({$If NOT Defined(NoVCM)}
+ TvcmFormSetFactory
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   protected
-  // overridden protected methods
    procedure InitFields; override;
-    {$If not defined(NoVCM)}
+   {$If NOT Defined(NoVCM)}
    class function GetInstance: TvcmFormSetFactoryPrim; override;
-    {$IfEnd} //not NoVCM
+   {$IfEnd} // NOT Defined(NoVCM)
   public
-  // public methods
    function MainParentUtMmmMainNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-      out aNew: IvcmFormDataSource;
-      aSubUserType: TvcmUserType): Boolean;
-     {* Обработчик OnNeedMakeForm для Main }
+    out aNew: IvcmFormDataSource;
+    aSubUserType: TvcmUserType): Boolean;
+    {* Обработчик OnNeedMakeForm для Main }
+   class function Instance: Tfs_InpharmMainMenu;
+    {* Метод получения экземпляра синглетона Tfs_InpharmMainMenu }
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
-  public
-  // singleton factory method
-    class function Instance: Tfs_InpharmMainMenu;
-     {- возвращает экземпляр синглетона. }
-  end;//Tfs_InpharmMainMenu
-{$IfEnd} //not Admin AND not Monitorings
+    {* Проверяет создан экземпляр синглетона или нет }
+ end;//Tfs_InpharmMainMenu
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Base {a},
-  SysUtils
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , SysUtils
+ , l3Base
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-
-// start class Tfs_InpharmMainMenu
-
-var g_Tfs_InpharmMainMenu : Tfs_InpharmMainMenu = nil;
+{$If NOT Defined(NoVCM)}
+var g_Tfs_InpharmMainMenu: Tfs_InpharmMainMenu = nil;
+ {* Экземпляр синглетона Tfs_InpharmMainMenu }
 
 procedure Tfs_InpharmMainMenuFree;
+ {* Метод освобождения экземпляра синглетона Tfs_InpharmMainMenu }
 begin
  l3Free(g_Tfs_InpharmMainMenu);
-end;
-
-class function Tfs_InpharmMainMenu.Instance: Tfs_InpharmMainMenu;
-begin
- if (g_Tfs_InpharmMainMenu = nil) then
- begin
-  l3System.AddExitProc(Tfs_InpharmMainMenuFree);
-  g_Tfs_InpharmMainMenu := Create;
- end;
- Result := g_Tfs_InpharmMainMenu;
-end;
-
+end;//Tfs_InpharmMainMenuFree
 
 function Tfs_InpharmMainMenu.MainParentUtMmmMainNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-  out aNew: IvcmFormDataSource;
-  aSubUserType: TvcmUserType): Boolean;
+ out aNew: IvcmFormDataSource;
+ aSubUserType: TvcmUserType): Boolean;
+ {* Обработчик OnNeedMakeForm для Main }
 var
  l_UseCase : IsdsInpharmMainMenu;
 begin
@@ -125,14 +86,24 @@ begin
  Result := (aNew <> nil);
 end;//Tfs_InpharmMainMenu.MainParentUtMmmMainNeedMakeForm
 
+class function Tfs_InpharmMainMenu.Instance: Tfs_InpharmMainMenu;
+ {* Метод получения экземпляра синглетона Tfs_InpharmMainMenu }
+begin
+ if (g_Tfs_InpharmMainMenu = nil) then
+ begin
+  l3System.AddExitProc(Tfs_InpharmMainMenuFree);
+  g_Tfs_InpharmMainMenu := Create;
+ end;
+ Result := g_Tfs_InpharmMainMenu;
+end;//Tfs_InpharmMainMenu.Instance
+
 class function Tfs_InpharmMainMenu.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_Tfs_InpharmMainMenu <> nil;
 end;//Tfs_InpharmMainMenu.Exists
 
 procedure Tfs_InpharmMainMenu.InitFields;
- {-}
 begin
  inherited;
  with AddZone('Main', vcm_ztParent, fm_en_MedicMainMenu) do
@@ -143,14 +114,11 @@ begin
  OwnerForm := 0;
 end;//Tfs_InpharmMainMenu.InitFields
 
-{$If not defined(NoVCM)}
 class function Tfs_InpharmMainMenu.GetInstance: TvcmFormSetFactoryPrim;
- {-}
 begin
  Result := Self.Instance;
 end;//Tfs_InpharmMainMenu.GetInstance
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //not Admin AND not Monitorings
-
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

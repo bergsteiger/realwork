@@ -1,111 +1,82 @@
 unit MainMenu_Module;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/MainMenu/MainMenu_Module.pas"
-// Начат: 09.09.2009 16:34
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMFormsPack::Class>> F1 Интерфейсные элементы::MainMenu::View::MainMenu::MainMenu$FP
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\MainMenu\MainMenu_Module.pas"
+// Стереотип: "VCMFormsPack"
+// Элемент модели: "MainMenu" MUID: (4AA7A1F80027)
+// Имя типа: "TMainMenuModule"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  PrimMainMenuNew_Form,
-  nsLogEvent,
-  Common_FormDefinitions_Controls,
-  PrimMainMenuWithProfNews_Form,
-  MainMenuNew_Form,
-  MainMenuWithProfNews_Form,
-  vcmExternalInterfaces {a},
-  vcmModule {a},
-  vcmBase {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
- TMainMenuModule = {formspack} class(TvcmModule)
- protected
-  class procedure GetEntityForms(aList : TvcmClassList); override;
- public
- // public methods
+ TMainMenuModule = class({$If NOT Defined(NoVCM)}
+ TvcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
+  protected
+   {$If NOT Defined(NoVCM)}
+   class procedure GetEntityForms(aList: TvcmClassList); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    class procedure OpenMainMenuIfNeeded(const aContainer: IvcmContainer);
    class function MainMenuChangeableMainMenuTypeSetting: Integer;
-     {* Метод для получения значения настройки "Тип изменяемой части основного меню" }
+    {* Метод для получения значения настройки "Тип изменяемой части основного меню" }
    class procedure WriteMainMenuChangeableMainMenuTypeSetting(aValue: Integer);
-     {* Метод для записи значения настройки "Тип изменяемой части основного меню" }
+    {* Метод для записи значения настройки "Тип изменяемой части основного меню" }
  end;//TMainMenuModule
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  SysUtils
-  {$If not defined(NoVCM)}
-  ,
-  vcmHistoryService
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(DesignTimeLibrary)}
-  ,
-  evStyleTableSpy
-  {$IfEnd} //not DesignTimeLibrary
-  ,
-  afwFacade,
-  nsConst,
-  nsTypes,
-  DataAdapter,
-  nsManagers
-  {$If not defined(NoVCM)}
-  ,
-  vcmEntityForm
-  {$IfEnd} //not NoVCM
-  ,
-  LoggingUnit,
-  nsLogEventData,
-  nsLogManager,
-  LoggingWrapperInterfaces,
-  MainMenuChangeableMainMenuTypeSettingRes,
-  stMainMenuChangeableMainMenuTypeItem
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  MainMenuProcessingWordsPack
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  ,
-  vcmFormSetFactory {a},
-  StdRes {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , nsLogEvent
+ , MainMenuChangeableMainMenuTypeSettingRes
+ , stMainMenuChangeableMainMenuTypeItem
+ {$If NOT Defined(NoScripts)}
+ , MainMenuProcessingWordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+ , afwFacade
+ , nsConst
+ , nsTypes
+ , DataAdapter
+ , nsManagers
+ , Common_FormDefinitions_Controls
+ {$If NOT Defined(NoVCM)}
+ , vcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ , LoggingUnit
+ , MainMenuNew_Form
+ , MainMenuWithProfNews_Form
+ //#UC START# *4AA7A1F80027impl_uses*
+ //#UC END# *4AA7A1F80027impl_uses*
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
+{$If NOT Defined(NoVCM)}
 type
-  TnsOpenMainMenuEvent = {final} class(TnsLogEvent)
+ TnsOpenMainMenuEvent = {final} class(TnsLogEvent)
   public
-  // public methods
    class procedure Log;
-  end;//TnsOpenMainMenuEvent
-
-// start class TnsOpenMainMenuEvent
+ end;//TnsOpenMainMenuEvent
 
 class procedure TnsOpenMainMenuEvent.Log;
 //#UC START# *4B151A5B0057_4B151A2302D2_var*
@@ -168,28 +139,36 @@ begin
 end;//TMainMenuModule.OpenMainMenuIfNeeded
 
 class function TMainMenuModule.MainMenuChangeableMainMenuTypeSetting: Integer;
- {-}
+ {* Метод для получения значения настройки "Тип изменяемой части основного меню" }
+//#UC START# *AD718804750F_4AA7A1F80027_var*
+//#UC END# *AD718804750F_4AA7A1F80027_var*
 begin
+//#UC START# *AD718804750F_4AA7A1F80027_impl*
  if (afw.Settings = nil) then
   Result := dv_MainMenu_ChangeableMainMenuType
  else
   Result := afw.Settings.LoadInteger(pi_MainMenu_ChangeableMainMenuType, dv_MainMenu_ChangeableMainMenuType);
+//#UC END# *AD718804750F_4AA7A1F80027_impl*
 end;//TMainMenuModule.MainMenuChangeableMainMenuTypeSetting
 
 class procedure TMainMenuModule.WriteMainMenuChangeableMainMenuTypeSetting(aValue: Integer);
- {-}
+ {* Метод для записи значения настройки "Тип изменяемой части основного меню" }
+//#UC START# *F62C297CC387_4AA7A1F80027_var*
+//#UC END# *F62C297CC387_4AA7A1F80027_var*
 begin
+//#UC START# *F62C297CC387_4AA7A1F80027_impl*
  if (afw.Settings <> nil) then
   afw.Settings.SaveInteger(pi_MainMenu_ChangeableMainMenuType, aValue);
+//#UC END# *F62C297CC387_4AA7A1F80027_impl*
 end;//TMainMenuModule.WriteMainMenuChangeableMainMenuTypeSetting
 
-class procedure TMainMenuModule.GetEntityForms(aList : TvcmClassList);
+class procedure TMainMenuModule.GetEntityForms(aList: TvcmClassList);
 begin
  inherited;
  aList.Add(Ten_MainMenuNew);
  aList.Add(Ten_MainMenuWithProfNews);
-end;
+end;//TMainMenuModule.GetEntityForms
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //not Admin AND not Monitorings
-
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

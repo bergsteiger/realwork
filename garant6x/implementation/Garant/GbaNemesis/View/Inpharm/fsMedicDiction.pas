@@ -1,168 +1,114 @@
 unit fsMedicDiction;
+ {* Словарь медицинских терминов }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Лукьянец Р.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Inpharm/fsMedicDiction.pas"
-// Начат: 2008/02/20 13:21:35
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMFormSetFactory::Class>> F1 Встроенные продукты::Inpharm::View::Inpharm::Inpharm::MedicDiction
-//
-// Словарь медицинских терминов
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Inpharm\fsMedicDiction.pas"
+// Стереотип: "VCMFormSetFactory"
+// Элемент модели: "MedicDiction" MUID: (4AA12BA501E4)
+// Имя типа: "Tfs_MedicDiction"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmFormSetFactory
-  {$IfEnd} //not NoVCM
-  ,
-  DocumentAndListInterfaces,
-  CommonDictionInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  ,
-  DocumentUserTypes_dftMedDictEntry_UserType,
-  l3StringIDEx,
-  AttributesUserTypes_fDocAttribute_UserType,
-  PrimCommonDiction_utMedicDiction_UserType,
-  Common_FormDefinitions_Controls,
-  BaseDocumentWithAttributesInterfaces,
-  DictionContainerUserTypes_slqtMedicDiction_UserType,
-  F1Like_FormDefinitions_Controls
-  {$If not defined(NoVCM)}
-  ,
-  vcmFormSetFormsCollectionItemPrim
-  {$IfEnd} //not NoVCM
-  ,
-  DocumentInterfaces,
-  DocumentUnit,
-  bsTypesNew,
-  DynamicTreeUnit,
-  QueryCardInterfaces,
-  nevTools,
-  bsTypes,
-  afwInterfaces,
-  FoldersDomainInterfaces,
-  l3Interfaces,
-  l3InternalInterfaces,
-  l3TreeInterfaces
-  {$If defined(Nemesis)}
-  ,
-  nscNewInterfaces
-  {$IfEnd} //Nemesis
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmFormSetFactoryPrim
-  {$IfEnd} //not NoVCM
-  
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmFormSetFactory
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmUserControls
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmFormSetFactoryPrim
+ {$IfEnd} // NOT Defined(NoVCM)
+ , Common_FormDefinitions_Controls
+ , DictionContainerUserTypes_slqtMedicDiction_UserType
+ , CommonDictionInterfaces
+ , PrimCommonDiction_utMedicDiction_UserType
+ , DocumentInterfaces
+ , DynamicTreeUnit
+ , QueryCardInterfaces
+ , DocumentAndListInterfaces
+ , DocumentUnit
+ , bsTypesNew
+ , DocumentUserTypes_dftMedDictEntry_UserType
+ , F1Like_FormDefinitions_Controls
+ , AttributesUserTypes_fDocAttribute_UserType
+ , BaseDocumentWithAttributesInterfaces
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
-  Tfs_MedicDiction = {final fsf} class(TvcmFormSetFactory)
-   {* Словарь медицинских терминов }
+ Tfs_MedicDiction = {final} class({$If NOT Defined(NoVCM)}
+ TvcmFormSetFactory
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
+  {* Словарь медицинских терминов }
   protected
-  // overridden protected methods
    procedure InitFields; override;
-    {$If not defined(NoVCM)}
+   {$If NOT Defined(NoVCM)}
    class function GetInstance: TvcmFormSetFactoryPrim; override;
-    {$IfEnd} //not NoVCM
+   {$IfEnd} // NOT Defined(NoVCM)
   public
-  // public methods
    function DictionContainerParentSlqtMedicDictionNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-      out aNew: IvcmFormDataSource;
-      aSubUserType: TvcmUserType): Boolean;
-     {* Обработчик OnNeedMakeForm для DictionContainer }
+    out aNew: IvcmFormDataSource;
+    aSubUserType: TvcmUserType): Boolean;
+    {* Обработчик OnNeedMakeForm для DictionContainer }
    function EnCommonDictionUtMedicDictionNavigatorUtMedicDictionNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-      out aNew: IvcmFormDataSource;
-      aSubUserType: TvcmUserType): Boolean;
-     {* Обработчик OnNeedMakeForm для en_CommonDiction_utMedicDiction }
+    out aNew: IvcmFormDataSource;
+    aSubUserType: TvcmUserType): Boolean;
+    {* Обработчик OnNeedMakeForm для en_CommonDiction_utMedicDiction }
    function TextFormDftMedDictEntryParentDftMedDictEntryNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-      out aNew: IvcmFormDataSource;
-      aSubUserType: TvcmUserType): Boolean;
-     {* Обработчик OnNeedMakeForm для TextForm_dftMedDictEntry }
+    out aNew: IvcmFormDataSource;
+    aSubUserType: TvcmUserType): Boolean;
+    {* Обработчик OnNeedMakeForm для TextForm_dftMedDictEntry }
    function ChildChildNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-      out aNew: IvcmFormDataSource;
-      aSubUserType: TvcmUserType): Boolean;
-     {* Обработчик OnNeedMakeForm для Child }
+    out aNew: IvcmFormDataSource;
+    aSubUserType: TvcmUserType): Boolean;
+    {* Обработчик OnNeedMakeForm для Child }
    function AttributesFormFDocAttributeChildFDocAttributeNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-      out aNew: IvcmFormDataSource;
-      aSubUserType: TvcmUserType): Boolean;
-     {* Обработчик OnNeedMakeForm для AttributesForm_fDocAttribute }
+    out aNew: IvcmFormDataSource;
+    aSubUserType: TvcmUserType): Boolean;
+    {* Обработчик OnNeedMakeForm для AttributesForm_fDocAttribute }
+   class function Instance: Tfs_MedicDiction;
+    {* Метод получения экземпляра синглетона Tfs_MedicDiction }
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
-  public
-  // singleton factory method
-    class function Instance: Tfs_MedicDiction;
-     {- возвращает экземпляр синглетона. }
-  end;//Tfs_MedicDiction
-{$IfEnd} //not Admin AND not Monitorings
+    {* Проверяет создан экземпляр синглетона или нет }
+ end;//Tfs_MedicDiction
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Base {a},
-  l3MessageID,
-  SysUtils
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , l3StringIDEx
+ , SysUtils
+ , l3Base
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(NoVCM)}
+var g_Tfs_MedicDiction: Tfs_MedicDiction = nil;
+ {* Экземпляр синглетона Tfs_MedicDiction }
 
-
-// start class Tfs_MedicDiction
-
-var g_Tfs_MedicDiction : Tfs_MedicDiction = nil;
+const
+ {* Локализуемые строки MedicDictionCaptionLocalConstants }
+ str_fsMedicDictionCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'fsMedicDictionCaption'; rValue : 'Словарь медицинских терминов');
+  {* Заголовок фабрики сборки форм "MedicDiction" }
 
 procedure Tfs_MedicDictionFree;
+ {* Метод освобождения экземпляра синглетона Tfs_MedicDiction }
 begin
  l3Free(g_Tfs_MedicDiction);
-end;
-
-class function Tfs_MedicDiction.Instance: Tfs_MedicDiction;
-begin
- if (g_Tfs_MedicDiction = nil) then
- begin
-  l3System.AddExitProc(Tfs_MedicDictionFree);
-  g_Tfs_MedicDiction := Create;
- end;
- Result := g_Tfs_MedicDiction;
-end;
-
-var
-    { Локализуемые строки MedicDictionCaptionLocalConstants }
-   str_fsMedicDictionCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'fsMedicDictionCaption'; rValue : 'Словарь медицинских терминов');
-    { Заголовок фабрики сборки форм "MedicDiction" }
-
-// start class Tfs_MedicDiction
+end;//Tfs_MedicDictionFree
 
 function Tfs_MedicDiction.DictionContainerParentSlqtMedicDictionNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-  out aNew: IvcmFormDataSource;
-  aSubUserType: TvcmUserType): Boolean;
+ out aNew: IvcmFormDataSource;
+ aSubUserType: TvcmUserType): Boolean;
+ {* Обработчик OnNeedMakeForm для DictionContainer }
 var
  l_UseCase : IsdsCommonDiction;
 begin
@@ -176,16 +122,17 @@ begin
 end;//Tfs_MedicDiction.DictionContainerParentSlqtMedicDictionNeedMakeForm
 
 function Tfs_MedicDiction.EnCommonDictionUtMedicDictionNavigatorUtMedicDictionNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-  out aNew: IvcmFormDataSource;
-  aSubUserType: TvcmUserType): Boolean;
+ out aNew: IvcmFormDataSource;
+ aSubUserType: TvcmUserType): Boolean;
+ {* Обработчик OnNeedMakeForm для en_CommonDiction_utMedicDiction }
 var
  l_UseCase : IsdsCommonDiction;
 begin
  if Supports(aDataSource, IsdsCommonDiction, l_UseCase) then
   try
-//#UC START# *4D81DA3B0293NeedMake_impl*
+  //#UC START# *4D81DA3B0293NeedMake_impl*
    aNew := l_UseCase.dsContents;
-//#UC END# *4D81DA3B0293NeedMake_impl*
+  //#UC END# *4D81DA3B0293NeedMake_impl*
   finally
    l_UseCase := nil;
   end;//try..finally
@@ -193,16 +140,17 @@ begin
 end;//Tfs_MedicDiction.EnCommonDictionUtMedicDictionNavigatorUtMedicDictionNeedMakeForm
 
 function Tfs_MedicDiction.TextFormDftMedDictEntryParentDftMedDictEntryNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-  out aNew: IvcmFormDataSource;
-  aSubUserType: TvcmUserType): Boolean;
+ out aNew: IvcmFormDataSource;
+ aSubUserType: TvcmUserType): Boolean;
+ {* Обработчик OnNeedMakeForm для TextForm_dftMedDictEntry }
 var
  l_UseCase : IsdsBaseDocument;
 begin
  if Supports(aDataSource, IsdsBaseDocument, l_UseCase) then
   try
-//#UC START# *4D81D98202EBNeedMake_impl*
+  //#UC START# *4D81D98202EBNeedMake_impl*
    aNew := l_UseCase.dsDocument;
-//#UC END# *4D81D98202EBNeedMake_impl*
+  //#UC END# *4D81D98202EBNeedMake_impl*
   finally
    l_UseCase := nil;
   end;//try..finally
@@ -210,8 +158,9 @@ begin
 end;//Tfs_MedicDiction.TextFormDftMedDictEntryParentDftMedDictEntryNeedMakeForm
 
 function Tfs_MedicDiction.ChildChildNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-  out aNew: IvcmFormDataSource;
-  aSubUserType: TvcmUserType): Boolean;
+ out aNew: IvcmFormDataSource;
+ aSubUserType: TvcmUserType): Boolean;
+ {* Обработчик OnNeedMakeForm для Child }
 var
  l_UseCase : IsdsCommonDiction;
 begin
@@ -225,30 +174,41 @@ begin
 end;//Tfs_MedicDiction.ChildChildNeedMakeForm
 
 function Tfs_MedicDiction.AttributesFormFDocAttributeChildFDocAttributeNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-  out aNew: IvcmFormDataSource;
-  aSubUserType: TvcmUserType): Boolean;
+ out aNew: IvcmFormDataSource;
+ aSubUserType: TvcmUserType): Boolean;
+ {* Обработчик OnNeedMakeForm для AttributesForm_fDocAttribute }
 var
  l_UseCase : IsdsBaseDocumentWithAttributes;
 begin
  if Supports(aDataSource, IsdsBaseDocumentWithAttributes, l_UseCase) then
   try
-//#UC START# *4D81DAB70277NeedMake_impl*
+  //#UC START# *4D81DAB70277NeedMake_impl*
    aNew := l_UseCase.dsAttributes;
-//#UC END# *4D81DAB70277NeedMake_impl*
+  //#UC END# *4D81DAB70277NeedMake_impl*
   finally
    l_UseCase := nil;
   end;//try..finally
  Result := (aNew <> nil);
 end;//Tfs_MedicDiction.AttributesFormFDocAttributeChildFDocAttributeNeedMakeForm
 
+class function Tfs_MedicDiction.Instance: Tfs_MedicDiction;
+ {* Метод получения экземпляра синглетона Tfs_MedicDiction }
+begin
+ if (g_Tfs_MedicDiction = nil) then
+ begin
+  l3System.AddExitProc(Tfs_MedicDictionFree);
+  g_Tfs_MedicDiction := Create;
+ end;
+ Result := g_Tfs_MedicDiction;
+end;//Tfs_MedicDiction.Instance
+
 class function Tfs_MedicDiction.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_Tfs_MedicDiction <> nil;
 end;//Tfs_MedicDiction.Exists
 
 procedure Tfs_MedicDiction.InitFields;
- {-}
 begin
  inherited;
  with AddZone('DictionContainer', vcm_ztParent, fm_DictionContainerForm) do
@@ -282,20 +242,15 @@ begin
  DefaultStatusForm := 1;
 end;//Tfs_MedicDiction.InitFields
 
-{$If not defined(NoVCM)}
 class function Tfs_MedicDiction.GetInstance: TvcmFormSetFactoryPrim;
- {-}
 begin
  Result := Self.Instance;
 end;//Tfs_MedicDiction.GetInstance
-{$IfEnd} //not NoVCM
-
-{$IfEnd} //not Admin AND not Monitorings
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_fsMedicDictionCaption
  str_fsMedicDictionCaption.Init;
-{$IfEnd} //not Admin AND not Monitorings
+ {* Инициализация str_fsMedicDictionCaption }
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_OfficeLikeRes;
+unit OfficeLikeRes;
 
-// Модуль: "w:\common\components\gui\Garant\VCM\UserInteraction\NOT_COMPLETED_OfficeLikeRes.pas"
+// Модуль: "w:\common\components\gui\Garant\VCM\UserInteraction\OfficeLikeRes.pas"
 // Стереотип: "VCMApplication"
 // Элемент модели: "OfficeLike" MUID: (4ADDCE970294)
 // Имя типа: "TOfficeLikeRes"
@@ -13,12 +13,16 @@ interface
 uses
  l3IntfUses
  , vcmApplication
+ , vcmExternalInterfaces
 ;
 
 type
  TOfficeLikeRes = {abstract} class(TvcmApplication)
-  protected
-   procedure Loaded; override;
+  public
+   class function mod_opcode_ToolbarMenu_Customize: TvcmMOPID;
+   class function mod_opcode_ToolbarMenu_AvailableOperations: TvcmMOPID;
+   class function mod_opcode_ToolbarMenu_IconsSize: TvcmMOPID;
+   class function mod_opcode_ToolbarMenu_Fasten: TvcmMOPID;
  end;//TOfficeLikeRes
 {$IfEnd} // NOT Defined(NoVCM)
 
@@ -30,23 +34,36 @@ uses
  , moToolbarMenu
  , vcmBaseOperationsCollectionItem
  , vcmUserControls
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
+ , PrimToolbarMenu_Module
  , OfficeLikeMain_Form
  , evExtFormat
+ //#UC START# *4ADDCE970294impl_uses*
+ //#UC END# *4ADDCE970294impl_uses*
 ;
 
-procedure TOfficeLikeRes.Loaded;
+class function TOfficeLikeRes.mod_opcode_ToolbarMenu_Customize: TvcmMOPID;
 begin
- inherited;
-end;//TOfficeLikeRes.Loaded
+ Result := g_module_opcode_ToolbarMenu_Customize;
+ Assert((Result.rMoID > 0) AND (Result.rOpID > 0));
+end;//TOfficeLikeRes.mod_opcode_ToolbarMenu_Customize
 
-initialization
-{$If NOT Defined(NoScripts)}
- TtfwClassRef.Register(TOfficeLikeRes);
- {* Регистрация OfficeLike }
-{$IfEnd} // NOT Defined(NoScripts)
+class function TOfficeLikeRes.mod_opcode_ToolbarMenu_AvailableOperations: TvcmMOPID;
+begin
+ Result := g_module_opcode_ToolbarMenu_AvailableOperations;
+ Assert((Result.rMoID > 0) AND (Result.rOpID > 0));
+end;//TOfficeLikeRes.mod_opcode_ToolbarMenu_AvailableOperations
+
+class function TOfficeLikeRes.mod_opcode_ToolbarMenu_IconsSize: TvcmMOPID;
+begin
+ Result := g_module_opcode_ToolbarMenu_IconsSize;
+ Assert((Result.rMoID > 0) AND (Result.rOpID > 0));
+end;//TOfficeLikeRes.mod_opcode_ToolbarMenu_IconsSize
+
+class function TOfficeLikeRes.mod_opcode_ToolbarMenu_Fasten: TvcmMOPID;
+begin
+ Result := g_module_opcode_ToolbarMenu_Fasten;
+ Assert((Result.rMoID > 0) AND (Result.rOpID > 0));
+end;//TOfficeLikeRes.mod_opcode_ToolbarMenu_Fasten
 {$IfEnd} // NOT Defined(NoVCM)
 
 end.

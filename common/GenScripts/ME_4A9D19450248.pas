@@ -59,18 +59,6 @@ uses
 ;
 
 type
- // DictEntry
-
- // Diction
-
- // DictSubEntry
-
- // Attribute
-
- // Child
-
- // DictionContainer
-
  Tfs_Diction = {final} class({$If NOT Defined(NoVCM)}
  TvcmFormSetFactory
  {$IfEnd} // NOT Defined(NoVCM)
@@ -91,35 +79,33 @@ type
    function DoMakeFormSetTabHint(const aDataSource: IvcmFormSetDataSource): IvcmCString; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   function DictionContainer_Parent_slqtDiction_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+   function DictionContainerParentSlqtDictionNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
     out aNew: IvcmFormDataSource;
     aSubUserType: TvcmUserType): Boolean;
     {* Обработчик OnNeedMakeForm для DictionContainer }
-   function DictEntry_Parent_dftDictEntry_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+   function DictEntryParentDftDictEntryNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
     out aNew: IvcmFormDataSource;
     aSubUserType: TvcmUserType): Boolean;
     {* Обработчик OnNeedMakeForm для DictEntry }
-   function Diction_Navigator_utDiction_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+   function DictionNavigatorUtDictionNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
     out aNew: IvcmFormDataSource;
     aSubUserType: TvcmUserType): Boolean;
     {* Обработчик OnNeedMakeForm для Diction }
-   function Child_Child_cutForDiction_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+   function ChildChildCutForDictionNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
     out aNew: IvcmFormDataSource;
     aSubUserType: TvcmUserType): Boolean;
     {* Обработчик OnNeedMakeForm для Child }
-   function DictSubEntry_Child_dftDictSubEntry_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+   function DictSubEntryChildDftDictSubEntryNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
     out aNew: IvcmFormDataSource;
     aSubUserType: TvcmUserType): Boolean;
     {* Обработчик OnNeedMakeForm для DictSubEntry }
-   procedure DictSubEntry_Child_dftDictSubEntryGetFormCount(const aDataSource: IvcmFormSetDataSource;
+   procedure DictSubEntryChildDftDictSubEntryGetFormCount(const aDataSource: IvcmFormSetDataSource;
     out aCount: Integer);
     {* Обработчик OnFormCount для DictSubEntry }
-   function Attribute_Child_fDocAttribute_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+   function AttributeChildFDocAttributeNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
     out aNew: IvcmFormDataSource;
     aSubUserType: TvcmUserType): Boolean;
     {* Обработчик OnNeedMakeForm для Attribute }
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    procedure DoGetMainImageIndex(aSender: TObject;
     const aDataSource: IvcmFormSetDataSource;
     var aImageIndex: Integer);
@@ -130,6 +116,8 @@ type
     {* Обработчик GetMainCaption для Diction$FS }
    class function Instance: Tfs_Diction;
     {* Метод получения экземпляра синглетона Tfs_Diction }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//Tfs_Diction
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -143,7 +131,6 @@ uses
  , SysUtils
  , nsDocumentTools
  , l3String
- , l3MessageID
  , l3Base
 ;
 
@@ -155,7 +142,7 @@ const
  {* Локализуемые строки Tab consts }
  str_DictionFormSetCaptionPrefix: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'DictionFormSetCaptionPrefix'; rValue : 'Текст словарной статьи');
   {* 'Текст словарной статьи' }
- {* Локализуемые строки Diction$FSCaptionLocalConstants }
+ {* Локализуемые строки Diction }
  str_fsDictionCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'fsDictionCaption'; rValue : 'Толковый словарь');
   {* Заголовок фабрики сборки форм "Diction$FS" }
 
@@ -165,67 +152,89 @@ begin
  l3Free(g_Tfs_Diction);
 end;//Tfs_DictionFree
 
-function Tfs_Diction.DictionContainer_Parent_slqtDiction_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+function Tfs_Diction.DictionContainerParentSlqtDictionNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
  out aNew: IvcmFormDataSource;
  aSubUserType: TvcmUserType): Boolean;
  {* Обработчик OnNeedMakeForm для DictionContainer }
-//#UC START# *B6E2EA9874BB_4A9D19450248_var*
-//#UC END# *B6E2EA9874BB_4A9D19450248_var*
+var
+ l_UseCase : IsdsCommonDiction;
 begin
-//#UC START# *B6E2EA9874BB_4A9D19450248_impl*
- !!! Needs to be implemented !!!
-//#UC END# *B6E2EA9874BB_4A9D19450248_impl*
-end;//Tfs_Diction.DictionContainer_Parent_slqtDiction_NeedMakeForm
+ if Supports(aDataSource, IsdsCommonDiction, l_UseCase) then
+  try
+   aNew := l_UseCase.dsSaveLoad;
+  finally
+   l_UseCase := nil;
+  end;//try..finally
+ Result := (aNew <> nil);
+end;//Tfs_Diction.DictionContainerParentSlqtDictionNeedMakeForm
 
-function Tfs_Diction.DictEntry_Parent_dftDictEntry_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+function Tfs_Diction.DictEntryParentDftDictEntryNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
  out aNew: IvcmFormDataSource;
  aSubUserType: TvcmUserType): Boolean;
  {* Обработчик OnNeedMakeForm для DictEntry }
-//#UC START# *956E84A5725C_4A9D19450248_var*
-//#UC END# *956E84A5725C_4A9D19450248_var*
+var
+ l_UseCase : IsdsBaseDocument;
 begin
-//#UC START# *956E84A5725C_4A9D19450248_impl*
- !!! Needs to be implemented !!!
-//#UC END# *956E84A5725C_4A9D19450248_impl*
-end;//Tfs_Diction.DictEntry_Parent_dftDictEntry_NeedMakeForm
+ if Supports(aDataSource, IsdsBaseDocument, l_UseCase) then
+  try
+   aNew := l_UseCase.dsDocument;
+  finally
+   l_UseCase := nil;
+  end;//try..finally
+ Result := (aNew <> nil);
+end;//Tfs_Diction.DictEntryParentDftDictEntryNeedMakeForm
 
-function Tfs_Diction.Diction_Navigator_utDiction_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+function Tfs_Diction.DictionNavigatorUtDictionNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
  out aNew: IvcmFormDataSource;
  aSubUserType: TvcmUserType): Boolean;
  {* Обработчик OnNeedMakeForm для Diction }
-//#UC START# *F7505AA053D6_4A9D19450248_var*
-//#UC END# *F7505AA053D6_4A9D19450248_var*
+var
+ l_UseCase : IsdsCommonDiction;
 begin
-//#UC START# *F7505AA053D6_4A9D19450248_impl*
- !!! Needs to be implemented !!!
-//#UC END# *F7505AA053D6_4A9D19450248_impl*
-end;//Tfs_Diction.Diction_Navigator_utDiction_NeedMakeForm
+ if Supports(aDataSource, IsdsCommonDiction, l_UseCase) then
+  try
+   aNew := l_UseCase.dsContents;
+  finally
+   l_UseCase := nil;
+  end;//try..finally
+ Result := (aNew <> nil);
+end;//Tfs_Diction.DictionNavigatorUtDictionNeedMakeForm
 
-function Tfs_Diction.Child_Child_cutForDiction_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+function Tfs_Diction.ChildChildCutForDictionNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
  out aNew: IvcmFormDataSource;
  aSubUserType: TvcmUserType): Boolean;
  {* Обработчик OnNeedMakeForm для Child }
-//#UC START# *F7E18EECF870_4A9D19450248_var*
-//#UC END# *F7E18EECF870_4A9D19450248_var*
+var
+ l_UseCase : IsdsCommonDiction;
 begin
-//#UC START# *F7E18EECF870_4A9D19450248_impl*
- !!! Needs to be implemented !!!
-//#UC END# *F7E18EECF870_4A9D19450248_impl*
-end;//Tfs_Diction.Child_Child_cutForDiction_NeedMakeForm
+ if Supports(aDataSource, IsdsCommonDiction, l_UseCase) then
+  try
+   aNew := l_UseCase.dsChild;
+  finally
+   l_UseCase := nil;
+  end;//try..finally
+ Result := (aNew <> nil);
+end;//Tfs_Diction.ChildChildCutForDictionNeedMakeForm
 
-function Tfs_Diction.DictSubEntry_Child_dftDictSubEntry_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+function Tfs_Diction.DictSubEntryChildDftDictSubEntryNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
  out aNew: IvcmFormDataSource;
  aSubUserType: TvcmUserType): Boolean;
  {* Обработчик OnNeedMakeForm для DictSubEntry }
-//#UC START# *2E81DBAB301C_4A9D19450248_var*
-//#UC END# *2E81DBAB301C_4A9D19450248_var*
+var
+ l_UseCase : IsdsDiction;
 begin
-//#UC START# *2E81DBAB301C_4A9D19450248_impl*
- !!! Needs to be implemented !!!
-//#UC END# *2E81DBAB301C_4A9D19450248_impl*
-end;//Tfs_Diction.DictSubEntry_Child_dftDictSubEntry_NeedMakeForm
+ if Supports(aDataSource, IsdsDiction, l_UseCase) then
+  try
+  //#UC START# *4D776BFF024FNeedMake_impl*
+   aNew := l_UseCase.dsTranslate[aSubUserType];
+  //#UC END# *4D776BFF024FNeedMake_impl*
+  finally
+   l_UseCase := nil;
+  end;//try..finally
+ Result := (aNew <> nil);
+end;//Tfs_Diction.DictSubEntryChildDftDictSubEntryNeedMakeForm
 
-procedure Tfs_Diction.DictSubEntry_Child_dftDictSubEntryGetFormCount(const aDataSource: IvcmFormSetDataSource;
+procedure Tfs_Diction.DictSubEntryChildDftDictSubEntryGetFormCount(const aDataSource: IvcmFormSetDataSource;
  out aCount: Integer);
  {* Обработчик OnFormCount для DictSubEntry }
 //#UC START# *CF6948E21F14_4A9D19450248_var*
@@ -242,25 +251,23 @@ begin
   l_SDS := nil;
  end;//try..finally
 //#UC END# *CF6948E21F14_4A9D19450248_impl*
-end;//Tfs_Diction.DictSubEntry_Child_dftDictSubEntryGetFormCount
+end;//Tfs_Diction.DictSubEntryChildDftDictSubEntryGetFormCount
 
-function Tfs_Diction.Attribute_Child_fDocAttribute_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+function Tfs_Diction.AttributeChildFDocAttributeNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
  out aNew: IvcmFormDataSource;
  aSubUserType: TvcmUserType): Boolean;
  {* Обработчик OnNeedMakeForm для Attribute }
-//#UC START# *28D865AEFFD5_4A9D19450248_var*
-//#UC END# *28D865AEFFD5_4A9D19450248_var*
+var
+ l_UseCase : IsdsBaseDocumentWithAttributes;
 begin
-//#UC START# *28D865AEFFD5_4A9D19450248_impl*
- !!! Needs to be implemented !!!
-//#UC END# *28D865AEFFD5_4A9D19450248_impl*
-end;//Tfs_Diction.Attribute_Child_fDocAttribute_NeedMakeForm
-
-class function Tfs_Diction.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_Tfs_Diction <> nil;
-end;//Tfs_Diction.Exists
+ if Supports(aDataSource, IsdsBaseDocumentWithAttributes, l_UseCase) then
+  try
+   aNew := l_UseCase.dsAttributes;
+  finally
+   l_UseCase := nil;
+  end;//try..finally
+ Result := (aNew <> nil);
+end;//Tfs_Diction.AttributeChildFDocAttributeNeedMakeForm
 
 procedure Tfs_Diction.DoGetMainImageIndex(aSender: TObject;
  const aDataSource: IvcmFormSetDataSource;
@@ -303,22 +310,58 @@ begin
  Result := g_Tfs_Diction;
 end;//Tfs_Diction.Instance
 
-procedure Tfs_Diction.InitFields;
-//#UC START# *47A042E100E2_4A9D19450248_var*
-//#UC END# *47A042E100E2_4A9D19450248_var*
+class function Tfs_Diction.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
-//#UC START# *47A042E100E2_4A9D19450248_impl*
- !!! Needs to be implemented !!!
-//#UC END# *47A042E100E2_4A9D19450248_impl*
+ Result := g_Tfs_Diction <> nil;
+end;//Tfs_Diction.Exists
+
+procedure Tfs_Diction.InitFields;
+begin
+ inherited;
+ with AddZone('DictionContainer', vcm_ztParent, fm_DictionContainerForm) do
+ begin
+  UserType := slqtDiction;
+  with AddZone('DictEntry', vcm_ztParent, fm_TextForm) do
+  begin
+   UserType := dftDictEntry;
+   OnNeedMakeForm := DictEntryParentDftDictEntryNeedMakeForm;
+  end;
+  with AddZone('Diction', vcm_ztNavigator, fm_enDiction) do
+  begin
+   UserType := utDiction;
+   ActivateIfUpdate := wafAlways;
+   OnNeedMakeForm := DictionNavigatorUtDictionNeedMakeForm;
+  end;
+  with AddZone('Child', vcm_ztChild, fm_ChildForm) do
+  begin
+   UserType := cutForDiction;
+   with AddZone('DictSubEntry', vcm_ztChild, fm_TextForm) do
+   begin
+    UserType := dftDictSubEntry;
+    ActivateIfUpdate := wafAlways;
+    OnFormCount := DictSubEntryChildDftDictSubEntryGetFormCount;
+    OnNeedMakeForm := DictSubEntryChildDftDictSubEntryNeedMakeForm;
+   end;
+   with AddZone('Attribute', vcm_ztChild, fm_AttributesForm) do
+   begin
+    UserType := fDocAttribute;
+    OnNeedMakeForm := AttributeChildFDocAttributeNeedMakeForm;
+   end;
+   OnNeedMakeForm := ChildChildCutForDictionNeedMakeForm;
+  end;
+  OnNeedMakeForm := DictionContainerParentSlqtDictionNeedMakeForm;
+ end;
+ Caption := str_fsDictionCaption.AsCStr;
+ OwnerForm := 0;
+ DefaultStatusForm := 1;
+ OnGetMainImageIndex := DoGetMainImageIndex;
+ OnGetMainCaption := DoGetMainCaption;
 end;//Tfs_Diction.InitFields
 
 class function Tfs_Diction.GetInstance: TvcmFormSetFactoryPrim;
-//#UC START# *4FFE854A009B_4A9D19450248_var*
-//#UC END# *4FFE854A009B_4A9D19450248_var*
 begin
-//#UC START# *4FFE854A009B_4A9D19450248_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4FFE854A009B_4A9D19450248_impl*
+ Result := Self.Instance;
 end;//Tfs_Diction.GetInstance
 
 function Tfs_Diction.DoMakeFormSetCaption(const aDataSource: IvcmFormSetDataSource): IvcmCString;

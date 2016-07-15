@@ -1,118 +1,99 @@
 unit CommonSearch_Module;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View$For F1 and Monitorings"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Search/CommonSearch_Module.pas"
-// Начат: 10.09.2009 21:03
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMFormsPack::Class>> F1 Common For Shell And Monitoring::Search::View$For F1 and Monitorings::Search$Presentation for F1 and Monitorings::CommonSearch
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\CommonSearch_Module.pas"
+// Стереотип: "VCMFormsPack"
+// Элемент модели: "CommonSearch" MUID: (4AA931390118)
+// Имя типа: "TCommonSearchModule"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin)}
+{$If NOT Defined(Admin)}
 uses
-  afwInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  ConfigInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  ,
-  PrimPreview_Form,
-  Search_FormDefinitions_Controls,
-  PrimPrintDialogOptions_Form,
-  PrimQueryCardOptions_Form,
-  PrimPageSetupOptions_Form,
-  PrimSaveLoadOptionsWithUserTypes_Form,
-  SaveLoad_Form,
-  QueryCard_Form,
-  Preview_Form,
-  PageSetup_Form,
-  PrintDialog_Form,
-  Classes,
-  l3Interfaces,
-  vcmExternalInterfaces {a},
-  vcmModule {a},
-  vcmBase {a}
-  ;
-{$IfEnd} //not Admin
+ l3IntfUses
+ , afwInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmUserControls
+ {$IfEnd} // NOT Defined(NoVCM)
+ , ConfigInterfaces
+ , l3Interfaces
+ , Classes
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin)}
 type
- TCommonSearchModule = {formspack} class(TvcmModule, IafwPageSetup, IafwPrintManager)
- protected
-  class procedure GetEntityForms(aList : TvcmClassList); override;
- protected
- // realized methods
+ TCommonSearchModule = class({$If NOT Defined(NoVCM)}
+ TvcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+ , IafwPageSetup, IafwPrintManager)
+  protected
    function pm_GetMargins: TafwRect;
    function pm_GetOrientation: Tl3PageOrientation;
    function CanPrint: Boolean;
    procedure PrintDialog(const aPreview: IafwDocumentPreview);
-     {* выводит диалог печати. }
+    {* выводит диалог печати. }
    procedure ShowPreview(const aPreview: IafwDocumentPreview);
-     {* показывает предварительный просмотр печати. }
+    {* показывает предварительный просмотр печати. }
    function pm_GetPageSetup: IafwPageSetup;
- public
- // overridden public methods
-   constructor Create(AOwner: TComponent); override;
- public
- // public methods
+   {$If NOT Defined(NoVCM)}
+   class procedure GetEntityForms(aList: TvcmClassList); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    class function MakeSaveLoadForm(const aParams: IvcmMakeParams;
-     aZoneType: TvcmZoneType;
-     aRecursive: Boolean;
-     aUserType: TvcmUserType): IvcmEntityForm;
+    aZoneType: TvcmZoneType;
+    aRecursive: Boolean;
+    aUserType: TvcmUserType): IvcmEntityForm;
    class function MakeQueryCardForm(aFilter: Boolean;
-     const aParams: IvcmMakeParams;
-     aZoneType: TvcmZoneType;
-     aRecursive: Boolean;
-     aUserType: TvcmUserType): IvcmEntityForm;
+    const aParams: IvcmMakeParams;
+    aZoneType: TvcmZoneType;
+    aRecursive: Boolean;
+    aUserType: TvcmUserType): IvcmEntityForm;
    class function MakePreview(const aPreview: IafwDocumentPreview): IvcmEntityForm;
    class function MakePageSetup(const aData: InsPageSettingsInfo): Integer;
    class function MakePrintDialog(const aPreview: IafwDocumentPreview): IvcmEntityForm;
+   constructor Create(AOwner: TComponent); override;
  end;//TCommonSearchModule
-{$IfEnd} //not Admin
+{$IfEnd} // NOT Defined(Admin)
 
 implementation
 
-{$If not defined(Admin)}
+{$If NOT Defined(Admin)}
 uses
-  l3RangeManager,
-  nsUtils,
-  evConst,
-  DataAdapter,
-  nsConst,
-  Windows,
-  afwFacade,
-  SysUtils,
-  vcmFormSetFactory {a},
-  StdRes {a}
-  ;
-{$IfEnd} //not Admin
+ l3ImplUses
+ , nsUtils
+ , evConst
+ , DataAdapter
+ , nsConst
+ , Windows
+ , afwFacade
+ , SysUtils
+ , SaveLoad_Form
+ , QueryCard_Form
+ , Preview_Form
+ , PageSetup_Form
+ , PrintDialog_Form
+ , Search_FormDefinitions_Controls
+ //#UC START# *4AA931390118impl_uses*
+ //#UC END# *4AA931390118impl_uses*
+;
 
-{$If not defined(Admin)}
-
-// start class TCommonSearchModule
-
+{$If NOT Defined(NoVCM)}
 class function TCommonSearchModule.MakeSaveLoadForm(const aParams: IvcmMakeParams;
-  aZoneType: TvcmZoneType;
-  aRecursive: Boolean;
-  aUserType: TvcmUserType): IvcmEntityForm;
+ aZoneType: TvcmZoneType;
+ aRecursive: Boolean;
+ aUserType: TvcmUserType): IvcmEntityForm;
 var
  __WasEnter : Boolean;
 //#UC START# *4AA93293002B_4AA931390118_var*
@@ -134,10 +115,10 @@ begin
 end;//TCommonSearchModule.MakeSaveLoadForm
 
 class function TCommonSearchModule.MakeQueryCardForm(aFilter: Boolean;
-  const aParams: IvcmMakeParams;
-  aZoneType: TvcmZoneType;
-  aRecursive: Boolean;
-  aUserType: TvcmUserType): IvcmEntityForm;
+ const aParams: IvcmMakeParams;
+ aZoneType: TvcmZoneType;
+ aRecursive: Boolean;
+ aUserType: TvcmUserType): IvcmEntityForm;
 var
  __WasEnter : Boolean;
 //#UC START# *4AA9396E02B8_4AA931390118_var*
@@ -180,12 +161,11 @@ begin
 end;//TCommonSearchModule.MakePreview
 
 class function TCommonSearchModule.MakePageSetup(const aData: InsPageSettingsInfo): Integer;
+var l_Form: IvcmEntityForm;
 var
  __WasEnter : Boolean;
 //#UC START# *4AAF85DA01D1_4AA931390118_var*
 //#UC END# *4AAF85DA01D1_4AA931390118_var*
-var
- l_Form : IvcmEntityForm;
 begin
  __WasEnter := vcmEnterFactory;
  try
@@ -268,6 +248,7 @@ begin
 end;//TCommonSearchModule.CanPrint
 
 procedure TCommonSearchModule.PrintDialog(const aPreview: IafwDocumentPreview);
+ {* выводит диалог печати. }
 //#UC START# *473D8FC5038B_4AA931390118_var*
 //#UC END# *473D8FC5038B_4AA931390118_var*
 begin
@@ -277,6 +258,7 @@ begin
 end;//TCommonSearchModule.PrintDialog
 
 procedure TCommonSearchModule.ShowPreview(const aPreview: IafwDocumentPreview);
+ {* показывает предварительный просмотр печати. }
 //#UC START# *473D8FDC01EA_4AA931390118_var*
 //#UC END# *473D8FDC01EA_4AA931390118_var*
 begin
@@ -305,7 +287,7 @@ begin
 //#UC END# *47D1602000C6_4AA931390118_impl*
 end;//TCommonSearchModule.Create
 
-class procedure TCommonSearchModule.GetEntityForms(aList : TvcmClassList);
+class procedure TCommonSearchModule.GetEntityForms(aList: TvcmClassList);
 begin
  inherited;
  aList.Add(TcfSaveLoad);
@@ -313,8 +295,8 @@ begin
  aList.Add(TefPreviewForm);
  aList.Add(Ten_PageSetup);
  aList.Add(Ten_PrintDialog);
-end;
+end;//TCommonSearchModule.GetEntityForms
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //not Admin
-
+{$IfEnd} // NOT Defined(Admin)
 end.

@@ -96,6 +96,7 @@ uses
  //#UC END# *4979DA14019Aimpl_uses*
 ;
 
+{$If NOT Defined(NoVCM)}
 type
  TnsViewDocumentAttributesEvent = {final} class(TnsLogEvent)
   public
@@ -147,7 +148,6 @@ begin
 //#UC END# *497F16AC015A_4979DA14019A_impl*
 end;//TPrimAttributesForm.DoTabActivate
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimAttributesForm.SignalDataSourceChanged(const anOld: IvcmFormDataSource;
  const aNew: IvcmFormDataSource);
 begin
@@ -161,18 +161,14 @@ begin
   Supports(aNew, IdsAttributes, CoDS);
  end;//aNew = nil
 end;//TPrimAttributesForm.SignalDataSourceChanged
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimAttributesForm.InitEntities;
  {* инициализирует сущности не из dfm.
              Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
 end;//TPrimAttributesForm.InitEntities
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimAttributesForm.MakeControls;
 begin
  inherited;
@@ -180,13 +176,13 @@ begin
  f_tvAttributes.Name := 'tvAttributes';
  f_tvAttributes.Parent := Self;
 end;//TPrimAttributesForm.MakeControls
-{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimAttributesForm);
  {* Регистрация PrimAttributes }
 {$IfEnd} // NOT Defined(NoScripts)
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.
