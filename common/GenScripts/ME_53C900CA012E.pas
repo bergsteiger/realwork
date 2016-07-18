@@ -17,7 +17,7 @@ uses
  {$If NOT Defined(Nemesis)}
  , csProcessTask
  {$IfEnd} // NOT Defined(Nemesis)
- , dt_Types
+ , daTypes
  , alcuServerAsyncExecutionInterfaces
  , alcuAsyncTaskFinishedNotifierList
 ;
@@ -60,7 +60,7 @@ type
    f_TaskFileName: AnsiString;
    f_SubmitGuard: Integer;
    f_CheckExecutionGuard: Integer;
-   f_UserID: TUserID;
+   f_UserID: TdaUserID;
    f_ActiveTask: TddProcessTask;
    f_Manager: IalcuAsyncSubmitterManager;
    f_Active: Boolean;
@@ -76,7 +76,7 @@ type
     {* Функция очистки полей объекта. }
    procedure ClearFields; override;
   public
-   constructor Create(aUserID: TUserID;
+   constructor Create(aUserID: TdaUserID;
     const aManager: IalcuAsyncSubmitterManager); reintroduce;
    function SubmitTask(const aTask: TddProcessTask): Boolean;
    procedure CheckExecution(const aServices: IcsRunTaskServices);
@@ -86,7 +86,7 @@ type
    class function AssistantExists: Boolean;
    function StillRunning(CountAbortingTask: Boolean): Boolean;
   protected
-   property UserID: TUserID
+   property UserID: TdaUserID
     read f_UserID;
    property ActiveTask: TddProcessTask
     read f_ActiveTask;
@@ -199,7 +199,7 @@ begin
 //#UC END# *4911B69E037D_53C9011903D6_impl*
 end;//TalcuWorkThreadContainer.DoExecute
 
-constructor TalcuSubmitterWorkThread.Create(aUserID: TUserID;
+constructor TalcuSubmitterWorkThread.Create(aUserID: TdaUserID;
  const aManager: IalcuAsyncSubmitterManager);
 //#UC START# *53CCF726039A_53C92B390005_var*
 var

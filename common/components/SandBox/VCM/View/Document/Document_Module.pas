@@ -1,86 +1,97 @@
 unit Document_Module;
+ {* Документ }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Модуль: "Document_Module.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: VCMFormsPack::Class Shared Delphi Sand Box$UC::Document::View::Document::Document
-//
-// Документ
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\SandBox\VCM\View\Document\Document_Module.pas"
+// Стереотип: "VCMFormsPack"
+// Элемент модели: "Document" MUID: (5216345D004A)
+// Имя типа: "TDocumentModule"
 
 {$Include w:\common\components\SandBox\VCM\sbDefine.inc}
 
 interface
 
 uses
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a},
-  vcmModule {a}
-  ;
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
 type
- TDocumentModule = {formspack} class(TvcmModule)
+ TDocumentModule = class({$If NOT Defined(NoVCM)}
+ TvcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* Документ }
- public
- // public methods
+  public
    class function DocumentPrintAndExportDefaultSetting: Boolean;
-     {* Метод для получения значения настройки "Печать и экспорт"."Использовать для экспорта и печати размер шрифта, отображаемого на экране" }
+    {* Метод для получения значения настройки "Печать и экспорт"."Использовать для экспорта и печати размер шрифта, отображаемого на экране" }
    class function DocumentPrintAndExportCustomSetting: Boolean;
-     {* Метод для получения значения настройки "Печать и экспорт"."Использовать для экспорта и печати следующий размер шрифта" }
+    {* Метод для получения значения настройки "Печать и экспорт"."Использовать для экспорта и печати следующий размер шрифта" }
    class function DocumentPrintAndExportFontSizeSetting: Integer;
-     {* Метод для получения значения настройки "Использовать для экспорта и печати следующий размер шрифта" }
+    {* Метод для получения значения настройки "Использовать для экспорта и печати следующий размер шрифта" }
    class procedure WriteDocumentPrintAndExportFontSizeSetting(aValue: Integer);
-     {* Метод для записи значения настройки "Использовать для экспорта и печати следующий размер шрифта" }
+    {* Метод для записи значения настройки "Использовать для экспорта и печати следующий размер шрифта" }
  end;//TDocumentModule
 
 implementation
 
 uses
-  afwFacade,
-  DocumentPrintAndExportSettingRes,
-  DocumentPrintAndExportFontSizeSettingRes,
-  stDocumentPrintAndExportFontSizeItem,
-  vcmFormSetFactory {a},
-  StdRes {a}
-  ;
+ l3ImplUses
+ , DocumentPrintAndExportSettingRes
+ , DocumentPrintAndExportFontSizeSettingRes
+ , stDocumentPrintAndExportFontSizeItem
+ , afwFacade
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *5216345D004Aimpl_uses*
+ //#UC END# *5216345D004Aimpl_uses*
+;
 
-// start class TDocumentModule
-
+{$If NOT Defined(NoVCM)}
 class function TDocumentModule.DocumentPrintAndExportDefaultSetting: Boolean;
- {-}
+ {* Метод для получения значения настройки "Печать и экспорт"."Использовать для экспорта и печати размер шрифта, отображаемого на экране" }
+//#UC START# *17DC451B397C_5216345D004A_var*
+//#UC END# *17DC451B397C_5216345D004A_var*
 begin
- if (afw.Settings = nil) then
-  Result := true
- else
-  Result := afw.Settings.LoadBoolean(pi_Document_PrintAndExport_Default, true);
+//#UC START# *17DC451B397C_5216345D004A_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *17DC451B397C_5216345D004A_impl*
 end;//TDocumentModule.DocumentPrintAndExportDefaultSetting
 
 class function TDocumentModule.DocumentPrintAndExportCustomSetting: Boolean;
- {-}
+ {* Метод для получения значения настройки "Печать и экспорт"."Использовать для экспорта и печати следующий размер шрифта" }
+//#UC START# *D176CCBDE51D_5216345D004A_var*
+//#UC END# *D176CCBDE51D_5216345D004A_var*
 begin
- if (afw.Settings = nil) then
-  Result := false
- else
-  Result := afw.Settings.LoadBoolean(pi_Document_PrintAndExport_Custom, false);
+//#UC START# *D176CCBDE51D_5216345D004A_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *D176CCBDE51D_5216345D004A_impl*
 end;//TDocumentModule.DocumentPrintAndExportCustomSetting
 
 class function TDocumentModule.DocumentPrintAndExportFontSizeSetting: Integer;
- {-}
+ {* Метод для получения значения настройки "Использовать для экспорта и печати следующий размер шрифта" }
+//#UC START# *12B83765C323_5216345D004A_var*
+//#UC END# *12B83765C323_5216345D004A_var*
 begin
- if (afw.Settings = nil) then
-  Result := dv_Document_PrintAndExportFontSize
- else
-  Result := afw.Settings.LoadInteger(pi_Document_PrintAndExportFontSize, dv_Document_PrintAndExportFontSize);
+//#UC START# *12B83765C323_5216345D004A_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *12B83765C323_5216345D004A_impl*
 end;//TDocumentModule.DocumentPrintAndExportFontSizeSetting
 
 class procedure TDocumentModule.WriteDocumentPrintAndExportFontSizeSetting(aValue: Integer);
- {-}
+ {* Метод для записи значения настройки "Использовать для экспорта и печати следующий размер шрифта" }
+//#UC START# *930B9F1EF1E3_5216345D004A_var*
+//#UC END# *930B9F1EF1E3_5216345D004A_var*
 begin
- if (afw.Settings <> nil) then
-  afw.Settings.SaveInteger(pi_Document_PrintAndExportFontSize, aValue);
+//#UC START# *930B9F1EF1E3_5216345D004A_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *930B9F1EF1E3_5216345D004A_impl*
 end;//TDocumentModule.WriteDocumentPrintAndExportFontSizeSetting
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

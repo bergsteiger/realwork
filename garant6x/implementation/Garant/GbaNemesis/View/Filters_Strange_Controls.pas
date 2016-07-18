@@ -35,6 +35,14 @@ const
  op_capRefresh = '';
  op_CreateFilter = 'CreateFilter';
  op_capCreateFilter = 'Добавить фильтр из сохраненных запросов';
+
+var opcode_Filter_Activate: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Filter_Edit: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Filter_PersistentFilter: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Filter_RenameFilter: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Filters_New: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Filters_Refresh: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Filter_CreateFilter: TvcmOPID = (rEnID : -1; rOpID : -1);
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
@@ -42,7 +50,37 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ {$If NOT Defined(NoVCM)}
+ , vcmOperationsForRegister
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmOperationStatesForRegister
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
+
+initialization
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Filter, op_Activate, en_capFilter, op_capActivate, False, False, opcode_Filter_Activate)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Filter, op_Edit, en_capFilter, op_capEdit, False, False, opcode_Filter_Edit)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Filter, op_PersistentFilter, en_capFilter, op_capPersistentFilter, False, False, opcode_Filter_PersistentFilter)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Filter, op_RenameFilter, en_capFilter, op_capRenameFilter, False, False, opcode_Filter_RenameFilter)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Filters, op_New, en_capFilters, op_capNew, False, False, opcode_Filters_New)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Filters, op_Refresh, en_capFilters, op_capRefresh, False, False, opcode_Filters_Refresh)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Filter, op_CreateFilter, en_capFilter, op_capCreateFilter, False, False, opcode_Filter_CreateFilter)) do
+ begin
+ end;
+
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

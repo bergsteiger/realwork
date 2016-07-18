@@ -1,123 +1,89 @@
 unit Consultation_Module;
+ {* Консультации }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Consultation/Consultation_Module.pas"
-// Начат: 25.09.2009 21:19
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMFormsPack::Class>> F1 Пользовательские сервисы::Consultation::View::Consultation::Consultation$FP
-//
-// Консультации
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Consultation\Consultation_Module.pas"
+// Стереотип: "VCMFormsPack"
+// Элемент модели: "Consultation" MUID: (4ABCFB7F017B)
+// Имя типа: "TConsultationModule"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  ConsultingUnit,
-  SearchUnit,
-  l3TreeInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmFormSetFactory
-  {$IfEnd} //not NoVCM
-  ,
-  ConsultationInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  ,
-  ConsultationDomainInterfaces,
-  DocumentUserTypes_dftConsultation_UserType,
-  l3StringIDEx,
-  ListUserTypes_lftConsultation_UserType,
-  PrimSaveLoadUserTypes_slqtConsult_UserType,
-  PrimQueryCard_utqcSendConsultation_UserType,
-  Common_FormDefinitions_Controls,
-  Search_FormDefinitions_Controls,
-  PrimConsultationMarkOptions_Form,
-  PrimConsultationMark_utcmMain_UserType
-  {$If not defined(NoVCM)}
-  ,
-  vcmFormSetFormsCollectionItemPrim
-  {$IfEnd} //not NoVCM
-  ,
-  fsSendConsultation,
-  fsConsultation,
-  ConsultationMark_Form,
-  vcmExternalInterfaces {a},
-  vcmModule {a},
-  vcmBase {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , ConsultationDomainInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3TreeInterfaces
+ , SearchUnit
+ , ConsultingUnit
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
- TConsultationModule = {formspack} class(TvcmModule)
+ TConsultationModule = class({$If NOT Defined(NoVCM)}
+ TvcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* Консультации }
- protected
-  class procedure GetEntityForms(aList : TvcmClassList); override;
- public
- // public methods
+  protected
+   {$If NOT Defined(NoVCM)}
+   class procedure GetEntityForms(aList: TvcmClassList); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    class procedure GiveMarkOnConsultation(const aNode: Il3SimpleNode);
    class procedure OpenSendConsultation(const aQuery: IQuery);
    class procedure OpenEntityAsConsultation(const aCons: IUnknown;
-     const aContainer: IvcmContainer);
+    const aContainer: IvcmContainer);
    class procedure OpenConsultation(const aCons: IbsConsultation;
-     const aContainer: IvcmContainer);
+    const aContainer: IvcmContainer);
  end;//TConsultationModule
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  SysUtils,
-  sdsConsultation,
-  bsConsultation,
-  bsUtils,
-  sdsSendConsultation
-  {$If not defined(NoVCM)}
-  ,
-  vcmMessagesSupport
-  {$IfEnd} //not NoVCM
-  ,
-  DataAdapter,
-  l3Base {a},
-  l3MessageID,
-  StdRes {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , DocumentUserTypes_dftConsultation_UserType
+ , Common_FormDefinitions_Controls
+ , SysUtils
+ , sdsConsultation
+ , bsConsultation
+ , bsUtils
+ , sdsSendConsultation
+ {$If NOT Defined(NoVCM)}
+ , vcmMessagesSupport
+ {$IfEnd} // NOT Defined(NoVCM)
+ , DataAdapter
+ , fsSendConsultation
+ , fsConsultation
+ , ConsultationMark_Form
+ //#UC START# *4ABCFB7F017Bimpl_uses*
+ , StdRes
+ //#UC END# *4ABCFB7F017Bimpl_uses*
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TConsultationModule
-
+{$If NOT Defined(NoVCM)}
 class procedure TConsultationModule.GiveMarkOnConsultation(const aNode: Il3SimpleNode);
+var l_OpenConsultation: IsdsConsultation;
+var l_Form: IvcmEntityForm;
+var l_Cons: IsdsConsultation;
 var
  __WasEnter : Boolean;
 //#UC START# *4ABBA1BF0053_4ABCFB7F017B_var*
 //#UC END# *4ABBA1BF0053_4ABCFB7F017B_var*
-var
- l_OpenConsultation : IsdsConsultation;
- l_Form : IvcmEntityForm;
- l_Cons : IsdsConsultation;
 begin
  __WasEnter := vcmEnterFactory;
  try
@@ -171,13 +137,12 @@ begin
 end;//TConsultationModule.OpenSendConsultation
 
 class procedure TConsultationModule.OpenEntityAsConsultation(const aCons: IUnknown;
-  const aContainer: IvcmContainer);
+ const aContainer: IvcmContainer);
+var l_Cons: IConsultation;
 var
  __WasEnter : Boolean;
 //#UC START# *4AA5385C03DD_4ABCFB7F017B_var*
 //#UC END# *4AA5385C03DD_4ABCFB7F017B_var*
-var
- l_Cons : IConsultation;
 begin
  __WasEnter := vcmEnterFactory;
  try
@@ -201,7 +166,7 @@ begin
 end;//TConsultationModule.OpenEntityAsConsultation
 
 class procedure TConsultationModule.OpenConsultation(const aCons: IbsConsultation;
-  const aContainer: IvcmContainer);
+ const aContainer: IvcmContainer);
 var
  __WasEnter : Boolean;
 //#UC START# *4AA5363D02D0_4ABCFB7F017B_var*
@@ -224,12 +189,12 @@ begin
  end;//try..finally
 end;//TConsultationModule.OpenConsultation
 
-class procedure TConsultationModule.GetEntityForms(aList : TvcmClassList);
+class procedure TConsultationModule.GetEntityForms(aList: TvcmClassList);
 begin
  inherited;
  aList.Add(Ten_ConsultationMark);
-end;
+end;//TConsultationModule.GetEntityForms
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //not Admin AND not Monitorings
-
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

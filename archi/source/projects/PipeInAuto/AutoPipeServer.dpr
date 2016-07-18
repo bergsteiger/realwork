@@ -681,6 +681,7 @@ uses
  {$If Defined(ServerTasks)}
  , alcuServerAsyncExecutionInterfaces in 'w:\archi\source\projects\PipeInAuto\Tasks\alcuServerAsyncExecutionInterfaces.pas'
  {$IfEnd} // Defined(ServerTasks)
+ , daTypes in 'w:\common\components\rtl\Garant\DA\daTypes.pas'
  , dt_Types in 'w:\common\components\rtl\Garant\dd\dt_Types.pas'
  , evdDTTypes in 'w:\common\components\rtl\Garant\EVD\evdDTTypes.pas'
  {$If NOT Defined(Nemesis)}
@@ -849,7 +850,6 @@ uses
  , daInterfaces in 'w:\common\components\rtl\Garant\DA\daInterfaces.pas'
  , l3Tree_TLB in 'w:\common\components\rtl\Garant\L3\l3Tree_TLB.pas'
  , l3TreeInterfaces in 'w:\common\components\rtl\Garant\L3\l3TreeInterfaces.pas'
- , daTypes in 'w:\common\components\rtl\Garant\DA\daTypes.pas'
  , ddAppConfig in 'w:\common\components\rtl\Garant\dd\ddAppConfig.pas'
  , ddAppConfigTypes in 'w:\common\components\rtl\Garant\dd\ddAppConfigTypes.pas'
  , ddConfigStorages in 'w:\common\components\rtl\Garant\dd\ddConfigStorages.pas'
@@ -1633,6 +1633,7 @@ uses
  {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
  , vtHintWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\vtHintWordsPack.pas'
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
+ , l3FontInfo in 'w:\common\components\rtl\Garant\L3\l3FontInfo.pas'
  {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
  , ListerWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\ListerWordsPack.pas'
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
@@ -1713,9 +1714,6 @@ uses
  , vtSizeablePanel in 'w:\common\components\gui\Garant\VT\vtSizeablePanel.pas'
  , l3Languages in 'w:\common\components\rtl\Garant\L3\l3Languages.pas'
  , daDataProvider in 'w:\common\components\rtl\Garant\DA\daDataProvider.pas'
- {$If NOT Defined(Nemesis)}
- , dt_User in 'w:\common\components\rtl\Garant\DT\dt_User.pas'
- {$IfEnd} // NOT Defined(Nemesis)
  , alcuBaseEngineHolder in 'w:\archi\source\projects\PipeInAuto\Server\alcuBaseEngineHolder.pas'
  , alcuBaseEngine in 'w:\archi\source\projects\PipeInAuto\Server\alcuBaseEngine.pas'
  {$If Defined(ServerTasks)}

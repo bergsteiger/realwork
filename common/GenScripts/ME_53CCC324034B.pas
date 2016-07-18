@@ -17,7 +17,7 @@ uses
  {$IfEnd} // Defined(ServerTasks)
  , alcuBaseEngineHolder
  , alcuTaskExecutingList
- , dt_Types
+ , daTypes
  {$If NOT Defined(Nemesis)}
  , csProcessTask
  {$IfEnd} // NOT Defined(Nemesis)
@@ -39,16 +39,16 @@ type
    function Get_ServerPort: Integer;
    {$IfEnd} // Defined(ServerTasks)
    {$If Defined(ServerTasks)}
-   procedure GetUserAccountByID(anID: TUserID;
+   procedure GetUserAccountByID(anID: TdaUserID;
     out theName: AnsiString;
     out thePassword: AnsiString);
     {* Получить логин/пароль по ID }
    {$IfEnd} // Defined(ServerTasks)
    {$If Defined(ServerTasks)}
-   function IsUserLogined(aUserID: TUserID): Boolean;
+   function IsUserLogined(aUserID: TdaUserID): Boolean;
    {$IfEnd} // Defined(ServerTasks)
    {$If Defined(ServerTasks)}
-   procedure SendAbortNotification(anID: TUserID);
+   procedure SendAbortNotification(anID: TdaUserID);
    {$IfEnd} // Defined(ServerTasks)
    {$If Defined(ServerTasks)}
    function EnterTaskExecution(const aTask: TddProcessTask): Boolean;
@@ -127,7 +127,7 @@ end;//TalcuAsyncSubmitterManager.Get_ServerPort
 {$IfEnd} // Defined(ServerTasks)
 
 {$If Defined(ServerTasks)}
-procedure TalcuAsyncSubmitterManager.GetUserAccountByID(anID: TUserID;
+procedure TalcuAsyncSubmitterManager.GetUserAccountByID(anID: TdaUserID;
  out theName: AnsiString;
  out thePassword: AnsiString);
  {* Получить логин/пароль по ID }
@@ -146,7 +146,7 @@ end;//TalcuAsyncSubmitterManager.GetUserAccountByID
 {$IfEnd} // Defined(ServerTasks)
 
 {$If Defined(ServerTasks)}
-function TalcuAsyncSubmitterManager.IsUserLogined(aUserID: TUserID): Boolean;
+function TalcuAsyncSubmitterManager.IsUserLogined(aUserID: TdaUserID): Boolean;
 //#UC START# *53CCBA9702A7_53CCC324034B_var*
 //#UC END# *53CCBA9702A7_53CCC324034B_var*
 begin
@@ -157,7 +157,7 @@ end;//TalcuAsyncSubmitterManager.IsUserLogined
 {$IfEnd} // Defined(ServerTasks)
 
 {$If Defined(ServerTasks)}
-procedure TalcuAsyncSubmitterManager.SendAbortNotification(anID: TUserID);
+procedure TalcuAsyncSubmitterManager.SendAbortNotification(anID: TdaUserID);
 //#UC START# *53CF91EC007A_53CCC324034B_var*
 //#UC END# *53CF91EC007A_53CCC324034B_var*
 begin

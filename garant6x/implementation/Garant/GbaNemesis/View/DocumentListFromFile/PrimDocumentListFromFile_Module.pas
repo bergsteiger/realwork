@@ -1,107 +1,84 @@
 unit PrimDocumentListFromFile_Module;
+ {* Список документов из файла }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/DocumentListFromFile/PrimDocumentListFromFile_Module.pas"
-// Начат: 12.04.2011 16:53
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMFormsPack::Class>> F1 Интерфейсные элементы::DocumentListFromFile::View::DocumentListFromFile::PrimDocumentListFromFile
-//
-// Список документов из файла
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\DocumentListFromFile\PrimDocumentListFromFile_Module.pas"
+// Стереотип: "VCMFormsPack"
+// Элемент модели: "PrimDocumentListFromFile" MUID: (4DA44B2C01BB)
+// Имя типа: "TPrimDocumentListFromFileModule"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3StringIDEx,
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a},
-  vcmModule {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
- TPrimDocumentListFromFileModule = {formspack} class(TvcmModule)
+ TPrimDocumentListFromFileModule = class({$If NOT Defined(NoVCM)}
+ TvcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* Список документов из файла }
- protected
-  procedure Loaded; override;
- private
- // private methods
+  private
    procedure opOpenDocumentListFromFileTest(const aParams: IvcmTestParamsPrim);
-     {* Открыть список документов из файла }
-   procedure opOpenDocumentListFromFile(const aParams: IvcmExecuteParamsPrim);
-     {* Открыть список документов из файла }
+    {* Открыть список документов из файла }
+   procedure opOpenDocumentListFromFileExecute(const aParams: IvcmExecuteParamsPrim);
+    {* Открыть список документов из файла }
+  protected
+   procedure Loaded; override;
  end;//TPrimDocumentListFromFileModule
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCL)}
-  ,
-  Dialogs
-  {$IfEnd} //not NoVCL
-  ,
-  DataAdapter,
-  DynamicDocListUnit,
-  SysUtils,
-  nsTypes,
-  deListSet,
-  afwFacade
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  ,
-  BaseTypesUnit
-  {$If not defined(NoVCM)}
-  ,
-  vcmMessagesSupport
-  {$IfEnd} //not NoVCM
-  ,
-  nsOpenDialog,
-  bsOpenListInfo,
-  PrimPrimListInterfaces
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  kw_DocumentListFromFile_opOpenDocumentListFromFile
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  ,
-  l3MessageID,
-  vcmFormSetFactory {a},
-  StdRes {a},
-  vcmModuleDef {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , l3StringIDEx
+ {$If NOT Defined(NoVCM)}
+ , vcmMessagesSupport
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCL)}
+ , Dialogs
+ {$IfEnd} // NOT Defined(NoVCL)
+ , DataAdapter
+ , DynamicDocListUnit
+ , SysUtils
+ , nsTypes
+ , deListSet
+ , afwFacade
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , BaseTypesUnit
+ , nsOpenDialog
+ , bsOpenListInfo
+ , PrimPrimListInterfaces
+ //#UC START# *4DA44B2C01BBimpl_uses*
+ , StdRes
+ //#UC END# *4DA44B2C01BBimpl_uses*
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-var
-   { Локализуемые строки Local }
-  str_AccessDenied : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'AccessDenied'; rValue : 'Нет доступа к файлу');
-   { 'Нет доступа к файлу' }
-  str_InvalidType : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'InvalidType'; rValue : 'Неверный тип файла');
-   { 'Неверный тип файла' }
-  str_ImportDocuments : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ImportDocuments'; rValue : 'Импортируемых документов');
-   { 'Импортируемых документов' }
-
-// start class TPrimDocumentListFromFileModule
+{$If NOT Defined(NoVCM)}
+const
+ {* Локализуемые строки Local }
+ str_AccessDenied: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'AccessDenied'; rValue : 'Нет доступа к файлу');
+  {* 'Нет доступа к файлу' }
+ str_InvalidType: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'InvalidType'; rValue : 'Неверный тип файла');
+  {* 'Неверный тип файла' }
+ str_ImportDocuments: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ImportDocuments'; rValue : 'Импортируемых документов');
+  {* 'Импортируемых документов' }
 
 procedure TPrimDocumentListFromFileModule.opOpenDocumentListFromFileTest(const aParams: IvcmTestParamsPrim);
+ {* Открыть список документов из файла }
 //#UC START# *4DA44BDB01D9_4DA44B2C01BBtest_var*
 //#UC END# *4DA44BDB01D9_4DA44B2C01BBtest_var*
 begin
@@ -110,7 +87,8 @@ begin
 //#UC END# *4DA44BDB01D9_4DA44B2C01BBtest_impl*
 end;//TPrimDocumentListFromFileModule.opOpenDocumentListFromFileTest
 
-procedure TPrimDocumentListFromFileModule.opOpenDocumentListFromFile(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimDocumentListFromFileModule.opOpenDocumentListFromFileExecute(const aParams: IvcmExecuteParamsPrim);
+ {* Открыть список документов из файла }
 //#UC START# *4DA44BDB01D9_4DA44B2C01BBexec_var*
  function IsEmptyList(const aL: IdeList): Boolean;
  var l_Info : TbsOpenListInfo;
@@ -159,30 +137,24 @@ begin
   FreeAndNil(l_D);
  end;//try..finally
 //#UC END# *4DA44BDB01D9_4DA44B2C01BBexec_impl*
-end;//TPrimDocumentListFromFileModule.opOpenDocumentListFromFile
+end;//TPrimDocumentListFromFileModule.opOpenDocumentListFromFileExecute
 
 procedure TPrimDocumentListFromFileModule.Loaded;
 begin
  inherited;
- PublishOp('opOpenDocumentListFromFile', opOpenDocumentListFromFile, opOpenDocumentListFromFileTest);
- ShowInToolbar('opOpenDocumentListFromFile', false);
+ PublishOp('opOpenDocumentListFromFile', opOpenDocumentListFromFileExecute, opOpenDocumentListFromFileTest);
+ ShowInToolbar('opOpenDocumentListFromFile', False);
  SetShortCut('opOpenDocumentListFromFile', 'Shift-Alt-L');
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+end;//TPrimDocumentListFromFileModule.Loaded
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_AccessDenied
  str_AccessDenied.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_InvalidType
+ {* Инициализация str_AccessDenied }
  str_InvalidType.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_ImportDocuments
+ {* Инициализация str_InvalidType }
  str_ImportDocuments.Init;
-{$IfEnd} //not Admin AND not Monitorings
+ {* Инициализация str_ImportDocuments }
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

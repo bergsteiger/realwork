@@ -1,203 +1,178 @@
 unit fsAbstractDocument;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/fsAbstractDocument.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMAbstractFormSetFactory::Class>> F1 Контроллер работы с документом и абстрактная фабрика документа::F1 Document Processing::View::AbstractDocumentFormSetFactory::AbstractDocument
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\fsAbstractDocument.pas"
+// Стереотип: "VCMAbstractFormSetFactory"
+// Элемент модели: "AbstractDocument" MUID: (5009367A01C3)
+// Имя типа: "Tfs_AbstractDocument"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmFormSetFactory
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  ,
-  DocumentUserTypes_dftRelatedDoc_UserType,
-  DocumentUserTypes_dftAnnotation_UserType,
-  DocumentUserTypes_dftTranslation_UserType,
-  ListUserTypes_lftRespondent_UserType,
-  ListUserTypes_lftCorrespondent_UserType,
-  ListUserTypes_lftCToPart_UserType,
-  ListUserTypes_lftUserCR1_UserType,
-  ListUserTypes_lftUserCR2_UserType,
-  ListUserTypes_lftSimilarDocuments_UserType,
-  AttributesUserTypes_fDocAttribute_UserType,
-  RedactionsUserTypes_utRedaction_UserType,
-  WarningUserTypes_Warning_UserType,
-  ContentsUserTypes_utContents_UserType,
-  Common_FormDefinitions_Controls,
-  WorkWithDocumentInterfaces,
-  DocInfoInterfaces,
-  BaseDocumentWithAttributesInterfaces,
-  BaloonWarningUserTypes_WarnJuror_UserType,
-  BaloonWarningUserTypes_remListModified_UserType
-  {$If not defined(NoVCM)}
-  ,
-  vcmFormSetFormsCollectionItemPrim
-  {$IfEnd} //not NoVCM
-  ,
-  ListUserTypes_lftRToPart_UserType,
-  DocumentUserTypes_dftChronology_UserType,
-  ListUserTypes_lftSimilarDocumentsToFragment_UserType,
-  l3InternalInterfaces,
-  l3TreeInterfaces,
-  DocumentInterfaces,
-  nevBase,
-  nsTypes,
-  nevTools,
-  bsTypes,
-  DocumentUnit,
-  bsTypesNew,
-  evdInterfaces,
-  DocumentAndListInterfaces,
-  afwInterfaces,
-  FoldersDomainInterfaces,
-  l3Interfaces
-  {$If defined(Nemesis)}
-  ,
-  nscNewInterfaces
-  {$IfEnd} //Nemesis
-  ,
-  F1TagDataProviderInterface,
-  nsTypesNew,
-  l3Tree_TLB,
-  DynamicDocListUnit,
-  PrimPrimListInterfaces,
-  FiltersUnit,
-  DynamicTreeUnit,
-  PreviewInterfaces,
-  PrimListInterfaces,
-  ExternalObjectUnit
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmFormSetFactory
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmUserControls
+ {$IfEnd} // NOT Defined(NoVCM)
+ , AttributesUserTypes_fDocAttribute_UserType
+ , Common_FormDefinitions_Controls
+ , BaseDocumentWithAttributesInterfaces
+ , l3InternalInterfaces
+ , l3TreeInterfaces
+ , DocumentInterfaces
+ , WarningUserTypes_Warning_UserType
+ , WorkWithDocumentInterfaces
+ , nsTypes
+ , nevBase
+ , DocumentUserTypes_dftRelatedDoc_UserType
+ , DocInfoInterfaces
+ , nevTools
+ , bsTypes
+ , evdInterfaces
+ , afwInterfaces
+ , FoldersDomainInterfaces
+ , DocumentAndListInterfaces
+ , DocumentUnit
+ , l3Interfaces
+ , bsTypesNew
+ , DocumentUserTypes_dftAnnotation_UserType
+ , DocumentUserTypes_dftTranslation_UserType
+ , ContentsUserTypes_utContents_UserType
+ {$If Defined(Nemesis)}
+ , nscNewInterfaces
+ {$IfEnd} // Defined(Nemesis)
+ , F1TagDataProviderInterface
+ , nsTypesNew
+ , ListUserTypes_lftRespondent_UserType
+ , l3Tree_TLB
+ , DynamicDocListUnit
+ , PrimPrimListInterfaces
+ , DynamicTreeUnit
+ , PreviewInterfaces
+ , PrimListInterfaces
+ , FiltersUnit
+ , ListUserTypes_lftCorrespondent_UserType
+ , RedactionsUserTypes_utRedaction_UserType
+ , ListUserTypes_lftSimilarDocuments_UserType
+ , ListUserTypes_lftUserCR1_UserType
+ , ListUserTypes_lftUserCR2_UserType
+ , ListUserTypes_lftCToPart_UserType
+ , ExternalObjectUnit
+ , ListUserTypes_lftRToPart_UserType
+ , DocumentUserTypes_dftChronology_UserType
+ , ListUserTypes_lftSimilarDocumentsToFragment_UserType
+ , BaloonWarningUserTypes_WarnJuror_UserType
+ , BaloonWarningUserTypes_remListModified_UserType
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
- Tfs_AbstractDocument = {abstract fsf} class(TvcmFormSetFactory)
- protected
- // overridden protected methods
+ Tfs_AbstractDocument = {abstract} class({$If NOT Defined(NoVCM)}
+ TvcmFormSetFactory
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
+  protected
    procedure InitFields; override;
- public
- // public methods
+  public
    function AttributesChildFDocAttributeNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-     out aNew: IvcmFormDataSource;
-     aSubUserType: TvcmUserType): Boolean;
-     {* Обработчик OnNeedMakeForm для Attributes }
+    out aNew: IvcmFormDataSource;
+    aSubUserType: TvcmUserType): Boolean;
+    {* Обработчик OnNeedMakeForm для Attributes }
    function WarningChildWarningNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-     out aNew: IvcmFormDataSource;
-     aSubUserType: TvcmUserType): Boolean;
-     {* Обработчик OnNeedMakeForm для Warning }
+    out aNew: IvcmFormDataSource;
+    aSubUserType: TvcmUserType): Boolean;
+    {* Обработчик OnNeedMakeForm для Warning }
    function RelatedChildDftRelatedDocNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-     out aNew: IvcmFormDataSource;
-     aSubUserType: TvcmUserType): Boolean;
-     {* Обработчик OnNeedMakeForm для Related }
+    out aNew: IvcmFormDataSource;
+    aSubUserType: TvcmUserType): Boolean;
+    {* Обработчик OnNeedMakeForm для Related }
    function AnnotationChildDftAnnotationNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-     out aNew: IvcmFormDataSource;
-     aSubUserType: TvcmUserType): Boolean;
-     {* Обработчик OnNeedMakeForm для Annotation }
+    out aNew: IvcmFormDataSource;
+    aSubUserType: TvcmUserType): Boolean;
+    {* Обработчик OnNeedMakeForm для Annotation }
    function TranslationChildDftTranslationNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-     out aNew: IvcmFormDataSource;
-     aSubUserType: TvcmUserType): Boolean;
-     {* Обработчик OnNeedMakeForm для Translation }
+    out aNew: IvcmFormDataSource;
+    aSubUserType: TvcmUserType): Boolean;
+    {* Обработчик OnNeedMakeForm для Translation }
    function TranslationWarnJurorChildWarnJurorNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-     out aNew: IvcmFormDataSource;
-     aSubUserType: TvcmUserType): Boolean;
-     {* Обработчик OnNeedMakeForm для TranslationWarnJuror }
+    out aNew: IvcmFormDataSource;
+    aSubUserType: TvcmUserType): Boolean;
+    {* Обработчик OnNeedMakeForm для TranslationWarnJuror }
    function ContentsNavigatorUtContentsNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-     out aNew: IvcmFormDataSource;
-     aSubUserType: TvcmUserType): Boolean;
-     {* Обработчик OnNeedMakeForm для Contents }
+    out aNew: IvcmFormDataSource;
+    aSubUserType: TvcmUserType): Boolean;
+    {* Обработчик OnNeedMakeForm для Contents }
    function RespondentChildLftRespondentNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-     out aNew: IvcmFormDataSource;
-     aSubUserType: TvcmUserType): Boolean;
-     {* Обработчик OnNeedMakeForm для Respondent }
+    out aNew: IvcmFormDataSource;
+    aSubUserType: TvcmUserType): Boolean;
+    {* Обработчик OnNeedMakeForm для Respondent }
    function CorrespondentChildLftCorrespondentNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-     out aNew: IvcmFormDataSource;
-     aSubUserType: TvcmUserType): Boolean;
-     {* Обработчик OnNeedMakeForm для Correspondent }
+    out aNew: IvcmFormDataSource;
+    aSubUserType: TvcmUserType): Boolean;
+    {* Обработчик OnNeedMakeForm для Correspondent }
    function RedactionsNavigatorUtRedactionNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-     out aNew: IvcmFormDataSource;
-     aSubUserType: TvcmUserType): Boolean;
-     {* Обработчик OnNeedMakeForm для Redactions }
+    out aNew: IvcmFormDataSource;
+    aSubUserType: TvcmUserType): Boolean;
+    {* Обработчик OnNeedMakeForm для Redactions }
    function SimilarDocumentsChildLftSimilarDocumentsNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-     out aNew: IvcmFormDataSource;
-     aSubUserType: TvcmUserType): Boolean;
-     {* Обработчик OnNeedMakeForm для SimilarDocuments }
+    out aNew: IvcmFormDataSource;
+    aSubUserType: TvcmUserType): Boolean;
+    {* Обработчик OnNeedMakeForm для SimilarDocuments }
    function UserCR1ChildLftUserCR1NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-     out aNew: IvcmFormDataSource;
-     aSubUserType: TvcmUserType): Boolean;
-     {* Обработчик OnNeedMakeForm для UserCR1 }
+    out aNew: IvcmFormDataSource;
+    aSubUserType: TvcmUserType): Boolean;
+    {* Обработчик OnNeedMakeForm для UserCR1 }
    function RemListModifiedUserCR1ChildRemListModifiedNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-     out aNew: IvcmFormDataSource;
-     aSubUserType: TvcmUserType): Boolean;
-     {* Обработчик OnNeedMakeForm для remListModifiedUserCR1 }
+    out aNew: IvcmFormDataSource;
+    aSubUserType: TvcmUserType): Boolean;
+    {* Обработчик OnNeedMakeForm для remListModifiedUserCR1 }
    function UserCR2ChildLftUserCR2NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-     out aNew: IvcmFormDataSource;
-     aSubUserType: TvcmUserType): Boolean;
-     {* Обработчик OnNeedMakeForm для UserCR2 }
+    out aNew: IvcmFormDataSource;
+    aSubUserType: TvcmUserType): Boolean;
+    {* Обработчик OnNeedMakeForm для UserCR2 }
    function RemListModifiedUserCR2ChildRemListModifiedNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-     out aNew: IvcmFormDataSource;
-     aSubUserType: TvcmUserType): Boolean;
-     {* Обработчик OnNeedMakeForm для remListModifiedUserCR2 }
+    out aNew: IvcmFormDataSource;
+    aSubUserType: TvcmUserType): Boolean;
+    {* Обработчик OnNeedMakeForm для remListModifiedUserCR2 }
    function CToPartChildLftCToPartNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-     out aNew: IvcmFormDataSource;
-     aSubUserType: TvcmUserType): Boolean;
-     {* Обработчик OnNeedMakeForm для CToPart }
+    out aNew: IvcmFormDataSource;
+    aSubUserType: TvcmUserType): Boolean;
+    {* Обработчик OnNeedMakeForm для CToPart }
    function RToPartChildLftRToPartNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-     out aNew: IvcmFormDataSource;
-     aSubUserType: TvcmUserType): Boolean;
-     {* Обработчик OnNeedMakeForm для RToPart }
+    out aNew: IvcmFormDataSource;
+    aSubUserType: TvcmUserType): Boolean;
+    {* Обработчик OnNeedMakeForm для RToPart }
    function ChronologyChildDftChronologyNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-     out aNew: IvcmFormDataSource;
-     aSubUserType: TvcmUserType): Boolean;
-     {* Обработчик OnNeedMakeForm для Chronology }
+    out aNew: IvcmFormDataSource;
+    aSubUserType: TvcmUserType): Boolean;
+    {* Обработчик OnNeedMakeForm для Chronology }
    function SimilarDocumentsToFragmentChildLftSimilarDocumentsToFragmentNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-     out aNew: IvcmFormDataSource;
-     aSubUserType: TvcmUserType): Boolean;
-     {* Обработчик OnNeedMakeForm для SimilarDocumentsToFragment }
+    out aNew: IvcmFormDataSource;
+    aSubUserType: TvcmUserType): Boolean;
+    {* Обработчик OnNeedMakeForm для SimilarDocumentsToFragment }
  end;//Tfs_AbstractDocument
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  bsUtils,
-  SysUtils {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , bsUtils
+ , SysUtils
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class Tfs_AbstractDocument
-
+{$If NOT Defined(NoVCM)}
 function Tfs_AbstractDocument.AttributesChildFDocAttributeNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-  out aNew: IvcmFormDataSource;
-  aSubUserType: TvcmUserType): Boolean;
+ out aNew: IvcmFormDataSource;
+ aSubUserType: TvcmUserType): Boolean;
+ {* Обработчик OnNeedMakeForm для Attributes }
 var
  l_UseCase : IsdsBaseDocumentWithAttributes;
 begin
@@ -211,8 +186,9 @@ begin
 end;//Tfs_AbstractDocument.AttributesChildFDocAttributeNeedMakeForm
 
 function Tfs_AbstractDocument.WarningChildWarningNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-  out aNew: IvcmFormDataSource;
-  aSubUserType: TvcmUserType): Boolean;
+ out aNew: IvcmFormDataSource;
+ aSubUserType: TvcmUserType): Boolean;
+ {* Обработчик OnNeedMakeForm для Warning }
 var
  l_UseCase : IsdsDocument;
 begin
@@ -226,8 +202,9 @@ begin
 end;//Tfs_AbstractDocument.WarningChildWarningNeedMakeForm
 
 function Tfs_AbstractDocument.RelatedChildDftRelatedDocNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-  out aNew: IvcmFormDataSource;
-  aSubUserType: TvcmUserType): Boolean;
+ out aNew: IvcmFormDataSource;
+ aSubUserType: TvcmUserType): Boolean;
+ {* Обработчик OnNeedMakeForm для Related }
 var
  l_UseCase : IsdsDocInfo;
 begin
@@ -241,8 +218,9 @@ begin
 end;//Tfs_AbstractDocument.RelatedChildDftRelatedDocNeedMakeForm
 
 function Tfs_AbstractDocument.AnnotationChildDftAnnotationNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-  out aNew: IvcmFormDataSource;
-  aSubUserType: TvcmUserType): Boolean;
+ out aNew: IvcmFormDataSource;
+ aSubUserType: TvcmUserType): Boolean;
+ {* Обработчик OnNeedMakeForm для Annotation }
 var
  l_UseCase : IsdsDocInfo;
 begin
@@ -256,8 +234,9 @@ begin
 end;//Tfs_AbstractDocument.AnnotationChildDftAnnotationNeedMakeForm
 
 function Tfs_AbstractDocument.TranslationChildDftTranslationNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-  out aNew: IvcmFormDataSource;
-  aSubUserType: TvcmUserType): Boolean;
+ out aNew: IvcmFormDataSource;
+ aSubUserType: TvcmUserType): Boolean;
+ {* Обработчик OnNeedMakeForm для Translation }
 var
  l_UseCase : IsdsDocInfo;
 begin
@@ -271,8 +250,9 @@ begin
 end;//Tfs_AbstractDocument.TranslationChildDftTranslationNeedMakeForm
 
 function Tfs_AbstractDocument.TranslationWarnJurorChildWarnJurorNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-  out aNew: IvcmFormDataSource;
-  aSubUserType: TvcmUserType): Boolean;
+ out aNew: IvcmFormDataSource;
+ aSubUserType: TvcmUserType): Boolean;
+ {* Обработчик OnNeedMakeForm для TranslationWarnJuror }
 var
  l_UseCase : IsdsDocument;
 begin
@@ -286,8 +266,9 @@ begin
 end;//Tfs_AbstractDocument.TranslationWarnJurorChildWarnJurorNeedMakeForm
 
 function Tfs_AbstractDocument.ContentsNavigatorUtContentsNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-  out aNew: IvcmFormDataSource;
-  aSubUserType: TvcmUserType): Boolean;
+ out aNew: IvcmFormDataSource;
+ aSubUserType: TvcmUserType): Boolean;
+ {* Обработчик OnNeedMakeForm для Contents }
 var
  l_UseCase : IucpDocumentWithContents;
 begin
@@ -301,8 +282,9 @@ begin
 end;//Tfs_AbstractDocument.ContentsNavigatorUtContentsNeedMakeForm
 
 function Tfs_AbstractDocument.RespondentChildLftRespondentNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-  out aNew: IvcmFormDataSource;
-  aSubUserType: TvcmUserType): Boolean;
+ out aNew: IvcmFormDataSource;
+ aSubUserType: TvcmUserType): Boolean;
+ {* Обработчик OnNeedMakeForm для Respondent }
 var
  l_UseCase : IsdsDocInfo;
 begin
@@ -316,8 +298,9 @@ begin
 end;//Tfs_AbstractDocument.RespondentChildLftRespondentNeedMakeForm
 
 function Tfs_AbstractDocument.CorrespondentChildLftCorrespondentNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-  out aNew: IvcmFormDataSource;
-  aSubUserType: TvcmUserType): Boolean;
+ out aNew: IvcmFormDataSource;
+ aSubUserType: TvcmUserType): Boolean;
+ {* Обработчик OnNeedMakeForm для Correspondent }
 var
  l_UseCase : IsdsDocInfo;
 begin
@@ -331,8 +314,9 @@ begin
 end;//Tfs_AbstractDocument.CorrespondentChildLftCorrespondentNeedMakeForm
 
 function Tfs_AbstractDocument.RedactionsNavigatorUtRedactionNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-  out aNew: IvcmFormDataSource;
-  aSubUserType: TvcmUserType): Boolean;
+ out aNew: IvcmFormDataSource;
+ aSubUserType: TvcmUserType): Boolean;
+ {* Обработчик OnNeedMakeForm для Redactions }
 var
  l_UseCase : IsdsDocument;
 begin
@@ -346,8 +330,9 @@ begin
 end;//Tfs_AbstractDocument.RedactionsNavigatorUtRedactionNeedMakeForm
 
 function Tfs_AbstractDocument.SimilarDocumentsChildLftSimilarDocumentsNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-  out aNew: IvcmFormDataSource;
-  aSubUserType: TvcmUserType): Boolean;
+ out aNew: IvcmFormDataSource;
+ aSubUserType: TvcmUserType): Boolean;
+ {* Обработчик OnNeedMakeForm для SimilarDocuments }
 var
  l_UseCase : IsdsDocInfo;
 begin
@@ -361,8 +346,9 @@ begin
 end;//Tfs_AbstractDocument.SimilarDocumentsChildLftSimilarDocumentsNeedMakeForm
 
 function Tfs_AbstractDocument.UserCR1ChildLftUserCR1NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-  out aNew: IvcmFormDataSource;
-  aSubUserType: TvcmUserType): Boolean;
+ out aNew: IvcmFormDataSource;
+ aSubUserType: TvcmUserType): Boolean;
+ {* Обработчик OnNeedMakeForm для UserCR1 }
 var
  l_UseCase : IsdsDocInfo;
 begin
@@ -376,8 +362,9 @@ begin
 end;//Tfs_AbstractDocument.UserCR1ChildLftUserCR1NeedMakeForm
 
 function Tfs_AbstractDocument.RemListModifiedUserCR1ChildRemListModifiedNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-  out aNew: IvcmFormDataSource;
-  aSubUserType: TvcmUserType): Boolean;
+ out aNew: IvcmFormDataSource;
+ aSubUserType: TvcmUserType): Boolean;
+ {* Обработчик OnNeedMakeForm для remListModifiedUserCR1 }
 var
  l_UseCase : IsdsDocument;
 begin
@@ -391,8 +378,9 @@ begin
 end;//Tfs_AbstractDocument.RemListModifiedUserCR1ChildRemListModifiedNeedMakeForm
 
 function Tfs_AbstractDocument.UserCR2ChildLftUserCR2NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-  out aNew: IvcmFormDataSource;
-  aSubUserType: TvcmUserType): Boolean;
+ out aNew: IvcmFormDataSource;
+ aSubUserType: TvcmUserType): Boolean;
+ {* Обработчик OnNeedMakeForm для UserCR2 }
 var
  l_UseCase : IsdsDocInfo;
 begin
@@ -406,8 +394,9 @@ begin
 end;//Tfs_AbstractDocument.UserCR2ChildLftUserCR2NeedMakeForm
 
 function Tfs_AbstractDocument.RemListModifiedUserCR2ChildRemListModifiedNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-  out aNew: IvcmFormDataSource;
-  aSubUserType: TvcmUserType): Boolean;
+ out aNew: IvcmFormDataSource;
+ aSubUserType: TvcmUserType): Boolean;
+ {* Обработчик OnNeedMakeForm для remListModifiedUserCR2 }
 var
  l_UseCase : IsdsDocument;
 begin
@@ -421,16 +410,17 @@ begin
 end;//Tfs_AbstractDocument.RemListModifiedUserCR2ChildRemListModifiedNeedMakeForm
 
 function Tfs_AbstractDocument.CToPartChildLftCToPartNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-  out aNew: IvcmFormDataSource;
-  aSubUserType: TvcmUserType): Boolean;
+ out aNew: IvcmFormDataSource;
+ aSubUserType: TvcmUserType): Boolean;
+ {* Обработчик OnNeedMakeForm для CToPart }
 var
  l_UseCase : IsdsDocument;
 begin
  if Supports(aDataSource, IsdsDocument, l_UseCase) then
   try
-//#UC START# *4FF66DF301FBNeedMake_impl*
+  //#UC START# *4FF66DF301FBNeedMake_impl*
    aNew := l_UseCase.dsIncomingLinksToPart;
-//#UC END# *4FF66DF301FBNeedMake_impl*
+  //#UC END# *4FF66DF301FBNeedMake_impl*
   finally
    l_UseCase := nil;
   end;//try..finally
@@ -438,8 +428,9 @@ begin
 end;//Tfs_AbstractDocument.CToPartChildLftCToPartNeedMakeForm
 
 function Tfs_AbstractDocument.RToPartChildLftRToPartNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-  out aNew: IvcmFormDataSource;
-  aSubUserType: TvcmUserType): Boolean;
+ out aNew: IvcmFormDataSource;
+ aSubUserType: TvcmUserType): Boolean;
+ {* Обработчик OnNeedMakeForm для RToPart }
 var
  l_UseCase : IsdsDocument;
 begin
@@ -453,8 +444,9 @@ begin
 end;//Tfs_AbstractDocument.RToPartChildLftRToPartNeedMakeForm
 
 function Tfs_AbstractDocument.ChronologyChildDftChronologyNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-  out aNew: IvcmFormDataSource;
-  aSubUserType: TvcmUserType): Boolean;
+ out aNew: IvcmFormDataSource;
+ aSubUserType: TvcmUserType): Boolean;
+ {* Обработчик OnNeedMakeForm для Chronology }
 var
  l_UseCase : IsdsDocInfo;
 begin
@@ -468,8 +460,9 @@ begin
 end;//Tfs_AbstractDocument.ChronologyChildDftChronologyNeedMakeForm
 
 function Tfs_AbstractDocument.SimilarDocumentsToFragmentChildLftSimilarDocumentsToFragmentNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-  out aNew: IvcmFormDataSource;
-  aSubUserType: TvcmUserType): Boolean;
+ out aNew: IvcmFormDataSource;
+ aSubUserType: TvcmUserType): Boolean;
+ {* Обработчик OnNeedMakeForm для SimilarDocumentsToFragment }
 var
  l_UseCase : IsdsDocInfo;
 begin
@@ -483,7 +476,6 @@ begin
 end;//Tfs_AbstractDocument.SimilarDocumentsToFragmentChildLftSimilarDocumentsToFragmentNeedMakeForm
 
 procedure Tfs_AbstractDocument.InitFields;
- {-}
 begin
  inherited;
  with AddZone('Attributes', vcm_ztChild, fm_AttributesForm) do
@@ -589,7 +581,7 @@ begin
  end;
  OwnerForm := 0;
 end;//Tfs_AbstractDocument.InitFields
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //not Admin AND not Monitorings
-
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

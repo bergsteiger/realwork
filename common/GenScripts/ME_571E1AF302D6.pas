@@ -24,6 +24,7 @@ uses
  , tfwRegisterableWord
  , tfwScriptingInterfaces
  , FiltersUnit
+ , Search_Strange_Controls
  , DataAdapter
  , SysUtils
  , TtfwTypeRegistrator_Proxy

@@ -11,7 +11,7 @@ interface
 {$If Defined(ServerTasks) AND Defined(AppServerSide)}
 uses
  l3IntfUses
- , dt_Types
+ , daTypes
  {$If NOT Defined(Nemesis)}
  , csProcessTask
  {$IfEnd} // NOT Defined(Nemesis)
@@ -25,12 +25,12 @@ type
   ['{EA167115-DB53-43B6-B272-CF8F715E7D69}']
   function Get_ServerHostName: AnsiString;
   function Get_ServerPort: Integer;
-  procedure GetUserAccountByID(anID: TUserID;
+  procedure GetUserAccountByID(anID: TdaUserID;
    out theName: AnsiString;
    out thePassword: AnsiString);
    {* Получить логин/пароль по ID }
-  function IsUserLogined(aUserID: TUserID): Boolean;
-  procedure SendAbortNotification(anID: TUserID);
+  function IsUserLogined(aUserID: TdaUserID): Boolean;
+  procedure SendAbortNotification(anID: TdaUserID);
   function EnterTaskExecution(const aTask: TddProcessTask): Boolean;
   procedure LeaveTaskExecution(const aTask: TddProcessTask);
   property ServerHostName: AnsiString

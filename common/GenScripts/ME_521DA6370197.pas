@@ -12,6 +12,12 @@ interface
 
 uses
  l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
@@ -39,6 +45,11 @@ uses
  , ListPrintAndExportFontSizeSettingRes
  , stListPrintAndExportFontSizeItem
  , afwFacade
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *521DA6370197impl_uses*
+ //#UC END# *521DA6370197impl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}

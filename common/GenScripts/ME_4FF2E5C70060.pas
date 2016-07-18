@@ -17,6 +17,15 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
@@ -25,11 +34,15 @@ type
  {$IfEnd} // NOT Defined(NoVCM)
  )
   {* Реализация прецедента "Актуальная аналитика". [RequestLink:365838080] }
+  protected
+   {$If NOT Defined(NoVCM)}
+   class procedure GetEntityForms(aList: TvcmClassList); override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
-   procedure MakeAAC(const aDocInfo: IdeDocInfo;
+   class procedure MakeAAC(const aDocInfo: IdeDocInfo;
     const aContainer: IvcmContainer);
     {* Создаёт сборку для документа ААК }
-   procedure MakeAACContents(const aDocInfo: IdeDocInfo;
+   class procedure MakeAACContents(const aDocInfo: IdeDocInfo;
     const aContainer: IvcmContainer);
     {* Создаёт сборку для документа ОГЛАВЛЕНИЯ ААК }
  end;//TAACPrimModule
@@ -40,38 +53,60 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
- {$If NOT Defined(NoVCM)}
- , vcmBase
- {$IfEnd} // NOT Defined(NoVCM)
  , sdsAAC
  , AACContainer_Form
  , AACContentsContainer_Form
  , fsAACContents
  , fsAAC
+ //#UC START# *4FF2E5C70060impl_uses*
+ //#UC END# *4FF2E5C70060impl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
-procedure TAACPrimModule.MakeAAC(const aDocInfo: IdeDocInfo;
+class procedure TAACPrimModule.MakeAAC(const aDocInfo: IdeDocInfo;
  const aContainer: IvcmContainer);
  {* Создаёт сборку для документа ААК }
+var
+ __WasEnter : Boolean;
 //#UC START# *4FF3FEC70302_4FF2E5C70060_var*
 //#UC END# *4FF3FEC70302_4FF2E5C70060_var*
 begin
+ __WasEnter := vcmEnterFactory;
+ try
 //#UC START# *4FF3FEC70302_4FF2E5C70060_impl*
   Tfs_AAC.Make(TsdsAAC.Make(aDocInfo), CheckContainer(aContainer));
 //#UC END# *4FF3FEC70302_4FF2E5C70060_impl*
+ finally
+  if __WasEnter then
+   vcmLeaveFactory;
+ end;//try..finally
 end;//TAACPrimModule.MakeAAC
 
-procedure TAACPrimModule.MakeAACContents(const aDocInfo: IdeDocInfo;
+class procedure TAACPrimModule.MakeAACContents(const aDocInfo: IdeDocInfo;
  const aContainer: IvcmContainer);
  {* Создаёт сборку для документа ОГЛАВЛЕНИЯ ААК }
+var
+ __WasEnter : Boolean;
 //#UC START# *4FF428150001_4FF2E5C70060_var*
 //#UC END# *4FF428150001_4FF2E5C70060_var*
 begin
+ __WasEnter := vcmEnterFactory;
+ try
 //#UC START# *4FF428150001_4FF2E5C70060_impl*
   Tfs_AACContents.Make(TsdsAAC.Make(aDocInfo), CheckContainer(aContainer));
 //#UC END# *4FF428150001_4FF2E5C70060_impl*
+ finally
+  if __WasEnter then
+   vcmLeaveFactory;
+ end;//try..finally
 end;//TAACPrimModule.MakeAACContents
+
+class procedure TAACPrimModule.GetEntityForms(aList: TvcmClassList);
+begin
+ inherited;
+ aList.Add(TAACContainerForm);
+ aList.Add(TAACContentsContainerForm);
+end;//TAACPrimModule.GetEntityForms
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)

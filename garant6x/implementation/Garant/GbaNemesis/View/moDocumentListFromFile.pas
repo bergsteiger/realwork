@@ -1,39 +1,51 @@
 unit moDocumentListFromFile;
+ {* Список документов из файла }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/moDocumentListFromFile.pas"
-// Начат: 12.04.2011 16:54
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMUseCaseRealization::Class>> F1 Интерфейсные элементы::DocumentListFromFile::DocumentListFromFile
-//
-// Список документов из файла
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\moDocumentListFromFile.pas"
+// Стереотип: "VCMUseCaseRealization"
+// Элемент модели: "DocumentListFromFile" MUID: (4DA44B030054)
+// Имя типа: "Tmo_DocumentListFromFile"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  PrimDocumentListFromFile_Module
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , PrimDocumentListFromFile_Module
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
-Tmo_DocumentListFromFile = {final formspack} class(TPrimDocumentListFromFileModule)
- {* Список документов из файла }
-end;//Tmo_DocumentListFromFile
-{$IfEnd} //not Admin AND not Monitorings
+ Tmo_DocumentListFromFile = {final} class(TPrimDocumentListFromFileModule)
+  {* Список документов из файла }
+ end;//Tmo_DocumentListFromFile
+
+var g_module_opcode_DocumentListFromFile_OpenDocumentListFromFile: TvcmMOPID = (rMoID : -1; rOpID : -1);
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+uses
+ l3ImplUses
+ {$If NOT Defined(NoVCM)}
+ , vcmModulesForRegister
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmModuleOperationsForRegister
+ {$IfEnd} // NOT Defined(NoVCM)
+;
+
+initialization
+ TvcmModulesForRegister.AddModule(TvcmModuleForRegister_C(Tmo_DocumentListFromFile, 'Список документов из файла'));
+ TvcmModuleOperationsForRegister.AddOperation(TvcmModuleOperationForRegister_C(Tmo_DocumentListFromFile, 'OpenDocumentListFromFile', 'Открыть список документов из файла', False, g_module_opcode_DocumentListFromFile_OpenDocumentListFromFile));
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

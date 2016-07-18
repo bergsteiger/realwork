@@ -1,56 +1,38 @@
 unit dsAACDocumentRight;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AAC$DataSources"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/AAC/dsAACDocumentRight.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ViewAreaControllerImp::Class>> F1 Пользовательские сервисы::AAC::AAC$DataSources::AACImplementation::TdsAACDocumentRight
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\AAC\dsAACDocumentRight.pas"
+// Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "TdsAACDocumentRight" MUID: (500E747B0047)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  dsAACDocumentPrim,
-  nevTools,
-  evdTypes
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , dsAACDocumentPrim
+ , nevTools
+ , evdTypes
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
- TdsAACDocumentRight = {vac} class(TdsAACDocumentPrim)
- protected
- // realized methods
+ TdsAACDocumentRight = class(TdsAACDocumentPrim)
+  protected
    function BlockViewKind: TevBlockViewKind; override;
- protected
- // overridden protected methods
    function GetIsReadOnly: Boolean; override;
    function MakeContainer: InevDocumentContainer; override;
-     {* Конструирует контейнер документа }
+    {* Конструирует контейнер документа }
  end;//TdsAACDocumentRight
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  nsAACRightDocumentContainer
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TdsAACDocumentRight
+ l3ImplUses
+ , nsAACRightDocumentContainer
+;
 
 function TdsAACDocumentRight.BlockViewKind: TevBlockViewKind;
 //#UC START# *500E74C30088_500E747B0047_var*
@@ -71,6 +53,7 @@ begin
 end;//TdsAACDocumentRight.GetIsReadOnly
 
 function TdsAACDocumentRight.MakeContainer: InevDocumentContainer;
+ {* Конструирует контейнер документа }
 //#UC START# *4C6AB38800F3_500E747B0047_var*
 //#UC END# *4C6AB38800F3_500E747B0047_var*
 begin
@@ -78,7 +61,6 @@ begin
  Result := TnsAACRightDocumentContainer.Make(DocInfo);
 //#UC END# *4C6AB38800F3_500E747B0047_impl*
 end;//TdsAACDocumentRight.MakeContainer
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

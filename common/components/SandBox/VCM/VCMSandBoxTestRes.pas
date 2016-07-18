@@ -24,16 +24,11 @@ type
  _VCMAppTester_Parent_ = TVCMSandBoxRes;
  {$Include w:\common\components\gui\Garant\VCM\AppTesting\VCMAppTester.imp.pas}
  TVCMSandBoxTestRes = {final} class(_VCMAppTester_)
-  protected
-   procedure Loaded; override;
   public
    {$If Defined(nsTest)}
    class function CalcBatchMode: Boolean; override;
    {$IfEnd} // Defined(nsTest)
  end;//TVCMSandBoxTestRes
-
- TvcmApplicationRef = TVCMSandBoxTestRes;
-  {* Ссылка на приложение для DesignTime редакторов }
 
 implementation
 
@@ -57,18 +52,17 @@ uses
  , tfwScriptEngineEX
  {$IfEnd} // NOT Defined(NoScripts)
  , l3BatchService
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
  , evExtFormat
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *523024100274impl_uses*
+ //#UC END# *523024100274impl_uses*
 ;
 
-{$If Defined(nsTest) AND Defined(InsiderTest)}
 {$Include w:\common\components\gui\Garant\VCM\AppTesting\VCMAppTester.imp.pas}
 
+{$If Defined(nsTest)}
 class function TVCMSandBoxTestRes.CalcBatchMode: Boolean;
 //#UC START# *4F79BCC902C5_523024100274_var*
 //#UC END# *4F79BCC902C5_523024100274_var*
@@ -78,17 +72,6 @@ begin
  Result := KTestRunner.NeedKTestRunner([]);
 //#UC END# *4F79BCC902C5_523024100274_impl*
 end;//TVCMSandBoxTestRes.CalcBatchMode
-
-procedure TVCMSandBoxTestRes.Loaded;
-begin
- inherited;
-end;//TVCMSandBoxTestRes.Loaded
-
-initialization
-{$If NOT Defined(NoScripts)}
- TtfwClassRef.Register(TVCMSandBoxTestRes);
- {* Регистрация VCMSandBoxTest }
-{$IfEnd} // NOT Defined(NoScripts)
-{$IfEnd} // Defined(nsTest) AND Defined(InsiderTest)
+{$IfEnd} // Defined(nsTest)
 
 end.

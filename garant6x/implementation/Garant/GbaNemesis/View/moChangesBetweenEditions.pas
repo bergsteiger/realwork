@@ -1,39 +1,48 @@
 unit moChangesBetweenEditions;
+ {* Просмотр только измененных фрагментов }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/moChangesBetweenEditions.pas"
-// Начат: 24.05.2011 17:12
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMUseCaseRealization::Class>> F1 Пользовательские сервисы::ChangesBetweenEditions::ChangesBetweenEditions
-//
-// Просмотр только измененных фрагментов
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\moChangesBetweenEditions.pas"
+// Стереотип: "VCMUseCaseRealization"
+// Элемент модели: "ChangesBetweenEditions" MUID: (4DDBAEB503DF)
+// Имя типа: "Tmo_ChangesBetweenEditions"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  ChangesBetweenEditions_Module
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , ChangesBetweenEditions_Module
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
-Tmo_ChangesBetweenEditions = {final formspack} class(TChangesBetweenEditionsModule)
- {* Просмотр только измененных фрагментов }
-end;//Tmo_ChangesBetweenEditions
-{$IfEnd} //not Admin AND not Monitorings
+ Tmo_ChangesBetweenEditions = {final} class(TChangesBetweenEditionsModule)
+  {* Просмотр только измененных фрагментов }
+ end;//Tmo_ChangesBetweenEditions
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+uses
+ l3ImplUses
+ {$If NOT Defined(NoVCM)}
+ , vcmModulesForRegister
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmModuleOperationsForRegister
+ {$IfEnd} // NOT Defined(NoVCM)
+;
+
+initialization
+ TvcmModulesForRegister.AddModule(TvcmModuleForRegister_C(Tmo_ChangesBetweenEditions, 'Просмотр только измененных фрагментов'));
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

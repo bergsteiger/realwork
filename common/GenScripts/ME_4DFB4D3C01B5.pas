@@ -11,6 +11,7 @@ interface
 {$If Defined(AppClientSide)}
 uses
  l3IntfUses
+ , l3ClipboardSpy
  , dt_Types
  , SysUtils
  , DocIntf
@@ -26,7 +27,9 @@ type
   rAnalyseLog: Boolean;
  end;//TNewDocParams
 
- TMainForm = class
+ TMainForm = class(Il3ClipListner)
+  protected
+   procedure Change;
   public
    procedure CreateNewDocumentFromFile(const aParams: TNewDocParams);
  end;//TMainForm
@@ -39,6 +42,8 @@ uses
  l3ImplUses
  , InsDWin
  , VMailWin
+ , l3ClipSpyService
+ , vtClipSpyService
 ;
 
 procedure TMainForm.CreateNewDocumentFromFile(const aParams: TNewDocParams);
@@ -49,6 +54,15 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4E0AD05102F2_4DFB4D5E0084_impl*
 end;//TMainForm.CreateNewDocumentFromFile
+
+procedure TMainForm.Change;
+//#UC START# *57762C1A029F_4DFB4D5E0084_var*
+//#UC END# *57762C1A029F_4DFB4D5E0084_var*
+begin
+//#UC START# *57762C1A029F_4DFB4D5E0084_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *57762C1A029F_4DFB4D5E0084_impl*
+end;//TMainForm.Change
 {$IfEnd} // Defined(AppClientSide)
 
 end.

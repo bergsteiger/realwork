@@ -1,107 +1,91 @@
 unit BaseSearch_Module;
+ {* Базовый поиск }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/BaseSearch/BaseSearch_Module.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMFormsPack::Class>> F1 Основные прецеденты::BaseSearch::View::BaseSearch$Module::BaseSearch
-//
-// Базовый поиск
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\BaseSearch\BaseSearch_Module.pas"
+// Стереотип: "VCMFormsPack"
+// Элемент модели: "BaseSearch" MUID: (4CC97D020011)
+// Имя типа: "TBaseSearchModule"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  SearchUnit
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  BaseSearchInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmModule
-  {$IfEnd} //not NoVCM
-  ,
-  PrimBaseSearchCard_Form,
-  BaseSearchCard_Form,
-  Common_FormDefinitions_Controls,
-  NewBaseSearchForDFM_Form,
-  PrimBaseSearchInterfaces,
-  PrimBaseSearchContainer_Form,
-  NewBaseSearch_Form,
-  BaseSearchContainer_Form,
-  vcmExternalInterfaces {a},
-  vcmBase {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , PrimBaseSearchInterfaces
+ , BaseSearchInterfaces
+ , SearchUnit
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
- TBaseSearchModule = {formspack} class(TvcmModule)
+ TBaseSearchModule = class({$If NOT Defined(NoVCM)}
+ TvcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* Базовый поиск }
- protected
-  class procedure GetEntityForms(aList : TvcmClassList); override;
- public
- // public methods
+  protected
+   {$If NOT Defined(NoVCM)}
+   class procedure GetEntityForms(aList: TvcmClassList); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    class procedure TryAnotherBaseSearch(const aContainer: IvcmContainer;
-     const aProcessor: InsBaseSearchResultProcessor;
-     TryFullList: Boolean = False);
+    const aProcessor: InsBaseSearchResultProcessor;
+    TryFullList: Boolean = False);
    class procedure OpenBaseSearch(OpenKind: TnsBaseSearchOpenKind;
-     const aQuery: IQuery);
+    const aQuery: IQuery);
    class function MakeBaseSearchWindow(const aContainer: IvcmContainer;
-     const aData: InsBaseSearcherWindowData;
-     aZoneType: TvcmZoneType): IvcmEntityForm;
+    const aData: InsBaseSearcherWindowData;
+    aZoneType: TvcmZoneType): IvcmEntityForm;
    class procedure BaseSearchCheckFragmentsCount(const aContainer: IvcmContainer);
    class procedure CheckBaseSearchDataReady(const aContainer: IvcmContainer);
    class procedure BaseSearchCheckFindBack(const aContainer: IvcmContainer);
    class function MakeBaseSearchCard(const aContainer: IvcmContainer): IvcmEntityForm;
  end;//TBaseSearchModule
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  SysUtils,
-  Search_Strange_Controls,
-  SearchLite_Strange_Controls,
-  nsBaseSearchService,
-  PrimSaveLoadOptionsForBaseSearch_slqtBaseSearch_UserType
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  vcmFormSetFactory {a},
-  StdRes {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , SysUtils
+ , Search_Strange_Controls
+ , SearchLite_Strange_Controls
+ , nsBaseSearchService
+ , PrimSaveLoadOptionsForBaseSearch_slqtBaseSearch_UserType
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ , BaseSearchCard_Form
+ , NewBaseSearch_Form
+ , BaseSearchContainer_Form
+ , Common_FormDefinitions_Controls
+ //#UC START# *4CC97D020011impl_uses*
+ //#UC END# *4CC97D020011impl_uses*
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TBaseSearchModule
-
+{$If NOT Defined(NoVCM)}
 class procedure TBaseSearchModule.TryAnotherBaseSearch(const aContainer: IvcmContainer;
-  const aProcessor: InsBaseSearchResultProcessor;
-  TryFullList: Boolean = False);
+ const aProcessor: InsBaseSearchResultProcessor;
+ TryFullList: Boolean = False);
+var l_Processor: InsBaseSearchResultProcessor;
 var
  __WasEnter : Boolean;
 //#UC START# *4AB79DF40349_4CC97D020011_var*
 //#UC END# *4AB79DF40349_4CC97D020011_var*
-var
- l_Processor : InsBaseSearchResultProcessor;
 begin
  __WasEnter := vcmEnterFactory;
  try
@@ -121,14 +105,13 @@ begin
 end;//TBaseSearchModule.TryAnotherBaseSearch
 
 class procedure TBaseSearchModule.OpenBaseSearch(OpenKind: TnsBaseSearchOpenKind;
-  const aQuery: IQuery);
+ const aQuery: IQuery);
+var l_Container: IvcmContainer;
+var l_Processor: InsBaseSearchQueryDataProcessor;
 var
  __WasEnter : Boolean;
 //#UC START# *4AB7881B00EA_4CC97D020011_var*
 //#UC END# *4AB7881B00EA_4CC97D020011_var*
-var
- l_Container : IvcmContainer;
- l_Processor : InsBaseSearchQueryDataProcessor;
 begin
  __WasEnter := vcmEnterFactory;
  try
@@ -148,8 +131,8 @@ begin
 end;//TBaseSearchModule.OpenBaseSearch
 
 class function TBaseSearchModule.MakeBaseSearchWindow(const aContainer: IvcmContainer;
-  const aData: InsBaseSearcherWindowData;
-  aZoneType: TvcmZoneType): IvcmEntityForm;
+ const aData: InsBaseSearcherWindowData;
+ aZoneType: TvcmZoneType): IvcmEntityForm;
 var
  __WasEnter : Boolean;
 //#UC START# *4AB793B903E6_4CC97D020011_var*
@@ -172,12 +155,11 @@ begin
 end;//TBaseSearchModule.MakeBaseSearchWindow
 
 class procedure TBaseSearchModule.BaseSearchCheckFragmentsCount(const aContainer: IvcmContainer);
+var l_Processor: InsBaseSearchQueryDataProcessor;
 var
  __WasEnter : Boolean;
 //#UC START# *4AB79B8201F8_4CC97D020011_var*
 //#UC END# *4AB79B8201F8_4CC97D020011_var*
-var
- l_Processor : InsBaseSearchQueryDataProcessor;
 begin
  __WasEnter := vcmEnterFactory;
  try
@@ -193,12 +175,11 @@ begin
 end;//TBaseSearchModule.BaseSearchCheckFragmentsCount
 
 class procedure TBaseSearchModule.CheckBaseSearchDataReady(const aContainer: IvcmContainer);
+var l_Checker: InsBaseSearchDataReadyChecker;
 var
  __WasEnter : Boolean;
 //#UC START# *4AB797E7001F_4CC97D020011_var*
 //#UC END# *4AB797E7001F_4CC97D020011_var*
-var
- l_Checker : InsBaseSearchDataReadyChecker;
 begin
  __WasEnter := vcmEnterFactory;
  try
@@ -214,12 +195,11 @@ begin
 end;//TBaseSearchModule.CheckBaseSearchDataReady
 
 class procedure TBaseSearchModule.BaseSearchCheckFindBack(const aContainer: IvcmContainer);
+var l_Processor: InsBaseSearchQueryDataProcessor;
 var
  __WasEnter : Boolean;
 //#UC START# *4AB7A5A500FB_4CC97D020011_var*
 //#UC END# *4AB7A5A500FB_4CC97D020011_var*
-var
- l_Processor : InsBaseSearchQueryDataProcessor;
 begin
  __WasEnter := vcmEnterFactory;
  try
@@ -263,24 +243,22 @@ begin
  end;//try..finally
 end;//TBaseSearchModule.MakeBaseSearchCard
 
-class procedure TBaseSearchModule.GetEntityForms(aList : TvcmClassList);
+class procedure TBaseSearchModule.GetEntityForms(aList: TvcmClassList);
 begin
  inherited;
  aList.Add(Ten_BaseSearchCard);
  aList.Add(TNewBaseSearchForm);
  aList.Add(TBaseSearchContainerForm);
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+end;//TBaseSearchModule.GetEntityForms
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Регистрация фабрики формы NewBaseSearch
  fm_NewBaseSearchForm.SetFactory(TNewBaseSearchForm.Make);
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация BaseSearch
+ {* Регистрация фабрики формы NewBaseSearch }
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TBaseSearchModule);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация BaseSearch }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

@@ -62,14 +62,12 @@ uses
  , IOUnit
  , nsTypes
  , l3String
- , l3MessageID
  , l3InterfacesMisc
  , SysUtils
  , l3Base
  , deDocInfo
 ;
 
-{$If NOT Defined(NoVCM)}
 const
  {* Локализуемые строки Обзор изменений документа }
  str_cnevChangesBetweenEditions: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'cnevChangesBetweenEditions'; rValue : 'Обзор изменений документа: ');
@@ -144,7 +142,6 @@ end;//TdsChangesBetweenEditions.ClearFields
 initialization
  str_cnevChangesBetweenEditions.Init;
  {* Инициализация str_cnevChangesBetweenEditions }
-{$IfEnd} // NOT Defined(NoVCM)
-
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+
 end.

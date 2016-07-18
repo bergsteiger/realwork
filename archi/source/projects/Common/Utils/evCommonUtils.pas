@@ -22,6 +22,7 @@ uses
  , Classes
  , dt_Types
  , vtLister
+ , daTypes
  , l3Types
 ;
 
@@ -44,7 +45,7 @@ type
   rCanStylizeBlocks: Boolean;
   rIsDocEditor: Boolean;
   rSubList: TvtDStringLister;
-  rFamilyID: TFamilyID;
+  rFamilyID: TdaFamilyID;
   rDocID: TDocID;
  end;//TevSubEditParam
 
@@ -56,7 +57,7 @@ type
   rViewKind: Integer;
   rIsDocEditor: Boolean;
   rSubList: TvtDStringLister;
-  rFamilyID: TFamilyID;
+  rFamilyID: TdaFamilyID;
   rDocID: TDocID;
  end;//TevSubEditParamEX
 

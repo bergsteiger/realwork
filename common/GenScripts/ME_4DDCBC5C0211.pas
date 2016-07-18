@@ -33,8 +33,6 @@ uses
 ;
 
 type
- // Parent
-
  Tfs_ViewChangedFragments = {final} class({$If NOT Defined(NoVCM)}
  TvcmFormSetFactory
  {$IfEnd} // NOT Defined(NoVCM)
@@ -45,14 +43,14 @@ type
    class function GetInstance: TvcmFormSetFactoryPrim; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   function Parent_Parent_DocumentChanges_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+   function ParentParentDocumentChangesNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
     out aNew: IvcmFormDataSource;
     aSubUserType: TvcmUserType): Boolean;
     {* Обработчик OnNeedMakeForm для Parent }
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: Tfs_ViewChangedFragments;
     {* Метод получения экземпляра синглетона Tfs_ViewChangedFragments }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//Tfs_ViewChangedFragments
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -75,23 +73,21 @@ begin
  l3Free(g_Tfs_ViewChangedFragments);
 end;//Tfs_ViewChangedFragmentsFree
 
-function Tfs_ViewChangedFragments.Parent_Parent_DocumentChanges_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+function Tfs_ViewChangedFragments.ParentParentDocumentChangesNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
  out aNew: IvcmFormDataSource;
  aSubUserType: TvcmUserType): Boolean;
  {* Обработчик OnNeedMakeForm для Parent }
-//#UC START# *9C7EE9D70E75_4DDCBC5C0211_var*
-//#UC END# *9C7EE9D70E75_4DDCBC5C0211_var*
+var
+ l_UseCase : IsdsChangesBetweenEditions;
 begin
-//#UC START# *9C7EE9D70E75_4DDCBC5C0211_impl*
- !!! Needs to be implemented !!!
-//#UC END# *9C7EE9D70E75_4DDCBC5C0211_impl*
-end;//Tfs_ViewChangedFragments.Parent_Parent_DocumentChanges_NeedMakeForm
-
-class function Tfs_ViewChangedFragments.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_Tfs_ViewChangedFragments <> nil;
-end;//Tfs_ViewChangedFragments.Exists
+ if Supports(aDataSource, IsdsChangesBetweenEditions, l_UseCase) then
+  try
+   aNew := l_UseCase.Changes;
+  finally
+   l_UseCase := nil;
+  end;//try..finally
+ Result := (aNew <> nil);
+end;//Tfs_ViewChangedFragments.ParentParentDocumentChangesNeedMakeForm
 
 class function Tfs_ViewChangedFragments.Instance: Tfs_ViewChangedFragments;
  {* Метод получения экземпляра синглетона Tfs_ViewChangedFragments }
@@ -104,22 +100,26 @@ begin
  Result := g_Tfs_ViewChangedFragments;
 end;//Tfs_ViewChangedFragments.Instance
 
-procedure Tfs_ViewChangedFragments.InitFields;
-//#UC START# *47A042E100E2_4DDCBC5C0211_var*
-//#UC END# *47A042E100E2_4DDCBC5C0211_var*
+class function Tfs_ViewChangedFragments.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
-//#UC START# *47A042E100E2_4DDCBC5C0211_impl*
- !!! Needs to be implemented !!!
-//#UC END# *47A042E100E2_4DDCBC5C0211_impl*
+ Result := g_Tfs_ViewChangedFragments <> nil;
+end;//Tfs_ViewChangedFragments.Exists
+
+procedure Tfs_ViewChangedFragments.InitFields;
+begin
+ inherited;
+ with AddZone('Parent', vcm_ztParent, fm_ChangesBetweenEditonsForm) do
+ begin
+  UserType := DocumentChanges;
+  OnNeedMakeForm := ParentParentDocumentChangesNeedMakeForm;
+ end;
+ OwnerForm := 0;
 end;//Tfs_ViewChangedFragments.InitFields
 
 class function Tfs_ViewChangedFragments.GetInstance: TvcmFormSetFactoryPrim;
-//#UC START# *4FFE854A009B_4DDCBC5C0211_var*
-//#UC END# *4FFE854A009B_4DDCBC5C0211_var*
 begin
-//#UC START# *4FFE854A009B_4DDCBC5C0211_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4FFE854A009B_4DDCBC5C0211_impl*
+ Result := Self.Instance;
 end;//Tfs_ViewChangedFragments.GetInstance
 {$IfEnd} // NOT Defined(NoVCM)
 

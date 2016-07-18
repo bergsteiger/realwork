@@ -28,6 +28,7 @@ implementation
 
 uses
  l3ImplUses
+ , daTypes
 ;
 
 function TalcuMdpImportSyncronizer.PrepareData(aStream: TStream): Boolean;

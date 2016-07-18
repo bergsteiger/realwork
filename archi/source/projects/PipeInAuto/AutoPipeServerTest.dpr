@@ -1116,6 +1116,8 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
  , tfwParser in 'w:\common\components\rtl\Garant\ScriptEngine\tfwParser.pas'
  , tfwCachedTokens in 'w:\common\components\rtl\Garant\ScriptEngine\tfwCachedTokens.pas'
+ , tfwParserService in 'w:\common\components\rtl\Garant\ScriptEngine\tfwParserService.pas'
+ , IniFiles in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Common\IniFiles.pas'
  {$If NOT Defined(NoScripts)}
  , ItfwParserWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\ItfwParserWordsPack.pas'
  {$IfEnd} // NOT Defined(NoScripts)
@@ -1754,6 +1756,7 @@ uses
  {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
  , vtHintWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\vtHintWordsPack.pas'
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
+ , l3FontInfo in 'w:\common\components\rtl\Garant\L3\l3FontInfo.pas'
  {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
  , ListerWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\ListerWordsPack.pas'
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
@@ -2049,6 +2052,7 @@ uses
  , arCommonTypes in 'w:\archi\source\projects\Common\Utils\arCommonTypes.pas'
  , dt_Types in 'w:\common\components\rtl\Garant\dd\dt_Types.pas'
  , evdDTTypes in 'w:\common\components\rtl\Garant\EVD\evdDTTypes.pas'
+ , daTypes in 'w:\common\components\rtl\Garant\DA\daTypes.pas'
  , D_PicSizeEdit in 'w:\archi\source\projects\Common\Dialogs\D_PicSizeEdit.pas'
  {$If NOT Defined(NoScripts)}
  , TPicSizeEditDlgWordsPack in 'w:\archi\source\projects\Common\Dialogs\TPicSizeEditDlgWordsPack.pas'
@@ -2274,12 +2278,8 @@ uses
  , alcuAsyncTaskFinishedNotifierList in 'w:\archi\source\projects\PipeInAuto\Tasks\alcuAsyncTaskFinishedNotifierList.pas'
  {$IfEnd} // Defined(ServerTasks)
  , daInterfaces in 'w:\common\components\rtl\Garant\DA\daInterfaces.pas'
- , daTypes in 'w:\common\components\rtl\Garant\DA\daTypes.pas'
  , l3Languages in 'w:\common\components\rtl\Garant\L3\l3Languages.pas'
  , daDataProvider in 'w:\common\components\rtl\Garant\DA\daDataProvider.pas'
- {$If NOT Defined(Nemesis)}
- , dt_User in 'w:\common\components\rtl\Garant\DT\dt_User.pas'
- {$IfEnd} // NOT Defined(Nemesis)
  , alcuBaseEngineHolder in 'w:\archi\source\projects\PipeInAuto\Server\alcuBaseEngineHolder.pas'
  , alcuBaseEngine in 'w:\archi\source\projects\PipeInAuto\Server\alcuBaseEngine.pas'
  {$If Defined(ServerTasks)}

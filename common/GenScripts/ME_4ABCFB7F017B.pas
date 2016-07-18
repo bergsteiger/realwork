@@ -20,6 +20,15 @@ uses
  , l3TreeInterfaces
  , SearchUnit
  , ConsultingUnit
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
@@ -28,12 +37,16 @@ type
  {$IfEnd} // NOT Defined(NoVCM)
  )
   {* Консультации }
+  protected
+   {$If NOT Defined(NoVCM)}
+   class procedure GetEntityForms(aList: TvcmClassList); override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
-   procedure GiveMarkOnConsultation(const aNode: Il3SimpleNode);
-   procedure OpenSendConsultation(const aQuery: IQuery);
-   procedure OpenEntityAsConsultation(const aCons: IUnknown;
+   class procedure GiveMarkOnConsultation(const aNode: Il3SimpleNode);
+   class procedure OpenSendConsultation(const aQuery: IQuery);
+   class procedure OpenEntityAsConsultation(const aCons: IUnknown;
     const aContainer: IvcmContainer);
-   procedure OpenConsultation(const aCons: IbsConsultation;
+   class procedure OpenConsultation(const aCons: IbsConsultation;
     const aContainer: IvcmContainer);
  end;//TConsultationModule
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
@@ -45,9 +58,6 @@ uses
  l3ImplUses
  , DocumentUserTypes_dftConsultation_UserType
  , Common_FormDefinitions_Controls
- {$If NOT Defined(NoVCM)}
- , vcmBase
- {$IfEnd} // NOT Defined(NoVCM)
  , SysUtils
  , sdsConsultation
  , bsConsultation
@@ -60,16 +70,23 @@ uses
  , fsSendConsultation
  , fsConsultation
  , ConsultationMark_Form
+ //#UC START# *4ABCFB7F017Bimpl_uses*
+ , StdRes
+ //#UC END# *4ABCFB7F017Bimpl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
-procedure TConsultationModule.GiveMarkOnConsultation(const aNode: Il3SimpleNode);
+class procedure TConsultationModule.GiveMarkOnConsultation(const aNode: Il3SimpleNode);
 var l_OpenConsultation: IsdsConsultation;
 var l_Form: IvcmEntityForm;
 var l_Cons: IsdsConsultation;
+var
+ __WasEnter : Boolean;
 //#UC START# *4ABBA1BF0053_4ABCFB7F017B_var*
 //#UC END# *4ABBA1BF0053_4ABCFB7F017B_var*
 begin
+ __WasEnter := vcmEnterFactory;
+ try
 //#UC START# *4ABBA1BF0053_4ABCFB7F017B_impl*
  l_Cons := TsdsConsultation.Make(
             TbsConsultation.Make(bsGetConsultation(aNode)));
@@ -92,12 +109,20 @@ begin
   l_Form := nil;
  end;//try..finally
 //#UC END# *4ABBA1BF0053_4ABCFB7F017B_impl*
+ finally
+  if __WasEnter then
+   vcmLeaveFactory;
+ end;//try..finally
 end;//TConsultationModule.GiveMarkOnConsultation
 
-procedure TConsultationModule.OpenSendConsultation(const aQuery: IQuery);
+class procedure TConsultationModule.OpenSendConsultation(const aQuery: IQuery);
+var
+ __WasEnter : Boolean;
 //#UC START# *4AA53DF902C5_4ABCFB7F017B_var*
 //#UC END# *4AA53DF902C5_4ABCFB7F017B_var*
 begin
+ __WasEnter := vcmEnterFactory;
+ try
 //#UC START# *4AA53DF902C5_4ABCFB7F017B_impl*
  if not defDataAdapter.AdministratorLogin then
   Tfs_SendConsultation.Make(TsdsSendConsultation.Make(aQuery),
@@ -105,14 +130,22 @@ begin
  else
   vcmSay(war_SystemLogin);
 //#UC END# *4AA53DF902C5_4ABCFB7F017B_impl*
+ finally
+  if __WasEnter then
+   vcmLeaveFactory;
+ end;//try..finally
 end;//TConsultationModule.OpenSendConsultation
 
-procedure TConsultationModule.OpenEntityAsConsultation(const aCons: IUnknown;
+class procedure TConsultationModule.OpenEntityAsConsultation(const aCons: IUnknown;
  const aContainer: IvcmContainer);
 var l_Cons: IConsultation;
+var
+ __WasEnter : Boolean;
 //#UC START# *4AA5385C03DD_4ABCFB7F017B_var*
 //#UC END# *4AA5385C03DD_4ABCFB7F017B_var*
 begin
+ __WasEnter := vcmEnterFactory;
+ try
 //#UC START# *4AA5385C03DD_4ABCFB7F017B_impl*
  if Supports(aCons, IConsultation, l_Cons) then
  try
@@ -126,13 +159,21 @@ begin
   l_Cons := nil;
  end;//try..finally
 //#UC END# *4AA5385C03DD_4ABCFB7F017B_impl*
+ finally
+  if __WasEnter then
+   vcmLeaveFactory;
+ end;//try..finally
 end;//TConsultationModule.OpenEntityAsConsultation
 
-procedure TConsultationModule.OpenConsultation(const aCons: IbsConsultation;
+class procedure TConsultationModule.OpenConsultation(const aCons: IbsConsultation;
  const aContainer: IvcmContainer);
+var
+ __WasEnter : Boolean;
 //#UC START# *4AA5363D02D0_4ABCFB7F017B_var*
 //#UC END# *4AA5363D02D0_4ABCFB7F017B_var*
 begin
+ __WasEnter := vcmEnterFactory;
+ try
 //#UC START# *4AA5363D02D0_4ABCFB7F017B_impl*
  aCons.IsStatusChached := true;
  try
@@ -142,7 +183,17 @@ begin
   aCons.IsStatusChached := false;
  end;//try..finally
 //#UC END# *4AA5363D02D0_4ABCFB7F017B_impl*
+ finally
+  if __WasEnter then
+   vcmLeaveFactory;
+ end;//try..finally
 end;//TConsultationModule.OpenConsultation
+
+class procedure TConsultationModule.GetEntityForms(aList: TvcmClassList);
+begin
+ inherited;
+ aList.Add(Ten_ConsultationMark);
+end;//TConsultationModule.GetEntityForms
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)

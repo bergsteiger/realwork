@@ -13,6 +13,12 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
@@ -22,8 +28,12 @@ type
  )
   {* Список документов из файла }
   private
-   procedure OpenDocumentListFromFile;
+   procedure opOpenDocumentListFromFileTest(const aParams: IvcmTestParamsPrim);
     {* Открыть список документов из файла }
+   procedure opOpenDocumentListFromFileExecute(const aParams: IvcmExecuteParamsPrim);
+    {* Открыть список документов из файла }
+  protected
+   procedure Loaded; override;
  end;//TPrimDocumentListFromFileModule
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -36,10 +46,6 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmMessagesSupport
  {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoScripts)}
- , kw_DocumentListFromFile_opOpenDocumentListFromFile
- {$IfEnd} // NOT Defined(NoScripts)
- , l3MessageID
  {$If NOT Defined(NoVCL)}
  , Dialogs
  {$IfEnd} // NOT Defined(NoVCL)
@@ -56,6 +62,9 @@ uses
  , nsOpenDialog
  , bsOpenListInfo
  , PrimPrimListInterfaces
+ //#UC START# *4DA44B2C01BBimpl_uses*
+ , StdRes
+ //#UC END# *4DA44B2C01BBimpl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -68,15 +77,75 @@ const
  str_ImportDocuments: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ImportDocuments'; rValue : 'Импортируемых документов');
   {* 'Импортируемых документов' }
 
-procedure TPrimDocumentListFromFileModule.OpenDocumentListFromFile;
+procedure TPrimDocumentListFromFileModule.opOpenDocumentListFromFileTest(const aParams: IvcmTestParamsPrim);
  {* Открыть список документов из файла }
-//#UC START# *4DA44BDB01D9_4DA44B2C01BB_var*
-//#UC END# *4DA44BDB01D9_4DA44B2C01BB_var*
+//#UC START# *4DA44BDB01D9_4DA44B2C01BBtest_var*
+//#UC END# *4DA44BDB01D9_4DA44B2C01BBtest_var*
 begin
-//#UC START# *4DA44BDB01D9_4DA44B2C01BB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DA44BDB01D9_4DA44B2C01BB_impl*
-end;//TPrimDocumentListFromFileModule.OpenDocumentListFromFile
+//#UC START# *4DA44BDB01D9_4DA44B2C01BBtest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := afw.Application.IsInternal;
+//#UC END# *4DA44BDB01D9_4DA44B2C01BBtest_impl*
+end;//TPrimDocumentListFromFileModule.opOpenDocumentListFromFileTest
+
+procedure TPrimDocumentListFromFileModule.opOpenDocumentListFromFileExecute(const aParams: IvcmExecuteParamsPrim);
+ {* Открыть список документов из файла }
+//#UC START# *4DA44BDB01D9_4DA44B2C01BBexec_var*
+ function IsEmptyList(const aL: IdeList): Boolean;
+ var l_Info : TbsOpenListInfo;
+ begin
+  l_Info := TbsOpenListInfo.Create(aL);
+  try
+    Result := (l_Info.Data = nil);
+  finally
+    FreeAndNil(l_Info);
+  end;//try..finally
+ end;
+var
+ l_D : TnsOpenDialog;
+ l_L : IDynList;
+ l_deL: IdeList;
+//#UC END# *4DA44BDB01D9_4DA44B2C01BBexec_var*
+begin
+//#UC START# *4DA44BDB01D9_4DA44B2C01BBexec_impl*
+ l_D := TnsOpenDialog.Create(Self);
+ try
+  l_D.InnerNumbersEnabled := True;
+  l_D.Filter := vcmConstString(str_AllFileFilter);
+  if l_D.Execute then
+  begin
+   try
+    DefDataAdapter.NativeAdapter.MakeDocListFactory.MakeList(nsAStr(l_D.FileName), l_D.InnerNumbersChecked, l_L);
+   except
+    on EAccessDenied do
+    begin
+     vcmSay(str_AccessDenied);
+     Exit;
+    end;//on EAccessDenied
+    on EInvalidType do
+    begin
+     vcmSay(str_InvalidType);
+     Exit;
+    end;//on EInvalidType
+   end;//try..except
+   l_deL := TdeListSet.Make(l_L);
+   if IsEmptyList(l_deL) then
+    vcmSay(inf_ListMissing, [str_ImportDocuments.AsStr])
+   else
+    TdmStdRes.OpenList(l_deL, nil);
+  end;//l_D.Execute
+ finally
+  FreeAndNil(l_D);
+ end;//try..finally
+//#UC END# *4DA44BDB01D9_4DA44B2C01BBexec_impl*
+end;//TPrimDocumentListFromFileModule.opOpenDocumentListFromFileExecute
+
+procedure TPrimDocumentListFromFileModule.Loaded;
+begin
+ inherited;
+ PublishOp('opOpenDocumentListFromFile', opOpenDocumentListFromFileExecute, opOpenDocumentListFromFileTest);
+ ShowInToolbar('opOpenDocumentListFromFile', False);
+ SetShortCut('opOpenDocumentListFromFile', 'Shift-Alt-L');
+end;//TPrimDocumentListFromFileModule.Loaded
 
 initialization
  str_AccessDenied.Init;

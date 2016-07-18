@@ -14,6 +14,15 @@ interface
 uses
  l3IntfUses
  , DocumentUnit
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
@@ -22,10 +31,14 @@ type
  {$IfEnd} // NOT Defined(NoVCM)
  )
   {* Просмотр только измененных фрагментов }
+  protected
+   {$If NOT Defined(NoVCM)}
+   class procedure GetEntityForms(aList: TvcmClassList); override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
-   procedure ViewChangedFragments(const aLeft: IDocument;
+   class procedure ViewChangedFragments(const aLeft: IDocument;
     const aRight: IDocument);
-   procedure ViewChangedFragmentsForPrevEdition(const aDocument: IDocument);
+   class procedure ViewChangedFragmentsForPrevEdition(const aDocument: IDocument);
     {* Просмотр изменёных фрагментов в сравнении с предыдущей редакцией }
  end;//TChangesBetweenEditionsModule
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
@@ -36,13 +49,6 @@ implementation
 uses
  l3ImplUses
  , l3MessageID
- {$If NOT Defined(NoVCM)}
- , vcmBase
- {$IfEnd} // NOT Defined(NoVCM)
- , l3StringIDEx
- {$If NOT Defined(NoVCL)}
- , Dialogs
- {$IfEnd} // NOT Defined(NoVCL)
  , DataAdapter
  , sdsChangesBetweenEditions
  , nsChangesBetweenEditionsInfo
@@ -50,7 +56,12 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmMessagesSupport
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCL)}
+ , Dialogs
+ {$IfEnd} // NOT Defined(NoVCL)
  , ChangesBetweenEditons_Form
+ //#UC START# *4DDBAF2B0028impl_uses*
+ //#UC END# *4DDBAF2B0028impl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -59,13 +70,17 @@ const
  str_CannotShowChanges: Tl3MessageID = (rS : -1; rLocalized : false; rKey : 'CannotShowChanges'; rValue : 'Изменения не могут быть отображены в сводном обзоре');
   {* 'Изменения не могут быть отображены в сводном обзоре' }
 
-procedure TChangesBetweenEditionsModule.ViewChangedFragments(const aLeft: IDocument;
+class procedure TChangesBetweenEditionsModule.ViewChangedFragments(const aLeft: IDocument;
  const aRight: IDocument);
+var
+ __WasEnter : Boolean;
 //#UC START# *4DDCBB5D0298_4DDBAF2B0028_var*
 var
  l_P : IDiffDocDataProvider;
 //#UC END# *4DDCBB5D0298_4DDBAF2B0028_var*
 begin
+ __WasEnter := vcmEnterFactory;
+ try
 //#UC START# *4DDCBB5D0298_4DDBAF2B0028_impl*
   try
    l_P := DefDataAdapter.NativeAdapter.MakeDiffDocDataProvider(aLeft, aRight);
@@ -81,10 +96,16 @@ begin
     TnsChangesBetweenEditionsInfo.Make(aLeft, aRight, l_P)),
    DefaultContainer);
 //#UC END# *4DDCBB5D0298_4DDBAF2B0028_impl*
+ finally
+  if __WasEnter then
+   vcmLeaveFactory;
+ end;//try..finally
 end;//TChangesBetweenEditionsModule.ViewChangedFragments
 
-procedure TChangesBetweenEditionsModule.ViewChangedFragmentsForPrevEdition(const aDocument: IDocument);
+class procedure TChangesBetweenEditionsModule.ViewChangedFragmentsForPrevEdition(const aDocument: IDocument);
  {* Просмотр изменёных фрагментов в сравнении с предыдущей редакцией }
+var
+ __WasEnter : Boolean;
 //#UC START# *4DE513C202B3_4DDBAF2B0028_var*
 var
  l_PrevState : IDocumentState;
@@ -92,6 +113,8 @@ var
  l_Prev  : IDocument;
 //#UC END# *4DE513C202B3_4DDBAF2B0028_var*
 begin
+ __WasEnter := vcmEnterFactory;
+ try
 //#UC START# *4DE513C202B3_4DDBAF2B0028_impl*
   aDocument.GetCurrentState(l_PrevState);
   l_PrevState.Clone(l_State);
@@ -100,7 +123,17 @@ begin
   Assert(l_Prev <> nil);
   ViewChangedFragments(l_Prev, aDocument);
 //#UC END# *4DE513C202B3_4DDBAF2B0028_impl*
+ finally
+  if __WasEnter then
+   vcmLeaveFactory;
+ end;//try..finally
 end;//TChangesBetweenEditionsModule.ViewChangedFragmentsForPrevEdition
+
+class procedure TChangesBetweenEditionsModule.GetEntityForms(aList: TvcmClassList);
+begin
+ inherited;
+ aList.Add(TChangesBetweenEditonsForm);
+end;//TChangesBetweenEditionsModule.GetEntityForms
 
 initialization
  str_CannotShowChanges.Init;

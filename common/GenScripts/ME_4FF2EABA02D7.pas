@@ -47,14 +47,6 @@ uses
 ;
 
 type
- // WarnJuror
-
- // Left
-
- // Right
-
- // AACContainer
-
  Tfs_AAC = {final} class(Tfs_AbstractDocument)
   {* Сборка для документа ААК }
   protected
@@ -72,26 +64,26 @@ type
    function DoMakeFormSetTabHint(const aDataSource: IvcmFormSetDataSource): IvcmCString; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   function AACContainer_Parent_AACContainer_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+   function AACContainerParentAACContainerNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
     out aNew: IvcmFormDataSource;
     aSubUserType: TvcmUserType): Boolean;
     {* Обработчик OnNeedMakeForm для AACContainer }
-   function Left_Child_dftAACLeft_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+   function LeftChildDftAACLeftNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
     out aNew: IvcmFormDataSource;
     aSubUserType: TvcmUserType): Boolean;
     {* Обработчик OnNeedMakeForm для Left }
-   function WarnJuror_Child_WarnJuror_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+   function WarnJurorChildWarnJurorNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
     out aNew: IvcmFormDataSource;
     aSubUserType: TvcmUserType): Boolean;
     {* Обработчик OnNeedMakeForm для WarnJuror }
-   function Right_Main_dftAACRight_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+   function RightMainDftAACRightNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
     out aNew: IvcmFormDataSource;
     aSubUserType: TvcmUserType): Boolean;
     {* Обработчик OnNeedMakeForm для Right }
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: Tfs_AAC;
     {* Метод получения экземпляра синглетона Tfs_AAC }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//Tfs_AAC
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -102,7 +94,6 @@ uses
  l3ImplUses
  , l3StringIDEx
  , l3String
- , l3MessageID
  , SysUtils
  , l3Base
 ;
@@ -114,7 +105,7 @@ const
  {* Локализуемые строки Tab consts }
  str_AACFormsetCaptionPrefix: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'AACFormsetCaptionPrefix'; rValue : 'Текст');
   {* 'Текст' }
- {* Локализуемые строки AAC$FormSetFactoryCaptionLocalConstants }
+ {* Локализуемые строки AAC }
  str_fsAACCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'fsAACCaption'; rValue : 'Текст');
   {* Заголовок фабрики сборки форм "AAC$FormSetFactory" }
 
@@ -124,59 +115,69 @@ begin
  l3Free(g_Tfs_AAC);
 end;//Tfs_AACFree
 
-function Tfs_AAC.AACContainer_Parent_AACContainer_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+function Tfs_AAC.AACContainerParentAACContainerNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
  out aNew: IvcmFormDataSource;
  aSubUserType: TvcmUserType): Boolean;
  {* Обработчик OnNeedMakeForm для AACContainer }
-//#UC START# *21728C230D8E_4FF2EABA02D7_var*
-//#UC END# *21728C230D8E_4FF2EABA02D7_var*
+var
+ l_UseCase : IsdsAAC;
 begin
-//#UC START# *21728C230D8E_4FF2EABA02D7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *21728C230D8E_4FF2EABA02D7_impl*
-end;//Tfs_AAC.AACContainer_Parent_AACContainer_NeedMakeForm
+ if Supports(aDataSource, IsdsAAC, l_UseCase) then
+  try
+   aNew := l_UseCase.Container;
+  finally
+   l_UseCase := nil;
+  end;//try..finally
+ Result := (aNew <> nil);
+end;//Tfs_AAC.AACContainerParentAACContainerNeedMakeForm
 
-function Tfs_AAC.Left_Child_dftAACLeft_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+function Tfs_AAC.LeftChildDftAACLeftNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
  out aNew: IvcmFormDataSource;
  aSubUserType: TvcmUserType): Boolean;
  {* Обработчик OnNeedMakeForm для Left }
-//#UC START# *938DD0F86F72_4FF2EABA02D7_var*
-//#UC END# *938DD0F86F72_4FF2EABA02D7_var*
+var
+ l_UseCase : IsdsAAC;
 begin
-//#UC START# *938DD0F86F72_4FF2EABA02D7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *938DD0F86F72_4FF2EABA02D7_impl*
-end;//Tfs_AAC.Left_Child_dftAACLeft_NeedMakeForm
+ if Supports(aDataSource, IsdsAAC, l_UseCase) then
+  try
+   aNew := l_UseCase.Left;
+  finally
+   l_UseCase := nil;
+  end;//try..finally
+ Result := (aNew <> nil);
+end;//Tfs_AAC.LeftChildDftAACLeftNeedMakeForm
 
-function Tfs_AAC.WarnJuror_Child_WarnJuror_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+function Tfs_AAC.WarnJurorChildWarnJurorNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
  out aNew: IvcmFormDataSource;
  aSubUserType: TvcmUserType): Boolean;
  {* Обработчик OnNeedMakeForm для WarnJuror }
-//#UC START# *595B3BC462F1_4FF2EABA02D7_var*
-//#UC END# *595B3BC462F1_4FF2EABA02D7_var*
+var
+ l_UseCase : IsdsDocument;
 begin
-//#UC START# *595B3BC462F1_4FF2EABA02D7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *595B3BC462F1_4FF2EABA02D7_impl*
-end;//Tfs_AAC.WarnJuror_Child_WarnJuror_NeedMakeForm
+ if Supports(aDataSource, IsdsDocument, l_UseCase) then
+  try
+   aNew := l_UseCase.dsBaloonWarning;
+  finally
+   l_UseCase := nil;
+  end;//try..finally
+ Result := (aNew <> nil);
+end;//Tfs_AAC.WarnJurorChildWarnJurorNeedMakeForm
 
-function Tfs_AAC.Right_Main_dftAACRight_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+function Tfs_AAC.RightMainDftAACRightNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
  out aNew: IvcmFormDataSource;
  aSubUserType: TvcmUserType): Boolean;
  {* Обработчик OnNeedMakeForm для Right }
-//#UC START# *C38CB7D1BCCF_4FF2EABA02D7_var*
-//#UC END# *C38CB7D1BCCF_4FF2EABA02D7_var*
+var
+ l_UseCase : IsdsAAC;
 begin
-//#UC START# *C38CB7D1BCCF_4FF2EABA02D7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *C38CB7D1BCCF_4FF2EABA02D7_impl*
-end;//Tfs_AAC.Right_Main_dftAACRight_NeedMakeForm
-
-class function Tfs_AAC.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_Tfs_AAC <> nil;
-end;//Tfs_AAC.Exists
+ if Supports(aDataSource, IsdsAAC, l_UseCase) then
+  try
+   aNew := l_UseCase.Right;
+  finally
+   l_UseCase := nil;
+  end;//try..finally
+ Result := (aNew <> nil);
+end;//Tfs_AAC.RightMainDftAACRightNeedMakeForm
 
 class function Tfs_AAC.Instance: Tfs_AAC;
  {* Метод получения экземпляра синглетона Tfs_AAC }
@@ -189,23 +190,43 @@ begin
  Result := g_Tfs_AAC;
 end;//Tfs_AAC.Instance
 
-procedure Tfs_AAC.InitFields;
-//#UC START# *47A042E100E2_4FF2EABA02D7_var*
-//#UC END# *47A042E100E2_4FF2EABA02D7_var*
+class function Tfs_AAC.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
-//#UC START# *47A042E100E2_4FF2EABA02D7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *47A042E100E2_4FF2EABA02D7_impl*
+ Result := g_Tfs_AAC <> nil;
+end;//Tfs_AAC.Exists
+
+procedure Tfs_AAC.InitFields;
+begin
+ inherited;
+ with AddZone('AACContainer', vcm_ztParent, fm_AACContainerForm) do
+ begin
+  UserType := AACContainer;
+  with AddZone('Left', vcm_ztChild, fm_TextForm) do
+  begin
+   UserType := dftAACLeft;
+   with AddZone('WarnJuror', vcm_ztChild, fm_WarningBaloonForm) do
+   begin
+    UserType := WarnJuror;
+    OnNeedMakeForm := WarnJurorChildWarnJurorNeedMakeForm;
+   end;
+   OnNeedMakeForm := LeftChildDftAACLeftNeedMakeForm;
+  end;
+  with AddZone('Right', vcm_ztMain, fm_TextForm) do
+  begin
+   UserType := dftAACRight;
+   OnNeedMakeForm := RightMainDftAACRightNeedMakeForm;
+  end;
+  OnNeedMakeForm := AACContainerParentAACContainerNeedMakeForm;
+ end;
+ Caption := str_fsAACCaption.AsCStr;
+ OwnerForm := 16;
 end;//Tfs_AAC.InitFields
 
 {$If NOT Defined(NoVCM)}
 class function Tfs_AAC.GetInstance: TvcmFormSetFactoryPrim;
-//#UC START# *4FFE854A009B_4FF2EABA02D7_var*
-//#UC END# *4FFE854A009B_4FF2EABA02D7_var*
 begin
-//#UC START# *4FFE854A009B_4FF2EABA02D7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4FFE854A009B_4FF2EABA02D7_impl*
+ Result := Self.Instance;
 end;//Tfs_AAC.GetInstance
 {$IfEnd} // NOT Defined(NoVCM)
 

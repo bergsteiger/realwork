@@ -118,17 +118,25 @@ const
  op_CheckChildZone = 'CheckChildZone';
  op_capCheckChildZone = '';
 
+var opcode_Switcher_BecomeActive: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Switcher_SetFirstPageActive: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Common_ShowSplitter: TvcmOPID = (rEnID : -1; rOpID : -1);
+var opcode_Common_CheckChildZone: TvcmOPID = (rEnID : -1; rOpID : -1);
+
 implementation
 
 uses
  l3ImplUses
  , l3CProtoObject
+ {$If NOT Defined(NoVCM)}
+ , vcmOperationsForRegister
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmOperationStatesForRegister
+ {$IfEnd} // NOT Defined(NoVCM)
  , l3Base
  {$If NOT Defined(NoVCM)}
  , vcmBase
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
- , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
 ;
 
@@ -206,7 +214,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TSwitcher_BecomeActive_Params.Make(aForm));
-  aTarget.Operation(TdmStdRes.opcode_Switcher_BecomeActive, l_Params);
+  aTarget.Operation(opcode_Switcher_BecomeActive, l_Params);
   with l_Params do
   begin
    if Done then
@@ -227,7 +235,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TSwitcher_BecomeActive_Params.Make(aForm));
-  aTarget.Operation(TdmStdRes.opcode_Switcher_BecomeActive, l_Params);
+  aTarget.Operation(opcode_Switcher_BecomeActive, l_Params);
   with l_Params do
   begin
    if Done then
@@ -265,7 +273,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := vcmParams;
-  aTarget.Operation(TdmStdRes.opcode_Switcher_SetFirstPageActive, l_Params);
+  aTarget.Operation(opcode_Switcher_SetFirstPageActive, l_Params);
   with l_Params do
   begin
    if Done then
@@ -285,7 +293,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := vcmParams;
-  aTarget.Operation(TdmStdRes.opcode_Switcher_SetFirstPageActive, l_Params);
+  aTarget.Operation(opcode_Switcher_SetFirstPageActive, l_Params);
   with l_Params do
   begin
    if Done then
@@ -345,7 +353,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TCommon_ShowSplitter_Params.Make(aVisible));
-  aTarget.Operation(TdmStdRes.opcode_Common_ShowSplitter, l_Params);
+  aTarget.Operation(opcode_Common_ShowSplitter, l_Params);
   with l_Params do
   begin
    if Done then
@@ -366,7 +374,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TCommon_ShowSplitter_Params.Make(aVisible));
-  aTarget.Operation(TdmStdRes.opcode_Common_ShowSplitter, l_Params);
+  aTarget.Operation(opcode_Common_ShowSplitter, l_Params);
   with l_Params do
   begin
    if Done then
@@ -428,7 +436,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TCommon_CheckChildZone_Params.Make(aToggle));
-  aTarget.Operation(TdmStdRes.opcode_Common_CheckChildZone, l_Params);
+  aTarget.Operation(opcode_Common_CheckChildZone, l_Params);
   with l_Params do
   begin
    if Done then
@@ -449,7 +457,7 @@ begin
  if (aTarget <> nil) then
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TCommon_CheckChildZone_Params.Make(aToggle));
-  aTarget.Operation(TdmStdRes.opcode_Common_CheckChildZone, l_Params);
+  aTarget.Operation(opcode_Common_CheckChildZone, l_Params);
   with l_Params do
   begin
    if Done then
@@ -477,5 +485,20 @@ begin
  if (aTarget <> nil) then
   Result := Call(aTarget.AsForm, aToggle);
 end;//Op_Common_CheckChildZone.Call
+
+initialization
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Switcher, op_BecomeActive, en_capSwitcher, op_capBecomeActive, True, False, opcode_Switcher_BecomeActive)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Switcher, op_SetFirstPageActive, en_capSwitcher, op_capSetFirstPageActive, True, False, opcode_Switcher_SetFirstPageActive)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Common, op_ShowSplitter, en_capCommon, op_capShowSplitter, True, False, opcode_Common_ShowSplitter)) do
+ begin
+ end;
+ with TvcmOperationsForRegister.AddOperation(TvcmOperationForRegister_C(en_Common, op_CheckChildZone, en_capCommon, op_capCheckChildZone, True, False, opcode_Common_CheckChildZone)) do
+ begin
+ end;
+
 
 end.

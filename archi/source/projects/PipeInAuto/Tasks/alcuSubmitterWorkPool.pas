@@ -79,9 +79,6 @@ uses
  {$IfEnd} // NOT Defined(Nemesis)
  , l3Interlocked
  , daDataProvider
- {$If NOT Defined(Nemesis)}
- , dt_User
- {$IfEnd} // NOT Defined(Nemesis)
 ;
 
 procedure TalcuSubmitterWorkPool.pm_SetWorkThreadCount(aValue: integer);

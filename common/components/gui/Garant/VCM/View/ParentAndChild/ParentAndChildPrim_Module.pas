@@ -1,68 +1,65 @@
 unit ParentAndChildPrim_Module;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Модуль: "w:/common/components/gui/Garant/VCM/View/ParentAndChild/ParentAndChildPrim_Module.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMFormsPack::Class>> Shared Delphi F1 Like Application::F1Like::View::ParentAndChild::ParentAndChildPrim
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\VCM\View\ParentAndChild\ParentAndChildPrim_Module.pas"
+// Стереотип: "VCMFormsPack"
+// Элемент модели: "ParentAndChildPrim" MUID: (4F6B66260326)
+// Имя типа: "TParentAndChildPrimModule"
 
 {$Include w:\common\components\gui\f1LikeAppDefine.inc}
 
 interface
 
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmEntityForm
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmMainForm
-  {$IfEnd} //not NoVCM
-  ,
-  PrimChild_Form,
-  PrimParent_Form,
-  F1Like_FormDefinitions_Controls,
-  Parent_Form,
-  Child_Form,
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a},
-  vcmModule {a},
-  vcmBase {a}
-  ;
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmMainForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
 type
- TParentAndChildPrimModule = {abstract formspack} class(TvcmModule)
- protected
-  class procedure GetEntityForms(aList : TvcmClassList); override;
- public
- // public methods
+ TParentAndChildPrimModule = {abstract} class({$If NOT Defined(NoVCM)}
+ TvcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
+  protected
+   {$If NOT Defined(NoVCM)}
+   class procedure GetEntityForms(aList: TvcmClassList); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    class function MakeChild(aMainForm: TvcmMainForm;
-     anOwner: TvcmEntityForm): IvcmEntityForm;
+    anOwner: TvcmEntityForm): IvcmEntityForm;
    class function MakeParent(aMainForm: TvcmMainForm): IvcmEntityForm;
  end;//TParentAndChildPrimModule
 
 implementation
 
 uses
-  vcmFormSetFactory {a},
-  StdRes {a}
-  ;
+ l3ImplUses
+ , Parent_Form
+ , Child_Form
+ , F1Like_FormDefinitions_Controls
+ //#UC START# *4F6B66260326impl_uses*
+ //#UC END# *4F6B66260326impl_uses*
+;
 
-// start class TParentAndChildPrimModule
-
+{$If NOT Defined(NoVCM)}
 class function TParentAndChildPrimModule.MakeChild(aMainForm: TvcmMainForm;
-  anOwner: TvcmEntityForm): IvcmEntityForm;
+ anOwner: TvcmEntityForm): IvcmEntityForm;
 var
  __WasEnter : Boolean;
 //#UC START# *4F6B67820382_4F6B66260326_var*
@@ -96,11 +93,12 @@ begin
  end;//try..finally
 end;//TParentAndChildPrimModule.MakeParent
 
-class procedure TParentAndChildPrimModule.GetEntityForms(aList : TvcmClassList);
+class procedure TParentAndChildPrimModule.GetEntityForms(aList: TvcmClassList);
 begin
  inherited;
  aList.Add(TParentForm);
  aList.Add(TChildForm);
-end;
+end;//TParentAndChildPrimModule.GetEntityForms
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

@@ -1,53 +1,44 @@
 unit UnderControl_Module;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/UnderControl/UnderControl_Module.pas"
-// Начат: 29.10.2010 17:08
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMFormsPack::Class>> F1 Работа с документом и списком документов::UnderControl::View::UnderControl::UnderControl$FP
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\UnderControl\UnderControl_Module.pas"
+// Стереотип: "VCMFormsPack"
+// Элемент модели: "UnderControl" MUID: (4CCAC71C0347)
+// Имя типа: "TUnderControlModule"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  UnderControlUnit
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  Common_FormDefinitions_Controls,
-  PrimUnderControlOptions_Form,
-  UnderControl_Form,
-  vcmExternalInterfaces {a},
-  vcmModule {a},
-  vcmBase {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , UnderControlUnit
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
- TUnderControlModule = {formspack} class(TvcmModule)
- protected
-  class procedure GetEntityForms(aList : TvcmClassList); override;
- protected
- // protected methods
+ TUnderControlModule = class({$If NOT Defined(NoVCM)}
+ TvcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
+  protected
    class procedure UnderControlOpen(const aContainer: IvcmContainer);
    class function FindUnderControlForm(const aContainer: IvcmContainer): IvcmEntityForm;
- public
- // public methods
+   {$If NOT Defined(NoVCM)}
+   class procedure GetEntityForms(aList: TvcmClassList); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    class procedure CloseUnderControl(const aContainer: IvcmContainer);
    class procedure OpenUnderControl(const aContainer: IvcmContainer);
    class procedure BuildUnderControlList(const aContainer: IvcmContainer);
@@ -56,34 +47,32 @@ type
    class procedure MarkControlledAsOpen(const aData: IControllable);
    class procedure DropChangeStatusToOpened(const aForm: IvcmEntityForm);
  end;//TUnderControlModule
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DynamicTreeUnit,
-  DynamicDocListUnit,
-  deListSet,
-  DataAdapter,
-  SysUtils,
-  BaseTypesUnit
-  {$If not defined(NoVCM)}
-  ,
-  vcmMessagesSupport
-  {$IfEnd} //not NoVCM
-  ,
-  nsFolders,
-  FoldersDomainInterfaces,
-  vcmFormSetFactory {a},
-  StdRes {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ {$If NOT Defined(NoVCM)}
+ , vcmMessagesSupport
+ {$IfEnd} // NOT Defined(NoVCM)
+ , DynamicTreeUnit
+ , DynamicDocListUnit
+ , deListSet
+ , DataAdapter
+ , SysUtils
+ , BaseTypesUnit
+ , nsFolders
+ , FoldersDomainInterfaces
+ , UnderControl_Form
+ , Common_FormDefinitions_Controls
+ //#UC START# *4CCAC71C0347impl_uses*
+ , StdRes
+ //#UC END# *4CCAC71C0347impl_uses*
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TUnderControlModule
-
+{$If NOT Defined(NoVCM)}
 class procedure TUnderControlModule.CloseUnderControl(const aContainer: IvcmContainer);
 var
  __WasEnter : Boolean;
@@ -156,10 +145,9 @@ begin
 end;//TUnderControlModule.BuildUnderControlList
 
 class procedure TUnderControlModule.UnderControlOpen(const aContainer: IvcmContainer);
+var l_Form: IvcmEntityForm;
 //#UC START# *4AC09339029B_4CCAC71C0347_var*
 //#UC END# *4AC09339029B_4CCAC71C0347_var*
-var
- l_Form : IvcmEntityForm;
 begin
 //#UC START# *4AC09339029B_4CCAC71C0347_impl*
  l_Form := FindUnderControlForm(CheckContainer(aContainer));
@@ -250,12 +238,12 @@ begin
 //#UC END# *4ABCD31A033C_4CCAC71C0347_impl*
 end;//TUnderControlModule.FindUnderControlForm
 
-class procedure TUnderControlModule.GetEntityForms(aList : TvcmClassList);
+class procedure TUnderControlModule.GetEntityForms(aList: TvcmClassList);
 begin
  inherited;
  aList.Add(TenUnderControl);
-end;
+end;//TUnderControlModule.GetEntityForms
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //not Admin AND not Monitorings
-
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

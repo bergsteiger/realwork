@@ -27,6 +27,7 @@ uses
 ;
 
 type
+ _FormDataSourceType_ = IdsAACContainer;
  {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourcePrim.imp.pas}
  TdsAACContainer = {final} class(_vcmFormDataSourcePrim_, IdsAACContainer)
  end;//TdsAACContainer
@@ -42,11 +43,9 @@ uses
  , l3Base
 ;
 
-{$If NOT Defined(NoVCM)}
 type _Instance_R_ = TdsAACContainer;
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourcePrim.imp.pas}
-{$IfEnd} // NOT Defined(NoVCM)
-
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+
 end.

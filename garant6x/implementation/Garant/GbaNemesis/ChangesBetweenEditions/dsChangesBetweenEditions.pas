@@ -1,112 +1,83 @@
 unit dsChangesBetweenEditions;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ChangesBetweenEditions$Domain"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/ChangesBetweenEditions/dsChangesBetweenEditions.pas"
-// Начат: 25.05.2011 14:14
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ViewAreaControllerImp::Class>> F1 Пользовательские сервисы::ChangesBetweenEditions::ChangesBetweenEditions$Domain::ChangesBetweenEditionsImplementation::TdsChangesBetweenEditions
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\ChangesBetweenEditions\dsChangesBetweenEditions.pas"
+// Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "TdsChangesBetweenEditions" MUID: (4DDCDD68019E)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  nevTools,
-  DocumentAndListInterfaces,
-  l3StringIDEx,
-  ChangesBetweenEditionsInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmExternalInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmLocalInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  l3ProtoObjectWithCOMQI,
-  l3Interfaces,
-  l3NotifyPtrList,
-  DocumentUnit,
-  DocumentInterfaces,
-  afwInterfaces
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , DocumentAndListInterfaces
+ , ChangesBetweenEditionsInterfaces
+ , nevTools
+ , afwInterfaces
+ , DocumentUnit
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3ProtoObjectWithCOMQI
+ {$If NOT Defined(NoVCM)}
+ , vcmLocalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3Interfaces
+ , l3NotifyPtrList
+ , DocumentInterfaces
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  _InitDataType_ = InsChangesBetweenEditionsInfo;
  _FormDataSourceType_ = IdsChangesBetweenEditions;
  {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSource.imp.pas}
  _deDocInfoProvider_Parent_ = _vcmFormDataSource_;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\Presentation\deDocInfoProvider.imp.pas}
- TdsChangesBetweenEditions = {vac} class(_deDocInfoProvider_, IucpHAFMacroReplacerFactory, IdsChangesBetweenEditions)
- private
- // private fields
-   f_Cont : InevDocumentContainer;
- protected
- // realized methods
+ TdsChangesBetweenEditions = class(_deDocInfoProvider_, IucpHAFMacroReplacerFactory, IdsChangesBetweenEditions)
+  private
+   f_Cont: InevDocumentContainer;
+  protected
    function MakeHAFMacroReplacer: IafwHAFMacroReplacer;
    function Get_RightEdition: IDocument;
    function Get_DocumentContainer: InevDocumentContainer;
    function Get_LeftEdition: IDocument;
    function DocumentForDocInfoProvider: IDocument; override;
- protected
- // overridden protected methods
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
  end;//TdsChangesBetweenEditions
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  nsChangesBetweenEditionsDocumentContainer,
-  evFormatHAFMacroReplacer,
-  nsDocInfoHAFMacroReplacer,
-  IOUnit,
-  nsTypes,
-  l3String,
-  l3MessageID,
-  l3InterfacesMisc,
-  SysUtils,
-  l3Base,
-  deDocInfo
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , l3StringIDEx
+ , nsChangesBetweenEditionsDocumentContainer
+ , evFormatHAFMacroReplacer
+ , nsDocInfoHAFMacroReplacer
+ , IOUnit
+ , nsTypes
+ , l3String
+ , l3InterfacesMisc
+ , SysUtils
+ , l3Base
+ , deDocInfo
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+const
+ {* Локализуемые строки Обзор изменений документа }
+ str_cnevChangesBetweenEditions: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'cnevChangesBetweenEditions'; rValue : 'Обзор изменений документа: ');
+  {* 'Обзор изменений документа: ' }
 
 type _Instance_R_ = TdsChangesBetweenEditions;
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSource.imp.pas}
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\Presentation\deDocInfoProvider.imp.pas}
-
-var
-   { Локализуемые строки Обзор изменений документа }
-  str_cnevChangesBetweenEditions : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'cnevChangesBetweenEditions'; rValue : 'Обзор изменений документа: ');
-   { 'Обзор изменений документа: ' }
-
-// start class TdsChangesBetweenEditions
 
 function TdsChangesBetweenEditions.MakeHAFMacroReplacer: IafwHAFMacroReplacer;
 //#UC START# *4AE56DE80093_4DDCDD68019E_var*
@@ -163,20 +134,14 @@ begin
 end;//TdsChangesBetweenEditions.DocumentForDocInfoProvider
 
 procedure TdsChangesBetweenEditions.ClearFields;
- {-}
 begin
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_Cont := nil;
- {$IfEnd} //not Admin AND not Monitorings
  inherited;
 end;//TdsChangesBetweenEditions.ClearFields
 
-{$IfEnd} //not Admin AND not Monitorings
-
 initialization
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_cnevChangesBetweenEditions
  str_cnevChangesBetweenEditions.Init;
-{$IfEnd} //not Admin AND not Monitorings
+ {* Инициализация str_cnevChangesBetweenEditions }
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

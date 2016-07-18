@@ -43,12 +43,6 @@ uses
 ;
 
 type
- // Left
-
- // Right
-
- // AACContainer
-
  Tfs_AACContents = {final} class({$If NOT Defined(NoVCM)}
  TvcmFormSetFactory
  {$IfEnd} // NOT Defined(NoVCM)
@@ -60,22 +54,22 @@ type
    class function GetInstance: TvcmFormSetFactoryPrim; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   function AACContainer_Parent_AACContentsContainer_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+   function AACContainerParentAACContentsContainerNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
     out aNew: IvcmFormDataSource;
     aSubUserType: TvcmUserType): Boolean;
     {* Обработчик OnNeedMakeForm для AACContainer }
-   function Left_Child_dftAACContentsLeft_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+   function LeftChildDftAACContentsLeftNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
     out aNew: IvcmFormDataSource;
     aSubUserType: TvcmUserType): Boolean;
     {* Обработчик OnNeedMakeForm для Left }
-   function Right_Main_dftAACContentsRight_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+   function RightMainDftAACContentsRightNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
     out aNew: IvcmFormDataSource;
     aSubUserType: TvcmUserType): Boolean;
     {* Обработчик OnNeedMakeForm для Right }
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: Tfs_AACContents;
     {* Метод получения экземпляра синглетона Tfs_AACContents }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//Tfs_AACContents
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -98,47 +92,53 @@ begin
  l3Free(g_Tfs_AACContents);
 end;//Tfs_AACContentsFree
 
-function Tfs_AACContents.AACContainer_Parent_AACContentsContainer_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+function Tfs_AACContents.AACContainerParentAACContentsContainerNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
  out aNew: IvcmFormDataSource;
  aSubUserType: TvcmUserType): Boolean;
  {* Обработчик OnNeedMakeForm для AACContainer }
-//#UC START# *F555D8D7FD5B_4FF4428702F0_var*
-//#UC END# *F555D8D7FD5B_4FF4428702F0_var*
+var
+ l_UseCase : IsdsAAC;
 begin
-//#UC START# *F555D8D7FD5B_4FF4428702F0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *F555D8D7FD5B_4FF4428702F0_impl*
-end;//Tfs_AACContents.AACContainer_Parent_AACContentsContainer_NeedMakeForm
+ if Supports(aDataSource, IsdsAAC, l_UseCase) then
+  try
+   aNew := l_UseCase.Container;
+  finally
+   l_UseCase := nil;
+  end;//try..finally
+ Result := (aNew <> nil);
+end;//Tfs_AACContents.AACContainerParentAACContentsContainerNeedMakeForm
 
-function Tfs_AACContents.Left_Child_dftAACContentsLeft_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+function Tfs_AACContents.LeftChildDftAACContentsLeftNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
  out aNew: IvcmFormDataSource;
  aSubUserType: TvcmUserType): Boolean;
  {* Обработчик OnNeedMakeForm для Left }
-//#UC START# *0CFD7C2853E7_4FF4428702F0_var*
-//#UC END# *0CFD7C2853E7_4FF4428702F0_var*
+var
+ l_UseCase : IsdsAAC;
 begin
-//#UC START# *0CFD7C2853E7_4FF4428702F0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *0CFD7C2853E7_4FF4428702F0_impl*
-end;//Tfs_AACContents.Left_Child_dftAACContentsLeft_NeedMakeForm
+ if Supports(aDataSource, IsdsAAC, l_UseCase) then
+  try
+   aNew := l_UseCase.Left;
+  finally
+   l_UseCase := nil;
+  end;//try..finally
+ Result := (aNew <> nil);
+end;//Tfs_AACContents.LeftChildDftAACContentsLeftNeedMakeForm
 
-function Tfs_AACContents.Right_Main_dftAACContentsRight_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
+function Tfs_AACContents.RightMainDftAACContentsRightNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
  out aNew: IvcmFormDataSource;
  aSubUserType: TvcmUserType): Boolean;
  {* Обработчик OnNeedMakeForm для Right }
-//#UC START# *88C068C02878_4FF4428702F0_var*
-//#UC END# *88C068C02878_4FF4428702F0_var*
+var
+ l_UseCase : IsdsAAC;
 begin
-//#UC START# *88C068C02878_4FF4428702F0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *88C068C02878_4FF4428702F0_impl*
-end;//Tfs_AACContents.Right_Main_dftAACContentsRight_NeedMakeForm
-
-class function Tfs_AACContents.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_Tfs_AACContents <> nil;
-end;//Tfs_AACContents.Exists
+ if Supports(aDataSource, IsdsAAC, l_UseCase) then
+  try
+   aNew := l_UseCase.Right;
+  finally
+   l_UseCase := nil;
+  end;//try..finally
+ Result := (aNew <> nil);
+end;//Tfs_AACContents.RightMainDftAACContentsRightNeedMakeForm
 
 class function Tfs_AACContents.Instance: Tfs_AACContents;
  {* Метод получения экземпляра синглетона Tfs_AACContents }
@@ -151,22 +151,36 @@ begin
  Result := g_Tfs_AACContents;
 end;//Tfs_AACContents.Instance
 
-procedure Tfs_AACContents.InitFields;
-//#UC START# *47A042E100E2_4FF4428702F0_var*
-//#UC END# *47A042E100E2_4FF4428702F0_var*
+class function Tfs_AACContents.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
-//#UC START# *47A042E100E2_4FF4428702F0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *47A042E100E2_4FF4428702F0_impl*
+ Result := g_Tfs_AACContents <> nil;
+end;//Tfs_AACContents.Exists
+
+procedure Tfs_AACContents.InitFields;
+begin
+ inherited;
+ with AddZone('AACContainer', vcm_ztParent, fm_AACContentsContainerForm) do
+ begin
+  UserType := AACContentsContainer;
+  with AddZone('Left', vcm_ztChild, fm_TextForm) do
+  begin
+   UserType := dftAACContentsLeft;
+   OnNeedMakeForm := LeftChildDftAACContentsLeftNeedMakeForm;
+  end;
+  with AddZone('Right', vcm_ztMain, fm_TextForm) do
+  begin
+   UserType := dftAACContentsRight;
+   OnNeedMakeForm := RightMainDftAACContentsRightNeedMakeForm;
+  end;
+  OnNeedMakeForm := AACContainerParentAACContentsContainerNeedMakeForm;
+ end;
+ OwnerForm := 0;
 end;//Tfs_AACContents.InitFields
 
 class function Tfs_AACContents.GetInstance: TvcmFormSetFactoryPrim;
-//#UC START# *4FFE854A009B_4FF4428702F0_var*
-//#UC END# *4FFE854A009B_4FF4428702F0_var*
 begin
-//#UC START# *4FFE854A009B_4FF4428702F0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4FFE854A009B_4FF4428702F0_impl*
+ Result := Self.Instance;
 end;//Tfs_AACContents.GetInstance
 {$IfEnd} // NOT Defined(NoVCM)
 

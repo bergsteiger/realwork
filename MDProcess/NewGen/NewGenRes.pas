@@ -28,11 +28,7 @@ type
    class procedure Runner(const aTitle: Tl3StringIDEx;
     const aHelpFile: AnsiString); override;
    {$IfEnd} // NOT Defined(NoVCM)
-   procedure Loaded; override;
  end;//TNewGenRes
-
- TvcmApplicationRef = TNewGenRes;
-  {* Ссылка на приложение для DesignTime редакторов }
 {$IfEnd} // Defined(NewGen)
 
 implementation
@@ -47,12 +43,11 @@ uses
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
  , Windows
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
  , NewGenMainPrim_Form
  , Main_Form
  , evExtFormat
+ //#UC START# *4F6AE4A6014Dimpl_uses*
+ //#UC END# *4F6AE4A6014Dimpl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -82,18 +77,9 @@ begin
 end;//TNewGenRes.Runner
 {$IfEnd} // NOT Defined(NoVCM)
 
-procedure TNewGenRes.Loaded;
-begin
- inherited;
-end;//TNewGenRes.Loaded
-
 initialization
  str_NewGenTitle.Init;
  {* Инициализация str_NewGenTitle }
-{$If NOT Defined(NoScripts)}
- TtfwClassRef.Register(TNewGenRes);
- {* Регистрация NewGen }
-{$IfEnd} // NOT Defined(NoScripts)
 {$IfEnd} // Defined(NewGen)
 
 end.

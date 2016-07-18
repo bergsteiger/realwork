@@ -25,14 +25,9 @@ type
  _VCMAppTester_Parent_ = TMonitoringsRes;
  {$Include w:\common\components\gui\Garant\VCM\AppTesting\VCMAppTester.imp.pas}
  TPrimeTestRes = {final} class(_VCMAppTester_)
-  protected
-   procedure Loaded; override;
   public
    class function CalcBatchMode: Boolean; override;
  end;//TPrimeTestRes
-
- TvcmApplicationRef = TPrimeTestRes;
-  {* Ссылка на приложение для DesignTime редакторов }
 {$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND Defined(Monitorings)
 
 implementation
@@ -58,13 +53,12 @@ uses
  , tfwScriptEngineEX
  {$IfEnd} // NOT Defined(NoScripts)
  , l3BatchService
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
  , evExtFormat
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *5123800A0080impl_uses*
+ //#UC END# *5123800A0080impl_uses*
 ;
 
 {$If NOT Defined(Admin)}
@@ -78,17 +72,6 @@ begin
  Result := KTestRunner.NeedKTestRunner([TtoKPrime, TtoKTPrime]);
 //#UC END# *4F79BCC902C5_5123800A0080_impl*
 end;//TPrimeTestRes.CalcBatchMode
-
-procedure TPrimeTestRes.Loaded;
-begin
- inherited;
-end;//TPrimeTestRes.Loaded
-
-initialization
-{$If NOT Defined(NoScripts)}
- TtfwClassRef.Register(TPrimeTestRes);
- {* Регистрация PrimeTest }
-{$IfEnd} // NOT Defined(NoScripts)
 {$IfEnd} // NOT Defined(Admin)
 
 {$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND Defined(Monitorings)

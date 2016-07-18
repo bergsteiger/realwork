@@ -25,7 +25,6 @@ uses
 type
  ItfwDebugService = interface
   {* Èםעונפויס סונגטסא TtfwDebugService }
-  ['{7662D5CA-0B56-4885-9CA3-C71B19B2379F}']
   function DebugScriptCaller: ItfwScriptCaller;
  end;//ItfwDebugService
 

@@ -40,6 +40,7 @@ uses
  {$If NOT Defined(Nemesis)}
  , dt_Sab
  {$IfEnd} // NOT Defined(Nemesis)
+ , daTypes
 ;
 
 function TalcuMdpStagesSyncronizer.GetGardocStageCode(aStageType: TStageType): Integer;

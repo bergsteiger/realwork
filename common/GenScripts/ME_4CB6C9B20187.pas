@@ -53,7 +53,6 @@ uses
  , l3Base
 ;
 
-{$If NOT Defined(NoVCM)}
 type _Instance_R_ = TdsCreateFilter;
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSource.imp.pas}
@@ -86,7 +85,6 @@ begin
  PartData.Filter.SetName(nsIStr(aName));
 //#UC END# *4CB6C966029D_4CB6C9B20187_impl*
 end;//TdsCreateFilter.RenameFilter
-{$IfEnd} // NOT Defined(NoVCM)
-
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+
 end.

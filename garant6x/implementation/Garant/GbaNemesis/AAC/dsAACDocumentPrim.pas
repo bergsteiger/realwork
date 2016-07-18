@@ -1,51 +1,38 @@
 unit dsAACDocumentPrim;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AAC$DataSources"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/AAC/dsAACDocumentPrim.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ViewAreaControllerImp::Class>> F1 Пользовательские сервисы::AAC::AAC$DataSources::AACImplementation::TdsAACDocumentPrim
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\AAC\dsAACDocumentPrim.pas"
+// Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "TdsAACDocumentPrim" MUID: (500E749D0046)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  evdTypes,
-  dsDocument
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , dsDocument
+ , evdTypes
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
- TdsAACDocumentPrim = {vac} class(TdsDocument)
- protected
- // overridden protected methods
-   {$If not defined(NoVCM)}
-   function GetIsNeedChangePosition(const aDataSource: _FormDataSourceType_): Boolean; override;
-   {$IfEnd} //not NoVCM
- protected
- // protected methods
+ TdsAACDocumentPrim = class(TdsDocument)
+  protected
    function BlockViewKind: TevBlockViewKind; virtual; abstract;
+   {$If NOT Defined(NoVCM)}
+   function GetIsNeedChangePosition(const aDataSource: _FormDataSourceType_): Boolean; override;
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//TdsAACDocumentPrim
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+uses
+ l3ImplUses
+;
 
-// start class TdsAACDocumentPrim
-
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 function TdsAACDocumentPrim.GetIsNeedChangePosition(const aDataSource: _FormDataSourceType_): Boolean;
 //#UC START# *49147B4602C0_500E749D0046_var*
 //#UC END# *49147B4602C0_500E749D0046_var*
@@ -54,8 +41,7 @@ begin
  Result := (_FormDataSourceType_(Self) = aDataSource);
 //#UC END# *49147B4602C0_500E749D0046_impl*
 end;//TdsAACDocumentPrim.GetIsNeedChangePosition
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //not Admin AND not Monitorings
-
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

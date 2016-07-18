@@ -1,82 +1,73 @@
 unit Filters_Module;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Filters/Filters_Module.pas"
-// Начат: 29.10.2010 15:00
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMFormsPack::Class>> F1 Основные прецеденты::Filters::View::Filters::Filters$FP
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Filters\Filters_Module.pas"
+// Стереотип: "VCMFormsPack"
+// Элемент модели: "Filters" MUID: (4CCAA9E50274)
+// Имя типа: "TFiltersModule"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  FiltersUnit,
-  SearchUnit
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  Classes,
-  SimpleListInterfaces,
-  Common_FormDefinitions_Controls,
-  PrimFiltersOptions_Form,
-  PrimCreateFilter_Form,
-  Filters_Form,
-  CreateFilter_Form,
-  vcmExternalInterfaces {a},
-  vcmModule {a},
-  vcmBase {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , SimpleListInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , Classes
+ , SearchUnit
+ , FiltersUnit
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
- TFiltersModule = {formspack} class(TvcmModule)
- protected
-  class procedure GetEntityForms(aList : TvcmClassList); override;
- public
- // public methods
+ TFiltersModule = class({$If NOT Defined(NoVCM)}
+ TvcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
+  protected
+   {$If NOT Defined(NoVCM)}
+   class procedure GetEntityForms(aList: TvcmClassList); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    class procedure FiltersOpen(const aData: IucpFilters);
    class procedure OldSchoolFiltersOpen(const anAggregate: IvcmAggregate;
-     const aContainer: IvcmContainer;
-     anOwner: TComponent);
+    const aContainer: IvcmContainer;
+    anOwner: TComponent);
    class function CreateFilter(const aQuery: IQuery): Integer;
    class procedure RenameFilter(const aFilter: IFilterFromQuery);
  end;//TFiltersModule
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DataAdapter,
-  PrimCreateFilter_cfRename_UserType,
-  PrimCreateFilter_cfCreate_UserType,
-  dsCreateFilter,
-  deFilter,
-  Search_Strange_Controls,
-  vcmFormSetFactory {a},
-  StdRes {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , Search_Strange_Controls
+ , DataAdapter
+ , PrimCreateFilter_cfRename_UserType
+ , PrimCreateFilter_cfCreate_UserType
+ , dsCreateFilter
+ , deFilter
+ , Filters_Form
+ , CreateFilter_Form
+ , Common_FormDefinitions_Controls
+ //#UC START# *4CCAA9E50274impl_uses*
+ //#UC END# *4CCAA9E50274impl_uses*
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TFiltersModule
-
+{$If NOT Defined(NoVCM)}
 class procedure TFiltersModule.FiltersOpen(const aData: IucpFilters);
 var
  __WasEnter : Boolean;
@@ -97,14 +88,13 @@ begin
 end;//TFiltersModule.FiltersOpen
 
 class procedure TFiltersModule.OldSchoolFiltersOpen(const anAggregate: IvcmAggregate;
-  const aContainer: IvcmContainer;
-  anOwner: TComponent);
+ const aContainer: IvcmContainer;
+ anOwner: TComponent);
+var l_Filters: IvcmEntityForm;
 var
  __WasEnter : Boolean;
 //#UC START# *4AC09F4F011A_4CCAA9E50274_var*
 //#UC END# *4AC09F4F011A_4CCAA9E50274_var*
-var
- l_Filters : IvcmEntityForm;
 begin
  __WasEnter := vcmEnterFactory;
  try
@@ -177,13 +167,13 @@ begin
  end;//try..finally
 end;//TFiltersModule.RenameFilter
 
-class procedure TFiltersModule.GetEntityForms(aList : TvcmClassList);
+class procedure TFiltersModule.GetEntityForms(aList: TvcmClassList);
 begin
  inherited;
  aList.Add(TenFilters);
  aList.Add(TCreateFilterForm);
-end;
+end;//TFiltersModule.GetEntityForms
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //not Admin AND not Monitorings
-
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

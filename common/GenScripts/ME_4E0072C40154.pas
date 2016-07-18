@@ -12,6 +12,7 @@ interface
 uses
  l3IntfUses
  , arTextOfDocument
+ , daTypes
  , dt_Types
 ;
 
@@ -32,7 +33,7 @@ type
  end;//TarDocument
 
  TDocAddr = record
-  FamID: TFamilyID;
+  FamID: TdaFamilyID;
   DocID: TDocID;
  end;//TDocAddr
 {$IfEnd} // Defined(AppClientSide)

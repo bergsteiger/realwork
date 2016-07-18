@@ -23,14 +23,9 @@ type
  _VCMAppTester_Parent_ = TNemesisRes;
  {$Include w:\common\components\gui\Garant\VCM\AppTesting\VCMAppTester.imp.pas}
  TNemesisTestRes = {final} class(_VCMAppTester_)
-  protected
-   procedure Loaded; override;
   public
    class function CalcBatchMode: Boolean; override;
  end;//TNemesisTestRes
-
- TvcmApplicationRef = TNemesisTestRes;
-  {* Ссылка на приложение для DesignTime редакторов }
 {$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
@@ -67,10 +62,9 @@ uses
  , tfwScriptEngineEX
  {$IfEnd} // NOT Defined(NoScripts)
  , l3BatchService
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
  , evExtFormat
+ //#UC START# *4D9F2DDA024Dimpl_uses*
+ //#UC END# *4D9F2DDA024Dimpl_uses*
 ;
 
 {$Include w:\common\components\gui\Garant\VCM\AppTesting\VCMAppTester.imp.pas}
@@ -83,17 +77,6 @@ begin
  Result := KTestRunner.NeedKTestRunner([TtoK, TItsLAW, TtoK64, TtoKT, TBaseUC, TtoK2, TtoK3]);
 //#UC END# *4F79BCC902C5_4D9F2DDA024D_impl*
 end;//TNemesisTestRes.CalcBatchMode
-
-procedure TNemesisTestRes.Loaded;
-begin
- inherited;
-end;//TNemesisTestRes.Loaded
-
-initialization
-{$If NOT Defined(NoScripts)}
- TtfwClassRef.Register(TNemesisTestRes);
- {* Регистрация NemesisTest }
-{$IfEnd} // NOT Defined(NoScripts)
 {$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

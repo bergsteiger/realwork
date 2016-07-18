@@ -23,14 +23,9 @@ type
  _VCMAppTester_Parent_ = TAdminAppRes;
  {$Include w:\common\components\gui\Garant\VCM\AppTesting\VCMAppTester.imp.pas}
  TAdminTestRes = {final} class(_VCMAppTester_)
-  protected
-   procedure Loaded; override;
   public
    class function CalcBatchMode: Boolean; override;
  end;//TAdminTestRes
-
- TvcmApplicationRef = TAdminTestRes;
-  {* Ссылка на приложение для DesignTime редакторов }
 {$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND Defined(Admin)
 
 implementation
@@ -55,13 +50,12 @@ uses
  , tfwScriptEngineEX
  {$IfEnd} // NOT Defined(NoScripts)
  , l3BatchService
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
  , evExtFormat
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *5123A74700E2impl_uses*
+ //#UC END# *5123A74700E2impl_uses*
 ;
 
 {$Include w:\common\components\gui\Garant\VCM\AppTesting\VCMAppTester.imp.pas}
@@ -74,17 +68,6 @@ begin
  Result := KTestRunner.NeedKTestRunner([TtoKAdmin]);
 //#UC END# *4F79BCC902C5_5123A74700E2_impl*
 end;//TAdminTestRes.CalcBatchMode
-
-procedure TAdminTestRes.Loaded;
-begin
- inherited;
-end;//TAdminTestRes.Loaded
-
-initialization
-{$If NOT Defined(NoScripts)}
- TtfwClassRef.Register(TAdminTestRes);
- {* Регистрация AdminTest }
-{$IfEnd} // NOT Defined(NoScripts)
 {$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND Defined(Admin)
 
 end.

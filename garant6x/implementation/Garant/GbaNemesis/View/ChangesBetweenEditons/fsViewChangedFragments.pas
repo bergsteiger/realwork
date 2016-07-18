@@ -1,121 +1,82 @@
 unit fsViewChangedFragments;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/ChangesBetweenEditons/fsViewChangedFragments.pas"
-// Начат: 24.05.2011 17:14
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMFormSetFactory::Class>> F1 Пользовательские сервисы::ChangesBetweenEditions::View::ChangesBetweenEditons::ChangesBetweenEditions::ViewChangedFragments$FSF
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\ChangesBetweenEditons\fsViewChangedFragments.pas"
+// Стереотип: "VCMFormSetFactory"
+// Элемент модели: "ViewChangedFragments" MUID: (4DDCBC5C0211)
+// Имя типа: "Tfs_ViewChangedFragments"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmFormSetFactory
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  ,
-  ChangesBetweenEditons_Form,
-  ChangesBetweenEditionsInterfaces,
-  PrimChangesBetweenEditons_DocumentChanges_UserType
-  {$If not defined(NoVCM)}
-  ,
-  vcmFormSetFormsCollectionItemPrim
-  {$IfEnd} //not NoVCM
-  ,
-  DocumentUnit,
-  nevTools,
-  DocumentInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmFormSetFactoryPrim
-  {$IfEnd} //not NoVCM
-  
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmFormSetFactory
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmUserControls
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmFormSetFactoryPrim
+ {$IfEnd} // NOT Defined(NoVCM)
+ , ChangesBetweenEditons_Form
+ , PrimChangesBetweenEditons_DocumentChanges_UserType
+ , ChangesBetweenEditionsInterfaces
+ , DocumentUnit
+ , nevTools
+ , DocumentInterfaces
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
-  Tfs_ViewChangedFragments = {final fsf} class(TvcmFormSetFactory)
+ Tfs_ViewChangedFragments = {final} class({$If NOT Defined(NoVCM)}
+ TvcmFormSetFactory
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   protected
-  // overridden protected methods
    procedure InitFields; override;
-    {$If not defined(NoVCM)}
+   {$If NOT Defined(NoVCM)}
    class function GetInstance: TvcmFormSetFactoryPrim; override;
-    {$IfEnd} //not NoVCM
+   {$IfEnd} // NOT Defined(NoVCM)
   public
-  // public methods
    function ParentParentDocumentChangesNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-      out aNew: IvcmFormDataSource;
-      aSubUserType: TvcmUserType): Boolean;
-     {* Обработчик OnNeedMakeForm для Parent }
+    out aNew: IvcmFormDataSource;
+    aSubUserType: TvcmUserType): Boolean;
+    {* Обработчик OnNeedMakeForm для Parent }
+   class function Instance: Tfs_ViewChangedFragments;
+    {* Метод получения экземпляра синглетона Tfs_ViewChangedFragments }
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
-  public
-  // singleton factory method
-    class function Instance: Tfs_ViewChangedFragments;
-     {- возвращает экземпляр синглетона. }
-  end;//Tfs_ViewChangedFragments
-{$IfEnd} //not Admin AND not Monitorings
+    {* Проверяет создан экземпляр синглетона или нет }
+ end;//Tfs_ViewChangedFragments
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Base {a},
-  SysUtils
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , SysUtils
+ , l3Base
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-
-// start class Tfs_ViewChangedFragments
-
-var g_Tfs_ViewChangedFragments : Tfs_ViewChangedFragments = nil;
+{$If NOT Defined(NoVCM)}
+var g_Tfs_ViewChangedFragments: Tfs_ViewChangedFragments = nil;
+ {* Экземпляр синглетона Tfs_ViewChangedFragments }
 
 procedure Tfs_ViewChangedFragmentsFree;
+ {* Метод освобождения экземпляра синглетона Tfs_ViewChangedFragments }
 begin
  l3Free(g_Tfs_ViewChangedFragments);
-end;
-
-class function Tfs_ViewChangedFragments.Instance: Tfs_ViewChangedFragments;
-begin
- if (g_Tfs_ViewChangedFragments = nil) then
- begin
-  l3System.AddExitProc(Tfs_ViewChangedFragmentsFree);
-  g_Tfs_ViewChangedFragments := Create;
- end;
- Result := g_Tfs_ViewChangedFragments;
-end;
-
+end;//Tfs_ViewChangedFragmentsFree
 
 function Tfs_ViewChangedFragments.ParentParentDocumentChangesNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-  out aNew: IvcmFormDataSource;
-  aSubUserType: TvcmUserType): Boolean;
+ out aNew: IvcmFormDataSource;
+ aSubUserType: TvcmUserType): Boolean;
+ {* Обработчик OnNeedMakeForm для Parent }
 var
  l_UseCase : IsdsChangesBetweenEditions;
 begin
@@ -128,14 +89,24 @@ begin
  Result := (aNew <> nil);
 end;//Tfs_ViewChangedFragments.ParentParentDocumentChangesNeedMakeForm
 
+class function Tfs_ViewChangedFragments.Instance: Tfs_ViewChangedFragments;
+ {* Метод получения экземпляра синглетона Tfs_ViewChangedFragments }
+begin
+ if (g_Tfs_ViewChangedFragments = nil) then
+ begin
+  l3System.AddExitProc(Tfs_ViewChangedFragmentsFree);
+  g_Tfs_ViewChangedFragments := Create;
+ end;
+ Result := g_Tfs_ViewChangedFragments;
+end;//Tfs_ViewChangedFragments.Instance
+
 class function Tfs_ViewChangedFragments.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_Tfs_ViewChangedFragments <> nil;
 end;//Tfs_ViewChangedFragments.Exists
 
 procedure Tfs_ViewChangedFragments.InitFields;
- {-}
 begin
  inherited;
  with AddZone('Parent', vcm_ztParent, fm_ChangesBetweenEditonsForm) do
@@ -146,14 +117,11 @@ begin
  OwnerForm := 0;
 end;//Tfs_ViewChangedFragments.InitFields
 
-{$If not defined(NoVCM)}
 class function Tfs_ViewChangedFragments.GetInstance: TvcmFormSetFactoryPrim;
- {-}
 begin
  Result := Self.Instance;
 end;//Tfs_ViewChangedFragments.GetInstance
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //not Admin AND not Monitorings
-
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

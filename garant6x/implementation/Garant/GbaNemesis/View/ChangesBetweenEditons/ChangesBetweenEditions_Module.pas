@@ -1,112 +1,77 @@
 unit ChangesBetweenEditions_Module;
+ {* Просмотр только измененных фрагментов }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/ChangesBetweenEditons/ChangesBetweenEditions_Module.pas"
-// Начат: 24.05.2011 17:14
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMFormsPack::Class>> F1 Пользовательские сервисы::ChangesBetweenEditions::View::ChangesBetweenEditons::ChangesBetweenEditions
-//
-// Просмотр только измененных фрагментов
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\ChangesBetweenEditons\ChangesBetweenEditions_Module.pas"
+// Стереотип: "VCMFormsPack"
+// Элемент модели: "ChangesBetweenEditions" MUID: (4DDBAF2B0028)
+// Имя типа: "TChangesBetweenEditionsModule"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DocumentUnit
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmFormSetFactory
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  ,
-  PrimChangesBetweenEditons_Form,
-  ChangesBetweenEditons_Form,
-  ChangesBetweenEditionsInterfaces,
-  PrimChangesBetweenEditons_DocumentChanges_UserType,
-  l3MessageID
-  {$If not defined(NoVCM)}
-  ,
-  vcmFormSetFormsCollectionItemPrim
-  {$IfEnd} //not NoVCM
-  ,
-  fsViewChangedFragments,
-  vcmExternalInterfaces {a},
-  vcmModule {a},
-  vcmBase {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , DocumentUnit
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
- TChangesBetweenEditionsModule = {formspack} class(TvcmModule)
+ TChangesBetweenEditionsModule = class({$If NOT Defined(NoVCM)}
+ TvcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* Просмотр только измененных фрагментов }
- protected
-  class procedure GetEntityForms(aList : TvcmClassList); override;
- public
- // public methods
+  protected
+   {$If NOT Defined(NoVCM)}
+   class procedure GetEntityForms(aList: TvcmClassList); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    class procedure ViewChangedFragments(const aLeft: IDocument;
-     const aRight: IDocument);
+    const aRight: IDocument);
    class procedure ViewChangedFragmentsForPrevEdition(const aDocument: IDocument);
-     {* Просмотр изменёных фрагментов в сравнении с предыдущей редакцией }
+    {* Просмотр изменёных фрагментов в сравнении с предыдущей редакцией }
  end;//TChangesBetweenEditionsModule
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DataAdapter,
-  sdsChangesBetweenEditions,
-  nsChangesBetweenEditionsInfo
-  {$If not defined(NoVCM)}
-  ,
-  vcmMessagesSupport
-  {$IfEnd} //not NoVCM
-  ,
-  l3Base {a},
-  SysUtils,
-  l3StringIDEx
-  {$If not defined(NoVCL)}
-  ,
-  Dialogs
-  {$IfEnd} //not NoVCL
-  ,
-  StdRes {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , l3MessageID
+ , DataAdapter
+ , sdsChangesBetweenEditions
+ , nsChangesBetweenEditionsInfo
+ , fsViewChangedFragments
+ {$If NOT Defined(NoVCM)}
+ , vcmMessagesSupport
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCL)}
+ , Dialogs
+ {$IfEnd} // NOT Defined(NoVCL)
+ , ChangesBetweenEditons_Form
+ //#UC START# *4DDBAF2B0028impl_uses*
+ //#UC END# *4DDBAF2B0028impl_uses*
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-var
-   { Локализуемые строки Local }
-  str_CannotShowChanges : Tl3MessageID = (rS : -1; rLocalized : false; rKey : 'CannotShowChanges'; rValue : 'Изменения не могут быть отображены в сводном обзоре');
-   { 'Изменения не могут быть отображены в сводном обзоре' }
-
-// start class TChangesBetweenEditionsModule
+{$If NOT Defined(NoVCM)}
+const
+ {* Локализуемые строки Local }
+ str_CannotShowChanges: Tl3MessageID = (rS : -1; rLocalized : false; rKey : 'CannotShowChanges'; rValue : 'Изменения не могут быть отображены в сводном обзоре');
+  {* 'Изменения не могут быть отображены в сводном обзоре' }
 
 class procedure TChangesBetweenEditionsModule.ViewChangedFragments(const aLeft: IDocument;
-  const aRight: IDocument);
+ const aRight: IDocument);
 var
  __WasEnter : Boolean;
 //#UC START# *4DDCBB5D0298_4DDBAF2B0028_var*
@@ -138,6 +103,7 @@ begin
 end;//TChangesBetweenEditionsModule.ViewChangedFragments
 
 class procedure TChangesBetweenEditionsModule.ViewChangedFragmentsForPrevEdition(const aDocument: IDocument);
+ {* Просмотр изменёных фрагментов в сравнении с предыдущей редакцией }
 var
  __WasEnter : Boolean;
 //#UC START# *4DE513C202B3_4DDBAF2B0028_var*
@@ -163,19 +129,17 @@ begin
  end;//try..finally
 end;//TChangesBetweenEditionsModule.ViewChangedFragmentsForPrevEdition
 
-class procedure TChangesBetweenEditionsModule.GetEntityForms(aList : TvcmClassList);
+class procedure TChangesBetweenEditionsModule.GetEntityForms(aList: TvcmClassList);
 begin
  inherited;
  aList.Add(TChangesBetweenEditonsForm);
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+end;//TChangesBetweenEditionsModule.GetEntityForms
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_CannotShowChanges
  str_CannotShowChanges.Init;
  str_CannotShowChanges.SetDlgType(mtWarning);
-{$IfEnd} //not Admin AND not Monitorings
+ {* Инициализация str_CannotShowChanges }
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

@@ -20,6 +20,7 @@ implementation
 
 uses
  l3ImplUses
+ , vtClipSpyService
 ;
 
 end.

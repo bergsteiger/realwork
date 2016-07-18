@@ -86,7 +86,6 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
 ;
 
-{$If NOT Defined(NoVCM)}
 type _Instance_R_ = TsdsChangesBetweenEditions;
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormSetDataSource.imp.pas}
@@ -103,6 +102,7 @@ begin
  Result := Self;
 end;//TsdsChangesBetweenEditions.As_IsdsEditionsHolder
 
+{$If NOT Defined(NoVCM)}
 function TsdsChangesBetweenEditions.MakeData: _SetDataType_;
  {* Данные сборки. }
 //#UC START# *47F3778403D9_4DDCD7D0002E_var*
@@ -112,6 +112,7 @@ begin
  Result := TsdsChangesBetweenEditionsData.Make(InitialUseCaseData);
 //#UC END# *47F3778403D9_4DDCD7D0002E_impl*
 end;//TsdsChangesBetweenEditions.MakeData
+{$IfEnd} // NOT Defined(NoVCM)
 
 function TsdsChangesBetweenEditions.pm_GetChanges: IdsChangesBetweenEditions;
 //#UC START# *4DDCD7520351_4DDCD7D0002Eget_var*
@@ -180,6 +181,7 @@ begin
 //#UC END# *4ED906420134_4DDCD7D0002Earea_impl*
 end;//TsdsChangesBetweenEditions.DoGet_EditionsList
 
+{$If NOT Defined(NoVCM)}
 function TsdsChangesBetweenEditions.DoGetFormSetImageIndex: Integer;
 //#UC START# *53B3BF9C00EF_4DDCD7D0002E_var*
 //#UC END# *53B3BF9C00EF_4DDCD7D0002E_var*
@@ -188,6 +190,7 @@ begin
  Result := nsTabIconIndex(titChangesBetweenEditions);
 //#UC END# *53B3BF9C00EF_4DDCD7D0002E_impl*
 end;//TsdsChangesBetweenEditions.DoGetFormSetImageIndex
+{$IfEnd} // NOT Defined(NoVCM)
 
 procedure TsdsChangesBetweenEditions.ClearFields;
 begin
@@ -196,6 +199,7 @@ begin
  inherited;
 end;//TsdsChangesBetweenEditions.ClearFields
 
+{$If NOT Defined(NoVCM)}
 procedure TsdsChangesBetweenEditions.ClearAreas;
  {* Очищает ссылки на области ввода }
 begin

@@ -1,59 +1,55 @@
 unit moBaseSearch;
+ {* Базовый поиск }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/moBaseSearch.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMUseCaseRealization::Class>> F1 Основные прецеденты::BaseSearch::BaseSearch$UC
-//
-// Базовый поиск
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\moBaseSearch.pas"
+// Стереотип: "VCMUseCaseRealization"
+// Элемент модели: "BaseSearch" MUID: (4CC97A9F0310)
+// Имя типа: "Tmo_BaseSearch"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  BaseSearch_Module
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , BaseSearch_Module
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
-Tmo_BaseSearch = {final formspack} class(TBaseSearchModule)
- {* Базовый поиск }
-end;//Tmo_BaseSearch
-{$IfEnd} //not Admin AND not Monitorings
+ Tmo_BaseSearch = {final} class(TBaseSearchModule)
+  {* Базовый поиск }
+ end;//Tmo_BaseSearch
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , vcmModulesForRegister
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmModuleOperationsForRegister
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация BaseSearch$UC
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(Tmo_BaseSearch);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация BaseSearch }
+{$IfEnd} // NOT Defined(NoScripts)
+ TvcmModulesForRegister.AddModule(TvcmModuleForRegister_C(Tmo_BaseSearch, 'Базовый поиск'));
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.
