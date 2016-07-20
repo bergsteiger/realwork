@@ -341,10 +341,6 @@ f _OutInclude
 //	#  procedure ClearRefs; override;
 //	]\
 
-	[#protected
-	%S%f_pas_OutOverridesIntf()\
-	]\
-	\
 //	[#private
 //	#// property fields
 //	%f_with_gen_id(intf3.pas,<{}{%C#f_IsStaticObject()!=true&%C#f_IsStruct()!=true}[%CX\n]>)]\
@@ -551,33 +547,6 @@ f _CalcParentAndInclude
 //#UC START# *494B7E8B02B1for470F151302FD*
 	false
 //#UC END# *494B7E8B02B1for470F151302FD*
-
-// Выводит интерфейс переопределённых методов
-%f _pas_OutOverridesIntf
-//#UC START# *494B856502ECfor470F151302FD*
-//	[{%S%f_NeedCleanupFields()=true}\
-//	#  procedure ClearFields; override;
-//	]
-//#UC END# *494B856502ECfor470F151302FD*
-
-// Выводит реализацию переопределённых методов
-%f _pas_OutOverridesImpl
-//#UC START# *494B86B5014Bfor470F151302FD*
-//	[{%S%f_NeedCleanupFields()=true}\
-//	%f_pas_OpenMethodImplementation("ClearFields",%S)\
-//	procedure %f_pas_TypeName(%S).ClearFields;
-//	begin
-//	<{}{%C#f_IsFieldForCleanup()=true}\
-//	 [{%C%T#f_IsStruct()=true}{\
-//	[{"%C%{clearViaProperty}N"!=""}{%C%f_pas_AttrName()}%C%{clearViaProperty}N]\
-//	 := nil\
-//	}\
-//	Finalize(%C%f_pas_AttrName())];\n\
-//	>\
-//	 inherited;
-//	end;\
-//	]
-//#UC END# *494B86B5014Bfor470F151302FD*
 
 // Имя атрибута
 %f _pas_AttrName
@@ -2312,6 +2281,10 @@ f _NeedFinalize
 	 CONST extprop:SDS_CASTER %f_out_val("%S%{SDS_CASTER}N")
 	]\
 
+	[{"%S%{CASTER}U"!=""}\
+	 : extprop:CASTER %S%{CASTER}#f_pas_script_Reference() ;
+	]\
+
 	[{%S#f_pas_script_IsAttribute()=true}\
 	[{"%S%{clearViaProperty}N"!=""}\
 	[\
@@ -3005,6 +2978,10 @@ f _IsConstants
 //	[{"%S%{Mixin}U"!=""}\
 //	%S%{Mixin}#f_pas_script_GenerateIncludeOrForward()\
 //	]\
+
+	[{"%S%{CASTER}U"!=""}\
+	%S%{CASTER}#f_pas_script_GenerateIncludeOrForward()\
+	]\
 
 	[{"%S%{Speller}U"!=""}\
 	%S%{Speller}#f_pas_script_GenerateIncludeOrForward()\

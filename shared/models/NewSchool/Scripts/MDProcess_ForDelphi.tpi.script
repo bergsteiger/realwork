@@ -1084,13 +1084,6 @@ REDEFINITION : st_attr::Attribute Inherits ( st_attr::Attribute )
  @SELF
 ; // st_User
 
-: st_OperationsPublisher
- CONST UID '4A770F4B0057'
- CONST Name 'OperationsPublisher'
- CONST Stereotype 'MDAClass'
- @SELF
-; // st_OperationsPublisher
-
 : st_VCMZonePrim Inherits ( st_WikiImplClass )
  CONST UID '4A797DC60043'
  CONST Name 'VCMZonePrim'
@@ -1112,7 +1105,7 @@ REDEFINITION : st_attr::Attribute Inherits ( st_attr::Attribute )
  @SELF
 ; // st_UserTypeIDHolder
 
-: st_VCMOperationPrim Inherits ( st_OperationsPublisher )
+: st_VCMOperationPrim
  CONST UID '494F818000E6'
  CONST Name 'VCMOperationPrim'
  CONST Stereotype 'MDAClass'
@@ -1126,7 +1119,7 @@ REDEFINITION : st_attr::Attribute Inherits ( st_attr::Attribute )
  @SELF
 ; // st_VCMOperationBase
 
-: st_VCMOperations Inherits ( st_WikiImplClass st_OperationsPublisher )
+: st_VCMOperations Inherits ( st_WikiImplClass )
  CONST UID '494F808C01DB'
  CONST Name 'VCMOperations'
  CONST Stereotype 'MDAClass'
@@ -1252,7 +1245,7 @@ REDEFINITION : st_attr::Attribute Inherits ( st_attr::Attribute )
  @SELF
 ; // st_VCMController
 
-: st_VCMForm Inherits ( st_VCMCustomForm st_OperationsPublisher )
+: st_VCMForm Inherits ( st_VCMCustomForm )
  CONST UID '4B5DA84A00DD'
  CONST Name 'VCMForm'
  CONST Stereotype 'MDAClass'
@@ -1399,7 +1392,7 @@ REDEFINITION : st_UseCase::Attribute Inherits ( st_VCMController )
  @SELF
 ; // st_VCMZone
 
-: st_ModuleOperationPrim Inherits ( st_OperationsPublisher )
+: st_ModuleOperationPrim
  CONST UID '4A9D2DEA0027'
  CONST Name 'ModuleOperationPrim'
  CONST Stereotype 'MDAClass'
@@ -1413,7 +1406,7 @@ REDEFINITION : st_UseCase::Attribute Inherits ( st_VCMController )
  @SELF
 ; // st_ModuleMethod
 
-: st_VCMFormsPack Inherits ( st_SimpleClass st_OperationsPublisher )
+: st_VCMFormsPack Inherits ( st_SimpleClass )
  CONST UID '498AFF8101F5'
  CONST Name 'VCMFormsPack'
  CONST Stereotype 'MDAClass'

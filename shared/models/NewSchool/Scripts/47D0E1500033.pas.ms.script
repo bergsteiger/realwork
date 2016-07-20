@@ -3523,9 +3523,23 @@ ref; // ME_52860C0403B8 f_List
 
 ref; // ME_52860DB40021 f_GUID
 
+: ME_578C88BC00DA
+ CONST UID '578C88BC00DA'
+ CONST Name 'f_CanBeCloned'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_528609ED0325 // TvcmAggregate
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_578C88BC00DA f_CanBeCloned
+
 FORWARD ME_52860CA00075
 
-: ME_52860D4002AF
+: ME_578C948E020D
  CONST Name 'aGUID'
  CONST Class class_Parameter
  : Stereotype st_in ;
@@ -3536,7 +3550,20 @@ FORWARD ME_52860CA00075
  ;
  CONST extprop:pas:Value 'nil'
 
-ref; // ME_52860D4002AF aGUID
+ref; // ME_578C948E020D aGUID
+
+: ME_578C948E021D
+ CONST Name 'aCanBeCloned'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST Value true
+ : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST extprop:pas:Value true
+
+ref; // ME_578C948E021D aCanBeCloned
 
 : ME_52860D2F002C
  CONST UID '52860D2F002C'
@@ -3547,7 +3574,8 @@ ref; // ME_52860D4002AF aGUID
  : Parent HWL ME_52860CA00075 // Create
  ;
  : Parameters
-   Seq: ( ME_52860D4002AF // aGUID
+   Seq: ( ME_578C948E020D // aGUID
+ ME_578C948E021D // aCanBeCloned
  )
  ; // Parameters
 
@@ -3586,7 +3614,7 @@ ref; // ME_52860CA00075 Create
 
 FORWARD ME_52860CAD0035
 
-: ME_52860D1900AD
+: ME_578C949600F7
  CONST Name 'aGUID'
  CONST Class class_Parameter
  : Stereotype st_in ;
@@ -3597,7 +3625,20 @@ FORWARD ME_52860CAD0035
  ;
  CONST extprop:pas:Value 'nil'
 
-ref; // ME_52860D1900AD aGUID
+ref; // ME_578C949600F7 aGUID
+
+: ME_578C94960116
+ CONST Name 'aCanBeCloned'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST Value true
+ : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST extprop:pas:Value true
+
+ref; // ME_578C94960116 aCanBeCloned
 
 : ME_52860CBF02D7
  CONST UID '52860CBF02D7'
@@ -3610,7 +3651,8 @@ ref; // ME_52860D1900AD aGUID
  : Target WL 'ME_49930CC501C9' '4683F37902CF.pas.ms.script' // IvcmAggregate
  ;
  : Parameters
-   Seq: ( ME_52860D1900AD // aGUID
+   Seq: ( ME_578C949600F7 // aGUID
+ ME_578C94960116 // aCanBeCloned
  )
  ; // Parameters
  CONST "finished" false
@@ -3661,6 +3703,38 @@ ref; // ME_52860E130307
  CONST "is static" true
 
 ref; // ME_52860CAD0035 Make
+
+FORWARD ME_578DDE26002B
+
+: ME_578DDE30022D
+ CONST UID '578DDE30022D'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_578DDE26002B // DoGetCanBeCloned
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_578DDE30022D DoIt
+
+: ME_578DDE26002B
+ CONST UID '578DDE26002B'
+ CONST Name 'DoGetCanBeCloned'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_528609ED0325 // TvcmAggregate
+ ;
+ : Operations
+   Seq: ( HWL ME_578DDE30022D // DoIt
+ )
+ ; // Operations
+
+ref; // ME_578DDE26002B DoGetCanBeCloned
 
 : ME_5289E27801D4
  CONST Class class_Dependency
@@ -3733,6 +3807,13 @@ ref; // ME_528A07FB0004_ME_528609ED0325 Entity
  CONST "pm" false
 ref; // ME_528A088B00F5_ME_528609ED0325 EntitiesCount
 
+: ME_578C8F480100_ME_528609ED0325
+ : Original WL 'ME_578C8F480100' '4683F37902CF.pas.ms.script' // CanBeCloned
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_578C8F480100_ME_528609ED0325 CanBeCloned
+
 : ME_479731C50290_ME_528609ED0325
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
  ;
@@ -3761,11 +3842,13 @@ ref; // ME_479731C50290_ME_528609ED0325 Cleanup
  : Attributes
    Seq: ( HWL ME_52860C0403B8 // f_List
  HWL ME_52860DB40021 // f_GUID
+ HWL ME_578C88BC00DA // f_CanBeCloned
  )
  ; // Attributes
  : Operations
    Seq: ( HWL ME_52860CA00075 // Create
  HWL ME_52860CAD0035 // Make
+ HWL ME_578DDE26002B // DoGetCanBeCloned
  )
  ; // Operations
  : Implemented
@@ -3777,6 +3860,7 @@ ref; // ME_479731C50290_ME_528609ED0325 Cleanup
  ME_499566250105_ME_528609ED0325 // GUID
  ME_528A07FB0004_ME_528609ED0325 // Entity
  ME_528A088B00F5_ME_528609ED0325 // EntitiesCount
+ ME_578C8F480100_ME_528609ED0325 // CanBeCloned
  )
  ; // Implemented
  : Overridden
@@ -6260,6 +6344,413 @@ ref; // ME_56113B640340 vcmOperationableIdentifiedUserFriendly
 
 ref; // ME_5624C8410121 TvcmBaseOperationDef
 
+FORWARD ME_578CA6EC0255
+
+FORWARD ME_578CA7B90020
+
+: ME_578CA80100E5
+ CONST UID '578CA80100E5'
+ CONST Name 'KeyType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent HWL ME_578CA7B90020 // TvcmAggregateContainerMap
+ ;
+ : Target WL 'ME_46A608F00301' '4AB0C3C60310.pas.ms.script' // Pointer
+ ;
+
+ref; // ME_578CA80100E5 KeyType
+
+: ME_578CA82B01FC
+ CONST UID '578CA82B01FC'
+ CONST Name 'ValueType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent HWL ME_578CA7B90020 // TvcmAggregateContainerMap
+ ;
+ : Target WL 'ME_46A608F00301' '4AB0C3C60310.pas.ms.script' // Pointer
+ ;
+
+ref; // ME_578CA82B01FC ValueType
+
+: ME_5609091B00C0_ME_578CA7B90020
+ : Original WL 'ME_5609091B00C0' '4A6D65B9022A.pas.ms.script' // CompareKeys
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_5609091B00C0_ME_578CA7B90020 CompareKeys
+
+: ME_578CA7B90020
+ CONST UID '578CA7B90020'
+ CONST Name 'TvcmAggregateContainerMap'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_578CA6EC0255 // TvcmAggregateContainerRegistry
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+ WL 'ME_5609096C03BE' '4A6D65B9022A.pas.ms.script' // l3Map
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( HWL ME_578CA80100E5 // KeyType
+ HWL ME_578CA82B01FC // ValueType
+ )
+ ; // Attributes
+ : Implemented
+   Seq: ( ME_5609091B00C0_ME_578CA7B90020 // CompareKeys
+ )
+ ; // Implemented
+ CONST extprop:rc:SelfName 'AggregateContainerMap'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_578CA7B90020 TvcmAggregateContainerMap
+
+: ME_578CB50E0397
+ CONST UID '578CB50E0397'
+ CONST Name 'Map'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_578CA6EC0255 // TvcmAggregateContainerRegistry
+ ;
+ : Target HWL ME_578CA7B90020 // TvcmAggregateContainerMap
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_578CB50E0397 Map
+
+FORWARD ME_578CA8350324
+
+: ME_578CAAB6025C
+ CONST Name 'aAggregate'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49930CC501C9' '4683F37902CF.pas.ms.script' // IvcmAggregate
+ ;
+
+ref; // ME_578CAAB6025C aAggregate
+
+: ME_578CA84B0303
+ CONST UID '578CA84B0303'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_578CA8350324 // GetAggregateContainer
+ ;
+ : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
+ ;
+ : Parameters
+   Seq: ( ME_578CAAB6025C // aAggregate
+ )
+ ; // Parameters
+
+ref; // ME_578CA84B0303 DoIt
+
+: ME_578CA8350324
+ CONST UID '578CA8350324'
+ CONST Name 'GetAggregateContainer'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_578CA6EC0255 // TvcmAggregateContainerRegistry
+ ;
+ : Operations
+   Seq: ( HWL ME_578CA84B0303 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_578CA8350324 GetAggregateContainer
+
+FORWARD ME_578CAABD001E
+
+: ME_578CAAD2031E
+ CONST Name 'aContainer'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
+ ;
+
+ref; // ME_578CAAD2031E aContainer
+
+: ME_578CAAC90399
+ CONST UID '578CAAC90399'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_578CAABD001E // GetContainedAggregate
+ ;
+ : Target WL 'ME_49930CC501C9' '4683F37902CF.pas.ms.script' // IvcmAggregate
+ ;
+ : Parameters
+   Seq: ( ME_578CAAD2031E // aContainer
+ )
+ ; // Parameters
+
+ref; // ME_578CAAC90399 DoIt
+
+: ME_578CAABD001E
+ CONST UID '578CAABD001E'
+ CONST Name 'GetContainedAggregate'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_578CA6EC0255 // TvcmAggregateContainerRegistry
+ ;
+ : Operations
+   Seq: ( HWL ME_578CAAC90399 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_578CAABD001E GetContainedAggregate
+
+FORWARD ME_578CAAD80333
+
+: ME_578CC05201BA
+ CONST Name 'aAggregate'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49930CC501C9' '4683F37902CF.pas.ms.script' // IvcmAggregate
+ ;
+
+ref; // ME_578CC05201BA aAggregate
+
+: ME_578CC05201CA
+ CONST Name 'aContainer'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
+ ;
+
+ref; // ME_578CC05201CA aContainer
+
+: ME_578CAAE30381
+ CONST UID '578CAAE30381'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_578CAAD80333 // RegisterAggregate
+ ;
+ : Parameters
+   Seq: ( ME_578CC05201BA // aAggregate
+ ME_578CC05201CA // aContainer
+ )
+ ; // Parameters
+
+ref; // ME_578CAAE30381 DoIt
+
+: ME_578CAAD80333
+ CONST UID '578CAAD80333'
+ CONST Name 'RegisterAggregate'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_578CA6EC0255 // TvcmAggregateContainerRegistry
+ ;
+ : Operations
+   Seq: ( HWL ME_578CAAE30381 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_578CAAD80333 RegisterAggregate
+
+FORWARD ME_578CAAF1030D
+
+: ME_578CAB0B02C7
+ CONST Name 'aAggregate'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49930CC501C9' '4683F37902CF.pas.ms.script' // IvcmAggregate
+ ;
+
+ref; // ME_578CAB0B02C7 aAggregate
+
+: ME_578CAB01019F
+ CONST UID '578CAB01019F'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_578CAAF1030D // UnregisterAggregate
+ ;
+ : Parameters
+   Seq: ( ME_578CAB0B02C7 // aAggregate
+ )
+ ; // Parameters
+
+ref; // ME_578CAB01019F DoIt
+
+: ME_578CAAF1030D
+ CONST UID '578CAAF1030D'
+ CONST Name 'UnregisterAggregate'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_578CA6EC0255 // TvcmAggregateContainerRegistry
+ ;
+ : Operations
+   Seq: ( HWL ME_578CAB01019F // DoIt
+ )
+ ; // Operations
+
+ref; // ME_578CAAF1030D UnregisterAggregate
+
+FORWARD ME_578CC3C40049
+
+: ME_578CC3E8031D
+ CONST Name 'aForm'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4914746C019E' '4683F37902CF.pas.ms.script' // IvcmEntityForm
+ ;
+
+ref; // ME_578CC3E8031D aForm
+
+: ME_578CC3E303D1
+ CONST UID '578CC3E303D1'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_578CC3C40049 // RegisterFormAggregate
+ ;
+ : Parameters
+   Seq: ( ME_578CC3E8031D // aForm
+ )
+ ; // Parameters
+
+ref; // ME_578CC3E303D1 DoIt
+
+: ME_578CC3C40049
+ CONST UID '578CC3C40049'
+ CONST Name 'RegisterFormAggregate'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_578CA6EC0255 // TvcmAggregateContainerRegistry
+ ;
+ : Operations
+   Seq: ( HWL ME_578CC3E303D1 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_578CC3C40049 RegisterFormAggregate
+
+: ME_578CAC690353
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_578CA6EC0255 // TvcmAggregateContainerRegistry
+ ;
+ : Target WL 'ME_49930CC501C9' '4683F37902CF.pas.ms.script' // IvcmAggregate
+ ;
+
+ref; // ME_578CAC690353 
+
+: ME_578CAC6D03B2
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_578CA6EC0255 // TvcmAggregateContainerRegistry
+ ;
+ : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
+ ;
+
+ref; // ME_578CAC6D03B2 
+
+: ME_578DD55300E8
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_578CA6EC0255 // TvcmAggregateContainerRegistry
+ ;
+ : Target HWL ME_5559A3F601FD // TvcmFormSetContainerRegistry
+ ;
+
+ref; // ME_578DD55300E8 
+
+: ME_479731C50290_ME_578CA6EC0255
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_479731C50290_ME_578CA6EC0255 Cleanup
+
+: ME_47A042E100E2_ME_578CA6EC0255
+ : Original WL 'ME_47A042E100E2' '47913B47006E.pas.ms.script' // InitFields
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_47A042E100E2_ME_578CA6EC0255 InitFields
+
+: ME_578CA6EC0255
+ CONST UID '578CA6EC0255'
+ CONST Name 'TvcmAggregateContainerRegistry'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_47D0E1500033 // Implementation
+ ;
+ : Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( HWL ME_578CB50E0397 // Map
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( HWL ME_578CA8350324 // GetAggregateContainer
+ HWL ME_578CAABD001E // GetContainedAggregate
+ HWL ME_578CAAD80333 // RegisterAggregate
+ HWL ME_578CAAF1030D // UnregisterAggregate
+ HWL ME_578CC3C40049 // RegisterFormAggregate
+ )
+ ; // Operations
+ : Overridden
+   Seq: ( ME_479731C50290_ME_578CA6EC0255 // Cleanup
+ ME_47A042E100E2_ME_578CA6EC0255 // InitFields
+ )
+ ; // Overridden
+ : Children
+   Seq: ( HWL ME_578CA7B90020 // TvcmAggregateContainerMap
+ )
+ ; // Children
+ : Dependencies
+   Seq: ( ME_578CAC690353 // IvcmAggregate
+ ME_578CAC6D03B2 // IvcmContainer
+ ME_578DD55300E8 // TvcmFormSetContainerRegistry
+ )
+ ; // Dependencies
+ CONST "singleton" true
+ CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\vcmAggregateContainerRegistry.pas'
+ CONST extprop:rc:SelfName 'AggregateContainerRegistry'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vcmAggregateContainerRegistry'
+
+ref; // ME_578CA6EC0255 TvcmAggregateContainerRegistry
+
 : ME_47D0E1500033
  CONST UID '47D0E1500033'
  CONST Name 'Implementation'
@@ -6316,6 +6807,7 @@ ref; // ME_5624C8410121 TvcmBaseOperationDef
  HWL ME_56113B1400C7 // TvcmBaseEntityDef
  HWL ME_56113B640340 // vcmOperationableIdentifiedUserFriendly
  HWL ME_5624C8410121 // TvcmBaseOperationDef
+ HWL ME_578CA6EC0255 // TvcmAggregateContainerRegistry
  )
  ; // Children
  : Depends
@@ -6336,6 +6828,7 @@ ref; // ME_5624C8410121 TvcmBaseOperationDef
  WL 'ME_499465EE030A' '499465EE030A.pas.ms.script' // vcmToolbarsInterfaces
  WL 'ME_499469840038' '499469840038.pas.ms.script' // vcmFormDispatcherInterfaces
  WL 'ME_499EAAE502A8' '499EAAE502A8.pas.ms.script' // vcmUserControls
+ WL 'ME_4A6D65B9022A' '4A6D65B9022A.pas.ms.script' // Containers
  WL 'ME_4A8D6EF403E4' '4A8D6EF403E4.pas.ms.script' // Containers
  WL 'ME_4AB0997B00A2' '4AB0997B00A2.pas.ms.script' // Common
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys

@@ -128,9 +128,9 @@ ref; // ME_4AC0B2B302FE AdjustCtrl
 
 ref; // ME_4AC0B2A102BE vtCtrls
 
-FORWARD ME_4F0C0B6801C7
+FORWARD ME_578F5E1601B5
 
-FORWARD ME_552E443E0209
+FORWARD ME_578F5E310137
 
 : ME_552FCD1F01FB
  CONST UID '552FCD1F01FB'
@@ -139,7 +139,7 @@ FORWARD ME_552E443E0209
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent HWL ME_552E443E0209 // TDragDataState
+ : Parent HWL ME_578F5E310137 // TDragDataState
  ;
 
 ref; // ME_552FCD1F01FB dsPassive
@@ -151,7 +151,7 @@ ref; // ME_552FCD1F01FB dsPassive
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent HWL ME_552E443E0209 // TDragDataState
+ : Parent HWL ME_578F5E310137 // TDragDataState
  ;
 
 ref; // ME_552FCD2B004D dsActive
@@ -163,20 +163,20 @@ ref; // ME_552FCD2B004D dsActive
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent HWL ME_552E443E0209 // TDragDataState
+ : Parent HWL ME_578F5E310137 // TDragDataState
  ;
 
 ref; // ME_552FCD3200F5 dsPaused
 
-: ME_552E443E0209
- CONST UID '552E443E0209'
+: ME_578F5E310137
+ CONST UID '578F5E310137'
  CONST Name 'TDragDataState'
  CONST Class class_Class
  : Stereotype st_Enum ;
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent HWL ME_4F0C0B6801C7 // DragData
+ : Parent HWL ME_578F5E1601B5 // vtDragDataTypes
  ;
  : Attributes
    Seq: ( HWL ME_552FCD1F01FB // dsPassive
@@ -184,6 +184,189 @@ ref; // ME_552FCD3200F5 dsPaused
  HWL ME_552FCD3200F5 // dsPaused
  )
  ; // Attributes
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_578F5E310137 TDragDataState
+
+: ME_578F5E1601B5
+ CONST UID '578F5E1601B5'
+ CONST Name 'vtDragDataTypes'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_47F485150151 // vtCommon
+ ;
+ : Children
+   Seq: ( HWL ME_578F5E310137 // TDragDataState
+ )
+ ; // Children
+ CONST intf.pas:Path 'common\components\gui\Garant\VT\vtDragDataTypes.pas'
+ CONST extprop:rc:SelfName 'DragDataTypes'
+
+ref; // ME_578F5E1601B5 vtDragDataTypes
+
+FORWARD ME_4F0C23870303
+
+: ME_4F0C239A01E1
+ CONST UID '4F0C239A01E1'
+ CONST Name 'TvtForm'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4F0C23870303 // vtForm
+ ;
+ : Inherits
+   Seq: ( WL 'ME_49525A0F034B' '495259B50283.pas.ms.script' // Tl3Form
+ )
+ ; // Inherits
+ CONST "finished" false
+ CONST extprop:rc:SelfName 'Form'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4F0C239A01E1 TvtForm
+
+: ME_4F0C23870303
+ CONST UID '4F0C23870303'
+ CONST Name 'vtForm'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_47F485150151 // vtCommon
+ ;
+ : Children
+   Seq: ( HWL ME_4F0C239A01E1 // TvtForm
+ )
+ ; // Children
+ CONST "finished" false
+ CONST intf.pas:Path 'common\components\gui\Garant\VT\NOT_FINISHED_vtForm.pas'
+ CONST extprop:rc:SelfName 'Form'
+
+ref; // ME_4F0C23870303 vtForm
+
+FORWARD ME_577629E002C1
+
+: ME_5776326B0167
+ CONST UID '5776326B0167'
+ CONST Name 'TClipSpyWnd'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_577629E002C1 // vtClipSpy
+ ;
+ CONST extprop:rc:SelfName 'ClipSpyWnd'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_5776326B0167 TClipSpyWnd
+
+: ME_577629E002C1
+ CONST UID '577629E002C1'
+ CONST Name 'vtClipSpy'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_47F485150151 // vtCommon
+ ;
+ : Children
+   Seq: ( HWL ME_5776326B0167 // TClipSpyWnd
+ )
+ ; // Children
+ CONST "finished" false
+ CONST intf.pas:Path 'common\components\gui\Garant\VT\NOT_FINISHED_vtClipSpy.pas'
+ CONST extprop:rc:SelfName 'ClipSpy'
+
+ref; // ME_577629E002C1 vtClipSpy
+
+FORWARD ME_5776300D0270
+
+: ME_57763299022D
+ CONST UID '57763299022D'
+ CONST Name 'f_ClipSpyWnd'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_5776300D0270 // TvtClipSpyService
+ ;
+ : Target HWL ME_5776326B0167 // TClipSpyWnd
+ ;
+
+ref; // ME_57763299022D f_ClipSpyWnd
+
+: ME_5776303C000C
+ CONST Class class_Dependency
+ : Stereotype st_implements::Dependency ;
+ : Parent HWL ME_5776300D0270 // TvtClipSpyService
+ ;
+ : Target WL 'ME_57762BA20039' '57762B5A0168.pas.ms.script' // Tl3ClipSpyService
+ ;
+
+ref; // ME_5776303C000C 
+
+: ME_479731C50290_ME_5776300D0270
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_479731C50290_ME_5776300D0270 Cleanup
+
+: ME_5776300D0270
+ CONST UID '5776300D0270'
+ CONST Name 'TvtClipSpyService'
+ CONST Class class_Class
+ : Stereotype st_ServiceImplementation ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_47F485150151 // vtCommon
+ ;
+ : Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( HWL ME_57763299022D // f_ClipSpyWnd
+ )
+ ; // Attributes
+ : Overridden
+   Seq: ( ME_479731C50290_ME_5776300D0270 // Cleanup
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_5776303C000C // Tl3ClipSpyService
+ )
+ ; // Dependencies
+ CONST intf.pas:Path 'common\components\gui\Garant\VT\vtClipSpyService.pas'
+ CONST extprop:rc:SelfName 'ClipSpyService'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vtClipSpyService'
+
+ref; // ME_5776300D0270 TvtClipSpyService
+
+FORWARD ME_4F0C0B6801C7
+
+: ME_552E443E0209
+ CONST UID '552E443E0209'
+ CONST Name 'TDragDataState'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4F0C0B6801C7 // DragData
+ ;
+ : Inherits
+   Seq: ( HWL ME_578F5E310137 // TDragDataState
+ )
+ ; // Inherits
  CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_552E443E0209 TDragDataState
@@ -904,6 +1087,16 @@ ref; // ME_5530D14D03C9
 
 ref; // ME_5530D15B012E 
 
+: ME_578F5E1F0381
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4F0C0B6801C7 // DragData
+ ;
+ : Target HWL ME_578F5E1601B5 // vtDragDataTypes
+ ;
+
+ref; // ME_578F5E1F0381 
+
 : ME_4F0C0B6801C7
  CONST UID '4F0C0B6801C7'
  CONST Name 'DragData'
@@ -929,155 +1122,12 @@ ref; // ME_5530D15B012E
    Seq: ( ME_552FE0BB0088 // afwFacade
  ME_5530D14D03C9 // Tl3ListenersManager
  ME_5530D15B012E // Forms
+ ME_578F5E1F0381 // vtDragDataTypes
  )
  ; // Dependencies
  CONST intf.pas:Path 'common\components\gui\Garant\VT\DragData.pas'
 
 ref; // ME_4F0C0B6801C7 DragData
-
-FORWARD ME_4F0C23870303
-
-: ME_4F0C239A01E1
- CONST UID '4F0C239A01E1'
- CONST Name 'TvtForm'
- CONST Class class_Class
- : Stereotype st_SimpleClass ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent HWL ME_4F0C23870303 // vtForm
- ;
- : Inherits
-   Seq: ( WL 'ME_49525A0F034B' '495259B50283.pas.ms.script' // Tl3Form
- )
- ; // Inherits
- CONST "finished" false
- CONST extprop:rc:SelfName 'Form'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_4F0C239A01E1 TvtForm
-
-: ME_4F0C23870303
- CONST UID '4F0C23870303'
- CONST Name 'vtForm'
- CONST Class class_Class
- : Stereotype st_UtilityPack ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent HWL ME_47F485150151 // vtCommon
- ;
- : Children
-   Seq: ( HWL ME_4F0C239A01E1 // TvtForm
- )
- ; // Children
- CONST "finished" false
- CONST intf.pas:Path 'common\components\gui\Garant\VT\NOT_FINISHED_vtForm.pas'
- CONST extprop:rc:SelfName 'Form'
-
-ref; // ME_4F0C23870303 vtForm
-
-FORWARD ME_577629E002C1
-
-: ME_5776326B0167
- CONST UID '5776326B0167'
- CONST Name 'TClipSpyWnd'
- CONST Class class_Class
- : Stereotype st_SimpleClass ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent HWL ME_577629E002C1 // vtClipSpy
- ;
- CONST extprop:rc:SelfName 'ClipSpyWnd'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_5776326B0167 TClipSpyWnd
-
-: ME_577629E002C1
- CONST UID '577629E002C1'
- CONST Name 'vtClipSpy'
- CONST Class class_Class
- : Stereotype st_UtilityPack ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent HWL ME_47F485150151 // vtCommon
- ;
- : Children
-   Seq: ( HWL ME_5776326B0167 // TClipSpyWnd
- )
- ; // Children
- CONST "finished" false
- CONST intf.pas:Path 'common\components\gui\Garant\VT\NOT_FINISHED_vtClipSpy.pas'
- CONST extprop:rc:SelfName 'ClipSpy'
-
-ref; // ME_577629E002C1 vtClipSpy
-
-FORWARD ME_5776300D0270
-
-: ME_57763299022D
- CONST UID '57763299022D'
- CONST Name 'f_ClipSpyWnd'
- CONST Class class_Attribute
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent HWL ME_5776300D0270 // TvtClipSpyService
- ;
- : Target HWL ME_5776326B0167 // TClipSpyWnd
- ;
-
-ref; // ME_57763299022D f_ClipSpyWnd
-
-: ME_5776303C000C
- CONST Class class_Dependency
- : Stereotype st_implements::Dependency ;
- : Parent HWL ME_5776300D0270 // TvtClipSpyService
- ;
- : Target WL 'ME_57762BA20039' '57762B5A0168.pas.ms.script' // Tl3ClipSpyService
- ;
-
-ref; // ME_5776303C000C 
-
-: ME_479731C50290_ME_5776300D0270
- : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_479731C50290_ME_5776300D0270 Cleanup
-
-: ME_5776300D0270
- CONST UID '5776300D0270'
- CONST Name 'TvtClipSpyService'
- CONST Class class_Class
- : Stereotype st_ServiceImplementation ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent HWL ME_47F485150151 // vtCommon
- ;
- : Inherits
-   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- )
- ; // Inherits
- : Attributes
-   Seq: ( HWL ME_57763299022D // f_ClipSpyWnd
- )
- ; // Attributes
- : Overridden
-   Seq: ( ME_479731C50290_ME_5776300D0270 // Cleanup
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_5776303C000C // Tl3ClipSpyService
- )
- ; // Dependencies
- CONST intf.pas:Path 'common\components\gui\Garant\VT\vtClipSpyService.pas'
- CONST extprop:rc:SelfName 'ClipSpyService'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'vtClipSpyService'
-
-ref; // ME_5776300D0270 TvtClipSpyService
 
 : ME_47F485150151
  CONST UID '47F485150151'
@@ -1092,10 +1142,11 @@ ref; // ME_5776300D0270 TvtClipSpyService
  : Children
    Seq: ( HWL ME_47F4853203E7 // vtUtils
  HWL ME_4AC0B2A102BE // vtCtrls
- HWL ME_4F0C0B6801C7 // DragData
+ HWL ME_578F5E1601B5 // vtDragDataTypes
  HWL ME_4F0C23870303 // vtForm
  HWL ME_577629E002C1 // vtClipSpy
  HWL ME_5776300D0270 // TvtClipSpyService
+ HWL ME_4F0C0B6801C7 // DragData
  )
  ; // Children
  : Depends

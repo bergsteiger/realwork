@@ -1,0 +1,161 @@
+// vcmTaskPanelServices 578E02C50241 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_578E02C50241
+
+FORWARD ME_578E02D603D1
+
+FORWARD ME_E85275A33120
+
+: ME_66D5718DAF95
+ CONST Name 'aPanel'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4992FF9A0273' '49940C8E00DA.pas.ms.script' // IvcmCustOps
+ ;
+
+ref; // ME_66D5718DAF95 aPanel
+
+: ME_726DEE2EAA6F
+ CONST UID '726DEE2EAA6F'
+ CONST Name 'CustomizePanel'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_E85275A33120 // MvcmTaskPanelServices
+ ;
+ : Parameters
+   Seq: ( ME_66D5718DAF95 // aPanel
+ )
+ ; // Parameters
+
+ref; // ME_726DEE2EAA6F CustomizePanel
+
+: ME_171E8E0C4B22
+ CONST UID '171E8E0C4B22'
+ CONST Name 'TasksPanelPopupMenu'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_E85275A33120 // MvcmTaskPanelServices
+ ;
+ : Target WL 'ME_49A5750A01E8' '4799D29F033F.pas.ms.script' // TPopupMenu
+ ;
+
+ref; // ME_171E8E0C4B22 TasksPanelPopupMenu
+
+: ME_E85275A33120
+ CONST UID 'E85275A33120'
+ CONST Name 'MvcmTaskPanelServices'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_PureMixIn ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Контракт сервиса TvcmTaskPanelServices' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_578E02D603D1 // TvcmTaskPanelServices
+ ;
+ : Operations
+   Seq: ( HWL ME_726DEE2EAA6F // CustomizePanel
+ HWL ME_171E8E0C4B22 // TasksPanelPopupMenu
+ )
+ ; // Operations
+
+ref; // ME_E85275A33120 MvcmTaskPanelServices
+
+: ME_578E03000242
+ CONST Name 'aPanel'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4992FF9A0273' '49940C8E00DA.pas.ms.script' // IvcmCustOps
+ ;
+
+ref; // ME_578E03000242 aPanel
+
+: ME_578E02FA0290
+ CONST UID '578E02FA0290'
+ CONST Name 'CustomizePanel'
+ CONST Class class_Operation
+ : Stereotype st_responsibility::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_578E02D603D1 // TvcmTaskPanelServices
+ ;
+ : Parameters
+   Seq: ( ME_578E03000242 // aPanel
+ )
+ ; // Parameters
+
+ref; // ME_578E02FA0290 CustomizePanel
+
+: ME_578E030F034B
+ CONST UID '578E030F034B'
+ CONST Name 'TasksPanelPopupMenu'
+ CONST Class class_Operation
+ : Stereotype st_responsibility::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_578E02D603D1 // TvcmTaskPanelServices
+ ;
+ : Target WL 'ME_49A5750A01E8' '4799D29F033F.pas.ms.script' // TPopupMenu
+ ;
+
+ref; // ME_578E030F034B TasksPanelPopupMenu
+
+: ME_578E02D603D1
+ CONST UID '578E02D603D1'
+ CONST Name 'TvcmTaskPanelServices'
+ CONST Class class_Class
+ : Stereotype st_Service ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_578E02C50241 // vcmTaskPanelServices
+ ;
+ : Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( HWL ME_578E02FA0290 // CustomizePanel
+ HWL ME_578E030F034B // TasksPanelPopupMenu
+ )
+ ; // Operations
+ : Children
+   Seq: ( HWL ME_E85275A33120 // MvcmTaskPanelServices
+ )
+ ; // Children
+ CONST intf.pas:Path 'common\components\gui\Garant\VCM\vcmTaskPanelServices.pas'
+ CONST extprop:rc:SelfName 'TaskPanelServices'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vcmTaskPanelServices'
+
+ref; // ME_578E02D603D1 TvcmTaskPanelServices
+
+: ME_578E02C50241
+ CONST UID '578E02C50241'
+ CONST Name 'vcmTaskPanelServices'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4790C3B8021E' '4790C3B8021E.pas.ms.script' // VCM
+ ;
+ : Children
+   Seq: ( HWL ME_578E02D603D1 // TvcmTaskPanelServices
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.pas.ms.script' // Primitives
+ WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
+ WL 'ME_49940C8E00DA' '49940C8E00DA.pas.ms.script' // vcmTaskPanelInterfaces
+ )
+ ; // Depends
+
+ref; // ME_578E02C50241 vcmTaskPanelServices

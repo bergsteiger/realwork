@@ -4,6 +4,41 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 FORWARD ME_4C8DD8C602D3
 
+FORWARD ME_578E03710025
+
+: ME_578E037D0227
+ CONST Class class_Dependency
+ : Stereotype st_implements::Dependency ;
+ : Parent HWL ME_578E03710025 // TvcmTaskPanelServicesImpl
+ ;
+ : Target WL 'ME_578E02D603D1' '578E02C50241.pas.ms.script' // TvcmTaskPanelServices
+ ;
+
+ref; // ME_578E037D0227 
+
+: ME_578E03710025
+ CONST UID '578E03710025'
+ CONST Name 'TvcmTaskPanelServicesImpl'
+ CONST Class class_Class
+ : Stereotype st_ServiceImplementation ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4C8DD8C602D3 // PrimTasksPanelMenu
+ ;
+ : Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ : Dependencies
+   Seq: ( ME_578E037D0227 // TvcmTaskPanelServices
+ )
+ ; // Dependencies
+ CONST extprop:rc:SelfName 'TaskPanelServicesImpl'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_578E03710025 TvcmTaskPanelServicesImpl
+
 : ME_4C8F77E7000A
  CONST UID '4C8F77E7000A'
  CONST Name 'g_dmTasksPanelMenu'
@@ -108,7 +143,7 @@ ref; // ME_4C8E59D8000A DoIt
  : Stereotype st_FactoryMethod ;
  CONST Kind kind_NormalClass
  %SUMMARY 'Настроить панель иструментов' ;
- CONST Visibility PublicAccess
+ CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent HWL ME_4C8DD8C602D3 // PrimTasksPanelMenu
  ;
@@ -141,7 +176,7 @@ ref; // ME_4C8F77AA03B2 DoIt
  CONST Class class_Class
  : Stereotype st_FactoryMethod ;
  CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
+ CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent HWL ME_4C8DD8C602D3 // PrimTasksPanelMenu
  ;
@@ -257,6 +292,7 @@ ref; // ME_47D1602000C6_ME_4C8DD8C602D3 Create
  ; // Overridden
  : Children
    Seq: ( WL 'ME_4C8E4D4F027D' '4C8E4D4F027D.pas.ms.script' // CustomizeTasksPanel
+ HWL ME_578E03710025 // TvcmTaskPanelServicesImpl
  )
  ; // Children
  : Dependencies

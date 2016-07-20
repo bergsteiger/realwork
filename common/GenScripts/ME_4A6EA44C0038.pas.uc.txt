@@ -1,5 +1,5 @@
 //#UC START# *4A6D71700008_4A6EA44C0038_impl*
- ProcessMessages(TdmStdRes.MakeChatDispatcher.GetMessages(UserID, -1));
+ ProcessMessages(TvcmModulesFactories.MakeChatDispatcher.GetMessages(UserID, -1));
  if not ContainsControl(FindControl(GetForegroundWindow)) then
  begin
   l3FillChar(l_Info, SizeOf(l_Info), 0); 
@@ -16,12 +16,12 @@ var
 //#UC START# *4A6EA44C0038impl_uses*
 //#UC END# *4A6EA44C0038impl_uses*
 //#UC START# *4A6EA5EA00CD_4A6EA44C0038_impl*
- TdmStdRes.MakeChatDispatcher.RegisterChatWindow(Self);
+ TvcmModulesFactories.MakeChatDispatcher.RegisterChatWindow(Self);
 //#UC END# *4A6EA5EA00CD_4A6EA44C0038_impl*
 //#UC START# *4A6EA5EA00CD_4A6EA44C0038_var*
 //#UC END# *4A6EA5EA00CD_4A6EA44C0038_var*
 //#UC START# *4A6EA6000339_4A6EA44C0038_impl*
- TdmStdRes.MakeChatDispatcher.UnRegisterChatWindow(Self);
+ TvcmModulesFactories.MakeChatDispatcher.UnRegisterChatWindow(Self);
 //#UC END# *4A6EA6000339_4A6EA44C0038_impl*
 //#UC START# *4A6EA6000339_4A6EA44C0038_var*
 //#UC END# *4A6EA6000339_4A6EA44C0038_var*
@@ -43,7 +43,7 @@ var
    Exit;
   end;
   try
-   l_Message := TdmStdRes.MakeChatDispatcher.SendMessage(UserID, l_Memory);
+   l_Message := TvcmModulesFactories.MakeChatDispatcher.SendMessage(UserID, l_Memory);
   except
    on EnsUnknownChatUser do
     SafeClose;

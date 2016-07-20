@@ -28,7 +28,6 @@
 > ScriptKeywordsPack::Class
 
 = SimpleClass::Class
-= OperationsPublisher::Class
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Параметры стереотипа
@@ -57,16 +56,6 @@ $ f 29,177,58
 	[{%Sa=final}{false}true]
 //#UC END# *4A951A3402A8for498AFF8101F5*
 
-%f _PublishModule
-//#UC START# *4A96413C02FAfor498AFF8101F5*
-	[{%f_exists_in_list(PUBLISHED_MODULES_LIST,S)!=true}\
-	%f_add_to_list(PUBLISHED_MODULES_LIST,S)\
-	[%S%f_open_ifdef()\n ]\
-	PublishModule(%f_pas_TypeName(%S), '%SD');\
-	[\n %S%f_close_ifdef()]\
-	]
-//#UC END# *4A96413C02FAfor498AFF8101F5*
-
 // Имя финального модуля
 %f _FinalName
 // возвращаемый результат: a-string
@@ -89,15 +78,6 @@ $ f 29,177,58
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Унаследованная реализация
-
-// реализация абстрактного стереотипа OperationsPublisher::Class
-// Публикует операции
-%f _PublishOperations
-//#UC START# *4A770F770199for498AFF8101F5*
-	<%C#f_PublishOperations()>\
-	<{}{%C%TU!=%SU}%C%T#f_PublishOperations()>\
-	<%G#f_PublishOperations()>
-//#UC END# *4A770F770199for498AFF8101F5*
 
 // перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
 // нет документации

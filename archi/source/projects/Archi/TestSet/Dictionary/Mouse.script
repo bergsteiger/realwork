@@ -300,3 +300,23 @@ PROCEDURE "Установить курсор мыши по координатам относительно контрола в фокусе"
 PROCEDURE "Убедиться, что операция Drag&Drop не выполняется"
 	DDSupport:GetState РАВНО dsPassive 'Выполняется операция Drag&Drop, которой не должно быть!' ASSERTS 
 ;
+
+INTEGER FUNCTION "Координата X текущего параграфа"
+	0 [ "Контрол в фокусе" pop:editor:ParaCoordsToScreen ] [i] >>> Result
+;
+
+INTEGER FUNCTION "Координата Y текущего параграфа"
+	1 [ "Контрол в фокусе" pop:editor:ParaCoordsToScreen ] [i] >>> Result 
+;
+
+PROCEDURE "Установить курсор мыши по координатам относительно параграфа"  INTEGER IN aX  INTEGER IN aY
+	INTEGER VAR X
+	INTEGER VAR Y
+	"Координата X текущего параграфа" >>> X
+	"Координата Y текущего параграфа" >>> Y
+	aX +! X
+	aY +! Y
+	"Установить курсор мыши по координатам {(X)} {(Y)}"
+	500 SLEEP
+	"Обработать сообщения"
+;

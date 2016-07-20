@@ -50,7 +50,7 @@ ref; // ME_467821770204 InevBase
  : Parent HWL ME_4678209200A6 // nevBase
  ;
  : Inherits
-   Seq: ( WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+   Seq: ( WL 'ME_578F62570107' '578F62050180.pas.ms.script' // TnevInch
  )
  ; // Inherits
  CONST "newRTTI" true
@@ -128,7 +128,7 @@ ref; // ME_476BDE9602FD TnevStr
  : Parent HWL ME_4678209200A6 // nevBase
  ;
  : Inherits
-   Seq: ( WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+   Seq: ( WL 'ME_578F6240019A' '578F62050180.pas.ms.script' // TnevParaIndex
  )
  ; // Inherits
  CONST "newRTTI" true
@@ -147,7 +147,7 @@ ref; // ME_476BDEBA0308 TnevParaIndex
  : Parent HWL ME_4678209200A6 // nevBase
  ;
  : Inherits
-   Seq: ( WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+   Seq: ( WL 'ME_578F624B01A8' '578F62050180.pas.ms.script' // TnevParaLevel
  )
  ; // Inherits
  CONST "newRTTI" true
@@ -494,73 +494,20 @@ ref; // ME_476BE96F0102 CP_DefaultValue
 
 ref; // ME_476BE965028C CodePages
 
-FORWARD ME_476BED360201
-
-: ME_476BED41036B
- CONST UID '476BED41036B'
- CONST Name 'ev_lfInternal'
- CONST Class class_Attribute
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent HWL ME_476BED360201 // TevLoadFlag
- ;
-
-ref; // ME_476BED41036B ev_lfInternal
-
-: ME_476BED480394
- CONST UID '476BED480394'
- CONST Name 'ev_lfNeedJoin'
- CONST Class class_Attribute
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent HWL ME_476BED360201 // TevLoadFlag
- ;
-
-ref; // ME_476BED480394 ev_lfNeedJoin
-
-: ME_476BED4F0256
- CONST UID '476BED4F0256'
- CONST Name 'ev_lfAtEnd'
- CONST Class class_Attribute
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent HWL ME_476BED360201 // TevLoadFlag
- ;
-
-ref; // ME_476BED4F0256 ev_lfAtEnd
-
-: ME_476BED540338
- CONST UID '476BED540338'
- CONST Name 'ev_lfSkipSubdocuments'
- CONST Class class_Attribute
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent HWL ME_476BED360201 // TevLoadFlag
- ;
-
-ref; // ME_476BED540338 ev_lfSkipSubdocuments
-
 : ME_476BED360201
  CONST UID '476BED360201'
  CONST Name 'TevLoadFlag'
  CONST Class class_Class
- : Stereotype st_Enum ;
+ : Stereotype st_Typedef ;
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  : Parent HWL ME_4678209200A6 // nevBase
  ;
- : Attributes
-   Seq: ( HWL ME_476BED41036B // ev_lfInternal
- HWL ME_476BED480394 // ev_lfNeedJoin
- HWL ME_476BED4F0256 // ev_lfAtEnd
- HWL ME_476BED540338 // ev_lfSkipSubdocuments
+ : Inherits
+   Seq: ( WL 'ME_578F687F030C' '578F62050180.pas.ms.script' // TevLoadFlag
  )
- ; // Attributes
+ ; // Inherits
  CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_476BED360201 TevLoadFlag
@@ -5686,6 +5633,7 @@ ref; // ME_533D31A90231 Tl3Variant
  WL 'ME_4E3160C802DA' '4E3160C802DA.pas.ms.script' // Печать документа
  WL 'ME_4E56909E0240' '4E56909E0240.pas.ms.script' // evResultFont
  WL 'ME_4E5CF70B01E2' '4E5CF70B01E2.pas.ms.script' // Требования к редактору Эверест
+ WL 'ME_578F62050180' '578F62050180.pas.ms.script' // nevTypes
  )
  ; // Depends
  CONST "author" 'Люлин А.В.'

@@ -507,7 +507,7 @@ f _pas_OpenUnitImplementation
 f _pas_OutClassImplementation
 //#UC START# *4746DD48001C*
 	[{%S{is_friend}!=true}\
-	[{%Cx=true|%Ox=true|%ox=true|"%S%f_pas_OutOverridesImpl()"!=""|<{}{%G#f_IsMixIn()=true}{C}>!=0|<{}{%R#f_IsMixIn()=true}{C}>!=0}\
+	[{%Cx=true|%Ox=true|%ox=true|<{}{%G#f_IsMixIn()=true}{C}>!=0|<{}{%R#f_IsMixIn()=true}{C}>!=0}\
 	[\n%S%f_open_ifdef()\n]\
 	]\
 	%f_with_gen_id(intf.pas,\
@@ -626,7 +626,6 @@ f _pas_OutClassImplementation
 //	end;\
 //	]\
 
-	%S%f_pas_OutOverridesImpl()\
 	%f_clear_list(CAST_METHODS)\
 	[\n\n// Методы преобразования к реализуемым интерфейсам\
 	<{\n}{%t_interface(%R)=true&%R%f_InTie()!=true}\
@@ -638,7 +637,7 @@ f _pas_OutClassImplementation
 	]\
 	%f_clear_list(CAST_METHODS)\
 	[{%S{need UC}=true}%f_with_gen_id(intf.pas,\n\n%U[{impl}\n])]\
-	[{%Cx=true|%Ox=true|%ox=true|"%S%f_pas_OutOverridesImpl()"!=""|<{}{%G#f_IsMixIn()=true}{C}>!=0|<{}{%R#f_IsMixIn()=true}{C}>!=0}\
+	[{%Cx=true|%Ox=true|%ox=true|<{}{%G#f_IsMixIn()=true}{C}>!=0|<{}{%R#f_IsMixIn()=true}{C}>!=0}\
 	[\n\n%S%f_close_ifdef()]\
 	]\
 	]

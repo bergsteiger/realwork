@@ -3715,42 +3715,24 @@ ref; // ME_5631AC7700D9 BaseSearcher
 
 ref; // ME_5631AC50016C InsBaseSearcherProvider
 
-FORWARD ME_5673E9380067
-
-: ME_5673E95D0119
- CONST UID '5673E95D0119'
- CONST Name 'ns_sseAll'
- CONST Class class_Attribute
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent HWL ME_5673E9380067 // SearchStateElementConstants
- ;
- CONST Value '[ns_sseContext, ns_sseNeedShowWindow, ns_sseOpenKind, ns_sseActiveClass, ns_sseSearchArea]'
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '[ns_sseContext, ns_sseNeedShowWindow, ns_sseOpenKind, ns_sseActiveClass, ns_sseSearchArea]'
-
-ref; // ME_5673E95D0119 ns_sseAll
-
 : ME_5673E9380067
  CONST UID '5673E9380067'
- CONST Name 'SearchStateElementConstants'
+ CONST Name 'ns_sseAll'
  CONST Class class_Class
- : Stereotype st_Constants ;
+ : Stereotype st_SetConst ;
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  : Parent HWL ME_4A9F98B901A5 // BaseSearchInterfaces
  ;
- : Attributes
-   Seq: ( HWL ME_5673E95D0119 // ns_sseAll
+ : Inherits
+   Seq: ( HWL ME_54EC12AB018C // TnsBaseSearchStateElement
  )
- ; // Attributes
+ ; // Inherits
  CONST "spell names" false
+ CONST extprop:rc:SelfName '_sseAll'
 
-ref; // ME_5673E9380067 SearchStateElementConstants
+ref; // ME_5673E9380067 ns_sseAll
 
 : ME_56D42F8A0266
  CONST UID '56D42F8A0266'
@@ -4477,7 +4459,7 @@ ref; // ME_56EFA9F700FB InsBaseSearchModelListener
  ; // Children
  : Constants
    Seq: ( HWL ME_4DE659AB0279 // SearchClassesConst
- HWL ME_5673E9380067 // SearchStateElementConstants
+ HWL ME_5673E9380067 // ns_sseAll
  )
  ; // Constants
  : Depends

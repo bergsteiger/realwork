@@ -47,7 +47,11 @@ var
 //#UC START# *533BFFBD03B8_533BF7030112_var*
 //#UC END# *533BFFBD03B8_533BF7030112_var*
 //#UC START# *533BFFD20377_533BF7030112_impl*
+ {$IfNDef DesignTimeLibrary}
  Result := BaseId + g_afwPathSep + Name + g_afwPathSep + aId;
+ {$Else}
+ Result := '';
+ {$EndIf}
 //#UC END# *533BFFD20377_533BF7030112_impl*
 //#UC START# *533BFFD20377_533BF7030112_var*
 //#UC END# *533BFFD20377_533BF7030112_var*

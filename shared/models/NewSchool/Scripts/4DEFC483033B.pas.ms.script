@@ -6,6 +6,23 @@ FORWARD ME_4DEFC483033B
 
 FORWARD ME_4DEFC4AE0296
 
+: ME_578F43AF0239
+ CONST UID '578F43AF0239'
+ CONST Name 'PRecForCompare'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4DEFC4AE0296 // Tl3CustomRecListView
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4DEFC19A0263' '4A6D65B9022A.pas.ms.script' // PItemType
+ )
+ ; // Inherits
+
+ref; // ME_578F43AF0239 PRecForCompare
+
 : ME_4DEFC4D5035F
  CONST UID '4DEFC4D5035F'
  CONST Name 'ListType'
@@ -42,7 +59,7 @@ FORWARD ME_4DEFCA7603C4
  CONST Name 'aRec1'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target WL 'ME_4DEFC19A0263' '4A6D65B9022A.pas.ms.script' // PItemType
+ : Target HWL ME_578F43AF0239 // PRecForCompare
  ;
 
 ref; // ME_4DEFCA9B0168 aRec1
@@ -51,7 +68,7 @@ ref; // ME_4DEFCA9B0168 aRec1
  CONST Name 'aRec2'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target WL 'ME_4DEFC19A0263' '4A6D65B9022A.pas.ms.script' // PItemType
+ : Target HWL ME_578F43AF0239 // PRecForCompare
  ;
 
 ref; // ME_4DEFCA9B0192 aRec2
@@ -124,6 +141,10 @@ ref; // ME_4DEFB2D90167_ME_4DEFC4AE0296 CompareData
    Seq: ( ME_4DEFB2D90167_ME_4DEFC4AE0296 // CompareData
  )
  ; // Implemented
+ : Children
+   Seq: ( HWL ME_578F43AF0239 // PRecForCompare
+ )
+ ; // Children
  CONST "author" 'Ëþëèí À.Â.'
  CONST "no hands" true
  CONST "started" '08.06.2011 22:51'

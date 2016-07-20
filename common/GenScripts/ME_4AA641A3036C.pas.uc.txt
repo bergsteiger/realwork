@@ -71,7 +71,7 @@
   end;//case aType of
  if l_List <> nil then
  try
-  TdmStdRes.OpenList(TdeListSet.Make(l_List), nil);
+  TvcmModulesFactories.OpenList(TdeListSet.Make(l_List), nil);
  finally
   l_List := nil;
  end;//try..finally
@@ -80,7 +80,7 @@
 //#UC END# *4AA65AA9011E_4AA641A3036C_var*
 //#UC START# *4AB77FFF008F_4AA641A3036C_impl*
  // Создание базового контейнера для КЗ
- l_Container := TdmStdRes.MakeSaveLoadForm(vcmCheckAggregate(
+ l_Container := TvcmModulesFactories.MakeSaveLoadForm(vcmCheckAggregate(
                                             vcmMakeParams(nil,
                                                       CheckContainer(nil))),
                                            vcm_ztParent,
@@ -88,7 +88,7 @@
                                            Ord(slqtLegislationReview));
 
  // Создание карточки "Построение обзора законодательства"
- Result := TdmStdRes.MakeQueryCardForm(false, // IsFilter
+ Result := TvcmModulesFactories.MakeQueryCardForm(false, // IsFilter
                                        vcmMakeParams(l_Container.Aggregate,
                                                  l_Container.AsContainer),
                                        vcm_ztParent,
@@ -105,13 +105,13 @@
 //#UC START# *4AB7B8D30345_4AA641A3036C_impl*
  vcmDispatcher.FormDispatcher.Lock;
  try
-  l_MainContainer := TdmStdRes.MakeSaveLoadForm(vcmCheckAggregate(
+  l_MainContainer := TvcmModulesFactories.MakeSaveLoadForm(vcmCheckAggregate(
                                                  vcmMakeParams(nil,
                                                            CheckContainer(nil))),
                                                 vcm_ztManualModal,
                                                 true,
                                                 Ord(slqtFilters));
-  Result := TdmStdRes.MakeQueryCardForm(true, // IsFilter
+  Result := TvcmModulesFactories.MakeQueryCardForm(true, // IsFilter
                                         vcmMakeParams(l_MainContainer.Aggregate,
                                                   l_MainContainer.AsContainer),
                                         vcm_ztAny,
@@ -160,7 +160,7 @@
   l_List := aList;
   l_SearchInList := True;
  end;//aList = nil
- Result := TdmStdRes.MakeSaveLoadForm(vcmMakeParams(anAggregate,
+ Result := TvcmModulesFactories.MakeSaveLoadForm(vcmMakeParams(anAggregate,
                                                 CheckContainer(aContainer)),
                                       aZoneType,
                                       True,
@@ -231,14 +231,14 @@
  var
   l_Form : IvcmEntityForm;
  begin//InpharmSearchExecute
-  l_Form := TdmStdRes.MakeQueryCardForm((aUserType = slqtFilters), // IsFilter
+  l_Form := TvcmModulesFactories.MakeQueryCardForm((aUserType = slqtFilters), // IsFilter
                                         aParams,
                                         vcm_ztParent,
                                         True,
                                         utqcInpharmSearch);
   if (aZoneType <> vcm_ztManualModal) AND (aZoneType <> vcm_ztModal) then
    if afw.Settings.LoadBoolean(pi_Search_Sheets_Filters, dv_Search_Sheets_Filters) then
-    TdmStdRes.OldSchoolFiltersOpen(l_Form.Aggregate,
+    TvcmModulesFactories.OldSchoolFiltersOpen(l_Form.Aggregate,
                                    l_Form.Container,
                                    l_Form.VCLWinControl);
   if (aQuery <> nil) then
@@ -293,7 +293,7 @@
  l_Params := vcmMakeParams(l_Main.Aggregate,
                        l_Main.AsContainer);
 
- l_Container := TdmStdRes.MakeAttributeSelect(l_Params,
+ l_Container := TvcmModulesFactories.MakeAttributeSelect(l_Params,
                                               vcm_ztParent,
                                               true,
                                               utSingleSearch);
@@ -301,26 +301,26 @@
  l_Params := vcmMakeParams(l_Container.Aggregate,
                        l_Container.AsContainer);
  if l3Same(aPublishSearchTag, AT_PUBLISH_SOURCE_PHARM) then
-   TdmStdRes.MakeTreeAttributeSelect(l_Params,
+   TvcmModulesFactories.MakeTreeAttributeSelect(l_Params,
                                      vcm_ztAny,
                                      true,
                                      Ord(astPharmPublishSearch))
  else
  if l3Same(aPublishSearchTag, AT_PUBLISH_SOURCE) then
-   TdmStdRes.MakeTreeAttributeSelect(l_Params,
+   TvcmModulesFactories.MakeTreeAttributeSelect(l_Params,
                                      vcm_ztAny,
                                      true,
                                      Ord(astTaxesPublishSearch))
  else
-  TdmStdRes.MakeTreeAttributeSelect(l_Params,
+  TvcmModulesFactories.MakeTreeAttributeSelect(l_Params,
                                     vcm_ztAny,
                                     true,
                                     0);
- TdmStdRes.MakeSelectedAttributes(l_Params, vcm_ztAny, true);
+ TvcmModulesFactories.MakeSelectedAttributes(l_Params, vcm_ztAny, true);
 
  if (l_ZoneType <> vcm_ztManualModal) and
    afw.Settings.LoadBoolean(pi_Search_Sheets_Filters, dv_Search_Sheets_Filters) then
-  TdmStdRes.OldSchoolFiltersOpen(l_Params.Aggregate,
+  TvcmModulesFactories.OldSchoolFiltersOpen(l_Params.Aggregate,
                                  l_Params.Container,
                                  l_Params.Container.AsForm.VCLWinControl);
  if (aPublishSearchTag = nil) then
@@ -459,12 +459,12 @@ const
 //#UC END# *4AB8B7F8006D_4AA641A3036Ctest_var*
 //#UC START# *4AB8B9530325_4AA641A3036Cexec_impl*
  Assert((aParams As IvcmExecuteParams).Data = nil);
- TdmStdRes.OpenBaseSearch(ns_bsokGlobal, nil);
+ TvcmModulesFactories.OpenBaseSearch(ns_bsokGlobal, nil);
 //#UC END# *4AB8B9530325_4AA641A3036Cexec_impl*
 //#UC START# *4AB8B9530325_4AA641A3036Cexec_var*
 //#UC END# *4AB8B9530325_4AA641A3036Cexec_var*
 //#UC START# *4AB8BA8302A8_4AA641A3036Cexec_impl*
- TdmStdRes.OpenSendConsultation(nil);
+ TvcmModulesFactories.OpenSendConsultation(nil);
 //#UC END# *4AB8BA8302A8_4AA641A3036Cexec_impl*
 //#UC START# *4AB8BA8302A8_4AA641A3036Cexec_var*
 //#UC END# *4AB8BA8302A8_4AA641A3036Cexec_var*
@@ -492,15 +492,15 @@ const
   if (f_SearchTypeList = nil) then
   begin
    f_SearchTypeList := TvcmItems.Make;
-   f_SearchTypeList.AddOp(TdmStdRes.mod_opcode_Search_BaseSearch);
+   f_SearchTypeList.AddOp(TvcmModulesOperations.mod_opcode_Search_BaseSearch);
    f_SearchTypeList.Add('-');
-   f_SearchTypeList.AddOp(TdmStdRes.mod_opcode_Search_AttributeSearch);
-   f_SearchTypeList.AddOp(TdmStdRes.mod_opcode_Search_OpenKeyWordSearch);
-   f_SearchTypeList.AddOp(TdmStdRes.mod_opcode_Search_PublishSourceSearch);
-   f_SearchTypeList.AddOp(TdmStdRes.mod_opcode_Monitorings_OpenLegislationReview);
-   f_SearchTypeList.AddOp(TdmStdRes.mod_opcode_Diction_OpenDict);
+   f_SearchTypeList.AddOp(TvcmModulesOperations.mod_opcode_Search_AttributeSearch);
+   f_SearchTypeList.AddOp(TvcmModulesOperations.mod_opcode_Search_OpenKeyWordSearch);
+   f_SearchTypeList.AddOp(TvcmModulesOperations.mod_opcode_Search_PublishSourceSearch);
+   f_SearchTypeList.AddOp(TvcmModulesOperations.mod_opcode_Monitorings_OpenLegislationReview);
+   f_SearchTypeList.AddOp(TvcmModulesOperations.mod_opcode_Diction_OpenDict);
    f_SearchTypeList.Add('-');
-   f_SearchTypeList.AddOp(TdmStdRes.mod_opcode_Search_StartENO);
+   f_SearchTypeList.AddOp(TvcmModulesOperations.mod_opcode_Search_StartENO);
   end;//f_SearchTypeList = nil
   Result := f_SearchTypeList;
  end;//MakeAvailableSearches
@@ -545,7 +545,7 @@ var
    l_ZoneType := aZoneType;
  end;//case aUserType of
  // Создание базового контейнера для КЗ
- l_Container := TdmStdRes.MakeSaveLoadForm(vcmCheckAggregate(vcmMakeParams(nil, CheckContainer(aContainer))),
+ l_Container := TvcmModulesFactories.MakeSaveLoadForm(vcmCheckAggregate(vcmMakeParams(nil, CheckContainer(aContainer))),
                                            l_ZoneType,
                                            True,
                                            l_UserType);
@@ -569,15 +569,15 @@ var
   l_Params := vcmMakeParams(l_Container.Aggregate,
                         l_Container.AsContainer,
                         aParams.Owner);
-  TdmStdRes.MakeTreeAttributeSelect(l_Params,
+  TvcmModulesFactories.MakeTreeAttributeSelect(l_Params,
                                     vcm_ztChild,
                                     True,
                                     Byte(astOneLevel));
-  TdmStdRes.MakeTreeAttributeSelect(l_Params,
+  TvcmModulesFactories.MakeTreeAttributeSelect(l_Params,
                                     vcm_ztMain,
                                     True,
                                     Byte(astFirstLevel));
-  TdmStdRes.MakeSelectedAttributes(l_Params, vcm_ztParent, True);
+  TvcmModulesFactories.MakeSelectedAttributes(l_Params, vcm_ztParent, True);
 
   // очищаем карточку перед использованием, поскольку флаги общие
   op_AttributeTree_SetRoot.Call(l_Params.Aggregate,
@@ -610,7 +610,7 @@ var
 //#UC END# *4AB8EF3B0310_4AA641A3036C_var*
 //#UC START# *4AB8F0B00149_4AA641A3036Cexec_impl*
  Assert(((aParams As IvcmExecuteParams).Data = nil),
-        'Пользуйтесь фабрикой TdmStdRes.OpenKeyWord');
+        'Пользуйтесь фабрикой TvcmModulesFactories.OpenKeyWord');
  OpenKeyWord(nil, nil);
 //#UC END# *4AB8F0B00149_4AA641A3036Cexec_impl*
 //#UC START# *4AB8F0B00149_4AA641A3036Cexec_var*
@@ -644,7 +644,7 @@ var
                      aFilter.Query,
                      nil);
    ns_ffBaseSearch:
-    TdmStdRes.OpenBaseSearch(ns_bsokGlobal, aFilter.Query);
+    TvcmModulesFactories.OpenBaseSearch(ns_bsokGlobal, aFilter.Query);
    ns_ffInpharmSearch:
     OpenInpharm(anItemIndex,
                 vcm_ztManualModal,
@@ -658,7 +658,7 @@ var
  end//aFilter <> nil..
  // Создать новый фильтр
  else
-  Assert(false, 'Пользуйтесь фабрикой TdmStdRes.MakeNewFilter');
+  Assert(false, 'Пользуйтесь фабрикой TvcmModulesFactories.MakeNewFilter');
 //#UC END# *4AB8F2DC01A3_4AA641A3036C_impl*
 //#UC START# *4AB8F2DC01A3_4AA641A3036C_var*
 //#UC END# *4AB8F2DC01A3_4AA641A3036C_var*
@@ -712,13 +712,13 @@ var
  var
   l_Form  : IvcmEntityForm;
  begin
-  l_Form := TdmStdRes.MakeQueryCardForm(false, // IsFilter
+  l_Form := TvcmModulesFactories.MakeQueryCardForm(false, // IsFilter
                                         aParams,
                                         vcm_ztParent,
                                         True,
                                         utqcAttributeSearch);
   if afw.Settings.LoadBoolean(pi_Search_Sheets_Filters, dv_Search_Sheets_Filters) then
-   TdmStdRes.OldSchoolFiltersOpen(l_Form.Aggregate,
+   TvcmModulesFactories.OldSchoolFiltersOpen(l_Form.Aggregate,
                                   l_Form.Container,
                                   l_Form.VCLWinControl);
   if (aQuery <> nil) then

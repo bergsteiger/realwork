@@ -3188,6 +3188,136 @@ ref; // ME_576246200120 Гипертекстовая связь
 
 ref; // ME_551121E4029E Редактирование документа
 
+FORWARD ME_578F52B00005
+
+: ME_578F52E20389
+ CONST UID '578F52E20389'
+ CONST Name 'Изменение названия документа'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_578F52B00005 // Редактирование атрибутов
+ ;
+
+ref; // ME_578F52E20389 Изменение названия документа
+
+: ME_578F5B7F01C2
+ CONST UID '578F5B7F01C2'
+ CONST Name 'Добавление комментария'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_578F52B00005 // Редактирование атрибутов
+ ;
+
+ref; // ME_578F5B7F01C2 Добавление комментария
+
+: ME_578F5B8E03A2
+ CONST UID '578F5B8E03A2'
+ CONST Name 'Автоматический анализ заголовка'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_578F52B00005 // Редактирование атрибутов
+ ;
+
+ref; // ME_578F5B8E03A2 Автоматический анализ заголовка
+
+: ME_578F636D01BE
+ CONST UID '578F636D01BE'
+ CONST Name 'Добавление атрибута'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_578F52B00005 // Редактирование атрибутов
+ ;
+
+ref; // ME_578F636D01BE Добавление атрибута
+
+: ME_578F63840383
+ CONST UID '578F63840383'
+ CONST Name 'Удаление атрибута с помощью клавиатуры'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_578F52B00005 // Редактирование атрибутов
+ ;
+
+ref; // ME_578F63840383 Удаление атрибута с помощью клавиатуры
+
+: ME_578F63E4034F
+ CONST UID '578F63E4034F'
+ CONST Name 'Удаление атрибута с помощью меню'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_578F52B00005 // Редактирование атрибутов
+ ;
+
+ref; // ME_578F63E4034F Удаление атрибута с помощью меню
+
+: ME_578F640E0373
+ CONST UID '578F640E0373'
+ CONST Name 'Копирование атрибута'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_578F52B00005 // Редактирование атрибутов
+ ;
+
+ref; // ME_578F640E0373 Копирование атрибута
+
+: ME_578F64210067
+ CONST UID '578F64210067'
+ CONST Name 'Копирование нескольких атрибутов'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_578F52B00005 // Редактирование атрибутов
+ ;
+
+ref; // ME_578F64210067 Копирование нескольких атрибутов
+
+: ME_578F52B00005
+ CONST UID '578F52B00005'
+ CONST Name 'Редактирование атрибутов'
+ CONST Class class_Class
+ : Stereotype st_UseCase ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_53F327E402A1 // Требования к созданию и редактированию документа
+ ;
+ : Children
+   Seq: ( HWL ME_578F52E20389 // Изменение названия документа
+ HWL ME_578F5B7F01C2 // Добавление комментария
+ HWL ME_578F5B8E03A2 // Автоматический анализ заголовка
+ HWL ME_578F636D01BE // Добавление атрибута
+ HWL ME_578F63840383 // Удаление атрибута с помощью клавиатуры
+ HWL ME_578F63E4034F // Удаление атрибута с помощью меню
+ HWL ME_578F640E0373 // Копирование атрибута
+ HWL ME_578F64210067 // Копирование нескольких атрибутов
+ )
+ ; // Children
+
+ref; // ME_578F52B00005 Редактирование атрибутов
+
 : ME_53F327E402A1
  CONST UID '53F327E402A1'
  CONST Name 'Требования к созданию и редактированию документа'
@@ -3200,6 +3330,7 @@ ref; // ME_551121E4029E Редактирование документа
  : Children
    Seq: ( HWL ME_53F328B0007F // Создание нового документа
  HWL ME_551121E4029E // Редактирование документа
+ HWL ME_578F52B00005 // Редактирование атрибутов
  )
  ; // Children
 

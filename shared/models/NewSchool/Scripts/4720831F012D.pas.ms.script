@@ -24,78 +24,21 @@ FORWARD ME_4720831F012D
 
 ref; // ME_472083450181 Im3Base
 
-FORWARD ME_472083770011
-
-: ME_472083B60039
- CONST UID '472083B60039'
- CONST Name 'm3_dsMain'
- CONST Class class_Attribute
- %SUMMARY 'основной поток' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent HWL ME_472083770011 // Tm3DocPartSelector
- ;
-
-ref; // ME_472083B60039 m3_dsMain
-
-: ME_472083C00387
- CONST UID '472083C00387'
- CONST Name 'm3_dsAnno'
- CONST Class class_Attribute
- %SUMMARY 'аннотация' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent HWL ME_472083770011 // Tm3DocPartSelector
- ;
-
-ref; // ME_472083C00387 m3_dsAnno
-
-: ME_472083CC0117
- CONST UID '472083CC0117'
- CONST Name 'm3_dsInfo'
- CONST Class class_Attribute
- %SUMMARY 'информация о документе' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent HWL ME_472083770011 // Tm3DocPartSelector
- ;
-
-ref; // ME_472083CC0117 m3_dsInfo
-
-: ME_486B7E4803A2
- CONST UID '486B7E4803A2'
- CONST Name 'm3_dsObject'
- CONST Class class_Attribute
- %SUMMARY 'объект в документе' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent HWL ME_472083770011 // Tm3DocPartSelector
- ;
-
-ref; // ME_486B7E4803A2 m3_dsObject
-
 : ME_472083770011
  CONST UID '472083770011'
  CONST Name 'Tm3DocPartSelector'
  CONST Class class_Class
- : Stereotype st_Enum ;
+ : Stereotype st_Typedef ;
  CONST Kind kind_NormalClass
  %SUMMARY 'Составная часть документа.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  : Parent HWL ME_4720831F012D // m3DBInterfaces
  ;
- : Attributes
-   Seq: ( HWL ME_472083B60039 // m3_dsMain
- HWL ME_472083C00387 // m3_dsAnno
- HWL ME_472083CC0117 // m3_dsInfo
- HWL ME_486B7E4803A2 // m3_dsObject
+ : Inherits
+   Seq: ( WL 'ME_578F46D3027D' '578F46AF0276.pas.ms.script' // Tm3DocPartSelector
  )
- ; // Attributes
+ ; // Inherits
  CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_472083770011 Tm3DocPartSelector
@@ -2867,6 +2810,7 @@ ref; // ME_55537541038B Tm3FilesProcessedEx
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_4A4DE16302A2' '4A4DE16302A2.pas.ms.script' // k2Core
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_578F46AF0276' '578F46AF0276.pas.ms.script' // m3DBTypes
  )
  ; // Depends
  CONST "author" 'Люлин А.В.'

@@ -1,0 +1,124 @@
+// m3DBTypes 578F46AF0276 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_578F46AF0276
+
+FORWARD ME_578F46D3027D
+
+: ME_472083B60039
+ CONST UID '472083B60039'
+ CONST Name 'm3_dsMain'
+ CONST Class class_Attribute
+ %SUMMARY 'основной поток' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_578F46D3027D // Tm3DocPartSelector
+ ;
+
+ref; // ME_472083B60039 m3_dsMain
+
+: ME_472083C00387
+ CONST UID '472083C00387'
+ CONST Name 'm3_dsAnno'
+ CONST Class class_Attribute
+ %SUMMARY 'аннотация' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_578F46D3027D // Tm3DocPartSelector
+ ;
+
+ref; // ME_472083C00387 m3_dsAnno
+
+: ME_472083CC0117
+ CONST UID '472083CC0117'
+ CONST Name 'm3_dsInfo'
+ CONST Class class_Attribute
+ %SUMMARY 'информация о документе' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_578F46D3027D // Tm3DocPartSelector
+ ;
+
+ref; // ME_472083CC0117 m3_dsInfo
+
+: ME_486B7E4803A2
+ CONST UID '486B7E4803A2'
+ CONST Name 'm3_dsObject'
+ CONST Class class_Attribute
+ %SUMMARY 'объект в документе' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_578F46D3027D // Tm3DocPartSelector
+ ;
+
+ref; // ME_486B7E4803A2 m3_dsObject
+
+: ME_578F46D3027D
+ CONST UID '578F46D3027D'
+ CONST Name 'Tm3DocPartSelector'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_578F46AF0276 // m3DBTypes
+ ;
+ : Attributes
+   Seq: ( HWL ME_472083B60039 // m3_dsMain
+ HWL ME_472083C00387 // m3_dsAnno
+ HWL ME_472083CC0117 // m3_dsInfo
+ HWL ME_486B7E4803A2 // m3_dsObject
+ )
+ ; // Attributes
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_578F46D3027D Tm3DocPartSelector
+
+: ME_578F4B0203B7
+ CONST UID '578F4B0203B7'
+ CONST Name 'm3_AllDocParts'
+ CONST Class class_Class
+ : Stereotype st_SetConst ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_578F46AF0276 // m3DBTypes
+ ;
+ : Inherits
+   Seq: ( HWL ME_578F46D3027D // Tm3DocPartSelector
+ )
+ ; // Inherits
+ CONST "spell names" false
+
+ref; // ME_578F4B0203B7 m3_AllDocParts
+
+: ME_578F46AF0276
+ CONST UID '578F46AF0276'
+ CONST Name 'm3DBTypes'
+ CONST Class class_Category
+ : Stereotype st_Interfaces ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_548712F60101' '548712F60101.pas.ms.script' // m3$DB
+ ;
+ : Children
+   Seq: ( HWL ME_578F46D3027D // Tm3DocPartSelector
+ )
+ ; // Children
+ : Constants
+   Seq: ( HWL ME_578F4B0203B7 // m3_AllDocParts
+ )
+ ; // Constants
+ : Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.pas.ms.script' // Primitives
+ )
+ ; // Depends
+ CONST "is namespace" true
+ CONST intf.pas:Path 'common\components\rtl\Garant\m3\m3DBTypes.pas'
+
+ref; // ME_578F46AF0276 m3DBTypes

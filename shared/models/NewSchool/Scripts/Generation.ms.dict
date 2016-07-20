@@ -588,15 +588,9 @@ BOOLEAN elem_func IsUtilityPack
 
 BOOLEAN elem_func UseNewGenExcluded
  RULES
-  //( Self .IsControllerInterfaces )
+  //( Self GarantModel::vcmData .InheritsFrom )
   // true
-  ( Self GarantModel::vcmData .InheritsFrom )
-   true
   ( Self GarantModel::TddComboBoxConfigItem .InheritsFrom )
-   true
-  ( Self GarantModel::Tl3ProtoObjectForTie ?== )
-   false
-  ( Self GarantModel::Tl3ProtoObjectForTie .InheritsFrom )
    true
   DEFAULT
    begin
@@ -722,7 +716,22 @@ elem_proc GenerateWordToFileWith:
          ) // TF g_NeedOutLn
         ) // TF g_UCRead
        ) // TF g_OutFile
-       g_RealFileName g_TempFileName false CopyChangedFile
+
+       if (
+           ( g_FinalFileName .IsNotNil )
+           AND ( Self .? .CanCopyToFinalFile )
+          ) then
+       begin
+        if ( g_RealFileName sysutils:FileExists ) then
+        begin
+         g_RealFileName false DoDeleteFile
+        end // ( g_RealFileName sysutils:FileExists )
+       end // ( g_FinalFileName .IsNotNil )
+       else
+       begin
+        g_RealFileName g_TempFileName false CopyChangedFile
+       end // ( g_FinalFileName .IsNotNil )
+
        if ( g_FinalFileName .IsNotNil ) then
        begin
         if ( Self .? .CanCopyToFinalFile ) then
@@ -3602,14 +3611,114 @@ BOOLEAN elem_func IsProperty
  >>> Result
 ; // IsProperty
 
+BOOLEAN elem_func IsWideString
+ Cached:
+ (
+  RULES
+   ( Self .Name 'a-string' == )
+    false
+   ( Self .Name 'a-wstring' == )
+    true
+   ( Self .IsTypedef )
+    RULES
+     ( Self .IsPointer )
+      false
+     DEFAULT
+      ( Self .MainAncestor call.me )
+    ; // RULES  
+   DEFAULT
+    false
+  ; // RULES
+ )
+ >>> Result
+; // IsWideString
+
+BOOLEAN elem_func IsString
+ Cached:
+ (
+  RULES
+   ( Self .Name 'a-string' == )
+    true
+   ( Self .IsWideString )
+    true
+   ( Self .IsTypedef )
+    RULES
+     ( Self .IsPointer )
+      false
+     DEFAULT
+      ( Self .MainAncestor call.me )
+    ; // RULES  
+   DEFAULT
+    false
+  ; // RULES
+ )
+ >>> Result
+; // IsString
+
+BOOLEAN elem_func IsUntyped
+ Self .Name 'void' == >>> Result
+; // IsUntyped
+
+BOOLEAN elem_func IsManaged
+ Cached:
+ (
+  RULES
+   ( Self .IsRecord )
+    true
+   ( Self .IsUnion )
+    true
+   ( Self .IsArray )
+    true
+   ( Self .IsInterface )
+    true
+   ( Self .IsTypedef )
+    RULES
+     ( Self .IsPointer )
+      false
+     DEFAULT
+      ( Self .MainAncestor call.me )
+    ; // RULES  
+   ( Self .IsMixInParamType )
+    true
+   ( Self .IsString )
+    true
+   ( Self .IsUntyped )
+    true
+   DEFAULT
+    false
+  ; // RULES
+ )
+ >>> Result
+; // IsManaged
+
+WordAlias .NeedsResultVarInTie .IsManaged
+
 ARRAY elem_func MethodParameters
  Cached:
  (
   RULES
+   ( Self .InTie )
+    RULES
+     ( Self .Target .NeedsResultVarInTie )
+      (
+        Self .Parameters
+        .join> ToArray: (
+         'aRet'
+         nil //Self .Target
+         MakeParam: (
+           IN aMade
+          aMade -> Stereotype := st_out
+          aMade -> %SUM := ( Self .Target .TypeName )
+         ) // MakeParam:
+        ) // .join> ToArray:
+      )
+     DEFAULT
+      ( Self .Parameters )
+    ; // RULES
    (
     ( Self .IsVCMOperationPrim )
     OR ( Self .IsModuleOperationPrim )
-   ) 
+   )
     RULES
      ( Self .IsTester )
       ( GarantModel::IvcmTestParamsPrim .ParamsParam .ToArray )
@@ -3671,7 +3780,7 @@ ARRAY elem_func MethodParameters
      end // ( Self .IsMakeSingleChild )
      else
      begin
-      .join> [ 
+      .join> [
        'aParams' GarantModel::IvcmMakeParams MakeParam: (
          IN aMade
         aMade -> 'extprop:pas:Value' := 'nil' 
@@ -3911,19 +4020,19 @@ elem_proc DefaultUserCodePrim:
   VAR l_Field
   nil >>> l_Field 
   
-  if ( aSuffix .NotIsNil ) then
+/*{  if ( aSuffix .NotIsNil ) then
   begin
    // - вообще говоря тут затычка для переноса слов скрипта в новый генератор
    if ( [ l_KeyStart cUnderline l_KeyStart ] strings:Cat aKey StartsStr ) then
    // - проверяем, что это слово скрипта у которого родитель поменял UID
    // - тут ещё надо KeywordObjectToOperate проверять
    begin
-    g_CurrentGenerator MembersIterator 
+    g_CurrentGenerator MembersIterator
     .filter> ( .WordName l_KeyStart SWAP StartsStr )
     .filter> ( .WordName aSuffix '*' Cat SWAP EndsStr )
     .FirstElement >>> l_Field
    end
-  end // ( aSuffix .NotIsNil )
+  end // ( aSuffix .NotIsNil )}*/
   
   if ( l_Field .IsNil ) then
   begin
@@ -3934,7 +4043,6 @@ elem_proc DefaultUserCodePrim:
    [ cUCStart aKey ] .Out
    l_Field DO .for> ( ToOut \n ToOut )
    [ cUCEnd aKey ] .Out
-   //l_Field .WordName Msg
   end // ( l_Field .IsNil )
  ) // Self aKey .OutUserCode:
 ; // DefaultUserCodePrim:
@@ -4908,86 +5016,6 @@ elem_iterator GlobalVars
  ) 
  >>> Result
 ; // GlobalVars
-
-BOOLEAN elem_func IsWideString
- Cached:
- (
-  RULES
-   ( Self .Name 'a-string' == )
-    false
-   ( Self .Name 'a-wstring' == )
-    true
-   ( Self .IsTypedef )
-    RULES
-     ( Self .IsPointer )
-      false
-     DEFAULT
-      ( Self .MainAncestor call.me )
-    ; // RULES  
-   DEFAULT
-    false
-  ; // RULES
- )
- >>> Result
-; // IsWideString
-
-BOOLEAN elem_func IsString
- Cached:
- (
-  RULES
-   ( Self .Name 'a-string' == )
-    true
-   ( Self .IsWideString )
-    true
-   ( Self .IsTypedef )
-    RULES
-     ( Self .IsPointer )
-      false
-     DEFAULT
-      ( Self .MainAncestor call.me )
-    ; // RULES  
-   DEFAULT
-    false
-  ; // RULES
- )
- >>> Result
-; // IsString
-
-BOOLEAN elem_func IsUntyped
- Self .Name 'void' == >>> Result
-; // IsUntyped
-
-BOOLEAN elem_func IsManaged
- Cached:
- (
-  RULES
-   ( Self .IsRecord )
-    true
-   ( Self .IsUnion )
-    true
-   ( Self .IsArray )
-    true
-   ( Self .IsInterface )
-    true
-   ( Self .IsTypedef )
-    RULES
-     ( Self .IsPointer )
-      false
-     DEFAULT
-      ( Self .MainAncestor call.me )
-    ; // RULES  
-   ( Self .IsMixInParamType )
-    true
-   ( Self .IsString )
-    true
-   ( Self .IsUntyped )
-    true
-   DEFAULT
-    false
-  ; // RULES
- )
- >>> Result
-; // IsManaged
 
 BOOLEAN elem_func IsConstants
  Self .IsStereotype st_Constants 
@@ -6107,6 +6135,8 @@ ModelElement elem_func MethodType
     RULES
      ( Self .Target .TypeName 'Boolean' == )
       GarantModel::ByteBool
+     ( Self .Target .NeedsResultVarInTie )
+      nil
      DEFAULT
       ( Self .Target )
     ; // RULES
@@ -6426,8 +6456,10 @@ elem_proc UserCode:
  aSuffix DO >>> l_Key
  
  VAR l_Code
- Self 
-  [ cUserCodePrefix Self .MethodUserCodeModifier l_Key ] strings:Cat 
+ VAR l_Modifier
+ Self .MethodUserCodeModifier >>> l_Modifier
+ Self
+  [ cUserCodePrefix l_Modifier l_Key ] strings:Cat 
   .GetUserCode >>> l_Code
  
  if ( l_Code .IsValueValid ) then
@@ -7307,6 +7339,36 @@ elem_proc UserCode:
      DEFAULT
       () 
     ; // RULES
+   (
+    ( Self .IsSummoned )
+    (
+     AND ( l_Implementor GarantModel::vcmData .InheritsFrom )
+     AND ( Self .GetUP 'extprop:CASTER' .NotIsNil )
+    ) 
+    OR ( Self .Documentation 'Форма синхронного просмотра' == )
+   )
+    Code:
+     RULES
+       ( l_Modifier 'get' == )
+        RULES
+         ( Self .Target GarantModel::IvcmFormDataSourceRef .IsSameModelElement )
+          ( [ ' ' 'Result' ' := '
+              'vcmCheckAndMake('
+              'f_' Self .Name
+              if ( Self .GetUP 'extprop:CASTER' .UPisTrue "required" ) then
+              begin
+               ', vcm_nmYes'
+              end // ( Self .GetUP 'extprop:CASTER' .UPisTrue "required" )
+              ')' ';'
+            ] .Out )
+         DEFAULT
+          ( [ ' ' 'Result' ' := ' 'f_' Self .Name ';' ] .Out )
+        ; // RULES
+       ( l_Modifier 'set' == )
+        ( [ ' ' 'f_' Self .Name ' := ' 'aValue' ';' ] .Out )
+      DEFAULT
+       AsMethod
+     ; // RULES
    ( Self .IsElementProxy )
     AsDefault
    ( Self .IsClassOrMixIn )
@@ -10067,11 +10129,6 @@ elem_iterator IntfUses
     // - вообще это надо только для Internal операций
    end // ( Self .Abstraction at_final != )
    
-   if ( Self .IsMixIn ! ) then
-   begin
-    //.join> ToArray: ( Self .DefaultAncestor )
-    .join> ToArray: ( Self .MainAncestorThatNotMixIn )
-   end // ( Self .IsMixIn ! )
    if ( Self .Abstraction at_final == ) then
    begin
     if ( Self .IsVCMForm ) then
@@ -10101,8 +10158,18 @@ elem_iterator IntfUses
    .join> ToArray: GarantModel::vcmExternalInterfaces
    .join> ToArray: GarantModel::TvcmModule
   end // ( Self .IsVCMFormsPack )
-  
- ) 
+
+  if ( Self .IsClassOrMixIn ) then
+  begin
+   if ( Self .IsMixIn ! ) then
+   begin
+    if ( Self .MainAncestorThatNotMixIn .NotIsNil ) then
+    begin
+     .join> ToArray: ( Self .MainAncestorThatNotMixIn )
+    end // ( Self .MainAncestorThatNotMixIn .NotIsNil )
+   end // ( Self .IsMixIn ! )
+  end // ( Self .IsClassOrMixIn )
+ )
  >>> Result
 ; // IntfUses
 
@@ -10173,7 +10240,7 @@ elem_iterator GlobalOperationsPrim
     ) 
    ( Self .IsUtilityPack )
     ( Self .OperationsEx )
-   ( Self .IsClassOrMixIn ) 
+   ( Self .IsClassOrMixIn )
     (
      if ( Self .IsSingleton ) then
      begin
@@ -12525,7 +12592,12 @@ ModelElement elem_func TagClass
  ;
  Cached:
  (
-  Self .TypeName 'Class' Cat nil MakeClass
+  Self .TypeName 'Class' Cat
+  nil
+  MakeClass: (
+    IN aMade
+   aMade -> Parent := ( Self .Parent .WeakRef ) 
+  ) // MakeClass:
  ) 
  >>> Result
 ; // TagClass
@@ -15773,14 +15845,6 @@ elem_generator rc.script
  CONST Ext '.rc.script'
 
  BOOLEAN elem_func CanCopyToFinalFile
-  /*{
-  RULES
-   ( Self .NeedsWordsAliases ! )
-    true
-   DEFAULT
-    false
-  ; // RULES
-  }*/
   true >>> Result
  ; // CanCopyToFinalFile
  

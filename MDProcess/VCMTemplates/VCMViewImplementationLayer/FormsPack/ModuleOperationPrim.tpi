@@ -11,7 +11,6 @@
 
 : ModuleOperationPrim::Class
 = Delphi интерфейсы и реализаци€::MDAGenerator
-= OperationsPublisher::Class
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // ѕараметры стереотипа
@@ -53,18 +52,6 @@ p ShortCut:s ?
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // ”наследованна€ реализаци€
-
-// реализаци€ абстрактного стереотипа OperationsPublisher::Class
-// ѕубликует операции
-%f _PublishOperations
-//#UC START# *4A770F770199for4A9D2DEA0027*
-	[{%f_exists_in_list(PUBLISHED_OPERATIONS_LIST,S)!=true}\
-	%f_add_to_list(PUBLISHED_OPERATIONS_LIST,S)\
-	\n g_module_opcode_%P%f_FinalName()_%f_N(%S) := 
-	  PublishModuleOperation(%P%f_FinalTypeName(), '%f_N(%S)', '%SD'\
-	[{%S{no prefix}=true}, true]);\
-	]
-//#UC END# *4A770F770199for4A9D2DEA0027*
 
 // перекрытие базового стереотипа Delphi интерфейсы и реализаци€::MDAGenerator
 // Ёлемент попадает в секцию Published

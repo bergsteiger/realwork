@@ -1,0 +1,159 @@
+// nevTypes 578F62050180 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_578F62050180
+
+: ME_578F6240019A
+ CONST UID '578F6240019A'
+ CONST Name 'TnevParaIndex'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_578F62050180 // nevTypes
+ ;
+ : Inherits
+   Seq: ( WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ )
+ ; // Inherits
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_578F6240019A TnevParaIndex
+
+: ME_578F624B01A8
+ CONST UID '578F624B01A8'
+ CONST Name 'TnevParaLevel'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_578F62050180 // nevTypes
+ ;
+ : Inherits
+   Seq: ( WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ )
+ ; // Inherits
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_578F624B01A8 TnevParaLevel
+
+: ME_578F62570107
+ CONST UID '578F62570107'
+ CONST Name 'TnevInch'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_578F62050180 // nevTypes
+ ;
+ : Inherits
+   Seq: ( WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ )
+ ; // Inherits
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_578F62570107 TnevInch
+
+FORWARD ME_578F687F030C
+
+: ME_476BED41036B
+ CONST UID '476BED41036B'
+ CONST Name 'ev_lfInternal'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_578F687F030C // TevLoadFlag
+ ;
+
+ref; // ME_476BED41036B ev_lfInternal
+
+: ME_476BED480394
+ CONST UID '476BED480394'
+ CONST Name 'ev_lfNeedJoin'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_578F687F030C // TevLoadFlag
+ ;
+
+ref; // ME_476BED480394 ev_lfNeedJoin
+
+: ME_476BED4F0256
+ CONST UID '476BED4F0256'
+ CONST Name 'ev_lfAtEnd'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_578F687F030C // TevLoadFlag
+ ;
+
+ref; // ME_476BED4F0256 ev_lfAtEnd
+
+: ME_476BED540338
+ CONST UID '476BED540338'
+ CONST Name 'ev_lfSkipSubdocuments'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_578F687F030C // TevLoadFlag
+ ;
+
+ref; // ME_476BED540338 ev_lfSkipSubdocuments
+
+: ME_578F687F030C
+ CONST UID '578F687F030C'
+ CONST Name 'TevLoadFlag'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_578F62050180 // nevTypes
+ ;
+ : Attributes
+   Seq: ( HWL ME_476BED41036B // ev_lfInternal
+ HWL ME_476BED480394 // ev_lfNeedJoin
+ HWL ME_476BED4F0256 // ev_lfAtEnd
+ HWL ME_476BED540338 // ev_lfSkipSubdocuments
+ )
+ ; // Attributes
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_578F687F030C TevLoadFlag
+
+: ME_578F62050180
+ CONST UID '578F62050180'
+ CONST Name 'nevTypes'
+ CONST Class class_Category
+ : Stereotype st_Interfaces ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4797632D0273' '4797632D0273.pas.ms.script' // Everest
+ ;
+ : Children
+   Seq: ( HWL ME_578F6240019A // TnevParaIndex
+ HWL ME_578F624B01A8 // TnevParaLevel
+ HWL ME_578F62570107 // TnevInch
+ HWL ME_578F687F030C // TevLoadFlag
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.pas.ms.script' // Primitives
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ )
+ ; // Depends
+ CONST "defines" 'nevDefine.inc'
+ CONST "is namespace" true
+ CONST "path prefix" '/new'
+ CONST intf.pas:Path 'common\components\gui\Garant\Everest\new\nevTypes.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+
+ref; // ME_578F62050180 nevTypes

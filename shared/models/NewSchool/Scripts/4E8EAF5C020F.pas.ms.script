@@ -4,6 +4,110 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 FORWARD ME_4E8EAF5C020F
 
+FORWARD ME_578C90CD01EE
+
+: ME_578C90F003B5
+ CONST UID '578C90F003B5'
+ CONST Name 'rIntDocID'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_578C90CD01EE // TddALDocRec
+ ;
+ : Target WL 'ME_4DE60AE303AD' '47BC51FE018B.pas.ms.script' // TDocID
+ ;
+
+ref; // ME_578C90F003B5 rIntDocID
+
+: ME_578C91090034
+ CONST UID '578C91090034'
+ CONST Name 'rExtDocID'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_578C90CD01EE // TddALDocRec
+ ;
+ : Target WL 'ME_4DE60AE303AD' '47BC51FE018B.pas.ms.script' // TDocID
+ ;
+
+ref; // ME_578C91090034 rExtDocID
+
+: ME_578C90CD01EE
+ CONST UID '578C90CD01EE'
+ CONST Name 'TddALDocRec'
+ CONST Class class_Class
+ : Stereotype st_Struct ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4E8EAF5C020F // ddAutolinkInterfaces
+ ;
+ : Attributes
+   Seq: ( HWL ME_578C90F003B5 // rIntDocID
+ HWL ME_578C91090034 // rExtDocID
+ )
+ ; // Attributes
+ CONST "packed" true
+
+ref; // ME_578C90CD01EE TddALDocRec
+
+FORWARD ME_51F251C90183
+
+: ME_51F2529E003F
+ CONST UID '51F2529E003F'
+ CONST Name 'DocID'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent HWL ME_51F251C90183 // IddAutolinkArbitraryDocEntry
+ ;
+ : Target WL 'ME_4DE60AE303AD' '47BC51FE018B.pas.ms.script' // TDocID
+ ;
+ CONST "pm" false
+
+ref; // ME_51F2529E003F DocID
+
+: ME_51F252E8038B
+ CONST UID '51F252E8038B'
+ CONST Name 'TypesList'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent HWL ME_51F251C90183 // IddAutolinkArbitraryDocEntry
+ ;
+ : Target WL 'ME_47BB29D40117' '47913B47006E.pas.ms.script' // Tl3LongintList
+ ;
+ CONST "pm" false
+
+ref; // ME_51F252E8038B TypesList
+
+: ME_51F251C90183
+ CONST UID '51F251C90183'
+ CONST GUID 'F1638796-C90F-4314-A281-5BD53E75C0B6'
+ CONST Name 'IddAutolinkArbitraryDocEntry'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4E8EAF5C020F // ddAutolinkInterfaces
+ ;
+ : Attributes
+   Seq: ( HWL ME_51F2529E003F // DocID
+ HWL ME_51F252E8038B // TypesList
+ )
+ ; // Attributes
+ CONST extprop:rc:SelfName 'ddAutolinkArbitraryDocEntry'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_51F251C90183 IddAutolinkArbitraryDocEntry
+
 FORWARD ME_4E8EAEAB0303
 
 FORWARD ME_4E8EB87300FE
@@ -106,8 +210,8 @@ ref; // ME_4E8EE02D0168 Date
 
 ref; // ME_4E8EE4F003A3 SourceCount
 
-: ME_4E96DF99012B
- CONST UID '4E96DF99012B'
+: ME_578C92A7016C
+ CONST UID '578C92A7016C'
  CONST Name 'DocID'
  CONST Class class_Attribute
  : Stereotype st_property::Attribute ;
@@ -116,11 +220,11 @@ ref; // ME_4E8EE4F003A3 SourceCount
  CONST LinkType lt_lnk
  : Parent HWL ME_4E8EAEAB0303 // IddAutolinkDocEntry
  ;
- : Target WL 'ME_4E96DF22023F' '4E96E0A803E1.pas.ms.script' // TddALDocRec
+ : Target HWL ME_578C90CD01EE // TddALDocRec
  ;
  CONST "pm" false
 
-ref; // ME_4E96DF99012B DocID
+ref; // ME_578C92A7016C DocID
 
 FORWARD ME_4E8EE40A00F2
 
@@ -411,7 +515,7 @@ ref; // ME_4E96BF820064 Clone
  HWL ME_4E8EDF6900EC // Num
  HWL ME_4E8EE02D0168 // Date
  HWL ME_4E8EE4F003A3 // SourceCount
- HWL ME_4E96DF99012B // DocID
+ HWL ME_578C92A7016C // DocID
  )
  ; // Attributes
  : Operations
@@ -429,44 +533,62 @@ ref; // ME_4E96BF820064 Clone
 
 ref; // ME_4E8EAEAB0303 IddAutolinkDocEntry
 
-FORWARD ME_51F251C90183
+: ME_578C91800012
+ CONST UID '578C91800012'
+ CONST Name 'PddALDocRec'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4E8EAF5C020F // ddAutolinkInterfaces
+ ;
+ : Inherits
+   Seq: ( HWL ME_578C90CD01EE // TddALDocRec
+ )
+ ; // Inherits
+ CONST "isPointer" true
 
-: ME_51F2529E003F
- CONST UID '51F2529E003F'
- CONST Name 'DocID'
+ref; // ME_578C91800012 PddALDocRec
+
+FORWARD ME_578C91F30022
+
+: ME_578C921D0305
+ CONST UID '578C921D0305'
+ CONST Name 'ActualEdition'
  CONST Class class_Attribute
  : Stereotype st_readonly::Attribute ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent HWL ME_51F251C90183 // IddAutolinkArbitraryDocEntry
+ : Parent HWL ME_578C91F30022 // ICodexDataHolder
  ;
- : Target WL 'ME_4DE60AE303AD' '47BC51FE018B.pas.ms.script' // TDocID
+ : Target HWL ME_578C90CD01EE // TddALDocRec
  ;
  CONST "pm" false
 
-ref; // ME_51F2529E003F DocID
+ref; // ME_578C921D0305 ActualEdition
 
-: ME_51F252E8038B
- CONST UID '51F252E8038B'
- CONST Name 'TypesList'
+: ME_578C94B50201
+ CONST UID '578C94B50201'
+ CONST Name 'Abbreviations'
  CONST Class class_Attribute
  : Stereotype st_readonly::Attribute ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  CONST LinkType lt_lnk
- : Parent HWL ME_51F251C90183 // IddAutolinkArbitraryDocEntry
+ : Parent HWL ME_578C91F30022 // ICodexDataHolder
  ;
- : Target WL 'ME_47BB29D40117' '47913B47006E.pas.ms.script' // Tl3LongintList
+ : Target WL 'ME_4773DCE302FF' '47913B47006E.pas.ms.script' // Tl3StringList
  ;
  CONST "pm" false
 
-ref; // ME_51F252E8038B TypesList
+ref; // ME_578C94B50201 Abbreviations
 
-: ME_51F251C90183
- CONST UID '51F251C90183'
- CONST GUID 'F1638796-C90F-4314-A281-5BD53E75C0B6'
- CONST Name 'IddAutolinkArbitraryDocEntry'
+: ME_578C91F30022
+ CONST UID '578C91F30022'
+ CONST GUID '99CD432A-D881-4617-9AFE-E785B28A986D'
+ CONST Name 'ICodexDataHolder'
  CONST Class class_Class
  : Stereotype st_Facet ;
  CONST Kind kind_NormalClass
@@ -475,14 +597,14 @@ ref; // ME_51F252E8038B TypesList
  : Parent HWL ME_4E8EAF5C020F // ddAutolinkInterfaces
  ;
  : Attributes
-   Seq: ( HWL ME_51F2529E003F // DocID
- HWL ME_51F252E8038B // TypesList
+   Seq: ( HWL ME_578C921D0305 // ActualEdition
+ HWL ME_578C94B50201 // Abbreviations
  )
  ; // Attributes
- CONST extprop:rc:SelfName 'ddAutolinkArbitraryDocEntry'
+ CONST extprop:rc:SelfName 'CodexDataHolder'
  CONST extprop:rc:isAcceptableForScripts true
 
-ref; // ME_51F251C90183 IddAutolinkArbitraryDocEntry
+ref; // ME_578C91F30022 ICodexDataHolder
 
 : ME_4E8EAF5C020F
  CONST UID '4E8EAF5C020F'
@@ -495,8 +617,11 @@ ref; // ME_51F251C90183 IddAutolinkArbitraryDocEntry
  : Parent WL 'ME_4677E18600C2' '4677E18600C2.pas.ms.script' // dd
  ;
  : Children
-   Seq: ( HWL ME_4E8EAEAB0303 // IddAutolinkDocEntry
+   Seq: ( HWL ME_578C90CD01EE // TddALDocRec
  HWL ME_51F251C90183 // IddAutolinkArbitraryDocEntry
+ HWL ME_4E8EAEAB0303 // IddAutolinkDocEntry
+ HWL ME_578C91800012 // PddALDocRec
+ HWL ME_578C91F30022 // ICodexDataHolder
  )
  ; // Children
  : Depends

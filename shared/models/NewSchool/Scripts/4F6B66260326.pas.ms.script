@@ -4,6 +4,41 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 FORWARD ME_4F6B66260326
 
+FORWARD ME_578CD45E0000
+
+: ME_578CD46901E7
+ CONST Class class_Dependency
+ : Stereotype st_implements::Dependency ;
+ : Parent HWL ME_578CD45E0000 // TvcmParentAndChildServiceImpl
+ ;
+ : Target WL 'ME_578CD42801C0' '578CD41500D6.pas.ms.script' // TvcmParentAndChildService
+ ;
+
+ref; // ME_578CD46901E7 
+
+: ME_578CD45E0000
+ CONST UID '578CD45E0000'
+ CONST Name 'TvcmParentAndChildServiceImpl'
+ CONST Class class_Class
+ : Stereotype st_ServiceImplementation ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4F6B66260326 // ParentAndChildPrim
+ ;
+ : Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ : Dependencies
+   Seq: ( ME_578CD46901E7 // TvcmParentAndChildService
+ )
+ ; // Dependencies
+ CONST extprop:rc:SelfName 'ParentAndChildServiceImpl'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_578CD45E0000 TvcmParentAndChildServiceImpl
+
 FORWARD ME_4F6B67820382
 
 : ME_4F6B682E03C3
@@ -46,7 +81,7 @@ ref; // ME_4F6B6815037A DoIt
  CONST Class class_Class
  : Stereotype st_FormFactory ;
  CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
+ CONST Visibility ProtectedAccess
  CONST Abstraction at_final
  : Parent HWL ME_4F6B66260326 // ParentAndChildPrim
  ;
@@ -90,7 +125,7 @@ ref; // ME_4F6B67E20007 DoIt
  CONST Class class_Class
  : Stereotype st_FormFactory ;
  CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
+ CONST Visibility ProtectedAccess
  CONST Abstraction at_final
  : Parent HWL ME_4F6B66260326 // ParentAndChildPrim
  ;
@@ -130,6 +165,7 @@ ref; // ME_4F6B684401E9
  : Children
    Seq: ( WL 'ME_4F6B66CB0200' '4F6B66CB0200.pas.ms.script' // Parent
  WL 'ME_4F6B66DB0384' '4F6B66DB0384.pas.ms.script' // Child
+ HWL ME_578CD45E0000 // TvcmParentAndChildServiceImpl
  )
  ; // Children
  : Dependencies
