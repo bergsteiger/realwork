@@ -1,70 +1,52 @@
 unit dDrugList;
+ {* Данные сборки "Список лекартсвенных препаратов". }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Drug"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Drug/dDrugList.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Встроенные продукты::Inpharm::Drug::DrugData::TdDrugList
-//
-// Данные сборки "Список лекартсвенных препаратов".
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Drug\dDrugList.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TdDrugList" MUID: (47EB3E410033)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DynamicDocListUnit,
-  l3TreeInterfaces,
-  MedicInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmControllers
-  {$IfEnd} //not NoVCM
-  ,
-  l3Types,
-  BaseDocumentWithAttributesInterfaces,
-  DocumentAndListInterfaces,
-  DocumentInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  l3ProtoObject
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , MedicInterfaces
+ , l3TreeInterfaces
+ , DynamicDocListUnit
+ {$If NOT Defined(NoVCM)}
+ , vcmControllers
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3Types
+ , BaseDocumentWithAttributesInterfaces
+ , DocumentAndListInterfaces
+ , DocumentInterfaces
+ , l3ProtoObject
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  _IvcmRealData_ = IdDrugList;
- {$Include ..\Drug\dBaseDrugDocument.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Drug\dBaseDrugDocument.imp.pas}
  TdDrugList = class(_dBaseDrugDocument_, IdDrugList)
   {* Данные сборки "Список лекартсвенных препаратов". }
- private
- // private fields
-   f_NodeForPositioning : Il3SimpleNode;
-   f_List : IDynList;
-   f_dsFiltersRef : IvcmFormDataSourceRef;
-    {* Поле для свойства dsFiltersRef}
-   f_dsDrugListRef : IvcmFormDataSourceRef;
-    {* Поле для свойства dsDrugListRef}
-   f_dsListInfoRef : IvcmFormDataSourceRef;
-    {* Поле для свойства dsListInfoRef}
-   f_dsSynchroViewRef : IvcmFormDataSourceRef;
-    {* Поле для свойства dsSynchroViewRef}
-   f_DrugList_SynchroView_Form : TDrugList_SynchroView_Areas;
-    {* Поле для свойства DrugList_SynchroView_Form}
- protected
- // realized methods
+  private
+   f_NodeForPositioning: Il3SimpleNode;
+   f_List: IDynList;
+   f_dsFiltersRef: IvcmFormDataSourceRef;
+    {* Ссылка на "Бизнес объект "Фильтры"" }
+   f_dsDrugListRef: IvcmFormDataSourceRef;
+    {* Ссылка на "Бизнес объект "Список лекарственных препаратов"" }
+   f_dsListInfoRef: IvcmFormDataSourceRef;
+    {* Ссылка на "справка к списку" }
+   f_dsSynchroViewRef: IvcmFormDataSourceRef;
+    {* Ссылка на "Бизнес объект "Синхронный просмотра"" }
+   f_DrugList_SynchroView_Form: TDrugList_SynchroView_Areas;
+    {* Форма синхронного просмотра }
+  protected
    function pm_GetDsFiltersRef: IvcmFormDataSourceRef;
    function pm_GetDsDrugListRef: IvcmFormDataSourceRef;
    function pm_GetList: IDynList;
@@ -75,45 +57,35 @@ type
    function pm_GetDsSynchroViewRef: IvcmFormDataSourceRef;
    function pm_GetDrugListSynchroViewForm: TDrugList_SynchroView_Areas;
    procedure pm_SetDrugListSynchroViewForm(aValue: TDrugList_SynchroView_Areas);
- protected
- // overridden protected methods
    procedure InitFields; override;
-   {$If not defined(NoVCM)}
+   {$If NOT Defined(NoVCM)}
    procedure AssignData(const aData: _IvcmRealData_); override;
-   {$IfEnd} //not NoVCM
+   {$IfEnd} // NOT Defined(NoVCM)
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    class function Make: IdDrugList; reintroduce;
-     {* Фабричный метод }
+    {* Фабричный метод }
  end;//TdDrugList
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmFormDataSourceRef
-  {$IfEnd} //not NoVCM
-  ,
-  SysUtils,
-  l3Utils
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
+ l3ImplUses
+ {$If NOT Defined(NoVCM)}
+ , vcmFormDataSourceRef
+ {$IfEnd} // NOT Defined(NoVCM)
+ , SysUtils
+ , l3Utils
+;
 
 type _Instance_R_ = TdDrugList;
 
-{$Include ..\Drug\dBaseDrugDocument.imp.pas}
-
-// start class TdDrugList
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Drug\dBaseDrugDocument.imp.pas}
 
 class function TdDrugList.Make: IdDrugList;
+ {* Фабричный метод }
 var
  l_Inst : TdDrugList;
 begin
@@ -123,16 +95,14 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TdDrugList.Make
 
 function TdDrugList.pm_GetDsFiltersRef: IvcmFormDataSourceRef;
- {-}
 begin
  Result := vcmCheckAndMake(f_dsFiltersRef);
 end;//TdDrugList.pm_GetDsFiltersRef
 
 function TdDrugList.pm_GetDsDrugListRef: IvcmFormDataSourceRef;
- {-}
 begin
  Result := vcmCheckAndMake(f_dsDrugListRef);
 end;//TdDrugList.pm_GetDsDrugListRef
@@ -174,25 +144,21 @@ begin
 end;//TdDrugList.pm_SetNodeForPositioning
 
 function TdDrugList.pm_GetDsListInfoRef: IvcmFormDataSourceRef;
- {-}
 begin
  Result := vcmCheckAndMake(f_dsListInfoRef);
 end;//TdDrugList.pm_GetDsListInfoRef
 
 function TdDrugList.pm_GetDsSynchroViewRef: IvcmFormDataSourceRef;
- {-}
 begin
  Result := vcmCheckAndMake(f_dsSynchroViewRef);
 end;//TdDrugList.pm_GetDsSynchroViewRef
 
 function TdDrugList.pm_GetDrugListSynchroViewForm: TDrugList_SynchroView_Areas;
- {-}
 begin
  Result := f_DrugList_SynchroView_Form;
 end;//TdDrugList.pm_GetDrugListSynchroViewForm
 
 procedure TdDrugList.pm_SetDrugListSynchroViewForm(aValue: TDrugList_SynchroView_Areas);
- {-}
 begin
  f_DrugList_SynchroView_Form := aValue;
 end;//TdDrugList.pm_SetDrugListSynchroViewForm
@@ -207,7 +173,7 @@ begin
 //#UC END# *47A042E100E2_47EB3E410033_impl*
 end;//TdDrugList.InitFields
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TdDrugList.AssignData(const aData: _IvcmRealData_);
 //#UC START# *4B16B8CF0307_47EB3E410033_var*
 //#UC END# *4B16B8CF0307_47EB3E410033_var*
@@ -217,29 +183,17 @@ begin
  // больше ничего не копируем ибо не надо вроде - http://mdp.garant.ru/pages/viewpage.action?pageId=173511144&focusedCommentId=173512002#comment-173512002
 //#UC END# *4B16B8CF0307_47EB3E410033_impl*
 end;//TdDrugList.AssignData
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 procedure TdDrugList.ClearFields;
- {-}
 begin
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_NodeForPositioning := nil;
- {$IfEnd} //not Admin AND not Monitorings
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_dsFiltersRef := nil;
- {$IfEnd} //not Admin AND not Monitorings
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_dsDrugListRef := nil;
- {$IfEnd} //not Admin AND not Monitorings
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_dsListInfoRef := nil;
- {$IfEnd} //not Admin AND not Monitorings
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_dsSynchroViewRef := nil;
- {$IfEnd} //not Admin AND not Monitorings
  inherited;
 end;//TdDrugList.ClearFields
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

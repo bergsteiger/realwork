@@ -49,8 +49,8 @@ type
    server_point: ;
    current_transaction: NodeChangeTransaction;
   protected
-   function GetName: IString; virtual; stdcall;
-   procedure SetName(const aValue: IString); virtual; stdcall;
+   procedure GetName; virtual; stdcall;
+   procedure SetName(const aValue); virtual; stdcall;
    constructor Make; reintroduce; overload; virtual; stdcall;
    function ApplyChangeDelta(var delta): ByteBool; override;
   public
@@ -78,7 +78,7 @@ type
    procedure GetServerPointer; override;
    function NodeName: PAnsiChar; override;
   protected
-   property Name: IString
+   property Name: 
     read GetName
     write SetName;
  //#UC START# *45F7D8410157publ*
@@ -171,7 +171,7 @@ begin
 //#UC END# *45FF99D90203_45FF99BC0399_impl*
 end;//NodeChangeTransactionHolder.Make
 
-function RealNodeBase.GetName: IString;
+procedure RealNodeBase.GetName;
 //#UC START# *45FFE327036B_45F7D8410157get_var*
 //#UC END# *45FFE327036B_45F7D8410157get_var*
 begin
@@ -180,7 +180,7 @@ begin
 //#UC END# *45FFE327036B_45F7D8410157get_impl*
 end;//RealNodeBase.GetName
 
-procedure RealNodeBase.SetName(const aValue: IString);
+procedure RealNodeBase.SetName(const aValue);
 //#UC START# *45FFE327036B_45F7D8410157set_var*
 //#UC END# *45FFE327036B_45F7D8410157set_var*
 begin

@@ -21,15 +21,15 @@ type
 
  IPrime = interface
   ['{12FF4660-2E81-43B8-963E-4F3099DB73F1}']
-  function GetName: IString; stdcall;
-  procedure SetName(const aValue: IString); stdcall;
-  function GetQuery: IQuery; stdcall;
-  procedure SetQuery(const aValue: IQuery); stdcall;
+  procedure GetName; stdcall;
+  procedure SetName(const aValue); stdcall;
+  procedure GetQuery; stdcall;
+  procedure SetQuery(const aValue); stdcall;
   function GetId: TPrimeKey; stdcall;
-  property Name: IString
+  property Name: 
    read GetName
    write SetName;
-  property Query: IQuery
+  property Query: 
    read GetQuery
    write SetQuery;
   property Id: TPrimeKey
@@ -47,9 +47,11 @@ type
  IPrimeManager = interface
   ['{A47D57BE-0B61-4917-9929-F2092A1C872F}']
   function GetHasOnlineAccess: ByteBool; stdcall;
-  function GetList: IPrimeList; stdcall;
-  function Add(const name: IString;
-   const query: IQuery): IPrime; stdcall; { can raise DuplicateName }
+  procedure GetList; stdcall;
+  procedure Add(const name: IString;
+   const query: IQuery;
+   out aRet
+   {* IPrime }); stdcall; { can raise DuplicateName }
    {* сохран€ет на сервере свеже созданный запрос дл€ рассылок }
   procedure Remove(id: TPrimeKey); stdcall;
   procedure SaveMailDeliveryTask(xml_file_path: PAnsiChar); stdcall; { can raise UnknownExportError }
@@ -65,7 +67,7 @@ type
   property HasOnlineAccess: ByteBool
    read GetHasOnlineAccess;
    {* есть ли доступ к онлайн редактированию анкет прайма }
-  property List: IPrimeList
+  property List: 
    read GetList;
  end;//IPrimeManager
 
@@ -77,31 +79,32 @@ type
  IPrimeContractData = interface
   {* данные дл€ печатной формы прайма. }
   ['{DF3E6A6C-4229-4DFB-8ECB-CF4D7FC1DE95}']
-  function GetInfoKind: IString; stdcall;
-  function GetThemesName: IString; stdcall;
-  function GetClientName: IString; stdcall;
-  function GetProfession: IString; stdcall;
-  function GetOrganisationType: IString; stdcall;
-  function GetArea: IString; stdcall;
-  function GetTaxes: IString; stdcall;
-  function GetEmail: IString; stdcall;
-  function GetContractEvdForm: IStream; stdcall; { can raise CanNotFindData }
+  procedure GetInfoKind; stdcall;
+  procedure GetThemesName; stdcall;
+  procedure GetClientName; stdcall;
+  procedure GetProfession; stdcall;
+  procedure GetOrganisationType; stdcall;
+  procedure GetArea; stdcall;
+  procedure GetTaxes; stdcall;
+  procedure GetEmail; stdcall;
+  procedure GetContractEvdForm(out aRet
+   {* IStream }); stdcall; { can raise CanNotFindData }
    {* получить шаблон дл€ печатной формы ѕрайма }
-  property InfoKind: IString
+  property InfoKind: 
    read GetInfoKind;
-  property ThemesName: IString
+  property ThemesName: 
    read GetThemesName;
-  property ClientName: IString
+  property ClientName: 
    read GetClientName;
-  property Profession: IString
+  property Profession: 
    read GetProfession;
-  property OrganisationType: IString
+  property OrganisationType: 
    read GetOrganisationType;
-  property Area: IString
+  property Area: 
    read GetArea;
-  property Taxes: IString
+  property Taxes: 
    read GetTaxes;
-  property Email: IString
+  property Email: 
    read GetEmail;
  end;//IPrimeContractData
 

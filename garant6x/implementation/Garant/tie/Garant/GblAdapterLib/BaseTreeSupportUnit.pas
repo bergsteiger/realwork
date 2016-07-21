@@ -53,28 +53,35 @@ type
   function GetFlags: Integer; stdcall;
   function GetIndex: Integer; stdcall;
   function GetThroughIndex: Integer; stdcall;
-  function GetParent: INode; stdcall;
-  function GetPreviousNode: INode; stdcall;
-  function GetNextNode: INode; stdcall;
-  function GetCaption: IString; stdcall;
-  procedure SetCaption(const aValue: IString); stdcall; { can raise ConstantModify, AccessDenied }
-  function GetHint: IString; stdcall;
-  procedure SetHint(const aValue: IString); stdcall; { can raise ConstantModify, AccessDenied }
+  procedure GetParent; stdcall;
+  procedure GetPreviousNode; stdcall;
+  procedure GetNextNode; stdcall;
+  procedure GetCaption; stdcall;
+  procedure SetCaption(const aValue); stdcall; { can raise ConstantModify, AccessDenied }
+  procedure GetHint; stdcall;
+  procedure SetHint(const aValue); stdcall; { can raise ConstantModify, AccessDenied }
   function GetObjectType: TEntityType; stdcall; { can raise Unsupported }
-  function GetChild(index: Integer): INode; stdcall; { can raise InvalidIndex }
+  procedure GetChild(index: Integer;
+   out aRet
+   {* INode }); stdcall; { can raise InvalidIndex }
    {* Получить интерфейс на один из вложенных элементов.
 Параметр должен принимать значения из диапазона: 0<=index<=(child_coun-1) }
   function IsSameNode(const node: INode): ByteBool; stdcall;
    {* Сравнивает текущий элемент с элементом, поданным в параметре node.
 Возвращает true в случае совпадения. }
-  function Open: IUnknown; stdcall; { can raise CanNotFindData, NotEntityElement }
+  procedure Open(out aRet
+   {* IUnknown }); stdcall; { can raise CanNotFindData, NotEntityElement }
    {* Возвращает интерфейс для работы с конкретным элементом (сущностью) системы. }
   procedure DeleteNode; stdcall; { can raise ConstantModify, AccessDenied, EmptyResult }
    {* Удаляет указанные узел из списка/дерева.
 Если указан элемент, имеющий вложенные элементы, то они тоже удаляются. Если список/дерево созданно как константное (неизменяемое) то генерится исключение ConstantModify }
-  function AddChildNode(const entity: IUnknown): INode; stdcall; { can raise ConstantModify, AccessDenied, Unsupported, DuplicateNode, InvalidEntityType }
+  procedure AddChildNode(const entity: IUnknown;
+   out aRet
+   {* INode }); stdcall; { can raise ConstantModify, AccessDenied, Unsupported, DuplicateNode, InvalidEntityType }
    {* Добавляет сущность как ребенка к указанной ноде, возвращает новую созданную ноду. Если список/дерево созданно как константное (неизменяемое) то генерится исключение ConstantModify. Если нода не может содержать детей возвращается исключение InvalidContainer }
-  function AddSiblingNode(const entity: IUnknown): INode; stdcall; { can raise ConstantModify, Unsupported, DuplicateNode }
+  procedure AddSiblingNode(const entity: IUnknown;
+   out aRet
+   {* INode }); stdcall; { can raise ConstantModify, Unsupported, DuplicateNode }
    {* Добавляет сущность как "соседа" справа к указанной ноде, возвращает новую созданную ноду. Если список/дерево созданно как константное (неизменяемое) то генерится исключение ConstantModify }
   procedure MoveToLocation(var destination: INode); stdcall; { can raise InvalidContainer, MoveDisabled }
    {* Переносит текущую ноду в указанный узел, делая ее его ребенком. Если узел не может пнринять ноду (т.е. вставить ее в себя), то генерируется исключение InvalidContainer. Если операция перемещения узлов не доступна, генерируется исключение MoveDisabled }
@@ -92,7 +99,9 @@ type
    {* Первый элемент. }
   function HasChild: ByteBool; stdcall;
    {* Есть ли дочерние элементы. }
-  function OverrideChildNode(const entity: IUnknown): INode; stdcall; { can raise ConstantModify, AccessDenied, Unsupported, DuplicateNode, InvalidEntityType }
+  procedure OverrideChildNode(const entity: IUnknown;
+   out aRet
+   {* INode }); stdcall; { can raise ConstantModify, AccessDenied, Unsupported, DuplicateNode, InvalidEntityType }
    {* перезаписать дочернюю ноду }
   function CanModify: ByteBool; stdcall;
    {* можно ли модифицировать ноду }
@@ -117,20 +126,20 @@ type
   property ThroughIndex: Integer
    read GetThroughIndex;
    {* Сквозная позиция элемента. }
-  property Parent: INode
+  property Parent: 
    read GetParent;
    {* родитель }
-  property PreviousNode: INode
+  property PreviousNode: 
    read GetPreviousNode;
    {* предыдущая нода в дереве }
-  property NextNode: INode
+  property NextNode: 
    read GetNextNode;
    {* следующая нода в дереве }
-  property Caption: IString
+  property Caption: 
    read GetCaption
    write SetCaption;
    {* название }
-  property Hint: IString
+  property Hint: 
    read GetHint
    write SetHint;
    {* информация о ноде }
@@ -143,21 +152,25 @@ type
   {* Базовый интерфейс для работы с древовидными и/или линейными списками различных сущностей системы. Навигация по структуре (дерево или линейный список) осуществляется через экземпляры интерфейса Node. При этом каждый екземпляр Node может быть приведен к интерфейсу необходимой сущности через метод open интерфейса BaseCatalog. Для того что бы сущность можно было привести таким образом, ее экземпляр должен реализовывать интерфейс BaseEntity.
 В случае если конкретное дерево не поддерживает тех или иных операция определенных на BaseCatalog, то при их вызове должно генерироваться исключение }
   ['{B41C62C4-F733-4465-9B22-3D4C52162F8A}']
-  function GetRoot: INode; stdcall;
+  procedure GetRoot; stdcall;
   function GetFilter: TEntityType; stdcall;
   procedure SetFilter(aValue: TEntityType); stdcall;
-  function Find(const entity: IUnknown
-   {* Искомый элемент. }): INode; stdcall;
+  procedure Find(const entity: IUnknown
+   {* Искомый элемент. };
+   out aRet
+   {* INode }); stdcall;
    {* Найти узел по его элементу. }
-  function FindContext(mask: PAnsiChar;
+  procedure FindContext(mask: PAnsiChar;
    const mode: TSearchMode;
    const cur_item: INode;
    out result: TContextSearchResult
-   {* Результат поиска. При этом возвращается сквозной индекс. }): INode; stdcall;
+   {* Результат поиска. При этом возвращается сквозной индекс. };
+   out aRet
+   {* INode }); stdcall;
    {* Поиск контекста среди элементов списка. }
   procedure ResetTypeFilter; stdcall;
    {* сбрасывает все установленные фильтры по типам }
-  property Root: INode
+  property Root: 
    read GetRoot;
    {* корень дерева }
   property Filter: TEntityType

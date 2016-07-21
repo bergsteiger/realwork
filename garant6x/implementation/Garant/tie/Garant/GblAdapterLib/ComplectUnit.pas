@@ -28,13 +28,13 @@ type
  IComplectInfoNode = interface(INodeBase)
   {* Нода информации о комплекте }
   ['{3D963480-C844-4A4A-AE68-6B68A125864D}']
-  function GetInfo: IString; stdcall;
-  property Info: IString
+  procedure GetInfo; stdcall;
+  property Info: 
    read GetInfo;
  end;//IComplectInfoNode
 
  TVisualRepresentation = record
-  name: IString;
+  name: ;
   percent: AnsiChar;
  end;//TVisualRepresentation
 
@@ -44,23 +44,24 @@ type
   {* Интерфейс получение информации о текущем комплекте баз. }
   ['{0B0F9913-DE64-41E4-A884-68D60D6829AE}']
   function GetType: TComplectType; stdcall;
-  function GetOwner : IString; stdcall;
-  function GetDealerInfo: IString; stdcall;
-  function GetOldBaseWarning: IString; stdcall;
-  function GetInfo : INodeBase; stdcall; { can raise CanNotFindData }
-  function GetUnexistDocMessage: IString; stdcall;
-  function GetVisualRepresentationData: IVisualRepresentationList; stdcall;
+  procedure GetOwner ; stdcall;
+  procedure GetDealerInfo; stdcall;
+  procedure GetOldBaseWarning; stdcall;
+  procedure GetInfo ; stdcall; { can raise CanNotFindData }
+  procedure GetUnexistDocMessage; stdcall;
+  procedure GetVisualRepresentationData(out aRet
+   {* IVisualRepresentationList }); stdcall;
   property Type: TComplectType
    read GetType;
-  property Owner : IString
+  property Owner : 
    read GetOwner ;
-  property DealerInfo: IString
+  property DealerInfo: 
    read GetDealerInfo;
-  property OldBaseWarning: IString
+  property OldBaseWarning: 
    read GetOldBaseWarning;
-  property Info : INodeBase
+  property Info : 
    read GetInfo ;
-  property UnexistDocMessage: IString
+  property UnexistDocMessage: 
    read GetUnexistDocMessage;
  end;//IComplectInfo
 

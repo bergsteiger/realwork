@@ -45,13 +45,18 @@ type
    {* Удалить объект из журнала работы }
   procedure Clear; stdcall;
    {* Очистить Журнал работы (аналогичен вызову remove (рут дерева журнала работы) }
-  function GetUserJornalTree: INodeBase; stdcall;
+  procedure GetUserJornalTree(out aRet
+   {* INodeBase }); stdcall;
    {* Получить дерево Журнала работы }
-  function GetBookmarkHistory(type: TBookmarkJournalType;
-   max_count: Integer): IJournalBookmarkList; stdcall; { can raise CanNotFindData }
+  procedure GetBookmarkHistory(type: TBookmarkJournalType;
+   max_count: Integer;
+   out aRet
+   {* IJournalBookmarkList }); stdcall; { can raise CanNotFindData }
    {* список закладок заданного типа }
-  function GetQueryHistory(query_type: TQueryType;
-   max_count: Integer): IQueryList; stdcall; { can raise CanNotFindData }
+  procedure GetQueryHistory(query_type: TQueryType;
+   max_count: Integer;
+   out aRet
+   {* IQueryList }); stdcall; { can raise CanNotFindData }
    {* Получит список запросов заданного типа из Журнала }
  end;//IUserJournal
 

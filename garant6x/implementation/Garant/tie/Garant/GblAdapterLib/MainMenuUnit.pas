@@ -41,10 +41,11 @@ type
  ISectionItem = interface
   {* Элемент раздела ОМ }
   ['{257ACC4A-9B2A-4AD1-B238-0CDCE6A5406E}']
-  function GetCaption: IString; stdcall;
-  function Open: IUnknown; stdcall;
+  procedure GetCaption; stdcall;
+  procedure Open(out aRet
+   {* IUnknown }); stdcall;
    {* Получить сущность элемента (может быть IQuery, IDocument, INodeBase, IString, IBookmark) }
-  property Caption: IString
+  property Caption: 
    read GetCaption;
    {* Имя }
  end;//ISectionItem
@@ -53,23 +54,26 @@ type
 
  ISection = interface
   ['{BBB2D3C6-226C-4A9F-AAC6-32775E30B7C7}']
-  function GetCaption: IString; stdcall;
-  function GetItems: ISectionItemList; stdcall;
+  procedure GetCaption; stdcall;
+  procedure GetItems(out aRet
+   {* ISectionItemList }); stdcall;
    {* Получить элементы раздела ОМ }
-  property Caption: IString
+  property Caption: 
    read GetCaption;
    {* имя }
  end;//ISection
 
  IMainMenuSection = interface
   ['{9B596AAB-BF7B-41A0-978D-3FAD93DC180C}']
-  function GetCaption: IString; stdcall;
-  function GetItems: ISectionItemList; stdcall;
+  procedure GetCaption; stdcall;
+  procedure GetItems(out aRet
+   {* ISectionItemList }); stdcall;
    {* Получить элементы раздела ОМ }
   function GetNewsSectionIndex: Integer; stdcall;
    {* получить для проф. секции индекс в новостной секции }
-  function GetBanner: IBanner; stdcall;
-  property Caption: IString
+  procedure GetBanner(out aRet
+   {* IBanner }); stdcall;
+  property Caption: 
    read GetCaption;
    {* имя }
  end;//IMainMenuSection
@@ -79,17 +83,24 @@ type
  IMainMenu = interface
   {* Основное меню }
   ['{7EAB7EE0-39FB-42FD-BE38-AF667AE0466E}']
-  function GetBaseSearchPanes: INodeBase; stdcall;
+  procedure GetBaseSearchPanes(out aRet
+   {* INodeBase }); stdcall;
    {* Получить дерево вкладок Бзового поиска }
-  function GetSection(type: TSectionType): ISection; stdcall;
+  procedure GetSection(type: TSectionType;
+   out aRet
+   {* ISection }); stdcall;
    {* Получить дерево секции ОМ по типу }
-  function GetProfessionSectionList: IMainMenuSectionList; stdcall;
+  procedure GetProfessionSectionList(out aRet
+   {* IMainMenuSectionList }); stdcall;
    {* список секций проф. меню }
-  function GetNewsSectionList: IMainMenuSectionList; stdcall;
+  procedure GetNewsSectionList(out aRet
+   {* IMainMenuSectionList }); stdcall;
    {* список новостных секций ОМ }
-  function GetBusinessReferenceSection: IMainMenuSection; stdcall;
+  procedure GetBusinessReferenceSection(out aRet
+   {* IMainMenuSection }); stdcall;
    {* раздел бизнес-справки }
-  function GetChangesInLegislationSection: IMainMenuSection; stdcall;
+  procedure GetChangesInLegislationSection(out aRet
+   {* IMainMenuSection }); stdcall;
    {* раздел изменения в  законодательстве }
  end;//IMainMenu
 

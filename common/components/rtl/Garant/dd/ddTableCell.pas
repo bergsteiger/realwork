@@ -26,6 +26,8 @@ type
    f_ParaList: TddDocumentAtomList;
    f_anIndex: Integer;
    f_Props: TddCellProperty;
+  private
+   procedure ProcessItem(anItem: TddDocumentAtom);
   protected
    function pm_GetHi: Integer;
    function pm_GetCount: Integer;
@@ -240,6 +242,17 @@ begin
  f_ParaList.Insert(anIndex, aPara);
 //#UC END# *572C72F20143_4FACE127032F_impl*
 end;//TddTableCell.Insert
+
+procedure TddTableCell.ProcessItem(anItem: TddDocumentAtom);
+//#UC START# *578F2F7003B9_4FACE127032F_var*
+//#UC END# *578F2F7003B9_4FACE127032F_var*
+begin
+//#UC START# *578F2F7003B9_4FACE127032F_impl*
+ if anItem.IsTextPara then
+  if (anItem as TddTextParagraph).CHP.IsFontColorWhite then
+   (anItem as TddTextParagraph).CHP.ClearProp(ddFColor);
+//#UC END# *578F2F7003B9_4FACE127032F_impl*
+end;//TddTableCell.ProcessItem
 
 procedure TddTableCell.Write2Generator(const Generator: Ik2TagGenerator;
  aNeedProcessRow: Boolean;

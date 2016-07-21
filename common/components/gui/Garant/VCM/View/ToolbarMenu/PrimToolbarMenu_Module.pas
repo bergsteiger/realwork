@@ -99,6 +99,7 @@ uses
  , vcmUserControls
  , vcmMenus
  , vcmToolbar
+ , vcmTaskPanelServices
  , l3Base
  , l3MinMax
  , RTLConsts

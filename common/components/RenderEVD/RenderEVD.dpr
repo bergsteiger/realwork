@@ -827,6 +827,7 @@ uses
  , evConst in 'w:\common\components\gui\Garant\Everest\evConst.pas'
  , l3Tree_TLB in 'w:\common\components\rtl\Garant\L3\l3Tree_TLB.pas'
  , evdInterfaces in 'w:\common\components\rtl\Garant\EVD\evdInterfaces.pas'
+ , nevTypes in 'w:\common\components\gui\Garant\Everest\new\nevTypes.pas'
  , k2BaseStruct in 'w:\common\components\rtl\Garant\K2\k2BaseStruct.pas'
  , evResultFontInterfaces in 'w:\common\components\gui\Garant\Everest\evResultFontInterfaces.pas'
  , evResultFont in 'w:\common\components\gui\Garant\Everest\evResultFont.pas'

@@ -1,98 +1,70 @@
 unit dDrugDocument;
+ {* Данные описания препарата. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Drug"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Drug/dDrugDocument.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Встроенные продукты::Inpharm::Drug::DrugData::TdDrugDocument
-//
-// Данные описания препарата.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Drug\dDrugDocument.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TdDrugDocument" MUID: (47F4CCAD037F)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DocumentAndListInterfaces,
-  MedicInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmControllers
-  {$IfEnd} //not NoVCM
-  ,
-  l3Types,
-  BaseDocumentWithAttributesInterfaces,
-  DocumentInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  l3ProtoObject
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , MedicInterfaces
+ , DocumentAndListInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmControllers
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3Types
+ , BaseDocumentWithAttributesInterfaces
+ , DocumentInterfaces
+ , l3ProtoObject
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  _IvcmRealData_ = IdDrugDocument;
- {$Include ..\Drug\dBaseDrugDocument.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Drug\dBaseDrugDocument.imp.pas}
  TdDrugDocument = class(_dBaseDrugDocument_, IdDrugDocument)
   {* Данные описания препарата. }
- private
- // private fields
-   f_ContentsTree : IdeSimpleTree;
-   f_dsContentsRef : IvcmFormDataSourceRef;
-    {* Поле для свойства dsContentsRef}
- protected
- // realized methods
+  private
+   f_ContentsTree: IdeSimpleTree;
+   f_dsContentsRef: IvcmFormDataSourceRef;
+    {* Ссылка на "Оглавление" }
+  protected
    function pm_GetDsContentsRef: IvcmFormDataSourceRef;
    function pm_GetContentsTree: IdeSimpleTree;
    procedure pm_SetContentsTree(const aValue: IdeSimpleTree);
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   {$If not defined(NoVCM)}
+    {* Функция очистки полей объекта. }
+   {$If NOT Defined(NoVCM)}
    procedure AssignData(const aData: _IvcmRealData_); override;
-   {$IfEnd} //not NoVCM
+   {$IfEnd} // NOT Defined(NoVCM)
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    class function Make: IdDrugDocument; reintroduce;
  end;//TdDrugDocument
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  SysUtils
-  {$If not defined(NoVCM)}
-  ,
-  vcmFormDataSourceRef
-  {$IfEnd} //not NoVCM
-  ,
-  l3Utils
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
+ l3ImplUses
+ , SysUtils
+ {$If NOT Defined(NoVCM)}
+ , vcmFormDataSourceRef
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3Utils
+;
 
 type _Instance_R_ = TdDrugDocument;
 
-{$Include ..\Drug\dBaseDrugDocument.imp.pas}
-
-// start class TdDrugDocument
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Drug\dBaseDrugDocument.imp.pas}
 
 class function TdDrugDocument.Make: IdDrugDocument;
 var
@@ -104,10 +76,9 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TdDrugDocument.Make
 
 function TdDrugDocument.pm_GetDsContentsRef: IvcmFormDataSourceRef;
- {-}
 begin
  Result := vcmCheckAndMake(f_dsContentsRef);
 end;//TdDrugDocument.pm_GetDsContentsRef
@@ -131,6 +102,7 @@ begin
 end;//TdDrugDocument.pm_SetContentsTree
 
 procedure TdDrugDocument.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_47F4CCAD037F_var*
 //#UC END# *479731C50290_47F4CCAD037F_var*
 begin
@@ -140,7 +112,7 @@ begin
 //#UC END# *479731C50290_47F4CCAD037F_impl*
 end;//TdDrugDocument.Cleanup
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TdDrugDocument.AssignData(const aData: _IvcmRealData_);
 //#UC START# *4B16B8CF0307_47F4CCAD037F_var*
 //#UC END# *4B16B8CF0307_47F4CCAD037F_var*
@@ -151,20 +123,14 @@ begin
  inherited;
 //#UC END# *4B16B8CF0307_47F4CCAD037F_impl*
 end;//TdDrugDocument.AssignData
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 procedure TdDrugDocument.ClearFields;
- {-}
 begin
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_ContentsTree := nil;
- {$IfEnd} //not Admin AND not Monitorings
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_dsContentsRef := nil;
- {$IfEnd} //not Admin AND not Monitorings
  inherited;
 end;//TdDrugDocument.ClearFields
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

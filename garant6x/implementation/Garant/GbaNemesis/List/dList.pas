@@ -1,78 +1,59 @@
 unit dList;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "List"
-// Автор: Морозов М.А.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/List/dList.pas"
-// Начат: 12.07.2006
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Работа с документом и списком документов::WorkWithList::List::List::TdList
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\List\dList.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TdList" MUID: (493E7BCC01DF)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DynamicDocListUnit,
-  l3TreeInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmControllers
-  {$IfEnd} //not NoVCM
-  ,
-  WorkWithListInterfaces,
-  ExternalObjectUnit,
-  l3Types,
-  bsTypes,
-  bsInterfaces,
-  DocumentAndListInterfaces,
-  DocInfoInterfaces,
-  BaseDocumentWithAttributesInterfaces,
-  DocumentInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  l3ProtoObject
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , WorkWithListInterfaces
+ , DynamicDocListUnit
+ {$If NOT Defined(NoVCM)}
+ , vcmControllers
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3TreeInterfaces
+ , DocInfoInterfaces
+ , bsInterfaces
+ , l3Types
+ , ExternalObjectUnit
+ , DocumentAndListInterfaces
+ , bsTypes
+ , BaseDocumentWithAttributesInterfaces
+ , DocumentInterfaces
+ , l3ProtoObject
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  _IvcmRealData_ = IdList;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dDocInfo.imp.pas}
  TdList = class(_dDocInfo_, IdList)
- private
- // private fields
-   f_UseDataProducer : Boolean;
-   f_List : IDynList;
-   f_DisableAutoOpenAnnotation : Boolean;
-   f_dsFiltersRef : IvcmFormDataSourceRef;
-    {* Поле для свойства dsFiltersRef}
-   f_dsListInfoRef : IvcmFormDataSourceRef;
-    {* Поле для свойства dsListInfoRef}
-   f_List_SynchroView_Form : TList_SynchroView_Areas;
-    {* Поле для свойства List_SynchroView_Form}
-   f_NodeForPositioning : Il3SimpleNode;
-    {* Поле для свойства NodeForPositioning}
-   f_dsListRef : IvcmFormDataSourceRef;
-    {* Поле для свойства dsListRef}
-   f_Default_List_SynchroView_Form : TList_SynchroView_Areas;
-    {* Поле для свойства Default_List_SynchroView_Form}
-   f_dsSynchroViewRef : IvcmFormDataSourceRef;
-    {* Поле для свойства dsSynchroViewRef}
- protected
- // realized methods
+  private
+   f_UseDataProducer: Boolean;
+   f_List: IDynList;
+   f_DisableAutoOpenAnnotation: Boolean;
+   f_dsFiltersRef: IvcmFormDataSourceRef;
+    {* Ссылка на "БОС формы фильтры" }
+   f_dsListInfoRef: IvcmFormDataSourceRef;
+    {* Ссылка на "БОС справка к списку" }
+   f_List_SynchroView_Form: TList_SynchroView_Areas;
+    {* Форма синхронного просмотра }
+   f_NodeForPositioning: Il3SimpleNode;
+    {* - значение. }
+   f_dsListRef: IvcmFormDataSourceRef;
+    {* Ссылка на "БОС формы список" }
+   f_Default_List_SynchroView_Form: TList_SynchroView_Areas;
+    {* Форма синхронного просмотра по-умолчанию }
+   f_dsSynchroViewRef: IvcmFormDataSourceRef;
+    {* Ссылка на "БОС синхронного просмотра" }
+  protected
    function pm_GetDsFiltersRef: IvcmFormDataSourceRef;
    function pm_GetDsListInfoRef: IvcmFormDataSourceRef;
    function pm_GetList: IDynList;
@@ -88,47 +69,35 @@ type
    function pm_GetDsListRef: IvcmFormDataSourceRef;
    function pm_GetDefaultListSynchroViewForm: TList_SynchroView_Areas;
    function pm_GetDsSynchroViewRef: IvcmFormDataSourceRef;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // overridden public methods
-   {$If not defined(NoVCM)}
-   constructor Create; override;
-   {$IfEnd} //not NoVCM
- public
- // public methods
+  public
    class function Make: IdList; reintroduce;
+   {$If NOT Defined(NoVCM)}
+   constructor Create; override;
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//TdList
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  afwFacade,
-  nsConst
-  {$If not defined(NoVCM)}
-  ,
-  vcmFormDataSourceRef
-  {$IfEnd} //not NoVCM
-  ,
-  bsUserCRListInfo,
-  SysUtils,
-  l3Utils
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
+ l3ImplUses
+ , afwFacade
+ , nsConst
+ {$If NOT Defined(NoVCM)}
+ , vcmFormDataSourceRef
+ {$IfEnd} // NOT Defined(NoVCM)
+ , bsUserCRListInfo
+ , SysUtils
+ , l3Utils
+;
 
 type _Instance_R_ = TdList;
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dDocInfo.imp.pas}
-
-// start class TdList
 
 class function TdList.Make: IdList;
 var
@@ -140,16 +109,14 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TdList.Make
 
 function TdList.pm_GetDsFiltersRef: IvcmFormDataSourceRef;
- {-}
 begin
  Result := vcmCheckAndMake(f_dsFiltersRef, vcm_nmYes);
 end;//TdList.pm_GetDsFiltersRef
 
 function TdList.pm_GetDsListInfoRef: IvcmFormDataSourceRef;
- {-}
 begin
  Result := vcmCheckAndMake(f_dsListInfoRef);
 end;//TdList.pm_GetDsListInfoRef
@@ -209,31 +176,26 @@ begin
 end;//TdList.pm_SetDisableAutoOpenAnnotation
 
 function TdList.pm_GetListSynchroViewForm: TList_SynchroView_Areas;
- {-}
 begin
  Result := f_List_SynchroView_Form;
 end;//TdList.pm_GetListSynchroViewForm
 
 procedure TdList.pm_SetListSynchroViewForm(aValue: TList_SynchroView_Areas);
- {-}
 begin
  f_List_SynchroView_Form := aValue;
 end;//TdList.pm_SetListSynchroViewForm
 
 function TdList.pm_GetNodeForPositioning: Il3SimpleNode;
- {-}
 begin
  Result := f_NodeForPositioning;
 end;//TdList.pm_GetNodeForPositioning
 
 procedure TdList.pm_SetNodeForPositioning(const aValue: Il3SimpleNode);
- {-}
 begin
  f_NodeForPositioning := aValue;
 end;//TdList.pm_SetNodeForPositioning
 
 function TdList.pm_GetDsListRef: IvcmFormDataSourceRef;
- {-}
 begin
  Result := vcmCheckAndMake(f_dsListRef);
 end;//TdList.pm_GetDsListRef
@@ -256,12 +218,12 @@ begin
 end;//TdList.pm_GetDefaultListSynchroViewForm
 
 function TdList.pm_GetDsSynchroViewRef: IvcmFormDataSourceRef;
- {-}
 begin
  Result := vcmCheckAndMake(f_dsSynchroViewRef);
 end;//TdList.pm_GetDsSynchroViewRef
 
 procedure TdList.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_493E7BCC01DF_var*
 //#UC END# *479731C50290_493E7BCC01DF_var*
 begin
@@ -274,7 +236,7 @@ begin
 //#UC END# *479731C50290_493E7BCC01DF_impl*
 end;//TdList.Cleanup
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 constructor TdList.Create;
 //#UC START# *4B16B8E3013F_493E7BCC01DF_var*
 //#UC END# *4B16B8E3013F_493E7BCC01DF_var*
@@ -285,32 +247,18 @@ begin
  f_Default_List_SynchroView_Form := sva_List_SynchroView_None;
 //#UC END# *4B16B8E3013F_493E7BCC01DF_impl*
 end;//TdList.Create
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 procedure TdList.ClearFields;
- {-}
 begin
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_List := nil;
- {$IfEnd} //not Admin AND not Monitorings
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_dsFiltersRef := nil;
- {$IfEnd} //not Admin AND not Monitorings
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_dsListInfoRef := nil;
- {$IfEnd} //not Admin AND not Monitorings
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_NodeForPositioning := nil;
- {$IfEnd} //not Admin AND not Monitorings
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_dsListRef := nil;
- {$IfEnd} //not Admin AND not Monitorings
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_dsSynchroViewRef := nil;
- {$IfEnd} //not Admin AND not Monitorings
  inherited;
 end;//TdList.ClearFields
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

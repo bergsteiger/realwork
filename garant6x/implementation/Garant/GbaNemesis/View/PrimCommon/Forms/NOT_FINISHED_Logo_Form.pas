@@ -12,10 +12,10 @@ interface
 uses
  l3IntfUses
  {$If NOT Defined(NoVCM)}
- , vcmEntityForm
+ , vcmEntities
  {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoVCM)}
- , vcmEntities
+ , vcmEntityForm
  {$IfEnd} // NOT Defined(NoVCM)
 ;
 

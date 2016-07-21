@@ -34,7 +34,8 @@ type
   {* интерфейс для работы с проектом интеграции }
   ['{7D2AE9F6-BB67-44E2-B9AC-705E2293178D}']
   function GetIntegrationEnabled: ByteBool; stdcall;
-  function GetIntegrationComplectId: IString; stdcall; { can raise CanNotFindData }
+  procedure GetIntegrationComplectId(out aRet
+   {* IString }); stdcall; { can raise CanNotFindData }
    {* возвращает идентификатор комлекта. }
   function GetObjectByXml(xml: PAnsiChar;
    out result: IUnknown): TIntegrationType; stdcall; { can raise CanNotFindData, InvalidXMLType, CantCreateObject }

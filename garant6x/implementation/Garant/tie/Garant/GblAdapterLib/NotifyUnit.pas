@@ -44,12 +44,12 @@ type
  INotification = interface
   ['{30BDF2EC-FBC4-4477-AC3B-5BB8CBFC8A4D}']
   function GetId: TNotifyType; stdcall;
-  function GetData: IVariant; stdcall;
+  procedure GetData; stdcall;
   procedure SetType(type: TNotifyType); stdcall;
   procedure SetData(var data: IVariant); stdcall;
   property Id: TNotifyType
    read GetId;
-  property Data: IVariant
+  property Data: 
    read GetData;
  end;//INotification
 

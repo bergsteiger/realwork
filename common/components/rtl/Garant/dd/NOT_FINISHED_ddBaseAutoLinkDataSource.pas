@@ -12,10 +12,6 @@ uses
  l3IntfUses
 ;
 
-type
- TddALDocRec = record
- end;//TddALDocRec
-
 implementation
 
 uses

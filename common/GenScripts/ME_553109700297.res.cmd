@@ -1,2 +1,0 @@
-MakeCo AttributeExplorerWordsPack.rc.script
-brcc32 AttributeExplorerWordsPack.rc

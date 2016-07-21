@@ -51,31 +51,18 @@ type
    f_Configuration: IConfiguration;
    f_ConfigurationManager: IConfigurationManager;
    f_IsLoggedIn: Boolean;
-    {* Поле для свойства IsLoggedIn }
    f_GblAdapterDll: IGblAdapterDll;
-    {* Поле для свойства GblAdapterDll }
    f_NotifierFacade: TatNotifierFacade;
-    {* Поле для свойства NotifierFacade }
    f_Authorization: IAuthorization;
-    {* Поле для свойства Authorization }
    f_Common: ICommon;
-    {* Поле для свойства Common }
    f_Folders: IFolders;
-    {* Поле для свойства Folders }
    f_MyDocuments: IFoldersNode;
-    {* Поле для свойства MyDocuments }
    f_CRTreeRoot: INodeBase;
-    {* Поле для свойства CRTreeRoot }
    f_SettingsManager: ISettingsManager;
-    {* Поле для свойства SettingsManager }
    f_LoggedAs: TatLoggedAs;
-    {* Поле для свойства LoggedAs }
    f_ChatWorker: TatChatWorker;
-    {* Поле для свойства ChatWorker }
    f_MainMenuRoot: INodeBase;
-    {* Поле для свойства MainMenuRoot }
    f_ControlManager: IControlManager;
-    {* Поле для свойства ControlManager }
   private
    constructor Create; reintroduce;
    procedure InitFieldsAfterLogin; virtual;
@@ -125,7 +112,7 @@ type
 
  TatControlledChangeNotifier = class(Tl3_Base, IControlledChangeNotifier)
   protected
-   procedure fire;
+   procedure Fire; stdcall;
     {* сообщает о том что контролируемые объекты изменились. }
   public
    class function Make: IControlledChangeNotifier; reintroduce;
@@ -150,7 +137,7 @@ type
   private
    f_NotifyType: TNotifyType;
   protected
-   procedure fire(const notify: INotification);
+   procedure Fire(const notify: INotification); stdcall;
   public
    constructor Create(aNotifyType: TNotifyType); reintroduce;
  end;//TatFromShellNotifier
@@ -167,7 +154,7 @@ begin
 //#UC END# *4AC2018D006C_4AC200650301_impl*
 end;//TatFromShellNotifier.Create
 
-procedure TatFromShellNotifier.fire(const notify: INotification);
+procedure TatFromShellNotifier.Fire(const notify: INotification);
 //#UC START# *45EEDE9D01C5_4AC200650301_var*
   function NTTypeToStr : String;
   begin
@@ -201,7 +188,7 @@ begin
     Trigger(Self, l_Notification);
   end;
 //#UC END# *45EEDE9D01C5_4AC200650301_impl*
-end;//TatFromShellNotifier.fire
+end;//TatFromShellNotifier.Fire
 
 constructor TatNotifierFacade.Create(const aNotifyManager: INotifyManager);
 //#UC START# *4AC20023031C_4AC2000A021C_var*
@@ -572,7 +559,7 @@ begin
  end;//try..finally
 end;//TatControlledChangeNotifier.Make
 
-procedure TatControlledChangeNotifier.fire;
+procedure TatControlledChangeNotifier.Fire;
  {* сообщает о том что контролируемые объекты изменились. }
 //#UC START# *45F118D40054_504FB0DC0131_var*
 //#UC END# *45F118D40054_504FB0DC0131_var*
@@ -580,7 +567,7 @@ begin
 //#UC START# *45F118D40054_504FB0DC0131_impl*
   Logger.Info('Нотификация: документы на контроле изменились');
 //#UC END# *45F118D40054_504FB0DC0131_impl*
-end;//TatControlledChangeNotifier.fire
+end;//TatControlledChangeNotifier.Fire
 
 initialization
 //#UC START# *4AC224FF02C0*

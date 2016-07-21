@@ -20,12 +20,15 @@ type
   ['{7DF56131-CBD6-47F5-B8B1-495409AFE6E4}']
   function RevisionCheckEnabled: ByteBool; stdcall;
    {* –азрешена ли онлайн проверка ревизий документов (дл€ супермобильной версии) }
-  function GetUrlForDocument(doc_id: Cardinal;
-   para_id: Cardinal): IString; stdcall;
+  procedure GetUrlForDocument(doc_id: Cardinal;
+   para_id: Cardinal;
+   out aRet
+   {* IString }); stdcall;
    {* получить URL дл€ заданного документа }
   function IsInternetAgentEnabled: ByteBool; stdcall;
    {* –азрешен ли »нтернет-јгент. }
-  function GetUrlForInternetVersion: IString; stdcall;
+  procedure GetUrlForInternetVersion(out aRet
+   {* IString }); stdcall;
    {* получить URL дл€ интранет версии }
   function ShowWarning: ByteBool; stdcall;
    {* Ќужно ли показывать бл€мбу об отключении онлайн проверки }
@@ -34,13 +37,16 @@ type
  IDecisionsArchiveSupport = interface
   {* »нтерфейс доступа к архивам судебных решений }
   ['{CD81011E-549D-406A-964C-9FE291552EB4}']
-  function GetArchiveUrl: IString; stdcall;
+  procedure GetArchiveUrl(out aRet
+   {* IString }); stdcall;
    {* получить ссылку дл€ перехода на архив судебных решений }
   function ArchiveAvailable: ByteBool; stdcall;
    {* архив судебных решений доступен }
   function SearchServerAvailable: ByteBool; stdcall;
    {* проверка доступности сервера поиска в архивах }
-  function GetSearchServerUrl(const query: IString): IString; stdcall;
+  procedure GetSearchServerUrl(const query: IString;
+   out aRet
+   {* IString }); stdcall;
  end;//IDecisionsArchiveSupport
 
 implementation

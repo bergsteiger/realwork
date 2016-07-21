@@ -101,7 +101,7 @@ type
 
  TFindPosition = record
   {* Позиция поискового итератора. }
-  node: INodeIndexPath;
+  node: ;
    {* Путь к ноде данной позиции итератора. }
   begin: Integer;
    {* Начало позиции. }
@@ -143,15 +143,15 @@ SA_IN_ONE_SENTENCES - используется в контекстном поиске двух и более слов, указы
   procedure SetType(aValue: TSortType); stdcall;
   function GetOrder: TSortOrder; stdcall;
   procedure SetOrder(aValue: TSortOrder); stdcall;
-  function GetSubFilter: ISortFilter; stdcall;
-  procedure SetSubFilter(const aValue: ISortFilter); stdcall;
+  procedure GetSubFilter; stdcall;
+  procedure SetSubFilter(const aValue); stdcall;
   property Type: TSortType
    read GetType
    write SetType;
   property Order: TSortOrder
    read GetOrder
    write SetOrder;
-  property SubFilter: ISortFilter
+  property SubFilter: 
    read GetSubFilter
    write SetSubFilter;
  end;//ISortFilter
@@ -183,7 +183,8 @@ SA_IN_ONE_SENTENCES - используется в контекстном поиске двух и более слов, указы
    {* Перемещенеи итератора на следующий элемент. }
   procedure Prev; stdcall;
    {* Перемещенеи итератора на предыдущий элемент. }
-  function GetPosition: IFindPositionList; stdcall;
+  procedure GetPosition(out aRet
+   {* IFindPositionList }); stdcall;
   function IsGood: ByteBool; stdcall;
    {* Возвращает true, если по итератору можно получить данные, т.е. position. Иначе итератор за концом, т.е. равен end или вообще пуст }
   function IsFirst: ByteBool; stdcall;
@@ -220,7 +221,9 @@ SA_IN_ONE_SENTENCES - используется в контекстном поиске двух и более слов, указы
   ['{3790FA3D-D4C9-4A31-9864-F3D1CE9E97B1}']
   procedure SaveInSetting(id: TPropertyID); stdcall;
    {* Сохраняет "ссылку" на данный экземпляр в настройках, связывая ее с переданным строковым ключем. Тип ссылки зависит зависит от конкретного класса реализующего джанный интерфейс. }
-  function LoadFromSetting(id: TPropertyID): ISettingEntity; stdcall;
+  procedure LoadFromSetting(id: TPropertyID;
+   out aRet
+   {* ISettingEntity }); stdcall;
    {* Восстанавливает "ссылку" из настроек свзанную с данным ключем и данным типом (классом, группой) объеков. }
  end;//ISettingEntity
 
@@ -228,7 +231,9 @@ SA_IN_ONE_SENTENCES - используется в контекстном поиске двух и более слов, указы
   {* контейнер для скопированных нод }
   ['{B990C46B-9FF3-4C7C-8C61-2DD226FE644E}']
   function GetCount: Cardinal; stdcall;
-  function AsEvd(style: TEVDGeneratorStyle): IStream; stdcall;
+  procedure AsEvd(style: TEVDGeneratorStyle;
+   out aRet
+   {* IStream }); stdcall;
   property Count: Cardinal
    read GetCount;
  end;//INodesClipboard
@@ -269,7 +274,9 @@ parent_path - путь к УЗЛУ в котором произашли изменения (если delta < 0 - удален
  IListForFiltering = interface
   ['{89EBBAAC-B4DA-4DAB-9FEE-FE7F4A1BD86A}']
   function GetCount: Cardinal; stdcall;
-  function Item(index: Cardinal): IString; stdcall;
+  procedure Item(index: Cardinal;
+   out aRet
+   {* IString }); stdcall;
   property Count: Cardinal
    read GetCount;
  end;//IListForFiltering
@@ -279,37 +286,49 @@ parent_path - путь к УЗЛУ в котором произашли изменения (если delta < 0 - удален
  INodeBase = interface(ISettingEntity)
   {* Базовый интерфейс ноды "новых" деревьев }
   ['{954590CB-D1B3-44B3-8492-650D28A0CD8F}']
-  function GetCaption: IString; stdcall;
+  procedure GetCaption; stdcall;
   function GetLevel: Integer; stdcall;
   function GetType: TNodeType; stdcall;
   procedure SetType(aValue: TNodeType); stdcall; { can raise ConstantModify }
   function GetChildCount: Integer; stdcall;
   function GetIsExpanded: ByteBool; stdcall;
-  function GetEntity: IEntityBase; stdcall; { can raise NoEntity }
-  procedure SetEntity(const aValue: IEntityBase); stdcall;
-  function GetFirstChild: INodeBase; stdcall;
-  function GetPrev: INodeBase; stdcall;
-  function GetNext: INodeBase; stdcall;
-  function GetParent: INodeBase; stdcall;
+  procedure GetEntity; stdcall; { can raise NoEntity }
+  procedure SetEntity(const aValue); stdcall;
+  procedure GetFirstChild; stdcall;
+  procedure GetPrev; stdcall;
+  procedure GetNext; stdcall;
+  procedure GetParent; stdcall;
   procedure AddNotifier(var notifier: INodeNotifier); stdcall;
-  function CreateViewEx(const filter: IFilterList;
+  procedure CreateViewEx(const filter: IFilterList;
    shared_flags: TFlagMask;
    const sync_node: INodeBase;
    out sync_index: TVisibleIndex;
    levels: Cardinal;
    unfiltered: Boolean;
    auto_open: Boolean;
-   truncate_this_view: Boolean): INodeBase; stdcall;
+   truncate_this_view: Boolean;
+   out aRet
+   {* INodeBase }); stdcall;
    {* Расширенная версия метода create_view. (покачто вью всегда создается от рута) }
-  function FindNode(const node_to_find: INodeBase): INodeBase; stdcall;
+  procedure FindNode(const node_to_find: INodeBase;
+   out aRet
+   {* INodeBase }); stdcall;
    {* ищет в текущем дереву ноду равную переданной }
-  function FindNodePath(var node_to_find: INodeBase): INodeIndexPath; stdcall;
+  procedure FindNodePath(var node_to_find: INodeBase;
+   out aRet
+   {* INodeIndexPath }); stdcall;
    {* Получение индексного пути ноды. Первый индекс в пути сам узел node_to_find }
-  function GetBySibblingIndex(ind: TVisibleIndex): INodeBase; stdcall;
+  procedure GetBySibblingIndex(ind: TVisibleIndex;
+   out aRet
+   {* INodeBase }); stdcall;
    {* возвращает ноду-соседа (т.е. "брата" текущей) по индексу }
-  function GetByVisibleIndex(ind: TVisibleIndex): INodeBase; stdcall;
+  procedure GetByVisibleIndex(ind: TVisibleIndex;
+   out aRet
+   {* INodeBase }); stdcall;
    {* возвращает ноду по видемому индексу относительно текущей }
-  function GetFirstFit(const filter: IFilterList): INodeIndexPath; stdcall;
+  procedure GetFirstFit(const filter: IFilterList;
+   out aRet
+   {* INodeIndexPath }); stdcall;
   function GetFlagCount(flag: TFlagMask): Cardinal; stdcall;
    {* возвращает кол-во зхаданных флагов в текущем поддереве }
   function GetFirstLevelChildrenFlagCount(flag: TFlagMask): Cardinal; stdcall;
@@ -317,7 +336,8 @@ parent_path - путь к УЗЛУ в котором произашли изменения (если delta < 0 - удален
    {* Получение идентификатора ноды. Обычно возвращает пойнтер, но для документа value->id (), т.е. не уникален. }
   procedure SetNodeId(id: TNodeId); stdcall;
    {* Изменить идентификатор ноды. Обычно ничего не делает, но для документа изменяет value->id (). }
-  function GetAvailableLayers: ILayerIdList; stdcall;
+  procedure GetAvailableLayers(out aRet
+   {* ILayerIdList }); stdcall;
   function GetVisibleDelta(const node: INodeBase): TVisibleIndex; stdcall; { can raise NotFound }
    {* возвращает разницу видимых индексов двух нод (может автоматически развернуть необходимые уровни) }
   function GetVisibleDeltaByEntity(const entity: IEntityBase): TVisibleIndex; stdcall; { can raise NotFound }
@@ -325,10 +345,14 @@ parent_path - путь к УЗЛУ в котором произашли изменения (если delta < 0 - удален
    {* Возвращает порядковый номер узла относительно родителя (начиная с 1) }
   function GetAbsIndex: TVisibleIndex; stdcall; { can raise CanNotFindData }
    {* Возвращает абс. индекс для ноды }
-  function GetChildPathByAbsIndex(index: TVisibleIndex): INodeIndexPath; stdcall; { can raise CanNotFindData }
+  procedure GetChildPathByAbsIndex(index: TVisibleIndex;
+   out aRet
+   {* INodeIndexPath }); stdcall; { can raise CanNotFindData }
    {* Возвращает путь к ноде по её абс. индексу }
-  function GetFrozenNode: INodeBase; stdcall;
-  function GetUnfilteredNode: INodeBase; stdcall;
+  procedure GetFrozenNode(out aRet
+   {* INodeBase }); stdcall;
+  procedure GetUnfilteredNode(out aRet
+   {* INodeBase }); stdcall;
   function HasChildren: ByteBool; stdcall;
    {* признакк есть ли дети }
   function HasChildrenFlag(flag: TFlagMask): ByteBool; stdcall;
@@ -347,7 +371,9 @@ parent_path - путь к УЗЛУ в котором произашли изменения (если delta < 0 - удален
    {* признак последний ли это ребенок }
   function IsSameNode(var node: INodeBase): ByteBool; stdcall;
    {* проверяет на равенство две ноды }
-  function IterateNodes(with_flag: TFlagMask): INodeIterator; stdcall;
+  procedure IterateNodes(with_flag: TFlagMask;
+   out aRet
+   {* INodeIterator }); stdcall;
    {* возвращает сквозной итератор по нодам с указанным флагом }
   procedure MakeVisible; stdcall;
   procedure RemoveNotifier(var notifier: INodeNotifier); stdcall;
@@ -367,7 +393,9 @@ parent_path - путь к УЗЛУ в котором произашли изменения (если delta < 0 - удален
    {* удаляет все ноды по заданному флагу. ВРЕМЕННО перенесен с каталога на ноду!!! }
   procedure DeleteNode; stdcall;
    {* удаляет текущую ноду }
-  function CopyNodes(mask: TFlagMask): INodesClipboard; stdcall;
+  procedure CopyNodes(mask: TFlagMask;
+   out aRet
+   {* INodesClipboard }); stdcall;
    {* копирует ноды по заданному флагу и возвращает их в виде контейнера для последующей вставки в любое другое дерево.ВРЕМЕННО перенесен с каталога на ноду!!! }
   procedure AddLastChilds(var nodes: INodesClipboard); stdcall;
    {* вставляет ноды из контейнера в конец списка детей - на самом деле если есть сортировка то позиции вставки могут стать другими, но ОБЯЗАТЕЛЬНО в указанном паранте }
@@ -383,12 +411,16 @@ parent_path - путь к УЗЛУ в котором произашли изменения (если delta < 0 - удален
    {* сбрасывает текущщую транзакцию (вместе со всеми вложенными),  сбрасывает все изменения (перечитывает с сервера или внутреннего буффера) }
   procedure CommitChangeTransaction; stdcall;
    {* закрывает транзакцию, и если это больше нет "верхних" открытых транзакций - сохраняет все изменения сделанные на ноде (отправляет данные на сервер) }
-  function GetNodeByPath(const path: INodeIndexPath): INodeBase; stdcall; { can raise NotFound }
+  procedure GetNodeByPath(const path: INodeIndexPath;
+   out aRet
+   {* INodeBase }); stdcall; { can raise NotFound }
    {* Дублирует с CatalogBase }
-  function Find(const filter: IFilterList
+  procedure Find(const filter: IFilterList
    {* Условие поиска. };
    const find_from: TNodePosition
-   {* Искать от позиции. }): IFindIterator; stdcall;
+   {* Искать от позиции. };
+   out aRet
+   {* IFindIterator }); stdcall;
    {* Поиск в дереве по условию, заданному в фильтре. В случае успеха возвращает итератор первого вхождения, иначе пустой итератор (is_good!=true). }
   function IsRelevanceSearchSupported: ByteBool; stdcall;
   procedure ExpandAll(expand: Boolean); stdcall;
@@ -396,7 +428,9 @@ parent_path - путь к УЗЛУ в котором произашли изменения (если delta < 0 - удален
   class function Make; overload; stdcall; { can raise CanNotFindData }
   class function Make(var owner_tree: IFakeFacetForFactory;
    const snode); overload; stdcall;
-  function IterateAllNodes(with_flag: TFlagMask): INodeIterator; stdcall;
+  procedure IterateAllNodes(with_flag: TFlagMask;
+   out aRet
+   {* INodeIterator }); stdcall;
   procedure SetAllFlagExceptFirstChildrenOfRootChildren(flag: TFlagMask;
    value: Boolean); stdcall;
   procedure SetRangeFlagExceptFirstChildrenOfRootChildren(offset_from: TVisibleIndex;
@@ -404,7 +438,7 @@ parent_path - путь к УЗЛУ в котором произашли изменения (если delta < 0 - удален
    flag: TFlagMask;
    value: Boolean;
    clean_other: Boolean); stdcall;
-  property Caption: IString
+  property Caption: 
    read GetCaption;
    {* Пользовательское название ноды }
   property Level: Integer
@@ -419,16 +453,16 @@ parent_path - путь к УЗЛУ в котором произашли изменения (если delta < 0 - удален
   property IsExpanded: ByteBool
    read GetIsExpanded;
    {* возвращает true, если установлен флаг раскрытия всех нод }
-  property Entity: IEntityBase
+  property Entity: 
    read GetEntity
    write SetEntity;
-  property FirstChild: INodeBase
+  property FirstChild: 
    read GetFirstChild;
-  property Prev: INodeBase
+  property Prev: 
    read GetPrev;
-  property Next: INodeBase
+  property Next: 
    read GetNext;
-  property Parent: INodeBase
+  property Parent: 
    read GetParent;
  end;//INodeBase
 
@@ -436,8 +470,8 @@ parent_path - путь к УЗЛУ в котором произашли изменения (если delta < 0 - удален
   {* Интерфейс для получения линейного списка элементов дерева.
 Должен поддерживаться пользователем для реализации операций с произвольным набором элементов дерева (например, со списком выделенных элементов). }
   ['{1F4887B9-4FA9-4B90-BB5C-0D3EAB6D0792}']
-  function GetNext: INodeBase; stdcall;
-  property Next: INodeBase
+  procedure GetNext; stdcall;
+  property Next: 
    read GetNext;
  end;//INodeIterator
 
@@ -445,25 +479,30 @@ parent_path - путь к УЗЛУ в котором произашли изменения (если delta < 0 - удален
   {* Позиция ноды в дереве и внутри этой ноды. }
   pos: Integer;
    {* Позиция внутри ноды node. }
-  node: INodeBase;
+  node: ;
  end;//TNodePosition
 
  ICatalogBase = interface
   {* Менеджер деревьев постренных на основе NodeBase и поддерживающие хранение сущностей (EntityBase). Заменяет устаревший BaseTreeSupport::BaseCatalog }
   ['{59A590F8-FB2D-49E6-A954-1B0CC9CCAD04}']
-  function GetName: IString; stdcall;
-  procedure SetName(const aValue: IString); stdcall;
-  function GetRoot: INodeBase; stdcall;
-  function Clone: ICatalogBase; stdcall;
-  function GetNodeByPath(const path: INodeIndexPath): INodeBase; stdcall; { can raise NotFound }
+  procedure GetName; stdcall;
+  procedure SetName(const aValue); stdcall;
+  procedure GetRoot; stdcall;
+  procedure Clone(out aRet
+   {* ICatalogBase }); stdcall;
+  procedure GetNodeByPath(const path: INodeIndexPath;
+   out aRet
+   {* INodeBase }); stdcall; { can raise NotFound }
   procedure IntersectTree(const tree: ICatalogBase); stdcall;
   procedure MergeTree(const tree: ICatalogBase); stdcall;
   procedure MinusTree(const tree: ICatalogBase); stdcall;
-  function Create(var nodes: INodesClipboard): ICatalogBase; stdcall;
-  property Name: IString
+  procedure Create(var nodes: INodesClipboard;
+   out aRet
+   {* ICatalogBase }); stdcall;
+  property Name: 
    read GetName
    write SetName;
-  property Root: INodeBase
+  property Root: 
    read GetRoot;
  end;//ICatalogBase
 
@@ -473,9 +512,9 @@ parent_path - путь к УЗЛУ в котором произашли изменения (если delta < 0 - удален
 
  ICountryFilter = interface(IFilterForTree)
   ['{88574AB6-4C05-455B-8E61-ACC170D68E31}']
-  function GetCountry: INodeBase; stdcall;
-  procedure SetCountry(const aValue: INodeBase); stdcall;
-  property Country: INodeBase
+  procedure GetCountry; stdcall;
+  procedure SetCountry(const aValue); stdcall;
+  property Country: 
    read GetCountry
    write SetCountry;
  end;//ICountryFilter
@@ -524,10 +563,13 @@ parent_path - путь к УЗЛУ в котором произашли изменения (если delta < 0 - удален
   procedure SetOrder(aValue: TFindOrder); stdcall;
   function GetArea: TSearchArea; stdcall;
   procedure SetArea(aValue: TSearchArea); stdcall;
-  function GetContext: IString; stdcall;
-  procedure SetContext(const aValue: IString); stdcall;
-  function Clone: IContextFilter; stdcall;
-  function Filtrate(const list: IListForFiltering): IFiltered; stdcall;
+  procedure GetContext; stdcall;
+  procedure SetContext(const aValue); stdcall;
+  procedure Clone(out aRet
+   {* IContextFilter }); stdcall;
+  procedure Filtrate(const list: IListForFiltering;
+   out aRet
+   {* IFiltered }); stdcall;
   property Place: TContextPlace
    read GetPlace
    write SetPlace;
@@ -537,7 +579,7 @@ parent_path - путь к УЗЛУ в котором произашли изменения (если delta < 0 - удален
   property Area: TSearchArea
    read GetArea
    write SetArea;
-  property Context: IString
+  property Context: 
    read GetContext
    write SetContext;
  end;//IContextFilter

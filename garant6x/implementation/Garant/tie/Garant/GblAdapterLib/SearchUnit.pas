@@ -98,33 +98,33 @@ type
  IQueryPhoneNumberAttribute = interface(IQueryAttribute)
   {* Телефон юзера }
   ['{D08C1696-445B-4611-93D3-D9B172B925AB}']
-  function GetPhoneNumber: IString; stdcall;
-  procedure SetPhoneNumber(const aValue: IString); stdcall;
-  function GetCityCode: IString; stdcall;
-  procedure SetCityCode(const aValue: IString); stdcall;
-  property PhoneNumber: IString
+  procedure GetPhoneNumber; stdcall;
+  procedure SetPhoneNumber(const aValue); stdcall;
+  procedure GetCityCode; stdcall;
+  procedure SetCityCode(const aValue); stdcall;
+  property PhoneNumber: 
    read GetPhoneNumber
    write SetPhoneNumber;
-  property CityCode: IString
+  property CityCode: 
    read GetCityCode
    write SetCityCode;
  end;//IQueryPhoneNumberAttribute
 
  TQueryNodeValue = record
-  node: INodeBase;
+  node: ;
   operation: TQueryLogicOperation;
  end;//TQueryNodeValue
 
  TContextValue = record
-  context: IString;
+  context: ;
   operation: TQueryLogicOperation;
  end;//TContextValue
 
  IContextValueList = array of TContextValue;
 
  TDateValue = record
-  from: TDate;
-  to: TDate;
+  from: ;
+  to: ;
   operation: TQueryLogicOperation;
  end;//TDateValue
 
@@ -132,11 +132,11 @@ type
 
  IQueryDateAttribute = interface(IQueryAttribute)
   ['{3CAD67CD-205A-4E98-9240-49311D9B33D2}']
-  function GetValues: IDateValueList; stdcall;
+  procedure GetValues; stdcall;
   procedure AddValue(operation: TQueryLogicOperation;
    const from: TDate;
    const to: TDate); stdcall;
-  property Values: IDateValueList
+  property Values: 
    read GetValues;
  end;//IQueryDateAttribute
 
@@ -144,10 +144,10 @@ type
 
  IQueryNodeAttribute = interface(IQueryAttribute)
   ['{6BD5D1EC-803B-4923-BAB6-DBBC28685620}']
-  function GetValues: INodeValueList; stdcall;
+  procedure GetValues; stdcall;
   procedure AddValue(operation: TQueryLogicOperation;
    var node: INodeBase); stdcall;
-  property Values: INodeValueList
+  property Values: 
    read GetValues;
  end;//IQueryNodeAttribute
 
@@ -157,22 +157,23 @@ type
 
  IQueryContextAttribute = interface(IQueryAttribute)
   ['{3219EAF4-9E07-4548-9955-B0B8460FB3C8}']
-  function GetValues: IContextValueList; stdcall;
+  procedure GetValues; stdcall;
   procedure AddValue(operation: TQueryLogicOperation;
    var context: IString); stdcall;
-  property Values: IContextValueList
+  property Values: 
    read GetValues;
  end;//IQueryContextAttribute
 
  IAttributeInfo = interface
   ['{866DFFF9-C146-4174-B3A8-831190DFEA4D}']
   function GetIsExist: ByteBool; stdcall;
-  function GetAvailableOperations: IOperationList; stdcall;
-  function GetDefaultValue: IQueryAttribute; stdcall;
+  procedure GetAvailableOperations; stdcall;
+  procedure GetDefaultValue(out aRet
+   {* IQueryAttribute }); stdcall;
    {* Получить дефолтное значение атрибута }
   property IsExist: ByteBool
    read GetIsExist;
-  property AvailableOperations: IOperationList
+  property AvailableOperations: 
    read GetAvailableOperations;
  end;//IAttributeInfo
 
@@ -189,24 +190,37 @@ type
   ['{73F075AC-4899-45B6-8C26-44A4C1EAA2C2}']
   function GetCount: Cardinal; stdcall;
   function GetType: TQueryType; stdcall;
-  function GetDate: TDate; stdcall;
-  function GetAttributes: IQueryAttributeList; stdcall;
+  procedure GetDate; stdcall;
+  procedure GetAttributes; stdcall;
   procedure Execute(var filtrate_list: IDynList;
    var progress: IProgressIndicatorForSearch;
    out cancel_process: ICancelSearch); stdcall;
-  function GetContextAttribute(tag: TAttributeTag): IQueryContextAttribute; stdcall;
-  function GetNodeAttribute(tag: TAttributeTag): IQueryNodeAttribute; stdcall;
-  function GetDateAttribute(tag: TAttributeTag): IQueryDateAttribute; stdcall;
+  procedure GetContextAttribute(tag: TAttributeTag;
+   out aRet
+   {* IQueryContextAttribute }); stdcall;
+  procedure GetNodeAttribute(tag: TAttributeTag;
+   out aRet
+   {* IQueryNodeAttribute }); stdcall;
+  procedure GetDateAttribute(tag: TAttributeTag;
+   out aRet
+   {* IQueryDateAttribute }); stdcall;
   procedure Clear; stdcall;
-  function AttributesByTag(tag: TAttributeTag): IQueryAttributeList; stdcall;
-  function Clone: IQuery; stdcall;
+  procedure AttributesByTag(tag: TAttributeTag;
+   out aRet
+   {* IQueryAttributeList }); stdcall;
+  procedure Clone(out aRet
+   {* IQuery }); stdcall;
   procedure SendQuery; stdcall;
    {* Отправить запрос на консультацию }
-  function GetPhoneNumberAttribute(tag: TAttributeTag): IQueryPhoneNumberAttribute; stdcall;
+  procedure GetPhoneNumberAttribute(tag: TAttributeTag;
+   out aRet
+   {* IQueryPhoneNumberAttribute }); stdcall;
   procedure BuildQuery; stdcall;
   procedure SetName(var name: IString); stdcall;
-  function GetName: IString; stdcall;
-  function GetComment: IString; stdcall;
+  procedure GetName(out aRet
+   {* IString }); stdcall;
+  procedure GetComment(out aRet
+   {* IString }); stdcall;
   procedure SetComment(var comment: IString); stdcall;
   function IsFilterQuery: ByteBool; stdcall;
    {* получен ли запрос с фильтра }
@@ -215,9 +229,9 @@ type
    {* Количество найденных документов при последнем поиске. }
   property Type: TQueryType
    read GetType;
-  property Date: TDate
+  property Date: 
    read GetDate;
-  property Attributes: IQueryAttributeList
+  property Attributes: 
    read GetAttributes;
  end;//IQuery
 
@@ -233,22 +247,33 @@ type
   {* Поиск. }
   ['{E15D4E0A-900B-460A-BC2C-F35D282B3766}']
   function GetIsMorphoExist: ByteBool; stdcall;
-  function CreateQuery(type: TQueryType): IQuery; stdcall;
+  procedure CreateQuery(type: TQueryType;
+   out aRet
+   {* IQuery }); stdcall;
    {* Создать новый поисковый запрос. В созданном поисковом запросе по умолчанию создаеться корневой QueryOperationNode с опреацией LO_AND. }
-  function GetAttributeInfo(tag: TAttributeTag): IAttributeInfo; stdcall;
+  procedure GetAttributeInfo(tag: TAttributeTag;
+   out aRet
+   {* IAttributeInfo }); stdcall;
   function GetExampleTextCount: Cardinal; stdcall;
    {* Получить количество примеров }
-  function GetExampleText(pos: Cardinal): IString; stdcall; { can raise CanNotFindData }
+  procedure GetExampleText(pos: Cardinal;
+   out aRet
+   {* IString }); stdcall; { can raise CanNotFindData }
    {* получить текст примера по заданной позиции pos }
-  function GetDocumentsWithoutClass: IDynList; stdcall;
+  procedure GetDocumentsWithoutClass(out aRet
+   {* IDynList }); stdcall;
    {* Список документов без команды CLASS }
-  function GetDocumentsWithoutIncluded: IDynList; stdcall;
+  procedure GetDocumentsWithoutIncluded(out aRet
+   {* IDynList }); stdcall;
    {* Cписок документов с командой vanonced и без команды vincluded }
-  function GetDocumentsWithoutKey: IDynList; stdcall;
+  procedure GetDocumentsWithoutKey(out aRet
+   {* IDynList }); stdcall;
    {* Cписок документов без команды key }
-  function CorrectContext(const context_for_check: IContextWordList;
+  procedure CorrectContext(const context_for_check: IContextWordList;
    for_inpharm: Boolean;
-   out corrected_context: IContextWordList): IContextWordList; stdcall;
+   out corrected_context: IContextWordList;
+   out aRet
+   {* IContextWordList }); stdcall;
    {* Возвращает список слов, которые не смогли скорректировать и скорректированную строку }
   property IsMorphoExist: ByteBool
    read GetIsMorphoExist;
@@ -260,8 +285,8 @@ type
  IFullAttributeInfo = interface(IAttributeInfo)
   {* информация об атрибуте для КЗ }
   ['{5898650D-3C1B-4820-AA3E-6C7A9809F267}']
-  function GetTag: IString; stdcall;
-  property Tag: IString
+  procedure GetTag; stdcall;
+  property Tag: 
    read GetTag;
  end;//IFullAttributeInfo
 
@@ -270,11 +295,12 @@ type
  IQueryCardInfo = interface
   {* информация, связанная с карточкой запроса }
   ['{F9D884BA-B356-4A7C-8997-D3E74A8FB8F1}']
-  function GetEvdCard: IStream; stdcall; { can raise CanNotFindData }
+  procedure GetEvdCard; stdcall; { can raise CanNotFindData }
   class function Create; stdcall;
-  function GetExistAttrs: IAttributeList; stdcall;
+  procedure GetExistAttrs(out aRet
+   {* IAttributeList }); stdcall;
    {* получить список существующих атрибутов для КЗ }
-  property EvdCard: IStream
+  property EvdCard: 
    read GetEvdCard;
  end;//IQueryCardInfo
 

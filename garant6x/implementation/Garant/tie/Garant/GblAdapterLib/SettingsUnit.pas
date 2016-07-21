@@ -151,10 +151,10 @@ type
  IConfiguration = interface
   {* Интерфейс обеспечивающий работу с конкретной конфигурацией, является элементом списка конфигураций. }
   ['{CB09ACB5-D582-477A-8D4F-98FC3766A1F9}']
-  function GetName: IString; stdcall;
-  procedure SetName(const aValue: IString); stdcall;
-  function GetHint: IString; stdcall;
-  procedure SetHint(const aValue: IString); stdcall;
+  procedure GetName; stdcall;
+  procedure SetName(const aValue); stdcall;
+  procedure GetHint; stdcall;
+  procedure SetHint(const aValue); stdcall;
   function GetType: TConfigurationType; stdcall;
   function GetIsReadonly: ByteBool; stdcall;
   function GetId: Cardinal; stdcall;
@@ -162,14 +162,16 @@ type
    {* устанавливает для всех свойств конфигурации начальные значения }
   procedure SaveValuesAsDefault; stdcall;
    {* записывает текущие значения для всех свойств в качестве значений по умолчанию }
-  function Copy: IConfiguration; stdcall;
+  procedure Copy(out aRet
+   {* IConfiguration }); stdcall;
    {* возвращает копию конфигурации }
-  function GetSettings: ISettingsManager; stdcall;
-  property Name: IString
+  procedure GetSettings(out aRet
+   {* ISettingsManager }); stdcall;
+  property Name: 
    read GetName
    write SetName;
    {* Имя конфигурации }
-  property Hint: IString
+  property Hint: 
    read GetHint
    write SetHint;
    {* Комментарий или пояснение к конфигурации }
@@ -193,10 +195,10 @@ type
 если state == UPDATED_WITH_ACTIVATE_PREDEFINED_CONFIGURATION, то configuration содержит предустановленную, на которую переключили пользователя }
   ['{168D579E-071E-4626-93BD-7566FCAB780E}']
   function GetState: TDefaultValuesChangesState; stdcall;
-  function GetConfiguration: IConfiguration; stdcall;
+  procedure GetConfiguration; stdcall;
   property State: TDefaultValuesChangesState
    read GetState;
-  property Configuration: IConfiguration
+  property Configuration: 
    read GetConfiguration;
  end;//IDefaultValuesChangesIndicator
 
@@ -205,19 +207,21 @@ type
  IConfigurationManager = interface
   {* Интерфейс обеспечивающий работу со списком конфигураций. Доступен через интерфейс Common. }
   ['{C0C7A25C-7378-40EA-9593-32B590CC6D8E}']
-  function GetConfigurations: IConfigurations; stdcall;
+  procedure GetConfigurations; stdcall;
   procedure SetActive(const configuration: IConfiguration); stdcall;
    {* Устанавливает заданную конфигурацией активной (текущей для интерфейса Settings, полученного через Common) }
   procedure Remove(const configuration: IConfiguration); stdcall; { can raise ConstantModify, ConfigurationIsActiveNow }
    {* Удаляет заданную конфигурацию. В случае попытки удалить активную конфигурацию возбуждает исключение ConfigurationIsActiveNow }
-  function GetActive: IConfiguration; stdcall;
+  procedure GetActive(out aRet
+   {* IConfiguration }); stdcall;
    {* возвращает активную конфигурацию }
-  function DefaultValuesUpdateCheck: IDefaultValuesChangesIndicator; stdcall;
+  procedure DefaultValuesUpdateCheck(out aRet
+   {* IDefaultValuesChangesIndicator }); stdcall;
   function GetActiveId: Integer; stdcall;
    {* возвращает идентификатор активной конфигурации }
   procedure Logout; stdcall;
    {* метод дёргается при выходе из системы }
-  property Configurations: IConfigurations
+  property Configurations: 
    read GetConfigurations;
  end;//IConfigurationManager
 

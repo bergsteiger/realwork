@@ -1,105 +1,77 @@
 unit nsNativeCommentPara;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "f1DocumentTagsImplementation"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/f1DocumentTagsImplementation/nsNativeCommentPara.pas"
-// Начат: 24.11.2010 19:32
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Базовые определения предметной области::LegalDomain::f1DocumentTagsImplementation::TagDataProviders::TnsNativeCommentPara
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsNativeCommentPara.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsNativeCommentPara" MUID: (4CED3DF702F9)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  l3ProtoObject,
-  F1TagDataProviderInterface,
-  l3Variant,
-  k2Base,
-  l3IID,
-  evNative_Schema
-  ;
+ l3IntfUses
+ , CommentPara_Const
+ , F1TagDataProviderInterface
+ , l3Variant
+ , l3Interfaces
+ , l3IID
+ , k2Base
+ , evNative_Schema
+;
 
 type
  _nsNativePara_Parent_ = CommentParaTagClass;
- {$Include ..\f1DocumentTagsImplementation\nsNativePara.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsNativePara.imp.pas}
  _StyleParser_Parent_ = _nsNativePara_;
- {$Include ..\f1DocumentTagsImplementation\StyleParser.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\StyleParser.imp.pas}
  TnsNativeCommentPara = class(_StyleParser_)
- private
- // private fields
-   f_State : TnsNodeStates;
- protected
- // overridden protected methods
+  private
+   f_State: TnsNodeStates;
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure InitFields; override;
    function COMQueryInterface(const IID: Tl3GUID;
     out Obj): Tl3HResult; override;
-     {* Реализация запроса интерфейса }
- public
- // public methods
+    {* Реализация запроса интерфейса }
+  public
    class function MakeFromStyle(const aStyle: IStream;
-     anOwner: Tl3Tag): Il3TagRef;
+    anOwner: Tl3Tag): Il3TagRef;
    constructor CreateFromStyle(const aStyle: IStream;
-     anOwner: Tl3Tag);
+    anOwner: Tl3Tag); reintroduce;
  end;//TnsNativeCommentPara
 
 implementation
 
 uses
-  SysUtils,
-  nevTools,
-  DocumentUnit
-  {$If defined(k2ForEditor)}
-  ,
-  evParaTools
-  {$IfEnd} //k2ForEditor
-  ,
-  LeafParaDecorationsHolder_Const,
-  CommentPara_Const,
-  k2Facade,
-  l3Base,
-  evdVer,
-  k2Empty_Const,
-  nsStyleParser
-  ;
-
-type _Instance_R_ = TnsNativeCommentPara;
-
-{$Include ..\f1DocumentTagsImplementation\nsNativePara.imp.pas}
-
-
-{$Include ..\f1DocumentTagsImplementation\StyleParser.imp.pas}
+ l3ImplUses
+ , l3ProtoObject
+ , SysUtils
+ , k2Facade
+ , nsStyleParser
+ , l3Base
+ , evdVer
+ , k2Empty_Const
+ , nevTools
+ , DocumentUnit
+ {$If Defined(k2ForEditor)}
+ , evParaTools
+ {$IfEnd} // Defined(k2ForEditor)
+ , LeafParaDecorationsHolder_Const
+;
 
 type
-  TnsNativeCommentParaSink = class(Tl3ProtoObject, If1CommentSink)
+ TnsNativeCommentParaSink = class(Tl3ProtoObject, If1CommentSink)
   private
-  // private fields
-   f_Comment : TnsNativeCommentPara;
+   f_Comment: TnsNativeCommentPara;
   protected
-  // realized methods
    function Get_State: TnsNodeStates;
    procedure Set_State(aValue: TnsNodeStates);
    procedure Store(const aStream: IEVDStream);
   public
-  // public methods
    constructor Create(aComment: TnsNativeCommentPara); reintroduce;
    class function Make(aComment: TnsNativeCommentPara): If1CommentSink; reintroduce;
-     {* Сигнатура фабрики TnsNativeCommentParaSink.Make }
-  end;//TnsNativeCommentParaSink
-
-// start class TnsNativeCommentParaSink
+ end;//TnsNativeCommentParaSink
 
 constructor TnsNativeCommentParaSink.Create(aComment: TnsNativeCommentPara);
 //#UC START# *4CEE3A6702A7_4CEE3A2502C0_var*
@@ -121,7 +93,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnsNativeCommentParaSink.Make
 
 function TnsNativeCommentParaSink.Get_State: TnsNodeStates;
 //#UC START# *4CEE38DA0365_4CEE3A2502C0get_var*
@@ -201,8 +173,14 @@ begin
 //#UC END# *4CEE3904013D_4CEE3A2502C0_impl*
 end;//TnsNativeCommentParaSink.Store
 
+type _Instance_R_ = TnsNativeCommentPara;
+
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsNativePara.imp.pas}
+
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\StyleParser.imp.pas}
+
 class function TnsNativeCommentPara.MakeFromStyle(const aStyle: IStream;
-  anOwner: Tl3Tag): Il3TagRef;
+ anOwner: Tl3Tag): Il3TagRef;
 //#UC START# *4CEFB6910213_4CED3DF702F9_var*
 var
  l_Inst : TnsNativeCommentPara;
@@ -219,7 +197,7 @@ begin
 end;//TnsNativeCommentPara.MakeFromStyle
 
 constructor TnsNativeCommentPara.CreateFromStyle(const aStyle: IStream;
-  anOwner: Tl3Tag);
+ anOwner: Tl3Tag);
 //#UC START# *4CEFB6B202FF_4CED3DF702F9_var*
 //#UC END# *4CEFB6B202FF_4CED3DF702F9_var*
 begin
@@ -234,6 +212,7 @@ begin
 end;//TnsNativeCommentPara.CreateFromStyle
 
 procedure TnsNativeCommentPara.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4CED3DF702F9_var*
 //#UC END# *479731C50290_4CED3DF702F9_var*
 begin
@@ -254,7 +233,8 @@ begin
 end;//TnsNativeCommentPara.InitFields
 
 function TnsNativeCommentPara.COMQueryInterface(const IID: Tl3GUID;
-  out Obj): Tl3HResult;
+ out Obj): Tl3HResult;
+ {* Реализация запроса интерфейса }
 //#UC START# *4A60B23E00C3_4CED3DF702F9_var*
 //#UC END# *4A60B23E00C3_4CED3DF702F9_var*
 begin

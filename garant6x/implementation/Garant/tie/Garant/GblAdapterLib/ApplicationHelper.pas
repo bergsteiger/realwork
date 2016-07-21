@@ -28,7 +28,7 @@ type
  //#UC END# *460A6EF8024Bcit*
  ApplicationHelper = class
   private
-   base_id: BaseId;
+   base_id: ;
    function_manager: ;
    contract_form: ;
    search_manager: ;

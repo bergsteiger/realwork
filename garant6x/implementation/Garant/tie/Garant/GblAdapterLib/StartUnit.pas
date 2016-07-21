@@ -142,10 +142,10 @@ type
   function GetRestTrialDaysCount: Integer; stdcall;
   function GetAutoregistrationStatus: ByteBool; stdcall;
   procedure SetAutoregistrationStatus(const aValue: ByteBool); stdcall; { can raise AccessDenied }
-  function GetAdministratorEmail: IString; stdcall;
-  procedure SetAdministratorEmail(const aValue: IString); stdcall;
-  function GetAdministratorPhone: IString; stdcall;
-  procedure SetAdministratorPhone(const aValue: IString); stdcall;
+  procedure GetAdministratorEmail; stdcall;
+  procedure SetAdministratorEmail(const aValue); stdcall;
+  procedure GetAdministratorPhone; stdcall;
+  procedure SetAdministratorPhone(const aValue); stdcall;
   procedure Login(login: PAnsiChar;
    password: PAnsiChar); stdcall; { can raise WrongAuthentication, NoMoreProfiles, XMLImportRunning, ShutdownInited, TrialPeriodExpired, AlreadyLogged, AccountDisabled, NoMoreConnections }
    {* Начало работы с системой. При успешном завершении подключается к базе, прописанной в параметрах, как база по умолчанию и возвращает интерфейс ICommon. }
@@ -174,11 +174,11 @@ type
    read GetAutoregistrationStatus
    write SetAutoregistrationStatus;
    {* статус авторегистрации }
-  property AdministratorEmail: IString
+  property AdministratorEmail: 
    read GetAdministratorEmail
    write SetAdministratorEmail;
    {* Почта администратора }
-  property AdministratorPhone: IString
+  property AdministratorPhone: 
    read GetAdministratorPhone
    write SetAdministratorPhone;
    {* Телефон администратора }
@@ -199,8 +199,8 @@ type
  ICommon = interface
   {* Интерфейс обеспечивает доступ к основной функциональности системы, доступной из "Основного меню" или навигатора. }
   ['{E07B0F92-C20B-4AB2-84A3-33BC2AF4659C}']
-  function GetBaseDate: TDate; stdcall;
-  function GetLicenseRestrictions: TLicenseRestrictions; stdcall;
+  procedure GetBaseDate; stdcall;
+  procedure GetLicenseRestrictions; stdcall;
   function GetDocumentOnNumber(number: Integer;
    out document: IDocument;
    out missing_info: IMissingInfo): ByteBool; stdcall;
@@ -215,17 +215,21 @@ type
    {* проверка является ли база с лицензионными настройками - "для внутреннего использования" }
   procedure ShowPicturesOnNumber(number: Integer); stdcall; { can raise WorkingParamsNotFound, ExternalApplicationError }
    {* показывает рисунки для заданного топика (функциональность внутренней версии) }
-  function GetComplectName: IString; stdcall;
+  procedure GetComplectName(out aRet
+   {* IString }); stdcall;
   function AutoShowHelp: ByteBool; stdcall;
    {* показывать ли помощь при первом запуске после инсталяции. }
   function GetProductType: TProductType; stdcall;
    {* получить тип установленного продукта }
-  function GetSplashScreen(is_start: Boolean;
+  procedure GetSplashScreen(is_start: Boolean;
    x: short;
    y: short;
-   flash_available: Boolean): ISplashScreen; stdcall;
+   flash_available: Boolean;
+   out aRet
+   {* ISplashScreen }); stdcall;
    {* Получить сплеш }
-  function GetSettingsManager: ISettingsManager; stdcall;
+  procedure GetSettingsManager(out aRet
+   {* ISettingsManager }); stdcall;
    {* Получить менеджер настроек }
   function IsEoEnabled: ByteBool; stdcall;
    {* доступен ли модуль ЭО. }
@@ -233,20 +237,25 @@ type
    {* Тип базы }
   procedure CreateFolderNotificationQueue; stdcall;
    {* Создать очередь обработки папочных нотификаций }
-  function GetBanner: IBanner; stdcall; { can raise CanNotFindData }
+  procedure GetBanner(out aRet
+   {* IBanner }); stdcall; { can raise CanNotFindData }
    {* Получить баннер }
   function IsTrimmedPublishSourceExists: ByteBool; stdcall;
    {* Есть ли усеченный индекс Источник опубликования }
-  function GetScriptsSystemDictionary: IStream; stdcall;
+  procedure GetScriptsSystemDictionary(out aRet
+   {* IStream }); stdcall;
    {* словарь для скриптов (К271754146) }
-  function GetPicture(id: Integer): IExternalObject; stdcall; { can raise CanNotFindData }
+  procedure GetPicture(id: Integer;
+   out aRet
+   {* IExternalObject }); stdcall; { can raise CanNotFindData }
   function IsEraseOfInactiveUsersEnabled: ByteBool; stdcall;
    {* включена ли поддержка удаления пользователей, которые давно не пользовались системой }
-  function GetEncryptedComplectId: IString; stdcall;
+  procedure GetEncryptedComplectId(out aRet
+   {* IString }); stdcall;
    {* получить зашифрованный идентификатор комплекта }
-  property BaseDate: TDate
+  property BaseDate: 
    read GetBaseDate;
-  property LicenseRestrictions: TLicenseRestrictions
+  property LicenseRestrictions: 
    read GetLicenseRestrictions;
    {* Лицензионные ограничения на количество пользователей }
  end;//ICommon

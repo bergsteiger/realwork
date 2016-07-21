@@ -19,9 +19,11 @@ type
  IBanner = interface
   {* Баннер }
   ['{B869F2FF-7971-44F1-BAA5-F664C978EF7F}']
-  function OpenLink: IUnknown; stdcall; { can raise CanNotFindData }
+  procedure OpenLink(out aRet
+   {* IUnknown }); stdcall; { can raise CanNotFindData }
    {* Открыть ссылку баннера (возвращает или IDocument или ExternalLink) }
-  function GetPicture: IExternalObject; stdcall;
+  procedure GetPicture(out aRet
+   {* IExternalObject }); stdcall;
    {* Картинка }
  end;//IBanner
 

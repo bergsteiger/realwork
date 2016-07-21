@@ -30,6 +30,9 @@ type
   private
    procedure opCustomizeExecute(const aParams: IvcmExecuteParamsPrim);
     {* Настройка... }
+   class procedure CustomizePanel(const aPanel: IvcmCustOps);
+    {* Настроить панель иструментов }
+   class function TasksPanelPopupMenu: TPopupMenu;
   protected
    function pm_GetPopupMenu: TvcmPopupMenuPrim;
    procedure Cleanup; override;
@@ -37,9 +40,6 @@ type
    procedure Loaded; override;
    class procedure GetEntityForms(aList: TvcmClassList); override;
   public
-   class procedure CustomizePanel(const aPanel: IvcmCustOps);
-    {* Настроить панель иструментов }
-   class function TasksPanelPopupMenu: TPopupMenu;
    constructor Create(AOwner: TComponent); override;
   protected
    property PopupMenu: TvcmPopupMenuPrim
@@ -52,18 +52,75 @@ implementation
 {$If NOT Defined(NoVCM)}
 uses
  l3ImplUses
+ , l3ProtoObject
+ , vcmTaskPanelServices
  , vcmInterfaces
  , SysUtils
  , vcmMenus
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
+ , l3Base
  , CustomizeTasksPanel_Form
  //#UC START# *4C8DD8C602D3impl_uses*
  //#UC END# *4C8DD8C602D3impl_uses*
 ;
 
+type
+ TvcmTaskPanelServicesImpl = {final} class(Tl3ProtoObject, IvcmTaskPanelServices)
+  public
+   procedure CustomizePanel(const aPanel: IvcmCustOps);
+   function TasksPanelPopupMenu: TPopupMenu;
+   class function Instance: TvcmTaskPanelServicesImpl;
+    {* Метод получения экземпляра синглетона TvcmTaskPanelServicesImpl }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
+ end;//TvcmTaskPanelServicesImpl
+
+var g_TvcmTaskPanelServicesImpl: TvcmTaskPanelServicesImpl = nil;
+ {* Экземпляр синглетона TvcmTaskPanelServicesImpl }
 var g_dmTasksPanelMenu: TPrimTasksPanelMenuModule = nil;
+
+procedure TvcmTaskPanelServicesImplFree;
+ {* Метод освобождения экземпляра синглетона TvcmTaskPanelServicesImpl }
+begin
+ l3Free(g_TvcmTaskPanelServicesImpl);
+end;//TvcmTaskPanelServicesImplFree
+
+procedure TvcmTaskPanelServicesImpl.CustomizePanel(const aPanel: IvcmCustOps);
+//#UC START# *726DEE2EAA6F_578E03710025_var*
+//#UC END# *726DEE2EAA6F_578E03710025_var*
+begin
+//#UC START# *726DEE2EAA6F_578E03710025_impl*
+ TPrimTasksPanelMenuModule.CustomizePanel(aPanel);
+//#UC END# *726DEE2EAA6F_578E03710025_impl*
+end;//TvcmTaskPanelServicesImpl.CustomizePanel
+
+function TvcmTaskPanelServicesImpl.TasksPanelPopupMenu: TPopupMenu;
+//#UC START# *171E8E0C4B22_578E03710025_var*
+//#UC END# *171E8E0C4B22_578E03710025_var*
+begin
+//#UC START# *171E8E0C4B22_578E03710025_impl*
+ Result := TPrimTasksPanelMenuModule.TasksPanelPopupMenu;
+//#UC END# *171E8E0C4B22_578E03710025_impl*
+end;//TvcmTaskPanelServicesImpl.TasksPanelPopupMenu
+
+class function TvcmTaskPanelServicesImpl.Instance: TvcmTaskPanelServicesImpl;
+ {* Метод получения экземпляра синглетона TvcmTaskPanelServicesImpl }
+begin
+ if (g_TvcmTaskPanelServicesImpl = nil) then
+ begin
+  l3System.AddExitProc(TvcmTaskPanelServicesImplFree);
+  g_TvcmTaskPanelServicesImpl := Create;
+ end;
+ Result := g_TvcmTaskPanelServicesImpl;
+end;//TvcmTaskPanelServicesImpl.Instance
+
+class function TvcmTaskPanelServicesImpl.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TvcmTaskPanelServicesImpl <> nil;
+end;//TvcmTaskPanelServicesImpl.Exists
 
 function TPrimTasksPanelMenuModule.pm_GetPopupMenu: TvcmPopupMenuPrim;
 //#UC START# *4C8F78BC0331_4C8DD8C602D3get_var*
@@ -171,6 +228,10 @@ begin
  inherited;
  aList.Add(TCustomizeTasksPanelForm);
 end;//TPrimTasksPanelMenuModule.GetEntityForms
+
+initialization
+ TvcmTaskPanelServices.Instance.Alien := TvcmTaskPanelServicesImpl.Instance;
+ {* Регистрация TvcmTaskPanelServicesImpl }
 {$IfEnd} // NOT Defined(NoVCM)
 
 end.

@@ -1,2 +1,0 @@
-MakeCo TTreeNodeForTestsWordsPack.rc.script
-brcc32 TTreeNodeForTestsWordsPack.rc

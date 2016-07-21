@@ -23,7 +23,7 @@ type
    function GetParentTreeRoot: DefaultNodeBase; virtual; stdcall;
    function GetMaximumLevelsRestriction: unsigned integer; virtual; stdcall;
    function GetAutoOpen: ByteBool; virtual; stdcall;
-   function GetTreeName: AnsiString; override;
+   procedure GetTreeName; override;
    function MasterTree: TreeBase; override;
   public
    constructor Make; reintroduce; virtual; stdcall;
@@ -149,7 +149,7 @@ begin
 //#UC END# *460139CE02BF_45F57B6C0128_impl*
 end;//ViewBase.GetChangeMutex
 
-function ViewBase.GetTreeName: AnsiString;
+procedure ViewBase.GetTreeName;
 //#UC START# *4948E2B2038D_45F57B6C0128get_var*
 //#UC END# *4948E2B2038D_45F57B6C0128get_var*
 begin

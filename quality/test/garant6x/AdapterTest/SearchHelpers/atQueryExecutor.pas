@@ -59,13 +59,13 @@ type
    f_SearchResult: ISearchEntity;
    f_Event: TSimpleEvent;
   protected
-   procedure set_current(cur_count: Integer;
+   procedure SetCurrent(cur_count: Integer;
     arg: Integer
-    {* Дополнительный параметр. });
+    {* Дополнительный параметр. }); stdcall;
     {* Изменение состояния длительного процесса.
 В качестве параметра cur_count подается либо число уже обработанных элементов, принимающих участие в длительном процессе, либо число <=100 (при индикации в %). }
-   function Get_max_count: Integer;
-   procedure finish_process(const entity: ISearchEntity);
+   function GetMaxCount: Integer; stdcall;
+   procedure FinishProcess(const entity: ISearchEntity); stdcall;
    function Get_SearchResult: ISearchEntity;
    function HasFinished: Boolean;
     {* Проверить, завершено ли выполнение запроса }
@@ -170,7 +170,7 @@ begin
  end;//try..finally
 end;//TatProgressIndicator.Make
 
-procedure TatProgressIndicator.set_current(cur_count: Integer;
+procedure TatProgressIndicator.SetCurrent(cur_count: Integer;
  arg: Integer
  {* Дополнительный параметр. });
  {* Изменение состояния длительного процесса.
@@ -189,18 +189,18 @@ begin
     end;
   end;
 //#UC END# *45EEE00A025D_483AD19A008E_impl*
-end;//TatProgressIndicator.set_current
+end;//TatProgressIndicator.SetCurrent
 
-function TatProgressIndicator.Get_max_count: Integer;
+function TatProgressIndicator.GetMaxCount: Integer;
 //#UC START# *45EEE02703C5_483AD19A008Eget_var*
 //#UC END# *45EEE02703C5_483AD19A008Eget_var*
 begin
 //#UC START# *45EEE02703C5_483AD19A008Eget_impl*
   Result := 100; // потому что мы хотим получать ход выполнения в процентах
 //#UC END# *45EEE02703C5_483AD19A008Eget_impl*
-end;//TatProgressIndicator.Get_max_count
+end;//TatProgressIndicator.GetMaxCount
 
-procedure TatProgressIndicator.finish_process(const entity: ISearchEntity);
+procedure TatProgressIndicator.FinishProcess(const entity: ISearchEntity);
 //#UC START# *462741D0012E_483AD19A008E_var*
 //#UC END# *462741D0012E_483AD19A008E_var*
 begin
@@ -218,7 +218,7 @@ begin
       Raise;
   end;
 //#UC END# *462741D0012E_483AD19A008E_impl*
-end;//TatProgressIndicator.finish_process
+end;//TatProgressIndicator.FinishProcess
 
 function TatProgressIndicator.Get_SearchResult: ISearchEntity;
 //#UC START# *483AD1D1039B_483AD19A008Eget_var*

@@ -665,6 +665,7 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
  , l3RTTI in 'w:\common\components\rtl\Garant\L3\l3RTTI.pas'
  , m3StorageInterfaces in 'w:\common\components\rtl\Garant\m3\m3StorageInterfaces.pas'
+ , m3StorageTypes in 'w:\common\components\rtl\Garant\m3\m3StorageTypes.pas'
  , m3StgMgr in 'w:\common\components\rtl\Garant\m3\m3StgMgr.pas'
  , m3ArchiveStorage in 'w:\common\components\rtl\Garant\m3\m3ArchiveStorage.pas'
  , m3NewStorage in 'w:\common\components\rtl\Garant\m3\m3NewStorage.pas'

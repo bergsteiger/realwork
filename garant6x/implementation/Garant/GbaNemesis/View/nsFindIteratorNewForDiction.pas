@@ -1,80 +1,61 @@
 unit nsFindIteratorNewForDiction;
+ {* Реализация IFindIterator для нового представления Толькового словаря. [$245760208] }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/nsFindIteratorNewForDiction.pas"
-// Начат: 09.12.2010 17:40
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Core::Base Operations::View::ContextSearchInEVDDocument::TnsFindIteratorNewForDiction
-//
-// Реализация IFindIterator для нового представления Толькового словаря. [$245760208]
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\nsFindIteratorNewForDiction.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsFindIteratorNewForDiction" MUID: (4D00EA5A02CF)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DynamicTreeUnit,
-  l3ProtoObjectForTie,
-  nsFindPositionListList,
-  l3Variant
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , l3ProtoObjectForTie
+ , DynamicTreeUnit
+ , nsFindPositionListList
+ , l3Variant
+ //#UC START# *4D00EA5A02CFintf_uses*
+ //#UC END# *4D00EA5A02CFintf_uses*
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 const
-  { Constants }
  cFirstLangOffset = 101;
-  { Смещение первого языка }
+  {* Смещение первого языка }
 
 type
-//#UC START# *4D00EA5A02CFci*
-//#UC END# *4D00EA5A02CFci*
-//#UC START# *4D00EA5A02CFcit*
-//#UC END# *4D00EA5A02CFcit*
+ //#UC START# *4D00EA5A02CFci*
+ //#UC END# *4D00EA5A02CFci*
+ //#UC START# *4D00EA5A02CFcit*
+ //#UC END# *4D00EA5A02CFcit*
  TnsFindIteratorNewForDiction = class(Tl3ProtoObjectForTie, IFindIterator, IFindPositionList)
   {* Реализация IFindIterator для нового представления Толькового словаря. [$245760208] }
- private
- // private fields
-   f_AdapterFindPositionList : IFindPositionList;
-   f_Current : Integer;
-   f_List : TnsFindPositionListList;
- protected
- // realized methods
+  private
+   f_AdapterFindPositionList: IFindPositionList;
+   f_Current: Integer;
+   f_List: TnsFindPositionListList;
+  protected
    procedure Next; stdcall;
-     {* Перемещенеи итератора на следующий элемент. }
+    {* Перемещенеи итератора на следующий элемент. }
    procedure Prev; stdcall;
-     {* Перемещенеи итератора на предыдущий элемент. }
+    {* Перемещенеи итератора на предыдущий элемент. }
    function IsGood: ByteBool; stdcall;
-     {* Возвращает true, если по итератору можно получить данные, т.е. position. Иначе итератор за концом, т.е. равен end или вообще пуст }
-   procedure GetPosition(out aRet {: IFindPositionList}); stdcall;
+    {* Возвращает true, если по итератору можно получить данные, т.е. position. Иначе итератор за концом, т.е. равен end или вообще пуст }
+   procedure GetPosition(out aRet
+    {* IFindPositionList }); stdcall;
    function IsFirst: ByteBool; stdcall;
-     {* возвращает true, если нельзя перейти на предыдущий фрагмент }
+    {* возвращает true, если нельзя перейти на предыдущий фрагмент }
    function GetCount: Cardinal; stdcall;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    constructor Create(const anAdapterIterator: IFindIterator;
-     aBlock: Tl3Tag); reintroduce;
+    aBlock: Tl3Tag); reintroduce;
    class function Make(const anAdapterIterator: IFindIterator;
-     aBlock: Tl3Tag): IFindIterator; reintroduce;
-     {* Сигнатура фабрики TnsFindIteratorNewForDiction.Make }
-//#UC START# *4D00EA5A02CFpubl*
+    aBlock: Tl3Tag): IFindIterator; reintroduce;
+ //#UC START# *4D00EA5A02CFpubl*
  private
    // IFindPositionList
     function  pm_GetCount: Integer; stdcall;
@@ -92,27 +73,25 @@ type
       {* - добавляет элемент Item в конец. }
     procedure Insert(anIndex: Integer; const anItem: TFindPosition); stdcall;
       {* - вставляет элемент Item по индексу Index. }
-//#UC END# *4D00EA5A02CFpubl*
+ //#UC END# *4D00EA5A02CFpubl*
  end;//TnsFindIteratorNewForDiction
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DataAdapter,
-  k2Tags,
-  SysUtils,
-  DictEntry_Const
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TnsFindIteratorNewForDiction
+ l3ImplUses
+ , DataAdapter
+ , k2Tags
+ , SysUtils
+ , DictEntry_Const
+ //#UC START# *4D00EA5A02CFimpl_uses*
+ //#UC END# *4D00EA5A02CFimpl_uses*
+;
 
 constructor TnsFindIteratorNewForDiction.Create(const anAdapterIterator: IFindIterator;
-  aBlock: Tl3Tag);
+ aBlock: Tl3Tag);
 //#UC START# *4D00EB96015B_4D00EA5A02CF_var*
 var
  l_AdapterFindPositionList : IFindPositionList;
@@ -168,7 +147,7 @@ begin
 end;//TnsFindIteratorNewForDiction.Create
 
 class function TnsFindIteratorNewForDiction.Make(const anAdapterIterator: IFindIterator;
-  aBlock: Tl3Tag): IFindIterator;
+ aBlock: Tl3Tag): IFindIterator;
 var
  l_Inst : TnsFindIteratorNewForDiction;
 begin
@@ -178,9 +157,10 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnsFindIteratorNewForDiction.Make
 
 procedure TnsFindIteratorNewForDiction.Next;
+ {* Перемещенеи итератора на следующий элемент. }
 //#UC START# *45EEC28202A0_4D00EA5A02CF_var*
 //#UC END# *45EEC28202A0_4D00EA5A02CF_var*
 begin
@@ -194,6 +174,7 @@ begin
 end;//TnsFindIteratorNewForDiction.Next
 
 procedure TnsFindIteratorNewForDiction.Prev;
+ {* Перемещенеи итератора на предыдущий элемент. }
 //#UC START# *45EEC28202A1_4D00EA5A02CF_var*
 //#UC END# *45EEC28202A1_4D00EA5A02CF_var*
 begin
@@ -204,6 +185,7 @@ begin
 end;//TnsFindIteratorNewForDiction.Prev
 
 function TnsFindIteratorNewForDiction.IsGood: ByteBool;
+ {* Возвращает true, если по итератору можно получить данные, т.е. position. Иначе итератор за концом, т.е. равен end или вообще пуст }
 //#UC START# *45EEC28202A2_4D00EA5A02CF_var*
 //#UC END# *45EEC28202A2_4D00EA5A02CF_var*
 begin
@@ -213,7 +195,8 @@ begin
 //#UC END# *45EEC28202A2_4D00EA5A02CF_impl*
 end;//TnsFindIteratorNewForDiction.IsGood
 
-procedure TnsFindIteratorNewForDiction.GetPosition(out aRet {: IFindPositionList});
+procedure TnsFindIteratorNewForDiction.GetPosition(out aRet
+ {* IFindPositionList });
 //#UC START# *461D00B9005D_4D00EA5A02CF_var*
 //#UC END# *461D00B9005D_4D00EA5A02CF_var*
 begin
@@ -225,6 +208,7 @@ begin
 end;//TnsFindIteratorNewForDiction.GetPosition
 
 function TnsFindIteratorNewForDiction.IsFirst: ByteBool;
+ {* возвращает true, если нельзя перейти на предыдущий фрагмент }
 //#UC START# *49FEC51501D8_4D00EA5A02CF_var*
 //#UC END# *49FEC51501D8_4D00EA5A02CF_var*
 begin
@@ -247,6 +231,7 @@ begin
 end;//TnsFindIteratorNewForDiction.GetCount
 
 procedure TnsFindIteratorNewForDiction.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4D00EA5A02CF_var*
 //#UC END# *479731C50290_4D00EA5A02CF_var*
 begin
@@ -257,11 +242,8 @@ begin
 end;//TnsFindIteratorNewForDiction.Cleanup
 
 procedure TnsFindIteratorNewForDiction.ClearFields;
- {-}
 begin
- {$If not defined(Admin) AND not defined(Monitorings)}
- f_AdapterFindPositionList := nil;
- {$IfEnd} //not Admin AND not Monitorings
+ Finalize(f_AdapterFindPositionList);
  inherited;
 end;//TnsFindIteratorNewForDiction.ClearFields
 
@@ -318,7 +300,6 @@ begin
  Assert(false);
 end;
 //#UC END# *4D00EA5A02CFimpl*
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

@@ -1,71 +1,48 @@
 unit dDiction;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Diction"
-// Автор: Морозов М.А.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Diction/dDiction.pas"
-// Начат: 12.07.2006
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Встроенные продукты::Diction::Diction::Diction::TdDiction
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Diction\dDiction.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TdDiction" MUID: (4936CCA700F0)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3InterfaceList,
-  bsTypes,
-  DictionInterfaces,
-  DynamicTreeUnit,
-  CommonDictionInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmControllers
-  {$IfEnd} //not NoVCM
-  ,
-  l3Types,
-  BaseDocumentWithAttributesInterfaces,
-  DocumentAndListInterfaces,
-  DocumentInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  l3ProtoObject
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , DictionInterfaces
+ , l3InterfaceList
+ , bsTypes
+ {$If NOT Defined(NoVCM)}
+ , vcmControllers
+ {$IfEnd} // NOT Defined(NoVCM)
+ , CommonDictionInterfaces
+ , DynamicTreeUnit
+ , BaseDocumentWithAttributesInterfaces
+ , l3Types
+ , DocumentAndListInterfaces
+ , DocumentInterfaces
+ , l3ProtoObject
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  _IvcmRealData_ = IdDiction;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\CommonDiction\dCommonDiction.imp.pas}
  TdDiction = class(_dCommonDiction_, IdDiction)
- private
- // private fields
-   f_IsShowLiteratureList : Boolean;
-   f_Languages : TbsLanguages;
-   f_ContextMap : InsLangToContextMap;
-   f_CurrentLanguage : TbsLanguage;
-   f_refTranslationList : Tl3InterfaceList;
-    {* Поле для свойства refTranslationList}
- private
- // private methods
+  private
+   f_IsShowLiteratureList: Boolean;
+   f_Languages: TbsLanguages;
+   f_ContextMap: InsLangToContextMap;
+   f_CurrentLanguage: TbsLanguage;
+   f_refTranslationList: Tl3InterfaceList;
+  private
    procedure SetRefTranslationCount(aValue: Integer);
- protected
- // property methods
-   function pm_GetRefTranslationList: Tl3InterfaceList;
- protected
- // realized methods
+  protected
+   function pm_GetrefTranslationList: Tl3InterfaceList;
    function pm_GetLanguages: TbsLanguages;
    procedure pm_SetLanguages(aValue: TbsLanguages);
    function pm_GetRefTranslation(aIndex: Integer): IvcmFormDataSourceRef;
@@ -76,47 +53,59 @@ type
    procedure pm_SetContextMap(const aValue: InsLangToContextMap);
    function pm_GetCurrentLanguage: TbsLanguage;
    procedure pm_SetCurrentLanguage(aValue: TbsLanguage);
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure InitFields; override;
-   {$If not defined(NoVCM)}
+   {$If NOT Defined(NoVCM)}
    procedure AssignData(const aData: _IvcmRealData_); override;
-   {$IfEnd} //not NoVCM
- public
- // public methods
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    class function Make: IdDiction; reintroduce;
- protected
- // protected properties
+  protected
    property refTranslationList: Tl3InterfaceList
-     read pm_GetRefTranslationList;
+    read pm_GetrefTranslationList;
  end;//TdDiction
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmFormDataSourceRef
-  {$IfEnd} //not NoVCM
-  ,
-  SysUtils,
-  BaseTypesUnit,
-  l3Utils
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
+ l3ImplUses
+ , SysUtils
+ , BaseTypesUnit
+ {$If NOT Defined(NoVCM)}
+ , vcmFormDataSourceRef
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3Utils
+;
 
 type _Instance_R_ = TdDiction;
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\CommonDiction\dCommonDiction.imp.pas}
 
-// start class TdDiction
+function TdDiction.pm_GetrefTranslationList: Tl3InterfaceList;
+//#UC START# *4B19106100BA_4936CCA700F0get_var*
+//#UC END# *4B19106100BA_4936CCA700F0get_var*
+begin
+//#UC START# *4B19106100BA_4936CCA700F0get_impl*
+ if (f_refTranslationList = nil) then
+  f_refTranslationList := Tl3InterfaceList.Make;
+ Result := f_refTranslationList;
+//#UC END# *4B19106100BA_4936CCA700F0get_impl*
+end;//TdDiction.pm_GetrefTranslationList
+
+class function TdDiction.Make: IdDiction;
+var
+ l_Inst : TdDiction;
+begin
+ l_Inst := Create;
+ try
+  Result := l_Inst;
+ finally
+  l_Inst.Free;
+ end;//try..finally
+end;//TdDiction.Make
 
 procedure TdDiction.SetRefTranslationCount(aValue: Integer);
 //#UC START# *4B1913DE00A8_4936CCA700F0_var*
@@ -130,29 +119,6 @@ begin
   refTranslationList.Add(TvcmFormDataSourceRef.Make);
 //#UC END# *4B1913DE00A8_4936CCA700F0_impl*
 end;//TdDiction.SetRefTranslationCount
-
-class function TdDiction.Make: IdDiction;
-var
- l_Inst : TdDiction;
-begin
- l_Inst := Create;
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;
-
-function TdDiction.pm_GetRefTranslationList: Tl3InterfaceList;
-//#UC START# *4B19106100BA_4936CCA700F0get_var*
-//#UC END# *4B19106100BA_4936CCA700F0get_var*
-begin
-//#UC START# *4B19106100BA_4936CCA700F0get_impl*
- if (f_refTranslationList = nil) then
-  f_refTranslationList := Tl3InterfaceList.Make;
- Result := f_refTranslationList;
-//#UC END# *4B19106100BA_4936CCA700F0get_impl*
-end;//TdDiction.pm_GetRefTranslationList
 
 function TdDiction.pm_GetLanguages: TbsLanguages;
 //#UC START# *49527E380287_4936CCA700F0get_var*
@@ -245,6 +211,7 @@ begin
 end;//TdDiction.pm_SetCurrentLanguage
 
 procedure TdDiction.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4936CCA700F0_var*
 //#UC END# *479731C50290_4936CCA700F0_var*
 begin
@@ -265,7 +232,7 @@ begin
 //#UC END# *47A042E100E2_4936CCA700F0_impl*
 end;//TdDiction.InitFields
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TdDiction.AssignData(const aData: _IvcmRealData_);
 //#UC START# *4B16B8CF0307_4936CCA700F0_var*
 var
@@ -283,8 +250,7 @@ begin
  f_CurrentLanguage := aData.CurrentLanguage;
 //#UC END# *4B16B8CF0307_4936CCA700F0_impl*
 end;//TdDiction.AssignData
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //not Admin AND not Monitorings
-
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

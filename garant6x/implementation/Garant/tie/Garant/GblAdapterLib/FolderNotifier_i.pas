@@ -19,8 +19,8 @@ type
  FolderNotifier_i = class
   private
    current_user: ;
-   external_folders_change_notifier: IExternalFoldersChangeNotifier;
-   done_notifier: IDoneNotifier;
+   external_folders_change_notifier: ;
+   done_notifier: ;
   public
    constructor Make; reintroduce; virtual; stdcall;
    procedure SendNotify(status: TNotifyStatus;

@@ -114,7 +114,7 @@ type
    procedure GetServerTree; virtual; stdcall;
    function GetFlagsMap: NodeFlagMap; virtual; stdcall;
    function GetIsChanged: ByteBool; virtual; stdcall;
-   function GetTreeName: AnsiString; virtual; abstract; stdcall;
+   procedure GetTreeName; virtual; abstract; stdcall;
    constructor Make; reintroduce; overload; virtual; stdcall;
    function GetLoadBlockHalfSize: Integer; virtual; stdcall;
    procedure SetLoadBlockHalfSize(new_size: Integer); virtual; stdcall;
@@ -224,7 +224,7 @@ type
     read GetFlagsMap;
    property IsChanged: ByteBool
     read GetIsChanged;
-   property TreeName: AnsiString
+   property TreeName: 
     read GetTreeName;
  //#UC START# *45F554750213publ*
  //#UC END# *45F554750213publ*

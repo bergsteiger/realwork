@@ -91,6 +91,9 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , MainMenuNewRes
  , Windows
+ {$If NOT Defined(NoVCM)}
+ , vcmTaskPanelServices
+ {$IfEnd} // NOT Defined(NoVCM)
  , l3Base
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy

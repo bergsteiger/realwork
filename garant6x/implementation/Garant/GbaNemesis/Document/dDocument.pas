@@ -1,82 +1,63 @@
 unit dDocument;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Document"
-// Автор: Морозов М.А.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Document/dDocument.pas"
-// Начат: 12.07.2006
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Контроллер работы с документом и абстрактная фабрика документа::F1 Document Processing::Document::Document::TdDocument
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Document\dDocument.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TdDocument" MUID: (493E5E7202F1)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DynamicDocListUnit,
-  DocumentUnit,
-  DynamicTreeUnit,
-  bsTypes,
-  DocumentAndListInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmControllers
-  {$IfEnd} //not NoVCM
-  ,
-  WorkWithDocumentInterfaces,
-  ExternalObjectUnit,
-  l3Types,
-  bsInterfaces,
-  DocInfoInterfaces,
-  BaseDocumentWithAttributesInterfaces,
-  DocumentInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  l3ProtoObject
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , WorkWithDocumentInterfaces
+ , DocumentAndListInterfaces
+ , DocumentUnit
+ , bsTypes
+ , DynamicDocListUnit
+ , DynamicTreeUnit
+ {$If NOT Defined(NoVCM)}
+ , vcmControllers
+ {$IfEnd} // NOT Defined(NoVCM)
+ , DocInfoInterfaces
+ , bsInterfaces
+ , l3Types
+ , ExternalObjectUnit
+ , BaseDocumentWithAttributesInterfaces
+ , DocumentInterfaces
+ , l3ProtoObject
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  _IvcmRealData_ = IdDocument;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dDocInfo.imp.pas}
  TdDocument = class(_dDocInfo_, IdDocument)
- private
- // private fields
-   f_ContentsTree : IdeSimpleTree;
-   f_ContextSearched : Boolean;
-   f_IncomingLinksToPartPosList : IPositionList;
-   f_CRToPartType : TlstCRType;
-   f_IncomingLinksToPartList : IDynList;
-   f_IncomingLinksToPartFilter : INodeBase;
-   f_OutgoingLinksFromPartList : IDynList;
-   f_OutgoingLinksFromPartFilter : INodeBase;
-   f_OutgoingLinksFromPartPosList : IPositionList;
-   f_SimilarDocumentsBlockId : Integer;
-   f_dsOutgoingLinksFromPartRef : IvcmFormDataSourceRef;
-    {* Поле для свойства dsOutgoingLinksFromPartRef}
-   f_dsContentsRef : IvcmFormDataSourceRef;
-    {* Поле для свойства dsContentsRef}
-   f_dsWarningRef : IvcmFormDataSourceRef;
-    {* Поле для свойства dsWarningRef}
-   f_dsIncomingLinksToPartRef : IvcmFormDataSourceRef;
-    {* Поле для свойства dsIncomingLinksToPartRef}
-   f_dsEditionsRef : IvcmFormDataSourceRef;
-    {* Поле для свойства dsEditionsRef}
- protected
- // realized methods
+  private
+   f_ContentsTree: IdeSimpleTree;
+   f_ContextSearched: Boolean;
+   f_IncomingLinksToPartPosList: IPositionList;
+   f_CRToPartType: TlstCRType;
+   f_IncomingLinksToPartList: IDynList;
+   f_IncomingLinksToPartFilter: INodeBase;
+   f_OutgoingLinksFromPartList: IDynList;
+   f_OutgoingLinksFromPartFilter: INodeBase;
+   f_OutgoingLinksFromPartPosList: IPositionList;
+   f_SimilarDocumentsBlockId: Integer;
+   f_dsOutgoingLinksFromPartRef: IvcmFormDataSourceRef;
+    {* Ссылка на "БОФ ссылок из фрагмента (респондентов)" }
+   f_dsContentsRef: IvcmFormDataSourceRef;
+    {* Ссылка на "Оглавление" }
+   f_dsWarningRef: IvcmFormDataSourceRef;
+    {* Ссылка на "БОФ предупреждения" }
+   f_dsIncomingLinksToPartRef: IvcmFormDataSourceRef;
+    {* Ссылка на "БОФ ссылок на фрагмент (корреспондентов)" }
+   f_dsEditionsRef: IvcmFormDataSourceRef;
+    {* Ссылка на "БОФ редакции документа" }
+  protected
    function pm_GetDsOutgoingLinksFromPartRef: IvcmFormDataSourceRef;
    function pm_GetIncomingLinksToPartFilter: INodeBase;
    procedure pm_SetIncomingLinksToPartFilter(const aValue: INodeBase);
@@ -98,43 +79,33 @@ type
    function pm_GetDsWarningRef: IvcmFormDataSourceRef;
    function pm_GetDsIncomingLinksToPartRef: IvcmFormDataSourceRef;
    function pm_GetDsEditionsRef: IvcmFormDataSourceRef;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   {$If not defined(NoVCM)}
+    {* Функция очистки полей объекта. }
+   {$If NOT Defined(NoVCM)}
    procedure AssignData(const aData: _IvcmRealData_); override;
-   {$IfEnd} //not NoVCM
+   {$IfEnd} // NOT Defined(NoVCM)
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    class function Make: IdDocument; reintroduce;
  end;//TdDocument
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  SysUtils
-  {$If not defined(NoVCM)}
-  ,
-  vcmFormDataSourceRef
-  {$IfEnd} //not NoVCM
-  ,
-  bsUserCRListInfo,
-  l3Utils
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
+ l3ImplUses
+ , SysUtils
+ {$If NOT Defined(NoVCM)}
+ , vcmFormDataSourceRef
+ {$IfEnd} // NOT Defined(NoVCM)
+ , bsUserCRListInfo
+ , l3Utils
+;
 
 type _Instance_R_ = TdDocument;
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dDocInfo.imp.pas}
-
-// start class TdDocument
 
 class function TdDocument.Make: IdDocument;
 var
@@ -146,10 +117,9 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TdDocument.Make
 
 function TdDocument.pm_GetDsOutgoingLinksFromPartRef: IvcmFormDataSourceRef;
- {-}
 begin
  Result := vcmCheckAndMake(f_dsOutgoingLinksFromPartRef);
 end;//TdDocument.pm_GetDsOutgoingLinksFromPartRef
@@ -299,30 +269,27 @@ begin
 end;//TdDocument.pm_SetSimilarDocumentsBlockId
 
 function TdDocument.pm_GetDsContentsRef: IvcmFormDataSourceRef;
- {-}
 begin
  Result := vcmCheckAndMake(f_dsContentsRef);
 end;//TdDocument.pm_GetDsContentsRef
 
 function TdDocument.pm_GetDsWarningRef: IvcmFormDataSourceRef;
- {-}
 begin
  Result := vcmCheckAndMake(f_dsWarningRef);
 end;//TdDocument.pm_GetDsWarningRef
 
 function TdDocument.pm_GetDsIncomingLinksToPartRef: IvcmFormDataSourceRef;
- {-}
 begin
  Result := vcmCheckAndMake(f_dsIncomingLinksToPartRef);
 end;//TdDocument.pm_GetDsIncomingLinksToPartRef
 
 function TdDocument.pm_GetDsEditionsRef: IvcmFormDataSourceRef;
- {-}
 begin
  Result := vcmCheckAndMake(f_dsEditionsRef);
 end;//TdDocument.pm_GetDsEditionsRef
 
 procedure TdDocument.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_493E5E7202F1_var*
 //#UC END# *479731C50290_493E5E7202F1_var*
 begin
@@ -332,7 +299,7 @@ begin
 //#UC END# *479731C50290_493E5E7202F1_impl*
 end;//TdDocument.Cleanup
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TdDocument.AssignData(const aData: _IvcmRealData_);
 //#UC START# *4B16B8CF0307_493E5E7202F1_var*
 //#UC END# *4B16B8CF0307_493E5E7202F1_var*
@@ -357,50 +324,24 @@ begin
  inherited;
 //#UC END# *4B16B8CF0307_493E5E7202F1_impl*
 end;//TdDocument.AssignData
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 procedure TdDocument.ClearFields;
- {-}
 begin
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_ContentsTree := nil;
- {$IfEnd} //not Admin AND not Monitorings
- {$If not defined(Admin) AND not defined(Monitorings)}
- f_IncomingLinksToPartPosList := nil;
- {$IfEnd} //not Admin AND not Monitorings
- {$If not defined(Admin) AND not defined(Monitorings)}
+ Finalize(f_IncomingLinksToPartPosList);
  f_IncomingLinksToPartList := nil;
- {$IfEnd} //not Admin AND not Monitorings
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_IncomingLinksToPartFilter := nil;
- {$IfEnd} //not Admin AND not Monitorings
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_OutgoingLinksFromPartList := nil;
- {$IfEnd} //not Admin AND not Monitorings
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_OutgoingLinksFromPartFilter := nil;
- {$IfEnd} //not Admin AND not Monitorings
- {$If not defined(Admin) AND not defined(Monitorings)}
- f_OutgoingLinksFromPartPosList := nil;
- {$IfEnd} //not Admin AND not Monitorings
- {$If not defined(Admin) AND not defined(Monitorings)}
+ Finalize(f_OutgoingLinksFromPartPosList);
  f_dsOutgoingLinksFromPartRef := nil;
- {$IfEnd} //not Admin AND not Monitorings
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_dsContentsRef := nil;
- {$IfEnd} //not Admin AND not Monitorings
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_dsWarningRef := nil;
- {$IfEnd} //not Admin AND not Monitorings
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_dsIncomingLinksToPartRef := nil;
- {$IfEnd} //not Admin AND not Monitorings
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_dsEditionsRef := nil;
- {$IfEnd} //not Admin AND not Monitorings
  inherited;
 end;//TdDocument.ClearFields
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

@@ -40,7 +40,7 @@
     TopLeft := FoldersTree.ClientToScreen(TopLeft);
     BottomRight := FoldersTree.ClientToScreen(BottomRight);
    end;
-   Result := (TvcmModulesFactories.EditInfoOpen(IsNewFolder, aNode, TnsFormCoordinates.Make(l_Coord)) = mrOk);
+   Result := (TdmStdRes.EditInfoOpen(IsNewFolder, aNode, TnsFormCoordinates.Make(l_Coord)) = mrOk);
   end//IsInSaveLoadState
   else
   begin
@@ -68,7 +68,7 @@ var
  if Aggregate <> nil then
  begin
   op_FolderElement_SetContent.Call(Aggregate, aNode);
-  Aggregate.Operation(opcode_AdditionInfo_Hide);
+  Aggregate.Operation(TdmStdRes.opcode_AdditionInfo_Hide);
  end;//Aggregate <> nil
 //#UC END# *4AE7192B023C_4C7E651B0179_impl*
 //#UC START# *4AE7192B023C_4C7E651B0179_var*
@@ -741,7 +741,7 @@ var
  if (dsFoldersTree <> nil) then
  begin
   if dsFoldersTree.CanGiveMarkOnConsultation(FoldersTree.GetCurrentNode) then
-   TvcmModulesFactories.GiveMarkOnConsultation(FoldersTree.GetCurrentNode);
+   TdmStdRes.GiveMarkOnConsultation(FoldersTree.GetCurrentNode);
  end;//dsFoldersTree <> nil
 //#UC END# *4C7E6AF2031C_4C7E651B0179exec_impl*
 //#UC START# *4C7E6AF2031C_4C7E651B0179exec_var*
@@ -886,7 +886,7 @@ var
      try
       Supports(l_BaseEntity, IQuery, l_Query);
       Assert(Assigned(l_Query));
-      TvcmModulesFactories.CreateFilter(l_Query);
+      TdmStdRes.CreateFilter(l_Query);
      finally
       l_BaseEntity := nil;
      end;//try..finally

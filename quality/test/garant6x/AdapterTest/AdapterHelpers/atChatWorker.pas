@@ -23,13 +23,9 @@ type
    f_HasNewMessages: Boolean;
    f_NewMessageCS: TCriticalSection;
    f_UserID: TUid;
-    {* Поле для свойства UserID }
    f_MessagesReceived: Integer;
-    {* Поле для свойства MessagesReceived }
    f_MessagesSent: Integer;
-    {* Поле для свойства MessagesSent }
    f_MessagesManager: IMessagesManager;
-    {* Поле для свойства MessagesManager }
   private
    procedure OnNewMessageReceived; virtual;
    constructor Create(anUserID: TUid); reintroduce;
@@ -56,6 +52,8 @@ type
 
  TatChatListenerFireFunction = procedure(const aNotification: INotification) of object;
 
+ TatChatWorker = class;
+
  IatChatListener = interface(IListener)
   ['{5E6FDA1E-7A85-47AA-BA86-52ADA5B0BC69}']
   procedure Attach(aFunction: TatChatListenerFireFunction);
@@ -70,7 +68,6 @@ type
    f_UWUMCS: TCriticalSection;
    f_NotifyCS: TCriticalSection;
    f_ChatManager: IChatManager;
-    {* Поле для свойства ChatManager }
   private
    procedure OnChatNotification(const aNotification: INotification); virtual;
   protected

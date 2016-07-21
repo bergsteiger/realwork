@@ -1,92 +1,69 @@
 unit sdsCompareEditionsState;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Editions"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Editions/sdsCompareEditionsState.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Пользовательские сервисы::CompareEditions::Editions::Editions::TsdsCompareEditionsState
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Editions\sdsCompareEditionsState.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TsdsCompareEditionsState" MUID: (4B69588202EA)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DocumentUnit,
-  EditionsInterfaces,
-  sdsCompareEditions
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  l3ProtoObject,
-  afwInterfaces
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , sdsCompareEditions
+ , DocumentUnit
+ , EditionsInterfaces
+ , l3ProtoObject
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , afwInterfaces
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  _IvcmRealData_ = IsdsCompareEditionsState;
  {$Include w:\common\components\gui\Garant\VCM\implementation\vcmData.imp.pas}
  _afwApplicationDataUpdate_Parent_ = _vcmData_;
  {$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
  TsdsCompareEditionsState = class(_afwApplicationDataUpdate_, IsdsCompareEditionsState)
- private
- // private fields
-   f_EditionForCompare : TRedactionID;
-   f_UseCaseData : InsCompareEditionsInfo;
-   f_Compared : Boolean;
-    {* Было ли проведено сравнение}
-   f_CompareRootPair : TnsDiffData;
-    {* Результат сравнения}
- private
- // private methods
+  private
+   f_EditionForCompare: TRedactionID;
+   f_UseCaseData: InsCompareEditionsInfo;
+   f_Compared: Boolean;
+    {* Было ли проведено сравнение }
+   f_CompareRootPair: TnsDiffData;
+    {* Результат сравнения }
+  private
    procedure CheckCompare;
-     {* Проверяет было ли проведено сравнение и если не было, то сравнивает }
- protected
- // realized methods
+    {* Проверяет было ли проведено сравнение и если не было, то сравнивает }
+  protected
    function Get_EditionForCompare: TRedactionID;
    function Get_UseCaseData: InsCompareEditionsInfo;
    function Get_CompareRootPair: TnsDiffData;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure FinishDataUpdate; override;
-   {$If not defined(NoVCM)}
+   {$If NOT Defined(NoVCM)}
    procedure AssignData(const aData: _IvcmRealData_); override;
-   {$IfEnd} //not NoVCM
+   {$IfEnd} // NOT Defined(NoVCM)
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    constructor Create(const aUseCaseData: InsCompareEditionsInfo;
-     anEditionForCompare: TRedactionID); reintroduce;
+    anEditionForCompare: TRedactionID); reintroduce;
    class function Make(const aUseCaseData: InsCompareEditionsInfo;
-     anEditionForCompare: TRedactionID): IsdsCompareEditionsState; reintroduce;
-     {* Сигнатура фабрики TsdsCompareEditionsState.Make }
+    anEditionForCompare: TRedactionID): IsdsCompareEditionsState; reintroduce;
  end;//TsdsCompareEditionsState
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  BaseTypesUnit,
-  afwFacade
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
+ l3ImplUses
+ , afwFacade
+ , BaseTypesUnit
+;
 
 type _Instance_R_ = TsdsCompareEditionsState;
 
@@ -94,9 +71,33 @@ type _Instance_R_ = TsdsCompareEditionsState;
 
 {$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
 
-// start class TsdsCompareEditionsState
+constructor TsdsCompareEditionsState.Create(const aUseCaseData: InsCompareEditionsInfo;
+ anEditionForCompare: TRedactionID);
+//#UC START# *4B695A9C0194_4B69588202EA_var*
+//#UC END# *4B695A9C0194_4B69588202EA_var*
+begin
+//#UC START# *4B695A9C0194_4B69588202EA_impl*
+ inherited Create;
+ f_UseCaseData := aUseCaseData;
+ f_EditionForCompare := anEditionForCompare;
+//#UC END# *4B695A9C0194_4B69588202EA_impl*
+end;//TsdsCompareEditionsState.Create
+
+class function TsdsCompareEditionsState.Make(const aUseCaseData: InsCompareEditionsInfo;
+ anEditionForCompare: TRedactionID): IsdsCompareEditionsState;
+var
+ l_Inst : TsdsCompareEditionsState;
+begin
+ l_Inst := Create(aUseCaseData, anEditionForCompare);
+ try
+  Result := l_Inst;
+ finally
+  l_Inst.Free;
+ end;//try..finally
+end;//TsdsCompareEditionsState.Make
 
 procedure TsdsCompareEditionsState.CheckCompare;
+ {* Проверяет было ли проведено сравнение и если не было, то сравнивает }
 //#UC START# *4A785700011C_4B69588202EA_var*
 //#UC END# *4A785700011C_4B69588202EA_var*
 begin
@@ -115,31 +116,6 @@ begin
  end;//not f_Compared
 //#UC END# *4A785700011C_4B69588202EA_impl*
 end;//TsdsCompareEditionsState.CheckCompare
-
-constructor TsdsCompareEditionsState.Create(const aUseCaseData: InsCompareEditionsInfo;
-  anEditionForCompare: TRedactionID);
-//#UC START# *4B695A9C0194_4B69588202EA_var*
-//#UC END# *4B695A9C0194_4B69588202EA_var*
-begin
-//#UC START# *4B695A9C0194_4B69588202EA_impl*
- inherited Create;
- f_UseCaseData := aUseCaseData;
- f_EditionForCompare := anEditionForCompare;
-//#UC END# *4B695A9C0194_4B69588202EA_impl*
-end;//TsdsCompareEditionsState.Create
-
-class function TsdsCompareEditionsState.Make(const aUseCaseData: InsCompareEditionsInfo;
-  anEditionForCompare: TRedactionID): IsdsCompareEditionsState;
-var
- l_Inst : TsdsCompareEditionsState;
-begin
- l_Inst := Create(aUseCaseData, anEditionForCompare);
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;
 
 function TsdsCompareEditionsState.Get_EditionForCompare: TRedactionID;
 //#UC START# *4B69581F0199_4B69588202EAget_var*
@@ -170,6 +146,7 @@ begin
 end;//TsdsCompareEditionsState.Get_CompareRootPair
 
 procedure TsdsCompareEditionsState.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4B69588202EA_var*
 //#UC END# *479731C50290_4B69588202EA_var*
 begin
@@ -190,7 +167,7 @@ begin
 //#UC END# *47EA4E9002C6_4B69588202EA_impl*
 end;//TsdsCompareEditionsState.FinishDataUpdate
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TsdsCompareEditionsState.AssignData(const aData: _IvcmRealData_);
 //#UC START# *4B16B8CF0307_4B69588202EA_var*
 //#UC END# *4B16B8CF0307_4B69588202EA_var*
@@ -203,17 +180,13 @@ begin
  f_Compared := true;
 //#UC END# *4B16B8CF0307_4B69588202EA_impl*
 end;//TsdsCompareEditionsState.AssignData
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 procedure TsdsCompareEditionsState.ClearFields;
- {-}
 begin
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_UseCaseData := nil;
- {$IfEnd} //not Admin AND not Monitorings
  inherited;
 end;//TsdsCompareEditionsState.ClearFields
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

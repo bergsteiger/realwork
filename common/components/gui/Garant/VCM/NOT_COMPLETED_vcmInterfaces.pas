@@ -548,6 +548,7 @@ type
  IvcmAggregate = interface(IvcmBase)
   ['{BD00EF86-1F46-4CAA-A4EB-0103086805B3}']
   function Get_GUID: TGUID;
+  function pm_GetCanBeCloned: Boolean;
   procedure AddEntity(const anEntity: IvcmEntity);
    {* Добавляет сущность в агрегацию }
   procedure RemoveEntity(const anEntity: IvcmEntity);
@@ -560,6 +561,8 @@ type
    {* Проверяет, присутствует ли указанная форма в агрегации }
   property GUID: TGUID
    read Get_GUID;
+  property CanBeCloned: Boolean
+   read pm_GetCanBeCloned;
  end;//IvcmAggregate
 
  (*

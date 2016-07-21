@@ -1,79 +1,54 @@
 unit dMedicFirmDocument;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Medic"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Medic/dMedicFirmDocument.pas"
-// Начат: 11.12.2009 12:59
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Встроенные продукты::Inpharm::Medic::Medic::TdMedicFirmDocument
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Medic\dMedicFirmDocument.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TdMedicFirmDocument" MUID: (4B2217FA02BD)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  MedicInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmControllers
-  {$IfEnd} //not NoVCM
-  ,
-  l3Types,
-  BaseDocumentWithAttributesInterfaces,
-  DocumentAndListInterfaces,
-  DocumentInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  l3ProtoObject
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , MedicInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmControllers
+ {$IfEnd} // NOT Defined(NoVCM)
+ , BaseDocumentWithAttributesInterfaces
+ , l3Types
+ , DocumentAndListInterfaces
+ , DocumentInterfaces
+ , l3ProtoObject
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  _IvcmRealData_ = IdMedicFirmDocument;
- {$Include ..\Medic\dMedicFirmDocument.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Medic\dMedicFirmDocument.imp.pas}
  TdMedicFirmDocument = class(_dMedicFirmDocument_)
- public
- // public methods
+  public
    class function Make: IdMedicFirmDocument; reintroduce;
  end;//TdMedicFirmDocument
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmFormDataSourceRef
-  {$IfEnd} //not NoVCM
-  ,
-  SysUtils,
-  l3Utils
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
+ l3ImplUses
+ {$If NOT Defined(NoVCM)}
+ , vcmFormDataSourceRef
+ {$IfEnd} // NOT Defined(NoVCM)
+ , SysUtils
+ , l3Utils
+;
 
 type _Instance_R_ = TdMedicFirmDocument;
 
-{$Include ..\Medic\dMedicFirmDocument.imp.pas}
-
-// start class TdMedicFirmDocument
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Medic\dMedicFirmDocument.imp.pas}
 
 class function TdMedicFirmDocument.Make: IdMedicFirmDocument;
 var
@@ -85,8 +60,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+end;//TdMedicFirmDocument.Make
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

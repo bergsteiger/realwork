@@ -53,14 +53,14 @@ type
  IMissingInfo = interface
   {* Информация об отсутствующем документе. }
   ['{5553DE6A-23C5-4B12-8A98-358CF08F6E59}']
-  function GetObjName: IString; stdcall;
-  function GetBlocksInfo: IString; stdcall;
+  procedure GetObjName; stdcall;
+  procedure GetBlocksInfo; stdcall;
   function IsOneBlock: ByteBool; stdcall;
    {* Отсутствующий объект содержится только в одном блоке (базе) - необходимо для правильного постоения сообщения о том, в каком(их) блоке(ах) содержится отсутствующий объект.  Если в blocks_info содержится только один блок, то возвращается true, в противном случае false. }
-  property ObjName: IString
+  property ObjName: 
    read GetObjName;
    {* Имя отсутствующего объекта. }
-  property BlocksInfo: IString
+  property BlocksInfo: 
    read GetBlocksInfo;
    {* Имена блоков (баз), в которых содержится отсутствующий объект. }
  end;//IMissingInfo
@@ -75,7 +75,7 @@ type
  );//TTimeMachineWarningType
 
  TTimeMachineWarning = record
-  warning: IString;
+  warning: ;
   type: TTimeMachineWarningType;
  end;//TTimeMachineWarning
 
@@ -102,8 +102,8 @@ type
 
  TTopic = record
   {* Внутренние идентификаторы элемента списка документов. }
-  pid: TPId;
-  position: TPosition;
+  pid: ;
+  position: ;
  end;//TTopic
 
  TParaId = Cardinal;
@@ -142,8 +142,8 @@ type
  IActiveIntervalList = array of TDateInterval;
 
  TNotSureInfo = record
-  warning: IString;
-  interval: TDateInterval;
+  warning: ;
+  interval: ;
  end;//TNotSureInfo
 
  INotSureIntervalList = array of TNotSureInfo;
@@ -166,9 +166,9 @@ type
  );//TRedactionType
 
  TRedactionSourceDocumentInfo = record
-  display_name: IString;
+  display_name: ;
    {* изменяющий документ (то что показывается) }
-  doc_topic: TTopic;
+  doc_topic: ;
    {* топик для перехода в изменяющий документ }
  end;//TRedactionSourceDocumentInfo
 
@@ -198,7 +198,7 @@ type
  TLinkInfo = record
   kind: TLinkKind;
    {* вид хинта }
-  hint: IString;
+  hint: ;
  end;//TLinkInfo
 
  InvalidDate = class
@@ -263,7 +263,7 @@ type
  end;//TEntryPoint
 
  TContext = record
-  path: INodeIndexPath;
+  path: ;
   start: Integer;
   finish: Integer;
  end;//TContext
@@ -283,7 +283,7 @@ type
  TBookmark2 = record
   para_id: TExternalID;
   eid: Cardinal;
-  name: IString;
+  name: ;
  end;//TBookmark2
 
  IBookmarkList = array of TBookmark2;
@@ -296,8 +296,8 @@ type
 
  IFoundContext = interface
   ['{2852766C-A9A5-4A40-8C9F-FD957D1D856E}']
-  function GetList: IContextList; stdcall;
-  property List: IContextList
+  procedure GetList; stdcall;
+  property List: 
    read GetList;
  end;//IFoundContext
 
@@ -306,22 +306,42 @@ type
   function GetChildType(const id: TEntryPoint): TEVDType; stdcall; { can raise InvalidEntryPoint }
   function GetChildLayerId(const id: TEntryPoint): TLayerID; stdcall; { can raise InvalidEntryPoint }
   function GetChildExternalId(const id: TEntryPoint): TExternalID; stdcall; { can raise InvalidEntryPoint }
-  function GetChildEvdStyle(const id: TEntryPoint): TEVDStream; stdcall; { can raise InvalidEntryPoint }
-  function GetChildComment(const id: TEntryPoint): TEVDStream; stdcall; { can raise InvalidEntryPoint }
+  procedure GetChildEvdStyle(const id: TEntryPoint;
+   out aRet
+   {* TEVDStream }); stdcall; { can raise InvalidEntryPoint }
+  procedure GetChildComment(const id: TEntryPoint;
+   out aRet
+   {* TEVDStream }); stdcall; { can raise InvalidEntryPoint }
   procedure SetChildComment(const id: TEntryPoint;
    const comment: TEVDStream); stdcall; { can raise InvalidEntryPoint }
   procedure RemoveChildComment(const id: TEntryPoint); stdcall;
-  function GetChildBookmarks(const id: TEntryPoint): IBookmarkList; stdcall; { can raise EmptyResult, InvalidEntryPoint }
-  function GetChildText(const id: TEntryPoint): IString; stdcall; { can raise InvalidEntryPoint }
-  function GetChildTechComment(const id: TEntryPoint): IString; stdcall; { can raise InvalidEntryPoint }
+  procedure GetChildBookmarks(const id: TEntryPoint;
+   out aRet
+   {* IBookmarkList }); stdcall; { can raise EmptyResult, InvalidEntryPoint }
+  procedure GetChildText(const id: TEntryPoint;
+   out aRet
+   {* IString }); stdcall; { can raise InvalidEntryPoint }
+  procedure GetChildTechComment(const id: TEntryPoint;
+   out aRet
+   {* IString }); stdcall; { can raise InvalidEntryPoint }
   function AllLeafParaCount(layer_id: TLayerID): Cardinal; stdcall; { can raise InvalidLayerID }
   function ChildrenCount(layer_id: TLayerID): Cardinal; stdcall; { can raise InvalidLayerID }
-  function FindBlockOrSub(id: TExternalID): INodeIndexPath; stdcall; { can raise CanNotFindData }
-  function FindPara(id: TExternalID): INodeIndexPath; stdcall; { can raise CanNotFindData }
-  function FindContext(const context: IString;
-   from_id: TExternalID): IFoundContext; stdcall; { can raise CanNotFindData }
-  function GetSubList(const id: TEntryPoint): ISubList; stdcall;
-  function GetPrefixTree(id: TExternalID): INodeBase; stdcall;
+  procedure FindBlockOrSub(id: TExternalID;
+   out aRet
+   {* INodeIndexPath }); stdcall; { can raise CanNotFindData }
+  procedure FindPara(id: TExternalID;
+   out aRet
+   {* INodeIndexPath }); stdcall; { can raise CanNotFindData }
+  procedure FindContext(const context: IString;
+   from_id: TExternalID;
+   out aRet
+   {* IFoundContext }); stdcall; { can raise CanNotFindData }
+  procedure GetSubList(const id: TEntryPoint;
+   out aRet
+   {* ISubList }); stdcall;
+  procedure GetPrefixTree(id: TExternalID;
+   out aRet
+   {* INodeBase }); stdcall;
   function ShowSubPanelIcon(id: TExternalID): ByteBool; stdcall;
    {* Нужно ли показывать иконку для блока на сабпанели }
   function HasSame(id: TExternalID): ByteBool; stdcall;
@@ -335,15 +355,15 @@ type
  TExternalObjectData = record
   type: TExternalObjectType;
   para_id: TParaId;
-  name: IString;
+  name: ;
  end;//TExternalObjectData
 
  IExternalObjectDataList = array of TExternalObjectData;
 
  TDiffData = record
-  diff_iterator: IDiffIterator;
-  cur: IDocumentTextProvider;
-  prev: IDocumentTextProvider;
+  diff_iterator: ;
+  cur: ;
+  prev: ;
  end;//TDiffData
 
  TDocumentTextProviderDescriptor = record
@@ -381,22 +401,22 @@ type
 
  TRedactionInfo = record
   {* Информация о редакции объекта. }
-  name: IString;
+  name: ;
    {* Имя редакции. }
-  time_machine_date: TDate;
-  doc_date: TDate;
+  time_machine_date: ;
+  doc_date: ;
   is_comparable: ByteBool;
   actual_type: TRedactionType;
-  not_sure_intervals: INotSureIntervalList;
-  active_intervals: IActiveIntervalList;
+  not_sure_intervals: ;
+  active_intervals: ;
   id: TRedactionID;
-  changing_documents: IRedactionSourceDocumentInfoList;
+  changing_documents: ;
  end;//TRedactionInfo
 
  TDiffDocPara = record
-  text: IString;
-  style: TEVDStream;
-  data: IStream;
+  text: ;
+  style: ;
+  data: ;
   type: TEVDType;
   id: Integer;
  end;//TDiffDocPara
@@ -405,12 +425,12 @@ type
 
  TChangedBlock = record
   id: Cardinal;
-  header: IDiffDocParaList;
+  header: ;
    {* Название структурной единицы с точностью до минимального блока, входящего в оглавление,
 которым  предваряется измененный фрагмент (блок) }
-  right_text_para_list: IDiffDocParaList;
+  right_text_para_list: ;
    {* Измененный фрагмент правой редакции }
-  left_text_para_list: IDiffDocParaList;
+  left_text_para_list: ;
    {* Измененный фрагмент левой редакции }
  end;//TChangedBlock
 
@@ -428,33 +448,37 @@ type
  IDocument = interface(IEntityBase)
   {* Интерфейс обеспечивающий работу с документом. }
   ['{2906776F-DD41-403A-AF10-DDD0F9BD6590}']
-  function GetName: IString; stdcall;
-  function GetShortName: IString; stdcall;
-  function GetWarning: IString; stdcall;
+  procedure GetName; stdcall;
+  procedure GetShortName; stdcall;
+  procedure GetWarning; stdcall;
   function GetSize: Cardinal; stdcall;
   function GetInternalId: Cardinal; stdcall;
   function GetNotTm: ByteBool; stdcall;
-  function GetFilePosition: IString; stdcall; { can raise CanNotFindData }
+  procedure GetFilePosition; stdcall; { can raise CanNotFindData }
   function GetNewRevisionAvailable: ByteBool; stdcall;
   function GetChangeStatus: Cardinal; stdcall;
   function GetStatus: TItemStatus; stdcall;
-  function GetTextLanguages: ILanguagesList; stdcall;
-  function GetAttributesRoot: INodeBase; stdcall;
-  function GetRedactionsList: IRedactionInfoList; stdcall;
-  function GetCurrentState: IDocumentState; stdcall;
+  procedure GetTextLanguages; stdcall;
+  procedure GetAttributesRoot; stdcall;
+  procedure GetRedactionsList; stdcall;
+  procedure GetCurrentState; stdcall;
   function GetDocType: TDocumentType; stdcall;
-  function GetTranslation: IDocument; stdcall;
-  function GetAnnotation: IDocument; stdcall;
-  function GetRelatedDoc: IDocument; stdcall;
-  function GetContentsRoot: INodeBase; stdcall; { can raise CanNotFindData }
-  function GetBookmarkList: IBookmarkList; stdcall;
-  function GetCommentsParaList: ICommentsParaList; stdcall;
-  function GetExternalObjectDataList: IExternalObjectDataList; stdcall;
-  function CreateBookmark(para: TParaId;
+  procedure GetTranslation; stdcall;
+  procedure GetAnnotation; stdcall;
+  procedure GetRelatedDoc; stdcall;
+  procedure GetContentsRoot; stdcall; { can raise CanNotFindData }
+  procedure GetBookmarkList; stdcall;
+  procedure GetCommentsParaList; stdcall;
+  procedure GetExternalObjectDataList; stdcall;
+  procedure CreateBookmark(para: TParaId;
    is_para: Boolean
-   {* Флаг указывающий на то что в первом параметре указывается параграф, в противном случае саб. }): IBookmark; stdcall;
+   {* Флаг указывающий на то что в первом параметре указывается параграф, в противном случае саб. };
+   out aRet
+   {* IBookmark }); stdcall;
    {* Создает экземпляр Закладки на заданный идентификатор параграфа. Присваивает ей в качестве названия короткое имя документа. А в качестве full_name имя документа и имя ближайшего (сверху) саба или блока (как в списках). }
-  function CreateView(var filters: IDocumentState): IDocument; stdcall;
+  procedure CreateView(var filters: IDocumentState;
+   out aRet
+   {* IDocument }); stdcall;
    {* Возвращает документ - редакцию, заказанную через  filters.
 Если текущая редакция равна заказанной - возвращает NULL }
   procedure GetCorrespondentsToPart(const pos_list: IPositionList
@@ -465,7 +489,9 @@ type
    {* Возвращает список корреспондентов к фрагменту документа (список параграфов) для указанной категории (category).
 
 для редакций, отлчных от "главной", возвращает NULL }
-  function GetInternetImageUrl(block_id: Integer): IExternalLink; stdcall;
+  procedure GetInternetImageUrl(block_id: Integer;
+   out aRet
+   {* IExternalLink }); stdcall;
    {* Получить url для отсканированного WWW-образа документа. }
   procedure GetLinkedObject(doc_id: Cardinal;
    const id: TTopic;
@@ -490,7 +516,9 @@ type
    {* Возвращает список респондентов к фрагменту документа (список параграфов) для указанной категории (category).
 
 для редакций, отлчных от "главной", возвращает NULL }
-  function GetTimeMachineWarning(const date: TDate): TTimeMachineWarning; stdcall;
+  procedure GetTimeMachineWarning(const date: TDate;
+   out aRet
+   {* TTimeMachineWarning }); stdcall;
   function HasCorrespondents(const category: INodeBase): ByteBool; stdcall;
    {* Проверка наличия корреспондентов (любогй категории) у текущего документа.
 Возвращает true в случае, если список корреспондентов для документа по категории CR_ALL не пуст.
@@ -554,33 +582,54 @@ type
    name: PAnsiChar); overload; stdcall;
   function IsMorphoSearchSupported: ByteBool; stdcall;
    {* индексирован ли документ для морфопоиска }
-  function GetLinkInfo(doc_id: Cardinal;
+  procedure GetLinkInfo(doc_id: Cardinal;
    const id: TTopic;
-   rid: TRedactionID): TLinkInfo; stdcall;
+   rid: TRedactionID;
+   out aRet
+   {* TLinkInfo }); stdcall;
   procedure GetMissingInfoForObject(const pid: TPId;
    out missing_info: IMissingInfo); stdcall;
    {* Возвращает расширенную информацию по отсутствующему объекту (pid - идентификатор и класс объекта по ссылке) }
-  function GetDrugList: ICatalogBase; stdcall; { can raise CanNotFindData }
+  procedure GetDrugList(out aRet
+   {* ICatalogBase }); stdcall; { can raise CanNotFindData }
    {* Получить список выпускаемых фирмой препаратов }
-  function GetFlash: IExternalObject; stdcall;
+  procedure GetFlash(out aRet
+   {* IExternalObject }); stdcall;
    {* Получение флеш-ролика }
-  function CreateJournalBookmark(para: TParaId): IJournalBookmark; stdcall;
+  procedure CreateJournalBookmark(para: TParaId;
+   out aRet
+   {* IJournalBookmark }); stdcall;
    {* Создать журнальную закладку }
   function GetAutoReferatDocCount: size; stdcall; { can raise Unsupported }
    {* вернуть число документов для автореферата }
-  function GetTextProvider(all_at_once: Boolean): IDocumentTextProvider; stdcall; { can raise Unsupported, CanNotFindData }
-  function GetTextProviderDescList: IDocumentTextProviderDescriptorList; stdcall; { can raise Unsupported }
-  function GetTextProviderByDesc(handle: Cardinal): IDocumentTextProvider; stdcall; { can raise Unsupported }
-  function GetTextProviderList(all_at_once: Boolean): IDocumentTextProviderList; stdcall; { can raise Unsupported }
-  function GetAutoreferatHeaderEvd: IStream; stdcall; { can raise Unsupported }
-  function GetAnnotationHeaderEvd(handle: Cardinal): IStream; stdcall; { can raise Unsupported }
-  function Diff(const pid): TDiffData; stdcall;
-  function GetEvdStream: IStream; stdcall;
+  procedure GetTextProvider(all_at_once: Boolean;
+   out aRet
+   {* IDocumentTextProvider }); stdcall; { can raise Unsupported, CanNotFindData }
+  procedure GetTextProviderDescList(out aRet
+   {* IDocumentTextProviderDescriptorList }); stdcall; { can raise Unsupported }
+  procedure GetTextProviderByDesc(handle: Cardinal;
+   out aRet
+   {* IDocumentTextProvider }); stdcall; { can raise Unsupported }
+  procedure GetTextProviderList(all_at_once: Boolean;
+   out aRet
+   {* IDocumentTextProviderList }); stdcall; { can raise Unsupported }
+  procedure GetAutoreferatHeaderEvd(out aRet
+   {* IStream }); stdcall; { can raise Unsupported }
+  procedure GetAnnotationHeaderEvd(handle: Cardinal;
+   out aRet
+   {* IStream }); stdcall; { can raise Unsupported }
+  procedure Diff(const pid;
+   out aRet
+   {* TDiffData }); stdcall;
+  procedure GetEvdStream(out aRet
+   {* IStream }); stdcall;
    {* возвращает evd поток документа - совета дня или evd поток заглушки для отсутствующего в базе документа или документа запрещенного к просмотру }
   procedure GetSelfMissingInfo(out missing_info: IMissingInfo); stdcall;
    {* Получить расширенную информацию по текущему документу (в случае его отсутствия - в каких блоках этот документ присутствует) }
-  function GetMultiLinkInfo(doc_id: Cardinal;
-   const id: TTopic): IDocPointList; stdcall; { can raise CanNotFindData, InternalDatabaseError }
+  procedure GetMultiLinkInfo(doc_id: Cardinal;
+   const id: TTopic;
+   out aRet
+   {* IDocPointList }); stdcall; { can raise CanNotFindData, InternalDatabaseError }
    {* Получить данные по мульnиссылке в виде списка (DocId, SubId) }
   procedure DontShowDocumentStatusChangesWarning; stdcall;
    {* Не показывать статус изменения данного документа в текущей сессии }
@@ -588,18 +637,20 @@ type
   function HasChronology: ByteBool; stdcall;
    {* есть ли у документа хронология рассмотрения судебного дела
 K555095873 }
-  function GetLink(doc_id: Cardinal;
+  procedure GetLink(doc_id: Cardinal;
    const id: TTopic;
-   rid: TRedactionID): ILink; stdcall;
+   rid: TRedactionID;
+   out aRet
+   {* ILink }); stdcall;
   procedure GetSameToPoint(id: TExternalID;
    out out_list: ICatalogBase); stdcall;
-  property Name: IString
+  property Name: 
    read GetName;
    {* Имя документа. }
-  property ShortName: IString
+  property ShortName: 
    read GetShortName;
    {* Краткое имя документа. }
-  property Warning: IString
+  property Warning: 
    read GetWarning;
    {* Предупреждение к документу. }
   property Size: Cardinal
@@ -611,7 +662,7 @@ K555095873 }
   property NotTm: ByteBool
    read GetNotTm;
    {* True - если документ не подключен к машине времени }
-  property FilePosition: IString
+  property FilePosition: 
    read GetFilePosition;
   property NewRevisionAvailable: ByteBool
    read GetNewRevisionAvailable;
@@ -622,55 +673,55 @@ K555095873 }
   property Status: TItemStatus
    read GetStatus;
    {* Статус документа }
-  property TextLanguages: ILanguagesList
+  property TextLanguages: 
    read GetTextLanguages;
-  property AttributesRoot: INodeBase
+  property AttributesRoot: 
    read GetAttributesRoot;
-  property RedactionsList: IRedactionInfoList
+  property RedactionsList: 
    read GetRedactionsList;
-  property CurrentState: IDocumentState
+  property CurrentState: 
    read GetCurrentState;
   property DocType: TDocumentType
    read GetDocType;
-  property Translation: IDocument
+  property Translation: 
    read GetTranslation;
-  property Annotation: IDocument
+  property Annotation: 
    read GetAnnotation;
-  property RelatedDoc: IDocument
+  property RelatedDoc: 
    read GetRelatedDoc;
-  property ContentsRoot: INodeBase
+  property ContentsRoot: 
    read GetContentsRoot;
-  property BookmarkList: IBookmarkList
+  property BookmarkList: 
    read GetBookmarkList;
-  property CommentsParaList: ICommentsParaList
+  property CommentsParaList: 
    read GetCommentsParaList;
-  property ExternalObjectDataList: IExternalObjectDataList
+  property ExternalObjectDataList: 
    read GetExternalObjectDataList;
  end;//IDocument
 
  IBookmark = interface(IEntityBase)
   {* Закладка на документ. Используется для сохранения документа (и позиции) в папках. }
   ['{830AC32A-C3AC-4AA1-A5A1-0ACAE229DD2A}']
-  function GetName: IString; stdcall;
-  procedure SetName(const aValue: IString); stdcall;
-  function GetComment: IString; stdcall;
-  procedure SetComment(const aValue: IString); stdcall;
+  procedure GetName; stdcall;
+  procedure SetName(const aValue); stdcall;
+  procedure GetComment; stdcall;
+  procedure SetComment(const aValue); stdcall;
   function GetParagraph: TParaId; stdcall;
-  function GetPid: TPId; stdcall;
-  function GetDocument: IDocument; stdcall;
-  property Name: IString
+  procedure GetPid; stdcall;
+  procedure GetDocument; stdcall;
+  property Name: 
    read GetName
    write SetName;
    {* Названите закладки. Используется в качестве caption в Папках. }
-  property Comment: IString
+  property Comment: 
    read GetComment
    write SetComment;
    {* полное имя документа и блока/саба на который указывает закладка. Используется в качестве hint  в Папках. }
   property Paragraph: TParaId
    read GetParagraph;
-  property Pid: TPId
+  property Pid: 
    read GetPid;
-  property Document: IDocument
+  property Document: 
    read GetDocument;
  end;//IBookmark
 
@@ -679,8 +730,8 @@ K555095873 }
   ['{71C2A950-3D61-44A9-A0FA-845C4A9F5B97}']
   function GetLanguage: TLanguages; stdcall;
   procedure SetLanguage(aValue: TLanguages); stdcall;
-  function GetPrevRedactionsList: IRedactionInfoList; stdcall;
-  function GetCurAndNextRedactionsList: IRedactionInfoList; stdcall;
+  procedure GetPrevRedactionsList; stdcall;
+  procedure GetCurAndNextRedactionsList; stdcall;
   procedure SetPrevRedaction; stdcall; { can raise RedactionNotFound }
    {* Операция устанавливает в качестве текущей предыдущую редакцию объекта.
 Если предыдущей редакции нет, то возвращается RedactionNotFound. }
@@ -696,10 +747,14 @@ K555095873 }
    {* Операция устанавливает в качестве текущей редакцию, актуальную редакцию для данного документа.
 Возвращает True в случае если текущая редакиция изменилась и False, если осталась той же самой, что и до вызова метода. }
   function Redaction: TRedactionID; stdcall;
-  function GetCurrentRedaction: TRedactionInfo; stdcall;
+  procedure GetCurrentRedaction(out aRet
+   {* TRedactionInfo }); stdcall;
   function IsSameRedactions(const other: IDocumentState): ByteBool; stdcall;
-  function DiffWithRedactionById(id: TRedactionID): TDiffData; stdcall;
-  function Clone: IDocumentState; stdcall;
+  procedure DiffWithRedactionById(id: TRedactionID;
+   out aRet
+   {* TDiffData }); stdcall;
+  procedure Clone(out aRet
+   {* IDocumentState }); stdcall;
   procedure SetPrevActiveRedaction; stdcall; { can raise RedactionNotFound }
    {* GetБлижайшаяДействующаяРедакцияВниз. [$178325284] }
   function CanCompareWithAnyOtherRedaction: ByteBool; stdcall;
@@ -712,9 +767,9 @@ K555095873 }
   property Language: TLanguages
    read GetLanguage
    write SetLanguage;
-  property PrevRedactionsList: IRedactionInfoList
+  property PrevRedactionsList: 
    read GetPrevRedactionsList;
-  property CurAndNextRedactionsList: IRedactionInfoList
+  property CurAndNextRedactionsList: 
    read GetCurAndNextRedactionsList;
    {* [$178324034] }
  end;//IDocumentState
@@ -725,21 +780,21 @@ K555095873 }
  IJournalBookmark = interface(IEntityBase)
   {* Журнальная закладка }
   ['{7EC5D2E1-6B5C-4C7E-AE21-C98E21A8D018}']
-  function GetName: IString; stdcall;
-  function GetFullName: IString; stdcall;
+  procedure GetName; stdcall;
+  procedure GetFullName; stdcall;
   function GetParaId: Cardinal; stdcall;
-  function GetDocument: IDocument; stdcall;
+  procedure GetDocument; stdcall;
   procedure GetJournalBookmark; stdcall;
    {* Получить  серверную журнальную закладку }
-  property Name: IString
+  property Name: 
    read GetName;
    {* Имя }
-  property FullName: IString
+  property FullName: 
    read GetFullName;
    {* Полное имя (хинт) }
   property ParaId: Cardinal
    read GetParaId;
-  property Document: IDocument
+  property Document: 
    read GetDocument;
  end;//IJournalBookmark
 
@@ -748,9 +803,12 @@ K555095873 }
  ILink = interface
   ['{FBA5DE98-0FAD-4647-B2DE-AB788A6DDFE6}']
   function GetObjectType: TLinkedObjectType; stdcall;
-  function GetObject: IUnknown; stdcall; { can raise InvalidTopicId, FolderLinkNotFound }
-  function GetLinkInfo: TLinkInfo; stdcall;
-  function GetLinkedHint: IString; stdcall;
+  procedure GetObject(out aRet
+   {* IUnknown }); stdcall; { can raise InvalidTopicId, FolderLinkNotFound }
+  procedure GetLinkInfo(out aRet
+   {* TLinkInfo }); stdcall;
+  procedure GetLinkedHint(out aRet
+   {* IString }); stdcall;
   function GetKind: TLinkKind; stdcall;
  end;//ILink
 
@@ -759,7 +817,8 @@ K555095873 }
  IDiffDocDataProvider = interface
   ['{E9D2FB7F-1DE5-4C75-8998-72B6C443FF03}']
   function GetAllLeafParaCount: Cardinal; stdcall;
-  function GetHeaderParaList: IDiffDocParaList; stdcall;
+  procedure GetHeaderParaList(out aRet
+   {* IDiffDocParaList }); stdcall;
    {* Заголовок документа состоит из:
 
 Фраза "Обзор изменений документа"
@@ -770,17 +829,22 @@ K555095873 }
    {* параграф с датами изменений документа для правого документа }
   function GetDateParaLeft(out para: TDiffDocPara): ByteBool; stdcall;
    {* параграф с датами изменений документа для левого документа }
-  function GetRedactionNameRight: TDiffDocPara; stdcall;
+  procedure GetRedactionNameRight(out aRet
+   {* TDiffDocPara }); stdcall;
    {* Каждая таблица имеет заголовок содержащий имена редакций (это имя редакции для правого документа) }
-  function GetRedactionNameLeft: TDiffDocPara; stdcall;
+  procedure GetRedactionNameLeft(out aRet
+   {* TDiffDocPara }); stdcall;
    {* Каждая таблица имеет заголовок содержащий имена редакций (это имя редакции для левого документа) }
   function GetChangedBlockCount: Cardinal; stdcall;
-  function GetChangedBlock(i: Cardinal): TChangedBlock; stdcall;
+  procedure GetChangedBlock(i: Cardinal;
+   out aRet
+   {* TChangedBlock }); stdcall;
  end;//IDiffDocDataProvider
 
  IObjectFromLink = interface
   ['{51778307-FE15-45BF-9A86-62A66BF81725}']
-  function GetObject: IUnknown; stdcall;
+  procedure GetObject(out aRet
+   {* IUnknown }); stdcall;
   function GetObjectType: TLinkedObjectType; stdcall;
   class function Make(const server_link); stdcall;
  end;//IObjectFromLink

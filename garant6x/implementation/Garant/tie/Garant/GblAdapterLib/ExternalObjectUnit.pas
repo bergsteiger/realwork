@@ -45,8 +45,8 @@ type
 
  IExternalLink = interface
   ['{533104AC-5A1B-41B9-8ACC-C929C2B96678}']
-  function GetUrl: IString; stdcall;
-  property Url: IString
+  procedure GetUrl; stdcall;
+  property Url: 
    read GetUrl;
    {* —сылка на внешние ресурсы в стандарте URL. }
  end;//IExternalLink
@@ -55,8 +55,8 @@ type
   ['{A57F5CFD-DA48-4769-97D6-B63FEF94B81C}']
   function GetDataSize: Cardinal; stdcall;
   function GetDataPointer: pointer; stdcall;
-  function GetName: IString; stdcall;
-  function GetExtension: IString; stdcall;
+  procedure GetName; stdcall;
+  procedure GetExtension; stdcall;
   function GetDataType: TExternalObjectType; stdcall;
   property DataSize: Cardinal
    read GetDataSize;
@@ -64,10 +64,10 @@ type
   property DataPointer: pointer
    read GetDataPointer;
    {* ”казатель на буфер с данными. }
-  property Name: IString
+  property Name: 
    read GetName;
    {* »м€ внешнего объекта. }
-  property Extension: IString
+  property Extension: 
    read GetExtension;
    {* расширение дл€ файла (вместе с лидирующей точкой) на диске }
   property DataType: TExternalObjectType
@@ -77,13 +77,13 @@ type
  ISplashScreen = interface(IExternalObject)
   ['{6F8DC97E-13B6-446A-A55D-B24A5232F52E}']
   function GetShowTime: short; stdcall;
-  function GetOwnerCaption: IString; stdcall;
-  function GetOwner: IString; stdcall;
+  procedure GetOwnerCaption; stdcall;
+  procedure GetOwner; stdcall;
   property ShowTime: short
    read GetShowTime;
-  property OwnerCaption: IString
+  property OwnerCaption: 
    read GetOwnerCaption;
-  property Owner: IString
+  property Owner: 
    read GetOwner;
  end;//ISplashScreen
 

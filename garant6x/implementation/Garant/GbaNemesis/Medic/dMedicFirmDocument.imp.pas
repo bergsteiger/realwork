@@ -1,61 +1,47 @@
 {$IfNDef dMedicFirmDocument_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Medic"
-// Автор: Морозов М.А.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Medic/dMedicFirmDocument.imp.pas"
-// Начат: 12.07.2006
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> F1 Встроенные продукты::Inpharm::Medic::Medic::dMedicFirmDocument
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Medic\dMedicFirmDocument.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "dMedicFirmDocument" MUID: (493965B600E9)
+// Имя типа: "_dMedicFirmDocument_"
 
 {$Define dMedicFirmDocument_imp}
-{$If not defined(Admin) AND not defined(Monitorings)}
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dBaseDocumentWithAttributes.imp.pas}
- _dMedicFirmDocument_ = {mixin} class(_dBaseDocumentWithAttributes_, IdMedicFirmDocument)
- private
- // private fields
-   f_dsDrugListRef : IvcmFormDataSourceRef;
-    {* Поле для свойства dsDrugListRef}
- protected
- // realized methods
+ _dMedicFirmDocument_ = class(_dBaseDocumentWithAttributes_, IdMedicFirmDocument)
+  private
+   f_dsDrugListRef: IvcmFormDataSourceRef;
+    {* Ссылка на "список производимых препаратов" }
+  protected
    function pm_GetDsDrugListRef: IvcmFormDataSourceRef;
- protected
- // overridden protected methods
-   {$If not defined(NoVCM)}
+   {$If NOT Defined(NoVCM)}
    procedure AssignData(const aData: _IvcmRealData_); override;
-   {$IfEnd} //not NoVCM
+   {$IfEnd} // NOT Defined(NoVCM)
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
  end;//_dMedicFirmDocument_
-{$Else}
 
- {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dBaseDocumentWithAttributes.imp.pas}
- _dMedicFirmDocument_ = _dBaseDocumentWithAttributes_;
-
-{$IfEnd} //not Admin AND not Monitorings
-
-{$Else dMedicFirmDocument_imp}
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
+{$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dBaseDocumentWithAttributes.imp.pas}
+_dMedicFirmDocument_ = _dBaseDocumentWithAttributes_;
 
-// start class _dMedicFirmDocument_
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$Else dMedicFirmDocument_imp}
+
+{$IfNDef dMedicFirmDocument_imp_impl}
+
+{$Define dMedicFirmDocument_imp_impl}
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dBaseDocumentWithAttributes.imp.pas}
 
 function _dMedicFirmDocument_.pm_GetDsDrugListRef: IvcmFormDataSourceRef;
- {-}
 begin
  Result := vcmCheckAndMake(f_dsDrugListRef);
 end;//_dMedicFirmDocument_.pm_GetDsDrugListRef
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure _dMedicFirmDocument_.AssignData(const aData: _IvcmRealData_);
 //#UC START# *4B16B8CF0307_493965B600E9_var*
 //#UC END# *4B16B8CF0307_493965B600E9_var*
@@ -65,17 +51,16 @@ begin
  inherited;
 //#UC END# *4B16B8CF0307_493965B600E9_impl*
 end;//_dMedicFirmDocument_.AssignData
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 procedure _dMedicFirmDocument_.ClearFields;
- {-}
 begin
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_dsDrugListRef := nil;
- {$IfEnd} //not Admin AND not Monitorings
  inherited;
 end;//_dMedicFirmDocument_.ClearFields
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
-{$IfEnd} //not Admin AND not Monitorings
+{$EndIf dMedicFirmDocument_imp_impl}
 
 {$EndIf dMedicFirmDocument_imp}
+

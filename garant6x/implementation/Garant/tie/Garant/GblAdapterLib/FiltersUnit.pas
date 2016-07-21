@@ -18,9 +18,9 @@ uses
 type
  IFilterFromQuery = interface
   ['{A81EFF04-FAB6-4D1B-846B-66C301594470}']
-  function GetName: IString; stdcall;
-  procedure SetName(const aValue: IString); stdcall;
-  function GetQuery: IEntityBase; stdcall;
+  procedure GetName; stdcall;
+  procedure SetName(const aValue); stdcall;
+  procedure GetQuery; stdcall;
   function GetChangeable: ByteBool; stdcall;
   function GetPermanent: ByteBool; stdcall;
   procedure SetPermanent(const aValue: ByteBool); stdcall;
@@ -37,10 +37,10 @@ type
   function MarkedToErase: ByteBool; stdcall;
   function IsUsed: ByteBool; stdcall;
    {* наложен ли фильтр }
-  property Name: IString
+  property Name: 
    read GetName
    write SetName;
-  property Query: IEntityBase
+  property Query: 
    read GetQuery;
    {* если делать query Search::Query, каковым он и является, на модели получается дофига циклических связей, которые небыстро будет развязать }
   property Changeable: ByteBool
@@ -66,7 +66,7 @@ type
   {* Интерфейс фильтруемости. Должен поддерживаться объектами, желающими предоставлять сервис фильтров. Сейчас используется для списков. }
   ['{4C08EC41-3957-462B-B9C1-FB91B86469BA}']
   function GetHasActiveFilters: ByteBool; stdcall;
-  function GetActiveFilters: IFiltersFromQuery; stdcall;
+  procedure GetActiveFilters; stdcall;
   procedure AddFilter(var filter: IFilterFromQuery;
    auto_refresh: Boolean); stdcall; { can raise AllContentIsFiltered, NotAllAttributesRestored }
    {* Добавляет INode (из дерева папок) как фильтр. 
@@ -84,7 +84,7 @@ type
 Если выясняется, что на сервере нет данных для построения списка, т.е. списка как такового нет (см. К244711732), летит CanNotFindData. }
   property HasActiveFilters: ByteBool
    read GetHasActiveFilters;
-  property ActiveFilters: IFiltersFromQuery
+  property ActiveFilters: 
    read GetActiveFilters;
  end;//IFilterable
 
@@ -97,9 +97,11 @@ type
 
  IFiltersManager = interface
   ['{854B1550-A048-4551-AB1C-6FD08FDAF723}']
-  function GetLegalFilters: IFiltersFromQuery; stdcall;
+  procedure GetLegalFilters(out aRet
+   {* IFiltersFromQuery }); stdcall;
    {* получить список фильтров для правовых документов }
-  function GetPharmFilters: IFiltersFromQuery; stdcall;
+  procedure GetPharmFilters(out aRet
+   {* IFiltersFromQuery }); stdcall;
   procedure CreateFilter(const query: IEntityBase;
    const name: IString); stdcall;
    {* создать новый фильтр }

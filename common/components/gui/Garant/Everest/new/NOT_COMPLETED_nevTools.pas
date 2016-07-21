@@ -2175,50 +2175,6 @@ http://mdp.garant.ru/pages/viewpage.action?pageId=228693150 }
    read Get_Para;
  end;//InevActiveElement
 
- HnevView = object
-  {* Обёртка над InevView }
-  private
-   f_InevView: InevView;
-    {* Ссылка на интерфейс InevView }
-  private
-   procedure Fake; virtual;
-    {* это нужно чтобы правильно генерировались вызовы методов доступа к свойствам }
-  protected
-   function pm_GetMetrics: InevViewMetrics;
-   function Data: InevObject;
-   function RootMap: InevMap;
-   function Processor: InevProcessor;
-   procedure ClearShapes;
-   procedure BeginDrawShape(const aShape: InevObject;
-    const anAnchor: InevBasePoint;
-    const anOrg: TnevPoint;
-    var theMap: InevMap;
-    aFake: Boolean;
-    const aHacker: InevK235870994Hacker);
-    {* Начинает добавление формы в список. }
-   procedure EndDrawShape;
-    {* Заканчивает добавление формы в список. }
-   function MapByPoint(const aPoint: InevBasePoint;
-    aCheckTopVisible: Boolean = False): InevMap;
-   function FormatInfoByPoint(const aPoint: InevBasePoint): TnevFormatInfoPrim;
-   function RootFormatInfo: TnevFormatInfoPrim;
-   function Get_ActiveElement: InevActiveElement;
-   function Get_ForceDrawFocusRect: Boolean;
-   function Get_IsObjectCollapsed(const anObject: InevObject): Boolean;
-   procedure Set_IsObjectCollapsed(const anObject: InevObject;
-    aValue: Boolean);
-   {$If Defined(evNeedCollapsedVersionComments)}
-   procedure VersionInfoVisabilityChanged(aValue: Boolean);
-   {$IfEnd} // Defined(evNeedCollapsedVersionComments)
-   function FormatInfoByPara(const aPara: InevObject): TnevFormatInfoPrim; overload;
-   function FormatInfoByObj(const anObj: InevObjectPrim): TnevFormatInfoPrim;
-   function FormatInfoByPara(aPara: PInevObject): TnevFormatInfoPrim; overload;
-  public
-   procedure InvalidateShape(const aShape: InevObject;
-    aParts: TnevShapeParts);
-   constructor Init(const aInevView: InevView); reintroduce;
- end;//HnevView
-
  InevCommentSwitcher = interface(InevBase)
   ['{92726298-8202-4867-8725-C5EB2E04E6D4}']
   function pm_GetShowComments: Boolean;
@@ -2266,71 +2222,6 @@ http://mdp.garant.ru/pages/viewpage.action?pageId=228693150 }
    read Get_OriginalDocument;
  end;//InevDocumentProvider
 
- InevQueryDocumentContainer = interface;
-
- InevControlListener = interface(InevBase)
-  ['{7109F8A9-71C1-4AB3-8721-D4FB9F64D311}']
-  function CanInsertPara: Boolean;
-   {* Разрешено ли вставлять параграф. }
-  procedure InsertOnUndo(aPrev: Tl3Variant;
-   aChild: Tl3Variant;
-   anAdd: Boolean);
-   {* Реакция на вставку при откатке. }
-  procedure DeleteOnUndo(aTag: Tl3Variant);
-   {* Реакция удаления при откатке. }
-  procedure HideDroppedControl(CanSetFocus: Boolean);
-   {* Обработчик изменения события состояния редактора (нужно для выпадающего контрола). }
-  function MouseWheel(aDown: Boolean): Boolean;
-   {* Событие прокрутки мыши. }
-  function KeyDown(const aView: InevView;
-   var Msg: TWMKeyDown;
-   aCurPara: Tl3Variant): Boolean;
-   {* Посылка сообщений о нажатии клавиш. }
-  procedure ChangePara(const aCurPara: InevPara);
-   {* Событие смена текуего параграфа. }
-  procedure BeforeRMouseClick;
-   {* Событие, вызываемое перед обработкой мыши. }
-  procedure ClearUpper;
-  function NeedKey(aPara: Tl3Variant;
-   var aKeyCode: Word): Boolean;
-   {* Контрол/Поле перехватывает курсор. }
-  procedure CursorCreate;
-   {* Обновить курсор после создания. }
-  procedure UpdateState;
-  function IsLastField(aPara: Tl3Variant): Boolean;
-   {* Проверяет является ли параграф последним для передачи фокуса. }
-  function IsFirstField(aPara: Tl3Variant): Boolean;
-   {* Проверяет является ли параграф первым для передачи фокуса. }
-  procedure StartPaste;
-   {* Скобки для операции вставки. }
-  procedure FinishPaste;
-   {* Скобки для операции вставки. }
-  function IsPasting: Boolean;
-   {* Внутри скобок для операции вставки. }
-  function GetFirstPara(OnlyFields: Boolean): InevPara;
-   {* Получить первый параграф, в который может получить фокус. }
-  function GetLastPara(OnlyFields: Boolean): InevPara;
-   {* Получить последний параграф, в который может получить фокус. }
- end;//InevControlListener
-
- InevQueryDocumentContainer = interface(InevDocumentContainer)
-  ['{AA1AF210-BE26-436B-A28B-4AA0EEC19265}']
-  function Get_ModelNotify: InevControlListener;
-  function GetCurrPara: Tl3Variant;
-  procedure SetCursorToPara(const aPara: InevPara;
-   bAtEnd: Boolean;
-   aNeedClear: Boolean);
-   {* Устанавливает курсор на определенный параграф. }
-  procedure ClearCard;
-   {* Обработчик очистки КЗ. }
-  procedure AfterCollapsed;
-  procedure ReleaseListeners;
-  procedure LinkListener(const aListener: InevControlListener);
-  procedure UnlinkListener(const aListener: InevControlListener);
-  property ModelNotify: InevControlListener
-   read Get_ModelNotify;
- end;//InevQueryDocumentContainer
-
  IevRange = interface(InevBase)
   {* Выделение }
   ['{747BE4D8-B003-4DA0-921F-34B02A85CA80}']
@@ -2346,6 +2237,15 @@ http://mdp.garant.ru/pages/viewpage.action?pageId=228693150 }
   procedure SetToFinish(aMoveUpInLines: Integer);
  end;//IevRange
 
+ IevDocumentPoint = interface(InevBase)
+  ['{D6906A23-A8AB-4720-B0F6-019F8A7CB430}']
+  function Get_Obj: PInevObject;
+  function Select(const Selection: InevSelection): Boolean;
+   {* перемещает Selection на данную метку. }
+  property Obj: PInevObject
+   read Get_Obj;
+ end;//IevDocumentPoint
+
  TnevPointByPtMode = (
   {* Режим получения точки из списка отрисованных. }
   nev_ppmNone
@@ -2359,15 +2259,6 @@ http://mdp.garant.ru/pages/viewpage.action?pageId=228693150 }
   , nev_ppmNeedAnchorWithSimpleBaseLine
    {* Получение якоря с не полностью инициализированной базовой линией. }
  );//TnevPointByPtMode
-
- IevDocumentPoint = interface(InevBase)
-  ['{D6906A23-A8AB-4720-B0F6-019F8A7CB430}']
-  function Get_Obj: PInevObject;
-  function Select(const Selection: InevSelection): Boolean;
-   {* перемещает Selection на данную метку. }
-  property Obj: PInevObject
-   read Get_Obj;
- end;//IevDocumentPoint
 
  IevCommonControl = interface(InevPara)
   {* Базовый интерфейс для всех контрол-подобных элементов. }
@@ -2485,6 +2376,71 @@ http://mdp.garant.ru/pages/viewpage.action?pageId=228693150 }
   ['{D7540AD6-9B63-4FB1-9389-E001FDED056B}']
  end;//InevPrintView
 
+ InevQueryDocumentContainer = interface;
+
+ InevControlListener = interface(InevBase)
+  ['{7109F8A9-71C1-4AB3-8721-D4FB9F64D311}']
+  function CanInsertPara: Boolean;
+   {* Разрешено ли вставлять параграф. }
+  procedure InsertOnUndo(aPrev: Tl3Variant;
+   aChild: Tl3Variant;
+   anAdd: Boolean);
+   {* Реакция на вставку при откатке. }
+  procedure DeleteOnUndo(aTag: Tl3Variant);
+   {* Реакция удаления при откатке. }
+  procedure HideDroppedControl(CanSetFocus: Boolean);
+   {* Обработчик изменения события состояния редактора (нужно для выпадающего контрола). }
+  function MouseWheel(aDown: Boolean): Boolean;
+   {* Событие прокрутки мыши. }
+  function KeyDown(const aView: InevView;
+   var Msg: TWMKeyDown;
+   aCurPara: Tl3Variant): Boolean;
+   {* Посылка сообщений о нажатии клавиш. }
+  procedure ChangePara(const aCurPara: InevPara);
+   {* Событие смена текуего параграфа. }
+  procedure BeforeRMouseClick;
+   {* Событие, вызываемое перед обработкой мыши. }
+  procedure ClearUpper;
+  function NeedKey(aPara: Tl3Variant;
+   var aKeyCode: Word): Boolean;
+   {* Контрол/Поле перехватывает курсор. }
+  procedure CursorCreate;
+   {* Обновить курсор после создания. }
+  procedure UpdateState;
+  function IsLastField(aPara: Tl3Variant): Boolean;
+   {* Проверяет является ли параграф последним для передачи фокуса. }
+  function IsFirstField(aPara: Tl3Variant): Boolean;
+   {* Проверяет является ли параграф первым для передачи фокуса. }
+  procedure StartPaste;
+   {* Скобки для операции вставки. }
+  procedure FinishPaste;
+   {* Скобки для операции вставки. }
+  function IsPasting: Boolean;
+   {* Внутри скобок для операции вставки. }
+  function GetFirstPara(OnlyFields: Boolean): InevPara;
+   {* Получить первый параграф, в который может получить фокус. }
+  function GetLastPara(OnlyFields: Boolean): InevPara;
+   {* Получить последний параграф, в который может получить фокус. }
+ end;//InevControlListener
+
+ InevQueryDocumentContainer = interface(InevDocumentContainer)
+  ['{AA1AF210-BE26-436B-A28B-4AA0EEC19265}']
+  function Get_ModelNotify: InevControlListener;
+  function GetCurrPara: Tl3Variant;
+  procedure SetCursorToPara(const aPara: InevPara;
+   bAtEnd: Boolean;
+   aNeedClear: Boolean);
+   {* Устанавливает курсор на определенный параграф. }
+  procedure ClearCard;
+   {* Обработчик очистки КЗ. }
+  procedure AfterCollapsed;
+  procedure ReleaseListeners;
+  procedure LinkListener(const aListener: InevControlListener);
+  procedure UnlinkListener(const aListener: InevControlListener);
+  property ModelNotify: InevControlListener
+   read Get_ModelNotify;
+ end;//InevQueryDocumentContainer
+
 function TevPair_C(aStart: Integer;
  aFinish: Integer): TevPair;
 function L2InevRangePrimIterateAction(anAction: Pointer): InevRangePrim_Iterate_Action;
@@ -2571,199 +2527,5 @@ begin
  Result := rFinish - rStart;
 //#UC END# *47C68B6603AB_47C68B3B022A_impl*
 end;//TevPair.Len
-
-function HnevView.pm_GetMetrics: InevViewMetrics;
-//#UC START# *47C5B99001C4_4A4B231403B6get_var*
-//#UC END# *47C5B99001C4_4A4B231403B6get_var*
-begin
-//#UC START# *47C5B99001C4_4A4B231403B6get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *47C5B99001C4_4A4B231403B6get_impl*
-end;//HnevView.pm_GetMetrics
-
-function HnevView.Data: InevObject;
-//#UC START# *47C5B9A30018_4A4B231403B6_var*
-//#UC END# *47C5B9A30018_4A4B231403B6_var*
-begin
-//#UC START# *47C5B9A30018_4A4B231403B6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *47C5B9A30018_4A4B231403B6_impl*
-end;//HnevView.Data
-
-function HnevView.RootMap: InevMap;
-//#UC START# *47C5B9AA03E1_4A4B231403B6_var*
-//#UC END# *47C5B9AA03E1_4A4B231403B6_var*
-begin
-//#UC START# *47C5B9AA03E1_4A4B231403B6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *47C5B9AA03E1_4A4B231403B6_impl*
-end;//HnevView.RootMap
-
-function HnevView.Processor: InevProcessor;
-//#UC START# *47C5B9B202F0_4A4B231403B6_var*
-//#UC END# *47C5B9B202F0_4A4B231403B6_var*
-begin
-//#UC START# *47C5B9B202F0_4A4B231403B6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *47C5B9B202F0_4A4B231403B6_impl*
-end;//HnevView.Processor
-
-procedure HnevView.ClearShapes;
-//#UC START# *47C5B9C301B9_4A4B231403B6_var*
-//#UC END# *47C5B9C301B9_4A4B231403B6_var*
-begin
-//#UC START# *47C5B9C301B9_4A4B231403B6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *47C5B9C301B9_4A4B231403B6_impl*
-end;//HnevView.ClearShapes
-
-procedure HnevView.BeginDrawShape(const aShape: InevObject;
- const anAnchor: InevBasePoint;
- const anOrg: TnevPoint;
- var theMap: InevMap;
- aFake: Boolean;
- const aHacker: InevK235870994Hacker);
- {* Начинает добавление формы в список. }
-//#UC START# *47C5B9DB0136_4A4B231403B6_var*
-//#UC END# *47C5B9DB0136_4A4B231403B6_var*
-begin
-//#UC START# *47C5B9DB0136_4A4B231403B6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *47C5B9DB0136_4A4B231403B6_impl*
-end;//HnevView.BeginDrawShape
-
-procedure HnevView.EndDrawShape;
- {* Заканчивает добавление формы в список. }
-//#UC START# *47C5B9FB03D1_4A4B231403B6_var*
-//#UC END# *47C5B9FB03D1_4A4B231403B6_var*
-begin
-//#UC START# *47C5B9FB03D1_4A4B231403B6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *47C5B9FB03D1_4A4B231403B6_impl*
-end;//HnevView.EndDrawShape
-
-function HnevView.MapByPoint(const aPoint: InevBasePoint;
- aCheckTopVisible: Boolean = False): InevMap;
-//#UC START# *47C5BA240004_4A4B231403B6_var*
-//#UC END# *47C5BA240004_4A4B231403B6_var*
-begin
-//#UC START# *47C5BA240004_4A4B231403B6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *47C5BA240004_4A4B231403B6_impl*
-end;//HnevView.MapByPoint
-
-function HnevView.FormatInfoByPoint(const aPoint: InevBasePoint): TnevFormatInfoPrim;
-//#UC START# *481078F302DD_4A4B231403B6_var*
-//#UC END# *481078F302DD_4A4B231403B6_var*
-begin
-//#UC START# *481078F302DD_4A4B231403B6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *481078F302DD_4A4B231403B6_impl*
-end;//HnevView.FormatInfoByPoint
-
-function HnevView.RootFormatInfo: TnevFormatInfoPrim;
-//#UC START# *4811BA6C005A_4A4B231403B6_var*
-//#UC END# *4811BA6C005A_4A4B231403B6_var*
-begin
-//#UC START# *4811BA6C005A_4A4B231403B6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4811BA6C005A_4A4B231403B6_impl*
-end;//HnevView.RootFormatInfo
-
-procedure HnevView.InvalidateShape(const aShape: InevObject;
- aParts: TnevShapeParts);
-//#UC START# *4816E2B2004E_4A4B231403B6_var*
-//#UC END# *4816E2B2004E_4A4B231403B6_var*
-begin
-//#UC START# *4816E2B2004E_4A4B231403B6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4816E2B2004E_4A4B231403B6_impl*
-end;//HnevView.InvalidateShape
-
-function HnevView.Get_ActiveElement: InevActiveElement;
-//#UC START# *4A27CEB10364_4A4B231403B6get_var*
-//#UC END# *4A27CEB10364_4A4B231403B6get_var*
-begin
-//#UC START# *4A27CEB10364_4A4B231403B6get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4A27CEB10364_4A4B231403B6get_impl*
-end;//HnevView.Get_ActiveElement
-
-function HnevView.Get_ForceDrawFocusRect: Boolean;
-//#UC START# *4B59A96702D9_4A4B231403B6get_var*
-//#UC END# *4B59A96702D9_4A4B231403B6get_var*
-begin
-//#UC START# *4B59A96702D9_4A4B231403B6get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4B59A96702D9_4A4B231403B6get_impl*
-end;//HnevView.Get_ForceDrawFocusRect
-
-function HnevView.Get_IsObjectCollapsed(const anObject: InevObject): Boolean;
-//#UC START# *4D5A3DD60219_4A4B231403B6get_var*
-//#UC END# *4D5A3DD60219_4A4B231403B6get_var*
-begin
-//#UC START# *4D5A3DD60219_4A4B231403B6get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4D5A3DD60219_4A4B231403B6get_impl*
-end;//HnevView.Get_IsObjectCollapsed
-
-procedure HnevView.Set_IsObjectCollapsed(const anObject: InevObject;
- aValue: Boolean);
-//#UC START# *4D5A3DD60219_4A4B231403B6set_var*
-//#UC END# *4D5A3DD60219_4A4B231403B6set_var*
-begin
-//#UC START# *4D5A3DD60219_4A4B231403B6set_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4D5A3DD60219_4A4B231403B6set_impl*
-end;//HnevView.Set_IsObjectCollapsed
-
-{$If Defined(evNeedCollapsedVersionComments)}
-procedure HnevView.VersionInfoVisabilityChanged(aValue: Boolean);
-//#UC START# *4D5A3E3E01B7_4A4B231403B6_var*
-//#UC END# *4D5A3E3E01B7_4A4B231403B6_var*
-begin
-//#UC START# *4D5A3E3E01B7_4A4B231403B6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4D5A3E3E01B7_4A4B231403B6_impl*
-end;//HnevView.VersionInfoVisabilityChanged
-{$IfEnd} // Defined(evNeedCollapsedVersionComments)
-
-function HnevView.FormatInfoByPara(const aPara: InevObject): TnevFormatInfoPrim;
-//#UC START# *4E6F8ED402EF_4A4B231403B6_var*
-//#UC END# *4E6F8ED402EF_4A4B231403B6_var*
-begin
-//#UC START# *4E6F8ED402EF_4A4B231403B6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4E6F8ED402EF_4A4B231403B6_impl*
-end;//HnevView.FormatInfoByPara
-
-function HnevView.FormatInfoByObj(const anObj: InevObjectPrim): TnevFormatInfoPrim;
-//#UC START# *4E6F8EF302A4_4A4B231403B6_var*
-//#UC END# *4E6F8EF302A4_4A4B231403B6_var*
-begin
-//#UC START# *4E6F8EF302A4_4A4B231403B6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4E6F8EF302A4_4A4B231403B6_impl*
-end;//HnevView.FormatInfoByObj
-
-function HnevView.FormatInfoByPara(aPara: PInevObject): TnevFormatInfoPrim;
-//#UC START# *4E6F98080175_4A4B231403B6_var*
-//#UC END# *4E6F98080175_4A4B231403B6_var*
-begin
-//#UC START# *4E6F98080175_4A4B231403B6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4E6F98080175_4A4B231403B6_impl*
-end;//HnevView.FormatInfoByPara
-
-procedure HnevView.Fake;
- {* это нужно чтобы правильно генерировались вызовы методов доступа к свойствам }
-begin
- Assert(false);
-end;//HnevView.Fake
-
-constructor HnevView.Init(const aInevView: InevView);
-begin
- f_InevView := aInevView;
-end;//HnevView.Init
 
 end.

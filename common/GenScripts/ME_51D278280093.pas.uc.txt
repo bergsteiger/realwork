@@ -150,7 +150,6 @@
    end; // propPAP
   propCell, propNestedCell:
    begin
-    l_Table := nil;
     if not Try2CloseNestedTable(aState.PAP.itap) then
      Try2AddTable(aState.PAP.itap); // наследуем оформление от предыдущей строки
     if aState.PAP.ListItem <> propUndefined then
@@ -169,7 +168,7 @@
     end; // if CanAddTable then
     if f_TextBuffer.Len > 0 then
      FlushTextBuffer(aState, True);
-    if CanAddTable and (l_Table <> nil) then
+    if CanAddTable then
      l_Table.CloseCell;
    end; // propCell
   propRow, propNestedRow: // конец строки таблицы
@@ -505,9 +504,8 @@ var
    if not aCEP.MergeFirst then
     aCEP.Merged := True;
   ipropMergedFirst : aCEP.MergeFirst := True;
-  // ”брал цвет €чеек: http://mdp.garant.ru/pages/viewpage.action?pageId=627385907
-  // ipropColorB: aCEP.PatternBackColor := GetColor(aValue - 1);
-  // ipropColorF: aCEP.PatternForeColor := GetColor(aValue - 1);
+  ipropColorB: aCEP.PatternBackColor:= GetColor(aValue - 1);
+  ipropColorF: aCEP.PatternForeColor:= GetColor(aValue - 1);
  end;{case What}
 //#UC END# *51E8D23B01F6_51D278280093_impl*
 //#UC START# *51E8D23B01F6_51D278280093_var*
@@ -525,9 +523,9 @@ var
     ipropBold: Bold := ByteBool(aValue);
     ipropItalic: Italic := ByteBool(aValue);
     ipropUnderline : if not LongBool(aValue) then
-                      Underline := utNone
+                       Underline := utNone
                      else
-                      Underline := TUnderline(aValue);
+                       Underline := TUnderline(aValue);
     iproPAnsiCharCaps : Caps := TddCharCapsType(aValue);
     ipropHidden  : Hidden := ByteBool(aValue);
     ipropDeleted : ;

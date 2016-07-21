@@ -13,12 +13,29 @@ uses
  l3IntfUses
  , l3Interfaces
  , dt_Types
- , l3Date
- , ddBaseAutoLinkDataSource
  , l3LongintList
+ , l3Date
+ , l3StringList
 ;
 
 type
+ PddALDocRec = ^TddALDocRec;
+
+ TddALDocRec = packed record
+  rIntDocID: TDocID;
+  rExtDocID: TDocID;
+ end;//TddALDocRec
+
+ IddAutolinkArbitraryDocEntry = interface
+  ['{F1638796-C90F-4314-A281-5BD53E75C0B6}']
+  function Get_DocID: TDocID;
+  function Get_TypesList: Tl3LongintList;
+  property DocID: TDocID
+   read Get_DocID;
+  property TypesList: Tl3LongintList
+   read Get_TypesList;
+ end;//IddAutolinkArbitraryDocEntry
+
  IddAutolinkDocEntry = interface
   ['{144A5C82-8AF4-4C42-B3F5-CC3128C343EB}']
   function Get_Sources(anIndex: Integer): Integer;
@@ -58,15 +75,15 @@ type
    write Set_DocID;
  end;//IddAutolinkDocEntry
 
- IddAutolinkArbitraryDocEntry = interface
-  ['{F1638796-C90F-4314-A281-5BD53E75C0B6}']
-  function Get_DocID: TDocID;
-  function Get_TypesList: Tl3LongintList;
-  property DocID: TDocID
-   read Get_DocID;
-  property TypesList: Tl3LongintList
-   read Get_TypesList;
- end;//IddAutolinkArbitraryDocEntry
+ ICodexDataHolder = interface
+  ['{99CD432A-D881-4617-9AFE-E785B28A986D}']
+  function Get_ActualEdition: TddALDocRec;
+  function Get_Abbreviations: Tl3StringList;
+  property ActualEdition: TddALDocRec
+   read Get_ActualEdition;
+  property Abbreviations: Tl3StringList
+   read Get_Abbreviations;
+ end;//ICodexDataHolder
 
 implementation
 

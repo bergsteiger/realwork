@@ -32,17 +32,17 @@ type
  Tree = {abstract} class(TreeBase)
   private
    change_mutex: mutex;
-   f_tree_name: AnsiString;
+   f_tree_name: ;
   protected
    new_node_map: NewNodeMap;
    new_node_back_map: NewNodeBackMap;
   protected
-   function GetTreeName: AnsiString; virtual; stdcall;
-   procedure SetTreeName(const aValue: AnsiString); virtual; stdcall;
+   procedure GetTreeName; virtual; stdcall;
+   procedure SetTreeName(const aValue); virtual; stdcall;
    class procedure CreateUid(new_node: RealNodeBase); virtual; stdcall;
    function AllocNewNode(const snode): DefaultNodeBase; override;
    function AllocNewView: ViewBase; override;
-   function GetTreeName: AnsiString; override;
+   procedure GetTreeName; override;
   public
    constructor Make(is_active_changeable: Boolean); reintroduce; virtual; stdcall;
    function ApplyCreatedNode(const data): RealNodeBase; override;
@@ -51,7 +51,7 @@ type
    procedure DisassociateNodeWithUid(var node: RealNodeBase); override;
    function GetChangeMutex: mutex; override;
   protected
-   property TreeName: AnsiString
+   property TreeName: 
     read GetTreeName
     write SetTreeName;
  //#UC START# *45F585F802AFpubl*
@@ -67,7 +67,7 @@ uses
  //#UC END# *45F585F802AFimpl_uses*
 ;
 
-function Tree.GetTreeName: AnsiString;
+procedure Tree.GetTreeName;
 //#UC START# *460259A6032C_45F585F802AFget_var*
 //#UC END# *460259A6032C_45F585F802AFget_var*
 begin
@@ -76,7 +76,7 @@ begin
 //#UC END# *460259A6032C_45F585F802AFget_impl*
 end;//Tree.GetTreeName
 
-procedure Tree.SetTreeName(const aValue: AnsiString);
+procedure Tree.SetTreeName(const aValue);
 //#UC START# *460259A6032C_45F585F802AFset_var*
 //#UC END# *460259A6032C_45F585F802AFset_var*
 begin
@@ -166,7 +166,7 @@ begin
 //#UC END# *460139CE02BF_45F585F802AF_impl*
 end;//Tree.GetChangeMutex
 
-function Tree.GetTreeName: AnsiString;
+procedure Tree.GetTreeName;
 //#UC START# *4948E2B2038D_45F585F802AFget_var*
 //#UC END# *4948E2B2038D_45F585F802AFget_var*
 begin

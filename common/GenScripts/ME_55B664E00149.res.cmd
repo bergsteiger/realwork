@@ -1,2 +1,0 @@
-MakeCo archiDocEditorWindowWordsPack.rc.script
-brcc32 archiDocEditorWindowWordsPack.rc

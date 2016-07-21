@@ -1,2 +1,0 @@
-MakeCo InsFilterNodeWordsPack.rc.script
-brcc32 InsFilterNodeWordsPack.rc

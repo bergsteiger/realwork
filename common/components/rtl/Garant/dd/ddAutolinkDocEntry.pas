@@ -15,7 +15,6 @@ uses
  , l3LongintList
  , l3Date
  , l3Interfaces
- , ddBaseAutoLinkDataSource
  , l3Types
 ;
 
@@ -261,21 +260,21 @@ begin
 end;//TddAutolinkDocEntry.Clone
 
 function TddAutolinkDocEntry.Get_DocID: TddALDocRec;
-//#UC START# *4E96DF99012B_4E8EB01701A5get_var*
-//#UC END# *4E96DF99012B_4E8EB01701A5get_var*
+//#UC START# *578C92A7016C_4E8EB01701A5get_var*
+//#UC END# *578C92A7016C_4E8EB01701A5get_var*
 begin
-//#UC START# *4E96DF99012B_4E8EB01701A5get_impl*
+//#UC START# *578C92A7016C_4E8EB01701A5get_impl*
  Result := f_DocID;
-//#UC END# *4E96DF99012B_4E8EB01701A5get_impl*
+//#UC END# *578C92A7016C_4E8EB01701A5get_impl*
 end;//TddAutolinkDocEntry.Get_DocID
 
 procedure TddAutolinkDocEntry.Set_DocID(const aValue: TddALDocRec);
-//#UC START# *4E96DF99012B_4E8EB01701A5set_var*
-//#UC END# *4E96DF99012B_4E8EB01701A5set_var*
+//#UC START# *578C92A7016C_4E8EB01701A5set_var*
+//#UC END# *578C92A7016C_4E8EB01701A5set_var*
 begin
-//#UC START# *4E96DF99012B_4E8EB01701A5set_impl*
+//#UC START# *578C92A7016C_4E8EB01701A5set_impl*
  f_DocID := aValue;
-//#UC END# *4E96DF99012B_4E8EB01701A5set_impl*
+//#UC END# *578C92A7016C_4E8EB01701A5set_impl*
 end;//TddAutolinkDocEntry.Set_DocID
 
 procedure TddAutolinkDocEntry.Cleanup;

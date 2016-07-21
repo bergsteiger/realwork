@@ -19,11 +19,12 @@ type
  ITipsManager = interface
   {* Менеджер Советов дня }
   ['{E7AFD5DA-77C8-4E4E-95C3-D54CBB8CD5D7}']
-  function GetTipsTreeRoot: INodeBase; stdcall; { can raise CanNotFindData }
-  function GetCurrentTip: INodeIndexPath; stdcall;
+  procedure GetTipsTreeRoot; stdcall; { can raise CanNotFindData }
+  procedure GetCurrentTip(out aRet
+   {* INodeIndexPath }); stdcall;
    {* Получить текущий (по сценарию) Совет дня }
   function IsExist: ByteBool; stdcall;
-  property TipsTreeRoot: INodeBase
+  property TipsTreeRoot: 
    read GetTipsTreeRoot;
    {* Рут дерева совет дня }
  end;//ITipsManager

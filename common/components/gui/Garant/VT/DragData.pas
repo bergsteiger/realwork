@@ -11,6 +11,7 @@ interface
 uses
  l3IntfUses
  , Messages
+ , vtDragDataTypes
  , Windows
  , l3Except
  , l3Base
@@ -22,20 +23,17 @@ uses
 ;
 
 const
+ {* Алиасы для значений vtDragDataTypes.TDragDataState }
+ dsPassive = vtDragDataTypes.dsPassive;
+ dsActive = vtDragDataTypes.dsActive;
+ dsPaused = vtDragDataTypes.dsPaused;
  wm_DropAccept = Messages.WM_USER + $100;
  wm_DropAccepted = Messages.WM_USER + $101;
-
-type
- TDragDataState = (
-  dsPassive
-  , dsActive
-  , dsPaused
- );//TDragDataState
-
-const
  cnActiveState = [dsActive, dsPaused];
 
 type
+ TDragDataState = vtDragDataTypes.TDragDataState;
+
  TGetCursorByType = function(DDType: Integer): HCURSOR;
 
  EDragInProcess = class(El3NoLoggedException)
@@ -49,23 +47,14 @@ type
    f_PrevWRecurse: Boolean;
    f_NeedStop: Boolean;
    f_DCursor: HCURSOR;
-    {* Поле для свойства DCursor }
    f_DragDataType: Integer;
-    {* Поле для свойства DragDataType }
    f_DragData: Pointer;
-    {* Поле для свойства DragData }
    f_AnswerData: Pointer;
-    {* Поле для свойства AnswerData }
    f_SourceControl: TControl;
-    {* Поле для свойства SourceControl }
    f_DragState: TDragDataState;
-    {* Поле для свойства DragState }
    f_DragSuccess: Boolean;
-    {* Поле для свойства DragSuccess }
    f_OnDragStop: TNotifyEvent;
-    {* Поле для свойства OnDragStop }
    f_OnGetCursorByType: TGetCursorByType;
-    {* Поле для свойства OnGetCursorByType }
   private
    procedure InitListeners;
    procedure RemoveListeners;
@@ -87,10 +76,10 @@ type
    procedure Pause;
    procedure Restore;
    procedure CheckInProgress;
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TDragDataSupport;
     {* Метод получения экземпляра синглетона TDragDataSupport }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
   public
    property DCursor: HCURSOR
     read f_DCursor
@@ -128,8 +117,11 @@ uses
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
  {$If NOT Defined(NoScripts)}
- , kwVTControlsPack
+ , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , kwVTControlsPack
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , SysUtils
 ;
 
@@ -341,12 +333,6 @@ begin
 //#UC END# *552FE01A0138_4F0C0B870141_impl*
 end;//TDragDataSupport.CheckInProgress
 
-class function TDragDataSupport.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TDragDataSupport <> nil;
-end;//TDragDataSupport.Exists
-
 procedure TDragDataSupport.MouseListenerNotify(aMouseMessage: WPARAM;
  aHookStruct: PMouseHookStruct;
  var theResult: Tl3HookProcResult);
@@ -456,5 +442,17 @@ begin
  end;
  Result := g_TDragDataSupport;
 end;//TDragDataSupport.Instance
+
+class function TDragDataSupport.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TDragDataSupport <> nil;
+end;//TDragDataSupport.Exists
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(EDragInProcess);
+ {* Регистрация EDragInProcess }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

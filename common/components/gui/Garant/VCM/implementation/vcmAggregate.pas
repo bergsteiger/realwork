@@ -22,7 +22,10 @@ type
   private
    f_List: TvcmIEntityList;
    f_GUID: TGUID;
+  public
+   f_CanBeCloned: Boolean;
   protected
+   function DoGetCanBeCloned: Boolean; virtual;
    procedure AddEntity(const anEntity: IvcmEntity);
     {* Добавляет сущность в агрегацию }
    procedure RemoveEntity(const anEntity: IvcmEntity);
@@ -36,11 +39,14 @@ type
    function Get_GUID: TGUID;
    function Get_Entity(anIndex: Integer): IvcmEntity;
    function Get_EntitiesCount: Integer;
+   function pm_GetCanBeCloned: Boolean;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
   public
-   constructor Create(aGUID: PGUID = nil); reintroduce;
-   class function Make(aGUID: PGUID = nil): IvcmAggregate;
+   constructor Create(aGUID: PGUID = nil;
+    aCanBeCloned: Boolean = True); reintroduce;
+   class function Make(aGUID: PGUID = nil;
+    aCanBeCloned: Boolean = True): IvcmAggregate;
  end;//TvcmAggregate
 {$IfEnd} // NOT Defined(NoVCM)
 
@@ -53,7 +59,8 @@ uses
  , vcmUserControls
 ;
 
-constructor TvcmAggregate.Create(aGUID: PGUID = nil);
+constructor TvcmAggregate.Create(aGUID: PGUID = nil;
+ aCanBeCloned: Boolean = True);
 //#UC START# *52860CA00075_528609ED0325_var*
 //#UC END# *52860CA00075_528609ED0325_var*
 begin
@@ -68,7 +75,8 @@ begin
 //#UC END# *52860CA00075_528609ED0325_impl*
 end;//TvcmAggregate.Create
 
-class function TvcmAggregate.Make(aGUID: PGUID = nil): IvcmAggregate;
+class function TvcmAggregate.Make(aGUID: PGUID = nil;
+ aCanBeCloned: Boolean = True): IvcmAggregate;
 //#UC START# *52860CAD0035_528609ED0325_var*
 var
  l_Aggregate: TvcmAggregate;
@@ -87,6 +95,15 @@ begin
  end;//pGUID = nil..
 //#UC END# *52860CAD0035_528609ED0325_impl*
 end;//TvcmAggregate.Make
+
+function TvcmAggregate.DoGetCanBeCloned: Boolean;
+//#UC START# *578DDE26002B_528609ED0325_var*
+//#UC END# *578DDE26002B_528609ED0325_var*
+begin
+//#UC START# *578DDE26002B_528609ED0325_impl*
+ Result := f_CanBeCloned;
+//#UC END# *578DDE26002B_528609ED0325_impl*
+end;//TvcmAggregate.DoGetCanBeCloned
 
 procedure TvcmAggregate.AddEntity(const anEntity: IvcmEntity);
  {* Добавляет сущность в агрегацию }
@@ -242,6 +259,15 @@ begin
   Result := f_List.Count;
 //#UC END# *528A088B00F5_528609ED0325get_impl*
 end;//TvcmAggregate.Get_EntitiesCount
+
+function TvcmAggregate.pm_GetCanBeCloned: Boolean;
+//#UC START# *578C8F480100_528609ED0325get_var*
+//#UC END# *578C8F480100_528609ED0325get_var*
+begin
+//#UC START# *578C8F480100_528609ED0325get_impl*
+ Result := f_CanBeCloned;
+//#UC END# *578C8F480100_528609ED0325get_impl*
+end;//TvcmAggregate.pm_GetCanBeCloned
 
 procedure TvcmAggregate.Cleanup;
  {* Функция очистки полей объекта. }

@@ -10,15 +10,7 @@
  f_PriorityCalculator := nil;
  f_AllArchiUsersQuery := nil;
  f_AllGroupsQuery := nil;
- f_IsMemberOfGroupQuery := nil;
- f_UserGroupsQuery := nil;
- f_GroupUsersQuery := nil;
  f_Factory := nil;
- f_Journal := nil;
- FreeAndNil(f_GroupModifier);
- FreeAndNil(f_FunctionFactory);
- FreeAndNil(f_FreeIDHelperHolder);
- FreeAndNil(f_Connection);
  inherited;
 //#UC END# *479731C50290_5629FC88034B_impl*
 //#UC START# *479731C50290_5629FC88034B_var*
@@ -69,12 +61,7 @@ var
 //#UC END# *5628D14D0151_5629FC88034B_var*
 //#UC START# *562A074E0321_5629FC88034B_impl*
  inherited Create;
- f_Factory := aTableFactory;
- f_Journal := aJournal;
-
- aConnection.SetRefTo(f_Connection);
- aFunctionFactory.SetRefTo(f_FunctionFactory);
- aFreeIDHelperHolder.SetRefTo(f_FreeIDHelperHolder);
+ f_Factory := aFactory;
 
  f_ArchiUsers := TdaArchiUserList.Create;
  f_UserStatusChangedSubscriberList := TdaUserStatusChangedSubscriberList.Make;
@@ -139,7 +126,7 @@ var
   l_Query.Prepare;
   l_ResultSet := l_Query.OpenResultSet;
   try
-   FillListByResultSet(aList, l_ResultSet, 'id', cUserIDSize, 'user_name');
+   FillListByResultSet(aList, l_ResultSet, 'id', 4, 'user_name');
   finally
    l_ResultSet := nil;
   end;
@@ -160,7 +147,7 @@ var
   l_Query.Prepare;
   l_ResultSet := l_Query.OpenResultSet;
   try
-   FillListByResultSet(aList, l_ResultSet, 'id', cGroupIDSize, 'group_name');
+   FillListByResultSet(aList, l_ResultSet, 'id', 2, 'group_name');
   finally
    l_ResultSet := nil;
   end;
@@ -672,9 +659,12 @@ var
 //#UC START# *575809C5019A_5629FC88034B_var*
 //#UC END# *575809C5019A_5629FC88034B_var*
 //#UC START# *575A8B790353_5629FC88034B_impl*
- IsMemberOfGroupQuery.Param['p_UserID'].AsLargeInt := aUserID;
- IsMemberOfGroupQuery.Param['p_GroupID'].AsLargeInt := aUserGroupID;
- l_ResultSet := IsMemberOfGroupQuery.OpenResultSet;
+ Result := False;
+ Assert(False);
+//!! !!! Needs to be implemented !!!
+// IsMemberOfGroupQuery.Param['p_UserID'].AsLargeInt := aUserID;
+// IsMemberOfGroupQuery.Param['p_GroupID'].AsLargeInt := aUserGroupID;
+// l_ResultSet := IsMemberOfGroupQuery.OpenResultSet;
  try
   Result := not l_ResultSet.IsEmpty;
  finally

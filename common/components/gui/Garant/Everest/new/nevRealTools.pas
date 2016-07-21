@@ -15,6 +15,7 @@ uses
  , nevBase
  , l3InternalInterfaces
  , nevTools
+ , nevViewInterfaces
  , l3Variant
 ;
 

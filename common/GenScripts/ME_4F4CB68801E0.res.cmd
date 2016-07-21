@@ -1,2 +1,0 @@
-MakeCo EditorFromStackKeyWordsPack.rc.script
-brcc32 EditorFromStackKeyWordsPack.rc

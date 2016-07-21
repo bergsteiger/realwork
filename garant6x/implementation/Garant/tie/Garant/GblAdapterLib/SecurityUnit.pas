@@ -78,10 +78,13 @@ type
   {* Информация о пользователе }
   ['{600B24EC-1FB9-40F2-A6FC-E89397679F80}']
   function GetGroupId: TUid; stdcall; { can raise AccessDenied }
-  function GetLogin: IString; stdcall;
+  procedure GetLogin(out aRet
+   {* IString }); stdcall;
   function HasPassword: ByteBool; stdcall;
-  function GetName: IString; stdcall;
-  function GetMail: IString; stdcall;
+  procedure GetName(out aRet
+   {* IString }); stdcall;
+  procedure GetMail(out aRet
+   {* IString }); stdcall;
   function GetUid: Integer; stdcall;
   function IsSystem: ByteBool; stdcall;
   function CanBuyConsulting: ByteBool; stdcall;
@@ -159,14 +162,17 @@ type
    is_privileged: Boolean); stdcall; { can raise AccessDenied, XMLImportRunning, NoMorePrivilegedProfiles }
    {* установить свойство привилегированности для пользователя }
   procedure LogoutUser(uid: TUid); stdcall; { can raise AccessDenied, CanNotFindData }
-  function GetSelfProfile: IUserProfile; stdcall; { can raise CanNotFindData }
+  procedure GetSelfProfile(out aRet
+   {* IUserProfile }); stdcall; { can raise CanNotFindData }
   procedure SetConsultingPaymentForAll(is_allowed: Boolean); stdcall; { can raise AccessDenied }
    {* установка политики оплаты консультаций для всех пользователей }
   procedure SetConsultingPaymentForNewbies(is_allowed: Boolean); stdcall; { can raise AccessDenied }
    {* установка политики оплаты консультаций для новых пользователей }
   function GetConsultingPaymentForNewbies: ByteBool; stdcall;
    {* возвращает текущее значение политики оплаты консультаций для новых пользователей (true - оплата разрешена) }
-  function DeleteUsers(const list: IUidList): IUidList; stdcall; { can raise AccessDenied }
+  procedure DeleteUsers(const list: IUidList;
+   out aRet
+   {* IUidList }); stdcall; { can raise AccessDenied }
    {* удалить список пользователей. Возвращает список пользователей, которых удалить не удалось. }
   procedure LogoutUsers(const list: IUidList); stdcall; { can raise AccessDenied }
    {* завершить работу в системе указанного списка пользователей. }
@@ -178,11 +184,14 @@ type
    {* установить права привилегированности }
   function CanCreatePrivilegedUser: ByteBool; stdcall; { can raise AccessDenied }
    {* можно ли зоздавать привилегированных пользователей }
-  function GetActiveUsersListForNetOneUserVersion: IStringList; stdcall; { can raise CanNotFindData }
+  procedure GetActiveUsersListForNetOneUserVersion(out aRet
+   {* IStringList }); stdcall; { can raise CanNotFindData }
    {* Получение списка юзеров, захвативших сетевую версию }
-  function GetGroupsTree: INodeBase; stdcall;
+  procedure GetGroupsTree(out aRet
+   {* INodeBase }); stdcall;
    {* получить дерево групп }
-  function GetUsersTree: INodeBase; stdcall;
+  procedure GetUsersTree(out aRet
+   {* INodeBase }); stdcall;
    {* получить дерево пользователей для группы с заданным идентификатором }
   procedure CreateGroup(name: PAnsiChar); stdcall; { can raise AccessDenied, WrongAuthentication, XMLImportRunning, LoginDuplicate }
    {* создать группу с заданным именем }
@@ -191,7 +200,9 @@ type
   procedure SetNonsearchableBlocksForGroup(uid: TUid;
    const blocks_ids: INodeIdList); stdcall; { can raise AccessDenied, CanNotFindData }
    {* установить список блоков базы по которым запрещён поиск группе пользователей }
-  function GetNonsearchableBlocksForGroup(uid: TUid): INodeIdList; stdcall; { can raise AccessDenied, InternalDatabaseError }
+  procedure GetNonsearchableBlocksForGroup(uid: TUid;
+   out aRet
+   {* INodeIdList }); stdcall; { can raise AccessDenied, InternalDatabaseError }
    {* получить список блоков базы по которым запрещён поиск группе пользователей }
   procedure ChangeGroupName(uid: TUid;
    name: PAnsiChar); stdcall; { can raise AccessDenied, CanNotFindData, LoginDuplicate }

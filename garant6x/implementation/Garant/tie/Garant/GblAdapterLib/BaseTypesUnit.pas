@@ -57,9 +57,9 @@ type
 
  TDateInterval = record
   {* Интервал дат (включающий). }
-  start: TDate;
+  start: ;
    {* начальная дата }
-  finish: TDate;
+  finish: ;
    {* завершающая дата }
  end;//TDateInterval
 
@@ -75,9 +75,9 @@ type
 
  TDateTime = record
   {* Дата и время }
-  date: TDate;
+  date: ;
    {* Дата }
-  time: TTime;
+  time: ;
    {* время }
  end;//TDateTime
 
@@ -100,15 +100,15 @@ type
  INamedElement = interface
   {* Именованный элемент. }
   ['{E6AAFF18-FAD7-4E46-A586-CEEC45905094}']
-  function GetName: IString; stdcall;
-  procedure SetName(const aValue: IString); stdcall;
-  function GetComment: IString; stdcall;
-  procedure SetComment(const aValue: IString); stdcall;
-  property Name: IString
+  procedure GetName; stdcall;
+  procedure SetName(const aValue); stdcall;
+  procedure GetComment; stdcall;
+  procedure SetComment(const aValue); stdcall;
+  property Name: 
    read GetName
    write SetName;
    {* имя }
-  property Comment: IString
+  property Comment: 
    read GetComment
    write SetComment;
    {* комментарий }
@@ -186,9 +186,13 @@ type
   function GetIsSaved: ByteBool; stdcall;
   function GetIsChanged: ByteBool; stdcall;
   function GetEid: Cardinal; stdcall; { can raise Unsupported }
-  function SaveTo(var storage: IEntityStorage): IEntityStorage; stdcall; { can raise AccessDenied, Unsupported, NotSaved, DuplicateNode, CanNotSave }
+  procedure SaveTo(var storage: IEntityStorage;
+   out aRet
+   {* IEntityStorage }); stdcall; { can raise AccessDenied, Unsupported, NotSaved, DuplicateNode, CanNotSave }
    {* Перезаписать сущность текущей сущностью. }
-  function AppendTo(var storage: IEntityStorage): IEntityStorage; stdcall; { can raise ConstantModify, AccessDenied, Unsupported, CanNotSave }
+  procedure AppendTo(var storage: IEntityStorage;
+   out aRet
+   {* IEntityStorage }); stdcall; { can raise ConstantModify, AccessDenied, Unsupported, CanNotSave }
    {* Сохраняет в базе  измененное состояние объекта.
 Объеденяя с с ранее сохраненными данными }
   property IsSaved: ByteBool
@@ -392,9 +396,11 @@ type
    {* вернуть целое }
   function GetBool: ByteBool; stdcall; { can raise InvalidType }
    {* вернуть булево значение }
-  function GetString: IString; stdcall; { can raise InvalidType }
+  procedure GetString(out aRet
+   {* IString }); stdcall; { can raise InvalidType }
    {* вернуть строку }
-  function GetObject: IUnknown; stdcall; { can raise InvalidType }
+  procedure GetObject(out aRet
+   {* IUnknown }); stdcall; { can raise InvalidType }
    {* вернуть объект }
  end;//IVariant
 

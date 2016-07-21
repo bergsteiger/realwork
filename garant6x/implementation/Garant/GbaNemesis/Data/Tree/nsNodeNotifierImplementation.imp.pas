@@ -1,57 +1,50 @@
 {$IfNDef nsNodeNotifierImplementation_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Data"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Data/Tree/nsNodeNotifierImplementation.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> F1 Базовые определения предметной области::LegalDomain::Data::Tree::nsNodeNotifierImplementation
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsNodeNotifierImplementation.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "nsNodeNotifierImplementation" MUID: (48FDA9D500E4)
+// Имя типа: "_nsNodeNotifierImplementation_"
 
 {$Define nsNodeNotifierImplementation_imp}
+
  _nsNodeNotifierBase_Parent_ = _nsNodeNotifierImplementation_Parent_;
- {$Include ..\Tree\nsNodeNotifierBase.imp.pas}
- _nsNodeNotifierImplementation_ = {mixin} class(_nsNodeNotifierBase_, INodeNotifier)
- protected
- // realized methods
-   procedure ChangeChildrenCount(aNodeIndex: TVisibleIndex;
-    aDelta: Integer;
-    const aIndexPath: INodeIndexPath;
-    aChildIndex: TIndexInParent); stdcall;
-     {* нотификация об изменении кол-ва видимых детей на ноде с указвнным индексом. В случае если изменение нод внутри рута не последовательное и не от начала, индекс должен быть задан как -1. 
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsNodeNotifierBase.imp.pas}
+ _nsNodeNotifierImplementation_ = class(_nsNodeNotifierBase_, INodeNotifier)
+  protected
+   procedure OldChanging;
+   procedure OldChanged;
+   procedure ChangeChildrenCount(node_index: TVisibleIndex;
+    delta: Integer;
+    const index_path: INodeIndexPath;
+    child_index: TIndexInParent); stdcall;
+    {* нотификация об изменении кол-ва видимых детей на ноде с указвнным индексом. В случае если изменение нод внутри рута не последовательное и не от начала, индекс должен быть задан как -1. 
 parent_path - путь к УЗЛУ в котором произашли изменения (если delta < 0 - удаление, если delta > 0 - вставка)
     left_child_index - индекс ребенка в узле: если удаление, то начиная с которого (включительно) мы удаляем delta элементорв; если вставка, то сразу после которого вы вставляем delta элементов.
     left_child_index, может принять "специальное" значение IIP_BEFORE_LEFT_CHILD (-1) - означающее элемент "до первого" - например для вставки в начало детей. }
    procedure ResetChildrenCount; stdcall;
-     {* устанавливает кол-во детей = 0 }
+    {* устанавливает кол-во детей = 0 }
    function IsRootVisible: ByteBool; stdcall;
-     {* признак аутлайнера что он с видимым рутом }
+    {* признак аутлайнера что он с видимым рутом }
    function IsOneLevel: ByteBool; stdcall;
-     {* признак аутлайнера что он одноуровневый }
-   procedure Invalidate(const aIndexPath: INodeIndexPath); stdcall;
-     {* нотификация о необходимости перерисовки. Должна вызываться после change_children_count (которые можно группирвать) или самостоятельно при изменении дерева не связанном с кол-вом детей.
+    {* признак аутлайнера что он одноуровневый }
+   procedure Invalidate(const index_path: INodeIndexPath); stdcall;
+    {* нотификация о необходимости перерисовки. Должна вызываться после change_children_count (которые можно группирвать) или самостоятельно при изменении дерева не связанном с кол-вом детей.
     parent_path - путь к НОДЕ в которой произашли изменения }
    procedure Changing; stdcall;
-     {* Начало итерации изменения дерева }
+    {* Начало итерации изменения дерева }
    procedure Changed; stdcall;
-     {* Конец итерации изменения дерева }
+    {* Конец итерации изменения дерева }
    function GetId: TNotifierID; stdcall;
-     {* Возвращает уникальный идентификатор объекта }
- protected
- // protected methods
-   procedure OldChanging;
-   procedure OldChanged;
+    {* Возвращает уникальный идентификатор объекта }
  end;//_nsNodeNotifierImplementation_
 
 {$Else nsNodeNotifierImplementation_imp}
 
-{$Include ..\Tree\nsNodeNotifierBase.imp.pas}
+{$IfNDef nsNodeNotifierImplementation_imp_impl}
 
-// start class _nsNodeNotifierImplementation_
+{$Define nsNodeNotifierImplementation_imp_impl}
+
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsNodeNotifierBase.imp.pas}
 
 procedure _nsNodeNotifierImplementation_.OldChanging;
 //#UC START# *48FDAA2000B3_48FDA9D500E4_var*
@@ -71,10 +64,14 @@ begin
 //#UC END# *48FDAA330353_48FDA9D500E4_impl*
 end;//_nsNodeNotifierImplementation_.OldChanged
 
-procedure _nsNodeNotifierImplementation_.ChangeChildrenCount(aNodeIndex: TVisibleIndex;
-  aDelta: Integer;
-  const aIndexPath: INodeIndexPath;
-  aChildIndex: TIndexInParent);
+procedure _nsNodeNotifierImplementation_.ChangeChildrenCount(node_index: TVisibleIndex;
+ delta: Integer;
+ const index_path: INodeIndexPath;
+ child_index: TIndexInParent);
+ {* нотификация об изменении кол-ва видимых детей на ноде с указвнным индексом. В случае если изменение нод внутри рута не последовательное и не от начала, индекс должен быть задан как -1. 
+parent_path - путь к УЗЛУ в котором произашли изменения (если delta < 0 - удаление, если delta > 0 - вставка)
+    left_child_index - индекс ребенка в узле: если удаление, то начиная с которого (включительно) мы удаляем delta элементорв; если вставка, то сразу после которого вы вставляем delta элементов.
+    left_child_index, может принять "специальное" значение IIP_BEFORE_LEFT_CHILD (-1) - означающее элемент "до первого" - например для вставки в начало детей. }
 //#UC START# *45EEC8E102FE_48FDA9D500E4_var*
 var
  l_Data: TnsThreadCallParamsRec;
@@ -102,6 +99,7 @@ begin
 end;//_nsNodeNotifierImplementation_.ChangeChildrenCount
 
 procedure _nsNodeNotifierImplementation_.ResetChildrenCount;
+ {* устанавливает кол-во детей = 0 }
 //#UC START# *45EEC8E10303_48FDA9D500E4_var*
 //#UC END# *45EEC8E10303_48FDA9D500E4_var*
 begin
@@ -111,6 +109,7 @@ begin
 end;//_nsNodeNotifierImplementation_.ResetChildrenCount
 
 function _nsNodeNotifierImplementation_.IsRootVisible: ByteBool;
+ {* признак аутлайнера что он с видимым рутом }
 //#UC START# *45EEC8E10304_48FDA9D500E4_var*
 //#UC END# *45EEC8E10304_48FDA9D500E4_var*
 begin
@@ -120,6 +119,7 @@ begin
 end;//_nsNodeNotifierImplementation_.IsRootVisible
 
 function _nsNodeNotifierImplementation_.IsOneLevel: ByteBool;
+ {* признак аутлайнера что он одноуровневый }
 //#UC START# *45EEC8E10305_48FDA9D500E4_var*
 //#UC END# *45EEC8E10305_48FDA9D500E4_var*
 begin
@@ -128,7 +128,9 @@ begin
 //#UC END# *45EEC8E10305_48FDA9D500E4_impl*
 end;//_nsNodeNotifierImplementation_.IsOneLevel
 
-procedure _nsNodeNotifierImplementation_.Invalidate(const aIndexPath: INodeIndexPath);
+procedure _nsNodeNotifierImplementation_.Invalidate(const index_path: INodeIndexPath);
+ {* нотификация о необходимости перерисовки. Должна вызываться после change_children_count (которые можно группирвать) или самостоятельно при изменении дерева не связанном с кол-вом детей.
+    parent_path - путь к НОДЕ в которой произашли изменения }
 //#UC START# *45EEC8E10306_48FDA9D500E4_var*
 var
  l_Data: TnsThreadCallParamsRec;
@@ -152,6 +154,7 @@ begin
 end;//_nsNodeNotifierImplementation_.Invalidate
 
 procedure _nsNodeNotifierImplementation_.Changing;
+ {* Начало итерации изменения дерева }
 //#UC START# *45EEC8E10308_48FDA9D500E4_var*
 //#UC END# *45EEC8E10308_48FDA9D500E4_var*
 begin
@@ -172,6 +175,7 @@ begin
 end;//_nsNodeNotifierImplementation_.Changing
 
 procedure _nsNodeNotifierImplementation_.Changed;
+ {* Конец итерации изменения дерева }
 //#UC START# *45EEC8E10309_48FDA9D500E4_var*
 var
  l_Data: TnsThreadCallParamsRec;
@@ -195,6 +199,7 @@ begin
 end;//_nsNodeNotifierImplementation_.Changed
 
 function _nsNodeNotifierImplementation_.GetId: TNotifierID;
+ {* Возвращает уникальный идентификатор объекта }
 //#UC START# *475E4B020072_48FDA9D500E4_var*
 //#UC END# *475E4B020072_48FDA9D500E4_var*
 begin
@@ -203,4 +208,7 @@ begin
 //#UC END# *475E4B020072_48FDA9D500E4_impl*
 end;//_nsNodeNotifierImplementation_.GetId
 
+{$EndIf nsNodeNotifierImplementation_imp_impl}
+
 {$EndIf nsNodeNotifierImplementation_imp}
+

@@ -21,15 +21,16 @@ type
   private
    procedure DestroyServerServants; virtual; stdcall;
   protected
-   function GetCaption: IString; stdcall;
+   procedure GetCaption; stdcall;
   public
    constructor Make(const server_section); reintroduce; overload; stdcall;
-   function GetItems: ISectionItemList; virtual; stdcall;
+   procedure GetItems(out aRet
+    {* ISectionItemList }); virtual; stdcall;
    procedure ClearCache; virtual; stdcall;
    constructor Make(type: TSectionType); reintroduce; overload; stdcall;
    function GetSectionId: PAnsiChar; virtual; stdcall;
   public
-   property Caption: IString
+   property Caption: 
     read GetCaption;
  end;//SectionImpl
 
@@ -40,7 +41,7 @@ uses
  , ApplicationHelper
 ;
 
-function SectionImpl.GetCaption: IString;
+procedure SectionImpl.GetCaption;
 //#UC START# *574D3DB3034F_5748213B02F2get_var*
 //#UC END# *574D3DB3034F_5748213B02F2get_var*
 begin
@@ -58,7 +59,8 @@ begin
 //#UC END# *5748214B008D_5748213B02F2_impl*
 end;//SectionImpl.Make
 
-function SectionImpl.GetItems: ISectionItemList;
+procedure SectionImpl.GetItems(out aRet
+ {* ISectionItemList });
 //#UC START# *574821A70373_5748213B02F2_var*
 //#UC END# *574821A70373_5748213B02F2_var*
 begin

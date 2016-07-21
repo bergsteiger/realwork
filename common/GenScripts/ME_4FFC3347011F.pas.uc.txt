@@ -23,8 +23,6 @@
 //#UC START# *4FFC3347011Fimpl*
 //#UC END# *4FFC3347011Fimpl*
 //#UC START# *4FFC3347011Fimpl_uses*
- , SysUtils
- , RTLConsts
 //#UC END# *4FFC3347011Fimpl_uses*
 //#UC START# *4FFC3347011Fintf_uses*
 //#UC END# *4FFC3347011Fintf_uses*
@@ -42,7 +40,7 @@
  if (f_Name <> aValue) then
  begin
   {$IfDef DesignTimeLibrary}
-  if (aValue <> '') and not IsValidIdent(aValue) then
+  if (aName <> '') and not IsValidIdent(aValue) then
     raise EComponentError.CreateResFmt(@SInvalidName, [aValue]);
   {$EndIf DesignTimeLibrary}
   ChangeName(f_Name, aValue);

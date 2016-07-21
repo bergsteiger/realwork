@@ -44,8 +44,8 @@ type
   function GetType: TPositionType; stdcall;
   function GetPosition: Cardinal; stdcall;
   function GetRelevance: short; stdcall;
-  function GetPid: TPId; stdcall;
-  function GetDoc: IDocument; stdcall;
+  procedure GetPid; stdcall;
+  procedure GetDoc; stdcall;
   procedure GetEntryList; stdcall;
   procedure GetRelevanceWordsList; stdcall;
   property Type: TPositionType
@@ -55,9 +55,9 @@ type
   property Relevance: short
    read GetRelevance;
    {* Релевантность. Для списков без релевантности всегда 0. }
-  property Pid: TPId
+  property Pid: 
    read GetPid;
-  property Doc: IDocument
+  property Doc: 
    read GetDoc;
  end;//IListEntryInfo
 
@@ -68,30 +68,34 @@ type
 
  IDynList = interface(IEntityBase)
   ['{00B91ACF-6CDD-437F-935A-07287C0E2DF0}']
-  function GetHistory: IString; stdcall;
+  procedure GetHistory; stdcall;
   function GetIsFiltered: ByteBool; stdcall;
   function GetContentType: TDynListContent; stdcall;
   function GetIsShort: ByteBool; stdcall;
   function GetIsSnippet: ByteBool; stdcall;
-  function GetCurrentSortParams: TSortParams; stdcall;
-  function GetAvailableSortTypes: ISortTypes; stdcall;
+  procedure GetCurrentSortParams; stdcall;
+  procedure GetAvailableSortTypes; stdcall;
   procedure Sort(const params: TSortParams); stdcall;
   procedure SetContextFilter(var context: IContextFilter); stdcall;
   procedure SaveToFile(path: PAnsiChar;
    const nodes: INodesClipboard); stdcall;
    {* Сохранить список или его выделенные элементы в файл. }
-  function AsEvd(style: TEVDGeneratorStyle): IStream; stdcall;
-  function GetShortName: IString; stdcall;
+  procedure AsEvd(style: TEVDGeneratorStyle;
+   out aRet
+   {* IStream }); stdcall;
+  procedure GetShortName(out aRet
+   {* IString }); stdcall;
    {* получить "короткое" имя списка, используется при выводе на печать }
   procedure SetListStorage(const saved_list); stdcall;
   procedure GetFullList(var progress: IProgressIndicatorForSearch;
    out cancel_process: ICancelSearch); stdcall; { can raise CanNotFindData }
    {* Получить полный список }
-  function GetAnalysisTree: INodeBase; stdcall; { can raise CanNotFindData }
+  procedure GetAnalysisTree(out aRet
+   {* INodeBase }); stdcall; { can raise CanNotFindData }
    {* получить дерево анализа для списка }
   function GetFullListSize: Cardinal; stdcall;
    {* Получить длину полного для базового списка }
-  property History: IString
+  property History: 
    read GetHistory;
   property IsFiltered: ByteBool
    read GetIsFiltered;
@@ -103,16 +107,17 @@ type
   property IsSnippet: ByteBool
    read GetIsSnippet;
    {* Признак, является ли список сниппетом }
-  property CurrentSortParams: TSortParams
+  property CurrentSortParams: 
    read GetCurrentSortParams;
-  property AvailableSortTypes: ISortTypes
+  property AvailableSortTypes: 
    read GetAvailableSortTypes;
  end;//IDynList
 
  ISearchDynList = interface(ISearchEntity)
   {* Список - результат поиска }
   ['{DB91FE90-832B-4753-9222-4313AB5CA667}']
-  function GetDynList: IDynList; stdcall;
+  procedure GetDynList(out aRet
+   {* IDynList }); stdcall;
  end;//ISearchDynList
 
  TDynListFlags = (
@@ -124,8 +129,10 @@ type
  IDocListFactory = interface
   {* фабрика для создания списков }
   ['{C894D5B5-37CF-4463-A426-E30550F408F8}']
-  function MakeList(file_name: PAnsiChar;
-   inner_numbers: Boolean): IDynList; stdcall; { can raise AccessDenied, InvalidType }
+  procedure MakeList(file_name: PAnsiChar;
+   inner_numbers: Boolean;
+   out aRet
+   {* IDynList }); stdcall; { can raise AccessDenied, InvalidType }
    {* построить список по данным из файла file_name.
  inner_numbers - флаг указывающий какие номера документов используются (если inner_numbers=true - внутренние)
 
@@ -144,7 +151,8 @@ InvalidType - в файле некорректные данные }
   ['{FAE957F6-A5EA-4AB6-9EC2-8514B696A1C1}']
   function GetDocumentId: TObjectId; stdcall;
    {* Получить идентифкатор документа из ноды списка }
-  function GetSnippetText: IString; stdcall;
+  procedure GetSnippetText(out aRet
+   {* IString }); stdcall;
  end;//IDynListNode
 
 implementation

@@ -21,11 +21,11 @@ uses
 type
  TUserInfo = record
   {* информация о пользователе }
-  email: IString;
+  email: ;
    {* email пользователя }
-  login: IString;
+  login: ;
    {* регистрационное имя пользователя }
-  name: IString;
+  name: ;
    {* имя пользователя }
  end;//TUserInfo
 
@@ -38,9 +38,12 @@ type
   ['{F9DEFC6A-0DF4-4DC4-B863-62E0A7D8E68A}']
   function IsEmbedChatEnabled: ByteBool; stdcall;
    {* возвращает true, если на сервере обеспечена поддержка чата }
-  function GetContactsTree: INodeBase; stdcall;
+  procedure GetContactsTree(out aRet
+   {* INodeBase }); stdcall;
    {* получить список пользователей, добавленных в контакты }
-  function GetUserInfo(uid: TUid): TUserInfo; stdcall; { can raise UnknownUser }
+  procedure GetUserInfo(uid: TUid;
+   out aRet
+   {* TUserInfo }); stdcall; { can raise UnknownUser }
    {* информация о пользователе с заданным идентификатором }
   procedure AddUser(uid: TUid); stdcall; { can raise UnknownUser }
    {* добавить пользователя в список контактов }
@@ -58,9 +61,9 @@ type
 
  TMessage = record
   {* данные сообщения }
-  text: IStream;
+  text: ;
    {* сообщение (предполагается, что в evd формате) }
-  time: TDateTime;
+  time: ;
    {* время создания сообщения }
   my: ByteBool;
    {* true, если сообщение послано текущим пользователем, иначе это сообщение для него }
@@ -72,14 +75,18 @@ type
  IMessagesManager = interface
   {* работа с сообщениями }
   ['{7D3435F1-68A4-4CBE-A547-240E45D9FAE4}']
-  function GetUnreadedMessages(uid: TUid): IMessages; overload; stdcall; { can raise UnknownUser }
+  procedure GetUnreadedMessages(uid: TUid;
+   out aRet
+   {* IMessages }); overload; stdcall; { can raise UnknownUser }
    {* получить непрочитанные сообщения от пользователя с заданным uid }
   procedure SendMessage(var message: IStream;
    uid: TUid); stdcall; { can raise UnknownUser }
    {* послать сообщение заданному пользователю }
-  function GetHistoryForUser(count: Cardinal;
+  procedure GetHistoryForUser(count: Cardinal;
    all_new: Boolean;
-   uid: TUid): IMessages; stdcall; { can raise UnknownUser }
+   uid: TUid;
+   out aRet
+   {* IMessages }); stdcall; { can raise UnknownUser }
    {* получить count последних сообщений переписки с пользователем uid. Если count = 0, получить полную историю переписки. Если all_new = true, будут получены все непрочитанные сообщения, даже если их количество превышает count. }
   procedure CleanHistory(uid: TUid); stdcall; { can raise UnknownUser }
    {* очистить историю сообщений с заданным пользователем }

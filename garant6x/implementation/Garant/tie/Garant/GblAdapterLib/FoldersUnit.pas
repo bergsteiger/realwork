@@ -81,13 +81,14 @@ type
 В качестве BaseEntity нода может содержать Закладку на Документ, Список, Запрос или собственно узел (Folder). Имена и хинты всех элементов (кроме узла) копируются при создании в ноду, однако потом могут изменятся независимо (т.е. изменения имени ноды не влечет за собой изменения имени сущности содержащейся в ней). }
   ['{6B1E4393-7BE4-4201-A8F9-D3C817C440B5}']
   function GetId: TFolderId; stdcall;
-  function GetCreationDate: TDate; stdcall;
+  procedure GetCreationDate; stdcall;
   procedure SaveConsultationToXml(xml_file_path: PAnsiChar); stdcall;
    {* Сохраняет информацию о сущности, представляемой папочной нодой консультации в xml. }
   procedure SaveToXml(xml_file_path: PAnsiChar); stdcall; { can raise AccessDenied, InvalidEntityType }
   procedure LoadFromXml(xml_file_path: PAnsiChar); stdcall; { can raise AccessDenied, InvalidEntityType }
    {* загружает информацию из xml в папку (пустую, нерасшаренную). }
-  function SaveToIntegrationXml: IString; stdcall; { can raise InvalidEntityType }
+  procedure SaveToIntegrationXml(out aRet
+   {* IString }); stdcall; { can raise InvalidEntityType }
    {* сохранить ноду для библиотеки интеграции }
   function CanSaveConsultationToXml: ByteBool; stdcall;
    {* Указывает может ли консультация быть сохранена в xml. }
@@ -101,7 +102,7 @@ type
   property Id: TFolderId
    read GetId;
    {* Сонтент айди }
-  property CreationDate: TDate
+  property CreationDate: 
    read GetCreationDate;
    {* Дата создания }
  end;//IFoldersNode
@@ -111,10 +112,13 @@ type
  IFolders = interface(IBaseCatalog)
   {* Интерфейс (менеджер) обеспечивающий работу с деревом папок. Сложит фабрикой для узлов (Folder). }
   ['{085870DB-A1B6-48E7-ADDD-3C9F3911FEF5}']
-  function CreateFolder: IFolder; stdcall;
+  procedure CreateFolder(out aRet
+   {* IFolder }); stdcall;
    {* Фабрика узлов, возвращает новый созданный экземпляр BaseEntity типа Folder. }
-  function FindFolderNode(id: TFolderId
-   {* Идентификатор узла папки. }): IFoldersNode; stdcall;
+  procedure FindFolderNode(id: TFolderId
+   {* Идентификатор узла папки. };
+   out aRet
+   {* IFoldersNode }); stdcall;
    {* Найти узел папки по его идентификатору. Если не найден то CanNotFindData. }
  end;//IFolders
 
@@ -175,8 +179,8 @@ type
   {* Данные нотификации по изменению папок. }
   status: TNotifyStatus;
    {* Статус изменения. }
-  done_notifier: IDoneNotifier;
-  folder: IFoldersNode;
+  done_notifier: ;
+  folder: ;
  end;//TNotifyData
 
  IExternalFoldersChangeNotifier = interface

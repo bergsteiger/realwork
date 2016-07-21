@@ -64,7 +64,9 @@ type
     value: Boolean); virtual; stdcall;
    function FindNodeByInterface(const node_to_find: INodeBase): DefaultNodeBase; virtual; stdcall;
    function FindNode(const node_to_find): DefaultNodeBase; virtual; stdcall;
-   function FindNodePath(var node_to_find: INodeBase): INodeIndexPath; virtual; stdcall;
+   procedure FindNodePath(var node_to_find: INodeBase;
+    out aRet
+    {* INodeIndexPath }); virtual; stdcall;
    function GetVisibleDelta(var node: DefaultNodeBase): TVisibleIndex; overload; virtual; stdcall;
    function GetVisibleDelta(const node_path): TVisibleIndex; overload; virtual; stdcall;
    function GetVisibleDelta(const entity: IEntityBase): TVisibleIndex; overload; virtual; stdcall;
@@ -72,16 +74,24 @@ type
     {* TODO: упростить, выкинув этот метод
 ходить только к StaticNode-е }
    function GetAbsIndex: TVisibleIndex; virtual; stdcall; { can raise CanNotFindData }
-   function GetChildPathByAbsIndex(index: TVisibleIndex): INodeIndexPath; virtual; stdcall; { can raise CanNotFindData }
+   procedure GetChildPathByAbsIndex(index: TVisibleIndex;
+    out aRet
+    {* INodeIndexPath }); virtual; stdcall; { can raise CanNotFindData }
    procedure AddNotifier(var notifier: INodeNotifier); virtual; stdcall;
    procedure RemoveNotifier(var notifier: INodeNotifier); virtual; stdcall;
    function FindStubForIndex(out index: Integer): FlagNodeStub; virtual; stdcall;
    procedure GetAvailableLayers(var layers: ILayerIdList); virtual; stdcall;
-   function GetFirstFit(const filter: IFilterList): INodeIndexPath; virtual; stdcall;
-   function Find(const filter: IFilterList;
-    const find_from: TNodePosition): IFindIterator; virtual; stdcall;
+   procedure GetFirstFit(const filter: IFilterList;
+    out aRet
+    {* INodeIndexPath }); virtual; stdcall;
+   procedure Find(const filter: IFilterList;
+    const find_from: TNodePosition;
+    out aRet
+    {* IFindIterator }); virtual; stdcall;
    function IsRelevanceSearchSupported: ByteBool; virtual; stdcall;
-   function GetNodeByPath(const path: INodeIndexPath): INodeBase; virtual; stdcall;
+   procedure GetNodeByPath(const path: INodeIndexPath;
+    out aRet
+    {* INodeBase }); virtual; stdcall;
     {* Дублирует с CatalogBase }
    procedure NodePathToIndexPath(const path); virtual; stdcall;
    procedure Entity; virtual; stdcall; { can raise NoEntity }
@@ -103,7 +113,8 @@ type
    function FindNodeByPath(const node_index_path): DefaultNodeBase; overload; virtual; stdcall;
    function FindLoadedNodeByPath(const node_index_path): DefaultNodeBase; virtual; stdcall;
    function GetTreeName: PAnsiChar; virtual; stdcall;
-   function GetSettingsRootId: AnsiString; virtual; stdcall;
+   procedure GetSettingsRootId(out aRet
+    {* AnsiString }); virtual; stdcall;
    function NodeName: PAnsiChar; virtual; abstract; stdcall;
    procedure ServerDataVersion; virtual; stdcall;
    procedure GetServerPath(const path_type = PT_POINTER); virtual; stdcall;
@@ -290,7 +301,8 @@ begin
 //#UC END# *45F94D1E004E_45F7ECA8034B_impl*
 end;//DefaultNodeBase.GetTreeName
 
-function DefaultNodeBase.GetSettingsRootId: AnsiString;
+procedure DefaultNodeBase.GetSettingsRootId(out aRet
+ {* AnsiString });
 //#UC START# *45F94D3B0280_45F7ECA8034B_var*
 //#UC END# *45F94D3B0280_45F7ECA8034B_var*
 begin
@@ -438,7 +450,9 @@ begin
 //#UC END# *45F9533D02AF_45F7ECA8034B_impl*
 end;//DefaultNodeBase.FindNode
 
-function DefaultNodeBase.FindNodePath(var node_to_find: INodeBase): INodeIndexPath;
+procedure DefaultNodeBase.FindNodePath(var node_to_find: INodeBase;
+ out aRet
+ {* INodeIndexPath });
 //#UC START# *45F9535E0213_45F7ECA8034B_var*
 //#UC END# *45F9535E0213_45F7ECA8034B_var*
 begin
@@ -494,7 +508,9 @@ begin
 //#UC END# *45F954900138_45F7ECA8034B_impl*
 end;//DefaultNodeBase.GetAbsIndex
 
-function DefaultNodeBase.GetChildPathByAbsIndex(index: TVisibleIndex): INodeIndexPath; { can raise CanNotFindData }
+procedure DefaultNodeBase.GetChildPathByAbsIndex(index: TVisibleIndex;
+ out aRet
+ {* INodeIndexPath }); { can raise CanNotFindData }
 //#UC START# *45F954CB0128_45F7ECA8034B_var*
 //#UC END# *45F954CB0128_45F7ECA8034B_var*
 begin
@@ -539,7 +555,9 @@ begin
 //#UC END# *45F955DD0261_45F7ECA8034B_impl*
 end;//DefaultNodeBase.GetAvailableLayers
 
-function DefaultNodeBase.GetFirstFit(const filter: IFilterList): INodeIndexPath;
+procedure DefaultNodeBase.GetFirstFit(const filter: IFilterList;
+ out aRet
+ {* INodeIndexPath });
 //#UC START# *45F95642009C_45F7ECA8034B_var*
 //#UC END# *45F95642009C_45F7ECA8034B_var*
 begin
@@ -548,8 +566,10 @@ begin
 //#UC END# *45F95642009C_45F7ECA8034B_impl*
 end;//DefaultNodeBase.GetFirstFit
 
-function DefaultNodeBase.Find(const filter: IFilterList;
- const find_from: TNodePosition): IFindIterator;
+procedure DefaultNodeBase.Find(const filter: IFilterList;
+ const find_from: TNodePosition;
+ out aRet
+ {* IFindIterator });
 //#UC START# *45F95672034B_45F7ECA8034B_var*
 //#UC END# *45F95672034B_45F7ECA8034B_var*
 begin
@@ -567,7 +587,9 @@ begin
 //#UC END# *45F957E701D4_45F7ECA8034B_impl*
 end;//DefaultNodeBase.IsRelevanceSearchSupported
 
-function DefaultNodeBase.GetNodeByPath(const path: INodeIndexPath): INodeBase;
+procedure DefaultNodeBase.GetNodeByPath(const path: INodeIndexPath;
+ out aRet
+ {* INodeBase });
  {* Дублирует с CatalogBase }
 //#UC START# *45F958030280_45F7ECA8034B_var*
 //#UC END# *45F958030280_45F7ECA8034B_var*

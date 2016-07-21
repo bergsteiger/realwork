@@ -65,13 +65,13 @@ type
   ['{DD01B380-09FE-4476-8789-20B2291FE41B}']
   function GetValue: TEstimationValue; stdcall;
   procedure SetValue(aValue: TEstimationValue); stdcall;
-  function GetText: IString; stdcall;
-  procedure SetText(const aValue: IString); stdcall;
+  procedure GetText; stdcall;
+  procedure SetText(const aValue); stdcall;
   property Value: TEstimationValue
    read GetValue
    write SetValue;
    {* оценка }
-  property Text: IString
+  property Text: 
    read GetText
    write SetText;
    {* комментарий к оценке }
@@ -89,25 +89,29 @@ type
   {* Консультация }
   ['{69D87373-CAC1-4228-9F26-4E46D2A8CBE9}']
   function GetStatus: TConsultationStatus; stdcall; { can raise Deleted }
-  function GetId: IString; stdcall; { can raise Deleted }
-  function GetCreationDate: TDateTime; stdcall; { can raise Deleted }
-  function GetModificationDate: TDateTime; stdcall; { can raise Deleted }
-  function GetName: IString; stdcall; { can raise Deleted }
-  function GetQueryData: IString; stdcall; { can raise Deleted }
-  function GetUserName: IString; stdcall; { can raise Deleted }
-  function GetExpertInfo: IParasList; stdcall; { can raise Deleted }
-  function GetExpertName: IString; stdcall; { can raise Deleted }
-  function GetReplyDate: TDate; stdcall; { can raise Deleted }
+  procedure GetId; stdcall; { can raise Deleted }
+  procedure GetCreationDate; stdcall; { can raise Deleted }
+  procedure GetModificationDate; stdcall; { can raise Deleted }
+  procedure GetName; stdcall; { can raise Deleted }
+  procedure GetQueryData; stdcall; { can raise Deleted }
+  procedure GetUserName; stdcall; { can raise Deleted }
+  procedure GetExpertInfo; stdcall; { can raise Deleted }
+  procedure GetExpertName; stdcall; { can raise Deleted }
+  procedure GetReplyDate; stdcall; { can raise Deleted }
   procedure GetType; stdcall; { can raise Deleted }
-  function GetAnswer: IDocument; stdcall; { can raise Deleted, OldFormatConsultation }
+  procedure GetAnswer(out aRet
+   {* IDocument }); stdcall; { can raise Deleted, OldFormatConsultation }
    {* Получить уведомление или ответ на запрос }
-  function GetQuery: IDocument; stdcall; { can raise Deleted, OldFormatConsultation }
+  procedure GetQuery(out aRet
+   {* IDocument }); stdcall; { can raise Deleted, OldFormatConsultation }
    {* Получить запрос }
-  function GetDocumentList: IDynList; stdcall; { can raise NoDocumentList, Deleted, OldFormatConsultation }
+  procedure GetDocumentList(out aRet
+   {* IDynList }); stdcall; { can raise NoDocumentList, Deleted, OldFormatConsultation }
    {* Получить список документов ответа }
   procedure SendEstimation(const value: IEstimation); stdcall; { can raise NoConnection, NoSubscription, Deleted }
    {* Отправить оценку }
-  function CreateEstimation: IEstimation; stdcall;
+  procedure CreateEstimation(out aRet
+   {* IEstimation }); stdcall;
    {* создать оценку }
   procedure PaymentConfirm(answer: Boolean); stdcall; { can raise NoConnection, PaymentForbidden }
    {* Подвердить (answer = true)/отказаться (false) от оплаты }
@@ -116,33 +120,36 @@ type
   function HasList: ByteBool; stdcall; { can raise Deleted }
   function HasEstimation: ByteBool; stdcall; { can raise Deleted }
   function HasPaymentInformation: ByteBool; stdcall; { can raise Deleted }
-  function GetQueryByParas: IParasList; stdcall;
+  procedure GetQueryByParas(out aRet
+   {* IParasList }); stdcall;
    {* получить запрос в виде списка параграфов }
-  function GetAnswerData(out is_evd: Boolean): IParasList; stdcall;
+  procedure GetAnswerData(out is_evd: Boolean;
+   out aRet
+   {* IParasList }); stdcall;
   property Status: TConsultationStatus
    read GetStatus;
    {* Статус консультации }
-  property Id: IString
+  property Id: 
    read GetId;
    {* Идентификатор консультации }
-  property CreationDate: TDateTime
+  property CreationDate: 
    read GetCreationDate;
    {* Дата создания }
-  property ModificationDate: TDateTime
+  property ModificationDate: 
    read GetModificationDate;
    {* Дата последнего изменения статуса }
-  property Name: IString
+  property Name: 
    read GetName;
    {* Имя консультации (текст запроса) }
-  property QueryData: IString
+  property QueryData: 
    read GetQueryData;
-  property UserName: IString
+  property UserName: 
    read GetUserName;
-  property ExpertInfo: IParasList
+  property ExpertInfo: 
    read GetExpertInfo;
-  property ExpertName: IString
+  property ExpertName: 
    read GetExpertName;
-  property ReplyDate: TDate
+  property ReplyDate: 
    read GetReplyDate;
   property Type: 
    read GetType;
@@ -180,13 +187,17 @@ type
  IConsultingTemplateInfo = interface
   {* Информация для шаблонов консалтинга. Сейчас в базе есть 2 шаблона (preanswer и answer). Какой шаблон нужен для консультации спрашиваем у get_template_type }
   ['{3613E72E-8CD0-4D45-B517-BD45F9764A82}']
-  function GetPreanswerTemplate: IStream; stdcall;
-  function GetAnswerTemplate: IStream; stdcall;
-  function GetDealerInfo: IString; stdcall;
+  procedure GetPreanswerTemplate(out aRet
+   {* IStream }); stdcall;
+  procedure GetAnswerTemplate(out aRet
+   {* IStream }); stdcall;
+  procedure GetDealerInfo(out aRet
+   {* IString }); stdcall;
    {* информация о комплекте, которая может быть нужна для шаблона. См. [$100008775] }
   function GetTemplateType(const consultation: IConsultation): TTemplateType; stdcall; { can raise Deleted }
    {* определяет какой шаблон нужен для отображения консультации }
-  function GetQueryTemplate: IStream; stdcall;
+  procedure GetQueryTemplate(out aRet
+   {* IStream }); stdcall;
    {* получить шаблон для запроса }
  end;//IConsultingTemplateInfo
 

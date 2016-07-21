@@ -1,74 +1,65 @@
 {$IfNDef dDocInfo_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Business"
-// Автор: Морозов М.А.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Business/Document/dDocInfo.imp.pas"
-// Начат: 12.07.2006
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> F1 Core::Common::Business::BaseDocument::dDocInfo
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dDocInfo.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "dDocInfo" MUID: (493D4E010178)
+// Имя типа: "_dDocInfo_"
 
 {$Define dDocInfo_imp}
-{$If not defined(Admin) AND not defined(Monitorings)}
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+type
  TCRInfoArray = array [TnsUserCRListId] of IbsUserCRListInfoModify;
 
- {$Include ..\Document\dBaseDocumentWithAttributes.imp.pas}
- _dDocInfo_ = {mixin} class(_dBaseDocumentWithAttributes_, IdDocInfo)
- private
- // private fields
-   f_UserCRListInfo : TCRInfoArray;
-   f_RespList : IDynList;
-   f_CorrList : IDynList;
-   f_RespType : IbsFrozenNode;
-   f_CorrType : IbsFrozenNode;
-   f_dsSimilarDocumentsToFragmentRef : IvcmFormDataSourceRef;
-    {* Поле для свойства dsSimilarDocumentsToFragmentRef}
-   f_IsUnderControl : Tl3Bool;
-    {* Поле для свойства IsUnderControl}
-   f_dsAnnotationRef : IvcmFormDataSourceRef;
-    {* Поле для свойства dsAnnotationRef}
-   f_FlashData : IExternalObject;
-    {* Поле для свойства FlashData}
-   f_dsCorrespondentsRef : IvcmFormDataSourceRef;
-    {* Поле для свойства dsCorrespondentsRef}
-   f_HasTranslation : Tl3Bool;
-    {* Поле для свойства HasTranslation}
-   f_HasSimilarDocuments : Tl3Bool;
-    {* Поле для свойства HasSimilarDocuments}
-   f_dsRelatedDocRef : IvcmFormDataSourceRef;
-    {* Поле для свойства dsRelatedDocRef}
-   f_dsUserCR2Ref : IvcmFormDataSourceRef;
-    {* Поле для свойства dsUserCR2Ref}
-   f_HasAnnotation : Tl3Bool;
-    {* Поле для свойства HasAnnotation}
-   f_HasChronology : Tl3Bool;
-    {* Поле для свойства HasChronology}
-   f_HasCorrespondents : Tl3Bool;
-    {* Поле для свойства HasCorrespondents}
-   f_HasRelatedDoc : Tl3Bool;
-    {* Поле для свойства HasRelatedDoc}
-   f_dsRespondentsRef : IvcmFormDataSourceRef;
-    {* Поле для свойства dsRespondentsRef}
-   f_dsChronologyRef : IvcmFormDataSourceRef;
-    {* Поле для свойства dsChronologyRef}
-   f_dsDocumentWithFlashRef : IvcmFormDataSourceRef;
-    {* Поле для свойства dsDocumentWithFlashRef}
-   f_HasRespondents : Tl3Bool;
-    {* Поле для свойства HasRespondents}
-   f_dsTranslationRef : IvcmFormDataSourceRef;
-    {* Поле для свойства dsTranslationRef}
-   f_dsSimilarDocumentsRef : IvcmFormDataSourceRef;
-    {* Поле для свойства dsSimilarDocumentsRef}
-   f_dsUserCR1Ref : IvcmFormDataSourceRef;
-    {* Поле для свойства dsUserCR1Ref}
- protected
- // realized methods
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dBaseDocumentWithAttributes.imp.pas}
+ _dDocInfo_ = class(_dBaseDocumentWithAttributes_, IdDocInfo)
+  private
+   f_UserCRListInfo: TCRInfoArray;
+   f_RespList: IDynList;
+   f_CorrList: IDynList;
+   f_RespType: IbsFrozenNode;
+   f_CorrType: IbsFrozenNode;
+   f_dsSimilarDocumentsToFragmentRef: IvcmFormDataSourceRef;
+    {* Ссылка на "dsSimilarDocumentsToFragment" }
+   f_IsUnderControl: Tl3Bool;
+    {* поставлен ли документ на контроль }
+   f_dsAnnotationRef: IvcmFormDataSourceRef;
+    {* Ссылка на "аннотация к документу" }
+   f_FlashData: IExternalObject;
+    {* данные ролика }
+   f_dsCorrespondentsRef: IvcmFormDataSourceRef;
+    {* Ссылка на "БОФ корреспонденты документа" }
+   f_HasTranslation: Tl3Bool;
+    {* Есть ли "БОФ перевода документа" }
+   f_HasSimilarDocuments: Tl3Bool;
+    {* Есть ли "БОФ похожие документы" }
+   f_dsRelatedDocRef: IvcmFormDataSourceRef;
+    {* Ссылка на "справка к документу" }
+   f_dsUserCR2Ref: IvcmFormDataSourceRef;
+    {* Ссылка на "БОФ пользовательский СКР2" }
+   f_HasAnnotation: Tl3Bool;
+    {* Есть ли "аннотация к документу" }
+   f_HasChronology: Tl3Bool;
+    {* Есть ли "Хронология судебного дела" }
+   f_HasCorrespondents: Tl3Bool;
+    {* Есть ли "БОФ корреспонденты документа" }
+   f_HasRelatedDoc: Tl3Bool;
+    {* Есть ли "справка к документу" }
+   f_dsRespondentsRef: IvcmFormDataSourceRef;
+    {* Ссылка на "БОФ респонденты документа" }
+   f_dsChronologyRef: IvcmFormDataSourceRef;
+    {* Ссылка на "Хронология судебного дела" }
+   f_dsDocumentWithFlashRef: IvcmFormDataSourceRef;
+    {* Ссылка на "документ-схема" }
+   f_HasRespondents: Tl3Bool;
+    {* Есть ли "БОФ респонденты документа" }
+   f_dsTranslationRef: IvcmFormDataSourceRef;
+    {* Ссылка на "БОФ перевода документа" }
+   f_dsSimilarDocumentsRef: IvcmFormDataSourceRef;
+    {* Ссылка на "БОФ похожие документы" }
+   f_dsUserCR1Ref: IvcmFormDataSourceRef;
+    {* Ссылка на "БОФ пользовательский СКР1" }
+  protected
    function pm_GetDsSimilarDocumentsToFragmentRef: IvcmFormDataSourceRef;
    function pm_GetIsUnderControl: Tl3Bool;
    procedure pm_SetIsUnderControl(aValue: Tl3Bool);
@@ -107,106 +98,90 @@
    function pm_GetDsTranslationRef: IvcmFormDataSourceRef;
    function pm_GetDsSimilarDocumentsRef: IvcmFormDataSourceRef;
    function pm_GetDsUserCR1Ref: IvcmFormDataSourceRef;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   {$If not defined(NoVCM)}
+    {* Функция очистки полей объекта. }
+   {$If NOT Defined(NoVCM)}
    procedure AssignData(const aData: _IvcmRealData_); override;
-   {$IfEnd} //not NoVCM
+   {$IfEnd} // NOT Defined(NoVCM)
    procedure DoResetBooleans; override;
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // overridden public methods
-   {$If not defined(NoVCM)}
+  public
+   {$If NOT Defined(NoVCM)}
    constructor Create; override;
-   {$IfEnd} //not NoVCM
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//_dDocInfo_
-{$Else}
 
- {$Include ..\Document\dBaseDocumentWithAttributes.imp.pas}
- _dDocInfo_ = _dBaseDocumentWithAttributes_;
+{$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
 
-{$IfEnd} //not Admin AND not Monitorings
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dBaseDocumentWithAttributes.imp.pas}
+_dDocInfo_ = _dBaseDocumentWithAttributes_;
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 {$Else dDocInfo_imp}
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$IfNDef dDocInfo_imp_impl}
 
+{$Define dDocInfo_imp_impl}
 
-{$Include ..\Document\dBaseDocumentWithAttributes.imp.pas}
-
-// start class _dDocInfo_
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dBaseDocumentWithAttributes.imp.pas}
 
 function _dDocInfo_.pm_GetDsSimilarDocumentsToFragmentRef: IvcmFormDataSourceRef;
- {-}
 begin
  Result := vcmCheckAndMake(f_dsSimilarDocumentsToFragmentRef);
 end;//_dDocInfo_.pm_GetDsSimilarDocumentsToFragmentRef
 
 function _dDocInfo_.pm_GetIsUnderControl: Tl3Bool;
- {-}
 begin
  Result := f_IsUnderControl;
 end;//_dDocInfo_.pm_GetIsUnderControl
 
 procedure _dDocInfo_.pm_SetIsUnderControl(aValue: Tl3Bool);
- {-}
 begin
  f_IsUnderControl := aValue;
 end;//_dDocInfo_.pm_SetIsUnderControl
 
 function _dDocInfo_.pm_GetDsAnnotationRef: IvcmFormDataSourceRef;
- {-}
 begin
  Result := vcmCheckAndMake(f_dsAnnotationRef);
 end;//_dDocInfo_.pm_GetDsAnnotationRef
 
 function _dDocInfo_.pm_GetFlashData: IExternalObject;
- {-}
 begin
  Result := f_FlashData;
 end;//_dDocInfo_.pm_GetFlashData
 
 procedure _dDocInfo_.pm_SetFlashData(const aValue: IExternalObject);
- {-}
 begin
  f_FlashData := aValue;
 end;//_dDocInfo_.pm_SetFlashData
 
 function _dDocInfo_.pm_GetDsCorrespondentsRef: IvcmFormDataSourceRef;
- {-}
 begin
  Result := vcmCheckAndMake(f_dsCorrespondentsRef);
 end;//_dDocInfo_.pm_GetDsCorrespondentsRef
 
 function _dDocInfo_.pm_GetHasTranslation: Tl3Bool;
- {-}
 begin
  Result := f_HasTranslation;
 end;//_dDocInfo_.pm_GetHasTranslation
 
 procedure _dDocInfo_.pm_SetHasTranslation(aValue: Tl3Bool);
- {-}
 begin
  f_HasTranslation := aValue;
 end;//_dDocInfo_.pm_SetHasTranslation
 
 function _dDocInfo_.pm_GetHasSimilarDocuments: Tl3Bool;
- {-}
 begin
  Result := f_HasSimilarDocuments;
 end;//_dDocInfo_.pm_GetHasSimilarDocuments
 
 procedure _dDocInfo_.pm_SetHasSimilarDocuments(aValue: Tl3Bool);
- {-}
 begin
  f_HasSimilarDocuments := aValue;
 end;//_dDocInfo_.pm_SetHasSimilarDocuments
 
 function _dDocInfo_.pm_GetDsRelatedDocRef: IvcmFormDataSourceRef;
- {-}
 begin
  Result := vcmCheckAndMake(f_dsRelatedDocRef);
 end;//_dDocInfo_.pm_GetDsRelatedDocRef
@@ -295,108 +270,92 @@ begin
 end;//_dDocInfo_.pm_GetUserCRListInfo
 
 function _dDocInfo_.pm_GetDsUserCR2Ref: IvcmFormDataSourceRef;
- {-}
 begin
  Result := vcmCheckAndMake(f_dsUserCR2Ref);
 end;//_dDocInfo_.pm_GetDsUserCR2Ref
 
 function _dDocInfo_.pm_GetHasAnnotation: Tl3Bool;
- {-}
 begin
  Result := f_HasAnnotation;
 end;//_dDocInfo_.pm_GetHasAnnotation
 
 procedure _dDocInfo_.pm_SetHasAnnotation(aValue: Tl3Bool);
- {-}
 begin
  f_HasAnnotation := aValue;
 end;//_dDocInfo_.pm_SetHasAnnotation
 
 function _dDocInfo_.pm_GetHasChronology: Tl3Bool;
- {-}
 begin
  Result := f_HasChronology;
 end;//_dDocInfo_.pm_GetHasChronology
 
 procedure _dDocInfo_.pm_SetHasChronology(aValue: Tl3Bool);
- {-}
 begin
  f_HasChronology := aValue;
 end;//_dDocInfo_.pm_SetHasChronology
 
 function _dDocInfo_.pm_GetHasCorrespondents: Tl3Bool;
- {-}
 begin
  Result := f_HasCorrespondents;
 end;//_dDocInfo_.pm_GetHasCorrespondents
 
 procedure _dDocInfo_.pm_SetHasCorrespondents(aValue: Tl3Bool);
- {-}
 begin
  f_HasCorrespondents := aValue;
 end;//_dDocInfo_.pm_SetHasCorrespondents
 
 function _dDocInfo_.pm_GetHasRelatedDoc: Tl3Bool;
- {-}
 begin
  Result := f_HasRelatedDoc;
 end;//_dDocInfo_.pm_GetHasRelatedDoc
 
 procedure _dDocInfo_.pm_SetHasRelatedDoc(aValue: Tl3Bool);
- {-}
 begin
  f_HasRelatedDoc := aValue;
 end;//_dDocInfo_.pm_SetHasRelatedDoc
 
 function _dDocInfo_.pm_GetDsRespondentsRef: IvcmFormDataSourceRef;
- {-}
 begin
  Result := vcmCheckAndMake(f_dsRespondentsRef);
 end;//_dDocInfo_.pm_GetDsRespondentsRef
 
 function _dDocInfo_.pm_GetDsChronologyRef: IvcmFormDataSourceRef;
- {-}
 begin
  Result := vcmCheckAndMake(f_dsChronologyRef);
 end;//_dDocInfo_.pm_GetDsChronologyRef
 
 function _dDocInfo_.pm_GetDsDocumentWithFlashRef: IvcmFormDataSourceRef;
- {-}
 begin
  Result := vcmCheckAndMake(f_dsDocumentWithFlashRef);
 end;//_dDocInfo_.pm_GetDsDocumentWithFlashRef
 
 function _dDocInfo_.pm_GetHasRespondents: Tl3Bool;
- {-}
 begin
  Result := f_HasRespondents;
 end;//_dDocInfo_.pm_GetHasRespondents
 
 procedure _dDocInfo_.pm_SetHasRespondents(aValue: Tl3Bool);
- {-}
 begin
  f_HasRespondents := aValue;
 end;//_dDocInfo_.pm_SetHasRespondents
 
 function _dDocInfo_.pm_GetDsTranslationRef: IvcmFormDataSourceRef;
- {-}
 begin
  Result := vcmCheckAndMake(f_dsTranslationRef);
 end;//_dDocInfo_.pm_GetDsTranslationRef
 
 function _dDocInfo_.pm_GetDsSimilarDocumentsRef: IvcmFormDataSourceRef;
- {-}
 begin
  Result := vcmCheckAndMake(f_dsSimilarDocumentsRef, vcm_nmYes);
 end;//_dDocInfo_.pm_GetDsSimilarDocumentsRef
 
 function _dDocInfo_.pm_GetDsUserCR1Ref: IvcmFormDataSourceRef;
- {-}
 begin
  Result := vcmCheckAndMake(f_dsUserCR1Ref);
 end;//_dDocInfo_.pm_GetDsUserCR1Ref
 
 procedure _dDocInfo_.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_493D4E010178_var*
 var
  l_Index: TnsUserCRListId;
@@ -414,7 +373,7 @@ begin
 //#UC END# *479731C50290_493D4E010178_impl*
 end;//_dDocInfo_.Cleanup
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure _dDocInfo_.AssignData(const aData: _IvcmRealData_);
 //#UC START# *4B16B8CF0307_493D4E010178_var*
 var
@@ -448,9 +407,9 @@ begin
  inherited;
 //#UC END# *4B16B8CF0307_493D4E010178_impl*
 end;//_dDocInfo_.AssignData
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 constructor _dDocInfo_.Create;
 //#UC START# *4B16B8E3013F_493D4E010178_var*
 //#UC END# *4B16B8E3013F_493D4E010178_var*
@@ -468,7 +427,7 @@ begin
  f_HasChronology := l3_bUnknown;
 //#UC END# *4B16B8E3013F_493D4E010178_impl*
 end;//_dDocInfo_.Create
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 procedure _dDocInfo_.DoResetBooleans;
 //#UC START# *4B18134E01F8_493D4E010178_var*
@@ -488,56 +447,27 @@ begin
 end;//_dDocInfo_.DoResetBooleans
 
 procedure _dDocInfo_.ClearFields;
- {-}
 begin
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_RespList := nil;
- {$IfEnd} //not Admin AND not Monitorings
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_CorrList := nil;
- {$IfEnd} //not Admin AND not Monitorings
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_RespType := nil;
- {$IfEnd} //not Admin AND not Monitorings
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_dsSimilarDocumentsToFragmentRef := nil;
- {$IfEnd} //not Admin AND not Monitorings
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_dsAnnotationRef := nil;
- {$IfEnd} //not Admin AND not Monitorings
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_FlashData := nil;
- {$IfEnd} //not Admin AND not Monitorings
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_dsCorrespondentsRef := nil;
- {$IfEnd} //not Admin AND not Monitorings
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_dsRelatedDocRef := nil;
- {$IfEnd} //not Admin AND not Monitorings
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_dsUserCR2Ref := nil;
- {$IfEnd} //not Admin AND not Monitorings
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_dsRespondentsRef := nil;
- {$IfEnd} //not Admin AND not Monitorings
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_dsChronologyRef := nil;
- {$IfEnd} //not Admin AND not Monitorings
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_dsDocumentWithFlashRef := nil;
- {$IfEnd} //not Admin AND not Monitorings
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_dsTranslationRef := nil;
- {$IfEnd} //not Admin AND not Monitorings
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_dsSimilarDocumentsRef := nil;
- {$IfEnd} //not Admin AND not Monitorings
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_dsUserCR1Ref := nil;
- {$IfEnd} //not Admin AND not Monitorings
  inherited;
 end;//_dDocInfo_.ClearFields
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
-{$IfEnd} //not Admin AND not Monitorings
+{$EndIf dDocInfo_imp_impl}
 
 {$EndIf dDocInfo_imp}
+

@@ -36,7 +36,7 @@
      begin
       AddPara(aGen, vcmFmt(str_TimeMachineTurnOnOnDate,
                            [DefDataAdapter.TimeMachine.DateStr]));
-(*      if TvcmModulesFactories.IsCurEditionActual(aDoc) then
+(*      if TdmStdRes.IsCurEditionActual(aDoc) then
        bsEditorAddPara(aGen, str_wgTimeMachineOffActualRedactionLink.AsWStr, true,
                        cNoneWarningSub,
                        cNone_LinkHandle,
@@ -236,7 +236,7 @@
   begin
    aDocument.GetCurrentState(l_State);
    try
-    if not TvcmModulesFactories.IsCurEditionActual(l_State) then
+    if not TdmStdRes.IsCurEditionActual(l_State) then
     begin
      l_State.GetCurrentRedaction(l_RedactionInfo);
      l_EditionIntervals := bsCreateEditionDateInterval(l_RedactionInfo.rActiveIntervals);
@@ -302,7 +302,7 @@ var
     // Документ утратил силу и находится в актульной редакции, выведем для
     // него диапазон действия актуальной редакции (CQ: OIT500011244):
     if (aDocument.GetStatus = IS_ABOLISHED) and
-      TvcmModulesFactories.IsCurEditionActual(aDoc) then
+      TdmStdRes.IsCurEditionActual(aDoc) then
      lp_ShowRangeOfWork(bsCreateEditionDateInterval(bsRedationInfo(aDocument).
       rActiveIntervals));
    end;//aDocument.HasWarning
@@ -360,7 +360,7 @@ var
   if (wtTimeMachineWarning in Result) or (wtNotSure in Result) then
   begin
    // Ссылка для отключения МВ
-   if TvcmModulesFactories.IsCurEditionActual(aDoc) then
+   if TdmStdRes.IsCurEditionActual(aDoc) then
     AddPara(aGen,
             str_wgTimeMachineOffActualRedactionLink.AsCStr,
             cNoneWarningSub,

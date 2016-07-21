@@ -28,7 +28,7 @@ type
   {* Результат поиска по контексту. }
   item_index: Cardinal;
    {* Индекс найденного элемента. }
-  positions: IHighlightPositionList;
+  positions: ;
    {* позиции, найденные в результате поиска }
  end;//TContextSearchResult
 

@@ -1,2 +1,0 @@
-MakeCo tfwF1HyperlinkScriptCaller.rc.script
-brcc32 tfwF1HyperlinkScriptCaller.rc

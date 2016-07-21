@@ -313,6 +313,7 @@ uses
  , vcmFormSetContainerRegistry
  , vcmHistory
  , vcmTabsHistoryService
+ , vcmAggregateContainerRegistry
  , l3Base
  , l3MinMax
  , RTLConsts

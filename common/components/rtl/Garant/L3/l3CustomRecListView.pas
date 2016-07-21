@@ -16,13 +16,15 @@ uses
 ;
 
 type
+ PRecForCompare = PItemType;
+
  _ListType_ = Tl3ProtoPtrRecListPrim;
  _ItemType_ = VOID;
  {$Include w:\common\components\rtl\Garant\L3\l3OtherListView.imp.pas}
  Tl3CustomRecListView = {abstract} class(_l3OtherListView_)
   protected
-   function CompareRecs(aRec1: PItemType;
-    aRec2: PItemType): Integer; virtual; abstract;
+   function CompareRecs(aRec1: PRecForCompare;
+    aRec2: PRecForCompare): Integer; virtual; abstract;
    function CompareData(const anItem1: _ItemType_;
     const anItem2: _ItemType_): Integer; override;
  end;//Tl3CustomRecListView

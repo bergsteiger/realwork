@@ -13,8 +13,8 @@ uses
  l3IntfUses
  , nsTagNodePrimPrim
  , F1TagDataProviderInterface
- , k2Base
  , l3Variant
+ , k2Base
  , nsTagString
  , IOUnit
  , l3IID
@@ -79,13 +79,13 @@ uses
  , DynamicTreeUnit
  , BitmapPara_Const
  , k2Empty_Const
+ , DocumentUnit
  , nsStyleParser
  , SysUtils
  , l3CustomString
  , k2Tags
  , k2Facade
  , l3BitArr
- , DocumentUnit
 ;
 
 type _Instance_R_ = TnsTagNodePrim;

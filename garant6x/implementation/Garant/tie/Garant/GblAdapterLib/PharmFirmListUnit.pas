@@ -19,7 +19,8 @@ type
  IPharmFirmListEntry = interface(IEntityBase)
   {* Обертка для документа-фирмы из списка }
   ['{7408C436-42FD-4AD7-879D-5C2625EFAE18}']
-  function GetDocument: IDocument; stdcall;
+  procedure GetDocument(out aRet
+   {* IDocument }); stdcall;
  end;//IPharmFirmListEntry
 
 implementation
