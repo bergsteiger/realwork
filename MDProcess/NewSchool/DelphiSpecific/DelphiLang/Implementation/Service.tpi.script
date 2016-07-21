@@ -50,7 +50,6 @@ implementation @ <<Service>>
    begin
 //	%S%f_set_var(Mixin,C)\
     %S %f set_var %( 'Mixin' %, 'C' )% 
-//	%f_cycle_break(%S)\
 //	>\
 
     ++! l_Counter
@@ -79,7 +78,6 @@ implementation @ <<Service>>
    begin
 //	%S%f_set_var(Facet,C)\
     %S %f set_var %( 'Facet' %, 'C' )% 
-//	%f_cycle_break(%S)\
 //	>\
 
     ++! l_Counter
@@ -96,8 +94,6 @@ implementation @ <<Service>>
  %S %f CheckMixin %( )% 
 //	%S%f_CheckFacet()\
  %S %f CheckFacet %( )% 
-//	%f_warning(Mixin: %S%{Mixin}N)\
-//	%f_warning(Facet: %S%{Facet}N)\
 
 //	[{"%S%{Mixin}N"=""}\
  if ( ( %S ( get_object_var ( 'Mixin' ) |N )  ) %== '' ) then
@@ -113,17 +109,22 @@ implementation @ <<Service>>
 //	]\
  end // if
 
-//	[{"%S%{Facet}N"=""}\
- if ( ( %S ( get_object_var ( 'Facet' ) |N )  ) %== '' ) then
+//	[{%S#f_UseNewGenRec()!=true}\
+ if ( ( %S %?f UseNewGenRec %( )% ) %!=  true ) then
  begin
+//	[{"%S%{Facet}N"=""}\
+  if ( ( %S ( get_object_var ( 'Facet' ) |N )  ) %== '' ) then
+  begin
 //	%S%f_add_class(%SU_Facet,Facet,I%f_cut_prefix(%f_pas_TypeName(%S),T),Facet_Inst)\
-  %S %f add_class %( %S |U '_Facet' %, 'Facet' %, 'I'
-  [%f] cut_prefix %( [%f] pas_TypeName %( %S )% %, 'T' )% %, 'Facet_Inst' )% 
+   %S %f add_class %( %S |U '_Facet' %, 'Facet' %, 'I'
+   [%f] cut_prefix %( [%f] pas_TypeName %( %S )% %, 'T' )% %, 'Facet_Inst' )% 
 //	%{Facet_Inst}%f_set_documentation(Èםעונפויס סונגטסא %SN)\
-  ( get_global_var ( 'Facet_Inst' ) %f set_documentation %( 'Èםעונפויס סונגטסא '
-  %S |N )% ) 
+   ( get_global_var ( 'Facet_Inst' ) %f set_documentation %( 'Èםעונפויס סונגטסא '
+   %S |N )% ) 
 //	%S%f_set_var(Facet,{Facet_Inst})\
-  %S %f set_var %( 'Facet' %, '{Facet_Inst}' )% 
+   %S %f set_var %( 'Facet' %, '{Facet_Inst}' )% 
+//	]\
+  end // if
 //	]
  end // if
 //#UC END# *5502CC07027Efor5502BABC0193*
@@ -315,14 +316,14 @@ implementation @ <<Service>>
 //	%f_clear_list(RESPS)\
  [%f] clear_list %( 'RESPS' )% 
 
-//	%f_addR(%S,%S%{Mixin})\
- [%f] addR %( %S %, %S ( get_object_var ( 'Mixin' ) )  )% 
-//	%f_addR(%S%{Facet},%S%{Mixin})\
- [%f] addR %( %S ( get_object_var ( 'Facet' ) )  %, %S ( get_object_var ( 'Mixin' ) )  )% 
 
 //	[{%S#f_UseNewGenRec()!=true}\
  if ( ( %S %?f UseNewGenRec %( )% ) %!=  true ) then
  begin
+//	%f_addR(%S%{Facet},%S%{Mixin})\
+  [%f] addR %( %S ( get_object_var ( 'Facet' ) )  %, %S ( get_object_var ( 'Mixin' ) )  )% 
+//	%f_addR(%S,%S%{Mixin})\
+  [%f] addR %( %S %, %S ( get_object_var ( 'Mixin' ) )  )% 
 //	%S%f_add_attribute(%SU_%S%{Facet}U_Alien,writeonly,Alien : %S%{Facet}U,Attr_Inst)\
   %S %f add_attribute %( %S |U '_'
   %S ( get_object_var ( 'Facet' ) |U )  '_Alien' %, 'writeonly' %, 'Alien : '

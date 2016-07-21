@@ -85,7 +85,7 @@ OBJECT FUNCTION "Контрол в фокусе - в стек"
 ;
 
 VOID OPERATOR "Установить фокус в контрол с именем"  ^ IN aName // Бывший TryFocus
-	aName DO byname:control:push pop:Control:SetFocus ASSERT
+	aName DO byname:control:push pop:Control:SetFocus ?ASSURE [ 'Ошибка установки фокуса: ' aName ]
 ;  
 
 PROCEDURE "Новая строка"

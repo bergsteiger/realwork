@@ -124,12 +124,12 @@ implementation @ <<VCMSubsystem>>
  begin
   %S %f pas_OutUnitFile %( )% 
  end // if
-//	<%CX>
+//	<{}{%C#f_UseNewGenRec()!=true}%CX>
  INTEGER VAR l_Counter l_Counter := 0
  for %S%C
  begin
   OBJECT IN %C
-  if true then
+  if ( ( %C %?f UseNewGenRec %( )% ) %!=  true ) then
   begin
    %C |X 
    ++! l_Counter

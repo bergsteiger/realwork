@@ -183,7 +183,7 @@
    Exit;
   end;//f_Browser <> nil
  end;//aStateType = vcm_stPosition
- Result := inherited DoLoadState(aState, aStateType);
+ Result := inherited DoLoadState(aState, aStateType, aClone);
 //#UC END# *49807428008C_49EC746B01E5_impl*
 //#UC START# *49807428008C_49EC746B01E5_var*
 var
@@ -368,7 +368,7 @@ var
  begin
   Cancel := true;
   if not nsOpenLink(l_DocID, l_SubID, dptSub, True, False, False) then
-   nsOpenDocumentByNumber(l_DocID, l_SubID, dptSub);
+   nsOpenDocumentByNumber(l_DocID, l_SubID, dptSub, True, False, vcm_okInCurrentTab, True);
   Exit;
  end;
  if nsIsFileFromMobileGarant(URL) then

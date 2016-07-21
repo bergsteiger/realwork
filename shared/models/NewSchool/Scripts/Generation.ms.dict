@@ -4752,6 +4752,12 @@ BOOLEAN elem_func CanMapPropertiesToFields
  >>> Result
 ; // CanMapPropertiesToFields
 
+BOOLEAN elem_func TreatAsRecord
+ ( Self .IsStaticObject )
+ AND ( Self .UPisTrue "not treat as record for XE4" ! )
+ >>> Result
+; // TreatAsRecord
+
 elem_iterator Fields
  Cached:
  (
@@ -4790,6 +4796,25 @@ elem_iterator Fields
   
   if ( Self .IsStaticObject ) then
   begin
+   if ( Self .TreatAsRecord ) then
+   begin
+    VAR l_Ancestor
+    Self .MainAncestor >>> l_Ancestor
+    if ( l_Ancestor .NotIsNil ) then
+    begin
+     >>> l_Fields
+     ToArray: (
+      'r' l_Ancestor .TypeName Cat
+      l_Ancestor
+      MakeField: (
+        IN aMade
+       aMade -> Visibility := PublicAccess
+       aMade -> "ifdef" := 'XE4'
+      ) // MakeField:
+     ) // ToArray:
+     .join> l_Fields
+    end // ( l_Ancestor .NotIsNil )
+   end // ( Self .TreatAsRecord )
    if ( Self .IsAutoHelper ) then
    begin
     .joinWithLambded> ( Self .ImplementsEx ) .ToArray: .InterfaceLinkField
@@ -11946,6 +11971,7 @@ INTERFACE elem_func FakeMethod
    aMade -> Abstraction := at_virtual
    aMade ->^ cVarUserCodeName ^:= cEmptyUserCode
    aMade ->^ cImplementationUserCodeName ^:= ' Assert(false);'
+   aMade -> "ifndef" := 'XE4'
   )
  )
  >>> Result
@@ -12399,8 +12425,12 @@ PROCEDURE .ByVisibility>
  false >>> l_WasOut 
  'private' >>> l_Separator
  anArray .filter> ( aFilter DO PrivateAccess == ) .for> DoOut
- false >>> l_WasOut 
- 'protected' >>> l_Separator
+ false >>> l_WasOut
+ if ( g_Implementor .TreatAsRecord ) then
+  '{$IfDef XE4}private{$Else}protected{$EndIf}'
+ else
+  'protected'
+ >>> l_Separator
  anArray .filter> ( aFilter DO ProtectedAccess == ) .for> DoOut
  false >>> l_WasOut 
  'public' >>> l_Separator
@@ -13043,7 +13073,17 @@ elem_proc OutStaticObject
 
    Self .UPisTrue "packed" ? 'packed '
 
-   'object' Self .MainAncestor .TypeName .With() 
+   if ( Self .TreatAsRecord ) then
+   begin
+    '{$IfDef XE4}record{$Else}object'
+   end // ( Self .TreatAsRecord )
+   else
+   begin
+    'object'
+   end // ( Self .TreatAsRecord )
+   Self .MainAncestor .TypeName .With()
+   if ( Self .TreatAsRecord ) then
+    '{$EndIf}'
   ] .Out
   
   Self .OutDocumentation
@@ -15344,29 +15384,39 @@ STRING elem_func ProjectUnitPath
     '' >>> l_Path
    end // ( l_Path 'NotFinished\Borland\Delphi\Rtl\Sys' string:Pos -1 != )
   end // ( l_Path .IsNotNil )
-  
+
   if ( l_Path .IsNotNil ) then
   begin
    l_Path cNotFinished '' string:Replace >>> l_Path
    l_Path cNotCompleted '' string:Replace >>> l_Path
    l_Path 'NotFinished\' '' string:Replace >>> l_Path
   end // ( l_Path .IsNotNil )
-  l_Path 
- ) 
+  l_Path
+ )
  >>> Result
 ; // ProjectUnitPath
 
 STRING elem_func ProjectUnitName
  Self .UnitName
- 
+
  VAR l_Path
  Self .ProjectUnitPath >>> l_Path
- 
+
  if ( l_Path .IsNotNil ) then
  begin
-  [ ' in ' cQuote l_Path cQuote ] strings:Cat Cat
+  VAR l_NeedsIfDef
+  ( l_Path '\Borland\Delphi\' string:Pos -1 != )
+  OR ( l_Path '\JEDI\' string:Pos -1 != )
+  >>> l_NeedsIfDef
+  [
+   if l_NeedsIfDef then
+    ' {$IfNDef XE4}'
+   ' in ' cQuote l_Path cQuote
+   if l_NeedsIfDef then
+    ' {$EndIf}'
+  ] strings:Cat Cat
  end // ( l_Path .IsNotNil )
- 
+
  >>> Result
 ; // ProjectUnitName
 

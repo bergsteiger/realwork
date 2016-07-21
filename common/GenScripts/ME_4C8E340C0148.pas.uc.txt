@@ -68,7 +68,7 @@
   if not Supports(l_Toolbar.Owner, IvcmEntityForm, l_Form) then
    Assert(False);
   {$IfDef Nemesis}
-  TdmStdRes.CustomizePanel(TvcmCustAvailableToolbarOps.Make(l_Form));
+  TvcmTaskPanelServices.Instance.CustomizePanel(TvcmCustAvailableToolbarOps.Make(l_Form));
   {$Else}
   Assert(false);
   {$EndIf Nemesis}

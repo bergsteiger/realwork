@@ -2708,6 +2708,138 @@ ref; // ME_4728B67C0037 EndPaint
 
 ref; // ME_56B9CF99001C Ml3CanvasPaint
 
+FORWARD ME_4C4FE105033F
+
+FORWARD ME_4C4FE15F033E
+
+: ME_4C4FE1660302
+ CONST UID '4C4FE1660302'
+ CONST Name 'anIndex'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4C4FE15F033E // Items
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4C4FE1660302 anIndex
+
+: ME_4C4FE15F033E
+ CONST UID '4C4FE15F033E'
+ CONST Name 'Items'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent HWL ME_4C4FE105033F // Il3CStringList
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+ : Attributes
+   Seq: ( HWL ME_4C4FE1660302 // anIndex
+ )
+ ; // Attributes
+ CONST "is default" true
+ CONST "pm" true
+
+ref; // ME_4C4FE15F033E Items
+
+: ME_46A6081203AC_ME_4C4FE105033F
+ : Original WL 'ME_46A6081203AC' '4677FBA70343.pas.ms.script' // Clear
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_46A6081203AC_ME_4C4FE105033F Clear
+
+: ME_46A608290319_ME_4C4FE105033F
+ : Original WL 'ME_46A608290319' '4677FBA70343.pas.ms.script' // Delete
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_46A608290319_ME_4C4FE105033F Delete
+
+: ME_46A6084601DA_ME_4C4FE105033F
+ : Original WL 'ME_46A6084601DA' '4677FBA70343.pas.ms.script' // Count
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_46A6084601DA_ME_4C4FE105033F Count
+
+: ME_4C4FE105033F
+ CONST UID '4C4FE105033F'
+ CONST GUID 'F7BD6D08-43A8-4C7B-AF1B-BA0233E5CA55'
+ CONST Name 'Il3CStringList'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_467C0CAA02AB // l3InternalInterfaces
+ ;
+ : Inherits
+   Seq: ( WL 'ME_46A607F2031A' '4677FBA70343.pas.ms.script' // Il3List
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( HWL ME_4C4FE15F033E // Items
+ )
+ ; // Attributes
+ : Implemented
+   Seq: ( ME_46A6081203AC_ME_4C4FE105033F // Clear
+ ME_46A608290319_ME_4C4FE105033F // Delete
+ ME_46A6084601DA_ME_4C4FE105033F // Count
+ )
+ ; // Implemented
+ CONST extprop:rc:SelfName 'CStringList'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4C4FE105033F Il3CStringList
+
+FORWARD ME_4C986CAD0117
+
+: ME_4C986CEC0007
+ CONST Name 'aResult'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4C986CEC0007 aResult
+
+: ME_4C986CCD01AF
+ CONST UID '4C986CCD01AF'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4C986CAD0117 // Tl3AskClearClipboardProc
+ ;
+ : Parameters
+   Seq: ( ME_4C986CEC0007 // aResult
+ )
+ ; // Parameters
+
+ref; // ME_4C986CCD01AF DoIt
+
+: ME_4C986CAD0117
+ CONST UID '4C986CAD0117'
+ CONST Name 'Tl3AskClearClipboardProc'
+ CONST Class class_Class
+ : Stereotype st_Function ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_467C0CAA02AB // l3InternalInterfaces
+ ;
+ : Operations
+   Seq: ( HWL ME_4C986CCD01AF // DoIt
+ )
+ ; // Operations
+ CONST "of object" true
+
+ref; // ME_4C986CAD0117 Tl3AskClearClipboardProc
+
 FORWARD ME_56B9D11102EB
 
 : ME_476F84D8017A
@@ -2927,138 +3059,6 @@ ref; // ME_4728A74F03A2 DrawText
  ; // Operations
 
 ref; // ME_56B9D11102EB Ml3InfoCanvas
-
-FORWARD ME_4C4FE105033F
-
-FORWARD ME_4C4FE15F033E
-
-: ME_4C4FE1660302
- CONST UID '4C4FE1660302'
- CONST Name 'anIndex'
- CONST Class class_Attribute
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent HWL ME_4C4FE15F033E // Items
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_4C4FE1660302 anIndex
-
-: ME_4C4FE15F033E
- CONST UID '4C4FE15F033E'
- CONST Name 'Items'
- CONST Class class_Attribute
- : Stereotype st_readonly::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_abstract
- CONST LinkType lt_lnk
- : Parent HWL ME_4C4FE105033F // Il3CStringList
- ;
- : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
- ;
- : Attributes
-   Seq: ( HWL ME_4C4FE1660302 // anIndex
- )
- ; // Attributes
- CONST "is default" true
- CONST "pm" true
-
-ref; // ME_4C4FE15F033E Items
-
-: ME_46A6081203AC_ME_4C4FE105033F
- : Original WL 'ME_46A6081203AC' '4677FBA70343.pas.ms.script' // Clear
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_46A6081203AC_ME_4C4FE105033F Clear
-
-: ME_46A608290319_ME_4C4FE105033F
- : Original WL 'ME_46A608290319' '4677FBA70343.pas.ms.script' // Delete
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_46A608290319_ME_4C4FE105033F Delete
-
-: ME_46A6084601DA_ME_4C4FE105033F
- : Original WL 'ME_46A6084601DA' '4677FBA70343.pas.ms.script' // Count
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" true
-ref; // ME_46A6084601DA_ME_4C4FE105033F Count
-
-: ME_4C4FE105033F
- CONST UID '4C4FE105033F'
- CONST GUID 'F7BD6D08-43A8-4C7B-AF1B-BA0233E5CA55'
- CONST Name 'Il3CStringList'
- CONST Class class_Class
- : Stereotype st_Facet ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent HWL ME_467C0CAA02AB // l3InternalInterfaces
- ;
- : Inherits
-   Seq: ( WL 'ME_46A607F2031A' '4677FBA70343.pas.ms.script' // Il3List
- )
- ; // Inherits
- : Attributes
-   Seq: ( HWL ME_4C4FE15F033E // Items
- )
- ; // Attributes
- : Implemented
-   Seq: ( ME_46A6081203AC_ME_4C4FE105033F // Clear
- ME_46A608290319_ME_4C4FE105033F // Delete
- ME_46A6084601DA_ME_4C4FE105033F // Count
- )
- ; // Implemented
- CONST extprop:rc:SelfName 'CStringList'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_4C4FE105033F Il3CStringList
-
-FORWARD ME_4C986CAD0117
-
-: ME_4C986CEC0007
- CONST Name 'aResult'
- CONST Class class_Parameter
- : Stereotype st_inout ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_4C986CEC0007 aResult
-
-: ME_4C986CCD01AF
- CONST UID '4C986CCD01AF'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent HWL ME_4C986CAD0117 // Tl3AskClearClipboardProc
- ;
- : Parameters
-   Seq: ( ME_4C986CEC0007 // aResult
- )
- ; // Parameters
-
-ref; // ME_4C986CCD01AF DoIt
-
-: ME_4C986CAD0117
- CONST UID '4C986CAD0117'
- CONST Name 'Tl3AskClearClipboardProc'
- CONST Class class_Class
- : Stereotype st_Function ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent HWL ME_467C0CAA02AB // l3InternalInterfaces
- ;
- : Operations
-   Seq: ( HWL ME_4C986CCD01AF // DoIt
- )
- ; // Operations
- CONST "of object" true
-
-ref; // ME_4C986CAD0117 Tl3AskClearClipboardProc
 
 FORWARD ME_475E5FCB018F
 
@@ -6268,6 +6268,133 @@ ref; // ME_4728C1490398 StartPage
 
 ref; // ME_4728C0FF02A2 Il3HAFPainter
 
+FORWARD ME_4DB964FA0342
+
+FORWARD ME_4DB965530257
+
+: ME_4DB965980362
+ CONST UID '4DB965980362'
+ CONST Name 'rStart'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_4DB965530257 // Tl3Range
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4DB965980362 rStart
+
+: ME_4DB965A0005D
+ CONST UID '4DB965A0005D'
+ CONST Name 'rLength'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_4DB965530257 // Tl3Range
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4DB965A0005D rLength
+
+: ME_4DB965530257
+ CONST UID '4DB965530257'
+ CONST Name 'Tl3Range'
+ CONST Class class_Class
+ : Stereotype st_Struct ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4DB964FA0342 // Il3RangeTool
+ ;
+ : Attributes
+   Seq: ( HWL ME_4DB965980362 // rStart
+ HWL ME_4DB965A0005D // rLength
+ )
+ ; // Attributes
+
+ref; // ME_4DB965530257 Tl3Range
+
+: ME_4DB965240322
+ CONST UID '4DB965240322'
+ CONST Name 'RangeCount'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent HWL ME_4DB964FA0342 // Il3RangeTool
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "pm" true
+
+ref; // ME_4DB965240322 RangeCount
+
+FORWARD ME_4DB9655F0192
+
+: ME_4DB9656C0395
+ CONST UID '4DB9656C0395'
+ CONST Name 'Index'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4DB9655F0192 // Ranges
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4DB9656C0395 Index
+
+: ME_4DB9655F0192
+ CONST UID '4DB9655F0192'
+ CONST Name 'Ranges'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent HWL ME_4DB964FA0342 // Il3RangeTool
+ ;
+ : Target HWL ME_4DB965530257 // Tl3Range
+ ;
+ : Attributes
+   Seq: ( HWL ME_4DB9656C0395 // Index
+ )
+ ; // Attributes
+ CONST "pm" false
+
+ref; // ME_4DB9655F0192 Ranges
+
+: ME_4DB964FA0342
+ CONST UID '4DB964FA0342'
+ CONST GUID '6D668689-FA10-4F02-AAC3-F7F6067D951B'
+ CONST Name 'Il3RangeTool'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_467C0CAA02AB // l3InternalInterfaces
+ ;
+ : Attributes
+   Seq: ( HWL ME_4DB965240322 // RangeCount
+ HWL ME_4DB9655F0192 // Ranges
+ )
+ ; // Attributes
+ : Children
+   Seq: ( HWL ME_4DB965530257 // Tl3Range
+ )
+ ; // Children
+ CONST extprop:rc:SelfName 'RangeTool'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4DB964FA0342 Il3RangeTool
+
 FORWARD ME_4A4CB28103DE
 
 FORWARD ME_49182CE401C8
@@ -6823,133 +6950,6 @@ ref; // ME_4E54CF2D00D3 ClearFrameObject
  ; // Children
 
 ref; // ME_4A4CB28103DE Ml3FrameLines
-
-FORWARD ME_4DB964FA0342
-
-FORWARD ME_4DB965530257
-
-: ME_4DB965980362
- CONST UID '4DB965980362'
- CONST Name 'rStart'
- CONST Class class_Attribute
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent HWL ME_4DB965530257 // Tl3Range
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_4DB965980362 rStart
-
-: ME_4DB965A0005D
- CONST UID '4DB965A0005D'
- CONST Name 'rLength'
- CONST Class class_Attribute
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent HWL ME_4DB965530257 // Tl3Range
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_4DB965A0005D rLength
-
-: ME_4DB965530257
- CONST UID '4DB965530257'
- CONST Name 'Tl3Range'
- CONST Class class_Class
- : Stereotype st_Struct ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent HWL ME_4DB964FA0342 // Il3RangeTool
- ;
- : Attributes
-   Seq: ( HWL ME_4DB965980362 // rStart
- HWL ME_4DB965A0005D // rLength
- )
- ; // Attributes
-
-ref; // ME_4DB965530257 Tl3Range
-
-: ME_4DB965240322
- CONST UID '4DB965240322'
- CONST Name 'RangeCount'
- CONST Class class_Attribute
- : Stereotype st_readonly::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_abstract
- CONST LinkType lt_lnk
- : Parent HWL ME_4DB964FA0342 // Il3RangeTool
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- CONST "pm" true
-
-ref; // ME_4DB965240322 RangeCount
-
-FORWARD ME_4DB9655F0192
-
-: ME_4DB9656C0395
- CONST UID '4DB9656C0395'
- CONST Name 'Index'
- CONST Class class_Attribute
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent HWL ME_4DB9655F0192 // Ranges
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_4DB9656C0395 Index
-
-: ME_4DB9655F0192
- CONST UID '4DB9655F0192'
- CONST Name 'Ranges'
- CONST Class class_Attribute
- : Stereotype st_readonly::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_abstract
- CONST LinkType lt_lnk
- : Parent HWL ME_4DB964FA0342 // Il3RangeTool
- ;
- : Target HWL ME_4DB965530257 // Tl3Range
- ;
- : Attributes
-   Seq: ( HWL ME_4DB9656C0395 // Index
- )
- ; // Attributes
- CONST "pm" false
-
-ref; // ME_4DB9655F0192 Ranges
-
-: ME_4DB964FA0342
- CONST UID '4DB964FA0342'
- CONST GUID '6D668689-FA10-4F02-AAC3-F7F6067D951B'
- CONST Name 'Il3RangeTool'
- CONST Class class_Class
- : Stereotype st_Facet ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent HWL ME_467C0CAA02AB // l3InternalInterfaces
- ;
- : Attributes
-   Seq: ( HWL ME_4DB965240322 // RangeCount
- HWL ME_4DB9655F0192 // Ranges
- )
- ; // Attributes
- : Children
-   Seq: ( HWL ME_4DB965530257 // Tl3Range
- )
- ; // Children
- CONST extprop:rc:SelfName 'RangeTool'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_4DB964FA0342 Il3RangeTool
 
 : ME_4A4CB2B2031F_ME_475E5FCB018F
  : Original HWL ME_4A4CB2B2031F // StartFrameObject
@@ -7649,965 +7649,6 @@ ref; // ME_476F712D0181 IsMF
  CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_476F70910097 Il3Bitmap
-
-FORWARD ME_4A4479E503D5
-
-: ME_4727432E0121_ME_4A4479E503D5
- : Original HWL ME_4727432E0121 // pxAverageCharWidth
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4727432E0121_ME_4A4479E503D5 pxAverageCharWidth
-
-: ME_472743420382_ME_4A4479E503D5
- : Original HWL ME_472743420382 // AverageCharWidth
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_472743420382_ME_4A4479E503D5 AverageCharWidth
-
-: ME_472744E803E3_ME_4A4479E503D5
- : Original HWL ME_472744E803E3 // TextExtent
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_472744E803E3_ME_4A4479E503D5 TextExtent
-
-: ME_472894A001A6_ME_4A4479E503D5
- : Original HWL ME_472894A001A6 // Pos2Index
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_472894A001A6_ME_4A4479E503D5 Pos2Index
-
-: ME_472894BA0258_ME_4A4479E503D5
- : Original HWL ME_472894BA0258 // Pos2IndexQ
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_472894BA0258_ME_4A4479E503D5 Pos2IndexQ
-
-: ME_472894EA0166_ME_4A4479E503D5
- : Original HWL ME_472894EA0166 // AverageCharHeight
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_472894EA0166_ME_4A4479E503D5 AverageCharHeight
-
-: ME_4728950502EC_ME_4A4479E503D5
- : Original HWL ME_4728950502EC // LP2DP
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4728950502EC_ME_4A4479E503D5 LP2DP
-
-: ME_472897C30237_ME_4A4479E503D5
- : Original HWL ME_472897C30237 // LR2DR
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_472897C30237_ME_4A4479E503D5 LR2DR
-
-: ME_472898020151_ME_4A4479E503D5
- : Original HWL ME_472898020151 // DR2LR
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_472898020151_ME_4A4479E503D5 DR2LR
-
-: ME_4728980E02AD_ME_4A4479E503D5
- : Original HWL ME_4728980E02AD // Lock
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4728980E02AD_ME_4A4479E503D5 Lock
-
-: ME_4728981C0054_ME_4A4479E503D5
- : Original HWL ME_4728981C0054 // Unlock
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4728981C0054_ME_4A4479E503D5 Unlock
-
-: ME_47289B000379_ME_4A4479E503D5
- : Original HWL ME_47289B000379 // GetKerning
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_47289B000379_ME_4A4479E503D5 GetKerning
-
-: ME_4728A0840026_ME_4A4479E503D5
- : Original HWL ME_4728A0840026 // OffsetRgn
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4728A0840026_ME_4A4479E503D5 OffsetRgn
-
-: ME_4728A0C40082_ME_4A4479E503D5
- : Original HWL ME_4728A0C40082 // CaretExtent
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4728A0C40082_ME_4A4479E503D5 CaretExtent
-
-: ME_4728A4A703CC_ME_4A4479E503D5
- : Original HWL ME_4728A4A703CC // StartTabs
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4728A4A703CC_ME_4A4479E503D5 StartTabs
-
-: ME_4728A4D00013_ME_4A4479E503D5
- : Original HWL ME_4728A4D00013 // StartTabs
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4728A4D00013_ME_4A4479E503D5 StartTabs
-
-: ME_4728A4DF0065_ME_4A4479E503D5
- : Original HWL ME_4728A4DF0065 // FinishTabs
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4728A4DF0065_ME_4A4479E503D5 FinishTabs
-
-: ME_4728A4F602FD_ME_4A4479E503D5
- : Original HWL ME_4728A4F602FD // TabInfo
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4728A4F602FD_ME_4A4479E503D5 TabInfo
-
-: ME_4728A509016A_ME_4A4479E503D5
- : Original HWL ME_4728A509016A // EQ
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4728A509016A_ME_4A4479E503D5 EQ
-
-: ME_4728A52B0385_ME_4A4479E503D5
- : Original HWL ME_4728A52B0385 // NearestColor
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4728A52B0385_ME_4A4479E503D5 NearestColor
-
-: ME_4728A74F03A2_ME_4A4479E503D5
- : Original HWL ME_4728A74F03A2 // DrawText
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4728A74F03A2_ME_4A4479E503D5 DrawText
-
-: ME_4728A7BC0330_ME_4A4479E503D5
- : Original HWL ME_4728A7BC0330 // TabbedMultilineTextOut
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4728A7BC0330_ME_4A4479E503D5 TabbedMultilineTextOut
-
-: ME_4728AD37017F_ME_4A4479E503D5
- : Original HWL ME_4728AD37017F // PushBC
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4728AD37017F_ME_4A4479E503D5 PushBC
-
-: ME_4728AD43021C_ME_4A4479E503D5
- : Original HWL ME_4728AD43021C // TopBC
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4728AD43021C_ME_4A4479E503D5 TopBC
-
-: ME_4728AD580263_ME_4A4479E503D5
- : Original HWL ME_4728AD580263 // PopBC
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4728AD580263_ME_4A4479E503D5 PopBC
-
-: ME_4728AD680067_ME_4A4479E503D5
- : Original HWL ME_4728AD680067 // PushFC
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4728AD680067_ME_4A4479E503D5 PushFC
-
-: ME_4728AD760338_ME_4A4479E503D5
- : Original HWL ME_4728AD760338 // PopFC
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4728AD760338_ME_4A4479E503D5 PopFC
-
-: ME_4728ADF50313_ME_4A4479E503D5
- : Original HWL ME_4728ADF50313 // TextMetrics
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4728ADF50313_ME_4A4479E503D5 TextMetrics
-
-: ME_4728AE20030A_ME_4A4479E503D5
- : Original HWL ME_4728AE20030A // Font
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" false
-ref; // ME_4728AE20030A_ME_4A4479E503D5 Font
-
-: ME_4728AE3E03B8_ME_4A4479E503D5
- : Original HWL ME_4728AE3E03B8 // DC
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" true
-ref; // ME_4728AE3E03B8_ME_4A4479E503D5 DC
-
-: ME_4728AE5D020E_ME_4A4479E503D5
- : Original HWL ME_4728AE5D020E // PixelsPerInchX
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" true
-ref; // ME_4728AE5D020E_ME_4A4479E503D5 PixelsPerInchX
-
-: ME_4728AE6A01EE_ME_4A4479E503D5
- : Original HWL ME_4728AE6A01EE // PixelsPerInchY
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" true
-ref; // ME_4728AE6A01EE_ME_4A4479E503D5 PixelsPerInchY
-
-: ME_4728AEC301D8_ME_4A4479E503D5
- : Original HWL ME_4728AEC301D8 // MoveWindowOrg
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4728AEC301D8_ME_4A4479E503D5 MoveWindowOrg
-
-: ME_4728AECD010B_ME_4A4479E503D5
- : Original HWL ME_4728AECD010B // MoveWindowOrg
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4728AECD010B_ME_4A4479E503D5 MoveWindowOrg
-
-: ME_4728AED70336_ME_4A4479E503D5
- : Original HWL ME_4728AED70336 // FillForeRect
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4728AED70336_ME_4A4479E503D5 FillForeRect
-
-: ME_4728AF3E03AC_ME_4A4479E503D5
- : Original HWL ME_4728AF3E03AC // FillRect
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4728AF3E03AC_ME_4A4479E503D5 FillRect
-
-: ME_4728AF5103A9_ME_4A4479E503D5
- : Original HWL ME_4728AF5103A9 // FillRect
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4728AF5103A9_ME_4A4479E503D5 FillRect
-
-: ME_4728B590009B_ME_4A4479E503D5
- : Original HWL ME_4728B590009B // FillEmptyRect
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4728B590009B_ME_4A4479E503D5 FillEmptyRect
-
-: ME_4728B59A000A_ME_4A4479E503D5
- : Original HWL ME_4728B59A000A // FillEmptyRect
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4728B59A000A_ME_4A4479E503D5 FillEmptyRect
-
-: ME_4728B5A50041_ME_4A4479E503D5
- : Original HWL ME_4728B5A50041 // FillRgn
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4728B5A50041_ME_4A4479E503D5 FillRgn
-
-: ME_4728B5B5026B_ME_4A4479E503D5
- : Original HWL ME_4728B5B5026B // TextOut
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4728B5B5026B_ME_4A4479E503D5 TextOut
-
-: ME_4728B5EB01A1_ME_4A4479E503D5
- : Original HWL ME_4728B5EB01A1 // SetCaret
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4728B5EB01A1_ME_4A4479E503D5 SetCaret
-
-: ME_4728B60F0211_ME_4A4479E503D5
- : Original HWL ME_4728B60F0211 // IncCaret
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4728B60F0211_ME_4A4479E503D5 IncCaret
-
-: ME_4728B61D0058_ME_4A4479E503D5
- : Original HWL ME_4728B61D0058 // BeginPaint
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4728B61D0058_ME_4A4479E503D5 BeginPaint
-
-: ME_4728B62702C9_ME_4A4479E503D5
- : Original HWL ME_4728B62702C9 // StartObject
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4728B62702C9_ME_4A4479E503D5 StartObject
-
-: ME_4728B637025E_ME_4A4479E503D5
- : Original HWL ME_4728B637025E // SetPageTop
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4728B637025E_ME_4A4479E503D5 SetPageTop
-
-: ME_4728B67C0037_ME_4A4479E503D5
- : Original HWL ME_4728B67C0037 // EndPaint
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4728B67C0037_ME_4A4479E503D5 EndPaint
-
-: ME_4728B68502C5_ME_4A4479E503D5
- : Original HWL ME_4728B68502C5 // BeginInvert
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4728B68502C5_ME_4A4479E503D5 BeginInvert
-
-: ME_4728B68C0329_ME_4A4479E503D5
- : Original HWL ME_4728B68C0329 // EndInvert
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4728B68C0329_ME_4A4479E503D5 EndInvert
-
-: ME_4728B6B501C9_ME_4A4479E503D5
- : Original HWL ME_4728B6B501C9 // DrawRgnOrBlock
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4728B6B501C9_ME_4A4479E503D5 DrawRgnOrBlock
-
-: ME_4728B6DD013A_ME_4A4479E503D5
- : Original HWL ME_4728B6DD013A // HasToDraw
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4728B6DD013A_ME_4A4479E503D5 HasToDraw
-
-: ME_4728B6ED0101_ME_4A4479E503D5
- : Original HWL ME_4728B6ED0101 // StretchDraw
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4728B6ED0101_ME_4A4479E503D5 StretchDraw
-
-: ME_4728B97800C0_ME_4A4479E503D5
- : Original HWL ME_4728B97800C0 // DrawSub
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4728B97800C0_ME_4A4479E503D5 DrawSub
-
-: ME_4728B9F10060_ME_4A4479E503D5
- : Original HWL ME_4728B9F10060 // ExtTextOut
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4728B9F10060_ME_4A4479E503D5 ExtTextOut
-
-: ME_4728BAAC0127_ME_4A4479E503D5
- : Original HWL ME_4728BAAC0127 // ExtTextOut
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4728BAAC0127_ME_4A4479E503D5 ExtTextOut
-
-: ME_4728BAD601DC_ME_4A4479E503D5
- : Original HWL ME_4728BAD601DC // CaretLineOut
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4728BAD601DC_ME_4A4479E503D5 CaretLineOut
-
-: ME_4728BB120156_ME_4A4479E503D5
- : Original HWL ME_4728BB120156 // StringOut
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4728BB120156_ME_4A4479E503D5 StringOut
-
-: ME_4728BB2D0173_ME_4A4479E503D5
- : Original HWL ME_4728BB2D0173 // TabbedTextOut
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4728BB2D0173_ME_4A4479E503D5 TabbedTextOut
-
-: ME_4728BB8F03CD_ME_4A4479E503D5
- : Original HWL ME_4728BB8F03CD // TabbedTextOut
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4728BB8F03CD_ME_4A4479E503D5 TabbedTextOut
-
-: ME_4728BBAF00BB_ME_4A4479E503D5
- : Original HWL ME_4728BBAF00BB // NewPage
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4728BBAF00BB_ME_4A4479E503D5 NewPage
-
-: ME_4728BBC80252_ME_4A4479E503D5
- : Original HWL ME_4728BBC80252 // Line
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4728BBC80252_ME_4A4479E503D5 Line
-
-: ME_4728BBE702D9_ME_4A4479E503D5
- : Original HWL ME_4728BBE702D9 // Line
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4728BBE702D9_ME_4A4479E503D5 Line
-
-: ME_4728BC06000C_ME_4A4479E503D5
- : Original HWL ME_4728BC06000C // MoveTo
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4728BC06000C_ME_4A4479E503D5 MoveTo
-
-: ME_4728BC0E0249_ME_4A4479E503D5
- : Original HWL ME_4728BC0E0249 // LineTo
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4728BC0E0249_ME_4A4479E503D5 LineTo
-
-: ME_4728BC18022F_ME_4A4479E503D5
- : Original HWL ME_4728BC18022F // MoveTo
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4728BC18022F_ME_4A4479E503D5 MoveTo
-
-: ME_4728BC2103A4_ME_4A4479E503D5
- : Original HWL ME_4728BC2103A4 // LineTo
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4728BC2103A4_ME_4A4479E503D5 LineTo
-
-: ME_4728BC4B02FB_ME_4A4479E503D5
- : Original HWL ME_4728BC4B02FB // WO
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4728BC4B02FB_ME_4A4479E503D5 WO
-
-: ME_4728BC54039E_ME_4A4479E503D5
- : Original HWL ME_4728BC54039E // WO
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4728BC54039E_ME_4A4479E503D5 WO
-
-: ME_4728BC61002B_ME_4A4479E503D5
- : Original HWL ME_4728BC61002B // WO
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4728BC61002B_ME_4A4479E503D5 WO
-
-: ME_4728BC6A0088_ME_4A4479E503D5
- : Original HWL ME_4728BC6A0088 // DrawFocusRect
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4728BC6A0088_ME_4A4479E503D5 DrawFocusRect
-
-: ME_4728BC74029F_ME_4A4479E503D5
- : Original HWL ME_4728BC74029F // IsVirtual
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4728BC74029F_ME_4A4479E503D5 IsVirtual
-
-: ME_4728BC81028A_ME_4A4479E503D5
- : Original HWL ME_4728BC81028A // StartRegion
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4728BC81028A_ME_4A4479E503D5 StartRegion
-
-: ME_4728BC890119_ME_4A4479E503D5
- : Original HWL ME_4728BC890119 // FinishRegion
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4728BC890119_ME_4A4479E503D5 FinishRegion
-
-: ME_4728BC9A022C_ME_4A4479E503D5
- : Original HWL ME_4728BC9A022C // PushWO
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4728BC9A022C_ME_4A4479E503D5 PushWO
-
-: ME_4728BCB60128_ME_4A4479E503D5
- : Original HWL ME_4728BCB60128 // PopWO
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4728BCB60128_ME_4A4479E503D5 PopWO
-
-: ME_4728BCF0038E_ME_4A4479E503D5
- : Original HWL ME_4728BCF0038E // WindowOrg
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" true
-ref; // ME_4728BCF0038E_ME_4A4479E503D5 WindowOrg
-
-: ME_4728BCFF03D6_ME_4A4479E503D5
- : Original HWL ME_4728BCFF03D6 // SWindowOrg
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" true
-ref; // ME_4728BCFF03D6_ME_4A4479E503D5 SWindowOrg
-
-: ME_4728BD12038D_ME_4A4479E503D5
- : Original HWL ME_4728BD12038D // ClipRect
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" true
-ref; // ME_4728BD12038D_ME_4A4479E503D5 ClipRect
-
-: ME_4728BD2703E7_ME_4A4479E503D5
- : Original HWL ME_4728BD2703E7 // GlobalClipRect
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" true
-ref; // ME_4728BD2703E7_ME_4A4479E503D5 GlobalClipRect
-
-: ME_4728BD3800A2_ME_4A4479E503D5
- : Original HWL ME_4728BD3800A2 // BackColor
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" true
-ref; // ME_4728BD3800A2_ME_4A4479E503D5 BackColor
-
-: ME_4728BD560290_ME_4A4479E503D5
- : Original HWL ME_4728BD560290 // DrawEnabled
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" true
-ref; // ME_4728BD560290_ME_4A4479E503D5 DrawEnabled
-
-: ME_4728BD890258_ME_4A4479E503D5
- : Original HWL ME_4728BD890258 // DrawSpecial
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" true
-ref; // ME_4728BD890258_ME_4A4479E503D5 DrawSpecial
-
-: ME_4728BD9F0227_ME_4A4479E503D5
- : Original HWL ME_4728BD9F0227 // CanDrawSubs
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" true
-ref; // ME_4728BD9F0227_ME_4A4479E503D5 CanDrawSubs
-
-: ME_4728BDB301F4_ME_4A4479E503D5
- : Original HWL ME_4728BDB301F4 // ShowCursor
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" true
-ref; // ME_4728BDB301F4_ME_4A4479E503D5 ShowCursor
-
-: ME_4728BE1500AA_ME_4A4479E503D5
- : Original HWL ME_4728BE1500AA // FontIndexSet
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" true
-ref; // ME_4728BE1500AA_ME_4A4479E503D5 FontIndexSet
-
-: ME_4728BE460354_ME_4A4479E503D5
- : Original HWL ME_4728BE460354 // Printed
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" true
-ref; // ME_4728BE460354_ME_4A4479E503D5 Printed
-
-: ME_4728BE6A0392_ME_4A4479E503D5
- : Original HWL ME_4728BE6A0392 // PageNumber
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" true
-ref; // ME_4728BE6A0392_ME_4A4479E503D5 PageNumber
-
-: ME_4728BE830080_ME_4A4479E503D5
- : Original HWL ME_4728BE830080 // PageWidthNumber
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" true
-ref; // ME_4728BE830080_ME_4A4479E503D5 PageWidthNumber
-
-: ME_4728C0510003_ME_4A4479E503D5
- : Original HWL ME_4728C0510003 // PenWidth
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" true
-ref; // ME_4728C0510003_ME_4A4479E503D5 PenWidth
-
-: ME_4728C06D0306_ME_4A4479E503D5
- : Original HWL ME_4728C06D0306 // PageOrientation
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" true
-ref; // ME_4728C06D0306_ME_4A4479E503D5 PageOrientation
-
-: ME_4728C0890017_ME_4A4479E503D5
- : Original HWL ME_4728C0890017 // SectionExtent
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" true
-ref; // ME_4728C0890017_ME_4A4479E503D5 SectionExtent
-
-: ME_4728C0BB013B_ME_4A4479E503D5
- : Original HWL ME_4728C0BB013B // NotFocused
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" true
-ref; // ME_4728C0BB013B_ME_4A4479E503D5 NotFocused
-
-: ME_4728C0C90182_ME_4A4479E503D5
- : Original HWL ME_4728C0C90182 // RegionBottomRight
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" true
-ref; // ME_4728C0C90182_ME_4A4479E503D5 RegionBottomRight
-
-: ME_476FA1140319_ME_4A4479E503D5
- : Original HWL ME_476FA1140319 // GetClientRect
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_476FA1140319_ME_4A4479E503D5 GetClientRect
-
-: ME_4776171C037B_ME_4A4479E503D5
- : Original HWL ME_4776171C037B // AdjustMarginsByPrintableArea
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4776171C037B_ME_4A4479E503D5 AdjustMarginsByPrintableArea
-
-: ME_483D1BCA0045_ME_4A4479E503D5
- : Original HWL ME_483D1BCA0045 // PasswordChar
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" false
-ref; // ME_483D1BCA0045_ME_4A4479E503D5 PasswordChar
-
-: ME_487CFBE202B1_ME_4A4479E503D5
- : Original HWL ME_487CFBE202B1 // EffectiveColors
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" false
-ref; // ME_487CFBE202B1_ME_4A4479E503D5 EffectiveColors
-
-: ME_4897E01001E7_ME_4A4479E503D5
- : Original HWL ME_4897E01001E7 // Printing
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" true
-ref; // ME_4897E01001E7_ME_4A4479E503D5 Printing
-
-: ME_4A0BD46901A0_ME_4A4479E503D5
- : Original HWL ME_4A0BD46901A0 // CheckConvertString
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4A0BD46901A0_ME_4A4479E503D5 CheckConvertString
-
-: ME_4A0BD4D4007E_ME_4A4479E503D5
- : Original HWL ME_4A0BD4D4007E // CheckOutString
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4A0BD4D4007E_ME_4A4479E503D5 CheckOutString
-
-: ME_4A4B894303D5_ME_4A4479E503D5
- : Original HWL ME_4A4B894303D5 // Zoom
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" true
-ref; // ME_4A4B894303D5_ME_4A4479E503D5 Zoom
-
-: ME_4A4CD86601B2_ME_4A4479E503D5
- : Original HWL ME_4A4CD86601B2 // PageSetup
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" true
-ref; // ME_4A4CD86601B2_ME_4A4479E503D5 PageSetup
-
-: ME_4A4CD8BC027E_ME_4A4479E503D5
- : Original HWL ME_4A4CD8BC027E // Painter
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" true
-ref; // ME_4A4CD8BC027E_ME_4A4479E503D5 Painter
-
-: ME_4A4CD9100133_ME_4A4479E503D5
- : Original HWL ME_4A4CD9100133 // Canvas
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" true
-ref; // ME_4A4CD9100133_ME_4A4479E503D5 Canvas
-
-: ME_4A4CE0990013_ME_4A4479E503D5
- : Original HWL ME_4A4CE0990013 // DP2LP
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4A4CE0990013_ME_4A4479E503D5 DP2LP
-
-: ME_4A4CEC6202C3_ME_4A4479E503D5
- : Original HWL ME_4A4CEC6202C3 // DeviceCaps
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4A4CEC6202C3_ME_4A4479E503D5 DeviceCaps
-
-: ME_4CB32CEA01FE_ME_4A4479E503D5
- : Original HWL ME_4CB32CEA01FE // IsPagesCounter
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" false
-ref; // ME_4CB32CEA01FE_ME_4A4479E503D5 IsPagesCounter
-
-: ME_4CC68B5D00CA_ME_4A4479E503D5
- : Original HWL ME_4CC68B5D00CA // OverallPageNumber
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" false
-ref; // ME_4CC68B5D00CA_ME_4A4479E503D5 OverallPageNumber
-
-: ME_4E007CC302AE_ME_4A4479E503D5
- : Original HWL ME_4E007CC302AE // InitialDCOffset
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" false
-ref; // ME_4E007CC302AE_ME_4A4479E503D5 InitialDCOffset
-
-: ME_4E26F481005B_ME_4A4479E503D5
- : Original HWL ME_4E26F481005B // PushClipRect
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4E26F481005B_ME_4A4479E503D5 PushClipRect
-
-: ME_4E26F4920228_ME_4A4479E503D5
- : Original HWL ME_4E26F4920228 // PopClipRect
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4E26F4920228_ME_4A4479E503D5 PopClipRect
-
-: ME_4E27061B0140_ME_4A4479E503D5
- : Original HWL ME_4E27061B0140 // ClipRegion
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" false
-ref; // ME_4E27061B0140_ME_4A4479E503D5 ClipRegion
-
-: ME_4E57A9F10230_ME_4A4479E503D5
- : Original HWL ME_4E57A9F10230 // LineSpacing
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" false
-ref; // ME_4E57A9F10230_ME_4A4479E503D5 LineSpacing
-
-: ME_4E6894860139_ME_4A4479E503D5
- : Original HWL ME_4E6894860139 // PushLineSpacing
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4E6894860139_ME_4A4479E503D5 PushLineSpacing
-
-: ME_4E68949A0121_ME_4A4479E503D5
- : Original HWL ME_4E68949A0121 // PopLineSpacing
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4E68949A0121_ME_4A4479E503D5 PopLineSpacing
-
-: ME_4ED5066F036B_ME_4A4479E503D5
- : Original HWL ME_4ED5066F036B // Invert
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" true
-ref; // ME_4ED5066F036B_ME_4A4479E503D5 Invert
-
-: ME_4F2AC2020377_ME_4A4479E503D5
- : Original HWL ME_4F2AC2020377 // InitialDCOffsetStored
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" false
-ref; // ME_4F2AC2020377_ME_4A4479E503D5 InitialDCOffsetStored
-
-: ME_5077CF6501AE_ME_4A4479E503D5
- : Original HWL ME_5077CF6501AE // FrameLines
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" true
-ref; // ME_5077CF6501AE_ME_4A4479E503D5 FrameLines
-
-: ME_5229D7EF00DE_ME_4A4479E503D5
- : Original HWL ME_5229D7EF00DE // AbortChecker
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" false
-ref; // ME_5229D7EF00DE_ME_4A4479E503D5 AbortChecker
-
-: ME_54B4D8E90117_ME_4A4479E503D5
- : Original HWL ME_54B4D8E90117 // StartDrawAAC
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_54B4D8E90117_ME_4A4479E503D5 StartDrawAAC
-
-: ME_54B4D9020149_ME_4A4479E503D5
- : Original HWL ME_54B4D9020149 // EndDrawAAC
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_54B4D9020149_ME_4A4479E503D5 EndDrawAAC
-
-: ME_55CC51AD0273_ME_4A4479E503D5
- : Original HWL ME_55CC51AD0273 // BeginDarkColor
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_55CC51AD0273_ME_4A4479E503D5 BeginDarkColor
-
-: ME_55CC51CE0059_ME_4A4479E503D5
- : Original HWL ME_55CC51CE0059 // EndDarkColor
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_55CC51CE0059_ME_4A4479E503D5 EndDarkColor
-
-: ME_4A4479E503D5
- CONST UID '4A4479E503D5'
- CONST Name 'Hl3Canvas'
- CONST Class class_Class
- : Stereotype st_StaticObject ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Обёртка для Il3Canvas' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent HWL ME_467C0CAA02AB // l3InternalInterfaces
- ;
- : Implements
-   Seq: ( HWL ME_4727449A00A2 // Il3Canvas
- )
- ; // Implements
- : Implemented
-   Seq: ( ME_4727432E0121_ME_4A4479E503D5 // pxAverageCharWidth
- ME_472743420382_ME_4A4479E503D5 // AverageCharWidth
- ME_472744E803E3_ME_4A4479E503D5 // TextExtent
- ME_472894A001A6_ME_4A4479E503D5 // Pos2Index
- ME_472894BA0258_ME_4A4479E503D5 // Pos2IndexQ
- ME_472894EA0166_ME_4A4479E503D5 // AverageCharHeight
- ME_4728950502EC_ME_4A4479E503D5 // LP2DP
- ME_472897C30237_ME_4A4479E503D5 // LR2DR
- ME_472898020151_ME_4A4479E503D5 // DR2LR
- ME_4728980E02AD_ME_4A4479E503D5 // Lock
- ME_4728981C0054_ME_4A4479E503D5 // Unlock
- ME_47289B000379_ME_4A4479E503D5 // GetKerning
- ME_4728A0840026_ME_4A4479E503D5 // OffsetRgn
- ME_4728A0C40082_ME_4A4479E503D5 // CaretExtent
- ME_4728A4A703CC_ME_4A4479E503D5 // StartTabs
- ME_4728A4D00013_ME_4A4479E503D5 // StartTabs
- ME_4728A4DF0065_ME_4A4479E503D5 // FinishTabs
- ME_4728A4F602FD_ME_4A4479E503D5 // TabInfo
- ME_4728A509016A_ME_4A4479E503D5 // EQ
- ME_4728A52B0385_ME_4A4479E503D5 // NearestColor
- ME_4728A74F03A2_ME_4A4479E503D5 // DrawText
- ME_4728A7BC0330_ME_4A4479E503D5 // TabbedMultilineTextOut
- ME_4728AD37017F_ME_4A4479E503D5 // PushBC
- ME_4728AD43021C_ME_4A4479E503D5 // TopBC
- ME_4728AD580263_ME_4A4479E503D5 // PopBC
- ME_4728AD680067_ME_4A4479E503D5 // PushFC
- ME_4728AD760338_ME_4A4479E503D5 // PopFC
- ME_4728ADF50313_ME_4A4479E503D5 // TextMetrics
- ME_4728AE20030A_ME_4A4479E503D5 // Font
- ME_4728AE3E03B8_ME_4A4479E503D5 // DC
- ME_4728AE5D020E_ME_4A4479E503D5 // PixelsPerInchX
- ME_4728AE6A01EE_ME_4A4479E503D5 // PixelsPerInchY
- ME_4728AEC301D8_ME_4A4479E503D5 // MoveWindowOrg
- ME_4728AECD010B_ME_4A4479E503D5 // MoveWindowOrg
- ME_4728AED70336_ME_4A4479E503D5 // FillForeRect
- ME_4728AF3E03AC_ME_4A4479E503D5 // FillRect
- ME_4728AF5103A9_ME_4A4479E503D5 // FillRect
- ME_4728B590009B_ME_4A4479E503D5 // FillEmptyRect
- ME_4728B59A000A_ME_4A4479E503D5 // FillEmptyRect
- ME_4728B5A50041_ME_4A4479E503D5 // FillRgn
- ME_4728B5B5026B_ME_4A4479E503D5 // TextOut
- ME_4728B5EB01A1_ME_4A4479E503D5 // SetCaret
- ME_4728B60F0211_ME_4A4479E503D5 // IncCaret
- ME_4728B61D0058_ME_4A4479E503D5 // BeginPaint
- ME_4728B62702C9_ME_4A4479E503D5 // StartObject
- ME_4728B637025E_ME_4A4479E503D5 // SetPageTop
- ME_4728B67C0037_ME_4A4479E503D5 // EndPaint
- ME_4728B68502C5_ME_4A4479E503D5 // BeginInvert
- ME_4728B68C0329_ME_4A4479E503D5 // EndInvert
- ME_4728B6B501C9_ME_4A4479E503D5 // DrawRgnOrBlock
- ME_4728B6DD013A_ME_4A4479E503D5 // HasToDraw
- ME_4728B6ED0101_ME_4A4479E503D5 // StretchDraw
- ME_4728B97800C0_ME_4A4479E503D5 // DrawSub
- ME_4728B9F10060_ME_4A4479E503D5 // ExtTextOut
- ME_4728BAAC0127_ME_4A4479E503D5 // ExtTextOut
- ME_4728BAD601DC_ME_4A4479E503D5 // CaretLineOut
- ME_4728BB120156_ME_4A4479E503D5 // StringOut
- ME_4728BB2D0173_ME_4A4479E503D5 // TabbedTextOut
- ME_4728BB8F03CD_ME_4A4479E503D5 // TabbedTextOut
- ME_4728BBAF00BB_ME_4A4479E503D5 // NewPage
- ME_4728BBC80252_ME_4A4479E503D5 // Line
- ME_4728BBE702D9_ME_4A4479E503D5 // Line
- ME_4728BC06000C_ME_4A4479E503D5 // MoveTo
- ME_4728BC0E0249_ME_4A4479E503D5 // LineTo
- ME_4728BC18022F_ME_4A4479E503D5 // MoveTo
- ME_4728BC2103A4_ME_4A4479E503D5 // LineTo
- ME_4728BC4B02FB_ME_4A4479E503D5 // WO
- ME_4728BC54039E_ME_4A4479E503D5 // WO
- ME_4728BC61002B_ME_4A4479E503D5 // WO
- ME_4728BC6A0088_ME_4A4479E503D5 // DrawFocusRect
- ME_4728BC74029F_ME_4A4479E503D5 // IsVirtual
- ME_4728BC81028A_ME_4A4479E503D5 // StartRegion
- ME_4728BC890119_ME_4A4479E503D5 // FinishRegion
- ME_4728BC9A022C_ME_4A4479E503D5 // PushWO
- ME_4728BCB60128_ME_4A4479E503D5 // PopWO
- ME_4728BCF0038E_ME_4A4479E503D5 // WindowOrg
- ME_4728BCFF03D6_ME_4A4479E503D5 // SWindowOrg
- ME_4728BD12038D_ME_4A4479E503D5 // ClipRect
- ME_4728BD2703E7_ME_4A4479E503D5 // GlobalClipRect
- ME_4728BD3800A2_ME_4A4479E503D5 // BackColor
- ME_4728BD560290_ME_4A4479E503D5 // DrawEnabled
- ME_4728BD890258_ME_4A4479E503D5 // DrawSpecial
- ME_4728BD9F0227_ME_4A4479E503D5 // CanDrawSubs
- ME_4728BDB301F4_ME_4A4479E503D5 // ShowCursor
- ME_4728BE1500AA_ME_4A4479E503D5 // FontIndexSet
- ME_4728BE460354_ME_4A4479E503D5 // Printed
- ME_4728BE6A0392_ME_4A4479E503D5 // PageNumber
- ME_4728BE830080_ME_4A4479E503D5 // PageWidthNumber
- ME_4728C0510003_ME_4A4479E503D5 // PenWidth
- ME_4728C06D0306_ME_4A4479E503D5 // PageOrientation
- ME_4728C0890017_ME_4A4479E503D5 // SectionExtent
- ME_4728C0BB013B_ME_4A4479E503D5 // NotFocused
- ME_4728C0C90182_ME_4A4479E503D5 // RegionBottomRight
- ME_476FA1140319_ME_4A4479E503D5 // GetClientRect
- ME_4776171C037B_ME_4A4479E503D5 // AdjustMarginsByPrintableArea
- ME_483D1BCA0045_ME_4A4479E503D5 // PasswordChar
- ME_487CFBE202B1_ME_4A4479E503D5 // EffectiveColors
- ME_4897E01001E7_ME_4A4479E503D5 // Printing
- ME_4A0BD46901A0_ME_4A4479E503D5 // CheckConvertString
- ME_4A0BD4D4007E_ME_4A4479E503D5 // CheckOutString
- ME_4A4B894303D5_ME_4A4479E503D5 // Zoom
- ME_4A4CD86601B2_ME_4A4479E503D5 // PageSetup
- ME_4A4CD8BC027E_ME_4A4479E503D5 // Painter
- ME_4A4CD9100133_ME_4A4479E503D5 // Canvas
- ME_4A4CE0990013_ME_4A4479E503D5 // DP2LP
- ME_4A4CEC6202C3_ME_4A4479E503D5 // DeviceCaps
- ME_4CB32CEA01FE_ME_4A4479E503D5 // IsPagesCounter
- ME_4CC68B5D00CA_ME_4A4479E503D5 // OverallPageNumber
- ME_4E007CC302AE_ME_4A4479E503D5 // InitialDCOffset
- ME_4E26F481005B_ME_4A4479E503D5 // PushClipRect
- ME_4E26F4920228_ME_4A4479E503D5 // PopClipRect
- ME_4E27061B0140_ME_4A4479E503D5 // ClipRegion
- ME_4E57A9F10230_ME_4A4479E503D5 // LineSpacing
- ME_4E6894860139_ME_4A4479E503D5 // PushLineSpacing
- ME_4E68949A0121_ME_4A4479E503D5 // PopLineSpacing
- ME_4ED5066F036B_ME_4A4479E503D5 // Invert
- ME_4F2AC2020377_ME_4A4479E503D5 // InitialDCOffsetStored
- ME_5077CF6501AE_ME_4A4479E503D5 // FrameLines
- ME_5229D7EF00DE_ME_4A4479E503D5 // AbortChecker
- ME_54B4D8E90117_ME_4A4479E503D5 // StartDrawAAC
- ME_54B4D9020149_ME_4A4479E503D5 // EndDrawAAC
- ME_55CC51AD0273_ME_4A4479E503D5 // BeginDarkColor
- ME_55CC51CE0059_ME_4A4479E503D5 // EndDarkColor
- )
- ; // Implemented
- CONST "IsAutoHelper" true
-
-ref; // ME_4A4479E503D5 Hl3Canvas
-
-FORWARD ME_4680F52502B9
-
-: ME_476F77AA034A
- CONST UID '476F77AA034A'
- CONST Name 'Image'
- CONST Class class_Operation
- CONST Visibility PublicAccess
- CONST Abstraction at_abstract
- : Parent HWL ME_4680F52502B9 // Il3DragImageSource
- ;
- : Target HWL ME_476F70910097 // Il3Bitmap
- ;
-
-ref; // ME_476F77AA034A Image
-
-: ME_4680F52502B9
- CONST UID '4680F52502B9'
- CONST GUID '9EFC3540-323C-4C4B-9DBA-DC76C14DF440'
- CONST Name 'Il3DragImageSource'
- CONST Class class_Class
- : Stereotype st_Facet ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Источник картинки, представляющей данные.' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent HWL ME_467C0CAA02AB // l3InternalInterfaces
- ;
- : Operations
-   Seq: ( HWL ME_476F77AA034A // Image
- )
- ; // Operations
- CONST extprop:rc:SelfName 'DragImageSource'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_4680F52502B9 Il3DragImageSource
 
 FORWARD ME_4CB3387F036E
 
@@ -9580,243 +8621,6 @@ ref; // ME_55CC51CE0059_ME_4CB3387F036E EndDarkColor
 
 ref; // ME_4CB3387F036E Il3CanvasConstants
 
-FORWARD ME_476BF9E5008B
-
-: ME_476F777F0023
- CONST Name 'Tables'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_476F771502F8' '4678193C009C.pas.ms.script' // TOpenStringArray
- ;
-
-ref; // ME_476F777F0023 Tables
-
-: ME_476F777F0042
- CONST Name 'Msg'
- CONST Class class_Parameter
- : Stereotype st_inout ;
- : Target WL 'ME_476F793C0385' '46A5E026007E.pas.ms.script' // TMessage
- ;
-
-ref; // ME_476F777F0042 Msg
-
-: ME_476F777F0061
- CONST Name 'aTime'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A618AF0053' '4AB0C3C60310.pas.ms.script' // Cardinal
- ;
-
-ref; // ME_476F777F0061 aTime
-
-: ME_476F777F0080
- CONST Name 'aTarget'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target HWL ME_467D37430253 // Il3CommandTarget
- ;
- CONST Value 'nil'
- : ValueType HWL ME_467D37430253 // Il3CommandTarget
- ;
- CONST extprop:pas:Value 'nil'
-
-ref; // ME_476F777F0080 aTarget
-
-: ME_476F774C0275
- CONST UID '476F774C0275'
- CONST Name 'TranslateUsing'
- CONST Class class_Operation
- %SUMMARY 'translate a message into a command using the given tables.' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_abstract
- : Parent HWL ME_476BF9E5008B // Il3CommandProcessor
- ;
- : Target WL 'ME_476F71A701AB' '4AB0C3C60310.pas.ms.script' // Word
- ;
- : Parameters
-   Seq: ( ME_476F777F0023 // Tables
- ME_476F777F0042 // Msg
- ME_476F777F0061 // aTime
- ME_476F777F0080 // aTarget
- )
- ; // Parameters
-
-ref; // ME_476F774C0275 TranslateUsing
-
-: ME_53B119F000CE
- CONST Name 'aListener'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target HWL ME_53B11944038A // Il3KeyDataListener
- ;
-
-ref; // ME_53B119F000CE aListener
-
-: ME_53B119CD00BE
- CONST UID '53B119CD00BE'
- CONST Name 'SubscribeGlobalKeyDataListener'
- CONST Class class_Operation
- CONST Visibility PublicAccess
- CONST Abstraction at_abstract
- : Parent HWL ME_476BF9E5008B // Il3CommandProcessor
- ;
- : Parameters
-   Seq: ( ME_53B119F000CE // aListener
- )
- ; // Parameters
-
-ref; // ME_53B119CD00BE SubscribeGlobalKeyDataListener
-
-: ME_53B11A110396
- CONST Name 'aListener'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target HWL ME_53B11944038A // Il3KeyDataListener
- ;
-
-ref; // ME_53B11A110396 aListener
-
-: ME_53B119F600D1
- CONST UID '53B119F600D1'
- CONST Name 'UnsubscribeGlobalKeyDataListener'
- CONST Class class_Operation
- CONST Visibility PublicAccess
- CONST Abstraction at_abstract
- : Parent HWL ME_476BF9E5008B // Il3CommandProcessor
- ;
- : Parameters
-   Seq: ( ME_53B11A110396 // aListener
- )
- ; // Parameters
-
-ref; // ME_53B119F600D1 UnsubscribeGlobalKeyDataListener
-
-: ME_476BF9E5008B
- CONST UID '476BF9E5008B'
- CONST GUID 'E5E0F6F4-2947-40E5-9911-9F6266EB3906'
- CONST Name 'Il3CommandProcessor'
- CONST Class class_Class
- : Stereotype st_Facet ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Процессор команд.' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent HWL ME_467C0CAA02AB // l3InternalInterfaces
- ;
- : Operations
-   Seq: ( HWL ME_476F774C0275 // TranslateUsing
- HWL ME_53B119CD00BE // SubscribeGlobalKeyDataListener
- HWL ME_53B119F600D1 // UnsubscribeGlobalKeyDataListener
- )
- ; // Operations
- CONST extprop:rc:SelfName 'CommandProcessor'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_476BF9E5008B Il3CommandProcessor
-
-: ME_53B2470A0397
- CONST UID '53B2470A0397'
- CONST Name 'PIl3KeyDataListener'
- CONST Class class_Class
- : Stereotype st_Typedef ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent HWL ME_467C0CAA02AB // l3InternalInterfaces
- ;
- : Inherits
-   Seq: ( HWL ME_53B11944038A // Il3KeyDataListener
- )
- ; // Inherits
- CONST "isPointer" true
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_53B2470A0397 PIl3KeyDataListener
-
-FORWARD ME_476F9BBD02F1
-
-: ME_476F9BEA019F
- CONST Name 'aSubTarget'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_476F9BEA019F aSubTarget
-
-: ME_476F9BEA01BE
- CONST Name 'Canvas'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target HWL ME_4727449A00A2 // Il3Canvas
- ;
-
-ref; // ME_476F9BEA01BE Canvas
-
-: ME_476F9BEA01DE
- CONST Name 'R'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4728974E009E' '472745450206.pas.ms.script' // Tl3Rect
- ;
-
-ref; // ME_476F9BEA01DE R
-
-: ME_476F9BEA0200
- CONST Name 'SubType'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_476F9C3C02F4' '4678193C009C.pas.ms.script' // Tl3Handle
- ;
-
-ref; // ME_476F9BEA0200 SubType
-
-: ME_476F9BEA021F
- CONST Name 'aSub'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_476F9BEA021F aSub
-
-: ME_476F9BCB0172
- CONST UID '476F9BCB0172'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent HWL ME_476F9BBD02F1 // TevDrawSubEvent
- ;
- : Parameters
-   Seq: ( ME_476F9BEA019F // aSubTarget
- ME_476F9BEA01BE // Canvas
- ME_476F9BEA01DE // R
- ME_476F9BEA0200 // SubType
- ME_476F9BEA021F // aSub
- )
- ; // Parameters
-
-ref; // ME_476F9BCB0172 DoIt
-
-: ME_476F9BBD02F1
- CONST UID '476F9BBD02F1'
- CONST Name 'TevDrawSubEvent'
- CONST Class class_Class
- : Stereotype st_Function ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent HWL ME_467C0CAA02AB // l3InternalInterfaces
- ;
- : Operations
-   Seq: ( HWL ME_476F9BCB0172 // DoIt
- )
- ; // Operations
- CONST "of object" true
-
-ref; // ME_476F9BBD02F1 TevDrawSubEvent
-
 FORWARD ME_4728C48800A4
 
 : ME_476FA12A010D
@@ -10699,6 +9503,159 @@ ref; // ME_4728CA01029E DrawCollapsedPanel
 
 ref; // ME_4728C48800A4 Il3SmartCanvas
 
+FORWARD ME_476BF9E5008B
+
+: ME_476F777F0023
+ CONST Name 'Tables'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476F771502F8' '4678193C009C.pas.ms.script' // TOpenStringArray
+ ;
+
+ref; // ME_476F777F0023 Tables
+
+: ME_476F777F0042
+ CONST Name 'Msg'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_476F793C0385' '46A5E026007E.pas.ms.script' // TMessage
+ ;
+
+ref; // ME_476F777F0042 Msg
+
+: ME_476F777F0061
+ CONST Name 'aTime'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A618AF0053' '4AB0C3C60310.pas.ms.script' // Cardinal
+ ;
+
+ref; // ME_476F777F0061 aTime
+
+: ME_476F777F0080
+ CONST Name 'aTarget'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target HWL ME_467D37430253 // Il3CommandTarget
+ ;
+ CONST Value 'nil'
+ : ValueType HWL ME_467D37430253 // Il3CommandTarget
+ ;
+ CONST extprop:pas:Value 'nil'
+
+ref; // ME_476F777F0080 aTarget
+
+: ME_476F774C0275
+ CONST UID '476F774C0275'
+ CONST Name 'TranslateUsing'
+ CONST Class class_Operation
+ %SUMMARY 'translate a message into a command using the given tables.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_476BF9E5008B // Il3CommandProcessor
+ ;
+ : Target WL 'ME_476F71A701AB' '4AB0C3C60310.pas.ms.script' // Word
+ ;
+ : Parameters
+   Seq: ( ME_476F777F0023 // Tables
+ ME_476F777F0042 // Msg
+ ME_476F777F0061 // aTime
+ ME_476F777F0080 // aTarget
+ )
+ ; // Parameters
+
+ref; // ME_476F774C0275 TranslateUsing
+
+: ME_53B119F000CE
+ CONST Name 'aListener'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target HWL ME_53B11944038A // Il3KeyDataListener
+ ;
+
+ref; // ME_53B119F000CE aListener
+
+: ME_53B119CD00BE
+ CONST UID '53B119CD00BE'
+ CONST Name 'SubscribeGlobalKeyDataListener'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_476BF9E5008B // Il3CommandProcessor
+ ;
+ : Parameters
+   Seq: ( ME_53B119F000CE // aListener
+ )
+ ; // Parameters
+
+ref; // ME_53B119CD00BE SubscribeGlobalKeyDataListener
+
+: ME_53B11A110396
+ CONST Name 'aListener'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target HWL ME_53B11944038A // Il3KeyDataListener
+ ;
+
+ref; // ME_53B11A110396 aListener
+
+: ME_53B119F600D1
+ CONST UID '53B119F600D1'
+ CONST Name 'UnsubscribeGlobalKeyDataListener'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_476BF9E5008B // Il3CommandProcessor
+ ;
+ : Parameters
+   Seq: ( ME_53B11A110396 // aListener
+ )
+ ; // Parameters
+
+ref; // ME_53B119F600D1 UnsubscribeGlobalKeyDataListener
+
+: ME_476BF9E5008B
+ CONST UID '476BF9E5008B'
+ CONST GUID 'E5E0F6F4-2947-40E5-9911-9F6266EB3906'
+ CONST Name 'Il3CommandProcessor'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Процессор команд.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_467C0CAA02AB // l3InternalInterfaces
+ ;
+ : Operations
+   Seq: ( HWL ME_476F774C0275 // TranslateUsing
+ HWL ME_53B119CD00BE // SubscribeGlobalKeyDataListener
+ HWL ME_53B119F600D1 // UnsubscribeGlobalKeyDataListener
+ )
+ ; // Operations
+ CONST extprop:rc:SelfName 'CommandProcessor'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_476BF9E5008B Il3CommandProcessor
+
+: ME_53B2470A0397
+ CONST UID '53B2470A0397'
+ CONST Name 'PIl3KeyDataListener'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_467C0CAA02AB // l3InternalInterfaces
+ ;
+ : Inherits
+   Seq: ( HWL ME_53B11944038A // Il3KeyDataListener
+ )
+ ; // Inherits
+ CONST "isPointer" true
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_53B2470A0397 PIl3KeyDataListener
+
 FORWARD ME_476BFDB0033D
 
 : ME_49CBB0BE0093
@@ -10881,6 +9838,126 @@ ref; // ME_49C0E568031B GetItemTextIndent
 
 ref; // ME_476BFDB0033D Il3NodePainter
 
+FORWARD ME_4680F52502B9
+
+: ME_476F77AA034A
+ CONST UID '476F77AA034A'
+ CONST Name 'Image'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_4680F52502B9 // Il3DragImageSource
+ ;
+ : Target HWL ME_476F70910097 // Il3Bitmap
+ ;
+
+ref; // ME_476F77AA034A Image
+
+: ME_4680F52502B9
+ CONST UID '4680F52502B9'
+ CONST GUID '9EFC3540-323C-4C4B-9DBA-DC76C14DF440'
+ CONST Name 'Il3DragImageSource'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Источник картинки, представляющей данные.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_467C0CAA02AB // l3InternalInterfaces
+ ;
+ : Operations
+   Seq: ( HWL ME_476F77AA034A // Image
+ )
+ ; // Operations
+ CONST extprop:rc:SelfName 'DragImageSource'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4680F52502B9 Il3DragImageSource
+
+FORWARD ME_476F9BBD02F1
+
+: ME_476F9BEA019F
+ CONST Name 'aSubTarget'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_476F9BEA019F aSubTarget
+
+: ME_476F9BEA01BE
+ CONST Name 'Canvas'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target HWL ME_4727449A00A2 // Il3Canvas
+ ;
+
+ref; // ME_476F9BEA01BE Canvas
+
+: ME_476F9BEA01DE
+ CONST Name 'R'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4728974E009E' '472745450206.pas.ms.script' // Tl3Rect
+ ;
+
+ref; // ME_476F9BEA01DE R
+
+: ME_476F9BEA0200
+ CONST Name 'SubType'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476F9C3C02F4' '4678193C009C.pas.ms.script' // Tl3Handle
+ ;
+
+ref; // ME_476F9BEA0200 SubType
+
+: ME_476F9BEA021F
+ CONST Name 'aSub'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_476F9BEA021F aSub
+
+: ME_476F9BCB0172
+ CONST UID '476F9BCB0172'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_476F9BBD02F1 // TevDrawSubEvent
+ ;
+ : Parameters
+   Seq: ( ME_476F9BEA019F // aSubTarget
+ ME_476F9BEA01BE // Canvas
+ ME_476F9BEA01DE // R
+ ME_476F9BEA0200 // SubType
+ ME_476F9BEA021F // aSub
+ )
+ ; // Parameters
+
+ref; // ME_476F9BCB0172 DoIt
+
+: ME_476F9BBD02F1
+ CONST UID '476F9BBD02F1'
+ CONST Name 'TevDrawSubEvent'
+ CONST Class class_Class
+ : Stereotype st_Function ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_467C0CAA02AB // l3InternalInterfaces
+ ;
+ : Operations
+   Seq: ( HWL ME_476F9BCB0172 // DoIt
+ )
+ ; // Operations
+ CONST "of object" true
+
+ref; // ME_476F9BBD02F1 TevDrawSubEvent
+
 : ME_467C0CAA02AB
  CONST UID '467C0CAA02AB'
  CONST Name 'l3InternalInterfaces'
@@ -10931,25 +10008,24 @@ ref; // ME_476BFDB0033D Il3NodePainter
  HWL ME_5229D7DD016C // Il3AbortChecker
  HWL ME_54B4D869005D // TspBlockType
  HWL ME_56B9CF99001C // Ml3CanvasPaint
- HWL ME_56B9D11102EB // Ml3InfoCanvas
  HWL ME_4C4FE105033F // Il3CStringList
  HWL ME_4C986CAD0117 // Tl3AskClearClipboardProc
+ HWL ME_56B9D11102EB // Ml3InfoCanvas
  HWL ME_47274316023E // Il3InfoCanvas
  HWL ME_4727449A00A2 // Il3Canvas
  HWL ME_4728C0FF02A2 // Il3HAFPainter
- HWL ME_4A4CB28103DE // Ml3FrameLines
  HWL ME_4DB964FA0342 // Il3RangeTool
+ HWL ME_4A4CB28103DE // Ml3FrameLines
  HWL ME_475E5FCB018F // Il3FrameLines
  HWL ME_4728C6AC0070 // Il3ImageList
  HWL ME_476F70910097 // Il3Bitmap
- HWL ME_4A4479E503D5 // Hl3Canvas
- HWL ME_4680F52502B9 // Il3DragImageSource
  HWL ME_4CB3387F036E // Il3CanvasConstants
+ HWL ME_4728C48800A4 // Il3SmartCanvas
  HWL ME_476BF9E5008B // Il3CommandProcessor
  HWL ME_53B2470A0397 // PIl3KeyDataListener
- HWL ME_476F9BBD02F1 // TevDrawSubEvent
- HWL ME_4728C48800A4 // Il3SmartCanvas
  HWL ME_476BFDB0033D // Il3NodePainter
+ HWL ME_4680F52502B9 // Il3DragImageSource
+ HWL ME_476F9BBD02F1 // TevDrawSubEvent
  )
  ; // Children
  : Depends

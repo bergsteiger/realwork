@@ -1,5 +1,6 @@
 //#UC START# *479731C50290_55F6875803A8_impl*
  FreeAndNil(f_LongProcessList);
+ FreeAndNil(f_Listeners);
  inherited;
 //#UC END# *479731C50290_55F6875803A8_impl*
 //#UC START# *479731C50290_55F6875803A8_var*
@@ -16,6 +17,7 @@
    if PQstatus(f_Handle) <> CONNECTION_OK then
     raise EPgError.Create(PQerrorMessage(f_Handle))
   finally
+   NotifyBeforeDisconnect;
    PQfinish(f_Handle);
    f_Handle := nil;
   end;
@@ -180,6 +182,7 @@ var
 //#UC START# *565EA7B30042_55F6875803A8_impl*
  inherited Create;
  aList.SetRefTo(f_LongProcessList);
+ f_Listeners := TpgConnectionListenerList.Make;
 //#UC END# *565EA7B30042_55F6875803A8_impl*
 //#UC START# *565EA7B30042_55F6875803A8_var*
 //#UC END# *565EA7B30042_55F6875803A8_var*
@@ -194,6 +197,7 @@ var
  end;
  if not Lock(pg_llShared) then
   EPgError.Create('Не удалось захватить базу');
+ NotifyAfterConnect; 
 //#UC END# *569636A400D9_55F6875803A8_impl*
 //#UC START# *569636A400D9_55F6875803A8_var*
 var

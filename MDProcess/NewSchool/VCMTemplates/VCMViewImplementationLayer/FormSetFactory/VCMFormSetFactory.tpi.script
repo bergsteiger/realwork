@@ -20,7 +20,6 @@ implementation @ <<VCMFormSetFactory>>
 //> VCMZone::Class
 
 //= SimpleClass::Class
-//= FormSetFactoryPublisher::Class
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Параметры стереотипа
@@ -101,47 +100,6 @@ implementation @ <<VCMFormSetFactory>>
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Унаследованная реализация
-
-// реализация абстрактного стереотипа FormSetFactoryPublisher::Class
-//%f _FormSetFactoryToUses
-: FormSetFactoryToUses OBJECT IN %S
-//#UC START# *4A94F30303DDfor49F572B403E3*
-//	%f_pas_PutToUses(%S)
- [%f] pas_PutToUses %( %S )% 
-//#UC END# *4A94F30303DDfor49F572B403E3*
-; // FormSetFactoryToUses
-
-
-// реализация абстрактного стереотипа FormSetFactoryPublisher::Class
-//%f _PublishFormSetFactory
-: PublishFormSetFactory OBJECT IN %S
-//#UC START# *4A94F31902FDfor49F572B403E3*
-//	[{%f_exists_in_list(PUBLISHED_FormSetFactories_LIST,S)!=true}\
- if ( ( [%f] exists_in_list %( 'PUBLISHED_FormSetFactories_LIST' %, 'S' )% ) %!=  true ) then
- begin
-//	%f_add_to_list(PUBLISHED_FormSetFactories_LIST,S)\
-  [%f] add_to_list %( 'PUBLISHED_FormSetFactories_LIST' %, 'S' )% 
-//	[%S%f_open_ifdef()\n ]\
-  if NOT-EMPTY
-  begin
-   %S %f open_ifdef %( )% #13#10' ' 
-  end // if
-  NOP
-//	\n RegisterFormSetFactory(%f_pas_TypeName(%S));\
-  #13#10' RegisterFormSetFactory('
-  [%f] pas_TypeName %( %S )% ');'
-//	[\n %S%f_close_ifdef()]\
-  if NOT-EMPTY
-  begin
-   #13#10' '
-   %S %f close_ifdef %( )% 
-  end // if
-  NOP
-//	]
- end // if
-//#UC END# *4A94F31902FDfor49F572B403E3*
-; // PublishFormSetFactory
-
 
 // перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
 //%f _DoSpell
@@ -274,19 +232,7 @@ implementation @ <<VCMFormSetFactory>>
   end // if
 //	%S%f_add_override(4FFE854A009B)\
   %S %f add_override %( 4 'FFE854A009B' )% 
-//	%{TvcmFormSetFactoryPrim.GetInstance}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TvcmFormSetFactoryPrim.GetInstance},%S)_var,\
-  ( get_global_var ( 'TvcmFormSetFactoryPrim.GetInstance' ) %f set_uc_content %( 'intf.pas' %, '_'
-  [%f] pas_MethodOwnerID %( ( get_global_var ( 'TvcmFormSetFactoryPrim.GetInstance' ) ) %, %S )% '_var' %, 
-//	 {-}\
-  ' {-}'
-//	)\
-)% ) //	%{TvcmFormSetFactoryPrim.GetInstance}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TvcmFormSetFactoryPrim.GetInstance},%S)_impl,\
-  ( get_global_var ( 'TvcmFormSetFactoryPrim.GetInstance' ) %f set_uc_content %( 'intf.pas' %, '_'
-  [%f] pas_MethodOwnerID %( ( get_global_var ( 'TvcmFormSetFactoryPrim.GetInstance' ) ) %, %S )% '_impl' %, 
-//	 Result := Self.Instance;\
-  ' Result := Self.Instance;'
-//	)\
-)% ) //	]\
+//	]\
  end // if
 
 //	[{"%{l3UnknownPrim.InitFields}N"=""}%f_find_element(47A042E100E2,l3UnknownPrim.InitFields)]\
@@ -294,17 +240,13 @@ implementation @ <<VCMFormSetFactory>>
  begin
   [%f] find_element %( '47A042E100E2' %, 'l3UnknownPrim.InitFields' )% 
  end // if
-//	%S%f_add_override(47A042E100E2)\
+//	%S%f_add_override(47A042E100E2)
  %S %f add_override %( 47 'A042E100E2' )% 
-//	%{l3UnknownPrim.InitFields}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{l3UnknownPrim.InitFields},%S)_var,\
- ( get_global_var ( 'l3UnknownPrim.InitFields' ) %f set_uc_content %( 'intf.pas' %, '_'
- [%f] pas_MethodOwnerID %( ( get_global_var ( 'l3UnknownPrim.InitFields' ) ) %, %S )% '_var' %, 
-//	 {-}\
- ' {-}'
-//	)\
-)% ) //	%{l3UnknownPrim.InitFields}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{l3UnknownPrim.InitFields},%S)_impl,\
- ( get_global_var ( 'l3UnknownPrim.InitFields' ) %f set_uc_content %( 'intf.pas' %, '_'
- [%f] pas_MethodOwnerID %( ( get_global_var ( 'l3UnknownPrim.InitFields' ) ) %, %S )% '_impl' %, 
+
+//%f _InitFieldsUC
+; // DoSpell
+
+: InitFieldsUC OBJECT IN %S
 //	 inherited;\
  ' inherited;'
 //	%f_shift_intend(-3)\
@@ -329,7 +271,6 @@ implementation @ <<VCMFormSetFactory>>
   #13#10' Caption := str_fs'
   [%f] N %( %S )% 'Caption.AsCStr;' 
  end // if
-
 
 //	%f_set_var(INDEX,"0")\
  [%f] set_var %( 'INDEX' %, 0 )% 
@@ -388,7 +329,6 @@ implementation @ <<VCMFormSetFactory>>
  end // if
  ';'
 
-
 //	\
 //	[{"%S{DefaultStatusForm}"!="%S{!DefaultStatusForm}"&"%S{DefaultStatusForm}"!=""}\
  if ( ( %S get_up ( 'DefaultStatusForm' ) ) %!= ( %S get_up_def ( 'DefaultStatusForm' ) ) AND 
@@ -411,12 +351,11 @@ implementation @ <<VCMFormSetFactory>>
  begin
 //	\n OnGetMainCaption := DoGetMainCaption;\
   #13#10' OnGetMainCaption := DoGetMainCaption;'
-//	]\
+//	]
  end // if
-//	)
-)% ) 
+
 //f _ZonesCount
-; // DoSpell
+; // InitFieldsUC
 
 end. // <<VCMFormSetFactory>>
 

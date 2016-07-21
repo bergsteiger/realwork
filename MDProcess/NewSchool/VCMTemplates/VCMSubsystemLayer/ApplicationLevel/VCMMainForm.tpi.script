@@ -17,7 +17,6 @@ implementation @ <<VCMMainForm>>
 //> VCMFormDefinition::Class
 
 //= VCMContainer::Class
-//= ModuleOpRecall::Class
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Функции стереотипа
@@ -37,89 +36,6 @@ implementation @ <<VCMMainForm>>
  true
 //#UC END# *4A95302C02FFfor4958D0210219*
 ; // IsVCMMainForm
-
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// Унаследованная реализация
-
-// реализация абстрактного стереотипа ModuleOpRecall::Class
-// Выводит реализацию метода перенаправления операции
-//%f _OutRecallImpl
-: OutRecallImpl OBJECT IN %S
-// параметры: aCaller: MDAClass = %1
-//#UC START# *4A76CC1D010Dfor4958D0210219*
-//	<{}{%CS=uses}%C%T#f_OutRecallImpl(%1)>
- INTEGER VAR l_Counter l_Counter := 0
- for %S%C
- begin
-  OBJECT IN %C
-  if ( ( %C |S ) %== 'uses' ) then
-  begin
-   %C ->T %?f OutRecallImpl %( %1 )%  
-   ++! l_Counter
-  end // if
- end // for C
-//#UC END# *4A76CC1D010Dfor4958D0210219*
-; // OutRecallImpl
-
-
-// реализация абстрактного стереотипа ModuleOpRecall::Class
-// Выводит интерфейс метода перенаправления операции
-//%f _OutRecallIntf
-: OutRecallIntf OBJECT IN %S
-// параметры: aCaller: MDAClass = %1
-//#UC START# *4A76CC1902FEfor4958D0210219*
-//	<{}{%CS=uses}%C%T#f_OutRecallIntf(%1)>
- INTEGER VAR l_Counter l_Counter := 0
- for %S%C
- begin
-  OBJECT IN %C
-  if ( ( %C |S ) %== 'uses' ) then
-  begin
-   %C ->T %?f OutRecallIntf %( %1 )%  
-   ++! l_Counter
-  end // if
- end // for C
-//#UC END# *4A76CC1902FEfor4958D0210219*
-; // OutRecallIntf
-
-
-// реализация абстрактного стереотипа ModuleOpRecall::Class
-//%f _RecallToImplUses
-: RecallToImplUses OBJECT IN %S
-//#UC START# *4A9CF8A30296for4958D0210219*
-//	<{}{%CS=uses}%C%T#f_RecallToImplUses()>
- INTEGER VAR l_Counter l_Counter := 0
- for %S%C
- begin
-  OBJECT IN %C
-  if ( ( %C |S ) %== 'uses' ) then
-  begin
-   %C ->T %?f RecallToImplUses %( )%  
-   ++! l_Counter
-  end // if
- end // for C
-//#UC END# *4A9CF8A30296for4958D0210219*
-; // RecallToImplUses
-
-
-// реализация абстрактного стереотипа ModuleOpRecall::Class
-//%f _RecallToIntfUses
-: RecallToIntfUses OBJECT IN %S
-//#UC START# *4A9CF892039Afor4958D0210219*
-//	<{}{%CS=uses}%C%T#f_RecallToIntfUses()>
- INTEGER VAR l_Counter l_Counter := 0
- for %S%C
- begin
-  OBJECT IN %C
-  if ( ( %C |S ) %== 'uses' ) then
-  begin
-   %C ->T %?f RecallToIntfUses %( )%  
-   ++! l_Counter
-  end // if
- end // for C
-//#UC END# *4A9CF892039Afor4958D0210219*
-; // RecallToIntfUses
 
 
 

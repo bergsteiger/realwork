@@ -2162,6 +2162,7 @@ f _NeedFinalize
 
 	%S%f_pas_script_GenerateUserProperties()\
 
+	[{%SC=Class|%SC=Category}\
 	%f_clear_list(ALL_GENERATORS_ID)\
 	%f_all_generators(%S)\
 	[\
@@ -2175,17 +2176,16 @@ f _NeedFinalize
 	]\
 
 	[{"%f_with_gen_id(%{GEN_ID}N,%Sd)"!=""}\
-	[{%SC=Class|%SC=Category}\
 	[{%S#f_pas_script_IsOperation()!=true}\
 	[{%S#f_IsProject()=true|"%f_with_gen_id(%{GEN_ID}N,%Pd)"!="%f_with_gen_id(%{GEN_ID}N,%Sd)"}\
 	 CONST %{GEN_ID}N:PathOnly '%f_str_replace(%f_str_replace(%f_with_gen_id(%{GEN_ID}N,%Sd),/,\\),\\\\,\\)'
 	]\
 	]\
 	]\
-	]\
 
 	]\
 	>\
+	]\
 	]\
 
 	[{%SC=Class}\
@@ -2229,19 +2229,6 @@ f _NeedFinalize
 	[\
 	 CONST extprop:pas:ElementPrefix '%S#f_pas_ElementPrefix()'
 	]\
-	]\
-
-	[{"%S#f_NeedsOwnType()"!=""&%S#f_NeedsOwnType()!=false}\
-	[\
-	 CONST extprop:evd:NeedsOwnType %f_out_val("%S#f_NeedsOwnType()")
-	]\
-	]\
-
-	[{"%S#f_NewTypeName()"!=""}\
-	[\
-	 CONST extprop:evd:NewTypeName %f_out_val("%S#f_NewTypeName()")
-	]\
-	]\
 
 	[{"%S{isGlobal}"!=""}\
 	[\
@@ -2252,6 +2239,21 @@ f _NeedFinalize
 	[{"%S#f_InitFieldsUC()"!=""}\
 	[\
 	 CONST extprop:pas:InitFields %f_out_val(%f_fine_string("%f_with_gen_id(intf.pas,%S#f_InitFieldsUC())"))
+	]\
+	]\
+	]\
+
+	[{%SC=Class|%SC=Category|%SC=Attribute}\
+	[{"%S#f_NeedsOwnType()"!=""&%S#f_NeedsOwnType()!=false}\
+	[\
+	 CONST extprop:evd:NeedsOwnType %f_out_val("%S#f_NeedsOwnType()")
+	]\
+	]\
+
+	[{"%S#f_NewTypeName()"!=""}\
+	[\
+	 CONST extprop:evd:NewTypeName %f_out_val("%S#f_NewTypeName()")
+	]\
 	]\
 	]\
 

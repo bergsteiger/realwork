@@ -1885,98 +1885,7 @@ ref; // ME_51B1DD8E0018_ME_4B2A11BC0255 DoClearEtalon
 
 ref; // ME_4B2A11BC0255 TBaseTest
 
-FORWARD ME_4B2A6D4303A9
-
-FORWARD ME_4B2A6CEB0377
-
-FORWARD ME_4B2F92860054
-
-: ME_4B2F92A1037F
- CONST UID '4B2F92A1037F'
- CONST Name 'foGet'
- CONST Class class_Attribute
- %SUMMARY 'Прочитать файл' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent HWL ME_4B2F92860054 // TKFileOperation
- ;
-
-ref; // ME_4B2F92A1037F foGet
-
-: ME_4B2F92B2030E
- CONST UID '4B2F92B2030E'
- CONST Name 'foSet'
- CONST Class class_Attribute
- %SUMMARY 'Записать файл' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent HWL ME_4B2F92860054 // TKFileOperation
- ;
-
-ref; // ME_4B2F92B2030E foSet
-
-: ME_4BFD417300C1
- CONST UID '4BFD417300C1'
- CONST Name 'foGetLabel'
- CONST Class class_Attribute
- %SUMMARY 'Получить метки' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent HWL ME_4B2F92860054 // TKFileOperation
- ;
-
-ref; // ME_4BFD417300C1 foGetLabel
-
-: ME_4BFD418002DF
- CONST UID '4BFD418002DF'
- CONST Name 'foSetLabel'
- CONST Class class_Attribute
- %SUMMARY 'Установить метки' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent HWL ME_4B2F92860054 // TKFileOperation
- ;
-
-ref; // ME_4BFD418002DF foSetLabel
-
-: ME_4EB2C7F20025
- CONST UID '4EB2C7F20025'
- CONST Name 'foAttach'
- CONST Class class_Attribute
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent HWL ME_4B2F92860054 // TKFileOperation
- ;
-
-ref; // ME_4EB2C7F20025 foAttach
-
-: ME_4B2F92860054
- CONST UID '4B2F92860054'
- CONST Name 'TKFileOperation'
- CONST Class class_Class
- : Stereotype st_Enum ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Операция с файлом в К' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent HWL ME_4B2A6CEB0377 // TKTestListener
- ;
- : Attributes
-   Seq: ( HWL ME_4B2F92A1037F // foGet
- HWL ME_4B2F92B2030E // foSet
- HWL ME_4BFD417300C1 // foGetLabel
- HWL ME_4BFD418002DF // foSetLabel
- HWL ME_4EB2C7F20025 // foAttach
- )
- ; // Attributes
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_4B2F92860054 TKFileOperation
+FORWARD ME_4B2F5BB102A4
 
 FORWARD ME_4B6BF212005D
 
@@ -2071,7 +1980,7 @@ ref; // ME_4B6C3040021E
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent HWL ME_4B2A6CEB0377 // TKTestListener
+ : Parent HWL ME_4B2F5BB102A4 // TTimeInfoList
  ;
  : Attributes
    Seq: ( HWL ME_4B588B1203AA // rSubName
@@ -2089,6 +1998,20 @@ ref; // ME_4B6C3040021E
  CONST extprop:rc:SelfName 'TimeInfoName'
 
 ref; // ME_4B6BF212005D TTimeInfoName
+
+: ME_5305DF9803C7
+ CONST UID '5305DF9803C7'
+ CONST Name 'l3Items_NeedsAssignItem'
+ CONST Class class_Class
+ : Stereotype st_Define ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4B2F5BB102A4 // TTimeInfoList
+ ;
+ CONST extprop:rc:SelfName 'Items_NeedsAssignItem'
+
+ref; // ME_5305DF9803C7 l3Items_NeedsAssignItem
 
 FORWARD ME_4B2F565002FD
 
@@ -2421,7 +2344,7 @@ ref; // ME_4B2F57770198
  %SUMMARY 'Информация о замере времени' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent HWL ME_4B2A6CEB0377 // TKTestListener
+ : Parent HWL ME_4B2F5BB102A4 // TTimeInfoList
  ;
  : Attributes
    Seq: ( HWL ME_4B2F56C902AA // rDate
@@ -2450,22 +2373,6 @@ ref; // ME_4B2F57770198
 
 ref; // ME_4B2F565002FD TTimeInfo
 
-FORWARD ME_4B2F5BB102A4
-
-: ME_5305DF9803C7
- CONST UID '5305DF9803C7'
- CONST Name 'l3Items_NeedsAssignItem'
- CONST Class class_Class
- : Stereotype st_Define ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent HWL ME_4B2F5BB102A4 // TTimeInfoList
- ;
- CONST extprop:rc:SelfName 'Items_NeedsAssignItem'
-
-ref; // ME_5305DF9803C7 l3Items_NeedsAssignItem
-
 : ME_4B2F5BD50068
  CONST UID '4B2F5BD50068'
  CONST Name 'ItemType'
@@ -2480,139 +2387,6 @@ ref; // ME_5305DF9803C7 l3Items_NeedsAssignItem
  ;
 
 ref; // ME_4B2F5BD50068 ItemType
-
-FORWARD ME_4B7A98A10031
-
-: ME_4B7A98F702E5
- CONST UID '4B7A98F702E5'
- CONST Name 'Name'
- CONST Class class_Attribute
- : Stereotype st_var::Attribute ;
- %SUMMARY 'Имя текущего замера' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent HWL ME_4B7A98A10031 // Compact
- ;
- : Target HWL ME_4B6BF212005D // TTimeInfoName
- ;
- CONST "IsResult" false
-
-ref; // ME_4B7A98F702E5 Name
-
-: ME_4B7A992B029F
- CONST UID '4B7A992B029F'
- CONST Name 'i'
- CONST Class class_Attribute
- : Stereotype st_var::Attribute ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent HWL ME_4B7A98A10031 // Compact
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- CONST "IsResult" false
-
-ref; // ME_4B7A992B029F i
-
-: ME_4B7A993203DD
- CONST UID '4B7A993203DD'
- CONST Name 'j'
- CONST Class class_Attribute
- : Stereotype st_var::Attribute ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent HWL ME_4B7A98A10031 // Compact
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- CONST "IsResult" false
-
-ref; // ME_4B7A993203DD j
-
-: ME_4B7A993D00A0
- CONST UID '4B7A993D00A0'
- CONST Name 'C'
- CONST Class class_Attribute
- : Stereotype st_var::Attribute ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent HWL ME_4B7A98A10031 // Compact
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- CONST "IsResult" false
-
-ref; // ME_4B7A993D00A0 C
-
-: ME_4B7A9AE20058
- CONST UID '4B7A9AE20058'
- CONST Name 'SeriesCount'
- CONST Class class_Attribute
- : Stereotype st_var::Attribute ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent HWL ME_4B7A98A10031 // Compact
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- CONST "IsResult" false
-
-ref; // ME_4B7A9AE20058 SeriesCount
-
-: ME_4B7A98CF0198
- CONST Name 'aCount'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_4B7A98CF0198 aCount
-
-: ME_4B7A98C401F1
- CONST UID '4B7A98C401F1'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent HWL ME_4B7A98A10031 // Compact
- ;
- : Parameters
-   Seq: ( ME_4B7A98CF0198 // aCount
- )
- ; // Parameters
-
-ref; // ME_4B7A98C401F1 DoIt
-
-: ME_4B7A98A10031
- CONST UID '4B7A98A10031'
- CONST Name 'Compact'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Минимизирует число замеров в графике до указанного числа' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent HWL ME_4B2F5BB102A4 // TTimeInfoList
- ;
- : Attributes
-   Seq: ( HWL ME_4B7A98F702E5 // Name
- HWL ME_4B7A992B029F // i
- HWL ME_4B7A993203DD // j
- HWL ME_4B7A993D00A0 // C
- HWL ME_4B7A9AE20058 // SeriesCount
- )
- ; // Attributes
- : Operations
-   Seq: ( HWL ME_4B7A98C401F1 // DoIt
- )
- ; // Operations
-
-ref; // ME_4B7A98A10031 Compact
 
 FORWARD ME_4B7AA321023D
 
@@ -2763,6 +2537,139 @@ ref; // ME_4B7AA33B0391 DoIt
 
 ref; // ME_4B7AA321023D DeleteOld
 
+FORWARD ME_4B7A98A10031
+
+: ME_4B7A98F702E5
+ CONST UID '4B7A98F702E5'
+ CONST Name 'Name'
+ CONST Class class_Attribute
+ : Stereotype st_var::Attribute ;
+ %SUMMARY 'Имя текущего замера' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_4B7A98A10031 // Compact
+ ;
+ : Target HWL ME_4B6BF212005D // TTimeInfoName
+ ;
+ CONST "IsResult" false
+
+ref; // ME_4B7A98F702E5 Name
+
+: ME_4B7A992B029F
+ CONST UID '4B7A992B029F'
+ CONST Name 'i'
+ CONST Class class_Attribute
+ : Stereotype st_var::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_4B7A98A10031 // Compact
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "IsResult" false
+
+ref; // ME_4B7A992B029F i
+
+: ME_4B7A993203DD
+ CONST UID '4B7A993203DD'
+ CONST Name 'j'
+ CONST Class class_Attribute
+ : Stereotype st_var::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_4B7A98A10031 // Compact
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "IsResult" false
+
+ref; // ME_4B7A993203DD j
+
+: ME_4B7A993D00A0
+ CONST UID '4B7A993D00A0'
+ CONST Name 'C'
+ CONST Class class_Attribute
+ : Stereotype st_var::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_4B7A98A10031 // Compact
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "IsResult" false
+
+ref; // ME_4B7A993D00A0 C
+
+: ME_4B7A9AE20058
+ CONST UID '4B7A9AE20058'
+ CONST Name 'SeriesCount'
+ CONST Class class_Attribute
+ : Stereotype st_var::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_4B7A98A10031 // Compact
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "IsResult" false
+
+ref; // ME_4B7A9AE20058 SeriesCount
+
+: ME_4B7A98CF0198
+ CONST Name 'aCount'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4B7A98CF0198 aCount
+
+: ME_4B7A98C401F1
+ CONST UID '4B7A98C401F1'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4B7A98A10031 // Compact
+ ;
+ : Parameters
+   Seq: ( ME_4B7A98CF0198 // aCount
+ )
+ ; // Parameters
+
+ref; // ME_4B7A98C401F1 DoIt
+
+: ME_4B7A98A10031
+ CONST UID '4B7A98A10031'
+ CONST Name 'Compact'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Минимизирует число замеров в графике до указанного числа' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4B2F5BB102A4 // TTimeInfoList
+ ;
+ : Attributes
+   Seq: ( HWL ME_4B7A98F702E5 // Name
+ HWL ME_4B7A992B029F // i
+ HWL ME_4B7A993203DD // j
+ HWL ME_4B7A993D00A0 // C
+ HWL ME_4B7A9AE20058 // SeriesCount
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( HWL ME_4B7A98C401F1 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_4B7A98A10031 Compact
+
 : ME_47B2C42A0163_ME_4B2F5BB102A4
  : Original WL 'ME_47B2C42A0163' '47913B47006E.pas.ms.script' // AssignItem
  ;
@@ -2786,7 +2693,7 @@ ref; // ME_47B99D4503A2_ME_4B2F5BB102A4 CompareExistingItems
  %SUMMARY 'Список замеров времени' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent HWL ME_4B2A6CEB0377 // TKTestListener
+ : Parent HWL ME_4B2A112B011A // Source
  ;
  : Inherits
    Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
@@ -2798,8 +2705,8 @@ ref; // ME_47B99D4503A2_ME_4B2F5BB102A4 CompareExistingItems
  )
  ; // Attributes
  : Operations
-   Seq: ( HWL ME_4B7A98A10031 // Compact
- HWL ME_4B7AA321023D // DeleteOld
+   Seq: ( HWL ME_4B7AA321023D // DeleteOld
+ HWL ME_4B7A98A10031 // Compact
  )
  ; // Operations
  : Implemented
@@ -2808,16 +2715,831 @@ ref; // ME_47B99D4503A2_ME_4B2F5BB102A4 CompareExistingItems
  )
  ; // Implemented
  : Children
-   Seq: ( HWL ME_5305DF9803C7 // l3Items_NeedsAssignItem
+   Seq: ( HWL ME_4B6BF212005D // TTimeInfoName
+ HWL ME_5305DF9803C7 // l3Items_NeedsAssignItem
+ HWL ME_4B2F565002FD // TTimeInfo
  )
  ; // Children
  CONST "author" 'Люлин А.В.'
  CONST "no hands" true
  CONST "started" '21.12.2009 14:28'
+ CONST intf.pas:Path 'common\components\rtl\Garant\DUnitTuning\TimeInfoList.pas'
  CONST extprop:rc:SelfName 'TimeInfoList'
  CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'TimeInfoList'
 
 ref; // ME_4B2F5BB102A4 TTimeInfoList
+
+FORWARD ME_4C44675A0269
+
+FORWARD ME_4C446BAE00A3
+
+: ME_4C446BC901D9
+ CONST UID '4C446BC901D9'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4C446BAE00A3 // Exists
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4C446BC901D9 DoIt
+
+: ME_4C446BAE00A3
+ CONST UID '4C446BAE00A3'
+ CONST Name 'Exists'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Определяет создан ли экземпляр синглетона' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4C44675A0269 // TExcludedTests
+ ;
+ : Operations
+   Seq: ( HWL ME_4C446BC901D9 // DoIt
+ )
+ ; // Operations
+ CONST "is static" true
+
+ref; // ME_4C446BAE00A3 Exists
+
+: ME_4C44675A0269
+ CONST UID '4C44675A0269'
+ CONST Name 'TExcludedTests'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Тесты, которые не надо запускать - [$227477825].' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4B2A112B011A // Source
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4773DCE302FF' '47913B47006E.pas.ms.script' // Tl3StringList
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( HWL ME_4C446BAE00A3 // Exists
+ )
+ ; // Operations
+ CONST "author" 'Люлин А.В.'
+ CONST "no hands" true
+ CONST "singleton" true
+ CONST "started" '19.0.2010 18:56'
+ CONST intf.pas:Path 'common\components\rtl\Garant\DUnitTuning\ExcludedTests.pas'
+ CONST extprop:rc:SelfName 'ExcludedTests'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'ExcludedTests'
+
+ref; // ME_4C44675A0269 TExcludedTests
+
+FORWARD ME_4C9386230151
+
+FORWARD ME_4C938674023A
+
+: ME_4C93867E028A
+ CONST UID '4C93867E028A'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4C938674023A // Exists
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4C93867E028A DoIt
+
+: ME_4C938674023A
+ CONST UID '4C938674023A'
+ CONST Name 'Exists'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4C9386230151 // TExcludedTestsFolders
+ ;
+ : Operations
+   Seq: ( HWL ME_4C93867E028A // DoIt
+ )
+ ; // Operations
+ CONST "is static" true
+
+ref; // ME_4C938674023A Exists
+
+: ME_4C9386230151
+ CONST UID '4C9386230151'
+ CONST Name 'TExcludedTestsFolders'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Папки тестов исключаемые из запуска' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4B2A112B011A // Source
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4773DCE302FF' '47913B47006E.pas.ms.script' // Tl3StringList
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( HWL ME_4C938674023A // Exists
+ )
+ ; // Operations
+ CONST "author" 'Люлин А.В.'
+ CONST "no hands" true
+ CONST "singleton" true
+ CONST "started" '17.09.2010 19:16'
+ CONST intf.pas:Path 'common\components\rtl\Garant\DUnitTuning\ExcludedTestsFolders.pas'
+ CONST extprop:rc:SelfName 'ExcludedTestsFolders'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'ExcludedTestsFolders'
+
+ref; // ME_4C9386230151 TExcludedTestsFolders
+
+FORWARD ME_4D1AEAC80371
+
+FORWARD ME_524513D603C3
+
+: ME_524513E800BD
+ CONST UID '524513E800BD'
+ CONST Name 'lo_Clear'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_524513D603C3 // TLoadOperation
+ ;
+
+ref; // ME_524513E800BD lo_Clear
+
+: ME_5245140B021A
+ CONST UID '5245140B021A'
+ CONST Name 'lo_AND'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_524513D603C3 // TLoadOperation
+ ;
+
+ref; // ME_5245140B021A lo_AND
+
+: ME_5245151502E3
+ CONST UID '5245151502E3'
+ CONST Name 'lo_OR'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_524513D603C3 // TLoadOperation
+ ;
+
+ref; // ME_5245151502E3 lo_OR
+
+: ME_5245152003C8
+ CONST UID '5245152003C8'
+ CONST Name 'lo_NOT'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_524513D603C3 // TLoadOperation
+ ;
+
+ref; // ME_5245152003C8 lo_NOT
+
+: ME_524513D603C3
+ CONST UID '524513D603C3'
+ CONST Name 'TLoadOperation'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4D1AEAC80371 // TTestNameList
+ ;
+ : Attributes
+   Seq: ( HWL ME_524513E800BD // lo_Clear
+ HWL ME_5245140B021A // lo_AND
+ HWL ME_5245151502E3 // lo_OR
+ HWL ME_5245152003C8 // lo_NOT
+ )
+ ; // Attributes
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_524513D603C3 TLoadOperation
+
+FORWARD ME_4D2EE63E0318
+
+: ME_4D2EE65201AD
+ CONST UID '4D2EE65201AD'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4D2EE63E0318 // Exists
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4D2EE65201AD DoIt
+
+: ME_4D2EE63E0318
+ CONST UID '4D2EE63E0318'
+ CONST Name 'Exists'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4D1AEAC80371 // TTestNameList
+ ;
+ : Operations
+   Seq: ( HWL ME_4D2EE65201AD // DoIt
+ )
+ ; // Operations
+ CONST "is static" true
+
+ref; // ME_4D2EE63E0318 Exists
+
+FORWARD ME_5245135701C4
+
+: ME_524513CE03E6
+ CONST Name 'aFileName'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_524513CE03E6 aFileName
+
+: ME_524513CF001D
+ CONST Name 'aOperation'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target HWL ME_524513D603C3 // TLoadOperation
+ ;
+
+ref; // ME_524513CF001D aOperation
+
+: ME_524513A3000F
+ CONST UID '524513A3000F'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_5245135701C4 // LoadFromFileEX
+ ;
+ : Parameters
+   Seq: ( ME_524513CE03E6 // aFileName
+ ME_524513CF001D // aOperation
+ )
+ ; // Parameters
+
+ref; // ME_524513A3000F DoIt
+
+: ME_5245135701C4
+ CONST UID '5245135701C4'
+ CONST Name 'LoadFromFileEX'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4D1AEAC80371 // TTestNameList
+ ;
+ : Operations
+   Seq: ( HWL ME_524513A3000F // DoIt
+ )
+ ; // Operations
+ CONST "is static" true
+
+ref; // ME_5245135701C4 LoadFromFileEX
+
+FORWARD ME_525CFBC20231
+
+: ME_525CFBD1011A
+ CONST UID '525CFBD1011A'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_525CFBC20231 // ClearList
+ ;
+
+ref; // ME_525CFBD1011A DoIt
+
+: ME_525CFBC20231
+ CONST UID '525CFBC20231'
+ CONST Name 'ClearList'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4D1AEAC80371 // TTestNameList
+ ;
+ : Operations
+   Seq: ( HWL ME_525CFBD1011A // DoIt
+ )
+ ; // Operations
+ CONST "is static" true
+
+ref; // ME_525CFBC20231 ClearList
+
+FORWARD ME_4FF431A00215
+
+: ME_4FF431F703A1
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4D1AEAC80371 // TTestNameList
+ ;
+ : Target HWL ME_4FF431A00215 // TTestNameString
+ ;
+
+ref; // ME_4FF431F703A1 
+
+: ME_47B1E5230151_ME_4D1AEAC80371
+ : Original WL 'ME_47B1E5230151' '47913B47006E.pas.ms.script' // StringItemClass
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_47B1E5230151_ME_4D1AEAC80371 StringItemClass
+
+: ME_4D1AEAC80371
+ CONST UID '4D1AEAC80371'
+ CONST Name 'TTestNameList'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Список тестов для  запуска.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4B2A112B011A // Source
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4773DCE302FF' '47913B47006E.pas.ms.script' // Tl3StringList
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( HWL ME_4D2EE63E0318 // Exists
+ HWL ME_5245135701C4 // LoadFromFileEX
+ HWL ME_525CFBC20231 // ClearList
+ )
+ ; // Operations
+ : Overridden
+   Seq: ( ME_47B1E5230151_ME_4D1AEAC80371 // StringItemClass
+ )
+ ; // Overridden
+ : Children
+   Seq: ( HWL ME_524513D603C3 // TLoadOperation
+ )
+ ; // Children
+ : Dependencies
+   Seq: ( ME_4FF431F703A1 // TTestNameString
+ )
+ ; // Dependencies
+ CONST "author" 'Инишев Д.А.'
+ CONST "no hands" true
+ CONST "singleton" true
+ CONST intf.pas:Path 'common\components\rtl\Garant\DUnitTuning\TestNameList.pas'
+ CONST extprop:rc:SelfName 'TestNameList'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'TestNameList'
+
+ref; // ME_4D1AEAC80371 TTestNameList
+
+: ME_4FF4339B0102
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4FF431A00215 // TTestNameString
+ ;
+ : Target WL 'ME_4FF4335402DE' '54B90AC6014B.pas.ms.script' // l3LTrim
+ ;
+
+ref; // ME_4FF4339B0102 
+
+: ME_47A869D10074_ME_4FF431A00215
+ : Original WL 'ME_47A869D10074' '47913B47006E.pas.ms.script' // DoSetAsPCharLen
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_47A869D10074_ME_4FF431A00215 DoSetAsPCharLen
+
+: ME_4FF431A00215
+ CONST UID '4FF431A00215'
+ CONST Name 'TTestNameString'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4B2A112B011A // Source
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4773DED9004C' '47913B47006E.pas.ms.script' // Tl3_String
+ )
+ ; // Inherits
+ : Overridden
+   Seq: ( ME_47A869D10074_ME_4FF431A00215 // DoSetAsPCharLen
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_4FF4339B0102 // l3LTrim
+ )
+ ; // Dependencies
+ CONST intf.pas:Path 'common\components\rtl\Garant\DUnitTuning\TestNameString.pas'
+ CONST extprop:rc:SelfName 'TestNameString'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'TestNameString'
+
+ref; // ME_4FF431A00215 TTestNameString
+
+FORWARD ME_5279D2EA02DE
+
+FORWARD ME_5279D3220116
+
+: ME_5279D3410056
+ CONST UID '5279D3410056'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_5279D3220116 // Exists
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_5279D3410056 DoIt
+
+: ME_5279D3220116
+ CONST UID '5279D3220116'
+ CONST Name 'Exists'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_5279D2EA02DE // TTestDocumentList
+ ;
+ : Operations
+   Seq: ( HWL ME_5279D3410056 // DoIt
+ )
+ ; // Operations
+ CONST "is static" true
+
+ref; // ME_5279D3220116 Exists
+
+: ME_5279D2EA02DE
+ CONST UID '5279D2EA02DE'
+ CONST Name 'TTestDocumentList'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4B2A112B011A // Source
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4773DCE302FF' '47913B47006E.pas.ms.script' // Tl3StringList
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( HWL ME_5279D3220116 // Exists
+ )
+ ; // Operations
+ CONST "singleton" true
+ CONST intf.pas:Path 'common\components\rtl\Garant\DUnitTuning\TestDocumentList.pas'
+ CONST extprop:rc:SelfName 'TestDocumentList'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'TestDocumentList'
+
+ref; // ME_5279D2EA02DE TTestDocumentList
+
+FORWARD ME_4B2A6D4303A9
+
+FORWARD ME_4B7AAC7A031D
+
+: ME_4B7AAF1203B4
+ CONST UID '4B7AAF1203B4'
+ CONST Name 'RTestResultsPlace'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4B7AAC7A031D // TTestResultsPlace
+ ;
+ : Inherits
+   Seq: ( HWL ME_4B7AAC7A031D // TTestResultsPlace
+ )
+ ; // Inherits
+ CONST "isClassRef" true
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4B7AAF1203B4 RTestResultsPlace
+
+FORWARD ME_4B7AAF5C0096
+
+: ME_4B7AAF680364
+ CONST UID '4B7AAF680364'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent HWL ME_4B7AAF5C0096 // array of RTestResultsPlace
+ ;
+ : Target HWL ME_4B7AAF1203B4 // RTestResultsPlace
+ ;
+
+ref; // ME_4B7AAF680364 
+
+: ME_4B7AAF5C0096
+ CONST UID '4B7AAF5C0096'
+ CONST Name 'array of RTestResultsPlace'
+ CONST Class class_Class
+ : Stereotype st_Vector ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4B7AAC7A031D // TTestResultsPlace
+ ;
+ : Attributes
+   Seq: ( HWL ME_4B7AAF680364 // 
+ )
+ ; // Attributes
+ CONST "array type" 'open'
+
+ref; // ME_4B7AAF5C0096 array of RTestResultsPlace
+
+FORWARD ME_4B7AAF3101B0
+
+: ME_4B7AAF400111
+ CONST UID '4B7AAF400111'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent HWL ME_4B7AAF3101B0 // TTestResultsPlaces
+ ;
+ : Target HWL ME_4B7AAF1203B4 // RTestResultsPlace
+ ;
+
+ref; // ME_4B7AAF400111 
+
+: ME_4B7AAF3101B0
+ CONST UID '4B7AAF3101B0'
+ CONST Name 'TTestResultsPlaces'
+ CONST Class class_Class
+ : Stereotype st_Vector ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4B7AAC7A031D // TTestResultsPlace
+ ;
+ : Attributes
+   Seq: ( HWL ME_4B7AAF400111 // 
+ )
+ ; // Attributes
+ CONST "array type" 'dynamic'
+
+ref; // ME_4B7AAF3101B0 TTestResultsPlaces
+
+FORWARD ME_555EF157016F
+
+: ME_555EF1630385
+ CONST UID '555EF1630385'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_555EF157016F // HasTabs
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_555EF1630385 DoIt
+
+: ME_555EF157016F
+ CONST UID '555EF157016F'
+ CONST Name 'HasTabs'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4B7AAC7A031D // TTestResultsPlace
+ ;
+ : Operations
+   Seq: ( HWL ME_555EF1630385 // DoIt
+ )
+ ; // Operations
+ CONST "is static" true
+
+ref; // ME_555EF157016F HasTabs
+
+: ME_4B7AB0B6016E
+ CONST UID '4B7AB0B6016E'
+ CONST Name 'CommandLineKey'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Ключ командной строки при указании которого будет выбрано данное место расположения результатов' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_4B7AAC7A031D // TTestResultsPlace
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_4B7AB0B6016E CommandLineKey
+
+: ME_4B7C0B43005B
+ CONST UID '4B7C0B43005B'
+ CONST Name 'TimesPage'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Страница для вывода замеров времени' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_4B7AAC7A031D // TTestResultsPlace
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST extprop:pas:Value 0
+
+ref; // ME_4B7C0B43005B TimesPage
+
+: ME_4B7C0B670215
+ CONST UID '4B7C0B670215'
+ CONST Name 'ResultsPage'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Страница для вывода результатов тестов' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_4B7AAC7A031D // TTestResultsPlace
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST extprop:pas:Value 0
+
+ref; // ME_4B7C0B670215 ResultsPage
+
+: ME_4BEA9969001B
+ CONST UID '4BEA9969001B'
+ CONST Name 'IsGK'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Тесты запущены ГК' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4B7AAC7A031D // TTestResultsPlace
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST extprop:pas:Value false
+
+ref; // ME_4BEA9969001B IsGK
+
+: ME_4C35A6DA02E9
+ CONST UID '4C35A6DA02E9'
+ CONST Name 'IsLAW'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4B7AAC7A031D // TTestResultsPlace
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST extprop:pas:Value false
+
+ref; // ME_4C35A6DA02E9 IsLAW
+
+: ME_4B7AAC7A031D
+ CONST UID '4B7AAC7A031D'
+ CONST Name 'TTestResultsPlace'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Место для складывания результатов тестов' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4B2A6D4303A9 // KTestRunner
+ ;
+ : Operations
+   Seq: ( HWL ME_555EF157016F // HasTabs
+ HWL ME_4B7AB0B6016E // CommandLineKey
+ HWL ME_4B7C0B43005B // TimesPage
+ HWL ME_4B7C0B670215 // ResultsPage
+ HWL ME_4BEA9969001B // IsGK
+ HWL ME_4C35A6DA02E9 // IsLAW
+ )
+ ; // Operations
+ : Children
+   Seq: ( HWL ME_4B7AAF1203B4 // RTestResultsPlace
+ HWL ME_4B7AAF5C0096 // array of RTestResultsPlace
+ HWL ME_4B7AAF3101B0 // TTestResultsPlaces
+ )
+ ; // Children
+ CONST extprop:rc:SelfName 'TestResultsPlace'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4B7AAC7A031D TTestResultsPlace
+
+FORWARD ME_4B2A6CEB0377
+
+FORWARD ME_4B2F92860054
+
+: ME_4B2F92A1037F
+ CONST UID '4B2F92A1037F'
+ CONST Name 'foGet'
+ CONST Class class_Attribute
+ %SUMMARY 'Прочитать файл' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4B2F92860054 // TKFileOperation
+ ;
+
+ref; // ME_4B2F92A1037F foGet
+
+: ME_4B2F92B2030E
+ CONST UID '4B2F92B2030E'
+ CONST Name 'foSet'
+ CONST Class class_Attribute
+ %SUMMARY 'Записать файл' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4B2F92860054 // TKFileOperation
+ ;
+
+ref; // ME_4B2F92B2030E foSet
+
+: ME_4BFD417300C1
+ CONST UID '4BFD417300C1'
+ CONST Name 'foGetLabel'
+ CONST Class class_Attribute
+ %SUMMARY 'Получить метки' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4B2F92860054 // TKFileOperation
+ ;
+
+ref; // ME_4BFD417300C1 foGetLabel
+
+: ME_4BFD418002DF
+ CONST UID '4BFD418002DF'
+ CONST Name 'foSetLabel'
+ CONST Class class_Attribute
+ %SUMMARY 'Установить метки' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4B2F92860054 // TKFileOperation
+ ;
+
+ref; // ME_4BFD418002DF foSetLabel
+
+: ME_4EB2C7F20025
+ CONST UID '4EB2C7F20025'
+ CONST Name 'foAttach'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent HWL ME_4B2F92860054 // TKFileOperation
+ ;
+
+ref; // ME_4EB2C7F20025 foAttach
+
+: ME_4B2F92860054
+ CONST UID '4B2F92860054'
+ CONST Name 'TKFileOperation'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Операция с файлом в К' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_4B2A6CEB0377 // TKTestListener
+ ;
+ : Attributes
+   Seq: ( HWL ME_4B2F92A1037F // foGet
+ HWL ME_4B2F92B2030E // foSet
+ HWL ME_4BFD417300C1 // foGetLabel
+ HWL ME_4BFD418002DF // foSetLabel
+ HWL ME_4EB2C7F20025 // foAttach
+ )
+ ; // Attributes
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4B2F92860054 TKFileOperation
 
 : ME_4B2B6D0F0045
  CONST UID '4B2B6D0F0045'
@@ -3186,6 +3908,197 @@ ref; // ME_4B2F51D203CE DoIt
  CONST "is static" false
 
 ref; // ME_4B2F51C3008F TimeToLog
+
+FORWARD ME_4B2F60140143
+
+: ME_4B2F617F0344
+ CONST UID '4B2F617F0344'
+ CONST Name 'Index'
+ CONST Class class_Attribute
+ : Stereotype st_var::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_4B2F60140143 // PutTimesToK
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "IsResult" false
+
+ref; // ME_4B2F617F0344 Index
+
+: ME_4B2F61AC0042
+ CONST UID '4B2F61AC0042'
+ CONST Name 'F'
+ CONST Class class_Attribute
+ : Stereotype st_var::Attribute ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_4B2F60140143 // PutTimesToK
+ ;
+ : Target WL 'ME_47A0679D00E4' '47913B47006E.pas.ms.script' // Tl3CustomFiler
+ ;
+ CONST "IsResult" false
+
+ref; // ME_4B2F61AC0042 F
+
+: ME_4B2F641E00AC
+ CONST UID '4B2F641E00AC'
+ CONST Name 'N'
+ CONST Class class_Attribute
+ : Stereotype st_var::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_4B2F60140143 // PutTimesToK
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+ CONST "IsResult" false
+
+ref; // ME_4B2F641E00AC N
+
+: ME_4B2F643F02C2
+ CONST UID '4B2F643F02C2'
+ CONST Name 'Info'
+ CONST Class class_Attribute
+ : Stereotype st_var::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_4B2F60140143 // PutTimesToK
+ ;
+ : Target HWL ME_4B2F565002FD // TTimeInfo
+ ;
+ CONST "IsResult" false
+
+ref; // ME_4B2F643F02C2 Info
+
+FORWARD ME_4B7C16A10288
+
+: ME_4B7C16FB0077
+ CONST UID '4B7C16FB0077'
+ CONST Name 'KPos'
+ CONST Class class_Attribute
+ : Stereotype st_var::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent HWL ME_4B7C16A10288 // OutTaskLink
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "IsResult" false
+
+ref; // ME_4B7C16FB0077 KPos
+
+: ME_4B7C16BF0285
+ CONST Name 'aN'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_4B7C16BF0285 aN
+
+: ME_4B7C16BA02A4
+ CONST UID '4B7C16BA02A4'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4B7C16A10288 // OutTaskLink
+ ;
+ : Parameters
+   Seq: ( ME_4B7C16BF0285 // aN
+ )
+ ; // Parameters
+
+ref; // ME_4B7C16BA02A4 DoIt
+
+: ME_4B7C16A10288
+ CONST UID '4B7C16A10288'
+ CONST Name 'OutTaskLink'
+ CONST Class class_Class
+ : Stereotype st_localmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4B2F60140143 // PutTimesToK
+ ;
+ : Attributes
+   Seq: ( HWL ME_4B7C16FB0077 // KPos
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( HWL ME_4B7C16BA02A4 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_4B7C16A10288 OutTaskLink
+
+: ME_4B2F60340106
+ CONST UID '4B2F60340106'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4B2F60140143 // PutTimesToK
+ ;
+
+ref; // ME_4B2F60340106 DoIt
+
+: ME_4B2F61C003AF
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4B2F60140143 // PutTimesToK
+ ;
+ : Target WL 'ME_48F4BE400154' '4678193C009C.pas.ms.script' // Tl3FileMode
+ ;
+
+ref; // ME_4B2F61C003AF 
+
+: ME_4B5892FF0367
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4B2F60140143 // PutTimesToK
+ ;
+ : Target WL 'ME_47A066980016' '537B83AD01F0.pas.ms.script' // l3MinMax
+ ;
+
+ref; // ME_4B5892FF0367 
+
+: ME_4B2F60140143
+ CONST UID '4B2F60140143'
+ CONST Name 'PutTimesToK'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Выводит в К замеры времени' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4B2A6CEB0377 // TKTestListener
+ ;
+ : Attributes
+   Seq: ( HWL ME_4B2F617F0344 // Index
+ HWL ME_4B2F61AC0042 // F
+ HWL ME_4B2F641E00AC // N
+ HWL ME_4B2F643F02C2 // Info
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( HWL ME_4B7C16A10288 // OutTaskLink
+ HWL ME_4B2F60340106 // DoIt
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_4B2F61C003AF // Tl3FileMode
+ ME_4B5892FF0367 // l3MinMax
+ )
+ ; // Dependencies
+
+ref; // ME_4B2F60140143 PutTimesToK
 
 : ME_4B2F92FC00A1
  CONST Name 'aPageID'
@@ -3645,197 +4558,6 @@ ref; // ME_4B589ACB0015 DoIt
  CONST "is static" true
 
 ref; // ME_4B589ABD02C3 IsFakeK
-
-FORWARD ME_4B2F60140143
-
-: ME_4B2F617F0344
- CONST UID '4B2F617F0344'
- CONST Name 'Index'
- CONST Class class_Attribute
- : Stereotype st_var::Attribute ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent HWL ME_4B2F60140143 // PutTimesToK
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- CONST "IsResult" false
-
-ref; // ME_4B2F617F0344 Index
-
-: ME_4B2F61AC0042
- CONST UID '4B2F61AC0042'
- CONST Name 'F'
- CONST Class class_Attribute
- : Stereotype st_var::Attribute ;
- CONST Visibility ProtectedAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent HWL ME_4B2F60140143 // PutTimesToK
- ;
- : Target WL 'ME_47A0679D00E4' '47913B47006E.pas.ms.script' // Tl3CustomFiler
- ;
- CONST "IsResult" false
-
-ref; // ME_4B2F61AC0042 F
-
-: ME_4B2F641E00AC
- CONST UID '4B2F641E00AC'
- CONST Name 'N'
- CONST Class class_Attribute
- : Stereotype st_var::Attribute ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent HWL ME_4B2F60140143 // PutTimesToK
- ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
- CONST "IsResult" false
-
-ref; // ME_4B2F641E00AC N
-
-: ME_4B2F643F02C2
- CONST UID '4B2F643F02C2'
- CONST Name 'Info'
- CONST Class class_Attribute
- : Stereotype st_var::Attribute ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent HWL ME_4B2F60140143 // PutTimesToK
- ;
- : Target HWL ME_4B2F565002FD // TTimeInfo
- ;
- CONST "IsResult" false
-
-ref; // ME_4B2F643F02C2 Info
-
-FORWARD ME_4B7C16A10288
-
-: ME_4B7C16FB0077
- CONST UID '4B7C16FB0077'
- CONST Name 'KPos'
- CONST Class class_Attribute
- : Stereotype st_var::Attribute ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent HWL ME_4B7C16A10288 // OutTaskLink
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- CONST "IsResult" false
-
-ref; // ME_4B7C16FB0077 KPos
-
-: ME_4B7C16BF0285
- CONST Name 'aN'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
-
-ref; // ME_4B7C16BF0285 aN
-
-: ME_4B7C16BA02A4
- CONST UID '4B7C16BA02A4'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent HWL ME_4B7C16A10288 // OutTaskLink
- ;
- : Parameters
-   Seq: ( ME_4B7C16BF0285 // aN
- )
- ; // Parameters
-
-ref; // ME_4B7C16BA02A4 DoIt
-
-: ME_4B7C16A10288
- CONST UID '4B7C16A10288'
- CONST Name 'OutTaskLink'
- CONST Class class_Class
- : Stereotype st_localmethod ;
- CONST Kind kind_NormalClass
- CONST Visibility ProtectedAccess
- CONST Abstraction at_final
- : Parent HWL ME_4B2F60140143 // PutTimesToK
- ;
- : Attributes
-   Seq: ( HWL ME_4B7C16FB0077 // KPos
- )
- ; // Attributes
- : Operations
-   Seq: ( HWL ME_4B7C16BA02A4 // DoIt
- )
- ; // Operations
-
-ref; // ME_4B7C16A10288 OutTaskLink
-
-: ME_4B2F60340106
- CONST UID '4B2F60340106'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent HWL ME_4B2F60140143 // PutTimesToK
- ;
-
-ref; // ME_4B2F60340106 DoIt
-
-: ME_4B2F61C003AF
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent HWL ME_4B2F60140143 // PutTimesToK
- ;
- : Target WL 'ME_48F4BE400154' '4678193C009C.pas.ms.script' // Tl3FileMode
- ;
-
-ref; // ME_4B2F61C003AF 
-
-: ME_4B5892FF0367
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent HWL ME_4B2F60140143 // PutTimesToK
- ;
- : Target WL 'ME_47A066980016' '537B83AD01F0.pas.ms.script' // l3MinMax
- ;
-
-ref; // ME_4B5892FF0367 
-
-: ME_4B2F60140143
- CONST UID '4B2F60140143'
- CONST Name 'PutTimesToK'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Выводит в К замеры времени' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent HWL ME_4B2A6CEB0377 // TKTestListener
- ;
- : Attributes
-   Seq: ( HWL ME_4B2F617F0344 // Index
- HWL ME_4B2F61AC0042 // F
- HWL ME_4B2F641E00AC // N
- HWL ME_4B2F643F02C2 // Info
- )
- ; // Attributes
- : Operations
-   Seq: ( HWL ME_4B7C16A10288 // OutTaskLink
- HWL ME_4B2F60340106 // DoIt
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_4B2F61C003AF // Tl3FileMode
- ME_4B5892FF0367 // l3MinMax
- )
- ; // Dependencies
-
-ref; // ME_4B2F60140143 PutTimesToK
 
 FORWARD ME_4C359E6E02F6
 
@@ -4467,6 +5189,7 @@ ref; // ME_5374DAC503BB_ME_4B2A6CEB0377 StartTest
  HWL ME_4B2B93A4002D // ToLog
  HWL ME_4B2B954502BE // PutFileToK
  HWL ME_4B2F51C3008F // TimeToLog
+ HWL ME_4B2F60140143 // PutTimesToK
  HWL ME_4B2F92D20307 // CommunicateWithK
  HWL ME_4B2F95810108 // GetFileFromK
  HWL ME_4B2F9BAE023F // GetTimesFromK
@@ -4476,7 +5199,6 @@ ref; // ME_5374DAC503BB_ME_4B2A6CEB0377 StartTest
  HWL ME_4B58989D02ED // TimesFileName
  HWL ME_4B589976028C // ResultsFileName
  HWL ME_4B589ABD02C3 // IsFakeK
- HWL ME_4B2F60140143 // PutTimesToK
  HWL ME_4C359E6E02F6 // GetLabels
  HWL ME_4C359EBF0304 // GetLabelsFileName
  HWL ME_4CA9DEBE020F // IsFakeCVS
@@ -4506,9 +5228,6 @@ ref; // ME_5374DAC503BB_ME_4B2A6CEB0377 StartTest
  ; // Overridden
  : Children
    Seq: ( HWL ME_4B2F92860054 // TKFileOperation
- HWL ME_4B6BF212005D // TTimeInfoName
- HWL ME_4B2F565002FD // TTimeInfo
- HWL ME_4B2F5BB102A4 // TTimeInfoList
  )
  ; // Children
  : Dependencies
@@ -4534,235 +5253,6 @@ ref; // ME_5374DAC503BB_ME_4B2A6CEB0377 StartTest
  CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4B2A6CEB0377 TKTestListener
-
-FORWARD ME_4B7AAC7A031D
-
-: ME_4B7AAF1203B4
- CONST UID '4B7AAF1203B4'
- CONST Name 'RTestResultsPlace'
- CONST Class class_Class
- : Stereotype st_Typedef ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent HWL ME_4B7AAC7A031D // TTestResultsPlace
- ;
- : Inherits
-   Seq: ( HWL ME_4B7AAC7A031D // TTestResultsPlace
- )
- ; // Inherits
- CONST "isClassRef" true
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_4B7AAF1203B4 RTestResultsPlace
-
-FORWARD ME_4B7AAF5C0096
-
-: ME_4B7AAF680364
- CONST UID '4B7AAF680364'
- CONST Class class_Attribute
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent HWL ME_4B7AAF5C0096 // array of RTestResultsPlace
- ;
- : Target HWL ME_4B7AAF1203B4 // RTestResultsPlace
- ;
-
-ref; // ME_4B7AAF680364 
-
-: ME_4B7AAF5C0096
- CONST UID '4B7AAF5C0096'
- CONST Name 'array of RTestResultsPlace'
- CONST Class class_Class
- : Stereotype st_Vector ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent HWL ME_4B7AAC7A031D // TTestResultsPlace
- ;
- : Attributes
-   Seq: ( HWL ME_4B7AAF680364 // 
- )
- ; // Attributes
- CONST "array type" 'open'
-
-ref; // ME_4B7AAF5C0096 array of RTestResultsPlace
-
-FORWARD ME_4B7AAF3101B0
-
-: ME_4B7AAF400111
- CONST UID '4B7AAF400111'
- CONST Class class_Attribute
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent HWL ME_4B7AAF3101B0 // TTestResultsPlaces
- ;
- : Target HWL ME_4B7AAF1203B4 // RTestResultsPlace
- ;
-
-ref; // ME_4B7AAF400111 
-
-: ME_4B7AAF3101B0
- CONST UID '4B7AAF3101B0'
- CONST Name 'TTestResultsPlaces'
- CONST Class class_Class
- : Stereotype st_Vector ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent HWL ME_4B7AAC7A031D // TTestResultsPlace
- ;
- : Attributes
-   Seq: ( HWL ME_4B7AAF400111 // 
- )
- ; // Attributes
- CONST "array type" 'dynamic'
-
-ref; // ME_4B7AAF3101B0 TTestResultsPlaces
-
-FORWARD ME_555EF157016F
-
-: ME_555EF1630385
- CONST UID '555EF1630385'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent HWL ME_555EF157016F // HasTabs
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_555EF1630385 DoIt
-
-: ME_555EF157016F
- CONST UID '555EF157016F'
- CONST Name 'HasTabs'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility ProtectedAccess
- CONST Abstraction at_final
- : Parent HWL ME_4B7AAC7A031D // TTestResultsPlace
- ;
- : Operations
-   Seq: ( HWL ME_555EF1630385 // DoIt
- )
- ; // Operations
- CONST "is static" true
-
-ref; // ME_555EF157016F HasTabs
-
-: ME_4B7AB0B6016E
- CONST UID '4B7AB0B6016E'
- CONST Name 'CommandLineKey'
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Ключ командной строки при указании которого будет выбрано данное место расположения результатов' ;
- CONST Visibility ProtectedAccess
- CONST Abstraction at_abstract
- : Parent HWL ME_4B7AAC7A031D // TTestResultsPlace
- ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
-
-ref; // ME_4B7AB0B6016E CommandLineKey
-
-: ME_4B7C0B43005B
- CONST UID '4B7C0B43005B'
- CONST Name 'TimesPage'
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Страница для вывода замеров времени' ;
- CONST Visibility ProtectedAccess
- CONST Abstraction at_abstract
- : Parent HWL ME_4B7AAC7A031D // TTestResultsPlace
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- CONST extprop:pas:Value 0
-
-ref; // ME_4B7C0B43005B TimesPage
-
-: ME_4B7C0B670215
- CONST UID '4B7C0B670215'
- CONST Name 'ResultsPage'
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Страница для вывода результатов тестов' ;
- CONST Visibility ProtectedAccess
- CONST Abstraction at_abstract
- : Parent HWL ME_4B7AAC7A031D // TTestResultsPlace
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- CONST extprop:pas:Value 0
-
-ref; // ME_4B7C0B670215 ResultsPage
-
-: ME_4BEA9969001B
- CONST UID '4BEA9969001B'
- CONST Name 'IsGK'
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Тесты запущены ГК' ;
- CONST Visibility ProtectedAccess
- CONST Abstraction at_regular
- : Parent HWL ME_4B7AAC7A031D // TTestResultsPlace
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_4BEA9969001B IsGK
-
-: ME_4C35A6DA02E9
- CONST UID '4C35A6DA02E9'
- CONST Name 'IsLAW'
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- CONST Visibility ProtectedAccess
- CONST Abstraction at_regular
- : Parent HWL ME_4B7AAC7A031D // TTestResultsPlace
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_4C35A6DA02E9 IsLAW
-
-: ME_4B7AAC7A031D
- CONST UID '4B7AAC7A031D'
- CONST Name 'TTestResultsPlace'
- CONST Class class_Class
- : Stereotype st_SimpleClass ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Место для складывания результатов тестов' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent HWL ME_4B2A6D4303A9 // KTestRunner
- ;
- : Operations
-   Seq: ( HWL ME_555EF157016F // HasTabs
- HWL ME_4B7AB0B6016E // CommandLineKey
- HWL ME_4B7C0B43005B // TimesPage
- HWL ME_4B7C0B670215 // ResultsPage
- HWL ME_4BEA9969001B // IsGK
- HWL ME_4C35A6DA02E9 // IsLAW
- )
- ; // Operations
- : Children
-   Seq: ( HWL ME_4B7AAF1203B4 // RTestResultsPlace
- HWL ME_4B7AAF5C0096 // array of RTestResultsPlace
- HWL ME_4B7AAF3101B0 // TTestResultsPlaces
- )
- ; // Children
- CONST extprop:rc:SelfName 'TestResultsPlace'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_4B7AAC7A031D TTestResultsPlace
 
 FORWARD ME_4B2F9F9F00EC
 
@@ -5620,8 +6110,6 @@ FORWARD ME_4D1AEDA90114
 
 ref; // ME_52452C5C0306 aFileName
 
-FORWARD ME_524513D603C3
-
 : ME_52452C5C0325
  CONST Name 'anOperation'
  CONST Class class_Parameter
@@ -5973,8 +6461,6 @@ ref; // ME_5279D79E0019 DoIt
 
 ref; // ME_5279D7860187 FindDocID
 
-FORWARD ME_4C44675A0269
-
 : ME_4C4467B1011F
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -5985,8 +6471,6 @@ FORWARD ME_4C44675A0269
 
 ref; // ME_4C4467B1011F 
 
-FORWARD ME_4C9386230151
-
 : ME_4C9387800124
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -5996,8 +6480,6 @@ FORWARD ME_4C9386230151
  ;
 
 ref; // ME_4C9387800124 
-
-FORWARD ME_4D1AEAC80371
 
 : ME_4D1AEC1E03A0
  CONST Class class_Dependency
@@ -6018,8 +6500,6 @@ ref; // ME_4D1AEC1E03A0
  ;
 
 ref; // ME_51237ED90246 
-
-FORWARD ME_5279D2EA02DE
 
 : ME_5279D3180306
  CONST Class class_Dependency
@@ -6050,6 +6530,16 @@ ref; // ME_55DDB8E9002D
  ;
 
 ref; // ME_55DDCFE400AD 
+
+: ME_5790DF8D01E0
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4B2A6D4303A9 // KTestRunner
+ ;
+ : Target WL 'ME_4773D64E036C' '47913B47006E.pas.ms.script' // l3Base
+ ;
+
+ref; // ME_5790DF8D01E0 
 
 : ME_4B2A6D4303A9
  CONST UID '4B2A6D4303A9'
@@ -6099,8 +6589,8 @@ ref; // ME_55DDCFE400AD
  )
  ; // Operations
  : Children
-   Seq: ( HWL ME_4B2A6CEB0377 // TKTestListener
- HWL ME_4B7AAC7A031D // TTestResultsPlace
+   Seq: ( HWL ME_4B7AAC7A031D // TTestResultsPlace
+ HWL ME_4B2A6CEB0377 // TKTestListener
  )
  ; // Children
  : Constants
@@ -6115,493 +6605,16 @@ ref; // ME_55DDCFE400AD
  ME_5279D3180306 // TTestDocumentList
  ME_55DDB8E9002D // vtVerInf
  ME_55DDCFE400AD // Tl3VersionInfoService
+ ME_5790DF8D01E0 // l3Base
  )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
+ CONST "need UC" true
  CONST "no hands" true
  CONST "started" '17.12.2009 20:41'
  CONST intf.pas:Path 'common\components\rtl\Garant\DUnitTuning\KTestRunner.pas'
 
 ref; // ME_4B2A6D4303A9 KTestRunner
-
-FORWARD ME_4C446BAE00A3
-
-: ME_4C446BC901D9
- CONST UID '4C446BC901D9'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent HWL ME_4C446BAE00A3 // Exists
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_4C446BC901D9 DoIt
-
-: ME_4C446BAE00A3
- CONST UID '4C446BAE00A3'
- CONST Name 'Exists'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Определяет создан ли экземпляр синглетона' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent HWL ME_4C44675A0269 // TExcludedTests
- ;
- : Operations
-   Seq: ( HWL ME_4C446BC901D9 // DoIt
- )
- ; // Operations
- CONST "is static" true
-
-ref; // ME_4C446BAE00A3 Exists
-
-: ME_4C44675A0269
- CONST UID '4C44675A0269'
- CONST Name 'TExcludedTests'
- CONST Class class_Class
- : Stereotype st_SimpleClass ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Тесты, которые не надо запускать - [$227477825].' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent HWL ME_4B2A112B011A // Source
- ;
- : Inherits
-   Seq: ( WL 'ME_4773DCE302FF' '47913B47006E.pas.ms.script' // Tl3StringList
- )
- ; // Inherits
- : Operations
-   Seq: ( HWL ME_4C446BAE00A3 // Exists
- )
- ; // Operations
- CONST "author" 'Люлин А.В.'
- CONST "no hands" true
- CONST "singleton" true
- CONST "started" '19.0.2010 18:56'
- CONST intf.pas:Path 'common\components\rtl\Garant\DUnitTuning\ExcludedTests.pas'
- CONST extprop:rc:SelfName 'ExcludedTests'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'ExcludedTests'
-
-ref; // ME_4C44675A0269 TExcludedTests
-
-FORWARD ME_4C938674023A
-
-: ME_4C93867E028A
- CONST UID '4C93867E028A'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent HWL ME_4C938674023A // Exists
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_4C93867E028A DoIt
-
-: ME_4C938674023A
- CONST UID '4C938674023A'
- CONST Name 'Exists'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent HWL ME_4C9386230151 // TExcludedTestsFolders
- ;
- : Operations
-   Seq: ( HWL ME_4C93867E028A // DoIt
- )
- ; // Operations
- CONST "is static" true
-
-ref; // ME_4C938674023A Exists
-
-: ME_4C9386230151
- CONST UID '4C9386230151'
- CONST Name 'TExcludedTestsFolders'
- CONST Class class_Class
- : Stereotype st_SimpleClass ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Папки тестов исключаемые из запуска' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent HWL ME_4B2A112B011A // Source
- ;
- : Inherits
-   Seq: ( WL 'ME_4773DCE302FF' '47913B47006E.pas.ms.script' // Tl3StringList
- )
- ; // Inherits
- : Operations
-   Seq: ( HWL ME_4C938674023A // Exists
- )
- ; // Operations
- CONST "author" 'Люлин А.В.'
- CONST "no hands" true
- CONST "singleton" true
- CONST "started" '17.09.2010 19:16'
- CONST intf.pas:Path 'common\components\rtl\Garant\DUnitTuning\ExcludedTestsFolders.pas'
- CONST extprop:rc:SelfName 'ExcludedTestsFolders'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'ExcludedTestsFolders'
-
-ref; // ME_4C9386230151 TExcludedTestsFolders
-
-: ME_524513E800BD
- CONST UID '524513E800BD'
- CONST Name 'lo_Clear'
- CONST Class class_Attribute
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent HWL ME_524513D603C3 // TLoadOperation
- ;
-
-ref; // ME_524513E800BD lo_Clear
-
-: ME_5245140B021A
- CONST UID '5245140B021A'
- CONST Name 'lo_AND'
- CONST Class class_Attribute
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent HWL ME_524513D603C3 // TLoadOperation
- ;
-
-ref; // ME_5245140B021A lo_AND
-
-: ME_5245151502E3
- CONST UID '5245151502E3'
- CONST Name 'lo_OR'
- CONST Class class_Attribute
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent HWL ME_524513D603C3 // TLoadOperation
- ;
-
-ref; // ME_5245151502E3 lo_OR
-
-: ME_5245152003C8
- CONST UID '5245152003C8'
- CONST Name 'lo_NOT'
- CONST Class class_Attribute
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent HWL ME_524513D603C3 // TLoadOperation
- ;
-
-ref; // ME_5245152003C8 lo_NOT
-
-: ME_524513D603C3
- CONST UID '524513D603C3'
- CONST Name 'TLoadOperation'
- CONST Class class_Class
- : Stereotype st_Enum ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent HWL ME_4D1AEAC80371 // TTestNameList
- ;
- : Attributes
-   Seq: ( HWL ME_524513E800BD // lo_Clear
- HWL ME_5245140B021A // lo_AND
- HWL ME_5245151502E3 // lo_OR
- HWL ME_5245152003C8 // lo_NOT
- )
- ; // Attributes
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_524513D603C3 TLoadOperation
-
-FORWARD ME_4D2EE63E0318
-
-: ME_4D2EE65201AD
- CONST UID '4D2EE65201AD'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent HWL ME_4D2EE63E0318 // Exists
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_4D2EE65201AD DoIt
-
-: ME_4D2EE63E0318
- CONST UID '4D2EE63E0318'
- CONST Name 'Exists'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent HWL ME_4D1AEAC80371 // TTestNameList
- ;
- : Operations
-   Seq: ( HWL ME_4D2EE65201AD // DoIt
- )
- ; // Operations
- CONST "is static" true
-
-ref; // ME_4D2EE63E0318 Exists
-
-FORWARD ME_5245135701C4
-
-: ME_524513CE03E6
- CONST Name 'aFileName'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
-
-ref; // ME_524513CE03E6 aFileName
-
-: ME_524513CF001D
- CONST Name 'aOperation'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target HWL ME_524513D603C3 // TLoadOperation
- ;
-
-ref; // ME_524513CF001D aOperation
-
-: ME_524513A3000F
- CONST UID '524513A3000F'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent HWL ME_5245135701C4 // LoadFromFileEX
- ;
- : Parameters
-   Seq: ( ME_524513CE03E6 // aFileName
- ME_524513CF001D // aOperation
- )
- ; // Parameters
-
-ref; // ME_524513A3000F DoIt
-
-: ME_5245135701C4
- CONST UID '5245135701C4'
- CONST Name 'LoadFromFileEX'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent HWL ME_4D1AEAC80371 // TTestNameList
- ;
- : Operations
-   Seq: ( HWL ME_524513A3000F // DoIt
- )
- ; // Operations
- CONST "is static" true
-
-ref; // ME_5245135701C4 LoadFromFileEX
-
-FORWARD ME_525CFBC20231
-
-: ME_525CFBD1011A
- CONST UID '525CFBD1011A'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent HWL ME_525CFBC20231 // ClearList
- ;
-
-ref; // ME_525CFBD1011A DoIt
-
-: ME_525CFBC20231
- CONST UID '525CFBC20231'
- CONST Name 'ClearList'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent HWL ME_4D1AEAC80371 // TTestNameList
- ;
- : Operations
-   Seq: ( HWL ME_525CFBD1011A // DoIt
- )
- ; // Operations
- CONST "is static" true
-
-ref; // ME_525CFBC20231 ClearList
-
-FORWARD ME_4FF431A00215
-
-: ME_4FF431F703A1
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent HWL ME_4D1AEAC80371 // TTestNameList
- ;
- : Target HWL ME_4FF431A00215 // TTestNameString
- ;
-
-ref; // ME_4FF431F703A1 
-
-: ME_47B1E5230151_ME_4D1AEAC80371
- : Original WL 'ME_47B1E5230151' '47913B47006E.pas.ms.script' // StringItemClass
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_47B1E5230151_ME_4D1AEAC80371 StringItemClass
-
-: ME_4D1AEAC80371
- CONST UID '4D1AEAC80371'
- CONST Name 'TTestNameList'
- CONST Class class_Class
- : Stereotype st_SimpleClass ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Список тестов для  запуска.' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent HWL ME_4B2A112B011A // Source
- ;
- : Inherits
-   Seq: ( WL 'ME_4773DCE302FF' '47913B47006E.pas.ms.script' // Tl3StringList
- )
- ; // Inherits
- : Operations
-   Seq: ( HWL ME_4D2EE63E0318 // Exists
- HWL ME_5245135701C4 // LoadFromFileEX
- HWL ME_525CFBC20231 // ClearList
- )
- ; // Operations
- : Overridden
-   Seq: ( ME_47B1E5230151_ME_4D1AEAC80371 // StringItemClass
- )
- ; // Overridden
- : Children
-   Seq: ( HWL ME_524513D603C3 // TLoadOperation
- )
- ; // Children
- : Dependencies
-   Seq: ( ME_4FF431F703A1 // TTestNameString
- )
- ; // Dependencies
- CONST "author" 'Инишев Д.А.'
- CONST "no hands" true
- CONST "singleton" true
- CONST intf.pas:Path 'common\components\rtl\Garant\DUnitTuning\TestNameList.pas'
- CONST extprop:rc:SelfName 'TestNameList'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'TestNameList'
-
-ref; // ME_4D1AEAC80371 TTestNameList
-
-: ME_4FF4339B0102
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent HWL ME_4FF431A00215 // TTestNameString
- ;
- : Target WL 'ME_4FF4335402DE' '54B90AC6014B.pas.ms.script' // l3LTrim
- ;
-
-ref; // ME_4FF4339B0102 
-
-: ME_47A869D10074_ME_4FF431A00215
- : Original WL 'ME_47A869D10074' '47913B47006E.pas.ms.script' // DoSetAsPCharLen
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_47A869D10074_ME_4FF431A00215 DoSetAsPCharLen
-
-: ME_4FF431A00215
- CONST UID '4FF431A00215'
- CONST Name 'TTestNameString'
- CONST Class class_Class
- : Stereotype st_SimpleClass ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent HWL ME_4B2A112B011A // Source
- ;
- : Inherits
-   Seq: ( WL 'ME_4773DED9004C' '47913B47006E.pas.ms.script' // Tl3_String
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_47A869D10074_ME_4FF431A00215 // DoSetAsPCharLen
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_4FF4339B0102 // l3LTrim
- )
- ; // Dependencies
- CONST intf.pas:Path 'common\components\rtl\Garant\DUnitTuning\TestNameString.pas'
- CONST extprop:rc:SelfName 'TestNameString'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'TestNameString'
-
-ref; // ME_4FF431A00215 TTestNameString
-
-FORWARD ME_5279D3220116
-
-: ME_5279D3410056
- CONST UID '5279D3410056'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent HWL ME_5279D3220116 // Exists
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_5279D3410056 DoIt
-
-: ME_5279D3220116
- CONST UID '5279D3220116'
- CONST Name 'Exists'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent HWL ME_5279D2EA02DE // TTestDocumentList
- ;
- : Operations
-   Seq: ( HWL ME_5279D3410056 // DoIt
- )
- ; // Operations
- CONST "is static" true
-
-ref; // ME_5279D3220116 Exists
-
-: ME_5279D2EA02DE
- CONST UID '5279D2EA02DE'
- CONST Name 'TTestDocumentList'
- CONST Class class_Class
- : Stereotype st_SimpleClass ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent HWL ME_4B2A112B011A // Source
- ;
- : Inherits
-   Seq: ( WL 'ME_4773DCE302FF' '47913B47006E.pas.ms.script' // Tl3StringList
- )
- ; // Inherits
- : Operations
-   Seq: ( HWL ME_5279D3220116 // Exists
- )
- ; // Operations
- CONST "singleton" true
- CONST intf.pas:Path 'common\components\rtl\Garant\DUnitTuning\TestDocumentList.pas'
- CONST extprop:rc:SelfName 'TestDocumentList'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'TestDocumentList'
-
-ref; // ME_5279D2EA02DE TTestDocumentList
 
 : ME_4B2A112B011A
  CONST UID '4B2A112B011A'
@@ -6614,12 +6627,13 @@ ref; // ME_5279D2EA02DE TTestDocumentList
  ;
  : Children
    Seq: ( HWL ME_4B2A11BC0255 // TBaseTest
- HWL ME_4B2A6D4303A9 // KTestRunner
+ HWL ME_4B2F5BB102A4 // TTimeInfoList
  HWL ME_4C44675A0269 // TExcludedTests
  HWL ME_4C9386230151 // TExcludedTestsFolders
  HWL ME_4D1AEAC80371 // TTestNameList
  HWL ME_4FF431A00215 // TTestNameString
  HWL ME_5279D2EA02DE // TTestDocumentList
+ HWL ME_4B2A6D4303A9 // KTestRunner
  )
  ; // Children
  : Depends

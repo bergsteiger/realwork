@@ -57,97 +57,10 @@ implementation @ <<Control>>
 // Унаследованная реализация
 
 // перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
-//%f _DoSpell
-; // wiki_up_print
-
-: DoSpell OBJECT IN %S
-//#UC START# *4B2A19E3038Bfor4A794CA201BF*
-//	%S%f_CheckG()\
- %S %f CheckG %( )% 
-
-//	%S%[inherited]\
- inherited
-
-//	<%C#f_DoSpell()>
- INTEGER VAR l_Counter l_Counter := 0
- for %S%C
- begin
-  OBJECT IN %C
-  if true then
-  begin
-   %C %?f DoSpell %( )% 
-   ++! l_Counter
-  end // if
- end // for C
-
-//f _loc_GetFinished
-; // DoSpell
-
-end. // <<Control>>
-
-: loc_GetFinished OBJECT IN %S
-//	%S{finished}
- %S get_up ( 'finished' ) 
-
-//%f _CheckG
-; // loc_GetFinished
-
-implementation @ <<Control>>
-: CheckG OBJECT IN %S
-//	[{%S%f_IsOverride()!=true}\
- if ( ( %S %f IsOverride %( )% ) %!=  true ) then
- begin
-//	[{%Gx!=true}\
-  if ( ( %G |x ) %!=  true ) then
-  begin
-//	[{%S{ControlClass}!=none&"%S{ControlClass}"!=""}\
-   if ( ( %S get_up ( 'ControlClass' ) ) %!= 'none' AND 
-     ( ( %S get_up ( 'ControlClass' ) ) %!= ''  ) ) then
-   begin
-//	%f_FindElem(%S{ControlClass})\
-    [%f] FindElem %( %S get_up ( 'ControlClass' ) )% 
-//	%f_find_element(%S{ControlClass},l_Elem)\
-//	%S%f_make_accessable(%{l_Elem}U)\
-    %S %f make_accessable %( ( get_global_var ( 'l_Elem' ) |U ) )% 
-//	%f_addG(%S,%{l_Elem})\
-    [%f] addG %( %S %, ( get_global_var ( 'l_Elem' ) ) )% 
-//	]\
-   end // if
-//	]\
-  end // if
-//	]
- end // if
-
-//f _FindElem
-; // CheckG
-
-end. // <<Control>>
-
-: FindElem OBJECT IN %S
-//	[{"%{%SN}N"=""}{\
- if ( ( ( get_global_var ( %S |N ) |N ) ) %== '' ) then
- begin
-//	%f_find_element(%SN,l_Elem)\
-  [%f] find_element %( %S |N %, 'l_Elem' )% 
-//	%f_set_var(%SN,{l_Elem})\
-  [%f] set_var %( %S |N %, '{l_Elem}' )% 
-//	]
- end // if
- else
- begin
-//	%f_set_var(l_Elem,{%SN})\
-  [%f] set_var %( 'l_Elem' %, '{'
-  %S |N '}' )% 
-//	}\
- end // else
-//#UC END# *4B2A19E3038Bfor4A794CA201BF*
-; // FindElem
-
-
-// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
 // Выводит имя владельца метода
 //%f _pas_MethodOwnerName
-implementation @ <<Control>>
+; // wiki_up_print
+
 : pas_MethodOwnerName OBJECT IN %S
 //#UC START# *49CB3C99034Bfor4A794CA201BF*
 //	%P%f_pas_MethodOwnerName(%S)

@@ -220,16 +220,16 @@
  case TnsMedicMainMenuNodeType(aNode.NodeType) of
   // Поиск лекарственного средства
   ns_mntSearchDrug:
-   TdmStdRes.InpharmSearch(nil, nil, nil);
+   TvcmModulesFactories.InpharmSearch(nil, nil, nil);
   // Лекарственные средства
   ns_mntAllDrugList:
-   Dispatcher.ModuleOperation(TdmStdRes.mod_opcode_Inpharm_DrugList);
+   Dispatcher.ModuleOperation(TvcmModulesOperations.mod_opcode_Inpharm_DrugList);
   // Фирмы производители
   ns_mntFirms:
-   Dispatcher.ModuleOperation(TdmStdRes.mod_opcode_Inpharm_MedicFirms);
+   Dispatcher.ModuleOperation(TvcmModulesOperations.mod_opcode_Inpharm_MedicFirms);
   // Словарь медицинских терминов
   ns_mntDiction:
-   Dispatcher.ModuleOperation(TdmStdRes.mod_opcode_Inpharm_MedicDiction);
+   Dispatcher.ModuleOperation(TvcmModulesOperations.mod_opcode_Inpharm_MedicDiction);
   // Открыть список
   ns_mntDrugList:
    nsOpenNavigatorItem(aNode, NativeMainForm);
@@ -240,9 +240,9 @@
   {ns_mntHelp:
    Application.HelpSystem.ShowTopicHelp(cHelpInpharm, '');}
   ns_mntPublishSource:
-   TdmStdRes.OpenPharmPublishSearch;
+   TvcmModulesFactories.OpenPharmPublishSearch;
   ns_mntLegislationReview:
-   TdmStdRes.OpenPharmLegislationReview;
+   TvcmModulesFactories.OpenPharmLegislationReview;
  else
   Assert(False);
  end;//case TnsMedicMainMenuNodeType(aNode.NodeType)
@@ -255,7 +255,7 @@
    if Supports(aNode,
                InsDocumentNode,
                l_DocumentNode) then
-    TdmStdRes.OpenDocument(TdeDocInfo.Make(
+    TvcmModulesFactories.OpenDocument(TdeDocInfo.Make(
                             TbsDocumentContainer.Make(l_DocumentNode.Data)),
                            nil);
   end;

@@ -1294,11 +1294,10 @@
 //	[{%S{is_friend}!=true}\
  if ( ( %S get_up ( 'is_friend' ) ) %!=  true ) then
  begin
-//	[{%Cx=true|%Ox=true|%ox=true|"%S%f_pas_OutOverridesImpl()"!=""|<{}{%G#f_IsMixIn()=true}{C}>!=0|<{}{%R#f_IsMixIn()=true}{C}>!=0}\
+//	[{%Cx=true|%Ox=true|%ox=true|<{}{%G#f_IsMixIn()=true}{C}>!=0|<{}{%R#f_IsMixIn()=true}{C}>!=0}\
   if ( ( %C |x ) %==  true OR 
     ( ( %O |x ) %==  true  ) OR 
     ( ( %o |x ) %==  true  ) OR 
-    ( ( %S %f pas_OutOverridesImpl %( )% ) %!= ''  ) OR 
     ( 
    INTEGER VAR l_Counter l_Counter := 0
    for %S%G
@@ -1947,8 +1946,6 @@
 //	]\
 
 
-//	%S%f_pas_OutOverridesImpl()\
-  %S %f pas_OutOverridesImpl %( )% 
 //	%f_clear_list(CAST_METHODS)\
   [%f] clear_list %( 'CAST_METHODS' )% 
 //	[\n\n// Методы преобразования к реализуемым интерфейсам\
@@ -2008,11 +2005,10 @@
     #13#10 
    ) // Usersection
  )%   end // if
-//	[{%Cx=true|%Ox=true|%ox=true|"%S%f_pas_OutOverridesImpl()"!=""|<{}{%G#f_IsMixIn()=true}{C}>!=0|<{}{%R#f_IsMixIn()=true}{C}>!=0}\
+//	[{%Cx=true|%Ox=true|%ox=true|<{}{%G#f_IsMixIn()=true}{C}>!=0|<{}{%R#f_IsMixIn()=true}{C}>!=0}\
   if ( ( %C |x ) %==  true OR 
     ( ( %O |x ) %==  true  ) OR 
     ( ( %o |x ) %==  true  ) OR 
-    ( ( %S %f pas_OutOverridesImpl %( )% ) %!= ''  ) OR 
     ( 
    INTEGER VAR l_Counter l_Counter := 0
    for %S%G

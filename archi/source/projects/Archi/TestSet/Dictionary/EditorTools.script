@@ -26,12 +26,15 @@ EXPORTS axiom:окно_редактора
 EXPORTS axiom:TextPara
 
 PROCEDURE "Сравнить текст с эталоном"
- "Установить фокус в контрол с именем" "Контрол редактора текста"
- STRING VAR l_File
- script:FileName csEVDExt sysutils:ChangeFileExt
- sysutils:ExtractFileName >>> l_File
- l_File focused:control:push pop:editor:TextToFile
- l_File '%' tests:CheckEtalon
+	OBJECT VAR l_Control 
+	focused:control:push =: l_Control
+	Если ( l_Control "НЕ ЯВЛЯЕТСЯ" class::TevCustomEditorWindow ) то (
+	"Установить фокус в контрол с именем" "Контрол редактора текста" )
+ 	STRING VAR l_File
+ 	script:FileName csEVDExt sysutils:ChangeFileExt
+ 	sysutils:ExtractFileName >>> l_File
+ 	l_File focused:control:push pop:editor:TextToFile
+ 	l_File '%' tests:CheckEtalon
 ;
 
 PROCEDURE "Сохранить в OEM и сравнить с эталоном"	 

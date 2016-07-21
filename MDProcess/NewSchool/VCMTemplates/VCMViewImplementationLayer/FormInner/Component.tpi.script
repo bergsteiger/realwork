@@ -60,67 +60,11 @@ implementation @ <<Component>>
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// Унаследованная реализация
-
-// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
-//%f _DoSpell
-; // wiki_up_print
-
-: DoSpell OBJECT IN %S
-//#UC START# *4B2A19E3038Bfor4A794D1700B2*
-//	%S%f_CheckG()\
- %S %f CheckG %( )% 
-
-//	%S%[inherited]\
- inherited
-
-//	<%C#f_DoSpell()>
- INTEGER VAR l_Counter l_Counter := 0
- for %S%C
- begin
-  OBJECT IN %C
-  if true then
-  begin
-   %C %?f DoSpell %( )% 
-   ++! l_Counter
-  end // if
- end // for C
-
-//%f _CheckG
-; // DoSpell
-
-: CheckG OBJECT IN %S
-//	[{%S%f_IsOverride()!=true}\
- if ( ( %S %f IsOverride %( )% ) %!=  true ) then
- begin
-//	[{%Gx!=true}\
-  if ( ( %G |x ) %!=  true ) then
-  begin
-//	[{%S{ComponentClass}!=none&"%S{ComponentClass}"!=""}\
-   if ( ( %S get_up ( 'ComponentClass' ) ) %!= 'none' AND 
-     ( ( %S get_up ( 'ComponentClass' ) ) %!= ''  ) ) then
-   begin
-//	%f_FindElem(%S{ComponentClass})\
-    [%f] FindElem %( %S get_up ( 'ComponentClass' ) )% 
-//	%f_find_element(%S{ComponentClass},l_Elem)\
-//	%S%f_make_accessable(%{l_Elem}U)\
-    %S %f make_accessable %( ( get_global_var ( 'l_Elem' ) |U ) )% 
-//	%f_addG(%S,%{l_Elem})\
-    [%f] addG %( %S %, ( get_global_var ( 'l_Elem' ) ) )% 
-//	]\
-   end // if
-//	]\
-  end // if
-//	]
- end // if
-//#UC END# *4B2A19E3038Bfor4A794D1700B2*
-; // CheckG
-
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Исключенные вложенные стереотипы
 //~ Component::Class::property::Attribute::Attribute
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+; // wiki_up_print
 
 end. // <<Component>>
 

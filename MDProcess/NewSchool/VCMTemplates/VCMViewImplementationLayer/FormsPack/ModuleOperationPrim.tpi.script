@@ -12,7 +12,6 @@
 //: ModuleOperationPrim::Class
 implementation @ <<ModuleOperationPrim>>
 //= Delphi интерфейсы и реализация::MDAGenerator
-//= OperationsPublisher::Class
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Параметры стереотипа
@@ -86,126 +85,6 @@ implementation @ <<ModuleOperationPrim>>
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Унаследованная реализация
-
-// реализация абстрактного стереотипа OperationsPublisher::Class
-//%f _OperationsToFuncImpl
-: OperationsToFuncImpl OBJECT IN %S
-// параметры: aCaller: MDAClass = %1
-//#UC START# *4A8E9F9502BBfor4A9D2DEA0027*
-//	[{%f_exists_in_list(PUBLISHED_OPERATIONS_LIST,S)!=true}\
- if ( ( [%f] exists_in_list %( 'PUBLISHED_OPERATIONS_LIST' %, 'S' )% ) %!=  true ) then
- begin
-//	%f_add_to_list(PUBLISHED_OPERATIONS_LIST,S)\
-  [%f] add_to_list %( 'PUBLISHED_OPERATIONS_LIST' %, 'S' )% 
-//	%f_pas_OpenMethodImplementation("mod_opcode_%P%f_FinalName()_%f_N(%S)",%1)\
-  [%f] pas_OpenMethodImplementation %( 'mod_opcode_'
-  %P %f FinalName %( )% '_'
-  [%f] N %( %S )% %, %1 )% 
-//	class function %f_pas_TypeName(%1).mod_opcode_%P%f_FinalName()_%f_N(%S) : TvcmMOpID;
-  'class function '
-  [%f] pas_TypeName %( %1 )% '.mod_opcode_'
-  %P %f FinalName %( )% '_'
-  [%f] N %( %S )% ' : TvcmMOpID;'
-//	begin
-  'begin'
-//	 Result := g_module_opcode_%P%f_FinalName()_%f_N(%S);
-  ' Result := g_module_opcode_'
-  %P %f FinalName %( )% '_'
-  [%f] N %( %S )% ';'
-//	 Assert((Result.rMoID \> 0) AND (Result.rOpID \> 0));
-  ' Assert((Result.rMoID > 0) AND (Result.rOpID > 0));'
-//	end;\
-  'end;'
-//	]
- end // if
-//#UC END# *4A8E9F9502BBfor4A9D2DEA0027*
-; // OperationsToFuncImpl
-
-
-// реализация абстрактного стереотипа OperationsPublisher::Class
-// Операции в функции
-//%f _OperationsToFuncIntf
-: OperationsToFuncIntf OBJECT IN %S
-// параметры: aCaller: MDAClass = %1
-//#UC START# *4A8E9D5E0038for4A9D2DEA0027*
-//	[{%f_exists_in_list(PUBLISHED_OPERATIONS_LIST,S)!=true}\
- if ( ( [%f] exists_in_list %( 'PUBLISHED_OPERATIONS_LIST' %, 'S' )% ) %!=  true ) then
- begin
-//	%f_add_to_list(PUBLISHED_OPERATIONS_LIST,S)\
-  [%f] add_to_list %( 'PUBLISHED_OPERATIONS_LIST' %, 'S' )% 
-//	\n   class function mod_opcode_%P%f_FinalName()_%f_N(%S) : TvcmMOpID;
-  #13#10'   class function mod_opcode_'
-  %P %f FinalName %( )% '_'
-  [%f] N %( %S )% ' : TvcmMOpID;'
-//	     \{ %S%PD -\> %SD \}]
-  '     { '
-  %S ->P |D  ' -> '
-  %S |D ' }' 
- end // if
-//#UC END# *4A8E9D5E0038for4A9D2DEA0027*
-; // OperationsToFuncIntf
-
-
-// реализация абстрактного стереотипа OperationsPublisher::Class
-// Определяет необходимые uses для операций
-//%f _OperationsToUses
-: OperationsToUses OBJECT IN %S
-//#UC START# *4A82DDA6016Afor4A9D2DEA0027*
-//	%f_pas_PutToUses(%S%P)
- [%f] pas_PutToUses %( %S ->P  )% 
-//#UC END# *4A82DDA6016Afor4A9D2DEA0027*
-; // OperationsToUses
-
-
-// реализация абстрактного стереотипа OperationsPublisher::Class
-// Операции в секцию Var
-//%f _OperationsToVar
-: OperationsToVar OBJECT IN %S
-//#UC START# *4A8E9D3A01FEfor4A9D2DEA0027*
-//	[{%f_exists_in_list(PUBLISHED_OPERATIONS_LIST,S)!=true}\
- if ( ( [%f] exists_in_list %( 'PUBLISHED_OPERATIONS_LIST' %, 'S' )% ) %!=  true ) then
- begin
-//	%f_add_to_list(PUBLISHED_OPERATIONS_LIST,S)\
-  [%f] add_to_list %( 'PUBLISHED_OPERATIONS_LIST' %, 'S' )% 
-//	\n g_module_opcode_%P%f_FinalName()_%f_N(%S) : TvcmMOpID;]
-  #13#10' g_module_opcode_'
-  %P %f FinalName %( )% '_'
-  [%f] N %( %S )% ' : TvcmMOpID;' 
- end // if
-//#UC END# *4A8E9D3A01FEfor4A9D2DEA0027*
-; // OperationsToVar
-
-
-// реализация абстрактного стереотипа OperationsPublisher::Class
-// Публикует операции
-//%f _PublishOperations
-: PublishOperations OBJECT IN %S
-//#UC START# *4A770F770199for4A9D2DEA0027*
-//	[{%f_exists_in_list(PUBLISHED_OPERATIONS_LIST,S)!=true}\
- if ( ( [%f] exists_in_list %( 'PUBLISHED_OPERATIONS_LIST' %, 'S' )% ) %!=  true ) then
- begin
-//	%f_add_to_list(PUBLISHED_OPERATIONS_LIST,S)\
-  [%f] add_to_list %( 'PUBLISHED_OPERATIONS_LIST' %, 'S' )% 
-//	\n g_module_opcode_%P%f_FinalName()_%f_N(%S) := 
-  #13#10' g_module_opcode_'
-  %P %f FinalName %( )% '_'
-  [%f] N %( %S )% ' := '
-//	  PublishModuleOperation(%P%f_FinalTypeName(), '%f_N(%S)', '%SD'\
-  '  PublishModuleOperation('
-  %P %f FinalTypeName %( )% ', '''
-  [%f] N %( %S )% ''', '''
-  %S |D ''''
-//	[{%S{no prefix}=true}, true]);\
-  if ( ( %S get_up ( 'no prefix' ) ) %==  true ) then
-  begin
-   ', true' 
-  end // if
-  ');'
-//	]
- end // if
-//#UC END# *4A770F770199for4A9D2DEA0027*
-; // PublishOperations
-
 
 // перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
 // Элемент попадает в секцию Published

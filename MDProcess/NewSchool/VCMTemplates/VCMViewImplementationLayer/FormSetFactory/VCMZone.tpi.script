@@ -462,7 +462,9 @@ implementation @ <<VCMZone>>
 //	%S%f_NeedMakeFormEvent(),Op_Instance\
  %S %f NeedMakeFormEvent %( )% %, 'Op_Instance'
 //	)\
-)% ) //	%f_addG(%{Op_Instance},%{TvcmNeedMakeFormEvent})\
+)% ) //	%{Op_Instance}%f_set_var(Speller,S)\
+ ( get_global_var ( 'Op_Instance' ) %f set_var %( 'Speller' %, 'S' )% ) 
+//	%f_addG(%{Op_Instance},%{TvcmNeedMakeFormEvent})\
  [%f] addG %( ( get_global_var ( 'Op_Instance' ) ) %, ( get_global_var ( 'TvcmNeedMakeFormEvent' ) ) )% 
 //	%{Op_Instance}%f_set_abstraction_type(final)\
  ( get_global_var ( 'Op_Instance' ) %f set_abstraction_type %( 'final' )% ) 

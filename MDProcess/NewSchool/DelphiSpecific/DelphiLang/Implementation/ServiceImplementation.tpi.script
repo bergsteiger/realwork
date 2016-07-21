@@ -39,37 +39,38 @@ implementation @ <<ServiceImplementation>>
 
 : BeforeClassSpell OBJECT IN %S
 //#UC START# *5502C6A200F5for5502BADD01CB*
-//	<{}{%CC=Dependency&%CS=implements}\
- INTEGER VAR l_Counter l_Counter := 0
- for %S%C
- begin
-  OBJECT IN %C
-  if ( ( %C |C ) %== 'Dependency' AND 
-   ( ( %C |S ) %== 'implements'  ) ) then
-  begin
-//	%C%T#f_CheckOrMakeFacet()\
-   %C ->T %?f CheckOrMakeFacet %( )%  
-//	%C%T#f_CheckFacet()\
-   %C ->T %?f CheckFacet %( )%  
-
-//	[{"%C%T%{Facet}N"!=""}\
-   if ( ( %C ->T ( get_object_var ( 'Facet' ) |N )   ) %!= '' ) then
-   begin
-//	%S%f_make_accessable(%C%T%{Facet}U)\
-    %S %f make_accessable %( %C ->T ( get_object_var ( 'Facet' ) |U )   )% 
-//	%f_addR(%S,%C%T%{Facet})\
-    [%f] addR %( %S %, %C ->T ( get_object_var ( 'Facet' ) )   )% 
-//	]\
-   end // if
-//	>\
-
-   ++! l_Counter
-  end // if
- end // for C
-
 //	[{%S#f_UseNewGenRec()!=true}\
  if ( ( %S %?f UseNewGenRec %( )% ) %!=  true ) then
  begin
+//	<{}{%CC=Dependency&%CS=implements}\
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |C ) %== 'Dependency' AND 
+    ( ( %C |S ) %== 'implements'  ) ) then
+   begin
+//	%C%T#f_CheckOrMakeFacet()\
+    %C ->T %?f CheckOrMakeFacet %( )%  
+//	%C%T#f_CheckFacet()\
+    %C ->T %?f CheckFacet %( )%  
+
+//	[{"%C%T%{Facet}N"!=""}\
+    if ( ( %C ->T ( get_object_var ( 'Facet' ) |N )   ) %!= '' ) then
+    begin
+//	%S%f_make_accessable(%C%T%{Facet}U)\
+     %S %f make_accessable %( %C ->T ( get_object_var ( 'Facet' ) |U )   )% 
+//	%f_addR(%S,%C%T%{Facet})\
+     [%f] addR %( %S %, %C ->T ( get_object_var ( 'Facet' ) )   )% 
+//	]\
+    end // if
+//	>\
+
+    ++! l_Counter
+   end // if
+  end // for C
+
+
 //	%S%f_add_operation(%SU_Ini_Reg_Class,ini,bind (),Op_Instance)\
   %S %f add_operation %( %S |U '_Ini_Reg_Class' %, 'ini' %, 'bind ()' %, 'Op_Instance' )% 
 //	%{Op_Instance}%f_set_documentation(Регистрация %SN)\

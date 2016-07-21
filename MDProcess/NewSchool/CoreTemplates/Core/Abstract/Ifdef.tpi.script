@@ -869,9 +869,12 @@ end. // <<Ifdef>>
   end // if
   else
   begin
-//	[{%SS=ControllerInterfaces|%SS=UseCaseControllerImp}{\
+//	[{%SS=ControllerInterfaces|%SS=UseCaseControllerImp|%SS=ViewAreaControllerImp|%SS=VCMFormSetFactory|%SS=VCMAbstractFormSetFactory}{\
    if ( ( %S |S ) %== 'ControllerInterfaces' OR 
-     ( ( %S |S ) %== 'UseCaseControllerImp'  ) ) then
+     ( ( %S |S ) %== 'UseCaseControllerImp'  ) OR 
+     ( ( %S |S ) %== 'ViewAreaControllerImp'  ) OR 
+     ( ( %S |S ) %== 'VCMFormSetFactory'  ) OR 
+     ( ( %S |S ) %== 'VCMAbstractFormSetFactory'  ) ) then
    begin
 //	true\
      true 
@@ -888,11 +891,12 @@ end. // <<Ifdef>>
     end // if
     else
     begin
-//	[{%PS=VCMFormsPack}{\
-     if ( ( %P |S ) %== 'VCMFormsPack' ) then
+//	[{%SS=VCMFormsPack|%SS=VCMUseCaseRealization}{\
+     if ( ( %S |S ) %== 'VCMFormsPack' OR 
+       ( ( %S |S ) %== 'VCMUseCaseRealization'  ) ) then
      begin
-//	false\
-       false 
+//	true\
+       true 
 //	]\
      end // if
      else
@@ -910,10 +914,8 @@ end. // <<Ifdef>>
 //	[{%SS=SimpleClass}{\
        if ( ( %S |S ) %== 'SimpleClass' ) then
        begin
-//	[{%PS!=SettingsHolder&%PS!=VCMApplication&%PS!=VCMFormsPack}{\
-        if ( ( %P |S ) %!= 'SettingsHolder' AND 
-          ( ( %P |S ) %!= 'VCMApplication'  ) AND 
-          ( ( %P |S ) %!= 'VCMFormsPack'  ) ) then
+//	[{%PS!=SettingsHolder}{\
+        if ( ( %P |S ) %!= 'SettingsHolder' ) then
         begin
 //	true\
           true 
@@ -929,7 +931,7 @@ end. // <<Ifdef>>
        end // if
        else
        begin
-//	[{%SS=Wrapper|%SS=TestClass|%SS=ScriptKeywordsPack|%SS=TestCase|%SS=TestCaseMixIn|%SS=ScriptKeywords|%SS=UserType|%SS=UtilityPack|%SS=Impurity|%SS=GUIControlMixIn|%SS=GuiControl|%SS=Interfaces|%SS=InternalInterfaces|%SS=Service|%SS=ServiceImplementation|%SS=TestResults|%SS=ExeTarget|%SS=AdapterTarget|%SS=AdapterTargetUnion|%SS=TestTarget|%SS=TestLibrary|%SS=VCMTestTarget|%SS=VCMTestApplication|%SS=VCMGUI}{\
+//	[{%SS=Wrapper|%SS=TestClass|%SS=ScriptKeywordsPack|%SS=TestCase|%SS=TestCaseMixIn|%SS=ScriptKeywords|%SS=UserType|%SS=UtilityPack|%SS=Impurity|%SS=GUIControlMixIn|%SS=GuiControl|%SS=Interfaces|%SS=InternalInterfaces|%SS=Service|%SS=ServiceImplementation|%SS=TestResults|%SS=ExeTarget|%SS=AdapterTarget|%SS=AdapterTargetUnion|%SS=TestTarget|%SS=TestLibrary|%SS=VCMTestTarget|%SS=VCMApplication|%SS=VCMTestApplication|%SS=VCMGUI}{\
         if ( ( %S |S ) %== 'Wrapper' OR 
           ( ( %S |S ) %== 'TestClass'  ) OR 
           ( ( %S |S ) %== 'ScriptKeywordsPack'  ) OR 
@@ -952,6 +954,7 @@ end. // <<Ifdef>>
           ( ( %S |S ) %== 'TestTarget'  ) OR 
           ( ( %S |S ) %== 'TestLibrary'  ) OR 
           ( ( %S |S ) %== 'VCMTestTarget'  ) OR 
+          ( ( %S |S ) %== 'VCMApplication'  ) OR 
           ( ( %S |S ) %== 'VCMTestApplication'  ) OR 
           ( ( %S |S ) %== 'VCMGUI'  ) ) then
         begin

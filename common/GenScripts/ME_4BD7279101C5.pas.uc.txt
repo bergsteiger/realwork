@@ -6,7 +6,7 @@
   try
    ConfigurationList.DeleteConfig(l_ConfNode);
    { Закроем форму если она была открыта }
-   Aggregate.Operation(TdmStdRes.opcode_Result_Cancel);
+   Aggregate.Operation(opcode_Result_Cancel);
   except
    on EConfigurationIsActiveNow do
     Say(err_ActiveConfigurationCannotDelete);
@@ -70,6 +70,7 @@ var
 //#UC END# *4A9807F801F9_4BD7279101C5exec_var*
 //#UC START# *4BD7279101C5impl_uses*
  , l3ControlsTypes
+ , OfficeLike_Result_Controls
 //#UC END# *4BD7279101C5impl_uses*
 //#UC START# *4BDAF7880236_4BD7279101C5exec_impl*
  inherited;
@@ -232,7 +233,7 @@ var
    l_Node := tvConfs.TreeView.CurrentNode;
   if Assigned(l_Node) and Supports(l_Node, InsConfigNode, lConfNode) then
   try
-   TdmStdRes.LoadSettings(Aggregate, lConfNode.Config);
+   TvcmModulesFactories.LoadSettings(Aggregate, lConfNode.Config);
    tvConfs.Invalidate;
   finally
    lConfNode := nil;

@@ -51,8 +51,13 @@ implementation @ <<ServicePrim>>
   [%f] addG %( %S %, ( get_global_var ( 'Tl3ProtoObject' ) ) )% 
 //	]\
  end // if
+//	[{%S#f_UseNewGenRec()!=true}\
+ if ( ( %S %?f UseNewGenRec %( )% ) %!=  true ) then
+ begin
 //	%S%f_set_up(singleton,true)\
- %S %f set_up %( 'singleton' %, true )% 
+  %S %f set_up %( 'singleton' %, true )% 
+//	]\
+ end // if
 //	%S%f_BeforeClassSpell()\
  %S %f BeforeClassSpell %( )% 
 //	%S%[inherited]

@@ -61,17 +61,18 @@ implementation @ "Delphi интерфейсы и реализация"
   %S %f pas_script_Generate %( )% 
 //	]\
  end // if
-//	<{}{%C#f_pas_script_NeedOwnFile()=true}%CX>
+//	<%CX>
  INTEGER VAR l_Counter l_Counter := 0
  for %S%C
  begin
   OBJECT IN %C
-  if ( ( %C %?f pas_script_NeedOwnFile %( )% ) %==  true ) then
+  if true then
   begin
    %C |X 
    ++! l_Counter
   end // if
  end // for C
+//	<{}{%C#f_pas_script_NeedOwnFile()=true}%CX>
 
 //f _CallAppend
 ; // pas.script
@@ -112,17 +113,18 @@ implementation @ "Delphi интерфейсы и реализация"
   %S %f pas_script_runner_Generate %( )% 
 //	]\
  end // if
-//	<{}{%C#f_pas_script_runner_NeedOwnFile()=true}%CX>
+//	<%CX>
  INTEGER VAR l_Counter l_Counter := 0
  for %S%C
  begin
   OBJECT IN %C
-  if ( ( %C %?f pas_script_runner_NeedOwnFile %( )% ) %==  true ) then
+  if true then
   begin
    %C |X 
    ++! l_Counter
   end // if
  end // for C
+//	<{}{%C#f_pas_script_runner_NeedOwnFile()=true}%CX>
 //#UC END# *563CBCC10243for470F151302FD*
 ; // pas.script.runner
 
@@ -643,8 +645,6 @@ implementation @ "Delphi интерфейсы и реализация"
   ) // Usersection
    #13#10 
  end // if
-//	%S%f_pas_OutMixInValues()\
- %S %f pas_OutMixInValues %( )% 
 //	<{}{"%CS"="impurity value"}\
  INTEGER VAR l_Counter l_Counter := 0
  for %S%C
@@ -870,16 +870,6 @@ implementation @ "Delphi интерфейсы и реализация"
 //	#  procedure ClearRefs; override;
 //	]\
 
-//	[#protected
- if NOT-EMPTY
- begin
-  out_indent 'protected'
-//	%S%f_pas_OutOverridesIntf()\
-  %S %f pas_OutOverridesIntf %( )% 
-//	]\
- end // if
- NOP
-//	\
 //	[#private
 //	#// property fields
 //	%f_with_gen_id(intf3.pas,<{}{%C#f_IsStaticObject()!=true&%C#f_IsStruct()!=true}[%CX\n]>)]\
@@ -1525,8 +1515,6 @@ implementation @ "Delphi интерфейсы и реализация"
  end // if
  NOP
 
-//	%S%f_pas_BeforeClassEnd()\
- %S %f pas_BeforeClassEnd %( )% 
 //	#end;//%f_pas_TypeName(%S)\
  out_indent 'end;//'
  [%f] pas_TypeName %( %S )% 
@@ -1802,14 +1790,6 @@ implementation @ "Delphi интерфейсы и реализация"
 ; // pas_OutClassMark
 
 
-// Выводит значения параметров примесей
-//%f _pas_OutMixInValues
-: pas_OutMixInValues OBJECT IN %S
-//#UC START# *494B7E6D0125for470F151302FD*
-//#UC END# *494B7E6D0125for470F151302FD*
-; // pas_OutMixInValues
-
-
 // Определяет является ли элемент контроллером прецедента
 //%f _IsUseCaseController
 : IsUseCaseController OBJECT IN %S
@@ -1818,39 +1798,6 @@ implementation @ "Delphi интерфейсы и реализация"
  false
 //#UC END# *494B7E8B02B1for470F151302FD*
 ; // IsUseCaseController
-
-
-// Выводит интерфейс переопределённых методов
-//%f _pas_OutOverridesIntf
-: pas_OutOverridesIntf OBJECT IN %S
-//#UC START# *494B856502ECfor470F151302FD*
-//	[{%S%f_NeedCleanupFields()=true}\
-//	#  procedure ClearFields; override;
-//	]
-//#UC END# *494B856502ECfor470F151302FD*
-; // pas_OutOverridesIntf
-
-
-// Выводит реализацию переопределённых методов
-//%f _pas_OutOverridesImpl
-: pas_OutOverridesImpl OBJECT IN %S
-//#UC START# *494B86B5014Bfor470F151302FD*
-//	[{%S%f_NeedCleanupFields()=true}\
-//	%f_pas_OpenMethodImplementation("ClearFields",%S)\
-//	procedure %f_pas_TypeName(%S).ClearFields;
-//	begin
-//	<{}{%C#f_IsFieldForCleanup()=true}\
-//	 [{%C%T#f_IsStruct()=true}{\
-//	[{"%C%{clearViaProperty}N"!=""}{%C%f_pas_AttrName()}%C%{clearViaProperty}N]\
-//	 := nil\
-//	}\
-//	Finalize(%C%f_pas_AttrName())];\n\
-//	>\
-//	 inherited;
-//	end;\
-//	]
-//#UC END# *494B86B5014Bfor470F151302FD*
-; // pas_OutOverridesImpl
 
 
 // Имя атрибута
@@ -2714,37 +2661,6 @@ implementation @ "Delphi интерфейсы и реализация"
 ; // HasAnyVCMController
 
 
-// Определяет, что стереотип содержит хотя бы один именованный VCM-контроллер среди своих детей
-//%f _HasAnyNamedVCMController
-: HasAnyNamedVCMController OBJECT IN %S
-//#UC START# *4978770402B4for470F151302FD*
-//@ %SU
-//	[{<{}{%C#f_IsVCMController()=true&"%CN"!=""}{C}>!=0}{false}true]
- if ( 
-  INTEGER VAR l_Counter l_Counter := 0
-  for %S%C
-  begin
-   OBJECT IN %C
-   if ( ( %C %?f IsVCMController %( )% ) %==  true AND 
-    ( ( %C |N ) %!= ''  ) ) then
-   begin
-
-    ++! l_Counter
-   end // if
-  end // for C
-  l_Counter
-  %!= 0 ) then
- begin
-   true 
- end // if
- else
- begin
-   false 
- end // else
-//#UC END# *4978770402B4for470F151302FD*
-; // HasAnyNamedVCMController
-
-
 // Определяет, что элемент является контролелром области вывода
 //%f _IsViewAreaController
 : IsViewAreaController OBJECT IN %S
@@ -3552,13 +3468,6 @@ implementation @ "Delphi интерфейсы и реализация"
  end // if
 //#UC END# *4A7ADFAE0118for470F151302FD*
 ; // pas_dump_Property
-
-
-//%f _pas_BeforeClassEnd
-: pas_BeforeClassEnd OBJECT IN %S
-//#UC START# *4A9293AE02DCfor470F151302FD*
-//#UC END# *4A9293AE02DCfor470F151302FD*
-; // pas_BeforeClassEnd
 
 
 //%f _pas_TotalUses
@@ -5124,182 +5033,6 @@ implementation @ "Delphi интерфейсы и реализация"
 ; // SomeAncestorImplements
 
 
-// Реализация Spell'а для итератора
-//%f _IteratorSpell
-: IteratorSpell OBJECT IN %S
-//#UC START# *4BA884DD00A7for470F151302FD*
-//	[{%S#f_UseNewGenRec()!=true}\
- if ( ( %S %?f UseNewGenRec %( )% ) %!=  true ) then
- begin
-//	[{%SC!=Class|%Cx=true}\
-  if ( ( %S |C ) %!= 'Class' OR 
-    ( ( %C |x ) %==  true  ) ) then
-  begin
-//	[{%S#f_IsOverride()!=true}\
-   if ( ( %S %?f IsOverride %( )% ) %!=  true ) then
-   begin
-
-//	- это чтобы C++ не сломать
-
-
-//	[{%SC=Class}{\
-    if ( ( %S |C ) %== 'Class' ) then
-    begin
-//	<{}{%CS=element type}%f_set_var(ELEMENT_TYPE,C%T)>\
-     INTEGER VAR l_Counter l_Counter := 0
-     for %S%C
-     begin
-      OBJECT IN %C
-      if ( ( %C |S ) %== 'element type' ) then
-      begin
-       [%f] set_var %( 'ELEMENT_TYPE' %, 'C'
-       %T )% 
-       ++! l_Counter
-      end // if
-     end // for C
-//	]\
-    end // if
-    else
-    begin
-//	%f_set_var(ELEMENT_TYPE,T)\
-     [%f] set_var %( 'ELEMENT_TYPE' %, 'T' )% 
-//	}\
-    end // else
-
-
-
-//	[{"%{ELEMENT_TYPE}S"="ImpurityParamType"}\
-
-//	%f_warning("%{%{ELEMENT_TYPE}N}U")\
-
-//	%f_set_var(ELEMENT_TYPE,{%{ELEMENT_TYPE}N})\
-
-//	]\
-
-
-//	%P%f_add_class(%SU_Action,Function,%PN_%f_N(%S)_Action,Action_Inst)\
-    %P %f add_class %( %S |U '_Action' %, 'Function' %, %P |N '_'
-    [%f] N %( %S )% '_Action' %, 'Action_Inst' )% 
-//	%{Action_Inst}%f_set_visibility_type(PublicAccess)\
-    ( get_global_var ( 'Action_Inst' ) %f set_visibility_type %( 'PublicAccess' )% ) 
-//	%{Action_Inst}%f_set_documentation(Тип подитеративной функции для %PN.%f_N(%S))\
-    ( get_global_var ( 'Action_Inst' ) %f set_documentation %( 'Тип подитеративной функции для '
-    %P |N '.'
-    [%f] N %( %S )% )% ) 
-//	%{Action_Inst}%f_add_operation(%SU_Action_Sig,,\
-    ( get_global_var ( 'Action_Inst' ) %f add_operation %( %S |U '_Action_Sig' %, '' %, 
-//	DoIt (anItem: \
-    'DoIt (anItem: '
-
-//	[{"%{ELEMENT_TYPE}S"="ImpurityParamType"}{\
-//	%{ELEMENT_TYPE}U\
-    ( get_global_var ( 'ELEMENT_TYPE' ) |U ) 
-//	}\
-
-//	%{%{ELEMENT_TYPE}N}U\
-
-//	]\
-//	[{%S{needs index}=true}\
-    if ( ( %S get_up ( 'needs index' ) ) %==  true ) then
-    begin
-//	, anIndex: [{}{long}<{}{%CS=index type}%C%TU>]\
-     ', anIndex: '
-     if NOT-EMPTY
-     begin
-      INTEGER VAR l_Counter l_Counter := 0
-      for %S%C
-      begin
-       OBJECT IN %C
-       if ( ( %C |S ) %== 'index type' ) then
-       begin
-        %C ->T |U  
-        ++! l_Counter
-       end // if
-      end // for C
-     end // if
-     NOP
-     else
-     begin
-      'long' 
-     end // else
-//	]\
-    end // if
-//	): boolean,Op_Instance\
-    '): boolean' %, 'Op_Instance'
-//	)\
-)% ) //	%{Op_Instance}%f_set_documentation(Тип подитеративной функции для %PN.%f_N(%S))\
-    ( get_global_var ( 'Op_Instance' ) %f set_documentation %( 'Тип подитеративной функции для '
-    %P |N '.'
-    [%f] N %( %S )% )% ) 
-//	%S%f_set_var(Action,{Action_Inst})\
-    %S %f set_var %( 'Action' %, '{Action_Inst}' )% 
-
-//	%P%f_add_operation(%SU_Stub,static,L2_%PN_%f_N(%S)_Action (anAction: pointer): %{Action_Inst}U,Op_Instance)
-    %P %f add_operation %( %S |U '_Stub' %, 'static' %, 'L2_'
-    %P |N '_'
-    [%f] N %( %S )% '_Action (anAction: pointer): '
-    ( get_global_var ( 'Action_Inst' ) |U ) %, 'Op_Instance' )% 
-//	%{Op_Instance}%f_set_documentation(Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для %PN.%f_N(%S))\
-    ( get_global_var ( 'Op_Instance' ) %f set_documentation %( 'Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для '
-    %P |N '.'
-    [%f] N %( %S )% )% ) 
-//	%{Op_Instance}%f_set_up(isGlobal,true)\
-    ( get_global_var ( 'Op_Instance' ) %f set_up %( 'isGlobal' %, true )% ) 
-//	%{Op_Instance}%f_set_up(isAsm,true)\
-    ( get_global_var ( 'Op_Instance' ) %f set_up %( 'isAsm' %, true )% ) 
-
-//	%S%f_set_var(Stub,{Op_Instance})\
-    %S %f set_var %( 'Stub' %, '{Op_Instance}' )% 
-
-//	[{"%S%{SPELLER}N"!=""}\
-    if ( ( %S ( get_object_var ( 'SPELLER' ) |N )  ) %!= '' ) then
-    begin
-//	%S%{SPELLER}%f_set_var(Stub,{Op_Instance})\
-     %S ( get_object_var ( 'SPELLER' ) %f set_var %( 'Stub' %, '{Op_Instance}' )% )  
-//	]\
-    end // if
-
-
-//	[{"%{l3LocalStub}N"=""}%f_find_element(l3LocalStub,l3LocalStub)]\
-    if ( ( ( get_global_var ( 'l3LocalStub' ) |N ) ) %== '' ) then
-    begin
-     [%f] find_element %( 'l3LocalStub' %, 'l3LocalStub' )% 
-    end // if
-//	%P%f_make_accessable(%{l3LocalStub}U)\
-    %P %f make_accessable %( ( get_global_var ( 'l3LocalStub' ) |U ) )% 
-//	[{%SC=Class}\
-    if ( ( %S |C ) %== 'Class' ) then
-    begin
-//	%f_addCDep(%S,%{l3LocalStub})\
-     [%f] addCDep %( %S %, ( get_global_var ( 'l3LocalStub' ) ) )% 
-//	]\
-    end // if
-
-
-//	%{Op_Instance}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Op_Instance},%P)_var,\
-    ( get_global_var ( 'Op_Instance' ) %f set_uc_content %( 'intf.pas' %, '_'
-    [%f] pas_MethodOwnerID %( ( get_global_var ( 'Op_Instance' ) ) %, %P )% '_var' %, 
-//	 {-}\
-    ' {-}'
-//	)\
-)% ) //	%{Op_Instance}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Op_Instance},%P)_impl,\
-    ( get_global_var ( 'Op_Instance' ) %f set_uc_content %( 'intf.pas' %, '_'
-    [%f] pas_MethodOwnerID %( ( get_global_var ( 'Op_Instance' ) ) %, %P )% '_impl' %, 
-//	\tjmp l3LocalStub\
-    #9'jmp l3LocalStub'
-//	)\
-)% ) //	]\
-   end // if
-
-
-//	]\
-  end // if
-//	]
- end // if
-//#UC END# *4BA884DD00A7for470F151302FD*
-; // IteratorSpell
-
-
 //%f _IsIterator
 : IsIterator OBJECT IN %S
 // возвращаемый результат: boolean
@@ -6245,24 +5978,40 @@ implementation @ "Delphi интерфейсы и реализация"
 //	[{%SC=Class}{\
      if ( ( %S |C ) %== 'Class' ) then
      begin
-//	[{%PC=Class|%SS=TestCase}{\
-      if ( ( %P |C ) %== 'Class' OR 
-        ( ( %S |S ) %== 'TestCase'  ) ) then
+//	[{%SS=VCMFormsPack|%SS=VCMUseCaseRealization|%S#f_IsVCMForm()=true|%SS=ViewAreaControllerImp|%SS=UseCaseControllerImp|%SS=VCMFormSetFactory|%SS=VCMAbstractFormSetFactory|%SS=VCMApplication|%SS=VCMTestApplication}{\
+      if ( ( %S |S ) %== 'VCMFormsPack' OR 
+        ( ( %S |S ) %== 'VCMUseCaseRealization'  ) OR 
+        ( ( %S %?f IsVCMForm %( )% ) %==  true  ) OR 
+        ( ( %S |S ) %== 'ViewAreaControllerImp'  ) OR 
+        ( ( %S |S ) %== 'UseCaseControllerImp'  ) OR 
+        ( ( %S |S ) %== 'VCMFormSetFactory'  ) OR 
+        ( ( %S |S ) %== 'VCMAbstractFormSetFactory'  ) OR 
+        ( ( %S |S ) %== 'VCMApplication'  ) OR 
+        ( ( %S |S ) %== 'VCMTestApplication'  ) ) then
       begin
-       #13#10
-
-//	false\
-        false 
+//	true\
+        true 
+// - а вот паки и формы - наверное нужно
 //	]\
       end // if
       else
       begin
-//	false\
-        false 
-// - наверное классы не надо в отдельные файлы выливать
-
+//	[{%SS=GuiControl&%PC!=Class}{\
+       if ( ( %S |S ) %== 'GuiControl' AND 
+         ( ( %P |C ) %!= 'Class'  ) ) then
+       begin
 //	true\
-//	}
+         true 
+//	]\
+       end // if
+       else
+       begin
+//	false\
+         false 
+// - наверное классы не надо в отдельные файлы выливать
+//	}\
+       end // else
+//	}\
       end // else
 //	]\
      end // if
@@ -6394,8 +6143,6 @@ implementation @ "Delphi интерфейсы и реализация"
    end // if
    else
    begin
-
-//	 CONST Stereotype '%f_str_replace(%SS,','')'
 //	 : Stereotype st_%f_str_replace(%SS, ,_) ;
     ' : Stereotype st_'
     [%f] str_replace %( %S |S %, ' ' %, '_' )% ' ;'
@@ -6960,50 +6707,50 @@ implementation @ "Delphi интерфейсы и реализация"
 //	%S%f_pas_script_GenerateUserProperties()\
  %S %f pas_script_GenerateUserProperties %( )% 
 
-//	%f_clear_list(ALL_GENERATORS_ID)\
- [%f] clear_list %( 'ALL_GENERATORS_ID' )% 
-//	%f_all_generators(%S)\
- [%f] all_generators %( %S )% 
-//	[\
- if NOT-EMPTY
+//	[{%SC=Class|%SC=Category}\
+ if ( ( %S |C ) %== 'Class' OR 
+   ( ( %S |C ) %== 'Category'  ) ) then
  begin
-//	<{}{%f_is_empty(ALL_GENERATORS_ID)=false}{W}\
-  INTEGER VAR l_Counter l_Counter := 0
-  for %S%P
+//	%f_clear_list(ALL_GENERATORS_ID)\
+  [%f] clear_list %( 'ALL_GENERATORS_ID' )% 
+//	%f_all_generators(%S)\
+  [%f] all_generators %( %S )% 
+//	[\
+  if NOT-EMPTY
   begin
-   OBJECT IN %P
-   if ( ( [%f] is_empty %( 'ALL_GENERATORS_ID' )% ) %==  false ) then
+//	<{}{%f_is_empty(ALL_GENERATORS_ID)=false}{W}\
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%P
    begin
-//	%f_pop_first_to_var(ALL_GENERATORS_ID,GEN_ID)\
-    [%f] pop_first_to_var %( 'ALL_GENERATORS_ID' %, 'GEN_ID' )% 
-//	[{%{GEN_ID}N!=wiki&%{GEN_ID}N!=spell&"%{GEN_ID}N"!="pas.script"&"%{GEN_ID}N"!="pas.script.runner"}\
-    if ( ( ( get_global_var ( 'GEN_ID' ) |N ) ) %!= 'wiki' AND 
-      ( ( ( get_global_var ( 'GEN_ID' ) |N ) ) %!= 'spell'  ) AND 
-      ( ( ( get_global_var ( 'GEN_ID' ) |N ) ) %!= 'pas.script'  ) AND 
-      ( ( ( get_global_var ( 'GEN_ID' ) |N ) ) %!= 'pas.script.runner'  ) ) then
+    OBJECT IN %P
+    if ( ( [%f] is_empty %( 'ALL_GENERATORS_ID' )% ) %==  false ) then
     begin
-//	[{%f_has_non_empty_gen(S,%{GEN_ID}N)=true}\
-     if ( ( [%f] has_non_empty_gen %( 'S' %, ( get_global_var ( 'GEN_ID' ) |N ) )% ) %==  true ) then
+//	%f_pop_first_to_var(ALL_GENERATORS_ID,GEN_ID)\
+     [%f] pop_first_to_var %( 'ALL_GENERATORS_ID' %, 'GEN_ID' )% 
+//	[{%{GEN_ID}N!=wiki&%{GEN_ID}N!=spell&"%{GEN_ID}N"!="pas.script"&"%{GEN_ID}N"!="pas.script.runner"}\
+     if ( ( ( get_global_var ( 'GEN_ID' ) |N ) ) %!= 'wiki' AND 
+       ( ( ( get_global_var ( 'GEN_ID' ) |N ) ) %!= 'spell'  ) AND 
+       ( ( ( get_global_var ( 'GEN_ID' ) |N ) ) %!= 'pas.script'  ) AND 
+       ( ( ( get_global_var ( 'GEN_ID' ) |N ) ) %!= 'pas.script.runner'  ) ) then
      begin
-//	[{"%f_with_gen_id(%{GEN_ID}N,%SL)"!=""}\
-      if ( ( [%f] with_gen_id %( ( get_global_var ( 'GEN_ID' ) |N ) %, %S |L )% ) %!= '' ) then
+//	[{%f_has_non_empty_gen(S,%{GEN_ID}N)=true}\
+      if ( ( [%f] has_non_empty_gen %( 'S' %, ( get_global_var ( 'GEN_ID' ) |N ) )% ) %==  true ) then
       begin
+//	[{"%f_with_gen_id(%{GEN_ID}N,%SL)"!=""}\
+       if ( ( [%f] with_gen_id %( ( get_global_var ( 'GEN_ID' ) |N ) %, %S |L )% ) %!= '' ) then
+       begin
 //	 CONST %{GEN_ID}N:Path '%f_str_replace(%f_with_gen_id(%{GEN_ID}N,%SL),/,\\)'
-       ' CONST '
-       ( get_global_var ( 'GEN_ID' ) |N ) ':Path '''
-       [%f] str_replace %( [%f] with_gen_id %( ( get_global_var ( 'GEN_ID' ) |N ) %, %S |L )% %, '/' %, '\' )% '''
+        ' CONST '
+        ( get_global_var ( 'GEN_ID' ) |N ) ':Path '''
+        [%f] str_replace %( [%f] with_gen_id %( ( get_global_var ( 'GEN_ID' ) |N ) %, %S |L )% %, '/' %, '\' )% '''
+//	]\
+       end // if
 //	]\
       end // if
-//	]\
-     end // if
 
 
 //	[{"%f_with_gen_id(%{GEN_ID}N,%Sd)"!=""}\
-     if ( ( [%f] with_gen_id %( ( get_global_var ( 'GEN_ID' ) |N ) %, %S |d )% ) %!= '' ) then
-     begin
-//	[{%SC=Class|%SC=Category}\
-      if ( ( %S |C ) %== 'Class' OR 
-        ( ( %S |C ) %== 'Category'  ) ) then
+      if ( ( [%f] with_gen_id %( ( get_global_var ( 'GEN_ID' ) |N ) %, %S |d )% ) %!= '' ) then
       begin
 //	[{%S#f_pas_script_IsOperation()!=true}\
        if ( ( %S %?f pas_script_IsOperation %( )% ) %!=  true ) then
@@ -7022,20 +6769,20 @@ implementation @ "Delphi интерфейсы и реализация"
        end // if
 //	]\
       end // if
+
+
 //	]\
      end // if
-
-
-//	]\
-    end // if
 //	>\
 
-    ++! l_Counter
-   end // if
-  end // for P
+     ++! l_Counter
+    end // if
+   end // for P
+//	]\
+  end // if
+  NOP
 //	]\
  end // if
- NOP
 
 //	[{%SC=Class}\
  if ( ( %S |C ) %== 'Class' ) then
@@ -7146,52 +6893,77 @@ implementation @ "Delphi интерфейсы и реализация"
 //	]\
   end // if
   NOP
-//	]\
- end // if
 
-//	[{"%S#f_NeedsOwnType()"!=""&%S#f_NeedsOwnType()!=false}\
- if ( ( %S %?f NeedsOwnType %( )% ) %!= '' AND 
-   ( ( %S %?f NeedsOwnType %( )% ) %!=  false  ) ) then
- begin
-//	[\
-  if NOT-EMPTY
-  begin
-//	 CONST extprop:evd:NeedsOwnType %f_out_val("%S#f_NeedsOwnType()")
-   ' CONST extprop:evd:NeedsOwnType '
-   [%f] out_val %( %S %?f NeedsOwnType %( )% )% 
-//	]\
-  end // if
-  NOP
-//	]\
- end // if
-
-//	[{"%S#f_NewTypeName()"!=""}\
- if ( ( %S %?f NewTypeName %( )% ) %!= '' ) then
- begin
-//	[\
-  if NOT-EMPTY
-  begin
-//	 CONST extprop:evd:NewTypeName %f_out_val("%S#f_NewTypeName()")
-   ' CONST extprop:evd:NewTypeName '
-   [%f] out_val %( %S %?f NewTypeName %( )% )% 
-//	]\
-  end // if
-  NOP
-//	]\
- end // if
 
 //	[{"%S{isGlobal}"!=""}\
- if ( ( %S get_up ( 'isGlobal' ) ) %!= '' ) then
- begin
-//	[\
-  if NOT-EMPTY
+  if ( ( %S get_up ( 'isGlobal' ) ) %!= '' ) then
   begin
+//	[\
+   if NOT-EMPTY
+   begin
 //	 CONST extprop:isGlobal %f_out_val("%S{isGlobal}")
-   ' CONST extprop:isGlobal '
-   [%f] out_val %( %S get_up ( 'isGlobal' ) )% 
+    ' CONST extprop:isGlobal '
+    [%f] out_val %( %S get_up ( 'isGlobal' ) )% 
+//	]\
+   end // if
+   NOP
 //	]\
   end // if
-  NOP
+
+
+//	[{"%S#f_InitFieldsUC()"!=""}\
+  if ( ( %S %?f InitFieldsUC %( )% ) %!= '' ) then
+  begin
+//	[\
+   if NOT-EMPTY
+   begin
+//	 CONST extprop:pas:InitFields %f_out_val(%f_fine_string("%f_with_gen_id(intf.pas,%S#f_InitFieldsUC())"))
+    ' CONST extprop:pas:InitFields '
+    [%f] out_val %( [%f] fine_string %( [%f] with_gen_id %( 'intf.pas' %, %S %?f InitFieldsUC %( )% )% )% )% 
+//	]\
+   end // if
+   NOP
+//	]\
+  end // if
+//	]\
+ end // if
+
+//	[{%SC=Class|%SC=Category|%SC=Attribute}\
+ if ( ( %S |C ) %== 'Class' OR 
+   ( ( %S |C ) %== 'Category'  ) OR 
+   ( ( %S |C ) %== 'Attribute'  ) ) then
+ begin
+//	[{"%S#f_NeedsOwnType()"!=""&%S#f_NeedsOwnType()!=false}\
+  if ( ( %S %?f NeedsOwnType %( )% ) %!= '' AND 
+    ( ( %S %?f NeedsOwnType %( )% ) %!=  false  ) ) then
+  begin
+//	[\
+   if NOT-EMPTY
+   begin
+//	 CONST extprop:evd:NeedsOwnType %f_out_val("%S#f_NeedsOwnType()")
+    ' CONST extprop:evd:NeedsOwnType '
+    [%f] out_val %( %S %?f NeedsOwnType %( )% )% 
+//	]\
+   end // if
+   NOP
+//	]\
+  end // if
+
+
+//	[{"%S#f_NewTypeName()"!=""}\
+  if ( ( %S %?f NewTypeName %( )% ) %!= '' ) then
+  begin
+//	[\
+   if NOT-EMPTY
+   begin
+//	 CONST extprop:evd:NewTypeName %f_out_val("%S#f_NewTypeName()")
+    ' CONST extprop:evd:NewTypeName '
+    [%f] out_val %( %S %?f NewTypeName %( )% )% 
+//	]\
+   end // if
+   NOP
+//	]\
+  end // if
 //	]\
  end // if
 
@@ -7257,6 +7029,15 @@ implementation @ "Delphi интерфейсы и реализация"
 //	]\
  end // if
 
+//	[{"%S%{CASTER}U"!=""}\
+ if ( ( %S ( get_object_var ( 'CASTER' ) |U )  ) %!= '' ) then
+ begin
+//	 : extprop:CASTER %S%{CASTER}#f_pas_script_Reference() ;
+  ' : extprop:CASTER '
+  %S ( get_object_var ( 'CASTER' ) )  out_indent 'f_pas_script_Reference() ;'
+//	]\
+ end // if
+
 //	[{%S#f_pas_script_IsAttribute()=true}\
  if ( ( %S %?f pas_script_IsAttribute %( )% ) %==  true ) then
  begin
@@ -7297,44 +7078,6 @@ implementation @ "Delphi интерфейсы и реализация"
  begin
 //	 CONST extprop:NeedsInitEntities true
   ' CONST extprop:NeedsInitEntities true'
-//	]\
- end // if
-
-//	[{%S#f_HasAnyVCMController()=true}\
- if ( ( %S %?f HasAnyVCMController %( )% ) %==  true ) then
- begin
-//	 CONST extprop:HasAnyVCMController true
-  ' CONST extprop:HasAnyVCMController true'
-//	]\
- end // if
-
-//	[{"%S%{Facet}U"!=""}\
- if ( ( %S ( get_object_var ( 'Facet' ) |U )  ) %!= '' ) then
- begin
-//	[\
-  if NOT-EMPTY
-  begin
-//	 : Facet %S%{Facet}#f_pas_script_Reference() ;
-   ' : Facet '
-   %S ( get_object_var ( 'Facet' ) )  out_indent 'f_pas_script_Reference() ;'
-//	]\
-  end // if
-  NOP
-//	]\
- end // if
-
-//	[{"%S%{Mixin}U"!=""}\
- if ( ( %S ( get_object_var ( 'Mixin' ) |U )  ) %!= '' ) then
- begin
-//	[\
-  if NOT-EMPTY
-  begin
-//	 : Mixin %S%{Mixin}#f_pas_script_Reference() ;
-   ' : Mixin '
-   %S ( get_object_var ( 'Mixin' ) )  out_indent 'f_pas_script_Reference() ;'
-//	]\
-  end // if
-  NOP
 //	]\
  end // if
 
@@ -7618,8 +7361,8 @@ end. // "Delphi интерфейсы и реализация"
 ; // out_val
 
 : fine_string OBJECT IN %S
-//	%f_str_replace(%f_str_replace(%SN,',''),\n,'\#13\#10')
- [%f] str_replace %( [%f] str_replace %( %S |N %, '''' %, '''''' )% %, #13#10 %, '''#13#10''' )% 
+//	%f_str_replace(%f_str_replace(%f_str_replace(%SN,',''),\n,'\#13\#10'),\t, )
+ [%f] str_replace %( [%f] str_replace %( [%f] str_replace %( %S |N %, '''' %, '''''' )% %, #13#10 %, '''#13#10''' )% %, #9 %, ' ' )% 
 
 //f _cut_quotes
 ; // fine_string
@@ -9148,18 +8891,18 @@ implementation @ "Delphi интерфейсы и реализация"
  end // for e
 
 //	[{"%S%{Facet}U"!=""}\
- if ( ( %S ( get_object_var ( 'Facet' ) |U )  ) %!= '' ) then
- begin
 //	%S%{Facet}#f_pas_script_GenerateIncludeOrForward()\
-  %S ( get_object_var ( 'Facet' ) )  out_indent 'f_pas_script_GenerateIncludeOrForward()'
 //	]\
- end // if
 
 //	[{"%S%{Mixin}U"!=""}\
- if ( ( %S ( get_object_var ( 'Mixin' ) |U )  ) %!= '' ) then
- begin
 //	%S%{Mixin}#f_pas_script_GenerateIncludeOrForward()\
-  %S ( get_object_var ( 'Mixin' ) )  out_indent 'f_pas_script_GenerateIncludeOrForward()'
+//	]\
+
+//	[{"%S%{CASTER}U"!=""}\
+ if ( ( %S ( get_object_var ( 'CASTER' ) |U )  ) %!= '' ) then
+ begin
+//	%S%{CASTER}#f_pas_script_GenerateIncludeOrForward()\
+  %S ( get_object_var ( 'CASTER' ) )  out_indent 'f_pas_script_GenerateIncludeOrForward()'
 //	]\
  end // if
 
@@ -9550,6 +9293,18 @@ implementation @ "Delphi интерфейсы и реализация"
  end // if
  else
  begin
+//	[{%SC=Dependency|%SC=Parameter}{\
+  if ( ( %S |C ) %== 'Dependency' OR 
+    ( ( %S |C ) %== 'Parameter'  ) ) then
+  begin
+//	]\
+  end // if
+  else
+  begin
+//	HWL \
+   'HWL '
+//	}\
+  end // else
 //	%S%f_pas_script_Name()\
   %S %f pas_script_Name %( )% 
 //	}\

@@ -76,9 +76,9 @@ var
 //#UC END# *4C7F5A5800CDimpl_uses*
 //#UC START# *4C7F5CBD0071_4C7F5A5800CDexec_impl*
  if Supports(FiltersList.TreeStruct, InsFiltersTree, l_Tree) then
-  TdmStdRes.MakeNewFilter(l_Tree.FiltersType)
+  TvcmModulesFactories.MakeNewFilter(l_Tree.FiltersType)
  else
-  TdmStdRes.MakeNewFilter(bs_ltDocument);
+  TvcmModulesFactories.MakeNewFilter(bs_ltDocument);
 //#UC END# *4C7F5CBD0071_4C7F5A5800CDexec_impl*
 //#UC START# *4C7F5CBD0071_4C7F5A5800CDexec_var*
 var
@@ -109,7 +109,7 @@ var
   l_Data := TdeFilter.Make(l_Filter)
  else
   l_Data := nil;
- TdmStdRes.EditFilter(l_Data, aParams.ItemIndex);
+ TvcmModulesFactories.EditFilter(l_Data, aParams.ItemIndex);
 //#UC END# *4C7F5E030232_4C7F5A5800CDexec_impl*
 //#UC START# *4C7F5E030232_4C7F5A5800CDexec_var*
 var
@@ -154,7 +154,7 @@ var
 //#UC END# *4C7F5E7E01D6_4C7F5A5800CDtest_var*
 //#UC START# *4CB7004603CF_4C7F5A5800CDexec_impl*
  if Supports(FiltersList.GetCurrentNode, IFilterFromQuery, l_Filter) then
-  TdmStdRes.RenameFilter(l_Filter);
+  TvcmModulesFactories.RenameFilter(l_Filter);
 //#UC END# *4CB7004603CF_4C7F5A5800CDexec_impl*
 //#UC START# *4CB7004603CF_4C7F5A5800CDexec_var*
 var

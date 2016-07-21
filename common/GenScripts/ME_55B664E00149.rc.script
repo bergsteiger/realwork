@@ -1,0 +1,39 @@
+// Модуль: "w:\archi\source\projects\Archi\Archi_Insider_Test_Support\archiDocEditorWindowWordsPack.rc.script"
+// Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "archiDocEditorWindowWordsPack" MUID: (55B664E00149)
+
+
+//#UC START# *55B664E00149man_uses*
+//#UC END# *55B664E00149man_uses*
+
+USES
+ axiom:DocEditorWindow
+;
+
+// Класс TDocEditorWindow - DocEditorWindow
+//  Операция IsNeedSaveDocument
+//  Класс реализующий операцию DocEditorWindow_IsNeedSaveDocument - DocEditorWindow:IsNeedSaveDocument
+WordAlias pop:DocEditorWindow:IsNeedSaveDocument DocEditorWindow:IsNeedSaveDocument
+
+//#UC START# *55B664E00149impl*
+
+// Декораторы
+
+USES
+ axiom:DocEditorWindow
+;
+
+ BOOLEAN FUNCTION IsNeedSaveDocument
+  OBJECT IN aWnd
+  if ( aWnd Is class::TDocEditorWindow ) then
+   ( aWnd DocEditorWindow:IsNeedSaveDocument >>> Result )
+  else 
+   ( false >>> Result )
+ ; // IsNeedSaveDocument
+ 
+//#UC END# *55B664E00149impl*
+
+EXPORTS
+//#UC START# *55B664E00149exports*
+ *
+//#UC END# *55B664E00149exports*

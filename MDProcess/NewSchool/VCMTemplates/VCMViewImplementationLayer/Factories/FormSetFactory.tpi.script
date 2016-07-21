@@ -15,7 +15,6 @@
 implementation @ <<FormSetFactory>>
 //? Фабрика сборки форм
 //= method::Class
-//= ModuleOpRecall::Class
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Параметры стереотипа
@@ -29,6 +28,11 @@ implementation @ <<FormSetFactory>>
 //$ f 64,224,208
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+//p NO_FACTORY_BRACKECTS:b=false ? 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Функции стереотипа
 
 //%f _st_space_key
@@ -36,9 +40,22 @@ implementation @ <<FormSetFactory>>
 //	SHD
  'SHD'
 
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	%S#[inherited][{"%S{NO_FACTORY_BRACKECTS}"!="%S{!NO_FACTORY_BRACKECTS}"}%f_up_prefix(%S) *NO_FACTORY_BRACKECTS* = *%S{NO_FACTORY_BRACKECTS}*
+ ?inherited
+ if ( ( %S get_up ( 'NO_FACTORY_BRACKECTS' ) ) %!= ( %S get_up_def ( 'NO_FACTORY_BRACKECTS' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *NO_FACTORY_BRACKECTS* = *'
+  %S get_up ( 'NO_FACTORY_BRACKECTS' ) '*'
+//	]
+ end // if
+
 // Определяет, что элемент является фабрикой на VCM-модуле
 //%f _IsFactoryOnModule
-; // st_space_key
+; // wiki_up_print
 
 : IsFactoryOnModule OBJECT IN %S
 // возвращаемый результат: boolean
@@ -51,119 +68,6 @@ implementation @ <<FormSetFactory>>
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Унаследованная реализация
-
-// реализация абстрактного стереотипа ModuleOpRecall::Class
-// Выводит реализацию метода перенаправления операции
-//%f _OutRecallImpl
-: OutRecallImpl OBJECT IN %S
-// параметры: aCaller: MDAClass = %1
-//#UC START# *4A76CC1D010Dfor4A73234800B8*
-//	[{%f_exists_in_list(RECALL_LIST,S)!=true}\
- if ( ( [%f] exists_in_list %( 'RECALL_LIST' %, 'S' )% ) %!=  true ) then
- begin
-//	%f_add_to_list(RECALL_LIST,S)\
-  [%f] add_to_list %( 'RECALL_LIST' %, 'S' )% 
-//	[{%SV=PublicAccess}%S%f_pas_MethodImplementation(%1,"r","recall")]\
-  if ( ( %S |V ) %== 'PublicAccess' ) then
-  begin
-   %S %f pas_MethodImplementation %( %1 %, 'r"' %, 'recall' )% 
-  end // if
-//	]
- end // if
-//#UC END# *4A76CC1D010Dfor4A73234800B8*
-; // OutRecallImpl
-
-
-// реализация абстрактного стереотипа ModuleOpRecall::Class
-// Выводит интерфейс метода перенаправления операции
-//%f _OutRecallIntf
-: OutRecallIntf OBJECT IN %S
-// параметры: aCaller: MDAClass = %1
-//#UC START# *4A76CC1902FEfor4A73234800B8*
-//	[{%f_exists_in_list(RECALL_LIST,S)!=true}\
- if ( ( [%f] exists_in_list %( 'RECALL_LIST' %, 'S' )% ) %!=  true ) then
- begin
-//	%f_add_to_list(RECALL_LIST,S)\
-  [%f] add_to_list %( 'RECALL_LIST' %, 'S' )% 
-//	[{%SV=PublicAccess}\n%S%f_pas_MethodInterface(%1,"r","recall")]\
-  if ( ( %S |V ) %== 'PublicAccess' ) then
-  begin
-   #13#10
-   %S %f pas_MethodInterface %( %1 %, 'r"' %, 'recall' )% 
-  end // if
-//	]
- end // if
-//#UC END# *4A76CC1902FEfor4A73234800B8*
-; // OutRecallIntf
-
-
-// реализация абстрактного стереотипа ModuleOpRecall::Class
-//%f _RecallToImplUses
-: RecallToImplUses OBJECT IN %S
-//#UC START# *4A9CF8A30296for4A73234800B8*
-//#UC END# *4A9CF8A30296for4A73234800B8*
-; // RecallToImplUses
-
-
-// реализация абстрактного стереотипа ModuleOpRecall::Class
-//%f _RecallToIntfUses
-: RecallToIntfUses OBJECT IN %S
-//#UC START# *4A9CF892039Afor4A73234800B8*
-//#UC END# *4A9CF892039Afor4A73234800B8*
-; // RecallToIntfUses
-
-
-// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
-//%f _DoSpell
-: DoSpell OBJECT IN %S
-//#UC START# *4B2A19E3038Bfor4A73234800B8*
-//	%S%[inherited]\
- inherited
-//	[{%S{NO_FACTORY_BRACKECTS}!=true}\
- if ( ( %S get_up ( 'NO_FACTORY_BRACKECTS' ) ) %!=  true ) then
- begin
-//	[{"%{vcmBase}N"=""}%f_find_element(vcmBase,vcmBase)]\
-  if ( ( ( get_global_var ( 'vcmBase' ) |N ) ) %== '' ) then
-  begin
-   [%f] find_element %( 'vcmBase' %, 'vcmBase' )% 
-  end // if
-//	%P%f_make_accessable(%{vcmBase}U)\
-  %P %f make_accessable %( ( get_global_var ( 'vcmBase' ) |U ) )% 
-//	%f_addCDep(%P,%{vcmBase})\
-  [%f] addCDep %( %P %, ( get_global_var ( 'vcmBase' ) ) )% 
-//	%S%f_set_pre_uc_content(intf.pas,_%f_pas_MethodOwnerID(%S,%P)_var,\
-  %S %f set_pre_uc_content %( 'intf.pas' %, '_'
-  [%f] pas_MethodOwnerID %( %S %, %P )% '_var' %, 
-//	var
-  'var'
-//	 __WasEnter : Boolean;
-  ' __WasEnter : Boolean;'
-//	)\
-)% //	%S%f_set_pre_uc_content(intf.pas,_%f_pas_MethodOwnerID(%S,%P)_impl,\
-  %S %f set_pre_uc_content %( 'intf.pas' %, '_'
-  [%f] pas_MethodOwnerID %( %S %, %P )% '_impl' %, 
-//	 __WasEnter := vcmEnterFactory;
-  ' __WasEnter := vcmEnterFactory;'
-//	 try
-  ' try'
-//	)\
-)% //	%S%f_set_post_uc_content(intf.pas,_%f_pas_MethodOwnerID(%S,%P)_impl,
-  %S %f set_post_uc_content %( 'intf.pas' %, '_'
-  [%f] pas_MethodOwnerID %( %S %, %P )% '_impl,'
-//	 finally
-  ' finally'
-//	  if __WasEnter then
-  '  if __WasEnter then'
-//	   vcmLeaveFactory;
-  '   vcmLeaveFactory;'
-//	 end;//try..finally\
-  ' end;//try..finally'
-//	)\
-)% //	]
- end // if
-//#UC END# *4B2A19E3038Bfor4A73234800B8*
-; // DoSpell
-
 
 // перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
 // Выводит тело метода

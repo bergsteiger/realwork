@@ -236,7 +236,7 @@ var
      if lp_QueryHasAttribute(aQuery, AT_BASE_SEARCH_PANES{AT_PREFIX}) then
      begin
       if vcmAsk(qr_EmptyResultAfterBaseSearchWithPrefix) then
-       TdmStdRes.TryAnotherBaseSearch(nil, aProcessor)
+       TvcmModulesFactories.TryAnotherBaseSearch(nil, aProcessor)
       else
       if Assigned(aProcessor) then
        aProcessor.AnotherSearchCancelled;
@@ -246,18 +246,18 @@ var
      begin
       if aList.GetIsShort then
       case vcmMessageDlg(str_EmptySearchResultInBaseList, []) of
-       -1: TdmStdRes.TryAnotherBaseSearch(nil, aProcessor, True);
-       -2: TdmStdRes.TryAnotherBaseSearch(nil, aProcessor);
+       -1: TvcmModulesFactories.TryAnotherBaseSearch(nil, aProcessor, True);
+       -2: TvcmModulesFactories.TryAnotherBaseSearch(nil, aProcessor);
       end
       else
       if lp_QueryHasAttribute(aQuery, AT_TEXT_NAME) then
       begin
        if vcmAsk(qr_EmptyResultAfterBaseSearchInNames) then
-        TdmStdRes.TryAnotherBaseSearch(nil, aProcessor);
+        TvcmModulesFactories.TryAnotherBaseSearch(nil, aProcessor);
       end//lp_QueryHasAttribute(aQuery, AT_TEXT_NAME)
       else
       if vcmAsk(qr_EmptyResultAfterBaseSearchInList) then
-       TdmStdRes.TryAnotherBaseSearch(nil, aProcessor);
+       TvcmModulesFactories.TryAnotherBaseSearch(nil, aProcessor);
       Exit;
      end;//Assigned(aList)
     end;//l_Query.GetType = QT_BASE_SEARCH
@@ -400,7 +400,7 @@ var
    Exit;
   aQuery.Clone(l_NewQuery);
   if Assigned(l_NewQuery) then
-   TdmStdRes.MakeWorkJournal.AddQuery(l_NewQuery);
+   TvcmModulesFactories.MakeWorkJournal.AddQuery(l_NewQuery);
  end;//AddQueryToJournal
 
 var
@@ -441,7 +441,7 @@ const
     if (aQuery.GetType <> QT_BASE_SEARCH) and Assigned(l_Processor) then
       l_Processor.AnotherSearchSuccessed;
     if (aQuery.GetType <> QT_REVIEW) then
-     (*TdmStdRes.OpenList(
+     (*TvcmModulesFactories.OpenList(
        TdeListSet.Make(l_FoundList,
                        wdOpenIfUserDefine,
                        lp_GetListOpenFrom,
@@ -450,7 +450,7 @@ const
                        TdeSearchInfo.Make(l_FoundList, False)), nil)*)
      TnsDataExchangeProxy.Instance.MakeAndOpenList(l_FoundList, lp_GetListOpenFrom)
     else
-     TdmStdRes.OpenAutoreferatAfterSearch(l_FoundList as IMonitoringList, nil);
+     TvcmModulesFactories.OpenAutoreferatAfterSearch(l_FoundList as IMonitoringList, nil);
    end//l_FoundList <> nil
    else
    if (l_Result = vcm_mrCustomButton) then
@@ -466,7 +466,7 @@ const
     end//aQuery.GetType in [QT_ATTRIBUTE, QT_BASE_SEARCH]
     else
      l_Query := nil;
-    TdmStdRes.OpenSendConsultation(l_Query);
+    TvcmModulesFactories.OpenSendConsultation(l_Query);
    end;
   finally
    l_FoundList := nil;
