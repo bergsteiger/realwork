@@ -34,9 +34,9 @@ type
     aGetTarget: TvcmControlGetTargetEvent);
     {* опубликовать сущность. }
    function GetAttrCount: Integer; override;
-   function GetAttr(Index: Integer): AnsiString; override;
+   function GetAttr(Index: Integer): String; override;
    function GetItemAttr(Index: Integer;
-    ItemIndex: Integer): AnsiString; override;
+    ItemIndex: Integer): String; override;
   public
    function PublishFormEntity(const anEntity: TvcmString;
     aGetTarget: TvcmGetTargetEvent): TvcmBaseEntitiesCollectionItem;
@@ -415,7 +415,7 @@ begin
 //#UC END# *560A9DA80335_52A72E6B00B1_impl*
 end;//TvcmBaseEntitiesCollection.GetAttrCount
 
-function TvcmBaseEntitiesCollection.GetAttr(Index: Integer): AnsiString;
+function TvcmBaseEntitiesCollection.GetAttr(Index: Integer): String;
 //#UC START# *560A9DCD009D_52A72E6B00B1_var*
 var
  l_C: Integer;
@@ -436,7 +436,7 @@ begin
 end;//TvcmBaseEntitiesCollection.GetAttr
 
 function TvcmBaseEntitiesCollection.GetItemAttr(Index: Integer;
- ItemIndex: Integer): AnsiString;
+ ItemIndex: Integer): String;
 //#UC START# *560A9DEB0155_52A72E6B00B1_var*
 var
  l_C: Integer;

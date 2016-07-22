@@ -26,13 +26,13 @@ uses
  , tfwScriptingInterfaces in 'w:\common\components\rtl\Garant\ScriptEngine\tfwScriptingInterfaces.pas'
  {$IfEnd} // NOT Defined(NoScripts)
  , l3Interfaces in 'w:\common\components\rtl\Garant\L3\l3Interfaces.pas'
- , ActiveX in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Win\ActiveX.pas'
- , Windows in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Win\Windows.pas'
+ , ActiveX {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Win\ActiveX.pas' {$EndIf}
+ , Windows {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Win\Windows.pas' {$EndIf}
  , Types
  , l3Core in 'w:\common\components\rtl\Garant\L3\l3Core.pas'
- , Messages in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Win\Messages.pas'
- , Graphics in 'w:\common\components\rtl\external\Borland\Delphi\Vcl\Graphics.pas'
- , Classes in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Common\Classes.pas'
+ , Messages {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Win\Messages.pas' {$EndIf}
+ , Graphics {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Vcl\Graphics.pas' {$EndIf}
+ , Classes {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Common\Classes.pas' {$EndIf}
  , SysUtils
  {$If NOT Defined(NoScripts)}
  , TtfwTypeRegistrator_Proxy in 'w:\common\components\rtl\Garant\ScriptEngine\TtfwTypeRegistrator_Proxy.pas'
@@ -40,7 +40,7 @@ uses
  {$If NOT Defined(NoScripts)}
  , ComponentsProcessingPack in 'w:\common\components\rtl\Garant\ScriptEngine\ComponentsProcessingPack.pas'
  {$IfEnd} // NOT Defined(NoScripts)
- , TypInfo in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Common\TypInfo.pas'
+ , TypInfo {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Common\TypInfo.pas' {$EndIf}
  {$If NOT Defined(NoScripts)}
  , tfwPropertyLike in 'w:\common\components\rtl\Garant\ScriptEngine\tfwPropertyLike.pas'
  {$IfEnd} // NOT Defined(NoScripts)
@@ -96,7 +96,7 @@ uses
  , l3ProtoDataContainerWithCOMQI in 'w:\common\components\rtl\Garant\L3\l3ProtoDataContainerWithCOMQI.pas'
  , l3Except in 'w:\common\components\rtl\Garant\L3\l3Except.pas'
  , l3MinMax in 'w:\common\components\rtl\Garant\L3\l3MinMax.pas'
- , RTLConsts in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Common\RTLConsts.pas'
+ , RTLConsts {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Common\RTLConsts.pas' {$EndIf}
  , l3_String in 'w:\common\components\rtl\Garant\L3\l3_String.pas'
  , l3CustomString in 'w:\common\components\rtl\Garant\L3\l3CustomString.pas'
  , l3Variant in 'w:\common\components\rtl\Garant\L3\l3Variant.pas'
@@ -115,7 +115,7 @@ uses
  , l3ObjectsMemoryManager in 'w:\common\components\rtl\Garant\L3\l3ObjectsMemoryManager.pas'
  , l3SimpleMemoryManager in 'w:\common\components\rtl\Garant\L3\l3SimpleMemoryManager.pas'
  , l3SimpleMemoryManagerPrim in 'w:\common\components\rtl\Garant\L3\l3SimpleMemoryManagerPrim.pas'
- , SyncObjs in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Common\SyncObjs.pas'
+ , SyncObjs {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Common\SyncObjs.pas' {$EndIf}
  , l3TwoByteCString in 'w:\common\components\rtl\Garant\L3\l3TwoByteCString.pas'
  {$If NOT Defined(NoScripts)}
  , tfwIl3CStringPack in 'w:\common\components\rtl\Garant\ScriptEngine\tfwIl3CStringPack.pas'
@@ -174,7 +174,7 @@ uses
  {$If NOT Defined(NoScripts)}
  , tfwDictionaryPrimPrimPrim in 'w:\common\components\rtl\Garant\ScriptEngine\tfwDictionaryPrimPrimPrim.pas'
  {$IfEnd} // NOT Defined(NoScripts)
- , Math in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Common\Math.pas'
+ , Math {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Common\Math.pas' {$EndIf}
  {$If NOT Defined(NoScripts)}
  , tfwDictionaryWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\tfwDictionaryWordsPack.pas'
  {$IfEnd} // NOT Defined(NoScripts)
@@ -313,7 +313,7 @@ uses
  {$If NOT Defined(NoScripts)}
  , kwStringListPrim in 'w:\common\components\rtl\Garant\ScriptEngine\kwStringListPrim.pas'
  {$IfEnd} // NOT Defined(NoScripts)
- , StrUtils in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Common\StrUtils.pas'
+ , StrUtils {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Common\StrUtils.pas' {$EndIf}
  {$If NOT Defined(NoScripts)}
  , kwCompiledWordWorker in 'w:\common\components\rtl\Garant\ScriptEngine\kwCompiledWordWorker.pas'
  {$IfEnd} // NOT Defined(NoScripts)
@@ -496,16 +496,16 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
  , l3TabService in 'w:\common\components\rtl\Garant\L3\l3TabService.pas'
  , l3SysUtils in 'w:\common\components\rtl\Garant\L3\l3SysUtils.pas'
- , JclSysInfo in 'w:\common\components\rtl\external\JEDI\source\common\JclSysInfo.pas'
- , DateUtils in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Common\DateUtils.pas'
+ , JclSysInfo {$IfNDef XE4} in 'w:\common\components\rtl\external\JEDI\source\common\JclSysInfo.pas' {$EndIf}
+ , DateUtils {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Common\DateUtils.pas' {$EndIf}
  {$If NOT Defined(NoVCL)}
- , Forms in 'w:\common\components\rtl\external\Borland\Delphi\Vcl\Forms.pas'
+ , Forms {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Vcl\Forms.pas' {$EndIf}
  {$IfEnd} // NOT Defined(NoVCL)
  {$If NOT Defined(NoVCL)}
- , Controls in 'w:\common\components\rtl\external\Borland\Delphi\Vcl\Controls.pas'
+ , Controls {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Vcl\Controls.pas' {$EndIf}
  {$IfEnd} // NOT Defined(NoVCL)
  {$If NOT Defined(NoVCL)}
- , ActnList in 'w:\common\components\rtl\external\Borland\Delphi\Vcl\ActnList.pas'
+ , ActnList {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Vcl\ActnList.pas' {$EndIf}
  {$IfEnd} // NOT Defined(NoVCL)
  {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
  , ContainedActionsWordspack in 'w:\common\components\rtl\Garant\ScriptEngine\ContainedActionsWordspack.pas'
@@ -517,7 +517,7 @@ uses
  , ControlsProcessingPack in 'w:\common\components\rtl\Garant\ScriptEngine\ControlsProcessingPack.pas'
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  {$If NOT Defined(NoVCL)}
- , Menus in 'w:\common\components\rtl\external\Borland\Delphi\Vcl\Menus.pas'
+ , Menus {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Vcl\Menus.pas' {$EndIf}
  {$IfEnd} // NOT Defined(NoVCL)
  {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
  , MenuWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\MenuWordsPack.pas'
@@ -589,7 +589,7 @@ uses
  , CustomFormProcessingPack in 'w:\common\components\rtl\Garant\ScriptEngine\CustomFormProcessingPack.pas'
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  {$If NOT Defined(NoVCL)}
- , Clipbrd in 'w:\common\components\rtl\external\Borland\Delphi\Vcl\Clipbrd.pas'
+ , Clipbrd {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Vcl\Clipbrd.pas' {$EndIf}
  {$IfEnd} // NOT Defined(NoVCL)
  , l3Utils in 'w:\common\components\rtl\Garant\L3\l3Utils.pas'
  , l3CStringDataObject in 'w:\common\components\rtl\Garant\L3\l3CStringDataObject.pas'
@@ -603,7 +603,7 @@ uses
  , l3StringListPrim in 'w:\common\components\rtl\Garant\L3\l3StringListPrim.pas'
  , l3ProtoPersistentDataContainer in 'w:\common\components\rtl\Garant\L3\l3ProtoPersistentDataContainer.pas'
  , l3DataObjectEnum in 'w:\common\components\rtl\Garant\L3\l3DataObjectEnum.pas'
- , ShlObj in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Win\ShlObj.pas'
+ , ShlObj {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Win\ShlObj.pas' {$EndIf}
  {$If NOT Defined(NoScripts)}
  , WordsRTTIPack in 'w:\common\components\rtl\Garant\ScriptEngine\WordsRTTIPack.pas'
  {$IfEnd} // NOT Defined(NoScripts)
@@ -662,9 +662,9 @@ uses
  , kwPopClassInherits in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopClassInherits.pas'
  {$IfEnd} // NOT Defined(NoScripts)
  , l3RTTI in 'w:\common\components\rtl\Garant\L3\l3RTTI.pas'
- {$If NOT Defined(NoVCL)}
+ {$If NOT Defined(NoVCL) AND NOT Defined(XE)}
  , ControlResizeBugFix
- {$IfEnd} // NOT Defined(NoVCL)
+ {$IfEnd} // NOT Defined(NoVCL) AND NOT Defined(XE)
  , VCMSandBoxRes in 'w:\common\components\SandBox\VCM\VCMSandBoxRes.pas'
  , moDocument in 'w:\common\components\SandBox\VCM\View\moDocument.pas'
  , Document_Module in 'w:\common\components\SandBox\VCM\View\Document\Document_Module.pas'
@@ -674,7 +674,7 @@ uses
  , afwInterfaces in 'w:\common\components\gui\Garant\AFW\afwInterfaces.pas'
  , afwTypes in 'w:\common\components\gui\Garant\AFW\afwTypes.pas'
  {$If NOT Defined(NoVCL)}
- , ImgList in 'w:\common\components\rtl\external\Borland\Delphi\Vcl\ImgList.pas'
+ , ImgList {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Vcl\ImgList.pas' {$EndIf}
  {$IfEnd} // NOT Defined(NoVCL)
  , l3TreeInterfaces in 'w:\common\components\rtl\Garant\L3\l3TreeInterfaces.pas'
  {$If NOT Defined(NoVCM)}
@@ -731,7 +731,7 @@ uses
  , DocumentPrintAndExportFontSizeSettingRes in 'w:\common\components\SandBox\VCM\View\Document\DocumentPrintAndExportFontSizeSettingRes.pas'
  , l3MessageID in 'w:\common\components\rtl\Garant\L3\l3MessageID.pas'
  {$If NOT Defined(NoVCL)}
- , Dialogs in 'w:\common\components\rtl\external\Borland\Delphi\Vcl\Dialogs.pas'
+ , Dialogs {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Vcl\Dialogs.pas' {$EndIf}
  {$IfEnd} // NOT Defined(NoVCL)
  , Pl3StringIDExList in 'w:\common\components\rtl\Garant\L3\Pl3StringIDExList.pas'
  , Pl3MessageIDList in 'w:\common\components\rtl\Garant\L3\Pl3MessageIDList.pas'
@@ -744,7 +744,7 @@ uses
  , l3ProtoPersistentRefList in 'w:\common\components\rtl\Garant\L3\l3ProtoPersistentRefList.pas'
  , vtLabel in 'w:\common\components\gui\Garant\VT\vtLabel.pas'
  {$If NOT Defined(NoVCL)}
- , StdCtrls in 'w:\common\components\rtl\external\Borland\Delphi\Vcl\StdCtrls.pas'
+ , StdCtrls {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Vcl\StdCtrls.pas' {$EndIf}
  {$IfEnd} // NOT Defined(NoVCL)
  {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
  , RadioButtonWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\RadioButtonWordsPack.pas'
@@ -816,7 +816,7 @@ uses
  , afwFont in 'w:\common\components\gui\Garant\AFW\implementation\Visual\afwFont.pas'
  , afwHintManager in 'w:\common\components\gui\Garant\AFW\implementation\Visual\afwHintManager.pas'
  {$If NOT Defined(NoVCL)}
- , ExtCtrls in 'w:\common\components\rtl\external\Borland\Delphi\Vcl\ExtCtrls.pas'
+ , ExtCtrls {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Vcl\ExtCtrls.pas' {$EndIf}
  {$IfEnd} // NOT Defined(NoVCL)
  {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
  , PanelProcessingPack in 'w:\common\components\rtl\Garant\ScriptEngine\PanelProcessingPack.pas'
@@ -1341,7 +1341,7 @@ uses
  {$IfEnd} // Defined(nsTest)
  , afwPreviewPage in 'w:\common\components\gui\Garant\AFW\implementation\Visual\afwPreviewPage.pas'
  , l3Metafile in 'w:\common\components\rtl\Garant\L3\l3Metafile.pas'
- , Consts in 'w:\common\components\rtl\external\Borland\Delphi\Vcl\Consts.pas'
+ , Consts {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Vcl\Consts.pas' {$EndIf}
  , l3MetafileHeader in 'w:\common\components\rtl\Garant\L3\l3MetafileHeader.pas'
  , afwPreviewPageList in 'w:\common\components\gui\Garant\AFW\implementation\Visual\afwPreviewPageList.pas'
  , l3DataCache in 'w:\common\components\rtl\Garant\L3\l3DataCache.pas'
@@ -1407,7 +1407,7 @@ uses
  , nevBaseView in 'w:\common\components\gui\Garant\Everest\new\nevBaseView.pas'
  , nevObjectList in 'w:\common\components\gui\Garant\Everest\new\nevObjectList.pas'
  , l3PrinterIC in 'w:\common\components\rtl\Garant\L3\l3PrinterIC.pas'
- , Printers in 'w:\common\components\rtl\external\Borland\Delphi\Vcl\Printers.pas'
+ , Printers {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Vcl\Printers.pas' {$EndIf}
  , l3Printer in 'w:\common\components\rtl\Garant\L3\l3Printer.pas'
  , nevRealTools in 'w:\common\components\gui\Garant\Everest\new\nevRealTools.pas'
  , nevViewInterfaces in 'w:\common\components\gui\Garant\Everest\new\nevViewInterfaces.pas'
@@ -1485,7 +1485,7 @@ uses
  , evMergedCellFilter in 'w:\common\components\gui\Garant\Everest\evMergedCellFilter.pas'
  , evCellsOffsets in 'w:\common\components\gui\Garant\Everest\evCellsOffsets.pas'
  , evEpsilonLongIntList in 'w:\common\components\gui\Garant\Everest\evEpsilonLongIntList.pas'
- , ShellAPI in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Win\ShellAPI.pas'
+ , ShellAPI {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Win\ShellAPI.pas' {$EndIf}
  , evCustomWikiReader in 'w:\common\components\gui\Garant\Everest\evCustomWikiReader.pas'
  , evStyleTableTools in 'w:\common\components\gui\Garant\Everest\evStyleTableTools.pas'
  , evStyleHeaderAdder in 'w:\common\components\gui\Garant\Everest\evStyleHeaderAdder.pas'
@@ -1548,7 +1548,7 @@ uses
  , TinyDocument_Const in 'w:\common\components\gui\Garant\Everest\TinyDocument_Const.pas'
  , evConvertTextTools in 'w:\common\components\gui\Garant\Everest\evConvertTextTools.pas'
  {$If NOT Defined(NoVCL)}
- , Themes in 'w:\common\components\rtl\external\Borland\Delphi\Vcl\Themes.pas'
+ , Themes {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Vcl\Themes.pas' {$EndIf}
  {$IfEnd} // NOT Defined(NoVCL)
  , CustomElGraphicButton in 'w:\common\components\gui\Garant\Everest\CustomElGraphicButton.pas'
  , ctTypes in 'w:\common\components\gui\Garant\VT\ComboTree\ctTypes.pas'
@@ -1607,7 +1607,7 @@ uses
  , vtComboBoxQS in 'w:\common\components\gui\Garant\VT\vtComboBoxQS.pas'
  , l3GraphicControlCanvas in 'w:\common\components\rtl\Garant\L3\l3GraphicControlCanvas.pas'
  {$If NOT Defined(NoVCL)}
- , ComCtrls in 'w:\common\components\rtl\external\Borland\Delphi\Vcl\ComCtrls.pas'
+ , ComCtrls {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Vcl\ComCtrls.pas' {$EndIf}
  {$IfEnd} // NOT Defined(NoVCL)
  {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
  , TreeNodeWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\TreeNodeWordsPack.pas'
@@ -1615,7 +1615,7 @@ uses
  {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
  , TreeViewWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\TreeViewWordsPack.pas'
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
- , Contnrs in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Common\Contnrs.pas'
+ , Contnrs {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Common\Contnrs.pas' {$EndIf}
  , ddAppConfigTypesRes in 'w:\common\components\rtl\Garant\dd\ddAppConfigTypesRes.pas'
  , vtSpinEdit in 'w:\common\components\gui\Garant\VT\vtSpinEdit.pas'
  {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
@@ -1631,7 +1631,7 @@ uses
  , vtCheckBox in 'w:\common\components\gui\Garant\VT\vtCheckBox.pas'
  , eeCheckBox in 'w:\common\components\gui\Garant\VT\eeCheckBox.pas'
  {$If NOT Defined(NoVCL)}
- , CheckLst in 'w:\common\components\rtl\external\Borland\Delphi\Vcl\CheckLst.pas'
+ , CheckLst {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Vcl\CheckLst.pas' {$EndIf}
  {$IfEnd} // NOT Defined(NoVCL)
  {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
  , CheckListBoxWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\CheckListBoxWordsPack.pas'
@@ -1696,6 +1696,9 @@ uses
  , TextTestRunner in 'w:\common\components\rtl\external\DUnit\src\TextTestRunner.pas'
  {$IfEnd} // Defined(nsTest)
  {$If Defined(nsTest) AND NOT Defined(NotTunedDUnit)}
+ , TimeInfoList in 'w:\common\components\rtl\Garant\DUnitTuning\TimeInfoList.pas'
+ {$IfEnd} // Defined(nsTest) AND NOT Defined(NotTunedDUnit)
+ {$If Defined(nsTest) AND NOT Defined(NotTunedDUnit)}
  , ExcludedTests in 'w:\common\components\rtl\Garant\DUnitTuning\ExcludedTests.pas'
  {$IfEnd} // Defined(nsTest) AND NOT Defined(NotTunedDUnit)
  {$If Defined(nsTest) AND NOT Defined(NotTunedDUnit)}
@@ -1706,10 +1709,10 @@ uses
  {$IfEnd} // Defined(nsTest) AND NOT Defined(NotTunedDUnit)
  , vtVerInf in 'w:\common\components\rtl\Garant\L3\vtVerInf.pas'
  , l3VersionInfoService in 'w:\common\components\rtl\Garant\L3\l3VersionInfoService.pas'
- , JwaWinBase in 'w:\common\components\rtl\external\JEDI\Win32API\JwaWinBase.pas'
- , JwaNtStatus in 'w:\common\components\rtl\external\JEDI\Win32API\JwaNtStatus.pas'
- , JwaWinNT in 'w:\common\components\rtl\external\JEDI\Win32API\JwaWinNT.pas'
- , JwaWinType in 'w:\common\components\rtl\external\JEDI\Win32API\JwaWinType.pas'
+ , JwaWinBase {$IfNDef XE4} in 'w:\common\components\rtl\external\JEDI\Win32API\JwaWinBase.pas' {$EndIf}
+ , JwaNtStatus {$IfNDef XE4} in 'w:\common\components\rtl\external\JEDI\Win32API\JwaNtStatus.pas' {$EndIf}
+ , JwaWinNT {$IfNDef XE4} in 'w:\common\components\rtl\external\JEDI\Win32API\JwaWinNT.pas' {$EndIf}
+ , JwaWinType {$IfNDef XE4} in 'w:\common\components\rtl\external\JEDI\Win32API\JwaWinType.pas' {$EndIf}
  {$If Defined(nsTest) AND Defined(MTDORB) AND Defined(NoKPageTool) AND NOT Defined(NotTunedDUnit)}
  , KBridge in 'w:\common\components\rtl\Garant\DUnitTuning\KBridge.pas'
  {$IfEnd} // Defined(nsTest) AND Defined(MTDORB) AND Defined(NoKPageTool) AND NOT Defined(NotTunedDUnit)
@@ -1813,7 +1816,7 @@ uses
  , tfwParser in 'w:\common\components\rtl\Garant\ScriptEngine\tfwParser.pas'
  , tfwCachedTokens in 'w:\common\components\rtl\Garant\ScriptEngine\tfwCachedTokens.pas'
  , tfwParserService in 'w:\common\components\rtl\Garant\ScriptEngine\tfwParserService.pas'
- , IniFiles in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Common\IniFiles.pas'
+ , IniFiles {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Common\IniFiles.pas' {$EndIf}
  {$If NOT Defined(NoScripts)}
  , ItfwParserWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\ItfwParserWordsPack.pas'
  {$IfEnd} // NOT Defined(NoScripts)
@@ -2129,7 +2132,7 @@ uses
  {$If NOT Defined(NoScripts) AND NOT Defined(NoWindows)}
  , WinUtilsPack in 'w:\common\components\rtl\Garant\ScriptEngine\WinUtilsPack.pas'
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoWindows)
- , CommCtrl in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Win\CommCtrl.pas'
+ , CommCtrl {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Win\CommCtrl.pas' {$EndIf}
  {$If Defined(nsTest) AND NOT Defined(NoScripts)}
  , AutoTestsSuite in 'w:\common\components\rtl\Garant\DUnit_Script_Support\AutoTestsSuite.pas'
  {$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)

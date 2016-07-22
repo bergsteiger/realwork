@@ -37,7 +37,7 @@ uses
 ;
 
 type
- TnsLongProcessData = object
+ TnsLongProcessData = {$IfDef XE4}record{$Else}object{$EndIf}
   public
    rMessage: Il3CString;
    rMessageType: TnsLongProcessType;

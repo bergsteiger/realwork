@@ -14,7 +14,7 @@ uses
 ;
 
 type
- Tl3StopWatch = object
+ Tl3StopWatch = {$IfDef XE4}record{$Else}object{$EndIf}
   {* Секундомер для профилирования }
   private
    f_Count: Integer;

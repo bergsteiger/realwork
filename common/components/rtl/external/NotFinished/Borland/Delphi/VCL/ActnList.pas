@@ -50,7 +50,7 @@ type
    procedure SetHelpContext(const Value: THelpContext); virtual;
    procedure SetHelpKeyword(const Value: AnsiString); virtual;
    procedure SetHelpType(const Value: THelpType); virtual;
-   procedure SetHint(const Value: AnsiString); virtual;
+   procedure SetHint(const Value: String); virtual;
    procedure SetImageIndex(Value: Integer); virtual;
    procedure SetShortCut(Value: TShortCut); virtual;
    procedure SetVisible(Value: Boolean); virtual;
@@ -238,7 +238,7 @@ begin
 //#UC END# *508F99650101_508F9823023D_impl*
 end;//TActionLink.SetHelpType
 
-procedure TActionLink.SetHint(const Value: AnsiString);
+procedure TActionLink.SetHint(const Value: String);
 //#UC START# *508F99710030_508F9823023D_var*
 //#UC END# *508F99710030_508F9823023D_var*
 begin

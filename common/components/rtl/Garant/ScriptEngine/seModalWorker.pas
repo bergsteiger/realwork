@@ -15,7 +15,7 @@ uses
 ;
 
 type
- TseModalWorker = object
+ TseModalWorker = {$IfDef XE4}record{$Else}object{$EndIf}
   public
    rWord: TtfwWord;
    rContext: PtfwContext;

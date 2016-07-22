@@ -13,15 +13,15 @@ uses
 ;
 
 type
- Tl3PtrHash = object
+ Tl3PtrHash = {$IfDef XE4}record{$Else}object{$EndIf}
   public
    f_MaskSize: Byte;
  end;//Tl3PtrHash
 
- Tl3PtrArray = object
+ Tl3PtrArray = {$IfDef XE4}record{$Else}object{$EndIf}
  end;//Tl3PtrArray
 
- Tl3OneBytePtrHash = object
+ Tl3OneBytePtrHash = {$IfDef XE4}record{$Else}object{$EndIf}
  end;//Tl3OneBytePtrHash
 
 implementation

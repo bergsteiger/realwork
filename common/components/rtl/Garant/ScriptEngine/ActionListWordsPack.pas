@@ -11,6 +11,8 @@ interface
 {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
 uses
  l3IntfUses
+ //#UC START# *55B8E44302B1intf_uses*
+ //#UC END# *55B8E44302B1intf_uses*
 ;
 {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 
@@ -27,6 +29,8 @@ uses
  , SysUtils
  , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
+ //#UC START# *55B8E44302B1impl_uses*
+ //#UC END# *55B8E44302B1impl_uses*
 ;
 
 type

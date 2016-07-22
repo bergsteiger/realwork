@@ -26,7 +26,7 @@ type
  PnevShapeArea = ^TnevShapeArea;
   {* Указатель на область вывода }
 
- TnevShapeArea = object
+ TnevShapeArea = {$IfDef XE4}record{$Else}object{$EndIf}
   {* Область вывода }
   public
    rView: HnevView;
@@ -69,7 +69,11 @@ type
    {* Выделение для проверки дочерними. }
  end;//TnevShapePoints
 
- TnevShapeAreaEx = object(TnevShapeArea)
+ TnevShapeAreaEx = {$IfDef XE4}record{$Else}object(TnevShapeArea){$EndIf}
+  public
+   {$If Defined(XE4)}
+   rTnevShapeArea: TnevShapeArea;
+   {$IfEnd} // Defined(XE4)
   public
    procedure Init(const aView: InevView;
     const aCanvas: Il3Canvas;

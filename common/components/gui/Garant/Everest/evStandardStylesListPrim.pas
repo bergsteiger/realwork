@@ -27,7 +27,7 @@ type
 
  TevStandardStylesCacheByJustification = array [Boolean] of TevStandardStylesCacheByVisibility;
 
- TevStandardStylesCacheItem = object
+ TevStandardStylesCacheItem = {$IfDef XE4}record{$Else}object{$EndIf}
   public
    rValue: TevStandardStylesCacheByJustification;
    rID: Integer;

@@ -28,7 +28,7 @@ uses
 ;
 
 type
- TnsListInfo = object
+ TnsListInfo = {$IfDef XE4}record{$Else}object{$EndIf}
   public
    rList: IDynList;
    rListNode: INodeBase;

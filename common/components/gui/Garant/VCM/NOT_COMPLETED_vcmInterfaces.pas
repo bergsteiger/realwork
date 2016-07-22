@@ -1183,7 +1183,7 @@ type
 
  IvcmFormSetSimpleFactory = interface;
 
- TvcmFormSetID = object
+ TvcmFormSetID = {$IfDef XE4}record{$Else}object{$EndIf}
   {* идентификатор сборки. }
   public
    rName: AnsiString;
@@ -1283,7 +1283,7 @@ type
    class function IsCustomizationInternal(const anUserType: IvcmUserTypeDef): Boolean;
  end;//TvcmUserTypeInfo
 
- TvcmFormDescriptor = object
+ TvcmFormDescriptor = {$IfDef XE4}record{$Else}object{$EndIf}
   public
    rFormID: TvcmFormID;
    rFactory: TvcmFormFactory;

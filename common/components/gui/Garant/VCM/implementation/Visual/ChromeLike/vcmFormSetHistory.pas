@@ -97,7 +97,7 @@ type
     aForClone: Boolean): IvcmFormSetHistoryItem; reintroduce;
  end;//TvcmFormSetHistoryItem
 
- TvcmHistoryFormCacheItem = object
+ TvcmHistoryFormCacheItem = {$IfDef XE4}record{$Else}object{$EndIf}
   public
    rForm: IvcmEntityForm;
    rGUID: TGUID;

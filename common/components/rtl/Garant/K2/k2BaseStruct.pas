@@ -17,23 +17,29 @@ uses
 ;
 
 type
- _PropInPrim_ = object
+ _PropInPrim_ = {$IfDef XE4}record{$Else}object{$EndIf}
   public
    rProp: Tk2CustomPropertyPrim;
    rDeleteMapped: Boolean;
  end;//_PropInPrim_
 
- _PropIn_ = object(_PropInPrim_)
+ _PropIn_ = {$IfDef XE4}record{$Else}object(_PropInPrim_){$EndIf}
   public
+   {$If Defined(XE4)}
+   r_PropInPrim_: _PropInPrim_;
+   {$IfEnd} // Defined(XE4)
    rOp: Ik2Op;
  end;//_PropIn_
 
- _PropLoc_ = object(_PropInPrim_)
+ _PropLoc_ = {$IfDef XE4}record{$Else}object(_PropInPrim_){$EndIf}
   public
+   {$If Defined(XE4)}
+   r_PropInPrim_: _PropInPrim_;
+   {$IfEnd} // Defined(XE4)
    rOp: Pointer;
  end;//_PropLoc_
 
- Tk2Values = packed object
+ Tk2Values = packed {$IfDef XE4}record{$Else}object{$EndIf}
   {* —труктура, содержаща€ информацию дл€ изменени€ значени€ атрибута тега }
   private
    f_New: Tl3Variant;

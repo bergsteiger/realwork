@@ -22,7 +22,7 @@ uses
 ;
 
 type
- TevSearcherAndReplacerPair = object
+ TevSearcherAndReplacerPair = {$IfDef XE4}record{$Else}object{$EndIf}
   public
    rSearcher: IevSearcher;
    rReplacer: IevReplacer;

@@ -26,9 +26,9 @@ type
   {* Коллекция операций }
   protected
    function GetAttrCount: Integer; override;
-   function GetAttr(Index: Integer): AnsiString; override;
+   function GetAttr(Index: Integer): String; override;
    function GetItemAttr(Index: Integer;
-    ItemIndex: Integer): AnsiString; override;
+    ItemIndex: Integer): String; override;
   public
    function NeedToBeStored: Boolean;
    procedure Operation(aControl: TComponent;
@@ -226,7 +226,7 @@ begin
 //#UC END# *560A9DA80335_55D30E6601A8_impl*
 end;//TvcmBaseOperationsCollection.GetAttrCount
 
-function TvcmBaseOperationsCollection.GetAttr(Index: Integer): AnsiString;
+function TvcmBaseOperationsCollection.GetAttr(Index: Integer): String;
 //#UC START# *560A9DCD009D_55D30E6601A8_var*
 var
  l_C: Integer;
@@ -249,7 +249,7 @@ begin
 end;//TvcmBaseOperationsCollection.GetAttr
 
 function TvcmBaseOperationsCollection.GetItemAttr(Index: Integer;
- ItemIndex: Integer): AnsiString;
+ ItemIndex: Integer): String;
 //#UC START# *560A9DEB0155_55D30E6601A8_var*
 var
  l_C: Integer;

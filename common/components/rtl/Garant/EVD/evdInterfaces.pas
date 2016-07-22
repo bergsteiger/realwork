@@ -44,7 +44,7 @@ type
   function ConvertExternalDocNumberToInternal(aDocID: Integer): Integer;
  end;//IevdExternalDocNumberToInternal
 
- TevdAddress = object
+ TevdAddress = {$IfDef XE4}record{$Else}object{$EndIf}
   {* Адрес ссылки }
   public
    DocID: Integer;

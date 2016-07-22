@@ -23,7 +23,7 @@ uses
 ;
 
 type
- TvcmFormGUIDFromMainFormRec = object
+ TvcmFormGUIDFromMainFormRec = {$IfDef XE4}record{$Else}object{$EndIf}
   public
    rMainForm: TvcmMainForm;
    rGUID: TGUID;

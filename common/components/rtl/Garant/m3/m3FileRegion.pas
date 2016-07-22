@@ -13,7 +13,7 @@ uses
 ;
 
 type
- Tm3FileRegion = object
+ Tm3FileRegion = {$IfDef XE4}record{$Else}object{$EndIf}
   public
    rPosition: Int64;
    rSize: Integer;

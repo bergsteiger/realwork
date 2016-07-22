@@ -24,7 +24,7 @@ uses
  {$Define l3Items_NoSort}
 
 type
- TvcmModuleForRegister = object
+ TvcmModuleForRegister = {$IfDef XE4}record{$Else}object{$EndIf}
   public
    rModule: RvcmModule;
    rModuleCaption: AnsiString;

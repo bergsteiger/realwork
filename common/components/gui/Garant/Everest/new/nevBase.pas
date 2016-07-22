@@ -80,7 +80,7 @@ type
 
  PnevControlImageInfo = ^TnevControlImageInfo;
 
- TnevInch = type nevTypes.TnevInch;
+ TnevInch = nevTypes.TnevInch;
   {* дюймы. }
 
  InevMetricsPrim = interface(InevBase)
@@ -94,10 +94,10 @@ type
  TnevStr = Tl3PCharLen;
   {* строка. }
 
- TnevParaIndex = type nevTypes.TnevParaIndex;
+ TnevParaIndex = nevTypes.TnevParaIndex;
   {* Индекс параграфа. }
 
- TnevParaLevel = type nevTypes.TnevParaLevel;
+ TnevParaLevel = nevTypes.TnevParaLevel;
 
  InevInfoCanvas = Il3InfoCanvas;
   {* Информационная канва. }
@@ -667,7 +667,7 @@ type
    read pm_GetTabStops;
  end;//InevObjectPrim
 
- TnevControlInfo = object
+ TnevControlInfo = {$IfDef XE4}record{$Else}object{$EndIf}
   public
    rControl: InevObjectPrim;
    rFormatInfo: TnevFormatInfoPrim;

@@ -37,7 +37,7 @@ type
    aValue: Boolean);
  end;//IafwSettingsImpl
 
- TafwKeyValue = object
+ TafwKeyValue = {$IfDef XE4}record{$Else}object{$EndIf}
   public
    rKey: Il3CString;
    rValue: Il3CString;

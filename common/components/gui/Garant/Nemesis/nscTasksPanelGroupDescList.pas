@@ -25,7 +25,7 @@ uses
 ;
 
 type
- TnscTasksPanelGroupDesc = object
+ TnscTasksPanelGroupDesc = {$IfDef XE4}record{$Else}object{$EndIf}
   public
    rCaption: Pl3StringIDEx;
    rControl: TWinControl;

@@ -80,7 +80,7 @@ type
     {* основная процедура нити. Для перекрытия в потомках }
  end;//Tl3ThreadContainer
 
- Tl3ObjectHash = object
+ Tl3ObjectHash = {$IfDef XE4}record{$Else}object{$EndIf}
  end;//Tl3ObjectHash
 
  Tl3ConstString = class(Tl3CustomString)

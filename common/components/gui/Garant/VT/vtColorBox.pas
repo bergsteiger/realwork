@@ -56,7 +56,7 @@ type
    f_DefaultColorColor: TColor;
    f_NoneColorColor: TColor;
   private
-   procedure ColorCallBack(const aName: AnsiString);
+   procedure ColorCallBack(const aName: String);
    function IndexOfColor(aColor: TColor): Integer;
   protected
    procedure pm_SetColorStyle(aValue: TvtColorBoxStyle);
@@ -266,7 +266,7 @@ begin
 //#UC END# *5538F2DD02EF_5538E709017Eset_impl*
 end;//TvtCustomColorBox.pm_SetNoneColorColor
 
-procedure TvtCustomColorBox.ColorCallBack(const aName: AnsiString);
+procedure TvtCustomColorBox.ColorCallBack(const aName: String);
 //#UC START# *5538F3810270_5538E709017E_var*
 resourcestring
   clNameBlack = 'Black';

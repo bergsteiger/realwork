@@ -21,7 +21,7 @@ uses
 ;
 
 type
- TevDefaultStyleFontSize = object
+ TevDefaultStyleFontSize = {$IfDef XE4}record{$Else}object{$EndIf}
   public
    rStyleID: Integer;
    rFontSize: Integer;

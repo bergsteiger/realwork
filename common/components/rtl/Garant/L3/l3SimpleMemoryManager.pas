@@ -16,7 +16,7 @@ uses
 type
  Pl3MemoryBlock = ^Tl3MemoryBlock;
 
- Tl3MemoryBlock = object
+ Tl3MemoryBlock = {$IfDef XE4}record{$Else}object{$EndIf}
   public
    rNext: Pl3MemoryBlock;
    rFree: Cardinal;

@@ -42,7 +42,7 @@ uses
 ;
 
 type
- TvgRadioButtonItem = object
+ TvgRadioButtonItem = {$IfDef XE4}record{$Else}object{$EndIf}
   public
    rButton: TvgRadioButton;
    rClass: InsBaseSearchClass;

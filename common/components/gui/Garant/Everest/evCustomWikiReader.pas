@@ -23,7 +23,7 @@ uses
 ;
 
 type
- TevFormatInfo = object
+ TevFormatInfo = {$IfDef XE4}record{$Else}object{$EndIf}
   public
    rStart: Integer;
    rName: AnsiString;

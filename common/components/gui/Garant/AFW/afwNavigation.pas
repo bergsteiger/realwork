@@ -47,7 +47,11 @@ type
 
  TafwAddress = TevdAddress;
 
- TevAddress = object(TafwAddress)
+ TevAddress = {$IfDef XE4}record{$Else}object(TafwAddress){$EndIf}
+  public
+   {$If Defined(XE4)}
+   rTafwAddress: TafwAddress;
+   {$IfEnd} // Defined(XE4)
   public
    function EQ(const anAddress: TevdAddress): Boolean;
     {* Проверяет адреса на совпадение }

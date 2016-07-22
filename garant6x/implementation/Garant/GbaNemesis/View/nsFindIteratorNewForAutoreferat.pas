@@ -25,7 +25,7 @@ uses
 ;
 
 type
- TnsFindIteratorDef = object
+ TnsFindIteratorDef = {$IfDef XE4}record{$Else}object{$EndIf}
   public
    rIt: IFindIterator;
    rDoc: InevObjectPrim;

@@ -138,7 +138,7 @@ var
   begin
    if not GlobalDataProvider.UserManager.IsUserExists(l_UserIDX) then
    begin
-    GlobalDataProvider.UserManager.AddUserID(l_UserIDX, Format('Служебный пользователь %d', [usFirstWorkUser - l_UserIDX + 1]), Format('%s%.8x', [Chr(3), l_UserIDX]), '', 1);
+    UserManager.AddUserID(l_UserIDX, Format('Служебный пользователь %d', [usFirstWorkUser - l_UserIDX + 1]), Format('%s%.8x', [Chr(3), l_UserIDX]), '', 1);
     l_NeedRefillUserList := True;
    end;
   end;

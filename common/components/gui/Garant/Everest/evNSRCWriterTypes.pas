@@ -14,7 +14,7 @@ uses
 ;
 
 type
- TevNSRCParaStyle = object
+ TevNSRCParaStyle = {$IfDef XE4}record{$Else}object{$EndIf}
   public
    Letter: AnsiChar;
    ParaLI: Integer;
@@ -29,7 +29,7 @@ type
    procedure Clear;
  end;//TevNSRCParaStyle
 
- TevNSRCParaParas = object
+ TevNSRCParaParas = {$IfDef XE4}record{$Else}object{$EndIf}
   public
    Justification: TevIndentType;
    Width: Integer;

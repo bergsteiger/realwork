@@ -13,11 +13,11 @@ uses
 ;
 
 type
- TnevParaIndex = Integer;
+ TnevParaIndex = type Integer;
 
- TnevParaLevel = Integer;
+ TnevParaLevel = type Integer;
 
- TnevInch = Integer;
+ TnevInch = type Integer;
 
  TevLoadFlag = (
   ev_lfInternal
@@ -25,6 +25,15 @@ type
   , ev_lfAtEnd
   , ev_lfSkipSubdocuments
  );//TevLoadFlag
+
+ TevInsertParaFlag = (
+  ev_ipfCheckPrev
+  , ev_ipfNeedFire
+  , ev_ipfForce
+  , ev_ipfAtEnd
+ );//TevInsertParaFlag
+
+ TevInsertParaFlags = set of TevInsertParaFlag;
 
 implementation
 

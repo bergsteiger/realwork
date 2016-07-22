@@ -14,7 +14,7 @@ type
 
  // _ValueType_
 
- Tl3KeyValuePair = object
+ Tl3KeyValuePair = {$IfDef XE4}record{$Else}object{$EndIf}
   {* Пара ключ-значение }
   public
    rKey: _KeyType_;

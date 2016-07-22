@@ -174,7 +174,7 @@ type
  end;//MtfwValueList
  *)
 
- TtfwSourcePoint = object
+ TtfwSourcePoint = {$IfDef XE4}record{$Else}object{$EndIf}
   {* Место в исходниках }
   public
    rFileName: Il3CString;
@@ -275,7 +275,7 @@ type
 
  ItfwStoredValuesStack = interface;
 
- TtfwContext = object
+ TtfwContext = {$IfDef XE4}record{$Else}object{$EndIf}
   public
    rCaller: ItfwScriptCaller;
    rEngine: ItfwScriptEngine;

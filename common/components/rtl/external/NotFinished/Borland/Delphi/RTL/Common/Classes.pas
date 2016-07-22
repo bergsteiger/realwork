@@ -213,9 +213,9 @@ type
    procedure Notify(Item: TCollectionItem;
     Action: TCollectionNotification); virtual;
    function GetAttrCount: Integer; virtual;
-   function GetAttr(Index: Integer): AnsiString; virtual;
+   function GetAttr(Index: Integer): String; virtual;
    function GetItemAttr(Index: Integer;
-    ItemIndex: Integer): AnsiString; virtual;
+    ItemIndex: Integer): String; virtual;
  end;//TCollection
 
  TInterfacedPersistent = class(TPersistent)
@@ -546,7 +546,7 @@ begin
 //#UC END# *560A9DA80335_4D555B78015F_impl*
 end;//TCollection.GetAttrCount
 
-function TCollection.GetAttr(Index: Integer): AnsiString;
+function TCollection.GetAttr(Index: Integer): String;
 //#UC START# *560A9DCD009D_4D555B78015F_var*
 //#UC END# *560A9DCD009D_4D555B78015F_var*
 begin
@@ -556,7 +556,7 @@ begin
 end;//TCollection.GetAttr
 
 function TCollection.GetItemAttr(Index: Integer;
- ItemIndex: Integer): AnsiString;
+ ItemIndex: Integer): String;
 //#UC START# *560A9DEB0155_4D555B78015F_var*
 //#UC END# *560A9DEB0155_4D555B78015F_var*
 begin

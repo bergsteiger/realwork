@@ -114,7 +114,7 @@ type
    f_OnExecute: TNotifyEvent;
    f_OnInvalidDate: TNotifyEvent;
    f_RestrictInvalidDate: Boolean;
-   f_BlanksChar: AnsiChar;
+   f_BlanksChar: Char;
    f_StartOfWeek: TStDayType;
    f_Weekends: TDaysOfWeek;
    f_WeekendColor: TColor;
@@ -131,7 +131,7 @@ type
    procedure WMMouseWheel(var Message: TMessage); message WM_MOUSEWHEEL;
    procedure WMPaste(var Message: TMessage); message WM_PASTE;
   protected
-   procedure pm_SetBlanksChar(aValue: AnsiChar);
+   procedure pm_SetBlanksChar(aValue: Char);
    procedure pm_SetYearDigits(aValue: TYearDigits);
    function pm_GetDate: TDateTime;
    procedure pm_SetDate(aValue: TDateTime);
@@ -218,7 +218,7 @@ type
    property RestrictInvalidDate: Boolean
     read f_RestrictInvalidDate
     write f_RestrictInvalidDate;
-   property BlanksChar: AnsiChar
+   property BlanksChar: Char
     read f_BlanksChar
     write pm_SetBlanksChar;
    property StartOfWeek: TStDayType
@@ -899,7 +899,7 @@ begin
 end;//TPopupCalendar.KeyDown
 {$IfEnd} // NOT Defined(NoVCL)
 
-procedure TvtCustomDateEdit.pm_SetBlanksChar(aValue: AnsiChar);
+procedure TvtCustomDateEdit.pm_SetBlanksChar(aValue: Char);
 //#UC START# *554C8C8802BD_52A9ACFF0183set_var*
 //#UC END# *554C8C8802BD_52A9ACFF0183set_var*
 begin

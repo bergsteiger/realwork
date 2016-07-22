@@ -17,8 +17,8 @@ uses
 type
  TtfwTypeRegistrator = class
   private
-   class procedure RegisterColorValue(const aValue: AnsiString);
-   class procedure RegisterCharsetValue(const aValue: AnsiString);
+   class procedure RegisterColorValue(const aValue: String);
+   class procedure RegisterCharsetValue(const aValue: String);
   public
    class function RegisterType(aTypeInfo: PTypeInfo): Boolean;
  end;//TtfwTypeRegistrator
@@ -74,7 +74,7 @@ begin
 //#UC END# *5527F84D01B5_5527F8330362_impl*
 end;//TtfwTypeRegistrator.RegisterType
 
-class procedure TtfwTypeRegistrator.RegisterColorValue(const aValue: AnsiString);
+class procedure TtfwTypeRegistrator.RegisterColorValue(const aValue: String);
 //#UC START# *55C361080119_5527F8330362_var*
 var
  l_TI : PTypeInfo;
@@ -86,7 +86,7 @@ begin
 //#UC END# *55C361080119_5527F8330362_impl*
 end;//TtfwTypeRegistrator.RegisterColorValue
 
-class procedure TtfwTypeRegistrator.RegisterCharsetValue(const aValue: AnsiString);
+class procedure TtfwTypeRegistrator.RegisterCharsetValue(const aValue: String);
 //#UC START# *55C48B0D0230_5527F8330362_var*
 var
  l_TI : PTypeInfo;

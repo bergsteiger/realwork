@@ -14,19 +14,19 @@ uses
 ;
 
 type
- Tl3Point = object
+ Tl3Point = {$IfDef XE4}record{$Else}object{$EndIf}
   {* Точка с координатами в дюймах (мировые координаты). }
  end;//Tl3Point
 
- Tl3SPoint = object
+ Tl3SPoint = {$IfDef XE4}record{$Else}object{$EndIf}
   {* Точка с координатами в пикселях (на экране). }
  end;//Tl3SPoint
 
- Tl3Rect = object
+ Tl3Rect = {$IfDef XE4}record{$Else}object{$EndIf}
   {* Прямоугольник с координатами в дюймах (мировые координаты). }
  end;//Tl3Rect
 
- Tl3SRect = object
+ Tl3SRect = {$IfDef XE4}record{$Else}object{$EndIf}
   {* Прямоугольник с координатами в пикселях (на экране). }
  end;//Tl3SRect
 

@@ -382,9 +382,15 @@ var
  begin
   RootManager.RootNode := nil;
   // Обновим справку к документу
-  if ImpList.GetIsSnippet or not IsFirstMake then
+  if ImpList.GetIsSnippet then
   begin
    Result := TnsDocumentWithSnippetList.Make(Root, ImpList);
+   UpdateListInfo;
+  end
+  else
+  if not IsFirstMake then
+  begin
+   Result := TbsListTreeStruct.Make(Root, False);
    UpdateListInfo;
   end
   else
@@ -392,7 +398,7 @@ var
    // Применям фильтры здесь, а не в GotData потому, что
    // http://mdp.garant.ru/pages/viewpage.action?pageId=492601505
    ApplyFilters;
-   Result := TnsDocumentWithSnippetList.Make(Root, ImpList);
+   Result := TbsListTreeStruct.Make(Root, False);
    // http://mdp.garant.ru/pages/viewpage.action?pageId=506709931
    DoSetupNewSimpleTree(Result);
   end;

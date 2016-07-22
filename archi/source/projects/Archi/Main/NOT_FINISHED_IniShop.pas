@@ -14,7 +14,7 @@ uses
 ;
 
 type
- TIniRecord = object
+ TIniRecord = {$IfDef XE4}record{$Else}object{$EndIf}
  end;//TIniRecord
 {$IfEnd} // Defined(AppClientSide)
 

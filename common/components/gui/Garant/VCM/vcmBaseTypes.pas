@@ -19,7 +19,7 @@ const
   {* любой пользовательский тип }
 
 type
- TvcmFormID = object
+ TvcmFormID = {$IfDef XE4}record{$Else}object{$EndIf}
   public
    rName: AnsiString;
    rID: Integer;

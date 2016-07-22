@@ -19,7 +19,7 @@ uses
 ;
 
 type
- TddRunContext = object
+ TddRunContext = {$IfDef XE4}record{$Else}object{$EndIf}
   public
    rProgressor: TddProgressObject;
  end;//TddRunContext

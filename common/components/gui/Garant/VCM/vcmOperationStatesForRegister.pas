@@ -32,7 +32,7 @@ type
   , vcm_osfTrue
  );//TvcmOperationStateFlag
 
- TvcmOperationStateForRegister = object
+ TvcmOperationStateForRegister = {$IfDef XE4}record{$Else}object{$EndIf}
   public
    rStateName: AnsiString;
    rVar: PvcmOperationStateIndex;

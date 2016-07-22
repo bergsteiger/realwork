@@ -57,7 +57,7 @@ type
   rExtDocID: Cardinal;
  end;//Tm3DBDocumentInfo
 
- Tm3DBStreamIndex = object
+ Tm3DBStreamIndex = {$IfDef XE4}record{$Else}object{$EndIf}
   {* Идентификатор потока документа. }
   public
    rID: Integer;
@@ -238,9 +238,12 @@ type
    {* Резервная копия }
  );//Tm3DBPart
 
- Tm3DBStreamIndexEx = object(Tm3DBStreamIndex)
+ Tm3DBStreamIndexEx = {$IfDef XE4}record{$Else}object(Tm3DBStreamIndex){$EndIf}
   {* Идентификатор потока с указанием части }
   public
+   {$If Defined(XE4)}
+   rTm3DBStreamIndex: Tm3DBStreamIndex;
+   {$IfEnd} // Defined(XE4)
    rDBPart: Tm3DBPart;
     {* Часть базы }
    rVersion: Integer;

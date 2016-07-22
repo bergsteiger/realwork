@@ -21,7 +21,7 @@ uses
 ;
 
 type
- Tk2Attribute = object
+ Tk2Attribute = {$IfDef XE4}record{$Else}object{$EndIf}
   public
    rName: AnsiString;
    rID: Integer;

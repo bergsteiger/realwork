@@ -44,7 +44,7 @@ uses
 type
  PvcmContainedFormDescr = ^TvcmContainedFormDescr;
 
- TvcmContainedFormDescr = object
+ TvcmContainedFormDescr = {$IfDef XE4}record{$Else}object{$EndIf}
   public
    rForm: TvcmEntityForm;
    rContainer: TvcmTabbedContainerForm;

@@ -47,7 +47,7 @@ type
     {* Начальная точка линии в дюймах }
  end;//Tl3FrameLinePrim
 
- Tl3LinePart = object
+ Tl3LinePart = {$IfDef XE4}record{$Else}object{$EndIf}
   {* Массив отрезков }
   public
    rWasDrawn: Boolean;

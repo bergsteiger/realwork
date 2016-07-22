@@ -20,7 +20,7 @@ uses
 ;
 
 type
- TexprTokenInfo = object
+ TexprTokenInfo = {$IfDef XE4}record{$Else}object{$EndIf}
   {* Информация о токене }
   public
    rChar: Integer;

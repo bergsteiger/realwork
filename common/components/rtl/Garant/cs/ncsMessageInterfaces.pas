@@ -44,7 +44,7 @@ type
    read Get_SessionID;
  end;//IncsTransporter
 
- TncsExecuteContext = object
+ TncsExecuteContext = {$IfDef XE4}record{$Else}object{$EndIf}
   public
    rMessage: TncsMessage;
    rTransporter: IncsTransporter;

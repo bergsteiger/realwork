@@ -18,7 +18,7 @@ type
 
  TevFontArray = array [Tk2FontParam] of Integer;
 
- TevResultFont = object
+ TevResultFont = {$IfDef XE4}record{$Else}object{$EndIf}
  end;//TevResultFont
 
 implementation

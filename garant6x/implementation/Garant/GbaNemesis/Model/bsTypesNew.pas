@@ -26,7 +26,7 @@ type
   , dptDocumentPlace
  );//TDocumentPositionType
 
- TbsDocPos = object
+ TbsDocPos = {$IfDef XE4}record{$Else}object{$EndIf}
   public
    rRefType: TDocumentPositionType;
    rPos: Longword;

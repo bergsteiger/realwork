@@ -492,7 +492,7 @@ type
 
  //#UC START# *46A480790259ci*
  //#UC END# *46A480790259ci*
- Tl3_Point = packed object
+ Tl3_Point = packed {$IfDef XE4}record{$Else}object{$EndIf}
   {* Базовая точка с координатами в дюймах (мировые координаты). }
   public
    P: Tl3_PointUnion;
@@ -558,7 +558,7 @@ type
     {* Тип процедур для конвертации точек. }
 
  //#UC END# *46A4988D03E1ci*
- Tl3_SPoint = packed object
+ Tl3_SPoint = packed {$IfDef XE4}record{$Else}object{$EndIf}
   {* Базовая точка с координатами в пикселях (на экране). }
   public
    P: Tl3_PointUnion;
@@ -623,7 +623,7 @@ type
 
  //#UC START# *46A498630097ci*
  //#UC END# *46A498630097ci*
- Tl3_Rect = packed object
+ Tl3_Rect = packed {$IfDef XE4}record{$Else}object{$EndIf}
   {* Прямоугольник. }
   public
    R: Tl3_RectUnion;

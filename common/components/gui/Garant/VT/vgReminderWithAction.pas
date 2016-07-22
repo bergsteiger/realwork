@@ -35,7 +35,7 @@ type
    procedure SetCaption(const Value: String); override;
    {$IfEnd} // NOT Defined(NoVCL)
    {$If NOT Defined(NoVCL)}
-   procedure SetHint(const Value: AnsiString); override;
+   procedure SetHint(const Value: String); override;
    {$IfEnd} // NOT Defined(NoVCL)
    {$If NOT Defined(NoVCL)}
    procedure SetVisible(Value: Boolean); override;
@@ -155,7 +155,7 @@ end;//TvgReminderActionLink.SetCaption
 {$IfEnd} // NOT Defined(NoVCL)
 
 {$If NOT Defined(NoVCL)}
-procedure TvgReminderActionLink.SetHint(const Value: AnsiString);
+procedure TvgReminderActionLink.SetHint(const Value: String);
 //#UC START# *508F99710030_5339352C031C_var*
 //#UC END# *508F99710030_5339352C031C_var*
 begin

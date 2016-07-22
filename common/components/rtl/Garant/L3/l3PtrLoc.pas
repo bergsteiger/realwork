@@ -14,7 +14,7 @@ uses
 ;
 
 type
- Tl3PtrLoc = object
+ Tl3PtrLoc = {$IfDef XE4}record{$Else}object{$EndIf}
   private
    f_AsPointer: PMem;
   public

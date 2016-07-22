@@ -41,7 +41,7 @@ type
     {* идентификатор один из GUIDs? }
  end;//Tl3GUID
 
- Tl3HResult = object
+ Tl3HResult = {$IfDef XE4}record{$Else}object{$EndIf}
   {* Результат COM-операции }
   private
    f_Res: hResult;

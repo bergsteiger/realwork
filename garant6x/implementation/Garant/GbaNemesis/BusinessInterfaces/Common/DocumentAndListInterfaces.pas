@@ -71,7 +71,7 @@ type
   , ns_cltExternalObjects
  );//TnsContentsListType
 
- TnsContentsListIndex = object
+ TnsContentsListIndex = {$IfDef XE4}record{$Else}object{$EndIf}
   public
    rListType: TnsContentsListType;
    rIndex: Integer;

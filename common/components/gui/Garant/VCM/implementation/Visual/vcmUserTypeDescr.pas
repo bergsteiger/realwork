@@ -21,7 +21,7 @@ uses
 ;
 
 type
- TvcmUserTypeDescr = object
+ TvcmUserTypeDescr = {$IfDef XE4}record{$Else}object{$EndIf}
   public
    SettingsCaption: AnsiString;
    FormClass: TClass;

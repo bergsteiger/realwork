@@ -116,7 +116,7 @@ type
   procedure Assign2Font(aFont: TFont);
  end;//IafwFont
 
- TafwPagesInfo = object
+ TafwPagesInfo = {$IfDef XE4}record{$Else}object{$EndIf}
   public
    rPagesCount: Integer;
    rOverallPagesCount: Integer;

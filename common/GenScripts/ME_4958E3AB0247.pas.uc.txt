@@ -1,6 +1,6 @@
 //#UC START# *479731C50290_4958E3AB0247_impl*
  {$If not Defined(Admin) and not Defined(Monitorings)}
- TvcmModulesFactories.MakeWorkJournal.UnRegisterListener(Self);
+ TdmStdRes.MakeWorkJournal.UnRegisterListener(Self);
  {$IfEnd}
  FreeAndNil(f_QueryHistory);
  f_SearchState := nil;
@@ -49,9 +49,9 @@
    // Изменяем вид КЗ
    case UserType of
     slqtAttribute:
-     TvcmModulesFactories.OpenQuery(lg_qtAttribute, lp_Query, nil);
+     TdmStdRes.OpenQuery(lg_qtAttribute, lp_Query, nil);
     slqtKW, slqtOldKW:
-     TvcmModulesFactories.OpenQuery(lg_qtKeyWord, lp_Query, nil);
+     TdmStdRes.OpenQuery(lg_qtKeyWord, lp_Query, nil);
    end;//case UserType
   end;//not (UserType = slqtPublishSource)..
 //#UC END# *4958BE910345_4958E3AB0247_impl*
@@ -112,7 +112,7 @@ var
 //#UC START# *49803F5503AA_4958E3AB0247_impl*
  inherited;
  {$If not Defined(Admin) and not Defined(Monitorings)}
- TvcmModulesFactories.MakeWorkJournal.RegisterListener(Self);
+ TdmStdRes.MakeWorkJournal.RegisterListener(Self);
  {$IfEnd}
  if not IsDictionLike then
  begin
@@ -194,7 +194,7 @@ var
         {$IFDEF Monitorings}
         Assert(false);
         {$Else  Monitorings}
-        TvcmModulesFactories.SaveOpen(Self.As_IvcmEntityForm,
+        TdmStdRes.SaveOpen(Self.As_IvcmEntityForm,
                            MakeFilterInfo,
                            fetQuery,
                            l_EntityBase,
@@ -209,7 +209,7 @@ var
       {$IFDEF Monitorings}
       Assert(false);
       {$Else  Monitorings}
-      TvcmModulesFactories.SaveOpen(Self.As_IvcmEntityForm,
+      TdmStdRes.SaveOpen(Self.As_IvcmEntityForm,
                          MakeFilterInfo,
                          fetQuery,
                          l_EntityBase,
@@ -254,7 +254,7 @@ var
  {$IFDEF Monitorings}
  Assert(false);
  {$Else  Monitorings}
- TvcmModulesFactories.LoadOpen(Self.As_IvcmEntityForm, MakeFilterInfo);
+ TdmStdRes.LoadOpen(Self.As_IvcmEntityForm, MakeFilterInfo);
  {$EndIF Monitorings}
 //#UC END# *49885D59018D_4958E3AB0247exec_impl*
 //#UC START# *49885D59018D_4958E3AB0247exec_var*
@@ -934,14 +934,14 @@ var
    l_Result := false;
    Assert(false);
    // - интересно - как же и куда тогда фильтры сохранять
-(*   l_Result := TvcmModulesFactories.SaveOpen(Self.As_IvcmEntityForm,
+(*   l_Result := TdmStdRes.SaveOpen(Self.As_IvcmEntityForm,
                          MakeFilterInfo,
                          fetFilter,
                          aQuery,
                          SaveAs) = mrOk*)
   end                       
   else
-   l_Result := TvcmModulesFactories.CreateFilter(aQuery) = mrOk;
+   l_Result := TdmStdRes.CreateFilter(aQuery) = mrOk;
   if l_Result AND (ZoneType = vcm_ztManualModal) then
    ModalResult := mrOk;
  end;//SaveQuery
@@ -1080,36 +1080,36 @@ var
 //#UC START# *4C31AA0F017A_4958E3AB0247get_var*
 //#UC END# *4C31AA0F017A_4958E3AB0247get_var*
 //#UC START# *4C31B48D03BB_4958E3AB0247exec_impl*
- vcmDispatcher.EntityOperation(opcode_Attribute_LogicOr, aParams As IvcmExecuteParams);
+ vcmDispatcher.EntityOperation(TdmStdRes.opcode_Attribute_LogicOr, aParams As IvcmExecuteParams);
 //#UC END# *4C31B48D03BB_4958E3AB0247exec_impl*
 //#UC START# *4C31B48D03BB_4958E3AB0247exec_var*
 //#UC END# *4C31B48D03BB_4958E3AB0247exec_var*
 //#UC START# *4C31B48D03BB_4958E3AB0247test_impl*
- vcmDispatcher.EntityOperation(opcode_Attribute_LogicOr, aParams As IvcmTestParams);
+ vcmDispatcher.EntityOperation(TdmStdRes.opcode_Attribute_LogicOr, aParams As IvcmTestParams);
  // На контейнере кнопка всегда видна
  aParams.Op.Flag[vcm_ofVisible] := True;
 //#UC END# *4C31B48D03BB_4958E3AB0247test_impl*
 //#UC START# *4C31B48D03BB_4958E3AB0247test_var*
 //#UC END# *4C31B48D03BB_4958E3AB0247test_var*
 //#UC START# *4C31B4990225_4958E3AB0247exec_impl*
- vcmDispatcher.EntityOperation(opcode_Attribute_LogicAnd, aParams As IvcmExecuteParams);
+ vcmDispatcher.EntityOperation(TdmStdRes.opcode_Attribute_LogicAnd, aParams As IvcmExecuteParams);
 //#UC END# *4C31B4990225_4958E3AB0247exec_impl*
 //#UC START# *4C31B4990225_4958E3AB0247exec_var*
 //#UC END# *4C31B4990225_4958E3AB0247exec_var*
 //#UC START# *4C31B4990225_4958E3AB0247test_impl*
- vcmDispatcher.EntityOperation(opcode_Attribute_LogicAnd, aParams As IvcmTestParams);
+ vcmDispatcher.EntityOperation(TdmStdRes.opcode_Attribute_LogicAnd, aParams As IvcmTestParams);
  // На контейнере кнопка всегда видна
  aParams.Op.Flag[vcm_ofVisible] := True;
 //#UC END# *4C31B4990225_4958E3AB0247test_impl*
 //#UC START# *4C31B4990225_4958E3AB0247test_var*
 //#UC END# *4C31B4990225_4958E3AB0247test_var*
 //#UC START# *4C31B4A90088_4958E3AB0247exec_impl*
- vcmDispatcher.EntityOperation(opcode_Attribute_LogicNot, aParams As IvcmExecuteParams);
+ vcmDispatcher.EntityOperation(TdmStdRes.opcode_Attribute_LogicNot, aParams As IvcmExecuteParams);
 //#UC END# *4C31B4A90088_4958E3AB0247exec_impl*
 //#UC START# *4C31B4A90088_4958E3AB0247exec_var*
 //#UC END# *4C31B4A90088_4958E3AB0247exec_var*
 //#UC START# *4C31B4A90088_4958E3AB0247test_impl*
- vcmDispatcher.EntityOperation(opcode_Attribute_LogicNot, aParams As IvcmTestParams);
+ vcmDispatcher.EntityOperation(TdmStdRes.opcode_Attribute_LogicNot, aParams As IvcmTestParams);
  // На контейнере кнопка всегда видна
  aParams.Op.Flag[vcm_ofVisible] := True;
 //#UC END# *4C31B4A90088_4958E3AB0247test_impl*
@@ -1120,9 +1120,9 @@ var
  Assert(false);
  {$Else  Monitorings}
  if (DataSource = nil) then
-  TvcmModulesFactories.OldSchoolFiltersOpen(Aggregate, nil, Self)
+  TdmStdRes.OldSchoolFiltersOpen(Aggregate, nil, Self)
  else
-  TvcmModulesFactories.FiltersOpen(Self.Filters);
+  TdmStdRes.FiltersOpen(Self.Filters);
  {$EndIF Monitorings}
 //#UC END# *4C81191003E5_4958E3AB0247exec_impl*
 //#UC START# *4C81191003E5_4958E3AB0247exec_var*

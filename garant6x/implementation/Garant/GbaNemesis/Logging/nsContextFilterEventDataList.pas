@@ -20,7 +20,7 @@ uses
 ;
 
 type
- TnsContextFilterData = object
+ TnsContextFilterData = {$IfDef XE4}record{$Else}object{$EndIf}
   public
    rHandle: Integer;
    rContext: Il3CString;

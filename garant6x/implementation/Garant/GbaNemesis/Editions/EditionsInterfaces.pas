@@ -43,7 +43,7 @@ uses
  *)
 
 type
- TnsParaCoord = object
+ TnsParaCoord = {$IfDef XE4}record{$Else}object{$EndIf}
   {* Координаты параграфа }
   public
    rParaID: Integer;
@@ -74,7 +74,7 @@ type
    {* Изменилось положение текущего изменённого фрагмента. Дёрнули у редактора курсор или скроллер. aParaID == GetParaForPositionning }
  end;//InsVScrollListener
 
- TnsDocumentForReturnInfo = object
+ TnsDocumentForReturnInfo = {$IfDef XE4}record{$Else}object{$EndIf}
   public
    rDoc: IDocument;
    rPara: IeeLeafPara;

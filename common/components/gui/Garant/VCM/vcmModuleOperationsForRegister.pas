@@ -25,7 +25,7 @@ uses
 type
  PvcmMOPID = ^TvcmMOPID;
 
- TvcmModuleOperationForRegister = object
+ TvcmModuleOperationForRegister = {$IfDef XE4}record{$Else}object{$EndIf}
   public
    rModule: RvcmModule;
    rOperationName: AnsiString;

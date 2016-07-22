@@ -22,7 +22,7 @@ uses
 ;
 
 type
- TvcmContainerLockCountItem = object
+ TvcmContainerLockCountItem = {$IfDef XE4}record{$Else}object{$EndIf}
   public
    rContainer: TvcmTabbedContainerForm;
    rLockCount: Integer;

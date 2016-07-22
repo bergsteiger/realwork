@@ -23,7 +23,7 @@ uses
 ;
 
 type
- TnsFoundBlockInfo = object
+ TnsFoundBlockInfo = {$IfDef XE4}record{$Else}object{$EndIf}
   public
    rBlockID: Integer;
    rPoint: InevBasePoint;

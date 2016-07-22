@@ -58,7 +58,7 @@ type
   , tfw_ltReference
  );//TtfwLinkType
 
- TtfwWordInfoRec = object
+ TtfwWordInfoRec = {$IfDef XE4}record{$Else}object{$EndIf}
   {* Информация о типе }
   public
    rAccessType: TtfwAccessType;

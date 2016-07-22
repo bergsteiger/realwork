@@ -29,7 +29,7 @@ const
 type
  Pl3MessageID = ^Tl3MessageID;
 
- Tl3MessageData = object
+ Tl3MessageData = {$IfDef XE4}record{$Else}object{$EndIf}
   public
    {$If NOT Defined(NoVCL)}
    rDlgType: TMsgDlgType;
@@ -58,7 +58,7 @@ type
    rChoices: TPl3StringIDExList;
  end;//Tl3MessageData
 
- Tl3Message = object
+ Tl3Message = {$IfDef XE4}record{$Else}object{$EndIf}
   public
    rData: Tl3MessageData;
    rMessage: Il3CString;
@@ -78,8 +78,10 @@ type
    rData: Tl3MessageData;
   private
    procedure DoInit;
+   {$If NOT Defined(XE4)}
    procedure Fake; virtual;
     {* это нужно чтобы правильно генерировались вызовы методов доступа к свойствам }
+   {$IfEnd} // NOT Defined(XE4)
   protected
    function pm_GetAsMessage: Tl3Message;
   public
@@ -423,11 +425,13 @@ begin
 //#UC END# *4F9BCBC101F7_4E01D1E002AE_impl*
 end;//Tl3MessageID.Cleanup
 
+{$If NOT Defined(XE4)}
 procedure Tl3MessageID.Fake;
  {* это нужно чтобы правильно генерировались вызовы методов доступа к свойствам }
 begin
  Assert(false);
 end;//Tl3MessageID.Fake
+{$IfEnd} // NOT Defined(XE4)
 
 constructor Tl3MessageID.Init;
 begin

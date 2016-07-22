@@ -26,7 +26,7 @@ uses
 ;
 
 type
- TtfwParserToken = object
+ TtfwParserToken = {$IfDef XE4}record{$Else}object{$EndIf}
   public
    rTokenType: Tl3TokenType;
    rInteger: Integer;

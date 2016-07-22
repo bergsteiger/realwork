@@ -20,7 +20,7 @@ uses
 ;
 
 type
- Tm3EndingReplaceItem = object
+ Tm3EndingReplaceItem = {$IfDef XE4}record{$Else}object{$EndIf}
   public
    rEndingFind: AnsiString;
    rEndingReplace: AnsiString;

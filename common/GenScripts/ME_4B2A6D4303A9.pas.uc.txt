@@ -678,7 +678,7 @@ var
   StartupInfo.cb := SizeOf(StartupInfo);
   StartupInfo.dwFlags := STARTF_USESHOWWINDOW;
   StartupInfo.wShowWindow := SW_HIDE;
-  if not Windows.CreateProcessA(TargetName, PAnsiChar(l_Params),
+  if not CreateProcessA(TargetName, PAnsiChar(l_Params),
     nil, nil, true, NORMAL_PRIORITY_CLASS, nil, nil, StartupInfo, ProcessInfo) then
     raise Exception.CreateFmt(sErrorExec, [TargetName, GetLastError])
   else
@@ -739,7 +739,7 @@ const
 var
  l_Params : AnsiString;
  ProcessInfo : TProcessInformation;
- StartupInfo : Windows.TStartupInfoA;
+ StartupInfo : TStartupInfoA;
  l_Result : DWORD;
  l_KUser, l_KUserPassword : AnsiString;
  l_Continue : Boolean;

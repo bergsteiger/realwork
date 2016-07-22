@@ -22,7 +22,7 @@ uses
 ;
 
 type
- TvcmCommandInfo = object
+ TvcmCommandInfo = {$IfDef XE4}record{$Else}object{$EndIf}
   {* Информация о команде }
   public
    rIsModule: Boolean;

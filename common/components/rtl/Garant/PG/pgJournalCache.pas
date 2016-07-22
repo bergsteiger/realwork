@@ -24,7 +24,7 @@ uses
 type
  PpgJournalCacheRec = ^TpgJournalCacheRec;
 
- TpgJournalCacheRec = object
+ TpgJournalCacheRec = {$IfDef XE4}record{$Else}object{$EndIf}
   public
    rOperation: TdaJournalOperation;
    rFamilyID: TdaFamilyID;

@@ -26,7 +26,7 @@ uses
 type
  PvcmOPID = ^TvcmOPID;
 
- TvcmOperationForRegister = object
+ TvcmOperationForRegister = {$IfDef XE4}record{$Else}object{$EndIf}
   public
    rEntityName: AnsiString;
    rOperationName: AnsiString;

@@ -23,7 +23,7 @@ uses
 ;
 
 type
- TvcmFormSetFormItemDescr = object
+ TvcmFormSetFormItemDescr = {$IfDef XE4}record{$Else}object{$EndIf}
   public
    rZoneType: TvcmZoneType;
    rFormID: TvcmFormID;
@@ -34,7 +34,7 @@ type
    function Compare(const anOther: TvcmFormSetFormItemDescr): Integer;
  end;//TvcmFormSetFormItemDescr
 
- TvcmFormSetFormItem = object
+ TvcmFormSetFormItem = {$IfDef XE4}record{$Else}object{$EndIf}
   public
    rNeedMake: TvcmNeedMakeDS;
    rKey: TvcmFormSetFormItemDescr;

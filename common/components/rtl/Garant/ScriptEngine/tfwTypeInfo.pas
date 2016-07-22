@@ -35,7 +35,7 @@ type
    {* —сылка на класс }
  );//TtfwValueType
 
- TtfwStackValue = object
+ TtfwStackValue = {$IfDef XE4}record{$Else}object{$EndIf}
   public
    rString: Il3CString;
    rInteger: Integer;
@@ -58,7 +58,7 @@ type
    function AsClass(aClass: TClass): Pointer; overload;
  end;//TtfwStackValue
 
- TtfwTypeInfo = object
+ TtfwTypeInfo = {$IfDef XE4}record{$Else}object{$EndIf}
   private
    rTypeInfo: PTypeInfo;
    rClass: TClass;

@@ -25,7 +25,7 @@ uses
 type
  PvcmFormSetContainerMapItem = ^TvcmFormSetContainerMapItem;
 
- TvcmFormSetContainerMapItem = object
+ TvcmFormSetContainerMapItem = {$IfDef XE4}record{$Else}object{$EndIf}
   public
    rContainer: Pointer;
    rFormSet: Pointer;

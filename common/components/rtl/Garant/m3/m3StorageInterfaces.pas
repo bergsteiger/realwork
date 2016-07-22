@@ -116,7 +116,7 @@ type
 
  Im3IndexedStorage = interface;
 
- Tm3Store = object
+ Tm3Store = {$IfDef XE4}record{$Else}object{$EndIf}
   public
    rStream: IStream;
    rStorage: Im3IndexedStorage;
