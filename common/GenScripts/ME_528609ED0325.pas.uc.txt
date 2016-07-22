@@ -110,7 +110,6 @@ var
 //#UC END# *499566250105_528609ED0325get_var*
 //#UC START# *52860CA00075_528609ED0325_impl*
  inherited Create;
- f_CanBeCloned := aCanBeCloned;
  if (aGUID = nil) then
   CreateGUID(f_GUID)
  else
@@ -124,7 +123,7 @@ var
  if (aGUID = nil) OR (g_Dispatcher = nil) OR
     not g_Dispatcher.FindAggregate(aGUID^, Result) then
  begin
-  l_Aggregate := Create(aGUID, aCanBeCloned);
+  l_Aggregate := Create(aGUID);
   try
    Result := l_Aggregate;
   finally
