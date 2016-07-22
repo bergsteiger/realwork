@@ -108,8 +108,23 @@ a f
 	%{Op_Instance}%f_set_up(ifndef,%C{ifndef})\
 	%{Op_Instance}%f_set_up(needs index,%C{needs index})\
 	%{Op_Instance}%f_set_up(needs result,%C{needs result})\
-	%{Op_Instance}%f_set_var(SPELLER,C)\
+	%{Op_Instance}%f_set_var(Speller,C)\
 	]\
+	>\
+
+	%f_clear_list(RESPS)\
+
+	<{}{%C#f_IsFactoryOnModule()=true}\
+	%f_add_to_list(RESPS,C)\
+	>\
+
+	%{RESPS}<{}{}{%C}\
+	%C%f_copy_element(%1%{Mixin}U_%CU_Resp,%1%{Mixin}U,facetmethod,%CN$%CU,true,Op_Instance)\
+	%{Op_Instance}%f_set_documentation(%CD)\
+	%{Op_Instance}%f_set_visibility_type(PublicAccess)\
+	%{Op_Instance}%f_set_abstraction_type(abstract)\
+	%{Op_Instance}%f_set_up(OriginalStereotype,%CS)\
+	%{Op_Instance}%f_set_var(Speller,C)\
 	>\
 
 	%f_clear_list(RESPS)\

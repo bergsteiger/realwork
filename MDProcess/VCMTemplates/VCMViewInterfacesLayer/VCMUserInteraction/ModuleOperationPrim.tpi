@@ -1,0 +1,103 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/VCMTemplates/VCMViewInterfacesLayer/VCMUserInteraction/ModuleOperationPrim.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$ForDelphi::VCMTemplates::VCMViewInterfacesLayer::VCMUserInteraction::ModuleOperationPrim
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+: ModuleOperationPrim::Class
+= Delphi интерфейсы и реализация::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+v #
+/ - типы видимости
+a f
+/ - тип абстракции
+// Параметры визуализации
+$ C 152,251,152
+$ l 0,64,64
+$ f 0,64,64
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+p no test:b=false ? Отключает OnTest
+p no prefix:b=false ? Нет префикса у имени. Костыль для [$133891300]
+p ShowInToolbar:tribool=undefined ? 
+p ShortCut:s ? 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+%f _st_space_key
+	SHD
+
+%f _wiki_up_print
+	%S#[inherited][{"%S{no test}"!="%S{!no test}"}%f_up_prefix(%S) *no test* = *%S{no test}* - Отключает OnTest
+	][{"%S{no prefix}"!="%S{!no prefix}"}%f_up_prefix(%S) *no prefix* = *%S{no prefix}* - Нет префикса у имени. Костыль для \[$133891300\]
+	][{"%S{ShowInToolbar}"!="%S{!ShowInToolbar}"}%f_up_prefix(%S) *ShowInToolbar* = *%S{ShowInToolbar}*
+	][{"%S{ShortCut}"!="%S{!ShortCut}"}%f_up_prefix(%S) *ShortCut* = *%S{ShortCut}*
+	]
+
+%f _IsModuleOperation
+// возвращаемый результат: boolean
+//#UC START# *4A9D35E401D5for4A9D2DEA0027*
+	true
+//#UC END# *4A9D35E401D5for4A9D2DEA0027*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Элемент попадает в секцию Published
+%f _IsPublishedAccess
+//#UC START# *49F703730268for4A9D2DEA0027*
+	false
+//#UC END# *49F703730268for4A9D2DEA0027*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// выводит реализацию метода
+// 
+// RealizeType = o|r|f
+%f _pas_MethodImplementation
+// параметры: Implementator: void = %1, RealizeType: void = %2, Modification: void = %3, aOverrider: MDAClass = %4
+//#UC START# *494BEC7C03E5for4A9D2DEA0027*
+	[{%S{no test}!=true}%S%f_pas_DoMethodImplementation(%1,%2,"test")]\
+	%S%f_pas_DoMethodImplementation(%1,%2,"exec")
+//#UC END# *494BEC7C03E5for4A9D2DEA0027*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// выводит интерфейс метода
+// 
+// RealizeType = o|r|f
+%f _pas_MethodInterface
+// параметры: Implementator: void = %1, RealizeType: void = %2, Modification: void = %3, aOverrider: MDAClass = %4
+//#UC START# *494BEC6A038Afor4A9D2DEA0027*
+	[{%S{no test}!=true}%S%f_pas_DoMethodInterface(%1,%2,"test")\n]\
+	%S%f_pas_DoMethodInterface(%1,%2,"exec")
+//#UC END# *494BEC6A038Afor4A9D2DEA0027*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Выводит имя метода
+%f _pas_MethodName
+// параметры: Modification: a-string = %1
+//#UC START# *494BD6C80075for4A9D2DEA0027*
+	[{%1N=exec}{op%f_N(%S)Test}op%f_N(%S)]
+//#UC END# *494BD6C80075for4A9D2DEA0027*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Параметры операции
+%f _pas_Params
+// параметры: Modification: void = %1
+//#UC START# *494BDCF3030Efor4A9D2DEA0027*
+	[{%1N=exec}{const aParams: IvcmTestParamsPrim}const aParams: IvcmExecuteParamsPrim]
+//#UC END# *494BDCF3030Efor4A9D2DEA0027*
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+

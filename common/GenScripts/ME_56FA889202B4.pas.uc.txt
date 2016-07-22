@@ -53,9 +53,9 @@ var
   l_InnerState := l_State.InnerState;
   lblProfNews.CurrentItem := l_State.ProfNewsTreeItemIndex;
   lblTaxes.CurrentItem := l_State.TaxesTreeItemIndex;
-  Result := inherited DoLoadState(l_InnerState, aStateType);
+  Result := inherited DoLoadState(l_InnerState, aStateType, aClone);
  end else
-  Result := inherited DoLoadState(aState, aStateType);
+  Result := inherited DoLoadState(aState, aStateType, aClone);
 //#UC END# *49807428008C_56FA889202B4_impl*
 //#UC START# *49807428008C_56FA889202B4_var*
 var
@@ -592,16 +592,16 @@ const
 //#UC END# *56FCF6290256_56FA889202B4_var*
 //#UC START# *56FD0A30011C_56FA889202B4_impl*
  if (Sender = flAttributeSearch) then
-  TdmStdRes.OpenQuery(lg_qtAttribute, nil, nil)
+  TvcmModulesFactories.OpenQuery(lg_qtAttribute, nil, nil)
  else
  if (Sender = flSituationSearch) then
-  TdmStdRes.OpenQuery(lg_qtKeyWord, nil, nil)
+  TvcmModulesFactories.OpenQuery(lg_qtKeyWord, nil, nil)
  else
  if (Sender = flPublishedSourceSearch) then
-  TdmStdRes.OpenQuery(lg_qtPublishedSource, nil, nil)
+  TvcmModulesFactories.OpenQuery(lg_qtPublishedSource, nil, nil)
  else
  if (Sender = flDictionSearch) then
-  TdmStdRes.OpenDictionary(nil, NativeMainForm)
+  TvcmModulesFactories.OpenDictionary(nil, NativeMainForm)
  else
   Assert(False);
 //#UC END# *56FD0A30011C_56FA889202B4_impl*
@@ -776,7 +776,7 @@ var
 //#UC START# *57023AD501A4_56FA889202B4_impl*
  if (Sender = pbFeedback) then
  begin
-  TdmStdRes.OpenSendConsultation(nil);
+  TvcmModulesFactories.OpenSendConsultation(nil);
  end//Sender = pbFeedback
  else
  if (Sender = pbOnLineResources) then
@@ -795,7 +795,7 @@ var
  else
  if (Sender = pbWebVersion) then
  begin
-  vcmDispatcher.ModuleOperation(TdmStdRes.mod_opcode_Common_OpenIntranet);
+  vcmDispatcher.ModuleOperation(TvcmModulesOperations.mod_opcode_Common_OpenIntranet);
  end;//Sender = pbWebVersion
 //#UC END# *57023AD501A4_56FA889202B4_impl*
 //#UC START# *57023AD501A4_56FA889202B4_var*
@@ -817,7 +817,7 @@ const
    else
    if Supports(l_Ref, IEntityBase, l_Entity) then
     try
-     TdmStdRes.OpenEntityAsDocument(l_Entity, NativeMainForm);
+     TvcmModulesFactories.OpenEntityAsDocument(l_Entity, NativeMainForm);
     finally
      l_Entity := nil;
     end//try..finally

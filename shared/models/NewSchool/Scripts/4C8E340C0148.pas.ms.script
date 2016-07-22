@@ -110,144 +110,6 @@ ref; // ME_4C8E46EA0263 MenuManager
 
 ref; // ME_4C90B2CB0258 f_Listeners
 
-FORWARD ME_4C8E3A170399
-
-: ME_4C8E3A1D031E
- CONST UID '4C8E3A1D031E'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent HWL ME_4C8E3A170399 // Customize
- ;
-
-ref; // ME_4C8E3A1D031E DoIt
-
-: ME_4C8E3A170399
- CONST UID '4C8E3A170399'
- CONST Name 'Customize'
- CONST Class class_Class
- : Stereotype st_ModuleMethod ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Настройка...' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent HWL ME_4C8E340C0148 // PrimToolbarMenu
- ;
- : Operations
-   Seq: ( HWL ME_4C8E3A1D031E // DoIt
- )
- ; // Operations
- CONST "ShowInToolbar" false
- CONST "no prefix" false
- CONST "no test" false
-
-ref; // ME_4C8E3A170399 Customize
-
-FORWARD ME_4C8E3A290341
-
-: ME_4C8E3A3100E6
- CONST UID '4C8E3A3100E6'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent HWL ME_4C8E3A290341 // AvailableOperations
- ;
-
-ref; // ME_4C8E3A3100E6 DoIt
-
-: ME_4C8E3A290341
- CONST UID '4C8E3A290341'
- CONST Name 'AvailableOperations'
- CONST Class class_Class
- : Stereotype st_ModuleMethod ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Доступные операции...' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent HWL ME_4C8E340C0148 // PrimToolbarMenu
- ;
- : Operations
-   Seq: ( HWL ME_4C8E3A3100E6 // DoIt
- )
- ; // Operations
- CONST "ShowInToolbar" false
- CONST "ifndef" 'Admin,Monitorings'
- CONST "is static" false
- CONST "no prefix" false
- CONST "no test" false
-
-ref; // ME_4C8E3A290341 AvailableOperations
-
-FORWARD ME_4C8E3A3E011D
-
-: ME_4C8E3A4500AB
- CONST UID '4C8E3A4500AB'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent HWL ME_4C8E3A3E011D // IconsSize
- ;
-
-ref; // ME_4C8E3A4500AB DoIt
-
-: ME_4C8E3A3E011D
- CONST UID '4C8E3A3E011D'
- CONST Name 'IconsSize'
- CONST Class class_Class
- : Stereotype st_ModuleMethod ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Размер кнопок' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent HWL ME_4C8E340C0148 // PrimToolbarMenu
- ;
- : Operations
-   Seq: ( HWL ME_4C8E3A4500AB // DoIt
- )
- ; // Operations
- CONST "ShowInToolbar" false
- CONST "no prefix" false
- CONST "no test" false
-
-ref; // ME_4C8E3A3E011D IconsSize
-
-FORWARD ME_4C8E3A5002FF
-
-: ME_4C8E3A560382
- CONST UID '4C8E3A560382'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent HWL ME_4C8E3A5002FF // Fasten
- ;
-
-ref; // ME_4C8E3A560382 DoIt
-
-: ME_4C8E3A5002FF
- CONST UID '4C8E3A5002FF'
- CONST Name 'Fasten'
- CONST Class class_Class
- : Stereotype st_ModuleMethod ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Закрепить панели инструментов' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent HWL ME_4C8E340C0148 // PrimToolbarMenu
- ;
- : Operations
-   Seq: ( HWL ME_4C8E3A560382 // DoIt
- )
- ; // Operations
- CONST "ShowInToolbar" false
- CONST "no prefix" false
- CONST "no test" false
-
-ref; // ME_4C8E3A5002FF Fasten
-
 FORWARD ME_4C90B2F500F9
 
 : ME_4C90B2FB0204
@@ -458,10 +320,20 @@ ref; // ME_552BAE5401BF
  : Stereotype st_uses::Dependency ;
  : Parent HWL ME_4C8E340C0148 // PrimToolbarMenu
  ;
- : Target WL 'ME_578E02D603D1' '578E02C50241.pas.ms.script' // TvcmTaskPanelServices
+ : Target WL 'ME_578E02D603D1' '578E02C50241.pas.ms.script' // TTaskPanelService
  ;
 
 ref; // ME_578E03EB0003 
+
+: ME_57924C30039C
+ CONST Class class_Dependency
+ : Stereotype st_implements::Dependency ;
+ : Parent HWL ME_4C8E340C0148 // PrimToolbarMenu
+ ;
+ : Target WL 'ME_57924C1400CF' '578E02C50241.pas.ms.script' // TToolbarMenuService
+ ;
+
+ref; // ME_57924C30039C 
 
 : ME_4992FC7A0212_ME_4C8E340C0148
  : Original WL 'ME_4992FC7A0212' '499465EE030A.pas.ms.script' // AddListener
@@ -518,11 +390,7 @@ ref; // ME_47D1602000C6_ME_4C8E340C0148 Create
  )
  ; // Attributes
  : Operations
-   Seq: ( HWL ME_4C8E3A170399 // Customize
- HWL ME_4C8E3A290341 // AvailableOperations
- HWL ME_4C8E3A3E011D // IconsSize
- HWL ME_4C8E3A5002FF // Fasten
- HWL ME_4C90B2F500F9 // DoNotify
+   Seq: ( HWL ME_4C90B2F500F9 // DoNotify
  HWL ME_4C90C066016F // pmToolbarPopup
  )
  ; // Operations
@@ -556,7 +424,8 @@ ref; // ME_47D1602000C6_ME_4C8E340C0148 Create
  ME_4C90DAF603CC // vcmMakeModuleMenu
  ME_52AEC687026D // TvcmToolbar
  ME_552BAE5401BF // TvcmToolbarGlyphService
- ME_578E03EB0003 // TvcmTaskPanelServices
+ ME_578E03EB0003 // TTaskPanelService
+ ME_57924C30039C // TToolbarMenuService
  )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'

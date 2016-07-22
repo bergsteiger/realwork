@@ -1161,6 +1161,27 @@ REDEFINITION : st_attr::Attribute Inherits ( st_attr::Attribute )
  @SELF
 ; // st_VCMOperationState
 
+: st_FormSetFactory Inherits ( st_method )
+ CONST UID '4A73234800B8'
+ CONST Name 'FormSetFactory'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_FormSetFactory
+
+: st_FormFactory Inherits ( st_FormSetFactory )
+ CONST UID '4A816E04018E'
+ CONST Name 'FormFactory'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_FormFactory
+
+: st_FactoryMethod Inherits ( st_FormSetFactory )
+ CONST UID '4A8288FF021A'
+ CONST Name 'FactoryMethod'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_FactoryMethod
+
 : st_VCMControls Inherits ( st_VCMInterfacesLike )
  CONST UID '494F7EF903BC'
  CONST Name 'VCMControls'
@@ -1174,6 +1195,34 @@ REDEFINITION : st_attr::Attribute Inherits ( st_attr::Attribute )
  CONST Stereotype 'MDAClass'
  @SELF
 ; // st_VCMFormDefinition
+
+: st_VCMModuleContract Inherits ( st_Service )
+ CONST UID '5791C9860070'
+ CONST Name 'VCMModuleContract'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_VCMModuleContract
+
+: st_VCMContracts Inherits ( st_VCMControls )
+ CONST UID '5791D6D50045'
+ CONST Name 'VCMContracts'
+ CONST Stereotype 'MDACategory'
+ @SELF
+; // st_VCMContracts
+
+: st_ModuleOperationPrim
+ CONST UID '4A9D2DEA0027'
+ CONST Name 'ModuleOperationPrim'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_ModuleOperationPrim
+
+: st_ModuleMethod Inherits ( st_method st_ModuleOperationPrim )
+ CONST UID '4A9D2BC80274'
+ CONST Name 'ModuleMethod'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_ModuleMethod
 
 : st_ControlPrim Inherits ( st_readonly::Attribute )
  CONST UID '4B5DC1D50227'
@@ -1350,27 +1399,6 @@ REDEFINITION : st_UseCase::Attribute Inherits ( st_VCMController )
  @SELF
 ; // st_VCMFinalContainer
 
-: st_FormSetFactory Inherits ( st_method )
- CONST UID '4A73234800B8'
- CONST Name 'FormSetFactory'
- CONST Stereotype 'MDAClass'
- @SELF
-; // st_FormSetFactory
-
-: st_FormFactory Inherits ( st_FormSetFactory )
- CONST UID '4A816E04018E'
- CONST Name 'FormFactory'
- CONST Stereotype 'MDAClass'
- @SELF
-; // st_FormFactory
-
-: st_FactoryMethod Inherits ( st_FormSetFactory )
- CONST UID '4A8288FF021A'
- CONST Name 'FactoryMethod'
- CONST Stereotype 'MDAClass'
- @SELF
-; // st_FactoryMethod
-
 : st_VCMFormSetFactory Inherits ( st_SimpleClass )
  CONST UID '49F572B403E3'
  CONST Name 'VCMFormSetFactory'
@@ -1392,20 +1420,6 @@ REDEFINITION : st_UseCase::Attribute Inherits ( st_VCMController )
  @SELF
 ; // st_VCMZone
 
-: st_ModuleOperationPrim
- CONST UID '4A9D2DEA0027'
- CONST Name 'ModuleOperationPrim'
- CONST Stereotype 'MDAClass'
- @SELF
-; // st_ModuleOperationPrim
-
-: st_ModuleMethod Inherits ( st_method st_ModuleOperationPrim )
- CONST UID '4A9D2BC80274'
- CONST Name 'ModuleMethod'
- CONST Stereotype 'MDAClass'
- @SELF
-; // st_ModuleMethod
-
 : st_VCMFormsPack Inherits ( st_SimpleClass )
  CONST UID '498AFF8101F5'
  CONST Name 'VCMFormsPack'
@@ -1419,6 +1433,13 @@ REDEFINITION : st_UseCase::Attribute Inherits ( st_VCMController )
  CONST Stereotype 'MDAOperation'
  @SELF
 ; // st_ModuleOperation::Operation
+
+REDEFINITION : st_implements::Dependency
+ CONST UID '5791EDE701F0'
+ CONST Name 'implements::Dependency'
+ CONST Stereotype 'MDADependency'
+ @SELF
+; // st_implements::Dependency
 
 : st_VCMForms Inherits ( st_VCMUnit )
  CONST UID '4947E799017D'

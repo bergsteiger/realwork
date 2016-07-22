@@ -125,7 +125,7 @@
      lp_IsContainerEmpty(l_ContainerForMainMenu) then
   begin
    try
-    dmStdRes.OpenMainMenuIfNeeded(l_ContainerForMainMenu);
+    TvcmModulesFactories.OpenMainMenuIfNeeded(l_ContainerForMainMenu);
     afw.ProcessMessages;
     UpdateWindow(l_ContainerForMainMenu.AsForm.VCLWinControl.Handle);
    finally
@@ -167,7 +167,7 @@ var
 //#UC END# *4AB775AA0314_4A8ECF3001D2test_var*
 //#UC START# *4AB77A0E0276_4A8ECF3001D2exec_impl*
  // Построение обзора законодателоьства
- TdmStdRes.OpenLegislationReview(nil);
+ TvcmModulesFactories.OpenLegislationReview(nil);
 //#UC END# *4AB77A0E0276_4A8ECF3001D2exec_impl*
 //#UC START# *4AB77A0E0276_4A8ECF3001D2exec_var*
 //#UC END# *4AB77A0E0276_4A8ECF3001D2exec_var*
@@ -215,7 +215,7 @@ var
   begin
    l_ContainerForMainMenu := CheckContainer(nil);
    try
-    dmStdRes.OpenMainMenuIfNeeded(l_ContainerForMainMenu);
+    TvcmModulesFactories.OpenMainMenuIfNeeded(l_ContainerForMainMenu);
    finally
     l_ContainerForMainMenu := nil;
    end;

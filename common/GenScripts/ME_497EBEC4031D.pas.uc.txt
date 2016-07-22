@@ -17,7 +17,7 @@
  begin
   if not vcmDispatcher.History.CanBack then
   begin
-   TdmStdRes.OpenMainMenuIfNeeded(nil);
+   TvcmModulesFactories.OpenMainMenuIfNeeded(nil);
    vcmDispatcher.History.DeleteBackItem;
   end else
   while vcmDispatcher.FormDispatcher.CurrentMainForm.AsContainer.HasForm(fm_enNewsLine.rFormID) and
@@ -61,7 +61,7 @@ var
  end
  else
   l_InnerState := aState; 
- Result := inherited DoLoadState(l_InnerState, aStateType);
+ Result := inherited DoLoadState(l_InnerState, aStateType, aClone);
 //#UC END# *49807428008C_497EBEC4031D_impl*
 //#UC START# *49807428008C_497EBEC4031D_var*
 var
@@ -183,7 +183,7 @@ var
   if AllowOpen or
      NativeMainForm.HasForm(fm_TextForm.rFormID, vcm_ztParent, True, nil, dftAutoreferat) then
   // Создадим сборку:
-   TdmStdRes.OpenAutoreferat(l_Document, nil);
+   TvcmModulesFactories.OpenAutoreferat(l_Document, nil);
  end
  else
  begin

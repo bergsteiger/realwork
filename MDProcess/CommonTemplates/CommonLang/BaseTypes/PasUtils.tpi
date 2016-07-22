@@ -756,13 +756,13 @@ f _pas_PutToUses
 	]\
 	}\
 	%f_pas_PutToUsesPrim(%S)\
-	[{%SS=VCMControls}\
+	[{%S#f_IsVCMControls()=true}\
 
-	<{}{%wS=VCMControls}\
+	<{}{%w#f_IsVCMControls()=true}\
 	%f_pas_PutToUses(%w)\
 	>\
 
-	<{}{%DS=VCMControls}\
+	<{}{%D#f_IsVCMControls()=true}\
 	%f_pas_PutToUses(%D)\
 	>\
 
@@ -778,7 +778,7 @@ f _pas_PutToUses
 f _pas_NeedsPutToUses
 //#UC START# *4773C07201AD*
 	[{%SN!=System}{\
-	[{%SS=VCMControls}{false}\
+	[{%S#f_IsVCMControls()=true}{false}\
 	[{%f_pas_UnitName(%S)!=%f_pas_UnitName(%B)}{false}true]\
 	]}\
 	[{%f_pas_UnitName(%S)!=%f_pas_UnitName(%B)}{false}\

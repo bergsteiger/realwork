@@ -34,6 +34,10 @@ var
 //#UC END# *4B2A6CCF00BB_4B2A6CEB0377_impl*
 //#UC START# *4B2A6CCF00BB_4B2A6CEB0377_var*
 //#UC END# *4B2A6CCF00BB_4B2A6CEB0377_var*
+//#UC START# *4B2A6D4303A9impl_uses*
+//#UC END# *4B2A6D4303A9impl_uses*
+//#UC START# *4B2A6D4303A9intf_uses*
+//#UC END# *4B2A6D4303A9intf_uses*
 //#UC START# *4B2A6D840279_4B2A6D4303A9_impl*
  CheckFileParam;
  CheckNeedRandom;
@@ -678,7 +682,7 @@ var
   StartupInfo.cb := SizeOf(StartupInfo);
   StartupInfo.dwFlags := STARTF_USESHOWWINDOW;
   StartupInfo.wShowWindow := SW_HIDE;
-  if not CreateProcessA(TargetName, PAnsiChar(l_Params),
+  if not JwaWinBase.CreateProcessA(TargetName, PAnsiChar(l_Params),
     nil, nil, true, NORMAL_PRIORITY_CLASS, nil, nil, StartupInfo, ProcessInfo) then
     raise Exception.CreateFmt(sErrorExec, [TargetName, GetLastError])
   else
@@ -738,7 +742,7 @@ const
  cOp : array [TKFileOperation] of AnsiString = ('PA_GET', 'PA_SET', 'PA_GET_LABEL', 'PA_SET_LABEL', 'PA_ATTACH');
 var
  l_Params : AnsiString;
- ProcessInfo : TProcessInformation;
+ ProcessInfo : JwaWinBase.TProcessInformation;
  StartupInfo : TStartupInfoA;
  l_Result : DWORD;
  l_KUser, l_KUserPassword : AnsiString;

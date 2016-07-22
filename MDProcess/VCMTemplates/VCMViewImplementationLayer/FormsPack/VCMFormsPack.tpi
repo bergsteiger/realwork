@@ -56,42 +56,8 @@ $ f 29,177,58
 	[{%Sa=final}{false}true]
 //#UC END# *4A951A3402A8for498AFF8101F5*
 
-// Имя финального модуля
-%f _FinalName
-// возвращаемый результат: a-string
-//#UC START# *4AAA1A7601C9for498AFF8101F5*
-@ %SU
-	[{%S%f_IsFinalVCMFormsPack()=true}{<%Z#f_FinalName()>}%f_N(%S)]
-
-%f _FinalDoc
-@ %SU
-	[{%S%f_IsFinalVCMFormsPack()=true}{<%Z#f_FinalDoc()>}%SD]
-//#UC END# *4AAA1A7601C9for498AFF8101F5*
-
-// Имя ТИПА финального модуля
-%f _FinalTypeName
-// возвращаемый результат: a-string
-//#UC START# *4AAA1ACC022Ffor498AFF8101F5*
-@ %SU
-	[{%S%f_IsFinalVCMFormsPack()=true}{<%Z#f_FinalTypeName()>}%f_pas_TypeName(%S)]
-//#UC END# *4AAA1ACC022Ffor498AFF8101F5*
-
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Унаследованная реализация
-
-// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
-// нет документации
-%f _pas_DefaultAncestor
-//#UC START# *4948E5B60391for498AFF8101F5*
-	TvcmModule
-//#UC END# *4948E5B60391for498AFF8101F5*
-
-// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
-// Выводит спец-метку класса
-%f _pas_OutClassMark
-//#UC START# *494B74D7016Bfor498AFF8101F5*
-	formspack
-//#UC END# *494B74D7016Bfor498AFF8101F5*
 
 // перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
 // Имя типа
@@ -171,6 +137,55 @@ a f
 %f _wiki_up_add_gen
 //#UC START# *470484D50138for49F6F6E60362*
 //#UC END# *470484D50138for49F6F6E60362*
+
+: VCMFormsPack::Class::implements::ClassDependency
+= Delphi интерфейсы и реализация::MDAGenerator
+
+// Генераторы
+// Генерация модели в MDKnow
++ wiki
+//#UC START# *46E6D4BB0339for5791EDE701F0*
+//#UC END# *46E6D4BB0339for5791EDE701F0*
+
+// Родные Delphi интерфейсы (.pas)
++ intf.pas
+R  
+//#UC START# *470F1571031Cfor5791EDE701F0*
+//#UC END# *470F1571031Cfor5791EDE701F0*
+
+// Реализация на Delphi(.pas)
++ impl.pas
+R  
+//#UC START# *470F15B800CBfor5791EDE701F0*
+//#UC END# *470F15B800CBfor5791EDE701F0*
+
+// Функции стереотипа
+%f _st_space_key
+	SHD
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+%t _constraint
+//#UC START# *4704C0E30186for5791EDE701F0*
+c          {}
+r {""=""}: {}
+//#UC END# *4704C0E30186for5791EDE701F0*
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+%f _wiki_child_kind
+//#UC START# *4705CBD6003Efor5791EDE701F0*
+//#UC END# *4705CBD6003Efor5791EDE701F0*
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+%f _wiki_up_add_gen
+//#UC START# *470484D50138for5791EDE701F0*
+//#UC END# *470484D50138for5791EDE701F0*
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

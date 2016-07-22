@@ -1,0 +1,289 @@
+// Contracts 5791D1FF0214 VCMContracts Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5791D1FF0214
+
+FORWARD ME_5791D23B02DA
+
+FORWARD ME_8ED3ED02A1B9
+
+FORWARD ME_5791E0EF0247
+
+FORWARD ME_29DBB79C11FF
+
+: ME_F2CACA9697A2
+ CONST Name 'aMainForm'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525C7A0114' '4AADF9450143.pas.ms.script' // TvcmMainForm
+ ;
+
+ref; // ME_F2CACA9697A2 aMainForm
+
+: ME_A04AF61577FD
+ CONST Name 'anOwner'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525B34022A' '4AADF9450143.pas.ms.script' // TvcmEntityForm
+ ;
+
+ref; // ME_A04AF61577FD anOwner
+
+: ME_10B98FFC47EF
+ CONST UID '10B98FFC47EF'
+ CONST Name 'DoIt'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_29DBB79C11FF // MakeChild$5791E0EF0247
+ ;
+ : Parameters
+   Seq: ( ME_F2CACA9697A2 // aMainForm
+ ME_A04AF61577FD // anOwner
+ )
+ ; // Parameters
+
+ref; // ME_10B98FFC47EF DoIt
+
+: ME_29DBB79C11FF
+ CONST UID '29DBB79C11FF'
+ CONST Name 'MakeChild'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_facetmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_8ED3ED02A1B9 // MvcmParentAndChildService
+ ;
+ : Operations
+   Seq: ( HWL ME_10B98FFC47EF // DoIt
+ )
+ ; // Operations
+ CONST "OriginalStereotype" 'FormFactory'
+ : Speller HWL ME_5791E0EF0247 // MakeChild
+ ;
+
+ref; // ME_29DBB79C11FF MakeChild$5791E0EF0247
+
+FORWARD ME_4F6B678D03B8
+
+FORWARD ME_69D99D6C3E20
+
+: ME_A7D7607FA316
+ CONST Name 'aMainForm'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525C7A0114' '4AADF9450143.pas.ms.script' // TvcmMainForm
+ ;
+
+ref; // ME_A7D7607FA316 aMainForm
+
+: ME_CDD049C2F449
+ CONST UID 'CDD049C2F449'
+ CONST Name 'DoIt'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_69D99D6C3E20 // MakeParent$4F6B678D03B8
+ ;
+ : Parameters
+   Seq: ( ME_A7D7607FA316 // aMainForm
+ )
+ ; // Parameters
+
+ref; // ME_CDD049C2F449 DoIt
+
+: ME_69D99D6C3E20
+ CONST UID '69D99D6C3E20'
+ CONST Name 'MakeParent'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_facetmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent HWL ME_8ED3ED02A1B9 // MvcmParentAndChildService
+ ;
+ : Operations
+   Seq: ( HWL ME_CDD049C2F449 // DoIt
+ )
+ ; // Operations
+ CONST "OriginalStereotype" 'FormFactory'
+ : Speller HWL ME_4F6B678D03B8 // MakeParent
+ ;
+
+ref; // ME_69D99D6C3E20 MakeParent$4F6B678D03B8
+
+: ME_8ED3ED02A1B9
+ CONST UID '8ED3ED02A1B9'
+ CONST Name 'MvcmParentAndChildService'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_PureMixIn ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Контракт сервиса TvcmParentAndChildService' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_5791D23B02DA // TvcmParentAndChildService
+ ;
+ : Operations
+   Seq: ( HWL ME_29DBB79C11FF // MakeChild$5791E0EF0247
+ HWL ME_69D99D6C3E20 // MakeParent$4F6B678D03B8
+ )
+ ; // Operations
+
+ref; // ME_8ED3ED02A1B9 MvcmParentAndChildService
+
+: ME_5791E10302F1
+ CONST Name 'aMainForm'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525C7A0114' '4AADF9450143.pas.ms.script' // TvcmMainForm
+ ;
+
+ref; // ME_5791E10302F1 aMainForm
+
+: ME_5791E1030319
+ CONST Name 'anOwner'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525B34022A' '4AADF9450143.pas.ms.script' // TvcmEntityForm
+ ;
+
+ref; // ME_5791E1030319 anOwner
+
+: ME_5791E10101A2
+ CONST UID '5791E10101A2'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_5791E0EF0247 // MakeChild
+ ;
+ : Parameters
+   Seq: ( ME_5791E10302F1 // aMainForm
+ ME_5791E1030319 // anOwner
+ )
+ ; // Parameters
+
+ref; // ME_5791E10101A2 DoIt
+
+: ME_5791E0EF0247
+ CONST UID '5791E0EF0247'
+ CONST Name 'MakeChild'
+ CONST Class class_Class
+ : Stereotype st_FormFactory ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_5791D23B02DA // TvcmParentAndChildService
+ ;
+ : Operations
+   Seq: ( HWL ME_5791E10101A2 // DoIt
+ )
+ ; // Operations
+ CONST "NO_FACTORY_BRACKECTS" false
+
+ref; // ME_5791E0EF0247 MakeChild
+
+: ME_4F6B67ED0116
+ CONST Name 'aMainForm'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525C7A0114' '4AADF9450143.pas.ms.script' // TvcmMainForm
+ ;
+
+ref; // ME_4F6B67ED0116 aMainForm
+
+: ME_4F6B67E20007
+ CONST UID '4F6B67E20007'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_4F6B678D03B8 // MakeParent
+ ;
+ : Parameters
+   Seq: ( ME_4F6B67ED0116 // aMainForm
+ )
+ ; // Parameters
+
+ref; // ME_4F6B67E20007 DoIt
+
+: ME_4F6B678D03B8
+ CONST UID '4F6B678D03B8'
+ CONST Name 'MakeParent'
+ CONST Class class_Class
+ : Stereotype st_FormFactory ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_5791D23B02DA // TvcmParentAndChildService
+ ;
+ : Operations
+   Seq: ( HWL ME_4F6B67E20007 // DoIt
+ )
+ ; // Operations
+ CONST "NO_FACTORY_BRACKECTS" false
+
+ref; // ME_4F6B678D03B8 MakeParent
+
+: ME_5791D23B02DA
+ CONST UID '5791D23B02DA'
+ CONST Name 'TvcmParentAndChildService'
+ CONST Class class_Class
+ : Stereotype st_VCMModuleContract ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_5791D1FF0214 // Contracts
+ ;
+ : Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( HWL ME_5791E0EF0247 // MakeChild
+ HWL ME_4F6B678D03B8 // MakeParent
+ )
+ ; // Operations
+ : Children
+   Seq: ( HWL ME_8ED3ED02A1B9 // MvcmParentAndChildService
+ )
+ ; // Children
+ CONST extprop:rc:SelfName 'ParentAndChildService'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_5791D23B02DA TvcmParentAndChildService
+
+: ME_5791D1FF0214
+ CONST UID '5791D1FF0214'
+ CONST Name 'Contracts'
+ CONST Class class_Category
+ : Stereotype st_VCMContracts ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4F6B660100D5' '4F6B660100D5.pas.ms.script' // View
+ ;
+ : Children
+   Seq: ( HWL ME_5791D23B02DA // TvcmParentAndChildService
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.pas.ms.script' // Primitives
+ WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_4AADF9450143' '4AADF9450143.pas.ms.script' // Visual
+ )
+ ; // Depends
+ CONST "is namespace" true
+ CONST intf.pas:Path 'common\components\gui\Garant\VCM\View\F1Like_Contracts.pas'
+ CONST extprop:pas:UnitName 'F1Like_Contracts'
+
+ref; // ME_5791D1FF0214 Contracts

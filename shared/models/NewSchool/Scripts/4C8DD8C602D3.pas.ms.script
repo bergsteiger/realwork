@@ -4,41 +4,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 FORWARD ME_4C8DD8C602D3
 
-FORWARD ME_578E03710025
-
-: ME_578E037D0227
- CONST Class class_Dependency
- : Stereotype st_implements::Dependency ;
- : Parent HWL ME_578E03710025 // TvcmTaskPanelServicesImpl
- ;
- : Target WL 'ME_578E02D603D1' '578E02C50241.pas.ms.script' // TvcmTaskPanelServices
- ;
-
-ref; // ME_578E037D0227 
-
-: ME_578E03710025
- CONST UID '578E03710025'
- CONST Name 'TvcmTaskPanelServicesImpl'
- CONST Class class_Class
- : Stereotype st_ServiceImplementation ;
- CONST Kind kind_NormalClass
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent HWL ME_4C8DD8C602D3 // PrimTasksPanelMenu
- ;
- : Inherits
-   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- )
- ; // Inherits
- : Dependencies
-   Seq: ( ME_578E037D0227 // TvcmTaskPanelServices
- )
- ; // Dependencies
- CONST extprop:rc:SelfName 'TaskPanelServicesImpl'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_578E03710025 TvcmTaskPanelServicesImpl
-
 : ME_4C8F77E7000A
  CONST UID '4C8F77E7000A'
  CONST Name 'g_dmTasksPanelMenu'
@@ -74,119 +39,6 @@ ref; // ME_4C8F77E7000A g_dmTasksPanelMenu
  CONST "pm" true
 
 ref; // ME_4C8F78BC0331 PopupMenu
-
-FORWARD ME_4C8DD91901C8
-
-: ME_4C8DDC1B02F9
- CONST UID '4C8DDC1B02F9'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent HWL ME_4C8DD91901C8 // Customize
- ;
-
-ref; // ME_4C8DDC1B02F9 DoIt
-
-: ME_4C8DD91901C8
- CONST UID '4C8DD91901C8'
- CONST Name 'Customize'
- CONST Class class_Class
- : Stereotype st_ModuleMethod ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Настройка...' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent HWL ME_4C8DD8C602D3 // PrimTasksPanelMenu
- ;
- : Operations
-   Seq: ( HWL ME_4C8DDC1B02F9 // DoIt
- )
- ; // Operations
- CONST "ShowInToolbar" false
- CONST "is static" false
- CONST "no prefix" false
- CONST "no test" true
-
-ref; // ME_4C8DD91901C8 Customize
-
-FORWARD ME_4C8E59B80380
-
-: ME_4C8E59E30357
- CONST Name 'aPanel'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4992FF9A0273' '49940C8E00DA.pas.ms.script' // IvcmCustOps
- ;
-
-ref; // ME_4C8E59E30357 aPanel
-
-: ME_4C8E59D8000A
- CONST UID '4C8E59D8000A'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent HWL ME_4C8E59B80380 // CustomizePanel
- ;
- : Parameters
-   Seq: ( ME_4C8E59E30357 // aPanel
- )
- ; // Parameters
-
-ref; // ME_4C8E59D8000A DoIt
-
-: ME_4C8E59B80380
- CONST UID '4C8E59B80380'
- CONST Name 'CustomizePanel'
- CONST Class class_Class
- : Stereotype st_FactoryMethod ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Настроить панель иструментов' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent HWL ME_4C8DD8C602D3 // PrimTasksPanelMenu
- ;
- : Operations
-   Seq: ( HWL ME_4C8E59D8000A // DoIt
- )
- ; // Operations
- CONST "NO_FACTORY_BRACKECTS" false
-
-ref; // ME_4C8E59B80380 CustomizePanel
-
-FORWARD ME_4C8F777E02AD
-
-: ME_4C8F77AA03B2
- CONST UID '4C8F77AA03B2'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent HWL ME_4C8F777E02AD // TasksPanelPopupMenu
- ;
- : Target WL 'ME_49A5750A01E8' '4799D29F033F.pas.ms.script' // TPopupMenu
- ;
-
-ref; // ME_4C8F77AA03B2 DoIt
-
-: ME_4C8F777E02AD
- CONST UID '4C8F777E02AD'
- CONST Name 'TasksPanelPopupMenu'
- CONST Class class_Class
- : Stereotype st_FactoryMethod ;
- CONST Kind kind_NormalClass
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent HWL ME_4C8DD8C602D3 // PrimTasksPanelMenu
- ;
- : Operations
-   Seq: ( HWL ME_4C8F77AA03B2 // DoIt
- )
- ; // Operations
- CONST "NO_FACTORY_BRACKECTS" false
-
-ref; // ME_4C8F777E02AD TasksPanelPopupMenu
 
 : ME_4C8E565A00B6
  CONST Class class_Dependency
@@ -248,6 +100,16 @@ ref; // ME_4C8F7909009C
 
 ref; // ME_4F829E1501F9 
 
+: ME_5792245800CD
+ CONST Class class_Dependency
+ : Stereotype st_implements::Dependency ;
+ : Parent HWL ME_4C8DD8C602D3 // PrimTasksPanelMenu
+ ;
+ : Target WL 'ME_578E02D603D1' '578E02C50241.pas.ms.script' // TTaskPanelService
+ ;
+
+ref; // ME_5792245800CD 
+
 : ME_479731C50290_ME_4C8DD8C602D3
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
  ;
@@ -279,12 +141,6 @@ ref; // ME_47D1602000C6_ME_4C8DD8C602D3 Create
  HWL ME_4C8F78BC0331 // PopupMenu
  )
  ; // Attributes
- : Operations
-   Seq: ( HWL ME_4C8DD91901C8 // Customize
- HWL ME_4C8E59B80380 // CustomizePanel
- HWL ME_4C8F777E02AD // TasksPanelPopupMenu
- )
- ; // Operations
  : Overridden
    Seq: ( ME_479731C50290_ME_4C8DD8C602D3 // Cleanup
  ME_47D1602000C6_ME_4C8DD8C602D3 // Create
@@ -292,7 +148,6 @@ ref; // ME_47D1602000C6_ME_4C8DD8C602D3 Create
  ; // Overridden
  : Children
    Seq: ( WL 'ME_4C8E4D4F027D' '4C8E4D4F027D.pas.ms.script' // CustomizeTasksPanel
- HWL ME_578E03710025 // TvcmTaskPanelServicesImpl
  )
  ; // Children
  : Dependencies
@@ -302,6 +157,7 @@ ref; // ME_47D1602000C6_ME_4C8DD8C602D3 Create
  ME_4C8E58F1021D // Supports
  ME_4C8F7909009C // vcmMakeModuleMenu
  ME_4F829E1501F9 // Forms
+ ME_5792245800CD // TTaskPanelService
  )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
