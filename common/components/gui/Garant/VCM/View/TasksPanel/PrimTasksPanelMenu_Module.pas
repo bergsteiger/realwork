@@ -13,10 +13,6 @@ interface
 uses
  l3IntfUses
  , vcmPopupMenuPrim
- {$If NOT Defined(NoVCL)}
- , Menus
- {$IfEnd} // NOT Defined(NoVCL)
- , vcmTaskPanelInterfaces
  , Classes
  , vcmBase
  , vcmExternalInterfaces
@@ -30,9 +26,6 @@ type
   private
    procedure opCustomizeExecute(const aParams: IvcmExecuteParamsPrim);
     {* Настройка... }
-   class procedure CustomizePanel(const aPanel: IvcmCustOps);
-    {* Настроить панель иструментов }
-   class function TasksPanelPopupMenu: TPopupMenu;
   protected
    function pm_GetPopupMenu: TvcmPopupMenuPrim;
    procedure Cleanup; override;
@@ -53,7 +46,11 @@ implementation
 uses
  l3ImplUses
  , l3ProtoObject
- , vcmTaskPanelServices
+ , VCMCustomization_Customization_Contracts
+ {$If NOT Defined(NoVCL)}
+ , Menus
+ {$IfEnd} // NOT Defined(NoVCL)
+ , vcmTaskPanelInterfaces
  , vcmInterfaces
  , SysUtils
  , vcmMenus
@@ -67,60 +64,79 @@ uses
 ;
 
 type
- TvcmTaskPanelServicesImpl = {final} class(Tl3ProtoObject, IvcmTaskPanelServices)
+ TTaskPanelServiceImpl = {final} class(Tl3ProtoObject, ITaskPanelService)
   public
    procedure CustomizePanel(const aPanel: IvcmCustOps);
+    {* Настроить панель иструментов }
    function TasksPanelPopupMenu: TPopupMenu;
-   class function Instance: TvcmTaskPanelServicesImpl;
-    {* Метод получения экземпляра синглетона TvcmTaskPanelServicesImpl }
+   class function Instance: TTaskPanelServiceImpl;
+    {* Метод получения экземпляра синглетона TTaskPanelServiceImpl }
    class function Exists: Boolean;
     {* Проверяет создан экземпляр синглетона или нет }
- end;//TvcmTaskPanelServicesImpl
+ end;//TTaskPanelServiceImpl
 
-var g_TvcmTaskPanelServicesImpl: TvcmTaskPanelServicesImpl = nil;
- {* Экземпляр синглетона TvcmTaskPanelServicesImpl }
+var g_TTaskPanelServiceImpl: TTaskPanelServiceImpl = nil;
+ {* Экземпляр синглетона TTaskPanelServiceImpl }
 var g_dmTasksPanelMenu: TPrimTasksPanelMenuModule = nil;
 
-procedure TvcmTaskPanelServicesImplFree;
- {* Метод освобождения экземпляра синглетона TvcmTaskPanelServicesImpl }
+procedure TTaskPanelServiceImplFree;
+ {* Метод освобождения экземпляра синглетона TTaskPanelServiceImpl }
 begin
- l3Free(g_TvcmTaskPanelServicesImpl);
-end;//TvcmTaskPanelServicesImplFree
+ l3Free(g_TTaskPanelServiceImpl);
+end;//TTaskPanelServiceImplFree
 
-procedure TvcmTaskPanelServicesImpl.CustomizePanel(const aPanel: IvcmCustOps);
-//#UC START# *726DEE2EAA6F_578E03710025_var*
-//#UC END# *726DEE2EAA6F_578E03710025_var*
+procedure TTaskPanelServiceImpl.CustomizePanel(const aPanel: IvcmCustOps);
+ {* Настроить панель иструментов }
+var
+ __WasEnter : Boolean;
+//#UC START# *4C8E59B80380_4C8DD8C602D3_var*
+//#UC END# *4C8E59B80380_4C8DD8C602D3_var*
 begin
-//#UC START# *726DEE2EAA6F_578E03710025_impl*
- TPrimTasksPanelMenuModule.CustomizePanel(aPanel);
-//#UC END# *726DEE2EAA6F_578E03710025_impl*
-end;//TvcmTaskPanelServicesImpl.CustomizePanel
+ __WasEnter := vcmEnterFactory;
+ try
+//#UC START# *4C8E59B80380_4C8DD8C602D3_impl*
+  (TCustomizeTasksPanelForm.Make(aPanel, vcmMakeParams, vcm_ztAny).
+    VCLWinControl As TCustomForm).ShowModal;
+//#UC END# *4C8E59B80380_4C8DD8C602D3_impl*
+ finally
+  if __WasEnter then
+   vcmLeaveFactory;
+ end;//try..finally
+end;//TTaskPanelServiceImpl.CustomizePanel
 
-function TvcmTaskPanelServicesImpl.TasksPanelPopupMenu: TPopupMenu;
-//#UC START# *171E8E0C4B22_578E03710025_var*
-//#UC END# *171E8E0C4B22_578E03710025_var*
+function TTaskPanelServiceImpl.TasksPanelPopupMenu: TPopupMenu;
+var
+ __WasEnter : Boolean;
+//#UC START# *4C8F777E02AD_4C8DD8C602D3_var*
+//#UC END# *4C8F777E02AD_4C8DD8C602D3_var*
 begin
-//#UC START# *171E8E0C4B22_578E03710025_impl*
- Result := TPrimTasksPanelMenuModule.TasksPanelPopupMenu;
-//#UC END# *171E8E0C4B22_578E03710025_impl*
-end;//TvcmTaskPanelServicesImpl.TasksPanelPopupMenu
+ __WasEnter := vcmEnterFactory;
+ try
+//#UC START# *4C8F777E02AD_4C8DD8C602D3_impl*
+ Result := g_dmTasksPanelMenu.PopupMenu;
+//#UC END# *4C8F777E02AD_4C8DD8C602D3_impl*
+ finally
+  if __WasEnter then
+   vcmLeaveFactory;
+ end;//try..finally
+end;//TTaskPanelServiceImpl.TasksPanelPopupMenu
 
-class function TvcmTaskPanelServicesImpl.Instance: TvcmTaskPanelServicesImpl;
- {* Метод получения экземпляра синглетона TvcmTaskPanelServicesImpl }
+class function TTaskPanelServiceImpl.Instance: TTaskPanelServiceImpl;
+ {* Метод получения экземпляра синглетона TTaskPanelServiceImpl }
 begin
- if (g_TvcmTaskPanelServicesImpl = nil) then
+ if (g_TTaskPanelServiceImpl = nil) then
  begin
-  l3System.AddExitProc(TvcmTaskPanelServicesImplFree);
-  g_TvcmTaskPanelServicesImpl := Create;
+  l3System.AddExitProc(TTaskPanelServiceImplFree);
+  g_TTaskPanelServiceImpl := Create;
  end;
- Result := g_TvcmTaskPanelServicesImpl;
-end;//TvcmTaskPanelServicesImpl.Instance
+ Result := g_TTaskPanelServiceImpl;
+end;//TTaskPanelServiceImpl.Instance
 
-class function TvcmTaskPanelServicesImpl.Exists: Boolean;
+class function TTaskPanelServiceImpl.Exists: Boolean;
  {* Проверяет создан экземпляр синглетона или нет }
 begin
- Result := g_TvcmTaskPanelServicesImpl <> nil;
-end;//TvcmTaskPanelServicesImpl.Exists
+ Result := g_TTaskPanelServiceImpl <> nil;
+end;//TTaskPanelServiceImpl.Exists
 
 function TPrimTasksPanelMenuModule.pm_GetPopupMenu: TvcmPopupMenuPrim;
 //#UC START# *4C8F78BC0331_4C8DD8C602D3get_var*
@@ -156,42 +172,6 @@ begin
   Assert(False);
 //#UC END# *4C8DD91901C8_4C8DD8C602D3exec_impl*
 end;//TPrimTasksPanelMenuModule.opCustomizeExecute
-
-class procedure TPrimTasksPanelMenuModule.CustomizePanel(const aPanel: IvcmCustOps);
- {* Настроить панель иструментов }
-var
- __WasEnter : Boolean;
-//#UC START# *4C8E59B80380_4C8DD8C602D3_var*
-//#UC END# *4C8E59B80380_4C8DD8C602D3_var*
-begin
- __WasEnter := vcmEnterFactory;
- try
-//#UC START# *4C8E59B80380_4C8DD8C602D3_impl*
-  (TCustomizeTasksPanelForm.Make(aPanel, vcmMakeParams, vcm_ztAny).
-    VCLWinControl As TCustomForm).ShowModal;
-//#UC END# *4C8E59B80380_4C8DD8C602D3_impl*
- finally
-  if __WasEnter then
-   vcmLeaveFactory;
- end;//try..finally
-end;//TPrimTasksPanelMenuModule.CustomizePanel
-
-class function TPrimTasksPanelMenuModule.TasksPanelPopupMenu: TPopupMenu;
-var
- __WasEnter : Boolean;
-//#UC START# *4C8F777E02AD_4C8DD8C602D3_var*
-//#UC END# *4C8F777E02AD_4C8DD8C602D3_var*
-begin
- __WasEnter := vcmEnterFactory;
- try
-//#UC START# *4C8F777E02AD_4C8DD8C602D3_impl*
- Result := g_dmTasksPanelMenu.PopupMenu;
-//#UC END# *4C8F777E02AD_4C8DD8C602D3_impl*
- finally
-  if __WasEnter then
-   vcmLeaveFactory;
- end;//try..finally
-end;//TPrimTasksPanelMenuModule.TasksPanelPopupMenu
 
 procedure TPrimTasksPanelMenuModule.Cleanup;
  {* Функция очистки полей объекта. }
@@ -230,8 +210,8 @@ begin
 end;//TPrimTasksPanelMenuModule.GetEntityForms
 
 initialization
- TvcmTaskPanelServices.Instance.Alien := TvcmTaskPanelServicesImpl.Instance;
- {* Регистрация TvcmTaskPanelServicesImpl }
+ TTaskPanelService.Instance.Alien := TTaskPanelServiceImpl.Instance;
+ {* Регистрация TTaskPanelServiceImpl }
 {$IfEnd} // NOT Defined(NoVCM)
 
 end.

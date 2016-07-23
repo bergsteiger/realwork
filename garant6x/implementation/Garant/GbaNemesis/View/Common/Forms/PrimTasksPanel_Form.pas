@@ -92,7 +92,7 @@ uses
  , MainMenuNewRes
  , Windows
  {$If NOT Defined(NoVCM)}
- , vcmTaskPanelServices
+ , VCMCustomization_Customization_Contracts
  {$IfEnd} // NOT Defined(NoVCM)
  , l3Base
  {$If NOT Defined(NoScripts)}

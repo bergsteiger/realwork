@@ -11,7 +11,7 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3IntfUses
- , nsDataResetTreeStruct
+ , bsListTreeStruct
  , DynamicDocListUnit
  , l3TreeInterfaces
  , DynamicTreeUnit
@@ -21,11 +21,10 @@ uses
 ;
 
 type
- TnsDocumentWithSnippetList = class(TnsDataResetTreeStruct)
+ TnsDocumentWithSnippetList = class(TbsListTreeStruct)
   private
    f_List: IDynList;
   protected
-   function ReAqurieUnfilteredRoot: INodeBase; override;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
    function RootNodeClass: RnsINodeWrap; override;
@@ -33,6 +32,7 @@ type
    function DoMakeDataObject(const aData: Il3SimpleNode;
     const aBitmap: Il3Bitmap): IDataObject; override;
     {* объект данных дерева. aData - текущий элемент списка. aBitmap (Il3Bitmap) - картинка для перетаскивания }
+   function ReAqurieUnfilteredRoot: INodeBase; override;
   public
    constructor Create(const aRoot: INodeBase;
     const aDynList: IDynList); reintroduce;
@@ -75,16 +75,6 @@ begin
  end;//try..finally
 end;//TnsDocumentWithSnippetList.Make
 
-function TnsDocumentWithSnippetList.ReAqurieUnfilteredRoot: INodeBase;
-//#UC START# *48FF64F60078_5645E9550108_var*
-//#UC END# *48FF64F60078_5645E9550108_var*
-begin
-//#UC START# *48FF64F60078_5645E9550108_impl*
- Assert(Assigned(f_List));
- f_List.GetRoot(Result);
-//#UC END# *48FF64F60078_5645E9550108_impl*
-end;//TnsDocumentWithSnippetList.ReAqurieUnfilteredRoot
-
 procedure TnsDocumentWithSnippetList.Cleanup;
  {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_5645E9550108_var*
@@ -118,6 +108,16 @@ begin
   Result := TbsListDataObject.Make(aData, aBitmap, TbsListTreeData.Make(f_List, RootNode, aData));
 //#UC END# *48FEE6210205_5645E9550108_impl*
 end;//TnsDocumentWithSnippetList.DoMakeDataObject
+
+function TnsDocumentWithSnippetList.ReAqurieUnfilteredRoot: INodeBase;
+//#UC START# *48FF64F60078_5645E9550108_var*
+//#UC END# *48FF64F60078_5645E9550108_var*
+begin
+//#UC START# *48FF64F60078_5645E9550108_impl*
+ Assert(Assigned(f_List));
+ f_List.GetRoot(Result);
+//#UC END# *48FF64F60078_5645E9550108_impl*
+end;//TnsDocumentWithSnippetList.ReAqurieUnfilteredRoot
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

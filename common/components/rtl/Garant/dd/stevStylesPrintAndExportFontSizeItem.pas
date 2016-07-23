@@ -1,47 +1,34 @@
 unit stevStylesPrintAndExportFontSizeItem;
+ {* Визуализатор для настройки "Использовать для экспорта и печати следующий размер шрифта" }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd$AppConfig"
-// Модуль: "w:/common/components/rtl/Garant/dd/stevStylesPrintAndExportFontSizeItem.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::dd$AppConfig::AppConfig::TstevStylesPrintAndExportFontSizeItem
-//
-// Визуализатор для настройки "Использовать для экспорта и печати следующий размер шрифта"
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\stevStylesPrintAndExportFontSizeItem.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TstevStylesPrintAndExportFontSizeItem" MUID: (DF1A3014EEBC)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
-  ddAppConfigTypes
-  ;
+ l3IntfUses
+ , ddAppConfigTypes
+;
 
 type
  TstevStylesPrintAndExportFontSizeItem = class(TddComboBoxConfigItem)
   {* Визуализатор для настройки "Использовать для экспорта и печати следующий размер шрифта" }
- public
- // public methods
+  public
    constructor Create(aMasterItem: TddBaseConfigItem = nil); reintroduce;
-     {* undefined }
  end;//TstevStylesPrintAndExportFontSizeItem
 
 implementation
 
 uses
-  evStylesPrintAndExportFontSizeSettingRes,
-  l3Base,
-  ddAppConfigConst
-  ;
-
-// start class TstevStylesPrintAndExportFontSizeItem
+ l3ImplUses
+ , evStylesPrintAndExportFontSizeSettingRes
+ , l3Base
+ , ddAppConfigConst
+;
 
 constructor TstevStylesPrintAndExportFontSizeItem.Create(aMasterItem: TddBaseConfigItem = nil);
 var

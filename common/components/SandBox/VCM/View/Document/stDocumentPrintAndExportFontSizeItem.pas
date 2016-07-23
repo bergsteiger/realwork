@@ -31,12 +31,15 @@ uses
 ;
 
 constructor TstDocumentPrintAndExportFontSizeItem.Create(aMasterItem: TddBaseConfigItem = nil);
-//#UC START# *C1762961E823_1599BCBFE969_var*
-//#UC END# *C1762961E823_1599BCBFE969_var*
+var
+ l_Value : TddConfigValue;
 begin
-//#UC START# *C1762961E823_1599BCBFE969_impl*
- !!! Needs to be implemented !!!
-//#UC END# *C1762961E823_1599BCBFE969_impl*
+ l3FillChar(l_Value, SizeOf(l_Value));
+ l_Value.Kind := dd_vkInteger;
+ l_Value.AsInteger := dv__;
+ inherited Create(pi__,
+  str_.AsStr,
+  l_Value, TValuesMapImpl.Make, aMasterItem);
 end;//TstDocumentPrintAndExportFontSizeItem.Create
 
 end.

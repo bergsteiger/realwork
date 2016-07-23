@@ -243,7 +243,7 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmEntityForm
  {$IfEnd} // NOT Defined(NoVCM)
- , vcmParentAndChildService
+ , F1Like_Contracts
  , F1Like_FormDefinitions_Controls
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy

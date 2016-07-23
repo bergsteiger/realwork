@@ -158,7 +158,7 @@ var
  UpdateUnreadConsultations;
 
  // Сообщим пользователю если были установлены настройки по умолчанию:
- Tf1StartupCompletedServiceImpl.Instance.NeedShowSettingsDialog := CheckInstallDefaultSettings;
+ dmStdRes.NeedShowSettingsDialog := CheckInstallDefaultSettings;
 
  CheckFirstLoginActivity;
 
@@ -190,7 +190,7 @@ var
  end
  else
   l_InnerState := aState;
- Result := inherited DoLoadState(l_InnerState, aStateType, aClone);
+ Result := inherited DoLoadState(l_InnerState, aStateType);
 //#UC END# *49807428008C_4A952BA3006D_impl*
 //#UC START# *49807428008C_4A952BA3006D_var*
 var
@@ -261,7 +261,13 @@ var
  Result := (aCommand >= GC_FIRST) and (aCommand <= GC_LAST);
  if Result then
  begin
-  ActivateFormIfNeeded;
+  l_FormToActivate := GetParentForm(Self);
+  if (l_FormToActivate = nil) then
+   l_FormToActivate := Self;
+  if (l_FormToActivate.WindowState = wsMinimized) then
+   SendMessage(l_FormToActivate.Handle, WM_SYSCOMMAND, SC_RESTORE, 0);
+  SetActiveWindow(l_FormToActivate.Handle);
+  SetForegroundWindow(l_FormToActivate.Handle);   
   afw.ProcessMessages;
   // - http://mdp.garant.ru/pages/viewpage.action?pageId=566789558
   case aCommand of
@@ -269,64 +275,68 @@ var
     if InNewWindow then
      ProcessCommand(ConvertOpenOnStartSetting, false, aContainer);
    GC_MAIN_MENU:
-    TvcmModulesFactories.OpenMainMenuIfNeeded(aContainer);
+    TdmStdRes.OpenMainMenuIfNeeded(aContainer);
    GC_NAVIGATOR:
-    TvcmModulesFactories.OpenRubricatorOnStart(aContainer);
+    TdmStdRes.OpenRubricatorOnStart(aContainer);
    GC_SITUATION_SEARCH:
-    TvcmModulesFactories.OpenQuery(lg_qtKeyWord, nil, aContainer);
+    TdmStdRes.OpenQuery(lg_qtKeyWord, nil, aContainer);
    GC_ATTRIBUTES_SEARCH:
-    TvcmModulesFactories.OpenQuery(lg_qtAttribute, nil, aContainer);
+    TdmStdRes.OpenQuery(lg_qtAttribute, nil, aContainer);
    GC_PUBLISH_SOURCE_SEARCH:
     //http://mdp.garant.ru/pages/viewpage.action?pageId=497226332
     if defDataAdapter.IsExists_PublishSourceTag then
-     TvcmModulesFactories.OpenQuery(lg_qtPublishedSource, nil, aContainer)
+     TdmStdRes.OpenQuery(lg_qtPublishedSource, nil, aContainer)
     else
-     TvcmModulesFactories.OpenMainMenuIfNeeded(aContainer);
+     TdmStdRes.OpenMainMenuIfNeeded(aContainer);
    GC_REVIEW:
-    TvcmModulesFactories.OpenQuery(lg_qtLegislationReview, nil, aContainer);
+    TdmStdRes.OpenQuery(lg_qtLegislationReview, nil, aContainer);
    GC_DICTION:
-    Dispatcher.ModuleOperation(TvcmModulesOperations.mod_opcode_Diction_OpenDict);
+    Dispatcher.ModuleOperation(TdmStdRes.mod_opcode_Diction_OpenDict);
    GC_NEW_DOCS:
-    TvcmModulesFactories.OpenNewDocs(aContainer);
+    TdmStdRes.OpenNewDocs(aContainer);
    GC_INPHARM_SEARCH:
     if defDataAdapter.IsInpharmExists then
-     TvcmModulesFactories.OpenQuery(lg_qtInpharmSearch, nil, aContainer)
+     TdmStdRes.OpenQuery(lg_qtInpharmSearch, nil, aContainer)
     else
-     TvcmModulesFactories.OpenMainMenuIfNeeded(aContainer);
+     TdmStdRes.OpenMainMenuIfNeeded(aContainer);
    GC_DRUG_LIST:
     if defDataAdapter.IsInpharmExists then
-     TvcmModulesFactories.OpenDrugListIfNeeded(aContainer)
+     //Dispatcher.ModuleOperation(TdmStdRes.mod_opcode_Inpharm_DrugList)
+     TdmStdRes.OpenDrugListIfNeeded(aContainer)
     else
-     TvcmModulesFactories.OpenMainMenuIfNeeded(aContainer);
+     TdmStdRes.OpenMainMenuIfNeeded(aContainer);
    GC_INPHARM_MAIN_MENU:
     if defDataAdapter.IsInpharmExists then
-     TvcmModulesFactories.OpenInpharmMainMenu(aContainer)
+     TdmStdRes.OpenInpharmMainMenu(aContainer)
+     //Dispatcher.ModuleOperation(TdmStdRes.mod_opcode_Inpharm_MedicMainMenu)
     else
-     TvcmModulesFactories.OpenMainMenuIfNeeded(aContainer);
+     TdmStdRes.OpenMainMenuIfNeeded(aContainer);
    GC_IMPHARM_DICTION:
     if defDataAdapter.IsInpharmExists then
-     Dispatcher.ModuleOperation(TvcmModulesOperations.mod_opcode_Inpharm_MedicDiction)
+     Dispatcher.ModuleOperation(TdmStdRes.mod_opcode_Inpharm_MedicDiction)
     else
-     TvcmModulesFactories.OpenMainMenuIfNeeded(aContainer);
+     TdmStdRes.OpenMainMenuIfNeeded(aContainer);
    GC_INTERNET_AGENT:
     if defDataAdapter.IsInternetAgentEnabled then
-     Dispatcher.ModuleOperation(TvcmModulesOperations.mod_opcode_InternetAgent_InternetAgent)
+     Dispatcher.ModuleOperation(TdmStdRes.mod_opcode_InternetAgent_InternetAgent)
     else
-     TvcmModulesFactories.OpenMainMenuIfNeeded(aContainer);
+     TdmStdRes.OpenMainMenuIfNeeded(aContainer);
    GC_OPEN_CONSULT:
-    Dispatcher.ModuleOperation(TvcmModulesOperations.mod_opcode_Search_OpenConsult);
+    Dispatcher.ModuleOperation(TdmStdRes.mod_opcode_Search_OpenConsult);
    GC_PRIME:
-    TvcmModulesFactories.OpenNewsLine(True);
+    TdmStdRes.OpenNewsLine(True);
    else
-    TvcmModulesFactories.OpenMainMenuIfNeeded(aContainer);
+    TdmStdRes.OpenMainMenuIfNeeded(aContainer);
   end;//case aCommand
  end;//Result
 //#UC END# *4F86BF5F0198_4A952BA3006D_impl*
 //#UC START# *4F86BF5F0198_4A952BA3006D_var*
+var
+ l_FormToActivate: TCustomForm;
 //#UC END# *4F86BF5F0198_4A952BA3006D_var*
 //#UC START# *4F86BF850173_4A952BA3006D_impl*
  try
-  ActivateFormIfNeeded;
+  SetForegroundWindow(Handle);
   Result := nsIntergationOpenLink(PAnsiChar(aLink), Self);
  except
   if not HasForm(vcm_ztParent) then
@@ -378,31 +388,31 @@ var
  begin
   // Конфигурации
   if afw.Settings.LoadBoolean(pi_Sheets_Config, dv_Sheets_Config) then
-   TvcmModulesFactories.OpenConfList(Self)
+   TdmStdRes.OpenConfList(Self)
   else
-   TvcmModulesFactories.CloseConfList(Self);
+   TdmStdRes.CloseConfList(Self);
   // Основное меню(навигатор)
   if afw.Settings.LoadBoolean(pi_Sheets_MainMenu, dv_Sheets_MainMenu) then
-   TvcmModulesFactories.GetNavigator(nil, Self)
+   TdmStdRes.GetNavigator(nil, Self)
   else
-   TvcmModulesFactories.CloseNavigator(Self);
+   TdmStdRes.CloseNavigator(Self);
   // Мои документы
   if afw.Settings.LoadBoolean(pi_Sheets_MyDocuments, dv_Sheets_MyDocuments) then
-   TvcmModulesFactories.OpenFolders(Self, true)
+   TdmStdRes.OpenFolders(Self, true)
   else
-   TvcmModulesFactories.CloseFolders(Self);
+   TdmStdRes.CloseFolders(Self);
   // На контроле
   if afw.Settings.LoadBoolean(piSheetsDocUnderControl, dvSheetsDocUnderControl) then
-   TvcmModulesFactories.OpenUnderControl(Self)
+   TdmStdRes.OpenUnderControl(Self)
   else
-   TvcmModulesFactories.CloseUnderControl(Self);
+   TdmStdRes.CloseUnderControl(Self);
   if afw.Settings.LoadBoolean(piSheetsTaskPanel, dvSheetsTaskPanel) then
   begin
-   TvcmModulesFactories.CloseTasksPanel(Self); // http://mdp.garant.ru/pages/viewpage.action?pageId=342864296
-   TvcmModulesFactories.OpenTasksPanel(Self);
+   TdmStdRes.CloseTasksPanel(Self); // http://mdp.garant.ru/pages/viewpage.action?pageId=342864296
+   TdmStdRes.OpenTasksPanel(Self);
   end
   else
-   TvcmModulesFactories.CloseTasksPanel(Self);
+   TdmStdRes.CloseTasksPanel(Self);
  end;//not defDataAdapter.AdministratorLogin
  LoadSettings;
 //#UC END# *4F8813D6026A_4A952BA3006D_impl*
@@ -616,23 +626,23 @@ var
    not afw.PermanentSettings.LoadBoolean(pi_NoShowPrimeDialog, dv_NoShowPrimeDialog) then
   begin
    afw.PermanentSettings.SaveBoolean(pi_NoShowPrimeDialog, True);
-   afw.PermanentSettings.SaveBoolean(pi_NeedShowSettingsDialog, Tf1StartupCompletedServiceImpl.Instance.NeedShowSettingsDialog);
-   Tf1StartupCompletedServiceImpl.Instance.NeedShowSettingsDialog := False;
-   Tf1StartupCompletedServiceImpl.Instance.NeedAskToFillPrimeAtStartup := True;
+   afw.PermanentSettings.SaveBoolean(pi_NeedShowSettingsDialog, dmStdRes.NeedShowSettingsDialog);
+   dmStdRes.NeedShowSettingsDialog := False;
+   dmStdRes.NeedAskToFillPrimeAtStartup := True;
   end;
 
-  if not Tf1StartupCompletedServiceImpl.Instance.NeedAskToFillPrimeAtStartup then
+  if not dmStdRes.NeedAskToFillPrimeAtStartup then
   begin
-   if not Tf1StartupCompletedServiceImpl.Instance.NeedShowSettingsDialog then
-    Tf1StartupCompletedServiceImpl.Instance.NeedShowSettingsDialog := afw.PermanentSettings.LoadBoolean(pi_NeedShowSettingsDialog, dv_NeedShowSettingsDialog);
-   if Tf1StartupCompletedServiceImpl.Instance.NeedShowSettingsDialog then
+   if not dmStdRes.NeedShowSettingsDialog then
+    dmStdRes.NeedShowSettingsDialog := afw.PermanentSettings.LoadBoolean(pi_NeedShowSettingsDialog, dv_NeedShowSettingsDialog);
+   if dmStdRes.NeedShowSettingsDialog then
    begin
-    Tf1StartupCompletedServiceImpl.Instance.NeedShowSettingsDialog := True;
+    dmStdRes.NeedShowSettingsDialog := True;
     afw.PermanentSettings.SaveBoolean(pi_NeedShowSettingsDialog, False);
    end else
    if not afw.Settings.LoadBoolean(pi_DayTips_DontShowAtStart, dv_DayTips_DontShowAtStart) then
    begin
-    f_StartupTipsForm := TvcmModulesFactories.ShowDayTipsAtStartup;
+    f_StartupTipsForm := TdmStdRes.ShowDayTipsAtStartup;
     if not Assigned(f_StartupTipsForm) then
      lp_ShowHelp;
    end else
@@ -748,7 +758,7 @@ var
 //#UC START# *4F8BF5C602C3_4A952BA3006D_impl*
  if not NeedUseTabs then
   ShowStartupAdvertising;
- TvcmModulesFactories.MakeChatDispatcher.StartProcessing;
+ TdmStdRes.MakeChatDispatcher.StartProcessing;
 //#UC END# *4F8BF5C602C3_4A952BA3006D_impl*
 //#UC START# *4F8BF5C602C3_4A952BA3006D_var*
 //#UC END# *4F8BF5C602C3_4A952BA3006D_var*
