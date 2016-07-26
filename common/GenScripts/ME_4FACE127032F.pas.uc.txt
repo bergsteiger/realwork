@@ -5,6 +5,9 @@
 //#UC END# *479731C50290_4FACE127032F_impl*
 //#UC START# *479731C50290_4FACE127032F_var*
 //#UC END# *479731C50290_4FACE127032F_var*
+//#UC START# *4FACE127032F_ext:FileName
+w:\common\components\rtl\Garant\dd\ddTableCell.pas
+//#UC END# *4FACE127032F_ext:FileName
 //#UC START# *518A2E3702C4_4FACE127032Fget_impl*
  Result := f_ParaList.Hi;
 //#UC END# *518A2E3702C4_4FACE127032Fget_impl*
@@ -98,9 +101,10 @@ var
   else
    if Props.VMerged then
     Generator.AddIntegerAtom(k2_tiMergeStatus, Ord(ev_msContinue));
-  if LiteVersion = dd_lvNone then
+  // ”брал цвет €чеек: http://mdp.garant.ru/pages/viewpage.action?pageId=627385907
+  (*if LiteVersion = dd_lvNone then
    if Props.PatternBackColor <> propUndefined then
-    Generator.AddIntegerAtom(k2_tiBackColor, Props.PatternBackColor);
+    Generator.AddIntegerAtom(k2_tiBackColor, Props.PatternBackColor);*)
   Generator.AddIntegerAtom(k2_tiWidth, Props.CellOffset);
   if LiteVersion = dd_lvNone then
   begin
@@ -118,6 +122,7 @@ var
    for j := 0 to Hi do
    begin
     l_Item := Items[j];
+    ProcessItem(l_Item);
     if l_Item.IsTable then
     begin
      l_NewWidth := Props.CellOffset - Props.LeftPad - Props.RightPad;
@@ -207,8 +212,14 @@ var
 //#UC END# *572C72F20143_4FACE127032F_var*
 //#UC START# *578F2F7003B9_4FACE127032F_impl*
  if anItem.IsTextPara then
-  if (anItem as TddTextParagraph).CHP.IsFontColorWhite then
-   (anItem as TddTextParagraph).CHP.ClearProp(ddFColor);
+ begin
+  l_TextPara := (anItem as TddTextParagraph);
+  if (Props.PatternBackColor <> propUndefined) and l_TextPara.CHP.IsFontColorWhite
+     and not l_TextPara.CHP.IsHighlightColorWhite then
+   l_TextPara.CHP.ClearProp(ddFColor);
+ end;
 //#UC END# *578F2F7003B9_4FACE127032F_impl*
 //#UC START# *578F2F7003B9_4FACE127032F_var*
+var
+ l_TextPara: TddTextParagraph;
 //#UC END# *578F2F7003B9_4FACE127032F_var*

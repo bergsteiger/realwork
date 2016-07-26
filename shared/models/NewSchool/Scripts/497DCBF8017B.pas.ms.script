@@ -6,44 +6,6 @@ FORWARD ME_497DCBF8017B
 
 FORWARD ME_4AC0ABB70051
 
-FORWARD ME_4AC0ABED023F
-
-: ME_4AC0AC110099
- CONST UID '4AC0AC110099'
- CONST Name 'Rect'
- CONST Class class_Attribute
- : Stereotype st_readonly::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_abstract
- CONST LinkType lt_lnk
- : Parent HWL ME_4AC0ABED023F // InsFormCoordinates
- ;
- : Target WL 'ME_4728A7190065' '4728A7020026.pas.ms.script' // TRect
- ;
- CONST "pm" false
-
-ref; // ME_4AC0AC110099 Rect
-
-: ME_4AC0ABED023F
- CONST UID '4AC0ABED023F'
- CONST GUID '19A17133-BBBB-44F6-8763-1D186621B75E'
- CONST Name 'InsFormCoordinates'
- CONST Class class_Class
- : Stereotype st_Facet ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent HWL ME_4AC0ABB70051 // TnsFormCoordinates
- ;
- : Attributes
-   Seq: ( HWL ME_4AC0AC110099 // Rect
- )
- ; // Attributes
- CONST extprop:rc:SelfName 'FormCoordinates'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_4AC0ABED023F InsFormCoordinates
-
 : ME_4AC0AC5200A6
  CONST UID '4AC0AC5200A6'
  CONST Name 'f_Coord'
@@ -109,7 +71,7 @@ ref; // ME_4AC0AC36035A aRect
 ref; // ME_4AC0AC34022C Make
 
 : ME_4AC0AC110099_ME_4AC0ABB70051
- : Original HWL ME_4AC0AC110099 // Rect
+ : Original WL 'ME_4AC0AC110099' '5795D66F0385.pas.ms.script' // Rect
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
@@ -137,7 +99,7 @@ ref; // ME_47A6FEE600FC_ME_4AC0ABB70051 IsCacheable
  )
  ; // Inherits
  : Implements
-   Seq: ( HWL ME_4AC0ABED023F // InsFormCoordinates
+   Seq: ( WL 'ME_4AC0ABED023F' '5795D66F0385.pas.ms.script' // InsFormCoordinates
  )
  ; // Implements
  : Attributes
@@ -157,10 +119,6 @@ ref; // ME_47A6FEE600FC_ME_4AC0ABB70051 IsCacheable
    Seq: ( ME_47A6FEE600FC_ME_4AC0ABB70051 // IsCacheable
  )
  ; // Overridden
- : Children
-   Seq: ( HWL ME_4AC0ABED023F // InsFormCoordinates
- )
- ; // Children
  CONST "author" 'Ëþëèí À.Â.'
  CONST "no hands" true
  CONST "started" '28.09.2009 16:27'
@@ -529,6 +487,7 @@ ref; // ME_51BEFA6F00E3 TnsSaveQueryEvent
  WL 'ME_521C9DA50125' '521C9DA50125.pas.ms.script' // Application Resources
  WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
  WL 'ME_55C4AEC801CA' '55C4AEC801CA.pas.ms.script' // Graphics
+ WL 'ME_5795D66F0385' '5795D66F0385.pas.ms.script' // F1Services
  )
  ; // Depends
  CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Folders'

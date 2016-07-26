@@ -45,7 +45,11 @@
 //#UC END# *497469C90140_4979DFB700F8_impl*
 //#UC START# *497469C90140_4979DFB700F8_var*
 //#UC END# *497469C90140_4979DFB700F8_var*
+//#UC START# *4979DFB700F8_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\View\PrimContents_Form.pas
+//#UC END# *4979DFB700F8_ext:FileName
 //#UC START# *4979DFB700F8impl_uses*
+ , Common_Strange_Controls
 //#UC END# *4979DFB700F8impl_uses*
 //#UC START# *4A8E8F2E0195_4979DFB700F8_impl*
  inherited;
@@ -272,7 +276,7 @@ var
  if (Aggregate <> nil) and (ContentsTree.TreeView.Current <> -1) then
  begin
   if (ContentsTree.TreeView.CurrentNode.ID = c_DocumentSubID) then
-   Aggregate.Operation(TdmStdRes.opcode_Document_GetCorrespondentListExFrmAct)
+   Aggregate.Operation(opcode_Document_GetCorrespondentListExFrmAct)
   else
   begin
    l_PositionList := MakePositionList;
@@ -300,7 +304,7 @@ var
  if (Aggregate <> nil) and (ContentsTree.TreeView.Current <> -1) then
  begin
   if (ContentsTree.TreeView.CurrentNode.ID = c_DocumentSubID) then
-   Aggregate.Operation(TdmStdRes.opcode_Document_GetRespondentListExFrmAct)
+   Aggregate.Operation(opcode_Document_GetRespondentListExFrmAct)
   else
   begin
    l_PositionList := MakePositionList;
@@ -329,7 +333,7 @@ var
  if (Aggregate <> nil) and (ContentsTree.TreeView.Current <> -1) then
  begin
   if ContentsTree.TreeView.CurrentNode.ID = c_DocumentSubID then
-   Aggregate.Operation(TdmStdRes.opcode_Document_GetCorrespondentListExFrmAct, aParams As IvcmExecuteParams)
+   Aggregate.Operation(opcode_Document_GetCorrespondentListExFrmAct, aParams As IvcmExecuteParams)
   else
   begin
    l_PositionList := MakePositionList;
@@ -362,7 +366,7 @@ var
  if (Aggregate <> nil) and (ContentsTree.TreeView.Current <> -1) then
  begin
   if ContentsTree.TreeView.CurrentNode.ID = c_DocumentSubID then
-   Aggregate.Operation(TdmStdRes.opcode_Document_GetRespondentListExFrmAct, aParams As IvcmExecuteParams)
+   Aggregate.Operation(opcode_Document_GetRespondentListExFrmAct, aParams As IvcmExecuteParams)
   else
   begin
    l_PositionList := MakePositionList;

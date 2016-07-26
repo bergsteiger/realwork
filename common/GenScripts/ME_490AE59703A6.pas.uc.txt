@@ -3,7 +3,7 @@
  Result := CreateNode(nil) as Il3RootNode;
  // Покажем закладки
  try
-  l_List := dmStdRes.MakeWorkJournal.MakeBookMarkHistory(f_ForInpharm, MaxCount);
+  l_List := TvcmModulesFactories.MakeWorkJournal.MakeBookMarkHistory(f_ForInpharm, MaxCount);
   l_AddDoc := False;
   if Assigned(l_List) then
    for l_Index := 0 to Pred(l_List.Count) do
@@ -46,6 +46,9 @@ var
  l_AddDoc : Boolean;
  l_Item   : IJournalBookMark;
 //#UC END# *4909EF6E0361_490AE59703A6_var*
+//#UC START# *490AE59703A6_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\Common\nsLastOpenDocTree.pas
+//#UC END# *490AE59703A6_ext:FileName
 //#UC START# *490AE5F60009_490AE59703A6_impl*
  Result := TnsJournalBookmarkNode.Make(aBookmark, f_FullDocName);
 //#UC END# *490AE5F60009_490AE59703A6_impl*

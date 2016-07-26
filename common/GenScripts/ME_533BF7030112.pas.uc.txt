@@ -41,13 +41,20 @@ var
 var
  l_Left, l_Right, l_Top, l_Bottom: Integer;
 //#UC END# *4F9A5C530398_533BF7030112_var*
+//#UC START# *533BF7030112_ext:FileName
+w:\common\components\gui\Garant\VT\vgRemindersLineWithState.pas
+//#UC END# *533BF7030112_ext:FileName
 //#UC START# *533BFFBD03B8_533BF7030112_impl*
  Assert((Name <> ''), 'Для сохранения в настройки необходимо установить property Name.');
 //#UC END# *533BFFBD03B8_533BF7030112_impl*
 //#UC START# *533BFFBD03B8_533BF7030112_var*
 //#UC END# *533BFFBD03B8_533BF7030112_var*
 //#UC START# *533BFFD20377_533BF7030112_impl*
+ {$IfNDef DesignTimeLibrary}
  Result := BaseId + g_afwPathSep + Name + g_afwPathSep + aId;
+ {$Else}
+ Result := '';
+ {$EndIf}
 //#UC END# *533BFFD20377_533BF7030112_impl*
 //#UC START# *533BFFD20377_533BF7030112_var*
 //#UC END# *533BFFD20377_533BF7030112_var*

@@ -55,152 +55,6 @@ ref; // ME_4B151A760366
 
 ref; // ME_4B151A2302D2 TnsOpenMainMenuEvent
 
-FORWARD ME_4ABB94DE033F
-
-: ME_4ABB94FA036B
- CONST Name 'aContainer'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
- ;
-
-ref; // ME_4ABB94FA036B aContainer
-
-: ME_4ABB94EE01D1
- CONST UID '4ABB94EE01D1'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent HWL ME_4ABB94DE033F // OpenMainMenuIfNeeded
- ;
- : Parameters
-   Seq: ( ME_4ABB94FA036B // aContainer
- )
- ; // Parameters
-
-ref; // ME_4ABB94EE01D1 DoIt
-
-: ME_4ABB959B028D
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent HWL ME_4ABB94DE033F // OpenMainMenuIfNeeded
- ;
- : Target WL 'ME_47752AF90375' '47750CE700D0.pas.ms.script' // afwFacade
- ;
-
-ref; // ME_4ABB959B028D 
-
-: ME_4ABB95B10181
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent HWL ME_4ABB94DE033F // OpenMainMenuIfNeeded
- ;
- : Target WL 'ME_47FB50E4008E' '48F747EC0073.pas.ms.script' // nsConst
- ;
-
-ref; // ME_4ABB95B10181 
-
-: ME_4ABB95E3034C
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent HWL ME_4ABB94DE033F // OpenMainMenuIfNeeded
- ;
- : Target WL 'ME_4A6854C70390' '47F2170002B2.pas.ms.script' // nsTypes
- ;
-
-ref; // ME_4ABB95E3034C 
-
-: ME_4ABB962A012B
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent HWL ME_4ABB94DE033F // OpenMainMenuIfNeeded
- ;
- : Target WL 'ME_48FF556602BA' '48F747EC0073.pas.ms.script' // DataAdapter
- ;
-
-ref; // ME_4ABB962A012B 
-
-: ME_4ABB964C00F0
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent HWL ME_4ABB94DE033F // OpenMainMenuIfNeeded
- ;
- : Target WL 'ME_4AA1182503AD' '48F747EC0073.pas.ms.script' // ProfilersManager
- ;
-
-ref; // ME_4ABB964C00F0 
-
-: ME_4ABB996C0285
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent HWL ME_4ABB94DE033F // OpenMainMenuIfNeeded
- ;
- : Target WL 'ME_4A93BA1802CE' '47D0E1500033.pas.ms.script' // vcmParams
- ;
-
-ref; // ME_4ABB996C0285 
-
-: ME_4BD9762B01B6
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent HWL ME_4ABB94DE033F // OpenMainMenuIfNeeded
- ;
- : Target WL 'ME_4BD9750B00C7' '4BD856E802F9.pas.ms.script' // MainMenuNew
- ;
-
-ref; // ME_4BD9762B01B6 
-
-: ME_56FADC820247
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent HWL ME_4ABB94DE033F // OpenMainMenuIfNeeded
- ;
- : Target WL 'ME_56FA879A0085' '4BD856E802F9.pas.ms.script' // MainMenuWithProfNews
- ;
-
-ref; // ME_56FADC820247 
-
-: ME_56FE9ACE03AB
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent HWL ME_4ABB94DE033F // OpenMainMenuIfNeeded
- ;
- : Target WL 'ME_49525B34022A' '4AADF9450143.pas.ms.script' // TvcmEntityForm
- ;
-
-ref; // ME_56FE9ACE03AB 
-
-: ME_4ABB94DE033F
- CONST UID '4ABB94DE033F'
- CONST Name 'OpenMainMenuIfNeeded'
- CONST Class class_Class
- : Stereotype st_FactoryMethod ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent HWL ME_4AA7A1F80027 // MainMenu$FP
- ;
- : Operations
-   Seq: ( HWL ME_4ABB94EE01D1 // DoIt
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_4ABB959B028D // afwFacade
- ME_4ABB95B10181 // nsConst
- ME_4ABB95E3034C // nsTypes
- ME_4ABB962A012B // DataAdapter
- ME_4ABB964C00F0 // ProfilersManager
- ME_4ABB996C0285 // vcmParams
- ME_4BD9762B01B6 // MainMenuNew
- ME_56FADC820247 // MainMenuWithProfNews
- ME_56FE9ACE03AB // TvcmEntityForm
- )
- ; // Dependencies
- CONST "NO_FACTORY_BRACKECTS" false
-
-ref; // ME_4ABB94DE033F OpenMainMenuIfNeeded
-
 FORWARD ME_AD718804750F
 
 : ME_09E9759F9F3F
@@ -337,6 +191,106 @@ ref; // ME_F62C297CC387 WriteMainMenuChangeableMainMenuTypeSetting
 
 ref; // ME_4B151A6501AE 
 
+: ME_4ABB964C00F0
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AA7A1F80027 // MainMenu$FP
+ ;
+ : Target WL 'ME_4AA1182503AD' '48F747EC0073.pas.ms.script' // ProfilersManager
+ ;
+
+ref; // ME_4ABB964C00F0 
+
+: ME_4ABB996C0285
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AA7A1F80027 // MainMenu$FP
+ ;
+ : Target WL 'ME_4A93BA1802CE' '47D0E1500033.pas.ms.script' // vcmParams
+ ;
+
+ref; // ME_4ABB996C0285 
+
+: ME_56FE9ACE03AB
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AA7A1F80027 // MainMenu$FP
+ ;
+ : Target WL 'ME_49525B34022A' '4AADF9450143.pas.ms.script' // TvcmEntityForm
+ ;
+
+ref; // ME_56FE9ACE03AB 
+
+: ME_4ABB962A012B
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AA7A1F80027 // MainMenu$FP
+ ;
+ : Target WL 'ME_48FF556602BA' '48F747EC0073.pas.ms.script' // DataAdapter
+ ;
+
+ref; // ME_4ABB962A012B 
+
+: ME_4ABB95B10181
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AA7A1F80027 // MainMenu$FP
+ ;
+ : Target WL 'ME_47FB50E4008E' '48F747EC0073.pas.ms.script' // nsConst
+ ;
+
+ref; // ME_4ABB95B10181 
+
+: ME_4BD9762B01B6
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AA7A1F80027 // MainMenu$FP
+ ;
+ : Target WL 'ME_4BD9750B00C7' '4BD856E802F9.pas.ms.script' // MainMenuNew
+ ;
+
+ref; // ME_4BD9762B01B6 
+
+: ME_56FADC820247
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AA7A1F80027 // MainMenu$FP
+ ;
+ : Target WL 'ME_56FA879A0085' '4BD856E802F9.pas.ms.script' // MainMenuWithProfNews
+ ;
+
+ref; // ME_56FADC820247 
+
+: ME_4ABB959B028D
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AA7A1F80027 // MainMenu$FP
+ ;
+ : Target WL 'ME_47752AF90375' '47750CE700D0.pas.ms.script' // afwFacade
+ ;
+
+ref; // ME_4ABB959B028D 
+
+: ME_4ABB95E3034C
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4AA7A1F80027 // MainMenu$FP
+ ;
+ : Target WL 'ME_4A6854C70390' '47F2170002B2.pas.ms.script' // nsTypes
+ ;
+
+ref; // ME_4ABB95E3034C 
+
+: ME_57973678016A
+ CONST Class class_Dependency
+ : Stereotype st_implements::Dependency ;
+ : Parent HWL ME_4AA7A1F80027 // MainMenu$FP
+ ;
+ : Target WL 'ME_579735A70273' '5795D66F0385.pas.ms.script' // TMainMenuService
+ ;
+
+ref; // ME_57973678016A 
+
 : ME_35364DB14CD9
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -370,8 +324,7 @@ ref; // ME_FD95DDBA2CF0
  : Parent WL 'ME_4958DD470101' '4958DD470101.pas.ms.script' // MainMenu
  ;
  : Operations
-   Seq: ( HWL ME_4ABB94DE033F // OpenMainMenuIfNeeded
- HWL ME_AD718804750F // MainMenuChangeableMainMenuTypeSetting
+   Seq: ( HWL ME_AD718804750F // MainMenuChangeableMainMenuTypeSetting
  HWL ME_F62C297CC387 // WriteMainMenuChangeableMainMenuTypeSetting
  )
  ; // Operations
@@ -383,6 +336,16 @@ ref; // ME_FD95DDBA2CF0
  ; // Children
  : Dependencies
    Seq: ( ME_4B151A6501AE // TnsOpenMainMenuEvent
+ ME_4ABB964C00F0 // ProfilersManager
+ ME_4ABB996C0285 // vcmParams
+ ME_56FE9ACE03AB // TvcmEntityForm
+ ME_4ABB962A012B // DataAdapter
+ ME_4ABB95B10181 // nsConst
+ ME_4BD9762B01B6 // MainMenuNew
+ ME_56FADC820247 // MainMenuWithProfNews
+ ME_4ABB959B028D // afwFacade
+ ME_4ABB95E3034C // nsTypes
+ ME_57973678016A // TMainMenuService
  ME_35364DB14CD9 // MainMenuChangeableMainMenuTypeSettingRes
  ME_FD95DDBA2CF0 // TstMainMenuChangeableMainMenuTypeItem
  )

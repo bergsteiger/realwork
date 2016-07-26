@@ -83,9 +83,9 @@ var
 //#UC START# *4A8E5E4702C6_4DDCD636016C_impl*
  with aList do
  begin
-  Add(TnscStatusBarOperationDef.MakeS(TdmStdRes.opcode_Document_CompareEditions, True, str_CompareRedactionOperationCaption, true, false, 2000, nsc_ttkNone));
-  Add(TnscStatusBarOperationDef.MakeSDefaultCaption(TdmStdRes.opcode_Redactions_OpenRedactionListFrmAct, true, false, 2000, nsc_ttkNone));
-  Add(TnscStatusBarOperationDef.MakeS(TdmStdRes.opcode_Edition_ReturnToDocument, True, str_ReturnToDocumentOperationCaption, true, false, 2000, nsc_ttkNone));
+  Add(TnscStatusBarOperationDef.MakeS(opcode_Document_CompareEditions, True, str_CompareRedactionOperationCaption, true, false, 2000, nsc_ttkNone));
+  Add(TnscStatusBarOperationDef.MakeSDefaultCaption(opcode_Redactions_OpenRedactionListFrmAct, true, false, 2000, nsc_ttkNone));
+  Add(TnscStatusBarOperationDef.MakeS(opcode_Edition_ReturnToDocument, True, str_ReturnToDocumentOperationCaption, true, false, 2000, nsc_ttkNone));
  end;//with aList
 //#UC END# *4A8E5E4702C6_4DDCD636016C_impl*
 //#UC START# *4A8E5E4702C6_4DDCD636016C_var*
@@ -153,7 +153,7 @@ var
 //#UC START# *4AE9D38A02DA_4DDCD636016Cexec_var*
 //#UC END# *4AE9D38A02DA_4DDCD636016Cexec_var*
 //#UC START# *4B1E37CE00C1_4DDCD636016Cexec_impl*
- TdmStdRes.OpenDocument(TdeDocInfo.Make(Document,
+ TvcmModulesFactories.OpenDocument(TdeDocInfo.Make(Document,
                                         TbsDocPos_P(GetParaForPositionning)),
                         nil);
 //#UC END# *4B1E37CE00C1_4DDCD636016Cexec_impl*
@@ -184,6 +184,9 @@ var
 //#UC END# *4B506F4D0196_4DDCD636016Ctest_impl*
 //#UC START# *4B506F4D0196_4DDCD636016Ctest_var*
 //#UC END# *4B506F4D0196_4DDCD636016Ctest_var*
+//#UC START# *4DDCD636016C_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\View\ChangesBetweenEditons\Forms\PrimChangesBetweenEditons_Form.pas
+//#UC END# *4DDCD636016C_ext:FileName
 //#UC START# *4DDCD636016Cimpl_uses*
 //#UC END# *4DDCD636016Cimpl_uses*
 //#UC START# *4DDD07AA02FD_4DDCD636016C_impl*
@@ -219,7 +222,7 @@ var
  l_LeftEdition : IDocument;
 //#UC END# *4F2BEF740060_4DDCD636016C_var*
 //#UC START# *5228246A01D9_4DDCD636016C_impl*
- TdmStdRes.CheckBaseSearchDataReady(NativeMainForm);
+ TBaseSearchService.Instance.CheckBaseSearchDataReady(NativeMainForm);
 //#UC END# *5228246A01D9_4DDCD636016C_impl*
 //#UC START# *5228246A01D9_4DDCD636016C_var*
 //#UC END# *5228246A01D9_4DDCD636016C_var*

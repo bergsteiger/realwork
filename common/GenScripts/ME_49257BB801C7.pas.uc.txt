@@ -80,7 +80,7 @@ var
  l_Bookmark := CreateBookmark;
  if Assigned(l_Bookmark) then
  try
-   TdmStdRes.SaveOpen(nil, // - вот это НОМЕР ! не форма вызывает :-(
+  TFoldersService.Instance.SaveOpen(nil, // - вот это НОМЕР ! не форма вызывает :-(
                       TnsFolderFilterInfo.Make(ffBookmark, ns_ffDocument),
                       fetBookmark,
                       l_Bookmark,
@@ -246,6 +246,9 @@ var
 var
  l_Source: InsMedicFirmsTreeNotificationSource;
 //#UC END# *4925786801D6_49257BB801C7get_var*
+//#UC START# *49257BB801C7_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\Medic\dsMedicFirmList.pas
+//#UC END# *49257BB801C7_ext:FileName
 //#UC START# *49257D0D020D_49257BB801C7_impl*
  l_Replacer := TnsFixedHAFMacroReplacer.Make(nil, pm_GetShortName, FullName);
  Result := TafwComplexDocumentPreview.Make(TnsDocumentPreview.Make(TevTreeStorable.MakeStorable(TevTreeStorableData_C(aTree)),

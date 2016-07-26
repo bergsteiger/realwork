@@ -10,7 +10,11 @@
 //#UC END# *497469C90140_497DCC17001C_impl*
 //#UC START# *497469C90140_497DCC17001C_var*
 //#UC END# *497469C90140_497DCC17001C_var*
+//#UC START# *497DCC17001C_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\View\Filters\Forms\PrimFilters_Form.pas
+//#UC END# *497DCC17001C_ext:FileName
 //#UC START# *497DCC17001Cimpl_uses*
+ , Base_Operations_F1Services_Contracts
 //#UC END# *497DCC17001Cimpl_uses*
 //#UC START# *49803F5503AA_497DCC17001C_impl*
  FiltersList.Images := nsFoldersRes.FoldersItemImages;
@@ -66,7 +70,7 @@ var
    try
     if Supports(l_BaseEntity, IQuery, l_Query) then
      try
-      Result := (TdmStdRes.CreateFilter(l_Query) = mrOk);
+      Result := (TFiltersService.Instance.CreateFilter(l_Query) = mrOk);
 (*      if (l_Query.GetFilterType <> FT_NO_FILTER) then
       begin
        Say(msg_QueryIsAlreadyFilterError);
@@ -213,7 +217,7 @@ var
 //#UC START# *4C7D3A81021B_497DCC17001Ctest_var*
 //#UC END# *4C7D3A81021B_497DCC17001Ctest_var*
 //#UC START# *4D0B5FBF0310_497DCC17001Cexec_impl*
- TdmStdRes.SelectOpen(Self.As_IvcmEntityForm,
+ TvcmModulesFactories.SelectOpen(Self.As_IvcmEntityForm,
                       TnsFolderFilterInfo.Make(ffQuery, ns_ffNone),
                       str_CreateFilter);
 //#UC END# *4D0B5FBF0310_497DCC17001Cexec_impl*

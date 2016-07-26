@@ -13,6 +13,9 @@
 //#UC END# *484516C00214_4AB22E140136_impl*
 //#UC START# *484516C00214_4AB22E140136_var*
 //#UC END# *484516C00214_4AB22E140136_var*
+//#UC START# *4AB22E140136_ext:FileName
+w:\common\components\gui\Garant\VCM\implementation\Visual\vcmApplication.pas
+//#UC END# *4AB22E140136_ext:FileName
 //#UC START# *4AB22E140136ci*
 //#UC END# *4AB22E140136ci*
 //#UC START# *4AB22E140136cit*
@@ -121,7 +124,11 @@
    for l_Index := 0 to Pred(Count) do
    begin
     with ItemSlot(l_Index)^ do
+    begin
+     Assert(rVar^.rMoID < 0);
+     Assert(rVar^.rOpID < 0);
      rVar^ := Self.PublishModuleOperation(rModule, rOperationName, rOperationCaption, rNoPrefix);
+    end;//with ItemSlot(l_Index)^
    end;//for l_Index
   end;//with TvcmModuleOperationsForRegister.Instance
  end;//TvcmModuleOperationsForRegister.Exists

@@ -1,5 +1,5 @@
 //#UC START# *4AB7881B00EA_4CC97D020011_impl*
- l_Container := CheckContainer(nil).NativeMainForm;
+ l_Container := TvcmModule.CheckContainer(nil).NativeMainForm;
 
  TnsBaseSearchService.Instance.OpenBaseSearch(l_Container, OpenKind);
 
@@ -8,44 +8,53 @@
   l_Processor.SetDataFromQuery(aQuery);
 //#UC END# *4AB7881B00EA_4CC97D020011_impl*
 //#UC START# *4AB7881B00EA_4CC97D020011_var*
+var
+ l_Container : IvcmContainer;
+ l_Processor : InsBaseSearchQueryDataProcessor;
 //#UC END# *4AB7881B00EA_4CC97D020011_var*
 //#UC START# *4AB793B903E6_4CC97D020011_impl*
-  l_Params := vcmCheckAggregate(vcmMakeParams(nil, CheckContainer(aContainer)));
+  l_Params := vcmCheckAggregate(vcmMakeParams(nil, TvcmModule.CheckContainer(aContainer)));
   Result := TNewBaseSearchForm.MakeSingleChild(aData, l_Params.Container,
     l_Params.Aggregate,
     aZoneType);
-//  Result := Ten_BaseSearch.MakeSingleChild(aData, CheckContainer(aContainer));
+//  Result := Ten_BaseSearch.MakeSingleChild(aData, TvcmModule.CheckContainer(aContainer));
 //#UC END# *4AB793B903E6_4CC97D020011_impl*
 //#UC START# *4AB793B903E6_4CC97D020011_var*
  l_Params: IvcmMakeParams;
 //#UC END# *4AB793B903E6_4CC97D020011_var*
 //#UC START# *4AB797E7001F_4CC97D020011_impl*
- if Supports(CheckContainer(aContainer).NativeMainForm,
+ if Supports(TvcmModule.CheckContainer(aContainer).NativeMainForm,
              InsBaseSearchDataReadyChecker, l_Checker) then
   l_Checker.CheckLocalDataReady;
 //#UC END# *4AB797E7001F_4CC97D020011_impl*
 //#UC START# *4AB797E7001F_4CC97D020011_var*
+var
+ l_Checker : InsBaseSearchDataReadyChecker;
 //#UC END# *4AB797E7001F_4CC97D020011_var*
 //#UC START# *4AB79B8201F8_4CC97D020011_impl*
- if Supports(CheckContainer(aContainer).NativeMainForm,
+ if Supports(TvcmModule.CheckContainer(aContainer).NativeMainForm,
              InsBaseSearchQueryDataProcessor, l_Processor) then
   l_Processor.RequestCheckFragmentsCount;
 //#UC END# *4AB79B8201F8_4CC97D020011_impl*
 //#UC START# *4AB79B8201F8_4CC97D020011_var*
+var
+ l_Processor : InsBaseSearchQueryDataProcessor;
 //#UC END# *4AB79B8201F8_4CC97D020011_var*
 //#UC START# *4AB79DF40349_4CC97D020011_impl*
  if (aProcessor <> nil) then
   l_Processor := aProcessor
  else
-  Supports(CheckContainer(aContainer).NativeMainForm,
+  Supports(TvcmModule.CheckContainer(aContainer).NativeMainForm,
            InsBaseSearchQueryDataProcessor, l_Processor);
  if (l_Processor <> nil) then
   l_Processor.SearchResultEmpty(TryFullList);
 //#UC END# *4AB79DF40349_4CC97D020011_impl*
 //#UC START# *4AB79DF40349_4CC97D020011_var*
+var
+ l_Processor : InsBaseSearchResultProcessor;
 //#UC END# *4AB79DF40349_4CC97D020011_var*
 //#UC START# *4AB7A2E20096_4CC97D020011_impl*
-  l_Params := vcmCheckAggregate(vcmMakeParams(nil, CheckContainer(aContainer)));
+  l_Params := vcmCheckAggregate(vcmMakeParams(nil, TvcmModule.CheckContainer(aContainer)));
   l_Container := TBaseSearchContainerForm.MakeSingleChild(l_Params.Container,
                                                           l_Params,
                                                           vcm_ztParent,
@@ -62,11 +71,16 @@ var
  l_Container : IvcmContainer;
 //#UC END# *4AB7A2E20096_4CC97D020011_var*
 //#UC START# *4AB7A5A500FB_4CC97D020011_impl*
- if Supports(CheckContainer(aContainer).NativeMainForm,
+ if Supports(TvcmModule.CheckContainer(aContainer).NativeMainForm,
              InsBaseSearchQueryDataProcessor, l_Processor) then
   l_Processor.RequestCheckFindBack;
 //#UC END# *4AB7A5A500FB_4CC97D020011_impl*
 //#UC START# *4AB7A5A500FB_4CC97D020011_var*
+var
+ l_Processor : InsBaseSearchQueryDataProcessor;
 //#UC END# *4AB7A5A500FB_4CC97D020011_var*
+//#UC START# *4CC97D020011_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\View\BaseSearch\BaseSearch_Module.pas
+//#UC END# *4CC97D020011_ext:FileName
 //#UC START# *4CC97D020011impl_uses*
 //#UC END# *4CC97D020011impl_uses*

@@ -37,6 +37,9 @@
 //#UC END# *4A7928E80375_4A815C200111_impl*
 //#UC START# *4A7928E80375_4A815C200111_var*
 //#UC END# *4A7928E80375_4A815C200111_var*
+//#UC START# *4A815C200111_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\View\HyperlinkProcessor.imp.pas
+//#UC END# *4A815C200111_ext:FileName
 //#UC START# *4A815FB3005D_4A815C200111_impl*
  Result := TdeDocInfo.Make(aDocument, TbsDocPos_C(aPointType, aSub));
 //#UC END# *4A815FB3005D_4A815C200111_impl*
@@ -63,34 +66,35 @@
 //#UC START# *4A8160720125_4A815C200111_var*
 //#UC END# *4A8160720125_4A815C200111_var*
 //#UC START# *4A8199EE00F2_4A815C200111_impl*
- Result := false;
+ Result := False;
  if Supports(aMoniker, IevHyperlink, l_HyperLink) then
-  try
-   HyperlinkText.SetFocus;
+ try
+  BeforeJumpTo(l_HyperLink);
+  HyperlinkText.SetFocus;
 
-   // http://mdp.garant.ru/pages/viewpage.action?pageId=460286108
-   if not NeedJumpTo(l_Hyperlink) then
-   begin
-    Result := True;
-    Exit;
-   end;
+  // http://mdp.garant.ru/pages/viewpage.action?pageId=460286108
+  if not NeedJumpTo(l_Hyperlink) then
+  begin
+   Result := True;
+   Exit;
+  end;
 
-   // http://mdp.garant.ru/pages/viewpage.action?pageId=352452629
-   DoSetHyperlinkCallStatus(True);
+  // http://mdp.garant.ru/pages/viewpage.action?pageId=352452629
+  DoSetHyperlinkCallStatus(True);
 
-   Result := nsProcessHyperLink(l_HyperLink, GetBehaviourFromEffects(anEffects),
-    Self, Aggregate, HyperlinkDocument);
-   // - http://mdp.garant.ru/pages/viewpage.action?pageId=340174500
+  Result := nsProcessHyperLink(l_HyperLink, GetBehaviourFromEffects(anEffects),
+   Self, Aggregate, HyperlinkDocument);
+  // - http://mdp.garant.ru/pages/viewpage.action?pageId=340174500
 
-  (* Result := nsProcessHyperLink(l_HyperLink, (afw_jteRequestNewWindow in anEffects) or
-                               afw.Settings.LoadBoolean(pi_Document_OpenInNewWindow,
-                                          dv_Document_OpenInNewWindow), Self, Aggregate, HyperlinkDocument);
-  *)
-   if not Result then
-    DoSetHyperlinkCallStatus(False);
-  finally
-   l_HyperLink := nil;
-  end;//try..finally
+ (* Result := nsProcessHyperLink(l_HyperLink, (afw_jteRequestNewWindow in anEffects) or
+                              afw.Settings.LoadBoolean(pi_Document_OpenInNewWindow,
+                                         dv_Document_OpenInNewWindow), Self, Aggregate, HyperlinkDocument);
+ *)
+  if not Result then
+   DoSetHyperlinkCallStatus(False);
+ finally
+  l_HyperLink := nil;
+ end;//try..finally
 //#UC END# *4A8199EE00F2_4A815C200111_impl*
 //#UC START# *4A8199EE00F2_4A815C200111_var*
 //#UC END# *4A8199EE00F2_4A815C200111_var*

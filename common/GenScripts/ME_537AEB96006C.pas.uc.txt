@@ -36,10 +36,12 @@ var
 //#UC START# *0E111B36F193_537AEC5E03DD_impl*
  if Supports(aTab.TabbedForm, IvcmContainedForm, l_ContainedForm) then
  begin
+  f_ClosingTab := Pointer(aTab);
   TvcmTabbedContainerForm(aTab.TabbedContainer.AsForm).FormSetHistory.SaveTab(aTab);
   if Supports(aTab.TabbedForm, IvcmContainer, l_Container) then
    TvcmFormSetContainerRegistry.Instance.UnregisterContainer(l_Container);
   l_ContainedForm.CloseContainedForm;
+  f_ClosingTab := nil;
  end
  else
   Assert(False);
@@ -169,6 +171,9 @@ var
 //#UC END# *537AEB28016D_537AEA3B02A5_impl*
 //#UC START# *537AEB28016D_537AEA3B02A5_var*
 //#UC END# *537AEB28016D_537AEA3B02A5_var*
+//#UC START# *537AEB96006C_ext:FileName
+w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmTabbedContainerFormDispatcher.pas
+//#UC END# *537AEB96006C_ext:FileName
 //#UC START# *537AEEA5023F_537AEC5E03DDget_impl*
  Assert(NeedUseTabs);
  Result := ContainerList.Count;
@@ -1752,9 +1757,12 @@ var
 //#UC START# *E781A200DBB9_537AEC5E03DD_var*
 //#UC END# *E781A200DBB9_537AEC5E03DD_var*
 //#UC START# *EE61E6DE4383_537AEC5E03DD_impl*
- Result := True;
+ l_Aggregate := TvcmAggregateContainerRegistry.Instance.GetContainedAggregate(aTab.TabbedForm as IvcmContainer);
+ Result := (l_Aggregate = nil) or l_Aggregate.CanBeCloned;
 //#UC END# *EE61E6DE4383_537AEC5E03DD_impl*
 //#UC START# *EE61E6DE4383_537AEC5E03DD_var*
+var
+ l_Aggregate: IvcmAggregate;
 //#UC END# *EE61E6DE4383_537AEC5E03DD_var*
 //#UC START# *F09F327B084A_537AEC5E03DD_impl*
  if Assigned(ActiveContainer) then

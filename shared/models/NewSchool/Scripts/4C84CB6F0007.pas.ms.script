@@ -14,6 +14,16 @@ FORWARD ME_4C84CB6F0007
 
 ref; // ME_50228E0D0355 
 
+: ME_579602BE0232
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C84CB6F0007 // BaseChatWindowOptions
+ ;
+ : Target WL 'ME_5795D6DC01F8' '5795D66F0385.pas.ms.script' // TChatService
+ ;
+
+ref; // ME_579602BE0232 
+
 : ME_4C7D0CC90052_ME_4C84CB6F0007
  : Original WL 'ME_4C7D0CC90052' '494F898C013E.pas.ms.script' // Delete
  ;
@@ -105,6 +115,7 @@ ref; // ME_4C762D9B0224_ME_4C84CB6F0007 OkExt
  ; // Overridden
  : Dependencies
    Seq: ( ME_50228E0D0355 // Chat$Contacts
+ ME_579602BE0232 // TChatService
  )
  ; // Dependencies
  CONST "NeedsHackRef" true

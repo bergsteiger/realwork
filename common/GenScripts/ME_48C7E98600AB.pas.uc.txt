@@ -189,6 +189,9 @@ var
  l_HeadCell  : InevTableCell;
  l_Cell      : InevTableCell;
 //#UC END# *481D6CB00337_48C7E98600AB_var*
+//#UC START# *48C7E98600AB_ext:FileName
+w:\common\components\gui\Garant\Everest\evTableRowPainter.pas
+//#UC END# *48C7E98600AB_ext:FileName
 //#UC START# *49D30810030E_48C7E98600AB_impl*
  if ParentPainter <> nil then
   ParentPainter.TablePainter.CheckCell(aPara.AsObject);
@@ -198,6 +201,8 @@ var
 //#UC START# *4B3B2F3C01B2_48C7E98600AB_impl*
  l_MaxIndex := FormatInfo.GreatestObjPID;
  l_HeadMax := FormatInfo.GreatestObjPID(False);
+ if (l_HeadMax >- 1) and (l_HeadMax <> l_MaxIndex) then
+  l_MaxIndex := l_HeadMax;
  if l_MaxIndex > -1 then // ћожет быть только в вырожденном случае (все €чейки - продолжение объединени€) и если несформатировалось ничего...
  begin
   // Ѕерем Top дл€ Head-€чейки и текущую позицию дл€ Head-€чейки.
@@ -490,7 +495,7 @@ var
   l_MaxIndex : Integer;
  begin
   Result := GetTopAnchor4Row;
-  if Result <> nil then
+  if (Result <> nil) then
   begin
    l_Para.AsObject.QT(InevTableCell, l_UpCell);
    if l_UpCell.OwnerPara.PID <= Result.Obj.PID then
@@ -498,7 +503,14 @@ var
    else
     l_Find := fc_Up;
    while (l_UpCell <> nil) and not l_UpCell.AsObject.Owner.IsSame(Result.Obj^.AsObject) do
+   begin
     l_UpCell := l_UpCell.GetContinueCell(True, l_Find);
+    if (l_UpCell <> nil) and (l_UpCell.OverlapType = ev_msHead) then
+    begin
+     l_UpCell := nil;
+     Break;
+    end; // if (l_UpCell <> nil) and (l_UpCell.OverlapType = ev_msHead) then
+   end; // while (l_UpCell <> nil) and not l_UpCell.AsObject.Owner.IsSame(Result.Obj^.AsObject) do
    if (l_UpCell = nil) then
     Result := nil // »наче возвращаем строку, а не €чейку!
    else

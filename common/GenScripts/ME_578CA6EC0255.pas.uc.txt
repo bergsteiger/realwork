@@ -14,6 +14,9 @@
 //#UC END# *5609091B00C0_578CA7B90020_impl*
 //#UC START# *5609091B00C0_578CA7B90020_var*
 //#UC END# *5609091B00C0_578CA7B90020_var*
+//#UC START# *578CA6EC0255_ext:FileName
+w:\common\components\gui\Garant\VCM\implementation\vcmAggregateContainerRegistry.pas
+//#UC END# *578CA6EC0255_ext:FileName
 //#UC START# *578CA8350324_578CA6EC0255_impl*
  Result := nil;
  for l_Index := 0 to Pred(f_Map.Count) do
@@ -63,10 +66,13 @@ var
  l_AggrIndex: Integer;
 //#UC END# *578CAAF1030D_578CA6EC0255_var*
 //#UC START# *578CC3C40049_578CA6EC0255_impl*
- l_Container := Pointer(aForm.NativeMainForm);
- if f_Map.Has(l_Container) then
-  f_Map.Delete(f_Map.IndexByKey(l_Container));
- f_Map.Add(l_Container, Pointer(aForm.Aggregate));
+ if (not (aForm.ZoneType in [vcm_ztModal, vcm_ztManualModal, vcm_ztSimpleFloat])) then
+ begin
+  l_Container := Pointer(aForm.NativeMainForm);
+  if f_Map.Has(l_Container) then
+   f_Map.Delete(f_Map.IndexByKey(l_Container));
+  f_Map.Add(l_Container, Pointer(aForm.Aggregate));
+ end;
 //#UC END# *578CC3C40049_578CA6EC0255_impl*
 //#UC START# *578CC3C40049_578CA6EC0255_var*
 var

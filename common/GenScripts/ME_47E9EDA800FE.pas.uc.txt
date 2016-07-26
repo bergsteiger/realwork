@@ -18,6 +18,9 @@
 //#UC END# *479731C50290_47E9EDA800FE_impl*
 //#UC START# *479731C50290_47E9EDA800FE_var*
 //#UC END# *479731C50290_47E9EDA800FE_var*
+//#UC START# *47E9EDA800FE_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsList.imp.pas
+//#UC END# *47E9EDA800FE_ext:FileName
 //#UC START# *47F0C1BF0314_47E9EDA800FE_impl*
  if Supports(aNode, INodeBase, l_Node) and
   (not Assigned(Current) or not Current.IsSame(aNode)) then
@@ -382,15 +385,9 @@ var
  begin
   RootManager.RootNode := nil;
   // Обновим справку к документу
-  if ImpList.GetIsSnippet then
+  if ImpList.GetIsSnippet or not IsFirstMake then
   begin
-   Result := TnsDocumentWithSnippetList.Make(Root, ImpList);
-   UpdateListInfo;
-  end
-  else
-  if not IsFirstMake then
-  begin
-   Result := TbsListTreeStruct.Make(Root, False);
+   Result := TnsDocumentWithSnippetList.Make(Root, False);
    UpdateListInfo;
   end
   else
@@ -398,7 +395,7 @@ var
    // Применям фильтры здесь, а не в GotData потому, что
    // http://mdp.garant.ru/pages/viewpage.action?pageId=492601505
    ApplyFilters;
-   Result := TbsListTreeStruct.Make(Root, False);
+   Result := TnsDocumentWithSnippetList.Make(Root, False);
    // http://mdp.garant.ru/pages/viewpage.action?pageId=506709931
    DoSetupNewSimpleTree(Result);
   end;

@@ -1,3 +1,6 @@
+//#UC START# *4A9CE5F2036F_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\View\Diction\Diction_Module.pas
+//#UC END# *4A9CE5F2036F_ext:FileName
 //#UC START# *4A9CE5F2036Fimpl_uses*
  , CommonDictionInterfaces
  , DictionInterfaces
@@ -28,7 +31,7 @@
     l_Map := TnsLangToContextMap.Make(nil);
     try
      l_Map.ByLang[aLanguage] := TnscContextFilterState.Make(True, l_Str, MaxInt);
-     OpenDictionary(TdeDiction.Make(l_Doc, aLanguage, l_Map), DefaultContainer);
+     OpenDictionary(TdeDiction.Make(l_Doc, aLanguage, l_Map), TvcmModule.DefaultContainer);
     finally
      l_Map := nil;
     end;
@@ -74,7 +77,7 @@ var
    Exit;
  end;//l_Cont <> nil
  if not lp_HasDictionForm then
-  OpenDictionary(nil, l_Cont);
+  TDictionService.Instance.OpenDictionary(nil, l_Cont);
 //#UC END# *4A9D55E901D6_4A9CE5F2036Fexec_impl*
 //#UC START# *4A9D55E901D6_4A9CE5F2036Fexec_var*
 

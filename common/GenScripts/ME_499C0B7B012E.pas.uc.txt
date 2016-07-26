@@ -145,6 +145,9 @@ var
 //#UC END# *48C7C4990287_531DB14D03CC_impl*
 //#UC START# *48C7C4990287_531DB14D03CC_var*
 //#UC END# *48C7C4990287_531DB14D03CC_var*
+//#UC START# *499C0B7B012E_ext:FileName
+w:\common\components\gui\Garant\Everest_Engine\eeTreeViewExport.pas
+//#UC END# *499C0B7B012E_ext:FileName
 //#UC START# *499C0B7B012Eci*
 //#UC END# *499C0B7B012Eci*
 //#UC START# *499C0B7B012Ecit*
@@ -1006,13 +1009,19 @@ var
 //#UC START# *531F040903D7_531F03AA0018_var*
 //#UC END# *531F040903D7_531F03AA0018_var*
 //#UC START# *55DC1CFE018D_531DB14D03CC_impl*
+ {$IfNDef DesignTimeLibrary}
  Result := DoSaveState(theState, aStateType, True);
+ {$Else}
+ Result := false;
+ {$EndIf}
 //#UC END# *55DC1CFE018D_531DB14D03CC_impl*
 //#UC START# *55DC1CFE018D_531DB14D03CC_var*
 //#UC END# *55DC1CFE018D_531DB14D03CC_var*
 //#UC START# *55DC1D21005D_531DB14D03CC_impl*
  f_LoadingCloneState := True;
+ {$IfNDef DesignTimeLibrary}
  DoLoadState(aState, aStateType, True);
+ {$EndIf}
  f_LoadingCloneState := False; 
 //#UC END# *55DC1D21005D_531DB14D03CC_impl*
 //#UC START# *55DC1D21005D_531DB14D03CC_var*

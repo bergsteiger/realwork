@@ -17,6 +17,9 @@
 //#UC END# *479731C50290_49539A5102F1_impl*
 //#UC START# *479731C50290_49539A5102F1_var*
 //#UC END# *479731C50290_49539A5102F1_var*
+//#UC START# *495118ED00F6_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\View\PrimText.imp.pas
+//#UC END# *495118ED00F6_ext:FileName
 //#UC START# *49513BB1031F_495118ED00F6get_impl*
  if (ViewArea <> nil) then
   Result := ViewArea.DocInfo.Doc
@@ -123,7 +126,7 @@
    l_TextFormHistory := nil;
   end;//try..finally
  end;//aStateType = vcm_stContent
- Result := inherited DoLoadState(aState, aStateType);
+ Result := inherited DoLoadState(aState, aStateType, aClone);
 //#UC END# *49807428008C_495118ED00F6_impl*
 //#UC START# *49807428008C_495118ED00F6_var*
 var
@@ -141,7 +144,7 @@ var
 //#UC START# *49885D540232_495118ED00F6test_var*
 //#UC END# *49885D540232_495118ED00F6test_var*
 //#UC START# *49885D59018D_495118ED00F6exec_impl*
- TdmStdRes.SelectOpen(self.as_IvcmEntityForm,
+ TFoldersService.Instance.SelectOpen(self.as_IvcmEntityForm,
                       FilterInfoFactory.MakeFilterInfo(ffBookmark),
                       str_OpenBookmark);
 //#UC END# *49885D59018D_495118ED00F6exec_impl*
@@ -153,7 +156,7 @@ var
 //#UC START# *49885D59018D_495118ED00F6test_var*
 //#UC END# *49885D59018D_495118ED00F6test_var*
 //#UC START# *4A1FEF160285_495118ED00F6_impl*
- TdmStdRes.BaseSearchCheckFragmentsCount(NativeMainForm);
+ TBaseSearchService.Instance.BaseSearchCheckFragmentsCount(NativeMainForm);
 //#UC END# *4A1FEF160285_495118ED00F6_impl*
 //#UC START# *4A1FEF160285_495118ED00F6_var*
 //#UC END# *4A1FEF160285_495118ED00F6_var*
@@ -208,7 +211,7 @@ var
  begin
   l_ParaID := GetParaIDForSaveInWorkJournal;
   Document.CreateJournalBookmark(l_ParaID, l_Bookmark);
-  TdmStdRes.MakeWorkJournal.AddBookMark(l_Bookmark);
+  TvcmModulesFactories.MakeWorkJournal.AddBookMark(l_Bookmark);
  end;
  // - http://mdp.garant.ru/pages/viewpage.action?pageId=589874196
 //#UC END# *500D5D3C0051_495118ED00F6_impl*

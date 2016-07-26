@@ -40,6 +40,9 @@
 //#UC END# *4992FCAD02D1_4C8E340C0148get_impl*
 //#UC START# *4992FCAD02D1_4C8E340C0148get_var*
 //#UC END# *4992FCAD02D1_4C8E340C0148get_var*
+//#UC START# *4C8E340C0148_ext:FileName
+w:\common\components\gui\Garant\VCM\View\ToolbarMenu\PrimToolbarMenu_Module.pas
+//#UC END# *4C8E340C0148_ext:FileName
 //#UC START# *4C8E340C0148impl_uses*
  , StdRes
 //#UC END# *4C8E340C0148impl_uses*
@@ -67,11 +70,7 @@
   Assert(l_Toolbar.Owner is TvcmEntityForm);
   if not Supports(l_Toolbar.Owner, IvcmEntityForm, l_Form) then
    Assert(False);
-  {$IfDef Nemesis}
-  TdmStdRes.CustomizePanel(TvcmCustAvailableToolbarOps.Make(l_Form));
-  {$Else}
-  Assert(false);
-  {$EndIf Nemesis}
+  TTaskPanelService.Instance.CustomizePanel(TvcmCustAvailableToolbarOps.Make(l_Form));
  end;//l_Toolbar <> nil
  {$EndIf Monitorings}
  {$EndIf Admin}

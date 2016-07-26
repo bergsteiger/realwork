@@ -55,113 +55,6 @@ ref; // ME_4B14DF7401B1
 
 ref; // ME_4B14DF1F0101 TnsOpenInternetAgentEvent
 
-FORWARD ME_49ECAADA03C7
-
-: ME_49EDE7BB03BC
- CONST Name 'anURL'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
- ;
-
-ref; // ME_49EDE7BB03BC anURL
-
-: ME_4B71825000FA
- CONST Name 'aContainer'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
- ;
-
-ref; // ME_4B71825000FA aContainer
-
-: ME_49ECAB2F03E4
- CONST UID '49ECAB2F03E4'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent HWL ME_49ECAADA03C7 // MakeInternetAgent
- ;
- : Parameters
-   Seq: ( ME_49EDE7BB03BC // anURL
- ME_4B71825000FA // aContainer
- )
- ; // Parameters
-
-ref; // ME_49ECAB2F03E4 DoIt
-
-: ME_49ECA9E301EF
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent HWL ME_49ECAADA03C7 // MakeInternetAgent
- ;
- : Target WL 'ME_49ECA984005F' '49ECA984005F.pas.ms.script' // TsdsInternetAgent
- ;
-
-ref; // ME_49ECA9E301EF 
-
-: ME_49ECAA4400C8
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent HWL ME_49ECAADA03C7 // MakeInternetAgent
- ;
- : Target WL 'ME_47F260EC02C7' '521C9DA50125.pas.ms.script' // StdRes
- ;
-
-ref; // ME_49ECAA4400C8 
-
-: ME_49ECAA2A0030
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent HWL ME_49ECAADA03C7 // MakeInternetAgent
- ;
- : Target WL 'ME_47B97312006D' '47B9727603BE.pas.ms.script' // TvcmFormSetFactory
- ;
-
-ref; // ME_49ECAA2A0030 
-
-: ME_49ECAADA03C7
- CONST UID '49ECAADA03C7'
- CONST Name 'MakeInternetAgent'
- CONST Class class_Class
- : Stereotype st_FormSetFactory ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Создаёт область вывода Интернет-агента' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent HWL ME_49EC739C0100 // PrimInternetAgent$FP
- ;
- : Operations
-   Seq: ( HWL ME_49ECAB2F03E4 // DoIt
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_49ECA9E301EF // TsdsInternetAgent
- ME_49ECAA4400C8 // StdRes
- ME_49ECAA2A0030 // TvcmFormSetFactory
- )
- ; // Dependencies
- CONST "NO_FACTORY_BRACKECTS" false
-
-ref; // ME_49ECAADA03C7 MakeInternetAgent
-
-: ME_4A979E9B0245
- CONST UID '4A979E9B0245'
- CONST Name 'InternetAgent'
- CONST Class class_Operation
- : Stereotype st_ModuleOperation::Operation ;
- %SUMMARY 'Новости онлайн' ;
- CONST Visibility ProtectedAccess
- CONST Abstraction at_final
- : Parent HWL ME_49EC739C0100 // PrimInternetAgent$FP
- ;
- CONST "ShowInToolbar" 'undefined'
- CONST "no prefix" false
- CONST "no test" false
-
-ref; // ME_4A979E9B0245 InternetAgent
-
 : ME_4A979E4D015A
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -242,6 +135,46 @@ ref; // ME_4B5EDC76016E
 
 ref; // ME_4C0DDE9901BA 
 
+: ME_57971CB30188
+ CONST Class class_Dependency
+ : Stereotype st_implements::Dependency ;
+ : Parent HWL ME_49EC739C0100 // PrimInternetAgent$FP
+ ;
+ : Target WL 'ME_57971A530162' '5795D66F0385.pas.ms.script' // TInternetAgentService
+ ;
+
+ref; // ME_57971CB30188 
+
+: ME_49ECA9E301EF
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_49EC739C0100 // PrimInternetAgent$FP
+ ;
+ : Target WL 'ME_49ECA984005F' '49ECA984005F.pas.ms.script' // TsdsInternetAgent
+ ;
+
+ref; // ME_49ECA9E301EF 
+
+: ME_49ECAA2A0030
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_49EC739C0100 // PrimInternetAgent$FP
+ ;
+ : Target WL 'ME_47B97312006D' '47B9727603BE.pas.ms.script' // TvcmFormSetFactory
+ ;
+
+ref; // ME_49ECAA2A0030 
+
+: ME_49ECAA4400C8
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_49EC739C0100 // PrimInternetAgent$FP
+ ;
+ : Target WL 'ME_47F260EC02C7' '521C9DA50125.pas.ms.script' // StdRes
+ ;
+
+ref; // ME_49ECAA4400C8 
+
 : ME_49EC739C0100
  CONST UID '49EC739C0100'
  CONST Name 'PrimInternetAgent'
@@ -253,11 +186,6 @@ ref; // ME_4C0DDE9901BA
  CONST Abstraction at_abstract
  : Parent WL 'ME_49EC7167004C' '49EC7167004C.pas.ms.script' // InternetAgent
  ;
- : Operations
-   Seq: ( HWL ME_49ECAADA03C7 // MakeInternetAgent
- HWL ME_4A979E9B0245 // InternetAgent
- )
- ; // Operations
  : Children
    Seq: ( WL 'ME_49EC74D002B8' '49EC74D002B8.pas.ms.script' // InternetAgent$F
  WL 'ME_49F586610347' '49F586610347.pas.ms.script' // InternetAgent
@@ -273,6 +201,10 @@ ref; // ME_4C0DDE9901BA
  ME_4B5EDA850332 // afwFacade
  ME_4B5EDC76016E // Locale
  ME_4C0DDE9901BA // nsConst
+ ME_57971CB30188 // TInternetAgentService
+ ME_49ECA9E301EF // TsdsInternetAgent
+ ME_49ECAA2A0030 // TvcmFormSetFactory
+ ME_49ECAA4400C8 // StdRes
  )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'

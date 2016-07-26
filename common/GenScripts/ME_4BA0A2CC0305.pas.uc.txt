@@ -6,7 +6,10 @@
 //#UC END# *479731C50290_4BA0A2CC0305_var*
 //#UC START# *497469C90140_4BA0A2CC0305_impl*
  inherited;
- CheckControllableState([dcsExitFromSystem]);
+ if Assigned(aNew) then
+  CheckControllableState([dcsAfterReview])
+ else
+  CheckControllableState([dcsExitFromSystem]);
 //#UC END# *497469C90140_4BA0A2CC0305_impl*
 //#UC START# *497469C90140_4BA0A2CC0305_var*
 //#UC END# *497469C90140_4BA0A2CC0305_var*
@@ -25,6 +28,9 @@
 //#UC END# *49807428008C_4BA0A2CC0305_impl*
 //#UC START# *49807428008C_4BA0A2CC0305_var*
 //#UC END# *49807428008C_4BA0A2CC0305_var*
+//#UC START# *4BA0A2CC0305_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\View\UnderControlResetter.imp.pas
+//#UC END# *4BA0A2CC0305_ext:FileName
 //#UC START# *4BA0A3BC028F_4BA0A2CC0305_impl*
  // Сбрасываем только если документ открыли в основной области
  if Assigned(ucpUnderControl) and CanUnControl and ucpUnderControl.HasControlStatus then
@@ -42,7 +48,7 @@
   if (dcsExitFromSystem in aInspect) and
      l3Same(l_Action, li_DropChangeStatus_OnClose) then
    // - сбрасывать для всех просмотренных при выходе из системы
-   TdmStdRes.MarkControlledAsOpen(ucpUnderControl.Controllable);
+   TvcmModulesFactories.MarkControlledAsOpen(ucpUnderControl.Controllable);
  end;//Assigned(ucpUnderControl) and CanUnControl and ucpUnderControl.HasControlStatus
 //#UC END# *4BA0A3BC028F_4BA0A2CC0305_impl*
 //#UC START# *4BA0A3BC028F_4BA0A2CC0305_var*

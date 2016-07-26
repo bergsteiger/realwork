@@ -286,6 +286,9 @@ var
 var
  l_F : IucpHAFMacroReplacerFactory;
 //#UC END# *4AE1864F024B_4AE1A69E0156_var*
+//#UC START# *4AE1A69E0156_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\View\BaseTextOperations.imp.pas
+//#UC END# *4AE1A69E0156_ext:FileName
 //#UC START# *4AE1B21502BB_4AE1A69E0156_impl*
  if aPrintDialog and
     ((afw.Application = nil) or
@@ -336,7 +339,7 @@ var
   if (l_Bookmark <> nil) then
   try
    Result := 
-    TdmStdRes.SaveOpen(Self.As_IvcmEntityForm,
+    TFoldersService.Instance.SaveOpen(Self.As_IvcmEntityForm,
                        FilterInfoFactory.MakeFilterInfo(ffListAndBookMarks),
                        cIsDrugDocument[IsDrug],
                        l_Bookmark,

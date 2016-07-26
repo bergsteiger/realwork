@@ -4,6 +4,16 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 FORWARD ME_4C84D11E01E2
 
+: ME_5795EE2C0322
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4C84D11E01E2 // PrimContactListOptions
+ ;
+ : Target WL 'ME_5795D6DC01F8' '5795D66F0385.pas.ms.script' // TChatService
+ ;
+
+ref; // ME_5795EE2C0322 
+
 : ME_4C7D0CC90052_ME_4C84D11E01E2
  : Original WL 'ME_4C7D0CC90052' '494F898C013E.pas.ms.script' // Delete
  ;
@@ -109,6 +119,10 @@ ref; // ME_4C84CC2E0253_ME_4C84D11E01E2 History
  ME_4C84CC2E0253_ME_4C84D11E01E2 // History
  )
  ; // Overridden
+ : Dependencies
+   Seq: ( ME_5795EE2C0322 // TChatService
+ )
+ ; // Dependencies
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Any'
  CONST "author" 'Ëþëèí À.Â.'

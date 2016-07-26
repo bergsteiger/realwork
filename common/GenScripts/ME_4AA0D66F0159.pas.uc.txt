@@ -1,8 +1,11 @@
+//#UC START# *4AA0D66F0159_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\View\Inpharm\Inpharm_Module.pas
+//#UC END# *4AA0D66F0159_ext:FileName
 //#UC START# *4AA0D66F0159impl_uses*
  , StdRes
 //#UC END# *4AA0D66F0159impl_uses*
 //#UC START# *4AA11B7A0009_4AA0D66F0159_impl*
- OpenMedicDictionPrim(TsdsMedicDiction.Make(aDocInfo), aContainer);
+ TInpharmModule.OpenMedicDictionPrim(TsdsMedicDiction.Make(aDocInfo), aContainer);
 //#UC END# *4AA11B7A0009_4AA0D66F0159_impl*
 //#UC START# *4AA11B7A0009_4AA0D66F0159_var*
 //#UC END# *4AA11B7A0009_4AA0D66F0159_var*
@@ -37,13 +40,13 @@
   OpenMedicDictionPrim(l_SDS, aParams.Container)
  else*)
  if {(l_SDS = nil) AND} not lp_HasDictionForm {or Assigned(l_SDS)} then
-  OpenMedicDiction(nil, CheckContainer(nil));
+  TInpharmService.Instance.OpenMedicDiction(nil, TvcmModule.CheckContainer(nil));
 //#UC END# *4AB9FC8F027A_4AA0D66F0159exec_impl*
 //#UC START# *4AB9FC8F027A_4AA0D66F0159exec_var*
   
  function lp_HasDictionForm: Boolean;
  begin
-  Result := CheckContainer(nil).HasForm(fm_en_CommonDiction.rFormID,
+  Result := TvcmModule.CheckContainer(nil).HasForm(fm_en_CommonDiction.rFormID,
                                         vcm_ztNavigator,
                                         True, nil, Ord(utMedicDiction));
  end;//lp_HasTipsForm
@@ -57,7 +60,7 @@
 //#UC START# *4AB9FC8F027A_4AA0D66F0159test_var*
 //#UC END# *4AB9FC8F027A_4AA0D66F0159test_var*
 //#UC START# *4AB9FCE902EC_4AA0D66F0159exec_impl*
- MedicFirms(nil);
+ TInpharmService.Instance.MedicFirms(nil);
 //#UC END# *4AB9FCE902EC_4AA0D66F0159exec_impl*
 //#UC START# *4AB9FCE902EC_4AA0D66F0159exec_var*
 //#UC END# *4AB9FCE902EC_4AA0D66F0159exec_var*
@@ -67,7 +70,7 @@
 //#UC START# *4AB9FCE902EC_4AA0D66F0159test_var*
 //#UC END# *4AB9FCE902EC_4AA0D66F0159test_var*
 //#UC START# *4AB9FD0601CF_4AA0D66F0159exec_impl*
- TdmStdRes.OpenList(
+ TvcmModulesFactories.OpenList(
   TdeListSet.Make(
    defDataAdapter.NativeAdapter.MakeDynList(SLK_ALL_ALLOWED_DRUGS)), nil);
 //#UC END# *4AB9FD0601CF_4AA0D66F0159exec_impl*
@@ -79,13 +82,13 @@
 //#UC START# *4AB9FD0601CF_4AA0D66F0159test_var*
 //#UC END# *4AB9FD0601CF_4AA0D66F0159test_var*
 //#UC START# *4AB9FD6F017A_4AA0D66F0159exec_impl*
- OpenInpharmMainMenu(nil);
+ TInpharmService.Instance.OpenInpharmMainMenu(nil);
 //#UC END# *4AB9FD6F017A_4AA0D66F0159exec_impl*
 //#UC START# *4AB9FD6F017A_4AA0D66F0159exec_var*
 //#UC END# *4AB9FD6F017A_4AA0D66F0159exec_var*
 //#UC START# *4AC0F93D01AB_4AA0D66F0159_impl*
  if defDataAdapter.IsInpharmExists AND
-    not CheckContainer(aContainer).HasForm(fm_en_MedicFirmList.rFormID,
+    not TvcmModule.CheckContainer(aContainer).HasForm(fm_en_MedicFirmList.rFormID,
                                            vcm_ztMain,
                                            True,
                                            nil,
@@ -93,7 +96,7 @@
  begin
   TnsOpenMedicFirmsEvent.Log;
   Tfs_MedicFirmList.Make(TsdsMedicFirmList.Make(nil),
-                         CheckContainer(aContainer));
+                         TvcmModule.CheckContainer(aContainer));
  end;//not lp_HasListForm
 //#UC END# *4AC0F93D01AB_4AA0D66F0159_impl*
 //#UC START# *4AC0F93D01AB_4AA0D66F0159_var*
@@ -130,16 +133,16 @@ var
   if defDataAdapter.IsInpharmExists then
   begin
    l_FormId := fm_en_MedicMainMenu.rFormID;
-   if CheckContainer(aContainer).NativeMainForm.HasForm(l_FormId, vcm_ztParent) then
+   if TvcmModule.CheckContainer(aContainer).NativeMainForm.HasForm(l_FormId, vcm_ztParent) then
     Exit;
    //Ten_MedicMainMenu.Make(vcmMakeParams(nil, CheckContainer(aContainer)), vcm_ztParent, Ord(ut_mmmMain));
-   Tfs_InpharmMainMenu.Make(TsdsInpharmMainMenu.Make, CheckContainer(aContainer));
+   Tfs_InpharmMainMenu.Make(TsdsInpharmMainMenu.Make, TvcmModule.CheckContainer(aContainer));
   end;//defDataAdapter.IsInpharmExists
 //#UC END# *530340E702A3_4AA0D66F0159_impl*
 //#UC START# *530340E702A3_4AA0D66F0159_var*
 //#UC END# *530340E702A3_4AA0D66F0159_var*
 //#UC START# *530513060354_4AA0D66F0159_impl*
- TdmStdRes.OpenList(TdeListSet.Make(defDataAdapter.NativeAdapter.MakeDynList(SLK_ALL_ALLOWED_DRUGS)), aContainer);
+ TvcmModulesFactories.OpenList(TdeListSet.Make(defDataAdapter.NativeAdapter.MakeDynList(SLK_ALL_ALLOWED_DRUGS)), aContainer);
 //#UC END# *530513060354_4AA0D66F0159_impl*
 //#UC START# *530513060354_4AA0D66F0159_var*
 //#UC END# *530513060354_4AA0D66F0159_var*

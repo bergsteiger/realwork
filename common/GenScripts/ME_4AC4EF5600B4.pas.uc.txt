@@ -1,5 +1,5 @@
 //#UC START# *479731C50290_4AC4EF5600B4_impl*
- TdmStdRes.MakeChatDispatcher.UnRegisterContactList(Self);
+ TChatService.Instance.MakeChatDispatcher.UnRegisterContactList(Self);
  inherited;
 //#UC END# *479731C50290_4AC4EF5600B4_impl*
 //#UC START# *479731C50290_4AC4EF5600B4_var*
@@ -88,7 +88,7 @@ var
  Self.ActiveControl := trContactList;
  ContextFilter.Images := dmStdRes.SmallImageList;
  trContactList.Images := dmChat.ilUsers;
- TdmStdRes.MakeChatDispatcher.RegisterContactList(Self);
+ TChatService.Instance.MakeChatDispatcher.RegisterContactList(Self);
 
  Width := 220;
  Height := 617;
@@ -147,14 +147,14 @@ var
 //#UC END# *4A97EBE702F8_4AC4EF5600B4test_impl*
 //#UC START# *4A97EBE702F8_4AC4EF5600B4test_var*
 //#UC END# *4A97EBE702F8_4AC4EF5600B4test_var*
+//#UC START# *4AC4EF5600B4_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\View\Chat\Forms\PrimContactList_Form.pas
+//#UC END# *4AC4EF5600B4_ext:FileName
 //#UC START# *4AC4EF5600B4impl_uses*
  , l3ControlsTypes
 //#UC END# *4AC4EF5600B4impl_uses*
-//#UC START# *4AC4EFA302F9_4AC4EF5600B4_impl*
-   !!! Needs to be implemented !!!
-//#UC END# *4AC4EFA302F9_4AC4EF5600B4_impl*
 //#UC START# *4C2B245F01F2_4AC4EF5600B4exec_impl*
- TdmStdRes.MakeChatDispatcher.ShowAddUserDialog;
+ TChatService.Instance.MakeChatDispatcher.ShowAddUserDialog;
 //#UC END# *4C2B245F01F2_4AC4EF5600B4exec_impl*
 //#UC START# *4C2B245F01F2_4AC4EF5600B4exec_var*
 //#UC END# *4C2B245F01F2_4AC4EF5600B4exec_var*
@@ -169,7 +169,7 @@ var
 //#UC START# *4C2B2B220052_4AC4EF5600B4_var*
 //#UC END# *4C2B2B220052_4AC4EF5600B4_var*
 //#UC START# *4C2B2FEE01AB_4AC4EF5600B4_impl*
- with TdmStdRes.MakeChatDispatcher do
+ with TChatService.Instance.MakeChatDispatcher do
  begin
   AddUser(trContactList.GetCurrentNode);
   OpenChatWindow(trContactList.GetCurrentNode);
@@ -179,7 +179,7 @@ var
 //#UC START# *4C2B2FEE01AB_4AC4EF5600B4_var*
 //#UC END# *4C2B2FEE01AB_4AC4EF5600B4_var*
 //#UC START# *4C84CC2E0253_4AC4EF5600B4exec_impl*
- TdmStdRes.MakeChatDispatcher.OpenChatHistory(trContactList.GetCurrentNode);
+ TChatService.Instance.MakeChatDispatcher.OpenChatHistory(trContactList.GetCurrentNode);
 //#UC END# *4C84CC2E0253_4AC4EF5600B4exec_impl*
 //#UC START# *4C84CC2E0253_4AC4EF5600B4exec_var*
 //#UC END# *4C84CC2E0253_4AC4EF5600B4exec_var*
@@ -276,7 +276,7 @@ var
 //#UC END# *4C84D2AD01D0_4AC4EF5600B4test_var*
 //#UC START# *4C84D2C001D5_4AC4EF5600B4exec_impl*
  if not AddingContact then
-  TdmStdRes.MakeChatDispatcher.OpenChatWindow(trContactList.GetCurrentNode);
+  TChatService.Instance.MakeChatDispatcher.OpenChatWindow(trContactList.GetCurrentNode);
 //#UC END# *4C84D2C001D5_4AC4EF5600B4exec_impl*
 //#UC START# *4C84D2C001D5_4AC4EF5600B4exec_var*
 //#UC END# *4C84D2C001D5_4AC4EF5600B4exec_var*
@@ -335,12 +335,12 @@ var
 //#UC START# *5199D7C7035C_4AC4EF5600B4_var*
 //#UC END# *5199D7C7035C_4AC4EF5600B4_var*
 //#UC START# *5199D9F30296_4AC4EF5600B4_impl*
- theTree := TdmStdRes.MakeChatDispatcher.MakeContactList(AddingContact);
+ theTree := TChatService.Instance.MakeChatDispatcher.MakeContactList(AddingContact);
 //#UC END# *5199D9F30296_4AC4EF5600B4_impl*
 //#UC START# *5199D9F30296_4AC4EF5600B4_var*
 //#UC END# *5199D9F30296_4AC4EF5600B4_var*
 //#UC START# *5199DAAF00FD_4AC4EF5600B4_impl*
- Result := cImageIndexMap[TdmStdRes.MakeChatDispatcher.GetContactType(trContactList.GetNode(Index))];
+ Result := cImageIndexMap[TChatService.Instance.MakeChatDispatcher.GetContactType(trContactList.GetNode(Index))];
 //#UC END# *5199DAAF00FD_4AC4EF5600B4_impl*
 //#UC START# *5199DAAF00FD_4AC4EF5600B4_var*
 const
@@ -353,7 +353,7 @@ const
  if AddingContact then
   DoAddContact
  else
-  TdmStdRes.MakeChatDispatcher.OpenChatWindow(trContactList.GetCurrentNode);
+  TChatService.Instance.MakeChatDispatcher.OpenChatWindow(trContactList.GetCurrentNode);
 //#UC END# *5199DAFF0296_4AC4EF5600B4_impl*
 //#UC START# *5199DAFF0296_4AC4EF5600B4_var*
 //#UC END# *5199DAFF0296_4AC4EF5600B4_var*
@@ -368,7 +368,7 @@ const
 //#UC START# *5199DC120058_4AC4EF5600B4_var*
 //#UC END# *5199DC120058_4AC4EF5600B4_var*
 //#UC START# *5199DC98012F_4AC4EF5600B4_impl*
- TdmStdRes.MakeChatDispatcher.ShowAddUserDialog;
+ TChatService.Instance.MakeChatDispatcher.ShowAddUserDialog;
 //#UC END# *5199DC98012F_4AC4EF5600B4_impl*
 //#UC START# *5199DC98012F_4AC4EF5600B4_var*
 //#UC END# *5199DC98012F_4AC4EF5600B4_var*
@@ -383,25 +383,3 @@ const
 //#UC END# *519A138E01CC_519A11C801A1_impl*
 //#UC START# *519A138E01CC_519A11C801A1_var*
 //#UC END# *519A138E01CC_519A11C801A1_var*
-//#UC START# *641F3EC9C833_8EEA1E00C0C3_impl*
- aStrings.Clear;
- for l_Index := Low(l_Index) to High(l_Index) do
-  aStrings.Add(ContactTypeMap[l_Index].AsCStr);
-//#UC END# *641F3EC9C833_8EEA1E00C0C3_impl*
-//#UC START# *641F3EC9C833_8EEA1E00C0C3_var*
-var
- l_Index: TContactListFilterTypes;
-//#UC END# *641F3EC9C833_8EEA1E00C0C3_var*
-//#UC START# *8E02C0CC146E_8EEA1E00C0C3_impl*
- for l_Index := Low(l_Index) to High(l_Index) do
-  if l3Same(aDisplayName, ContactTypeMap[l_Index].AsCStr) then
-  begin
-   Result := l_Index;
-   Exit;
-  end;//l3Same..
- raise Exception.CreateFmt('Display name "%s" not found in map "ContactTypeMap"', [l3Str(aDisplayName)]);
-//#UC END# *8E02C0CC146E_8EEA1E00C0C3_impl*
-//#UC START# *8E02C0CC146E_8EEA1E00C0C3_var*
-var
- l_Index: TContactListFilterTypes;
-//#UC END# *8E02C0CC146E_8EEA1E00C0C3_var*

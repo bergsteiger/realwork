@@ -1049,128 +1049,6 @@ ref; // ME_55E438930369 nsListExceptions
 
 FORWARD ME_5645E9550108
 
-: ME_5649C4050107
- CONST UID '5649C4050107'
- CONST Name 'f_List'
- CONST Class class_Attribute
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent HWL ME_5645E9550108 // TnsDocumentWithSnippetList
- ;
- : Target WL 'ME_45EEDB730265' '45700BFD0251.pas.ms.script' // DynList
- ;
-
-ref; // ME_5649C4050107 f_List
-
-FORWARD ME_5649C48002E2
-
-: ME_5649C48D02B0
- CONST Name 'aRoot'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_45EEB95901C5' '457450470167.pas.ms.script' // NodeBase
- ;
-
-ref; // ME_5649C48D02B0 aRoot
-
-: ME_5649C48D02CE
- CONST Name 'aDynList'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_45EEDB730265' '45700BFD0251.pas.ms.script' // DynList
- ;
-
-ref; // ME_5649C48D02CE aDynList
-
-: ME_5649C48A01F2
- CONST UID '5649C48A01F2'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent HWL ME_5649C48002E2 // Create
- ;
- : Parameters
-   Seq: ( ME_5649C48D02B0 // aRoot
- ME_5649C48D02CE // aDynList
- )
- ; // Parameters
-
-ref; // ME_5649C48A01F2 DoIt
-
-: ME_5649C48002E2
- CONST UID '5649C48002E2'
- CONST Name 'Create'
- CONST Class class_Class
- : Stereotype st_Constructor ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent HWL ME_5645E9550108 // TnsDocumentWithSnippetList
- ;
- : Operations
-   Seq: ( HWL ME_5649C48A01F2 // DoIt
- )
- ; // Operations
-
-ref; // ME_5649C48002E2 Create
-
-FORWARD ME_5649C49D0058
-
-: ME_5649DC560009
- CONST Name 'aRoot'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_45EEB95901C5' '457450470167.pas.ms.script' // NodeBase
- ;
-
-ref; // ME_5649DC560009 aRoot
-
-: ME_5649DC560027
- CONST Name 'aDynList'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_45EEDB730265' '45700BFD0251.pas.ms.script' // DynList
- ;
-
-ref; // ME_5649DC560027 aDynList
-
-: ME_5649DC4F00EF
- CONST UID '5649DC4F00EF'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent HWL ME_5649C49D0058 // Make
- ;
- : Target WL 'ME_46825CC00249' '4682595B0268.pas.ms.script' // Il3SimpleTree
- ;
- : Parameters
-   Seq: ( ME_5649DC560009 // aRoot
- ME_5649DC560027 // aDynList
- )
- ; // Parameters
-
-ref; // ME_5649DC4F00EF DoIt
-
-: ME_5649C49D0058
- CONST UID '5649C49D0058'
- CONST Name 'Make'
- CONST Class class_Class
- : Stereotype st_Factory ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent HWL ME_5645E9550108 // TnsDocumentWithSnippetList
- ;
- : Operations
-   Seq: ( HWL ME_5649DC4F00EF // DoIt
- )
- ; // Operations
-
-ref; // ME_5649C49D0058 Make
-
 FORWARD ME_5645E9920077
 
 : ME_5645E9B90215
@@ -1183,49 +1061,11 @@ FORWARD ME_5645E9920077
 
 ref; // ME_5645E9B90215 
 
-: ME_564C5E6E0065
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent HWL ME_5645E9550108 // TnsDocumentWithSnippetList
- ;
- : Target WL 'ME_47F4D3AC0029' '48F7409E0257.pas.ms.script' // TbsListTreeData
- ;
-
-ref; // ME_564C5E6E0065 
-
-: ME_564C5E710001
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent HWL ME_5645E9550108 // TnsDocumentWithSnippetList
- ;
- : Target WL 'ME_48F740E40022' '48F7409E0257.pas.ms.script' // TbsListDataObject
- ;
-
-ref; // ME_564C5E710001 
-
-: ME_479731C50290_ME_5645E9550108
- : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_479731C50290_ME_5645E9550108 Cleanup
-
 : ME_48FEE3640227_ME_5645E9550108
  : Original WL 'ME_48FEE3640227' '48FD8B2702F6.pas.ms.script' // RootNodeClass
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_48FEE3640227_ME_5645E9550108 RootNodeClass
-
-: ME_48FEE6210205_ME_5645E9550108
- : Original WL 'ME_48FEE6210205' '48FD8B2702F6.pas.ms.script' // DoMakeDataObject
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_48FEE6210205_ME_5645E9550108 DoMakeDataObject
-
-: ME_48FF64F60078_ME_5645E9550108
- : Original WL 'ME_48FF64F60078' '48FD8B2702F6.pas.ms.script' // ReAqurieUnfilteredRoot
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_48FF64F60078_ME_5645E9550108 ReAqurieUnfilteredRoot
 
 : ME_5645E9550108
  CONST UID '5645E9550108'
@@ -1241,26 +1081,12 @@ ref; // ME_48FF64F60078_ME_5645E9550108 ReAqurieUnfilteredRoot
    Seq: ( WL 'ME_47F4D386036C' '47F475660140.pas.ms.script' // TbsListTreeStruct
  )
  ; // Inherits
- : Attributes
-   Seq: ( HWL ME_5649C4050107 // f_List
- )
- ; // Attributes
- : Operations
-   Seq: ( HWL ME_5649C48002E2 // Create
- HWL ME_5649C49D0058 // Make
- )
- ; // Operations
  : Overridden
-   Seq: ( ME_479731C50290_ME_5645E9550108 // Cleanup
- ME_48FEE3640227_ME_5645E9550108 // RootNodeClass
- ME_48FEE6210205_ME_5645E9550108 // DoMakeDataObject
- ME_48FF64F60078_ME_5645E9550108 // ReAqurieUnfilteredRoot
+   Seq: ( ME_48FEE3640227_ME_5645E9550108 // RootNodeClass
  )
  ; // Overridden
  : Dependencies
    Seq: ( ME_5645E9B90215 // TnsDocumentWithSnippetNode
- ME_564C5E6E0065 // TbsListTreeData
- ME_564C5E710001 // TbsListDataObject
  )
  ; // Dependencies
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Business\Document\nsDocumentWithSnippetList.pas'

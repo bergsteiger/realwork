@@ -1,3 +1,6 @@
+//#UC START# *4986C5B30130_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\View\CommonForTextAndFlash.imp.pas
+//#UC END# *4986C5B30130_ext:FileName
 //#UC START# *4986E7110341_4986C5B30130_impl*
  if (sdsDocInfo <> nil)then
  begin
@@ -27,12 +30,12 @@ var
   try
    if not l_Controllable.GetControlled then
    begin
-    TdmStdRes.AddToControl(l_Controllable);
+    TvcmModulesFactories.AddToControl(l_Controllable);
     Say(inf_SetDocToControl);
    end//not l_Controllable.GetControlled
    else
    if Ask(qr_RemoveDocumentFromControl) then
-    TdmStdRes.DeleteFromControl(l_Controllable);
+    TvcmModulesFactories.DeleteFromControl(l_Controllable);
   finally
    l_Controllable := nil;
   end;//try..finally
@@ -47,7 +50,7 @@ var
  l_Controllable := GetControllable(l_Doc);
  if (l_Controllable <> nil) then
  try
-  if TdmStdRes.IsCurEditionActual(l_Doc) and l_Controllable.GetControlled then
+  if TvcmModulesFactories.IsCurEditionActual(l_Doc) and l_Controllable.GetControlled then
    State := st_user_Document_AddToControl_RemoveFromControl
   else
    State := vcm_DefaultOperationState;
@@ -64,7 +67,7 @@ var
  if CanAddToControl then
  begin
   l_Controllable := GetControllable(l_Doc);
-  aParams.Op.Flag[vcm_ofEnabled] := TdmStdRes.IsCurEditionActual(l_Doc) and
+  aParams.Op.Flag[vcm_ofEnabled] := TvcmModulesFactories.IsCurEditionActual(l_Doc) and
                                     (l_Controllable <> nil);
  end//CanAddToControl
  else

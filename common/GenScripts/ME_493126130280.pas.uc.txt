@@ -178,6 +178,9 @@ var
 var
  l_UserManager: IUserManager;
 //#UC END# *4931230801FC_493126130280set_var*
+//#UC START# *493126130280_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\Admin\sdsAdmin.pas
+//#UC END# *493126130280_ext:FileName
 //#UC START# *4931291701BD_493126130280_impl*
  if Supports(aNode, IProfileNode, l_Node) then
   Result := l_Node.GetUid
@@ -426,11 +429,11 @@ var
 //#UC END# *49EEDEB10042_493126130280get_var*
 //#UC START# *49EEEB1D0215_493126130280_impl*
  l_Data := TbsEditGroupName.Make(l3CStr(aNode));
- if (TdmStdRes.ShowRenameGroupDialog(l_Data) = mrOk) then
+ if (TvcmModulesFactories.ShowRenameGroupDialog(l_Data) = mrOk) then
  begin
   aName := l_Data.Name;
   Result := true
- end//TdmStdRes.ShowRenameGroupDialog(TbsEditGroupName.Make(l_Name))  = mrOk
+ end//TvcmModulesFactories.ShowRenameGroupDialog(TbsEditGroupName.Make(l_Name))  = mrOk
  else
   Result := false;
 //#UC END# *49EEEB1D0215_493126130280_impl*
@@ -487,7 +490,7 @@ var
 //#UC START# *49F6E384028E_493126130280get_var*
 //#UC END# *49F6E384028E_493126130280get_var*
 //#UC START# *4AAF58000352_493126130280_impl*
- Result := TdmStdRes.OpenTreeSelection(BaseAccessRootTag, ns_ftNone,
+ Result := TvcmModulesFactories.OpenTreeSelection(BaseAccessRootTag, ns_ftNone,
                                        TdsBasesAccess.Make(nil,
                                                            TdeSearch.Make(BaseAccessRootTag, nil))) = mrOk;
 //#UC END# *4AAF58000352_493126130280_impl*

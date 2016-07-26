@@ -19,6 +19,9 @@
 var
  l_V : PtfwStackValue;
 //#UC END# *4DB0090A0000_4DB009CF0103_var*
+//#UC START# *4DB009CF0103_ext:FileName
+w:\common\components\rtl\Garant\ScriptEngine\tfwValueStack.pas
+//#UC END# *4DB009CF0103_ext:FileName
 //#UC START# *4DB013A10166_4DB009CF0103_impl*
  with GrowByOne^ do
  begin
@@ -450,7 +453,11 @@ var
  l_Index : Integer;
 //#UC END# *55E84904001E_4DB009CF0103_var*
 //#UC START# *55EFF78F01D7_4DB009CF0103_impl*
+ {$IfDef XE}
+ Result := PtfwStackValue(ItemSlot(Count - 1));
+ {$Else  XE}
  Result := ItemSlot(Count - 1);
+ {$EndIf XE}
 //#UC END# *55EFF78F01D7_4DB009CF0103_impl*
 //#UC START# *55EFF78F01D7_4DB009CF0103_var*
 //#UC END# *55EFF78F01D7_4DB009CF0103_var*

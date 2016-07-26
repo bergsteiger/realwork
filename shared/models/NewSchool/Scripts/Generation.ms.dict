@@ -697,6 +697,282 @@ PROCEDURE DoDeleteFile
  aFileName DeleteFile DROP
 ; // DoDeleteFile
 
+CONST cUserCodePrefix 'uc:'
+
+CONST cUCStart '//#UC START# *'
+CONST cUCEnd '//#UC END# *'
+
+CONST cPalka '|'
+
+STRING elem_func CurrentGeneratedElementPrefix
+ [ cUserCodePrefix g_CurrentGeneratedElement .LUID cPalka ] strings:Cat
+ >>> Result
+; // CurrentGeneratedElementPrefix
+
+PROCEDURE ReadUCFromFile
+  STRING IN aFileName
+  STRING IN aCurrentGeneratedElementPrefix
+ if ( aFileName sysutils:FileExists ) then
+ begin
+  FILE VAR l_In
+  aFileName TryOpen: File:OpenRead >>> l_In
+  TRY
+   VAR l_UCOpened
+   ARRAY VAR l_Accumulated
+   STRING VAR l_Key
+
+   false >>> l_UCOpened
+   l_In File:ReadLines (
+     IN aStr
+
+    VAR l_Pos
+
+    : Has
+     string:Pos >>> l_Pos
+     l_Pos -1 !=
+    ; // Has
+
+    RULES 
+     ( aStr cUCStart Has )
+      ( 
+       l_UCOpened ! ?ASSURE [ 'Секция кода уже открыта. Файл: ' aFileName ' строка:' aStr ]
+       true >>> l_UCOpened
+       aStr string:Trim >>> aStr
+       [] >>> l_Accumulated
+       
+       aStr >>> l_Key
+       '*' string:SplitTo! l_Key DROP
+       
+      )
+     ( aStr cUCEnd Has )
+      ( 
+       l_UCOpened ?ASSURE [ 'Секция кода не открыта. Файл: ' aFileName ' строка:' aStr  ]
+       false >>> l_UCOpened
+       
+       VAR l_Head
+       if ( l_Pos > 0 ) then
+       begin
+        l_Pos 0 aStr string:Substring >>> l_Head
+        if ( l_Head string:TrimLeft .IsNotNil ) then
+        begin
+         l_Head .AddToArray: l_Accumulated
+
+         aStr string:Len l_Pos -
+         l_Pos
+         aStr
+         string:Substring >>> aStr
+        end // ( l_Head .IsNotNil )
+       end // ( l_Pos > 0 )
+
+       aStr string:Trim >>> aStr
+
+       g_CurrentGenerator ->^ l_Key ^:= l_Accumulated
+       g_CurrentGenerator ->^ ( aCurrentGeneratedElementPrefix l_Key Cat ) ^:= l_Accumulated
+       
+       nil >>> l_Accumulated
+      )
+     DEFAULT
+      (
+       l_UCOpened ? ( 
+        aStr .AddToArray: l_Accumulated
+       ) // l_UCOpened ?
+      ) 
+    ; // RULES  
+   ) // l_In File:ReadLines
+  FINALLY
+   nil >>> l_In
+  END // TRY..FINALLY
+ end // ( aFileName sysutils:FileExists )
+; // ReadUCFromFile
+
+elem_proc SaveUserCode
+ STRING VAR l_RealFileName
+ g_RealFileName '.uc.txt' Cat >>> l_RealFileName
+
+ STRING VAR l_CurrentGeneratedElementPrefix
+ Self .CurrentGeneratedElementPrefix >>> l_CurrentGeneratedElementPrefix
+
+ STRING VAR l_TempFileName
+ g_TempFileName '.uc.txt' Cat >>> l_TempFileName
+ FILE VAR l_Out
+ l_TempFileName MakePathAndOpenWrite >>> l_Out
+ TRY
+  g_CurrentGenerator MembersIterator 
+  .filter> ( .WordName l_CurrentGeneratedElementPrefix SWAP StartsStr )
+  .for> (
+    IN anItem
+   VAR l_Value
+   anItem DO >>> l_Value
+   if (
+       ( l_Value IsArray )
+       OR ( l_Value IsString )
+      ) then
+   begin
+    STRING VAR l_Key
+    anItem .WordName cPalka string:Split >>> l_Key DROP
+
+    cUCStart l_Out File:WriteStr
+    l_Key l_Out File:WriteWStrLn
+
+    if ( l_Value IsString ) then
+    begin
+     ( l_Value l_Out File:WriteWStrLn )
+    end // ( l_Value IsString )
+    else
+    begin
+     l_Value .for> ( l_Out File:WriteWStrLn )
+    end // ( l_Value IsString )
+
+    cUCEnd l_Out File:WriteStr
+    l_Key l_Out File:WriteWStrLn
+   end // ( l_Value IsArray )
+  ) // g_CurrentGenerator MembersIterator
+ FINALLY
+  nil >>> l_Out
+ END // TRY..FINALLY
+ l_RealFileName l_TempFileName false CopyChangedFile
+  
+ if ( l_RealFileName FileSize 0 == ) then
+ begin
+  l_RealFileName false DoDeleteFile
+ end // ( l_RealFileName FileSize 0 == )
+  
+; // SaveUserCode
+
+CONST cExtFileName '_ext:FileName'
+
+elem_proc LoadUserCode
+ if ( g_UCRead ! ) then
+ begin
+  true >>> g_UCRead
+
+  STRING VAR l_CurrentGeneratedElementPrefix
+  Self .CurrentGeneratedElementPrefix >>> l_CurrentGeneratedElementPrefix
+
+  g_RealFileName '.uc.txt' Cat l_CurrentGeneratedElementPrefix ReadUCFromFile
+
+  VAR l_Key
+  [ l_CurrentGeneratedElementPrefix Self .LUID cExtFileName ] strings:Cat
+  >>> l_Key
+
+  VAR l_PrevFile
+  g_CurrentGenerator ->^ l_Key DO >>> l_PrevFile
+
+  if ( l_PrevFile IsArray ) then
+  begin
+   l_PrevFile .FirstElement >>> l_PrevFile
+  end // ( l_PrevFile IsArray )
+
+  //l_PrevFile Msg
+  if (
+      ( l_PrevFile IsString )
+      AND ( l_PrevFile g_FinalFileNameForUC ?!= )
+     ) then
+  begin
+   l_PrevFile l_CurrentGeneratedElementPrefix ReadUCFromFile
+  end // ( l_PrevFile IsString )
+  else
+  begin
+   g_FinalFileNameForUC l_CurrentGeneratedElementPrefix ReadUCFromFile
+  end // ( l_PrevFile IsString )
+
+  Self .SaveUserCode
+ end //( g_UCRead ! )
+; // LoadUserCode
+
+elem_proc FlushFiles
+ VAR l_Key
+ [ Self .CurrentGeneratedElementPrefix Self .LUID cExtFileName ] strings:Cat
+ >>> l_Key
+
+ VAR l_FileToWrite
+ '' >>> l_FileToWrite
+
+ if (
+     ( g_FinalFileName .IsNotNil )
+     AND ( Self .? .CanCopyToFinalFile )
+    ) then
+ begin
+  g_FinalFileName >>> l_FileToWrite
+  if ( g_RealFileName sysutils:FileExists ) then
+  begin
+   g_RealFileName false DoDeleteFile
+  end // ( g_RealFileName sysutils:FileExists )
+ end // ( g_FinalFileName .IsNotNil )
+ else
+ begin
+  g_RealFileName >>> l_FileToWrite
+  g_RealFileName g_TempFileName false CopyChangedFile
+ end // ( g_FinalFileName .IsNotNil )
+
+ Self .LoadUserCode
+ VAR l_FileToDelete
+ g_CurrentGenerator ->^ l_Key DO >>> l_FileToDelete
+ if ( l_FileToDelete IsArray ) then
+ begin
+  l_FileToDelete .FirstElement >>> l_FileToDelete
+ end // ( l_FileToDelete IsArray )
+ if (
+     ( l_FileToDelete IsString ! )
+     OR ( l_FileToDelete l_FileToWrite SameText ! )
+    ) then
+ begin   
+  g_CurrentGenerator ->^ l_Key ^:= l_FileToWrite
+  Self .SaveUserCode
+  if (
+      ( l_FileToDelete IsString )
+      AND ( l_FileToDelete sysutils:FileExists )
+     ) then
+  begin
+   l_FileToDelete true DoDeleteFile
+  end // ( l_FileToDelete sysutils:FileExists )
+ end // ( l_FileToDelete IsString )
+
+ if ( g_FinalFileName .IsNotNil ) then
+ begin
+  if ( Self .? .CanCopyToFinalFile ) then
+  begin
+   g_FinalFileName g_TempFileName true CopyChangedFile
+
+   VAR l_Path
+   VAR l_Name
+         
+   g_FinalFileName sysutils:ExtractFilePath >>> l_Path
+   g_FinalFileName sysutils:ExtractFileName >>> l_Name
+         
+   VAR l_NameToDelete
+   VAR l_FileToDelete
+         
+   if ( cNotCompleted l_Name StartsStr ! ) then
+   begin
+    l_Name cNotFinished .CutPrefix >>> l_NameToDelete
+    [ l_Path cNotCompleted l_NameToDelete ] strings:Cat >>> l_FileToDelete
+    if ( l_FileToDelete g_FinalFileName SameText ! ) then
+    begin
+     if ( l_FileToDelete sysutils:FileExists ) then
+     begin
+      l_FileToDelete true DoDeleteFile
+     end // ( l_FileToDelete sysutils:FileExists )
+    end // ( l_FileToDelete g_FinalFileName SameText ! )
+   end // ( cNotCompleted l_Name StartsStr ! )
+         
+   if ( cNotFinished l_Name StartsStr ! ) then
+   begin
+    l_Name cNotCompleted .CutPrefix >>> l_NameToDelete
+    [ l_Path cNotFinished l_NameToDelete ] strings:Cat >>> l_FileToDelete
+    if ( l_FileToDelete g_FinalFileName SameText ! ) then
+    begin
+     if ( l_FileToDelete sysutils:FileExists ) then
+     begin
+      l_FileToDelete true DoDeleteFile
+     end // ( l_FileToDelete sysutils:FileExists )
+    end // ( l_FileToDelete g_FinalFileName SameText ! )
+   end // ( cNotFinished l_Name StartsStr ! )
+         
+  end // ( Self .? .CanCopyToFinalFile )
+ end // ( g_FinalFileName .IsNotNil )
+; // FlushFiles
+
 elem_proc GenerateWordToFileWith:
  ^ IN aLambda
  
@@ -726,76 +1002,18 @@ elem_proc GenerateWordToFileWith:
       TF g_FinalFileNameForUC (
        Self .FinalFileName >>> g_FinalFileName
        Self false .CustomFinalFileName >>> g_FinalFileNameForUC
-       TF g_OutFile (
-        g_TempFileName MakePathAndOpenWrite >>> g_OutFile
-        TF g_UCRead (
-         TF g_NeedOutLn (
-          TF g_CurrentGeneratedElement (
+       TF g_UCRead (
+        TF g_CurrentGeneratedElement (
+         TF g_OutFile (
+          g_TempFileName MakePathAndOpenWrite >>> g_OutFile
+          TF g_NeedOutLn (
            Self >>> g_CurrentGeneratedElement
            Self aLambda DO
-          )
-         ) // TF g_NeedOutLn
-        ) // TF g_UCRead
-       ) // TF g_OutFile
-
-       if (
-           ( g_FinalFileName .IsNotNil )
-           AND ( Self .? .CanCopyToFinalFile )
-          ) then
-       begin
-        if ( g_RealFileName sysutils:FileExists ) then
-        begin
-         g_RealFileName false DoDeleteFile
-        end // ( g_RealFileName sysutils:FileExists )
-       end // ( g_FinalFileName .IsNotNil )
-       else
-       begin
-        g_RealFileName g_TempFileName false CopyChangedFile
-       end // ( g_FinalFileName .IsNotNil )
-
-       if ( g_FinalFileName .IsNotNil ) then
-       begin
-        if ( Self .? .CanCopyToFinalFile ) then
-        begin
-         g_FinalFileName g_TempFileName true CopyChangedFile
-         
-         VAR l_Path
-         VAR l_Name
-         
-         g_FinalFileName sysutils:ExtractFilePath >>> l_Path
-         g_FinalFileName sysutils:ExtractFileName >>> l_Name
-         
-         VAR l_NameToDelete
-         VAR l_FileToDelete
-         
-         if ( cNotCompleted l_Name StartsStr ! ) then
-         begin
-          l_Name cNotFinished .CutPrefix >>> l_NameToDelete
-          [ l_Path cNotCompleted l_NameToDelete ] strings:Cat >>> l_FileToDelete
-          if ( l_FileToDelete g_FinalFileName SameText ! ) then
-          begin
-           if ( l_FileToDelete sysutils:FileExists ) then
-           begin
-            l_FileToDelete true DoDeleteFile
-           end // ( l_FileToDelete sysutils:FileExists )
-          end // ( l_FileToDelete g_FinalFileName SameText ! )
-         end // ( cNotCompleted l_Name StartsStr ! )
-         
-         if ( cNotFinished l_Name StartsStr ! ) then
-         begin
-          l_Name cNotCompleted .CutPrefix >>> l_NameToDelete
-          [ l_Path cNotFinished l_NameToDelete ] strings:Cat >>> l_FileToDelete
-          if ( l_FileToDelete g_FinalFileName SameText ! ) then
-          begin
-           if ( l_FileToDelete sysutils:FileExists ) then
-           begin
-            l_FileToDelete true DoDeleteFile
-           end // ( l_FileToDelete sysutils:FileExists )
-          end // ( l_FileToDelete g_FinalFileName SameText ! )
-         end // ( cNotFinished l_Name StartsStr ! )
-         
-        end // ( Self .? .CanCopyToFinalFile )
-       end // ( g_FinalFileName .IsNotNil )
+          ) // TF g_NeedOutLn
+         ) // TF g_OutFile
+         Self .FlushFiles
+        ) // TF g_CurrentGeneratedElement
+       ) // TF g_UCRead
       ) // TF g_FinalFileNameForUC
      ) // TF g_FinalFileName
     end // g_TempFileName .TextNotInArray: g_GeneratedFiles
@@ -2337,8 +2555,6 @@ CONST cNeedsToBeImplemented ' !!! Needs to be implemented !!!'
 CONST cImplementationUserCodeSuffix '_impl'
 CONST cVarUserCodeSuffix '_var'
 CONST cEmptyUserCode #1
-
-CONST cUserCodePrefix 'uc:'
 
 STRING FUNCTION cImplementationUserCodeName
  cUserCodePrefix cImplementationUserCodeSuffix Cat >>> Result
@@ -3908,152 +4124,22 @@ ARRAY elem_func MethodParameters
  >>> Result
 ; // MethodParameters
 
-CONST cUCStart '//#UC START# *'
-CONST cUCEnd '//#UC END# *'
-
-PROCEDURE ReadUCFromFile
-  STRING IN aFileName
-  STRING IN aCurrentGeneratedElementPrefix
- if ( aFileName sysutils:FileExists ) then
- begin
-  FILE VAR l_In
-  aFileName TryOpen: File:OpenRead >>> l_In
-  TRY
-   VAR l_UCOpened
-   ARRAY VAR l_Accumulated
-   STRING VAR l_Key
-   
-   false >>> l_UCOpened
-   l_In File:ReadLines (
-     IN aStr
-     
-    VAR l_Pos
-    
-    : Has
-     string:Pos >>> l_Pos
-     l_Pos -1 !=
-    ; // Has
-     
-    RULES 
-     ( aStr cUCStart Has )
-      ( 
-       l_UCOpened ! ?ASSURE [ 'Секция кода уже открыта. Файл: ' aFileName ' строка:' aStr ]
-       true >>> l_UCOpened
-       aStr string:Trim >>> aStr
-       [] >>> l_Accumulated
-       
-       aStr >>> l_Key
-       '*' string:SplitTo! l_Key DROP
-       
-      )
-     ( aStr cUCEnd Has )
-      ( 
-       l_UCOpened ?ASSURE [ 'Секция кода не открыта. Файл: ' aFileName ' строка:' aStr  ]
-       false >>> l_UCOpened
-       
-       VAR l_Head
-       if ( l_Pos > 0 ) then
-       begin
-        l_Pos 0 aStr string:Substring >>> l_Head
-        if ( l_Head string:TrimLeft .IsNotNil ) then
-        begin
-         l_Head .AddToArray: l_Accumulated
-         
-         aStr string:Len l_Pos - 
-         l_Pos 
-         aStr 
-         string:Substring >>> aStr
-        end // ( l_Head .IsNotNil )
-       end // ( l_Pos > 0 )
-       
-       aStr string:Trim >>> aStr
-       
-       g_CurrentGenerator ->^ l_Key ^:= l_Accumulated
-       g_CurrentGenerator ->^ ( aCurrentGeneratedElementPrefix l_Key Cat ) ^:= l_Accumulated
-       
-       nil >>> l_Accumulated
-      )
-     DEFAULT
-      (
-       l_UCOpened ? ( 
-        aStr .AddToArray: l_Accumulated
-       ) // l_UCOpened ?
-      ) 
-    ; // RULES  
-   ) // l_In File:ReadLines
-  FINALLY
-   nil >>> l_In
-  END // TRY..FINALLY
- end // ( aFileName sysutils:FileExists )
-; // ReadUCFromFile
-
-CONST cPalka '|'
-
 elem_proc OutUserCode:
   STRING IN aKey
   ^ IN aOutExisting
   ^ IN aOutNew
-  
- BOOLEAN VAR l_Found
- false >>> l_Found
- 
- if ( g_UCRead ! ) then
- begin
-  true >>> g_UCRead
-  STRING VAR l_TempFileName
-  g_TempFileName '.uc.txt' Cat >>> l_TempFileName 
-  STRING VAR l_RealFileName
-  g_RealFileName '.uc.txt' Cat >>> l_RealFileName
-  
-  STRING VAR l_CurrentGeneratedElementPrefix
-  [ cUserCodePrefix g_CurrentGeneratedElement .LUID cPalka ] strings:Cat >>> l_CurrentGeneratedElementPrefix
-  
-  l_RealFileName l_CurrentGeneratedElementPrefix ReadUCFromFile
-  g_FinalFileNameForUC l_CurrentGeneratedElementPrefix ReadUCFromFile
 
-  FILE VAR l_Out
-  l_TempFileName MakePathAndOpenWrite >>> l_Out
-  TRY
-   g_CurrentGenerator MembersIterator 
-   .filter> ( .WordName l_CurrentGeneratedElementPrefix SWAP StartsStr )
-   .for> (
-     IN anItem
-    STRING VAR l_Key 
-    anItem .WordName cPalka string:Split >>> l_Key DROP
-    
-    cUCStart l_Out File:WriteStr
-    l_Key l_Out File:WriteWStrLn
-    
-    anItem DO .for> ( l_Out File:WriteWStrLn )
-     
-    cUCEnd l_Out File:WriteStr
-    l_Key l_Out File:WriteWStrLn
-     
-   ) // g_CurrentGenerator MembersIterator
-  FINALLY
-   nil >>> l_Out
-  END // TRY..FINALLY
-  l_RealFileName l_TempFileName false CopyChangedFile
-  
-  if ( l_RealFileName FileSize 0 == ) then
-  begin
-   l_RealFileName false DoDeleteFile
-  end // ( l_RealFileName FileSize 0 == )
-  
- end //( g_UCRead ! ) 
- 
- l_Found ! ? (
-  VAR l_Field
-  g_CurrentGenerator %% aKey >>> l_Field
-  if ( l_Field .IsNil ) then
-  begin
-   aKey aOutNew DO
-  end // ( l_Field .IsNil )
-  else
-  begin
-   aKey l_Field DO aOutExisting DO
-  end // ( l_Field .IsNil )
- ) // l_Found ! ?
+ Self .LoadUserCode 
+ VAR l_Field
+ g_CurrentGenerator %% aKey >>> l_Field
+ if ( l_Field .IsNil ) then
+ begin
+  aKey aOutNew DO
+ end // ( l_Field .IsNil )
+ else
+ begin
+  aKey l_Field DO aOutExisting DO
+ end // ( l_Field .IsNil )
 ; // OutUserCode:
 
 elem_proc DefaultUserCodePrim:
@@ -5003,7 +5089,7 @@ elem_iterator GlobalVars
           IN anOp
          VAR l_Name
          VAR l_Type
-         [ 'g_module_opcode_' l_ModuleName '_' anOp .Name ] strings:Cat >>> l_Name
+         [ 'mod_opcode_' l_ModuleName '_' anOp .Name ] strings:Cat >>> l_Name
          GarantModel::TvcmMOPID >>> l_Type
          if ( l_Vars l_Name .HasModelElementWithName ! ) then
          begin
@@ -10840,6 +10926,17 @@ elem_iterator Used
    begin
     .join> ToArray: GarantModel::vcmInterfaces
    end // ( Self .NeedsMakeControls )
+
+/*{   if ( Self .Parent .IsVCMFormsPack ) then
+   begin
+    Self .Parent .ImplementsInDependencies
+    .filter> .IsVCMModuleContract
+    .for> (
+      IN aService
+     .join> ToArray: aService
+    ) // .for>
+   end // ( Self .Parent .IsVCMFormsPack )}*/
+   
   end // ( Self .IsVCMCustomForm )
   
   .joinWithLambded>
@@ -14221,6 +14318,7 @@ BOOLEAN elem_func NeedsFactoryBrackets
    //( g_Implementor .IsVCMFormsPack )
    ( g_Implementor .IsServiceImplementation )
    AND ( Self .GetUP "OriginalStereotype" .NotIsNil )
+   AND ( Self .Speller .UPisTrue "NO_FACTORY_BRACKECTS" ! )
   )
    true
   DEFAULT
@@ -15214,13 +15312,16 @@ elem_iterator IniOperations
             cQuote anOp .Name cQuote  ', '
             cQuote anOp .Documentation cQuote ', '
             anOp .UPisTrue "no prefix" ', '
-            'g_module_opcode_'
             if ( anOp .Parent .IsVCMModuleContract ) then
             begin
+             'mod_opcode_'
              anOp .Parent .Name 'T' .CutPrefix
             end // ( anOp .Parent .IsVCMModuleContract )
             else
+            begin
+             'g_module_opcode_'
              l_ModuleName
+            end // ( anOp .Parent .IsVCMModuleContract )
             '_' anOp .Name
             ')'
             ')'

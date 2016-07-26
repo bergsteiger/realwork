@@ -226,628 +226,6 @@ ref; // ME_4ABCDB760086 DoIt
 
 ref; // ME_4ABCDB5D034C Open
 
-FORWARD ME_4ABCDBC0002F
-
-: ME_4ABCDBE60123
- CONST Name 'aContainer'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
- ;
-
-ref; // ME_4ABCDBE60123 aContainer
-
-: ME_4ABCDBE60143
- CONST Name 'aCanCreate'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_4ABCDBE60143 aCanCreate
-
-: ME_4ABCDBDF0258
- CONST UID '4ABCDBDF0258'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent HWL ME_4ABCDBC0002F // OpenFolders
- ;
- : Parameters
-   Seq: ( ME_4ABCDBE60123 // aContainer
- ME_4ABCDBE60143 // aCanCreate
- )
- ; // Parameters
-
-ref; // ME_4ABCDBDF0258 DoIt
-
-: ME_4ABCDE0E0301
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent HWL ME_4ABCDBC0002F // OpenFolders
- ;
- : Target WL 'ME_48FF556602BA' '48F747EC0073.pas.ms.script' // DataAdapter
- ;
-
-ref; // ME_4ABCDE0E0301 
-
-: ME_4ABCDBC0002F
- CONST UID '4ABCDBC0002F'
- CONST Name 'OpenFolders'
- CONST Class class_Class
- : Stereotype st_FormFactory ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent HWL ME_4A96B68A03B1 // PrimFolders$UC
- ;
- : Operations
-   Seq: ( HWL ME_4ABCDBDF0258 // DoIt
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_4ABCDE0E0301 // DataAdapter
- )
- ; // Dependencies
- CONST "NO_FACTORY_BRACKECTS" false
-
-ref; // ME_4ABCDBC0002F OpenFolders
-
-FORWARD ME_4ABCE27102AD
-
-: ME_4ABCE28B0043
- CONST Name 'aContainer'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
- ;
-
-ref; // ME_4ABCE28B0043 aContainer
-
-: ME_4ABCE27E02A1
- CONST UID '4ABCE27E02A1'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent HWL ME_4ABCE27102AD // CloseFolders
- ;
- : Parameters
-   Seq: ( ME_4ABCE28B0043 // aContainer
- )
- ; // Parameters
-
-ref; // ME_4ABCE27E02A1 DoIt
-
-: ME_4ABCE27102AD
- CONST UID '4ABCE27102AD'
- CONST Name 'CloseFolders'
- CONST Class class_Class
- : Stereotype st_FactoryMethod ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent HWL ME_4A96B68A03B1 // PrimFolders$UC
- ;
- : Operations
-   Seq: ( HWL ME_4ABCE27E02A1 // DoIt
- )
- ; // Operations
- CONST "NO_FACTORY_BRACKECTS" false
- CONST "is static" false
-
-ref; // ME_4ABCE27102AD CloseFolders
-
-FORWARD ME_4ABCE3C2032A
-
-: ME_4ABCE3D30090
- CONST Name 'aContainer'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
- ;
-
-ref; // ME_4ABCE3D30090 aContainer
-
-: ME_4ABCE3D10010
- CONST UID '4ABCE3D10010'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent HWL ME_4ABCE3C2032A // TryOpenConsultationAnswer
- ;
- : Parameters
-   Seq: ( ME_4ABCE3D30090 // aContainer
- )
- ; // Parameters
-
-ref; // ME_4ABCE3D10010 DoIt
-
-: ME_4ABCE3C2032A
- CONST UID '4ABCE3C2032A'
- CONST Name 'TryOpenConsultationAnswer'
- CONST Class class_Class
- : Stereotype st_FactoryMethod ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent HWL ME_4A96B68A03B1 // PrimFolders$UC
- ;
- : Operations
-   Seq: ( HWL ME_4ABCE3D10010 // DoIt
- )
- ; // Operations
- CONST "NO_FACTORY_BRACKECTS" false
-
-ref; // ME_4ABCE3C2032A TryOpenConsultationAnswer
-
-FORWARD ME_4ABCE463038F
-
-: ME_4ABCE46E029B
- CONST UID '4ABCE46E029B'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent HWL ME_4ABCE463038F // MyInformation
- ;
-
-ref; // ME_4ABCE46E029B DoIt
-
-: ME_4ABCE4A60131
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent HWL ME_4ABCE463038F // MyInformation
- ;
- : Target WL 'ME_4AB8CB4B0256' '47D0E1500033.pas.ms.script' // TvcmItems
- ;
-
-ref; // ME_4ABCE4A60131 
-
-: ME_4ABCE463038F
- CONST UID '4ABCE463038F'
- CONST Name 'MyInformation'
- CONST Class class_Class
- : Stereotype st_ModuleMethod ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Моя информация' ;
- CONST Visibility ProtectedAccess
- CONST Abstraction at_final
- : Parent HWL ME_4A96B68A03B1 // PrimFolders$UC
- ;
- : Operations
-   Seq: ( HWL ME_4ABCE46E029B // DoIt
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_4ABCE4A60131 // TvcmItems
- )
- ; // Dependencies
- CONST "ShowInToolbar" 'undefined'
- CONST "is static" false
- CONST "no prefix" false
- CONST "no test" false
-
-ref; // ME_4ABCE463038F MyInformation
-
-FORWARD ME_4ABCE5070362
-
-: ME_4ABCE50C03A8
- CONST UID '4ABCE50C03A8'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent HWL ME_4ABCE5070362 // MyConsultations
- ;
-
-ref; // ME_4ABCE50C03A8 DoIt
-
-: ME_4ABCE5920206
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent HWL ME_4ABCE5070362 // MyConsultations
- ;
- : Target WL 'ME_4A9D129E00FA' '4AADF9450143.pas.ms.script' // Say
- ;
-
-ref; // ME_4ABCE5920206 
-
-: ME_4ABCE5070362
- CONST UID '4ABCE5070362'
- CONST Name 'MyConsultations'
- CONST Class class_Class
- : Stereotype st_ModuleMethod ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Мои консультации' ;
- CONST Visibility ProtectedAccess
- CONST Abstraction at_final
- : Parent HWL ME_4A96B68A03B1 // PrimFolders$UC
- ;
- : Operations
-   Seq: ( HWL ME_4ABCE50C03A8 // DoIt
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_4ABCE5920206 // Say
- )
- ; // Dependencies
- CONST "ShowInToolbar" 'undefined'
- CONST "is static" false
- CONST "no prefix" false
- CONST "no test" false
-
-ref; // ME_4ABCE5070362 MyConsultations
-
-FORWARD ME_4AC093B801EE
-
-: ME_4AC093C80229
- CONST UID '4AC093C80229'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent HWL ME_4AC093B801EE // UnderControlOpenFrmAct
- ;
-
-ref; // ME_4AC093C80229 DoIt
-
-: ME_4AC093B801EE
- CONST UID '4AC093B801EE'
- CONST Name 'UnderControlOpenFrmAct'
- CONST Class class_Class
- : Stereotype st_ModuleMethod ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Документы на контроле' ;
- CONST Visibility ProtectedAccess
- CONST Abstraction at_final
- : Parent HWL ME_4A96B68A03B1 // PrimFolders$UC
- ;
- : Operations
-   Seq: ( HWL ME_4AC093C80229 // DoIt
- )
- ; // Operations
- CONST "ShowInToolbar" 'undefined'
- CONST "is static" false
- CONST "no prefix" false
- CONST "no test" true
-
-ref; // ME_4AC093B801EE UnderControlOpenFrmAct
-
-FORWARD ME_4AC09777035C
-
-: ME_4AC0979600DD
- CONST Name 'aNode'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_456FE63B01D4' '456F02A50196.pas.ms.script' // Node
- ;
-
-ref; // ME_4AC0979600DD aNode
-
-: ME_4AC097960102
- CONST Name 'aStatus'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_45EEDB1B033E' '4570501E037A.pas.ms.script' // NotifyStatus
- ;
-
-ref; // ME_4AC097960102 aStatus
-
-: ME_4AC0977D03CF
- CONST UID '4AC0977D03CF'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent HWL ME_4AC09777035C // RefreshStructure
- ;
- : Parameters
-   Seq: ( ME_4AC0979600DD // aNode
- ME_4AC097960102 // aStatus
- )
- ; // Parameters
-
-ref; // ME_4AC0977D03CF DoIt
-
-: ME_4AC097E20110
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent HWL ME_4AC09777035C // RefreshStructure
- ;
- : Target WL 'ME_4AC095C002E6' '48F747EC0073.pas.ms.script' // UserFoldersTree
- ;
-
-ref; // ME_4AC097E20110 
-
-: ME_4AC098040281
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent HWL ME_4AC09777035C // RefreshStructure
- ;
- : Target WL 'ME_4991848F0296' '4990135D02F1.pas.ms.script' // InsReloadedTree
- ;
-
-ref; // ME_4AC098040281 
-
-: ME_4AC09777035C
- CONST UID '4AC09777035C'
- CONST Name 'RefreshStructure'
- CONST Class class_Class
- : Stereotype st_FactoryMethod ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent HWL ME_4A96B68A03B1 // PrimFolders$UC
- ;
- : Operations
-   Seq: ( HWL ME_4AC0977D03CF // DoIt
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_4AC097E20110 // UserFoldersTree
- ME_4AC098040281 // InsReloadedTree
- )
- ; // Dependencies
- CONST "NO_FACTORY_BRACKECTS" false
-
-ref; // ME_4AC09777035C RefreshStructure
-
-FORWARD ME_4AC0A2D30078
-
-: ME_4AC0A30B0229
- CONST UID '4AC0A30B0229'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent HWL ME_4AC0A2D30078 // OpenFrmAct
- ;
-
-ref; // ME_4AC0A30B0229 DoIt
-
-: ME_4AC0A30402F3
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent HWL ME_4AC0A2D30078 // OpenFrmAct
- ;
- : Target WL 'ME_48FF556602BA' '48F747EC0073.pas.ms.script' // DataAdapter
- ;
-
-ref; // ME_4AC0A30402F3 
-
-: ME_4AC0A32302BA
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent HWL ME_4AC0A2D30078 // OpenFrmAct
- ;
- : Target WL 'ME_4A9D129E00FA' '4AADF9450143.pas.ms.script' // Say
- ;
-
-ref; // ME_4AC0A32302BA 
-
-: ME_4AC0A2D30078
- CONST UID '4AC0A2D30078'
- CONST Name 'OpenFrmAct'
- CONST Class class_Class
- : Stereotype st_ModuleMethod ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Мои документы' ;
- CONST Visibility ProtectedAccess
- CONST Abstraction at_final
- : Parent HWL ME_4A96B68A03B1 // PrimFolders$UC
- ;
- : Operations
-   Seq: ( HWL ME_4AC0A30B0229 // DoIt
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_4AC0A30402F3 // DataAdapter
- ME_4AC0A32302BA // Say
- )
- ; // Dependencies
- CONST "ShowInToolbar" 'undefined'
- CONST "is static" false
- CONST "no prefix" false
- CONST "no test" true
-
-ref; // ME_4AC0A2D30078 OpenFrmAct
-
-FORWARD ME_4AC0AB11030C
-
-: ME_4AC0AF040174
- CONST UID '4AC0AF040174'
- CONST Name 'Form'
- CONST Class class_Attribute
- : Stereotype st_var::Attribute ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent HWL ME_4AC0AB11030C // EditInfoOpen
- ;
- : Target WL 'ME_4914746C019E' '4683F37902CF.pas.ms.script' // IvcmEntityForm
- ;
- CONST "IsResult" false
-
-ref; // ME_4AC0AF040174 Form
-
-: ME_4AC0AF0A01D3
- CONST UID '4AC0AF0A01D3'
- CONST Name 'Container'
- CONST Class class_Attribute
- : Stereotype st_var::Attribute ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent HWL ME_4AC0AB11030C // EditInfoOpen
- ;
- : Target WL 'ME_4914746C019E' '4683F37902CF.pas.ms.script' // IvcmEntityForm
- ;
- CONST "IsResult" false
-
-ref; // ME_4AC0AF0A01D3 Container
-
-: ME_4AC0AB4C03DE
- CONST Name 'aIsNewFolder'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_4AC0AB4C03DE aIsNewFolder
-
-: ME_4AC0AB4D0019
- CONST Name 'aNode'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4912DD2C0082' '4912DD020283.pas.ms.script' // IeeNode
- ;
-
-ref; // ME_4AC0AB4D0019 aNode
-
-: ME_4AC0AB4D003A
- CONST Name 'aCoords'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4AC0ABED023F' '497DCBF8017B.pas.ms.script' // InsFormCoordinates
- ;
-
-ref; // ME_4AC0AB4D003A aCoords
-
-: ME_4AC0AB220289
- CONST UID '4AC0AB220289'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent HWL ME_4AC0AB11030C // EditInfoOpen
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- : Parameters
-   Seq: ( ME_4AC0AB4C03DE // aIsNewFolder
- ME_4AC0AB4D0019 // aNode
- ME_4AC0AB4D003A // aCoords
- )
- ; // Parameters
-
-ref; // ME_4AC0AB220289 DoIt
-
-: ME_4AC0B2C7003E
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent HWL ME_4AC0AB11030C // EditInfoOpen
- ;
- : Target WL 'ME_4AC0B2B302FE' '47F485150151.pas.ms.script' // AdjustCtrl
- ;
-
-ref; // ME_4AC0B2C7003E 
-
-: ME_4AC363A30204
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent HWL ME_4AC0AB11030C // EditInfoOpen
- ;
- : Target WL 'ME_47ECE41C00D2' '4799D29F033F.pas.ms.script' // TApplication
- ;
-
-ref; // ME_4AC363A30204 
-
-: ME_4AE9827B02F8
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent HWL ME_4AC0AB11030C // EditInfoOpen
- ;
- : Target WL 'ME_4AE7070800A4' '4A96A8C10357.pas.ms.script' // FolderElement$ForInfo
- ;
-
-ref; // ME_4AE9827B02F8 
-
-: ME_4AC0AB11030C
- CONST UID '4AC0AB11030C'
- CONST Name 'EditInfoOpen'
- CONST Class class_Class
- : Stereotype st_FactoryMethod ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent HWL ME_4A96B68A03B1 // PrimFolders$UC
- ;
- : Attributes
-   Seq: ( HWL ME_4AC0AF040174 // Form
- HWL ME_4AC0AF0A01D3 // Container
- )
- ; // Attributes
- : Operations
-   Seq: ( HWL ME_4AC0AB220289 // DoIt
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_4AC0B2C7003E // AdjustCtrl
- ME_4AC363A30204 // TApplication
- ME_4AE9827B02F8 // FolderElement$ForInfo
- )
- ; // Dependencies
- CONST "NO_FACTORY_BRACKECTS" false
-
-ref; // ME_4AC0AB11030C EditInfoOpen
-
-FORWARD ME_4AC0B7BA003B
-
-: ME_4AC0B7FE00DA
- CONST Name 'aForm'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4914746C019E' '4683F37902CF.pas.ms.script' // IvcmEntityForm
- ;
-
-ref; // ME_4AC0B7FE00DA aForm
-
-: ME_4AC0B7FE00FC
- CONST Name 'aData'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_496A107D033B' '4990135D02F1.pas.ms.script' // InsFolderFilterInfo
- ;
-
-ref; // ME_4AC0B7FE00FC aData
-
-: ME_4AC0B7CB0203
- CONST UID '4AC0B7CB0203'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent HWL ME_4AC0B7BA003B // LoadOpen
- ;
- : Parameters
-   Seq: ( ME_4AC0B7FE00DA // aForm
- ME_4AC0B7FE00FC // aData
- )
- ; // Parameters
-
-ref; // ME_4AC0B7CB0203 DoIt
-
-: ME_4AC0B7BA003B
- CONST UID '4AC0B7BA003B'
- CONST Name 'LoadOpen'
- CONST Class class_Class
- : Stereotype st_FactoryMethod ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent HWL ME_4A96B68A03B1 // PrimFolders$UC
- ;
- : Operations
-   Seq: ( HWL ME_4AC0B7CB0203 // DoIt
- )
- ; // Operations
- CONST "NO_FACTORY_BRACKECTS" false
-
-ref; // ME_4AC0B7BA003B LoadOpen
-
 FORWARD ME_4AC0B80702DE
 
 : ME_4AC0B8630189
@@ -1036,453 +414,6 @@ ref; // ME_4AC0C318006E
 
 ref; // ME_4AC0B80702DE OpenFoldersForSelect
 
-FORWARD ME_4AC0B94902C7
-
-: ME_4AC0B98403A8
- CONST Name 'aForm'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4914746C019E' '4683F37902CF.pas.ms.script' // IvcmEntityForm
- ;
-
-ref; // ME_4AC0B98403A8 aForm
-
-: ME_4AC0C1340067
- CONST Name 'aFilterInfo'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_496A107D033B' '4990135D02F1.pas.ms.script' // InsFolderFilterInfo
- ;
-
-ref; // ME_4AC0C1340067 aFilterInfo
-
-: ME_4AC0B9850004
- CONST Name 'aCaption'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4683F4B103DC' '4683F37902CF.pas.ms.script' // TvcmStringID
- ;
-
-ref; // ME_4AC0B9850004 aCaption
-
-: ME_4AC0B95C00CE
- CONST UID '4AC0B95C00CE'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent HWL ME_4AC0B94902C7 // SelectOpen
- ;
- : Parameters
-   Seq: ( ME_4AC0B98403A8 // aForm
- ME_4AC0C1340067 // aFilterInfo
- ME_4AC0B9850004 // aCaption
- )
- ; // Parameters
-
-ref; // ME_4AC0B95C00CE DoIt
-
-: ME_4AC0B9E403A1
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent HWL ME_4AC0B94902C7 // SelectOpen
- ;
- : Target WL 'ME_4AC0B9CF018A' '47D0E1500033.pas.ms.script' // vcmCStr
- ;
-
-ref; // ME_4AC0B9E403A1 
-
-: ME_4AC0BABA038E
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent HWL ME_4AC0B94902C7 // SelectOpen
- ;
- : Target WL 'ME_4AB882990057' '47F2170002B2.pas.ms.script' // nsCStr
- ;
-
-ref; // ME_4AC0BABA038E 
-
-: ME_4AC0B94902C7
- CONST UID '4AC0B94902C7'
- CONST Name 'SelectOpen'
- CONST Class class_Class
- : Stereotype st_FactoryMethod ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent HWL ME_4A96B68A03B1 // PrimFolders$UC
- ;
- : Operations
-   Seq: ( HWL ME_4AC0B95C00CE // DoIt
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_4AC0B9E403A1 // vcmCStr
- ME_4AC0BABA038E // nsCStr
- )
- ; // Dependencies
- CONST "NO_FACTORY_BRACKECTS" false
-
-ref; // ME_4AC0B94902C7 SelectOpen
-
-FORWARD ME_4AC0BA2301AC
-
-: ME_4AC0BA4B033A
- CONST Name 'aForm'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4914746C019E' '4683F37902CF.pas.ms.script' // IvcmEntityForm
- ;
-
-ref; // ME_4AC0BA4B033A aForm
-
-: ME_4AC0C13D039C
- CONST Name 'aFilterInfo'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_496A107D033B' '4990135D02F1.pas.ms.script' // InsFolderFilterInfo
- ;
-
-ref; // ME_4AC0C13D039C aFilterInfo
-
-: ME_4AC0BA4B0386
- CONST Name 'aCaption'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4683F4B103DC' '4683F37902CF.pas.ms.script' // TvcmStringID
- ;
-
-ref; // ME_4AC0BA4B0386 aCaption
-
-: ME_4AC0BA4B03C2
- CONST Name 'anOp'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_47F2791D019A' '47F2170002B2.pas.ms.script' // TListLogicOperation
- ;
-
-ref; // ME_4AC0BA4B03C2 anOp
-
-: ME_4AC0BA3C0294
- CONST UID '4AC0BA3C0294'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent HWL ME_4AC0BA2301AC // SelectOpenWithOperation
- ;
- : Parameters
-   Seq: ( ME_4AC0BA4B033A // aForm
- ME_4AC0C13D039C // aFilterInfo
- ME_4AC0BA4B0386 // aCaption
- ME_4AC0BA4B03C2 // anOp
- )
- ; // Parameters
-
-ref; // ME_4AC0BA3C0294 DoIt
-
-: ME_4AC0BA67028A
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent HWL ME_4AC0BA2301AC // SelectOpenWithOperation
- ;
- : Target WL 'ME_4AC0B9CF018A' '47D0E1500033.pas.ms.script' // vcmCStr
- ;
-
-ref; // ME_4AC0BA67028A 
-
-: ME_4AC0BA2301AC
- CONST UID '4AC0BA2301AC'
- CONST Name 'SelectOpenWithOperation'
- CONST Class class_Class
- : Stereotype st_FactoryMethod ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent HWL ME_4A96B68A03B1 // PrimFolders$UC
- ;
- : Operations
-   Seq: ( HWL ME_4AC0BA3C0294 // DoIt
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_4AC0BA67028A // vcmCStr
- )
- ; // Dependencies
- CONST "NO_FACTORY_BRACKECTS" false
-
-ref; // ME_4AC0BA2301AC SelectOpenWithOperation
-
-FORWARD ME_4AC0BAEB012F
-
-: ME_4AC0BB1003A5
- CONST Name 'aForm'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4914746C019E' '4683F37902CF.pas.ms.script' // IvcmEntityForm
- ;
-
-ref; // ME_4AC0BB1003A5 aForm
-
-: ME_4AC0C1430140
- CONST Name 'aFilterInfo'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_496A107D033B' '4990135D02F1.pas.ms.script' // InsFolderFilterInfo
- ;
-
-ref; // ME_4AC0C1430140 aFilterInfo
-
-: ME_4AC0BB110005
- CONST Name 'aCaption'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4683F4B103DC' '4683F37902CF.pas.ms.script' // TvcmStringID
- ;
-
-ref; // ME_4AC0BB110005 aCaption
-
-: ME_4AC0C1220207
- CONST Name 'aUserData'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A451250363' '4AB0C3C60310.pas.ms.script' // IUnknown
- ;
-
-ref; // ME_4AC0C1220207 aUserData
-
-: ME_4AC0BB0302F6
- CONST UID '4AC0BB0302F6'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent HWL ME_4AC0BAEB012F // SelectOpenWithUserData
- ;
- : Parameters
-   Seq: ( ME_4AC0BB1003A5 // aForm
- ME_4AC0C1430140 // aFilterInfo
- ME_4AC0BB110005 // aCaption
- ME_4AC0C1220207 // aUserData
- )
- ; // Parameters
-
-ref; // ME_4AC0BB0302F6 DoIt
-
-: ME_4AC0BB290070
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent HWL ME_4AC0BAEB012F // SelectOpenWithUserData
- ;
- : Target WL 'ME_4AC0B9CF018A' '47D0E1500033.pas.ms.script' // vcmCStr
- ;
-
-ref; // ME_4AC0BB290070 
-
-: ME_4AC0BAEB012F
- CONST UID '4AC0BAEB012F'
- CONST Name 'SelectOpenWithUserData'
- CONST Class class_Class
- : Stereotype st_FactoryMethod ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent HWL ME_4A96B68A03B1 // PrimFolders$UC
- ;
- : Operations
-   Seq: ( HWL ME_4AC0BB0302F6 // DoIt
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_4AC0BB290070 // vcmCStr
- )
- ; // Dependencies
- CONST "NO_FACTORY_BRACKECTS" false
-
-ref; // ME_4AC0BAEB012F SelectOpenWithUserData
-
-FORWARD ME_4AC0CBE300FC
-
-: ME_4AC0CC6A0259
- CONST UID '4AC0CC6A0259'
- CONST Name 'Folders'
- CONST Class class_Attribute
- : Stereotype st_var::Attribute ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent HWL ME_4AC0CBE300FC // SaveOpen
- ;
- : Target WL 'ME_492EAE13002A' '492192300095.pas.ms.script' // IsdsFolders
- ;
- CONST "IsResult" false
-
-ref; // ME_4AC0CC6A0259 Folders
-
-: ME_4AC0CC780331
- CONST UID '4AC0CC780331'
- CONST Name 'Container'
- CONST Class class_Attribute
- : Stereotype st_var::Attribute ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent HWL ME_4AC0CBE300FC // SaveOpen
- ;
- : Target WL 'ME_4914746C019E' '4683F37902CF.pas.ms.script' // IvcmEntityForm
- ;
- CONST "IsResult" false
-
-ref; // ME_4AC0CC780331 Container
-
-: ME_4AC0CC870109
- CONST UID '4AC0CC870109'
- CONST Name 'Params'
- CONST Class class_Attribute
- : Stereotype st_var::Attribute ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent HWL ME_4AC0CBE300FC // SaveOpen
- ;
- : Target WL 'ME_49930F8B0367' '4683F37902CF.pas.ms.script' // IvcmMakeParams
- ;
- CONST "IsResult" false
-
-ref; // ME_4AC0CC870109 Params
-
-: ME_4AC0D032034E
- CONST UID '4AC0D032034E'
- CONST Name 'Form'
- CONST Class class_Attribute
- : Stereotype st_var::Attribute ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent HWL ME_4AC0CBE300FC // SaveOpen
- ;
- : Target WL 'ME_4914746C019E' '4683F37902CF.pas.ms.script' // IvcmEntityForm
- ;
- CONST "IsResult" false
-
-ref; // ME_4AC0D032034E Form
-
-: ME_4AC0CC4501F8
- CONST Name 'aForm'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4914746C019E' '4683F37902CF.pas.ms.script' // IvcmEntityForm
- ;
-
-ref; // ME_4AC0CC4501F8 aForm
-
-: ME_4AC0CC450219
- CONST Name 'aFilterInfo'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_496A107D033B' '4990135D02F1.pas.ms.script' // InsFolderFilterInfo
- ;
-
-ref; // ME_4AC0CC450219 aFilterInfo
-
-: ME_4AC0CC45023C
- CONST Name 'anElementType'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_49901B7F0265' '4990135D02F1.pas.ms.script' // TFoldersElementType
- ;
-
-ref; // ME_4AC0CC45023C anElementType
-
-: ME_4AC0CC450277
- CONST Name 'anEntity'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_456EB3E10177' '456EA56002BF.pas.ms.script' // EntityBase
- ;
-
-ref; // ME_4AC0CC450277 anEntity
-
-: ME_4AC0CC4502DA
- CONST Name 'aSaveAs'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_4AC0CC4502DA aSaveAs
-
-: ME_4AC0CC060072
- CONST UID '4AC0CC060072'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent HWL ME_4AC0CBE300FC // SaveOpen
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- : Parameters
-   Seq: ( ME_4AC0CC4501F8 // aForm
- ME_4AC0CC450219 // aFilterInfo
- ME_4AC0CC45023C // anElementType
- ME_4AC0CC450277 // anEntity
- ME_4AC0CC4502DA // aSaveAs
- )
- ; // Parameters
-
-ref; // ME_4AC0CC060072 DoIt
-
-: ME_4AC0CC6102F5
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent HWL ME_4AC0CBE300FC // SaveOpen
- ;
- : Target WL 'ME_492EE1A80008' '492EE1A80008.pas.ms.script' // TsdsFolders
- ;
-
-ref; // ME_4AC0CC6102F5 
-
-: ME_4AC0CC9002E0
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent HWL ME_4AC0CBE300FC // SaveOpen
- ;
- : Target WL 'ME_4A980B37006B' '4799D29F033F.pas.ms.script' // ModalResults
- ;
-
-ref; // ME_4AC0CC9002E0 
-
-: ME_4AC0CBE300FC
- CONST UID '4AC0CBE300FC'
- CONST Name 'SaveOpen'
- CONST Class class_Class
- : Stereotype st_FactoryMethod ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent HWL ME_4A96B68A03B1 // PrimFolders$UC
- ;
- : Attributes
-   Seq: ( HWL ME_4AC0CC6A0259 // Folders
- HWL ME_4AC0CC780331 // Container
- HWL ME_4AC0CC870109 // Params
- HWL ME_4AC0D032034E // Form
- )
- ; // Attributes
- : Operations
-   Seq: ( HWL ME_4AC0CC060072 // DoIt
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_4AC0CC6102F5 // TsdsFolders
- ME_4AC0CC9002E0 // ModalResults
- )
- ; // Dependencies
- CONST "NO_FACTORY_BRACKECTS" false
-
-ref; // ME_4AC0CBE300FC SaveOpen
-
 : ME_4AF933170271
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -1513,6 +444,196 @@ ref; // ME_4B14D5AF0255
 
 ref; // ME_4BD6EB930394 
 
+: ME_5797664E00B4
+ CONST Class class_Dependency
+ : Stereotype st_implements::Dependency ;
+ : Parent HWL ME_4A96B68A03B1 // PrimFolders$UC
+ ;
+ : Target WL 'ME_579764A6025C' '5795D66F0385.pas.ms.script' // TFoldersService
+ ;
+
+ref; // ME_5797664E00B4 
+
+: ME_4ABCDE0E0301
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A96B68A03B1 // PrimFolders$UC
+ ;
+ : Target WL 'ME_48FF556602BA' '48F747EC0073.pas.ms.script' // DataAdapter
+ ;
+
+ref; // ME_4ABCDE0E0301 
+
+: ME_5797669B03BC
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A96B68A03B1 // PrimFolders$UC
+ ;
+ : Target WL 'ME_4914746C019E' '4683F37902CF.pas.ms.script' // IvcmEntityForm
+ ;
+
+ref; // ME_5797669B03BC 
+
+: ME_4AE9827B02F8
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A96B68A03B1 // PrimFolders$UC
+ ;
+ : Target WL 'ME_4AE7070800A4' '4A96A8C10357.pas.ms.script' // FolderElement$ForInfo
+ ;
+
+ref; // ME_4AE9827B02F8 
+
+: ME_4AC0B2C7003E
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A96B68A03B1 // PrimFolders$UC
+ ;
+ : Target WL 'ME_4AC0B2B302FE' '47F485150151.pas.ms.script' // AdjustCtrl
+ ;
+
+ref; // ME_4AC0B2C7003E 
+
+: ME_579766940316
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A96B68A03B1 // PrimFolders$UC
+ ;
+ : Target WL 'ME_4914746C019E' '4683F37902CF.pas.ms.script' // IvcmEntityForm
+ ;
+
+ref; // ME_579766940316 
+
+: ME_4AC363A30204
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A96B68A03B1 // PrimFolders$UC
+ ;
+ : Target WL 'ME_47ECE41C00D2' '4799D29F033F.pas.ms.script' // TApplication
+ ;
+
+ref; // ME_4AC363A30204 
+
+: ME_4ABCE5920206
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A96B68A03B1 // PrimFolders$UC
+ ;
+ : Target WL 'ME_4A9D129E00FA' '4AADF9450143.pas.ms.script' // Say
+ ;
+
+ref; // ME_4ABCE5920206 
+
+: ME_4ABCE4A60131
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A96B68A03B1 // PrimFolders$UC
+ ;
+ : Target WL 'ME_4AB8CB4B0256' '47D0E1500033.pas.ms.script' // TvcmItems
+ ;
+
+ref; // ME_4ABCE4A60131 
+
+: ME_4AC098040281
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A96B68A03B1 // PrimFolders$UC
+ ;
+ : Target WL 'ME_4991848F0296' '4990135D02F1.pas.ms.script' // InsReloadedTree
+ ;
+
+ref; // ME_4AC098040281 
+
+: ME_4AC097E20110
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A96B68A03B1 // PrimFolders$UC
+ ;
+ : Target WL 'ME_4AC095C002E6' '48F747EC0073.pas.ms.script' // UserFoldersTree
+ ;
+
+ref; // ME_4AC097E20110 
+
+: ME_4AC0BA67028A
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A96B68A03B1 // PrimFolders$UC
+ ;
+ : Target WL 'ME_4AC0B9CF018A' '47D0E1500033.pas.ms.script' // vcmCStr
+ ;
+
+ref; // ME_4AC0BA67028A 
+
+: ME_579767A60329
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A96B68A03B1 // PrimFolders$UC
+ ;
+ : Target WL 'ME_49930F8B0367' '4683F37902CF.pas.ms.script' // IvcmMakeParams
+ ;
+
+ref; // ME_579767A60329 
+
+: ME_579767AD0227
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A96B68A03B1 // PrimFolders$UC
+ ;
+ : Target WL 'ME_4914746C019E' '4683F37902CF.pas.ms.script' // IvcmEntityForm
+ ;
+
+ref; // ME_579767AD0227 
+
+: ME_579767B901A9
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A96B68A03B1 // PrimFolders$UC
+ ;
+ : Target WL 'ME_492EAE13002A' '492192300095.pas.ms.script' // IsdsFolders
+ ;
+
+ref; // ME_579767B901A9 
+
+: ME_4AC0CC6102F5
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A96B68A03B1 // PrimFolders$UC
+ ;
+ : Target WL 'ME_492EE1A80008' '492EE1A80008.pas.ms.script' // TsdsFolders
+ ;
+
+ref; // ME_4AC0CC6102F5 
+
+: ME_4AC0CC9002E0
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A96B68A03B1 // PrimFolders$UC
+ ;
+ : Target WL 'ME_4A980B37006B' '4799D29F033F.pas.ms.script' // ModalResults
+ ;
+
+ref; // ME_4AC0CC9002E0 
+
+: ME_4AC0BABA038E
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A96B68A03B1 // PrimFolders$UC
+ ;
+ : Target WL 'ME_4AB882990057' '47F2170002B2.pas.ms.script' // nsCStr
+ ;
+
+ref; // ME_4AC0BABA038E 
+
+: ME_5797738002B3
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_4A96B68A03B1 // PrimFolders$UC
+ ;
+ : Target WL 'ME_4AC0ABB70051' '497DCBF8017B.pas.ms.script' // TnsFormCoordinates
+ ;
+
+ref; // ME_5797738002B3 
+
 : ME_479731C50290_ME_4A96B68A03B1
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
  ;
@@ -1541,21 +662,7 @@ ref; // ME_479731C50290_ME_4A96B68A03B1 Cleanup
    Seq: ( HWL ME_4AA532E202C1 // OpenFoldersPrim
  HWL ME_4AA534760215 // FindFoldersForm
  HWL ME_4ABCDB5D034C // Open
- HWL ME_4ABCDBC0002F // OpenFolders
- HWL ME_4ABCE27102AD // CloseFolders
- HWL ME_4ABCE3C2032A // TryOpenConsultationAnswer
- HWL ME_4ABCE463038F // MyInformation
- HWL ME_4ABCE5070362 // MyConsultations
- HWL ME_4AC093B801EE // UnderControlOpenFrmAct
- HWL ME_4AC09777035C // RefreshStructure
- HWL ME_4AC0A2D30078 // OpenFrmAct
- HWL ME_4AC0AB11030C // EditInfoOpen
- HWL ME_4AC0B7BA003B // LoadOpen
  HWL ME_4AC0B80702DE // OpenFoldersForSelect
- HWL ME_4AC0B94902C7 // SelectOpen
- HWL ME_4AC0BA2301AC // SelectOpenWithOperation
- HWL ME_4AC0BAEB012F // SelectOpenWithUserData
- HWL ME_4AC0CBE300FC // SaveOpen
  )
  ; // Operations
  : Overridden
@@ -1575,6 +682,25 @@ ref; // ME_479731C50290_ME_4A96B68A03B1 Cleanup
    Seq: ( ME_4AF933170271 // List
  ME_4B14D5AF0255 // TnsOpenConsultationEvent
  ME_4BD6EB930394 // utSaveOpen
+ ME_5797664E00B4 // TFoldersService
+ ME_4ABCDE0E0301 // DataAdapter
+ ME_5797669B03BC // IvcmEntityForm
+ ME_4AE9827B02F8 // FolderElement$ForInfo
+ ME_4AC0B2C7003E // AdjustCtrl
+ ME_579766940316 // IvcmEntityForm
+ ME_4AC363A30204 // TApplication
+ ME_4ABCE5920206 // Say
+ ME_4ABCE4A60131 // TvcmItems
+ ME_4AC098040281 // InsReloadedTree
+ ME_4AC097E20110 // UserFoldersTree
+ ME_4AC0BA67028A // vcmCStr
+ ME_579767A60329 // IvcmMakeParams
+ ME_579767AD0227 // IvcmEntityForm
+ ME_579767B901A9 // IsdsFolders
+ ME_4AC0CC6102F5 // TsdsFolders
+ ME_4AC0CC9002E0 // ModalResults
+ ME_4AC0BABA038E // nsCStr
+ ME_5797738002B3 // TnsFormCoordinates
  )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'

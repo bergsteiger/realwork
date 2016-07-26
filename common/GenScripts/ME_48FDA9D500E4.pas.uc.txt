@@ -4,15 +4,15 @@
   f_CountViewChanged := True;
 
  if (GetCurrentThreadID = MainThreadID) then
-  ChangeChildrenCountPrim(aNodeIndex, aDelta, aIndexPath, aChildIndex)
+  ChangeChildrenCountPrim(Node_Index, Delta, Index_Path, Child_Index)
  else
  begin
   with l_Data do
   begin
-   rNodeIndex := aNodeIndex;
-   rDelta := aDelta;
-   rIndexPath := aIndexPath;
-   rChildIndex := aChildIndex;
+   rNodeIndex := Node_Index;
+   rDelta := Delta;
+   rIndexPath := Index_Path;
+   rChildIndex := Child_Index;
   end;//with l_Data
   Synchronize(ChangeChildrenCountThread, @l_Data, SizeOf(l_Data), [l_Data.rIndexPath]);
  end;//GetCurrentThreadID = MainThreadID
@@ -95,6 +95,9 @@ var
 //#UC END# *475E4B020072_48FDA9D500E4_impl*
 //#UC START# *475E4B020072_48FDA9D500E4_var*
 //#UC END# *475E4B020072_48FDA9D500E4_var*
+//#UC START# *48FDA9D500E4_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsNodeNotifierImplementation.imp.pas
+//#UC END# *48FDA9D500E4_ext:FileName
 //#UC START# *48FDAA2000B3_48FDA9D500E4_impl*
  inherited Changing;
 //#UC END# *48FDAA2000B3_48FDA9D500E4_impl*
