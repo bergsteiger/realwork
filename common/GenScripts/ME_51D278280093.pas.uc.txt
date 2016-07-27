@@ -71,7 +71,7 @@ w:\common\components\rtl\Garant\dd\destNorm.pas
    l_Char := f_TextBuffer.Last;
    if (l_Char in csSetRusI) then
    begin
-    f_TextBuffer.Ch[f_TextBuffer.Len - 1] := AnsiChar(Ord(l_Char) + 1);
+    f_TextBuffer.Ch[f_TextBuffer.Len - 1] := Char(Ord(l_Char) + 1);
     Result := True;
    end // if (l_Char in csSetRusI) then
    else
@@ -153,7 +153,6 @@ w:\common\components\rtl\Garant\dd\destNorm.pas
    end; // propPAP
   propCell, propNestedCell:
    begin
-    l_Table := nil;
     if not Try2CloseNestedTable(aState.PAP.itap) then
      Try2AddTable(aState.PAP.itap); // наследуем оформление от предыдущей строки
     if aState.PAP.ListItem <> propUndefined then
@@ -172,7 +171,7 @@ w:\common\components\rtl\Garant\dd\destNorm.pas
     end; // if CanAddTable then
     if f_TextBuffer.Len > 0 then
      FlushTextBuffer(aState, True);
-    if CanAddTable and (l_Table <> nil) then
+    if CanAddTable then
      l_Table.CloseCell;
    end; // propCell
   propRow, propNestedRow: // конец строки таблицы
@@ -508,8 +507,8 @@ var
    if not aCEP.MergeFirst then
     aCEP.Merged := True;
   ipropMergedFirst : aCEP.MergeFirst := True;
-  ipropColorB: aCEP.PatternBackColor := GetColor(aValue - 1);
-  ipropColorF: aCEP.PatternForeColor := GetColor(aValue - 1);
+  ipropColorB: aCEP.PatternBackColor:= GetColor(aValue - 1);
+  ipropColorF: aCEP.PatternForeColor:= GetColor(aValue - 1);
  end;{case What}
 //#UC END# *51E8D23B01F6_51D278280093_impl*
 //#UC START# *51E8D23B01F6_51D278280093_var*
@@ -527,9 +526,9 @@ var
     ipropBold: Bold := ByteBool(aValue);
     ipropItalic: Italic := ByteBool(aValue);
     ipropUnderline : if not LongBool(aValue) then
-                      Underline := utNone
+                       Underline := utNone
                      else
-                      Underline := TUnderline(aValue);
+                       Underline := TUnderline(aValue);
     iproPAnsiCharCaps : Caps := TddCharCapsType(aValue);
     ipropHidden  : Hidden := ByteBool(aValue);
     ipropDeleted : ;

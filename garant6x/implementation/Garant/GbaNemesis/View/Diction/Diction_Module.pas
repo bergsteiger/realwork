@@ -13,13 +13,6 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3IntfUses
- , DynamicTreeUnit
- , l3Interfaces
- , BaseTypesUnit
- , DocumentUnit
- , l3TreeInterfaces
- , bsTypes
- , DocumentInterfaces
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
@@ -55,13 +48,6 @@ type
    {$If NOT Defined(NoVCM)}
    class procedure GetEntityForms(aList: TvcmClassList); override;
    {$IfEnd} // NOT Defined(NoVCM)
-  public
-   class procedure OpenTermByContext(const aContext: Il3CString;
-    aLanguage: TbsLanguage);
-    {* Открывает термин по подстроке }
-   class procedure OpenDictionary(const aDocInfo: IdeDocInfo;
-    const aContainer: IvcmContainer);
-    {* Открывает толковый словарь }
  end;//TDictionModule
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -70,6 +56,15 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ , l3ProtoObject
+ , Base_Operations_F1Services_Contracts
+ , DocumentInterfaces
+ , DynamicTreeUnit
+ , l3Interfaces
+ , BaseTypesUnit
+ , DocumentUnit
+ , l3TreeInterfaces
+ , bsTypes
  , Base_Operations_Strange_Controls
  , DocumentUserTypes_dftDictEntry_UserType
  {$If NOT Defined(NoVCM)}
@@ -79,14 +74,15 @@ uses
  {$If Defined(Nemesis)}
  , nscContextFilterState
  {$IfEnd} // Defined(Nemesis)
- , l3String
- , deDiction
- , l3Chars
- , SysUtils
- , nsDictionTree
  , sdsDiction
+ , nsDictionTree
+ , deDiction
  , DataAdapter
  , LoggingUnit
+ , SysUtils
+ , l3Base
+ , l3String
+ , l3Chars
  , Diction_Form
  , fsDiction
  , DictionContainer_Form
@@ -100,6 +96,30 @@ uses
 ;
 
 {$If NOT Defined(NoVCM)}
+type
+ TDictionServiceImpl = {final} class(Tl3ProtoObject, IDictionService)
+  public
+   procedure OpenDictionary(const aDocInfo: IdeDocInfo;
+    const aContainer: IvcmContainer);
+    {* Открывает толковый словарь }
+   procedure OpenTermByContext(const aContext: Il3CString;
+    aLanguage: TbsLanguage);
+    {* Открывает термин по подстроке }
+   class function Instance: TDictionServiceImpl;
+    {* Метод получения экземпляра синглетона TDictionServiceImpl }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
+ end;//TDictionServiceImpl
+
+var g_TDictionServiceImpl: TDictionServiceImpl = nil;
+ {* Экземпляр синглетона TDictionServiceImpl }
+
+procedure TDictionServiceImplFree;
+ {* Метод освобождения экземпляра синглетона TDictionServiceImpl }
+begin
+ l3Free(g_TDictionServiceImpl);
+end;//TDictionServiceImplFree
+
 class procedure TnsOpenDictionaryEvent.Log;
 //#UC START# *4B14CE0A001F_4B14CDEA039C_var*
 //#UC END# *4B14CE0A001F_4B14CDEA039C_var*
@@ -109,7 +129,27 @@ begin
 //#UC END# *4B14CE0A001F_4B14CDEA039C_impl*
 end;//TnsOpenDictionaryEvent.Log
 
-class procedure TDictionModule.OpenTermByContext(const aContext: Il3CString;
+procedure TDictionServiceImpl.OpenDictionary(const aDocInfo: IdeDocInfo;
+ const aContainer: IvcmContainer);
+ {* Открывает толковый словарь }
+var
+ __WasEnter : Boolean;
+//#UC START# *4A9D1FD20092_4A9CE5F2036F_var*
+//#UC END# *4A9D1FD20092_4A9CE5F2036F_var*
+begin
+ __WasEnter := vcmEnterFactory;
+ try
+//#UC START# *4A9D1FD20092_4A9CE5F2036F_impl*
+ TnsOpenDictionaryEvent.Log;
+ Tfs_Diction.Make(TsdsDiction.Make(aDocInfo), aContainer);
+//#UC END# *4A9D1FD20092_4A9CE5F2036F_impl*
+ finally
+  if __WasEnter then
+   vcmLeaveFactory;
+ end;//try..finally
+end;//TDictionServiceImpl.OpenDictionary
+
+procedure TDictionServiceImpl.OpenTermByContext(const aContext: Il3CString;
  aLanguage: TbsLanguage);
  {* Открывает термин по подстроке }
 var l_Child: INodeBase;
@@ -170,27 +210,24 @@ begin
   if __WasEnter then
    vcmLeaveFactory;
  end;//try..finally
-end;//TDictionModule.OpenTermByContext
+end;//TDictionServiceImpl.OpenTermByContext
 
-class procedure TDictionModule.OpenDictionary(const aDocInfo: IdeDocInfo;
- const aContainer: IvcmContainer);
- {* Открывает толковый словарь }
-var
- __WasEnter : Boolean;
-//#UC START# *4A9D1FD20092_4A9CE5F2036F_var*
-//#UC END# *4A9D1FD20092_4A9CE5F2036F_var*
+class function TDictionServiceImpl.Instance: TDictionServiceImpl;
+ {* Метод получения экземпляра синглетона TDictionServiceImpl }
 begin
- __WasEnter := vcmEnterFactory;
- try
-//#UC START# *4A9D1FD20092_4A9CE5F2036F_impl*
- TnsOpenDictionaryEvent.Log;
- Tfs_Diction.Make(TsdsDiction.Make(aDocInfo), aContainer);
-//#UC END# *4A9D1FD20092_4A9CE5F2036F_impl*
- finally
-  if __WasEnter then
-   vcmLeaveFactory;
- end;//try..finally
-end;//TDictionModule.OpenDictionary
+ if (g_TDictionServiceImpl = nil) then
+ begin
+  l3System.AddExitProc(TDictionServiceImplFree);
+  g_TDictionServiceImpl := Create;
+ end;
+ Result := g_TDictionServiceImpl;
+end;//TDictionServiceImpl.Instance
+
+class function TDictionServiceImpl.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TDictionServiceImpl <> nil;
+end;//TDictionServiceImpl.Exists
 
 procedure TDictionModule.opOpenDictTest(const aParams: IvcmTestParamsPrim);
  {* Толковый словарь }
@@ -288,6 +325,10 @@ begin
  aList.Add(TDictionContainerForm);
  aList.Add(Ten_CommonDiction);
 end;//TDictionModule.GetEntityForms
+
+initialization
+ TDictionService.Instance.Alien := TDictionServiceImpl.Instance;
+ {* Регистрация TDictionServiceImpl }
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)

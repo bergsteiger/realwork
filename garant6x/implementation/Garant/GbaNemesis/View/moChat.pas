@@ -26,8 +26,6 @@ type
  Tmo_Chat = {final} class(TBaseChatModule)
   {* ×àò }
  end;//Tmo_Chat
-
-var g_module_opcode_Chat_OpenContactList: TvcmMOPID = (rMoID : -1; rOpID : -1);
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
@@ -41,11 +39,12 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmModuleOperationsForRegister
  {$IfEnd} // NOT Defined(NoVCM)
+ , Base_Operations_F1Services_Contracts
 ;
 
 initialization
  TvcmModulesForRegister.AddModule(TvcmModuleForRegister_C(Tmo_Chat, '×àò'));
- TvcmModuleOperationsForRegister.AddOperation(TvcmModuleOperationForRegister_C(Tmo_Chat, 'OpenContactList', '', False, g_module_opcode_Chat_OpenContactList));
+ TvcmModuleOperationsForRegister.AddOperation(TvcmModuleOperationForRegister_C(Tmo_Chat, 'OpenContactList', '', False, mod_opcode_ChatService_OpenContactList));
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

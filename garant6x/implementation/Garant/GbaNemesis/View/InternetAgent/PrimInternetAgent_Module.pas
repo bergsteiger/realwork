@@ -13,10 +13,6 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3IntfUses
- , l3Interfaces
- {$If NOT Defined(NoVCM)}
- , vcmInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)
@@ -40,19 +36,14 @@ type
  {$IfEnd} // NOT Defined(NoVCM)
  )
   {* Модуль для [Интернет-агента|$144575249] }
-  protected
+  private
    procedure opInternetAgentTest(const aParams: IvcmTestParamsPrim);
-    {* Новости онлайн }
    procedure opInternetAgentExecute(const aParams: IvcmExecuteParamsPrim);
-    {* Новости онлайн }
+  protected
    procedure Loaded; override;
    {$If NOT Defined(NoVCM)}
    class procedure GetEntityForms(aList: TvcmClassList); override;
    {$IfEnd} // NOT Defined(NoVCM)
-  public
-   class procedure MakeInternetAgent(const anURL: Il3CString;
-    const aContainer: IvcmContainer);
-    {* Создаёт область вывода Интернет-агента }
  end;//TPrimInternetAgentModule
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -61,6 +52,12 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ , l3ProtoObject
+ , Base_Operations_F1Services_Contracts
+ , l3Interfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  , l3Base
  , DataAdapter
  , nsTypes
@@ -69,12 +66,13 @@ uses
  , nsConst
  , sdsInternetAgent
  {$If NOT Defined(NoVCM)}
- , StdRes
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
  , vcmFormSetFactory
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
  , LoggingUnit
+ , SysUtils
  , InternetAgent_Form
  , fsInternetAgent
  //#UC START# *49EC739C0100impl_uses*
@@ -82,6 +80,27 @@ uses
 ;
 
 {$If NOT Defined(NoVCM)}
+type
+ TInternetAgentServiceImpl = {final} class(Tl3ProtoObject, IInternetAgentService)
+  public
+   procedure MakeInternetAgent(const anURL: Il3CString;
+    const aContainer: IvcmContainer);
+    {* Создаёт область вывода Интернет-агента }
+   class function Instance: TInternetAgentServiceImpl;
+    {* Метод получения экземпляра синглетона TInternetAgentServiceImpl }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
+ end;//TInternetAgentServiceImpl
+
+var g_TInternetAgentServiceImpl: TInternetAgentServiceImpl = nil;
+ {* Экземпляр синглетона TInternetAgentServiceImpl }
+
+procedure TInternetAgentServiceImplFree;
+ {* Метод освобождения экземпляра синглетона TInternetAgentServiceImpl }
+begin
+ l3Free(g_TInternetAgentServiceImpl);
+end;//TInternetAgentServiceImplFree
+
 class procedure TnsOpenInternetAgentEvent.Log;
 //#UC START# *4B14DF4201A3_4B14DF1F0101_var*
 //#UC END# *4B14DF4201A3_4B14DF1F0101_var*
@@ -91,7 +110,7 @@ begin
 //#UC END# *4B14DF4201A3_4B14DF1F0101_impl*
 end;//TnsOpenInternetAgentEvent.Log
 
-class procedure TPrimInternetAgentModule.MakeInternetAgent(const anURL: Il3CString;
+procedure TInternetAgentServiceImpl.MakeInternetAgent(const anURL: Il3CString;
  const aContainer: IvcmContainer);
  {* Создаёт область вывода Интернет-агента }
 var
@@ -115,31 +134,46 @@ begin
   if __WasEnter then
    vcmLeaveFactory;
  end;//try..finally
-end;//TPrimInternetAgentModule.MakeInternetAgent
+end;//TInternetAgentServiceImpl.MakeInternetAgent
+
+class function TInternetAgentServiceImpl.Instance: TInternetAgentServiceImpl;
+ {* Метод получения экземпляра синглетона TInternetAgentServiceImpl }
+begin
+ if (g_TInternetAgentServiceImpl = nil) then
+ begin
+  l3System.AddExitProc(TInternetAgentServiceImplFree);
+  g_TInternetAgentServiceImpl := Create;
+ end;
+ Result := g_TInternetAgentServiceImpl;
+end;//TInternetAgentServiceImpl.Instance
+
+class function TInternetAgentServiceImpl.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TInternetAgentServiceImpl <> nil;
+end;//TInternetAgentServiceImpl.Exists
 
 procedure TPrimInternetAgentModule.opInternetAgentTest(const aParams: IvcmTestParamsPrim);
- {* Новости онлайн }
-//#UC START# *4A979E9B0245_49EC739C0100test_var*
-//#UC END# *4A979E9B0245_49EC739C0100test_var*
+//#UC START# *57971D020184_49EC739C0100test_var*
+//#UC END# *57971D020184_49EC739C0100test_var*
 begin
-//#UC START# *4A979E9B0245_49EC739C0100test_impl*
+//#UC START# *57971D020184_49EC739C0100test_impl*
  aParams.Op.Flag[vcm_ofEnabled] := defDataAdapter.IsInternetAgentEnabled;
  aParams.Op.Flag[vcm_ofVisible] := aParams.Op.Flag[vcm_ofEnabled];
-//#UC END# *4A979E9B0245_49EC739C0100test_impl*
+//#UC END# *57971D020184_49EC739C0100test_impl*
 end;//TPrimInternetAgentModule.opInternetAgentTest
 
 procedure TPrimInternetAgentModule.opInternetAgentExecute(const aParams: IvcmExecuteParamsPrim);
- {* Новости онлайн }
-//#UC START# *4A979E9B0245_49EC739C0100exec_var*
-//#UC END# *4A979E9B0245_49EC739C0100exec_var*
+//#UC START# *57971D020184_49EC739C0100exec_var*
+//#UC END# *57971D020184_49EC739C0100exec_var*
 begin
-//#UC START# *4A979E9B0245_49EC739C0100exec_impl*
+//#UC START# *57971D020184_49EC739C0100exec_impl*
  {if afw.Application.LocaleInfo.Language = afw_lngEnglish then
   MakeInternetAgent(l3CStr(ciitEnglishGarant), DefaultContainer)
  else}
-  MakeInternetAgent(l3CStr(ciitGarant), DefaultContainer);
+  TInternetAgentService.Instance.MakeInternetAgent(l3CStr(ciitGarant), DefaultContainer);
  TnsOpenInternetAgentEvent.Log;
-//#UC END# *4A979E9B0245_49EC739C0100exec_impl*
+//#UC END# *57971D020184_49EC739C0100exec_impl*
 end;//TPrimInternetAgentModule.opInternetAgentExecute
 
 procedure TPrimInternetAgentModule.Loaded;
@@ -153,6 +187,10 @@ begin
  inherited;
  aList.Add(TInternetAgentForm);
 end;//TPrimInternetAgentModule.GetEntityForms
+
+initialization
+ TInternetAgentService.Instance.Alien := TInternetAgentServiceImpl.Instance;
+ {* Регистрация TInternetAgentServiceImpl }
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)

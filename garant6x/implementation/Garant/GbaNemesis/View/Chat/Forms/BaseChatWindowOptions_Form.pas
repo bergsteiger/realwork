@@ -43,6 +43,7 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ , Base_Operations_F1Services_Contracts
  {$If NOT Defined(NoVCM)}
  , OfficeLike_Result_Controls
  {$IfEnd} // NOT Defined(NoVCM)

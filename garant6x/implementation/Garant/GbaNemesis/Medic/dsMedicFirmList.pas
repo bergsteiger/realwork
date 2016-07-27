@@ -166,6 +166,7 @@ uses
  , nsDocumentStreamList
  , DataAdapter
  , deMedicFirmList
+ , Base_Operations_F1Services_Contracts
  , l3Base
  , vtUtils
  , vtStdRes

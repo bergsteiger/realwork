@@ -26,8 +26,6 @@ type
  Tmo_DocumentListFromFile = {final} class(TPrimDocumentListFromFileModule)
   {* Список документов из файла }
  end;//Tmo_DocumentListFromFile
-
-var g_module_opcode_DocumentListFromFile_OpenDocumentListFromFile: TvcmMOPID = (rMoID : -1; rOpID : -1);
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
@@ -41,11 +39,12 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmModuleOperationsForRegister
  {$IfEnd} // NOT Defined(NoVCM)
+ , Base_Operations_F1Services_Contracts
 ;
 
 initialization
  TvcmModulesForRegister.AddModule(TvcmModuleForRegister_C(Tmo_DocumentListFromFile, 'Список документов из файла'));
- TvcmModuleOperationsForRegister.AddOperation(TvcmModuleOperationForRegister_C(Tmo_DocumentListFromFile, 'OpenDocumentListFromFile', 'Открыть список документов из файла', False, g_module_opcode_DocumentListFromFile_OpenDocumentListFromFile));
+ TvcmModuleOperationsForRegister.AddOperation(TvcmModuleOperationForRegister_C(Tmo_DocumentListFromFile, 'OpenDocumentListFromFile', 'Открыть список документов из файла', False, mod_opcode_DocumentListFromFileService_OpenDocumentListFromFile));
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

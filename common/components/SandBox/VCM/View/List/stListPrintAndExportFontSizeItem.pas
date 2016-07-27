@@ -36,10 +36,10 @@ var
 begin
  l3FillChar(l_Value, SizeOf(l_Value));
  l_Value.Kind := dd_vkInteger;
- l_Value.AsInteger := dv__;
- inherited Create(pi__,
-  str_.AsStr,
-  l_Value, TValuesMapImpl.Make, aMasterItem);
+ l_Value.AsInteger := dv_List_PrintAndExportFontSize;
+ inherited Create(pi_List_PrintAndExportFontSize,
+  str_PrintAndExportFontSize.AsStr,
+  l_Value, TPrintAndExportFontSizeValuesMapImpl.Make, aMasterItem);
 end;//TstListPrintAndExportFontSizeItem.Create
 
 end.

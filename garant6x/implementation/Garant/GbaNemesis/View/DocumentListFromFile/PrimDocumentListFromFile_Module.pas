@@ -42,32 +42,47 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ , l3ProtoObject
+ , Base_Operations_F1Services_Contracts
  , l3StringIDEx
  {$If NOT Defined(NoVCM)}
  , vcmMessagesSupport
  {$IfEnd} // NOT Defined(NoVCM)
+ , bsOpenListInfo
+ , deListSet
+ , nsOpenDialog
  {$If NOT Defined(NoVCL)}
  , Dialogs
  {$IfEnd} // NOT Defined(NoVCL)
- , DataAdapter
- , DynamicDocListUnit
- , SysUtils
- , nsTypes
- , deListSet
- , afwFacade
  {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)
+ , nsTypes
+ , afwFacade
+ , DataAdapter
+ , DynamicDocListUnit
+ , SysUtils
  , BaseTypesUnit
- , nsOpenDialog
- , bsOpenListInfo
  , PrimPrimListInterfaces
+ , l3Base
  //#UC START# *4DA44B2C01BBimpl_uses*
  , StdRes
  //#UC END# *4DA44B2C01BBimpl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
+type
+ TDocumentListFromFileServiceImpl = {final} class(Tl3ProtoObject, IDocumentListFromFileService)
+  public
+   class function Instance: TDocumentListFromFileServiceImpl;
+    {* Метод получения экземпляра синглетона TDocumentListFromFileServiceImpl }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
+ end;//TDocumentListFromFileServiceImpl
+
+var g_TDocumentListFromFileServiceImpl: TDocumentListFromFileServiceImpl = nil;
+ {* Экземпляр синглетона TDocumentListFromFileServiceImpl }
+
 const
  {* Локализуемые строки Local }
  str_AccessDenied: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'AccessDenied'; rValue : 'Нет доступа к файлу');
@@ -76,6 +91,29 @@ const
   {* 'Неверный тип файла' }
  str_ImportDocuments: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ImportDocuments'; rValue : 'Импортируемых документов');
   {* 'Импортируемых документов' }
+
+procedure TDocumentListFromFileServiceImplFree;
+ {* Метод освобождения экземпляра синглетона TDocumentListFromFileServiceImpl }
+begin
+ l3Free(g_TDocumentListFromFileServiceImpl);
+end;//TDocumentListFromFileServiceImplFree
+
+class function TDocumentListFromFileServiceImpl.Instance: TDocumentListFromFileServiceImpl;
+ {* Метод получения экземпляра синглетона TDocumentListFromFileServiceImpl }
+begin
+ if (g_TDocumentListFromFileServiceImpl = nil) then
+ begin
+  l3System.AddExitProc(TDocumentListFromFileServiceImplFree);
+  g_TDocumentListFromFileServiceImpl := Create;
+ end;
+ Result := g_TDocumentListFromFileServiceImpl;
+end;//TDocumentListFromFileServiceImpl.Instance
+
+class function TDocumentListFromFileServiceImpl.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TDocumentListFromFileServiceImpl <> nil;
+end;//TDocumentListFromFileServiceImpl.Exists
 
 procedure TPrimDocumentListFromFileModule.opOpenDocumentListFromFileTest(const aParams: IvcmTestParamsPrim);
  {* Открыть список документов из файла }
@@ -154,6 +192,8 @@ initialization
  {* Инициализация str_InvalidType }
  str_ImportDocuments.Init;
  {* Инициализация str_ImportDocuments }
+ TDocumentListFromFileService.Instance.Alien := TDocumentListFromFileServiceImpl.Instance;
+ {* Регистрация TDocumentListFromFileServiceImpl }
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)

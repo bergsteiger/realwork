@@ -109,6 +109,7 @@ uses
  , nsNotifiers
  , afwFacade
  , evdStyles
+ , Base_Operations_F1Services_Contracts
  , l3Base
 ;
 

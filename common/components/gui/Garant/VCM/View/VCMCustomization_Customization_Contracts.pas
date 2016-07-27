@@ -85,11 +85,11 @@ type
     {* ¬нешн€€ реализаци€ сервиса IToolbarMenuService }
  end;//TToolbarMenuService
 
-var g_module_opcode_TaskPanelService_Customize: TvcmMOPID = (rMoID : -1; rOpID : -1);
-var g_module_opcode_ToolbarMenuService_AvailableOperations: TvcmMOPID = (rMoID : -1; rOpID : -1);
-var g_module_opcode_ToolbarMenuService_Customize: TvcmMOPID = (rMoID : -1; rOpID : -1);
-var g_module_opcode_ToolbarMenuService_Fasten: TvcmMOPID = (rMoID : -1; rOpID : -1);
-var g_module_opcode_ToolbarMenuService_IconsSize: TvcmMOPID = (rMoID : -1; rOpID : -1);
+var mod_opcode_TaskPanelService_Customize: TvcmMOPID = (rMoID : -1; rOpID : -1);
+var mod_opcode_ToolbarMenuService_AvailableOperations: TvcmMOPID = (rMoID : -1; rOpID : -1);
+var mod_opcode_ToolbarMenuService_Customize: TvcmMOPID = (rMoID : -1; rOpID : -1);
+var mod_opcode_ToolbarMenuService_Fasten: TvcmMOPID = (rMoID : -1; rOpID : -1);
+var mod_opcode_ToolbarMenuService_IconsSize: TvcmMOPID = (rMoID : -1; rOpID : -1);
 {$IfEnd} // NOT Defined(NoVCM)
 
 implementation

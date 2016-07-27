@@ -3,7 +3,7 @@
  f_TabTable := nil;
  FreeAndNil(f_LastOpenDocsManager);
  FreeAndNil(f_TreeStyle);
- TvcmModulesFactories.MakeWorkJournal.UnRegisterListener(Self);
+ TdmStdRes.MakeWorkJournal.UnRegisterListener(Self);
  inherited;
 //#UC END# *479731C50290_4958DD7002B6_impl*
 //#UC START# *479731C50290_4958DD7002B6_var*
@@ -30,7 +30,7 @@ w:\garant6x\implementation\Garant\GbaNemesis\View\MainMenu\Forms\PrimMainMenu_Fo
 //#UC START# *49803F5503AA_4958DD7002B6_var*
 //#UC END# *49803F5503AA_4958DD7002B6_var*
 //#UC START# *49807428008C_4958DD7002B6_impl*
- Result := inherited DoLoadState(aState, aStateType, aClone);
+ Result := inherited DoLoadState(aState, aStateType);
  if (aStateType = vcm_stContent) then
   LoadLastOpenDocs;
 //#UC END# *49807428008C_4958DD7002B6_impl*
@@ -58,7 +58,7 @@ w:\garant6x\implementation\Garant\GbaNemesis\View\MainMenu\Forms\PrimMainMenu_Fo
 //#UC START# *4A8E8F2E0195_4958DD7002B6_impl*
  inherited;
  pnlMain.OnResize := pnlMainResize;
- TvcmModulesFactories.MakeWorkJournal.RegisterListener(Self);
+ TdmStdRes.MakeWorkJournal.RegisterListener(Self);
  TreeStyle;
  f_LastOpenDocsManager := TnsLastOpenDocsManager.Create(c_MainMenuColor,
                                                         tvLastOpenDocs,
@@ -161,7 +161,21 @@ var
 //#UC START# *4AC9E13902F9_4958DD7002B6_var*
 //#UC END# *4AC9E13902F9_4958DD7002B6_var*
 //#UC START# *4AC9E19E022B_4958DD7002B6_impl*
- nsOpenNavigatorItem(aNode, NativeMainForm);
+(* case TnsSimpleMainMenuItem(aNode.NodeType) of
+  // Задать вопрос (Правовая поддержка):
+  ns_siMakeConsultation:
+   Dispatcher.ModuleOperation(TdmStdRes.mod_opcode_Search_OpenConsult);
+  // Посмотреть ответы (Правовая поддержка)
+  ns_siShowAnswers:
+   Dispatcher.ModuleOperation(TdmStdRes.mod_opcode_Folders_MyConsultations);
+  ns_siLawSupportHelp:
+   Application.HelpSystem.ShowTopicHelp(cHelpConsultingRules, '');
+  ns_siTaxesPublishSearch:
+   TdmStdRes.OpenTaxesPublishSearch(nil);
+   // - здесь вообще-то надо звать усечённую карточку
+  else*)
+   nsOpenNavigatorItem(aNode, NativeMainForm);
+ //end;//case l_MenuItem.ItemType of
 //#UC END# *4AC9E19E022B_4958DD7002B6_impl*
 //#UC START# *4AC9E19E022B_4958DD7002B6_var*
 //#UC END# *4AC9E19E022B_4958DD7002B6_var*

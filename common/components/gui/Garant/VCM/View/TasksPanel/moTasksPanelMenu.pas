@@ -36,7 +36,7 @@ uses
 
 initialization
  TvcmModulesForRegister.AddModule(TvcmModuleForRegister_C(Tmo_TasksPanelMenu, 'Настройка панели задач'));
- TvcmModuleOperationsForRegister.AddOperation(TvcmModuleOperationForRegister_C(Tmo_TasksPanelMenu, 'Customize', 'Настройка...', False, g_module_opcode_TaskPanelService_Customize));
+ TvcmModuleOperationsForRegister.AddOperation(TvcmModuleOperationForRegister_C(Tmo_TasksPanelMenu, 'Customize', 'Настройка...', False, mod_opcode_TaskPanelService_Customize));
 {$IfEnd} // NOT Defined(NoVCM)
 
 end.

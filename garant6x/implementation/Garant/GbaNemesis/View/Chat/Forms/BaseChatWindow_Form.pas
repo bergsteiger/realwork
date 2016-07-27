@@ -108,6 +108,7 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  , l3Base
  , evdAllDocumentSubsEliminator
+ , Base_Operations_F1Services_Contracts
  {$If NOT Defined(NoVCM)}
  , OfficeLike_Usual_Controls
  {$IfEnd} // NOT Defined(NoVCM)

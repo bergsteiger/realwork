@@ -55,6 +55,7 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ , Base_Operations_F1Services_Contracts
  , Base_Operations_Chat_Controls
  {$If NOT Defined(NoVCM)}
  , OfficeLike_Result_Controls

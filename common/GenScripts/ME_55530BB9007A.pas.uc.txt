@@ -14,7 +14,7 @@ w:\common\components\rtl\Garant\HT\htFromTable.pas
    Ht(htTableOpen(PAnsiChar(aHelper.TableFullPath(Table.Kind)),PAnsiChar(aHelper.TablePassword(Table.Kind)),PAnsiChar(aHelper.TablePassword(Table.Kind)), GlobalHtServer.HyTechTableOpenMode, f_Handle))
   else
    Ht(htDupTableHandle(hTable, f_Handle));
-  GlobalHtServer.Family[Table.FamilyID].Lock(GlobalHtServer.HyTechTableOpenMode);
+  GlobalHtServer.Family[aHelper.TableFamily(Table.Kind)].Lock(GlobalHtServer.HyTechTableOpenMode);
   Prepared := True;
  end;
 //#UC END# *555C91AF003A_55530BB9007A_impl*
@@ -27,7 +27,7 @@ var
  if Prepared then
  begin
   Ht(htTableClose(f_Handle));
-  GlobalHtServer.Family[Table.FamilyID].Unlock;
+  GlobalHtServer.Family[aHelper.TableFamily(Table.Kind)].Unlock;
   Prepared := False;
  end;
 //#UC END# *555C91D8022C_55530BB9007A_impl*

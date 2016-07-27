@@ -13,9 +13,6 @@ interface
 uses
  l3IntfUses
  {$If NOT Defined(NoVCM)}
- , vcmInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoVCM)}
@@ -36,7 +33,6 @@ type
    class procedure GetEntityForms(aList: TvcmClassList); override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   class procedure OpenMainMenuIfNeeded(const aContainer: IvcmContainer);
    class function MainMenuChangeableMainMenuTypeSetting: Integer;
     {* Метод для получения значения настройки "Тип изменяемой части основного меню" }
    class procedure WriteMainMenuChangeableMainMenuTypeSetting(aValue: Integer);
@@ -50,21 +46,28 @@ implementation
 uses
  l3ImplUses
  , nsLogEvent
+ , l3ProtoObject
+ , Base_Operations_F1Services_Contracts
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , nsManagers
+ {$If NOT Defined(NoVCM)}
+ , vcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ , DataAdapter
+ , nsConst
+ , Common_FormDefinitions_Controls
+ , afwFacade
+ , nsTypes
  , MainMenuChangeableMainMenuTypeSettingRes
  , stMainMenuChangeableMainMenuTypeItem
  {$If NOT Defined(NoScripts)}
  , MainMenuProcessingWordsPack
  {$IfEnd} // NOT Defined(NoScripts)
- , afwFacade
- , nsConst
- , nsTypes
- , DataAdapter
- , nsManagers
- , Common_FormDefinitions_Controls
- {$If NOT Defined(NoVCM)}
- , vcmEntityForm
- {$IfEnd} // NOT Defined(NoVCM)
  , LoggingUnit
+ , SysUtils
+ , l3Base
  , MainMenuNew_Form
  , MainMenuWithProfNews_Form
  //#UC START# *4AA7A1F80027impl_uses*
@@ -78,6 +81,24 @@ type
    class procedure Log;
  end;//TnsOpenMainMenuEvent
 
+ TMainMenuServiceImpl = {final} class(Tl3ProtoObject, IMainMenuService)
+  public
+   procedure OpenMainMenuIfNeeded(const aContainer: IvcmContainer);
+   class function Instance: TMainMenuServiceImpl;
+    {* Метод получения экземпляра синглетона TMainMenuServiceImpl }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
+ end;//TMainMenuServiceImpl
+
+var g_TMainMenuServiceImpl: TMainMenuServiceImpl = nil;
+ {* Экземпляр синглетона TMainMenuServiceImpl }
+
+procedure TMainMenuServiceImplFree;
+ {* Метод освобождения экземпляра синглетона TMainMenuServiceImpl }
+begin
+ l3Free(g_TMainMenuServiceImpl);
+end;//TMainMenuServiceImplFree
+
 class procedure TnsOpenMainMenuEvent.Log;
 //#UC START# *4B151A5B0057_4B151A2302D2_var*
 //#UC END# *4B151A5B0057_4B151A2302D2_var*
@@ -87,7 +108,7 @@ begin
 //#UC END# *4B151A5B0057_4B151A2302D2_impl*
 end;//TnsOpenMainMenuEvent.Log
 
-class procedure TMainMenuModule.OpenMainMenuIfNeeded(const aContainer: IvcmContainer);
+procedure TMainMenuServiceImpl.OpenMainMenuIfNeeded(const aContainer: IvcmContainer);
 var
  __WasEnter : Boolean;
 //#UC START# *4ABB94DE033F_4AA7A1F80027_var*
@@ -136,7 +157,24 @@ begin
   if __WasEnter then
    vcmLeaveFactory;
  end;//try..finally
-end;//TMainMenuModule.OpenMainMenuIfNeeded
+end;//TMainMenuServiceImpl.OpenMainMenuIfNeeded
+
+class function TMainMenuServiceImpl.Instance: TMainMenuServiceImpl;
+ {* Метод получения экземпляра синглетона TMainMenuServiceImpl }
+begin
+ if (g_TMainMenuServiceImpl = nil) then
+ begin
+  l3System.AddExitProc(TMainMenuServiceImplFree);
+  g_TMainMenuServiceImpl := Create;
+ end;
+ Result := g_TMainMenuServiceImpl;
+end;//TMainMenuServiceImpl.Instance
+
+class function TMainMenuServiceImpl.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TMainMenuServiceImpl <> nil;
+end;//TMainMenuServiceImpl.Exists
 
 class function TMainMenuModule.MainMenuChangeableMainMenuTypeSetting: Integer;
  {* Метод для получения значения настройки "Тип изменяемой части основного меню" }
@@ -168,6 +206,10 @@ begin
  aList.Add(Ten_MainMenuNew);
  aList.Add(Ten_MainMenuWithProfNews);
 end;//TMainMenuModule.GetEntityForms
+
+initialization
+ TMainMenuService.Instance.Alien := TMainMenuServiceImpl.Instance;
+ {* Регистрация TMainMenuServiceImpl }
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)

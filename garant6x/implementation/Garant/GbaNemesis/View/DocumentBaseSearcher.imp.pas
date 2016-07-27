@@ -11,8 +11,8 @@
  _DocumentBaseSearcher_ = {abstract} class(_DocumentBaseSearcher_Parent_, InsContextSearcher, InsBaseSearchContextProvider, InsBaseSearchVisibleWatcher)
   private
    f_SearchWindowVisible: Boolean;
-   f_IsPageActive: Boolean;
    f_SearchArea: TnsSearchArea;
+   f_IsPageActive: Boolean;
    f_ContextSearcher: IbsBaseDocumentContextSearcher;
   private
    procedure RequestCheckFragmentsCount;

@@ -152,6 +152,7 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , Windows
  , nevTools
+ , Base_Operations_F1Services_Contracts
  , DocumentRes
  , vtUtils
  , evdStyles

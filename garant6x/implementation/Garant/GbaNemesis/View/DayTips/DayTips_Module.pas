@@ -12,12 +12,10 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3IntfUses
+ , CommonDictionInterfaces
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
- , DocumentInterfaces
- , CommonDictionInterfaces
- , DayTipsInterfaces
  {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)
@@ -43,11 +41,6 @@ type
    {$If NOT Defined(NoVCM)}
    class procedure GetEntityForms(aList: TvcmClassList); override;
    {$IfEnd} // NOT Defined(NoVCM)
-  public
-   class procedure OpenTip(const aDocInfo: IdeDocInfo;
-    const aContainer: IvcmContainer);
-    {* Открывает совет дня }
-   class function ShowDayTipsAtStartup: IvcmEntityForm;
  end;//TDayTipsModule
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -56,14 +49,19 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ , l3ProtoObject
+ , Base_Operations_F1Services_Contracts
+ , DocumentInterfaces
  , PrimCommonDiction_utTips_UserType
  , Common_FormDefinitions_Controls
- , sdsTips
  , nsStartupTips
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
+ , sdsTips
  , DataAdapter
+ , SysUtils
+ , l3Base
  , fsTips
  , StartupTips_Form
  //#UC START# *4AA0D5380056impl_uses*
@@ -71,37 +69,29 @@ uses
 ;
 
 {$If NOT Defined(NoVCM)}
-class procedure TDayTipsModule.OpenTip(const aDocInfo: IdeDocInfo;
- const aContainer: IvcmContainer);
- {* Открывает совет дня }
-var
- __WasEnter : Boolean;
-//#UC START# *4AA11A2E0144_4AA0D5380056_var*
-//#UC END# *4AA11A2E0144_4AA0D5380056_var*
-begin
- __WasEnter := vcmEnterFactory;
- try
-//#UC START# *4AA11A2E0144_4AA0D5380056_impl*
- OpenTipsPrim(TsdsTips.Make(aDocInfo), aContainer);
-//#UC END# *4AA11A2E0144_4AA0D5380056_impl*
- finally
-  if __WasEnter then
-   vcmLeaveFactory;
- end;//try..finally
-end;//TDayTipsModule.OpenTip
+type
+ TDayTipsServiceImpl = {final} class(Tl3ProtoObject, IDayTipsService)
+  public
+   function ShowDayTipsAtStartup: IvcmEntityForm;
+   procedure OpenTip(const aDocInfo: IdeDocInfo;
+    const aContainer: IvcmContainer);
+    {* Открывает совет дня }
+   class function Instance: TDayTipsServiceImpl;
+    {* Метод получения экземпляра синглетона TDayTipsServiceImpl }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
+ end;//TDayTipsServiceImpl
 
-class procedure TDayTipsModule.OpenTipsPrim(const aSDS: IsdsCommonDiction;
- const aContainer: IvcmContainer);
-//#UC START# *4AA52EC603DC_4AA0D5380056_var*
-//#UC END# *4AA52EC603DC_4AA0D5380056_var*
-begin
-//#UC START# *4AA52EC603DC_4AA0D5380056_impl*
- Tfs_Tips.Make(aSDS, aContainer);
-//#UC END# *4AA52EC603DC_4AA0D5380056_impl*
-end;//TDayTipsModule.OpenTipsPrim
+var g_TDayTipsServiceImpl: TDayTipsServiceImpl = nil;
+ {* Экземпляр синглетона TDayTipsServiceImpl }
 
-class function TDayTipsModule.ShowDayTipsAtStartup: IvcmEntityForm;
-var l_Data: InsStartupTips;
+procedure TDayTipsServiceImplFree;
+ {* Метод освобождения экземпляра синглетона TDayTipsServiceImpl }
+begin
+ l3Free(g_TDayTipsServiceImpl);
+end;//TDayTipsServiceImplFree
+
+function TDayTipsServiceImpl.ShowDayTipsAtStartup: IvcmEntityForm;
 var
  __WasEnter : Boolean;
 //#UC START# *4AB9DAAC00AC_4AA0D5380056_var*
@@ -122,7 +112,53 @@ begin
   if __WasEnter then
    vcmLeaveFactory;
  end;//try..finally
-end;//TDayTipsModule.ShowDayTipsAtStartup
+end;//TDayTipsServiceImpl.ShowDayTipsAtStartup
+
+procedure TDayTipsServiceImpl.OpenTip(const aDocInfo: IdeDocInfo;
+ const aContainer: IvcmContainer);
+ {* Открывает совет дня }
+var
+ __WasEnter : Boolean;
+//#UC START# *4AA11A2E0144_4AA0D5380056_var*
+//#UC END# *4AA11A2E0144_4AA0D5380056_var*
+begin
+ __WasEnter := vcmEnterFactory;
+ try
+//#UC START# *4AA11A2E0144_4AA0D5380056_impl*
+ OpenTipsPrim(TsdsTips.Make(aDocInfo), aContainer);
+//#UC END# *4AA11A2E0144_4AA0D5380056_impl*
+ finally
+  if __WasEnter then
+   vcmLeaveFactory;
+ end;//try..finally
+end;//TDayTipsServiceImpl.OpenTip
+
+class function TDayTipsServiceImpl.Instance: TDayTipsServiceImpl;
+ {* Метод получения экземпляра синглетона TDayTipsServiceImpl }
+begin
+ if (g_TDayTipsServiceImpl = nil) then
+ begin
+  l3System.AddExitProc(TDayTipsServiceImplFree);
+  g_TDayTipsServiceImpl := Create;
+ end;
+ Result := g_TDayTipsServiceImpl;
+end;//TDayTipsServiceImpl.Instance
+
+class function TDayTipsServiceImpl.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TDayTipsServiceImpl <> nil;
+end;//TDayTipsServiceImpl.Exists
+
+class procedure TDayTipsModule.OpenTipsPrim(const aSDS: IsdsCommonDiction;
+ const aContainer: IvcmContainer);
+//#UC START# *4AA52EC603DC_4AA0D5380056_var*
+//#UC END# *4AA52EC603DC_4AA0D5380056_var*
+begin
+//#UC START# *4AA52EC603DC_4AA0D5380056_impl*
+ Tfs_Tips.Make(aSDS, aContainer);
+//#UC END# *4AA52EC603DC_4AA0D5380056_impl*
+end;//TDayTipsModule.OpenTipsPrim
 
 procedure TDayTipsModule.opShowDayTipsTest(const aParams: IvcmTestParamsPrim);
 //#UC START# *4AB9DBA1038E_4AA0D5380056test_var*
@@ -169,6 +205,10 @@ begin
  inherited;
  aList.Add(TefStartupTips);
 end;//TDayTipsModule.GetEntityForms
+
+initialization
+ TDayTipsService.Instance.Alien := TDayTipsServiceImpl.Instance;
+ {* Регистрация TDayTipsServiceImpl }
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)

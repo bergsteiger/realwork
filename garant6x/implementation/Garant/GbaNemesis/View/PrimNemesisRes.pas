@@ -79,6 +79,7 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmEntityForm
  {$IfEnd} // NOT Defined(NoVCM)
+ , Base_Operations_F1Services_Contracts
  , NemesisMain_Form
  , MainOptions_Form
  , Main_Form

@@ -25,6 +25,8 @@ uses
  , l3TreeInterfaces
  , nsQueryAttribute
  , nsQueryInterfaces
+ //#UC START# *4AE864B801C5intf_uses*
+ //#UC END# *4AE864B801C5intf_uses*
 ;
 
 type
@@ -148,6 +150,8 @@ uses
  , l3Date
  , nsSearchClasses
  , nsDataExchangeProxy
+ //#UC START# *4AE864B801C5impl_uses*
+ //#UC END# *4AE864B801C5impl_uses*
 ;
 
 const

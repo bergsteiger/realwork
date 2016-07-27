@@ -201,6 +201,7 @@ uses
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
  , Windows
+ , Base_Operations_F1Services_Contracts
  , l3MessageID
  , l3String
  , SysUtils

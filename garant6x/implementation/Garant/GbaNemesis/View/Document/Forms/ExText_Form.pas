@@ -940,6 +940,7 @@ uses
  , SysUtils
  , nsUtils
  , nsToMSWordOp
+ , Base_Operations_F1Services_Contracts
  , afwSettingsChangePublisher
  {$If NOT Defined(NoVCM)}
  , vcmMessagesSupport

@@ -26,11 +26,6 @@ type
  Tmo_Inpharm = {final} class(TInpharmModule)
   {* »нфарм }
  end;//Tmo_Inpharm
-
-var g_module_opcode_Inpharm_MedicDiction: TvcmMOPID = (rMoID : -1; rOpID : -1);
-var g_module_opcode_Inpharm_MedicFirms: TvcmMOPID = (rMoID : -1; rOpID : -1);
-var g_module_opcode_Inpharm_DrugList: TvcmMOPID = (rMoID : -1; rOpID : -1);
-var g_module_opcode_Inpharm_MedicMainMenu: TvcmMOPID = (rMoID : -1; rOpID : -1);
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
@@ -44,14 +39,15 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmModuleOperationsForRegister
  {$IfEnd} // NOT Defined(NoVCM)
+ , Base_Operations_F1Services_Contracts
 ;
 
 initialization
  TvcmModulesForRegister.AddModule(TvcmModuleForRegister_C(Tmo_Inpharm, '»нфарм'));
- TvcmModuleOperationsForRegister.AddOperation(TvcmModuleOperationForRegister_C(Tmo_Inpharm, 'MedicDiction', '—ловарь медицинских терминов', False, g_module_opcode_Inpharm_MedicDiction));
- TvcmModuleOperationsForRegister.AddOperation(TvcmModuleOperationForRegister_C(Tmo_Inpharm, 'MedicFirms', '‘армацевтические фирмы', False, g_module_opcode_Inpharm_MedicFirms));
- TvcmModuleOperationsForRegister.AddOperation(TvcmModuleOperationForRegister_C(Tmo_Inpharm, 'DrugList', '—писок выпускаемых препаратов', False, g_module_opcode_Inpharm_DrugList));
- TvcmModuleOperationsForRegister.AddOperation(TvcmModuleOperationForRegister_C(Tmo_Inpharm, 'MedicMainMenu', 'ќсновное меню »н‘арм', False, g_module_opcode_Inpharm_MedicMainMenu));
+ TvcmModuleOperationsForRegister.AddOperation(TvcmModuleOperationForRegister_C(Tmo_Inpharm, 'DrugList', '—писок выпускаемых препаратов', False, mod_opcode_InpharmService_DrugList));
+ TvcmModuleOperationsForRegister.AddOperation(TvcmModuleOperationForRegister_C(Tmo_Inpharm, 'MedicDiction', '—ловарь медицинских терминов', False, mod_opcode_InpharmService_MedicDiction));
+ TvcmModuleOperationsForRegister.AddOperation(TvcmModuleOperationForRegister_C(Tmo_Inpharm, 'MedicFirms', '‘армацевтические фирмы', False, mod_opcode_InpharmService_MedicFirms));
+ TvcmModuleOperationsForRegister.AddOperation(TvcmModuleOperationForRegister_C(Tmo_Inpharm, 'MedicMainMenu', 'ќсновное меню »н‘арм', False, mod_opcode_InpharmService_MedicMainMenu));
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

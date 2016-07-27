@@ -94,6 +94,7 @@ uses
  {$If NOT Defined(NoScripts)}
  , F1ScriptEngine
  {$IfEnd} // NOT Defined(NoScripts)
+ , Base_Operations_F1Services_Contracts
 ;
 
 type

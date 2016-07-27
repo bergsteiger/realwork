@@ -26,8 +26,6 @@ type
  Tmo_InternetAgent = {final} class(TPrimInternetAgentModule)
   {* Интернет-агент }
  end;//Tmo_InternetAgent
-
-var g_module_opcode_InternetAgent_InternetAgent: TvcmMOPID = (rMoID : -1; rOpID : -1);
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
@@ -41,11 +39,12 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmModuleOperationsForRegister
  {$IfEnd} // NOT Defined(NoVCM)
+ , Base_Operations_F1Services_Contracts
 ;
 
 initialization
  TvcmModulesForRegister.AddModule(TvcmModuleForRegister_C(Tmo_InternetAgent, 'Интернет-агент'));
- TvcmModuleOperationsForRegister.AddOperation(TvcmModuleOperationForRegister_C(Tmo_InternetAgent, 'InternetAgent', 'Новости онлайн', False, g_module_opcode_InternetAgent_InternetAgent));
+ TvcmModuleOperationsForRegister.AddOperation(TvcmModuleOperationForRegister_C(Tmo_InternetAgent, 'InternetAgent', '', False, mod_opcode_InternetAgentService_InternetAgent));
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

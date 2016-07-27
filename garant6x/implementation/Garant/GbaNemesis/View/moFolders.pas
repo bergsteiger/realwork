@@ -26,11 +26,6 @@ type
  Tmo_Folders = {final} class(TPrimFoldersModule)
   {* Папки }
  end;//Tmo_Folders
-
-var g_module_opcode_Folders_MyInformation: TvcmMOPID = (rMoID : -1; rOpID : -1);
-var g_module_opcode_Folders_MyConsultations: TvcmMOPID = (rMoID : -1; rOpID : -1);
-var g_module_opcode_Folders_UnderControlOpenFrmAct: TvcmMOPID = (rMoID : -1; rOpID : -1);
-var g_module_opcode_Folders_OpenFrmAct: TvcmMOPID = (rMoID : -1; rOpID : -1);
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
@@ -47,6 +42,7 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmModuleOperationsForRegister
  {$IfEnd} // NOT Defined(NoVCM)
+ , Base_Operations_F1Services_Contracts
 ;
 
 initialization
@@ -55,10 +51,10 @@ initialization
  {* Регистрация Folders }
 {$IfEnd} // NOT Defined(NoScripts)
  TvcmModulesForRegister.AddModule(TvcmModuleForRegister_C(Tmo_Folders, 'Папки'));
- TvcmModuleOperationsForRegister.AddOperation(TvcmModuleOperationForRegister_C(Tmo_Folders, 'MyInformation', 'Моя информация', False, g_module_opcode_Folders_MyInformation));
- TvcmModuleOperationsForRegister.AddOperation(TvcmModuleOperationForRegister_C(Tmo_Folders, 'MyConsultations', 'Мои консультации', False, g_module_opcode_Folders_MyConsultations));
- TvcmModuleOperationsForRegister.AddOperation(TvcmModuleOperationForRegister_C(Tmo_Folders, 'UnderControlOpenFrmAct', 'Документы на контроле', False, g_module_opcode_Folders_UnderControlOpenFrmAct));
- TvcmModuleOperationsForRegister.AddOperation(TvcmModuleOperationForRegister_C(Tmo_Folders, 'OpenFrmAct', 'Мои документы', False, g_module_opcode_Folders_OpenFrmAct));
+ TvcmModuleOperationsForRegister.AddOperation(TvcmModuleOperationForRegister_C(Tmo_Folders, 'MyConsultations', 'Мои консультации', False, mod_opcode_FoldersService_MyConsultations));
+ TvcmModuleOperationsForRegister.AddOperation(TvcmModuleOperationForRegister_C(Tmo_Folders, 'MyInformation', 'Моя информация', False, mod_opcode_FoldersService_MyInformation));
+ TvcmModuleOperationsForRegister.AddOperation(TvcmModuleOperationForRegister_C(Tmo_Folders, 'OpenFrmAct', 'Мои документы', False, mod_opcode_FoldersService_OpenFrmAct));
+ TvcmModuleOperationsForRegister.AddOperation(TvcmModuleOperationForRegister_C(Tmo_Folders, 'UnderControlOpenFrmAct', 'Документы на контроле', False, mod_opcode_FoldersService_UnderControlOpenFrmAct));
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

@@ -26,8 +26,6 @@ type
  Tmo_Tips = {final} class(TDayTipsModule)
   {* Совет дня }
  end;//Tmo_Tips
-
-var g_module_opcode_Tips_ShowDayTips: TvcmMOPID = (rMoID : -1; rOpID : -1);
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
@@ -41,11 +39,12 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmModuleOperationsForRegister
  {$IfEnd} // NOT Defined(NoVCM)
+ , Base_Operations_F1Services_Contracts
 ;
 
 initialization
  TvcmModulesForRegister.AddModule(TvcmModuleForRegister_C(Tmo_Tips, 'Совет дня'));
- TvcmModuleOperationsForRegister.AddOperation(TvcmModuleOperationForRegister_C(Tmo_Tips, 'ShowDayTips', '', False, g_module_opcode_Tips_ShowDayTips));
+ TvcmModuleOperationsForRegister.AddOperation(TvcmModuleOperationForRegister_C(Tmo_Tips, 'ShowDayTips', '', False, mod_opcode_DayTipsService_ShowDayTips));
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

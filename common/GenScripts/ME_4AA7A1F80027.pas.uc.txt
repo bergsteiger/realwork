@@ -22,7 +22,7 @@ w:\garant6x\implementation\Garant\GbaNemesis\View\MainMenu\MainMenu_Module.pas
   l_FormClass := TvcmEntityForm;
  end;
 
- if TvcmModule.CheckContainer(aContainer).NativeMainForm.HasForm(l_FormId, vcm_ztParent) then
+ if CheckContainer(aContainer).NativeMainForm.HasForm(l_FormId, vcm_ztParent) then
   Exit;
 {$If not (defined(Monitorings) or defined(Admin))}
  {$IfDef vcmUseProfilers}
@@ -30,7 +30,7 @@ w:\garant6x\implementation\Garant\GbaNemesis\View\MainMenu\MainMenu_Module.pas
  {$EndIf vcmUseProfilers}
  DefDataAdapter.TimeMachine.SwitchOff(True); // выключаем машину времени при открытии основного меню (CQ: OIT5-25116)
 
- l_Params := vcmCheckAggregate(vcmMakeParams(nil, TvcmModule.CheckContainer(aContainer)));
+ l_Params := vcmCheckAggregate(vcmMakeParams(nil, CheckContainer(aContainer)));
 
  l_FormClass.Make(l_Params);
 {$IfEnd not (defined(Monitorings) or defined(Admin))}

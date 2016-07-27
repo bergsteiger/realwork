@@ -12,19 +12,11 @@ interface
 uses
  l3IntfUses
  , l3ProtoObject
+ , Base_Operations_F1Services_Contracts
  , Types
 ;
 
 type
- TnsFormCoordinates = class;
-
- InsFormCoordinates = interface
-  ['{19A17133-BBBB-44F6-8763-1D186621B75E}']
-  function Get_Rect: TRect;
-  property Rect: TRect
-   read Get_Rect;
- end;//InsFormCoordinates
-
  TnsFormCoordinates = class(Tl3ProtoObject, InsFormCoordinates)
   private
    f_Coord: TRect;

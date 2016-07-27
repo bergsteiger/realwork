@@ -385,6 +385,7 @@ uses
  , nsExternalObjectModelPart
  , nsSaveDialogExecutor
  , l3BatchService
+ , Base_Operations_F1Services_Contracts
  , eeInterfacesEx
  {$If Defined(Nemesis)}
  , eePara

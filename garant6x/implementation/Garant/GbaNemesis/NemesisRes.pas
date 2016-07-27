@@ -17,26 +17,18 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
+ , WorkJournalInterfaces
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
- , ChatInterfaces
- , WorkJournalInterfaces
  , AdapterFacade
  , DocumentUnit
  , eeInterfaces
  , EditionsInterfaces
  , bsTypesNew
- , l3Interfaces
- , BaseTreeSupportUnit
- , FoldersUnit
- , nsFormCoordinates
- , FoldersDomainInterfaces
- , nsTypes
- , BaseTypesUnit
- , ChatTypes
  , MonitoringUnit
  , SearchInterfaces
+ , l3Interfaces
  , l3PrinterInterfaces
  , UnderControlUnit
  , PresentationInterfaces
@@ -48,17 +40,13 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  , l3TreeInterfaces
  , PrimPrimListInterfaces
- , bsTypes
  , DynamicTreeUnit
  , MainMenuUnit
  , ConfigInterfaces
  , SearchUnit
  , ConsultationDomainInterfaces
- , PrimBaseSearchInterfaces
- , BaseSearchInterfaces
  , SimpleListInterfaces
- , Classes
- , FiltersUnit
+ , bsTypes
  , DynamicDocListUnit
  , nsQueryInterfaces
 ;
@@ -67,12 +55,6 @@ type
  TNemesisRes = {final} class(TPrimNemesisRes)
   {* [$90440042] }
   public
-   class function mod_opcode_InternetAgent_InternetAgent: TvcmMOPID;
-   class function mod_opcode_Folders_MyInformation: TvcmMOPID;
-   class function mod_opcode_Folders_MyConsultations: TvcmMOPID;
-   class function mod_opcode_Folders_UnderControlOpenFrmAct: TvcmMOPID;
-   class function mod_opcode_Folders_OpenFrmAct: TvcmMOPID;
-   class function mod_opcode_Chat_OpenContactList: TvcmMOPID;
    class function mod_opcode_WorkJournal_OpenJournal: TvcmMOPID;
    class function mod_opcode_Monitorings_OpenNewsLine: TvcmMOPID;
    class function mod_opcode_Monitorings_OpenLegislationReview: TvcmMOPID;
@@ -88,19 +70,12 @@ type
    class function mod_opcode_Common_get_navigator: TvcmMOPID;
    class function mod_opcode_Common_OpenIntranet: TvcmMOPID;
    class function mod_opcode_Document_OpenDocOnNumber: TvcmMOPID;
-   class function mod_opcode_Diction_OpenDict: TvcmMOPID;
-   class function mod_opcode_Tips_ShowDayTips: TvcmMOPID;
-   class function mod_opcode_Inpharm_MedicDiction: TvcmMOPID;
-   class function mod_opcode_Inpharm_MedicFirms: TvcmMOPID;
-   class function mod_opcode_Inpharm_DrugList: TvcmMOPID;
-   class function mod_opcode_Inpharm_MedicMainMenu: TvcmMOPID;
    class function mod_opcode_Settings_OpenStyleEditorAsModal: TvcmMOPID;
    class function mod_opcode_Settings_AutoLogin: TvcmMOPID;
    class function mod_opcode_Settings_SelectConfig: TvcmMOPID;
    class function mod_opcode_Settings_OpenConfList: TvcmMOPID;
    class function mod_opcode_Settings_LoadActiveSettings: TvcmMOPID;
    class function mod_opcode_Settings_UserProperties: TvcmMOPID;
-   class function mod_opcode_DocumentListFromFile_OpenDocumentListFromFile: TvcmMOPID;
    class function mod_opcode_Search_PublishSourceSearch: TvcmMOPID;
    class function mod_opcode_Search_InpharmSearch: TvcmMOPID;
    class function mod_opcode_Search_StartENO: TvcmMOPID;
@@ -142,42 +117,6 @@ type
     const aDocumentForReturn: IDocument;
     const aParaForReturn: IeeLeafPara;
     const aContainer: IvcmContainer = nil); overload;
-   class procedure MakeInternetAgent(const anURL: Il3CString;
-    const aContainer: IvcmContainer);
-    {* Создаёт область вывода Интернет-агента }
-   class function OpenFolders(const aContainer: IvcmContainer;
-    aCanCreate: Boolean): IvcmEntityForm;
-   class procedure CloseFolders(const aContainer: IvcmContainer);
-   class procedure TryOpenConsultationAnswer(const aContainer: IvcmContainer);
-   class procedure RefreshStructure(const aNode: INode;
-    aStatus: TNotifyStatus);
-   class function EditInfoOpen(aIsNewFolder: Boolean;
-    const aNode: IeeNode;
-    const aCoords: InsFormCoordinates): Integer;
-   class procedure LoadOpen(const aForm: IvcmEntityForm;
-    const aData: InsFolderFilterInfo);
-   class procedure SelectOpen(const aForm: IvcmEntityForm;
-    const aFilterInfo: InsFolderFilterInfo;
-    const aCaption: TvcmStringID);
-   class procedure SelectOpenWithOperation(const aForm: IvcmEntityForm;
-    const aFilterInfo: InsFolderFilterInfo;
-    const aCaption: TvcmStringID;
-    anOp: TListLogicOperation);
-   class procedure SelectOpenWithUserData(const aForm: IvcmEntityForm;
-    const aFilterInfo: InsFolderFilterInfo;
-    const aCaption: TvcmStringID;
-    const aUserData: IUnknown);
-   class function SaveOpen(const aForm: IvcmEntityForm;
-    const aFilterInfo: InsFolderFilterInfo;
-    anElementType: TFoldersElementType;
-    const anEntity: IEntityBase;
-    aSaveAs: Boolean): Integer;
-   class function MakeChatDispatcher: IbsChatDispatcher;
-   class function OpenChatWindow(anUID: TbsUserID;
-    const aName: Il3CString): IvcmEntityForm;
-   class function OpenAddUserDialog: IvcmEntityForm;
-   class function OpenHistoryWindow(anUID: TbsUserID;
-    const aName: Il3CString): IvcmEntityForm;
    class function MakeWorkJournal: IbsWorkJournal;
    class procedure OpenAutoreferat(const aDoc: IDocument;
     const aContainer: IvcmContainer);
@@ -247,27 +186,6 @@ type
    class procedure OpenListWithReplace(const aList: IdeList;
     const aContainer: IvcmContainer);
     {* Открывает список в указанном контейнере. БЕЗ сохранения в историю. [$164601301] }
-   class procedure OpenTermByContext(const aContext: Il3CString;
-    aLanguage: TbsLanguage);
-    {* Открывает термин по подстроке }
-   class procedure OpenDictionary(const aDocInfo: IdeDocInfo;
-    const aContainer: IvcmContainer);
-    {* Открывает толковый словарь }
-   class procedure OpenTip(const aDocInfo: IdeDocInfo;
-    const aContainer: IvcmContainer);
-    {* Открывает совет дня }
-   class function ShowDayTipsAtStartup: IvcmEntityForm;
-   class procedure OpenMedicDiction(const aDocInfo: IdeDocInfo;
-    const aContainer: IvcmContainer);
-   class procedure OpenMedicFirmDocument(const aDocInfo: IdeDocInfo;
-    const aContainer: IvcmContainer);
-   class procedure OpenDrugDocument(const aDocInfo: IdeDocInfo;
-    const aContainer: IvcmContainer);
-   class procedure OpenDrugList(const aList: IdeList;
-    const aContainer: IvcmContainer);
-   class procedure MedicFirms(const aContainer: IvcmContainer);
-   class procedure OpenInpharmMainMenu(const aContainer: IvcmContainer);
-   class procedure OpenDrugListIfNeeded(const aContainer: IvcmContainer);
    class function OpenRubricator(const aNode: Il3SimpleNode;
     const aRootToKeep: INodeBase;
     const aMenuSectionItemToKeep: ISectionItem;
@@ -281,7 +199,6 @@ type
     const aData: InsConfigSettingsInfo): IvcmEntityForm;
     {* Открыть настройки }
    class procedure OpenConfList(const aContainer: IvcmContainer);
-   class procedure OpenMainMenuIfNeeded(const aContainer: IvcmContainer);
    class function MainMenuChangeableMainMenuTypeSetting: Integer;
     {* Метод для получения значения настройки "Тип изменяемой части основного меню" }
    class procedure WriteMainMenuChangeableMainMenuTypeSetting(aValue: Integer);
@@ -292,24 +209,6 @@ type
     const aContainer: IvcmContainer);
    class procedure OpenConsultation(const aCons: IbsConsultation;
     const aContainer: IvcmContainer);
-   class procedure TryAnotherBaseSearch(const aContainer: IvcmContainer;
-    const aProcessor: InsBaseSearchResultProcessor;
-    TryFullList: Boolean = False);
-   class procedure OpenBaseSearch(OpenKind: TnsBaseSearchOpenKind;
-    const aQuery: IQuery);
-   class function MakeBaseSearchWindow(const aContainer: IvcmContainer;
-    const aData: InsBaseSearcherWindowData;
-    aZoneType: TvcmZoneType): IvcmEntityForm;
-   class procedure BaseSearchCheckFragmentsCount(const aContainer: IvcmContainer);
-   class procedure CheckBaseSearchDataReady(const aContainer: IvcmContainer);
-   class procedure BaseSearchCheckFindBack(const aContainer: IvcmContainer);
-   class function MakeBaseSearchCard(const aContainer: IvcmContainer): IvcmEntityForm;
-   class procedure FiltersOpen(const aData: IucpFilters);
-   class procedure OldSchoolFiltersOpen(const anAggregate: IvcmAggregate;
-    const aContainer: IvcmContainer;
-    anOwner: TComponent);
-   class function CreateFilter(const aQuery: IQuery): Integer;
-   class procedure RenameFilter(const aFilter: IFilterFromQuery);
    class procedure CloseUnderControl(const aContainer: IvcmContainer);
    class procedure OpenUnderControl(const aContainer: IvcmContainer);
    class procedure BuildUnderControlList(const aContainer: IvcmContainer);
@@ -440,42 +339,6 @@ uses
  //#UC END# *4A9527D40146impl_uses*
 ;
 
-class function TNemesisRes.mod_opcode_InternetAgent_InternetAgent: TvcmMOPID;
-begin
- Result := g_module_opcode_InternetAgent_InternetAgent;
- Assert((Result.rMoID > 0) AND (Result.rOpID > 0));
-end;//TNemesisRes.mod_opcode_InternetAgent_InternetAgent
-
-class function TNemesisRes.mod_opcode_Folders_MyInformation: TvcmMOPID;
-begin
- Result := g_module_opcode_Folders_MyInformation;
- Assert((Result.rMoID > 0) AND (Result.rOpID > 0));
-end;//TNemesisRes.mod_opcode_Folders_MyInformation
-
-class function TNemesisRes.mod_opcode_Folders_MyConsultations: TvcmMOPID;
-begin
- Result := g_module_opcode_Folders_MyConsultations;
- Assert((Result.rMoID > 0) AND (Result.rOpID > 0));
-end;//TNemesisRes.mod_opcode_Folders_MyConsultations
-
-class function TNemesisRes.mod_opcode_Folders_UnderControlOpenFrmAct: TvcmMOPID;
-begin
- Result := g_module_opcode_Folders_UnderControlOpenFrmAct;
- Assert((Result.rMoID > 0) AND (Result.rOpID > 0));
-end;//TNemesisRes.mod_opcode_Folders_UnderControlOpenFrmAct
-
-class function TNemesisRes.mod_opcode_Folders_OpenFrmAct: TvcmMOPID;
-begin
- Result := g_module_opcode_Folders_OpenFrmAct;
- Assert((Result.rMoID > 0) AND (Result.rOpID > 0));
-end;//TNemesisRes.mod_opcode_Folders_OpenFrmAct
-
-class function TNemesisRes.mod_opcode_Chat_OpenContactList: TvcmMOPID;
-begin
- Result := g_module_opcode_Chat_OpenContactList;
- Assert((Result.rMoID > 0) AND (Result.rOpID > 0));
-end;//TNemesisRes.mod_opcode_Chat_OpenContactList
-
 class function TNemesisRes.mod_opcode_WorkJournal_OpenJournal: TvcmMOPID;
 begin
  Result := g_module_opcode_WorkJournal_OpenJournal;
@@ -566,42 +429,6 @@ begin
  Assert((Result.rMoID > 0) AND (Result.rOpID > 0));
 end;//TNemesisRes.mod_opcode_Document_OpenDocOnNumber
 
-class function TNemesisRes.mod_opcode_Diction_OpenDict: TvcmMOPID;
-begin
- Result := g_module_opcode_Diction_OpenDict;
- Assert((Result.rMoID > 0) AND (Result.rOpID > 0));
-end;//TNemesisRes.mod_opcode_Diction_OpenDict
-
-class function TNemesisRes.mod_opcode_Tips_ShowDayTips: TvcmMOPID;
-begin
- Result := g_module_opcode_Tips_ShowDayTips;
- Assert((Result.rMoID > 0) AND (Result.rOpID > 0));
-end;//TNemesisRes.mod_opcode_Tips_ShowDayTips
-
-class function TNemesisRes.mod_opcode_Inpharm_MedicDiction: TvcmMOPID;
-begin
- Result := g_module_opcode_Inpharm_MedicDiction;
- Assert((Result.rMoID > 0) AND (Result.rOpID > 0));
-end;//TNemesisRes.mod_opcode_Inpharm_MedicDiction
-
-class function TNemesisRes.mod_opcode_Inpharm_MedicFirms: TvcmMOPID;
-begin
- Result := g_module_opcode_Inpharm_MedicFirms;
- Assert((Result.rMoID > 0) AND (Result.rOpID > 0));
-end;//TNemesisRes.mod_opcode_Inpharm_MedicFirms
-
-class function TNemesisRes.mod_opcode_Inpharm_DrugList: TvcmMOPID;
-begin
- Result := g_module_opcode_Inpharm_DrugList;
- Assert((Result.rMoID > 0) AND (Result.rOpID > 0));
-end;//TNemesisRes.mod_opcode_Inpharm_DrugList
-
-class function TNemesisRes.mod_opcode_Inpharm_MedicMainMenu: TvcmMOPID;
-begin
- Result := g_module_opcode_Inpharm_MedicMainMenu;
- Assert((Result.rMoID > 0) AND (Result.rOpID > 0));
-end;//TNemesisRes.mod_opcode_Inpharm_MedicMainMenu
-
 class function TNemesisRes.mod_opcode_Settings_OpenStyleEditorAsModal: TvcmMOPID;
 begin
  Result := g_module_opcode_Settings_OpenStyleEditorAsModal;
@@ -637,12 +464,6 @@ begin
  Result := g_module_opcode_Settings_UserProperties;
  Assert((Result.rMoID > 0) AND (Result.rOpID > 0));
 end;//TNemesisRes.mod_opcode_Settings_UserProperties
-
-class function TNemesisRes.mod_opcode_DocumentListFromFile_OpenDocumentListFromFile: TvcmMOPID;
-begin
- Result := g_module_opcode_DocumentListFromFile_OpenDocumentListFromFile;
- Assert((Result.rMoID > 0) AND (Result.rOpID > 0));
-end;//TNemesisRes.mod_opcode_DocumentListFromFile_OpenDocumentListFromFile
 
 class function TNemesisRes.mod_opcode_Search_PublishSourceSearch: TvcmMOPID;
 begin
@@ -768,102 +589,6 @@ class procedure TNemesisRes.MakeCompareEditions(const aLeft: IDocument;
 begin
  TBaseEditionsModule.MakeCompareEditions(aLeft, aRight, aPosition, aDocumentForReturn, aParaForReturn, aContainer);
 end;//TNemesisRes.MakeCompareEditions
-
-class procedure TNemesisRes.MakeInternetAgent(const anURL: Il3CString;
- const aContainer: IvcmContainer);
- {* Создаёт область вывода Интернет-агента }
-begin
- TPrimInternetAgentModule.MakeInternetAgent(anURL, aContainer);
-end;//TNemesisRes.MakeInternetAgent
-
-class function TNemesisRes.OpenFolders(const aContainer: IvcmContainer;
- aCanCreate: Boolean): IvcmEntityForm;
-begin
- Result := TPrimFoldersModule.OpenFolders(aContainer, aCanCreate);
-end;//TNemesisRes.OpenFolders
-
-class procedure TNemesisRes.CloseFolders(const aContainer: IvcmContainer);
-begin
- TPrimFoldersModule.CloseFolders(aContainer);
-end;//TNemesisRes.CloseFolders
-
-class procedure TNemesisRes.TryOpenConsultationAnswer(const aContainer: IvcmContainer);
-begin
- TPrimFoldersModule.TryOpenConsultationAnswer(aContainer);
-end;//TNemesisRes.TryOpenConsultationAnswer
-
-class procedure TNemesisRes.RefreshStructure(const aNode: INode;
- aStatus: TNotifyStatus);
-begin
- TPrimFoldersModule.RefreshStructure(aNode, aStatus);
-end;//TNemesisRes.RefreshStructure
-
-class function TNemesisRes.EditInfoOpen(aIsNewFolder: Boolean;
- const aNode: IeeNode;
- const aCoords: InsFormCoordinates): Integer;
-begin
- Result := TPrimFoldersModule.EditInfoOpen(aIsNewFolder, aNode, aCoords);
-end;//TNemesisRes.EditInfoOpen
-
-class procedure TNemesisRes.LoadOpen(const aForm: IvcmEntityForm;
- const aData: InsFolderFilterInfo);
-begin
- TPrimFoldersModule.LoadOpen(aForm, aData);
-end;//TNemesisRes.LoadOpen
-
-class procedure TNemesisRes.SelectOpen(const aForm: IvcmEntityForm;
- const aFilterInfo: InsFolderFilterInfo;
- const aCaption: TvcmStringID);
-begin
- TPrimFoldersModule.SelectOpen(aForm, aFilterInfo, aCaption);
-end;//TNemesisRes.SelectOpen
-
-class procedure TNemesisRes.SelectOpenWithOperation(const aForm: IvcmEntityForm;
- const aFilterInfo: InsFolderFilterInfo;
- const aCaption: TvcmStringID;
- anOp: TListLogicOperation);
-begin
- TPrimFoldersModule.SelectOpenWithOperation(aForm, aFilterInfo, aCaption, anOp);
-end;//TNemesisRes.SelectOpenWithOperation
-
-class procedure TNemesisRes.SelectOpenWithUserData(const aForm: IvcmEntityForm;
- const aFilterInfo: InsFolderFilterInfo;
- const aCaption: TvcmStringID;
- const aUserData: IUnknown);
-begin
- TPrimFoldersModule.SelectOpenWithUserData(aForm, aFilterInfo, aCaption, aUserData);
-end;//TNemesisRes.SelectOpenWithUserData
-
-class function TNemesisRes.SaveOpen(const aForm: IvcmEntityForm;
- const aFilterInfo: InsFolderFilterInfo;
- anElementType: TFoldersElementType;
- const anEntity: IEntityBase;
- aSaveAs: Boolean): Integer;
-begin
- Result := TPrimFoldersModule.SaveOpen(aForm, aFilterInfo, anElementType, anEntity, aSaveAs);
-end;//TNemesisRes.SaveOpen
-
-class function TNemesisRes.MakeChatDispatcher: IbsChatDispatcher;
-begin
- Result := TBaseChatModule.MakeChatDispatcher;
-end;//TNemesisRes.MakeChatDispatcher
-
-class function TNemesisRes.OpenChatWindow(anUID: TbsUserID;
- const aName: Il3CString): IvcmEntityForm;
-begin
- Result := TBaseChatModule.OpenChatWindow(anUID, aName);
-end;//TNemesisRes.OpenChatWindow
-
-class function TNemesisRes.OpenAddUserDialog: IvcmEntityForm;
-begin
- Result := TBaseChatModule.OpenAddUserDialog;
-end;//TNemesisRes.OpenAddUserDialog
-
-class function TNemesisRes.OpenHistoryWindow(anUID: TbsUserID;
- const aName: Il3CString): IvcmEntityForm;
-begin
- Result := TBaseChatModule.OpenHistoryWindow(anUID, aName);
-end;//TNemesisRes.OpenHistoryWindow
 
 class function TNemesisRes.MakeWorkJournal: IbsWorkJournal;
 begin
@@ -1090,71 +815,6 @@ begin
  TListModule.OpenListWithReplace(aList, aContainer);
 end;//TNemesisRes.OpenListWithReplace
 
-class procedure TNemesisRes.OpenTermByContext(const aContext: Il3CString;
- aLanguage: TbsLanguage);
- {* Открывает термин по подстроке }
-begin
- TDictionModule.OpenTermByContext(aContext, aLanguage);
-end;//TNemesisRes.OpenTermByContext
-
-class procedure TNemesisRes.OpenDictionary(const aDocInfo: IdeDocInfo;
- const aContainer: IvcmContainer);
- {* Открывает толковый словарь }
-begin
- TDictionModule.OpenDictionary(aDocInfo, aContainer);
-end;//TNemesisRes.OpenDictionary
-
-class procedure TNemesisRes.OpenTip(const aDocInfo: IdeDocInfo;
- const aContainer: IvcmContainer);
- {* Открывает совет дня }
-begin
- TDayTipsModule.OpenTip(aDocInfo, aContainer);
-end;//TNemesisRes.OpenTip
-
-class function TNemesisRes.ShowDayTipsAtStartup: IvcmEntityForm;
-begin
- Result := TDayTipsModule.ShowDayTipsAtStartup;
-end;//TNemesisRes.ShowDayTipsAtStartup
-
-class procedure TNemesisRes.OpenMedicDiction(const aDocInfo: IdeDocInfo;
- const aContainer: IvcmContainer);
-begin
- TInpharmModule.OpenMedicDiction(aDocInfo, aContainer);
-end;//TNemesisRes.OpenMedicDiction
-
-class procedure TNemesisRes.OpenMedicFirmDocument(const aDocInfo: IdeDocInfo;
- const aContainer: IvcmContainer);
-begin
- TInpharmModule.OpenMedicFirmDocument(aDocInfo, aContainer);
-end;//TNemesisRes.OpenMedicFirmDocument
-
-class procedure TNemesisRes.OpenDrugDocument(const aDocInfo: IdeDocInfo;
- const aContainer: IvcmContainer);
-begin
- TInpharmModule.OpenDrugDocument(aDocInfo, aContainer);
-end;//TNemesisRes.OpenDrugDocument
-
-class procedure TNemesisRes.OpenDrugList(const aList: IdeList;
- const aContainer: IvcmContainer);
-begin
- TInpharmModule.OpenDrugList(aList, aContainer);
-end;//TNemesisRes.OpenDrugList
-
-class procedure TNemesisRes.MedicFirms(const aContainer: IvcmContainer);
-begin
- TInpharmModule.MedicFirms(aContainer);
-end;//TNemesisRes.MedicFirms
-
-class procedure TNemesisRes.OpenInpharmMainMenu(const aContainer: IvcmContainer);
-begin
- TInpharmModule.OpenInpharmMainMenu(aContainer);
-end;//TNemesisRes.OpenInpharmMainMenu
-
-class procedure TNemesisRes.OpenDrugListIfNeeded(const aContainer: IvcmContainer);
-begin
- TInpharmModule.OpenDrugListIfNeeded(aContainer);
-end;//TNemesisRes.OpenDrugListIfNeeded
-
 class function TNemesisRes.OpenRubricator(const aNode: Il3SimpleNode;
  const aRootToKeep: INodeBase;
  const aMenuSectionItemToKeep: ISectionItem;
@@ -1187,11 +847,6 @@ class procedure TNemesisRes.OpenConfList(const aContainer: IvcmContainer);
 begin
  TSettingsModule.OpenConfList(aContainer);
 end;//TNemesisRes.OpenConfList
-
-class procedure TNemesisRes.OpenMainMenuIfNeeded(const aContainer: IvcmContainer);
-begin
- TMainMenuModule.OpenMainMenuIfNeeded(aContainer);
-end;//TNemesisRes.OpenMainMenuIfNeeded
 
 class function TNemesisRes.MainMenuChangeableMainMenuTypeSetting: Integer;
  {* Метод для получения значения настройки "Тип изменяемой части основного меню" }
@@ -1226,68 +881,6 @@ class procedure TNemesisRes.OpenConsultation(const aCons: IbsConsultation;
 begin
  TConsultationModule.OpenConsultation(aCons, aContainer);
 end;//TNemesisRes.OpenConsultation
-
-class procedure TNemesisRes.TryAnotherBaseSearch(const aContainer: IvcmContainer;
- const aProcessor: InsBaseSearchResultProcessor;
- TryFullList: Boolean = False);
-begin
- TBaseSearchModule.TryAnotherBaseSearch(aContainer, aProcessor, TryFullList);
-end;//TNemesisRes.TryAnotherBaseSearch
-
-class procedure TNemesisRes.OpenBaseSearch(OpenKind: TnsBaseSearchOpenKind;
- const aQuery: IQuery);
-begin
- TBaseSearchModule.OpenBaseSearch(OpenKind, aQuery);
-end;//TNemesisRes.OpenBaseSearch
-
-class function TNemesisRes.MakeBaseSearchWindow(const aContainer: IvcmContainer;
- const aData: InsBaseSearcherWindowData;
- aZoneType: TvcmZoneType): IvcmEntityForm;
-begin
- Result := TBaseSearchModule.MakeBaseSearchWindow(aContainer, aData, aZoneType);
-end;//TNemesisRes.MakeBaseSearchWindow
-
-class procedure TNemesisRes.BaseSearchCheckFragmentsCount(const aContainer: IvcmContainer);
-begin
- TBaseSearchModule.BaseSearchCheckFragmentsCount(aContainer);
-end;//TNemesisRes.BaseSearchCheckFragmentsCount
-
-class procedure TNemesisRes.CheckBaseSearchDataReady(const aContainer: IvcmContainer);
-begin
- TBaseSearchModule.CheckBaseSearchDataReady(aContainer);
-end;//TNemesisRes.CheckBaseSearchDataReady
-
-class procedure TNemesisRes.BaseSearchCheckFindBack(const aContainer: IvcmContainer);
-begin
- TBaseSearchModule.BaseSearchCheckFindBack(aContainer);
-end;//TNemesisRes.BaseSearchCheckFindBack
-
-class function TNemesisRes.MakeBaseSearchCard(const aContainer: IvcmContainer): IvcmEntityForm;
-begin
- Result := TBaseSearchModule.MakeBaseSearchCard(aContainer);
-end;//TNemesisRes.MakeBaseSearchCard
-
-class procedure TNemesisRes.FiltersOpen(const aData: IucpFilters);
-begin
- TFiltersModule.FiltersOpen(aData);
-end;//TNemesisRes.FiltersOpen
-
-class procedure TNemesisRes.OldSchoolFiltersOpen(const anAggregate: IvcmAggregate;
- const aContainer: IvcmContainer;
- anOwner: TComponent);
-begin
- TFiltersModule.OldSchoolFiltersOpen(anAggregate, aContainer, anOwner);
-end;//TNemesisRes.OldSchoolFiltersOpen
-
-class function TNemesisRes.CreateFilter(const aQuery: IQuery): Integer;
-begin
- Result := TFiltersModule.CreateFilter(aQuery);
-end;//TNemesisRes.CreateFilter
-
-class procedure TNemesisRes.RenameFilter(const aFilter: IFilterFromQuery);
-begin
- TFiltersModule.RenameFilter(aFilter);
-end;//TNemesisRes.RenameFilter
 
 class procedure TNemesisRes.CloseUnderControl(const aContainer: IvcmContainer);
 begin
