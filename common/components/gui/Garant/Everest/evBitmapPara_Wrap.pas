@@ -35,6 +35,9 @@ type
    function GetAtomData(AE: Tl3Variant;
     aProp: Tk2CustomProperty;
     out Data: Tl3Variant): Boolean; override;
+   function PreGetAtomData(AE: Tl3Variant;
+    aProp: Tk2CustomProperty;
+    out Data: Tl3Variant): Boolean; override;
  end;//WevBitmapPara
 
 var g_BitmapParaPictureGetter: RevBitmapParaPictureGetter = nil;
@@ -51,6 +54,8 @@ uses
  , l3Base
  , l3InternalInterfaces
  , l3Stream
+ , k2SizedMemoryPool
+ , k2Long_Const
  , BitmapPara_Const
 ;
 
@@ -152,5 +157,38 @@ begin
   Result := DoGetAtomData(AE, aProp, Data);
 //#UC END# *4857A995029E_485792C1014E_impl*
 end;//WevBitmapPara.GetAtomData
+
+function WevBitmapPara.PreGetAtomData(AE: Tl3Variant;
+ aProp: Tk2CustomProperty;
+ out Data: Tl3Variant): Boolean;
+//#UC START# *48DD0CE60313_485792C1014E_var*
+var
+ l_Data : Tl3Variant;
+//#UC END# *48DD0CE60313_485792C1014E_var*
+begin
+//#UC START# *48DD0CE60313_485792C1014E_impl*
+ Case aProp.TagIndex of
+  k2_tiInternalHandle,
+  k2_tiExternalHandle:
+  begin
+   l_Data := AE.Attr[k2_tiData];
+   if (l_Data Is Tk2RawData) then
+   begin
+    Case aProp.TagIndex of
+     k2_tiInternalHandle:
+      Data := k2_typLong.MakeTag(Tk2RawData(l_Data).InternalID).AsObject;
+     k2_tiExternalHandle:
+      Data := k2_typLong.MakeTag(Tk2RawData(l_Data).ExternalID).AsObject;
+     else
+      Assert(false);
+    end;//Case aProp.TagIndex
+    Result := true;
+    Exit;
+   end;//l_Data Is Tk2RawData
+  end;//k2_tiInternalHandle..
+ end;//Case aProp.TagIndex
+ Result := inherited PreGetAtomData(AE, aProp, Data);
+//#UC END# *48DD0CE60313_485792C1014E_impl*
+end;//WevBitmapPara.PreGetAtomData
 
 end.

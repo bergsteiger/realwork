@@ -38,6 +38,9 @@ type
  _k2Tag_Parent_ = Tl3SizedMemoryPool;
  {$Include w:\common\components\rtl\Garant\K2\k2Tag.imp.pas}
  Tk2SizedMemoryPool = class(_k2Tag_)
+  private
+   f_InternalID: Integer;
+   f_ExternalID: Integer;
   protected
    {$If NOT Defined(k2TagIsAtomic)}
    function SetAtomPrim(const aProp: _PropIn_;
@@ -56,11 +59,21 @@ type
    constructor CreateFromStream(aStream: TStream); reintroduce;
    class function CreateFromString(aString: Tl3PrimString): Tk2SizedMemoryPool;
    class function CreateFromFile(const aFileName: AnsiString): Tk2SizedMemoryPool;
-   constructor CreateFromIStream(const aStream: IStream); reintroduce;
+   constructor CreateFromIStream(const aStream: IStream); reintroduce; overload;
+   constructor CreateFromIStream(const aStream: IStream;
+    anInternalID: Integer;
+    anExternalID: Integer); reintroduce; overload;
    procedure CopyFrom(Source: TStream;
     Count: Int64);
    procedure CopyTo(Dest: TStream;
     Count: Int64);
+  public
+   property InternalID: Integer
+    read f_InternalID
+    write f_InternalID;
+   property ExternalID: Integer
+    read f_ExternalID
+    write f_ExternalID;
  end;//Tk2SizedMemoryPool
 
  Tk2RawData = Tk2SizedMemoryPool;
@@ -242,6 +255,19 @@ begin
  end;//try..finally
  {$EndIf nsTest}
 //#UC END# *53C3CD600278_53076BA10113_impl*
+end;//Tk2SizedMemoryPool.CreateFromIStream
+
+constructor Tk2SizedMemoryPool.CreateFromIStream(const aStream: IStream;
+ anInternalID: Integer;
+ anExternalID: Integer);
+//#UC START# *5798DEE5039D_53076BA10113_var*
+//#UC END# *5798DEE5039D_53076BA10113_var*
+begin
+//#UC START# *5798DEE5039D_53076BA10113_impl*
+ CreateFromIStream(aStream);
+ f_InternalID := anInternalID;
+ f_ExternalID := anExternalID;
+//#UC END# *5798DEE5039D_53076BA10113_impl*
 end;//Tk2SizedMemoryPool.CreateFromIStream
 
 {$If NOT Defined(k2TagIsAtomic)}

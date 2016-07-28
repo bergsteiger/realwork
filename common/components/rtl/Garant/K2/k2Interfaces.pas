@@ -106,12 +106,7 @@ type
    {* инструмент родительского тега. }
  end;//Ik2TagTool
 
- Ik2RawData = interface(Ik2Base)
-  ['{1BF80DA7-BEBC-48DC-808A-355329C193E6}']
-  function pm_GetIsModified: Boolean;
-  property IsModified: Boolean
-   read pm_GetIsModified;
- end;//Ik2RawData
+ Tl3Variant = l3Variant.Tl3Variant;
 
  Ik2TagReader = interface(Il3Reader)
   ['{7A106425-E165-42E9-ACF2-C7D54425CC64}']
@@ -165,7 +160,25 @@ type
 
  Ik2Tag = l3Variant.Ik2Tag;
 
- Tl3Variant = l3Variant.Tl3Variant;
+ Ik2RawData = interface(Ik2Base)
+  ['{1BF80DA7-BEBC-48DC-808A-355329C193E6}']
+  function pm_GetIsModified: Boolean;
+  function Get_OriginalData: Tl3Variant;
+  function Get_InternalID: Integer;
+  procedure Set_InternalID(aValue: Integer);
+  function Get_ExternalID: Integer;
+  procedure Set_ExternalID(aValue: Integer);
+  property IsModified: Boolean
+   read pm_GetIsModified;
+  property OriginalData: Tl3Variant
+   read Get_OriginalData;
+  property InternalID: Integer
+   read Get_InternalID
+   write Set_InternalID;
+  property ExternalID: Integer
+   read Get_ExternalID
+   write Set_ExternalID;
+ end;//Ik2RawData
 
 function L2Mk2InterfaceFactoryIterateCursorsAction(anAction: Pointer): Mk2InterfaceFactory_IterateCursors_Action;
  {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для Mk2InterfaceFactory.IterateCursors }

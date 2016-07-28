@@ -3452,6 +3452,7 @@ uses
  , K624853474 in 'w:\common\components\rtl\Garant\Daily\K624853474.pas'
  , K627006470 in 'w:\common\components\rtl\Garant\Daily\K627006470.pas'
  , K627385907 in 'w:\common\components\rtl\Garant\Daily\K627385907.pas'
+ , K627817772 in 'w:\common\components\rtl\Garant\Daily\K627817772.pas'
  , Abstract_Tests_TestLibrary in 'w:\common\components\rtl\Garant\Abstract_Tests\Abstract_Tests_TestLibrary.pas'
  , Abstract_Tests_EditorTests_TestUnit in 'w:\common\components\rtl\Garant\Abstract_Tests\Abstract_Tests_EditorTests_TestUnit.pas'
  , Abstract_Tests_RenderEVD_TestUnit in 'w:\common\components\rtl\Garant\Abstract_Tests\Abstract_Tests_RenderEVD_TestUnit.pas'

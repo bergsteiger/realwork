@@ -65,6 +65,8 @@ type
    procedure AddWidthValue;
    procedure AnalyseBorder;
    procedure AnalyseTextTransform;
+   function InStyle: Boolean;
+   function ValueWithoutSpace(aParam: TddHTMLParamID): Boolean;
   protected
    function pm_GetTagID: Integer; virtual;
    function pm_GetIsClosed: Boolean; virtual;
@@ -906,6 +908,42 @@ begin
   AddKeyValue(dd_paridSTYLE);
 //#UC END# *56E7C2C2036E_524159C700FE_impl*
 end;//TddHTMLTag.AnalyseTextTransform
+
+function TddHTMLTag.InStyle: Boolean;
+//#UC START# *5799D8E50104_524159C700FE_var*
+var
+ i       : Integer;
+ l_Len   : Integer;
+ l_WasKey: Boolean;
+//#UC END# *5799D8E50104_524159C700FE_var*
+begin
+//#UC START# *5799D8E50104_524159C700FE_impl*
+ Result := False;
+ l_WasKey := False;
+ l_Len := f_ParamsList.Count - 1;
+ for i := l_Len downto 0 do
+  if f_ParamsList[i].rType = dd_parKey then
+  begin
+   Result := f_ParamsList[i].rKeyValue = dd_paridSTYLE;
+   if Result then
+    Break
+   else
+    if l_WasKey then
+     Break
+    else
+     l_WasKey := True; 
+  end; // if f_ParamsList[i].rType = dd_parKey then
+//#UC END# *5799D8E50104_524159C700FE_impl*
+end;//TddHTMLTag.InStyle
+
+function TddHTMLTag.ValueWithoutSpace(aParam: TddHTMLParamID): Boolean;
+//#UC START# *5799D90F00D5_524159C700FE_var*
+//#UC END# *5799D90F00D5_524159C700FE_var*
+begin
+//#UC START# *5799D90F00D5_524159C700FE_impl*
+ Result := aParam in [dd_paridBorder, dd_paridBorderBottom, dd_paridBorderTop, dd_paridBorderLeft, dd_paridBorderRight]
+//#UC END# *5799D90F00D5_524159C700FE_impl*
+end;//TddHTMLTag.ValueWithoutSpace
 
 procedure TddHTMLTag.Cleanup;
  {* Функция очистки полей объекта. }
