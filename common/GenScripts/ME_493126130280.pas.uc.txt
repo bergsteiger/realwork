@@ -429,11 +429,11 @@ var
 //#UC END# *49EEDEB10042_493126130280get_var*
 //#UC START# *49EEEB1D0215_493126130280_impl*
  l_Data := TbsEditGroupName.Make(l3CStr(aNode));
- if (TvcmModulesFactories.ShowRenameGroupDialog(l_Data) = mrOk) then
+ if (TdmStdRes.ShowRenameGroupDialog(l_Data) = mrOk) then
  begin
   aName := l_Data.Name;
   Result := true
- end//TvcmModulesFactories.ShowRenameGroupDialog(TbsEditGroupName.Make(l_Name))  = mrOk
+ end//TdmStdRes.ShowRenameGroupDialog(TbsEditGroupName.Make(l_Name))  = mrOk
  else
   Result := false;
 //#UC END# *49EEEB1D0215_493126130280_impl*
@@ -490,7 +490,7 @@ var
 //#UC START# *49F6E384028E_493126130280get_var*
 //#UC END# *49F6E384028E_493126130280get_var*
 //#UC START# *4AAF58000352_493126130280_impl*
- Result := TvcmModulesFactories.OpenTreeSelection(BaseAccessRootTag, ns_ftNone,
+ Result := TdmStdRes.OpenTreeSelection(BaseAccessRootTag, ns_ftNone,
                                        TdsBasesAccess.Make(nil,
                                                            TdeSearch.Make(BaseAccessRootTag, nil))) = mrOk;
 //#UC END# *4AAF58000352_493126130280_impl*

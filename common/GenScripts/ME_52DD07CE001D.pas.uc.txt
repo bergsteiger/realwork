@@ -1,0 +1,37 @@
+//#UC START# *479731C50290_52DD07CE001D_impl*
+ f_Aggregate := nil;
+ f_Wrap := True;
+ inherited;
+//#UC END# *479731C50290_52DD07CE001D_impl*
+//#UC START# *479731C50290_52DD07CE001D_var*
+//#UC END# *479731C50290_52DD07CE001D_var*
+//#UC START# *4A60B23E00C3_52DD07CE001D_impl*
+ Result := inherited COMQueryInterface(IID, Obj);
+ if Result.Fail then
+  if Supports(f_Aggregate, IID.IID, Obj) then
+   Result.SetOk
+  else
+   Result.SetNoInterface;
+//#UC END# *4A60B23E00C3_52DD07CE001D_impl*
+//#UC START# *4A60B23E00C3_52DD07CE001D_var*
+//#UC END# *4A60B23E00C3_52DD07CE001D_var*
+//#UC START# *52DD07A0013B_52DD07CE001Dget_impl*
+ Result := f_Aggregate;
+//#UC END# *52DD07A0013B_52DD07CE001Dget_impl*
+//#UC START# *52DD07A0013B_52DD07CE001Dget_var*
+//#UC END# *52DD07A0013B_52DD07CE001Dget_var*
+//#UC START# *52DD07B301D9_52DD07CE001Dget_impl*
+ Result := f_Wrap;
+//#UC END# *52DD07B301D9_52DD07CE001Dget_impl*
+//#UC START# *52DD07B301D9_52DD07CE001Dget_var*
+//#UC END# *52DD07B301D9_52DD07CE001Dget_var*
+//#UC START# *52DD07CE001D_ext:ParentFileName
+w:\common\components\gui\Garant\Nemesis\nscTreeView.pas
+//#UC END# *52DD07CE001D_ext:ParentFileName
+//#UC START# *52DD083B0184_52DD07CE001D_impl*
+ inherited Create;
+ f_Aggregate := aAggregate;
+ f_Wrap := aWrap;
+//#UC END# *52DD083B0184_52DD07CE001D_impl*
+//#UC START# *52DD083B0184_52DD07CE001D_var*
+//#UC END# *52DD083B0184_52DD07CE001D_var*
