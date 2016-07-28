@@ -1,0 +1,113 @@
+//#UC START# *48BD5F8303C4_53EDF0B0003D_impl*
+ inherited DoChanged;
+ if Assigned(f_SubOwner) then
+  f_SubOwner.TreeChangedNotification;
+//#UC END# *48BD5F8303C4_53EDF0B0003D_impl*
+//#UC START# *48BD5F8303C4_53EDF0B0003D_var*
+//#UC END# *48BD5F8303C4_53EDF0B0003D_var*
+//#UC START# *5298BEBA032D_53EDF0B0003D_impl*
+ Result := f_SubOwner.SizeableTree;
+//#UC END# *5298BEBA032D_53EDF0B0003D_impl*
+//#UC START# *5298BEBA032D_53EDF0B0003D_var*
+//#UC END# *5298BEBA032D_53EDF0B0003D_var*
+//#UC START# *5298BF130022_53EDF0B0003D_impl*
+ Result := f_SubOwner.ShowGripper;
+//#UC END# *5298BF130022_53EDF0B0003D_impl*
+//#UC START# *5298BF130022_53EDF0B0003D_var*
+//#UC END# *5298BF130022_53EDF0B0003D_var*
+//#UC START# *5298BF4D00FE_53EDF0B0003D_impl*
+ Result := f_SubOwner.IsList;
+//#UC END# *5298BF4D00FE_53EDF0B0003D_impl*
+//#UC START# *5298BF4D00FE_53EDF0B0003D_var*
+//#UC END# *5298BF4D00FE_53EDF0B0003D_var*
+//#UC START# *5298BF8700B0_53EDF0B0003D_impl*
+ Result := f_SubOwner.f_Invert;
+//#UC END# *5298BF8700B0_53EDF0B0003D_impl*
+//#UC START# *5298BF8700B0_53EDF0B0003D_var*
+//#UC END# *5298BF8700B0_53EDF0B0003D_var*
+//#UC START# *5298BFDF0035_53EDF0B0003D_impl*
+ Result := Assigned(f_SubOwner);
+//#UC END# *5298BFDF0035_53EDF0B0003D_impl*
+//#UC START# *5298BFDF0035_53EDF0B0003D_var*
+//#UC END# *5298BFDF0035_53EDF0B0003D_var*
+//#UC START# *5298BFFA014B_53EDF0B0003D_impl*
+ Result := f_SubOwner.Width;
+//#UC END# *5298BFFA014B_53EDF0B0003D_impl*
+//#UC START# *5298BFFA014B_53EDF0B0003D_var*
+//#UC END# *5298BFFA014B_53EDF0B0003D_var*
+//#UC START# *5298C0580167_53EDF0B0003D_impl*
+ Result := Min(f_SubOwner.MaxVisibleDropCount, f_SubOwner.MinVisibleDropCount);
+//#UC END# *5298C0580167_53EDF0B0003D_impl*
+//#UC START# *5298C0580167_53EDF0B0003D_var*
+//#UC END# *5298C0580167_53EDF0B0003D_var*
+//#UC START# *5298C0CD00F1_53EDF0B0003D_impl*
+ Result := Max(f_SubOwner.MaxVisibleDropCount, f_SubOwner.MinVisibleDropCount);
+//#UC END# *5298C0CD00F1_53EDF0B0003D_impl*
+//#UC START# *5298C0CD00F1_53EDF0B0003D_var*
+//#UC END# *5298C0CD00F1_53EDF0B0003D_var*
+//#UC START# *53EDF0B0003D_ext:ParentFileName
+w:\common\components\gui\Garant\VT\ComboTree\DropDownTree.pas
+//#UC END# *53EDF0B0003D_ext:ParentFileName
+//#UC START# *53EDF0B0003Dci*
+//#UC END# *53EDF0B0003Dci*
+//#UC START# *53EDF0B0003Dcit*
+//#UC END# *53EDF0B0003Dcit*
+//#UC START# *53EDF0B0003Dimpl*
+//#UC END# *53EDF0B0003Dimpl*
+//#UC START# *53EDF0B0003Dpubl*
+   property AllowWithoutCurrent;
+//#UC END# *53EDF0B0003Dpubl*
+//#UC START# *53EDF23800FE_53EDF0B0003D_impl*
+ f_SubOwner.CurrentMode := f_SubOwner.CurrentMode + [cmFocusing];
+ if IsTopForm then
+ begin
+  Windows.SetFocus(Message.wParam);
+  // иначе на OnTop формах окно уплывает на задний план
+  SetWindowPos(Handle, HWND_TOPMOST, Left, Top, 0, 0, SWP_NOSIZE or SWP_NOACTIVATE or SWP_SHOWWINDOW );
+ end
+ else
+  Windows.SetFocus(Message.wParam);
+ f_SubOwner.CurrentMode := f_SubOwner.CurrentMode-[cmFocusing];
+//#UC END# *53EDF23800FE_53EDF0B0003D_impl*
+//#UC START# *53EDF23800FE_53EDF0B0003D_var*
+  function IsTopForm: boolean;
+  var
+   l_Control: TControl;
+  begin//IsTopForm
+   Result := False;
+   l_Control := f_SubOwner;
+   while l_Control <> nil do
+   begin
+     if (l_Control is TForm) and
+        ((l_Control as TForm).FormStyle = fsStayOnTop) then
+     begin
+       Result := True;
+       Break;
+     end;
+     l_Control := l_Control.Parent;
+   end;
+  end;//IsTopForm
+//#UC END# *53EDF23800FE_53EDF0B0003D_var*
+//#UC START# *53EDF25D0045_53EDF0B0003D_impl*
+ f_SubOwner.CurrentMode := f_SubOwner.CurrentMode + [cmFocusing];
+// Windows.SetFocus(f_SubOwner.Handle);
+// вроде лишнее.
+ f_SubOwner.CurrentMode := f_SubOwner.CurrentMode - [cmFocusing];
+ f_SubOwner.f_IgnoreFocus := False;
+ f_SubOwner.DropWidth := Width;
+ inherited;
+//#UC END# *53EDF25D0045_53EDF0B0003D_impl*
+//#UC START# *53EDF25D0045_53EDF0B0003D_var*
+//#UC END# *53EDF25D0045_53EDF0B0003D_var*
+//#UC START# *53EDF26C0050_53EDF0B0003D_impl*
+ inherited;
+ f_SubOwner.f_IgnoreFocus := True;
+//#UC END# *53EDF26C0050_53EDF0B0003D_impl*
+//#UC START# *53EDF26C0050_53EDF0B0003D_var*
+//#UC END# *53EDF26C0050_53EDF0B0003D_var*
+//#UC START# *53EDF2910311_53EDF0B0003D_impl*
+ inherited Create(nil);
+ f_SubOwner := aOwner;
+//#UC END# *53EDF2910311_53EDF0B0003D_impl*
+//#UC START# *53EDF2910311_53EDF0B0003D_var*
+//#UC END# *53EDF2910311_53EDF0B0003D_var*

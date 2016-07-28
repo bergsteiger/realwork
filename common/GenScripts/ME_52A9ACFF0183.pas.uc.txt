@@ -1,0 +1,447 @@
+//#UC START# *479731C50290_52A9ACFF0183_impl*
+ if f_Hooked then
+ begin
+  Application.UnhookMainWindow(FormatSettingsChange);
+  f_Hooked := False;
+ end;
+ FreeAndNil(f_CalendarPanel);
+ inherited;
+//#UC END# *479731C50290_52A9ACFF0183_impl*
+//#UC START# *479731C50290_52A9ACFF0183_var*
+//#UC END# *479731C50290_52A9ACFF0183_var*
+//#UC START# *47D1602000C6_52A9ACFF0183_impl*
+ inherited Create(AOwner);
+ f_RestrictInvalidDate := false;
+ f_BlanksChar := ' ';
+ //FPopupColor := clBtnFace;
+ //FDefNumGlyphs := 2;
+ f_StartOfWeek := Monday;
+ f_Weekends := [Sunday];
+ f_WeekendColor := clRed;
+ f_YearDigits := dyDefault;
+ ControlState := ControlState + [csCreating];
+ try
+  UpdateFormat;
+  //GlyphKind := gkDefault; { force update }
+ finally
+  ControlState := ControlState - [csCreating];
+ end;
+ //CalendarStyle := dcsDefault;
+
+ ButtonStyle := cbsDefault;
+// Код закомментирован см. комментарий к vt_imgThemedCalendar (vtStdRes)
+// {$IfDef Delphi7}
+//  if ThemeServices.ThemesEnabled then
+//   ImageIndex := vt_imgThemedCalendar
+//  else
+// {$EndIf Delphi7}
+ ImageIndex := vt_imgCalendar;
+//#UC END# *47D1602000C6_52A9ACFF0183_impl*
+//#UC START# *47D1602000C6_52A9ACFF0183_var*
+//#UC END# *47D1602000C6_52A9ACFF0183_var*
+//#UC START# *482C4E0E01E4_52A9ACFF0183_impl*
+ if (DirectInput or IsDroppedDown) and (Key in ['T', 't', 'Е', 'е', '+', '-']) then
+  Key := #0;
+ if (Key = #0) then
+  Exit;
+ if IsDroppedDown then
+  TvtCalendarPanelFriend(f_CalendarPanel).KeyPress(Key);
+
+ if not f_RestrictInvalidDate then
+  inherited KeyPress(Key)
+ else
+ begin
+  l_Text := Text;
+  GetSel(l_Start, l_Stop);
+  inherited KeyPress(Key);
+
+  for l_Index := l_Start downto 0 do
+  begin
+   if ((Ord(f_DateFormat[l_Index]) < Ord('a')) or (Ord(f_DateFormat[l_Index]) > Ord('z'))) and
+      ((Ord(f_DateFormat[l_Index]) < Ord('A')) or (Ord(f_DateFormat[l_Index]) > Ord('Z'))) then
+    Exit;
+   if Text[l_Index] <> ' ' then
+    Break
+  end;
+
+  if not IsDateHalfValid(f_DateFormat, Text) then
+   if IsDateFullyFilled(f_DateFormat, Text) then
+   begin
+    TriggerAutoCorrectDate;
+    Text := l3CorrectDate(f_DateFormat, Text);
+    SetCursor(l_Start);
+    SetSel(l_Start, l_Stop);
+   end
+   else
+   begin
+    Text := l_Text;
+    SetCursor(l_Start);
+    SetSel(l_Start, l_Stop);
+   end;
+ end;
+//#UC END# *482C4E0E01E4_52A9ACFF0183_impl*
+//#UC START# *482C4E0E01E4_52A9ACFF0183_var*
+var
+ l_Text: AnsiString;
+ l_Start, l_Stop, l_Index: Integer;
+//#UC END# *482C4E0E01E4_52A9ACFF0183_var*
+//#UC START# *48C67EB000EE_52A9ACFF0183_impl*
+ inherited CreateWindowHandle(Params);
+ if Handle <> 0 then
+ begin
+  UpdateMask;
+  if not (csDesigning in ComponentState) and not (IsLibrary or f_Hooked) then
+  begin
+   Application.HookMainWindow(FormatSettingsChange);
+   f_Hooked := True;
+  end;
+ end;
+//#UC END# *48C67EB000EE_52A9ACFF0183_impl*
+//#UC START# *48C67EB000EE_52A9ACFF0183_var*
+//#UC END# *48C67EB000EE_52A9ACFF0183_var*
+//#UC START# *48C67EDF01C8_52A9ACFF0183_impl*
+ if f_Hooked then
+ begin
+  Application.UnhookMainWindow(FormatSettingsChange);
+  f_Hooked := False;
+ end;
+ inherited DestroyWindowHandle;
+//#UC END# *48C67EDF01C8_52A9ACFF0183_impl*
+//#UC START# *48C67EDF01C8_52A9ACFF0183_var*
+//#UC END# *48C67EDF01C8_52A9ACFF0183_var*
+//#UC START# *52A9A8710199_52A9ACFF0183_impl*
+ inherited ActionChange(Sender, CheckDefaults);
+ if Sender is TCustomAction then
+  f_OnExecute := TCustomAction(Sender).OnExecute;
+//#UC END# *52A9A8710199_52A9ACFF0183_impl*
+//#UC START# *52A9A8710199_52A9ACFF0183_var*
+//#UC END# *52A9A8710199_52A9ACFF0183_var*
+//#UC START# *52A9ACFF0183_ext:ParentFileName
+w:\common\components\gui\Garant\VT\vtDateEdit.pas
+//#UC END# *52A9ACFF0183_ext:ParentFileName
+//#UC START# *52A9AF0F021B_52A9ACFF0183_impl*
+ if Assigned(f_OnExecute) then
+  f_OnExecute(Self)
+//#UC END# *52A9AF0F021B_52A9ACFF0183_impl*
+//#UC START# *52A9AF0F021B_52A9ACFF0183_var*
+//#UC END# *52A9AF0F021B_52A9ACFF0183_var*
+//#UC START# *554C8C8802BD_52A9ACFF0183set_impl*
+ if aValue <> f_BlanksChar then
+ begin
+  if (aValue < ' ') then
+   aValue := ' ';
+  f_BlanksChar := aValue;
+  UpdateMask;
+ end;
+//#UC END# *554C8C8802BD_52A9ACFF0183set_impl*
+//#UC START# *554C8C8802BD_52A9ACFF0183set_var*
+//#UC END# *554C8C8802BD_52A9ACFF0183set_var*
+//#UC START# *554C8F5C038E_52A9ACFF0183set_impl*
+ if f_YearDigits <> aValue then
+ begin
+  f_YearDigits := aValue;
+  UpdateMask;
+ end;
+//#UC END# *554C8F5C038E_52A9ACFF0183set_impl*
+//#UC START# *554C8F5C038E_52A9ACFF0183set_var*
+//#UC END# *554C8F5C038E_52A9ACFF0183set_var*
+//#UC START# *554C92180230_52A9ACFF0183get_impl*
+ Result := StrToDateFmtDef(f_DateFormat, Text, NullDate);
+//#UC END# *554C92180230_52A9ACFF0183get_impl*
+//#UC START# *554C92180230_52A9ACFF0183get_var*
+//#UC END# *554C92180230_52A9ACFF0183get_var*
+//#UC START# *554C92180230_52A9ACFF0183set_impl*
+ if not ValidDate(aValue) then
+  aValue := NullDate;
+ if aValue = NullDate
+  then Text := ''
+  else Text := FormatDateTime(f_DateFormat, aValue);
+ if IsDroppedDown then
+  TPopupCalendar(f_CalendarPanel).Date := aValue;
+//#UC END# *554C92180230_52A9ACFF0183set_impl*
+//#UC START# *554C92180230_52A9ACFF0183set_var*
+//#UC END# *554C92180230_52A9ACFF0183set_var*
+//#UC START# *554C924B03A3_52A9ACFF0183get_impl*
+ Result := DateTimeToStDate(Date);
+//#UC END# *554C924B03A3_52A9ACFF0183get_impl*
+//#UC START# *554C924B03A3_52A9ACFF0183get_var*
+//#UC END# *554C924B03A3_52A9ACFF0183get_var*
+//#UC START# *554C924B03A3_52A9ACFF0183set_impl*
+ if aValue = 0
+  then Date := NullDate
+  else Date := StDateToDateTime(aValue);
+//#UC END# *554C924B03A3_52A9ACFF0183set_impl*
+//#UC START# *554C924B03A3_52A9ACFF0183set_var*
+//#UC END# *554C924B03A3_52A9ACFF0183set_var*
+//#UC START# *554C9CE10330_52A9ACFF0183_impl*
+ Result := (f_YearDigits = dyFour) or ((f_YearDigits = dyDefault) and l3Date.FourDigitYear);
+//#UC END# *554C9CE10330_52A9ACFF0183_impl*
+//#UC START# *554C9CE10330_52A9ACFF0183_var*
+//#UC END# *554C9CE10330_52A9ACFF0183_var*
+//#UC START# *554C9D670390_52A9ACFF0183_impl*
+ Result := False;
+ if (Message.Msg = WM_WININICHANGE) {$IFDEF WIN32}and Application.UpdateFormatSettings{$ENDIF} then
+  UpdateMask;
+//#UC END# *554C9D670390_52A9ACFF0183_impl*
+//#UC START# *554C9D670390_52A9ACFF0183_var*
+//#UC END# *554C9D670390_52A9ACFF0183_var*
+//#UC START# *554C9F940101_52A9ACFF0183_impl*
+ if not TriggerOnInvalidDate then
+ begin
+  Date := Date;
+  if not (csDesigning in ComponentState) and CheckOnExit then
+    CheckValidDate;
+  inherited;
+ end;
+//#UC END# *554C9F940101_52A9ACFF0183_impl*
+//#UC START# *554C9F940101_52A9ACFF0183_var*
+//#UC END# *554C9F940101_52A9ACFF0183_var*
+//#UC START# *554C9FAE023A_52A9ACFF0183_impl*
+ inherited;
+ if not IsValid then
+ begin
+  SelStart := 0;
+  SelLength := 1;
+ end;
+//#UC END# *554C9FAE023A_52A9ACFF0183_impl*
+//#UC START# *554C9FAE023A_52A9ACFF0183_var*
+//#UC END# *554C9FAE023A_52A9ACFF0183_var*
+//#UC START# *554CA18500FB_52A9ACFF0183_impl*
+ Result := inherited ProcessCommand(Cmd, aForce, aCount);
+ if Cmd = ccPaste then
+ begin
+  Perform(WM_PASTE, 0, 0);
+  Result := True;
+ end;
+//#UC END# *554CA18500FB_52A9ACFF0183_impl*
+//#UC START# *554CA18500FB_52A9ACFF0183_var*
+//#UC END# *554CA18500FB_52A9ACFF0183_var*
+//#UC START# *554CA29100ED_52A9ACFF0183_impl*
+ // Общий обработчик
+ if Assigned(g_vtBeforeCorrectDate) then
+  g_vtBeforeCorrectDate(Text)
+ else
+ // Обработчик данного экземпляра
+ if Assigned(f_OnAutoCorrectDate) then
+  f_OnAutoCorrectDate(Self);
+//#UC END# *554CA29100ED_52A9ACFF0183_impl*
+//#UC START# *554CA29100ED_52A9ACFF0183_var*
+//#UC END# *554CA29100ED_52A9ACFF0183_var*
+//#UC START# *554CA2C1020B_52A9ACFF0183_impl*
+ if not IsBlank and not IsValid and Assigned(f_OnInvalidDate) then
+ begin
+  f_OnInvalidDate(Self);
+  Result := True;
+ end
+ else
+  Result := False;
+//#UC END# *554CA2C1020B_52A9ACFF0183_impl*
+//#UC START# *554CA2C1020B_52A9ACFF0183_var*
+//#UC END# *554CA2C1020B_52A9ACFF0183_var*
+//#UC START# *554CA3BF011D_52A9ACFF0183_impl*
+ if f_CalendarPanel <> nil then
+  Exit;
+ f_CalendarPanel := TPopupCalendar.Create(Self);
+//#UC END# *554CA3BF011D_52A9ACFF0183_impl*
+//#UC START# *554CA3BF011D_52A9ACFF0183_var*
+//#UC END# *554CA3BF011D_52A9ACFF0183_var*
+//#UC START# *554CA3ED007F_52A9ACFF0183_impl*
+ Result := f_DateFormat;
+//#UC END# *554CA3ED007F_52A9ACFF0183_impl*
+//#UC START# *554CA3ED007F_52A9ACFF0183_var*
+//#UC END# *554CA3ED007F_52A9ACFF0183_var*
+//#UC START# *554CA41F01D7_52A9ACFF0183_impl*
+ if Assigned(f_OnApplyDate) and not OnApplyDate(Self, aValue) then
+  Exit;
+ pm_SetDate(aValue);
+ SelectAll;
+ if Assigned(f_OnAppliedDate) then
+  OnAppliedDate(Self, aValue);
+//#UC END# *554CA41F01D7_52A9ACFF0183_impl*
+//#UC START# *554CA41F01D7_52A9ACFF0183_var*
+//#UC END# *554CA41F01D7_52A9ACFF0183_var*
+//#UC START# *554CA47D03A0_52A9ACFF0183_impl*
+ f_DateFormat := DefDateFormat(FourDigitYear);
+//#UC END# *554CA47D03A0_52A9ACFF0183_impl*
+//#UC START# *554CA47D03A0_52A9ACFF0183_var*
+//#UC END# *554CA47D03A0_52A9ACFF0183_var*
+//#UC START# *554CA4D40035_52A9ACFF0183_impl*
+ if Parent <> nil then
+  SendMessage(Parent.Handle, Message.Msg, Message.wParam, Message.lParam);
+//#UC END# *554CA4D40035_52A9ACFF0183_impl*
+//#UC START# *554CA4D40035_52A9ACFF0183_var*
+//#UC END# *554CA4D40035_52A9ACFF0183_var*
+//#UC START# *554CA4E801D4_52A9ACFF0183_impl*
+ Clear;
+ inherited;
+//#UC END# *554CA4E801D4_52A9ACFF0183_impl*
+//#UC START# *554CA4E801D4_52A9ACFF0183_var*
+//#UC END# *554CA4E801D4_52A9ACFF0183_var*
+//#UC START# *554CA5170329_52A9ACFF0183_impl*
+ if TextStored then
+ try
+  f_Formatting := True;
+  try
+   pm_SetDate(StrToDateFmt(f_DateFormat, Text));
+  finally
+   f_Formatting := False;
+  end;
+ except
+  if CanFocus then
+   SetFocus;
+  raise;
+ end;
+//#UC END# *554CA5170329_52A9ACFF0183_impl*
+//#UC START# *554CA5170329_52A9ACFF0183_var*
+//#UC END# *554CA5170329_52A9ACFF0183_var*
+//#UC START# *554CA52902A3_52A9ACFF0183_impl*
+ Result := DefDateMask(f_BlanksChar, FourDigitYear);
+//#UC END# *554CA52902A3_52A9ACFF0183_impl*
+//#UC START# *554CA52902A3_52A9ACFF0183_var*
+//#UC END# *554CA52902A3_52A9ACFF0183_var*
+//#UC START# *554CA555014B_52A9ACFF0183_impl*
+ f_Formatting := True;
+ try
+  DateValue := pm_GetDate;
+  OldFormat := f_DateFormat;
+  UpdateFormat;
+  if (GetDateMask <> EditMask) or (OldFormat <> f_DateFormat) then
+  begin
+   { force update }
+   EditMask := '';
+   EditMask := GetDateMask;
+  end;
+  pm_SetDate(DateValue);
+ finally
+  f_Formatting := False;
+ end;
+ UpdateButtonPosition;
+//#UC END# *554CA555014B_52A9ACFF0183_impl*
+//#UC START# *554CA555014B_52A9ACFF0183_var*
+var
+ DateValue: TDateTime;
+ OldFormat: ShortString;
+//#UC END# *554CA555014B_52A9ACFF0183_var*
+//#UC START# *554CA5630382_52A9ACFF0183_impl*
+ Date := NullDate;
+//#UC END# *554CA5630382_52A9ACFF0183_impl*
+//#UC START# *554CA5630382_52A9ACFF0183_var*
+//#UC END# *554CA5630382_52A9ACFF0183_var*
+//#UC START# *554CA580013A_52A9ACFF0183_impl*
+ Result := StrToDateFmtDef(f_DateFormat, Text, NullDate) <> NullDate;
+//#UC END# *554CA580013A_52A9ACFF0183_impl*
+//#UC START# *554CA580013A_52A9ACFF0183_var*
+//#UC END# *554CA580013A_52A9ACFF0183_var*
+//#UC START# *554CA652029E_52A9ACFF0183_impl*
+ Result := Date = NullDate;
+//#UC END# *554CA652029E_52A9ACFF0183_impl*
+//#UC START# *554CA652029E_52A9ACFF0183_var*
+//#UC END# *554CA652029E_52A9ACFF0183_var*
+//#UC START# *554CA67F0123_52A9ACFF0183_impl*
+ Result := PadInputLiterals(EditMask, '', f_BlanksChar) = Text;
+//#UC END# *554CA67F0123_52A9ACFF0183_impl*
+//#UC START# *554CA67F0123_52A9ACFF0183_var*
+//#UC END# *554CA67F0123_52A9ACFF0183_var*
+//#UC START# *554CA6CB0191_52A9ACFF0183_impl*
+ Width := Canvas.TextWidth('88.88.8888') + Button.Width + BorderWidth * 2 + cBtnTextSpace;
+//#UC END# *554CA6CB0191_52A9ACFF0183_impl*
+//#UC START# *554CA6CB0191_52A9ACFF0183_var*
+const
+ cBtnTextSpace = 10;
+//#UC END# *554CA6CB0191_52A9ACFF0183_var*
+//#UC START# *554CA8F903AE_52A9ACFF0183_impl*
+ MakeCalendar;
+ Result := f_CalendarPanel;
+//#UC END# *554CA8F903AE_52A9ACFF0183_impl*
+//#UC START# *554CA8F903AE_52A9ACFF0183_var*
+//#UC END# *554CA8F903AE_52A9ACFF0183_var*
+//#UC START# *554CAA8400E5_52A9ACFF0183_impl*
+ if not f_Formatting then
+  inherited Change;
+//#UC END# *554CAA8400E5_52A9ACFF0183_impl*
+//#UC START# *554CAA8400E5_52A9ACFF0183_var*
+//#UC END# *554CAA8400E5_52A9ACFF0183_var*
+//#UC START# *554CABC100AC_52A9ACFF0183_impl*
+ l_NeedReturnFocus := False;
+ if (DirectInput or IsDroppedDown) and (Shift = []) then
+ case Key of
+  Ord('T'), Ord('t'), Ord('Е'), Ord('е'):
+   begin
+    ApplyDate(Trunc(Now));
+    Key := 0;
+   end;
+  VK_ADD:
+   begin
+    ApplyDate(NormDate(Date, Now) + 1);
+    Key := 0;
+   end;
+  VK_SUBTRACT:
+   begin
+    ApplyDate(NormDate(Date, Now) - 1);
+    Key := 0;
+   end;
+  VK_RETURN:
+   begin
+    l_DroppedDown := DroppedDown;
+    Windows.SetFocus(0);
+    l_NeedReturnFocus := True;
+    if l_DroppedDown then
+     ApplyDate(TPopupCalendar(f_CalendarPanel).Date)
+    else
+     DoExecute;
+   end;
+ end;
+ if (Key <> 0) then
+ begin
+  if IsDroppedDown then
+   TvtCalendarPanelFriend(f_CalendarPanel).KeyDown(Key, Shift);
+  inherited KeyDown(Key, Shift);
+ end;//Key <> 0
+ if l_NeedReturnFocus then
+  Windows.SetFocus(Handle);
+//#UC END# *554CABC100AC_52A9ACFF0183_impl*
+//#UC START# *554CABC100AC_52A9ACFF0183_var*
+var
+ l_DroppedDown: Boolean;
+ l_NeedReturnFocus: Boolean;
+//#UC END# *554CABC100AC_52A9ACFF0183_var*
+//#UC START# *554CBB4B0240_52A9ACFF0183_impl*
+ Clipboard.Open;
+ try
+  Result := l3CorrectDateSeparators(EditMask, Clipboard.AsText, BlanksChar);
+ finally
+  Clipboard.Close;
+ end;
+//#UC END# *554CBB4B0240_52A9ACFF0183_impl*
+//#UC START# *554CBB4B0240_52A9ACFF0183_var*
+//#UC END# *554CBB4B0240_52A9ACFF0183_var*
+//#UC START# *554CBC32006E_52A9ACFF0183_impl*
+ if DroppedDown then
+  SendMessage(TWinControl(Self).Handle, WM_vt_CALLCLOSEUP, 0, 0)
+ else
+ begin
+  Date := Date;
+  MakeCalendar;
+  TPopupCalendar(f_CalendarPanel).Date := NormDate(Date, Now);
+  inherited DropDown;
+  ///Windows.SetFocus(TPopupCalendar(f_CalendarPanel).f_Calendar.Handle);
+ end;
+//#UC END# *554CBC32006E_52A9ACFF0183_impl*
+//#UC START# *554CBC32006E_52A9ACFF0183_var*
+//#UC END# *554CBC32006E_52A9ACFF0183_var*
+//#UC START# *554CBC4500ED_52A9ACFF0183_impl*
+ if Assigned(f_CalendarPanel) and
+  not TPopupCalendar(f_CalendarPanel).f_MenuOpen then
+ begin
+  if Accept then
+   ApplyDate(TPopupCalendar(f_CalendarPanel).Date);
+  inherited CloseUp(Accept);
+ end;
+//#UC END# *554CBC4500ED_52A9ACFF0183_impl*
+//#UC START# *554CBC4500ED_52A9ACFF0183_var*
+//#UC END# *554CBC4500ED_52A9ACFF0183_var*
+//#UC START# *556305870087_52A9ACFF0183_impl*
+ Result := not IsEmptyStr(Text, [#0, ' ', {$IfDef XE}FormatSettings.{$EndIf}DateSeparator, f_BlanksChar]);
+//#UC END# *556305870087_52A9ACFF0183_impl*
+//#UC START# *556305870087_52A9ACFF0183_var*
+//#UC END# *556305870087_52A9ACFF0183_var*

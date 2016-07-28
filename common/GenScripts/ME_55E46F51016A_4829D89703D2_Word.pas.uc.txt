@@ -1,0 +1,21 @@
+//#UC START# *55E46F51016A_4829D89703D2_Word_ext:ParentFileName
+w:\common\components\rtl\Garant\ScriptEngine\TevCustomEditorWordsPack.pas
+//#UC END# *55E46F51016A_4829D89703D2_Word_ext:ParentFileName
+//#UC START# *55E46F51016A_55E46F51016A_4829D89703D2_Word_impl*
+ l_Range := aEditor.Range;
+ if (l_Range = nil) then
+  RunnerError('Не удалось получить выделение.', aCtx);
+ l_Table := l_Range.Table;
+ if (l_Table = nil) then
+  RunnerError('Не удалось получить таблицу!', aCtx);
+ l_Cells := l_Table.Cells;
+ if (l_Cells = nil) then
+  RunnerError('Не удалось получить диапазон ячеек!', aCtx);
+ l_Cells.Merge(anAlgorytm);
+//#UC END# *55E46F51016A_55E46F51016A_4829D89703D2_Word_impl*
+//#UC START# *55E46F51016A_55E46F51016A_4829D89703D2_Word_var*
+var
+ l_Table     : IedTable;
+ l_Range     : IedRange;
+ l_Cells     : IedCells;
+//#UC END# *55E46F51016A_55E46F51016A_4829D89703D2_Word_var*

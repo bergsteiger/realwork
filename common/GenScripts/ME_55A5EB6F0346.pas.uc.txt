@@ -1,0 +1,243 @@
+//#UC START# *479731C50290_55A5EB6F0346_impl*
+ FreeAndNil(f_Items);
+ inherited;
+//#UC END# *479731C50290_55A5EB6F0346_impl*
+//#UC START# *479731C50290_55A5EB6F0346_var*
+//#UC END# *479731C50290_55A5EB6F0346_var*
+//#UC START# *55A4A45E022B_55A5EB6F0346_impl*
+ f_InBf := True;
+ try
+  l_Step := f_Items.Last;
+  f_Items.Remove(l_Step);
+  l_Step.Restore(aContainer, nil, True);
+ finally
+  f_InBf := False;
+ end;
+//#UC END# *55A4A45E022B_55A5EB6F0346_impl*
+//#UC START# *55A4A45E022B_55A5EB6F0346_var*
+var
+ l_Step: IvcmFormSetHistoryStep;
+//#UC END# *55A4A45E022B_55A5EB6F0346_var*
+//#UC START# *55A4A47400CD_55A5EB6F0346get_impl*
+ Result := f_Items.Count;
+//#UC END# *55A4A47400CD_55A5EB6F0346get_impl*
+//#UC START# *55A4A47400CD_55A5EB6F0346get_var*
+//#UC END# *55A4A47400CD_55A5EB6F0346get_var*
+//#UC START# *55A5EB6F0346_ext:ParentFileName
+w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmFormSetHistory.pas
+//#UC END# *55A5EB6F0346_ext:ParentFileName
+//#UC START# *55A63AE5034E_55A5EB6F0346_impl*
+ inherited;
+ f_Items := TvcmFormSetHistoryStepList.Create;
+//#UC END# *55A63AE5034E_55A5EB6F0346_impl*
+//#UC START# *55A63AE5034E_55A5EB6F0346_var*
+//#UC END# *55A63AE5034E_55A5EB6F0346_var*
+//#UC START# *55A7402F0390_55A5EB6F0346_impl*
+ f_Items.Add(MakeStep(aFormSet.Container, False));
+//#UC END# *55A7402F0390_55A5EB6F0346_impl*
+//#UC START# *55A7402F0390_55A5EB6F0346_var*
+//#UC END# *55A7402F0390_55A5EB6F0346_var*
+//#UC START# *55A77AAB00D9_55A5EB6F0346_impl*
+ f_InBf := True;
+ try
+  if Supports(aTab.TabbedForm, IvcmContainer, l_Container) and
+     Supports(aTab.TabbedForm, IvcmContainerMaker, l_ContainerMaker) then
+    CloneContainer(l_Container, l_ContainerMaker)
+  else
+   Assert(False);
+ finally
+  f_InBf := False;
+ end;
+//#UC END# *55A77AAB00D9_55A5EB6F0346_impl*
+//#UC START# *55A77AAB00D9_55A5EB6F0346_var*
+var
+ l_Container: IvcmContainer;
+ l_ContainerMaker: IvcmContainerMaker;
+//#UC END# *55A77AAB00D9_55A5EB6F0346_var*
+//#UC START# *55A77AB90278_55A5EB6F0346_impl*
+ if Supports(aTab.TabbedForm, IvcmContainer, l_Container) then
+ begin
+  f_InBf := True;
+  try
+   f_Items.Add(MakeStep(l_Container, False));
+  finally
+   f_InBf := False;
+  end;
+ end
+ else
+  Assert(False);
+//#UC END# *55A77AB90278_55A5EB6F0346_impl*
+//#UC START# *55A77AB90278_55A5EB6F0346_var*
+var
+ l_Container: IvcmContainer;
+ l_FormSet: IvcmFormSet;
+//#UC END# *55A77AB90278_55A5EB6F0346_var*
+//#UC START# *55A77BB20049_55A5EB6F0346_impl*
+ Result := nil;
+
+ l_Step := MakeStep(aContainer, True);
+
+ with TvcmTabbedContainerFormDispatcher.Instance do
+ begin
+  l_NewContainer := MakeAndPlaceVCMContainer(aContainerMaker,
+                                             aContainer,
+                                             vcm_okInNewTab,
+                                             True,
+                                             False,
+                                             aContainer.AsForm.VCLWinControl as TvcmEntityForm);
+  if (l_NewContainer <> nil) then
+   l_NewContainer.InitFromPrevContainer(aContainer, True);
+  // - http://mdp.garant.ru/pages/viewpage.action?pageId=606828289
+ end;
+ if (l_NewContainer <> nil) then
+ begin
+  l_Step.Restore(l_NewContainer, nil, False);
+  with TvcmTabbedContainerFormDispatcher.Instance do
+  begin
+   l_PrevTab := GetFormTab(aContainer.AsForm.VCLWinControl as TForm);
+   l_NewTab := GetFormTab(l_NewContainer.AsForm.VCLWinControl as TForm);
+  end;
+
+  l_Params := l_PrevTab.CurrentParams;
+  l_NewTab.AssignParams(l_Params);
+
+  Result := l_NewContainer;
+ end;
+//#UC END# *55A77BB20049_55A5EB6F0346_impl*
+//#UC START# *55A77BB20049_55A5EB6F0346_var*
+var
+ l_Step: IvcmFormSetHistoryStep;
+ l_Params: Il3TabParams;
+ l_NewContainer: IvcmContainer;
+ l_PrevTab: Il3FormTab;
+ l_NewTab: Il3FormTab;
+ l_FormSetToClone: IvcmFormSet;
+//#UC END# *55A77BB20049_55A5EB6F0346_var*
+//#UC START# *55A77BCA0130_55A5EB6F0346_impl*
+ f_Items.Add(MakeStep(aContainer, False));
+//#UC END# *55A77BCA0130_55A5EB6F0346_impl*
+//#UC START# *55A77BCA0130_55A5EB6F0346_var*
+//#UC END# *55A77BCA0130_55A5EB6F0346_var*
+//#UC START# *55A78D640044_55A5EB6F0346_impl*
+ Result := f_Items.Count > 0;
+//#UC END# *55A78D640044_55A5EB6F0346_impl*
+//#UC START# *55A78D640044_55A5EB6F0346_var*
+//#UC END# *55A78D640044_55A5EB6F0346_var*
+//#UC START# *55AF6AB902E5_55A5EB6F0346_impl*
+ aFormSet := TvcmFormSetContainerRegistry.Instance.GetContainedFormSet(aContainer);
+ Result := (aFormSet <> nil);
+//#UC END# *55AF6AB902E5_55A5EB6F0346_impl*
+//#UC START# *55AF6AB902E5_55A5EB6F0346_var*
+//#UC END# *55AF6AB902E5_55A5EB6F0346_var*
+//#UC START# *55B8871D0112_55A5EB6F0346get_impl*
+ Result := f_InBF;
+//#UC END# *55B8871D0112_55A5EB6F0346get_impl*
+//#UC START# *55B8871D0112_55A5EB6F0346get_var*
+//#UC END# *55B8871D0112_55A5EB6F0346get_var*
+//#UC START# *55DAB0B9015F_55A5EB6F0346_impl*
+ Assert(f_ContainerInOp = nil);
+ f_ContainerInOp := Pointer(aContainer);
+//#UC END# *55DAB0B9015F_55A5EB6F0346_impl*
+//#UC START# *55DAB0B9015F_55A5EB6F0346_var*
+//#UC END# *55DAB0B9015F_55A5EB6F0346_var*
+//#UC START# *55DAB0C6006A_55A5EB6F0346_impl*
+ Assert(f_ContainerInOp <> nil);
+ f_ContainerInOp := nil;
+//#UC END# *55DAB0C6006A_55A5EB6F0346_impl*
+//#UC START# *55DAB0C6006A_55A5EB6F0346_var*
+//#UC END# *55DAB0C6006A_55A5EB6F0346_var*
+//#UC START# *55DACFA000F1_55A5EB6F0346_impl*
+ Result := l3IEQ(IvcmContainer(f_ContainerInOp), aContainer);
+//#UC END# *55DACFA000F1_55A5EB6F0346_impl*
+//#UC START# *55DACFA000F1_55A5EB6F0346_var*
+//#UC END# *55DACFA000F1_55A5EB6F0346_var*
+//#UC START# *55E54A7100E5_55A5EB6F0346_impl*
+ Assert(aContainer <> nil);
+ Result := TvcmFormSetHistoryStepItems.Make;
+ l_HasNonformSetForms := HasNonFormSetForms(aContainer);
+ if l_HasNonFormSetForms then
+  Result.Add(TvcmLegacyFormSetHistoryItemStep.Make(aContainer, aForClone));
+ l_HasAnyFormSet := HasAnyFormSet(aContainer);
+ if l_HasAnyFormSet then
+  Result.Add(TvcmFormSetHistoryItemStep.Make(aContainer, aForClone));
+ Assert(l_HasNonFormSetForms or l_HasAnyFormSet,
+  'Не должно быть такого чтоб вообще не было форм для сохранения');
+//#UC END# *55E54A7100E5_55A5EB6F0346_impl*
+//#UC START# *55E54A7100E5_55A5EB6F0346_var*
+var
+ l_HasNonFormSetForms: Boolean;
+ l_HasAnyFormSet: Boolean;
+//#UC END# *55E54A7100E5_55A5EB6F0346_var*
+//#UC START# *55E56013034C_55A5EB6F0346_impl*
+ Assert(aContainer <> nil);
+ Result := (TvcmFormSetContainerRegistry.Instance.GetFormSetCount(aContainer) > 0);
+//#UC END# *55E56013034C_55A5EB6F0346_impl*
+//#UC START# *55E56013034C_55A5EB6F0346_var*
+//#UC END# *55E56013034C_55A5EB6F0346_var*
+//#UC START# *55E58D2100F2_55A5EB6F0346_impl*
+ l_FormIter := aContainer.EntityFormIterator;
+ l_Form := l_FormIter.Next;
+ while (l_Form <> nil) do
+ begin
+  Result := lp_CheckForm(l_Form);
+  if Result then
+   Exit;
+  l_Form := l_FormIter.Next;
+ end;
+//#UC END# *55E58D2100F2_55A5EB6F0346_impl*
+//#UC START# *55E58D2100F2_55A5EB6F0346_var*
+
+ function lp_CheckForm(const aForm: IvcmEntityForm): Boolean;
+ var
+  l_Index: Integer;
+  l_Control: TControl;
+  l_Component: TComponent;
+  l_Form: IvcmEntityForm;
+ begin
+  Result := (not IsInFormset(aForm));
+  if (not Result) then
+  begin
+   for l_Index := 0 to Pred(aForm.VCLWinControl.ControlCount) do
+   begin
+    l_Control := aForm.VCLWinControl.Controls[l_Index];
+    if l_Control is TvcmEntityForm then
+    begin
+     l_Form := TvcmEntityForm(l_Control).As_IvcmEntityForm;
+     Result := lp_CheckForm(l_Form);
+    end;
+   end;
+  end;
+  if (not Result) then
+  begin
+   for l_Index := 0 to Pred(aForm.VCLWinControl.ComponentCount) do
+   begin
+    l_Component := aForm.VCLWinControl.Components[l_Index];
+    if l_Component is TvcmEntityForm then
+    begin
+     l_Form := TvcmEntityForm(l_Component).As_IvcmEntityForm;
+     Result := lp_CheckForm(l_Form);
+    end;
+   end;
+  end;
+ end;//lp_CheckForm
+
+
+var
+ l_FormIter: IvcmEntityFormIterator;
+ l_Form: IvcmEntityForm;
+//#UC END# *55E58D2100F2_55A5EB6F0346_var*
+//#UC START# *55E7E30B01FE_55A5EB6F0346_impl*
+ Result := (aForm.FormSet <> nil) or
+  Supports(aForm.Aggregate, IvcmFormSet);
+//#UC END# *55E7E30B01FE_55A5EB6F0346_impl*
+//#UC START# *55E7E30B01FE_55A5EB6F0346_var*
+var
+ l_WinControl: TWinControl;
+ l_Form: IvcmEntityForm;
+ l_Index: Integer;
+//#UC END# *55E7E30B01FE_55A5EB6F0346_var*
+//#UC START# *56024FA0004B_55A5EB6F0346_impl*
+ Result := TvcmFormSetHistoryStep.Make(MakeStepItems(aContainer, aForClone));
+//#UC END# *56024FA0004B_55A5EB6F0346_impl*
+//#UC START# *56024FA0004B_55A5EB6F0346_var*
+//#UC END# *56024FA0004B_55A5EB6F0346_var*

@@ -1,0 +1,74 @@
+//#UC START# *4FD224430014_ext:ParentFileName
+w:\common\components\gui\Garant\VT\vtPngImgList.pas
+//#UC END# *4FD224430014_ext:ParentFileName
+//#UC START# *4FD224430014ci*
+//#UC END# *4FD224430014ci*
+//#UC START# *4FD224430014cit*
+//#UC END# *4FD224430014cit*
+//#UC START# *4FD224430014impl*
+{$IFDEF DesignTimeLibrary}
+procedure TvtPngImageListPrim.RebuildForDesignTime;
+var
+ lBmp: TBitmap;
+ I: Integer;
+begin
+ lBmp := Tl3Bitmap.Create;
+ lBmp.Height := Height;
+ lBmp.Width  := Width;
+ f_Rebuilding := True;
+ try
+  inherited Clear;
+  for I := 0 to Pred(Count) do
+  begin
+   with lBmp.Canvas do
+   begin
+    Brush.Color := clWindow;
+    Brush.Style := bsSolid;
+    FillRect(Rect(0, 0, Width, Height));
+   end;
+   DoDraw(I, lBmp.Canvas, 0, 0, 0, True);
+   inherited Add(lBmp, nil);
+  end;
+ finally
+  FreeAndNil(lBmp);
+  f_Rebuilding := False;
+ end; {try..finally}
+end;
+{$ENDIF}
+
+{$IFDEF DesignTimeLibrary}
+procedure TvtNonFixedPngImageListPrim.RebuildForDesignTime;
+var
+ lBmp: TBitmap;
+ I: Integer;
+begin
+ lBmp := Tl3Bitmap.Create;
+ lBmp.Height := Height;
+ lBmp.Width  := Width;
+ f_Rebuilding := True;
+ try
+  inherited Clear;
+  for I := 0 to Pred(Count) do
+  begin
+   with lBmp.Canvas do
+   begin
+    Brush.Color := clWindow;
+    Brush.Style := bsSolid;
+    FillRect(Rect(0, 0, Width, Height));
+   end;
+   DoDraw(I, lBmp.Canvas, 0, 0, 0, True);
+   inherited Add(lBmp, nil);
+  end;
+ finally
+  FreeAndNil(lBmp);
+  f_Rebuilding := False;
+ end; {try..finally}
+end;
+{$ENDIF}
+//#UC END# *4FD224430014impl*
+//#UC START# *4FD224430014publ*
+ published
+  property CurBpp;
+  property Width;
+  property Height;
+//#UC END# *4FD224430014publ*

@@ -14068,11 +14068,37 @@ ref; // ME_48E653EA010E
 
 ref; // ME_48E65598026A 
 
+: ME_5799C1E103B4
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_485792C1014E // WevBitmapPara
+ ;
+ : Target WL 'ME_53B546BC00BF' '4849284D0067.pas.ms.script' // Tk2RawData
+ ;
+
+ref; // ME_5799C1E103B4 
+
+: ME_5799C9AC01C5
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_485792C1014E // WevBitmapPara
+ ;
+ : Target WL 'ME_48492A0C00ED' '52669BFC024E.pas.ms.script' // Long
+ ;
+
+ref; // ME_5799C9AC01C5 
+
 : ME_4857A995029E_ME_485792C1014E
  : Original WL 'ME_4857A995029E' '49A58A1A03C4.pas.ms.script' // GetAtomData
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_4857A995029E_ME_485792C1014E GetAtomData
+
+: ME_48DD0CE60313_ME_485792C1014E
+ : Original WL 'ME_48DD0CE60313' '49A58A1A03C4.pas.ms.script' // PreGetAtomData
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_48DD0CE60313_ME_485792C1014E PreGetAtomData
 
 : ME_485792C1014E
  CONST UID '485792C1014E'
@@ -14103,6 +14129,7 @@ ref; // ME_4857A995029E_ME_485792C1014E GetAtomData
  ; // Operations
  : Overridden
    Seq: ( ME_4857A995029E_ME_485792C1014E // GetAtomData
+ ME_48DD0CE60313_ME_485792C1014E // PreGetAtomData
  )
  ; // Overridden
  : Children
@@ -14119,6 +14146,8 @@ ref; // ME_4857A995029E_ME_485792C1014E GetAtomData
  ME_48E653A50048 // l3Base
  ME_48E653EA010E // Il3Bitmap
  ME_48E65598026A // l3Stream
+ ME_5799C1E103B4 // Tk2RawData
+ ME_5799C9AC01C5 // Long
  )
  ; // Dependencies
  CONST "author" 'Ëþëèí À.Â.'

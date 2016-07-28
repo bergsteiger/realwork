@@ -1,0 +1,87 @@
+//#UC START# *4E08A63701DB_ext:ParentFileName
+w:\common\components\rtl\Garant\L3\l3MessageID.pas
+//#UC END# *4E08A63701DB_ext:ParentFileName
+//#UC START# *4E09C8E1001E_4E08A63701DB_impl*
+ Result := Self;
+ Result.rMessage := aNewMessage;
+//#UC END# *4E09C8E1001E_4E08A63701DB_impl*
+//#UC START# *4E09C8E1001E_4E08A63701DB_var*
+//#UC END# *4E09C8E1001E_4E08A63701DB_var*
+//#UC START# *4E09FB8101AB_4E08A63701DB_impl*
+ Result := Self;
+ Result.rData.rCheckCaption := @aNewMessage;
+//#UC END# *4E09FB8101AB_4E08A63701DB_impl*
+//#UC START# *4E09FB8101AB_4E08A63701DB_var*
+//#UC END# *4E09FB8101AB_4E08A63701DB_var*
+//#UC START# *4E0A09990038_4E08A63701DB_impl*
+ Result := Tl3Message_C(aString.AsCStr, aString.rKey, aType);
+//#UC END# *4E0A09990038_4E08A63701DB_impl*
+//#UC START# *4E0A09990038_4E08A63701DB_var*
+//#UC END# *4E0A09990038_4E08A63701DB_var*
+//#UC START# *4E0A10B2022E_4E08A63701DB_impl*
+ Result.rData.rDlgType := aType;
+ if (Result.rData.rDlgType = mtConfirmation) then
+  Result.rData.rButtons := [mbYes, mbNo]
+ else
+  Result.rData.rButtons := [mbOk];
+ Result.rData.rDefaultButton := mbOk;
+ Result.rData.rCancelButton := mbCancel;
+ Result.rName := aKey;
+ Result.rMessage := aString;
+//#UC END# *4E0A10B2022E_4E08A63701DB_impl*
+//#UC START# *4E0A10B2022E_4E08A63701DB_var*
+//#UC END# *4E0A10B2022E_4E08A63701DB_var*
+//#UC START# *4E0A1B0E03A6_4E08A63701DB_impl*
+ Result := Tl3Message_C(aString, aKey, aType);
+ Result.rData.rButtons := aButtons;
+//#UC END# *4E0A1B0E03A6_4E08A63701DB_impl*
+//#UC START# *4E0A1B0E03A6_4E08A63701DB_var*
+//#UC END# *4E0A1B0E03A6_4E08A63701DB_var*
+//#UC START# *4E0A1C590137_4E08A63701DB_impl*
+ Result := Tl3Message_C(aString, aType);
+ Result.rData.rButtons := aButtons;
+//#UC END# *4E0A1C590137_4E08A63701DB_impl*
+//#UC START# *4E0A1C590137_4E08A63701DB_var*
+//#UC END# *4E0A1C590137_4E08A63701DB_var*
+//#UC START# *4E0B39BC0383_4E08A63701DB_impl*
+ Result := Self;
+ Result.rData.rFooterInfo := aNewInfo;
+//#UC END# *4E0B39BC0383_4E08A63701DB_impl*
+//#UC START# *4E0B39BC0383_4E08A63701DB_var*
+//#UC END# *4E0B39BC0383_4E08A63701DB_var*
+//#UC START# *4E7CACC301BC_4E08A63701DB_impl*
+ if (rData.rSettingsCaptionOld <> '') then
+  Result := rData.rSettingsCaptionOld
+ else
+ if (rData.rSettingsCaption = nil) then
+  Result := ''
+ else
+  Result := rData.rSettingsCaption.AsStr;
+ if (Result = '') then
+  Result := l3Str(rMessage);
+//#UC END# *4E7CACC301BC_4E08A63701DB_impl*
+//#UC START# *4E7CACC301BC_4E08A63701DB_var*
+//#UC END# *4E7CACC301BC_4E08A63701DB_var*
+//#UC START# *4E7CACE1000D_4E08A63701DB_impl*
+ if (rData.rLongHintOld <> '') then
+  Result := rData.rLongHintOld
+ else
+ if (rData.rLongHint = nil) then
+  Result := ''
+ else
+  Result := rData.rLongHint.AsStr;
+ if (Result = '') then
+  Result := l3Str(rMessage);
+//#UC END# *4E7CACE1000D_4E08A63701DB_impl*
+//#UC START# *4E7CACE1000D_4E08A63701DB_var*
+//#UC END# *4E7CACE1000D_4E08A63701DB_var*
+//#UC START# *4F8EA27801A4_4E08A63701DB_impl*
+ if (rData.rCheckCaption = nil) then
+  Result := ''
+ else
+  Result := rData.rCheckCaption.AsStr;
+// if (Result = '') then
+//  Result := l3Str(rMessage);
+//#UC END# *4F8EA27801A4_4E08A63701DB_impl*
+//#UC START# *4F8EA27801A4_4E08A63701DB_var*
+//#UC END# *4F8EA27801A4_4E08A63701DB_var*

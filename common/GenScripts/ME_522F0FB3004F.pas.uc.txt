@@ -1,0 +1,67 @@
+//#UC START# *5217273F000F_522F0FB3004F_impl*
+ l_DefValue := aDefaultValue;
+ if l_DefValue.AsDateTime = 0 then
+  l_DefValue.AsDateTime := Now;
+ inherited Create(aAlias, aCaption, l_DefValue, aMasterItem);
+ f_Value.Kind := dd_vkDateTime;
+ f_Value.AsDateTime := Now;
+//#UC END# *5217273F000F_522F0FB3004F_impl*
+//#UC START# *5217273F000F_522F0FB3004F_var*
+var
+ l_DefValue: TddConfigValue;
+//#UC END# *5217273F000F_522F0FB3004F_var*
+//#UC START# *52172B72014C_522F0FB3004F_impl*
+ DateTimeValue := aStorage.ReadDateTime(Alias, Now{DefaultValue.AsDateTime});
+//#UC END# *52172B72014C_522F0FB3004F_impl*
+//#UC START# *52172B72014C_522F0FB3004F_var*
+//#UC END# *52172B72014C_522F0FB3004F_var*
+//#UC START# *52172CA801E3_522F0FB3004F_impl*
+ aStorage.WriteDateTime(Alias, DateTimeValue);
+//#UC END# *52172CA801E3_522F0FB3004F_impl*
+//#UC START# *52172CA801E3_522F0FB3004F_var*
+//#UC END# *52172CA801E3_522F0FB3004F_var*
+//#UC START# *521761BB03DE_522F0FB3004F_impl*
+ Result := TDateTimePicker.Create(aParent);
+ Result.Parent := aParent;
+ Result.Left := aLeft;
+ Result.Top := aTop;
+ if LabelTop then
+  Result.Width := aParent.ClientWidth - aLeft - c_ConfigItemRight
+ else
+  Result.Width := MinWidth(aParent);
+ TDateTimePicker(Result).OnChange := DoOnChange;
+//#UC END# *521761BB03DE_522F0FB3004F_impl*
+//#UC START# *521761BB03DE_522F0FB3004F_var*
+//#UC END# *521761BB03DE_522F0FB3004F_var*
+//#UC START# *521B053F03C3_522F0FB3004F_impl*
+ with TDateTimePicker.Create(aParent) do
+ try
+  Parent := aParent;
+  Result := Height;
+ finally
+  Free;
+ end;
+//#UC END# *521B053F03C3_522F0FB3004F_impl*
+//#UC START# *521B053F03C3_522F0FB3004F_var*
+//#UC END# *521B053F03C3_522F0FB3004F_var*
+//#UC START# *521B058801FD_522F0FB3004F_impl*
+ DateTimeValue := TDateTimePicker(Control).DateTime;
+//#UC END# *521B058801FD_522F0FB3004F_impl*
+//#UC START# *521B058801FD_522F0FB3004F_var*
+//#UC END# *521B058801FD_522F0FB3004F_var*
+//#UC START# *521B07030052_522F0FB3004F_impl*
+ if aDefault then
+  TDateTimePicker(Control).DateTime:= DefaultValue.AsDateTime
+ else
+  TDateTimePicker(Control).DateTime:= DateTimeValue;
+//#UC END# *521B07030052_522F0FB3004F_impl*
+//#UC START# *521B07030052_522F0FB3004F_var*
+//#UC END# *521B07030052_522F0FB3004F_var*
+//#UC START# *522F0FB3004F_ext:ParentFileName
+w:\common\components\rtl\Garant\dd\ddAppConfigDates.pas
+//#UC END# *522F0FB3004F_ext:ParentFileName
+//#UC START# *522F10E10084_522F0FB3004F_impl*
+ Changed := True;
+//#UC END# *522F10E10084_522F0FB3004F_impl*
+//#UC START# *522F10E10084_522F0FB3004F_var*
+//#UC END# *522F10E10084_522F0FB3004F_var*

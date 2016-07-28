@@ -1,0 +1,17 @@
+//#UC START# *551ABD0E013B_ext:ParentFileName
+w:\common\components\rtl\external\VGScene\vg_services.pas
+//#UC END# *551ABD0E013B_ext:ParentFileName
+//#UC START# *77F02E022F3C_551ABD0E013B_impl*
+ aBindedControl := FindDragTarget(aPoint, True);
+ if Assigned(aBindedControl) and (aBindedControl is TvgCustomScene) then
+  with TvgCustomScene(aBindedControl) do
+  begin
+   l_CPos := ScreenToClient(aPoint);
+   aComponent := ObjectByPoint(l_CPos.X, l_CPos.Y);
+  end else
+   aComponent := nil;
+//#UC END# *77F02E022F3C_551ABD0E013B_impl*
+//#UC START# *77F02E022F3C_551ABD0E013B_var*
+var
+ l_CPos: TPoint;
+//#UC END# *77F02E022F3C_551ABD0E013B_var*

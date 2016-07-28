@@ -1,6 +1,7 @@
 //#UC START# *479731C50290_564B212F02DA_impl*
  UnPrepareSQL;
  FreeAndNil(f_Params);
+ FreeAndNil(f_OldParams);
  f_DataConverter := nil;
  FreeAndNil(f_Connection);
  inherited;
@@ -14,6 +15,7 @@ w:\common\components\rtl\Garant\PG\pgTableModifier.pas
  inherited Create;
  f_TableID := aTableID;
  f_Params := TdaParamList.Make;
+ f_OldParams := TdaParamList.Make;
  f_DataConverter := aDataConverter;
  aConnection.SetRefTo(f_Connection);
  PrepareSQL(aTableID);
@@ -36,7 +38,7 @@ var
  for l_IDX := 0 to f_Params.Count - 1 do
  begin
   l_ParamsValue[l_IDX] := f_Params[l_IDX].AsString;
-  l_ParamsValuePtr[l_IDX] := @l_ParamsValue[l_IDX][1];
+  l_ParamsValuePtr[l_IDX] := PAnsiChar(l_ParamsValue[l_IDX]);
  end;
  l_Result := PQexecPrepared(f_Connection.Handle, PAnsiChar(f_InsertName), f_Params.Count, l_ParamsValuePtr, nil, 0, 0);
  try
@@ -55,29 +57,86 @@ var
 //#UC END# *564C58CD016F_564B212F02DA_var*
 //#UC START# *564C664702D3_564B212F02DA_impl*
  aParams.Clear;
- l_Fields := '';
+ l_InsertFields := '';
  l_Values := '';
+ l_UpdateFields := '';
+ l_UpdateWhereClause := '';
+ l_DeleteWhereClause := '';
  l_ParamIDX := 1;
+ l_OldParamIDX := 1;
  l_Table := TdaScheme.Instance.Table(aTableID);
+ l_HasPrimaryKey := False;
+ l_PrimaryKeyCount := 0;
+ l_Table.IterateFieldsF(L2DaTableDescriptionIteratorIterateFieldsFAction(@lp_HasPrimaryKey));
+ if not l_HasPrimaryKey then
+  l_PrimaryKeyCount := l_Table.FieldsCount;
+ SetLength(anUpdateParamTypes, l_Table.FieldsCount + l_PrimaryKeyCount);
+ FillChar(anUpdateParamTypes[0], SizeOf(anUpdateParamTypes[0]) * Length(anUpdateParamTypes), 0);
  l_Table.IterateFieldsF(L2DaTableDescriptionIteratorIterateFieldsFAction(@DoBuild));
- anSQL := Format('INSERT INTO %s.%s (%s)'#13#10'VALUES'#13#10'(%s);', [TdaScheme.Instance.CheckScheme(l_Table.Scheme), l_Table.SQLName, l_Fields, l_Values])
+ anInsertSQL := Format('INSERT INTO %s.%s (%s)'#13#10'VALUES'#13#10'(%s);', [TdaScheme.Instance.CheckScheme(l_Table.Scheme), l_Table.SQLName, l_InsertFields, l_Values]);
+ if l_UpdateFields = '' then
+  anUpdateSQL := ''
+ else
+  anUpdateSQL := Format('UPDATE %s.%s '#13#10'SET %s'#13#10'WHERE %s;', [TdaScheme.Instance.CheckScheme(l_Table.Scheme), l_Table.SQLName, l_UpdateFields, l_UpdateWhereClause]);
+ aDeleteSQL := Format('DELETE FROM %s.%s '#13#10'WHERE %s;', [TdaScheme.Instance.CheckScheme(l_Table.Scheme), l_Table.SQLName, l_DeleteWhereClause]);
 //#UC END# *564C664702D3_564B212F02DA_impl*
 //#UC START# *564C664702D3_564B212F02DA_var*
 var
  l_Table: IdaTableDescription;
- l_Fields: AnsiString;
+ l_InsertFields: AnsiString;
  l_Values: AnsiString;
+ l_UpdateFields: AnsiString;
+ l_UpdateWhereClause: AnsiString;
+ l_DeleteWhereClause: AnsiString;
  l_ParamIDX: Integer;
+ l_OldParamIDX: Integer;
+ l_HasPrimaryKey: Boolean;
+ l_PrimaryKeyCount: Integer;
+
+ function lp_HasPrimaryKey(const anItem: IdaFieldDescription): Boolean;
+ begin
+  if anItem.IsPrimaryKey then
+  begin
+   l_HasPrimaryKey := True;
+   l_PrimaryKeyCount := l_PrimaryKeyCount + 1;
+  end;
+  Result := True;
+ end;
 
  function DoBuild(const anItem: IdaFieldDescription): Boolean;
  begin
   Result := True;
-  if l_Fields <> '' then
-   l_Fields := l_Fields + ', ';
+  if l_InsertFields <> '' then
+   l_InsertFields := l_InsertFields + ', ';
   if l_Values <> '' then
    l_Values := l_Values + ', ';
-  l_Fields := l_Fields + anItem.SQLName;
+  l_InsertFields := l_InsertFields + anItem.SQLName;
   l_Values := l_Values + Format('$%d', [l_ParamIDX]);
+
+  if not anItem.IsPrimaryKey then
+  begin
+   if l_UpdateFields <> '' then
+    l_UpdateFields := l_UpdateFields + ','#13#10;
+   l_UpdateFields := Format('%s%s = $%d', [l_UpdateFields, anItem.SQLName, l_ParamIDX]);
+   anUpdateParamTypes[l_ParamIDX - 1] := 0;
+  end
+  else
+   anUpdateParamTypes[l_ParamIDX - 1] := 1043;
+
+  if anItem.IsPrimaryKey or not l_HasPrimaryKey then
+  begin
+   if l_UpdateWhereClause <> '' then
+    l_UpdateWhereClause := l_UpdateWhereClause + ' AND ';
+   l_UpdateWhereClause := Format('%s(%s = $%d)', [l_UpdateWhereClause, anItem.SQLName, l_Table.FieldsCount + l_OldParamIDX]);
+
+   if l_DeleteWhereClause <> '' then
+    l_DeleteWhereClause := l_DeleteWhereClause + ' AND ';
+   l_DeleteWhereClause := Format('%s(%s = $%d)', [l_DeleteWhereClause, anItem.SQLName, l_OldParamIDX]);
+
+   Inc(l_OldParamIDX);
+   anOldParams.Add(TdaParam.Make(f_DataConverter, TdaFieldParamDescription.Make(anItem)));
+  end;
+
   Inc(l_ParamIDX);
   aParams.Add(TdaParam.Make(f_DataConverter, TdaFieldParamDescription.Make(anItem)));
  end;
@@ -85,31 +144,31 @@ var
 //#UC END# *564C664702D3_564B212F02DA_var*
 //#UC START# *564C66AF0221_564B212F02DA_impl*
  f_InsertName := Format('Ins%p', [Pointer(Self)]);
- BuildSQLAndFillParams(aTableID, l_SQL, f_Params);
- l_Result := PQprepare(f_Connection.Handle, PAnsiChar(f_InsertName),  PAnsiChar(l_SQL), f_Params.Count, nil);
- try
-  pgCheckStatus(l_Result);
- finally
-  PQclear(l_Result);
- end;
+ f_UpdateName := Format('Upd%p', [Pointer(Self)]);
+ f_DeleteName := Format('Del%p', [Pointer(Self)]);
+ BuildSQLAndFillParams(aTableID, l_InsertSQL, l_UpdateSQL, l_DeleteSQL, f_Params, f_OldParams, l_OIDArray);
+
+ PrepareSubQuery(f_InsertName, l_InsertSQL, f_Params.Count);
+ if l_UpdateSQL = '' then
+  f_UpdateName := ''
+ else
+  PrepareSubQuery(f_UpdateName, l_UpdateSQL, f_Params.Count + f_OldParams.Count, l_OIDArray);
+ PrepareSubQuery(f_DeleteName, l_DeleteSQL, f_OldParams.Count);
 //#UC END# *564C66AF0221_564B212F02DA_impl*
 //#UC START# *564C66AF0221_564B212F02DA_var*
 var
- l_Result: PPGResult;
- l_SQL: AnsiString;
+ l_InsertSQL: AnsiString;
+ l_UpdateSQL: AnsiString;
+ l_DeleteSQL: AnsiString;
+ l_OIDArray: TPQOidArray;
 //#UC END# *564C66AF0221_564B212F02DA_var*
 //#UC START# *564C66BE013F_564B212F02DA_impl*
- l_Result := PQExec(f_Connection.Handle, PAnsiChar(Format('DEALLOCATE PREPARE "%s"', [f_InsertName])));
- try
-  f_InsertName := '';
-  pgCheckStatus(l_Result);
- finally
-  PQClear(l_Result);
- end;
+ UnPrepareSubQuery(f_InsertName);
+ if f_UpdateName <> '' then
+  UnPrepareSubQuery(f_UpdateName);
+ UnPrepareSubQuery(f_DeleteName);
 //#UC END# *564C66BE013F_564B212F02DA_impl*
 //#UC START# *564C66BE013F_564B212F02DA_var*
-var
- l_Result: PPGResult;
 //#UC END# *564C66BE013F_564B212F02DA_var*
 //#UC START# *565C36A402A0_564B212F02DA_impl*
  Result := f_Connection.BeginTransaction([f_TableID]);

@@ -950,12 +950,77 @@ ref; // ME_530B3B2303B1 Tk2MemoryPoolAdapter
 
 FORWARD ME_530B3FE100E2
 
+FORWARD ME_5798CBD10051
+
+: ME_5798CBE601B8
+ CONST UID '5798CBE601B8'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_5798CBD10051 // GetIsModified
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_5798CBE601B8 DoIt
+
+: ME_5798CBD10051
+ CONST UID '5798CBD10051'
+ CONST Name 'GetIsModified'
+ CONST Class class_Class
+ : Stereotype st_virtualmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_530B3FE100E2 // Tk2MemoryStream
+ ;
+ : Operations
+   Seq: ( HWL ME_5798CBE601B8 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_5798CBD10051 GetIsModified
+
+FORWARD ME_53076BA10113
+
+: ME_5798DA7B01BE
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_530B3FE100E2 // Tk2MemoryStream
+ ;
+ : Target HWL ME_53076BA10113 // Tk2SizedMemoryPool
+ ;
+
+ref; // ME_5798DA7B01BE 
+
 : ME_49A67D980375_ME_530B3FE100E2
  : Original WL 'ME_49A67D980375' '4678137501EA.pas.ms.script' // IsModified
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_49A67D980375_ME_530B3FE100E2 IsModified
+
+: ME_5798D8C40263_ME_530B3FE100E2
+ : Original WL 'ME_5798D8C40263' '4678137501EA.pas.ms.script' // OriginalData
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_5798D8C40263_ME_530B3FE100E2 OriginalData
+
+: ME_5799B2C50033_ME_530B3FE100E2
+ : Original WL 'ME_5799B2C50033' '4678137501EA.pas.ms.script' // InternalID
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_5799B2C50033_ME_530B3FE100E2 InternalID
+
+: ME_5799B2D9013E_ME_530B3FE100E2
+ : Original WL 'ME_5799B2D9013E' '4678137501EA.pas.ms.script' // ExternalID
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_5799B2D9013E_ME_530B3FE100E2 ExternalID
 
 : ME_530B3FE100E2
  CONST UID '530B3FE100E2'
@@ -975,10 +1040,21 @@ ref; // ME_49A67D980375_ME_530B3FE100E2 IsModified
    Seq: ( WL 'ME_49A67D880011' '4678137501EA.pas.ms.script' // Ik2RawData
  )
  ; // Implements
+ : Operations
+   Seq: ( HWL ME_5798CBD10051 // GetIsModified
+ )
+ ; // Operations
  : Implemented
    Seq: ( ME_49A67D980375_ME_530B3FE100E2 // IsModified
+ ME_5798D8C40263_ME_530B3FE100E2 // OriginalData
+ ME_5799B2C50033_ME_530B3FE100E2 // InternalID
+ ME_5799B2D9013E_ME_530B3FE100E2 // ExternalID
  )
  ; // Implemented
+ : Dependencies
+   Seq: ( ME_5798DA7B01BE // Tk2SizedMemoryPool
+ )
+ ; // Dependencies
  CONST intf.pas:Path 'common\components\rtl\Garant\K2\k2MemoryStream.pas'
  CONST extprop:rc:SelfName 'MemoryStream'
  CONST extprop:rc:isAcceptableForScripts true
@@ -1259,8 +1335,6 @@ ref; // ME_53B55EF0025D CopyTo
 
 ref; // ME_53BD4C1602BC StreamCopying
 
-FORWARD ME_53076BA10113
-
 : ME_53578CB60007
  CONST UID '53578CB60007'
  CONST Name 'k2Tag_No_f_TagType'
@@ -1274,6 +1348,42 @@ FORWARD ME_53076BA10113
  CONST extprop:rc:SelfName 'Tag_No_f_TagType'
 
 ref; // ME_53578CB60007 k2Tag_No_f_TagType
+
+: ME_5799B2290116
+ CONST UID '5799B2290116'
+ CONST Name 'InternalID'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent HWL ME_53076BA10113 // Tk2SizedMemoryPool
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_5799B2290116 InternalID
+
+: ME_5799B22E022A
+ CONST UID '5799B22E022A'
+ CONST Name 'ExternalID'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent HWL ME_53076BA10113 // Tk2SizedMemoryPool
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_5799B22E022A ExternalID
 
 FORWARD ME_530770EB0342
 
@@ -1659,6 +1769,69 @@ ref; // ME_53C3CD6C0194 DoIt
 
 ref; // ME_53C3CD600278 CreateFromIStream
 
+FORWARD ME_5798DEE5039D
+
+: ME_5798DF0503C2
+ CONST Name 'aStream'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A5B0060013' '4677FBA70343.pas.ms.script' // IStream
+ ;
+
+ref; // ME_5798DF0503C2 aStream
+
+: ME_5798DF0503E0
+ CONST Name 'anInternalID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_5798DF0503E0 anInternalID
+
+: ME_5799ACCD002C
+ CONST Name 'anExternalID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_5799ACCD002C anExternalID
+
+: ME_5798DEF20044
+ CONST UID '5798DEF20044'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_5798DEE5039D // CreateFromIStream$1
+ ;
+ : Parameters
+   Seq: ( ME_5798DF0503C2 // aStream
+ ME_5798DF0503E0 // anInternalID
+ ME_5799ACCD002C // anExternalID
+ )
+ ; // Parameters
+
+ref; // ME_5798DEF20044 DoIt
+
+: ME_5798DEE5039D
+ CONST UID '5798DEE5039D'
+ CONST Name 'CreateFromIStream'
+ CONST Class class_Class
+ : Stereotype st_Constructor ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_53076BA10113 // Tk2SizedMemoryPool
+ ;
+ : Operations
+   Seq: ( HWL ME_5798DEF20044 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_5798DEE5039D CreateFromIStream$1
+
 : ME_53076BC40219
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -1773,6 +1946,11 @@ ref; // ME_533121AF0203_ME_53076BA10113 GetTagType
    Seq: ( HWL ME_53BD4C1602BC // StreamCopying
  )
  ; // Implements
+ : Attributes
+   Seq: ( HWL ME_5799B2290116 // InternalID
+ HWL ME_5799B22E022A // ExternalID
+ )
+ ; // Attributes
  : Operations
    Seq: ( HWL ME_530770EB0342 // Create
  HWL ME_530B592503D3 // Create$Def
@@ -1781,6 +1959,7 @@ ref; // ME_533121AF0203_ME_53076BA10113 GetTagType
  HWL ME_53C00C140267 // CreateFromString
  HWL ME_53C015EF00DE // CreateFromFile
  HWL ME_53C3CD600278 // CreateFromIStream
+ HWL ME_5798DEE5039D // CreateFromIStream$1
  )
  ; // Operations
  : Implemented

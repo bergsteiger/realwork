@@ -1,0 +1,22 @@
+//#UC START# *479731C50290_502518C60255_impl*
+ if f_ImgDLL <> 0 then
+  FreeLibrary(f_ImgDLL);
+ g_AlphaBlendFunc := nil;
+//#UC END# *479731C50290_502518C60255_impl*
+//#UC START# *479731C50290_502518C60255_var*
+//#UC END# *479731C50290_502518C60255_var*
+//#UC START# *47A042E100E2_502518C60255_impl*
+ if Win32Platform = VER_PLATFORM_WIN32_NT then
+ begin
+  f_ImgDLL := SafeLoadLibrary(msimg32);
+  if f_ImgDLL <> 0 then
+   g_AlphaBlendFunc := TAlphaBlendFunc(GetProcAddress(f_ImgDLL, 'AlphaBlend'));
+  if @g_AlphaBlendFunc = nil then
+   FreeLibrary(f_ImgDLL);
+ end;
+//#UC END# *47A042E100E2_502518C60255_impl*
+//#UC START# *47A042E100E2_502518C60255_var*
+//#UC END# *47A042E100E2_502518C60255_var*
+//#UC START# *502518C60255_ext:ParentFileName
+w:\common\components\gui\Garant\VT\vtPngImgListUtils.pas
+//#UC END# *502518C60255_ext:ParentFileName

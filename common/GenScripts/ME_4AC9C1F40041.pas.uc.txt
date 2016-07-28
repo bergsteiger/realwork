@@ -1,0 +1,110 @@
+//#UC START# *4AC9C1F40041_ext:ParentFileName
+w:\garant6x\implementation\Garant\GbaNemesis\View\MainMenu\Forms\nsMainMenuNew.pas
+//#UC END# *4AC9C1F40041_ext:ParentFileName
+//#UC START# *559BCCE9036A_4AC9C1F40041_impl*
+ aVJustify := vt_vjCenter;
+ if not f_NewSchool then
+  aFont.ForeColor := f_MainMenuColor
+ else
+  aFont.ForeColor := TnscTreeViewHotTruck(Sender).Font.Color;
+ if f_NewSchool then
+  aItemBackColor := c_mmTreeColor
+ else
+ begin
+  if aItemIndex mod 2 = 1 then
+   aItemBackColor := c_mmSecondItemColor
+  else
+   aItemBackColor := c_mmTreeColor;
+ end;//f_NewSchool
+ aTextBackColor := aItemBackColor;
+//#UC END# *559BCCE9036A_4AC9C1F40041_impl*
+//#UC START# *559BCCE9036A_4AC9C1F40041_var*
+//#UC END# *559BCCE9036A_4AC9C1F40041_var*
+//#UC START# *559BDAD602E3_4AC9C1F40041_impl*
+ if not IsBookmark(TnscTreeViewHotTruck(aSender).GetNode(aIndex))
+  then Result := crDefault
+  else Result := crHandPoint;
+//#UC END# *559BDAD602E3_4AC9C1F40041_impl*
+//#UC START# *559BDAD602E3_4AC9C1F40041_var*
+//#UC END# *559BDAD602E3_4AC9C1F40041_var*
+//#UC START# *559BDAE200EE_4AC9C1F40041_impl*
+ l_Node := TnscTreeViewHotTruck(Sender).GetNode(Index);
+ try
+  if IsBookmark(l_Node) and Supports(l_Node, InsJournalBookmarkNode, l_MyNode) then
+  try
+   l_Document := TvcmModulesFactories.SafeOpenDocument(l_MyNode.Bookmark);
+   // –егистрируем открытие документа из истории:
+   if l_Document <> nil then
+   try
+    if l_Document.GetDocType in [DT_DOCUMENT, DT_FLASH, DT_ACTUAL_ANALYTICS, DT_ACTUAL_ANALYTICS_CONTENTS] then
+     TnsOpenDocumentFromHistory.Log(l_Document, l_MyNode.Bookmark.GetParaId);
+   finally
+    l_Document := nil;
+   end;//try..finally
+  finally
+   l_MyNode := nil;
+  end;//try..finally
+ finally
+  l_Node := nil;
+ end;//try..finally
+//#UC END# *559BDAE200EE_4AC9C1F40041_impl*
+//#UC START# *559BDAE200EE_4AC9C1F40041_var*
+var
+ l_Node: Il3SimpleNode;
+ l_MyNode: InsJournalBookmarkNode;
+ l_Document: IDocument;
+//#UC END# *559BDAE200EE_4AC9C1F40041_var*
+//#UC START# *559BDAF3021A_4AC9C1F40041_impl*
+ Result := nil;
+ l_Node := TnscTreeViewHotTruck(Sender).GetNode(Index);
+ try
+  if Supports(l_Node, InsJournalBookmarkNode, l_Book) then
+  try
+   l_N := l_Book.DocName;
+   if not l3Same(l_N, l_Node.Text) then
+    Result := l_N;
+  finally
+   l_Book := nil;
+  end;//try..finally
+ finally
+  l_Node := nil;
+ end;//try..finally
+//#UC END# *559BDAF3021A_4AC9C1F40041_impl*
+//#UC START# *559BDAF3021A_4AC9C1F40041_var*
+var
+ l_Node: Il3SimpleNode;
+ l_Book: InsJournalBookmarkNode;
+ l_N: Il3CString;
+//#UC END# *559BDAF3021A_4AC9C1F40041_var*
+//#UC START# *559BDAFF0396_4AC9C1F40041_impl*
+ Allow := IsBookmark(TnscTreeViewHotTruck(Sender).GetNode(anIndex));
+//#UC END# *559BDAFF0396_4AC9C1F40041_impl*
+//#UC START# *559BDAFF0396_4AC9C1F40041_var*
+//#UC END# *559BDAFF0396_4AC9C1F40041_var*
+//#UC START# *559BDB16017C_4AC9C1F40041_impl*
+ Result := Supports(aNode, InsJournalBookmarkNode, l_Book) and Assigned(l_Book.Bookmark);
+//#UC END# *559BDB16017C_4AC9C1F40041_impl*
+//#UC START# *559BDB16017C_4AC9C1F40041_var*
+var
+ l_Book: InsJournalBookmarkNode;
+//#UC END# *559BDB16017C_4AC9C1F40041_var*
+//#UC START# *559BDB2B038C_4AC9C1F40041_impl*
+ with aTree do
+ begin
+  OnActionElement := ActionElement;
+  OnGetItemStyle := GetItemStyle;
+  OnGetItemTextHint := GetItemTextHint;
+  OnGetItemCursor := GetItemCursor;
+  OnAllowHotTruck := AllowHotTruck;
+ end;//with aTree do
+//#UC END# *559BDB2B038C_4AC9C1F40041_impl*
+//#UC START# *559BDB2B038C_4AC9C1F40041_var*
+//#UC END# *559BDB2B038C_4AC9C1F40041_var*
+//#UC START# *559BDB4701AD_4AC9C1F40041_impl*
+ inherited Create;
+ f_MainMenuColor := aMainMenuColor;
+ f_NewSchool := aNewSchool;
+ Init(aTree);
+//#UC END# *559BDB4701AD_4AC9C1F40041_impl*
+//#UC START# *559BDB4701AD_4AC9C1F40041_var*
+//#UC END# *559BDB4701AD_4AC9C1F40041_var*

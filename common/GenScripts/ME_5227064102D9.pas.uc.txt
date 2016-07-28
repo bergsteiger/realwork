@@ -1,0 +1,331 @@
+//#UC START# *478CF34E02CE_5227064102D9_impl*
+ if Source is TddGroupConfigItem then
+ begin
+  inherited;
+  // клонируем элементы в Source.SubItems
+  f_SubItems.Clear;
+  for I := 0 to TddGroupConfigItem(Source).Count-1 do
+    f_SubItems.Add(TddGroupConfigItem(Source).SubItem[I].Clone);
+ end
+ else
+  inherited;
+//#UC END# *478CF34E02CE_5227064102D9_impl*
+//#UC START# *478CF34E02CE_5227064102D9_var*
+var
+ I: Integer;
+ l_Obj: TddVisualConfigItem;
+//#UC END# *478CF34E02CE_5227064102D9_var*
+//#UC START# *479731C50290_5227064102D9_impl*
+  FreeAndNil(f_SubItems);
+  inherited;
+//#UC END# *479731C50290_5227064102D9_impl*
+//#UC START# *479731C50290_5227064102D9_var*
+//#UC END# *479731C50290_5227064102D9_var*
+//#UC START# *5217205002F2_5227064102D9get_impl*
+ Result := inherited pm_GetChanged;
+ if not Result then
+  for I := 0 to Pred(Count) do
+   if SubItem[I].Changed then
+   begin
+    Result := True;
+    break
+   end;
+//#UC END# *5217205002F2_5227064102D9get_impl*
+//#UC START# *5217205002F2_5227064102D9get_var*
+var
+ I: Integer;
+//#UC END# *5217205002F2_5227064102D9get_var*
+//#UC START# *5217205002F2_5227064102D9set_impl*
+ inherited pm_SetChanged(aValue);
+ if not aValue then 
+  for I := 0 to Pred(Count) do
+   SubItem[I].Changed := aValue;
+//#UC END# *5217205002F2_5227064102D9set_impl*
+//#UC START# *5217205002F2_5227064102D9set_var*
+var
+ I: Integer;
+//#UC END# *5217205002F2_5227064102D9set_var*
+//#UC START# *521722C103B5_5227064102D9get_impl*
+ Result := inherited pm_GetEnabled;
+//#UC END# *521722C103B5_5227064102D9get_impl*
+//#UC START# *521722C103B5_5227064102D9get_var*
+//#UC END# *521722C103B5_5227064102D9get_var*
+//#UC START# *521722C103B5_5227064102D9set_impl*
+ inherited;
+ if f_SubItems <> nil then
+  for I := 0 to Pred(Count) do
+   SubItem[I].Enabled := aValue;
+//#UC END# *521722C103B5_5227064102D9set_impl*
+//#UC START# *521722C103B5_5227064102D9set_var*
+var
+ I: Integer;
+//#UC END# *521722C103B5_5227064102D9set_var*
+//#UC START# *521725C301A5_5227064102D9_impl*
+ Result := False;
+//#UC END# *521725C301A5_5227064102D9_impl*
+//#UC START# *521725C301A5_5227064102D9_var*
+//#UC END# *521725C301A5_5227064102D9_var*
+//#UC START# *521726060214_5227064102D9_impl*
+ for I := 0 to Pred(Count) do
+  SubItem[I].Reset;
+//#UC END# *521726060214_5227064102D9_impl*
+//#UC START# *521726060214_5227064102D9_var*
+var
+ I: Integer;
+//#UC END# *521726060214_5227064102D9_var*
+//#UC START# *5217273F000F_5227064102D9_impl*
+ inherited Create(aAlias, aCaption, aDefaultValue, aMasterItem);
+ f_SubItems := TObjectList.Create;
+ Labeled := False;
+ ShowCaption := True;
+//#UC END# *5217273F000F_5227064102D9_impl*
+//#UC START# *5217273F000F_5227064102D9_var*
+//#UC END# *5217273F000F_5227064102D9_var*
+//#UC START# *52172A7700CB_5227064102D9_impl*
+ Result := inherited HasValue(anAlias, theItem);
+ if not Result then
+ begin
+  for I := 0 to Pred(Count) do
+  begin
+   Result := SubItem[I].HasValue(anAlias, theItem);
+   if Result then
+    break;
+  end;
+ end;
+//#UC END# *52172A7700CB_5227064102D9_impl*
+//#UC START# *52172A7700CB_5227064102D9_var*
+var
+ I: Integer;
+//#UC END# *52172A7700CB_5227064102D9_var*
+//#UC START# *52172B72014C_5227064102D9_impl*
+ for I := 0 to Pred(Count) do
+  SubItem[I].Load(aStorage);
+//#UC END# *52172B72014C_5227064102D9_impl*
+//#UC START# *52172B72014C_5227064102D9_var*
+var
+ I: Integer;
+//#UC END# *52172B72014C_5227064102D9_var*
+//#UC START# *52172CA801E3_5227064102D9_impl*
+ for I := 0 to Pred(Count) do
+  SubItem[I].Save(aStorage);
+//#UC END# *52172CA801E3_5227064102D9_impl*
+//#UC START# *52172CA801E3_5227064102D9_var*
+var
+ I: Integer;
+//#UC END# *52172CA801E3_5227064102D9_var*
+//#UC START# *521760660110_5227064102D9get_impl*
+ Result := ControlHeight(aParent);
+//#UC END# *521760660110_5227064102D9get_impl*
+//#UC START# *521760660110_5227064102D9get_var*
+//#UC END# *521760660110_5227064102D9get_var*
+//#UC START# *521761BB03DE_5227064102D9_impl*
+ if Count > 0 then
+ begin
+  Result := TvtGroupBox.Create(aParent);
+  {$IFNDEF Nemesis}
+  if ShowCaption then
+   TvtGroupBox(Result).Caption := lp_FixCaption(Caption)
+  else
+   TvtGroupBox(Result).Caption := '';
+  {$ELSE} 
+  TvtGroupBox(Result).Caption := lp_FixCaption(Caption);
+  {$ENDIF}
+  aParent.InsertControl(Result);
+  Result.Left := aLeft;
+  Result.Top := aTop;
+  if aParent is TScrollBox
+   then Result.Width := aParent.ClientWidth - c_ConfigItemRight - aLeft - c_ScrollBarWidth
+   else Result.Width := aParent.ClientWidth - c_ConfigItemRight - aLeft;
+  Result.Height := ControlHeight(aParent);
+ {$ifdef nemesis}
+  Result.Anchors := Result.Anchors + [akRight];
+ {$endif}
+  aTop := HeaderHeight(aParent);
+  if aMaxLeft < aLeft then
+   aMaxLeft := aLeft;
+  for I := 0 to Pred(Count) do
+  begin
+   SubItem[I].CreateControl(c_ConfigItemLeft, aMaxLeft-aLeft, aTop, Result as TWinControl);
+   Inc(aTop, SubItem[I].FullControlHeight[Result as TWinControl] + c_ConfigItemTop);
+  end;// for I
+ end
+ else
+  Result := nil;
+//#UC END# *521761BB03DE_5227064102D9_impl*
+//#UC START# *521761BB03DE_5227064102D9_var*
+var
+ I: Integer;
+ l_Height: Integer;
+
+ function lp_FixCaption(const aCaption: String): String;
+ begin
+  Result := aCaption;
+  if Result <> '' then
+  begin
+   if Result[1] <> ' ' then
+    Insert(' ', Result, 1);
+   if Result[Length(Result)] <> ' ' then
+    Result := Result + ' ';
+  end;
+ end;
+//#UC END# *521761BB03DE_5227064102D9_var*
+//#UC START# *521B04BC01C6_5227064102D9_impl*
+ Result := Inherited IsSame(anItem);
+ if not Result then
+  for l_Idx := 0 to Count - 1 do
+   if SubItem[l_Idx].IsSame(anItem) then
+   begin
+    Result := True;
+    Exit;
+   end;
+//#UC END# *521B04BC01C6_5227064102D9_impl*
+//#UC START# *521B04BC01C6_5227064102D9_var*
+var
+ l_Idx: Integer;
+//#UC END# *521B04BC01C6_5227064102D9_var*
+//#UC START# *521B05280392_5227064102D9_impl*
+ for I := 0 to Pred(Count) do
+  SubItem[I].ClearControl;
+ inherited;
+//#UC END# *521B05280392_5227064102D9_impl*
+//#UC START# *521B05280392_5227064102D9_var*
+var
+ I: Integer;
+//#UC END# *521B05280392_5227064102D9_var*
+//#UC START# *521B053F03C3_5227064102D9_impl*
+ Result := HeaderHeight(aParent) + c_ConfigItemTop;
+
+ for I := 0 to Pred(Count) do
+  Inc(Result, SubItem[I].FullControlHeight[aParent] + c_ConfigItemTop);
+//#UC END# *521B053F03C3_5227064102D9_impl*
+//#UC START# *521B053F03C3_5227064102D9_var*
+var
+ I: Integer;
+//#UC END# *521B053F03C3_5227064102D9_var*
+//#UC START# *521B058801FD_5227064102D9_impl*
+ for I := 0 to Pred(Count) do
+ begin
+  SubItem[I].Lock;
+  SubItem[I].GetValueFromControl;
+  SubItem[I].Unlock;
+  if SubItem[I].Changed then
+   Changed := True;
+ end; // for I
+//#UC END# *521B058801FD_5227064102D9_impl*
+//#UC START# *521B058801FD_5227064102D9_var*
+var
+ I: Integer;
+//#UC END# *521B058801FD_5227064102D9_var*
+//#UC START# *521B05DF00FC_5227064102D9_impl*
+  Result := 0;
+  for I := 0 to Pred(Count) do
+   if SubItem[I].Labeled then
+    Result := Max(Result, SubItem[I].LabelWidth(aParent));
+  l_MI := MasterItem;
+  while l_MI <> nil do
+  begin
+   Inc(Result, c_ConfigItemLeft);
+   l_MI := l_MI.MasterItem;
+  end; // while l_MI <> nil
+  { TODO -oNarry -cРазвитие : По идее нужно создать TvtGroupBox и считать ширину метки именно на нем }
+//#UC END# *521B05DF00FC_5227064102D9_impl*
+//#UC START# *521B05DF00FC_5227064102D9_var*
+var
+ I: Integer;
+ l_MI: TddBaseConfigItem;
+//#UC END# *521B05DF00FC_5227064102D9_var*
+//#UC START# *521B061A0387_5227064102D9_impl*
+ Result := High(Integer);
+ for I := 0 to Pred(Count) do
+  Result := Min(Result, SubItem[I].MinWidth(aParent));
+//#UC END# *521B061A0387_5227064102D9_impl*
+//#UC START# *521B061A0387_5227064102D9_var*
+var
+  I: Integer;
+//#UC END# *521B061A0387_5227064102D9_var*
+//#UC START# *521B07030052_5227064102D9_impl*
+ for I := 0 to Pred(Count) do
+ begin
+  SubItem[I].Lock;
+  SubItem[I].SetValueToControl(aDefault);
+  SubItem[I].Unlock;
+ end;
+//#UC END# *521B07030052_5227064102D9_impl*
+//#UC START# *521B07030052_5227064102D9_var*
+var
+ I: Integer;
+//#UC END# *521B07030052_5227064102D9_var*
+//#UC START# *5227064102D9_ext:ParentFileName
+w:\common\components\rtl\Garant\dd\ddAppConfigTypes.pas
+//#UC END# *5227064102D9_ext:ParentFileName
+//#UC START# *5227080C0080_5227064102D9get_impl*
+ Assert(f_SubItems <> nil);
+ Result := TddVisualConfigItem(f_SubItems.Items[Index]);
+//#UC END# *5227080C0080_5227064102D9get_impl*
+//#UC START# *5227080C0080_5227064102D9get_var*
+//#UC END# *5227080C0080_5227064102D9get_var*
+//#UC START# *5227088402CF_5227064102D9get_impl*
+ if (f_SubItems = nil) then
+  Result := 0
+ else
+  Result := f_SubItems.Count;
+//#UC END# *5227088402CF_5227064102D9get_impl*
+//#UC START# *5227088402CF_5227064102D9get_var*
+//#UC END# *5227088402CF_5227064102D9get_var*
+//#UC START# *52270A5C030E_5227064102D9_impl*
+ Changed := (Sender as TddBaseConfigItem).Changed;
+//#UC END# *52270A5C030E_5227064102D9_impl*
+//#UC START# *52270A5C030E_5227064102D9_var*
+//#UC END# *52270A5C030E_5227064102D9_var*
+//#UC START# *52270A8C03B4_5227064102D9_impl*
+ {$IFNDEF Nemesis}
+ Result := GetGroupHeaderHeight(aParent, Caption, ShowCaption);
+ {$ELSE}
+ Result := GetGroupHeaderHeight(aParent, Caption, True);
+ {$ENDIF}
+//#UC END# *52270A8C03B4_5227064102D9_impl*
+//#UC START# *52270A8C03B4_5227064102D9_var*
+//#UC END# *52270A8C03B4_5227064102D9_var*
+//#UC START# *52270ABC00D6_5227064102D9_impl*
+ Create(aAlias, aCaption, ddEmptyValue, aMasterItem);
+//#UC END# *52270ABC00D6_5227064102D9_impl*
+//#UC START# *52270ABC00D6_5227064102D9_var*
+//#UC END# *52270ABC00D6_5227064102D9_var*
+//#UC START# *52270AE801AC_5227064102D9_impl*
+ Result := 0;
+ for lIndex := 0 to Pred(f_SubItems.Count) do
+ begin
+  lItem := TddVisualConfigItem(f_SubItems[lIndex]);
+  if lItem is TddGroupConfigItem then
+   Result := Max(Result, TddGroupConfigItem(lItem).ItemsLabelWidth(aParent, aLeftLabeled))
+  else
+   if lItem.Labeled and not lItem.LabelTop then
+   begin
+    Result := Max(Result, c_ConfigItemLeft + lItem.LabelWidth(aParent));
+    Inc(aLeftLabeled);
+   end;
+ end;
+//#UC END# *52270AE801AC_5227064102D9_impl*
+//#UC START# *52270AE801AC_5227064102D9_var*
+var
+ lIndex, l_Index2 : Integer;
+ lItem  : TddVisualConfigItem;
+//#UC END# *52270AE801AC_5227064102D9_var*
+//#UC START# *52270B070394_5227064102D9_impl*
+ aItem.ReadOnly := ReadOnly;
+ f_SubItems.Add(aItem);
+ aItem.OnChange := DoOnChange;
+ if (aItem is TddVisualConfigItem) then
+  TddVisualConfigItem(aItem).LabelTop := LabelTop;
+ Result := aItem;
+//#UC END# *52270B070394_5227064102D9_impl*
+//#UC START# *52270B070394_5227064102D9_var*
+//#UC END# *52270B070394_5227064102D9_var*
+//#UC START# *552BA9B9039B_5227064102D9_impl*
+ for l_IDX := 0 to Count - 1 do
+  SubItem[l_IDX].ReadOnly := ReadOnly;
+//#UC END# *552BA9B9039B_5227064102D9_impl*
+//#UC START# *552BA9B9039B_5227064102D9_var*
+var
+ l_IDX: Integer;
+//#UC END# *552BA9B9039B_5227064102D9_var*

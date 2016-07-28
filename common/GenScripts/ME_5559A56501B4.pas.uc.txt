@@ -1,0 +1,38 @@
+//#UC START# *47B2C42A0163_5559A56501B4_impl*
+ Assert(False);
+//#UC END# *47B2C42A0163_5559A56501B4_impl*
+//#UC START# *47B2C42A0163_5559A56501B4_var*
+//#UC END# *47B2C42A0163_5559A56501B4_var*
+//#UC START# *47B99D4503A2_5559A56501B4_impl*
+ Assert(False);
+//#UC END# *47B99D4503A2_5559A56501B4_impl*
+//#UC START# *47B99D4503A2_5559A56501B4_var*
+//#UC END# *47B99D4503A2_5559A56501B4_var*
+//#UC START# *5559A56501B4_ext:ParentFileName
+w:\common\components\gui\Garant\VCM\implementation\vcmFormSetContainerRegistry.pas
+//#UC END# *5559A56501B4_ext:ParentFileName
+//#UC START# *55E04C9E0301_5559A56501B4_impl*
+ try
+  IterateAllF(l3L2IA(@lp_DoForEach));
+ finally
+  l3FreeLocalStub(Hack);
+ end;
+//#UC END# *55E04C9E0301_5559A56501B4_impl*
+//#UC START# *55E04C9E0301_5559A56501B4_var*
+
+ function lp_DoForEach(aData: PvcmFormSetContainerMapItem; anIndex: Integer): Boolean;
+ begin
+  if l3IEQ(IvcmContainer(aData^.rContainer), aContainer) then
+   Result := anAction(IvcmFormSet(aData^.rFormSet))
+  else
+   Result := True;
+ end;//lp_DoForEach
+
+var
+ Hack : Pointer absolute anAction;
+//#UC END# *55E04C9E0301_5559A56501B4_var*
+//#UC START# *55E04CAE01EA_5559A56501B4_impl*
+// !!! Needs to be implemented !!!
+//#UC END# *55E04CAE01EA_5559A56501B4_impl*
+//#UC START# *55E04CAE01EA_5559A56501B4_var*
+//#UC END# *55E04CAE01EA_5559A56501B4_var*

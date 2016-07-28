@@ -1,0 +1,141 @@
+//#UC START# *52161FC80131_522461B00212get_impl*
+ if (f_ValueKind = dd_vkBoolean) or (f_MasterIndex = -1) then
+  Result := inherited pm_GetBooleanValue
+ else
+  if Control <> nil then
+  begin
+   Assert(Control is TvtComboBoxQS, Control.ClassName);
+   Result := TvtComboBoxQS(Control).ItemIndex <> f_MasterIndex;
+  end
+  else
+   Result := false;
+//#UC END# *52161FC80131_522461B00212get_impl*
+//#UC START# *52161FC80131_522461B00212get_var*
+//#UC END# *52161FC80131_522461B00212get_var*
+//#UC START# *521B053F03C3_522461B00212_impl*
+ lComboBox := TvtComboBoxQS.Create(nil);
+ try
+  lComboBox.Parent := aParent;
+  Result := lComboBox.Height;
+ finally
+  FreeAndNil(lComboBox);
+ end;
+//#UC END# *521B053F03C3_522461B00212_impl*
+//#UC START# *521B053F03C3_522461B00212_var*
+var
+ lComboBox: TvtComboBoxQS;
+//#UC END# *521B053F03C3_522461B00212_var*
+//#UC START# *52245D1400E9_522461B00212_impl*
+ if Assigned(Control) then
+ begin
+  Assert(Control is TvtComboBoxQS, Control.ClassName);
+  Result := TvtComboBoxQS(Control).Items;
+ end
+ else
+  Result := nil;
+//#UC END# *52245D1400E9_522461B00212_impl*
+//#UC START# *52245D1400E9_522461B00212_var*
+//#UC END# *52245D1400E9_522461B00212_var*
+//#UC START# *522461B00212_ext:ParentFileName
+w:\common\components\rtl\Garant\dd\ddAppConfigTypes.pas
+//#UC END# *522461B00212_ext:ParentFileName
+//#UC START# *5225983A0002_522461B00212set_impl*
+ f_ComboBoxStyle := aValue;
+ if Assigned(Control) then
+ begin
+  Assert(Control is TvtComboBoxQS, Control.ClassName);
+  TvtComboBoxQS(Control).Style := aValue;
+ end;//Assigned(Control)
+//#UC END# *5225983A0002_522461B00212set_impl*
+//#UC START# *5225983A0002_522461B00212set_var*
+//#UC END# *5225983A0002_522461B00212set_var*
+//#UC START# *5225988B0236_522461B00212set_impl*
+ f_DropDownCount := aValue;
+//#UC END# *5225988B0236_522461B00212set_impl*
+//#UC START# *5225988B0236_522461B00212set_var*
+//#UC END# *5225988B0236_522461B00212set_var*
+//#UC START# *5225991403D3_522461B00212_impl*
+ DoExit;
+//#UC END# *5225991403D3_522461B00212_impl*
+//#UC START# *5225991403D3_522461B00212_var*
+//#UC END# *5225991403D3_522461B00212_var*
+//#UC START# *522599F1033C_522461B00212_impl*
+ // virtual
+//#UC END# *522599F1033C_522461B00212_impl*
+//#UC START# *522599F1033C_522461B00212_var*
+//#UC END# *522599F1033C_522461B00212_var*
+//#UC START# *52259A2E028E_522461B00212_impl*
+ l_Caption := aCaption;
+ if (aMasterItem <> nil) then
+  if (aMasterItem.Caption = l_Caption) OR
+     (aMasterItem.Caption = l_Caption + ':') then
+   l_Caption := '';
+ inherited Create(aAlias, l_Caption, aDefaultValue, aValueMap, aMasterItem);
+ if f_ValueKind = dd_vkBoolean then
+  Assert((aMasterIndex=-1),'Unsupported params');
+ f_DropDownCount := 8;
+ f_ComboBoxStyle := csDropDownList;
+ f_MasterIndex := aMasterIndex;
+ Labeled := True;
+//#UC END# *52259A2E028E_522461B00212_impl*
+//#UC START# *52259A2E028E_522461B00212_var*
+var
+ l_Caption : AnsiString;
+//#UC END# *52259A2E028E_522461B00212_var*
+//#UC START# *5301EC7500FF_522461B00212_impl*
+ Result := TddComboBoxConfigItem.Create(Alias, Caption, DefaultValue, ValueMap, MasterItem, f_MasterIndex);
+ TddComboBoxConfigItem(Result).Assign(Self);
+//#UC END# *5301EC7500FF_522461B00212_impl*
+//#UC START# *5301EC7500FF_522461B00212_var*
+//#UC END# *5301EC7500FF_522461B00212_var*
+//#UC START# *53A299B303CB_522461B00212get_impl*
+ Result := TvtComboBoxQS;
+//#UC END# *53A299B303CB_522461B00212get_impl*
+//#UC START# *53A299B303CB_522461B00212get_var*
+//#UC END# *53A299B303CB_522461B00212get_var*
+//#UC START# *53A29C9C00DA_522461B00212_impl*
+ if Control <> nil then
+ begin
+  Assert(Control is TvtComboBoxQS, Control.ClassName);
+  ChangeSlaveStatus(TvtComboBoxQS(Control).ItemIndex <> f_MasterIndex);
+ end;
+ inherited;
+//#UC END# *53A29C9C00DA_522461B00212_impl*
+//#UC START# *53A29C9C00DA_522461B00212_var*
+//#UC END# *53A29C9C00DA_522461B00212_var*
+//#UC START# *53A29D070172_522461B00212_impl*
+ SelectedItemIndex := aValue;
+//#UC END# *53A29D070172_522461B00212_impl*
+//#UC START# *53A29D070172_522461B00212_var*
+//#UC END# *53A29D070172_522461B00212_var*
+//#UC START# *53A29D68029C_522461B00212get_impl*
+ Result := TvtComboBoxQS(Control).ItemIndex;
+//#UC END# *53A29D68029C_522461B00212get_impl*
+//#UC START# *53A29D68029C_522461B00212get_var*
+//#UC END# *53A29D68029C_522461B00212get_var*
+//#UC START# *53A29D68029C_522461B00212set_impl*
+ TvtComboBoxQS(Control).ItemIndex := aValue;
+//#UC END# *53A29D68029C_522461B00212set_impl*
+//#UC START# *53A29D68029C_522461B00212set_var*
+//#UC END# *53A29D68029C_522461B00212set_var*
+//#UC START# *53A2A16C0369_522461B00212_impl*
+ with TvtComboBoxQS(aControl) do
+ begin
+  OnChange := DoOnChange;
+  Style := f_ComboBoxStyle;
+  OnExit := Self.OnExit;
+  DropDownCount := f_DropDownCount;
+ end;
+//#UC END# *53A2A16C0369_522461B00212_impl*
+//#UC START# *53A2A16C0369_522461B00212_var*
+//#UC END# *53A2A16C0369_522461B00212_var*
+//#UC START# *53A3BE140327_522461B00212get_impl*
+ Result := TvtComboBoxQS(Control).Items as Il3StringsEx;
+//#UC END# *53A3BE140327_522461B00212get_impl*
+//#UC START# *53A3BE140327_522461B00212get_var*
+//#UC END# *53A3BE140327_522461B00212get_var*
+//#UC START# *53A3D16C014B_522461B00212_impl*
+ TvtComboBoxQS(Control).Items.Assign(aStrings.Items);
+//#UC END# *53A3D16C014B_522461B00212_impl*
+//#UC START# *53A3D16C014B_522461B00212_var*
+//#UC END# *53A3D16C014B_522461B00212_var*

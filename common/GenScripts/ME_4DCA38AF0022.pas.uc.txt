@@ -1,0 +1,296 @@
+//#UC START# *47914F960008_4DCA38AF0022_impl*
+ inherited;
+ f_Lines:= Tl3StringList.Make;
+ f_FormatBuffer := TddDocument.Create(nil);
+ f_RowList:= TddRowList.Make;
+ f_CellCount:= 0;
+ f_RowCount:= 0;
+ f_AutoFit:= afContent;
+//#UC END# *47914F960008_4DCA38AF0022_impl*
+//#UC START# *47914F960008_4DCA38AF0022_var*
+//#UC END# *47914F960008_4DCA38AF0022_var*
+//#UC START# *479731C50290_4DCA38AF0022_impl*
+ l3Free(f_FormatBuffer);
+ l3Free(f_RowList);
+ l3Free(f_Lines);
+ inherited;
+//#UC END# *479731C50290_4DCA38AF0022_impl*
+//#UC START# *479731C50290_4DCA38AF0022_var*
+//#UC END# *479731C50290_4DCA38AF0022_var*
+//#UC START# *4DCA38AF0022_ext:ParentFileName
+w:\common\components\rtl\Garant\dd\ddTextToTableConverters.pas
+//#UC END# *4DCA38AF0022_ext:ParentFileName
+//#UC START# *4FACDCB300D7_4DCA38AF0022set_impl*
+ f_Lines.Assign(aValue);
+//#UC END# *4FACDCB300D7_4DCA38AF0022set_impl*
+//#UC START# *4FACDCB300D7_4DCA38AF0022set_var*
+//#UC END# *4FACDCB300D7_4DCA38AF0022set_var*
+//#UC START# *4FACDD0C02C4_4DCA38AF0022set_impl*
+ f_AutoFit:= aValue;
+//#UC END# *4FACDD0C02C4_4DCA38AF0022set_impl*
+//#UC START# *4FACDD0C02C4_4DCA38AF0022set_var*
+//#UC END# *4FACDD0C02C4_4DCA38AF0022set_var*
+//#UC START# *4FACDD520175_4DCA38AF0022set_impl*
+ if CellCount <> aValue then
+ begin
+  f_CellCount:= aValue;
+  RecalcRows;
+ end;
+//#UC END# *4FACDD520175_4DCA38AF0022set_impl*
+//#UC START# *4FACDD520175_4DCA38AF0022set_var*
+//#UC END# *4FACDD520175_4DCA38AF0022set_var*
+//#UC START# *4FACDED5010D_4DCA38AF0022set_impl*
+ f_FormatBuffer.Assign(aValue);
+//#UC END# *4FACDED5010D_4DCA38AF0022set_impl*
+//#UC START# *4FACDED5010D_4DCA38AF0022set_var*
+//#UC END# *4FACDED5010D_4DCA38AF0022set_var*
+//#UC START# *4FACDF1401DC_4DCA38AF0022set_impl*
+ if RowCount <> aValue then
+ begin
+  f_RowCount:= aValue;
+  RecalcRows;
+ end;
+//#UC END# *4FACDF1401DC_4DCA38AF0022set_impl*
+//#UC START# *4FACDF1401DC_4DCA38AF0022set_var*
+//#UC END# *4FACDF1401DC_4DCA38AF0022set_var*
+//#UC START# *4FACDFA2002E_4DCA38AF0022_impl*
+ f_CellCount:= 0;
+ f_RowCount:= 0;
+ f_CurLine:= 0;
+//#UC END# *4FACDFA2002E_4DCA38AF0022_impl*
+//#UC START# *4FACDFA2002E_4DCA38AF0022_var*
+//#UC END# *4FACDFA2002E_4DCA38AF0022_var*
+//#UC START# *4FACDFDE03BB_4DCA38AF0022_impl*
+ f_CellCount:= 0;
+ f_RowCount:= 0;
+//#UC END# *4FACDFDE03BB_4DCA38AF0022_impl*
+//#UC START# *4FACDFDE03BB_4DCA38AF0022_var*
+//#UC END# *4FACDFDE03BB_4DCA38AF0022_var*
+//#UC START# *4FACE0030183_4DCA38AF0022_impl*
+ for j := 0 to f_RowList.Hi do
+  aTable.AddRow(TddTableRow(f_RowList.Items[j]));
+//#UC END# *4FACE0030183_4DCA38AF0022_impl*
+//#UC START# *4FACE0030183_4DCA38AF0022_var*
+var
+  j: Integer;
+//#UC END# *4FACE0030183_4DCA38AF0022_var*
+//#UC START# *4FACE6BE00D9_4DCA38AF0022_impl*
+ if (aText.Len > 0) and not l3AllCharsInCharSet(aText.AsWStr, [' ']) then
+ begin
+  l_Left := aText.Len - aText.LTrimLen;
+  l_Right := aText.Len - aText.RTrimLen;
+  if (l_Right = 0) and (aText.Len < aCellWidth) then
+   l_Right := aCellWidth - aText.Len;
+  if (l_Left > 0) and (l_Right > 0) and
+     (Abs(l_Right - l_Left) < Min(l_Left, l_Right)) then
+   Result := ev_itCenter
+  else
+  if (l_Left > l_Right) and (l_Left > 1) and (l_Right > 1) then
+   Result := ev_itRight
+  else
+  if (l_Right > l_Left) and (l_Left > 1) and (l_Right > 1) then
+   Result := ev_itLeft
+  else
+   Result := ev_itWidth;
+ end // if (aText.Len > 0) and not IsEmptyStr(aText, [' ']) then
+ else
+  Result := ev_itLeft;
+//#UC END# *4FACE6BE00D9_4DCA38AF0022_impl*
+//#UC START# *4FACE6BE00D9_4DCA38AF0022_var*
+var
+ l_Left  : Integer;
+ l_Right : Integer;
+//#UC END# *4FACE6BE00D9_4DCA38AF0022_var*
+//#UC START# *4FACE73000CE_4DCA38AF0022_impl*
+ if aCell <> nil then
+  l_Cell := aCell
+ else
+  l_Cell := f_Row.LastCell;
+ l_Para := TddTextParagraph.Create(nil);
+ try
+  if aText <> nil then
+  begin
+   l_Len := aCell.Props.CellOffset;
+   if aCell.anIndex > 0 then
+    Dec(l_Len, f_Row.Cells[aCell.anIndex - 1].Props.CellOffset);
+   l_Para.PAP.Just := k2JustToJust(CheckJustification(aText, l_Len));
+  end; // if aText <> nil then
+  if ApplyFormatting(l_Para, l_Cell) and (aText <> nil) then
+  begin
+   AdjustTrimAll(l_Para, aText);
+   l_Para.Text := aText;
+  end; // if ApplyFormatting(l_Para, l_Cell) and (aText <> nil) then
+  l_Cell.Add(l_Para);
+ finally
+  l3Free(l_Para);
+ end; // try.. finally
+//#UC END# *4FACE73000CE_4DCA38AF0022_impl*
+//#UC START# *4FACE73000CE_4DCA38AF0022_var*
+var
+ l_Para : TddTextParagraph;
+ l_New  : Boolean;
+ l_Len  : Integer;
+ l_Cell : TddTableCell;
+//#UC END# *4FACE73000CE_4DCA38AF0022_var*
+//#UC START# *4FACE8BC035B_4DCA38AF0022_impl*
+ with aCell.LastTextPara do
+ begin
+  if not Empty then
+   AddParagraph(aText, aCell)
+  else
+  begin
+   l_Len := aCell.Props.CellOffset;
+   l_Cell := GetPrevCell(aCell);
+   if l_Cell <> nil then
+    Dec(l_Len, l_Cell.Props.CellOffset);
+
+   PAP.Just := k2JustToJust(CheckJustification(aText, l_Len));
+   if ApplyFormatting(aCell.LastTextPara, aCell) then
+   begin
+    AdjustTrimAll(aCell.LastTextPara, aText);
+    AddText(aText);
+   end // if ApplyFormatting(aCell.LastPara, aCell) then
+  end;
+ end; // with
+//#UC END# *4FACE8BC035B_4DCA38AF0022_impl*
+//#UC START# *4FACE8BC035B_4DCA38AF0022_var*
+var
+ l_Len  : Integer;
+ l_Cell : TddTableCell;
+//#UC END# *4FACE8BC035B_4DCA38AF0022_var*
+//#UC START# *4FACE8DF0349_4DCA38AF0022_impl*
+ l_NewPara := not aCell.LastTextPara.Empty;
+ l_Start := aStart;
+ if l_NewPara then
+  l_Para := TddTextParagraph.Create(nil)
+ else
+ begin
+  l_Para := aCell.LastTextPara;
+  Inc(l_Start);
+ end;
+ try
+  if l_NewPara and (aText <> nil) then
+   l_Para.Text.CodePage := aText.CodePage;
+  with l_Para do
+  begin
+   l_Len := aCell.Props.CellOffset;
+   l_Cell := GetPrevCell(aCell);
+   if l_Cell <> nil then
+    Dec(l_Len, l_Cell.Props.CellOffset);
+   l_TextStr := TddTextParaString.Create(l_Para);
+   try
+    l_TextStr.AsString := Copy(aText.AsString, l_Start, aLen);
+    PAP.Just := k2JustToJust(CheckJustification(l_TextStr, l_Len));
+    if ApplyFormatting(l_Para, aCell) then
+    begin
+     l_TextStr.LTrim;
+     l_TextStr.DeleteDoubleSpace;
+     AddText(l_TextStr.AsString, aText.CodePage);
+    end; // if ApplyFormatting(l_Para, aCell) then
+   finally
+    l3Free(l_TextStr);
+   end;
+   if l_NewPara then
+    aCell.Add(l_Para);
+  end; // with
+ finally
+  if l_NewPara then
+   l3Free(l_Para);
+ end; // try.. finally
+//#UC END# *4FACE8DF0349_4DCA38AF0022_impl*
+//#UC START# *4FACE8DF0349_4DCA38AF0022_var*
+var
+ l_Len     : Integer;
+ l_Para    : TddTextParagraph;
+ l_Cell    : TddTableCell;
+ l_Start   : Integer;
+ l_NewPara : Boolean;
+ l_TextStr : TddTextParaString;
+//#UC END# *4FACE8DF0349_4DCA38AF0022_var*
+//#UC START# *4FACFE6F02DF_4DCA38AF0022_impl*
+ Result := True;
+ if f_CurLine >= f_FormatBuffer.Paragraphs.Count then Exit;
+ // Stub
+ l_A := f_FormatBuffer.Paragraphs[f_CurLine];
+ if l_A.IsTextPara then
+ begin
+  l_Text := l_A as TddTextParagraph;
+  if aCell.anIndex = 0 then // Добавляем метки
+   if l_Text.SubList.Count > 0 then
+    aP.SubList.JoinWith(l_Text.SubList);
+
+  l_Cell := GetPrevCell(aCell);
+  if l_Cell = nil then
+   l_Delta := 0
+  else
+   l_Delta := l_Cell.Props.CellOffset;
+  l_Len := aCell.Props.CellOffset;
+  l_Trim := 0;
+  // Добавляем оформление
+  if l_Text.SegmentCount > 0 then
+  begin
+   aP.ClearSegments;
+   for i := 0 to l_Text.SegmentCount - 1 do
+   begin
+    if (l_Text.Segments[i].Start >= l_Delta) and (l_Text.Segments[i].Stop <= l_Len) then
+    begin
+     l_OldSeg := l_Text.Segments[i];
+     l_NewSeg := l_OldSeg.Clone;
+     try
+      l_Start := l_Delta + l_Trim;
+      l_Stop := l_Len - l_Trim + 1;
+      l_SegLen := l_NewSeg.Stop - l_NewSeg.Start + 1;
+
+      for j := l_Start to l_Stop do
+       if (j <= l_NewSeg.Start) and (l_Text.Text.Ch[j] in cc_Frames) then
+        Inc(l_Trim)
+       else
+        Break;
+      Dec(l_Trim);
+      if l_Delta > 0 then
+       l_NewSeg.Start := Max(0, l_NewSeg.Start - l_Trim) - l_Delta;
+
+      { TODO -oNarry -cОшибка : Почему-то сегмент получается на один символ меньше }
+      for j := l_Stop downto l_Start do
+       if (j <= l_NewSeg.Stop) and (l_Text.Text.Ch[j] in cc_Frames) then
+       begin
+        Inc(l_Trim);
+        Dec(l_SegLen);
+       end // if (j <= l_NewSeg.Stop) and (l_Text.Text.Ch[j] in cc_Frames) then
+       else
+        Break;
+      l_NewSeg.Stop := l_NewSeg.Start + l_SegLen;
+      if l_NewSeg.Start >= 0 then
+       aP.AddSegment(l_NewSeg);
+     finally
+      l3Free(l_NewSeg);
+     end;
+    end; // if (l_Text.Segments[i].Start >= l_Delta) and
+   end; // for i
+   //Result:= False;
+  end;
+ end; // l_A.AtomType = dd_docTextParagraph
+//#UC END# *4FACFE6F02DF_4DCA38AF0022_impl*
+//#UC START# *4FACFE6F02DF_4DCA38AF0022_var*
+var
+ l_A      : TddDocumentAtom;
+ i, j     : Integer;
+ l_Cell   : TddTableCell;
+ l_Len    : Integer;
+ l_Text   : TddTextParagraph;
+ l_Stop   : Integer;
+ l_Trim   : Integer;
+ l_Delta  : Integer;
+ l_Start  : Integer;
+ l_SegLen : Integer;
+ l_OldSeg : TddTextSegment;
+ l_NewSeg : TddTextSegment;
+//#UC END# *4FACFE6F02DF_4DCA38AF0022_var*
+//#UC START# *528CA17D0210_4DCA38AF0022_impl*
+ if aCell.anIndex > 0 then
+  Result := f_Row[aCell.anIndex - 1]
+ else
+  Result := nil;
+//#UC END# *528CA17D0210_4DCA38AF0022_impl*
+//#UC START# *528CA17D0210_4DCA38AF0022_var*
+//#UC END# *528CA17D0210_4DCA38AF0022_var*

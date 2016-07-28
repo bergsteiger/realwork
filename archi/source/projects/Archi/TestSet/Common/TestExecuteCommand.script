@@ -582,7 +582,7 @@ PROCEDURE "Проверочное действие"
 	g_SetFuzzValue SetFuzzInPercent
 	g_CheckAction CASE
 		cnNoneAction (  )
-		cnCheckWithEVDEtalon ( "Сравнить текст с эталоном" ) 
+		cnCheckWithEVDEtalon ( "Выставить флаг записи картинок" "Сравнить текст с эталоном" ) 
 		cnCheckWithNSREtalon ( "Сохранить в NSR и сравнить с эталоном" )
 		cnCheckTable ( "Выполнить проверку таблицы" )
 		cnCheckTableLineDrawing ( "Отрисовка и сохранение линий таблиц" ) 
@@ -618,6 +618,7 @@ PROCEDURE "Проверочное действие"
 		cnCheckClipboardEvd ( "Проверка содержимого буфера обмена в формате EVD" )
 		cnExport2EVDAndCheckWithEtalon ( "Экcпортировать в EVD и сравнить с эталоном" )
 		cnCheckCursorIndexNameEtalon ( "Проверить курсор мыши и сравнить с эталоном" )
+		cnCheckEvdWithPicture ( "Сравнить текст с эталоном" )
         END
 	Если ( g_AntiTest ) то ( g_WasException 'Не появилось ожидаемое исключение!' ASSERTS )
 ;
@@ -693,9 +694,57 @@ PROCEDURE "Проверяющие слова"
 PROCEDURE "Проверка совместимости параметров"
 ;
 
+VOID WORDWORKER Выполнить_здесь
+    // Сохраняем предыдуще значения
+	SaveParamsValues
+	TRY
+		Clear2Default
+		WordToWork DO		
+		// Очищаем неподдерживаемые
+		False >>> g_AntiTest
+		cnNotClearBase >>> g_FinalClear
+		False >>> g_ClearClipboard	
+		
+		// Выполняем изменившиеся
+		Если ( cnAnyParamDefValue g_BeforeTest != ) то 
+		(
+			"Подготовка теста"
+			"Обработать сообщения"
+		)
+		Если ( cnAnyParamDefValue g_ActionWithDocument != ) то 
+		(
+			"Создать или открыть"
+			"Обработать сообщения"
+		)
+		Если ( cnAnyParamDefValue g_How2Prepare != ) то 
+		(
+			"Изменить размеры"				
+			"Обработать сообщения"
+		)
+		Если ( cnAnyParamDefValue g_StartAction != ) то 
+		(
+			"Выполнить до теста"			
+			"Обработать сообщения"
+		)
+		Если ( cnAnyParamDefValue g_CheckAction != ) то (
+			TRY
+				"Проверочное действие"	
+			EXCEPT
+				true >>> g_WasException
+			END
+		)
+		Если ( cnAnyParamDefValue g_How2End != ) то 		
+			"Выполнить завершающее действие"		
+		"Обработать сообщения"
+	FINALLY
+		// Восстанавливаем оставшиеся...		
+		RestoreParamsValues
+	END
+;
+
 VOID WORDWORKER Выполнить		
-	Если ( ( g_WasInit IsVoid ) ИЛИ ( g_WasInit =0 ) ) то ( "Первоначальные параметры" )	
-	Если ( g_FinalClear cnClearBaseAndExportDir == ) то ( "Инициализировать директорию экспорта" )		
+	Если ( ( g_WasInit =0 ) ) то ( "Первоначальные параметры" )	
+	Если ( g_FinalClear cnClearBaseAndExportDir == ) то ( "Инициализировать директорию экспорта" )			
 	"Проверка совместимости параметров"
 	"Подготовка теста"
 	TRY
@@ -716,7 +765,7 @@ VOID WORDWORKER Выполнить
 				)		  
 			 иначе 
 			  ( current:exception:Message RAISE )
-			END
+			END			
 			"Проверочное действие"
 		FINALLY
 			"Выполнить завершающее действие"			
@@ -728,12 +777,11 @@ VOID WORDWORKER Выполнить
 	"Проверяющие слова"
 ;
 
-
 PROCEDURE "Подготовка широкой формы с реестром, оглавлением и блоками"
 	"Размеры для отрисовки с широкой формой"
 	"Развернуть редактор"
 	"Показать РЕЕСТР ОБЪЕКТОВ"
 	"Показать оглавление"
 	"Включить режим отображения блоков"
-	
+
 ;

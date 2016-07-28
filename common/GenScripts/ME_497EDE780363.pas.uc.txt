@@ -110,6 +110,7 @@ var
 w:\garant6x\implementation\Garant\GbaNemesis\View\PrimDocumentWithFlash_Form.pas
 //#UC END# *497EDE780363_ext:FileName
 //#UC START# *497EDE780363impl_uses*
+ , Base_Operations_F1Services_Contracts
 //#UC END# *497EDE780363impl_uses*
 //#UC START# *49803F5503AA_497EDE780363_impl*
  FromHistory := aFromHistory or InHistoryStep;
@@ -145,7 +146,7 @@ w:\garant6x\implementation\Garant\GbaNemesis\View\PrimDocumentWithFlash_Form.pas
   Result := Supports(aState, InsDocumentWithFlashState, f_State);
  end//aStateType = vcm_stContent
  else
-  Result := inherited DoLoadState(aState, aStateType);
+  Result := inherited DoLoadState(aState, aStateType, aClone);
 //#UC END# *49807428008C_497EDE780363_impl*
 //#UC START# *49807428008C_497EDE780363_var*
 //#UC END# *49807428008C_497EDE780363_var*
@@ -324,7 +325,7 @@ var
  if Document <> nil then
  begin
   Document.CreateJournalBookmark(0, l_Bookmark);
-  TdmStdRes.MakeWorkJournal.AddBookMark(l_Bookmark);
+  TvcmModulesFactories.MakeWorkJournal.AddBookMark(l_Bookmark);
  end;
 //#UC END# *49884DFB0368_497EDE780363_impl*
 //#UC START# *49884DFB0368_497EDE780363_var*
@@ -361,7 +362,7 @@ var
 //#UC START# *49885D540232_497EDE780363test_var*
 //#UC END# *49885D540232_497EDE780363test_var*
 //#UC START# *49885D59018D_497EDE780363exec_impl*
- TdmStdRes.SelectOpen(Self.as_IvcmEntityForm,
+ TFoldersService.Instance.SelectOpen(Self.as_IvcmEntityForm,
                       dsBaseDocument.As_IucpFilterInfoFactory.MakeFilterInfo(ffBookmark),
                       str_OpenBookmark);
 //#UC END# *49885D59018D_497EDE780363exec_impl*
@@ -373,7 +374,7 @@ var
 //#UC START# *49885D59018D_497EDE780363test_var*
 //#UC END# *49885D59018D_497EDE780363test_var*
 //#UC START# *4988752302F4_497EDE780363exec_impl*
- //if not Operation(TdmStdRes.opcode_Document_GetCorrespondentListExFrmAct).Done then
+ //if not Operation(opcode_Document_GetCorrespondentListExFrmAct).Done then
   Assert(false);
  //OpenCRListOpExecute(crtCorrespondents, aParams.CurrentNode);
 //#UC END# *4988752302F4_497EDE780363exec_impl*
@@ -385,7 +386,7 @@ var
 //#UC START# *4988752302F4_497EDE780363test_var*
 //#UC END# *4988752302F4_497EDE780363test_var*
 //#UC START# *49888E8003B9_497EDE780363exec_impl*
- //if not Operation(TdmStdRes.opcode_Document_GetRespondentListExFrmAct).Done then
+ //if not Operation(opcode_Document_GetRespondentListExFrmAct).Done then
   Assert(false);
  //OpenCRListOpExecute(crtRespondents, aParams.CurrentNode);
 //#UC END# *49888E8003B9_497EDE780363exec_impl*
@@ -441,7 +442,7 @@ var
   try
    case TFoldersItemType(l_FolderNode.GetObjectType) of
     FIT_BOOKMARK, FIT_PHARM_BOOKMARK:
-     TdmStdRes.OpenEntityAsDocument(l_BaseEntity, nil);
+     TvcmModulesFactories.OpenEntityAsDocument(l_BaseEntity, nil);
    end;//case TFoldersItemType(l_FolderNode.GetObjectType)
   finally
    l_BaseEntity := nil;
@@ -469,7 +470,7 @@ var
  CreateBookmark(Document, 0, true, l_Bookmark);
  if (l_Bookmark <> nil) then
  try
-  TdmStdRes.SaveOpen(Self.As_IvcmEntityForm,
+  TFoldersService.Instance.SaveOpen(Self.As_IvcmEntityForm,
                      dsBaseDocument.As_IucpFilterInfoFactory.MakeFilterInfo(ffListAndBookMarks),
                      fetBookMark,
                      l_Bookmark,

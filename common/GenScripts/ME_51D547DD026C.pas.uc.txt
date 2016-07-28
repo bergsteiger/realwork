@@ -1,0 +1,229 @@
+//#UC START# *478CF34E02CE_51D547DD026C_impl*
+ if Source is TddCustomConfigNode then
+ begin
+  l_Node := Source as TddCustomConfigNode;
+  Alias := l_CN.Alias;
+  Caption := l_CN.Caption;
+  Changed := l_CN.Changed;
+  f_Children.Clear;
+  for I := 0 to Pred(l_Node.ChildrenCount) do
+  begin
+   l_N := l_CN.Children[I].Clone;
+   try
+    f_Children.Add(l_N);
+   finally
+    FreeAndNil(l_N);
+   end;
+  end;
+ end
+ else
+  inherited;
+//#UC END# *478CF34E02CE_51D547DD026C_impl*
+//#UC START# *478CF34E02CE_51D547DD026C_var*
+var
+  l_CN: TddCustomConfigNode absolute Source;
+  l_Node, l_N: TddCustomConfigNode;
+  I: Integer;
+//#UC END# *478CF34E02CE_51D547DD026C_var*
+//#UC START# *479731C50290_51D547DD026C_impl*
+ FreeAndNil(f_Children);
+ inherited;
+//#UC END# *479731C50290_51D547DD026C_impl*
+//#UC START# *479731C50290_51D547DD026C_var*
+//#UC END# *479731C50290_51D547DD026C_var*
+//#UC START# *51D547DD026C_ext:ParentFileName
+w:\common\components\rtl\Garant\dd\ddAppConfigTypes.pas
+//#UC END# *51D547DD026C_ext:ParentFileName
+//#UC START# *52162011011D_51D547DD026C_impl*
+ DoClearControls;
+//#UC END# *52162011011D_51D547DD026C_impl*
+//#UC START# *52162011011D_51D547DD026C_var*
+//#UC END# *52162011011D_51D547DD026C_var*
+//#UC START# *52162023035F_51D547DD026C_impl*
+ Result := DoCreateFrame(aOwner, aTag);
+//#UC END# *52162023035F_51D547DD026C_impl*
+//#UC START# *52162023035F_51D547DD026C_var*
+//#UC END# *52162023035F_51D547DD026C_var*
+//#UC START# *5216204C0197_51D547DD026C_impl*
+ DoFrameSize(aParent, aHeight, aWidth);
+//#UC END# *5216204C0197_51D547DD026C_impl*
+//#UC START# *5216204C0197_51D547DD026C_var*
+//#UC END# *5216204C0197_51D547DD026C_var*
+//#UC START# *521620A90269_51D547DD026C_impl*
+ DoGetControlValues;
+//#UC END# *521620A90269_51D547DD026C_impl*
+//#UC START# *521620A90269_51D547DD026C_var*
+//#UC END# *521620A90269_51D547DD026C_var*
+//#UC START# *521620B90082_51D547DD026C_impl*
+ Result := DoIsItem(aItem);
+//#UC END# *521620B90082_51D547DD026C_impl*
+//#UC START# *521620B90082_51D547DD026C_var*
+//#UC END# *521620B90082_51D547DD026C_var*
+//#UC START# *521620D000F7_51D547DD026C_impl*
+ DoLoad(aStorage);
+//#UC END# *521620D000F7_51D547DD026C_impl*
+//#UC START# *521620D000F7_51D547DD026C_var*
+//#UC END# *521620D000F7_51D547DD026C_var*
+//#UC START# *5216210503CE_51D547DD026C_impl*
+ DoResetToDefault;
+//#UC END# *5216210503CE_51D547DD026C_impl*
+//#UC START# *5216210503CE_51D547DD026C_var*
+//#UC END# *5216210503CE_51D547DD026C_var*
+//#UC START# *5216211600A8_51D547DD026C_impl*
+ DoSave(aStorage);
+//#UC END# *5216211600A8_51D547DD026C_impl*
+//#UC START# *5216211600A8_51D547DD026C_var*
+//#UC END# *5216211600A8_51D547DD026C_var*
+//#UC START# *521621460326_51D547DD026C_impl*
+ DoSetControlValues(aDefault);
+//#UC END# *521621460326_51D547DD026C_impl*
+//#UC START# *521621460326_51D547DD026C_var*
+//#UC END# *521621460326_51D547DD026C_var*
+//#UC START# *5217205002F2_51D547DD026Cget_impl*
+ Result := inherited pm_GetChanged;
+ if not Result then
+  for I := 0 to Pred(ChildrenCount) do
+   if Children[I].Changed then
+   begin
+    Result := True;
+    Break;
+   end;
+//#UC END# *5217205002F2_51D547DD026Cget_impl*
+//#UC START# *5217205002F2_51D547DD026Cget_var*
+var
+ I: Integer;
+//#UC END# *5217205002F2_51D547DD026Cget_var*
+//#UC START# *5217205002F2_51D547DD026Cset_impl*
+ if aValue <> f_Changed then
+ begin
+  f_Changed := aValue;
+  for I := 0 to Pred(ChildrenCount) do
+   Children[I].Changed := aValue;
+  if f_Changed and Assigned(f_OnChange) then
+   f_OnChange(Self);
+ end; // Value <> FChanged
+//#UC END# *5217205002F2_51D547DD026Cset_impl*
+//#UC START# *5217205002F2_51D547DD026Cset_var*
+var
+ I: Integer;
+//#UC END# *5217205002F2_51D547DD026Cset_var*
+//#UC START# *521725130281_51D547DD026Cget_impl*
+ Result := ddEmptyObjectValue;
+//#UC END# *521725130281_51D547DD026Cget_impl*
+//#UC START# *521725130281_51D547DD026Cget_var*
+//#UC END# *521725130281_51D547DD026Cget_var*
+//#UC START# *521725130281_51D547DD026Cset_impl*
+ inherited pm_SetValue(aValue);
+//#UC END# *521725130281_51D547DD026Cset_impl*
+//#UC START# *521725130281_51D547DD026Cset_var*
+//#UC END# *521725130281_51D547DD026Cset_var*
+//#UC START# *521B21AC0008_51D547DD026C_impl*
+ Changed := True;
+//#UC END# *521B21AC0008_51D547DD026C_impl*
+//#UC START# *521B21AC0008_51D547DD026C_var*
+//#UC END# *521B21AC0008_51D547DD026C_var*
+//#UC START# *521B21EE02E6_51D547DD026C_impl*
+ inherited Create(aAlias, aCaption, ddEmptyObjectValue);
+ f_Children := Tl3ProtoPersistentRefList.Create;
+ f_Alias := aAlias;
+ f_Caption := aCaption;
+ f_ScrollBars := ssNone;
+//#UC END# *521B21EE02E6_51D547DD026C_impl*
+//#UC START# *521B21EE02E6_51D547DD026C_var*
+//#UC END# *521B21EE02E6_51D547DD026C_var*
+//#UC START# *521B2293010A_51D547DD026C_impl*
+ Result := AddNode(TddAppConfigNode.Create(aAlias, ''));
+//#UC END# *521B2293010A_51D547DD026C_impl*
+//#UC START# *521B2293010A_51D547DD026C_var*
+//#UC END# *521B2293010A_51D547DD026C_var*
+//#UC START# *521B22D3023D_51D547DD026C_impl*
+ Result := AddNode(TddAppConfigNode.Create(aAlias, aCaption));
+//#UC END# *521B22D3023D_51D547DD026C_impl*
+//#UC START# *521B22D3023D_51D547DD026C_var*
+//#UC END# *521B22D3023D_51D547DD026C_var*
+//#UC START# *521B22E003E5_51D547DD026C_impl*
+ if aNode <> nil then
+ begin
+  aNode.Parent := Self;
+  aNode.ReadOnly := ReadOnly;
+  f_Children.Add(aNode);
+  FreeAndNil(aNode);
+  Result := TddCustomConfigNode(f_Children.Last);
+ end
+ else
+  Result := nil;
+//#UC END# *521B22E003E5_51D547DD026C_impl*
+//#UC START# *521B22E003E5_51D547DD026C_var*
+//#UC END# *521B22E003E5_51D547DD026C_var*
+//#UC START# *521B251D0001_51D547DD026C_impl*
+ Result := False;
+ aMessage := '';
+//#UC END# *521B251D0001_51D547DD026C_impl*
+//#UC START# *521B251D0001_51D547DD026C_var*
+//#UC END# *521B251D0001_51D547DD026C_var*
+//#UC START# *521B25470196_51D547DD026C_impl*
+ // Вызывается по окончании редактирования для возможных дополнительных действий
+//#UC END# *521B25470196_51D547DD026C_impl*
+//#UC START# *521B25470196_51D547DD026C_var*
+//#UC END# *521B25470196_51D547DD026C_var*
+//#UC START# *521B26D40382_51D547DD026Cget_impl*
+ Result := f_Children.Count;
+//#UC END# *521B26D40382_51D547DD026Cget_impl*
+//#UC START# *521B26D40382_51D547DD026Cget_var*
+//#UC END# *521B26D40382_51D547DD026Cget_var*
+//#UC START# *521B26EF0350_51D547DD026Cget_impl*
+ if InRange(anIndex, 0, Pred(f_Children.Count)) then
+  Result := TddCustomConfigNode(f_Children.Items[anIndex])
+ else
+  raise EddConfigError.Create('Запрошенного элемента не существует');
+//#UC END# *521B26EF0350_51D547DD026Cget_impl*
+//#UC START# *521B26EF0350_51D547DD026Cget_var*
+//#UC END# *521B26EF0350_51D547DD026Cget_var*
+//#UC START# *521B27170183_51D547DD026Cget_impl*
+ Result := f_ScrollBars in [ssHorizontal, ssBoth];
+//#UC END# *521B27170183_51D547DD026Cget_impl*
+//#UC START# *521B27170183_51D547DD026Cget_var*
+//#UC END# *521B27170183_51D547DD026Cget_var*
+//#UC START# *521B272D03C7_51D547DD026Cget_impl*
+ Result := f_ScrollBars in [ssVertical, ssBoth];
+//#UC END# *521B272D03C7_51D547DD026Cget_impl*
+//#UC START# *521B272D03C7_51D547DD026Cget_var*
+//#UC END# *521B272D03C7_51D547DD026Cget_var*
+//#UC START# *521B277C02F3_51D547DD026Cset_impl*
+ if f_Parent <> aValue then
+ begin
+  if aValue <> nil then
+   f_ParentAlias := aValue.Alias;
+  f_Parent := aValue;
+ end;
+//#UC END# *521B277C02F3_51D547DD026Cset_impl*
+//#UC START# *521B277C02F3_51D547DD026Cset_var*
+//#UC END# *521B277C02F3_51D547DD026Cset_var*
+//#UC START# *521B28930009_51D547DD026C_impl*
+ aHeight := 0;
+ aWidth := 0;
+//#UC END# *521B28930009_51D547DD026C_impl*
+//#UC START# *521B28930009_51D547DD026C_var*
+//#UC END# *521B28930009_51D547DD026C_var*
+//#UC START# *521B293B0012_51D547DD026C_impl*
+ { TODO -oДмитрий Дудко -cРазвитие : Сброс всех значений в значение по умолчанию }
+//#UC END# *521B293B0012_51D547DD026C_impl*
+//#UC START# *521B293B0012_51D547DD026C_var*
+//#UC END# *521B293B0012_51D547DD026C_var*
+//#UC START# *5301EC7500FF_51D547DD026C_impl*
+ Result := RddBaseConfigNode(ClassType).Create(Alias, Caption);
+ TddCustomConfigNode(Result).Assign(Self);
+//#UC END# *5301EC7500FF_51D547DD026C_impl*
+//#UC START# *5301EC7500FF_51D547DD026C_var*
+//#UC END# *5301EC7500FF_51D547DD026C_var*
+//#UC START# *552BA9B9039B_51D547DD026C_impl*
+ for l_IDX := 0 to f_Children.Count - 1 do
+ begin
+  Assert(f_Children[l_IDX] is TddCustomConfigNode);
+  TddCustomConfigNode(f_Children[l_IDX]).ReadOnly := ReadOnly;
+ end;
+//#UC END# *552BA9B9039B_51D547DD026C_impl*
+//#UC START# *552BA9B9039B_51D547DD026C_var*
+var
+ l_IDX: Integer;
+//#UC END# *552BA9B9039B_51D547DD026C_var*

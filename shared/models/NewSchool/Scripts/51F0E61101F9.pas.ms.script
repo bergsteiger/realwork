@@ -1419,6 +1419,83 @@ ref; // ME_56E7C2CA02B6 DoIt
 
 ref; // ME_56E7C2C2036E AnalyseTextTransform
 
+FORWARD ME_5799D8E50104
+
+: ME_5799D8FA010C
+ CONST UID '5799D8FA010C'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_5799D8E50104 // InStyle
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_5799D8FA010C DoIt
+
+: ME_5799D8E50104
+ CONST UID '5799D8E50104'
+ CONST Name 'InStyle'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_524159C700FE // TddHTMLTag
+ ;
+ : Operations
+   Seq: ( HWL ME_5799D8FA010C // DoIt
+ )
+ ; // Operations
+
+ref; // ME_5799D8E50104 InStyle
+
+FORWARD ME_5799D90F00D5
+
+: ME_5799D9300042
+ CONST Name 'aParam'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target HWL ME_524179E002BB // TddHTMLParamID
+ ;
+
+ref; // ME_5799D9300042 aParam
+
+: ME_5799D91B01DD
+ CONST UID '5799D91B01DD'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_5799D90F00D5 // ValueWithoutSpace
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   Seq: ( ME_5799D9300042 // aParam
+ )
+ ; // Parameters
+
+ref; // ME_5799D91B01DD DoIt
+
+: ME_5799D90F00D5
+ CONST UID '5799D90F00D5'
+ CONST Name 'ValueWithoutSpace'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_524159C700FE // TddHTMLTag
+ ;
+ : Operations
+   Seq: ( HWL ME_5799D91B01DD // DoIt
+ )
+ ; // Operations
+
+ref; // ME_5799D90F00D5 ValueWithoutSpace
+
 : ME_5241662602F1
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -1516,6 +1593,8 @@ ref; // ME_479731C50290_ME_524159C700FE Cleanup
  HWL ME_56A071C8034A // AnalyseBorder
  HWL ME_56BC693D00CE // Assign
  HWL ME_56E7C2C2036E // AnalyseTextTransform
+ HWL ME_5799D8E50104 // InStyle
+ HWL ME_5799D90F00D5 // ValueWithoutSpace
  )
  ; // Operations
  : Overridden

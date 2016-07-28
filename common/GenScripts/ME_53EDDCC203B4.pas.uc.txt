@@ -1,0 +1,36 @@
+//#UC START# *53BFCD4C03BF_53EDDCC203B4get_impl*
+ Result := f_Value.ChildrenCount;
+//#UC END# *53BFCD4C03BF_53EDDCC203B4get_impl*
+//#UC START# *53BFCD4C03BF_53EDDCC203B4get_var*
+//#UC END# *53BFCD4C03BF_53EDDCC203B4get_var*
+//#UC START# *53BFCD5501FC_53EDDCC203B4get_impl*
+ Result := DoGetStrings(anIndex);
+//#UC END# *53BFCD5501FC_53EDDCC203B4get_impl*
+//#UC START# *53BFCD5501FC_53EDDCC203B4get_var*
+//#UC END# *53BFCD5501FC_53EDDCC203B4get_var*
+//#UC START# *53BFCD800222_53EDDCC203B4_impl*
+ DoAdd(anItem);
+//#UC END# *53BFCD800222_53EDDCC203B4_impl*
+//#UC START# *53BFCD800222_53EDDCC203B4_var*
+//#UC END# *53BFCD800222_53EDDCC203B4_var*
+//#UC START# *53BFCDAA0388_53EDDCC203B4_impl*
+ aDest.Clear;
+ for l_Index := 0 to Pred(f_Value.ChildrenCount) do
+  aDest.Add(Self.Get_Strings(l_Index)); 
+//#UC END# *53BFCDAA0388_53EDDCC203B4_impl*
+//#UC START# *53BFCDAA0388_53EDDCC203B4_var*
+var
+ l_Index : Integer;
+//#UC END# *53BFCDAA0388_53EDDCC203B4_var*
+//#UC START# *53BFCE310249_53EDDCC203B4_impl*
+ f_Value.DeleteChildren;
+ for l_Index := 0 to Pred(aSource.Count) do
+  Self.Add(aSource[l_Index]);
+//#UC END# *53BFCE310249_53EDDCC203B4_impl*
+//#UC START# *53BFCE310249_53EDDCC203B4_var*
+var
+ l_Index : Integer;
+//#UC END# *53BFCE310249_53EDDCC203B4_var*
+//#UC START# *53EDDCC203B4_ext:ParentFileName
+w:\common\components\rtl\Garant\EVD\evdTasksHelpers.pas
+//#UC END# *53EDDCC203B4_ext:ParentFileName

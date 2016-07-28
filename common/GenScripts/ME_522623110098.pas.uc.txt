@@ -1,0 +1,83 @@
+//#UC START# *521725C301A5_522623110098_impl*
+ Result := False;
+//#UC END# *521725C301A5_522623110098_impl*
+//#UC START# *521725C301A5_522623110098_var*
+//#UC END# *521725C301A5_522623110098_var*
+//#UC START# *5217273F000F_522623110098_impl*
+ inherited Create(aAlias, aCaption, aDefaultValue, aMasterItem);
+ f_LabelTop := False;
+ Labeled := False;
+//#UC END# *5217273F000F_522623110098_impl*
+//#UC START# *5217273F000F_522623110098_var*
+//#UC END# *5217273F000F_522623110098_var*
+//#UC START# *52172B72014C_522623110098_impl*
+//#UC END# *52172B72014C_522623110098_impl*
+//#UC START# *52172B72014C_522623110098_var*
+//#UC END# *52172B72014C_522623110098_var*
+//#UC START# *52172CA801E3_522623110098_impl*
+//#UC END# *52172CA801E3_522623110098_impl*
+//#UC START# *52172CA801E3_522623110098_var*
+//#UC END# *52172CA801E3_522623110098_var*
+//#UC START# *521761BB03DE_522623110098_impl*
+ Result := TvtLabel.Create(aParent);
+ Result.Parent := aParent;
+ Result.Left := aLeft;
+ TvtLabel(Result).Caption := Caption;
+ TvtLabel(Result).Font.Style := [fsBold];
+ Result.Top := aTop;
+ l_Bevel := TBevel.Create(aParent);
+ l_Bevel.Parent := aParent as TWinControl;
+ l_Bevel.Left := Result.Width + aLeft + c_ConfigItemLeft;
+ l_Bevel.Top := aTop + Result.Height div 2;
+ if aParent is TScrollBox
+  then l_Bevel.Width := aParent.ClientWidth - l_Bevel.Left - c_ConfigItemRight - c_ScrollBarWidth
+  else l_Bevel.Width := aParent.ClientWidth - l_Bevel.Left - c_ConfigItemRight;
+ l_Bevel.Height := 2;
+//#UC END# *521761BB03DE_522623110098_impl*
+//#UC START# *521761BB03DE_522623110098_var*
+var
+ l_Bevel: TBevel;
+//#UC END# *521761BB03DE_522623110098_var*
+//#UC START# *521B053F03C3_522623110098_impl*
+ with TvtLabel.Create(nil) do
+ try
+  Parent := aParent;
+  Result := Height + c_ConfigItemTop;
+ finally
+  Free;
+ end;
+//#UC END# *521B053F03C3_522623110098_impl*
+//#UC START# *521B053F03C3_522623110098_var*
+//#UC END# *521B053F03C3_522623110098_var*
+//#UC START# *521B058801FD_522623110098_impl*
+ // TODO -cMM: TddDivider.GetValueFromControl default body inserted
+//#UC END# *521B058801FD_522623110098_impl*
+//#UC START# *521B058801FD_522623110098_var*
+//#UC END# *521B058801FD_522623110098_var*
+//#UC START# *521B05DF00FC_522623110098_impl*
+ l_Label := TvtLabel.Create(nil);
+ try
+  l_Label.Parent := aParent;
+  l_Label.CCaption := l3CStr(Caption);
+  Result := l_Label.Width + c_ConfigItemLeft;
+ finally
+  FreeAndNil(l_Label);
+ end;
+//#UC END# *521B05DF00FC_522623110098_impl*
+//#UC START# *521B05DF00FC_522623110098_var*
+var
+ l_Label: TvtLabel;
+//#UC END# *521B05DF00FC_522623110098_var*
+//#UC START# *521B061A0387_522623110098_impl*
+ Result := LabelWidth(aParent) + 50;
+//#UC END# *521B061A0387_522623110098_impl*
+//#UC START# *521B061A0387_522623110098_var*
+//#UC END# *521B061A0387_522623110098_var*
+//#UC START# *521B07030052_522623110098_impl*
+ // TODO -cMM: TddDivider.SetValueToControl default body inserted
+//#UC END# *521B07030052_522623110098_impl*
+//#UC START# *521B07030052_522623110098_var*
+//#UC END# *521B07030052_522623110098_var*
+//#UC START# *522623110098_ext:ParentFileName
+w:\common\components\rtl\Garant\dd\ddAppConfigTypes.pas
+//#UC END# *522623110098_ext:ParentFileName

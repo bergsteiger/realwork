@@ -1,0 +1,44 @@
+//#UC START# *522F629801CA_ext:ParentFileName
+w:\common\components\rtl\Garant\dd\ddAppConfigLists.pas
+//#UC END# *522F629801CA_ext:ParentFileName
+//#UC START# *522F62CB01EC_522F629801CAget_impl*
+ Result := (DataAdapter as TddSimpleListDataAdapter).DataConfig;
+//#UC END# *522F62CB01EC_522F629801CAget_impl*
+//#UC START# *522F62CB01EC_522F629801CAget_var*
+//#UC END# *522F62CB01EC_522F629801CAget_var*
+//#UC START# *522F62FC023F_522F629801CAget_impl*
+ Result := (DataAdapter as TddSimpleListDataAdapter).DataConfig.Items[0].Caption;
+//#UC END# *522F62FC023F_522F629801CAget_impl*
+//#UC START# *522F62FC023F_522F629801CAget_var*
+//#UC END# *522F62FC023F_522F629801CAget_var*
+//#UC START# *522F62FC023F_522F629801CAset_impl*
+ if TitleCaption <> aValue then
+  (DataAdapter as TddSimpleListDataAdapter).DataConfig.Items[0].Caption := aValue;
+//#UC END# *522F62FC023F_522F629801CAset_impl*
+//#UC START# *522F62FC023F_522F629801CAset_var*
+//#UC END# *522F62FC023F_522F629801CAset_var*
+//#UC START# *522F631301D6_522F629801CA_impl*
+ l_DA:= TddSimpleListDataAdapter.Make(aAlias);
+ try
+  inherited Make(aAlias, aCaption, l_DA, aMasterItem);
+ finally
+  l3Free(l_DA);
+ end;
+//#UC END# *522F631301D6_522F629801CA_impl*
+//#UC START# *522F631301D6_522F629801CA_var*
+var
+ l_DA: TddSimpleListDataAdapter;
+//#UC END# *522F631301D6_522F629801CA_var*
+//#UC START# *522F634D02E1_522F629801CA_impl*
+ l_DA:= TddSimpleListDataAdapter.Make(aAlias);
+ try
+  l_DA.DataConfig:= MakeNode('Adapter', 'Новый элемент', False, aItems);
+  inherited Make(aAlias, aCaption, l_DA, aMasterItem);
+ finally
+  l3Free(l_DA);
+ end;
+//#UC END# *522F634D02E1_522F629801CA_impl*
+//#UC START# *522F634D02E1_522F629801CA_var*
+var
+ l_DA: TddSimpleListDataAdapter;
+//#UC END# *522F634D02E1_522F629801CA_var*

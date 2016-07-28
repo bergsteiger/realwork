@@ -2,9 +2,10 @@
 w:\garant6x\implementation\Garant\GbaNemesis\View\DayTips\DayTips_Module.pas
 //#UC END# *4AA0D5380056_ext:FileName
 //#UC START# *4AA0D5380056impl_uses*
+ , DayTipsInterfaces
 //#UC END# *4AA0D5380056impl_uses*
 //#UC START# *4AA11A2E0144_4AA0D5380056_impl*
- OpenTipsPrim(TsdsTips.Make(aDocInfo), aContainer);
+  TDayTipsModule.OpenTipsPrim(TsdsTips.Make(aDocInfo), aContainer);
 //#UC END# *4AA11A2E0144_4AA0D5380056_impl*
 //#UC START# *4AA11A2E0144_4AA0D5380056_var*
 //#UC END# *4AA11A2E0144_4AA0D5380056_var*
@@ -17,12 +18,14 @@ w:\garant6x\implementation\Garant\GbaNemesis\View\DayTips\DayTips_Module.pas
  l_Data := TnsStartupTips.Make;
  if Assigned(l_Data) then
   Result := TefStartupTips.MakeSingleChild(l_Data,
-                                 CheckContainer(nil),
+                                 TvcmModule.CheckContainer(nil),
                                  vcm_ztFloating)
  else
   Result := nil;
 //#UC END# *4AB9DAAC00AC_4AA0D5380056_impl*
 //#UC START# *4AB9DAAC00AC_4AA0D5380056_var*
+var
+ l_Data : InsStartupTips;
 //#UC END# *4AB9DAAC00AC_4AA0D5380056_var*
 //#UC START# *4AB9DBA1038E_4AA0D5380056exec_impl*
  Assert(((aParams As IvcmExecuteParams).Data = nil),
@@ -31,7 +34,7 @@ w:\garant6x\implementation\Garant\GbaNemesis\View\DayTips\DayTips_Module.pas
   OpenTipsPrim(l_SDS, aParams.Container)
  else*)
  if {(l_SDS = nil) AND} not lp_HasTipsForm {or Assigned(l_SDS)} then
-  OpenTip(nil, CheckContainer(nil));
+  TDayTipsService.Instance.OpenTip(nil, CheckContainer(nil));
 //#UC END# *4AB9DBA1038E_4AA0D5380056exec_impl*
 //#UC START# *4AB9DBA1038E_4AA0D5380056exec_var*
 

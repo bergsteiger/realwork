@@ -1,0 +1,66 @@
+//#UC START# *54FEFD260127_47E124E90272_Word_ext:ParentFileName
+w:\common\components\rtl\Garant\ScriptEngine\WinControlsProcessingPack.pas
+//#UC END# *54FEFD260127_47E124E90272_Word_ext:ParentFileName
+//#UC START# *54FEFD260127_54FEFD260127_47E124E90272_Word_impl*
+ Result := DoFindControl(aControl);
+//#UC END# *54FEFD260127_54FEFD260127_47E124E90272_Word_impl*
+//#UC START# *54FEFD260127_54FEFD260127_47E124E90272_Word_var*
+
+ function DoFindControl(aControl: TWinControl): TComponent{TControl};
+ var
+  l_Index : Integer;
+  l_C : TControl;
+  l_Cmp : TComponent;
+ begin//DoFindControl
+  if (aControl.Name = aName) then
+   Result := aControl
+  else
+  begin
+   Result := nil;
+   for l_Index := 0 to Pred(aControl.ControlCount) do
+   begin
+    l_C := aControl.Controls[l_Index];
+    if (l_C.Name = aName) then
+    begin
+     Result := l_C;
+     Exit;
+    end//l_C.Name = l_Name
+    else
+    begin
+     if (l_C Is TWinControl) then
+     begin
+      Result := DoFindControl(TWinControl(l_C));
+      if (Result <> nil) then
+       Exit;
+     end;//l_C Is TWinControl
+    end;//l_C.Name = l_Name
+   end;//for l_Index
+   if (Result = nil) then
+    for l_Index := 0 to Pred(aControl.ComponentCount) do
+    begin
+     l_Cmp := aControl.Components[l_Index];
+     if (l_Cmp Is TControl) AND (l_Cmp.Name = aName) then
+     begin
+      Result := {TControl}(l_Cmp);
+      Exit;
+     end//l_C.Name = aName
+     else
+     if (l_Cmp Is TWinControl) then
+     begin
+      Result := DoFindControl(TWinControl(l_Cmp));
+      if (Result <> nil) then
+       Exit;
+     end;//l_C Is TWinControl
+     Result := l_Cmp.FindComponent(aName);
+     if (Result <> nil) then
+      Exit;
+     if (l_Cmp.Name = aName) then
+     begin
+      Result := l_Cmp;
+      Exit;
+     end;//l_C.Name = aName
+    end;//for l_Index
+  end;//aControl.Name = l_Name
+ end;//DoFindControl
+
+//#UC END# *54FEFD260127_54FEFD260127_47E124E90272_Word_var*

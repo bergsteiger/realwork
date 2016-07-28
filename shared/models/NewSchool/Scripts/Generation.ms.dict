@@ -652,21 +652,23 @@ STRING elem_func CustomFinalFileName
  if ( Result .IsNotNil ) then
  begin
   if aForCopy then
+  begin
    if ( Self .UseNewGenExcluded ) then
    begin
     VAR l_Path
     VAR l_Name
     Result sysutils:ExtractFilePath >>> l_Path
     Result sysutils:ExtractFileName >>> l_Name
-    
+
     l_Name .CutFinished
     >>> l_Name
     cNotCompleted l_Name Cat
     >>> l_Name
-    
+
     l_Path l_Name Cat >>> Result
    end // (Self .UseNewGenExcluded )
- end // ( Result .IsNotNil )  
+  end // aForCopy
+ end // ( Result .IsNotNil )
 ; // CustomFinalFileName
 
 STRING elem_func FinalFileName
@@ -674,14 +676,13 @@ STRING elem_func FinalFileName
  >>> Result
 ; // FinalFileName
 
-STRING CompileTime-VAR g_TempFileName ''
 STRING CompileTime-VAR g_RealFileName ''
 STRING CompileTime-VAR g_FinalFileName ''
 STRING CompileTime-VAR g_FinalFileNameForUC ''
-BOOLEAN CompileTime-VAR g_UCRead false
-ModelElement CompileTime-VAR g_CurrentGeneratedElement nil
+ARRAY CompileTime-VAR g_UCRead nil
 
 CONST cGenScriptsFolder 'W:\common\GenScripts\'
+CONST cTempGenScriptsFolder 'C:\Temp\GenScripts\'
 
 BOOLEAN elem_func CanCopyToFinalFile
  false >>> Result
@@ -704,18 +705,54 @@ CONST cUCEnd '//#UC END# *'
 
 CONST cPalka '|'
 
-STRING elem_func CurrentGeneratedElementPrefix
- [ cUserCodePrefix g_CurrentGeneratedElement .LUID cPalka ] strings:Cat
+STRING elem_func ElementUCPrefix
+ [ cUserCodePrefix Self .LUID cPalka ] strings:Cat
  >>> Result
-; // CurrentGeneratedElementPrefix
+; // ElementUCPrefix
 
-PROCEDURE ReadUCFromFile
-  STRING IN aFileName
-  STRING IN aCurrentGeneratedElementPrefix
- if ( aFileName sysutils:FileExists ) then
+^@ operator .uc->
+  ^@ IN Self
+  ^ IN aName
+ g_CurrentGenerator ->^ ( [ Self DO .ElementUCPrefix aName DO ] strings:Cat )
+ >>> Result
+; // .uc->
+
+^@ operator .extuc->
+  ^@ IN Self
+  ^L IN aName
+ g_CurrentGenerator ->^ ( [ Self DO .ElementUCPrefix Self DO .LUID '_ext:' aName |N ] strings:Cat )
+ >>> Result
+; // .extuc->
+
+STRING operator .ucString
+  IN Self
+ RULES
+  ( Self IsArray )
+   ( Self .FirstElement )
+  ( Self IsString )
+   Self
+  DEFAULT
+   ''
+ ; // RULES
+ >>> Result
+; // .ucString
+
+^@ operator .gen->
+ ^@ IN Self
+ ^L IN aName
+
+ Self ->^ ( [ g_CurrentGenerator .WordName ':' aName |N ] strings:Cat )
+ >>> Result
+; // .gen->
+
+elem_proc ReadUCFromFile:
+  ^ IN aFileName
+ STRING VAR l_FileName
+ aFileName DO >>> l_FileName
+ if ( l_FileName sysutils:FileExists ) then
  begin
   FILE VAR l_In
-  aFileName TryOpen: File:OpenRead >>> l_In
+  l_FileName TryOpen: File:OpenRead >>> l_In
   TRY
    VAR l_UCOpened
    ARRAY VAR l_Accumulated
@@ -735,7 +772,7 @@ PROCEDURE ReadUCFromFile
     RULES 
      ( aStr cUCStart Has )
       ( 
-       l_UCOpened ! ?ASSURE [ 'Секция кода уже открыта. Файл: ' aFileName ' строка:' aStr ]
+       l_UCOpened ! ?ASSURE [ 'Секция кода уже открыта. Файл: ' l_FileName ' строка:' aStr ]
        true >>> l_UCOpened
        aStr string:Trim >>> aStr
        [] >>> l_Accumulated
@@ -746,7 +783,7 @@ PROCEDURE ReadUCFromFile
       )
      ( aStr cUCEnd Has )
       ( 
-       l_UCOpened ?ASSURE [ 'Секция кода не открыта. Файл: ' aFileName ' строка:' aStr  ]
+       l_UCOpened ?ASSURE [ 'Секция кода не открыта. Файл: ' l_FileName ' строка:' aStr  ]
        false >>> l_UCOpened
        
        VAR l_Head
@@ -767,7 +804,8 @@ PROCEDURE ReadUCFromFile
        aStr string:Trim >>> aStr
 
        g_CurrentGenerator ->^ l_Key ^:= l_Accumulated
-       g_CurrentGenerator ->^ ( aCurrentGeneratedElementPrefix l_Key Cat ) ^:= l_Accumulated
+       Self .uc-> l_Key := l_Accumulated
+       // - сохраняем пользовательские секции в текущий генерируемый элемент
        
        nil >>> l_Accumulated
       )
@@ -782,18 +820,36 @@ PROCEDURE ReadUCFromFile
   FINALLY
    nil >>> l_In
   END // TRY..FINALLY
- end // ( aFileName sysutils:FileExists )
+ end // ( l_FileName sysutils:FileExists )
 ; // ReadUCFromFile
+
+CONST cUCFileExt '.uc.txt'
+
+STRING elem_func UCFileName
+ //g_RealFileName cUCFileExt Cat
+ [
+  cGenScriptsFolder
+  [ Self .WordName .? Ext cUCFileExt ] strings:Cat
+ ] cPathSep strings:CatSep
+ >>> Result
+; // UCFileName
+
+STRING function .ChangeFilePath
+  STRING IN aFileName
+  STRING IN aPath
+ [ aPath aFileName sysutils:ExtractFileName ] cPathSep strings:CatSep
+ >>> Result
+; // .ChangeFilePath
 
 elem_proc SaveUserCode
  STRING VAR l_RealFileName
- g_RealFileName '.uc.txt' Cat >>> l_RealFileName
+ Self .UCFileName >>> l_RealFileName
 
  STRING VAR l_CurrentGeneratedElementPrefix
- Self .CurrentGeneratedElementPrefix >>> l_CurrentGeneratedElementPrefix
+ Self .ElementUCPrefix >>> l_CurrentGeneratedElementPrefix
 
  STRING VAR l_TempFileName
- g_TempFileName '.uc.txt' Cat >>> l_TempFileName
+ l_RealFileName cTempGenScriptsFolder .ChangeFilePath >>> l_TempFileName
  FILE VAR l_Out
  l_TempFileName MakePathAndOpenWrite >>> l_Out
  TRY
@@ -839,52 +895,32 @@ elem_proc SaveUserCode
   
 ; // SaveUserCode
 
-CONST cExtFileName '_ext:FileName'
-
 elem_proc LoadUserCode
- if ( g_UCRead ! ) then
+ if ( Self .gen-> UCRead true ?!= ) then
  begin
-  true >>> g_UCRead
+  Self .gen-> UCRead := true
 
-  STRING VAR l_CurrentGeneratedElementPrefix
-  Self .CurrentGeneratedElementPrefix >>> l_CurrentGeneratedElementPrefix
-
-  g_RealFileName '.uc.txt' Cat l_CurrentGeneratedElementPrefix ReadUCFromFile
-
-  VAR l_Key
-  [ l_CurrentGeneratedElementPrefix Self .LUID cExtFileName ] strings:Cat
-  >>> l_Key
+  Self .ReadUCFromFile: ( Self .UCFileName )
 
   VAR l_PrevFile
-  g_CurrentGenerator ->^ l_Key DO >>> l_PrevFile
+  Self .extuc-> FileName .ucString >>> l_PrevFile
 
-  if ( l_PrevFile IsArray ) then
+  if ( l_PrevFile g_FinalFileNameForUC SameText ! ) then
   begin
-   l_PrevFile .FirstElement >>> l_PrevFile
-  end // ( l_PrevFile IsArray )
-
-  //l_PrevFile Msg
-  if (
-      ( l_PrevFile IsString )
-      AND ( l_PrevFile g_FinalFileNameForUC ?!= )
-     ) then
-  begin
-   l_PrevFile l_CurrentGeneratedElementPrefix ReadUCFromFile
-  end // ( l_PrevFile IsString )
+   Self .ReadUCFromFile: l_PrevFile
+  end // ( l_PrevFile g_FinalFileNameForUC SameText ! )
   else
   begin
-   g_FinalFileNameForUC l_CurrentGeneratedElementPrefix ReadUCFromFile
+   Self .ReadUCFromFile: g_FinalFileNameForUC
   end // ( l_PrevFile IsString )
 
   Self .SaveUserCode
- end //( g_UCRead ! )
+ end //( Self .gen-> UCRead true ?!= )
 ; // LoadUserCode
 
-elem_proc FlushFiles
- VAR l_Key
- [ Self .CurrentGeneratedElementPrefix Self .LUID cExtFileName ] strings:Cat
- >>> l_Key
+STRING CompileTime-VAR g_TempFileName ''
 
+elem_proc FlushFiles
  VAR l_FileToWrite
  '' >>> l_FileToWrite
 
@@ -906,27 +942,24 @@ elem_proc FlushFiles
  end // ( g_FinalFileName .IsNotNil )
 
  Self .LoadUserCode
- VAR l_FileToDelete
- g_CurrentGenerator ->^ l_Key DO >>> l_FileToDelete
- if ( l_FileToDelete IsArray ) then
+ Self .extuc-> ParentFileName := nil
+ STRING VAR l_FileToDelete
+ Self .extuc-> FileName .ucString >>> l_FileToDelete
+ if ( l_FileToDelete l_FileToWrite SameText ! ) then
  begin
-  l_FileToDelete .FirstElement >>> l_FileToDelete
- end // ( l_FileToDelete IsArray )
- if (
-     ( l_FileToDelete IsString ! )
-     OR ( l_FileToDelete l_FileToWrite SameText ! )
-    ) then
- begin   
-  g_CurrentGenerator ->^ l_Key ^:= l_FileToWrite
+  Self .extuc-> FileName := l_FileToWrite
   Self .SaveUserCode
-  if (
-      ( l_FileToDelete IsString )
-      AND ( l_FileToDelete sysutils:FileExists )
-     ) then
+  if ( l_FileToDelete sysutils:FileExists ) then
   begin
    l_FileToDelete true DoDeleteFile
   end // ( l_FileToDelete sysutils:FileExists )
- end // ( l_FileToDelete IsString )
+ end // ( l_FileToDelete l_FileToWrite SameText ! )
+
+ g_UCRead .for> (
+   IN anElement
+  anElement .extuc-> ParentFileName := l_FileToWrite
+  anElement .SaveUserCode
+ ) // g_UCRead .for>
 
  if ( g_FinalFileName .IsNotNil ) then
  begin
@@ -968,10 +1001,12 @@ elem_proc FlushFiles
      end // ( l_FileToDelete sysutils:FileExists )
     end // ( l_FileToDelete g_FinalFileName SameText ! )
    end // ( cNotFinished l_Name StartsStr ! )
-         
+
   end // ( Self .? .CanCopyToFinalFile )
  end // ( g_FinalFileName .IsNotNil )
 ; // FlushFiles
+
+ModelElement CompileTime-VAR g_CurrentGeneratedElement nil
 
 elem_proc GenerateWordToFileWith:
  ^ IN aLambda
@@ -982,7 +1017,7 @@ elem_proc GenerateWordToFileWith:
   [ Self .WordName .? Ext ] strings:Cat >>> l_FileName
  
   STRING VAR l_TempPath
-  'C:\Temp\GenScripts\' >>> l_TempPath
+  cTempGenScriptsFolder >>> l_TempPath
   l_TempPath ForceDirectories
   
   STRING VAR l_RealPath
@@ -1003,6 +1038,7 @@ elem_proc GenerateWordToFileWith:
        Self .FinalFileName >>> g_FinalFileName
        Self false .CustomFinalFileName >>> g_FinalFileNameForUC
        TF g_UCRead (
+        [] >>> g_UCRead
         TF g_CurrentGeneratedElement (
          TF g_OutFile (
           g_TempFileName MakePathAndOpenWrite >>> g_OutFile
@@ -4124,21 +4160,131 @@ ARRAY elem_func MethodParameters
  >>> Result
 ; // MethodParameters
 
+BOOLEAN elem_func IsMethodLike
+ Cached:
+ (
+  RULES
+   ( Self .IsElementProxy )
+    false
+   ( Self .IsClassOrMixIn )
+    false
+   ( Self .IsRecord )
+    false
+   ( Self .IsUtilityPack )
+    false
+   ( Self .IsTarget )
+    false
+   ( Self .IsIni )
+    false
+   ( Self .IsFini )
+    false
+   ( Self .IsInterfaces )
+    false
+   ( Self .IsVCMFormZone )
+    false
+   ( Self .IsVCMZone )
+    false
+   DEFAULT
+    true
+  ; // RULES
+ )
+ >>> Result
+; // IsMethodLike
+
+BOOLEAN elem_func NeedWriteUCToParent
+ Cached:
+ (
+  RULES
+   ( Self .IsMethodLike )
+    true
+   ( Self .IsIni )
+    true
+   ( Self .IsFini )
+    true
+/*{   ( Self .IsRecord )
+    true
+   ( Self .IsVCMFormZone )
+    true
+   ( Self .IsVCMZone )
+    true}*/
+   DEFAULT
+    false 
+  ; // RULES
+ )
+ >>> Result
+; // NeedWriteUCToParent
+
+ModelElement elem_func ImplementorOrParent
+ //Cached:
+ (
+  g_Implementor >>> Result
+  
+  if ( Result .IsNil ) then
+  begin
+   Self .Parent >>> Result
+  end // ( Result .IsNil )
+  Result
+ )
+ >>> Result
+; // ImplementorOrParent
+
 elem_proc OutUserCode:
   STRING IN aKey
   ^ IN aOutExisting
   ^ IN aOutNew
 
- Self .LoadUserCode 
+ g_CurrentGeneratedElement .LoadUserCode
  VAR l_Field
  g_CurrentGenerator %% aKey >>> l_Field
+ 
+ VAR l_InnerChild
+ nil >>> l_InnerChild
+ if ( Self g_CurrentGeneratedElement .IsSameModelElement ! ) then
+ begin
+  Self >>> l_InnerChild
+  if ( l_InnerChild .NeedWriteUCToParent ) then
+  begin
+   l_InnerChild .ImplementorOrParent >>> l_InnerChild
+  end // ( l_InnerChild .NeedWriteUCToParent )
+  if ( l_InnerChild g_CurrentGeneratedElement .IsSameModelElement ) then
+  begin
+   nil >>> l_InnerChild
+  end // ( Self g_CurrentGeneratedElement .IsSameModelElement )
+  if ( l_InnerChild .NotIsNil ) then
+  begin
+   if ( l_InnerChild .LUID .IsNil ) then
+   begin
+    nil >>> l_InnerChild
+   end // ( l_InnerChild .LUID .IsNil )
+  end // ( l_InnerChild .NotIsNil )
+  if ( l_Field .IsNil ) then
+  begin
+   if ( l_InnerChild .NotIsNil ) then
+   begin
+    if ( l_InnerChild .gen-> UCRead true ?!= ) then
+    begin
+     l_InnerChild .gen-> UCRead := true
+     l_InnerChild .ReadUCFromFile: ( l_InnerChild .UCFileName )
+     g_CurrentGenerator %% aKey >>> l_Field
+    end // ( l_InnerChild .gen-> UCRead true ?!= )
+   end // ( l_InnerChild .NotIsNil )
+  end // ( l_Field .IsNil )
+ end // l_InnerChild
+
  if ( l_Field .IsNil ) then
  begin
   aKey aOutNew DO
  end // ( l_Field .IsNil )
  else
  begin
-  aKey l_Field DO aOutExisting DO
+  VAR l_Value
+  l_Field DO >>> l_Value
+  if ( l_InnerChild .NotIsNil ) then
+  begin
+   l_InnerChild .uc-> aKey := l_Value
+   l_InnerChild .AddToArray?: g_UCRead DROP
+  end // ( l_InnerChild .NotIsNil )
+  aKey l_Value aOutExisting DO
  end // ( l_Field .IsNil )
 ; // OutUserCode:
 
@@ -4200,7 +4346,7 @@ elem_proc DefaultUserCode
   [ cUCStart aKey ] .Out
   [ aCode DO ] .Out
   [ cUCEnd aKey ] .Out
- ) // Self aKey .OutUserCode:
+ ) // Self aKey .DefaultUserCodePrim:
 ; // DefaultUserCode
 
 elem_proc PredefinedUserCode:
@@ -4211,7 +4357,7 @@ elem_proc PredefinedUserCode:
  Self aSuffix aKey .DefaultUserCodePrim: (
    IN aKey
   [ aCode DO ] aOutLambda DO
- ) // Self aKey .OutUserCode:
+ ) // Self aKey .DefaultUserCodePrim:
 ; // PredefinedUserCode:
 
 elem_proc PredefinedMethodUserCode:
@@ -4238,20 +4384,6 @@ elem_proc PredefinedMethodUserCodeWithoutVar:
  Self aSuffix aKey aCode .PredefinedMethodUserCode: () ( aImplCode DO ) 
 ; // PredefinedMethodUserCodeWithoutVar:
   
-ModelElement elem_func ImplementorOrParent
- //Cached:
- (
-  g_Implementor >>> Result
-  
-  if ( Result .IsNil ) then
-  begin
-   Self .Parent >>> Result
-  end // ( Result .IsNil )
-  Result
- )
- >>> Result
-; // ImplementorOrParent
-
 INTERFACE elem_func InterfaceLinkField
  Cached:
  (
@@ -5852,14 +5984,6 @@ elem_proc MethodUserCode
    )
  ; // RULES 
 ; // MethodUserCode
-
-BOOLEAN elem_func IsIni
- Self .IsStereotype st_ini::Operation >>> Result
-; // IsIni
-
-BOOLEAN elem_func IsFini
- Self .IsStereotype st_fini::Operation >>> Result
-; // IsFini
 
 elem: IfDefBrace:
   ^ IN aLambda
@@ -7660,29 +7784,11 @@ elem_proc UserCode:
        ';'
       ] .Out
      )
-   ( Self .IsElementProxy )
-    AsDefault
-   ( Self .IsClassOrMixIn )
-    AsDefault
-   ( Self .IsRecord )
-    AsDefault
-   ( Self .IsUtilityPack )
-    AsDefault
-   ( Self .IsTarget )
-    AsDefault
-   ( Self .IsIni )
-    AsDefault
-   ( Self .IsFini )
-    AsDefault
-   ( Self .IsInterfaces )
-    AsDefault
-   ( Self .IsVCMFormZone )
-    AsDefault
-   ( Self .IsVCMZone )
-    AsDefault
-   DEFAULT
+   ( Self .IsMethodLike )
     AsMethod
-  ; // RULES 
+   DEFAULT
+    AsDefault
+  ; // RULES
  end // ( l_Code .IsValueValid ) 
 ; // UserCode:
 
@@ -7962,7 +8068,6 @@ elem_iterator ChildrenEx
      ARRAY IN anOps
      ModelElement IN aKeywordSelf
     anOps 
-    //.filter> ( .Name Msg true )
     .map> ( aKeywordSelf Self .ClassForKeywordImplementation )
     .filter> ( l_Children SWAP .Name .HasModelElementWithName ! )
     .for> (
@@ -9784,7 +9889,6 @@ elem_iterator OverriddenEx
          .NotEmpty 
         ) then
      begin
-      //Self .Name Msg
       .join> ToArray: ( GarantModel::TtfwWordPrim.DoDoIt .OverrideMethod )
      end // .filter> ( GarantModel::TtfwRegisterableWord .IsSameModelElement )
     end // ( l_HasDoIt ! )
@@ -15082,7 +15186,7 @@ elem_iterator IniOperations
             aMade ->^ cUserCodePrefix ^:= [ cSpace l_TypeName '.RegisterInEngine;' ]
            ) // MakeIniProcedure:
           ) // .join>
-        end // ( l_IniOperations GarantModel::l3UnknownPrim.ClearFields .HasModelElement )
+        end // ( l_IniOperations 'Ini_Reg' .HasModelElementWithName ! )
        end // ( l_IniOperations 'Ini_Reg' .HasModelElementWithName ! )
       end // ( Self .Abstraction at_abstract != )
      end // ( Self .IsMixIn ! )
@@ -16394,7 +16498,6 @@ elem_proc call.generators.in.list
 ; // call.generators.in.list
 
 elem_proc TransformWord
- //Self .Name Msg
 ; // TransformWord
 
 elem_proc DoTransformWord

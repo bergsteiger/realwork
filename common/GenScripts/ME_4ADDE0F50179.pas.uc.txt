@@ -1,0 +1,252 @@
+//#UC START# *46A4504B03C4_4ADDE0F50179_impl*
+ ItemNotify(aNotifier, aOperation, aIndex);
+     {* прошла операция. }
+//#UC END# *46A4504B03C4_4ADDE0F50179_impl*
+//#UC START# *46A4504B03C4_4ADDE0F50179_var*
+//#UC END# *46A4504B03C4_4ADDE0F50179_var*
+//#UC START# *4ADDE0F50179_ext:ParentFileName
+w:\common\components\rtl\Garant\L3\l3NodesModelPart.pas
+//#UC END# *4ADDE0F50179_ext:ParentFileName
+//#UC START# *54C78C200291_4ADDE0F50179_impl*
+ Result := GetItemsCount;
+ if (ChildCount <> Result) then
+  IncAllChildrenCount(Result - ChildCount);
+//#UC END# *54C78C200291_4ADDE0F50179_impl*
+//#UC START# *54C78C200291_4ADDE0F50179_var*
+//#UC END# *54C78C200291_4ADDE0F50179_var*
+//#UC START# *54C78E2702B3_4ADDE0F50179_impl*
+ Result := GetChildByNumber(0);
+//#UC END# *54C78E2702B3_4ADDE0F50179_impl*
+//#UC START# *54C78E2702B3_4ADDE0F50179_var*
+//#UC END# *54C78E2702B3_4ADDE0F50179_var*
+//#UC START# *54C78FC902EA_4ADDE0F50179_impl*
+ Result := AllChildrenCount > 0;
+//#UC END# *54C78FC902EA_4ADDE0F50179_impl*
+//#UC START# *54C78FC902EA_4ADDE0F50179_var*
+//#UC END# *54C78FC902EA_4ADDE0F50179_var*
+//#UC START# *54C8DFF102DD_4ADDE0F50179_impl*
+ if not HasChild then
+  Exit;
+ lCheckResultLog := IterMode and imCheckResult > 0;
+
+ if (aFromNode = nil) then
+  I := 0
+ else
+ begin
+  if not IsSame(aFromNode.ParentNode) then
+   Exit;
+  I := Tl3ListItemNode((aFromNode as Il3NodeWrap).GetSelf).ListItem;
+ end;
+
+ //I := 0;
+ lChildsCnt := AllChildrenCount;
+ while AllChildrenCount > I do
+ begin
+  Result := GetChildByNumber(I);
+    {$IfDef SkipIterByExcept}
+  try
+   lActionResult := Action(Result);
+  except
+   on E: ESkipIterateChilds do
+    lActionResult := False;
+   else raise;
+  end;
+    {$Else}
+  lActionResult := Action(Result);
+  if Byte(lActionResult) = 2 then
+   lActionResult := False;
+    {$EndIf}
+  if lActionResult and lCheckResultLog then
+   Exit;
+  if lChildsCnt = AllChildrenCount then
+   Inc(I)
+  else lChildsCnt := AllChildrenCount;  // В Action удалили текущий
+ end;
+ Result := Nil;
+//#UC END# *54C8DFF102DD_4ADDE0F50179_impl*
+//#UC START# *54C8DFF102DD_4ADDE0F50179_var*
+var
+ I : Integer;
+ lChildsCnt : Integer;
+ lCheckResultLog : Boolean;
+ lActionResult : Boolean;
+//#UC END# *54C8DFF102DD_4ADDE0F50179_var*
+//#UC START# *54C8E4FA0325_4ADDE0F50179_impl*
+ inherited DoNotify(aOperation, aNode);
+ if (NotifiedObjList <> nil) and
+  (NotifiedObjList.Count > 0) then
+  for I := Pred(NotifiedObjList.Count) to 0 do
+  begin
+   if l3IOk(IUnknown(NotifiedObjList.Items[I]).QueryInterface(Il3Node, lIntf)) and
+    (lIntf.IsDisappeared) then
+    NotifiedObjList.Delete(I);
+  end;
+//#UC END# *54C8E4FA0325_4ADDE0F50179_impl*
+//#UC START# *54C8E4FA0325_4ADDE0F50179_var*
+var
+ I : Integer;
+ lIntf : Il3Node;
+//#UC END# *54C8E4FA0325_4ADDE0F50179_var*
+//#UC START# *54C8E5660144_4ADDE0F50179_impl*
+ if (aNum < 0) or (aNum >= AllChildrenCount) then
+  Result := nil
+ else
+ begin
+  aNode := MakeChildNode;
+  try
+   aNode.ListNode := Self;
+   aNode.ListItem := aNum;
+   Result := aNode;
+   SubscribeChild(aNode);
+  finally
+   l3Free(aNode);
+  end;
+ end;
+//#UC END# *54C8E5660144_4ADDE0F50179_impl*
+//#UC START# *54C8E5660144_4ADDE0F50179_var*
+var
+ aNode : Tl3ListItemNode;
+//#UC END# *54C8E5660144_4ADDE0F50179_var*
+//#UC START# *54C8E60703B6_4ADDE0F50179_impl*
+ Abort;
+//#UC END# *54C8E60703B6_4ADDE0F50179_impl*
+//#UC START# *54C8E60703B6_4ADDE0F50179_var*
+//#UC END# *54C8E60703B6_4ADDE0F50179_var*
+//#UC START# *54C8E65102F8_4ADDE0F50179_impl*
+ Result := False;
+//#UC END# *54C8E65102F8_4ADDE0F50179_impl*
+//#UC START# *54C8E65102F8_4ADDE0F50179_var*
+//#UC END# *54C8E65102F8_4ADDE0F50179_var*
+//#UC START# *54CA27AF0001_4ADDE0F50179get_impl*
+ Result := nil;
+ Assert(False, 'Перекрыть надо');
+//#UC END# *54CA27AF0001_4ADDE0F50179get_impl*
+//#UC START# *54CA27AF0001_4ADDE0F50179get_var*
+//#UC END# *54CA27AF0001_4ADDE0F50179get_var*
+//#UC START# *54CA27AF0001_4ADDE0F50179set_impl*
+ Assert(False, 'Перекрыть надо');
+//#UC END# *54CA27AF0001_4ADDE0F50179set_impl*
+//#UC START# *54CA27AF0001_4ADDE0F50179set_var*
+//#UC END# *54CA27AF0001_4ADDE0F50179set_var*
+//#UC START# *54CBBF3C0184_4ADDE0F50179_impl*
+ inherited Notify(ntDelete, aDelete);
+ inherited Notify(ntDeleteDone, aDelete);
+//#UC END# *54CBBF3C0184_4ADDE0F50179_impl*
+//#UC START# *54CBBF3C0184_4ADDE0F50179_var*
+//#UC END# *54CBBF3C0184_4ADDE0F50179_var*
+//#UC START# *54CBBF9F00FA_4ADDE0F50179_impl*
+ if Supports(aChildNode, Il3NodeNotifyRecipient, l_NotifyRecipient) then
+ try
+  Subscribe(l_NotifyRecipient);
+ finally
+  l_NotifyRecipient := nil;
+ end;
+//#UC END# *54CBBF9F00FA_4ADDE0F50179_impl*
+//#UC START# *54CBBF9F00FA_4ADDE0F50179_var*
+var
+ l_NotifyRecipient: Il3NodeNotifyRecipient;
+//#UC END# *54CBBF9F00FA_4ADDE0F50179_var*
+//#UC START# *54CBBFB203CE_4ADDE0F50179_impl*
+ if Supports(aChildNode, Il3NodeNotifyRecipient, l_NotifyRecipient) then
+ try
+  Unsubscribe(l_NotifyRecipient);
+ finally
+  l_NotifyRecipient := nil;
+ end;
+//#UC END# *54CBBFB203CE_4ADDE0F50179_impl*
+//#UC START# *54CBBFB203CE_4ADDE0F50179_var*
+var
+ l_NotifyRecipient: Il3NodeNotifyRecipient;
+//#UC END# *54CBBFB203CE_4ADDE0F50179_var*
+//#UC START# *54CBC049028E_4ADDE0F50179_impl*
+ lNewIndex := aChildNode.ListItem;
+
+ lItemsLast := Pred(GetItemsCount);
+ case aDirection of
+  dUp:
+   if lNewIndex > 0 then
+    Dec(lNewIndex);
+  dUpMax:
+   if lNewIndex > 0 then
+    lNewIndex := 0;
+  dDown:
+   if lNewIndex < lItemsLast then
+    Inc(lNewIndex);
+  dDownMax:
+   if lNewIndex < lItemsLast then
+    lNewIndex := lItemsLast;
+ end;
+ Result := lNewIndex <> aChildNode.ListItem;
+ if Result then
+ begin
+  inherited Notify(ntMoveBegin, Self);
+  try
+   lUserParam := nil;
+   BeginMove(lUserParam);
+   try
+    MoveChildItemPrim(aChildNode.ListItem, lNewIndex);
+    //!! lList.Move(f_ListItem, lNewIndex);
+
+    aChildNode.ListItem := lNewIndex;
+   finally
+    EndMove(lUserParam);
+   end;
+  finally
+   inherited Notify(ntMoveEnd, Self);
+  end;
+ end;
+//#UC END# *54CBC049028E_4ADDE0F50179_impl*
+//#UC START# *54CBC049028E_4ADDE0F50179_var*
+var
+ lNewIndex : Integer;
+ lUserParam : Pointer;
+ lItemsLast : Integer;
+//#UC END# *54CBC049028E_4ADDE0F50179_var*
+//#UC START# *54CF6FEC023C_4ADDE0F50179_impl*
+ AllChildrenCount := GetItemsCount;
+ if aOperation = ntClear then
+  inherited Notify(ntChildClear, Self)
+ else
+ begin
+  lNode := GetChildByNumber(aIndex);
+  // lNode - информационный объект с полем f_ListItem = aIndex
+  // с другой стороны это нода-обертка вокруг элемента листа,
+  // подписанная на нотификацию
+  // При нотификации ntDelete ( см. Tl3ListItemNode.NodeNotify) объект
+  // сбрасывает значение f_ListItem = -1, что приводит к некорректной обработке
+  // нотификации для последующих элементов списка рассылки (fNotifiedObjList)
+  // для подавления этого эффекта убираем информационный объект из списка рассылки
+  // Конечно, в общем случае так делать неправильно, поскольку GetChildByNumber может
+  // вернуть реальный объект-ноду, которая таким образом не получит нотификации
+  // об изменени состояния, но в данном случае реализация такова, что каждый раз создается
+  // новая нода-обертка, которая больше нигде не используется.
+  // Собственно все проблемы из-за наличия нескольких оберток вокруг одного элемента листа
+
+  UnSubscribe(lNode as Il3NodeNotifyRecipient); // см. UnsubscribeChild(aChildNode : Tl3ListItemNode);
+
+  inherited Notify(aOperation, lNode);
+ end;
+//#UC END# *54CF6FEC023C_4ADDE0F50179_impl*
+//#UC START# *54CF6FEC023C_4ADDE0F50179_var*
+var
+ lNode : Il3Node;
+//#UC END# *54CF6FEC023C_4ADDE0F50179_var*
+//#UC START# *54D9E08D0212_4ADDE0F50179_impl*
+ Dec(f_UpdateCount);
+ if (f_UpdateCount < 0) then
+  f_UpdateCount := 0;
+ if (f_UpdateCount = 0) then
+ begin
+  AllChildrenCount := GetItemsCount;
+  inherited;
+ end;
+//#UC END# *54D9E08D0212_4ADDE0F50179_impl*
+//#UC START# *54D9E08D0212_4ADDE0F50179_var*
+//#UC END# *54D9E08D0212_4ADDE0F50179_var*
+//#UC START# *54D9E09D018D_4ADDE0F50179_impl*
+ if (f_UpdateCount = 0) then
+  inherited;
+ Inc(f_UpdateCount);
+//#UC END# *54D9E09D018D_4ADDE0F50179_impl*
+//#UC START# *54D9E09D018D_4ADDE0F50179_var*
+//#UC END# *54D9E09D018D_4ADDE0F50179_var*

@@ -1,0 +1,21 @@
+//#UC START# *4B90F1F501DD_ext:ParentFileName
+w:\quality\test\garant6x\AdapterTest\AdapterHelpers\atNodeHelper.pas
+//#UC END# *4B90F1F501DD_ext:ParentFileName
+//#UC START# *4B90F22700A3_4B90F1F501DD_impl*
+  Assert(VarType(aCaption) = varString, 'VarType(aCaption) = varString');
+  aNode.GetCaption(l_String);
+  Result := Assigned(l_String) AND (String(l_String.GetData) = VarToStr(aCaption));
+//#UC END# *4B90F22700A3_4B90F1F501DD_impl*
+//#UC START# *4B90F22700A3_4B90F1F501DD_var*
+  var
+    l_String : IString;
+//#UC END# *4B90F22700A3_4B90F1F501DD_var*
+//#UC START# *50046733037B_4B90F1F501DD_impl*
+  Assert(VarType(aCaption) = varString, 'VarType(aCaption) = varString');
+  aNode.GetCaption(l_String);
+  Result := Assigned(l_String) AND AnsiSameText(l_String.GetData, VarToStr(aCaption));
+//#UC END# *50046733037B_4B90F1F501DD_impl*
+//#UC START# *50046733037B_4B90F1F501DD_var*
+  var
+    l_String : IString;
+//#UC END# *50046733037B_4B90F1F501DD_var*

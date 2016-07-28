@@ -1,0 +1,163 @@
+//#UC START# *4B9E682C038E_ext:ParentFileName
+w:\common\components\rtl\Garant\dd\ddAppConfigTypes.pas
+//#UC END# *4B9E682C038E_ext:ParentFileName
+//#UC START# *5217273F000F_4B9E682C038E_impl*
+ inherited Create(aAlias, aCaption, aDefaultValue, aMasterItem);
+ // Создать объект для шрифта
+ f_Value.Kind := dd_vkObject;
+ f_Value.AsObject := TFont.Create;
+//#UC END# *5217273F000F_4B9E682C038E_impl*
+//#UC START# *5217273F000F_4B9E682C038E_var*
+//#UC END# *5217273F000F_4B9E682C038E_var*
+//#UC START# *52172B72014C_4B9E682C038E_impl*
+ with TFont(f_Value.AsObject), aStorage do
+ begin
+  Name := l3Str(ReadString(Alias + '.Name', TFont(DefaultValue.AsObject).Name));
+  CharSet := ReadInteger(Alias + '.CharSet', TFont(DefaultValue.AsObject).CharSet);
+  Color := ReadInteger(Alias + '.Color', TFont(DefaultValue.AsObject).Color);
+  Size := ReadInteger(Alias + '.Size', TFont(DefaultValue.AsObject).Size);
+  if ReadBool(Alias + '.Bold', fsBold in TFont(DefaultValue.AsObject).Style) then
+   Style := Style + [fsBold];
+  if ReadBool(Alias + '.Italic', fsItalic in TFont(DefaultValue.AsObject).Style) then
+   Style := Style + [fsItalic];
+  if ReadBool(Alias + '.Underline', fsUnderline in TFont(DefaultValue.AsObject).Style) then
+   Style := Style + [fsUnderline];
+  if ReadBool(Alias + '.Strikeout', fsStrikeout in TFont(DefaultValue.AsObject).Style) then
+   Style := Style + [fsStrikeout];
+ end;
+//#UC END# *52172B72014C_4B9E682C038E_impl*
+//#UC START# *52172B72014C_4B9E682C038E_var*
+//#UC END# *52172B72014C_4B9E682C038E_var*
+//#UC START# *52172CA801E3_4B9E682C038E_impl*
+ with TFont(f_Value.AsObject), aStorage do
+ begin
+  WriteString(Alias + '.Name', Name);
+  WriteInteger(Alias + '.CharSet', CharSet);
+  WriteInteger(Alias + '.Color', Color);
+  WriteInteger(Alias + '.Size', Size);
+  WriteBool(Alias + '.Bold', fsBold in Style);
+  WriteBool(Alias + '.Italic', fsItalic in Style);
+  WriteBool(Alias + '.Underline', fsUnderline in Style);
+  WriteBool(Alias + '.Strikeout', fsStrikeout in Style);
+ end;
+//#UC END# *52172CA801E3_4B9E682C038E_impl*
+//#UC START# *52172CA801E3_4B9E682C038E_var*
+//#UC END# *52172CA801E3_4B9E682C038E_var*
+//#UC START# *521760C60369_4B9E682C038E_impl*
+ inherited AfterConstruct(aLeft, aMaxLeft, aTop, theControl, theLabel);
+ (theControl as TvtPanel).CCaption := nil;
+//#UC END# *521760C60369_4B9E682C038E_impl*
+//#UC START# *521760C60369_4B9E682C038E_var*
+//#UC END# *521760C60369_4B9E682C038E_var*
+//#UC START# *521761BB03DE_4B9E682C038E_impl*
+ Result := TvtPanel.Create(aParent);
+ Result.Parent := aParent as TwinControl;
+ Result.Left := aLeft;
+ Result.Top := aTop;
+ Result.Height := ControlHeight(aParent);
+ if aParent is TScrollBox
+  then Result.Width := aParent.ClientWidth - 2 * c_ConfigItemRight - c_ScrollBarWidth
+  else Result.Width := aParent.ClientWidth - 2 * c_ConfigItemRight;
+ {$ifdef nemesis}
+ Result.Anchors := Result.Anchors + [akRight];
+ {$endif}
+ (Result as TvtPanel).BevelOuter := bvNone;
+ (Result as TvtPanel).CCaption := nil;
+
+ l_Button := TvtButton.Create(Result);
+ l_Button.Parent := Result as TWinControl;
+ l_Button.Top := 2;
+ l_Button.Left := Result.ClientWidth - l_Button.Width;
+ (l_Button as TvtButton).Caption := str_ddcmSelectButton.AsStr;
+ l_Button.Tag := AbsoluteIndex;
+ l_Button.Name := Alias + '_Button';
+ (l_Button as TvtButton).OnClick := FontButtonClick;
+
+ l_Panel := TvtPanel.Create(Result);
+ l_Panel.Parent := Result as TWinControl;
+ l_Panel.Name := Alias + '_Example';
+ l_Panel.Top := 2;
+ l_Panel.Color := clWindow;
+ l_Panel.Height := Result.Height-4;
+ l_Panel.Width := Result.ClientWidth - l_Button.Width - c_ConfigItemLeft;
+ l_Panel.BevelOuter := bvRaised;
+ l_Panel.BevelInner := bvLowered;
+ l_Panel.CCaption := str_ddcmFontExample.AsCStr;
+//#UC END# *521761BB03DE_4B9E682C038E_impl*
+//#UC START# *521761BB03DE_4B9E682C038E_var*
+var
+ l_Panel: TvtPanel;
+ l_Button: TvtButton;
+//#UC END# *521761BB03DE_4B9E682C038E_var*
+//#UC START# *521B053F03C3_4B9E682C038E_impl*
+ with TvtButton.Create(aParent) do
+ try
+  Parent := aParent;
+  Result := Height;
+ finally
+  Free;
+ end;
+ Inc(Result, 4); // Два пикселя сверху и снизу кнопки
+//#UC END# *521B053F03C3_4B9E682C038E_impl*
+//#UC START# *521B053F03C3_4B9E682C038E_var*
+//#UC END# *521B053F03C3_4B9E682C038E_var*
+//#UC START# *521B058801FD_4B9E682C038E_impl*
+for I := 0 to (Control as TvtPanel).ControlCount-1 do
+ if (Control as TvtPanel).Controls[I] is TvtPanel then
+ begin
+  l_C := (Control as TvtPanel).Controls[I];
+  Break;
+ end;
+ TFont(ObjectValue).Assign((l_C as TvtPanel).Font);
+ { TODO -oДимка -cРазвитие : Придумать как сравнивать шрифты }
+ Changed := True;
+//#UC END# *521B058801FD_4B9E682C038E_impl*
+//#UC START# *521B058801FD_4B9E682C038E_var*
+var
+ I: Integer;
+ l_C: TControl;
+//#UC END# *521B058801FD_4B9E682C038E_var*
+//#UC START# *521B07030052_4B9E682C038E_impl*
+ for I := 0 to (Control as TvtPanel).ControlCount-1 do
+  if (Control as TvtPanel).Controls[I] is TvtPanel then
+  begin
+   l_C := (Control as TvtPanel).Controls[I];
+   Break;
+  end;
+  if aDefault then
+   (l_C as TvtPanel).Font := TFont(DefaultValue.AsObject)
+  else
+   (l_C as TvtPanel).Font := TFont(ObjectValue);
+//#UC END# *521B07030052_4B9E682C038E_impl*
+//#UC START# *521B07030052_4B9E682C038E_var*
+var
+ I: Integer;
+ l_C: TControl;
+//#UC END# *521B07030052_4B9E682C038E_var*
+//#UC START# *522457330322_4B9E682C038E_impl*
+ with TFontDialog.Create(nil) do
+ try
+  Font := ((Control as TvtPanel).Controls[1] as TvtPanel).Font;
+  if Execute then
+  begin
+   ((Control as TvtPanel).Controls[1] as TvtPanel).Font := Font;
+   Changed := True;
+  end;
+ finally
+  Free;
+ end;
+//#UC END# *522457330322_4B9E682C038E_impl*
+//#UC START# *522457330322_4B9E682C038E_var*
+//#UC END# *522457330322_4B9E682C038E_var*
+//#UC START# *552BB745031E_4B9E682C038E_impl*
+for I := 0 to (Control as TvtPanel).ControlCount-1 do
+ if (Control as TvtPanel).Controls[I] is TvtButton then
+ begin
+  (Control as TvtPanel).Controls[I].Enabled := (Control as TvtPanel).Controls[I].Enabled and not ReadOnly;
+  Break;
+ end;
+//#UC END# *552BB745031E_4B9E682C038E_impl*
+//#UC START# *552BB745031E_4B9E682C038E_var*
+var
+ I: Integer;
+//#UC END# *552BB745031E_4B9E682C038E_var*

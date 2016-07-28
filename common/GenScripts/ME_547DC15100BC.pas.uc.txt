@@ -1,0 +1,226 @@
+//#UC START# *479731C50290_547DC15100BC_impl*
+ l3Free(f_Controls);
+ l3Free(f_SubDescriptors);
+ inherited;
+//#UC END# *479731C50290_547DC15100BC_impl*
+//#UC START# *479731C50290_547DC15100BC_var*
+//#UC END# *479731C50290_547DC15100BC_var*
+//#UC START# *484516C00214_547DC15100BC_impl*
+ inherited;
+ BuildColumns;
+//#UC END# *484516C00214_547DC15100BC_impl*
+//#UC START# *484516C00214_547DC15100BC_var*
+//#UC END# *484516C00214_547DC15100BC_var*
+//#UC START# *547DC10C03D0_547DC15100BCset_impl*
+ if (f_Images <> aValue) then
+  f_Images := aValue;
+//#UC END# *547DC10C03D0_547DC15100BCset_impl*
+//#UC START# *547DC10C03D0_547DC15100BCset_var*
+//#UC END# *547DC10C03D0_547DC15100BCset_var*
+//#UC START# *547DC15100BC_ext:ParentFileName
+w:\common\components\gui\Garant\Everest\evSubPanel.pas
+//#UC END# *547DC15100BC_ext:ParentFileName
+//#UC START# *547DC1FA0083_547DC15100BCget_impl*
+ Result := nil;
+ if (f_SubDescriptors <> nil) and f_SubDescriptors.FindData(Index, I) then
+   Result := TevSubDescriptor(f_SubDescriptors.Items[I]);
+  if (Result = nil) then
+  begin
+   if (f_SubDescriptors = nil) then
+    f_SubDescriptors := Tl3ProtoPersistentWithHandleRefList.MakeSorted;
+   if (Index > 0) then
+    SD := TevSubLayerDescriptor.Create(Self as TevSubDescriptors)
+   else
+    SD := TevSubDescriptor.Create(Self as TevSubDescriptors);
+   try
+    SD.Handle := Index;
+    f_SubDescriptors.Add(SD);
+   finally
+    Result := SD.Free;
+   end;//try..finally
+  end; // if (Result = nil) then
+//#UC END# *547DC1FA0083_547DC15100BCget_impl*
+//#UC START# *547DC1FA0083_547DC15100BCget_var*
+var
+ I: Integer;
+ SD: TevSubDescriptor;
+//#UC END# *547DC1FA0083_547DC15100BCget_var*
+//#UC START# *547DC1FA0083_547DC15100BCset_impl*
+ if (aValue <> nil) then
+  SubDescriptor[Index].Assign(aValue);
+//#UC END# *547DC1FA0083_547DC15100BCset_impl*
+//#UC START# *547DC1FA0083_547DC15100BCset_var*
+//#UC END# *547DC1FA0083_547DC15100BCset_var*
+//#UC START# *547DC309039E_547DC15100BCget_impl*
+ if (Index > 0) then
+  Result := TevSubLayerDescriptor(SubDescriptor[Index])
+ else
+  Result := nil;
+//#UC END# *547DC309039E_547DC15100BCget_impl*
+//#UC START# *547DC309039E_547DC15100BCget_var*
+//#UC END# *547DC309039E_547DC15100BCget_var*
+//#UC START# *547DC309039E_547DC15100BCset_impl*
+ SubDescriptor[Index] := aValue;
+//#UC END# *547DC309039E_547DC15100BCset_impl*
+//#UC START# *547DC309039E_547DC15100BCset_var*
+//#UC END# *547DC309039E_547DC15100BCset_var*
+//#UC START# *5480448A0305_547DC15100BC_impl*
+ with aControl do
+ begin
+  Width := Max(DefSubPanelWidth, f_Width);
+  Invalidate;
+ end;//with aControl
+//#UC END# *5480448A0305_547DC15100BC_impl*
+//#UC START# *5480448A0305_547DC15100BC_var*
+//#UC END# *5480448A0305_547DC15100BC_var*
+//#UC START# *548044A10171_547DC15100BC_impl*
+ if (f_Controls <> nil) then
+  with f_Controls do
+   for l_Index := Lo to Hi do
+    PlaceControl(TControl(Items[l_Index]));
+//#UC END# *548044A10171_547DC15100BC_impl*
+//#UC START# *548044A10171_547DC15100BC_var*
+var
+ l_Index: Integer;  
+//#UC END# *548044A10171_547DC15100BC_var*
+//#UC START# *548044CC019F_547DC15100BC_impl*
+ if not (csLoading in ComponentState) then
+ begin
+  if not f_InBuild then
+  begin
+   f_InBuild := True;
+   try
+    l_OfsL := nil;
+    try
+     l_C := DefColumn;
+     for l_Index := Ord(ev_sbtMark) downto Ord(ev_sbtSub) do
+     begin
+      l_SL := TevSubLayerDescriptor(SubDescriptor[l_Index]);
+      if (l_SL <> nil) then
+      begin
+       for l_F := 7 downto 0 do
+       begin
+        l_S := l_SL.Flags[l_F];
+        if (l_S <> nil) then
+         DoSub(l_S);
+       end;//for l_F
+       DoSub(l_SL);
+      end;//l_SL <> nil
+     end;//for l_Index
+     if (l_OfsL = nil) then
+      f_Width := 0
+     else
+     begin
+      l_Ofs := 3{0};
+      with l_OfsL do
+       for l_Index := Lo to Hi do
+       begin
+        l_S := TevSubData(Items[l_Index]).f_S;
+        l_S.Offset := l_Ofs;
+        Inc(l_Ofs, 1);
+        case l_S.DrawType of
+         ev_sdtBitmap:
+         begin
+          l_Images := l_S.Images;
+          if (l_Images = nil) then
+           l_Images := Images;
+          if (l_Images <> nil) and
+             ((l_S.BitmapIndex >= 0) or (l_S.BlockBitmapIndex >= 0) or
+              Assigned(l_S.f_OnGetBitmapIndex)) then
+          begin
+           Inc(l_Ofs, l_Images.Width + 2);
+           if (l_Images.Width >= 10) then
+            Inc(l_Ofs);
+          end;//l_Images <> nil
+         end;//ev_sdtBitmap
+         ev_sdtOwnerDraw :
+          ;
+         ev_sdtNumber:
+         begin
+          if (l_IC = nil) then
+           l_IC := nev.CrtIC;
+          l_IC.Font := l_S.Font;
+          Inc(l_Ofs, 12 * l_IC.pxAverageCharWidth);
+         end;//ev_sdtNumber
+         else
+         begin
+          if (l_IC = nil) then
+           l_IC := nev.CrtIC;
+          l_IC.Font := l_S.Font;
+          Inc(l_Ofs, l_IC.pxAverageCharWidth + 2);
+         end;//else
+        end;//case l_S.DrawType
+       end;//for l_Index
+      f_Width := l_Ofs;
+     end;//l_OfsL <> nil
+     PlaceControls;
+    finally
+     l3Free(l_OfsL);
+    end;//try..finally
+   finally
+    f_InBuild := False;
+   end;//try..finally
+  end;//not f_InBuild
+ end;//not (csLoading in ComponentState)
+//#UC END# *548044CC019F_547DC15100BC_impl*
+//#UC START# *548044CC019F_547DC15100BC_var*
+var
+ l_OfsL: Tl3ObjectWithHandleRefListPrim;
+ l_C: Integer;
+
+ procedure DoSub(aSub: TevSubDescriptor);
+ var
+  l_SD: TevSubData;
+ begin//DoSub
+  if aSub.Visible then
+  begin
+   l_SD := TevSubData.Create;
+   try
+    l_SD.f_C := aSub.Column;
+    if (l_SD.f_C = DefColumn) then
+    begin
+     l_SD.f_C := l_C;
+     Dec(l_C);
+    end;//l_SD.f_C = DefColumn
+    l_SD.f_S := aSub;
+    if (l_OfsL = nil) then
+     l_OfsL := Tl3ObjectWithHandleRefListPrim.MakeSorted;
+    l_OfsL.Add(l_SD);
+   finally
+    l3Free(l_SD);
+   end;//try..finally
+  end;//aSub.Visible
+ end;//DoSub
+
+var
+ l_SL: TevSubLayerDescriptor;
+ l_S: TevSubDescriptor;
+ l_Index: Integer;
+ l_F: Integer;
+ l_Ofs: Integer;
+ l_Images: TCustomImageList;
+ l_IC: Il3InfoCanvas;
+//#UC END# *548044CC019F_547DC15100BC_var*
+//#UC START# *548044DE033C_547DC15100BC_impl*
+ if (aControl <> nil) then
+ begin
+  if (f_Controls = nil) then
+   f_Controls := Tl3ObjectList.Make;
+  f_Controls.Add(aControl);
+  PlaceControl(aControl);
+ end;//aControl <> nil
+//#UC END# *548044DE033C_547DC15100BC_impl*
+//#UC START# *548044DE033C_547DC15100BC_var*
+//#UC END# *548044DE033C_547DC15100BC_var*
+//#UC START# *548044EC0041_547DC15100BC_impl*
+ if (f_Controls <> nil) then
+  f_Controls.Remove(aControl);
+//#UC END# *548044EC0041_547DC15100BC_impl*
+//#UC START# *548044EC0041_547DC15100BC_var*
+//#UC END# *548044EC0041_547DC15100BC_var*
+//#UC START# *5480450001FA_547DC15100BC_impl*
+ if Assigned(f_OnDefineBlockIndex) then
+  f_OnDefineBlockIndex(Self, aSub, aBitmapIndex);
+//#UC END# *5480450001FA_547DC15100BC_impl*
+//#UC START# *5480450001FA_547DC15100BC_var*
+//#UC END# *5480450001FA_547DC15100BC_var*

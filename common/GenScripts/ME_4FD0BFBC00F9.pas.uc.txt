@@ -1,0 +1,108 @@
+//#UC START# *47D1602000C6_4FD0BFBC00F9_impl*
+ inherited;
+ f_ImageChangeLink := TChangeLink.Create;
+ f_ImageChangeLink.OnChange := ImageListChange;
+ f_FixedSize := ps16x16;
+ Width := PILSize[ps16x16];
+ Height := PILSize[ps16x16];
+ HandleNeeded;
+//#UC END# *47D1602000C6_4FD0BFBC00F9_impl*
+//#UC START# *47D1602000C6_4FD0BFBC00F9_var*
+//#UC END# *47D1602000C6_4FD0BFBC00F9_var*
+//#UC START# *48077504027E_4FD0BFBC00F9_impl*
+ l3Free(f_ImageChangeLink);
+ inherited;
+//#UC END# *48077504027E_4FD0BFBC00F9_impl*
+//#UC START# *48077504027E_4FD0BFBC00F9_var*
+//#UC END# *48077504027E_4FD0BFBC00F9_var*
+//#UC START# *4F950C6D03BE_4FD0BFBC00F9_impl*
+ if (Index < 0) or (Index > Count-1) then                 
+  Exit;
+ if f_OriginalImgList <> nil then
+  f_OriginalImgList.DrawGlyphSpecified(Index, Canvas, f_FixedSize, f_OriginalImgList.CurBpp, X, Y, Enabled, HalfTransparent);
+//#UC END# *4F950C6D03BE_4FD0BFBC00F9_impl*
+//#UC START# *4F950C6D03BE_4FD0BFBC00F9_var*
+//#UC END# *4F950C6D03BE_4FD0BFBC00F9_var*
+//#UC START# *4FD093CB025F_4FD0BFBC00F9_impl*
+ if f_OriginalImgList <> nil then
+  f_OriginalImgList.DrawGlyphSpecified(Index, Canvas, f_FixedSize, f_OriginalImgList.CurBpp, X, Y, Enabled);
+//#UC END# *4FD093CB025F_4FD0BFBC00F9_impl*
+//#UC START# *4FD093CB025F_4FD0BFBC00F9_var*
+//#UC END# *4FD093CB025F_4FD0BFBC00F9_var*
+//#UC START# *4FD095D20217_4FD0BFBC00F9_impl*
+ Result := True;
+//#UC END# *4FD095D20217_4FD0BFBC00F9_impl*
+//#UC START# *4FD095D20217_4FD0BFBC00F9_var*
+//#UC END# *4FD095D20217_4FD0BFBC00F9_var*
+//#UC START# *4FD0BFBC00F9_ext:ParentFileName
+w:\common\components\gui\Garant\VT\vtPngImgList.pas
+//#UC END# *4FD0BFBC00F9_ext:ParentFileName
+//#UC START# *4FD0BFBC00F9ci*
+//#UC END# *4FD0BFBC00F9ci*
+//#UC START# *4FD0BFBC00F9cit*
+//#UC END# *4FD0BFBC00F9cit*
+//#UC START# *4FD0BFBC00F9impl*
+{$ifndef DesignTimeLibrary}
+{$IfNDef XE}
+function TvtFixedSizeProxyPngImageListPrim.GetCount: Integer;
+begin
+ if f_OriginalImgList <> nil
+  then Result := f_OriginalImgList.Count
+  else Result := 0;
+end;
+{$endif}
+{$endif}
+//#UC END# *4FD0BFBC00F9impl*
+//#UC START# *4FD0BFBC00F9publ*
+   {$ifndef DesignTimeLibrary}
+   {$IfNDef XE}
+  protected
+   function GetCount: Integer; override;
+   {$EndIf}
+   {$endif}
+//#UC END# *4FD0BFBC00F9publ*
+//#UC START# *4FD0C074032D_4FD0BFBC00F9set_impl*
+ if f_FixedSize <> aValue then
+ begin
+  f_FixedSize := aValue;
+  Width := PILSize[f_FixedSize];
+  Height := PILSize[f_FixedSize];
+  Change;
+ end;
+//#UC END# *4FD0C074032D_4FD0BFBC00F9set_impl*
+//#UC START# *4FD0C074032D_4FD0BFBC00F9set_var*
+//#UC END# *4FD0C074032D_4FD0BFBC00F9set_var*
+//#UC START# *4FD0C0CB027B_4FD0BFBC00F9set_impl*
+ if (f_OriginalImgList <> aValue) then
+ begin
+  if (f_ImageChangeLink <> nil) AND (f_ImageChangeLink.Sender = nil) then
+   // - список картинок уже убит - надо его зачистить
+   f_OriginalImgList := nil;
+  (* Отпишемся от нотификации изменений *)
+  if (f_OriginalImgList <> nil) then
+   f_OriginalImgList.UnRegisterChanges(f_ImageChangeLink);
+  (* Подпишемся на нотификацию *)
+  aValue.RegisterChanges(f_ImageChangeLink);
+  f_OriginalImgList := aValue;
+  Change;
+ end;//f_OriginalImgList <> aValue
+//#UC END# *4FD0C0CB027B_4FD0BFBC00F9set_impl*
+//#UC START# *4FD0C0CB027B_4FD0BFBC00F9set_var*
+//#UC END# *4FD0C0CB027B_4FD0BFBC00F9set_var*
+//#UC START# *4FD0C1BF0313_4FD0BFBC00F9get_impl*
+ if f_OriginalImgList <> nil
+  then Result := f_OriginalImgList.Count
+  else Result := 0;
+//#UC END# *4FD0C1BF0313_4FD0BFBC00F9get_impl*
+//#UC START# *4FD0C1BF0313_4FD0BFBC00F9get_var*
+//#UC END# *4FD0C1BF0313_4FD0BFBC00F9get_var*
+//#UC START# *4FD0C2760204_4FD0BFBC00F9_impl*
+ Change;
+//#UC END# *4FD0C2760204_4FD0BFBC00F9_impl*
+//#UC START# *4FD0C2760204_4FD0BFBC00F9_var*
+//#UC END# *4FD0C2760204_4FD0BFBC00F9_var*
+//#UC START# *53282D3E0350_4FD0BFBC00F9_impl*
+ Assert(False, 'todo');
+//#UC END# *53282D3E0350_4FD0BFBC00F9_impl*
+//#UC START# *53282D3E0350_4FD0BFBC00F9_var*
+//#UC END# *53282D3E0350_4FD0BFBC00F9_var*

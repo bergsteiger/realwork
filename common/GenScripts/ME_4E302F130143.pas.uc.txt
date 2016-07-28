@@ -1,0 +1,151 @@
+//#UC START# *478CF34E02CE_4E302F130143_impl*
+ if Source is TddMapValueConfigItem then
+  with TddMapValueConfigItem(Source) do
+  begin
+   inherited Assign(Source);
+   Self.f_ValueMap := f_ValueMap;
+   Self.f_MapValues.Assign(f_MapValues);
+   Self.f_ValueKind := f_ValueKind;
+  end;
+//#UC END# *478CF34E02CE_4E302F130143_impl*
+//#UC START# *478CF34E02CE_4E302F130143_var*
+//#UC END# *478CF34E02CE_4E302F130143_var*
+//#UC START# *479731C50290_4E302F130143_impl*
+ f_ValueMap := nil;
+ FreeAndNil(f_MapValues);
+ inherited;
+//#UC END# *479731C50290_4E302F130143_impl*
+//#UC START# *479731C50290_4E302F130143_var*
+//#UC END# *479731C50290_4E302F130143_var*
+//#UC START# *4E302F130143_ext:ParentFileName
+w:\common\components\rtl\Garant\dd\ddAppConfigTypes.pas
+//#UC END# *4E302F130143_ext:ParentFileName
+//#UC START# *52172B72014C_4E302F130143_impl*
+ // установим текущее значение
+ case f_ValueKind of
+  dd_vkString: StringValue := l3Str(aStorage.ReadString(Alias, DefaultValue.AsString));
+  dd_vkInteger: IntegerValue := aStorage.ReadInteger(Alias, DefaultValue.AsInteger);
+  dd_vkBoolean : BooleanValue := aStorage.ReadBool(Alias, DefaultValue.AsBoolean);
+  dd_vkDateTime : DateTimeValue := aStorage.ReadDateTime(Alias, DefaultValue.AsDateTime);
+ else
+  raise EddConfigError.Create('Неподдерживаемый тип map-value');
+ end;
+//#UC END# *52172B72014C_4E302F130143_impl*
+//#UC START# *52172B72014C_4E302F130143_var*
+//#UC END# *52172B72014C_4E302F130143_var*
+//#UC START# *52172CA801E3_4E302F130143_impl*
+ case f_ValueKind of
+  dd_vkString: aStorage.WriteString(Alias, Value.AsString);
+  dd_vkInteger: aStorage.WriteInteger(Alias, IntegerValue);
+  dd_vkBoolean : aStorage.WriteBool(Alias, BooleanValue);
+  dd_vkDateTime : aStorage.WriteDateTime(Alias, DateTimeValue);
+ else
+  raise EddConfigError.Create('Неподдерживаемый тип map-value');
+ end;
+//#UC END# *52172CA801E3_4E302F130143_impl*
+//#UC START# *52172CA801E3_4E302F130143_var*
+//#UC END# *52172CA801E3_4E302F130143_var*
+//#UC START# *52245AE202CF_4E302F130143set_impl*
+ AddMapValue(aValue, aValue);
+//#UC END# *52245AE202CF_4E302F130143set_impl*
+//#UC START# *52245AE202CF_4E302F130143set_var*
+//#UC END# *52245AE202CF_4E302F130143set_var*
+//#UC START# *52245B740188_4E302F130143_impl*
+ Assert(f_ValueMap = Nil,'Il3ValueMap assigned. Use of AddMapValue disabled');
+ f_MapValues.AddMapValue(aCaption, aValue);
+//#UC END# *52245B740188_4E302F130143_impl*
+//#UC START# *52245B740188_4E302F130143_var*
+//#UC END# *52245B740188_4E302F130143_var*
+//#UC START# *52245B81014A_4E302F130143_impl*
+ with l_Value do
+ begin
+  Kind := dd_vkInteger;
+  AsInteger := aValue;
+ end;
+ AddMapValue(aCaption, l_Value);
+//#UC END# *52245B81014A_4E302F130143_impl*
+//#UC START# *52245B81014A_4E302F130143_var*
+var
+ l_Value : TddConfigValue;
+//#UC END# *52245B81014A_4E302F130143_var*
+//#UC START# *52245B900389_4E302F130143_impl*
+ with l_Value do
+ begin
+  Kind := dd_vkString;
+  AsString := aValue;
+ end;
+ AddMapValue(aCaption, l_Value);
+//#UC END# *52245B900389_4E302F130143_impl*
+//#UC START# *52245B900389_4E302F130143_var*
+var
+ l_Value : TddConfigValue;
+//#UC END# *52245B900389_4E302F130143_var*
+//#UC START# *52245BFF021F_4E302F130143_impl*
+ inherited Create(aAlias, aCaption, aDefaultValue, aMasterItem);
+ f_ValueMap := aValueMap;
+ f_ValueKind := aDefaultValue.Kind;
+ f_Value.Kind := aDefaultValue.Kind;
+ f_MapValues := TMapValues.Create(f_ValueKind);
+//#UC END# *52245BFF021F_4E302F130143_impl*
+//#UC START# *52245BFF021F_4E302F130143_var*
+//#UC END# *52245BFF021F_4E302F130143_var*
+//#UC START# *52245D8D0350_4E302F130143_impl*
+ Result := Assigned(f_ValueMap) or (f_MapValues.Count > 0);
+//#UC END# *52245D8D0350_4E302F130143_impl*
+//#UC START# *52245D8D0350_4E302F130143_var*
+//#UC END# *52245D8D0350_4E302F130143_var*
+//#UC START# *52245DAD015F_4E302F130143_impl*
+ if Assigned(f_ValueMap) then
+ case f_ValueKind of
+  dd_vkString:  Result := l3Str((f_ValueMap as Il3StringValueMap).ValueToDisplayName(l3CStr(aValue.AsString)));
+  dd_vkInteger: Result := l3Str((f_ValueMap as Il3IntegerValueMap).ValueToDisplayName(aValue.AsInteger));
+  dd_vkBoolean: Result := l3Str((f_ValueMap as Il3IntegerValueMap).ValueToDisplayName(ord(aValue.AsBoolean)));
+ else
+  Result := '';
+  Assert(False, 'Unsupported combobox value type');
+ end
+ else
+  Result := f_MapValues.Items[f_MapValues.IndexOfValue(aValue)].Caption;
+//#UC END# *52245DAD015F_4E302F130143_impl*
+//#UC START# *52245DAD015F_4E302F130143_var*
+//#UC END# *52245DAD015F_4E302F130143_var*
+//#UC START# *52245DCB009E_4E302F130143_impl*
+ Result.Kind := f_ValueKind;
+ if (f_ValueMap <> nil) then
+  Case f_ValueKind of
+   dd_vkString: Result.AsString := l3Str((f_ValueMap as Il3StringValueMap).DisplayNameToValue(aName));
+   dd_vkInteger: Result.AsInteger := (f_ValueMap as Il3IntegerValueMap).DisplayNameToValue(aName);
+   dd_vkBoolean: Result.AsBoolean := Boolean((f_ValueMap as Il3IntegerValueMap).DisplayNameToValue(aName));
+  else
+   Result := DefaultValue;
+   Assert(False, 'Unsupported combobox value type');
+  end
+ else
+ begin
+  l_Index := f_MapValues.IndexOfCaption(aName);
+  if l_Index <> -1 then
+   Result := f_MapValues.Items[l_Index].Value
+  else
+   Result := DisplayNameToValue(aName);
+ end;//f_ValueMap <> nil
+//#UC END# *52245DCB009E_4E302F130143_impl*
+//#UC START# *52245DCB009E_4E302F130143_var*
+var
+ l_Index: Integer;
+//#UC END# *52245DCB009E_4E302F130143_var*
+//#UC START# *52245E3E0387_4E302F130143_impl*
+ Result.Kind := f_MapValues.MapKind;
+ case f_ValueKind of
+  dd_vkString: Result.AsString := l3Str(aName);
+ else
+  raise EddInvalidValue.Create(str_ddcmInvalidMapValue.AsStr);
+ end;
+//#UC END# *52245E3E0387_4E302F130143_impl*
+//#UC START# *52245E3E0387_4E302F130143_var*
+//#UC END# *52245E3E0387_4E302F130143_var*
+//#UC START# *5301EC7500FF_4E302F130143_impl*
+ Result := TddMapValueConfigItem.Create(Alias, Caption, DefaultValue, ValueMap, MasterItem);
+ TddMapValueConfigItem(Result).Assign(Self);
+//#UC END# *5301EC7500FF_4E302F130143_impl*
+//#UC START# *5301EC7500FF_4E302F130143_var*
+//#UC END# *5301EC7500FF_4E302F130143_var*

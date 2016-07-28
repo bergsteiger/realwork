@@ -1,0 +1,69 @@
+//#UC START# *5152C3EC011B_515405080211_impl*
+ try
+  if (csDesigning in ComponentState) and (Items.Count <= 0) then
+   Result := l3Fmt(GetOrphStr(SCSampleListItem), [Index])
+  else
+   Result := l3CStr(Items.Strings[Index]);
+ except
+  Result := nil;
+ end;//try..except
+//#UC END# *5152C3EC011B_515405080211_impl*
+//#UC START# *5152C3EC011B_515405080211_var*
+//#UC END# *5152C3EC011B_515405080211_var*
+//#UC START# *515405080211_ext:ParentFileName
+w:\common\components\gui\Garant\VT\vtLister.pas
+//#UC END# *515405080211_ext:ParentFileName
+//#UC START# *51541B9501F1_515405080211_impl*
+ if Items.Count = 0 then
+ begin
+  Index := -1;
+  Exit;
+ end;
+ Len := Length(SrchStr);
+ l_R := Items.FindStrBegin(PAnsiChar(SrchStr), Index);
+ if not l_R then
+ begin
+  Index := -1;
+  Exit;
+ end;
+ ItStr := Items.Strings[Index];
+ if not ((StrLen(ItStr) < Len) or
+   (l3AnsiStrLICompExt(PAnsiChar(SrchStr), ItStr, Len) = 0)) then
+  Index := -1;
+//#UC END# *51541B9501F1_515405080211_impl*
+//#UC START# *51541B9501F1_515405080211_var*
+var
+ l_R     : Boolean;
+ Len   : Word;
+ ItStr : PAnsiChar;
+//#UC END# *51541B9501F1_515405080211_var*
+//#UC START# *51541C010347_515405080211get_impl*
+ if f_Items = nil then
+ try
+  l_Items := Tl3StringDataList.Create;
+  Items := l_Items;
+ finally
+  l3Free(l_Items);
+ end;
+
+ Result := Tl3StringDataList(f_Items);
+//#UC END# *51541C010347_515405080211get_impl*
+//#UC START# *51541C010347_515405080211get_var*
+var
+ l_Items : Tl3StringDataList;
+//#UC END# *51541C010347_515405080211get_var*
+//#UC START# *51541C010347_515405080211set_impl*
+ inherited pm_SetItems(aValue);
+//#UC END# *51541C010347_515405080211set_impl*
+//#UC START# *51541C010347_515405080211set_var*
+//#UC END# *51541C010347_515405080211set_var*
+//#UC START# *51541C3A0061_515405080211get_impl*
+ Result := Items.Sorted;
+//#UC END# *51541C3A0061_515405080211get_impl*
+//#UC START# *51541C3A0061_515405080211get_var*
+//#UC END# *51541C3A0061_515405080211get_var*
+//#UC START# *51541C3A0061_515405080211set_impl*
+ Items.Sorted := aValue;
+//#UC END# *51541C3A0061_515405080211set_impl*
+//#UC START# *51541C3A0061_515405080211set_var*
+//#UC END# *51541C3A0061_515405080211set_var*

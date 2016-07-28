@@ -1,0 +1,360 @@
+//#UC START# *52171FDF0382_5227066903AFget_impl*
+ if Control <> nil then
+  if UseCheckBox then
+  begin
+   assert(Control Is TvtCheckBox, Control.ClassName);
+   Result := (Control as TvtCheckBox).Checked;
+  end
+  else
+  begin
+   assert(Control Is TvtComboBoxQS, Control.ClassName);
+   Result := (Control as TvtComboBoxQS).ItemIndex <> -1
+  end
+ else
+  Result := inherited pm_GetBooleanValue;
+//#UC END# *52171FDF0382_5227066903AFget_impl*
+//#UC START# *52171FDF0382_5227066903AFget_var*
+//#UC END# *52171FDF0382_5227066903AFget_var*
+//#UC START# *52171FDF0382_5227066903AFset_impl*
+ inherited pm_SetBooleanValue(aValue);
+//#UC END# *52171FDF0382_5227066903AFset_impl*
+//#UC START# *52171FDF0382_5227066903AFset_var*
+//#UC END# *52171FDF0382_5227066903AFset_var*
+//#UC START# *521725C301A5_5227066903AF_impl*
+ Result := True;
+//#UC END# *521725C301A5_5227066903AF_impl*
+//#UC START# *521725C301A5_5227066903AF_var*
+//#UC END# *521725C301A5_5227066903AF_var*
+//#UC START# *5217273F000F_5227066903AF_impl*
+ f_LastIndex := -1;
+ with l_Value do
+ begin
+  Kind := dd_vkInteger;
+  AsInteger := aDefaultValue.AsInteger;
+ end;
+ inherited Create(aAlias, aCaption, l_Value, aMasterItem);
+ Labeled := False;
+ ShowCaption := False;
+//#UC END# *5217273F000F_5227066903AF_impl*
+//#UC START# *5217273F000F_5227066903AF_var*
+var
+ l_Value : TddConfigValue;
+//#UC END# *5217273F000F_5227066903AF_var*
+//#UC START# *52172B72014C_5227066903AF_impl*
+ IntegerValue := aStorage.ReadInteger(Alias, DefaultValue.AsInteger);
+ BooleanValue := Boolean(IntegerValue);
+ for I := 0 to Pred(Count) do
+  SubItem[I].Load(aStorage);
+//#UC END# *52172B72014C_5227066903AF_impl*
+//#UC START# *52172B72014C_5227066903AF_var*
+var
+ I: Integer;
+//#UC END# *52172B72014C_5227066903AF_var*
+//#UC START# *52172CA801E3_5227066903AF_impl*
+ aStorage.WriteInteger(Alias, IntegerValue);
+  for I := 0 to Pred(Count) do
+   SubItem[I].Save(aStorage);
+//#UC END# *52172CA801E3_5227066903AF_impl*
+//#UC START# *52172CA801E3_5227066903AF_var*
+var
+ I: Integer;
+//#UC END# *52172CA801E3_5227066903AF_var*
+//#UC START# *5217600501C4_5227066903AFget_impl*
+ if f_InCreate then
+  Result := Count > 1
+ else
+ begin
+  Result := False;
+  for I := 0 to Pred(Count) do
+  begin
+   l_SI := SubItem[I] as TddGroupConfigItem;
+   for J := 0 to Pred(l_SI.Count) do
+   if l_SI.SubItem[J].Labeled then
+   begin
+    Result := True;
+    break;
+   end;
+   if Result then
+    break;
+  end;
+ end;
+//#UC END# *5217600501C4_5227066903AFget_impl*
+//#UC START# *5217600501C4_5227066903AFget_var*
+var
+ I, J: Integer;
+ l_SI: TddGroupConfigItem;
+//#UC END# *5217600501C4_5227066903AFget_var*
+//#UC START# *521760C60369_5227066903AF_impl*
+ inherited;
+ f_InCreate := False;
+ f_LastIndex := -1;
+//#UC END# *521760C60369_5227066903AF_impl*
+//#UC START# *521760C60369_5227066903AF_var*
+//#UC END# *521760C60369_5227066903AF_var*
+//#UC START# *5217612C01B6_5227066903AF_impl*
+ inherited;
+ f_InCreate := True;
+//#UC END# *5217612C01B6_5227066903AF_impl*
+//#UC START# *5217612C01B6_5227066903AF_var*
+//#UC END# *5217612C01B6_5227066903AF_var*
+//#UC START# *521761BB03DE_5227066903AF_impl*
+ f_Left := aLeft;
+ f_MaxLeft := aMaxLeft;
+ if Count > 0 then
+ begin
+  if UseCheckBox then
+  begin
+   // Добавляем TvtCheckBox
+   Result := TvtCheckBox.Create(aParent);
+   aParent.InsertControl(Result);
+   TvtCheckBox(Result).Caption := Caption;
+   TvtCheckBox(Result).OnClick := OnClick;
+  end
+  else
+  begin
+   // Добавляем TvtComboBoxQS
+   Result := TvtComboBoxQS.Create(aParent);
+   aParent.InsertControl(Result);
+   TvtComboBoxQS(Result).Style := csDropDownList;
+   for I := 0 to Pred(SubItems.Count) do
+    TvtComboBoxQS(Result).Items.Add(TddGroupConfigItem(SubItems.Items[I]).Caption);
+   TvtComboBoxQS(Result).OnChange := OnClick;
+  end;
+  Result.Left := aLeft;
+  Result.Top := aTop;
+  if aParent is TScrollBox
+   then Result.Width := aParent.ClientWidth - c_ConfigItemRight - aLeft - c_ScrollBarWidth
+   else Result.Width := aParent.ClientWidth - c_ConfigItemRight - aLeft;
+ {$ifdef nemesis}
+  Result.Anchors := Result.Anchors + [akRight];
+ {$endif}
+  if Hint <> '' then
+  begin
+   Result.Hint := Hint;
+   Result.ShowHint := True;
+  end;
+ end
+ else
+  Result := nil;
+//#UC END# *521761BB03DE_5227066903AF_impl*
+//#UC START# *521761BB03DE_5227066903AF_var*
+var
+ I: Integer;
+ l_Height: Integer;
+//#UC END# *521761BB03DE_5227066903AF_var*
+//#UC START# *521B053F03C3_5227066903AF_impl*
+ with TvtCheckBox.Create(nil) do
+ try
+  Parent := aParent;
+  Result := Height;
+ finally
+  Free;
+ end;
+ // Нужно перебрать все наборы и выбрать самый высокий
+ l_Max := 0;
+ for I := 0 to Pred(Count) do
+  l_Max := Max(l_Max, SubItem[I].FullControlHeight[aParent] + c_ConfigItemTop);
+ Inc(Result, c_ConfigItemTop + l_Max);
+//#UC END# *521B053F03C3_5227066903AF_impl*
+//#UC START# *521B053F03C3_5227066903AF_var*
+var
+ I: Integer;
+ l_Max: Integer;
+//#UC END# *521B053F03C3_5227066903AF_var*
+//#UC START# *521B058801FD_5227066903AF_impl*
+ if UseCheckBox then
+ begin
+  assert(Control Is TvtCheckBox, Control.ClassName);
+  IntegerValue := Ord(TvtCheckBox(Control).Checked);
+ end 
+ else
+ begin
+  assert(Control Is TvtComboBoxQS, Control.ClassName);
+  IntegerValue := TvtComboBoxQS(Control).ItemIndex;
+ end;
+ if BooleanValue then
+ begin
+  I := GetCaseIndex;
+  if SubItem[I].Control <> nil then
+  begin
+  SubItem[I].GetValueFromControl;
+  if SubItem[I].Changed then
+   Changed := True;
+  end;
+ end;
+//#UC END# *521B058801FD_5227066903AF_impl*
+//#UC START# *521B058801FD_5227066903AF_var*
+var
+ I: Integer;
+//#UC END# *521B058801FD_5227066903AF_var*
+//#UC START# *521B05DF00FC_5227066903AF_impl*
+ SplitCaption(Caption, l_P, l_S);
+ if l_P = '' then
+  Result := 0
+ else
+ begin
+  l_Label := TvtLabel.Create(nil);
+  try
+   l_Label.Parent := aParent;
+   l_Label.Caption := l_P;
+   Result := l_Label.Width + c_ConfigItemLeft;
+  finally
+   FreeAndNil(l_Label);
+  end;
+ end;
+ for I := 0 to Pred(Count) do
+ begin
+  l_SI := SubItem[I] as TddGroupConfigItem;
+  for J := 0 to Pred(l_SI.Count) do
+   if l_SI.SubItem[J].Labeled then
+   if l_SI.SubItem[J] is TddContainerConfigItem then
+   begin
+    l_Label := TvtLabel.Create(nil);
+    try
+     l_Label.Parent := aParent;
+     l_Label.Caption := l_SI.SubItem[J].Caption;
+     Result := Max(Result, (l_Label.Width + c_ConfigItemLeft));
+    finally
+     FreeAndNil(l_Label);
+    end;
+   end
+   else
+    Result := Max(Result, l_SI.SubItem[J].LabelWidth(aParent));
+ end;
+//#UC END# *521B05DF00FC_5227066903AF_impl*
+//#UC START# *521B05DF00FC_5227066903AF_var*
+var
+ l_Label: TvtLabel;
+ l_P, l_S: AnsiString;
+ I, J: Integer;
+ l_SI: TddGroupConfigItem;
+//#UC END# *521B05DF00FC_5227066903AF_var*
+//#UC START# *521B07030052_5227066903AF_impl*
+ if UseCheckBox then
+ begin
+  l_CheckBox := (Control as TvtCheckBox);
+  l_CheckBox.Checked := Boolean(IntegerValue)
+ end
+ else
+  (Control as TvtComboBoxQS).ItemIndex := IntegerValue;
+ OnClick(Self);
+ SetValueToSubitems(aDefault);
+//#UC END# *521B07030052_5227066903AF_impl*
+//#UC START# *521B07030052_5227066903AF_var*
+var
+ l_CheckBox: TvtCheckBox;
+//#UC END# *521B07030052_5227066903AF_var*
+//#UC START# *5227066903AF_ext:ParentFileName
+w:\common\components\rtl\Garant\dd\ddAppConfigTypes.pas
+//#UC END# *5227066903AF_ext:ParentFileName
+//#UC START# *52270B070394_5227066903AF_impl*
+ if SubItems.Count = 0 then
+  AddCase(''{Caption});
+ TddGroupConfigItem(SubItems.Items[Pred(SubItems.Count)]).Add(aItem)
+//#UC END# *52270B070394_5227066903AF_impl*
+//#UC START# *52270B070394_5227066903AF_var*
+//#UC END# *52270B070394_5227066903AF_var*
+//#UC START# *522711880283_5227066903AF_impl*
+ if UseCheckBox then
+  Result := 0
+ else
+  Result := TvtComboBoxQS(Control).ItemIndex;
+//#UC END# *522711880283_5227066903AF_impl*
+//#UC START# *522711880283_5227066903AF_var*
+//#UC END# *522711880283_5227066903AF_var*
+//#UC START# *52271241038E_5227066903AF_impl*
+ l_Top := Control.Top + Control.Height;
+ if aMaxLeft < aLeft then
+  aMaxLeft := aLeft;
+ SubItem[GetCaseIndex].CreateControl(aleft,aMaxLeft, l_Top, Control.Parent);
+ // Нужно установить значения элементам. Кроме себя самого
+ SetValueToSubitems(False);
+//#UC END# *52271241038E_5227066903AF_impl*
+//#UC START# *52271241038E_5227066903AF_var*
+var
+ I: Integer;
+ l_Top: Integer;
+//#UC END# *52271241038E_5227066903AF_var*
+//#UC START# *522712640327_5227066903AF_impl*
+ I := GetCaseIndex;
+ for I := 0 to Pred(Count) do
+  if SubItem[I].Control <> nil then
+  begin
+   Control.Parent.RemoveControl(SubItem[I].Control);
+   SubItem[I].Control.Free;
+   SubItem[I].Control := nil;
+   SubItem[I].ClearControl;
+  end;
+//#UC END# *522712640327_5227066903AF_impl*
+//#UC START# *522712640327_5227066903AF_var*
+var
+ I: Integer;
+//#UC END# *522712640327_5227066903AF_var*
+//#UC START# *522713BB02EE_5227066903AF_impl*
+ if BooleanValue then
+ begin
+  I := GetCaseIndex;
+  SubItem[I].Lock;
+  SubItem[I].SetValueToControl(aDefault);
+  SubItem[I].Unlock;
+ end;
+//#UC END# *522713BB02EE_5227066903AF_impl*
+//#UC START# *522713BB02EE_5227066903AF_var*
+var
+ I: Integer;
+//#UC END# *522713BB02EE_5227066903AF_var*
+//#UC START# *522713E90174_5227066903AF_impl*
+ l_Group := TddGroupConfigItem.SimpleCreate(Alias + IntToStr(SubItems.Count), aCaption);
+ l_Group.ReadOnly := ReadOnly;
+ l_Group.ShowCaption := False;
+ l_Group.LabelTop := False;
+ SubItems.Add(l_Group);
+//#UC END# *522713E90174_5227066903AF_impl*
+//#UC START# *522713E90174_5227066903AF_var*
+var
+ l_Group: TddGroupConfigItem;
+//#UC END# *522713E90174_5227066903AF_var*
+//#UC START# *522843D202FB_5227066903AF_impl*
+ Lock;
+ try
+  l_True := pm_GetBooleanValue;
+  ChangeSlaveStatus(l_True);
+  if inherited pm_GetBooleanValue <> l_True then
+   Changed := True;
+  if l_True then
+  begin
+   if f_LastIndex <> -1 then
+    SubItem[f_LastIndex].GetValueFromControl;
+   DestroySubItems;
+   ConstructSubItems(f_Left, f_MaxLeft);
+   f_LastIndex := GetCaseIndex;
+  end
+  else
+  begin
+   DestroySubItems;
+   f_LastIndex := -1;
+  end;
+ finally
+  Unlock;
+ end;
+//#UC END# *522843D202FB_5227066903AF_impl*
+//#UC START# *522843D202FB_5227066903AF_var*
+var
+ l_True: Boolean;
+//#UC END# *522843D202FB_5227066903AF_var*
+//#UC START# *5514FCD10138_5227066903AF_impl*
+ Result := (Count < 2) and not ForceComboBox;
+//#UC END# *5514FCD10138_5227066903AF_impl*
+//#UC START# *5514FCD10138_5227066903AF_var*
+//#UC END# *5514FCD10138_5227066903AF_var*
+//#UC START# *552BB745031E_5227066903AF_impl*
+ inherited;
+ if aControl is TvtCheckBox then
+  TvtCheckBox(aControl).Enabled := TvtCheckBox(aControl).Enabled and not ReadOnly;
+// if aControl is TvtComboBoxQS then
+//  TvtComboBoxQS(aControl).ReadOnly := ReadOnly;
+ if aControl is TvtComboBoxQS then
+  TvtComboBoxQS(aControl).Enabled := TvtComboBoxQS(aControl).Enabled and not ReadOnly;
+//#UC END# *552BB745031E_5227066903AF_impl*
+//#UC START# *552BB745031E_5227066903AF_var*
+//#UC END# *552BB745031E_5227066903AF_var*

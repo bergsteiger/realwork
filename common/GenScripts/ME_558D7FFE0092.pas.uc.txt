@@ -1,0 +1,59 @@
+//#UC START# *4DAEEDE10285_558D7FFE0092_impl*
+ aCtx.rEngine.Push(f_Value);
+//#UC END# *4DAEEDE10285_558D7FFE0092_impl*
+//#UC START# *4DAEEDE10285_558D7FFE0092_var*
+//#UC END# *4DAEEDE10285_558D7FFE0092_var*
+//#UC START# *52CFC11603C8_558D7FFE0092get_impl*
+ Result := TkwObjRefParamWordInfo.Instance.WI;
+//#UC END# *52CFC11603C8_558D7FFE0092get_impl*
+//#UC START# *52CFC11603C8_558D7FFE0092get_var*
+//#UC END# *52CFC11603C8_558D7FFE0092get_var*
+//#UC START# *52D00B00031A_558D7FFE0092_impl*
+ Case aValue.rType of
+  tfw_vtVoid:
+   f_Value := aValue;
+  tfw_vtNil:
+   f_Value := aValue;
+  tfw_vtObj:
+   f_Value := aValue;
+  else
+   RunnerAssert(false, 'Требуется объект', aCtx);
+ end;//aValue.rType
+//#UC END# *52D00B00031A_558D7FFE0092_impl*
+//#UC START# *52D00B00031A_558D7FFE0092_var*
+//#UC END# *52D00B00031A_558D7FFE0092_var*
+//#UC START# *52D399A00173_558D7FFE0092_impl*
+ Result := @f_Value;
+//#UC END# *52D399A00173_558D7FFE0092_impl*
+//#UC START# *52D399A00173_558D7FFE0092_var*
+//#UC END# *52D399A00173_558D7FFE0092_var*
+//#UC START# *52D399D40140_558D7FFE0092_impl*
+ Result := true;
+//#UC END# *52D399D40140_558D7FFE0092_impl*
+//#UC START# *52D399D40140_558D7FFE0092_var*
+//#UC END# *52D399D40140_558D7FFE0092_var*
+//#UC START# *52EA6A2C0111_558D7FFE0092_impl*
+ RunnerAssert(aValue.ValueTypes.EQ(TypeInfo(TObject)), 'Неверный список модификаторов', aCtx);
+//#UC END# *52EA6A2C0111_558D7FFE0092_impl*
+//#UC START# *52EA6A2C0111_558D7FFE0092_var*
+//#UC END# *52EA6A2C0111_558D7FFE0092_var*
+//#UC START# *558D2BCA0324_558D7FFE0092_impl*
+(* Result := f_Value As TtfwWord;
+ Result := Result.GetRef(aCtx);*)
+ Result := inherited GetRef(aCtx);
+//#UC END# *558D2BCA0324_558D7FFE0092_impl*
+//#UC START# *558D2BCA0324_558D7FFE0092_var*
+//#UC END# *558D2BCA0324_558D7FFE0092_var*
+//#UC START# *558D7FFE0092_ext:ParentFileName
+w:\common\components\rtl\Garant\ScriptEngine\kwLeftParam.pas
+//#UC END# *558D7FFE0092_ext:ParentFileName
+//#UC START# *559A470F0288_558D7FFE0092_impl*
+ Result := true;
+//#UC END# *559A470F0288_558D7FFE0092_impl*
+//#UC START# *559A470F0288_558D7FFE0092_var*
+//#UC END# *559A470F0288_558D7FFE0092_var*
+//#UC START# *559A4C5801D8_558D7FFE0092_impl*
+ Result := true;
+//#UC END# *559A4C5801D8_558D7FFE0092_impl*
+//#UC START# *559A4C5801D8_558D7FFE0092_var*
+//#UC END# *559A4C5801D8_558D7FFE0092_var*

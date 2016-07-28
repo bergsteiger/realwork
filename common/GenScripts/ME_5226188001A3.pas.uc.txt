@@ -1,0 +1,70 @@
+//#UC START# *478CF34E02CE_5226188001A3_impl*
+ inherited;
+ if Source is TddCheckListConfigItem then
+  Self.Columns := TddCheckListConfigItem(Source).Columns;
+//#UC END# *478CF34E02CE_5226188001A3_impl*
+//#UC START# *478CF34E02CE_5226188001A3_var*
+//#UC END# *478CF34E02CE_5226188001A3_var*
+//#UC START# *5217273F000F_5226188001A3_impl*
+ inherited Create(aAlias, aCaption, aDefaultValue, aMasterItem);
+ Labeled := True;
+ Columns := 1;
+//#UC END# *5217273F000F_5226188001A3_impl*
+//#UC START# *5217273F000F_5226188001A3_var*
+//#UC END# *5217273F000F_5226188001A3_var*
+//#UC START# *521761BB03DE_5226188001A3_impl*
+ Result := TCheckListBox.Create(aParent);
+ Result.Parent := aParent as TWinControl;
+ Result.Left := aLeft;
+ Result.Top := aTop;
+ if aParent is TScrollBox
+  then Result.Width := aParent.ClientWidth - aLeft - c_ConfigItemRight - c_ScrollBarWidth
+  else Result.Width := aParent.ClientWidth - aLeft - c_ConfigItemRight;
+ {$ifdef nemesis}
+ Result.Anchors := Result.Anchors + [akRight];
+ {$endif}
+ Result.Height := ControlHeight(aParent);
+ TCheckListBox(Result).Items := f_Items;
+ TCheckListBox(Result).Columns := Columns;
+ TCheckListBox(Result).OnClick := DoOnChange;
+//#UC END# *521761BB03DE_5226188001A3_impl*
+//#UC START# *521761BB03DE_5226188001A3_var*
+//#UC END# *521761BB03DE_5226188001A3_var*
+//#UC START# *521B053F03C3_5226188001A3_impl*
+ Result := GetCanvas(aParent).TextHeight('A');
+ Inc(Result, (f_Items.Count div Columns + IfThen(f_Items.Count mod Columns <> 0, 1, 0))*Result);
+//#UC END# *521B053F03C3_5226188001A3_impl*
+//#UC START# *521B053F03C3_5226188001A3_var*
+//#UC END# *521B053F03C3_5226188001A3_var*
+//#UC START# *521B058801FD_5226188001A3_impl*
+ l_Value := 0;
+ for I := 0 to Pred(TCheckListBox(Control).Items.Count) do
+  if TCheckListBox(Control).Checked[I] then
+   l3SetBit(l_Value, I);
+  IntegerValue := l_Value;
+//#UC END# *521B058801FD_5226188001A3_impl*
+//#UC START# *521B058801FD_5226188001A3_var*
+var
+ l_Value, I: Integer;
+//#UC END# *521B058801FD_5226188001A3_var*
+//#UC START# *521B07030052_5226188001A3_impl*
+ if aDefault then
+  l_Value := DefaultValue.AsInteger
+ else
+  l_Value := IntegerValue;
+ for I := 0 to Pred(TCheckListBox(Control).Count) do
+  TCheckListBox(Control).Checked[I] := l3TestBit(l_Value, I);
+//#UC END# *521B07030052_5226188001A3_impl*
+//#UC START# *521B07030052_5226188001A3_var*
+var
+ I, l_Value: Integer;
+//#UC END# *521B07030052_5226188001A3_var*
+//#UC START# *5226188001A3_ext:ParentFileName
+w:\common\components\rtl\Garant\dd\ddAppConfigTypes.pas
+//#UC END# *5226188001A3_ext:ParentFileName
+//#UC START# *552BB745031E_5226188001A3_impl*
+ if aControl is TCheckListBox then
+  TCheckListBox(aControl).Enabled := TCheckListBox(aControl).Enabled and not ReadOnly;
+//#UC END# *552BB745031E_5226188001A3_impl*
+//#UC START# *552BB745031E_5226188001A3_var*
+//#UC END# *552BB745031E_5226188001A3_var*

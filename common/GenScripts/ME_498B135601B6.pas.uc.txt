@@ -3,6 +3,7 @@ w:\garant6x\implementation\Garant\GbaNemesis\View\Document\Document_Module.pas
 //#UC END# *498B135601B6_ext:FileName
 //#UC START# *498B135601B6impl_uses*
  , StdRes
+ , Base_Operations_F1Services_Contracts
 //#UC END# *498B135601B6impl_uses*
 //#UC START# *4AA11788033F_498B135601B6_impl*
  {$IfDef vcmUseProfilers}
@@ -17,34 +18,34 @@ w:\garant6x\implementation\Garant\GbaNemesis\View\Document\Document_Module.pas
    DT_EXPLANATORY:
    begin
     CheckAlive;
-    TdmStdRes.OpenDictionary(aDocInfo, CheckContainer(aContainer));
+    TDictionService.Instance.OpenDictionary(aDocInfo, CheckContainer(aContainer));
    end;//DT_EXPLANATORY
    DT_TIP:
    begin
     CheckAlive;
-    TdmStdRes.OpenTip(aDocInfo, CheckContainer(aContainer));
+    TDayTipsService.Instance.OpenTip(aDocInfo, CheckContainer(aContainer));
    end;//DT_TIP
    DT_MEDICAL_EXPLANATORY:
    begin
     CheckAlive;
-    TdmStdRes.OpenMedicDiction(aDocInfo, CheckContainer(aContainer));
+    TInpharmService.Instance.OpenMedicDiction(aDocInfo, CheckContainer(aContainer));
    end;//DT_MEDICAL_EXPLANATORY
    DT_MEDICAL_FIRM:
    begin
     CheckAlive;
-    TdmStdRes.OpenMedicFirmDocument(aDocInfo, CheckContainer(aContainer));
+    TInpharmService.Instance.OpenMedicFirmDocument(aDocInfo, CheckContainer(aContainer));
    end;//DT_MEDICAL_FIRM
    DT_MEDICAL_DOCUMENT:
    begin
-    TdmStdRes.OpenDrugDocument(aDocInfo, CheckContainer(aContainer));
+    TInpharmService.Instance.OpenDrugDocument(aDocInfo, CheckContainer(aContainer));
    end;//DT_MEDICAL_DOCUMENT
    DT_FLASH:
     Tfs_DocumentWithFlash.Make(TsdsDocumentWithFlash.Make(aDocInfo),
                                CheckContainer(aContainer));
    DT_ACTUAL_ANALYTICS:
-    TdmStdRes.MakeAAC(aDocInfo, CheckContainer(aContainer));
+    TvcmModulesFactories.MakeAAC(aDocInfo, CheckContainer(aContainer));
    DT_ACTUAL_ANALYTICS_CONTENTS:
-    TdmStdRes.MakeAACContents(aDocInfo, CheckContainer(aContainer));
+    TvcmModulesFactories.MakeAACContents(aDocInfo, CheckContainer(aContainer));
    else
     Assert(false);
   end//case l_DocInfo.Doc.GetDocType of

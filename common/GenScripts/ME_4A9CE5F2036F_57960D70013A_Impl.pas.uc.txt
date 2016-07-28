@@ -1,0 +1,52 @@
+//#UC START# *4A9CE5F2036F_57960D70013A_Impl_ext:ParentFileName
+w:\garant6x\implementation\Garant\GbaNemesis\View\Diction\Diction_Module.pas
+//#UC END# *4A9CE5F2036F_57960D70013A_Impl_ext:ParentFileName
+//#UC START# *4A9CEF360326_4A9CE5F2036F_impl*
+ l_Str := l3Trim(aContext, cc_AllChars - cc_ANSILetter);
+ l_DictTree := TnsDictionTree.Make(ns_dkDiction, aLanguage, l_Str, True);
+
+ Supports(l_DictTree, Il3FilterableTree, l_FilterTree);
+
+ if not l3IsNil(aContext) and
+    (l3IsNil(l_Str) or l3IsNil(l_FilterTree.CloneFilters.Context)) then
+ begin
+  vcmSay(inf_NothingWasFound);
+  Exit;
+ end;
+
+ Supports(l_DictTree.RootNode.Child, INodeBase, l_Child);
+ Assert(Assigned(l_FilterTree));
+
+ if l_Child <> nil then
+ try
+  l_Child.GetEntity(l_Entity);
+  try
+   if Supports(l_Entity, IDocument, l_Doc) then
+   try
+    l_Map := TnsLangToContextMap.Make(nil);
+    try
+     l_Map.ByLang[aLanguage] := TnscContextFilterState.Make(True, l_Str, MaxInt);
+     OpenDictionary(TdeDiction.Make(l_Doc, aLanguage, l_Map), TvcmModule.DefaultContainer);
+    finally
+     l_Map := nil;
+    end;
+   finally
+    l_Doc := nil;
+   end;//try..finally
+  finally
+   l_Entity := nil;
+  end;//try..finally
+ finally
+  l_Child := nil;
+ end;//try..finally
+//#UC END# *4A9CEF360326_4A9CE5F2036F_impl*
+//#UC START# *4A9CEF360326_4A9CE5F2036F_var*
+var
+ l_Map: InsLangToContextMap;
+//#UC END# *4A9CEF360326_4A9CE5F2036F_var*
+//#UC START# *4A9D1FD20092_4A9CE5F2036F_impl*
+ TnsOpenDictionaryEvent.Log;
+ Tfs_Diction.Make(TsdsDiction.Make(aDocInfo), aContainer);
+//#UC END# *4A9D1FD20092_4A9CE5F2036F_impl*
+//#UC START# *4A9D1FD20092_4A9CE5F2036F_var*
+//#UC END# *4A9D1FD20092_4A9CE5F2036F_var*

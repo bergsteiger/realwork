@@ -43,6 +43,19 @@ BOOLEAN VAR g_ClearClipboard // Очистка буфера обмена...
 BOOLEAN VAR g_AntiTest // Антитест
 ( false >>> g_AntiTest )
  
+ PROCEDURE Clear2Default
+	cnAnyParamDefValue >>> g_ActionWithDocument
+	cnAnyParamDefValue >>> g_How2Prepare
+	cnAnyParamDefValue >>> g_StartAction
+	cnAnyParamDefValue >>> g_CheckAction
+	cnAnyParamDefValue >>> g_How2End
+	false >>> g_SaveMouseCoordinate
+	cnAnyParamDefValue >>> g_FinalClear
+	cnAnyParamDefValue >>> g_BeforeTest
+	false >>> g_ClearClipboard
+	false >>> g_AntiTest
+ ;
+ 
 // ------------- Действия по очистке после теста ------------
 
 CONST cnNoAction cnAnyParamDefValue
@@ -515,6 +528,7 @@ CONST cnCheckClipboardRtf 35
 CONST cnCheckClipboardEvd 36
 CONST cnExport2EVDAndCheckWithEtalon 37
 CONST cnCheckCursorIndexNameEtalon 38
+CONST cnCheckEvdWithPicture 39
 
 PROCEDURE "Без проверок"
 	cnNoneAction >>> g_CheckAction
@@ -685,6 +699,10 @@ PROCEDURE "Эталон для буфера обмена в RTF"
 
 PROCEDURE "Проверка содержимого буфера обмена в EVD"
 	cnCheckClipboardEvd >>> g_CheckAction
+;
+
+PROCEDURE "Проверка EVD эталона с картинками"
+	cnCheckEvdWithPicture >>> g_CheckAction
 ;
 
 // --------------- Предварительные операции -----------
@@ -1120,3 +1138,39 @@ PROCEDURE "Тестирование изображения редактора с спецсимволами и WebStyle"
     "Стандартные размеры, Спецсимволы, WebStyle"
     "Изображение текущего контрола"
 ;
+
+INTEGER VAR g_BeforeTest_Prev // Действия до теста
+INTEGER VAR g_ActionWithDocument_Prev
+INTEGER VAR g_How2Prepare_Prev
+INTEGER VAR g_StartAction_Prev // Прокрутка и сдвиг курора и т.п.
+INTEGER VAR g_CheckAction_Prev // Вид проверки в конце теста
+INTEGER VAR g_How2End_Prev // Действия при закрытии теста
+BOOLEAN VAR g_AntiTest_Prev
+INTEGER VAR g_FinalClear_Prev
+BOOLEAN VAR g_ClearClipboard_Prev	
+
+PROCEDURE SaveParamsValues
+	g_BeforeTest >>> g_BeforeTest_Prev
+	g_ActionWithDocument >>> g_ActionWithDocument_Prev
+	g_How2Prepare >>> g_How2Prepare_Prev
+	g_StartAction >>> g_StartAction_Prev 
+	g_CheckAction >>> g_CheckAction_Prev
+	g_How2End >>> g_How2End_Prev
+	g_AntiTest >>> g_AntiTest_Prev
+	g_FinalClear >>> g_FinalClear_Prev
+	g_ClearClipboard >>> g_ClearClipboard_Prev
+;	
+
+PROCEDURE RestoreParamsValues
+	g_BeforeTest_Prev >>> g_BeforeTest
+	g_ActionWithDocument_Prev >>> g_ActionWithDocument
+	g_How2Prepare_Prev >>> g_How2Prepare
+	g_StartAction_Prev >>> g_StartAction 
+	g_CheckAction_Prev >>> g_CheckAction
+	g_How2End_Prev >>> g_How2End
+	g_AntiTest_Prev >>> g_AntiTest
+	g_FinalClear_Prev >>> g_FinalClear
+	g_ClearClipboard_Prev >>> g_ClearClipboard
+;	
+
+	

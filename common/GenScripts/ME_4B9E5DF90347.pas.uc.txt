@@ -1,0 +1,312 @@
+//#UC START# *478CF34E02CE_4B9E5DF90347_impl*
+ inherited;
+ if Source is TddListConfigItem then
+ begin
+  FreeAndNil(f_DataAdapter);
+  f_DataAdapter := TddListConfigItem(Source).DataAdapter.Clone;
+ end
+//#UC END# *478CF34E02CE_4B9E5DF90347_impl*
+//#UC START# *478CF34E02CE_4B9E5DF90347_var*
+//#UC END# *478CF34E02CE_4B9E5DF90347_var*
+//#UC START# *479731C50290_4B9E5DF90347_impl*
+ l3Free(f_DataAdapter);
+ inherited;
+//#UC END# *479731C50290_4B9E5DF90347_impl*
+//#UC START# *479731C50290_4B9E5DF90347_var*
+//#UC END# *479731C50290_4B9E5DF90347_var*
+//#UC START# *4B9E5DF90347_ext:ParentFileName
+w:\common\components\rtl\Garant\dd\ddAppConfigLists.pas
+//#UC END# *4B9E5DF90347_ext:ParentFileName
+//#UC START# *52171FCA00C1_4B9E5DF90347set_impl*
+ inherited;
+ if DataAdapter <> nil then
+  DataAdapter.Alias := aValue;
+//#UC END# *52171FCA00C1_4B9E5DF90347set_impl*
+//#UC START# *52171FCA00C1_4B9E5DF90347set_var*
+//#UC END# *52171FCA00C1_4B9E5DF90347set_var*
+//#UC START# *52171FDF0382_4B9E5DF90347get_impl*
+ if Control <> nil then
+  Result:= (Control as TCheckBox).Checked
+ else
+  Result:= inherited pm_GetBooleanValue;
+//#UC END# *52171FDF0382_4B9E5DF90347get_impl*
+//#UC START# *52171FDF0382_4B9E5DF90347get_var*
+//#UC END# *52171FDF0382_4B9E5DF90347get_var*
+//#UC START# *52171FDF0382_4B9E5DF90347set_impl*
+ inherited;
+//#UC END# *52171FDF0382_4B9E5DF90347set_impl*
+//#UC START# *52171FDF0382_4B9E5DF90347set_var*
+//#UC END# *52171FDF0382_4B9E5DF90347set_var*
+//#UC START# *5217205002F2_4B9E5DF90347get_impl*
+ Result := inherited pm_GetChanged;
+//#UC END# *5217205002F2_4B9E5DF90347get_impl*
+//#UC START# *5217205002F2_4B9E5DF90347get_var*
+//#UC END# *5217205002F2_4B9E5DF90347get_var*
+//#UC START# *5217205002F2_4B9E5DF90347set_impl*
+ inherited;
+ if DataAdapter <> nil then
+  DataAdapter.IsChanged:= aValue;
+//#UC END# *5217205002F2_4B9E5DF90347set_impl*
+//#UC START# *5217205002F2_4B9E5DF90347set_var*
+//#UC END# *5217205002F2_4B9E5DF90347set_var*
+//#UC START# *521725130281_4B9E5DF90347get_impl*
+ Result := ddEmptyObjectValue;
+ Result.AsObject := DataAdapter;
+//#UC END# *521725130281_4B9E5DF90347get_impl*
+//#UC START# *521725130281_4B9E5DF90347get_var*
+//#UC END# *521725130281_4B9E5DF90347get_var*
+//#UC START# *521725130281_4B9E5DF90347set_impl*
+ if aValue.Kind <> dd_vkObject then
+  raise EddInvalidValue.Create('');
+ DataAdapter := aValue.AsObject as TddBaseConfigDataAdapter;
+ Changed := True;
+//#UC END# *521725130281_4B9E5DF90347set_impl*
+//#UC START# *521725130281_4B9E5DF90347set_var*
+//#UC END# *521725130281_4B9E5DF90347set_var*
+//#UC START# *5217273F000F_4B9E5DF90347_impl*
+ inherited Create(aAlias, aCaption, aDefaultValue, aMasterItem);
+ Labeled:= False;
+ f_ShowMoveButtons:= False;
+//#UC END# *5217273F000F_4B9E5DF90347_impl*
+//#UC START# *5217273F000F_4B9E5DF90347_var*
+//#UC END# *5217273F000F_4B9E5DF90347_var*
+//#UC START# *52172B72014C_4B9E5DF90347_impl*
+ if DataAdapter <> nil then
+  DataAdapter.Load(aStorage, Alias);
+//#UC END# *52172B72014C_4B9E5DF90347_impl*
+//#UC START# *52172B72014C_4B9E5DF90347_var*
+//#UC END# *52172B72014C_4B9E5DF90347_var*
+//#UC START# *52172CA801E3_4B9E5DF90347_impl*
+ if DataAdapter <> nil then
+  DataAdapter.Save(aStorage, Alias);
+//#UC END# *52172CA801E3_4B9E5DF90347_impl*
+//#UC START# *52172CA801E3_4B9E5DF90347_var*
+//#UC END# *52172CA801E3_4B9E5DF90347_var*
+//#UC START# *5217602C020A_4B9E5DF90347get_impl*
+ Result := inherited pm_GetLabelTop;
+//#UC END# *5217602C020A_4B9E5DF90347get_impl*
+//#UC START# *5217602C020A_4B9E5DF90347get_var*
+//#UC END# *5217602C020A_4B9E5DF90347get_var*
+//#UC START# *5217602C020A_4B9E5DF90347set_impl*
+ inherited pm_SetLabelTop(True);
+//#UC END# *5217602C020A_4B9E5DF90347set_impl*
+//#UC START# *5217602C020A_4B9E5DF90347set_var*
+//#UC END# *5217602C020A_4B9E5DF90347set_var*
+//#UC START# *521761BB03DE_4B9E5DF90347_impl*
+ { Группа элементов }
+ Result:= TvtGroupBox.Create(aParent);
+ with Result do
+ begin
+  Parent:= aParent as TWinControl;
+  Left:= aLeft;                                
+  Top:= aTop;
+  Width:= aParent.ClientWidth - aLeft - c_ConfigItemRight;
+  Height:= ControlHeight(aParent);
+ end;
+ TvtGroupBox(Result).Caption:= Caption;
+ { Список }
+ l_ButtonWidth:= GetCanvas(aParent).TextWidth(str_ddcmChangeConfigValue.AsStr) + c_ConfigItemLeft + c_ConfigItemRight;
+ f_ListBox:= TListBox.Create(Result);
+ f_ListBox.Parent:= Result as TWinControl;
+ l_Top:= LabelHeight(aParent) + c_ConfigItemTop;
+ f_ListBox.Top:= l_Top;
+ f_ListBox.Height:= 25*3 + 5*c_ConfigItemTop; { Три кнопки, два двойных промежутка }
+ {$IFNDEF Nemesis}
+ if ShowMoveButtons then
+  f_ListBox.Height:= f_ListBox.Height + 25*2 + 3*c_ConfigItemTop;
+ {$ENDIF}
+ f_ListBox.Left:= c_ConfigItemLeft;
+ f_ListBox.Width:= Result.ClientWidth - 3*c_ConfigItemLeft - l_ButtonWidth;
+ f_ListBox.OnDblClick:= ListDblClick;
+ { Кнопки }
+ l_Left:= Result.ClientWidth - (l_ButtonWidth + c_ConfigItemLeft);
+ f_AddButton:= Tbutton.Create(Result);
+ f_AddButton.Width:= l_ButtonWidth;
+ f_AddButton.Parent:= Result as TWinControl;
+ f_AddButton.Top:= l_Top;
+ f_AddButton.Left:= l_Left;
+ with (f_AddButton as TButton) do
+ begin
+  Caption:= str_ddcmAddConfigValue.AsStr;
+  Enabled:= Assigned(DataAdapter);
+  OnClick:= AddButtonClick;
+ end;
+ Inc(l_Top, f_AddButton.Height+2*c_ConfigItemTop);
+ f_EditButton:= Tbutton.Create(Result);
+ f_EditButton.Width:= l_ButtonWidth;
+ f_EditButton.Parent:= Result as TWinControl;
+ f_EditButton.Top:= l_Top;
+ f_EditButton.Left:= l_Left;
+ with (f_EditButton as TButton) do
+ begin
+  Caption:= str_ddcmChangeConfigValue.AsStr;
+  Enabled:= Assigned(DataAdapter);
+  OnClick:= EditButtonClick;
+ end;
+ Inc(l_Top, f_EditButton.Height+2*c_ConfigItemTop);
+ f_DeleteButton:= Tbutton.Create(Result);
+ f_DeleteButton.Width:= l_ButtonWidth;
+ f_DeleteButton.Parent:= Result as TWinControl;
+ f_DeleteButton.Top:= l_Top;
+ f_DeleteButton.Left:= l_Left;
+ with (f_DeleteButton as TButton) do
+ begin
+  Caption:= str_ddcmDeleteConfigValue.AsStr;
+  Enabled:= Assigned(DataAdapter);
+  OnClick:= DeleteButtonClick;
+ end;
+ {$IFNDEF Nemesis}
+ // перемещение элементов
+ if ShowMoveButtons then
+ begin
+  Inc(l_Top, f_DeleteButton.Height+2*c_ConfigItemTop);
+  f_UpButton:= Tbutton.Create(Result);
+  f_UpButton.Width:= l_ButtonWidth;
+  f_UpButton.Parent:= Result as TWinControl;
+  f_UpButton.Top:= l_Top;
+  f_UpButton.Left:= l_Left;
+  with (f_UpButton as TButton) do
+  begin
+   Caption:= 'Вверх';
+   Enabled:= Assigned(DataAdapter);
+   OnClick:= UpButtonClick;
+  end; // with (f_UpButton
+  Inc(l_Top, f_UpButton.Height+2*c_ConfigItemTop);
+  f_DownButton:= Tbutton.Create(Result);
+  f_DownButton.Width:= l_ButtonWidth;
+  f_DownButton.Parent:= Result as TWinControl;
+  f_DownButton.Top:= l_Top;
+  f_DownButton.Left:= l_Left;
+  with (f_DownButton as TButton) do
+  begin
+   Caption:= 'Вниз';
+   Enabled:= Assigned(DataAdapter);
+   OnClick:= DownButtonClick;
+  end; 
+ end; // ShowMoveButtons
+ {$ENDIF}
+//#UC END# *521761BB03DE_4B9E5DF90347_impl*
+//#UC START# *521761BB03DE_4B9E5DF90347_var*
+var
+ l_Top, l_Left: Integer;
+ l_ButtonWidth: Integer;
+//#UC END# *521761BB03DE_4B9E5DF90347_var*
+//#UC START# *521B053F03C3_4B9E5DF90347_impl*
+ Result:= 25 * 3 + {Три кнопки }
+          4 * c_ConfigItemTop + {Промежутки между кнопками}
+          LabelHeight(aParent) +
+          4 * c_ConfigItemTop;
+ {$IFNDEF Nemesis}
+ if ShowMoveButtons then
+  Inc(Result, 25 * 2 + 4 * c_ConfigItemTop);
+ {$ENDIF}
+//#UC END# *521B053F03C3_4B9E5DF90347_impl*
+//#UC START# *521B053F03C3_4B9E5DF90347_var*
+//#UC END# *521B053F03C3_4B9E5DF90347_var*
+//#UC START# *521B058801FD_4B9E5DF90347_impl*
+//#UC END# *521B058801FD_4B9E5DF90347_impl*
+//#UC START# *521B058801FD_4B9E5DF90347_var*
+//#UC END# *521B058801FD_4B9E5DF90347_var*
+//#UC START# *521B07030052_4B9E5DF90347_impl*
+ // заполняем список строками
+ if DataAdapter <> nil then
+ begin
+  f_ListBox.Items.Clear;
+  for i:= 0 to Pred(DataAdapter.Count) do
+   f_ListBox.Items.Add(DataAdapter.Strings[i]);
+  f_EditButton.Enabled:= DataAdapter.Count > 0;
+  f_DeleteButton.Enabled:= DataAdapter.Count > 0;
+ end; // Assigned(aItem.DataAdapter)
+//#UC END# *521B07030052_4B9E5DF90347_impl*
+//#UC START# *521B07030052_4B9E5DF90347_var*
+var
+ i: Integer;
+//#UC END# *521B07030052_4B9E5DF90347_var*
+//#UC START# *522F5D3D03D0_4B9E5DF90347set_impl*
+ if f_DataAdapter <> aValue then
+ begin
+  l3Set(f_DataAdapter, aValue);
+  f_DataAdapter.Alias := Alias;
+ end; // f_DataAdapter <> aValue
+//#UC END# *522F5D3D03D0_4B9E5DF90347set_impl*
+//#UC START# *522F5D3D03D0_4B9E5DF90347set_var*
+//#UC END# *522F5D3D03D0_4B9E5DF90347set_var*
+//#UC START# *522F5E4502F9_4B9E5DF90347_impl*
+ if DataAdapter <> nil then
+  EditButtonClick(Self);
+//#UC END# *522F5E4502F9_4B9E5DF90347_impl*
+//#UC START# *522F5E4502F9_4B9E5DF90347_var*
+//#UC END# *522F5E4502F9_4B9E5DF90347_var*
+//#UC START# *522F5E79020B_4B9E5DF90347_impl*
+  if DataAdapter.EditItem(-1) then
+  begin
+   SetValueToControl(False);
+   Changed:= True;
+  end;
+//#UC END# *522F5E79020B_4B9E5DF90347_impl*
+//#UC START# *522F5E79020B_4B9E5DF90347_var*
+//#UC END# *522F5E79020B_4B9E5DF90347_var*
+//#UC START# *522F5E8C0163_4B9E5DF90347_impl*
+ I:= f_ListBox.ItemIndex;
+ if I > 0 then
+  if DataAdapter.UpItem(I) then
+  begin
+   SetValueToControl(False);
+   f_ListBox.ItemIndex:= Pred(I);
+   Changed:= True;
+  end;
+//#UC END# *522F5E8C0163_4B9E5DF90347_impl*
+//#UC START# *522F5E8C0163_4B9E5DF90347_var*
+var
+ I: Integer;
+//#UC END# *522F5E8C0163_4B9E5DF90347_var*
+//#UC START# *522F5E9A0363_4B9E5DF90347_impl*
+ I:= f_ListBox.ItemIndex;
+ if I < Pred(f_ListBox.Items.Count) then
+  if DataAdapter.DownItem(I) then
+  begin
+   SetValueToControl(False);
+   f_ListBox.ItemIndex:= Succ(I);
+   Changed:= True;
+  end;
+//#UC END# *522F5E9A0363_4B9E5DF90347_impl*
+//#UC START# *522F5E9A0363_4B9E5DF90347_var*
+var
+ I: Integer;
+//#UC END# *522F5E9A0363_4B9E5DF90347_var*
+//#UC START# *522F5EAC02DA_4B9E5DF90347_impl*
+ I:= f_ListBox.ItemIndex;
+ if I > -1 then
+  if MessageDlg(Format(str_ddcmConfirmDeleteConfigValue.AsStr, [DataAdapter.Strings[i]]),
+                mtConfirmation, mbOkCancel, 0) = mrOk then
+   if DataAdapter.DeleteItem(I) then
+   begin
+    SetValueToControl(False);
+    Changed:= True;
+   end;
+//#UC END# *522F5EAC02DA_4B9E5DF90347_impl*
+//#UC START# *522F5EAC02DA_4B9E5DF90347_var*
+var
+ i: Integer;
+//#UC END# *522F5EAC02DA_4B9E5DF90347_var*
+//#UC START# *522F5EBB00C1_4B9E5DF90347_impl*
+ I:= f_ListBox.ItemIndex;
+ if I > -1 then
+  if DataAdapter.EditItem(I) then
+  begin
+   SetValueToControl(False);
+   Changed:= True;
+  end;
+//#UC END# *522F5EBB00C1_4B9E5DF90347_impl*
+//#UC START# *522F5EBB00C1_4B9E5DF90347_var*
+var
+ I: Integer;
+//#UC END# *522F5EBB00C1_4B9E5DF90347_var*
+//#UC START# *522F60FA01BA_4B9E5DF90347_impl*
+ Create(aAlias, aCaption, ddEmptyValue, aMasterItem);
+ DataAdapter:= aDataAdapter;
+ f_Value.Kind:= dd_vkObject;
+ f_Value.AsObject:= DataAdapter.AsObject;
+//#UC END# *522F60FA01BA_4B9E5DF90347_impl*
+//#UC START# *522F60FA01BA_4B9E5DF90347_var*
+//#UC END# *522F60FA01BA_4B9E5DF90347_var*

@@ -1,0 +1,81 @@
+//#UC START# *479731C50290_550A638900A0_impl*
+ f_NeedAnimateEvent.SetEvent;
+ FreeAndNil(f_Timer);
+ FreeAndNil(f_Animables);
+ FreeAndNil(f_NeedAnimateEvent);
+ inherited;
+//#UC END# *479731C50290_550A638900A0_impl*
+//#UC START# *479731C50290_550A638900A0_var*
+//#UC END# *479731C50290_550A638900A0_var*
+//#UC START# *550A638900A0_ext:ParentFileName
+w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeTabSetAnimationManager.pas
+//#UC END# *550A638900A0_ext:ParentFileName
+//#UC START# *550A64410080_550A638900A0_impl*
+ for l_Index := Pred(f_Animables.Count) downto 0 do
+ begin
+  l_Animable := IChromeLikeTabSetAnimable(f_Animables[l_Index]);
+  try
+   l_Animable.AnimateMovement;
+  finally
+   l_Animable := nil;
+  end;//try..finally
+ end;//for l_Index...
+//#UC END# *550A64410080_550A638900A0_impl*
+//#UC START# *550A64410080_550A638900A0_var*
+var
+ l_Animable: IChromeLikeTabSetAnimable;
+ l_Index: Integer;
+//#UC END# *550A64410080_550A638900A0_var*
+//#UC START# *550A645801E2_550A638900A0_impl*
+ if (f_Animables.IndexOf(Integer(aAnimable)) = -1) then
+  f_Animables.Add(Integer(aAnimable));
+ CheckNeedAnimate;
+//#UC END# *550A645801E2_550A638900A0_impl*
+//#UC START# *550A645801E2_550A638900A0_var*
+//#UC END# *550A645801E2_550A638900A0_var*
+//#UC START# *550A64790157_550A638900A0_impl*
+ if (f_Animables.IndexOf(Integer(aAnimable)) <> -1) then
+  f_Animables.Remove(Integer(aAnimable));
+ CheckNeedAnimate;
+//#UC END# *550A64790157_550A638900A0_impl*
+//#UC START# *550A64790157_550A638900A0_var*
+//#UC END# *550A64790157_550A638900A0_var*
+//#UC START# *55111F0A00F9_550A638900A0_impl*
+ inherited;
+ f_Animables := Tl3LongIntList.Create;
+ f_NeedAnimateEvent := TSimpleEvent.Create;
+ f_Timer := TChromeLikeThreadTimer.Create(f_NeedAnimateEvent);
+ with f_Timer do
+ begin
+  Interval := 15;
+  OnTimer := DoOnAnimationTimer;
+  Enabled := True;
+ end;//with f_Timer
+//#UC END# *55111F0A00F9_550A638900A0_impl*
+//#UC START# *55111F0A00F9_550A638900A0_var*
+//#UC END# *55111F0A00F9_550A638900A0_var*
+//#UC START# *551BA1000265_550A638900A0_impl*
+ if (f_Animables.Count = 0) then
+  f_NeedAnimateEvent.ResetEvent
+ else
+ if (f_Animables.Count = 1) then
+  f_NeedAnimateEvent.SetEvent;
+//#UC END# *551BA1000265_550A638900A0_impl*
+//#UC START# *551BA1000265_550A638900A0_var*
+//#UC END# *551BA1000265_550A638900A0_var*
+//#UC START# *55ACE28F00B0_550A638900A0_impl*
+ for l_Index := Pred(f_Animables.Count) downto 0 do
+ begin
+  l_Animable := IChromeLikeTabSetAnimable(f_Animables[l_Index]);
+  try
+   l_Animable.FinishAnimationImmediately;
+  finally
+   l_Animable := nil;
+  end;//try..finally
+ end;//for l_Index..
+//#UC END# *55ACE28F00B0_550A638900A0_impl*
+//#UC START# *55ACE28F00B0_550A638900A0_var*
+var
+ l_Index: Integer;
+ l_Animable: IChromeLikeTabSetAnimable;
+//#UC END# *55ACE28F00B0_550A638900A0_var*

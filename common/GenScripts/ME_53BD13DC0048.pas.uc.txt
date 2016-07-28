@@ -1,0 +1,108 @@
+//#UC START# *53BD13DC0048_ext:ParentFileName
+w:\common\components\rtl\Garant\EVD\evdTasksHelpers.pas
+//#UC END# *53BD13DC0048_ext:ParentFileName
+//#UC START# *53BD20D702C0_53BD13DC0048_impl*
+ l_List := Tl3LongintList.Create;
+ try
+  Self.ToList(l_List);
+  l_List.Save(aStream);
+ finally
+  FreeAndNil(l_List);
+ end;//try..finally
+//#UC END# *53BD20D702C0_53BD13DC0048_impl*
+//#UC START# *53BD20D702C0_53BD13DC0048_var*
+var
+ l_List : Tl3LongintList;
+//#UC END# *53BD20D702C0_53BD13DC0048_var*
+//#UC START# *53BD20ED0368_53BD13DC0048_impl*
+ Clear;
+ l_List := Tl3LongintList.Create;
+ try
+  l_List.Load(aStream);
+  Self.FromList(l_List);
+ finally
+  FreeAndNil(l_List);
+ end;//try..finally
+//#UC END# *53BD20ED0368_53BD13DC0048_impl*
+//#UC START# *53BD20ED0368_53BD13DC0048_var*
+var
+ l_List : Tl3LongintList;
+//#UC END# *53BD20ED0368_53BD13DC0048_var*
+//#UC START# *53BD214603DA_53BD13DC0048_impl*
+ f_Value.DeleteChildren;
+//#UC END# *53BD214603DA_53BD13DC0048_impl*
+//#UC START# *53BD214603DA_53BD13DC0048_var*
+//#UC END# *53BD214603DA_53BD13DC0048_var*
+//#UC START# *53BD216B039D_53BD13DC0048_impl*
+ l_Addr := k2_typAddress.MakeTag.AsObject;
+ l_Addr.IntA[k2_tiDocID] := anItem;
+ f_Value.AddChild(l_Addr);
+//#UC END# *53BD216B039D_53BD13DC0048_impl*
+//#UC START# *53BD216B039D_53BD13DC0048_var*
+var
+ l_Addr : Tl3Tag;
+//#UC END# *53BD216B039D_53BD13DC0048_var*
+//#UC START# *53BD267000B9_53BD13DC0048_impl*
+ l_Child := f_Value.rAtomEx([k2_tiChildren, k2_tiDocID, anItem]);
+ //Assert(l_Child.IsValid);
+ if l_Child.IsValid then
+  f_Value.DeleteChild(l_Child);
+//#UC END# *53BD267000B9_53BD13DC0048_impl*
+//#UC START# *53BD267000B9_53BD13DC0048_var*
+var
+ l_Child : Tl3Tag;
+//#UC END# *53BD267000B9_53BD13DC0048_var*
+//#UC START# *53BD303603B8_53BD13DC0048get_impl*
+ Result := f_Value.ChildrenCount;
+//#UC END# *53BD303603B8_53BD13DC0048get_impl*
+//#UC START# *53BD303603B8_53BD13DC0048get_var*
+//#UC END# *53BD303603B8_53BD13DC0048get_var*
+//#UC START# *53BD303C009F_53BD13DC0048get_impl*
+ Result := f_Value.Child[anIndex].IntA[k2_tiDocID];
+//#UC END# *53BD303C009F_53BD13DC0048get_impl*
+//#UC START# *53BD303C009F_53BD13DC0048get_var*
+//#UC END# *53BD303C009F_53BD13DC0048get_var*
+//#UC START# *53DA2FCA03C8_53BD13DC0048_impl*
+ aDest.Clear;
+ for l_Index := 0 to Pred(f_Value.ChildrenCount) do
+  aDest.Add(f_Value.Child[l_Index].IntA[k2_tiDocID]);
+//#UC END# *53DA2FCA03C8_53BD13DC0048_impl*
+//#UC START# *53DA2FCA03C8_53BD13DC0048_var*
+var
+ l_Index : Integer;
+//#UC END# *53DA2FCA03C8_53BD13DC0048_var*
+//#UC START# *53DA307D03A7_53BD13DC0048_impl*
+ Self.Clear;
+ if Assigned(aSource) then
+  for l_Index := 0 to Pred(aSource.Count) do
+   Self.Add(aSource.Items[l_Index]);
+//#UC END# *53DA307D03A7_53BD13DC0048_impl*
+//#UC START# *53DA307D03A7_53BD13DC0048_var*
+var
+ l_Index : Integer;
+//#UC END# *53DA307D03A7_53BD13DC0048_var*
+//#UC START# *53DA30A10113_53BD13DC0048_impl*
+ Self.Clear;
+ if Assigned(aSource) then
+  for l_Index := 0 to Pred(aSource.Count) do
+   Self.Add(aSource.Items[l_Index]);
+//#UC END# *53DA30A10113_53BD13DC0048_impl*
+//#UC START# *53DA30A10113_53BD13DC0048_var*
+var
+ l_Index : Integer;
+//#UC END# *53DA30A10113_53BD13DC0048_var*
+//#UC START# *53DA30C501BC_53BD13DC0048_impl*
+ l_List := Tl3InterfacedIntegerList.Create;
+ try
+  Result := l_List;
+  for l_Index := 0 to Pred(f_Value.ChildrenCount) do
+   l_List.Add(f_Value.Child[l_Index].IntA[k2_tiDocID]);
+ finally
+  FreeAndNil(l_List);
+ end;//try..finally
+//#UC END# *53DA30C501BC_53BD13DC0048_impl*
+//#UC START# *53DA30C501BC_53BD13DC0048_var*
+var
+ l_List : Tl3InterfacedIntegerList;
+ l_Index : Integer; 
+//#UC END# *53DA30C501BC_53BD13DC0048_var*

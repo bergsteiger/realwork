@@ -1,0 +1,128 @@
+//#UC START# *478CF34E02CE_547DB3E001A5_impl*
+ if (Source is TevSubDescriptor) then
+ begin
+  BitmapIndex := SD.BitmapIndex;
+  BlockBitmapIndex := SD.BlockBitmapIndex;
+  Font := SD.Font;
+  DrawType := SD.DrawType;
+  NumberOffset := SD.NumberOffset;
+  f_Visible := SD.Visible;
+  Offset := SD.Offset;
+  BuildColumns;
+ end;//P is TevSubDescriptor
+//#UC END# *478CF34E02CE_547DB3E001A5_impl*
+//#UC START# *478CF34E02CE_547DB3E001A5_var*
+var
+ SD: TevSubDescriptor absolute Source;
+//#UC END# *478CF34E02CE_547DB3E001A5_var*
+//#UC START# *479731C50290_547DB3E001A5_impl*
+ l3Free(f_Font);
+ inherited;
+//#UC END# *479731C50290_547DB3E001A5_impl*
+//#UC START# *479731C50290_547DB3E001A5_var*
+//#UC END# *479731C50290_547DB3E001A5_var*
+//#UC START# *480DD1890221_547DB3E001A5_impl*
+ Result := f_Descriptors;
+//#UC END# *480DD1890221_547DB3E001A5_impl*
+//#UC START# *480DD1890221_547DB3E001A5_var*
+//#UC END# *480DD1890221_547DB3E001A5_var*
+//#UC START# *52FCC6CE00E2_547DB3E001A5get_impl*
+ Result := f_Handle;
+//#UC END# *52FCC6CE00E2_547DB3E001A5get_impl*
+//#UC START# *52FCC6CE00E2_547DB3E001A5get_var*
+//#UC END# *52FCC6CE00E2_547DB3E001A5get_var*
+//#UC START# *52FCC6CE00E2_547DB3E001A5set_impl*
+ f_Handle := aValue;
+//#UC END# *52FCC6CE00E2_547DB3E001A5set_impl*
+//#UC START# *52FCC6CE00E2_547DB3E001A5set_var*
+//#UC END# *52FCC6CE00E2_547DB3E001A5set_var*
+//#UC START# *52FCC73E00CC_547DB3E001A5_impl*
+ if (anOther is TevSubDescriptor) then
+  Result := Handle - TevSubDescriptor(anOther).Handle
+ else
+ begin
+  Result := -1;
+  Assert(False);
+ end;//anObject is TevSubDescriptor
+//#UC END# *52FCC73E00CC_547DB3E001A5_impl*
+//#UC START# *52FCC73E00CC_547DB3E001A5_var*
+//#UC END# *52FCC73E00CC_547DB3E001A5_var*
+//#UC START# *547DB3E001A5_ext:ParentFileName
+w:\common\components\gui\Garant\Everest\evSubPanel.pas
+//#UC END# *547DB3E001A5_ext:ParentFileName
+//#UC START# *547DB5FE0149_547DB3E001A5get_impl*
+ CheckFont;
+ Result := f_Font;
+//#UC END# *547DB5FE0149_547DB3E001A5get_impl*
+//#UC START# *547DB5FE0149_547DB3E001A5get_var*
+//#UC END# *547DB5FE0149_547DB3E001A5get_var*
+//#UC START# *547DB5FE0149_547DB3E001A5set_impl*
+ if (f_Font <> aValue) then
+ begin
+  if (aValue = nil) then
+   l3Free(f_Font)
+  else
+   Font.Assign(aValue);
+ end;//f_Font <> aValue
+//#UC END# *547DB5FE0149_547DB3E001A5set_impl*
+//#UC START# *547DB5FE0149_547DB3E001A5set_var*
+//#UC END# *547DB5FE0149_547DB3E001A5set_var*
+//#UC START# *547DB5FE0149Stored_547DB3E001A5_impl*
+ Result := (DrawType <> ev_sdtBitmap);
+//#UC END# *547DB5FE0149Stored_547DB3E001A5_impl*
+//#UC START# *547DB5FE0149Stored_547DB3E001A5_var*
+//#UC END# *547DB5FE0149Stored_547DB3E001A5_var*
+//#UC START# *547DB6950360_547DB3E001A5set_impl*
+ if (f_Visible <> aValue) then
+ begin
+  f_Visible := aValue;
+  BuildColumns;
+ end;//f_Visible <> aValue
+//#UC END# *547DB6950360_547DB3E001A5set_impl*
+//#UC START# *547DB6950360_547DB3E001A5set_var*
+//#UC END# *547DB6950360_547DB3E001A5set_var*
+//#UC START# *547DB6950360Stored_547DB3E001A5_impl*
+ Result := (f_Visible <> VisibleDef);
+//#UC END# *547DB6950360Stored_547DB3E001A5_impl*
+//#UC START# *547DB6950360Stored_547DB3E001A5_var*
+//#UC END# *547DB6950360Stored_547DB3E001A5_var*
+//#UC START# *547DB81202D8Stored_547DB3E001A5_impl*
+ Result := (f_Cursor <> crDefault) and
+           ((f_Descriptors = nil) or (f_Descriptors.Cursor <> f_Cursor));
+//#UC END# *547DB81202D8Stored_547DB3E001A5_impl*
+//#UC START# *547DB81202D8Stored_547DB3E001A5_var*
+//#UC END# *547DB81202D8Stored_547DB3E001A5_var*
+//#UC START# *547DB95F0282_547DB3E001A5_impl*
+ if (f_Font = nil) then
+  f_Font := TevFont.Create;
+//#UC END# *547DB95F0282_547DB3E001A5_impl*
+//#UC START# *547DB95F0282_547DB3E001A5_var*
+//#UC END# *547DB95F0282_547DB3E001A5_var*
+//#UC START# *547DB98F012C_547DB3E001A5_impl*
+ if (f_Descriptors <> nil) then
+  f_Descriptors.BuildColumns;
+//#UC END# *547DB98F012C_547DB3E001A5_impl*
+//#UC START# *547DB98F012C_547DB3E001A5_var*
+//#UC END# *547DB98F012C_547DB3E001A5_var*
+//#UC START# *547DB9B10138_547DB3E001A5_impl*
+ Result := False; 
+//#UC END# *547DB9B10138_547DB3E001A5_impl*
+//#UC START# *547DB9B10138_547DB3E001A5_var*
+//#UC END# *547DB9B10138_547DB3E001A5_var*
+//#UC START# *547DB9EC002E_547DB3E001A5_impl*
+ inherited Create;
+ f_Descriptors := anOwner;
+ CheckFont;
+ f_BitmapIndex := -1;
+ f_BlockBitmapIndex := -1;
+ f_DocumentBitmapIndex := -1;
+ f_Visible := VisibleDef;
+ f_Column := DefColumn;
+//#UC END# *547DB9EC002E_547DB3E001A5_impl*
+//#UC START# *547DB9EC002E_547DB3E001A5_var*
+//#UC END# *547DB9EC002E_547DB3E001A5_var*
+//#UC START# *54806C560320_547DB3E001A5get_impl*
+ Result := f_Descriptors;
+//#UC END# *54806C560320_547DB3E001A5get_impl*
+//#UC START# *54806C560320_547DB3E001A5get_var*
+//#UC END# *54806C560320_547DB3E001A5get_var*

@@ -1354,43 +1354,24 @@ ref; // ME_53B52B130172_ME_467818430333 DateTimeW
 
 ref; // ME_467818430333 Ik2TagTool
 
-FORWARD ME_49A67D880011
-
-: ME_49A67D980375
- CONST UID '49A67D980375'
- CONST Name 'IsModified'
- CONST Class class_Attribute
- : Stereotype st_readonly::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_abstract
- CONST LinkType lt_lnk
- : Parent HWL ME_49A67D880011 // Ik2RawData
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST "pm" true
-
-ref; // ME_49A67D980375 IsModified
-
-: ME_49A67D880011
- CONST UID '49A67D880011'
- CONST GUID '1BF80DA7-BEBC-48DC-808A-355329C193E6'
- CONST Name 'Ik2RawData'
+: ME_533D316E00BF
+ CONST UID '533D316E00BF'
+ CONST Name 'Tl3Variant'
  CONST Class class_Class
- : Stereotype st_Facet ;
+ : Stereotype st_Typedef ;
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  : Parent HWL ME_4678137501EA // k2Interfaces
  ;
- : Attributes
-   Seq: ( HWL ME_49A67D980375 // IsModified
+ : Inherits
+   Seq: ( WL 'ME_532031160122' '47913B47006E.pas.ms.script' // Tl3Variant
  )
- ; // Attributes
- CONST extprop:rc:SelfName 'RawData'
+ ; // Inherits
+ CONST extprop:rc:SelfName 'Variant'
  CONST extprop:rc:isAcceptableForScripts true
 
-ref; // ME_49A67D880011 Ik2RawData
+ref; // ME_533D316E00BF Tl3Variant
 
 FORWARD ME_467816AD0194
 
@@ -1854,24 +1835,94 @@ ref; // ME_533BFA8E0340 Ik2Variant
 
 ref; // ME_533C138F0003 Ik2Tag
 
-: ME_533D316E00BF
- CONST UID '533D316E00BF'
- CONST Name 'Tl3Variant'
+FORWARD ME_49A67D880011
+
+: ME_49A67D980375
+ CONST UID '49A67D980375'
+ CONST Name 'IsModified'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent HWL ME_49A67D880011 // Ik2RawData
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" true
+
+ref; // ME_49A67D980375 IsModified
+
+: ME_5798D8C40263
+ CONST UID '5798D8C40263'
+ CONST Name 'OriginalData'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent HWL ME_49A67D880011 // Ik2RawData
+ ;
+ : Target HWL ME_533D316E00BF // Tl3Variant
+ ;
+ CONST "pm" false
+
+ref; // ME_5798D8C40263 OriginalData
+
+: ME_5799B2C50033
+ CONST UID '5799B2C50033'
+ CONST Name 'InternalID'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent HWL ME_49A67D880011 // Ik2RawData
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "pm" false
+
+ref; // ME_5799B2C50033 InternalID
+
+: ME_5799B2D9013E
+ CONST UID '5799B2D9013E'
+ CONST Name 'ExternalID'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent HWL ME_49A67D880011 // Ik2RawData
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "pm" false
+
+ref; // ME_5799B2D9013E ExternalID
+
+: ME_49A67D880011
+ CONST UID '49A67D880011'
+ CONST GUID '1BF80DA7-BEBC-48DC-808A-355329C193E6'
+ CONST Name 'Ik2RawData'
  CONST Class class_Class
- : Stereotype st_Typedef ;
+ : Stereotype st_Facet ;
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  : Parent HWL ME_4678137501EA // k2Interfaces
  ;
- : Inherits
-   Seq: ( WL 'ME_532031160122' '47913B47006E.pas.ms.script' // Tl3Variant
+ : Attributes
+   Seq: ( HWL ME_49A67D980375 // IsModified
+ HWL ME_5798D8C40263 // OriginalData
+ HWL ME_5799B2C50033 // InternalID
+ HWL ME_5799B2D9013E // ExternalID
  )
- ; // Inherits
- CONST extprop:rc:SelfName 'Variant'
+ ; // Attributes
+ CONST extprop:rc:SelfName 'RawData'
  CONST extprop:rc:isAcceptableForScripts true
 
-ref; // ME_533D316E00BF Tl3Variant
+ref; // ME_49A67D880011 Ik2RawData
 
 : ME_4678137501EA
  CONST UID '4678137501EA'
@@ -1895,7 +1946,7 @@ ref; // ME_533D316E00BF Tl3Variant
  HWL ME_47678AD30259 // Ik2GeneratorTarget
  HWL ME_47678B5F0280 // Tk2Integer
  HWL ME_467818430333 // Ik2TagTool
- HWL ME_49A67D880011 // Ik2RawData
+ HWL ME_533D316E00BF // Tl3Variant
  HWL ME_467816AD0194 // Ik2TagReader
  HWL ME_4A51D59703DF // Ik2Processor
  HWL ME_4A51E91101D1 // Tk2TypePrim
@@ -1909,7 +1960,7 @@ ref; // ME_533D316E00BF Tl3Variant
  HWL ME_533BFA7F0182 // Tk2VarKind
  HWL ME_533BFA8E0340 // Ik2Variant
  HWL ME_533C138F0003 // Ik2Tag
- HWL ME_533D316E00BF // Tl3Variant
+ HWL ME_49A67D880011 // Ik2RawData
  )
  ; // Children
  : Depends

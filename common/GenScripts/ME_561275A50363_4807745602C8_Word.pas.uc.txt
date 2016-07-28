@@ -1,0 +1,36 @@
+//#UC START# *561275A50363_4807745602C8_Word_ext:ParentFileName
+w:\common\components\rtl\Garant\ScriptEngine\ObjectFromstackWords.pas
+//#UC END# *561275A50363_4807745602C8_Word_ext:ParentFileName
+//#UC START# *561275A50363_561275A50363_4807745602C8_Word_impl*
+ Case aClass.rType of
+  tfw_vtClass:
+   if (aObject = nil) then
+    Result := false
+   else
+    Result := aObject.ClassType.InheritsFrom(aClass.AsClass);
+  tfw_vtStr:
+   if (aObject = nil) then
+    Result := false
+   else
+    Result := IsInherits(aObject.ClassType, aClass.AsDelphiString);
+  else
+  begin
+   Result := false;
+   BadValueType(aClass.rType, aCtx);
+  end;//else
+ end;//Case aClass.rType
+//#UC END# *561275A50363_561275A50363_4807745602C8_Word_impl*
+//#UC START# *561275A50363_561275A50363_4807745602C8_Word_var*
+
+ function IsInherits(anObject: TClass; const aClass: AnsiString): Boolean;
+ begin//IsInherits
+  if (anObject = nil) then
+   Result := false
+  else
+  if AnsiSameText(anObject.ClassName, aClass) then
+   Result := true
+  else
+   Result := IsInherits(anObject.ClassParent, aClass);
+ end;//IsInherits
+
+//#UC END# *561275A50363_561275A50363_4807745602C8_Word_var*
