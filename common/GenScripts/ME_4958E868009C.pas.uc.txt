@@ -15,7 +15,6 @@
 w:\garant6x\implementation\Garant\GbaNemesis\View\Inpharm\Forms\InpharmMainMenu_Form.pas
 //#UC END# *4958E868009C_ext:FileName
 //#UC START# *4958E868009Cimpl_uses*
- , Base_Operations_F1Services_Contracts
 //#UC END# *4958E868009Cimpl_uses*
 //#UC START# *49803F5503AA_4958E868009C_impl*
  inherited;
@@ -224,16 +223,16 @@ w:\garant6x\implementation\Garant\GbaNemesis\View\Inpharm\Forms\InpharmMainMenu_
  case TnsMedicMainMenuNodeType(aNode.NodeType) of
   // Поиск лекарственного средства
   ns_mntSearchDrug:
-   TvcmModulesFactories.InpharmSearch(nil, nil, nil);
+   TdmStdRes.InpharmSearch(nil, nil, nil);
   // Лекарственные средства
   ns_mntAllDrugList:
-   Dispatcher.ModuleOperation(mod_opcode_InpharmService_DrugList);
+   Dispatcher.ModuleOperation(TdmStdRes.mod_opcode_Inpharm_DrugList);
   // Фирмы производители
   ns_mntFirms:
-   Dispatcher.ModuleOperation(mod_opcode_InpharmService_MedicFirms);
+   Dispatcher.ModuleOperation(TdmStdRes.mod_opcode_Inpharm_MedicFirms);
   // Словарь медицинских терминов
   ns_mntDiction:
-   Dispatcher.ModuleOperation(mod_opcode_InpharmService_MedicDiction);
+   Dispatcher.ModuleOperation(TdmStdRes.mod_opcode_Inpharm_MedicDiction);
   // Открыть список
   ns_mntDrugList:
    nsOpenNavigatorItem(aNode, NativeMainForm);
@@ -244,9 +243,9 @@ w:\garant6x\implementation\Garant\GbaNemesis\View\Inpharm\Forms\InpharmMainMenu_
   {ns_mntHelp:
    Application.HelpSystem.ShowTopicHelp(cHelpInpharm, '');}
   ns_mntPublishSource:
-   TvcmModulesFactories.OpenPharmPublishSearch;
+   TdmStdRes.OpenPharmPublishSearch;
   ns_mntLegislationReview:
-   TvcmModulesFactories.OpenPharmLegislationReview;
+   TdmStdRes.OpenPharmLegislationReview;
  else
   Assert(False);
  end;//case TnsMedicMainMenuNodeType(aNode.NodeType)
@@ -259,7 +258,7 @@ w:\garant6x\implementation\Garant\GbaNemesis\View\Inpharm\Forms\InpharmMainMenu_
    if Supports(aNode,
                InsDocumentNode,
                l_DocumentNode) then
-    TvcmModulesFactories.OpenDocument(TdeDocInfo.Make(
+    TdmStdRes.OpenDocument(TdeDocInfo.Make(
                             TbsDocumentContainer.Make(l_DocumentNode.Data)),
                            nil);
   end;

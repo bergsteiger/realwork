@@ -1,0 +1,31 @@
+//#UC START# *47A042E100E2_4C727C5B007B_impl*
+ f_LayerID := High(f_LayerID);
+ inherited;
+//#UC END# *47A042E100E2_4C727C5B007B_impl*
+//#UC START# *47A042E100E2_4C727C5B007B_var*
+//#UC END# *47A042E100E2_4C727C5B007B_var*
+//#UC START# *4C727C5B007B_ext:ParentFileName
+w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\f1TagDataFromDTP.pas
+//#UC END# *4C727C5B007B_ext:ParentFileName
+//#UC START# *4C72897703B9_4C727C5B007Bget_impl*
+ if (f_LayerID = High(f_LayerID)) then
+  f_LayerID := f_Provider.GetChildLayerID(Self.EntryPoint);
+ Result := f_LayerID; 
+//#UC END# *4C72897703B9_4C727C5B007Bget_impl*
+//#UC START# *4C72897703B9_4C727C5B007Bget_var*
+//#UC END# *4C72897703B9_4C727C5B007Bget_var*
+//#UC START# *4C7294F40339_4C727C5B007B_impl*
+ Result := f_Provider.AllLeafParaCount(Self.LayerID);
+//#UC END# *4C7294F40339_4C727C5B007B_impl*
+//#UC START# *4C7294F40339_4C727C5B007B_var*
+//#UC END# *4C7294F40339_4C727C5B007B_var*
+//#UC START# *4C7295160269_4C727C5B007B_impl*
+ Result := f_Provider.ChildrenCount(Self.LayerID);
+//#UC END# *4C7295160269_4C727C5B007B_impl*
+//#UC START# *4C7295160269_4C727C5B007B_var*
+//#UC END# *4C7295160269_4C727C5B007B_var*
+//#UC START# *4C7298A100C9_4C727C5B007Bget_impl*
+ Result := Tf1TagDataFromDTPFactory.MakeProvider(f_Provider, Self, anIndex);
+//#UC END# *4C7298A100C9_4C727C5B007Bget_impl*
+//#UC START# *4C7298A100C9_4C727C5B007Bget_var*
+//#UC END# *4C7298A100C9_4C727C5B007Bget_var*
