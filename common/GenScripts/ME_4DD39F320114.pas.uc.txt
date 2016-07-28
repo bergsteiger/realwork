@@ -1,0 +1,178 @@
+//#UC START# *48077504027E_4DD39F320114_impl*
+  FreeAndNil(f_ParaIterator);
+  inherited;
+//#UC END# *48077504027E_4DD39F320114_impl*
+//#UC START# *48077504027E_4DD39F320114_var*
+//#UC END# *48077504027E_4DD39F320114_var*
+//#UC START# *4DD39F320114_ext:ParentFileName
+w:\quality\test\garant6x\AdapterTest\AdapterHelpers\atDocumentHelper.pas
+//#UC END# *4DD39F320114_ext:ParentFileName
+//#UC START# *4DD39F4E00F4_4DD39F320114_impl*
+  inherited Create;
+  f_Document := aDocument;
+  f_IsFullLoad := false;
+  //
+  f_Document.GetTextProvider(false, f_DTP);
+  Assert(f_DTP <> nil, 'f_DTP <> nil');
+  f_ParaIterator := TatDTPParaIterator.Create(f_DTP);
+//#UC END# *4DD39F4E00F4_4DD39F320114_impl*
+//#UC START# *4DD39F4E00F4_4DD39F320114_var*
+//#UC END# *4DD39F4E00F4_4DD39F320114_var*
+//#UC START# *4DD39FBB038F_4DD39F320114_impl*
+  if f_Document.GetDocType = DT_FLASH then
+  begin
+    f_Document.GetFlash(l_Flash);
+    if l_Flash <> nil then
+    begin
+      l_Flash.GetDataPointer;
+      Logger.Info('У документа есть флэш размером %d байт', [l_Flash.GetDataSize]);
+    end
+    else
+      Logger.Warning('Документ флэшовый, а данных нету');
+  end;
+
+  Logger.Info('Имитируем прогрузку оглавления документа через DTP');
+  ReadContent();
+  Logger.Info('Закончили имитировать прогрузку оглавления документа через DTP');
+
+  Logger.Info('Имитируем прогрузку тела документа через DTP');
+  ReadDocBody();
+  //
+  if f_ParaIDForJournal <> 0 then
+  begin
+    f_Document.CreateJournalBookmark(f_ParaIDForJournal, l_JournalBookmark);
+    Assert(l_JournalBookmark <> nil, 'l_JournalBookmark <> nil');
+    TatUserJournalHelper.AddBookmark(l_JournalBookmark);
+  end;
+  Logger.Info('Закончили имитировать прогрузку тела документа через DTP');
+//#UC END# *4DD39FBB038F_4DD39F320114_impl*
+//#UC START# *4DD39FBB038F_4DD39F320114_var*
+  var
+    l_JournalBookmark : IJournalBookmark;
+    l_Flash : IExternalObject;
+//#UC END# *4DD39FBB038F_4DD39F320114_var*
+//#UC START# *4DD3A06B0131_4DD39F320114_impl*
+  if aParaID = 0 then
+    f_ParaIterator.Reset()
+  else
+    try
+      f_ParaIterator.SetNextToPara(aParaId);
+    except
+      on ex : ECanNotFindData do
+      begin
+        Logger.Info('Пытались прочитать документ с параграфа %d но не нашли его, поэтому читаем с начала', [aParaID]);
+        f_ParaIterator.Reset();
+      end;
+    end;
+  //
+  Read();
+//#UC END# *4DD3A06B0131_4DD39F320114_impl*
+//#UC START# *4DD3A06B0131_4DD39F320114_var*
+//#UC END# *4DD3A06B0131_4DD39F320114_var*
+//#UC START# *4DD3A07E0288_4DD39F320114_impl*
+  if aSubID = 0 then
+    f_ParaIterator.Reset()
+  else
+    try
+      f_ParaIterator.SetNextToSub(aSubId);
+    except
+      on ex : ECanNotFindData do
+      begin
+        Logger.Info('Пытались прочитать документ с саба %d но не нашли его, поэтому читаем с начала', [aSubID]);
+        f_ParaIterator.Reset();
+      end;
+    end;
+  //  
+  Read();
+//#UC END# *4DD3A07E0288_4DD39F320114_impl*
+//#UC START# *4DD3A07E0288_4DD39F320114_var*
+//#UC END# *4DD3A07E0288_4DD39F320114_var*
+//#UC START# *4DD3A09701DE_4DD39F320114_impl*
+  l_ContentsRoot := nil;
+  try
+    f_Document.GetContentsRoot(l_ContentsRoot);
+  except
+    on ECanNotFindData do
+      Logger.Info('У документа нет оглавления');
+  end;
+  //
+  if (l_ContentsRoot <> nil) then
+  begin
+    if f_IsFullLoad then
+      i := High(Word)
+    else
+      i := 2;
+    TatNodeHelper.LoadNodes(l_ContentsRoot, i, High(Longword), TatNodeCallbacks.CallNodeCaption);
+  end;
+
+
+  // читаем закладки
+  try
+    f_Document.GetBookmarkList(l_Bookmarks);
+  except
+    // http://mdp.garant.ru/pages/viewpage.action?pageId=264897751&focusedCommentId=264900398#comment-264900398
+    Logger.Warning('Странное исключение при GetBookmarkList');
+  end;
+  TatDocumentHelper.ReadChildBookmarks(f_DTP, l_Bookmarks);
+
+  // читаем комментарии
+  try
+    f_Document.GetCommentsParaList(l_CPL);
+  except
+    // http://mdp.garant.ru/pages/viewpage.action?pageId=264897751&focusedCommentId=264900398#comment-264900398
+    Logger.Warning('Странное исключение при GetCommentsParaList');
+    l_CPL := nil;
+  end;
+  if (l_CPL <> nil) then
+    for i := 0 to l_CPL.Count-1 do
+      if TatDocumentHelper.FindPara(f_DTP, l_CPL.Items[i], l_EP) then
+        TatDocumentHelper.ReadChildComment(f_DTP, l_EP);
+
+  // читаем имена вложенных объектов
+  try
+    f_Document.GetExternalObjectDataList(l_EODL);
+  except
+    // http://mdp.garant.ru/pages/viewpage.action?pageId=264897751&focusedCommentId=264900398#comment-264900398
+    Logger.Warning('Странное исключение при GetExternalObjectDataList');
+    l_EODL := nil;
+  end;
+  if (l_EODL <> nil) then
+    for i := 0 to l_EODL.Count-1 do
+    begin
+      l_EODL.pm_GetItem(i, l_EOD);
+      l_EOD.rName.GetData();
+    end;
+//#UC END# *4DD3A09701DE_4DD39F320114_impl*
+//#UC START# *4DD3A09701DE_4DD39F320114_var*
+  var
+    l_ContentsRoot : INodeBase;
+    l_Bookmarks : IBookmarkList;
+    l_CPL : ICommentsParaList;
+    l_EODL : IExternalObjectDataList;
+    l_EOD : TExternalObjectData;
+    i : Integer;
+    l_EP : TEntryPoint;
+//#UC END# *4DD3A09701DE_4DD39F320114_var*
+//#UC START# *4DD3A5890061_4DD39F320114_impl*
+  if f_IsFullLoad then
+    l_ParasCount := High(l_ParasCount)
+  else
+    l_ParasCount := 30;
+  //
+  f_ParaIDForJournal := 0;
+  f_ParaIterator.IsParaMustHaveNonZeroID := false;
+  while f_ParaIterator.HasNext() AND (l_ParasCount > 0) do
+  begin
+    l_EP := f_ParaIterator.GetNext();
+    TatDocumentHelper.ReadPara(f_DTP, l_EP);
+    l_LastParaID := f_DTP.GetChildExternalId(l_EP);
+    if l_LastParaID <> 0 then f_ParaIDForJournal := l_LastParaID;
+    Dec(l_ParasCount);
+  end;
+//#UC END# *4DD3A5890061_4DD39F320114_impl*
+//#UC START# *4DD3A5890061_4DD39F320114_var*
+  var
+    l_ParasCount : Integer;
+    l_EP : TEntryPoint;
+    l_LastParaID : TParaId;
+//#UC END# *4DD3A5890061_4DD39F320114_var*

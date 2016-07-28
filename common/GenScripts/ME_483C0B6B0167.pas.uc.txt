@@ -1,40 +1,3 @@
-//#UC START# *45EEDE9D01C5_4AC200650301_impl*
-  if (aNotify.GetId = f_NotifyType) then
-  begin
-    if f_NotifyType = NT_BASE_UPDATE_END then // запил
-      TatGblAdapterWorker.Instance.ControlManager.UpdateStatus(false);
-    //  
-    Logger.Info('Нотификация с кодом ' + NTTypeToStr + ' получена.');
-    l_Notification := TatNotification.Create(aNotify);
-    Trigger(Self, l_Notification);
-  end;
-//#UC END# *45EEDE9D01C5_4AC200650301_impl*
-//#UC START# *45EEDE9D01C5_4AC200650301_var*
-  function NTTypeToStr : String;
-  begin
-    case f_NotifyType of
-      NT_LONG_OPERATION_START   : Result := 'NT_LONG_OPERATION_START';
-      NT_LONG_OPERATION_END     : Result := 'NT_LONG_OPERATION_END';
-      NT_MONITORING_UPDATE      : Result := 'NT_MONITORING_UPDATE';
-      NT_SHUTDOWN               : Result := 'NT_SHUTDOWN';
-      NT_LOGOUT                 : Result := 'NT_LOGOUT';
-      NT_BASE_UPDATE_START      : Result := 'NT_BASE_UPDATE_START';
-      NT_BASE_UPDATE_END        : Result := 'NT_BASE_UPDATE_END';
-      NT_BASE_UPDATE_FAILED     : Result := 'NT_BASE_UPDATE_FAILED';
-      NT_CONSULTATION_RECEIVED  : Result := 'NT_CONSULTATION_RECEIVED';
-      NT_CONSULTATION_NOT_SENT  : Result := 'NT_CONSULTATION_NOT_SENT';
-      NT_NO_SUBSCRIPTION        : Result := 'NT_NO_SUBSCRIPTION';
-    end;
-  end;
-
-  var
-    l_Notification : IatNotification;
-//#UC END# *45EEDE9D01C5_4AC200650301_var*
-//#UC START# *45F118D40054_504FB0DC0131_impl*
-  Logger.Info('Нотификация: документы на контроле изменились');
-//#UC END# *45F118D40054_504FB0DC0131_impl*
-//#UC START# *45F118D40054_504FB0DC0131_var*
-//#UC END# *45F118D40054_504FB0DC0131_var*
 //#UC START# *48077504027E_483C0B6B0167_impl*
   Logout;
   //
@@ -45,40 +8,9 @@
 //#UC END# *48077504027E_483C0B6B0167_impl*
 //#UC START# *48077504027E_483C0B6B0167_var*
 //#UC END# *48077504027E_483C0B6B0167_var*
-//#UC START# *483C0AEA0186_ext:FileName
+//#UC START# *483C0B6B0167_ext:ParentFileName
 w:\quality\test\garant6x\AdapterTest\AdapterHelpers\atGblAdapterWorker.pas
-//#UC END# *483C0AEA0186_ext:FileName
-//#UC START# *4AC1FEB6028B*
-  TatGblAdapterWorker.InstanceFree;
-//#UC END# *4AC1FEB6028B*
-//#UC START# *4AC20023031C_4AC2000A021C_impl*
-  inherited Create;
-  //
-  F_LongOperationStart    := RegisterNotifier(NT_LONG_OPERATION_START);
-  F_LongOperationEnd      := RegisterNotifier(NT_LONG_OPERATION_END);
-  F_PredefinedDataLogout  := RegisterNotifier(NT_MONITORING_UPDATE);
-  F_Shutdown              := RegisterNotifier(NT_SHUTDOWN);
-  F_Logout                := RegisterNotifier(NT_LOGOUT);
-  F_BaseUpdateStart       := RegisterNotifier(NT_BASE_UPDATE_START);
-  F_BasesUpdateEnd        := RegisterNotifier(NT_BASE_UPDATE_END);
-  F_BaseUpdateFailed      := RegisterNotifier(NT_BASE_UPDATE_FAILED);
-  F_ConsultationReceived  := RegisterNotifier(NT_CONSULTATION_RECEIVED);
-  F_ConsultationNotSent   := RegisterNotifier(NT_CONSULTATION_NOT_SENT);
-  F_NoSubscription        := RegisterNotifier(NT_NO_SUBSCRIPTION);
-//#UC END# *4AC20023031C_4AC2000A021C_impl*
-//#UC START# *4AC20023031C_4AC2000A021C_var*
-  function RegisterNotifier(const aNotifyType : TNotifyType) : IatNotifier;
-  begin
-    Result := TatFromShellNotifier.Create(aNotifyType);
-    aNotifyManager.RegisterListenerForNotify(aNotifyType, Result as IListener);
-  end;
-//#UC END# *4AC20023031C_4AC2000A021C_var*
-//#UC START# *4AC2018D006C_4AC200650301_impl*
-  inherited Create;
-  f_NotifyType := aNotifyType;
-//#UC END# *4AC2018D006C_4AC200650301_impl*
-//#UC START# *4AC2018D006C_4AC200650301_var*
-//#UC END# *4AC2018D006C_4AC200650301_var*
+//#UC END# *483C0B6B0167_ext:ParentFileName
 //#UC START# *4AC218D80016_483C0B6B0167get_impl*
   if (f_Common = nil) then
     Raise Exception.Create('f_Common = nil');
@@ -333,8 +265,6 @@ w:\quality\test\garant6x\AdapterTest\AdapterHelpers\atGblAdapterWorker.pas
     Logger.Info('Вызвали UserProfile.GetLogin. Результат: %s', [Result]);
   end;
 //#UC END# *4AC21AC9018C_483C0B6B0167_var*
-//#UC START# *4AC224FF02C0*
-//#UC END# *4AC224FF02C0*
 //#UC START# *4B97915302A2_483C0B6B0167get_impl*
   if (f_MainMenuRoot = nil) then
   begin

@@ -1,0 +1,40 @@
+//#UC START# *4CFD01EF02C5_4CFE70A801B2_impl*
+  while (NOT f_HasNext) AND (inherited HasNext) do
+  begin
+    l_EP := inherited GetNext;
+    //
+    f_HasNext :=
+      TatDocumentHelper.IsParaType( Ord(f_DTP.GetChildType(l_EP)) )
+      AND ( (NOT f_IsParaMustHaveNonZeroID) OR (f_DTP.GetChildExternalId(l_EP) <> 0) );
+    //  
+    if f_HasNext AND f_IsParaMustHaveComments then
+    begin
+      f_DTP.GetChildComment(l_EP, l_Comment);
+      f_HasNext := l_Comment <> nil;
+    end;
+  end;
+  Result := f_HasNext;
+//#UC END# *4CFD01EF02C5_4CFE70A801B2_impl*
+//#UC START# *4CFD01EF02C5_4CFE70A801B2_var*
+  var
+    l_EP : TEntryPoint;
+    l_Comment : IEVDStream;
+//#UC END# *4CFD01EF02C5_4CFE70A801B2_var*
+//#UC START# *4CFD01FD00DB_4CFE70A801B2_impl*
+  if f_HasNext OR HasNext then
+    Result := CurrLayer.Curr.EP;
+  f_HasNext := false;
+//#UC END# *4CFD01FD00DB_4CFE70A801B2_impl*
+//#UC START# *4CFD01FD00DB_4CFE70A801B2_var*
+//#UC END# *4CFD01FD00DB_4CFE70A801B2_var*
+//#UC START# *4CFE70A801B2_ext:ParentFileName
+w:\quality\test\garant6x\AdapterTest\AdapterHelpers\atDocumentHelper.pas
+//#UC END# *4CFE70A801B2_ext:ParentFileName
+//#UC START# *4DCD71E3035A_4CFE70A801B2_impl*
+  inherited;
+  f_HasNext := false;
+  f_IsParaMustHaveNonZeroID := false;
+  f_IsParaMustHaveComments := false;
+//#UC END# *4DCD71E3035A_4CFE70A801B2_impl*
+//#UC START# *4DCD71E3035A_4CFE70A801B2_var*
+//#UC END# *4DCD71E3035A_4CFE70A801B2_var*
