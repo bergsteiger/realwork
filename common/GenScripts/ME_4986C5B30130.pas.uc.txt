@@ -30,12 +30,12 @@ var
   try
    if not l_Controllable.GetControlled then
    begin
-    TvcmModulesFactories.AddToControl(l_Controllable);
+    TdmStdRes.AddToControl(l_Controllable);
     Say(inf_SetDocToControl);
    end//not l_Controllable.GetControlled
    else
    if Ask(qr_RemoveDocumentFromControl) then
-    TvcmModulesFactories.DeleteFromControl(l_Controllable);
+    TdmStdRes.DeleteFromControl(l_Controllable);
   finally
    l_Controllable := nil;
   end;//try..finally
@@ -50,7 +50,7 @@ var
  l_Controllable := GetControllable(l_Doc);
  if (l_Controllable <> nil) then
  try
-  if TvcmModulesFactories.IsCurEditionActual(l_Doc) and l_Controllable.GetControlled then
+  if TdmStdRes.IsCurEditionActual(l_Doc) and l_Controllable.GetControlled then
    State := st_user_Document_AddToControl_RemoveFromControl
   else
    State := vcm_DefaultOperationState;
@@ -67,7 +67,7 @@ var
  if CanAddToControl then
  begin
   l_Controllable := GetControllable(l_Doc);
-  aParams.Op.Flag[vcm_ofEnabled] := TvcmModulesFactories.IsCurEditionActual(l_Doc) and
+  aParams.Op.Flag[vcm_ofEnabled] := TdmStdRes.IsCurEditionActual(l_Doc) and
                                     (l_Controllable <> nil);
  end//CanAddToControl
  else
