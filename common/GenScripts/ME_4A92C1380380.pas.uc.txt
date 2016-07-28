@@ -4,7 +4,6 @@ w:\garant6x\implementation\Garant\GbaNemesis\View\Common\PrimF1Common_Module.pas
 //#UC START# *4A92C1380380impl_uses*
  , StdRes
  , StartUnit
- , Base_Operations_F1Services_Contracts
 //#UC END# *4A92C1380380impl_uses*
 //#UC START# *4A93F1F200B0_4A92C1380380_impl*
  Result := TefProgressIndicator.Make(aProgress, aCaption, aMaxCount);
@@ -90,7 +89,7 @@ w:\garant6x\implementation\Garant\GbaNemesis\View\Common\PrimF1Common_Module.pas
 //#UC START# *4ABB7615007A_4A92C1380380test_var*
 //#UC END# *4ABB7615007A_4A92C1380380test_var*
 //#UC START# *4ABB76520183_4A92C1380380exec_impl*
- TvcmModulesFactories.MakePageSetup(nil);
+ TdmStdRes.MakePageSetup(nil);
 //#UC END# *4ABB76520183_4A92C1380380exec_impl*
 //#UC START# *4ABB76520183_4A92C1380380exec_var*
 //#UC END# *4ABB76520183_4A92C1380380exec_var*
@@ -159,7 +158,7 @@ w:\garant6x\implementation\Garant\GbaNemesis\View\Common\PrimF1Common_Module.pas
  begin
   l_Node.GetFirstChild(l_Child);
   if l_Child <> nil then
-   TvcmModulesFactories.OpenRubricator(TnsNewCachableNode.Make(l_Child),
+   TdmStdRes.OpenRubricator(TnsNewCachableNode.Make(l_Child),
                             l_Node,
                             nil,
                             true,
@@ -182,7 +181,7 @@ w:\garant6x\implementation\Garant\GbaNemesis\View\Common\PrimF1Common_Module.pas
    l_Child := l_Node;
   end;//l_Child <> nil
   if (l_Child <> nil) then
-   TvcmModulesFactories.OpenRubricator(TnsNewCachableNode.Make(l_Child),
+   TdmStdRes.OpenRubricator(TnsNewCachableNode.Make(l_Child),
                             l_Node,
                             nil,
                             true,
@@ -193,12 +192,12 @@ w:\garant6x\implementation\Garant\GbaNemesis\View\Common\PrimF1Common_Module.pas
 //#UC START# *4ABBA74F03DA_4A92C1380380_var*
 //#UC END# *4ABBA74F03DA_4A92C1380380_var*
 //#UC START# *4ABBAAE40176_4A92C1380380exec_impl*
- TMainMenuService.Instance.OpenMainMenuIfNeeded(nil);
+ TdmStdRes.OpenMainMenuIfNeeded(nil);
 //#UC END# *4ABBAAE40176_4A92C1380380exec_impl*
 //#UC START# *4ABBAAE40176_4A92C1380380exec_var*
 //#UC END# *4ABBAAE40176_4A92C1380380exec_var*
 //#UC START# *4ABBAB14034B_4A92C1380380exec_impl*
- TMainMenuService.Instance.OpenMainMenuIfNeeded(nil);
+ TdmStdRes.OpenMainMenuIfNeeded(nil);
 //#UC END# *4ABBAB14034B_4A92C1380380exec_impl*
 //#UC START# *4ABBAB14034B_4A92C1380380exec_var*
 //#UC END# *4ABBAB14034B_4A92C1380380exec_var*
@@ -208,8 +207,8 @@ w:\garant6x\implementation\Garant\GbaNemesis\View\Common\PrimF1Common_Module.pas
   Clear;
   if defDataAdapter.IsInpharmExists then
   begin
-   AddOp(TvcmModulesOperations.mod_opcode_Common_OpenMainMenuByButton, vcmCStr(str_MainMenuButtonItem));
-   AddOp(mod_opcode_InpharmService_MedicMainMenu, vcmCStr(str_InPharmMenuButtonItem));
+   AddOp(TdmStdRes.mod_opcode_Common_OpenMainMenuByButton, vcmCStr(str_MainMenuButtonItem));
+   AddOp(TdmStdRes.mod_opcode_Inpharm_MedicMainMenu, vcmCStr(str_InPharmMenuButtonItem));
   end;
  end;
 //#UC END# *4ABBAB14034B_4A92C1380380test_impl*
@@ -317,7 +316,7 @@ w:\garant6x\implementation\Garant\GbaNemesis\View\Common\PrimF1Common_Module.pas
  if Assigned(aControllable) and aControllable.GetCanSetToControl then
  begin
   aControllable.SetControlled(True);
-  TvcmModulesFactories.AddControlledObject(aControllable);
+  TdmStdRes.AddControlledObject(aControllable);
  end;//Assigned(aControllable) and aControllable.GetCanSetToControl
 //#UC END# *4AC1F3A700BE_4A92C1380380_impl*
 //#UC START# *4AC1F3A700BE_4A92C1380380_var*
@@ -336,7 +335,7 @@ w:\garant6x\implementation\Garant\GbaNemesis\View\Common\PrimF1Common_Module.pas
  if Assigned(aControllable) then
  begin
   aControllable.SetControlled(False);
-  TvcmModulesFactories.DeleteControlledObject(aControllable);
+  TdmStdRes.DeleteControlledObject(aControllable);
  end;//Assigned(aControllable)
 //#UC END# *4AC1F40900DE_4A92C1380380_impl*
 //#UC START# *4AC1F40900DE_4A92C1380380_var*
