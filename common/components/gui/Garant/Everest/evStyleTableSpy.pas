@@ -152,12 +152,8 @@ begin
 end;//evNotifyStyleTableChanged
 
 class function TevSpies.Exists: Boolean;
-//#UC START# *4DD3D2A20200_4DD3D2710378_var*
-//#UC END# *4DD3D2A20200_4DD3D2710378_var*
 begin
-//#UC START# *4DD3D2A20200_4DD3D2710378_impl*
- Result := (g_TevSpies <> nil);
-//#UC END# *4DD3D2A20200_4DD3D2710378_impl*
+ Result := g_TevSpies <> nil;
 end;//TevSpies.Exists
 
 class function TevSpies.Instance: TevSpies;
