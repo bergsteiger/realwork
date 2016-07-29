@@ -221,12 +221,8 @@ begin
 end;//TddPicturePathListner.GetPath
 
 class function TddPicturePathListner.Exists: Boolean;
-//#UC START# *5304791300D1_52F8B15003A7_var*
-//#UC END# *5304791300D1_52F8B15003A7_var*
 begin
-//#UC START# *5304791300D1_52F8B15003A7_impl*
  Result := g_TddPicturePathListner <> nil;
-//#UC END# *5304791300D1_52F8B15003A7_impl*
 end;//TddPicturePathListner.Exists
 
 function TddPicturePathListner.GetUniqPictureName(aForRTF: Boolean): AnsiString;

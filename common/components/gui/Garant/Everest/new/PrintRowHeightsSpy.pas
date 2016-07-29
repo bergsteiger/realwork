@@ -54,11 +54,13 @@ type
     {* Добавить данные о высоте строки. }
    procedure ClearData;
     {* Очистить данные о строках. }
-   class function Exists: Boolean;
+   class function ExistsAndValid: Boolean;
    procedure StartLogging(const aLogName: AnsiString);
    procedure StopLogging;
    class function Instance: TPrintRowHeightsSpy;
     {* Метод получения экземпляра синглетона TPrintRowHeightsSpy }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TPrintRowHeightsSpy
 {$IfEnd} // Defined(nsTest)
 
@@ -179,14 +181,14 @@ begin
 //#UC END# *4DF1CA0803E2_4DF1C7300012_impl*
 end;//TPrintRowHeightsSpy.ClearData
 
-class function TPrintRowHeightsSpy.Exists: Boolean;
+class function TPrintRowHeightsSpy.ExistsAndValid: Boolean;
 //#UC START# *4DF1DB350207_4DF1C7300012_var*
 //#UC END# *4DF1DB350207_4DF1C7300012_var*
 begin
 //#UC START# *4DF1DB350207_4DF1C7300012_impl*
  Result := (g_TPrintRowHeightsSpy <> nil) and (g_TPrintRowHeightsSpy.f_Filer <> nil);
 //#UC END# *4DF1DB350207_4DF1C7300012_impl*
-end;//TPrintRowHeightsSpy.Exists
+end;//TPrintRowHeightsSpy.ExistsAndValid
 
 procedure TPrintRowHeightsSpy.StartLogging(const aLogName: AnsiString);
 //#UC START# *4DF8692C0010_4DF1C7300012_var*
@@ -222,6 +224,12 @@ begin
  end;
  Result := g_TPrintRowHeightsSpy;
 end;//TPrintRowHeightsSpy.Instance
+
+class function TPrintRowHeightsSpy.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TPrintRowHeightsSpy <> nil;
+end;//TPrintRowHeightsSpy.Exists
 
 procedure TPrintRowHeightsSpy.Release;
 //#UC START# *479F2AFB0397_4DF1C7300012_var*

@@ -58,12 +58,8 @@ end;//TnevDocumentContainerListFree
 {$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
 
 class function TnevDocumentContainerList.Exists: Boolean;
-//#UC START# *4DD26253028D_4DD25B17012A_var*
-//#UC END# *4DD26253028D_4DD25B17012A_var*
 begin
-//#UC START# *4DD26253028D_4DD25B17012A_impl*
- Result := (g_TnevDocumentContainerList <> nil);
-//#UC END# *4DD26253028D_4DD25B17012A_impl*
+ Result := g_TnevDocumentContainerList <> nil;
 end;//TnevDocumentContainerList.Exists
 
 procedure TnevDocumentContainerList.Fire(const anEvent: Tk2Event;

@@ -63,12 +63,8 @@ begin
 end;//TvcmToolbarDockListManager.pm_GetDockList
 
 class function TvcmToolbarDockListManager.Exists: Boolean;
-//#UC START# *502CF050026B_502CEFC803B2_var*
-//#UC END# *502CF050026B_502CEFC803B2_var*
 begin
-//#UC START# *502CF050026B_502CEFC803B2_impl*
  Result := g_TvcmToolbarDockListManager <> nil;
-//#UC END# *502CF050026B_502CEFC803B2_impl*
 end;//TvcmToolbarDockListManager.Exists
 
 class function TvcmToolbarDockListManager.Instance: TvcmToolbarDockListManager;
