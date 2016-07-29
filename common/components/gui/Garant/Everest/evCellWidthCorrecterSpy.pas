@@ -78,12 +78,8 @@ begin
 end;//TevCellWidthCorrecterSpyFree
 
 class function TevCellWidthCorrecterSpy.Exists: Boolean;
-//#UC START# *4FC704C00038_4FC701EC00C0_var*
-//#UC END# *4FC704C00038_4FC701EC00C0_var*
 begin
-//#UC START# *4FC704C00038_4FC701EC00C0_impl*
  Result := g_TevCellWidthCorrecterSpy <> nil;
-//#UC END# *4FC704C00038_4FC701EC00C0_impl*
 end;//TevCellWidthCorrecterSpy.Exists
 
 procedure TevCellWidthCorrecterSpy.SetLogger(const aLogger: IevCellsWidthCorrecterLogger);

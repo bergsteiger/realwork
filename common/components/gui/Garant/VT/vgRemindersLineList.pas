@@ -59,12 +59,8 @@ type _Instance_R_ = TvgRemindersLineList;
 {$Include w:\common\components\rtl\Garant\L3\l3ObjectPtrList.imp.pas}
 
 class function TvgRemindersLineList.Exists: Boolean;
-//#UC START# *533EAC1502AD_533EAC970267_var*
-//#UC END# *533EAC1502AD_533EAC970267_var*
 begin
-//#UC START# *533EAC1502AD_533EAC970267_impl*
- Result := Assigned(g_TvgRemindersLineList);
-//#UC END# *533EAC1502AD_533EAC970267_impl*
+ Result := g_TvgRemindersLineList <> nil;
 end;//TvgRemindersLineList.Exists
 
 class function TvgRemindersLineList.Instance: TvgRemindersLineList;

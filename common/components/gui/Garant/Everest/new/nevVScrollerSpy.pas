@@ -131,12 +131,8 @@ begin
 end;//TnevVScrollerSpy.FinishLog
 
 class function TnevVScrollerSpy.Exists: Boolean;
-//#UC START# *4DAECA8C027C_4DAEB03E0034_var*
-//#UC END# *4DAECA8C027C_4DAEB03E0034_var*
 begin
-//#UC START# *4DAECA8C027C_4DAEB03E0034_impl*
  Result := g_TnevVScrollerSpy <> nil;
-//#UC END# *4DAECA8C027C_4DAEB03E0034_impl*
 end;//TnevVScrollerSpy.Exists
 
 class function TnevVScrollerSpy.Instance: TnevVScrollerSpy;

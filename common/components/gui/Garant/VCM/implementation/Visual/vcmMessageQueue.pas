@@ -42,12 +42,8 @@ begin
 end;//TvcmMessageQueueFree
 
 class function TvcmMessageQueue.Exists: Boolean;
-//#UC START# *4E089B4302D8_4E089AEB01DA_var*
-//#UC END# *4E089B4302D8_4E089AEB01DA_var*
 begin
-//#UC START# *4E089B4302D8_4E089AEB01DA_impl*
- Result := (g_TvcmMessageQueue <> nil);
-//#UC END# *4E089B4302D8_4E089AEB01DA_impl*
+ Result := g_TvcmMessageQueue <> nil;
 end;//TvcmMessageQueue.Exists
 
 class function TvcmMessageQueue.Instance: TvcmMessageQueue;

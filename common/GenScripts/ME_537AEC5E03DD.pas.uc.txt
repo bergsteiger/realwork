@@ -36,12 +36,10 @@ var
 //#UC START# *0E111B36F193_537AEC5E03DD_impl*
  if Supports(aTab.TabbedForm, IvcmContainedForm, l_ContainedForm) then
  begin
-  f_ClosingTab := Pointer(aTab);
   TvcmTabbedContainerForm(aTab.TabbedContainer.AsForm).FormSetHistory.SaveTab(aTab);
   if Supports(aTab.TabbedForm, IvcmContainer, l_Container) then
    TvcmFormSetContainerRegistry.Instance.UnregisterContainer(l_Container);
   l_ContainedForm.CloseContainedForm;
-  f_ClosingTab := nil;
  end
  else
   Assert(False);
@@ -1675,12 +1673,9 @@ var
 //#UC START# *E781A200DBB9_537AEC5E03DD_var*
 //#UC END# *E781A200DBB9_537AEC5E03DD_var*
 //#UC START# *EE61E6DE4383_537AEC5E03DD_impl*
- l_Aggregate := TvcmAggregateContainerRegistry.Instance.GetContainedAggregate(aTab.TabbedForm as IvcmContainer);
- Result := (l_Aggregate = nil) or l_Aggregate.CanBeCloned;
+ Result := True;
 //#UC END# *EE61E6DE4383_537AEC5E03DD_impl*
 //#UC START# *EE61E6DE4383_537AEC5E03DD_var*
-var
- l_Aggregate: IvcmAggregate;
 //#UC END# *EE61E6DE4383_537AEC5E03DD_var*
 //#UC START# *F09F327B084A_537AEC5E03DD_impl*
  if Assigned(ActiveContainer) then

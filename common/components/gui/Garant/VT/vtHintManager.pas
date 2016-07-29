@@ -102,12 +102,8 @@ begin
 end;//TvtHintManager.Remove
 
 class function TvtHintManager.Exists: Boolean;
-//#UC START# *52F9C53B0374_50C6241B0355_var*
-//#UC END# *52F9C53B0374_50C6241B0355_var*
 begin
-//#UC START# *52F9C53B0374_50C6241B0355_impl*
  Result := g_TvtHintManager <> nil;
-//#UC END# *52F9C53B0374_50C6241B0355_impl*
 end;//TvtHintManager.Exists
 
 class function TvtHintManager.Instance: TvtHintManager;

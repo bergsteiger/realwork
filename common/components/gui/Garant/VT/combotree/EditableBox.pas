@@ -1031,9 +1031,9 @@ end;//TEditableBox.HintChanged
 
 procedure TEditableBox.ClearFields;
 begin
- {$If NOT Defined(DesignTimeLibrary)}
+{$If NOT Defined(DesignTimeLibrary)}
  RootNode := nil;
- {$IfEnd} // NOT Defined(DesignTimeLibrary)
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
  inherited;
 end;//TEditableBox.ClearFields
 

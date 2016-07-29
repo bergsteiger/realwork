@@ -85,12 +85,8 @@ begin
 end;//TevDelayedPaintersSpy.RemoveLogger
 
 class function TevDelayedPaintersSpy.Exists: Boolean;
-//#UC START# *4D6F440500EE_4D6F3F42007C_var*
-//#UC END# *4D6F440500EE_4D6F3F42007C_var*
 begin
-//#UC START# *4D6F440500EE_4D6F3F42007C_impl*
  Result := g_TevDelayedPaintersSpy <> nil;
-//#UC END# *4D6F440500EE_4D6F3F42007C_impl*
 end;//TevDelayedPaintersSpy.Exists
 
 procedure TevDelayedPaintersSpy.LogSelections(const aSelParts: TevSelectedParts;

@@ -58,7 +58,7 @@ var
   if Assigned(f_OnInitCommands) then
    f_OnInitCommands(Self, l_Controller.EntryCommands);
  {$IfNDef DesignTimeLibrary}
- //RegisterKeywords;
+ RegisterKeywords;
  // - http://mdp.garant.ru/pages/viewpage.action?pageId=290266465
  afw.Application.ApplyActiveLanguage(Self);
  {$EndIf  DesignTimeLibrary}
@@ -1132,10 +1132,7 @@ var
 //#UC START# *52A2005103CF_4AD5DBBD0147_impl*
  Case anOp.rKind of
   vcm_okModule :
-   if (anOp.rMID.rMoID > 0) then
-    Result := g_Dispatcher.GetModuleByID(anOp.rMID.rMoID).GetOperationByID(anOp.rMID.rOpID)
-   else
-    Result := nil; 
+   Result := g_Dispatcher.GetModuleByID(anOp.rMID.rMoID).GetOperationByID(anOp.rMID.rOpID);
   vcm_okEntity :
    with TvcmBaseEntitiesCollectionItem(Entities.FindItemByID(anOp.rID.rEnID)) do
     Result := TvcmBaseOperationsCollectionItem(Operations.FindItemByID(anOp.rID.rOpID)).OperationDef;

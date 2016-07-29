@@ -199,12 +199,8 @@ begin
 end;//TnevShapesPaintedSpy.RemoveLogger
 
 class function TnevShapesPaintedSpy.Exists: Boolean;
-//#UC START# *4CA5D01A0152_4CA5CC2C03CF_var*
-//#UC END# *4CA5D01A0152_4CA5CC2C03CF_var*
 begin
-//#UC START# *4CA5D01A0152_4CA5CC2C03CF_impl*
- Result := (g_TnevShapesPaintedSpy <> nil);
-//#UC END# *4CA5D01A0152_4CA5CC2C03CF_impl*
+ Result := g_TnevShapesPaintedSpy <> nil;
 end;//TnevShapesPaintedSpy.Exists
 
 function TnevShapesPaintedSpy.LogScreen(const aView: InevView): Boolean;
