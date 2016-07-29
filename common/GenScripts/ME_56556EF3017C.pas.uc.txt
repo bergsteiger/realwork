@@ -1,9 +1,7 @@
 //#UC START# *479731C50290_56556EF3017C_impl*
  f_GetFreeFunction := nil;
- f_RegisterAllocFunction := nil;
  FreeAndNil(f_Connection);
  f_IntervalQuery := nil;
- f_Factory := nil;
  inherited;
 //#UC END# *479731C50290_56556EF3017C_impl*
 //#UC START# *479731C50290_56556EF3017C_var*
@@ -44,22 +42,21 @@ var
  inherited Create;
  Assert(aFamilyID in [MainTblsFamily, CurrentFamily]);
  f_FamilyID := aFamilyID;
- f_Factory := aQueryFactory;
  l_Description := TdaScheme.Instance.Table(TableKind);
  try
-  f_IntervalQuery := f_Factory.MakeTabledQuery(f_Factory.MakeSimpleFromClause(l_Description));
-  f_IntervalQuery.AddSelectField(f_Factory.MakeSelectField('', l_Description.Field['start_num']));
-  l_FieldToSort := f_Factory.MakeSelectField('', l_Description.Field['last_num']);
+  f_IntervalQuery := aFactory.MakeTabledQuery(aFactory.MakeSimpleFromClause(l_Description));
+  f_IntervalQuery.AddSelectField(aFactory.MakeSelectField('', l_Description.Field['start_num']));
+  l_FieldToSort := aFactory.MakeSelectField('', l_Description.Field['last_num']);
   f_IntervalQuery.AddSelectField(l_FieldToSort);
-  f_IntervalQuery.WhereCondition := f_Factory.MakeParamsCondition('', l_Description.Field['table_name'], da_copEqual, 'p_Key');
-  f_IntervalQuery.AddOrderBy(f_Factory.MakeSortField(l_FieldToSort));
+  f_IntervalQuery.WhereCondition := aFactory.MakeParamsCondition('', l_Description.Field['table_name'], da_copEqual, 'p_Key');
+  f_IntervalQuery.AddOrderBy(aFactory.MakeSortField(l_FieldToSort));
   f_IntervalQuery.Prepare;
  finally
   l_Description := nil;
  end;
  aConnection.SetRefTo(f_Connection);
  f_GetFreeFunction := aFunctionFactory.MakeFunction(cGetFreeMap[aFamilyID]);
- f_RegisterAllocFunction := aFunctionFactory.MakeFunction(cRegisterAllocMap[aFamilyID]);
+ f_DeleteIntervalFunction := aFunctionFactory.MakeFunction(cDeleteIntervalMap[aFamilyID]);
 //#UC END# *5656EF8D0161_56556EF3017C_impl*
 //#UC START# *5656EF8D0161_56556EF3017C_var*
 const
@@ -67,9 +64,9 @@ const
   'get_admin_free_num',
   'get_free_num'
  );
- cRegisterAllocMap: array [MainTblsFamily..CurrentFamily] of AnsiString = (
-  'register_admin_alloc_num',
-  'register_alloc_num'
+ cDeleteIntervalMap: array [MainTblsFamily..CurrentFamily] of AnsiString = (
+  'delete_admin_free_interval',
+  'delete_free_interval'
  );
 var
  l_Description: IdaTableDescription;
@@ -95,27 +92,52 @@ const
 //#UC END# *5658228C0267_56556EF3017C_var*
 //#UC START# *5658229402A8_56556EF3017C_impl*
  l_Search := KeyPrefix(aKey);
- theNumber := -1;
+ theNumber := High(theNumber);
  for l_AttemptNo := 1 to ATTEMPT_AMOUNT + 1 do
  begin
   if l_AttemptNo > ATTEMPT_AMOUNT then
-   raise EpgError.Create('Не удалось получить свободный номер из таблицы FREE.');
+   raise Exception.Create('Не удалось получить свободный номер из таблицы FREE.');
   if f_Connection.BeginTransaction([TableKind]) then
   try
-   f_GetFreeFunction.Param['p_table_name'].AsString := aKey;
-   f_GetFreeFunction.Execute;
-   theNumber := f_GetFreeFunction.Param[f_GetFreeFunction.Name+'.Result'].AsLargeInt;
+   f_IntervalQuery.Param['p_Key'].AsString := l_Search;
+   l_ResultSet := f_IntervalQuery.OpenResultSet;
+   try
+    if not l_ResultSet.IsEmpty then
+    begin
+     theNumber := l_ResultSet.Field['start_num'].AsLargeInt;
+     // проверка: диапазон или одиночное значение?
+     if (l_ResultSet.Field['last_num'].AsLargeInt > 0) and (l_ResultSet.Field['start_num'].AsLargeInt < l_ResultSet.Field['last_num'].AsLargeInt) then
+     begin
+      f_GetFreeFunction.Param['p_table_name'].AsString := l_ResultSet.Field['table_name'].AsString;
+      f_GetFreeFunction.Param['p_start_num'].AsLargeInt := l_ResultSet.Field['start_num'].AsLargeInt;
+      f_GetFreeFunction.Param['p_last_num'].AsLargeInt := l_ResultSet.Field['last_num'].AsLargeInt;
+      f_GetFreeFunction.Execute;
+     end
+     else
+     begin
+      f_DeleteIntervalFunction.Param['p_table_name'].AsString := l_ResultSet.Field['table_name'].AsString;
+      f_DeleteIntervalFunction.Param['p_start_num'].AsLargeInt := l_ResultSet.Field['start_num'].AsLargeInt;
+      f_DeleteIntervalFunction.Param['p_last_num'].AsLargeInt := l_ResultSet.Field['last_num'].AsLargeInt;
+      f_DeleteIntervalFunction.Execute;
+     end;
+    end;
+   finally
+    l_ResultSet := nil;
+   end;
    f_Connection.CommitTransaction;
    Break; // пора прекращать крутить цикл
   except
-   theNumber := -1;
+   theNumber := High(LongWord);
    f_Connection.RollbackTransaction;
    Sleep(PAUSE_SIZE);
   end;
  end; // for
- Result := theNumber <> -1;
+ Result := theNumber <> High(theNumber);
 //#UC END# *5658229402A8_56556EF3017C_impl*
 //#UC START# *5658229402A8_56556EF3017C_var*
+const
+ ATTEMPT_AMOUNT = 20;
+ PAUSE_SIZE = 500; // 0,5 сек
 var
  l_AttemptNo: Integer;
  l_Search: AnsiString;

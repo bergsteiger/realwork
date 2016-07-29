@@ -1,0 +1,35 @@
+//#UC START# *4683A2BA0332_ext:ParentFileName
+w:\garant6x\implementation\Garant\GbaNemesis\Search\nsQueryAttribute.pas
+//#UC END# *4683A2BA0332_ext:ParentFileName
+//#UC START# *54E5C744010C_4683A2BA0332_impl*
+ inherited;
+ if Supports(Get_EditorReq, IevComboReq, l_Req) and l_Req.IsContext then
+ begin
+  (* Проверим значения в полях контекста. *)
+  for l_Index := 0 to Get_EditorReq.FieldsCount - 1 do
+   CheckContext(Get_EditorReq.Fields[l_Index]);
+ end;//Supports(Get_EditorReq, IevComboReq, l_Req) and l_Req.IsContext
+//#UC END# *54E5C744010C_4683A2BA0332_impl*
+//#UC START# *54E5C744010C_4683A2BA0332_var*
+ procedure CheckContext(const aComboBox: IevEditorControlField);
+ var
+  l_Pos: Integer;
+  l_ErrMessage: Il3CString;
+ begin//CheckContext
+  aComboBox.Text := nsContextUtils.CheckContext(aComboBox.Text);
+  if not l3IsNil(aComboBox.Text) then
+  begin
+   {$If not defined(Admin)}
+   l_Pos := CheckContext6x(aComboBox.Text, l_ErrMessage);
+   {$Else}
+   Assert(false);
+   {$IfEnd}
+   if (l_Pos >= 0) then
+    raise EqaInvalidValue.Create(aComboBox, nsEStr(l_ErrMessage));
+  end;//not l3IsNil(aComboBox.Text)
+ end;//CheckContext
+
+var
+ l_Index: Integer;
+ l_Req: IevComboReq;
+//#UC END# *54E5C744010C_4683A2BA0332_var*

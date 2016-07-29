@@ -1,0 +1,141 @@
+//#UC START# *4683A2660291_ext:ParentFileName
+w:\garant6x\implementation\Garant\GbaNemesis\Search\nsQueryAttribute.pas
+//#UC END# *4683A2660291_ext:ParentFileName
+//#UC START# *47CD611402BF_4683A2660291_impl*
+ DoEnterPressed;
+//#UC END# *47CD611402BF_4683A2660291_impl*
+//#UC START# *47CD611402BF_4683A2660291_var*
+//#UC END# *47CD611402BF_4683A2660291_var*
+//#UC START# *47CD61200100_4683A2660291_impl*
+ if Supports(aValue, IevEditorControlButton, l_Button) then
+ try
+  Result := GetHint4Button(l_Button);
+ finally
+  l_Button := nil;
+ end
+ else
+  Result := nil;
+//#UC END# *47CD61200100_4683A2660291_impl*
+//#UC START# *47CD61200100_4683A2660291_var*
+var
+ l_Button: IevEditorControlButton;
+//#UC END# *47CD61200100_4683A2660291_var*
+//#UC START# *47CD617100AE_4683A2660291_impl*
+ Result := -1;
+ {$IfNDef Admin}
+ aImages := Tl3ImageList.Make(nsSearchRes.SearchItemsImageList);
+ if Supports(Get_EditorReq, IevComboReq, l_ComboReq) then
+ try
+  l_Node := l_ComboReq.GetNode(Index);
+  if l_Node <> nil then
+  try
+   // Папка
+   if l_Node.HasChild then
+    Result := siilFolderStart
+   // Элемент
+   else
+    Result := siilSelectedElement;
+  finally
+   l_Node := nil;
+  end;//try..finally
+ finally
+  l_ComboReq := nil;
+ end;//try..finally
+ {$EndIf  Admin}
+//#UC END# *47CD617100AE_4683A2660291_impl*
+//#UC START# *47CD617100AE_4683A2660291_var*
+{$IfNDef Admin}
+var
+ l_Node: Il3SimpleNode;
+ l_ComboReq: IevComboReq;
+{$EndIf Admin}
+//#UC END# *47CD617100AE_4683A2660291_var*
+//#UC START# *47CD61990018_4683A2660291_impl*
+ Result := DoAnalyzeString(aValue, aRslt);
+//#UC END# *47CD61990018_4683A2660291_impl*
+//#UC START# *47CD61990018_4683A2660291_var*
+//#UC END# *47CD61990018_4683A2660291_var*
+//#UC START# *47CD659200E3_4683A2660291_impl*
+ Result := IsAttrValid;
+//#UC END# *47CD659200E3_4683A2660291_impl*
+//#UC START# *47CD659200E3_4683A2660291_var*
+//#UC END# *47CD659200E3_4683A2660291_var*
+//#UC START# *47CD659E0297_4683A2660291_impl*
+ DoTextChange;
+//#UC END# *47CD659E0297_4683A2660291_impl*
+//#UC START# *47CD659E0297_4683A2660291_var*
+//#UC END# *47CD659E0297_4683A2660291_var*
+//#UC START# *47CD6608039E_4683A2660291_impl*
+ DoAfterSetText(aField);
+//#UC END# *47CD6608039E_4683A2660291_impl*
+//#UC START# *47CD6608039E_4683A2660291_var*
+//#UC END# *47CD6608039E_4683A2660291_var*
+//#UC START# *47CD6629039E_4683A2660291_impl*
+ DoHyperLinkClick;
+//#UC END# *47CD6629039E_4683A2660291_impl*
+//#UC START# *47CD6629039E_4683A2660291_var*
+//#UC END# *47CD6629039E_4683A2660291_var*
+//#UC START# *54F3482A0186_4683A2660291_impl*
+ case aValue.GetButtonType of
+  ev_btLogical:
+  begin
+   if (l3BitCountF(Get_EditorReq.Para.AsObject.IntA[k2_tiOperations]) = 1)  then
+    Result := vcmCStr(str_HintNotChangedOperation)
+   else
+   if Supports(aValue, IevEditorStateButton, l_PictBTN) then
+   try
+    case StateIndex2LogicState(l_PictBTN.GetStateIndex) of
+     loOr: Result := vcmCStr(str_HintOrOperation);
+     loAnd: Result := vcmCStr(str_HintAndOperation);
+     loNot: Result := vcmCStr(str_HintNotOperation);
+    else
+     Result := vcmCStr(str_HintChangeOperation);
+    end;//case StateIndex2LogicState(l_PictBTN.GetStateIndex)
+   finally
+    l_PictBTN := nil;
+   end;//try..finally
+  end;//l3BitCountF(EditorReq.Para.IntA[k2_tiOperations]) = 1
+  ev_btAdd: Result := vcmCStr(str_HintBtnCreateAttr);
+  ev_btDelete: Result := vcmCStr(str_HintBtnDeleteAttr);
+ end;//case aValue.GetButtonType
+//#UC END# *54F3482A0186_4683A2660291_impl*
+//#UC START# *54F3482A0186_4683A2660291_var*
+var
+ l_PictBTN: IevEditorStateButton;
+//#UC END# *54F3482A0186_4683A2660291_var*
+//#UC START# *54F3484701AA_4683A2660291_impl*
+ if aValue < 0 then
+  Result := loNone
+ else
+  Result := TLogicOperation(aValue + 1)
+//#UC END# *54F3484701AA_4683A2660291_impl*
+//#UC START# *54F3484701AA_4683A2660291_var*
+//#UC END# *54F3484701AA_4683A2660291_var*
+//#UC START# *54F348660219_4683A2660291_impl*
+//#UC END# *54F348660219_4683A2660291_impl*
+//#UC START# *54F348660219_4683A2660291_var*
+//#UC END# *54F348660219_4683A2660291_var*
+//#UC START# *54F3487402BE_4683A2660291_impl*
+ Set_Modified(True);
+//#UC END# *54F3487402BE_4683A2660291_impl*
+//#UC START# *54F3487402BE_4683A2660291_var*
+//#UC END# *54F3487402BE_4683A2660291_var*
+//#UC START# *54F34897011A_4683A2660291_impl*
+//#UC END# *54F34897011A_4683A2660291_impl*
+//#UC START# *54F34897011A_4683A2660291_var*
+//#UC END# *54F34897011A_4683A2660291_var*
+//#UC START# *54F348BB012A_4683A2660291_impl*
+ Result := False;
+//#UC END# *54F348BB012A_4683A2660291_impl*
+//#UC START# *54F348BB012A_4683A2660291_var*
+//#UC END# *54F348BB012A_4683A2660291_var*
+//#UC START# *54F348D700E2_4683A2660291_impl*
+ OpenSelectWindow;
+//#UC END# *54F348D700E2_4683A2660291_impl*
+//#UC START# *54F348D700E2_4683A2660291_var*
+//#UC END# *54F348D700E2_4683A2660291_var*
+//#UC START# *54F3492A02D7_4683A2660291get_impl*
+ Result := GetAdditionalFilter(Get_TagName, f_MgrSearch.QueryType);
+//#UC END# *54F3492A02D7_4683A2660291get_impl*
+//#UC START# *54F3492A02D7_4683A2660291get_var*
+//#UC END# *54F3492A02D7_4683A2660291get_var*

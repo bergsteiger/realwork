@@ -1,0 +1,80 @@
+//#UC START# *479731C50290_53A2EA3D0044_impl*
+ FreeAndNil(f_Items);
+ inherited;
+//#UC END# *479731C50290_53A2EA3D0044_impl*
+//#UC START# *479731C50290_53A2EA3D0044_var*
+//#UC END# *479731C50290_53A2EA3D0044_var*
+//#UC START# *47A042E100E2_53A2EA3D0044_impl*
+ inherited;
+ f_Items := TddClientMessageSortableListPrim.MakeSorted;
+//#UC END# *47A042E100E2_53A2EA3D0044_impl*
+//#UC START# *47A042E100E2_53A2EA3D0044_var*
+//#UC END# *47A042E100E2_53A2EA3D0044_var*
+//#UC START# *53A2EA3D0044_ext:ParentFileName
+w:\common\components\rtl\Garant\cs\ddClientMessageSortableList.pas
+//#UC END# *53A2EA3D0044_ext:ParentFileName
+//#UC START# *53A2FA070288_53A2EA3D0044_impl*
+ Lock;
+ try
+  Items.Add(anItem);
+ finally
+  Unlock;
+ end;//try..finally
+//#UC END# *53A2FA070288_53A2EA3D0044_impl*
+//#UC START# *53A2FA070288_53A2EA3D0044_var*
+//#UC END# *53A2FA070288_53A2EA3D0044_var*
+//#UC START# *53A2FA2003C6_53A2EA3D0044_impl*
+ Lock;
+ try
+  Items.Clear;
+ finally
+  Unlock;
+ end;//try..finally
+//#UC END# *53A2FA2003C6_53A2EA3D0044_impl*
+//#UC START# *53A2FA2003C6_53A2EA3D0044_var*
+//#UC END# *53A2FA2003C6_53A2EA3D0044_var*
+//#UC START# *53A2FA8802B1_53A2EA3D0044get_impl*
+ Result := Items.Count;
+//#UC END# *53A2FA8802B1_53A2EA3D0044get_impl*
+//#UC START# *53A2FA8802B1_53A2EA3D0044get_var*
+//#UC END# *53A2FA8802B1_53A2EA3D0044get_var*
+//#UC START# *53A2FAD90339_53A2EA3D0044_impl*
+ try
+  Lock;
+  try
+   f_Items.IterateAllF(l3L2IA(@DoIt));
+  finally
+   Unlock;
+  end;//try..finally
+ finally
+  l3FreeLocalStub(Hack);
+ end;//try..finally
+//#UC END# *53A2FAD90339_53A2EA3D0044_impl*
+//#UC START# *53A2FAD90339_53A2EA3D0044_var*
+
+type
+ PObject = ^TObject;
+
+ function DoIt(aData : PObject; anIndex : Integer) : Boolean;
+ begin
+  Result := anAction(TddClientMessage(aData^));
+ end;
+ 
+var
+ Hack : Pointer absolute anAction;
+//#UC END# *53A2FAD90339_53A2EA3D0044_var*
+//#UC START# *56E7B945026A_53A2EA3D0044_impl*
+ Lock;
+ try
+  for l_IDX := Items.Count - 1 downto 0 do
+   if (Ord(Items[l_IDX].NotifyType) < Ord(Low(TCsNotificationType))) or (Ord(Items[l_IDX].NotifyType) > Ord(High(TCsNotificationType))) or
+     (not (Items[l_IDX].NotifyType in AllowedTypes)) then
+     Items.Delete(l_IDX);
+ finally
+  Unlock;
+ end;
+//#UC END# *56E7B945026A_53A2EA3D0044_impl*
+//#UC START# *56E7B945026A_53A2EA3D0044_var*
+var
+ l_IDX: Integer;
+//#UC END# *56E7B945026A_53A2EA3D0044_var*

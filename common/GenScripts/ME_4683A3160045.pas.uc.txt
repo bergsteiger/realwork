@@ -1,0 +1,38 @@
+//#UC START# *4683A3160045_ext:ParentFileName
+w:\garant6x\implementation\Garant\GbaNemesis\Search\nsQueryAttribute.pas
+//#UC END# *4683A3160045_ext:ParentFileName
+//#UC START# *54E5C744010C_4683A3160045_impl*
+ inherited;
+ if not CheckFromControl(l_Exception, l_Message, l_Control) then
+  raise l_Exception.Create(l_Control, l_Message);
+//#UC END# *54E5C744010C_4683A3160045_impl*
+//#UC START# *54E5C744010C_4683A3160045_var*
+var
+ l_Exception: EaqExceptionClass;
+ l_Message: AnsiString;
+ l_Control: IevEditorControlField;
+//#UC END# *54E5C744010C_4683A3160045_var*
+//#UC START# *54E5D1D5002A_4683A3160045_impl*
+ Result := inherited CheckFromControl(aExceptionClass, aMessage, aControl);
+ l_Correct := False;
+ l_Emails := l3Split(Get_EditorReq.FirstField.Text, ',');
+ for I := 0 to Length(l_Emails) - 1 do
+ begin
+  l_Correct := nsEmailVerify.Verify(l3Trim(l_Emails[I]));
+  if not l_Correct then
+   Break;
+ end;
+ if Result and IsSet(False) and not l_Correct then
+ begin
+  Result := False;
+  aExceptionClass := EqaInvalidValue;
+  aMessage := vcmConstString(str_WrongEMail);
+  aControl := Get_EditorReq.FirstField;
+ end;
+//#UC END# *54E5D1D5002A_4683A3160045_impl*
+//#UC START# *54E5D1D5002A_4683A3160045_var*
+var
+ l_Emails: Tl3CStringArray;
+ l_Correct: Boolean;
+ I: Integer;
+//#UC END# *54E5D1D5002A_4683A3160045_var*

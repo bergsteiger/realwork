@@ -202,19 +202,20 @@ var
 //#UC START# *4AC4A69D03B7_4A925AFF01BA_impl*
  case aQueryType of
   lg_qtKeyWord:
-   TvcmModulesFactories.OpenKeyWord(aQuery, aContainer);
+   TdmStdRes.OpenKeyWord(aQuery, aContainer);
   lg_qtAttribute:
-   TvcmModulesFactories.AttributeSearch(aQuery, nil, aContainer);
+   TdmStdRes.AttributeSearch(aQuery, nil, aContainer);
   lg_qtPublishedSource:
-   TvcmModulesFactories.PublishSourceSearch(aQuery, nil);
+   TdmStdRes.PublishSourceSearch(aQuery, nil);
   lg_qtLegislationReview:
-   TvcmModulesFactories.OpenLegislationReview(aQuery);
+   TdmStdRes.OpenLegislationReview(aQuery);
   lg_qtSendConsultation:
-   vcmDispatcher.ModuleOperation(TvcmModulesOperations.mod_opcode_Search_OpenConsult);
+   vcmDispatcher.ModuleOperation(TdmStdRes.mod_opcode_Search_OpenConsult);
   lg_qtBaseSearch:
-   TBaseSearchService.Instance.OpenBaseSearch(ns_bsokGlobal, aQuery);
+   TdmStdRes.OpenBaseSearch(ns_bsokGlobal,
+                            aQuery);
   lg_qtInpharmSearch:
-   TvcmModulesFactories.InpharmSearch(aQuery, nil, aContainer);
+   TdmStdRes.InpharmSearch(aQuery, nil, aContainer);
   else
    inherited;   
  end;//case aQueryType

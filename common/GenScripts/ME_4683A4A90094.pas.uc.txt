@@ -1,0 +1,949 @@
+//#UC START# *468395DE02D4_4683A4A90094get_impl*
+ Result := f_Query;
+//#UC END# *468395DE02D4_4683A4A90094get_impl*
+//#UC START# *468395DE02D4_4683A4A90094get_var*
+//#UC END# *468395DE02D4_4683A4A90094get_var*
+//#UC START# *468395DE02D4_4683A4A90094set_impl*
+ if (aValue <> nil) then
+ begin
+  if f_Query <> nil then
+   f_Query.Clear;
+  if not f_FromHistory then
+  begin
+   ClearAttrs;
+   Self.QueryCard.CardClear;
+  end;//not f_FromHistory
+  f_Query := nil;
+  f_Query := aValue;
+  Load;
+  f_IsQueryNew := False; //Формирование значения поля для загруженного запроса
+  {$IFDEF Monitorings}
+  CR := ChangableReq;
+  if (CR <> nil) then
+  begin
+   CR.MakeFieldValue;
+   InitFocus;
+  end;//CR <> nil
+  {$ENDIF Monitorings}
+ end//aValue <> nil
+ else
+ begin
+  f_IsQueryNew := True; //Чистая КЗ
+  f_Query := nil;
+ end;//aValue <> nil
+//#UC END# *468395DE02D4_4683A4A90094set_impl*
+//#UC START# *468395DE02D4_4683A4A90094set_var*
+{$IFDEF Monitorings}
+var
+ CR: IqaReq;
+{$EndIF Monitorings}
+//#UC END# *468395DE02D4_4683A4A90094set_var*
+//#UC START# *4683A4A90094_ext:ParentFileName
+w:\garant6x\implementation\Garant\GbaNemesis\Search\nsQueryAttribute.pas
+//#UC END# *4683A4A90094_ext:ParentFileName
+//#UC START# *479731C50290_4683A4A90094_impl*
+ f_FirstErrorContextReq := nil;
+ f_FormName := nil;
+ {$If not Defined(Admin) AND not Defined(Monitorings)}
+ f_ContextHistory := nil;
+ {$IfEnd}
+ if (f_QueryCard <> nil) then
+  f_QueryCard.ReleaseListeners;
+ f_QueryCard := nil;
+ f_Query := nil;
+ inherited;
+//#UC END# *479731C50290_4683A4A90094_impl*
+//#UC START# *479731C50290_4683A4A90094_var*
+//#UC END# *479731C50290_4683A4A90094_var*
+//#UC START# *47CD5FAF01CE_4683A4A90094_impl*
+ DoFocusStartField;
+//#UC END# *47CD5FAF01CE_4683A4A90094_impl*
+//#UC START# *47CD5FAF01CE_4683A4A90094_var*
+//#UC END# *47CD5FAF01CE_4683A4A90094_var*
+//#UC START# *47CD5FBC0170_4683A4A90094_impl*
+ vcmSay(err_LimitCharsReached,[aControl.MaxLength]);
+//#UC END# *47CD5FBC0170_4683A4A90094_impl*
+//#UC START# *47CD5FBC0170_4683A4A90094_var*
+//#UC END# *47CD5FBC0170_4683A4A90094_var*
+//#UC START# *47CD605F001E_4683A4A90094_impl*
+ Result := TnsAttributeTreeStruct.Make(aReq, False);
+ if Supports(Result, Il3FilterableTree, l_Tree) and
+    Supports(l_Tree.CloneFilters, InsAttributeTreeFilters, l_Filters) then
+ begin
+  l_AF := GetAdditionalFilter(aReq, QueryType);
+  if (l_Filters.FilterType <> l_AF) then
+   Result := l_Tree.MakeFiltered(l_Filters.SetFilterType(l_AF).SetContext(nil), nil, l_Index, True, True);
+ end;//Supports(Result, Il3FilterableTree, l_Tree)..
+//#UC END# *47CD605F001E_4683A4A90094_impl*
+//#UC START# *47CD605F001E_4683A4A90094_var*
+var
+ l_Filters: InsAttributeTreeFilters;
+ l_Tree: Il3FilterableTree;
+ l_Index: Integer;
+ l_AF: TnsFilterType;
+//#UC END# *47CD605F001E_4683A4A90094_var*
+//#UC START# *47CD60AF0052_4683A4A90094_impl*
+ {$IFDEF Monitorings}
+ if l3SomeOf(aField.Req.ReqName, cSrc) then
+ begin
+  l_CR := ChangableReq;
+  if (l_CR <> nil) then
+   l_CR.MakeFieldValue;
+ end;//l3Same(aField.Req.ReqName, cSrc[l_Index])
+ {$ENDIF Monitorings}
+//#UC END# *47CD60AF0052_4683A4A90094_impl*
+//#UC START# *47CD60AF0052_4683A4A90094_var*
+{$IFDEF Monitorings}
+var
+ l_CR: IqaReq;
+{$ENDIF Monitorings}
+//#UC END# *47CD60AF0052_4683A4A90094_var*
+//#UC START# *47CD60F50164_4683A4A90094get_impl*
+ {$If not Defined(Admin) AND not Defined(Monitorings)}
+ Assert(Assigned(f_ContextHistory));
+ Result := f_ContextHistory.History;
+{$IfEnd}
+//#UC END# *47CD60F50164_4683A4A90094get_impl*
+//#UC START# *47CD60F50164_4683A4A90094get_var*
+//#UC END# *47CD60F50164_4683A4A90094get_var*
+//#UC START# *47CD9AB2023F_4683A4A90094_impl*
+ if (aReq = nil) then
+  Result := nil
+ else
+  Supports(TqaReq.Make(Self, aReq), IevModelListener, Result);
+//#UC END# *47CD9AB2023F_4683A4A90094_impl*
+//#UC START# *47CD9AB2023F_4683A4A90094_var*
+//#UC END# *47CD9AB2023F_4683A4A90094_var*
+//#UC START# *486C765001F5_4683A4A90094_impl*
+{ if QueryType in c_InpharmSearches then
+  Result := nil
+ else
+  Result := BaseSearchPromptTree;}
+ Result := nil; // К-104432064
+//#UC END# *486C765001F5_4683A4A90094_impl*
+//#UC START# *486C765001F5_4683A4A90094_var*
+//#UC END# *486C765001F5_4683A4A90094_var*
+//#UC START# *4885BFB60314_4683A4A90094_impl*
+ nsBeepWrongContext;
+//#UC END# *4885BFB60314_4683A4A90094_impl*
+//#UC START# *4885BFB60314_4683A4A90094_var*
+//#UC END# *4885BFB60314_4683A4A90094_var*
+//#UC START# *496B513C0168_4683A4A90094_impl*
+ l_ContextsIdx := 0;
+ IterateAttrsF(l3L2FA(@DoCorrectContext));
+//#UC END# *496B513C0168_4683A4A90094_impl*
+//#UC START# *496B513C0168_4683A4A90094_var*
+var
+ l_ContextsIdx: Integer;
+
+ function DoCorrectContext(const aReq: IqaReq): Boolean;
+
+  function lp_HasErrorWords(const aContext: Il3CString): Boolean;
+  var
+   l_IDX: Integer;
+  begin//lp_HasErrorWords
+   Result := False;
+   if Assigned(aMistakesList) then
+    for l_IDX := 0 to aMistakesList.Count - 1 do
+     if l3Pos(l3Upper(aContext), l3Upper(aMistakesList.ItemC[l_IDX])) > -1 then
+     begin
+      Result := True;
+      Exit;
+     end;//l3Pos..
+  end;//lp_HasErrorWords
+
+ var
+  l_Idx: Integer;
+  l_Text: Il3CString;
+  l_Index: Integer;
+  l_Para: InevPara;
+  l_DummyText: Il3CString;
+ const
+  l_Opt = [ev_soGlobal, ev_soUseInternalCursor, ev_soReplaceAll, ev_soNoProgress];
+ begin//DoCorrectContext
+  Result := true;
+  if Supports(aReq, IqaMorphoReq) then
+  begin
+   for l_IDX := 0 to aReq.EditorReq.FieldsCount - 1 do
+    if not aReq.EditorReq.Fields[l_IDX].IsFieldEmpty then
+    begin
+     if (l_ContextsIdx < aCorrectedContext.Count) then // http://mdp.garant.ru/pages/viewpage.action?pageId=326773154
+     begin
+      if not l3Same(aReq.EditorReq.Fields[l_IDX].Text, aCorrectedContext[l_ContextsIdx]) then
+       aReq.EditorReq.Fields[l_IDX].Text := aCorrectedContext[l_ContextsIdx];
+     end
+     else
+      aReq.EditorReq.Fields[l_IDX].Text := l3CStr(''); // http://mdp.garant.ru/pages/viewpage.action?pageId=326773154
+     if (f_FirstErrorContextReq = nil) then
+     begin
+      if lp_HasErrorWords(aReq.EditorReq.Fields[l_IDX].Text) then
+       f_FirstErrorContextReq := aReq.EditorReq.Fields[l_IDX];
+     end;//f_FirstErrorContextReq = nil
+     l_Para := aReq.EditorReq.Fields[l_IDX].Para;
+     with l_Para.AsObject.Attr[k2_tiSegments] do
+      if IsValid then
+      begin
+       if rAtomEx([k2_tiChildren, k2_tiHandle, Ord(ev_slMistakes)], @l_Index).IsValid then
+        DeleteChild(l_Index);
+      end;//IsValid
+     if Assigned(aMistakesList) then
+     begin
+      for l_Index := 0 to Pred(aMistakesList.Count) do
+      begin
+       evReplaceInPara(l_Para,
+                       TevStrictWordSearcher.Make(l3Str(aMistakesList[l_Index]), l_Opt),
+                       TevStyleReplacer.MakeForStyleID(ev_saMistake, l_Opt));
+      end;//for l_Index
+     end;//l_Words <> nil
+     Inc(l_ContextsIdx);
+     if (l_ContextsIdx >= aCorrectedContext.Count) then
+      Result := False;
+    end;//not aReq.EditorReq.Fields[l_IDX].IsFieldEmpty
+  end;//Supports(aReq, IqaMorphoReq)
+ end;//DoCorrectContext
+//#UC END# *496B513C0168_4683A4A90094_var*
+//#UC START# *5232FFE502F6_4683A4A90094get_impl*
+ Result := f_QueryType;
+//#UC END# *5232FFE502F6_4683A4A90094get_impl*
+//#UC START# *5232FFE502F6_4683A4A90094get_var*
+//#UC END# *5232FFE502F6_4683A4A90094get_var*
+//#UC START# *5233001E0237_4683A4A90094get_impl*
+ Result := f_IsQueryNew;
+//#UC END# *5233001E0237_4683A4A90094get_impl*
+//#UC START# *5233001E0237_4683A4A90094get_var*
+//#UC END# *5233001E0237_4683A4A90094get_var*
+//#UC START# *5233003601FF_4683A4A90094get_impl*
+ Result := (f_Modified > 0);
+//#UC END# *5233003601FF_4683A4A90094get_impl*
+//#UC START# *5233003601FF_4683A4A90094get_var*
+//#UC END# *5233003601FF_4683A4A90094get_var*
+//#UC START# *5233003601FF_4683A4A90094set_impl*
+ if (Get_Modified <> aValue) then
+ begin
+  Inc(f_InModifiedChanged);
+  try
+   IterateAttrsF(l3L2FA(@DoReq));
+  finally
+   Dec(f_InModifiedChanged);
+  end;//try..finally
+  CallModifiedChanged;
+ end;//Get_Modified <> aValue
+//#UC END# *5233003601FF_4683A4A90094set_impl*
+//#UC START# *5233003601FF_4683A4A90094set_var*
+ function DoReq(const aReq: IqaReq): Boolean;
+ begin
+  Result := True;
+  aReq.Modified := aValue;
+ end;
+//#UC END# *5233003601FF_4683A4A90094set_var*
+//#UC START# *5233004F0358_4683A4A90094get_impl*
+ Result := f_FromHistory;
+//#UC END# *5233004F0358_4683A4A90094get_impl*
+//#UC START# *5233004F0358_4683A4A90094get_var*
+//#UC END# *5233004F0358_4683A4A90094get_var*
+//#UC START# *5233004F0358_4683A4A90094set_impl*
+ f_FromHistory := aValue;
+//#UC END# *5233004F0358_4683A4A90094set_impl*
+//#UC START# *5233004F0358_4683A4A90094set_var*
+//#UC END# *5233004F0358_4683A4A90094set_var*
+//#UC START# *52330082029F_4683A4A90094get_impl*
+ Result := f_QueryCard;
+//#UC END# *52330082029F_4683A4A90094get_impl*
+//#UC START# *52330082029F_4683A4A90094get_var*
+//#UC END# *52330082029F_4683A4A90094get_var*
+//#UC START# *523300DC03BB_4683A4A90094get_impl*
+ Result := Get_HistoryList;
+//#UC END# *523300DC03BB_4683A4A90094get_impl*
+//#UC START# *523300DC03BB_4683A4A90094get_var*
+//#UC END# *523300DC03BB_4683A4A90094get_var*
+//#UC START# *523302260240_4683A4A90094_impl*
+ QueryCard.Editor.Selection.Unselect;
+ if (aReq <> nil) and Supports(FindAttr(aReq.TagName), IqaReqAttribute, l_ReqAttr) then //Его может и не быть после обновления.
+ try
+  l_ReqAttr.GetAttributesFromView(aRoot);
+ finally
+  l_ReqAttr := nil;
+ end;//aReq <> nil
+//#UC END# *523302260240_4683A4A90094_impl*
+//#UC START# *523302260240_4683A4A90094_var*
+var
+ l_ReqAttr: IqaReqAttribute;
+//#UC END# *523302260240_4683A4A90094_var*
+//#UC START# *52330265006F_4683A4A90094_impl*
+ if NeedSettings then
+ begin
+  g_Dispatcher.FormDispatcher.Lock;
+  try
+   l_GroupCount := f_QueryCard.GroupCount - 1;
+   l_Descriptions := afw.Settings.LoadString(nsAStr(MakeDescriptionsSettingId).S, '');
+   for l_Index := 0 to l_GroupCount do
+    with f_QueryCard.QueryGroup[l_Index] do
+     for l_DIdx := 0 to DescriptionReqCount-1 do
+      with DescriptionReq[l_DIdx] do
+       Collapsed := (l3Pos(l_Descriptions,
+                           l3Cat([nsCStr(' '),
+                                  l3Upper(ReqName),
+                                  nsCStr(' ')])) >= 0);
+   l_Groups := afw.Settings.LoadString(nsAStr(MakeGroupsSettingId).S, FuckMagic);
+   // читаем из настроек
+   if (l_GroupCount = 0) then
+    f_QueryCard.QueryGroup[0].Expanded := True
+   else
+    if (f_QueryType = lg_qtPostingOrder) then
+     f_QueryCard.ChangeStateAll(True)
+    else
+     if not l3Same(l_Groups, FuckMagic) then
+      for l_Index := 0 to l_GroupCount do
+       with f_QueryCard.QueryGroup[l_Index] do
+        Expanded := (l3Pos(l_Groups, GroupName) >= 0)
+     // при первой загрузке "Расширенные реквизиты свернуты"
+     else
+     if (l_GroupCount >= 0) then
+     begin
+      // свернём все
+      f_QueryCard.ChangeStateAll(False);
+      // развернём только первую
+      f_QueryCard.QueryGroup[0].Expanded := True;
+     end;//l_GroupCount >= 0
+  finally
+   g_Dispatcher.FormDispatcher.UnLock;
+  end;// g_Dispatcher.FormDispatcher.Lock;
+ end;//NeedSettings
+//#UC END# *52330265006F_4683A4A90094_impl*
+//#UC START# *52330265006F_4683A4A90094_var*
+const
+ FuckMagic = 'NOT DEFINED';
+var
+ l_Groups: Il3CString;
+ l_Index: Integer;
+ l_DIdx: Integer;
+ l_GroupCount: Integer;
+ l_Descriptions: Il3CString;
+//#UC END# *52330265006F_4683A4A90094_var*
+//#UC START# *5233030F0167_4683A4A90094_impl*
+ if NeedSettings AND (f_QueryCard <> nil) then
+ begin
+  l_Descriptions := nil;
+  l_Groups := nil;
+  // Запишем группы, которые развернуты
+  for l_Index := 0 to f_QueryCard.GroupCount - 1 do
+  begin
+   l_Group := f_QueryCard.QueryGroup[l_Index];
+   try
+    for l_DIdx := 0 to l_Group.DescriptionReqCount-1 do
+     with l_Group.DescriptionReq[l_DIdx] do
+      if Collapsed then
+       l_Descriptions := l3Cat([l_Descriptions,
+                                nsCStr(' '),
+                                l3Upper(ReqName),
+                                nsCStr(' ')]);
+    if l_Group.Expanded then
+     l_Groups := l3Cat([l_Groups, l_Group.GroupName]);
+   finally
+    l_Group := nil;
+   end;//try..finally
+  end;//for l_Index
+  // Запомним закрытые группы в настройках
+  afw.Settings.SaveString(nsAStr(MakeGroupsSettingId).S, l_Groups);
+  afw.Settings.SaveString(nsAStr(MakeDescriptionsSettingId).S, l_Descriptions);
+ end;//NeedSettings
+//#UC END# *5233030F0167_4683A4A90094_impl*
+//#UC START# *5233030F0167_4683A4A90094_var*
+var
+ l_Index: Integer;
+ l_DIdx: Integer;
+ l_Groups: Il3CString;
+ l_Descriptions: Il3CString;
+ l_Group: IevQueryGroup;
+//#UC END# *5233030F0167_4683A4A90094_var*
+//#UC START# *5233031801BE_4683A4A90094_impl*
+ f_QueryCard := nil;
+//#UC END# *5233031801BE_4683A4A90094_impl*
+//#UC START# *5233031801BE_4683A4A90094_var*
+//#UC END# *5233031801BE_4683A4A90094_var*
+//#UC START# *5233031F027E_4683A4A90094_impl*
+ if (f_QueryCard <> nil) then
+ begin
+  (f_QueryCard As InevControlListener).HideDroppedControl(True);
+  ClearAttrs;
+  Self.QueryCard.CardClear;
+  f_Modified := 0;
+ end;//f_QueryCard <> nil
+ {$IFDEF Monitorings}
+ f_Query := nil;
+ nsQuery.CreateQuery(f_Query, BusinessQueryToAdapterQuery(f_QueryType));
+ {$ELSE Monitorings}
+ f_Query.Clear;
+ {$ENDIF Monitorings}
+//#UC END# *5233031F027E_4683A4A90094_impl*
+//#UC START# *5233031F027E_4683A4A90094_var*
+//#UC END# *5233031F027E_4683A4A90094_var*
+//#UC START# *5233032700CE_4683A4A90094_impl*
+ IterateAttrsF(l3L2FA(@DoClearMistakes));
+//#UC END# *5233032700CE_4683A4A90094_impl*
+//#UC START# *5233032700CE_4683A4A90094_var*
+ function DoClearMistakes(const aReq: IqaReq): Boolean;
+ var
+  l_Idx: Integer;
+  l_Index: Integer;
+  l_Para: InevPara;
+ begin
+  Result := true;
+  if Supports(aReq, IqaMorphoReq) then
+  begin
+   for l_IDX := 0 to aReq.EditorReq.FieldsCount - 1 do
+   begin
+    l_Para := aReq.EditorReq.Fields[l_IDX].Para;
+    with l_Para.AsObject.Attr[k2_tiSegments] do
+     if IsValid then
+     begin
+      if rAtomEx([k2_tiChildren, k2_tiHandle, Ord(ev_slMistakes)], @l_Index).IsValid then
+      begin
+       DeleteChild(l_Index);
+       evSegments_ClearSuper(l_Para, nil);
+       // - по-хорошему это надо в ChildDeleted, но туда пока достучаться не можем
+      end;//rAtomEx([k2_tiChildren, k2_tiHandle, ev_slMistakes], @l_Index).IsValid
+     end;//IsValid
+   end;  
+  end;
+ end;
+//#UC END# *5233032700CE_4683A4A90094_var*
+//#UC START# *52330349022C_4683A4A90094_impl*
+ l_Req := GetCurrentEditorReq; 
+ if l_Req <> nil then
+  l_Req.AddField(aView, True);
+//#UC END# *52330349022C_4683A4A90094_impl*
+//#UC START# *52330349022C_4683A4A90094_var*
+var
+ l_Req: IevReq;
+//#UC END# *52330349022C_4683A4A90094_var*
+//#UC START# *523303590369_4683A4A90094_impl*
+ l_Field := GetCurrentField;
+ if Assigned(l_Field) then
+ begin
+  l_Req := GetCurrentEditorReq;
+  if Assigned(l_Req) then
+   l_Req.DeleteField(aView, l_Field, True);
+ end;
+//#UC END# *523303590369_4683A4A90094_impl*
+//#UC START# *523303590369_4683A4A90094_var*
+var
+ l_Field: IevEditorControlField;
+ l_Req: IevReq;
+//#UC END# *523303590369_4683A4A90094_var*
+//#UC START# *5233037903AD_4683A4A90094_impl*
+ l_Req := GetCurrentReq; 
+ if l_Req <> nil then
+  l_Req.ReqClear;
+//#UC END# *5233037903AD_4683A4A90094_impl*
+//#UC START# *5233037903AD_4683A4A90094_var*
+var
+ l_Req: IqaReq;
+//#UC END# *5233037903AD_4683A4A90094_var*
+//#UC START# *5233038D008F_4683A4A90094_impl*
+ l_Req := GetCurrentReq; 
+ if l_Req <> nil then
+  l_Req.OpenSelectWindow;
+//#UC END# *5233038D008F_4683A4A90094_impl*
+//#UC START# *5233038D008F_4683A4A90094_var*
+var
+ l_Req: IqaReq;
+//#UC END# *5233038D008F_4683A4A90094_var*
+//#UC START# *523303A90350_4683A4A90094_impl*
+ Result := FindAttr(nsCStr(cChangableReqName));
+//#UC END# *523303A90350_4683A4A90094_impl*
+//#UC START# *523303A90350_4683A4A90094_var*
+//#UC END# *523303A90350_4683A4A90094_var*
+//#UC START# *523303F700C1_4683A4A90094_impl*
+ CR := ChangableReq;
+ Assert(CR <> nil);
+ l_Field := CR.EditorReq.FirstField;
+ if l_Field.IsFieldEmpty then
+  CR.MakeFieldValue;
+ Result := l_Field.Text;
+//#UC END# *523303F700C1_4683A4A90094_impl*
+//#UC START# *523303F700C1_4683A4A90094_var*
+var
+ l_Field: IevEditorControlField;
+ CR: IqaReq;
+//#UC END# *523303F700C1_4683A4A90094_var*
+//#UC START# *523304BF01B5_4683A4A90094_impl*
+ l_CustCtrl := QueryCard.GetStateControl;
+ if (l_CustCtrl <> nil) and l_CustCtrl.Visible then
+ begin
+  if Supports(l_CustCtrl, IevEditorControl, l_Control) then
+   Result := TqaReq.Make(Self, l_Control.Req)
+  else
+   Result := nil;
+ end//(l_CustCtrl <> nil) and l_CustCtrl.Visible 
+ else 
+  Result := nil; 
+//#UC END# *523304BF01B5_4683A4A90094_impl*
+//#UC START# *523304BF01B5_4683A4A90094_var*
+var
+ l_CustCtrl: IevCustomEditorControl; 
+ l_Control: IevEditorControl;
+//#UC END# *523304BF01B5_4683A4A90094_var*
+//#UC START# *523304D6011A_4683A4A90094_impl*
+ l_CustCtrl := QueryCard.GetStateControl;
+ if (l_CustCtrl <> nil) and l_CustCtrl.Visible then
+ begin
+  if Supports(l_CustCtrl, IevEditorControl, l_Control) then
+   if l_Control.Field = nil then
+    l_Control.QueryInterface(IevEditorControlField, Result)
+   else
+    Result := l_Control.Field
+ end
+ else
+  Result := nil;
+//#UC END# *523304D6011A_4683A4A90094_impl*
+//#UC START# *523304D6011A_4683A4A90094_var*
+var
+ l_CustCtrl: IevCustomEditorControl;
+ l_Control: IevEditorControl;
+//#UC END# *523304D6011A_4683A4A90094_var*
+//#UC START# *5233051C0075_4683A4A90094_impl*
+ if (aQueryCard <> f_QueryCard) then
+ begin
+  if (f_QueryCard <> nil) then
+   f_QueryCard.LinkListener(nil);
+  f_QueryCard := aQueryCard;
+  f_QueryCard.LinkListener(Self);
+ end;//aQueryCard <> f_QueryCard
+ // Загрузим значения
+ if not f_IsQueryNew then
+  Load;
+ {$ifndef Admin}
+ CR := ChangableReq;
+ if (CR <> nil) then //Значение по умолчанию для поля "Тема"
+  CR.MakeFieldValue;
+ {$endif}
+ InitFocus;
+ if (QueryCard <> nil) then
+  QueryCard.CardClear;
+//#UC END# *5233051C0075_4683A4A90094_impl*
+//#UC START# *5233051C0075_4683A4A90094_var*
+{$ifndef Admin}
+var
+ CR: IqaReq;
+{$endif}
+//#UC END# *5233051C0075_4683A4A90094_var*
+//#UC START# *5233055D02D2_4683A4A90094_impl*
+ FinishEntering;
+ Result := True;
+ try
+  CheckAttrs;
+  {$If not (defined(Monitorings) or defined(Admin))}
+  if not aIgnoreError then
+   CheckMorpho;
+  {$IfEnd} 
+ except
+  on E: EqaException do
+  begin
+   Result := False;
+   if not aIgnoreError then
+   begin
+    with E.ErrorControl do
+    begin
+     with Req.Group do
+      if not Expanded then
+       Expanded := True;
+     Req.SetFocus(E.ErrorControl, True);
+    end;//with E.ErrorControl
+    raise;
+   end;//not aIgnoreError
+  end;//on E: EqaException
+ end;//try..except
+ // При переключении конфигурации запрос мог достаться от карточки 5.х с типом
+ // QT_OLD_ATTRIBUTE, поэтому создаем новый запрос
+(* if f_Query.GetType = QT_OLD_ATTRIBUTE then
+  {$If not defined(Admin)}
+  nsQuery.CreateQuery(f_Query, BusinessQueryToAdapterQuery(f_QueryType));
+  {$Else}
+  Assert(false);
+  {$IfEnd}*)
+ f_Query.Clear;
+ IterateAttrsF(l3L2FA(@DoReq));
+//#UC END# *5233055D02D2_4683A4A90094_impl*
+//#UC START# *5233055D02D2_4683A4A90094_var*
+ function DoReq(const aReq: IqaReq): Boolean;
+ begin
+  Result := true;
+  aReq.Save;
+ end;
+//#UC END# *5233055D02D2_4683A4A90094_var*
+//#UC START# *5233057001A7_4683A4A90094_impl*
+ QueryCard.StartLongOperation;
+ try
+  IterateAttrsF(l3L2FA(@DoReq));
+{$ifndef Admin}
+  CR := ChangableReq;
+  if (CR <> nil) then //Значение по умолчанию для поля "Тема"
+   CR.MakeFieldValue;
+{$endif}
+  Modified := False;
+ finally
+  QueryCard.EndLongOperation;
+ end;// asLockedPaint;
+//#UC END# *5233057001A7_4683A4A90094_impl*
+//#UC START# *5233057001A7_4683A4A90094_var*
+ function DoReq(const aReq: IqaReq): Boolean;
+ begin
+  Result := true;
+  aReq.Load;
+ end;
+
+{$ifndef Admin}
+var
+ CR: IqaReq;
+{$endif}
+//#UC END# *5233057001A7_4683A4A90094_var*
+//#UC START# *5233057A0279_4683A4A90094_impl*
+ Result := False;
+ IterateAttrsF(l3L2FA(@DoReq));
+//#UC END# *5233057A0279_4683A4A90094_impl*
+//#UC START# *5233057A0279_4683A4A90094_var*
+ function DoReq(const aReq: IqaReq): Boolean;
+ begin
+  Result := not aReq.IsSet(aElseDefaultValue);
+  if not Result then
+   IsSomeFieldFilled := true;
+ end;
+//#UC END# *5233057A0279_4683A4A90094_var*
+//#UC START# *523305F8011B_4683A4A90094_impl*
+ for l_Index := 0 to f_QueryCard.GroupCount - 1 do
+ begin
+  l_Group := f_QueryCard.QueryGroup[l_Index];
+  try
+   l_Group.Expanded := aExpand;
+  finally
+   l_Group := nil;
+  end;
+ end;   
+//#UC END# *523305F8011B_4683A4A90094_impl*
+//#UC START# *523305F8011B_4683A4A90094_var*
+var
+ l_Index: Integer;
+ l_Group: IevQueryGroup;
+//#UC END# *523305F8011B_4683A4A90094_var*
+//#UC START# *5233060F0343_4683A4A90094_impl*
+ try
+  CheckAttrs;
+ except
+  on E: EqaException do
+   begin
+    with E.ErrorControl do
+    begin
+     with Req.Group do
+      if not Expanded then
+       Expanded := True;
+     Req.SetFocus(E.ErrorControl, True);
+    end;
+    raise;
+   end;
+ end;
+//#UC END# *5233060F0343_4683A4A90094_impl*
+//#UC START# *5233060F0343_4683A4A90094_var*
+//#UC END# *5233060F0343_4683A4A90094_var*
+//#UC START# *5233063202E8_4683A4A90094_impl*
+ if Assigned(f_OnDateQuery) and Supports(aValue, IqaReq, l_Req) then
+ begin
+  l_TagName := l_Req.TagName;
+  //Заплатка: после откатки поле может содержать старую дату.
+  l_Req.EditorReq.FirstField.CheckDataText;
+  if Supports(l_Req.EditorReq.FirstField, IevEditorCalendarField, l_DateField) then
+   l_DateField.GetOtherField.CheckDataText;
+  //--Заплатка
+  l_Req := nil;
+  l_Holder := TqaDateReqDataHolder.Make(aValue);
+  f_OnDateQuery(l_Holder);
+  if l_Holder.IsOk then
+  begin
+   l_Req := FindAttr(l_TagName);
+   if Supports(l_Req, IqaDateReq, l_DateReq) then
+   begin
+    l_DateReq.StartDate := l_Holder.StartDate;
+    l_DateReq.EndDate := l_Holder.EndDate;
+    with l_Req.EditorReq do
+     if l_Holder.IsStartDateEmpty and Supports(FirstField, IevEditorCalendarField, l_DateField) then
+      SetFocus(l_DateField.GetOtherField)
+     else
+      SetFocus(l_DateField);
+   end;
+  end;
+ end;
+//#UC END# *5233063202E8_4683A4A90094_impl*
+//#UC START# *5233063202E8_4683A4A90094_var*
+var
+ l_Req: IqaReq;
+ l_DateField: IevEditorCalendarField;
+ l_TagName: Il3CString;
+ l_DateReq: IqaDateReq;
+ l_Holder: IqaDateReqDataHolder;
+//#UC END# *5233063202E8_4683A4A90094_var*
+//#UC START# *523306640146_4683A4A90094_impl*
+ if aValue then
+  Inc(f_Modified)
+ else
+ if (f_Modified > 0) then
+  Dec(f_Modified);
+ CallModifiedChanged;
+//#UC END# *523306640146_4683A4A90094_impl*
+//#UC START# *523306640146_4683A4A90094_var*
+//#UC END# *523306640146_4683A4A90094_var*
+//#UC START# *523307F40383_4683A4A90094_impl*
+ if Assigned(f_OnNeedExecQuery) then
+  f_OnNeedExecQuery(Self);
+//#UC END# *523307F40383_4683A4A90094_impl*
+//#UC START# *523307F40383_4683A4A90094_var*
+//#UC END# *523307F40383_4683A4A90094_var*
+//#UC START# *5233084202DD_4683A4A90094_impl*
+ Result := nil;
+ IterateAttrsF(l3L2FA(@DoReq));
+//#UC END# *5233084202DD_4683A4A90094_impl*
+//#UC START# *5233084202DD_4683A4A90094_var*
+ function DoReq(const aReq: IqaReq): Boolean;
+ begin
+  Result := not l3Same(aReq.TagName, aTagName, true);
+  if not Result then
+   FindAttr := aReq;
+ end;
+//#UC END# *5233084202DD_4683A4A90094_var*
+//#UC START# *5233086001AF_4683A4A90094_impl*
+ Result := (f_GettingAttributesFromView > 0);
+//#UC END# *5233086001AF_4683A4A90094_impl*
+//#UC START# *5233086001AF_4683A4A90094_var*
+//#UC END# *5233086001AF_4683A4A90094_var*
+//#UC START# *523308730027_4683A4A90094_impl*
+ Inc(f_GettingAttributesFromView);
+ QueryCard.StartLongOperation;
+//#UC END# *523308730027_4683A4A90094_impl*
+//#UC START# *523308730027_4683A4A90094_var*
+//#UC END# *523308730027_4683A4A90094_var*
+//#UC START# *5233087C020F_4683A4A90094_impl*
+ QueryCard.EndLongOperation;
+ Dec(f_GettingAttributesFromView);
+//#UC END# *5233087C020F_4683A4A90094_impl*
+//#UC START# *5233087C020F_4683A4A90094_var*
+//#UC END# *5233087C020F_4683A4A90094_var*
+//#UC START# *54F590B7028F_4683A4A90094_impl*
+ {$IFDEF Monitorings}
+ l_Req := FindAttr(nsCStr(cChangableReqName));
+ if (l_Req <> nil) then
+  l_Req.EditorReq.FirstField.SetFocus;
+ {$ELSE}
+ IterateAttrsF(l3L2FA(@DoReq));
+ {$ENDIF Monitorings}
+//#UC END# *54F590B7028F_4683A4A90094_impl*
+//#UC START# *54F590B7028F_4683A4A90094_var*
+ {$IFNDEF Monitorings}
+ function DoReq(const aReq: IqaReq): Boolean;
+ begin
+  Result := false;
+  // - прекращаем на первом реквизите
+  aReq.EditorReq.FirstField.SetFocus;
+ end;
+ {$EndIF  Monitorings}
+
+{$IFDEF Monitorings}
+var
+ l_Req: IqaReq;
+{$EndIF Monitorings}
+//#UC END# *54F590B7028F_4683A4A90094_var*
+//#UC START# *54F594D4005F_4683A4A90094_impl*
+ f_FormName := aFormName;
+ f_QueryType := aQueryType;
+ f_IsQueryNew := True;
+ f_OnDateQuery := OnDateQuery;
+ f_OnNeedExecQuery := OnNeedExecQuery;
+ f_OnModifiedChanged := OnModifiedChanged;
+ {$If not Defined(Admin) AND not Defined(Monitorings)}
+ f_ContextHistory := aContextHistory;
+ {$IfEnd}
+ // Загрузим IQuery
+ if (aQuery = nil) then
+  {$If not defined(Admin)}
+  nsQuery.CreateQuery(f_Query, BusinessQueryToAdapterQuery(aQueryType))
+  {$Else}
+  Assert(false)
+  {$IfEnd}
+ else
+ begin
+  f_Query := aQuery;
+  f_IsQueryNew := False;
+ end;//aQuery = nil
+//#UC END# *54F594D4005F_4683A4A90094_impl*
+//#UC START# *54F594D4005F_4683A4A90094_var*
+//#UC END# *54F594D4005F_4683A4A90094_var*
+//#UC START# *54F5990601E6_4683A4A90094_impl*
+ f_FormName := aFormName;
+ f_QueryType := aQueryType;
+ f_IsQueryNew := True;
+ f_OnDateQuery := OnDateQuery;
+ f_OnNeedExecQuery := OnNeedExecQuery;
+ f_OnModifiedChanged := OnModifiedChanged;
+ // Загрузим IQuery
+ if (aQuery = nil) then
+  {$If not defined(Admin)}
+  nsQuery.CreateQuery(f_Query, BusinessQueryToAdapterQuery(aQueryType))
+  {$Else}
+  Assert(false)
+  {$IfEnd}
+ else
+ begin
+  f_Query := aQuery;
+  f_IsQueryNew := False;
+ end;//aQuery = nil
+//#UC END# *54F5990601E6_4683A4A90094_impl*
+//#UC START# *54F5990601E6_4683A4A90094_var*
+//#UC END# *54F5990601E6_4683A4A90094_var*
+//#UC START# *54F59B5200CD_4683A4A90094_impl*
+ Result := not (f_QueryType in [lg_qtSendConsultation]);
+//#UC END# *54F59B5200CD_4683A4A90094_impl*
+//#UC START# *54F59B5200CD_4683A4A90094_var*
+//#UC END# *54F59B5200CD_4683A4A90094_var*
+//#UC START# *54F59B6502ED_4683A4A90094_impl*
+ (f_QueryCard As InevControlListener).HideDroppedControl(True);  
+//#UC END# *54F59B6502ED_4683A4A90094_impl*
+//#UC START# *54F59B6502ED_4683A4A90094_var*
+//#UC END# *54F59B6502ED_4683A4A90094_var*
+//#UC START# *54F59B7303B9_4683A4A90094_impl*
+ Result := l3Fmt('%s/%s', [pi_ClosedGroups, f_FormName]);
+//#UC END# *54F59B7303B9_4683A4A90094_impl*
+//#UC START# *54F59B7303B9_4683A4A90094_var*
+//#UC END# *54F59B7303B9_4683A4A90094_var*
+//#UC START# *54F59B88025A_4683A4A90094_impl*
+ Result := l3Fmt('%s/%s', [pi_CollapsedDescriptions, f_FormName]);
+//#UC END# *54F59B88025A_4683A4A90094_impl*
+//#UC START# *54F59B88025A_4683A4A90094_var*
+//#UC END# *54F59B88025A_4683A4A90094_var*
+//#UC START# *54F59BA10052_4683A4A90094_impl*
+ l_CustCtrl := QueryCard.GetStateControl;
+ if (l_CustCtrl <> nil) and l_CustCtrl.Visible then
+ begin
+  if Supports(l_CustCtrl, IevEditorControl, l_Control) then
+   Result := l_Control.Req
+  else
+   Result := nil;
+ end
+ else
+  Result := nil;
+//#UC END# *54F59BA10052_4683A4A90094_impl*
+//#UC START# *54F59BA10052_4683A4A90094_var*
+var
+ l_CustCtrl: IevCustomEditorControl;
+ l_Control: IevEditorControl;
+//#UC END# *54F59BA10052_4683A4A90094_var*
+//#UC START# *54F59BBE0039_4683A4A90094_impl*
+ if Assigned(anAction) then
+ try
+  if (f_QueryCard <> nil) then
+   for I := 0 to f_QueryCard.GroupCount - 1 do
+   begin
+    l_QueryGroup := f_QueryCard.QueryGroup[I];
+    try
+     for J := 0 to l_QueryGroup.ReqCount - 1 do
+     begin
+      l_Req := TqaReq.Make(Self, l_QueryGroup.Req[J]);
+      try
+       if not anAction(Pointer(l_Req)) then
+        Exit;
+      finally
+       l_Req := nil;
+      end;//try..finally
+     end;//for J
+    finally
+     l_QueryGroup := nil;
+    end;//try..finally
+   end;//for I
+ finally
+  l3FreeFA(anAction);
+ end;//try..finally
+//#UC END# *54F59BBE0039_4683A4A90094_impl*
+//#UC START# *54F59BBE0039_4683A4A90094_var*
+var
+ I, J: Integer;
+ l_QueryGroup: IevQueryGroup;
+ l_Req: IqaReq;
+//#UC END# *54F59BBE0039_4683A4A90094_var*
+//#UC START# *54F59BCF01B2_4683A4A90094_impl*
+ if (f_InModifiedChanged <= 0) then
+ begin
+  Inc(f_InModifiedChanged);
+  try
+   if Assigned(f_OnModifiedChanged) then
+    f_OnModifiedChanged(Self);
+  finally
+   Dec(f_InModifiedChanged);
+  end;//try..finally
+ end;//f_InModifiedChanged <= 0
+//#UC END# *54F59BCF01B2_4683A4A90094_impl*
+//#UC START# *54F59BCF01B2_4683A4A90094_var*
+//#UC END# *54F59BCF01B2_4683A4A90094_var*
+//#UC START# *54F59BDA034F_4683A4A90094_impl*
+ IterateAttrsF(l3L2FA(@DoReq));
+{$IfDef Monitorings}
+ l_CR := ChangableReq;
+ if (l_CR <> nil) then
+  l_CR.MakeFieldValue;
+{$EndIf Monitorings}
+//#UC END# *54F59BDA034F_4683A4A90094_impl*
+//#UC START# *54F59BDA034F_4683A4A90094_var*
+ function DoReq(const aReq: IqaReq): Boolean;
+ begin
+  Result := true;
+  aReq.ReqClear;
+ end;
+
+{$IfDef Monitorings}
+var
+ l_CR: IqaReq;
+{$EndIf Monitorings}
+//#UC END# *54F59BDA034F_4683A4A90094_var*
+//#UC START# *54F59BF002AF_4683A4A90094_impl*
+ IterateAttrsF(l3L2FA(@DoCheckReq));
+//#UC END# *54F59BF002AF_4683A4A90094_impl*
+//#UC START# *54F59BF002AF_4683A4A90094_var*
+ function DoCheckReq(const aReq: IqaReq): Boolean;
+ begin
+  Result := true;
+  aReq.CheckAttr;
+ end;
+//#UC END# *54F59BF002AF_4683A4A90094_var*
+//#UC START# *54F59BFB00BD_4683A4A90094_impl*
+ l_TotalContext := TvcmStringList.Make;
+ IterateAttrsF(l3L2FA(@DoCollectContext));
+ f_FirstErrorContextReq := nil;
+ try
+  {$If not (defined(Monitorings) or defined(Admin))}
+  if bsUtils.bsCorrectMistakes(l_TotalContext, QueryType in c_InpharmSearches, Self) and Assigned(f_FirstErrorContextReq) then
+   raise EqaSilentAbort.Create(f_FirstErrorContextReq,'');
+  {$Else}
+  Assert(false);
+  {$IfEnd}
+ finally
+  f_FirstErrorContextReq := nil;
+ end;
+//#UC END# *54F59BFB00BD_4683A4A90094_impl*
+//#UC START# *54F59BFB00BD_4683A4A90094_var*
+var
+ l_TotalContext: Il3StringsEx;
+
+ function DoCollectContext(const aReq: IqaReq): Boolean;
+ var
+  l_Req: IqaMorphoReq;
+  l_Context: Il3CString;
+ begin
+  Result := true;
+  if Supports(aReq, IqaMorphoReq, l_Req) then
+   l_Req.FillReqListAsString(l_TotalContext);
+ end;
+const
+ c_InpharmSearches = [lg_qtInpharmSearch];
+//#UC END# *54F59BFB00BD_4683A4A90094_var*
+//#UC START# *54F59C0E0149_4683A4A90094_impl*
+ if NeedSettings then
+  f_QueryCard.StartSetFocus;
+//#UC END# *54F59C0E0149_4683A4A90094_impl*
+//#UC START# *54F59C0E0149_4683A4A90094_var*
+//#UC END# *54F59C0E0149_4683A4A90094_var*
