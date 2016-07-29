@@ -137,7 +137,11 @@ PROCEDURE "Подготовить для горизонтальной прокрутки"
 ;
 
 PROCEDURE "Выставить флаг записи картинок"
-	EnabledSaveRTFPictures
+	true EnabledSavePictures
+;
+
+PROCEDURE "Сбросить флаг записи картинок"
+	false EnabledSavePictures
 ;
 
 PROCEDURE "Подготовить главную форму с высотой"
@@ -208,7 +212,7 @@ BOOLEAN VAR g_WasException
 PROCEDURE "Проверочное действие"	
 	g_CheckAction CASE
 		cnNoneAction (  )
-		cnCheckWithEVDEtalon ( "Сравнить текст с эталоном" ) 
+		cnCheckWithEVDEtalon ( "Выставить флаг записи картинок" "Сравнить текст с эталоном" ) 
 		cnCheckWithNSREtalon ( "Сохранить в NSR и сравнить с эталоном" )
 		cnCheckWithHTMLEtalon ( "Сохранить в HTML и сравнить с эталоном" )
 		cnCheckDrawing ( "Перерисовать и сравнить с эталоном в текущем редакторе" )

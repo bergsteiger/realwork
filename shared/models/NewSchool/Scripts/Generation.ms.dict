@@ -745,6 +745,8 @@ STRING operator .ucString
  >>> Result
 ; // .gen->
 
+BOOLEAN CompileTime-VAR g_SuppressRewriteUC false
+
 elem_proc ReadUCFromFile:
   ^ IN aFileName
  STRING VAR l_FileName
@@ -803,7 +805,18 @@ elem_proc ReadUCFromFile:
 
        aStr string:Trim >>> aStr
 
-       g_CurrentGenerator ->^ l_Key ^:= l_Accumulated
+       if g_SuppressRewriteUC then
+       begin
+        if ( g_CurrentGenerator %% l_Key .IsNil ) then
+        // - чтобы не перетирать ранее загруженное
+        begin
+         g_CurrentGenerator ->^ l_Key ^:= l_Accumulated
+        end // ( g_CurrentGenerator %% l_Key .IsNil )
+       end // g_SuppressRewriteUC
+       else
+       begin
+        g_CurrentGenerator ->^ l_Key ^:= l_Accumulated
+       end // g_SuppressRewriteUC
        Self .uc-> l_Key := l_Accumulated
        // - сохраняем пользовательские секции в текущий генерируемый элемент
        
@@ -920,6 +933,10 @@ elem_proc LoadUserCode
 
 STRING CompileTime-VAR g_TempFileName ''
 
+elem_proc Execute
+  IN aFileName
+; // Execute
+
 elem_proc FlushFiles
  VAR l_FileToWrite
  '' >>> l_FileToWrite
@@ -1002,6 +1019,7 @@ elem_proc FlushFiles
     end // ( l_FileToDelete g_FinalFileName SameText ! )
    end // ( cNotFinished l_Name StartsStr ! )
 
+   Self g_FinalFileName .? .Execute
   end // ( Self .? .CanCopyToFinalFile )
  end // ( g_FinalFileName .IsNotNil )
 ; // FlushFiles
@@ -4264,7 +4282,10 @@ elem_proc OutUserCode:
     if ( l_InnerChild .gen-> UCRead true ?!= ) then
     begin
      l_InnerChild .gen-> UCRead := true
-     l_InnerChild .ReadUCFromFile: ( l_InnerChild .UCFileName )
+     TF g_SuppressRewriteUC (
+      true >>> g_SuppressRewriteUC
+      l_InnerChild .ReadUCFromFile: ( l_InnerChild .UCFileName )
+     ) // TF g_SuppressRewriteUC
      g_CurrentGenerator %% aKey >>> l_Field
     end // ( l_InnerChild .gen-> UCRead true ?!= )
    end // ( l_InnerChild .NotIsNil )
@@ -4349,41 +4370,6 @@ elem_proc DefaultUserCode
  ) // Self aKey .DefaultUserCodePrim:
 ; // DefaultUserCode
 
-elem_proc PredefinedUserCode:
-  STRING IN aSuffix
-  STRING IN aKey
-  ^ IN aOutLambda
-  ^ IN aCode
- Self aSuffix aKey .DefaultUserCodePrim: (
-   IN aKey
-  [ aCode DO ] aOutLambda DO
- ) // Self aKey .DefaultUserCodePrim:
-; // PredefinedUserCode:
-
-elem_proc PredefinedMethodUserCode:
-  STRING IN aSuffix
-  STRING IN aKey
-  TtfwWord IN aCode
-  ^ IN aVarCode
-  ^ IN aImplCode
- RULES
-  ( aSuffix cVarUserCodeSuffix == )
-   ( Self aSuffix aKey .PredefinedUserCode: .Out ( aVarCode DO ) )
-  ( aSuffix cImplementationUserCodeSuffix == )
-   ( Self aSuffix aKey .PredefinedUserCode: ( IN aValue Indented: ( aValue .Out ) ) ( aImplCode DO ) )
-  DEFAULT 
-   ( Self aSuffix aKey aCode .DefaultUserCode )
- ; // RULES
-; // PredefinedMethodUserCode:
-
-elem_proc PredefinedMethodUserCodeWithoutVar:
-  STRING IN aSuffix
-  STRING IN aKey
-  TtfwWord IN aCode
-  ^ IN aImplCode
- Self aSuffix aKey aCode .PredefinedMethodUserCode: () ( aImplCode DO ) 
-; // PredefinedMethodUserCodeWithoutVar:
-  
 INTERFACE elem_func InterfaceLinkField
  Cached:
  (
@@ -5809,180 +5795,7 @@ elem_proc MethodUserCode
    ) // DEFAULT
  ; // RULES
  
- BOOLEAN elem_func IsSingletonExists
-  Self .Name 'Exists' ==
-  AND ( Self .IsStaticOp )
-  AND ( l_Implementor .IsSingleton )
-  >>> Result
- ; // IsSingletonExists
- 
- : WithoutVar:
-   ^ IN aImplCode
-  Self aKey l_Key aCode .PredefinedMethodUserCodeWithoutVar: ( aImplCode DO ) 
- ; // WithoutVar:
- 
- RULES
-  ( Self .IsSingletonExists )
-   (
-    WithoutVar:
-    ( 
-     'Result := g_' l_Implementor .TypeName ' <> nil;'
-    ) 
-   ) // ( Self .IsSingletonExists )
-  ( 
-   Self .Name 'Alien' ==
-   AND ( Self .IsSetter ) 
-   AND ( l_Implementor .IsService )
-  )
-   (
-    WithoutVar:
-    (
-     'Assert((f_Alien = nil) OR (aValue = nil));' \n
-     'f_Alien := aValue;'
-    ) 
-   ) // Self .Name 'Alien' ==
-   
-  ( Self .LUID GarantModel::TAbstractTest.GetFolder .LUID == ) // GetFolder
-   (
-    WithoutVar:
-    (
-     'Result := ' cQuote l_Implementor .Parent .Name cQuote ';'
-    )
-   )
-  ( Self .LUID GarantModel::TAbstractTest.GetModelElementGUID .LUID == ) // GetModelElementGUID
-   (
-    WithoutVar:
-    (
-     'Result := ' cQuote l_Implementor .LUID cQuote ';'
-    )
-   )
-  ( 
-   Self .LUID GarantModel::TtfwInteger.GetInteger .LUID == // GetInteger
-   AND ( l_Implementor .Parent .IsUserType )
-  ) 
-   WithoutVar: ( 'Result := ' l_Implementor .Parent .Name ';' )
-   
-  ( Self .LUID GarantModel::TtfwAxiomaticsResNameGetter.ResName .LUID == ) // ResName
-   WithoutVar: ( 'Result := ' cQuote l_Implementor .EffectiveUnitName cQuote ';' )
-  ( Self .LUID GarantModel::TtfwRegisterableWord.GetWordNameForRegister .LUID == ) // GetWordNameForRegister
-   ( 
-    WithoutVar:
-    ( 
-     'Result := '
-     
-     cQuote
-      
-     VAR l_NameForScript
-     l_Implementor .NameForScript >>> l_NameForScript
-     if ( l_NameForScript .IsValueValid ) then
-     begin
-     
-      ANY FUNCTION Mangle
-        IN aValue
-       RULES
-        ( aValue IsBool )
-         RULES
-          aValue
-           'true'
-          DEFAULT
-           'false'
-         ; // RULES 
-        DEFAULT
-         aValue
-       ; // RULES
-       >>> Result
-      ; // Mangle
-      
-      l_NameForScript Mangle
-     end // ( l_NameForScript .IsValueValid )  
-     else
-     begin
-      l_Implementor .Parent .GetUP 'extprop:pas:ElementPrefixBase'
-      l_Implementor .Name cUnderline ':' string:Replace
-     end // ( l_NameForScript .IsValueValid ) 
-      
-     cQuote 
-      
-     ';' 
-    ) // ( Self .Name 'GetWordNameForRegister' == )
-   )
-  ( Self .LUID GarantModel::l3UnknownPrim.ClearFields .LUID == ) // ClearFields
-   (
-    WithoutVar:
-    ( 
-     l_Implementor .Fields 
-     .filter> .IsFieldForCleanup
-     .for> (
-       IN aField
-      aField nil .IfDefPrim: \n
-      ( 
-       VAR l_FieldName
-       
-       aField .GetUP 'extprop:clearViaProperty' >>> l_FieldName 
-       
-       if (
-           ( aField .Target .CannotFinalizeProperty )
-           OR ( l_FieldName .IsNil ) 
-          ) then
-       begin
-        RULES
-         ( 
-          ( aField .IsReadonlyProperty ) 
-          OR ( aField .Target .CannotFinalizeProperty )
-         )
-          ( aField .FieldName >>> l_FieldName )
-         ( 
-          ( aField .IsProperty ) 
-          AND ( aField .LinkType lt_agr == )
-          AND ( aField .Target .IsWideString )
-         )
-         // http://mdp.garant.ru/pages/viewpage.action?pageId=594895802&focusedCommentId=620849995#comment-620849995
-          ( aField .FieldName >>> l_FieldName )
-         ( 
-          ( aField .IsProperty ) 
-          AND ( aField .ParentIsInterface )
-         )
-          ( aField .FieldName >>> l_FieldName )
-         DEFAULT 
-          ( aField .Name >>> l_FieldName )
-        ; // RULES  
-       end // ( l_FieldName .IsNil )
-       
-       RULES 
-        ( aField .Target .IsInterface )
-         ( l_FieldName ' := nil' )
-        ( aField .Target .IsString )
-         ( l_FieldName ' := ' cQuote cQuote )
-        ( aField .Target .IsOpenArray )
-         ( l_FieldName ' := nil' )
-        DEFAULT
-         ( 'Finalize(' l_FieldName ')' )
-       ; // RULES 
-       ';' \n
-      ) // aField .IfDef:
-     ) // l_Implementor .Fields
-     'inherited;'
-    ) 
-   )
-  DEFAULT
-   (
-    RULES
-     ( Self .IsStaticConstructor )
-      begin
-       if ( aKey cImplementationUserCodeSuffix == ) then
-       begin
-        if ( l_Implementor .NeedsFinalize ) then
-        begin
-         ' Finalize(Result);' .Out
-        end // ( l_Implementor .NeedsFinalize )
-        ' System.FillChar(Result, SizeOf(Result), 0);' .Out
-       end // ( aKey cImplementationUserCodeSuffix == )
-      end // ( Self .IsStaticConstructor )
-    ; // RULES
-    
-    Self aKey l_Key aCode .DefaultUserCode 
-   )
- ; // RULES 
+ Self aKey l_Key aCode .DefaultUserCode
 ; // MethodUserCode
 
 elem: IfDefBrace:
@@ -8328,29 +8141,35 @@ elem_iterator ChildrenEx
      GarantModel::TtfwInteger
      MakeClass: (
        IN aMade
-      aMade -> UID := ( [ Self .LUID '_Word' ] strings:Cat ) 
+      aMade -> UID := ( [ Self .LUID '_Word' ] strings:Cat )
       aMade -> Parent := ( Self .WeakRef )
-      aMade -> "NameForScript" := ( 
-       [ 
+      aMade -> "NameForScript" := (
+       [
         'тип_формы::'
         Self .Name ' ' '_' string:Replace
-       ] strings:Cat 
+       ] strings:Cat
       ) // aMade -> "NameForScript"
-      aMade -> %SUM := ( 
+      aMade -> %SUM := (
        [
         'Слово словаря для типа формы ' Self .Name
-       ] strings:Cat 
+       ] strings:Cat
       ) // aMade -> %SUM
       aMade -> Visibility := PrivateAccess
       aMade -> Abstraction := at_final
       aMade -> Stereotype := st_ScriptKeyword
       aMade -> "ifndef" := 'NoScripts'
-      aMade -> IsSummoned := true
       aMade -> Overridden := [
-       GarantModel::TtfwInteger.GetInteger .OverrideMethod
+       GarantModel::TtfwInteger.GetInteger .OverrideMethod: (
+         IN aMethod
+        aMethod ->^ cVarUserCodeName ^:= cEmptyUserCode
+        aMethod .AddMethodWithParams: cImplementationUserCodeName aMade (
+          IN l_Implementor
+         [ ' Result := ' l_Implementor .Parent .Name ';' ]
+        ) // aMethod .AddMethodWithParams: cImplementationUserCodeName aMade
+       ) // GarantModel::TtfwInteger.GetInteger .OverrideMethod:
       ] // aMade -> Overridden
      ) // MakeClass:
-    ) // .join> ToArray: 
+    ) // .join> ToArray:
     array:Copy
     >>> l_Children
    end // ( l_Children l_ClassName .HasModelElementWithName ! )
@@ -9751,35 +9570,121 @@ elem_iterator SignalDataSourceChangedUC
     DEFAULT
      [
        '  ' 'Supports(aNew, ' anAttr .AttrType .TypeName ', ' anAttr .AttrName ');' \n
-     ] 
-   ; // RULES  
+     ]
+   ; // RULES
   ) // .for>
   ' end;//aNew = nil'
  ]
  >>> Result
 ; // SignalDataSourceChangedUC
 
+ARRAY FUNCTION .ForceOverrideMethod:
+  ARRAY IN aOverridden
+  ModelElement IN aMethod
+  ^ IN aLambda
+ ModelElement VAR l_Found
+ aOverridden
+ .filter> ( aMethod .IsSameModelElement )
+ .FirstElement >>> l_Found
+ if ( l_Found .IsNil ) then
+ begin
+  aOverridden
+  .join> ToArray: (
+   aMethod .OverrideMethod: (
+     IN aMade
+    aMade aLambda DO 
+   ) // aMethod .OverrideMethod:
+  ) // .join> ToArray:
+  >>> aOverridden
+ end // ( l_Found .IsNil )
+ else
+ begin
+  l_Found aLambda DO
+ end // ( l_Found .IsNil )
+ aOverridden >>> Result
+; // .ForceOverrideMethod:
+
 elem_iterator OverriddenEx
  Cached:
  (
   VAR l_Overridden
   Self .Overridden >>> l_Overridden
-  
+
   l_Overridden
-  
+
   if ( Self .IsClassOrMixIn ) then
   begin
    if ( Self .HasManagedAttributes ) then
    begin
     if ( Self GarantModel::l3UnknownPrim .InheritsFromOrSomeAncestorImplements ) then
     begin
-     if ( l_Overridden GarantModel::l3UnknownPrim.ClearFields .HasModelElement ! ) then
-     begin     
-      .join> ToArray: ( GarantModel::l3UnknownPrim.ClearFields .OverrideMethod )
-     end // ( l_Overridden GarantModel::l3UnknownPrim.ClearFields .HasModelElement )
-    end // ( Self GarantModel::l3UnknownPrim .InheritsFromOrSomeAncestorImplements )
+     GarantModel::l3UnknownPrim.ClearFields
+     .ForceOverrideMethod: (
+       IN aMethod
+      aMethod ->^ cVarUserCodeName ^:= cEmptyUserCode
+      aMethod .AddMethodWithParams: cImplementationUserCodeName
+      Self (
+        IN l_Implementor
+       [
+        l_Implementor .Fields 
+        .filter> .IsFieldForCleanup
+        .for> (
+          IN aField
+         aField nil .IfDefPrim: \n
+         ( 
+          VAR l_FieldName
+       
+          aField .GetUP 'extprop:clearViaProperty' >>> l_FieldName 
+       
+          if (
+              ( aField .Target .CannotFinalizeProperty )
+              OR ( l_FieldName .IsNil ) 
+             ) then
+          begin
+           RULES
+            ( 
+             ( aField .IsReadonlyProperty ) 
+             OR ( aField .Target .CannotFinalizeProperty )
+            )
+             ( aField .FieldName >>> l_FieldName )
+            ( 
+             ( aField .IsProperty ) 
+             AND ( aField .LinkType lt_agr == )
+             AND ( aField .Target .IsWideString )
+            )
+            // http://mdp.garant.ru/pages/viewpage.action?pageId=594895802&focusedCommentId=620849995#comment-620849995
+             ( aField .FieldName >>> l_FieldName )
+            ( 
+             ( aField .IsProperty ) 
+             AND ( aField .ParentIsInterface )
+            )
+             ( aField .FieldName >>> l_FieldName )
+            DEFAULT 
+             ( aField .Name >>> l_FieldName )
+           ; // RULES  
+          end // ( l_FieldName .IsNil )
+
+          cSpace
+          RULES 
+           ( aField .Target .IsInterface )
+            ( l_FieldName ' := nil' )
+           ( aField .Target .IsString )
+            ( l_FieldName ' := ' cQuote cQuote )
+           ( aField .Target .IsOpenArray )
+            ( l_FieldName ' := nil' )
+           DEFAULT
+            ( 'Finalize(' l_FieldName ')' )
+          ; // RULES 
+          ';' \n
+         ) // aField .IfDef:
+        ) // l_Implementor .Fields
+        ' inherited;'
+       ]
+      ) // aMethod .AddMethodWithParams: cImplementationUserCodeName
+     ) // GarantModel::l3UnknownPrim.ClearFields
+    end // ( Self GarantModel::l3UnknownPrim .InheritsFromOrSomeAncestorImplements ) 
    end // ( Self .HasManagedAttributes )
-   
+
    if ( Self .IsScriptKeyword ) then
    begin
     if ( Self .IsMixIn ! ) then
@@ -9788,11 +9693,55 @@ elem_iterator OverriddenEx
      begin
       if ( Self GarantModel::TtfwRegisterableWord .InheritsFromOrSomeAncestorImplements ) then
       begin
-       if ( l_Overridden GarantModel::TtfwRegisterableWord.GetWordNameForRegister .HasModelElement ! ) then
-       begin     
-        .join> ToArray: ( GarantModel::TtfwRegisterableWord.GetWordNameForRegister .OverrideMethod )
-       end // ( l_Overridden GarantModel::TtfwRegisterableWord.GetWordNameForRegister .HasModelElement )
-      end // ( Self GarantModel::TtfwRegisterableWord .InheritsFromOrSomeAncestorImplements ) 
+       GarantModel::TtfwRegisterableWord.GetWordNameForRegister
+       .ForceOverrideMethod: (
+         IN aMethod
+        aMethod ->^ cVarUserCodeName ^:= cEmptyUserCode
+        aMethod .AddMethodWithParams: cImplementationUserCodeName
+        Self (
+          IN l_Implementor
+         [
+          ' '
+          'Result := '
+
+          cQuote
+
+          VAR l_NameForScript
+          l_Implementor .NameForScript >>> l_NameForScript
+          if ( l_NameForScript .IsValueValid ) then
+          begin
+
+           ANY FUNCTION Mangle
+             IN aValue
+            RULES
+             ( aValue IsBool )
+              RULES
+               aValue
+                'true'
+               DEFAULT
+                'false'
+              ; // RULES
+             DEFAULT
+              aValue
+            ; // RULES
+            >>> Result
+           ; // Mangle
+
+           l_NameForScript Mangle
+          end // ( l_NameForScript .IsValueValid )
+          else
+          begin
+           l_Implementor .Parent .GetUP 'extprop:pas:ElementPrefixBase'
+           l_Implementor .Name cUnderline ':' string:Replace
+          end // ( l_NameForScript .IsValueValid )
+
+          cQuote
+
+          ';'
+         ]
+        ) // aMethod .AddMethodWithParams: cImplementationUserCodeName
+       ) // .ForceOverrideMethod:
+      end // ( Self GarantModel::TtfwRegisterableWord .InheritsFromOrSomeAncestorImplements )
      end // ( Self .Abstraction at_abstract != )
     end // ( Self .IsMixIn ! )
 
@@ -9960,15 +9909,28 @@ elem_iterator OverriddenEx
   begin
    if ( Self GarantModel::TBaseTest .InheritsFromOrSomeAncestorImplements ) then
    begin
-    if ( l_Overridden GarantModel::TAbstractTest.GetFolder .HasModelElement ! ) then
-    begin     
-     .join> ToArray: ( GarantModel::TAbstractTest.GetFolder .OverrideMethod )
-    end // ( l_Overridden GarantModel::TAbstractTest.GetFolder .HasModelElement )
-    
-    if ( l_Overridden GarantModel::TAbstractTest.GetModelElementGUID .HasModelElement ! ) then
-    begin     
-     .join> ToArray: ( GarantModel::TAbstractTest.GetModelElementGUID .OverrideMethod )
-    end // ( l_Overridden GarantModel::TAbstractTest.GetModelElementGUID .HasModelElement )
+    GarantModel::TAbstractTest.GetFolder
+    .ForceOverrideMethod: (
+      IN aMethod
+     aMethod ->^ cVarUserCodeName ^:= cEmptyUserCode
+     aMethod .AddMethodWithParams: cImplementationUserCodeName
+     Self (
+       IN l_Implementor
+      [ ' Result := ' cQuote l_Implementor .Parent .Name cQuote ';' ]
+     ) // aMethod .AddMethodWithParams: cImplementationUserCodeName
+    ) // GarantModel::TAbstractTest.GetFolder
+
+    GarantModel::TAbstractTest.GetModelElementGUID
+    .ForceOverrideMethod: (
+      IN aMethod
+     aMethod ->^ cVarUserCodeName ^:= cEmptyUserCode
+     aMethod .AddMethodWithParams: cImplementationUserCodeName
+     Self (
+       IN l_Implementor
+      [ ' Result := ' cQuote l_Implementor .LUID cQuote ';' ]
+     ) // aMethod .AddMethodWithParams: cImplementationUserCodeName
+    ) // GarantModel::TAbstractTest.GetModelElementGUID
+
    end // ( Self GarantModel::TBaseTest .InheritsFromOrSomeAncestorImplements )
   end // ( Self .IsTestCase )
   
@@ -12346,12 +12308,14 @@ INTERFACE elem_func InstanceMethod
  >>> Result
 ; // InstanceMethod
 
+CONST cExists 'Exists'
+
 INTERFACE elem_func ExistsMethod
  Cached:
  (
   VAR l_TypeName
   Self .TypeName >>> l_TypeName
-  'Exists' GarantModel::Boolean MakeFunction: (
+  cExists GarantModel::Boolean MakeFunction: (
     IN aMade
    aMade -> Stereotype := st_static::Operation
    aMade -> %SUM := 'Проверяет создан экземпляр синглетона или нет'
@@ -12617,10 +12581,22 @@ elem_iterator AllOperationsForOverload
        begin
         .join> ToArray: ( Self .InstanceMethod )
        end // ( Self .HasFactory ! )
-       if ( Self .OperationsEx 'Exists' .HasModelElementWithName ! ) then
+
+       VAR l_Found
+       Self .OperationsEx
+       .filter> ( cExists .HasName )
+       .FirstElement >>> l_Found
+       if ( l_Found .IsNil ) then
        begin
         .join> ToArray: ( Self .ExistsMethod )
-       end // ( Self .OperationsEx 'Exists' .HasModelElementWithName ! )
+       end // ( l_Found .IsNil )
+       else
+       begin
+        l_Found ->^ cVarUserCodeName ^:= cEmptyUserCode
+        l_Found ->^ cImplementationUserCodeName ^:= [
+        ' Result := g_' Self .TypeName ' <> nil;'
+        ]
+       end // ( l_Found .IsNil )
       end // ( Self .IsSingleton )
     )
    DEFAULT
@@ -14485,7 +14461,16 @@ elem_proc MethodBody
    ' __WasEnter := vcmEnterFactory;' .Out
    ' try' .Out
   end // ( Self .NeedsFactoryBrackets )
-  
+
+  if ( Self .IsStaticConstructor ) then
+  begin
+   if ( Self .ImplementorOrParent .NeedsFinalize ) then
+   begin
+    ' Finalize(Result);' .Out
+   end // ( Self .ImplementorOrParent .NeedsFinalize )
+   ' System.FillChar(Result, SizeOf(Result), 0);' .Out
+  end // ( Self .IsStaticConstructor )
+
   VAR l_WasOut
   false >>> l_WasOut
   
@@ -16280,13 +16265,11 @@ elem_generator dfm
  ) // TF g_FormControls
  
 ; // dfm
- 
-elem_generator res.cmd
- 
+
+elem_generator rc_dependent
+
  Inherits .pas_dependent
 
- CONST Ext '.res.cmd'
- 
  BOOLEAN elem_func NeedOwnFilePrim
   Self .NeedsScript >>> Result 
  ; // NeedOwnFilePrim
@@ -16295,10 +16278,25 @@ elem_generator res.cmd
   true >>> Result
  ; // CanCopyToFinalFile
  
+; // rc_dependent
+
+elem_generator res.cmd
+
+ Inherits .rc_dependent
+
+ CONST Ext '.res.cmd'
+
+ elem_proc Execute
+   IN aFileName
+  aFileName WinExec 
+ ; // Execute
+ 
  VAR l_Name
  WithGen: .pas ( Self .EffectiveUnitName >>> l_Name )
+ [ 'pushd ' g_FinalFileName sysutils:ExtractFilePath ] .Out
  [ 'MakeCo ' l_Name '.rc.script' ] .Out
  [ 'brcc32 ' l_Name '.rc' ] .Out
+ [ 'popd' ] .Out
  //call.inherited
 ; // res.cmd
 
@@ -16310,7 +16308,7 @@ BOOLEAN elem_func NeedsWordsAliases
     false
    ( Self .UPisTrue "no class name" )
     true
-   ( Self .UPisTrue "no_pop" ) 
+   ( Self .UPisTrue "no_pop" )
     true
    DEFAULT
     false 
@@ -16321,7 +16319,7 @@ BOOLEAN elem_func NeedsWordsAliases
 
 elem_generator rc.script
  
- Inherits .res.cmd
+ Inherits .rc_dependent
 
  CONST Ext '.rc.script'
 
@@ -16437,7 +16435,7 @@ elem_generator rc.script
  
 elem_generator rc
  
- Inherits .res.cmd
+ Inherits .rc_dependent
 
  CONST Ext '.rc'
  
@@ -16521,6 +16519,6 @@ elem_proc Generate
  TF g_TransformWord (
   @ .DoTransformWord >>> g_TransformWord
   Self .DoTransformWord
-  Self .call.generators.in.list ( .pas .res.cmd .rc .rc.script .dfm )
+  Self .call.generators.in.list ( .pas .dfm .rc .rc.script .res.cmd )
  ) // TF g_TransformWord
 ; // Generate

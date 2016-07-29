@@ -26,7 +26,7 @@ w:\garant6x\implementation\Garant\GbaNemesis\View\Diction\Diction_Module.pas
     l_Map := TnsLangToContextMap.Make(nil);
     try
      l_Map.ByLang[aLanguage] := TnscContextFilterState.Make(True, l_Str, MaxInt);
-     OpenDictionary(TdeDiction.Make(l_Doc, aLanguage, l_Map), DefaultContainer);
+     OpenDictionary(TdeDiction.Make(l_Doc, aLanguage, l_Map), TvcmModule.DefaultContainer);
     finally
      l_Map := nil;
     end;

@@ -2350,6 +2350,31 @@ ref; // ME_56E13F8002A1 aValue
 
 ref; // ME_56E13F740281 AddCodePartValue
 
+: ME_579B573400EE
+ CONST Name 'aWord'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DAEED140007' '4DAF19F600C5.pas.ms.script' // TtfwWord
+ ;
+
+ref; // ME_579B573400EE aWord
+
+: ME_579B57270341
+ CONST UID '579B57270341'
+ CONST Name 'AddCodePartRef'
+ CONST Class class_Operation
+ : Stereotype st_keyword::Operation ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent HWL ME_559BDDE30092 // ItfwCompilerWordsPack
+ ;
+ : Parameters
+   Seq: ( ME_579B573400EE // aWord
+ )
+ ; // Parameters
+
+ref; // ME_579B57270341 AddCodePartRef
+
 : ME_56E13F54001A
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -2359,6 +2384,16 @@ ref; // ME_56E13F740281 AddCodePartValue
  ;
 
 ref; // ME_56E13F54001A 
+
+: ME_579B56F201E5
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent HWL ME_559BDDE30092 // ItfwCompilerWordsPack
+ ;
+ : Target WL 'ME_55A50F960186' '4F43A0A401E6.pas.ms.script' // TkwCompiledPushWord
+ ;
+
+ref; // ME_579B56F201E5 
 
 : ME_4DAEEDE10285_ME_559BDDE30092
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
@@ -2390,6 +2425,7 @@ ref; // ME_4DAEEDE10285_ME_559BDDE30092 DoDoIt
  HWL ME_559BDF1000D6 // GetWordCompilingNow
  HWL ME_559BDF500382 // AddCodePart
  HWL ME_56E13F740281 // AddCodePartValue
+ HWL ME_579B57270341 // AddCodePartRef
  )
  ; // Operations
  : Implemented
@@ -2398,6 +2434,7 @@ ref; // ME_4DAEEDE10285_ME_559BDDE30092 DoDoIt
  ; // Implemented
  : Dependencies
    Seq: ( ME_56E13F54001A // TkwValue
+ ME_579B56F201E5 // TkwCompiledPushWord
  )
  ; // Dependencies
  CONST "ifndef" 'NoScripts'
@@ -3313,6 +3350,7 @@ ref; // ME_567A8EB00176 tfwWordBoxPack
  WL 'ME_4DAF19F600C5' '4DAF19F600C5.pas.ms.script' // tfwScriptingInterfaces
  WL 'ME_4F2275C00012' '4F2275C00012.pas.ms.script' // ScriptingKeywordsCore
  WL 'ME_4F3E3F5F0160' '4F3E3F5F0160.pas.ms.script' // PrimitiveWords
+ WL 'ME_4F43A0A401E6' '4F43A0A401E6.pas.ms.script' // Basics
  WL 'ME_4F50310E03D7' '4F50310E03D7.pas.ms.script' // ArrayProcessing
  WL 'ME_4F7338A800A7' '4F7338A800A7.pas.ms.script' // ScriptEngineCore
  WL 'ME_52EF72190220' '52EF72190220.pas.ms.script' // tfwParserInterfaces

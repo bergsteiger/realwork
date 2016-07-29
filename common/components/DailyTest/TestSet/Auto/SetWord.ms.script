@@ -54,31 +54,132 @@ PROCEDURE .AddMethodWithParams:
  Self aCode aName DO aParams AddMethodWithParams DROP
 ; // .AddMethodWithParams:}*/
 
+TtfwKeyWord FUNCTION ReplaceMethodWithParams
+  TtfwWord IN Self
+  TtfwWord IN aCode
+  TtfwWord IN aCondition
+  STRING IN aName
+  TtfwWord IN aParams
+ aName Self pop:NewWordDefinitor:CheckWord >>> Result
+
+ VAR l_Prev
+ Result pop:KeyWord:Word >>> l_Prev
+ VAR l_Params
+ [ aParams DO ] >>> l_Params
+ if (
+     ( l_Prev IsNil )
+     OR ( l_Prev l_Params .for> NOP aCondition DO )
+    ) then
+ begin
+  VAR P
+  CompiledProcedure:Create >>> P
+
+  l_Prev P pop:Compiler:AddCodePartRef
+  l_Params .for> ( P pop:Compiler:AddCodePartValue )
+  aCode P pop:Compiler:AddCodePart
+  P Result pop:KeyWord:SetWord
+
+  P pop:Word:DecRef
+ end // ( l_Prev aCondition DO )
+; // ReplaceMethodWithParams
+
+PROCEDURE .ReplaceMethodWithParams:
+  TtfwWord IN Self
+  ^ IN aName
+  ^ IN aParams
+  ^ IN aCondition
+  ^ IN aCode
+ Self aCode aCondition aName DO aParams ReplaceMethodWithParams DROP
+; // .ReplaceMethodWithParams:
+
+TtfwKeyWord FUNCTION ReplaceMethodWithValue
+  TtfwWord IN Self
+  TtfwWord IN aCondition
+  STRING IN aName
+ aName Self pop:NewWordDefinitor:CheckWord >>> Result
+
+ VAR l_Prev
+ Result pop:KeyWord:Word >>> l_Prev
+ if ( l_Prev aCondition DO ) then
+ begin
+  VAR l_Value
+  >>> l_Value
+  VAR P
+  CompiledProcedure:Create >>> P
+
+  l_Value P pop:Compiler:AddCodePartValue
+  P Result pop:KeyWord:SetWord
+
+  P pop:Word:DecRef
+ end // ( l_Prev aCondition DO )
+; // ReplaceMethodWithValue
+
+PROCEDURE .ReplaceMethodWithValue:
+  TtfwWord IN Self
+  ^ IN aName
+  ^ IN aCondition
+ Self aCondition aName DO ReplaceMethodWithValue DROP
+; // .ReplaceMethodWithValue:
+
 : Holder
+ : F
+  [ 1 ]
+ ; // F
+ : G
+  [ 3 ]
+ ; // G
 ; // Holder
+
+(
+ @ Holder .ReplaceMethodWithParams: 'F' 2 (
+   IN aPrev
+   IN aValue
+  aValue aPrev DO array:Has !
+ ) (
+   IN aPrev
+   IN aValue
+  aPrev DO .join> [ aValue ]
+ )
+ 
+ @ Holder .ReplaceMethodWithValue: 'G' (
+   IN aPrev
+  ARRAY VAR A
+  aPrev DO >>> A
+  if ( 5 A array:Has ! ) then
+  begin
+   A .join> [ 5 ]
+   true
+  end
+  else
+   false
+ )
+)
 
 Test&Dump SetWordTest
  VAR W
  @ Holder @ . 'A' AddMethod >>> W
  W pop:KeyWord:Name .
- 
+
  W pop:KeyWord:Word .
  W pop:KeyWord:Word pop:Word:Name .
  'X' W pop:KeyWord:Word DO
  'Y' Holder -> A
  'Z' Holder ->^ 'A' DO
- 
+
  @ Holder .AddMethodWithParams: 'B' 'Hello' .
  Holder -> B
- 
+
  @ Holder .AddMethodWithParams: 'C' @ . .
  Holder -> C
- 
+
  @ Holder .AddMethodWithParams: 'D' ( 1 2 3 ) ( . . . )
  Holder -> D
- 
+
  @ Holder .AddMethodWithParams: 'E' ( 1 2 3 ) ( IN p1 IN p2 IN p3 p1 . p2 . p3 . )
  Holder -> E
+
+ Holder -> F .
+ Holder -> G .
 ; // SetWordTest
 
 SetWordTest

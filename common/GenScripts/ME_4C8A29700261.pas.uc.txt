@@ -12,6 +12,7 @@
 w:\garant6x\implementation\Garant\GbaNemesis\View\MainOptions_Form.pas
 //#UC END# *4C8A29700261_ext:FileName
 //#UC START# *4C8A29700261impl_uses*
+ , Base_Operations_F1Services_Contracts
 //#UC END# *4C8A29700261impl_uses*
 //#UC START# *4C8A2A5C03E4_4C8A29700261exec_impl*
  ChangeDefaultFontSize;
@@ -175,7 +176,7 @@ var
   begin
    if Supports(f_InternetMap, InsStringsSource, l_StringSource) then
     l_StringSource.FillStrings(l_Strings);
-   l_Strings.AddOp(TdmStdRes.mod_opcode_Common_LetterToDevelopers);
+   l_Strings.AddOp(TvcmModulesOperations.mod_opcode_Common_LetterToDevelopers);
    g_InternerMapStrings := l_Strings;
   end;//l_Strings <> nil
  end;
@@ -186,19 +187,19 @@ var
  l_StringSource : InsStringsSource;
 //#UC END# *4C8A4428006F_4C8A29700261test_var*
 //#UC START# *4C8A4442036F_4C8A29700261exec_impl*
- TdmStdRes.About;
+ TvcmModulesFactories.About;
 //#UC END# *4C8A4442036F_4C8A29700261exec_impl*
 //#UC START# *4C8A4442036F_4C8A29700261exec_var*
 //#UC END# *4C8A4442036F_4C8A29700261exec_var*
 //#UC START# *4C8A44DD0291_4C8A29700261exec_impl*
- TdmStdRes.SelectOpen(Self.As_IvcmEntityForm,
+ TFoldersService.Instance.SelectOpen(Self.As_IvcmEntityForm,
                       TnsFolderFilterInfo.Make(ffBookmark, ns_ffNone),
                       str_OpenBookmark);
 //#UC END# *4C8A44DD0291_4C8A29700261exec_impl*
 //#UC START# *4C8A44DD0291_4C8A29700261exec_var*
 //#UC END# *4C8A44DD0291_4C8A29700261exec_var*
 //#UC START# *4C8A454E0063_4C8A29700261exec_impl*
- TdmStdRes.BuildUnderControlList((aParams As IvcmExecuteParams).Container);
+ TvcmModulesFactories.BuildUnderControlList((aParams As IvcmExecuteParams).Container);
 //#UC END# *4C8A454E0063_4C8A29700261exec_impl*
 //#UC START# *4C8A454E0063_4C8A29700261exec_var*
 //#UC END# *4C8A454E0063_4C8A29700261exec_var*
@@ -219,7 +220,7 @@ var
 //#UC END# *4C8A47FA036C*
 //#UC START# *4C8A4B95003E_4C8A29700261_impl*
  // Открываем форму с документами на контроле
- TdmStdRes.OpenUnderControl(Self);
+ TvcmModulesFactories.OpenUnderControl(Self);
  // Выдадим сообщение:
  MessageDlg(l3Cat(ControlledChangingWarning.Hint, '.'),
             'TnsMainWindow.OpenUnderControl', mtInformation);
@@ -260,7 +261,7 @@ const
 //#UC END# *4F7AEC7F03CB_4C8A29700261_var*
 //#UC START# *4F7AED150304_4C8A29700261_impl*
  inherited;
- TdmStdRes.DropChangeStatusToOpened(Self.as_IvcmEntityForm);
+ TvcmModulesFactories.DropChangeStatusToOpened(Self.as_IvcmEntityForm);
 //#UC END# *4F7AED150304_4C8A29700261_impl*
 //#UC START# *4F7AED150304_4C8A29700261_var*
 //#UC END# *4F7AED150304_4C8A29700261_var*

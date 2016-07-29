@@ -2734,7 +2734,7 @@ ref; // ME_5762470502B8 Изменение курсора мыши при установке гиперссыки
  CONST Class class_Class
  : Stereotype st_UseCaseRequirement ;
  CONST Kind kind_NormalClass
- %SUMMARY 'В режиме установки гиперссылки запрещено редактирование документа.' ;
+ %SUMMARY 'В режиме установки гиперссылки редактирование документа не запрещено. Но закрыть документ, без выходя из режима установки гиперссылки нельзя.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  : Parent HWL ME_576246B10374 // Установка гиперссылки
@@ -3543,6 +3543,164 @@ ref; // ME_5795C39A03D3 Арибуты метки
 
 ref; // ME_578F52B00005 Редактирование атрибутов
 
+FORWARD ME_579B134B0142
+
+FORWARD ME_579B13D20351
+
+: ME_579B13E900C3
+ CONST UID '579B13E900C3'
+ CONST Name 'Пустые строки в справке'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'В начале справки, между абзацами и в конце должно быть по одной пустой строке.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_579B13D20351 // Требоания по оформлению справки
+ ;
+
+ref; // ME_579B13E900C3 Пустые строки в справке
+
+: ME_579B14090241
+ CONST UID '579B14090241'
+ CONST Name 'Слова с заглавной буквы'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'С заглавной буквы должны писаться: Федеральные законы, Законы (Постановления и Определения) Конституционного Суда РФ, Указания ЦБ, Положения ЦБ, Инструкции ЦБ (с условием, что в тексте Указания, Положения, Инструкции тоже с заглавной буквы).'#13#10'Постановления, распоряжения, приказы и прочее, в справке исправляются с заглавной буквы на прописную, независимо от того как употребля ется в тексте. Исключение - международные документы, в которых информация в справке аналогична'#13#10'тексту.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_579B13D20351 // Требоания по оформлению справки
+ ;
+
+ref; // ME_579B14090241 Слова с заглавной буквы
+
+: ME_579B147100C3
+ CONST UID '579B147100C3'
+ CONST Name 'Последовательность представления информации'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '* Название документа;'#13#10'* Регистрация в МЮ;'#13#10'* Вступление в силу;'#13#10'* Опубликование;'#13#10'* Информация о разработчиках документа (СНазвание документа;'#13#10'* Регистрация в МЮ;'#13#10'* Вступление в силу;'#13#10'* Опубликование;'#13#10'* Информация о разработчиках документа (СНИПы и пр.);'#13#10'* "Документ приводится с сохранением орфографии ...";'#13#10'* Утрата силы;'#13#10'* Судебные решения;'#13#10'* Изменения;'#13#10'* Снято с контроля;НИПы и пр.);'#13#10'* "Документ приводится с сохранением орфографии ...";'#13#10'* Утрата силы;'#13#10'* Судебные решения;'#13#10'* Изменения;'#13#10'* Снято с контроля;'#13#10'* В начале справки должно быть написано название документа;'#13#10'* Регистрация в Минюсте;' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_579B13D20351 // Требоания по оформлению справки
+ ;
+
+ref; // ME_579B147100C3 Последовательность представления информации
+
+: ME_579B13D20351
+ CONST UID '579B13D20351'
+ CONST Name 'Требоания по оформлению справки'
+ CONST Class class_Class
+ : Stereotype st_UseCase ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_579B134B0142 // Работа со справкой
+ ;
+ : Children
+   Seq: ( HWL ME_579B13E900C3 // Пустые строки в справке
+ HWL ME_579B14090241 // Слова с заглавной буквы
+ HWL ME_579B147100C3 // Последовательность представления информации
+ )
+ ; // Children
+
+ref; // ME_579B13D20351 Требоания по оформлению справки
+
+: ME_579B134B0142
+ CONST UID '579B134B0142'
+ CONST Name 'Работа со справкой'
+ CONST Class class_Class
+ : Stereotype st_UseCase ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'В справке, обычно, сообщается, в каком издании и когда данный документ был опубликован, приводится да-'#13#10'та вступления документа в силу, его статус, информация о государственной регистрации и перечисляются'#13#10'документы, изменяющие данный документ. В начале справки должно быть указано название документа, по-'#13#10'сле которого вводится информация о регистрации документа в МЮ (или, что документ не нуждается в реги-'#13#10'страции). В следующих абзацах вводятся сведения о вступлении документа в силу и информация о публика-'#13#10'ции документа.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_53F327E402A1 // Требования к созданию и редактированию документа
+ ;
+ : Children
+   Seq: ( HWL ME_579B13D20351 // Требоания по оформлению справки
+ )
+ ; // Children
+
+ref; // ME_579B134B0142 Работа со справкой
+
+FORWARD ME_579B136C000F
+
+: ME_579B15F30144
+ CONST UID '579B15F30144'
+ CONST Name 'Установка заголовка аннотации'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_579B136C000F // Работа с аннотацией
+ ;
+
+ref; // ME_579B15F30144 Установка заголовка аннотации
+
+: ME_579B161300DA
+ CONST UID '579B161300DA'
+ CONST Name 'Установка класса аннотации'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_579B136C000F // Работа с аннотацией
+ ;
+
+ref; // ME_579B161300DA Установка класса аннотации
+
+: ME_579B163A0090
+ CONST UID '579B163A0090'
+ CONST Name 'Удаление аннотации'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_579B136C000F // Работа с аннотацией
+ ;
+
+ref; // ME_579B163A0090 Удаление аннотации
+
+: ME_579B165501A0
+ CONST UID '579B165501A0'
+ CONST Name 'Анонсирование аннотации'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_579B136C000F // Работа с аннотацией
+ ;
+
+ref; // ME_579B165501A0 Анонсирование аннотации
+
+: ME_579B136C000F
+ CONST UID '579B136C000F'
+ CONST Name 'Работа с аннотацией'
+ CONST Class class_Class
+ : Stereotype st_UseCase ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Аннотация - краткое изложение сути описываемого документа.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent HWL ME_53F327E402A1 // Требования к созданию и редактированию документа
+ ;
+ : Children
+   Seq: ( HWL ME_579B15F30144 // Установка заголовка аннотации
+ HWL ME_579B161300DA // Установка класса аннотации
+ HWL ME_579B163A0090 // Удаление аннотации
+ HWL ME_579B165501A0 // Анонсирование аннотации
+ )
+ ; // Children
+
+ref; // ME_579B136C000F Работа с аннотацией
+
 : ME_53F327E402A1
  CONST UID '53F327E402A1'
  CONST Name 'Требования к созданию и редактированию документа'
@@ -3556,6 +3714,8 @@ ref; // ME_578F52B00005 Редактирование атрибутов
    Seq: ( HWL ME_53F328B0007F // Создание нового документа
  HWL ME_551121E4029E // Редактирование документа
  HWL ME_578F52B00005 // Редактирование атрибутов
+ HWL ME_579B134B0142 // Работа со справкой
+ HWL ME_579B136C000F // Работа с аннотацией
  )
  ; // Children
 
