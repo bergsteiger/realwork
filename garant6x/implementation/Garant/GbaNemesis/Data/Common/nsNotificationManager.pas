@@ -97,12 +97,8 @@ begin
 end;//TnsNotificationManagerPrim.pm_GetListeners
 
 class function TnsNotificationManagerPrim.Exists: Boolean;
-//#UC START# *542D13A40269_542D0141013E_var*
-//#UC END# *542D13A40269_542D0141013E_var*
 begin
-//#UC START# *542D13A40269_542D0141013E_impl*
- Result := Assigned(g_TnsNotificationManagerPrim);
-//#UC END# *542D13A40269_542D0141013E_impl*
+ Result := g_TnsNotificationManagerPrim <> nil;
 end;//TnsNotificationManagerPrim.Exists
 
 class function TnsNotificationManagerPrim.Instance: TnsNotificationManagerPrim;
