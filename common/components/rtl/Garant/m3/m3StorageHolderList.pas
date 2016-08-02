@@ -51,12 +51,8 @@ end;//Tm3StorageHolderListFree
 {$Include w:\common\components\rtl\Garant\L3\l3CriticalSectionHolder.imp.pas}
 
 class function Tm3StorageHolderList.Exists: Boolean;
-//#UC START# *542E9D1B0264_542E7AD00050_var*
-//#UC END# *542E9D1B0264_542E7AD00050_var*
 begin
-//#UC START# *542E9D1B0264_542E7AD00050_impl*
- Result := (g_Tm3StorageHolderList <> nil);
-//#UC END# *542E9D1B0264_542E7AD00050_impl*
+ Result := g_Tm3StorageHolderList <> nil;
 end;//Tm3StorageHolderList.Exists
 
 class procedure Tm3StorageHolderList.Drop(const aFileName: WideString);

@@ -225,18 +225,12 @@ begin
 end;//TatBaseSearchHelper.Create
 
 procedure TatBaseSearchHelper.ClearFields;
-//#UC START# *5000565C019C_483C01430224_var*
-//#UC END# *5000565C019C_483C01430224_var*
 begin
-//#UC START# *5000565C019C_483C01430224_impl*
-  f_Context := '';
-  f_InfoKind := '';
-  f_InvalidWords := '';
-  f_CorrectedContext := '';
-  f_IsShortList := false;
-  //
-  inherited;
-//#UC END# *5000565C019C_483C01430224_impl*
+ Context := '';
+ InfoKind := '';
+ f_InvalidWords := '';
+ f_CorrectedContext := '';
+ inherited;
 end;//TatBaseSearchHelper.ClearFields
 
 end.

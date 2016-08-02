@@ -76,12 +76,8 @@ begin
 end;//Tl3FrameLinesSpyFree
 
 class function Tl3FrameLinesSpy.Exists: Boolean;
-//#UC START# *4D00B6A50143_4D00B058024F_var*
-//#UC END# *4D00B6A50143_4D00B058024F_var*
 begin
-//#UC START# *4D00B6A50143_4D00B058024F_impl*
  Result := g_Tl3FrameLinesSpy <> nil;
-//#UC END# *4D00B6A50143_4D00B058024F_impl*
 end;//Tl3FrameLinesSpy.Exists
 
 procedure Tl3FrameLinesSpy.LogLines(aLines: Tl3FrameObject;

@@ -39,12 +39,8 @@ begin
 end;//Tl3GraphicContainerStackFree
 
 class function Tl3GraphicContainerStack.Exists: Boolean;
-//#UC START# *4DD3CE6A00B7_4DD3CD0B0193_var*
-//#UC END# *4DD3CE6A00B7_4DD3CD0B0193_var*
 begin
-//#UC START# *4DD3CE6A00B7_4DD3CD0B0193_impl*
- Result := (g_Tl3GraphicContainerStack <> nil);
-//#UC END# *4DD3CE6A00B7_4DD3CD0B0193_impl*
+ Result := g_Tl3GraphicContainerStack <> nil;
 end;//Tl3GraphicContainerStack.Exists
 
 class function Tl3GraphicContainerStack.Instance: Tl3GraphicContainerStack;

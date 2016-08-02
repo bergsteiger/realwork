@@ -23,11 +23,11 @@ w:\garant6x\implementation\Garant\GbaNemesis\View\Folders\PrimFolders_Module.pas
 //#UC START# *4AA534760215_4A96B68A03B1_var*
 //#UC END# *4AA534760215_4A96B68A03B1_var*
 //#UC START# *4ABCDB5D034C_4A96B68A03B1_impl*
- Result := FindFoldersForm(TvcmModule.CheckContainer(aContainer));
+ Result := FindFoldersForm(CheckContainer(aContainer));
  if not Assigned(Result) and aCanCreate then
  begin
-  OpenFoldersPrim(TvcmModule.CheckContainer(aContainer));
-  Result := FindFoldersForm(TvcmModule.CheckContainer(aContainer));
+  OpenFoldersPrim(CheckContainer(aContainer));
+  Result := FindFoldersForm(CheckContainer(aContainer));
  end;//if not Assigned(Result) then
  if Assigned(Result) and aCanCreate then
   Result.SetActiveAndShowInParent;
@@ -36,7 +36,7 @@ w:\garant6x\implementation\Garant\GbaNemesis\View\Folders\PrimFolders_Module.pas
 //#UC END# *4ABCDB5D034C_4A96B68A03B1_var*
 //#UC START# *4ABCDBC0002F_4A96B68A03B1_impl*
  if not defDataAdapter.AdministratorLogin then
-  Result := TPrimFoldersModule.Open(aContainer, aCanCreate)
+  Result := Open(aContainer, aCanCreate)
  else
   Result := nil; 
 //#UC END# *4ABCDBC0002F_4A96B68A03B1_impl*
@@ -55,7 +55,7 @@ var
 //#UC START# *4ABCE3C2032A_4A96B68A03B1_impl*
  if not defDataAdapter.AdministratorLogin then
  begin
-  l_Container := TPrimFoldersModule.Open(TvcmModule.CheckContainer(aContainer), true);
+  l_Container := Open(CheckContainer(aContainer), true);
   op_Folders_TryOpenConsultationAnswer.Call(l_Container.Aggregate);
  end;//not defDataAdapter.AdministratorLogin
 //#UC END# *4ABCE3C2032A_4A96B68A03B1_impl*
@@ -82,12 +82,12 @@ var
    f_InfoTypeList := TvcmItems.Make;
    with f_InfoTypeList do
    begin
-    f_InfoTypeList.AddOp(mod_opcode_FoldersService_OpenFrmAct);
-    f_InfoTypeList.AddOp(mod_opcode_FoldersService_UnderControlOpenFrmAct);
-    f_InfoTypeList.AddOp(TvcmModulesOperations.mod_opcode_Monitorings_OpenNewsLine);
-    f_InfoTypeList.AddOp(mod_opcode_FoldersService_MyConsultations);
-    f_InfoTypeList.AddOp(TvcmModulesOperations.mod_opcode_WorkJournal_OpenJournal);
-    f_InfoTypeList.AddOp(mod_opcode_ChatService_OpenContactList);
+    f_InfoTypeList.AddOp(TdmStdRes.mod_opcode_Folders_OpenFrmAct);
+    f_InfoTypeList.AddOp(TdmStdRes.mod_opcode_Folders_UnderControlOpenFrmAct);
+    f_InfoTypeList.AddOp(TdmStdRes.mod_opcode_Monitorings_OpenNewsLine);
+    f_InfoTypeList.AddOp(TdmStdRes.mod_opcode_Folders_MyConsultations);
+    f_InfoTypeList.AddOp(TdmStdRes.mod_opcode_WorkJournal_OpenJournal);
+    f_InfoTypeList.AddOp(TdmStdRes.mod_opcode_Chat_OpenContactList);
    end;
   end;//f_SearchTypeList = nil
   Result := f_InfoTypeList;
@@ -99,7 +99,7 @@ var
 //#UC START# *4ABCE5070362_4A96B68A03B1exec_impl*
  if not defDataAdapter.AdministratorLogin then
  begin
-  l_Container := Open(TvcmModule.CheckContainer(nil), true);
+  l_Container := Open(CheckContainer(nil), true);
   op_Folders_OpenMyConsultations.Call(l_Container.Aggregate);
   TnsOpenConsultationEvent.Log;
  end//if not defDataAdapter.AdministratorLogin then
@@ -116,7 +116,7 @@ var
 //#UC START# *4ABCE5070362_4A96B68A03B1test_var*
 //#UC END# *4ABCE5070362_4A96B68A03B1test_var*
 //#UC START# *4AC093B801EE_4A96B68A03B1exec_impl*
- TvcmModulesFactories.OpenUnderControl(nil);
+ TdmStdRes.OpenUnderControl(nil);
 //#UC END# *4AC093B801EE_4A96B68A03B1exec_impl*
 //#UC START# *4AC093B801EE_4A96B68A03B1exec_var*
 //#UC END# *4AC093B801EE_4A96B68A03B1exec_var*
@@ -158,12 +158,9 @@ var
  Result := l_Container.ShowModal;
 //#UC END# *4AC0AB11030C_4A96B68A03B1_impl*
 //#UC START# *4AC0AB11030C_4A96B68A03B1_var*
-var
- l_Container : IvcmEntityForm;
- l_Form : IvcmEntityForm;
 //#UC END# *4AC0AB11030C_4A96B68A03B1_var*
 //#UC START# *4AC0B7BA003B_4A96B68A03B1_impl*
-  TPrimFoldersModule.OpenFoldersForSelect(TvcmModule.CheckContainer(nil),
+ OpenFoldersForSelect(CheckContainer(nil),
                       aForm,
                       aData,
                       nil,
@@ -225,7 +222,7 @@ var
 //#UC START# *4AC0B80702DE_4A96B68A03B1_var*
 //#UC END# *4AC0B80702DE_4A96B68A03B1_var*
 //#UC START# *4AC0B94902C7_4A96B68A03B1_impl*
-  TPrimFoldersModule.OpenFoldersForSelect(TvcmModule.CheckContainer(nil),
+ OpenFoldersForSelect(CheckContainer(nil),
                       aForm,
                       aFilterInfo,
                       vcmCStr(aCaption),
@@ -235,7 +232,7 @@ var
 //#UC START# *4AC0B94902C7_4A96B68A03B1_var*
 //#UC END# *4AC0B94902C7_4A96B68A03B1_var*
 //#UC START# *4AC0BA2301AC_4A96B68A03B1_impl*
-  TPrimFoldersModule.OpenFoldersForSelect(TvcmModule.CheckContainer(nil),
+ OpenFoldersForSelect(CheckContainer(nil),
                       aForm,
                       aFilterInfo,
                       vcmCStr(aCaption),
@@ -246,7 +243,7 @@ var
 //#UC START# *4AC0BA2301AC_4A96B68A03B1_var*
 //#UC END# *4AC0BA2301AC_4A96B68A03B1_var*
 //#UC START# *4AC0BAEB012F_4A96B68A03B1_impl*
-  TPrimFoldersModule.OpenFoldersForSelect(TvcmModule.CheckContainer(nil),
+ OpenFoldersForSelect(CheckContainer(nil),
                       aForm,
                       aFilterInfo,
                       vcmCStr(aCaption),
@@ -260,7 +257,7 @@ var
  begin
   vcmDispatcher.FormDispatcher.Lock;
   try
-   l_Params := vcmCheckAggregate(vcmMakeParams(nil, TvcmModule.CheckContainer(nil)));
+   l_Params := vcmCheckAggregate(vcmMakeParams(nil, CheckContainer(nil)));
    l_Folders := TsdsFolders.Make;
    aFilterInfo.ShowFolders := sfMyDocuments;
    Assert(l_Folders <> nil);
@@ -300,11 +297,6 @@ var
  end;//not defDataAdapter.AdministratorLogin
 //#UC END# *4AC0CBE300FC_4A96B68A03B1_impl*
 //#UC START# *4AC0CBE300FC_4A96B68A03B1_var*
-var
- l_Params : IvcmMakeParams;
- l_Folders : IsdsFolders;
- l_Container : IvcmEntityForm; 
- l_Form : IvcmEntityForm; 
 //#UC END# *4AC0CBE300FC_4A96B68A03B1_var*
 //#UC START# *4B14D5A203B1_4B14D5890031_impl*
  GetLogger.AddEvent(LE_OPEN_CONSULTATION, MakeParamsList);

@@ -44,12 +44,8 @@ begin
 end;//TExcludedTestsFoldersFree
 
 class function TExcludedTestsFolders.Exists: Boolean;
-//#UC START# *4C938674023A_4C9386230151_var*
-//#UC END# *4C938674023A_4C9386230151_var*
 begin
-//#UC START# *4C938674023A_4C9386230151_impl*
- Result := (g_TExcludedTestsFolders <> nil);
-//#UC END# *4C938674023A_4C9386230151_impl*
+ Result := g_TExcludedTestsFolders <> nil;
 end;//TExcludedTestsFolders.Exists
 
 class function TExcludedTestsFolders.Instance: TExcludedTestsFolders;

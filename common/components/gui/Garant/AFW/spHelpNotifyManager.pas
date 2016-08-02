@@ -107,12 +107,8 @@ begin
 end;//TspHelpNotifyManager.HelpShown
 
 class function TspHelpNotifyManager.Exists: Boolean;
-//#UC START# *53763D88015E_53760B2701DD_var*
-//#UC END# *53763D88015E_53760B2701DD_var*
 begin
-//#UC START# *53763D88015E_53760B2701DD_impl*
- Result := Assigned(g_TspHelpNotifyManager);
-//#UC END# *53763D88015E_53760B2701DD_impl*
+ Result := g_TspHelpNotifyManager <> nil;
 end;//TspHelpNotifyManager.Exists
 
 class function TspHelpNotifyManager.Instance: TspHelpNotifyManager;

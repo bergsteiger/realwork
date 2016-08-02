@@ -100,7 +100,7 @@ var
 //#UC START# *47F1E89D01B5_47E9EDC602B2get_impl*
  Result := False;
  if Assigned(Document) then
-  Result := TvcmModulesFactories.IsUnderControl(Document.Doc)
+  Result := TdmStdRes.IsUnderControl(Document.Doc)
 //#UC END# *47F1E89D01B5_47E9EDC602B2get_impl*
 //#UC START# *47F1E89D01B5_47E9EDC602B2get_var*
 //#UC END# *47F1E89D01B5_47E9EDC602B2get_var*
@@ -240,13 +240,13 @@ var
 //#UC END# *47F1F3380317_47E9EDC602B2_var*
 //#UC START# *47F2053B0244_47E9EDC602B2_impl*
  if Assigned(Document) then
-  TvcmModulesFactories.AddDocumentToControl(Document.Doc);
+  TdmStdRes.AddDocumentToControl(Document.Doc);
 //#UC END# *47F2053B0244_47E9EDC602B2_impl*
 //#UC START# *47F2053B0244_47E9EDC602B2_var*
 //#UC END# *47F2053B0244_47E9EDC602B2_var*
 //#UC START# *47F2054C001C_47E9EDC602B2_impl*
  if Assigned(Document) then
-  TvcmModulesFactories.DeleteDocumentFromControl(Document.Doc);
+  TdmStdRes.DeleteDocumentFromControl(Document.Doc);
 //#UC END# *47F2054C001C_47E9EDC602B2_impl*
 //#UC START# *47F2054C001C_47E9EDC602B2_var*
 //#UC END# *47F2054C001C_47E9EDC602B2_var*
@@ -256,7 +256,7 @@ var
   Result := True
  else
   if Assigned(Document) and Assigned(Document.Doc) and
-     TvcmModulesFactories.IsCurEditionActual(Document.Doc) then
+     TdmStdRes.IsCurEditionActual(Document.Doc) then
    Result := Supports(Document.Doc, IControllable, l_Controllable) and
              l_Controllable.GetCanSetToControl;
 //#UC END# *47F2056400FD_47E9EDC602B2_impl*
@@ -448,7 +448,7 @@ var
  // Регистрация события сортировки:
  TnsListSortEvent.Log(ImpList, f_SortOrder, f_SortType);
  Result := RefreshSimpleTree;
- if DoGet_IsSnippet then
+ if DoGetIsSnippet then
   Result.ExpandSubDir(nil, True, 0);
 //#UC END# *4926AA910057_47E9EDC602B2_impl*
 //#UC START# *4926AA910057_47E9EDC602B2_var*
@@ -495,7 +495,7 @@ var
 //#UC START# *492D797E007F_47E9EDC602B2_var*
 //#UC END# *492D797E007F_47E9EDC602B2_var*
 //#UC START# *4A2CD019038B_47E9EDC602B2get_impl*
- Result := DoGet_IsShortList;
+ Result := DoGetIsShortList;
 //#UC END# *4A2CD019038B_47E9EDC602B2get_impl*
 //#UC START# *4A2CD019038B_47E9EDC602B2get_var*
 //#UC END# *4A2CD019038B_47E9EDC602B2get_var*
@@ -537,7 +537,7 @@ var
 //#UC START# *4A60B23E00C3_47E9EDC602B2_var*
 //#UC END# *4A60B23E00C3_47E9EDC602B2_var*
 //#UC START# *4A796E570319_47E9EDC602B2get_impl*
- Result := DoGet_IsSnippet;
+ Result := DoGetIsSnippet;
 //#UC END# *4A796E570319_47E9EDC602B2get_impl*
 //#UC START# *4A796E570319_47E9EDC602B2get_var*
 //#UC END# *4A796E570319_47E9EDC602B2get_var*
@@ -573,7 +573,7 @@ var
 //#UC START# *4B58450403DD_47E9EDC602B2get_var*
 //#UC END# *4B58450403DD_47E9EDC602B2get_var*
 //#UC START# *4BFA427801B4_47E9EDC602B2_impl*
- Result := DoGet_IsSnippet;
+ Result := DoGetIsSnippet;
  if Result then
  begin
   ImpList := bsBuildFullList(ImpList);

@@ -57,12 +57,8 @@ begin
 end;//TTestNameListFree
 
 class function TTestNameList.Exists: Boolean;
-//#UC START# *4D2EE63E0318_4D1AEAC80371_var*
-//#UC END# *4D2EE63E0318_4D1AEAC80371_var*
 begin
-//#UC START# *4D2EE63E0318_4D1AEAC80371_impl*
  Result := g_TTestNameList <> nil;
-//#UC END# *4D2EE63E0318_4D1AEAC80371_impl*
 end;//TTestNameList.Exists
 
 class procedure TTestNameList.LoadFromFileEX(const aFileName: AnsiString;

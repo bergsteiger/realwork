@@ -39,12 +39,8 @@ begin
 end;//TafwSettingsChangePublisherFree
 
 class function TafwSettingsChangePublisher.Exists: Boolean;
-//#UC START# *5242FE6200D6_5242FE0C02ED_var*
-//#UC END# *5242FE6200D6_5242FE0C02ED_var*
 begin
-//#UC START# *5242FE6200D6_5242FE0C02ED_impl*
- Result := (g_TafwSettingsChangePublisher <> nil);
-//#UC END# *5242FE6200D6_5242FE0C02ED_impl*
+ Result := g_TafwSettingsChangePublisher <> nil;
 end;//TafwSettingsChangePublisher.Exists
 
 class function TafwSettingsChangePublisher.Instance: TafwSettingsChangePublisher;

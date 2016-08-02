@@ -79,12 +79,8 @@ begin
 end;//Tm3NormalFormsManager.UnlockFree
 
 class function Tm3NormalFormsManager.Exists: Boolean;
-//#UC START# *545A476801BA_545A1B76019B_var*
-//#UC END# *545A476801BA_545A1B76019B_var*
 begin
-//#UC START# *545A476801BA_545A1B76019B_impl*
- Result := (g_Tm3NormalFormsManager <> nil); 
-//#UC END# *545A476801BA_545A1B76019B_impl*
+ Result := g_Tm3NormalFormsManager <> nil;
 end;//Tm3NormalFormsManager.Exists
 
 class function Tm3NormalFormsManager.Instance: Tm3NormalFormsManager;

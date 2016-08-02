@@ -31,7 +31,7 @@ w:\garant6x\implementation\Garant\GbaNemesis\View\Diction\Diction_Module.pas
     l_Map := TnsLangToContextMap.Make(nil);
     try
      l_Map.ByLang[aLanguage] := TnscContextFilterState.Make(True, l_Str, MaxInt);
-     OpenDictionary(TdeDiction.Make(l_Doc, aLanguage, l_Map), TvcmModule.DefaultContainer);
+     OpenDictionary(TdeDiction.Make(l_Doc, aLanguage, l_Map), DefaultContainer);
     finally
      l_Map := nil;
     end;
@@ -77,7 +77,7 @@ var
    Exit;
  end;//l_Cont <> nil
  if not lp_HasDictionForm then
-  TDictionService.Instance.OpenDictionary(nil, l_Cont);
+  OpenDictionary(nil, l_Cont);
 //#UC END# *4A9D55E901D6_4A9CE5F2036Fexec_impl*
 //#UC START# *4A9D55E901D6_4A9CE5F2036Fexec_var*
 

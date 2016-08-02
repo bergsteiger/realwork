@@ -53,9 +53,9 @@ var
   l_InnerState := l_State.InnerState;
   lblProfNews.CurrentItem := l_State.ProfNewsTreeItemIndex;
   lblTaxes.CurrentItem := l_State.TaxesTreeItemIndex;
-  Result := inherited DoLoadState(l_InnerState, aStateType, aClone);
+  Result := inherited DoLoadState(l_InnerState, aStateType);
  end else
-  Result := inherited DoLoadState(aState, aStateType, aClone);
+  Result := inherited DoLoadState(aState, aStateType);
 //#UC END# *49807428008C_56FA889202B4_impl*
 //#UC START# *49807428008C_56FA889202B4_var*
 var
@@ -500,7 +500,6 @@ var
 w:\garant6x\implementation\Garant\GbaNemesis\View\MainMenu\Forms\PrimMainMenuWithProfNews_Form.pas
 //#UC END# *56FA889202B4_ext:FileName
 //#UC START# *56FA889202B4impl_uses*
- , Base_Operations_F1Services_Contracts
 //#UC END# *56FA889202B4impl_uses*
 //#UC START# *56FBC3F90034_56FA889202B4_impl*
 // theState := hfsShow;
@@ -596,16 +595,16 @@ const
 //#UC END# *56FCF6290256_56FA889202B4_var*
 //#UC START# *56FD0A30011C_56FA889202B4_impl*
  if (Sender = flAttributeSearch) then
-  TvcmModulesFactories.OpenQuery(lg_qtAttribute, nil, nil)
+  TdmStdRes.OpenQuery(lg_qtAttribute, nil, nil)
  else
  if (Sender = flSituationSearch) then
-  TvcmModulesFactories.OpenQuery(lg_qtKeyWord, nil, nil)
+  TdmStdRes.OpenQuery(lg_qtKeyWord, nil, nil)
  else
  if (Sender = flPublishedSourceSearch) then
-  TvcmModulesFactories.OpenQuery(lg_qtPublishedSource, nil, nil)
+  TdmStdRes.OpenQuery(lg_qtPublishedSource, nil, nil)
  else
  if (Sender = flDictionSearch) then
-  TDictionService.Instance.OpenDictionary(nil, NativeMainForm)
+  TdmStdRes.OpenDictionary(nil, NativeMainForm)
  else
   Assert(False);
 //#UC END# *56FD0A30011C_56FA889202B4_impl*
@@ -780,7 +779,7 @@ var
 //#UC START# *57023AD501A4_56FA889202B4_impl*
  if (Sender = pbFeedback) then
  begin
-  TvcmModulesFactories.OpenSendConsultation(nil);
+  TdmStdRes.OpenSendConsultation(nil);
  end//Sender = pbFeedback
  else
  if (Sender = pbOnLineResources) then
@@ -799,7 +798,7 @@ var
  else
  if (Sender = pbWebVersion) then
  begin
-  vcmDispatcher.ModuleOperation(TvcmModulesOperations.mod_opcode_Common_OpenIntranet);
+  vcmDispatcher.ModuleOperation(TdmStdRes.mod_opcode_Common_OpenIntranet);
  end;//Sender = pbWebVersion
 //#UC END# *57023AD501A4_56FA889202B4_impl*
 //#UC START# *57023AD501A4_56FA889202B4_var*
@@ -821,7 +820,7 @@ const
    else
    if Supports(l_Ref, IEntityBase, l_Entity) then
     try
-     TvcmModulesFactories.OpenEntityAsDocument(l_Entity, NativeMainForm);
+     TdmStdRes.OpenEntityAsDocument(l_Entity, NativeMainForm);
     finally
      l_Entity := nil;
     end//try..finally

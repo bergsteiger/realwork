@@ -76,13 +76,12 @@ var
 w:\garant6x\implementation\Garant\GbaNemesis\View\Filters\Forms\PrimFiltersOptions_Form.pas
 //#UC END# *4C7F5A5800CD_ext:FileName
 //#UC START# *4C7F5A5800CDimpl_uses*
- , Base_Operations_F1Services_Contracts
 //#UC END# *4C7F5A5800CDimpl_uses*
 //#UC START# *4C7F5CBD0071_4C7F5A5800CDexec_impl*
  if Supports(FiltersList.TreeStruct, InsFiltersTree, l_Tree) then
-  TvcmModulesFactories.MakeNewFilter(l_Tree.FiltersType)
+  TdmStdRes.MakeNewFilter(l_Tree.FiltersType)
  else
-  TvcmModulesFactories.MakeNewFilter(bs_ltDocument);
+  TdmStdRes.MakeNewFilter(bs_ltDocument);
 //#UC END# *4C7F5CBD0071_4C7F5A5800CDexec_impl*
 //#UC START# *4C7F5CBD0071_4C7F5A5800CDexec_var*
 var
@@ -113,7 +112,7 @@ var
   l_Data := TdeFilter.Make(l_Filter)
  else
   l_Data := nil;
- TvcmModulesFactories.EditFilter(l_Data, aParams.ItemIndex);
+ TdmStdRes.EditFilter(l_Data, aParams.ItemIndex);
 //#UC END# *4C7F5E030232_4C7F5A5800CDexec_impl*
 //#UC START# *4C7F5E030232_4C7F5A5800CDexec_var*
 var
@@ -158,7 +157,7 @@ var
 //#UC END# *4C7F5E7E01D6_4C7F5A5800CDtest_var*
 //#UC START# *4CB7004603CF_4C7F5A5800CDexec_impl*
  if Supports(FiltersList.GetCurrentNode, IFilterFromQuery, l_Filter) then
-  TFiltersService.Instance.RenameFilter(l_Filter);
+  TdmStdRes.RenameFilter(l_Filter);
 //#UC END# *4CB7004603CF_4C7F5A5800CDexec_impl*
 //#UC START# *4CB7004603CF_4C7F5A5800CDexec_var*
 var

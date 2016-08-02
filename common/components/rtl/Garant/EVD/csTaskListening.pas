@@ -88,12 +88,8 @@ begin
 end;//TcsTaskListeners.RemoveListener
 
 class function TcsTaskListeners.Exists: Boolean;
-//#UC START# *5385C372027A_5385C2D801D9_var*
-//#UC END# *5385C372027A_5385C2D801D9_var*
 begin
-//#UC START# *5385C372027A_5385C2D801D9_impl*
- Result := (g_TcsTaskListeners <> nil);
-//#UC END# *5385C372027A_5385C2D801D9_impl*
+ Result := g_TcsTaskListeners <> nil;
 end;//TcsTaskListeners.Exists
 
 procedure TcsTaskListeners.TaskChanged(aTask: TddTaskItemPrim;

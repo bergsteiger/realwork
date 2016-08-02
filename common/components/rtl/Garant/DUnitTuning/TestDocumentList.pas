@@ -42,12 +42,8 @@ begin
 end;//TTestDocumentListFree
 
 class function TTestDocumentList.Exists: Boolean;
-//#UC START# *5279D3220116_5279D2EA02DE_var*
-//#UC END# *5279D3220116_5279D2EA02DE_var*
 begin
-//#UC START# *5279D3220116_5279D2EA02DE_impl*
  Result := g_TTestDocumentList <> nil;
-//#UC END# *5279D3220116_5279D2EA02DE_impl*
 end;//TTestDocumentList.Exists
 
 class function TTestDocumentList.Instance: TTestDocumentList;

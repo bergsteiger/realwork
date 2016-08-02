@@ -41,12 +41,8 @@ begin
 end;//Tl3ConstStringsFree
 
 class function Tl3ConstStrings.Exists: Boolean;
-//#UC START# *4BA227540063_4BA2214002EE_var*
-//#UC END# *4BA227540063_4BA2214002EE_var*
 begin
-//#UC START# *4BA227540063_4BA2214002EE_impl*
- Result := (g_Tl3ConstStrings <> nil);
-//#UC END# *4BA227540063_4BA2214002EE_impl*
+ Result := g_Tl3ConstStrings <> nil;
 end;//Tl3ConstStrings.Exists
 
 class function Tl3ConstStrings.Instance: Tl3ConstStrings;

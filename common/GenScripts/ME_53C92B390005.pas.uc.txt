@@ -80,10 +80,10 @@ var
         if f_ActiveTask.IgnoreStrangeExitCode and ((f_Thread.ExitCode < 0) or (f_Thread.ExitCode > 100)) then
         begin
          f_ActiveTask.RunSuccessfullyFinished(aServices);
-         l3System.Msg2Log(lp_ErrorMessage);
+         l3System.Msg2Log('Ошибка. Exit code = %d. См. лог alcuAsyncExecutor.', [f_Thread.ExitCode]);
         end
         else
-         f_ActiveTask.AsyncErrorIfRunning(lp_ErrorMessage);
+         f_ActiveTask.AsyncErrorIfRunning(Format('Ошибка. Exit code = %d. %s. См. лог alcuAsyncExecutor.', [f_Thread.ExitCode, f_ActiveTask.TaskID]));
       end;
       end;
       {$If not defined(Nemesis)}
@@ -101,12 +101,6 @@ var
   end;
 //#UC END# *53CDF9B0012E_53C92B390005_impl*
 //#UC START# *53CDF9B0012E_53C92B390005_var*
-
- function lp_ErrorMessage: String;
- begin
-  Result := Format('Ошибка. Exit code = %d. %s. См. лог alcuTaskExecutor.', [f_Thread.ExitCode, f_ActiveTask.TaskID]);
- end;
-
 //#UC END# *53CDF9B0012E_53C92B390005_var*
 //#UC START# *53CF5E600196_53C92B390005_impl*
   Manager.SendAbortNotification(f_UserID);

@@ -98,12 +98,8 @@ begin
 end;//TKBridge.Logout
 
 class function TKBridge.Exists: Boolean;
-//#UC START# *4CA335E50024_4CA0BB8600CF_var*
-//#UC END# *4CA335E50024_4CA0BB8600CF_var*
 begin
-//#UC START# *4CA335E50024_4CA0BB8600CF_impl*
- Result := (g_TKBridge <> nil);
-//#UC END# *4CA335E50024_4CA0BB8600CF_impl*
+ Result := g_TKBridge <> nil;
 end;//TKBridge.Exists
 
 procedure TKBridge.AttachFile(aPage: Integer;

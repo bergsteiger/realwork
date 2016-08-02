@@ -85,14 +85,9 @@ end;//_atEntity_.IsCacheable
 {$IfEnd} // NOT Defined(DesignTimeLibrary)
 
 procedure _atEntity_.ClearFields;
-//#UC START# *5000565C019C_4FC8E3BF0125_var*
-//#UC END# *5000565C019C_4FC8E3BF0125_var*
 begin
-//#UC START# *5000565C019C_4FC8E3BF0125_impl*
-  f_Entity := nil;
-  //
-  inherited;
-//#UC END# *5000565C019C_4FC8E3BF0125_impl*
+ Finalize(f_Entity);
+ inherited;
 end;//_atEntity_.ClearFields
 
 {$EndIf atEntity_imp_impl}

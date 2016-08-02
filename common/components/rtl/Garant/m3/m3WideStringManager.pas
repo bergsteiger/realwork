@@ -79,12 +79,8 @@ begin
 end;//Tm3WideStringManager.UnlockFree
 
 class function Tm3WideStringManager.Exists: Boolean;
-//#UC START# *545A46C20284_5459E3FB0365_var*
-//#UC END# *545A46C20284_5459E3FB0365_var*
 begin
-//#UC START# *545A46C20284_5459E3FB0365_impl*
- Result := (g_Tm3WideStringManager <> nil);
-//#UC END# *545A46C20284_5459E3FB0365_impl*
+ Result := g_Tm3WideStringManager <> nil;
 end;//Tm3WideStringManager.Exists
 
 class function Tm3WideStringManager.Instance: Tm3WideStringManager;

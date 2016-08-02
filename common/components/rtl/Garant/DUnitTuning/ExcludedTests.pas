@@ -46,12 +46,8 @@ end;//TExcludedTestsFree
 
 class function TExcludedTests.Exists: Boolean;
  {* Определяет создан ли экземпляр синглетона }
-//#UC START# *4C446BAE00A3_4C44675A0269_var*
-//#UC END# *4C446BAE00A3_4C44675A0269_var*
 begin
-//#UC START# *4C446BAE00A3_4C44675A0269_impl*
- Result := (g_TExcludedTests <> nil);
-//#UC END# *4C446BAE00A3_4C44675A0269_impl*
+ Result := g_TExcludedTests <> nil;
 end;//TExcludedTests.Exists
 
 class function TExcludedTests.Instance: TExcludedTests;

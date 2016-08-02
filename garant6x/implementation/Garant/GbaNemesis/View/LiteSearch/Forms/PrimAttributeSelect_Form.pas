@@ -566,9 +566,9 @@ end;//TPrimAttributeSelectForm.InitControls
 
 procedure TPrimAttributeSelectForm.ClearFields;
 begin
- {$If NOT Defined(Admin)}
+{$If NOT Defined(Admin)}
  f_FormState := nil;
- {$IfEnd} // NOT Defined(Admin)
+{$IfEnd} // NOT Defined(Admin)
  f_Tag := nil;
  inherited;
 end;//TPrimAttributeSelectForm.ClearFields

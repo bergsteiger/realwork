@@ -128,9 +128,9 @@ procedure Tm3StorageIndexAdapter.ClearFields;
 begin
  BaseName := '';
  DirName := '';
- {$If NOT Defined(nsTest)}
+{$If NOT Defined(nsTest)}
  f_PhaseStr := '';
- {$IfEnd} // NOT Defined(nsTest)
+{$IfEnd} // NOT Defined(nsTest)
  inherited;
 end;//Tm3StorageIndexAdapter.ClearFields
 

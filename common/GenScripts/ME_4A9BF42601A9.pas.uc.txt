@@ -3,7 +3,6 @@ w:\garant6x\implementation\Garant\GbaNemesis\View\List\List_Module.pas
 //#UC END# *4A9BF42601A9_ext:FileName
 //#UC START# *4A9BF42601A9impl_uses*
  , StdRes
- , Base_Operations_F1Services_Contracts
 //#UC END# *4A9BF42601A9impl_uses*
 //#UC START# *4AA4D7EA0094_4A9BF42601A9_impl*
  l_Info := TbsOpenListInfo.Create(aList);
@@ -20,7 +19,7 @@ w:\garant6x\implementation\Garant\GbaNemesis\View\List\List_Module.pas
      Result := True;
      l_DocInfo := l_Info.Data As IdeDocInfo;
      TnsOpenDocumentFromListEvent.Log(l_DocInfo);
-     TvcmModulesFactories.OpenDocument(l_DocInfo, aContainer);
+     TdmStdRes.OpenDocument(l_DocInfo, aContainer);
      l_DocInfo := nil;
     end;//l_Info.Data = nil
    end;//ltDocument
@@ -55,7 +54,7 @@ w:\garant6x\implementation\Garant\GbaNemesis\View\List\List_Module.pas
    DLC_MEDICAL_DOCUMENTS:
    begin
     l_Cont := CheckContainer(aContainer);
-    TInpharmService.Instance.OpenDrugList(aList, l_Cont);
+    TdmStdRes.OpenDrugList(aList, l_Cont);
     // Синхронный просмотр открыт по умолчанию (CQ: OIT5-29213):
     // http://mdp.garant.ru/pages/viewpage.action?pageId=96484558
     if l_Cont.HasForm(fm_TextForm.rFormID,

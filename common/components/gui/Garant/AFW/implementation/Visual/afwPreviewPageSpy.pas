@@ -63,12 +63,8 @@ begin
 end;//TafwPreviewPageSpyFree
 
 class function TafwPreviewPageSpy.Exists: Boolean;
-//#UC START# *4CB6E34302AD_4CB6DFDE0374_var*
-//#UC END# *4CB6E34302AD_4CB6DFDE0374_var*
 begin
-//#UC START# *4CB6E34302AD_4CB6DFDE0374_impl*
- Result := (g_TafwPreviewPageSpy <> nil);
-//#UC END# *4CB6E34302AD_4CB6DFDE0374_impl*
+ Result := g_TafwPreviewPageSpy <> nil;
 end;//TafwPreviewPageSpy.Exists
 
 procedure TafwPreviewPageSpy.SetLogger(const aLogger: IafwPagesLogger);

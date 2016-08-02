@@ -118,7 +118,7 @@ w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\Forms\PrimLogin_For
 //#UC END# *520B406702B5_4A93D80F014F_var*
 //#UC START# *520B4075004C_4A93D80F014F_impl*
  {$IfDef InsiderTest}
- if TvcmModulesFactories.IsBatchMode then
+ if TdmStdRes.IsBatchMode then
   Save;
  {$EndIf InsiderTest}
 //#UC END# *520B4075004C_4A93D80F014F_impl*
@@ -328,8 +328,6 @@ w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\Forms\PrimLogin_For
   OnClick := HelpLabelClick;
  end;
 
- VCMScaleControls;
-
  l_Delta := HelpLabel.Left + HelpLabel.Width + c_ControlBorder - HelpPanel.Width;
  if l_Delta > 0 then
   with HelpPanel do
@@ -385,7 +383,7 @@ var
  f_ForgetPasswordChosen := False;
  f_NewUserChosen := False;
  {$IfDef InsiderTest}
- if TvcmModulesFactories.IsBatchMode then
+ if TdmStdRes.IsBatchMode then
  begin
   {$IfDef Admin}
   edUserName.Text := l3CStr('ADMIN');
@@ -394,13 +392,13 @@ var
   edUserName.Text := l3CStr('tester');
   edPassword.Text := l3CStr('tester');
   {$EndIf Admin}
- end//TvcmModulesFactories.IsBatchMode
+ end//TdmStdRes.IsBatchMode
  else
  {$EndIf InsiderTest}
  begin
   edUserName.Text := aLogin;
   //edPassword.Text := aPassword;
- end;//TvcmModulesFactories.IsBatchMode
+ end;//TdmStdRes.IsBatchMode
  {$IfDef nsAutoLoginDisable}
  cbAutoLogin.Enabled := False;
  lblForgetPassword.Enabled := False;

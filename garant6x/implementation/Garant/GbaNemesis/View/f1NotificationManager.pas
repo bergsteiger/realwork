@@ -118,12 +118,8 @@ begin
 end;//Tf1NotificationManager.ServerDown
 
 class function Tf1NotificationManager.Exists: Boolean;
-//#UC START# *54F5E7BD01ED_54F5D5E002E0_var*
-//#UC END# *54F5E7BD01ED_54F5D5E002E0_var*
 begin
-//#UC START# *54F5E7BD01ED_54F5D5E002E0_impl*
- Result := Assigned(g_Tf1NotificationManager);
-//#UC END# *54F5E7BD01ED_54F5D5E002E0_impl*
+ Result := g_Tf1NotificationManager <> nil;
 end;//Tf1NotificationManager.Exists
 
 class function Tf1NotificationManager.Instance: Tf1NotificationManager;

@@ -25,6 +25,7 @@ uses
  , tfwTypeInfo
  , tfwPropertyLike
  , kwValue
+ , BasicsPack
  , SysUtils
  , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
@@ -93,6 +94,22 @@ type
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPopCompilerAddCodePartValue
+
+ TkwPopCompilerAddCodePartRef = {final} class(TtfwClassLike)
+  {* Слово скрипта pop:Compiler:AddCodePartRef }
+  private
+   procedure AddCodePartRef(const aCtx: TtfwContext;
+    aCompiler: TtfwCompiler;
+    aWord: TtfwWord);
+    {* Реализация слова скрипта pop:Compiler:AddCodePartRef }
+  protected
+   class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwPopCompilerAddCodePartRef
 
  TkwPopCompilerKeywordFinder = {final} class(TtfwPropertyLike)
   {* Слово скрипта pop:Compiler:KeywordFinder }
@@ -352,6 +369,70 @@ begin
  AddCodePartValue(aCtx, l_aCompiler, l_aValue);
 end;//TkwPopCompilerAddCodePartValue.DoDoIt
 
+procedure TkwPopCompilerAddCodePartRef.AddCodePartRef(const aCtx: TtfwContext;
+ aCompiler: TtfwCompiler;
+ aWord: TtfwWord);
+ {* Реализация слова скрипта pop:Compiler:AddCodePartRef }
+//#UC START# *579B57270341_579B57270341_4DB6E2EE0259_Word_var*
+var
+ l_W : TtfwWord;
+//#UC END# *579B57270341_579B57270341_4DB6E2EE0259_Word_var*
+begin
+//#UC START# *579B57270341_579B57270341_4DB6E2EE0259_Word_impl*
+ l_W := TkwCompiledPushWord.Create(aWord, nil, aCtx);
+ try
+  aCompiler.AddCodePart(l_W, aCtx, tfw_sniNo);
+ finally
+  FreeAndNil(l_W);
+ end;//try..finally
+//#UC END# *579B57270341_579B57270341_4DB6E2EE0259_Word_impl*
+end;//TkwPopCompilerAddCodePartRef.AddCodePartRef
+
+class function TkwPopCompilerAddCodePartRef.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Compiler:AddCodePartRef';
+end;//TkwPopCompilerAddCodePartRef.GetWordNameForRegister
+
+function TkwPopCompilerAddCodePartRef.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := @tfw_tiVoid;
+end;//TkwPopCompilerAddCodePartRef.GetResultTypeInfo
+
+function TkwPopCompilerAddCodePartRef.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 2;
+end;//TkwPopCompilerAddCodePartRef.GetAllParamsCount
+
+function TkwPopCompilerAddCodePartRef.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([TypeInfo(TtfwCompiler), TypeInfo(TtfwWord)]);
+end;//TkwPopCompilerAddCodePartRef.ParamsTypes
+
+procedure TkwPopCompilerAddCodePartRef.DoDoIt(const aCtx: TtfwContext);
+var l_aCompiler: TtfwCompiler;
+var l_aWord: TtfwWord;
+begin
+ try
+  l_aCompiler := TtfwWord(aCtx.rEngine.PopObjAs(TtfwWord));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aCompiler: TtfwCompiler : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aWord := TtfwWord(aCtx.rEngine.PopObjAs(TtfwWord));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aWord: TtfwWord : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ AddCodePartRef(aCtx, l_aCompiler, l_aWord);
+end;//TkwPopCompilerAddCodePartRef.DoDoIt
+
 function TkwPopCompilerKeywordFinder.KeywordFinder(const aCtx: TtfwContext;
  aCompiler: TtfwCompiler): TtfwKeywordFinder;
  {* Реализация слова скрипта pop:Compiler:KeywordFinder }
@@ -465,6 +546,8 @@ initialization
  {* Регистрация pop_Compiler_AddCodePart }
  TkwPopCompilerAddCodePartValue.RegisterInEngine;
  {* Регистрация pop_Compiler_AddCodePartValue }
+ TkwPopCompilerAddCodePartRef.RegisterInEngine;
+ {* Регистрация pop_Compiler_AddCodePartRef }
  TkwPopCompilerKeywordFinder.RegisterInEngine;
  {* Регистрация pop_Compiler_KeywordFinder }
  TkwPopCompilerNewWordDefinitor.RegisterInEngine;

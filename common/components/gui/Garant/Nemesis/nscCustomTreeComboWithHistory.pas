@@ -1417,9 +1417,9 @@ end;//TnscCustomTreeComboWithHistory.ProcessTreeSelect
 procedure TnscCustomTreeComboWithHistory.ClearFields;
 begin
  PromptTree := nil;
- {$If NOT Defined(DesignTimeLibrary)}
+{$If NOT Defined(DesignTimeLibrary)}
  RootNode := nil;
- {$IfEnd} // NOT Defined(DesignTimeLibrary)
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
  inherited;
 end;//TnscCustomTreeComboWithHistory.ClearFields
 
